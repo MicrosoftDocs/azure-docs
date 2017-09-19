@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 09/18/2017
 ms.author: jingwang
 
 ---
@@ -58,11 +58,12 @@ The following properties are supported for SAP Business Warehouse (BW) linked se
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **SapBw** | Yes |
-| server | Name of the server on which the SAP BW instance resides. | string | Yes |
-| systemNumber | System number of the SAP BW system. | Two-digit decimal number represented as a string. | Yes |
-| clientId | Client ID of the client in the SAP W system. | Three-digit decimal number represented as a string. | Yes |
-| username | Name of the user who has access to the SAP server | string | Yes |
-| password | Password for the user. | string | Yes |
+| server | Name of the server on which the SAP BW instance resides. | Yes |
+| systemNumber | System number of the SAP BW system.<br/>Allowed value: two-digit decimal number represented as a string. | Yes |
+| clientId | Client ID of the client in the SAP W system.<br/>Allowed value: three-digit decimal number represented as a string. | Yes |
+| userName | Name of the user who has access to the SAP server. | Yes |
+| password | Password for the user. Mark this field as a SecureString. | Yes |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. A Self-hosted Integration Runtime is required as mentioned in [Prerequisites](#prerequisites). |Yes |
 
 **Example:**
 
@@ -77,7 +78,7 @@ The following properties are supported for SAP Business Warehouse (BW) linked se
             "server": "<server name>",
             "systemNumber": "<system number>",
             "clientId": "<client id>",
-            "username": "<SAP user>",
+            "userName": "<SAP user>",
             "password": {
                 "type": "SecureString",
                 "value": "<Password for SAP user>"

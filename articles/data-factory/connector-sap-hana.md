@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 09/18/2017
 ms.author: jingwang
 
 ---
@@ -58,8 +58,9 @@ The following properties are supported for SAP HANA linked service:
 | type | The type property must be set to: **SapHana** | Yes |
 | server | Name of the server on which the SAP HANA instance resides. If your server is using a customized port, specify `server:port`. | Yes |
 | authenticationType | Type of authentication used to connect to the SAP HANA database.<br/>Allowed values are: **Basic**, and **Windows** | Yes |
-| username | Name of the user who has access to the SAP server. | Yes |
-| password | Password for the user. | Yes |
+| userName | Name of the user who has access to the SAP server. | Yes |
+| password | Password for the user. Mark this field as a SecureString. | Yes |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. A Self-hosted Integration Runtime is required as mentioned in [Prerequisites](#prerequisites). |Yes |
 
 **Example:**
 
@@ -71,7 +72,7 @@ The following properties are supported for SAP HANA linked service:
         "typeProperties": {
             "server": "<server>:<port (optional)>",
             "authenticationType": "Basic",
-            "username": "<username>",
+            "userName": "<username>",
             "password": {
                 "type": "SecureString",
                 "value": "<password>"

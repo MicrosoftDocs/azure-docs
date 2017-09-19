@@ -48,10 +48,11 @@ The following properties are supported for Azure SQL Database linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **AzureSqlDatabase** | Yes |
-| connectionString |Specify information needed to connect to the Azure SQL Database instance for the connectionString property. Only basic authentication is supported. |Yes |
+| connectionString |Specify information needed to connect to the Azure SQL Database instance for the connectionString property. Only basic authentication is supported. Mark this field as a SecureString. |Yes |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 > [!IMPORTANT]
-> Configure [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) the database server to [allow Azure Services to access the server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Additionally, if you are copying data to Azure SQL Database from outside Azure including from on-premises data sources with data factory Integration Runtime, configure appropriate IP address range for the machine that is sending data to Azure SQL Database.
+> Configure [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) the database server to [allow Azure Services to access the server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Additionally, if you are copying data to Azure SQL Database from outside Azure including from on-premises data sources with data factory Self-hosted Integration Runtime, configure appropriate IP address range for the machine that is sending data to Azure SQL Database.
 
 **Example:**
 
@@ -65,6 +66,10 @@ The following properties are supported for Azure SQL Database linked service:
                 "type": "SecureString",
                 "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
             }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
         }
     }
 }

@@ -38,32 +38,38 @@ See following topics if you are new to Azure Batch service:
 * [New-AzureRmBatchAccount](/powershell/module/azurerm.batch/New-AzureRmBatchAccount?view=azurermps-4.3.1) cmdlet to create an Azure Batch account (or) [Azure portal](../batch/batch-account-create-portal.md) to create the Azure Batch account using Azure portal. See [Using PowerShell to manage Azure Batch Account](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) topic for detailed instructions on using the cmdlet.
 * [New-AzureBatchPool](/powershell/module/azurerm.batch/New-AzureBatchPool?view=azurermps-4.3.1) cmdlet to create an Azure Batch pool.
 
-## Azure Batch Linked Service 
+## Azure Batch linked service 
 The following JSON defines a sample Azure Batch line service. For details, see [Compute environments supported by Azure Data Factory](compute-linked-services.md)
 
 ```json
 {
-  "name": "AzureBatchLinkedService",
-  "properties": {
-    "type": "AzureBatch",
-    "typeProperties": {
-      "accountName": "batchaccount",
-      "accessKey": {
-        "type": "SecureString",
-        "value": "access key"
-      },
-      "batchUri": "https://batchaccount.region.batch.azure.com",
-      "poolName": "poolname",
-      "linkedServiceName": {
-        "referenceName": "StorageLinkedService",
-        "type": "LinkedServiceReference"
-      }
+    "name": "AzureBatchLinkedService",
+    "properties": {
+        "type": "AzureBatch",
+        "typeProperties": {
+            "accountName": "batchaccount",
+            "accessKey": {
+                "type": "SecureString",
+                "value": "access key"
+            },
+            "batchUri": "https://batchaccount.region.batch.azure.com",
+            "poolName": "poolname",
+            "linkedServiceName": {
+                "referenceName": "StorageLinkedService",
+                "type": "LinkedServiceReference"
+            }
+        }
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
     }
-  }
 }
 ```
 
-## Custom Activity
+ To learn more about Azure Batch linked service, see [Compute linked services](compute-linked-services.md) article. 
+
+## Custom activity
 
 The following JSON snippet defines a pipeline with a simple Custom Activity. The activity definition has a reference to the Azure Batch linked service. 
 
@@ -101,14 +107,14 @@ The following table describes names and descriptions of properties that are spec
 | name                  | Name of the activity in the pipeline     | Yes      |
 | description           | Text describing what the activity does.  | No       |
 | type                  | For Custom activity, the activity type is **Custom**. | Yes      |
-| linkedServiceName     | Linked Service to Azure Batch            | Yes      |
+| linkedServiceName     | Linked Service to Azure Batch. To learn about this linked service, see [Compute linked services](compute-linked-services.md) article.  | Yes      |
 | command               | Command of the custom application to be executed. If the application is already available on the Azure Batch Pool Node, the resourceLinkedService and folderPath can be skipped. For example, you can specify the command to be `cmd /c dir`, which is natively supported by the Windows Batch Pool node. | Yes      |
 | resourceLinkedService | Azure Storage Linked Service to the Storage account where the custom application is stored | No       |
 | folderPath            | Path to the folder of the custom application and all its dependencies | No       |
 | referenceObjects      | An array of existing Linked Services and Datasets. The referenced Linked Services and Datasets are passed to the custom application in JSON format so your custom code can reference resources of the Data Factory | No       |
 | extendedProperties    | User-defined properties that can be passed to the custom application in JSON format so your custom code can reference additional properties | No       |
 
-##Passing objects and properties
+## Passing objects and properties
 
 This sample shows how you can use the referenceObjects and extendedProperties to pass Data Factory objects and user-defined properties to your custom application. 
 
@@ -194,7 +200,7 @@ namespace SampleApp
 You can start a pipeline run of the sample pipeline and monitor the execution result using the following PowerShell commands: 
 
 ```powershell
-$runId = New-AzureRmDataFactoryV2PipelineRun -dataFactoryName "factoryName" -PipelineName "pipelineName" -Parameters @{ dummy = "b" }
+$runId = Invoke-AzureRmDataFactoryV2PipelineRun -dataFactoryName "factoryName" -PipelineName "pipelineName" -Parameters @{ dummy = "b" }
 $result = Get-AzureRmDataFactoryV2ActivityRun -dataFactoryName "factoryName" -PipelineName "pipelineName" -PipelineRunId $runId -RunStartedAfter "2017-09-06" -RunStartedBefore "2017-12-31"
 $result.output -join "`r`n" 
 $result.Error -join "`r`n" 
@@ -243,11 +249,11 @@ If the pool is using the default [autoScaleEvaluationInterval](https://msdn.micr
 ## Next steps
 See the following articles that explain how to transform data in other ways: 
 
-* [U-SQL Activity](transform-data-using-data-lake-analytics.md)
-* [Hive Activity](transform-data-using-hadoop-hive.md)
-* [Pig Activity](transform-data-using-hadoop-pig.md)
-* [MapReduce Activity](transform-data-using-hadoop-map-reduce.md)
-* [Hadoop Streaming Activity](transform-data-using-hadoop-streaming.md)
-* [Spark Activity](transform-data-using-spark.md)
-* [Machine Learning Batch Execution Activity](transform-data-using-machine-learning.md)
+* [U-SQL activity](transform-data-using-data-lake-analytics.md)
+* [Hive activity](transform-data-using-hadoop-hive.md)
+* [Pig activity](transform-data-using-hadoop-pig.md)
+* [MapReduce activity](transform-data-using-hadoop-map-reduce.md)
+* [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md)
+* [Spark activity](transform-data-using-spark.md)
+* [Machine Learning Batch Execution activity](transform-data-using-machine-learning.md)
 * [Stored procedure activity](transform-data-using-stored-procedure.md)

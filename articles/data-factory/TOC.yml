@@ -4,39 +4,35 @@
   items:
   - name: Introduction to Data Factory
     href: introduction.md
-  - name: Compare v1 and v2
-    href: compare-contrast-v1-v2.md   
 - name: Quickstarts
   expanded: true
   items:
   - name: Create data factory
     items:
+    - name: PowerShell
+      href: quickstart-create-data-factory-powershell.md    
     - name: .NET
       href: quickstart-create-data-factory-dot-net.md
-    - name: PowerShell
-      href: quickstart-create-data-factory-powershell.md
     - name: Python
-      href: quickstart-create-data-factory-python.md
+      href: quickstart-create-data-factory-python.md      
     - name: REST   
       href: quickstart-create-data-factory-rest-api.md
-    - name: Resource Manager template
-      href: quickstart-create-data-factory-resource-manager-template.md
     - name: Azure Portal
       href: quickstart-create-data-factory-portal.md     
 - name: Tutorials
   items:
-  - name: 1 - Copy data in cloud
-    href: tutorial-copy-data-dot-net.md
-  - name: 2 - Copy on-prem data to cloud
-    href: tutorial-copy-onprem-data-to-cloud-powershell.md
-  - name: 3 - Transform data in cloud
-    href: tutorial-transform-data-using-spark-powershell.md
-  - name: 4 - Control flow
-    href: tutorial-control-flow.md    
-  - name: 5 - Bulk and incremental copy
-    href: tutorial-bulk-incremental-copy.md
-  - name: 6 - Deploy SSIS packages
+  - name: 1. Move SSIS packages to Azure
     href: tutorial-deploy-ssis-packages.md    
+  - name: 2 - Copy data in cloud
+    href: tutorial-copy-data-dot-net.md
+  - name: 3 - Copy on-prem data to cloud
+    href: tutorial-copy-onprem-data-to-cloud-powershell.md
+  - name: 4 - Copy data in bulk
+    href: tutorial-bulk-copy.md
+  - name: 5 - Transform data in cloud
+    href: tutorial-transform-data-using-spark-powershell.md
+  - name: 6 - Control flow
+    href: tutorial-control-flow.md    
 - name: Samples
   items:
   - name: PowerShell
@@ -49,12 +45,8 @@
     href: concepts-pipelines-activities.md
   - name: Datasets and linked services
     href: concepts-datasets-linked-services.md
-  - name: Triggers
-    href: concepts-triggers.md 
-  - name: Runtime control
-    href: concepts-runtime-control.md
-  - name: Control flow
-    href: concepts-control-flow.md
+  - name: Pipeline execution and triggers
+    href: concepts-pipeline-execution-triggers.md 
   - name: Integration runtime
     href: concepts-integration-runtime.md
 - name: How-to guides
@@ -108,7 +100,7 @@
       - name: ODBC
         href: connector-odbc.md
       - name: Oracle
-        href: connector-odbc.md
+        href: connector-oracle.md
       - name: PostgreSQL
         href: connector-postgresql.md
       - name: Salesforce
@@ -135,8 +127,6 @@
       href: copy-activity-fault-tolerance.md     
     - name: Performance and tuning
       href: copy-activity-performance.md
-    - name: Security considerations
-      href: copy-activity-security-considerations.md
   - name: Transform data
     href: transform-data.md
     items: 
@@ -172,14 +162,8 @@
       href: control-flow-get-metadata-activity.md     
     - name: Execute Pipeline Activity
       href: control-flow-execute-pipeline-activity.md     
-    - name: Script Activity
-      href: control-flow-script-activity.md     
-    - name: Do Until Activity
-      href: control-flow-do-until-activity.md        
     - name: For Each Activity
       href: control-flow-for-each-activity.md  
-    - name: If condition
-      href: control-flow-if-condition.md        
     - name: Expression Language         
       href: control-flow-expression-language-functions.md
     - name: System variables         
@@ -189,15 +173,17 @@
   - name: Monitor and manage
     items: 
     - name: Use .NET
-      href: monitor-programmatically.md
+      href: quickstart-create-data-factory-dot-net.md#monitor-pipeline-run
     - name: Use Azure Monitor
       href: monitor-using-azure-monitor.md
   - name: Create integration runtime
     items:
-    - name: Create and configure self-hosted integration runtime
+    - name: Azure integration runtime
+      href: create-azure-integration-runtime.md   
+    - name: Azure SSIS integration runtime
+      href: tutorial-deploy-ssis-packages.md    
+    - name: Self hosted integration runtime
       href: create-self-hosted-integration-runtime.md
-    - name: Provision managed dedicated integration runtime
-      href: tutorial-deploy-ssis-packages.md
 - name: Reference
   items:
   - name: .NET
