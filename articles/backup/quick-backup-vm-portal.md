@@ -5,7 +5,7 @@ services: virtual-machines-windows, azure-backup
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor:
 tags: azure-resource-manager, virtual-machine-backup
 
 ms.assetid: 
@@ -61,7 +61,7 @@ You can start a backup now rather than wait for the default policy to run the jo
 2. To accept the default back retention policy of 30 days, leave the **Retain Backup Till** date. To start the job, select **Backup**.
 
 
-## Monitor a backup job
+## Monitor the backup job
 In the **Backup** window for your VM, the status of the backup and number of completed restore points are shown. Once the VM backup job is complete, information on the **Last backup time**, **Latest restore point**, and **Oldest restore point** is shown.
 
 

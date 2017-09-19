@@ -5,7 +5,7 @@ services: virtual-machines-linux, azure-backup
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor:
 tags: azure-resource-manager, virtual-machine-backup
 
 ms.assetid: 
@@ -22,7 +22,7 @@ ms.custom: mvc
 # Back up a virtual machine in Azure with the CLI
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. This article details how to back up a virtual machine (VM) in Azure with the Azure CLI. You can also perform these steps with [Azure PowerShell](quick-backup-vm-powershell.md) or [Azure portal](quick-backup-vm-portal.md).
 
-This quick start enables backup on an existing Azure VM. If you need to create a VM, you can [create a VM with the Azure CLI](../virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-quick-create.md?toc=%2fcli%2fazure%2ftoc.json).
+This quick start enables backup on an existing Azure VM. If you need to create a VM, you can [create a VM with the Azure CLI](../virtual-machines/linux/quick-create-cli).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -88,7 +88,7 @@ az backup protection backup-now \
 As this first backup job creates a full recovery point, the process can take up to 20 minutes.
 
 
-## Monitor a backup job
+## Monitor the backup job
 To monitor the status of backup jobs, use [az backup job list]():
 
 ```azurecli-interactive 
@@ -100,7 +100,7 @@ az backup job list \
 
 The output is similar to the following example, which shows the backup job is **InProgress**:
 
-```azurecli
+```
 Name             Operation        Status      Item Name    Start Time UTC       Duration
 ---------------  ---------------  ----------  -----------  -------------------  --------------
 a0a8e5e6-{snip}  Backup           InProgress  myvm         2017-09-19T03:09:21  0:00:48.718366

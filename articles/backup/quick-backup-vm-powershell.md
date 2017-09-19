@@ -5,7 +5,7 @@ services: virtual-machines-windows, azure-backup
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor:
 tags: azure-resource-manager, virtual-machine-backup
 
 ms.assetid: 
@@ -98,7 +98,7 @@ $job = Backup-AzureRmRecoveryServicesBackupItem -Item $item
 As this first backup job creates a full recovery point, the process can take up to 20 minutes.
 
 
-## Monitor a backup job
+## Monitor the backup job
 To monitor the status of backup jobs, use [Get-AzureRmRecoveryservicesBackupJob](/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupjob):
 
 ```powershell
@@ -107,7 +107,7 @@ Get-AzureRmRecoveryservicesBackupJob
 
 The output is similar to the following example, which shows the backup job is **InProgress**:
 
-```powershell
+```
 WorkloadName   Operation         Status       StartTime              EndTime                JobID
 ------------   ---------         ------       ---------              -------                -----
 myvm           Backup            InProgress   9/18/2017 9:38:02 PM                          9f9e8f14-{snip}
