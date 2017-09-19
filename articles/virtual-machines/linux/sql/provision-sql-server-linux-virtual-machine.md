@@ -137,7 +137,7 @@ The new virtual machine installs SQL Server with a random SA password. You must 
 
 ## Add the tools to your path (optional)
 
-Several SQL Server [packages](sql-server-linux-virtual-machines-overview.md#pacakages) are installed by default, including the SQL Server command-line Tools package. This contains the **sqlcmd** and **bcp** tools. For convenience, you can optionally add the tools path, `/opt/mssql-tools/bin/`, to your **PATH** environment variable.
+Several SQL Server [packages](sql-server-linux-virtual-machines-overview.md#packages) are installed by default, including the SQL Server command-line Tools package. This contains the **sqlcmd** and **bcp** tools. For convenience, you can optionally add the tools path, `/opt/mssql-tools/bin/`, to your **PATH** environment variable.
 
 1. Run the following commands to modify the **PATH** for both login sessions and interactive/non-login sessions:
 
@@ -146,7 +146,7 @@ Several SQL Server [packages](sql-server-linux-virtual-machines-overview.md#paca
    echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
    source ~/.bashrc
    ```
-   
+
 ## Next steps
 
 Now that you have a SQL Server 2017 virtual machine in Azure, you can connect locally with **sqlcmd** to run Transact-SQL queries.
