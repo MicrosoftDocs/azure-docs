@@ -37,16 +37,18 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Verify account permissions
 
-Make sure your Azure account has permissions for replication of VMs to Azure.
-
-- Review the [permissions](site-recovery-role-based-linked-access-control.md) you need.
-- Verify/add permissions for [role-based access](../active-directory/role-based-access-control-configure.md).
+Make sure your Azure account has the permissions it needs to replicate VMs. To enable replication for a new virtual machine, a user must have:
+- Permission to create a virtual machine in the selected resource group
+- Permission to create a virtual machine in the selected virtual network
+- Permission to write to the selected Storage account
+- The 'Virtual Machine Contributor' built-in role has these permissions.
+- The 'Site Recovery Contributor' role has all permissions required to manage Azure Site Recovery operations in a Recovery Services vault. This role is best suited for disaster recovery administrators who can enable and manage disaster recovery for applications or entire organizations.
 
 ## Create a storage account
 
 Images of replicated machines are held in Azure storage. Azure VMs are created from the storage when you fail over from on-premises to Azure. 
 
-1. In the Azure portal > **Hub** menu, select **New** -> **Storage** -> **Storage account**.
+1. In the Azure portal. the **Hub** menu, select **New** -> **Storage** -> **Storage account**.
 2. Enter a name for your storage account. The name must be unique within Azure, and be between 3 and 24 characters, witn numbers and lowercase letters only.
 3. Use the **Resource Manager** deployment model.
 4. Select **General purpose** > **Standard**.
