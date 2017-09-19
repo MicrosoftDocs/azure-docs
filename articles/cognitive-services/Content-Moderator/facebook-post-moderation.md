@@ -82,7 +82,7 @@ Sign in to the [Azure Management Portal](https://portal.azure.com/) to create yo
     6. Click **Create**.
     7. Replace the contents of the **run.csx** with the contents from [**CMListener/run.csx**](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/CmListener/run.csx).
 
-## 5. Configure the Facebook Page and App
+## 5. Configure the Facebook page and App
 
 1. Create a Facebook App.
 
