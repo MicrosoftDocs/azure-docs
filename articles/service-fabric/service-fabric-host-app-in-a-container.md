@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: tutorial
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/19/2017

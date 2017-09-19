@@ -73,7 +73,7 @@ You can use the _Classifying MNIST using TensorFlow_ example, or the _Classifyin
 Launch the command line from Azure ML Workbench. Enter the following command. Replace the placeholder text from the example below with your own values for the name, IP address, username, and password. 
 
 ```batch
-C:\MyProj> az ml computetarget attach --name "my_dsvm" --address "my_dsvm_ip_address" --username "my_name" --password "my_password"
+C:\MyProj> az ml computetarget attach --name "my_dsvm" --address "my_dsvm_ip_address" --username "my_name" --password "my_password" --type remotedocker
 ```
 
 ### Configure Azure ML Workbench to Access GPU
