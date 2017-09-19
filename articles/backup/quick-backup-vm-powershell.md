@@ -118,7 +118,7 @@ When the *Status* of the backup job reports *Completed*, your VM is protected wi
 
 
 ## Clean up deployment
-When no longer needed, you can disable protection on the VM, remove the restore points and Recovery Services vault, then delete the resource group and associated VM resources:
+If you are going to continue on to a Backup tutorial that explains how to restore data for your VM, go to [Next steps](#next-steps). When no longer needed, you can disable protection on the VM, remove the restore points and Recovery Services vault, then delete the resource group and associated VM resources:
 
 ```powershell
 Disable-AzureRmRecoveryServicesBackupProtection -Item $item -RemoveRecoveryPoints

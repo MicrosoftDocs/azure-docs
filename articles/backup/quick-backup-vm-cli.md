@@ -22,7 +22,7 @@ ms.custom: mvc
 # Back up a virtual machine in Azure with the CLI
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. This article details how to back up a virtual machine (VM) in Azure with the Azure CLI. You can also perform these steps with [Azure PowerShell](quick-backup-vm-powershell.md) or [Azure portal](quick-backup-vm-portal.md).
 
-This quick start enables backup on an existing Azure VM. If you need to create a VM, you can [create a VM with the Azure CLI](../virtual-machines/linux/quick-create-cli).
+This quick start enables backup on an existing Azure VM. If you need to create a VM, you can [create a VM with the Azure CLI](../virtual-machines/linux/quick-create-cli.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -35,19 +35,19 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 The first time you use Azure Backup, you must register the Azure Recovery Service provider with your subscription with [az provider register]().
 
 ```azurecli-interactive
-az provider register –-namespace Microsoft.RecoveryServices
+az provider register --namespace Microsoft.RecoveryServices
 ```
 
 
 ## Create a recovery services vault
 A Recovery Services vault is a logical container that stores the backup data for each protected resource, such as Azure VMs. When the backup job for a protected resource runs, it creates a recovery point inside the Recovery Services vault. These recovery points are used to then restore data to a given point in time as needed.
 
-Create a Recovery Services vault with [az backup vault create](). Specify the same resource group and location as the VM you wish to protect. If you used the sample script, the resource group is named *myResourceGroup*, the VM is named *myVM*, and the resources are in the *westeurope* location.
+Create a Recovery Services vault with **az backup vault create**. Specify the same resource group and location as the VM you wish to protect. If you used the sample script, the resource group is named *myResourceGroup*, the VM is named *myVM*, and the resources are in the *eastus* location.
 
 ```azurecli-interactive 
 az backup vault create --resource-group myResourceGroup \
     --name myRecoveryServicesVault \
-    --location westeurope
+    --location eastus
 ```
 
 By default, the vault is set for Geo-Redundant storage. To further protect your data, this storage redundancy level ensures that your backup data is replicated to a secondary Azure region that is hundreds of miles away from the primary region.
@@ -111,7 +111,7 @@ When the *Status* of the backup job reports *Completed*, your VM is protected wi
 
 
 ## Clean up deployment
-When no longer needed, you can disable protection on the VM, remove the restore points and Recovery Services vault, then delete the resource group and associated VM resources:
+If you are going to continue on to a Backup tutorial that explains how to restore data for your VM, go to [Next steps](#next-steps). When no longer needed, you can disable protection on the VM, remove the restore points and Recovery Services vault, then delete the resource group and associated VM resources:
 
 ```azurecli-interactive 
 az backup protection disable \
