@@ -84,7 +84,7 @@ MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    S
     PS Azure:\MySubscriptionName>
     ```
 
-3. View your all Azure resources under the current subscription
+ 3. View your all Azure resources under the current subscription
  
     Type `dir` under your subscription to get multiple views of your Azure resources.
  
