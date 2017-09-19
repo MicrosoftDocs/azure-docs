@@ -23,6 +23,7 @@ ms.author: bradsev
 ## [Link To GitHub Repository](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome)
 We provide summary documentation here about the sample. More extensive documentation can be found on the GitHub site.
 
+
 ## Introduction
 
 Standardization of the structure and documentation of data science projects, that is anchored to an established [data science lifecycle](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md), is key to facilitating effective collaboration in data science teams. Creating Azure Machine Learning projects with the [Team Data Science Process (TDSP)](https://github.com/Azure/Microsoft-TDSP) template provides a framework for such standardization.
@@ -64,13 +65,13 @@ The dataset for this sample is from the UCI ML Repository [[link]](https://archi
 * [Read and write files](how-to-read-write-files.md)
 * [Deploying an ML model as a web service](model-management-service-deploy.md)
 
-### Create a new Workbench project
+### Create a New Workbench project
 
 Create a new project using this example as a template:
 1.	Open Azure Machine Learning Workbench
 2.	On the **Projects** page, click the **+** sign and select **New Project**
 3.	In the **Create New Project** pane, fill in the information for your new project
-4.	In the **Search Project Templates** search box, type "Classify UCI Incomes with a TDSP project" and select the template
+4.	In the **Search Project Templates** search box, type "TDSP sample UCI Income" and select the template
 5.	Click **Create**
 
 ## Use Case Overview
@@ -156,9 +157,6 @@ In this sample, we showed now to use TDSP structure and templates in Azure Machi
 5. Prepare a final data science project report that can be delivered to a client
 
 We hope you use this feature of Azure Machine Learning to facilitate with standardization and collaboration within your data science teams.
-
-## To Instantiate This Project Directly From Azure Machine Learning Template Gallery
-Click on "New Project" and search for "Classify US incomes - TDSP project" icon in the search block. You can then click and select this icon and hit Create.
 
 ## Next Steps: See References Below to Get Started
 
