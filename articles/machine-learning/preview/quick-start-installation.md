@@ -23,7 +23,7 @@ This Quickstart shows you how to create experimentation and model management acc
 * Use your own client machine to install Azure Machine Learning Workbench locally. Currently the Azure Machine Learning Workbench can be installed on the following operating systems only:
    * Windows 10
    * Windows Server 2016 
-   * macOS Sierra (or newer)
+   * macOS Sierra (High Sierra is not supported)
 
 ### Optional components
 * Docker engine for running dev/test scenarios locally.
@@ -33,7 +33,7 @@ This Quickstart shows you how to create experimentation and model management acc
 
 ## Provision Azure Machine Learning accounts
 Use the Azure portal to provision Azure Machine Learning accounts. 
-1. Go to the Azure portal. [http://portal.azure.com](http://portal.azure.com). 
+1. Go to the Azure portal [http://portal.azure.com](http://portal.azure.com). 
 
 2. Enter your credentials to sign in to the portal. 
 
@@ -43,7 +43,7 @@ Use the Azure portal to provision Azure Machine Learning accounts.
 
    ![Azure Machine Learning Search](media/quick-start-installation/ibiza-search-ml.png)
 
-5. Click **Create** to open the form to configure a new Machine Learning Experimentation account. 
+5. Click **Add** to open the form to configure a new Machine Learning Experimentation account. 
 
    ![Machine Learning Experimentation Account](media/quick-start-installation/ibiza-experimentation-account-screen.png)
 
@@ -57,21 +57,21 @@ Use the Azure portal to provision Azure Machine Learning accounts.
    Location | _The region closest to your users_ | Choose the location that's closest to your users and the data resources.
    Number of seats | 2 | Type the number of seats. This selection impacts the [pricing](https://azure.microsoft.com/pricing/details/machine-learning/). The first two seats are free. Use two seats for the purposes of this Quickstart. You can update the number of seats later as needed in the Azure portal.
    Storage Account | _Unique name_ | Choose **Create new** and provide a name  to create a new Azure storage account, or choose **Use existing** and select your existing storage account from the drop-down. The storage account is required and is used to hold project artifacts and run history data. 
-   Workspace for Experimentation account | _Unique name_ | Provide a name for the new workspace.
+   Workspace for Experimentation account | _Unique name_ | Provide a name for the new workspace. The name should be between 2 and 32 characters, including only alphanumeric characters and the '-' dash character.
    Assign owner for the workspace | _Your account_ | Select your own account as the workspace owner.
    Create Model Management Account | *check* | As part of the Experimentation account creation experience, you have the option of also creating the Machine Learning Model Management account. This resource is used once you are ready to deploy and manage your models as real-time web services. We recommend creating the Model Management account at the same time as the Experimentation account.
    Account Name | _Unique name_ | Choose a unique name that identifies your Model Management account. You could use your own name, or a departmental or project name that best identifies the experiment. The name should be between 2 and 32 characters, including only alphanumeric characters and the '-' dash character. 
    Model Management pricing tier | **DEVTEST** | Click **No pricing tier selected** to specify the pricing tier for your new Model Management account. For cost savings, select **DEVTEST** pricing tier if available on your subscription (limited availability), otherwise select S1 pricing tier for cost savings. Click **Select** to save the pricing tier selection. 
    Pin to dashboard | _check_ | Check the **Pin to dashboard** option to allow easy tracking of your Machine Learning Experimentation account on the front dashboard page of your Azure portal.
 
-7. If you already have a Machine Learning Experimentation account, and only need to create a Machine Learning Model Management account then you can select **Machine Learning Model Management (preview)** from the step 4 above.  Click on **+Add** button on the **Machine Learning Model Management account** screen. 
+7. If you already have a Machine Learning Experimentation account, and only need to create a Machine Learning Model Management account then you can select **Machine Learning Model Management (preview)** from the step 4 above.  Click on **+Create** button on the **Machine Learning Model Management account** screen. 
    You see the following screen:
 
    ![Machine Learning Model Management Account](media/quick-start-installation/ibiza-model-management-account-screen.png)
 
    Once you have provided all the information for Model Management account in the preceding screenshot, click on **Create**.
 
-8. Click **Create** to begin the creation process.
+8. Once you have provided all the information for Model Management account in the preceding screenshot, click **Create** to begin the creation process.
  
 9. On the upper right of the Azure portal toolbar, click **Notifications** (bell icon) to monitor the deployment process. 
 
@@ -161,7 +161,7 @@ Azure Machine Learning Workbench can run experiments, or deploy web services in 
 
 ## Special note on Docker for Windows 
 You need Docker engine to execute scripts in a local Docker container, or to deploy model via a containerized web service locally. We have some tips for installing and configuring Docker for Azure Machine Learning on Windows.  Make sure you follow these instructions:
-- Only local instances of Windows 10 and Windows 2016 are supported for running Docker for Windows.
+- Only local instances of Windows 10 and Windows Server 2016 are supported for running Docker for Windows.
 - Windows in a Virtual Machine is not supported.
 - Install [Docker for Windows](https://docs.docker.com/docker-for-windows/install/) and have it up and running.
 - Make sure your Docker engine is running in [Linux Container mode](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
