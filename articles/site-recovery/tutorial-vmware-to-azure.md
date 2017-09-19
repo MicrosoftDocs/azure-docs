@@ -63,10 +63,15 @@ Set up the configuration server, register it in the vault, and discover VMs.
    ![Set up source](./media/tutorial-vmware-to-azure/source-settings.png)
 
 
-### Register the configuration server in the vault
+### Set up the configuration server
 
-Do the following before you start:
+Before you start:
 
+- You must have a highly available VMware virtual machine on which to install the configuration server.
+- The VM should meet the following requirements:
+
+   [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
+   
 - On the configuration server VM, make sure that the system clock is synchronized with a [Time Server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). It should match. If it's 15 minutes in front or behind, setup might fail.
 - Make sure the configuration server VM can access these URLs:
 
@@ -92,7 +97,7 @@ To discover VMs, you need to connect to on-premises VMware servers.
 
 [!INCLUDE [site-recovery-add-vcenter-account](../../includes/site-recovery-add-vcenter-account.md)]
 
-### Connect to servers
+### Add a server
 
 1. Select **+vCenter** to connect to a vCenter server or  vSphere ESXi host.
 2. In **Add vCenter**, specify a friendly name for the server. Then, specify the IP address or FQDN.
