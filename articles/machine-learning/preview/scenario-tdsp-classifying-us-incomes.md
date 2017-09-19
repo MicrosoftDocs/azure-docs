@@ -90,7 +90,7 @@ This data was extracted from the Census Bureau database found at: https://www.ce
 * **FEATURES**: Age, work class, education level, education level, race, sex, hours of work per week, etc.
 
 
-## Project Structure And Reporting
+## Project Structure, Execution And Reporting
 
 ### Structure
 For this project, we use the TDSP folder structure and documentation templates (below), which follows the [TDSP lifecycle](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md). 
@@ -99,6 +99,15 @@ Project is created based on instructions provided [here](https://aka.ms/how-to-u
 
 
 <img src="./media/scenario-tdsp-classifying-us-incomes/instantiation-4.png" width="900" height="700">
+
+### Execution
+In this example, we execute code in **local compute environment** only. Refer to Azure Machine Learning documents for execution details and further options.
+
+Executing a Python script in a local Python runtime is easy:
+
+    az ml experiment submit -c local my_script.py
+
+IPython notebook files can be double-clicked from the project structure on the left of the Azure Machine Learning UI and run in the Jypyter Notebook Server.
 
 
 The step-by-step data science workflow was as follows:
@@ -137,14 +146,26 @@ We  deployed the Random Forest model as a web-service on a cluster in the [Azure
 Details about each of the above sections are provided in the compiled final project report [ProjectReport](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome/blob/master/docs/deliveralbe_docs/ProjectReport.md). The project report also contains further details about the use case, model performance metrics, deployment, and infrastructure on which the project was developed and deployed.
 
 
-## Conclusion & Next Steps
+## Conclusion
 
-In this sample, we showed now to use TDSP structure and templates in Azure Machine Learning. We hope you use this feature of Azure Machine Learning to facilitate with project structure standardization and collaboration within your data science teams.
+In this sample, we showed now to use TDSP structure and templates in Azure Machine Learning. Through the document and artifact templates you can:
+1. Properly define purpose and scope of a project
+2. Create a project team with distributed roles and responsibilities
+3. Structure and execute projects according to the TDSP lifecycle stages
+4. Develop standardized reports using TDSP data science utilities (such as the IDEAR data exploration and visualization report).
+5. Prepare a final data science project report that can be delivered to a client
 
-## References
+We hope you use this feature of Azure Machine Learning to facilitate with standardization and collaboration within your data science teams.
+
+## To Instantiate This Project Directly From Azure Machine Learning Template Gallery
+Click on "New Project" and search for "Classify US incomes - TDSP project" icon in the search block. You can then click and select this icon and hit Create.
+
+## Next Steps: See References Below to Get Started
+
+[How to use Team Data Science Process (TDSP) in Azure Machine Learning](https://aka.ms/how-to-use-tdsp-in-aml)
 
 [Team Data Science Process (TDSP)](https://github.com/Azure/Microsoft-TDSP)
 
 [TDSP project template for Azure Machine Learning](https://aka.ms/tdspamlgithubrepo)
 
-[US Incume data-set from UCI ML repository](https://archive.ics.uci.edu/ml/datasets/adult)
+[US Income data-set from UCI ML repository](https://archive.ics.uci.edu/ml/datasets/adult)
