@@ -29,7 +29,7 @@ A pipeline in an Azure data factory processes data in linked storage services by
 Create an Azure Data Lake Analytics account before creating a pipeline with a Data Lake Analytics U-SQL Activity. To learn about Azure Data Lake Analytics, see [Get started with Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
 
-## Azure Data Lake Analytics Linked Service
+## Azure Data Lake Analytics linked service
 You create an **Azure Data Lake Analytics** linked service to link an Azure Data Lake Analytics compute service to an Azure data factory. The Data Lake Analytics U-SQL activity in the pipeline refers to this linked service. 
 
 The following table provides descriptions for the generic properties used in the JSON definition. 
@@ -74,9 +74,15 @@ Use service principal authentication by specifying the following properties:
             "subscriptionId": "<optional, subscription id of ADLA>",
             "resourceGroupName": "<optional, resource group name of ADLA>"
         }
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }       
     }
 }
 ```
+
+To learn more about the linked service, see [Compute linked services](compute-linked-services.md).
 
 ## Data Lake Analytics U-SQL Activity
 The following JSON snippet defines a pipeline with a Data Lake Analytics U-SQL Activity. The activity definition has a reference to the Azure Data Lake Analytics linked service you created earlier. To execute a Data Lake Analytics U-SQL script, Data Factory submits the script you specified to the Data Lake Analytics, and the required inputs and outputs is defined in the script for Data Lake Analytics to fetch and output. 
@@ -113,18 +119,18 @@ The following table describes names and descriptions of properties that are spec
 | name                | Name of the activity in the pipeline     | Yes      |
 | description         | Text describing what the activity does.  | No       |
 | type                | For Data Lake Analytics U-SQL activity, the activity type is  **DataLakeAnalyticsU-SQL**. | Yes      |
-| linkedServiceName   | Linked Service to Azure Data Lake Analytics |          |
+| linkedServiceName   | Linked Service to Azure Data Lake Analytics. To learn about this linked service, see [Compute linked services](compute-linked-services.md) article.  |          |
 | scriptPath          | Path to folder that contains the U-SQL script. Name of the file is case-sensitive. | Yes      |
 | scriptLinkedService | Linked service that links the storage that contains the script to the data factory | Yes      |
 | degreeOfParallelism | The maximum number of nodes simultaneously used to run the job. | No       |
 | priority            | Determines which jobs out of all that are queued should be selected to run first. The lower the number, the higher the priority. | No       |
 | parameters          | Parameters for the U-SQL script          | No       |
 | runtimeVersion      | Runtime version of the U-SQL engine to use | No       |
-| compilationMode     | <p>Compilation mode of U-SQL. Must be one of these values:</p> <ul><li>**Semantic:** Only perform semantic checks and necessary sanity checks.</li><li>**Full:** Perform the full compilation, including syntax check, optimization, code generation, etc.</li><li>**SingleBox:** Perform the full compilation, with TargetType setting to SingleBox.</li></ul><p>If you don't specify a value for this property, the server determines the optimal compilation mode. </p> | No       |
+| compilationMode     | <p>Compilation mode of U-SQL. Must be one of these values: **Semantic:** Only perform semantic checks and necessary sanity checks, **Full:** Perform the full compilation, including syntax check, optimization, code generation, etc., **SingleBox:** Perform the full compilation, with TargetType setting to SingleBox. If you don't specify a value for this property, the server determines the optimal compilation mode. | No |
 
 Data Factory submits the See [SearchLogProcessing.txt Script Definition](#sample-u-sql-script) for the script definition. 
 
-## Sample U-SQL Script
+## Sample U-SQL script
 
 ```
 @searchlog =
@@ -181,11 +187,11 @@ In this case, input files are still picked up from the /datalake/input folder an
 ## Next steps
 See the following articles that explain how to transform data in other ways: 
 
-* [Hive Activity](transform-data-using-hadoop-hive.md)
-* [Pig Activity](transform-data-using-hadoop-pig.md)
-* [MapReduce Activity](transform-data-using-hadoop-map-reduce.md)
-* [Hadoop Streaming Activity](transform-data-using-hadoop-streaming.md)
-* [Spark Activity](transform-data-using-spark.md)
+* [Hive activity](transform-data-using-hadoop-hive.md)
+* [Pig activity](transform-data-using-hadoop-pig.md)
+* [MapReduce activity](transform-data-using-hadoop-map-reduce.md)
+* [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md)
+* [Spark activity](transform-data-using-spark.md)
 * [.NET custom activity](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning Bach Execution Activity](transform-data-using-machine-learning.md)
+* [Machine Learning Batch Execution activity](transform-data-using-machine-learning.md)
 * [Stored procedure activity](transform-data-using-stored-procedure.md)
