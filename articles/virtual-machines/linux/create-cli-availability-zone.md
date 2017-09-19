@@ -14,19 +14,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/06/2017
+ms.date: 09/19/2017
 ms.author: danlep
 ms.custom: 
 ---
 
 # Create a Linux virtual machine in an availability zone with the Azure CLI
 
-You can deploy a Linux VM in an Azure availability zone (preview). An [availability zone](../../availability-zones/az-overview.md) is a physically separate zone in an Azure region. 
+This article steps through using the Azure CLI to create a Linux VM in an Azure availability zone. An [availability zone](../../availability-zones/az-overview.md) is a physically separate zone in an Azure region. Use availability zones to protect your apps and data from the unlikely failure or loss of an entire datacenter.
 
+[!INCLUDE [availability-zones-preview-statement.md](../../../includes/availability-zones-preview-statement.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.xxx [*TBD*] or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Make sure that you have installed the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and logged in to an Azure account with [az login](/cli/azure/#login).
 
 ## Create resource group
 
