@@ -19,7 +19,7 @@ ms.custom: mvc
 ---
 # Build a Docker Python and PostgreSQL web app in Azure
 
-Azure Web Apps provides a highly scalable, self-patching web hosting service. This tutorial shows how to create a basic Docker Python web app in Azure. You'll connect this app to a PostgreSQL database. When you're done, you'll have a Python Flask application running within a Docker container on [Azure App Service Web Apps](../../app-service-web/app-service-web-overview.md).
+Azure Web Apps provides a highly scalable, self-patching web hosting service. This tutorial shows how to create a basic Docker Python web app in Azure. You'll connect this app to a PostgreSQL database. When you're done, you'll have a Python Flask application running within a Docker container on [Azure App Service Web Apps](../app-service-web-overview.md).
 
 ![Docker Python Flask app in Azure App Service](./media/tutorial-docker-python-postgresql-app/docker-flask-in-azure.png)
 
@@ -106,7 +106,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-Navigate to http://127.0.0.1:5000 in a browser. Click **Register!** and create a test user.
+Navigate to `http://127.0.0.1:5000` in a browser. Click **Register!** and create a test user.
 
 ![Python Flask application running locally](./media/tutorial-docker-python-postgresql-app/local-app.png)
 
@@ -549,4 +549,4 @@ By default, the portal shows your web app's **Overview** page. This page gives y
 Advance to the next tutorial to learn how to map a custom DNS name to your web app.
 
 > [!div class="nextstepaction"] 
-> [Map an existing custom DNS name to Azure Web Apps](../../app-service-web/app-service-web-tutorial-custom-domain.md)
+> [Map an existing custom DNS name to Azure Web Apps](../app-service-web-tutorial-custom-domain.md)

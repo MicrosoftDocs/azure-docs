@@ -99,7 +99,7 @@ You have two roles to choose from when you create an instance, both based on Win
 Cloud Services are ideal to support massive scale out when you need more control over the platform than provided by Azure Web Apps but don’t need control over the underlying operating system.
 
 #### Choosing a Compute Model
-The page [Azure Web Apps, Cloud Services and Virtual Machines comparison](app-service-web/choose-web-site-cloud-service-vm.md) provides more detailed information on how to choose a Compute model.
+The page [Azure Web Apps, Cloud Services and Virtual Machines comparison](app-service/choose-web-site-cloud-service-vm.md) provides more detailed information on how to choose a Compute model.
 
 ## Data Management
 Applications need data, and different kinds of applications need different kinds of data. Because of this, Azure provides several different ways to store and manage data. Azure provides many storage options, but all are designed for very durable storage.  With any of these options, there are always 3 copies of your data kept in sync across an Azure datacenter -- 6 if you allow Azure to use geo-redundancy to back up to another datacenter at least 300 miles away.     

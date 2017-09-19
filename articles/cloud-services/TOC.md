@@ -60,7 +60,6 @@
 ### Configure automatic scaling
 #### [Portal](cloud-services-how-to-scale-portal.md)
 #### [Classic portal](cloud-services-how-to-scale.md)
-#### [PowerShell](cloud-services-how-to-scale-powershell.md)
 ### [Use Python to manage Azure Resources](cloud-services-python-how-to-use-service-management.md)
 
 ### [Guest OS patches](cloud-services-guestos-msrc-releases.md)
