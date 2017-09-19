@@ -18,7 +18,7 @@ ms.author: shlo
 ---
 
 # Incrementally load data from Azure SQL Database to Azure Blob Storage
-During the data integration journey, one of the widely used scenarios is to incrementally load data periodically to refresh updated analysis result after initial data loads and analysis. In this tutorial, you focus on loading only new or updated records from the data sources into data sinks. It runs more efficiently when compared to full loads, particularly so for large data sets.    
+During the data integration journey, one of the widely used scenarios is to incrementally load data periodically to refresh updated analysis result after initial data loads and analysis. In this tutorial, you focus on loading only new or updated records from the data sources into data sinks. It runs more efficiently when compared to full loads, particularly for large data sets.    
 
 You can use Data Factory to create high-watermark solutions to achieve incremental data loading by using Lookup, Copy, and Stored Procedure activities in a pipeline.  
 
@@ -52,8 +52,8 @@ The concrete working flow:
 ## Prerequisites
 
 * **Azure subscription**. If you don't have a subscription, you can create a [free trial](http://azure.microsoft.com/pricing/free-trial/) account.
-* **Azure Storage account**. You use the blob storage as **source** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one. Create a container named **adftutorial**. 
-* **Azure SQL Database**. You use the database as **sink** data store. If you don't have an Azure SQL Database, see the [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) article for steps to create one.
+* **Azure SQL Database**. You use the database as the **source** data store. If you don't have an Azure SQL Database, see the [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) article for steps to create one.
+* **Azure Storage account**. You use the blob storage as the **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one. Create a container named **adftutorial**. 
 * **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ### Define a watermark column
@@ -81,7 +81,7 @@ PersonID | Name | LastModifytime
     WatermarkValue datetime,
     );
     ```
-3. Set the default **value** of high watermark. 
+3. Set the default **value** of high watermark with the table name of source data store.  (In this tutorial, the table name is: **datasource**)
 
     ```sql
     INSERT INTO watermarktable
@@ -139,7 +139,7 @@ END
 2. Run the **Set-AzureRmDataFactoryV2** cmdlet to create a data factory. Replace place-holders with your own values before executing the command.
 
     ```powershell
-    $df = Set-AzureRmDataFactoryV2 -ResourceGroupName "<your resource group to create the factory>" -Location "East US" -Name "<specify the name of data factory to create. It must be globally unique.>" 
+    Set-AzureRmDataFactoryV2 -ResourceGroupName "<your resource group to create the factory>" -Location "East US" -Name "<specify the name of data factory to create. It must be globally unique.>" 
     ```
 
     Note the following points:
@@ -147,7 +147,7 @@ END
     * The name of the Azure data factory must be globally unique. If you receive the following error, change the name and try again.
 
         ```
-        Data factory name "<data factory name>" is not available.
+        The specified Data Factory name '<data factory name>' is already in use. Data Factory names must be globally unique.
         ```
 
     * To create Data Factory instances, you must be a contributor or administrator of the Azure subscription.
@@ -178,10 +178,10 @@ You create linked services in a data factory to link your data stores and comput
     }
     ```
 2. In **Azure PowerShell**, switch to the **ADF** folder.
-3. Run the **Set-AzureRmDataFactoryV2LinkedService** cmdlet to create the linked service: **AzureStorageLinkedService**. In the following example, you pass values for the **ResourceGroupName** and **DataFactoryName** parameters. Alternatively, you can pass the **DataFactory** object returned by the Set-AzureRmDataFactoryV2 cmdlet without typing ResourceGroupName and DataFactoryName each time you run a cmdlet.
+3. Run the **Set-AzureRmDataFactoryV2LinkedService** cmdlet to create the linked service: **AzureStorageLinkedService**. In the following example, you pass values for the **ResourceGroupName** and **DataFactoryName** parameters. 
 
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactory $df -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
+    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
     ```
 
     Here is the sample output:
@@ -194,10 +194,7 @@ You create linked services in a data factory to link your data stores and comput
     ```
 
 ### Create Azure SQL Database linked service.
-1. Create a JSON file named **AzureSQLDatabaseLinkedService.json** in **C:\ADF** folder with the following content: (Create the folder ADF if it does not already exist.)
-
-	> [!IMPORTANT]
-	> Replace &lt;server&gt; and &lt;user id&gt;, and &lt;password&gt; name of your Azure SQL server, user ID, and password to access the server. 
+1. Create a JSON file named **AzureSQLDatabaseLinkedService.json** in **C:\ADF** folder with the following content: (Create the folder ADF if it does not already exist.). Replace **&lt;server&gt; and &lt;user id&gt;, and &lt;password&gt;** name of your Azure SQL server, user ID, and password before saving the file. 
 
     ```json
     {
@@ -206,7 +203,7 @@ You create linked services in a data factory to link your data stores and comput
     		"type": "AzureSqlDatabase",
     		"typeProperties": {
     			"connectionString": {
-    				"value": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=DataSource; Persist Security Info=False; User ID=<user id> ; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;",
+    				"value": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database name>; Persist Security Info=False; User ID=<user name> ; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;",
     				"type": "SecureString"
     			}
     		}
@@ -217,7 +214,7 @@ You create linked services in a data factory to link your data stores and comput
 3. Run the **Set-AzureRmDataFactoryV2LinkedService** cmdlet to create the linked service: **AzureSQLDatabaseLinkedService**. 
 
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactory $df -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
+    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
     ```
 
     Here is the sample output:
@@ -233,7 +230,7 @@ You create linked services in a data factory to link your data stores and comput
 ## Create datasets
 In this step, you create datasets to represent source and sink data. 
 
-### Create source dataset
+### Create a source dataset
 
 1. Create a JSON file named SourceDataset.json in the same folder with the following content: 
 
@@ -257,7 +254,7 @@ In this step, you create datasets to represent source and sink data.
 2.  Run the Set-AzureRmDataFactoryV2Dataset cmdlet to create the dataset: SourceDataset
     
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactory $df -Name "SourceDataset" -File ".\SourceDataset.json"
+    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
     ```
 
     Here is the sample output of the cmdlet:
@@ -270,7 +267,7 @@ In this step, you create datasets to represent source and sink data.
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureSqlTableDataset
     ```
 
-### Create sink dataset
+### Create a sink dataset
 
 1. Create a JSON file named SinkDataset.json in the same folder with the following content: 
 
@@ -299,7 +296,7 @@ In this step, you create datasets to represent source and sink data.
 2.  Run the Set-AzureRmDataFactoryV2Dataset cmdlet to create the dataset: SinkDataset
     
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactory $df -Name "SinkDataset" -File ".\SinkDataset.json"
+    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
     ```
 
     Here is the sample output of the cmdlet:
@@ -332,10 +329,10 @@ In this step, you create a dataset for storing a high watermark value.
         }
     }    
     ```
-2.  Run the Set-AzureRmDataFactoryV2Dataset cmdlet to create the dataset: SinkDataset
+2.  Run the Set-AzureRmDataFactoryV2Dataset cmdlet to create the dataset: WatermarkDataset
     
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactory $df -Name "WatermarkDataset" -File ".\WatermarkDataset.json"
+    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "WatermarkDataset" -File ".\WatermarkDataset.json"
     ```
 
     Here is the sample output of the cmdlet:
@@ -380,7 +377,7 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
     				"typeProperties": {
     					"source": {
     						"type": "SqlSource",
-    						"sqlReaderQuery": "select MAX(LastModifytime) as NewWatermarkvalue from <your table name in data source>"
+    						"sqlReaderQuery": "select MAX(LastModifytime) as NewWatermarkvalue from datasource"
     					},
     
     					"dataset": {
@@ -396,7 +393,7 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
     				"typeProperties": {
     					"source": {
     						"type": "SqlSource",
-    						"sqlReaderQuery": "select * from <your table name in data source> where LastModifytime > '@{activity('LookupWaterMarkActivity').output.WatermarkValue}' and LastModifytime <= '@{activity('LookupMaxValuefromSourceActivity').output.NewWatermarkvalue}'"
+    						"sqlReaderQuery": "select * from datasource where LastModifytime > '@{activity('LookupWaterMarkActivity').output.firstRow.WatermarkValue}' and LastModifytime <= '@{activity('LookupMaxValuefromSourceActivity').output.firstRow.NewWatermarkvalue}'"
     					},
     					"sink": {
     						"type": "BlobSink"
@@ -438,8 +435,8 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
     
     					"storedProcedureName": "sp_write_watermark",
     					"storedProcedureParameters": {
-    						"LastModifiedtime": {"value": "@{activity('LookupMaxValuefromSourceActivity').output.NewWatermarkvalue}", "type": "datetime" },
-    						"TableName":  { "value":"@{activity('LookupWaterMarkActivity').output.TableName}", "type":"String"}
+    						"LastModifiedtime": {"value": "@{activity('LookupMaxValuefromSourceActivity').output.firstRow.NewWatermarkvalue}", "type": "datetime" },
+    						"TableName":  { "value":"@{activity('LookupWaterMarkActivity').output.firstRow.TableName}", "type":"String"}
     					}
     				},
     
@@ -462,10 +459,14 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
     	}
     }
     ```json
+
+	If you are using a source table with a name different from the one used in the tutorial (**datasoruce**), replace **datasource** in the sqlReaderQuery with the name of your source table. 
+	
+
 2. Run the Set-AzureRmDataFactoryV2Pipeline cmdlet to create the pipeline: IncrementalCopyPipeline.
     
    ```powershell
-   Set-AzureRmDataFactoryV2Pipeline -DataFactory $df -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
+   Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
    ``` 
 
    Here is the sample output: 
@@ -488,7 +489,7 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
 2. Check the status of pipeline by running the Get-AzureRmDataFactoryV2ActivityRun cmdlet until you see all the activities running successfully. Replace place-holders with your own appropriate time for parameter RunStartedAfter and RunStartedBefore.  In this tutorial, we use -RunStartedAfter "2017/09/14" -RunStartedBefore "2017/09/15"
 
 	```powershell
-	Get-AzureRmDataFactoryV2ActivityRun -dataFactory $df -PipelineName "IncrementalCopyPipeline" -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
+	Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName "IncrementalCopyPipeline" -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
 	```
 
 	Here is the sample output:
@@ -608,7 +609,7 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
 3. Check the status of pipeline by running **Get-AzureRmDataFactoryV2ActivityRun** cmdlet until you see all the activities running successfully. Replace place-holders with your own appropriate time for parameter RunStartedAfter and RunStartedBefore.  In this tutorial, we use -RunStartedAfter "2017/09/14" -RunStartedBefore "2017/09/15"
 
 	```powershell
-	Get-AzureRmDataFactoryV2ActivityRun -dataFactory $df -PipelineName "IncrementalCopyPipeline" -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
+	Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName "IncrementalCopyPipeline" -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
 	```
 
 	Here is the sample output:
