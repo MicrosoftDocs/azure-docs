@@ -117,7 +117,7 @@ In this section, you create a self-hosted integration runtime and associate it w
    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted
    ```
 
-   2. We would use PowerShell to retrieve Authentication Keys to register the self-hosted integration runtime. Copy one of the keys for registering the self-hosted integration runtime.
+2. We would use PowerShell to retrieve Authentication Keys to register the self-hosted integration runtime. Copy one of the keys for registering the self-hosted integration runtime.
 
    ```powershell
    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName | ConvertTo-Json
@@ -132,8 +132,8 @@ In this section, you create a self-hosted integration runtime and associate it w
    }
    ```
 
-   3. Create an Azure VM and join it into the same virtual network that contains your HDInsight cluster. For details, see [How to create virtual machines](../virtual-network/virtual-network-get-started-vnet-subnet.md#create-vms). Join them into an Azure Virtual Network. 
-   4. On the Azure VM, download [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717) (previously called Data Management Gateway). Use the Authentication Key obtained in the previous step to manually register the self-hosted integration runtime. 
+3. Create an Azure VM and join it into the same virtual network that contains your HDInsight cluster. For details, see [How to create virtual machines](../virtual-network/virtual-network-get-started-vnet-subnet.md#create-vms). Join them into an Azure Virtual Network. 
+4. On the Azure VM, download [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717) (previously called Data Management Gateway). Use the Authentication Key obtained in the previous step to manually register the self-hosted integration runtime. 
 
    ![Register integration runtime](media/tutorial-transform-data-using-hive-in-vnet/register-integration-runtime.png)
 
