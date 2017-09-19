@@ -70,7 +70,7 @@ With X.509 CA certificate registered and devices signed into a certificate chain
 
 A successfull device connection to IoT Hub completes the authentication process and is also indicative of a proper setup.
 
-Learn here how to complete this device connection step.
+Learn here how to complete this device connection step <<todo: link to connection tutorial>>
 
 ## Next Steps
 
