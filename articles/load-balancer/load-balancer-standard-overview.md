@@ -118,7 +118,7 @@ Availability Zones are currently in Preview in specific regions and require addi
 
 Load Balancer Standard provides abilities for constructing Availability Zone scenarios with zonal or zone-redundant options and cross-zone load balancing.
 
-With public or internal Load Balancer and Availability Zones, your frontend becomes zone-redundant by default.  If you do not specify a zone, Azure helps protect your data path from zone failure automatically. Not additional action is required. A zone-redundant frontend is served by all Availability Zones in a region simultaneously.
+With public or internal Load Balancer and Availability Zones, your frontend is zone-redundant by default.  If you do not specify a zone, Azure helps protect your data path from zone failure automatically. Not additional action is required. A zone-redundant frontend is served by all Availability Zones in a region simultaneously.
 
 No DNS names are required for resiliency.  With a zone-redundant configuration, you can use a single backend subnet with your VM instances and address it with a single zone-redundant Load Balancer frontend IP address.
 
