@@ -192,7 +192,7 @@ The parameters used in the preceding example are:
 
 ## Create managed application with portal
 
-1. If needed, create an Azure Active Directory user group to manage the resources. For more information, see [Create a group and add members in Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal).
+1. If needed, create an Azure Active Directory user group to manage the resources. For more information, see [Create a group and add members in Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md).
 1. In the lower left corner, select **More services**.
 
    ![More services](./media/managed-application-publishing/more-services.png)
