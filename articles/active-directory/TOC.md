@@ -42,6 +42,7 @@
 #### [Identify and resolve license problems in a group](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Migrate individual licensed users to group-based licensing](active-directory-licensing-group-migration-azure-portal.md)
 #### [Additional scenarios for group-based licensing](active-directory-licensing-group-advanced.md)
+#### [Provide terms of use for users and services](active-directory-tou.md)
 #### [PowerShell examples for group-based licensing](active-directory-licensing-ps-examples.md)
 ### [Add users from other directories (classic portal)](active-directory-create-users-external.md)
 ### [Manage user profiles](active-directory-users-profile-azure-portal.md)
@@ -135,9 +136,9 @@
 ### [Plan Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [FAQs](device-management-faq.md)
 ### Tasks
-#### [Configure Azure AD registered Windows 10 devices](device-management-azuread-registered-devices-windows10-setup.md)
-#### [Configure Azure AD joined devices](device-management-azuread-joined-devices-setup.md)
-#### [Configure hybrid Azure AD joined devices](device-management-hybrid-azuread-joined-devices-setup.md) 
+#### [Set up Azure AD registered Windows 10 devices](device-management-azuread-registered-devices-windows10-setup.md)
+#### [Set up Azure AD joined devices](device-management-azuread-joined-devices-setup.md)
+#### [Set up hybrid Azure AD joined devices](device-management-hybrid-azuread-joined-devices-setup.md) 
 #### [Deploy on-premises](active-directory-device-registration-on-premises-setup.md)
 #### [Azure AD join during Windows 10 first-run experience](device-management-azuread-joined-devices-frx.md)
 ### Troubleshoot
@@ -196,6 +197,7 @@
 #### [Remove users](active-directory-coreapps-remove-assignment-azure-portal.md)
 #### [View all my apps](active-directory-coreapps-view-azure-portal.md)
 #### [Manage user account provisioning](active-directory-enterprise-apps-manage-provisioning.md)
+#### [Manage single sign-on for enterprise apps](active-directory-enterprise-apps-manage-sso.md)
 
 ### [Manage access to apps](active-directory-managing-access-to-apps.md)
 #### [Self-service access](active-directory-self-service-application-access.md)
@@ -265,38 +267,27 @@
 
 ### [Integrate on-premises identities using Azure AD Connect](./connect/active-directory-aadconnect.md)
 
+## [Manage access to Azure](toc.yml)
+
 ## Delegate access to resources
 ### [Administrator roles](active-directory-assign-admin-roles.md)
 #### [Assign admin roles](active-directory-users-assign-role-azure-portal.md)
 ### [Administrative units](active-directory-administrative-units-management.md)
-### [Resource access in Azure](active-directory-understanding-resource-access.md)
-### [Role-Based Access Control](role-based-access-control-what-is.md)
-#### Manage access assignments
-##### [By user](role-based-access-control-manage-assignments.md)
-##### [By resource](role-based-access-control-configure.md)
-#### [Built-in roles](role-based-access-built-in-roles.md)
-#### [Custom roles](role-based-access-control-custom-roles.md)
-#### [Assign custom roles for internal and external users](role-based-access-control-create-custom-roles-for-internal-external-users.md)
-#### [Reporting](role-based-access-control-access-change-history-report.md)
-#### More ways to manage roles
-##### [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
-##### [PowerShell](role-based-access-control-manage-access-powershell.md)
-##### [REST](role-based-access-control-manage-access-rest.md)
-#### [Elevate tenant admin access](role-based-access-control-tenant-admin-access.md)
-#### [Troubleshoot](role-based-access-control-troubleshooting.md)
-#### [Resource Provider operations](role-based-access-control-resource-provider-operations.md)
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
 
 ## Secure your identities
 ### [Conditional access](active-directory-conditional-access-azure-portal.md)
+#### [Controls](active-directory-conditional-access-controls.md)
 #### [Get started](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Best practices](active-directory-conditional-access-best-practices.md)
-#### [VPN connectivity](active-directory-conditional-access-vpn-connectivity-windows10.md)
-#### [Mobile app management](active-directory-conditional-access-mam.md)
+#### [Understand device policies for Office 365 services](active-directory-conditional-access-device-policies.md)
+#### Tasks
+##### [Set up device-based conditional access](active-directory-conditional-access-policy-connected-applications.md)
+##### [Set up app-based conditional access](active-directory-conditional-access-mam.md)
+##### [Set up VPN connectivity](active-directory-conditional-access-vpn-connectivity-windows10.md)
+##### [Set up SharePoint and Exchange Online](active-directory-conditional-access-no-modern-authentication.md)
+##### [Remediation](active-directory-conditional-access-device-remediation.md)
 #### [Technical reference](active-directory-conditional-access-technical-reference.md)
-#### [Understand device policies](active-directory-conditional-access-device-policies.md)
-#### [Set up access to connected apps](active-directory-conditional-access-policy-connected-applications.md)
-#### [Remediation](active-directory-conditional-access-device-remediation.md)
 #### [FAQs](active-directory-conditional-faqs.md)
 #### [Classic portal](active-directory-conditional-access.md)
 ##### [Get started](active-directory-conditional-access-azuread-connected-apps.md)

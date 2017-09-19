@@ -1,6 +1,6 @@
 ---
-title: Sign up for Azure Active Directory Premium
-description: Explains how to sign up for Azure Active Directory Premium edition.
+title: Sign up for Azure Active Directory Premium | Microsoft Docs
+description: Explains how to sign up for Azure Active Directory Premium edition
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -12,17 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/09/2017
+ms.date: 09/07/2017
 ms.author: curtand
-
+ms.reviewer: piotrci
 ms.custom: it-pro;
 
 ---
 # Quickstart: Sign up for Azure Active Directory Premium
-To get started with Azure Active Directory (Azure AD) Premium, you need to purchase licenses and associate them with your Azure subscription. If you create a new Azure subscription, you also need to activate your licensing plan and Azure AD service access as described in the following sections. 
+To get started with Azure Active Directory (Azure AD) Premium, you can purchase licenses and associate them with your Azure subscription. If you create a new Azure subscription, you also need to activate your licensing plan and Azure AD service access as described in the following sections. 
 
 ## Sign up for Active Directory Premium
 To sign up for Active Directory Premium, you have several options: 
+* Use your Azure or Office 365 subscription
+* Use an Enterprise Mobility + Security licensing plan
+* Use a Microsoft Volume Licensing plan
 
 ### Azure or Office 365 
 As an Azure or Office 365 subscriber, you can buy Azure Active Directory Premium online. 
@@ -38,17 +41,15 @@ You can get started with Azure AD via EMS licenses using one of the following li
 - Purchase [Enterprise Mobility + Security E5 licenses](https://signup.microsoft.com/Signup?OfferId=e6de2192-536a-4dc3-afdc-9e2602b6c790&ali=1)
 - Purchase [Enterprise Mobility + Security E3 licenses](https://signup.microsoft.com/Signup?OfferId=4BBA281F-95E8-4136-8B0F-037D6062F54C&ali=1)
 
-### Microsoft Volume Licensing
+### Microsoft volume licensing
 Azure Active Directory Premium is available through a [Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) (250 or more licenses) or the [Open Volume License](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) (5–250 licenses) program.
 
 You can learn more about volume licensing purchase options on the [How to purchase through Volume Licensing](https://www.microsoft.com/licensing/how-to-buy/how-to-buy.aspx) page.
 
 > [!NOTE]
 > Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
-> 
-> 
 
-If you have previously purchased and activated Azure AD licenses for the same Azure subscription that you used in the preceding steps, then the licenses are automatically activated in the same directory. And you do not need to continue with the steps described in the rest of this article.
+If you have previously purchased and activated Azure AD licenses for the same Azure subscription that you used in the preceding steps, then the licenses are automatically activated in the same directory. If not, continue with the steps described in the rest of this article.
 
 ## Activate your license plan
 Is this your first Azure AD license plan you've purchase from Microsoft? If so, a confirmation email is generated and sent to you when your purchase has been completed. You need this email to activate your first license plan.
@@ -59,7 +60,7 @@ Is this your first Azure AD license plan you've purchase from Microsoft? If so, 
    
     ![Sign in][1]
 
-    - If you have an existing tenant, click **Sign In** to sign in with your existing administrator account. Sign in with the global administrator credentials from the directory where the licenses must be activated.
+    - If you have an existing tenant, click **Sign In** to sign in with your existing administrator account. Sign in with global administrator credentials for the tenant where the licenses must be activated.
 
     - If you want to create a new Azure AD tenant to use with your licensing plan, click **Sign Up** to open the **Create Account Profile** dialog.
 
