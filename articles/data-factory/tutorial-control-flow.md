@@ -18,7 +18,7 @@ ms.author: shlo
 ---
 
 # Branching and chaining activities in a Data Factory pipeline
-In this tutorial, you create a Data Factory pipeline that showcases some of the control flow features. The pipeline does a simple copy from a container in Azure Blob Storage to another container in the same storage account. If the copy activity succeeds, you want to send the success of the copy details (such as the amount of data written) as a success email. If the copy activity fails, you want to send failure details (such as the error message) as a failure email. Throughout the tutorial, you see how to pass parameters.
+In this tutorial, you create a Data Factory pipeline that showcases some of the control flow features. This pipeline does a simple copy from a container in Azure Blob Storage to another container in the same storage account. If the copy activity succeeds, you want to send details of the successful copy operation (such as the amount of data written)in a success email. If the copy activity fails, you want to send details of copy failure (such as the error message) in a failure email. Throughout the tutorial, you see how to pass parameters.
 
 A high-level overview of the scenario:
 ![Overview](media/tutorial-control-flow/overview.png)
@@ -29,13 +29,13 @@ You perform the following steps in this tutorial:
 > * Create a data factory.
 > * Create an Azure Storage linked service.
 > * Create an Azure Blob dataset
-> * Create a pipeline that contains a copy activity and web activity
+> * Create a pipeline that contains a copy activity and a web activity
 > * Send outputs of activities to subsequent activities
 > * Utilize parameter passing and system variables
-> * Start a pipeline run.
-> * Monitor the pipeline and activity runs.
+> * Start a pipeline run
+> * Monitor the pipeline and activity runs
 
-This tutorial uses .NET SDK. You can use other mechanisms to interact with Azure Data Factory, refer to samples under "Quickstarts" in the table of contents.
+This tutorial uses .NET SDK. You can use other mechanisms to interact with Azure Data Factory, refer to "Quickstarts" in the table of contents.
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ This tutorial uses .NET SDK. You can use other mechanisms to interact with Azure
 * **Azure SQL Database**. You use the database as **sink** data store. If you don't have an Azure SQL Database, see the [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) article for steps to create one.
 * **Visual Studio** 2013, 2015, or 2017. The walkthrough in this article uses Visual Studio 2017.
 * **Download and install [Azure .NET SDK](http://azure.microsoft.com/downloads/)**.
-* **Create an application in Azure Active Directory** following [this instruction](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Make note of the following values that you use in later steps: **application ID**, **authentication key**, and **tenant ID**. Assign application to "**Contributor**" role by following instructions in the same article.
+* **Create an application in Azure Active Directory** following [these instruction](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Make note of the following values that you use in later steps: **application ID**, **authentication key**, and **tenant ID**. Assign application to "**Contributor**" role by following instructions in the same article.
 
 ### Create blob table
 
@@ -61,7 +61,7 @@ This tutorial uses .NET SDK. You can use other mechanisms to interact with Azure
 Using Visual Studio 2015/2017, create a C# .NET console application.
 
 1. Launch **Visual Studio**.
-2. Click **File**, point to **New**, and click **Project**.
+2. Click **File**, point to **New**, and click **Project**. .NET version 4.5.2 or above is required.
 3. Select **Visual C#** -> **Console App (.NET Framework)** from the list of project types on the right.
 4. Enter **ADFv2BranchTutorial** for the Name.
 5. Click **OK** to create the project.
@@ -115,6 +115,10 @@ Using Visual Studio 2015/2017, create a C# .NET console application.
     string blobSourceDatasetName = "SourceStorageDataset";
     string blobSinkDatasetName = "SinkStorageDataset";
     string pipelineName = "Adfv2TutorialBranchCopy";
+
+    string copyBlobActivity = "CopyBlobtoBlob";
+    string sendFailEmailActivity = "SendFailEmailActivity";
+    string sendSuccessEmailActivity = "SendSuccessEmailActivity";    
     ```
 
 3. Add the following code to the **Main** method that creates an instance of **DataFactoryManagementClient** class. You use this object to create data factory, linked service, datasets, and pipeline. You also use this object to monitor the pipeline run details.
@@ -129,42 +133,59 @@ Using Visual Studio 2015/2017, create a C# .NET console application.
     ```
 
 ## Create data factory
-
-Add the following code to the **Main** method that creates a **data factory**. 
+Create a “CreateOrUpdateDataFactory” function in your Program.cs file:
 
 ```csharp
-// Create a data factory
-Console.WriteLine("Creating data factory " + dataFactoryName + "...");
-Factory dataFactory = new Factory
+static Factory CreateOrUpdateDataFactory(DataFactoryManagementClient client)
 {
-    Location = region,
-    Identity = new FactoryIdentity()
-};
-client.Factories.CreateOrUpdate(resourceGroup, dataFactoryName, dataFactory);
-Console.WriteLine(SafeJsonConvert.SerializeObject(dataFactory, client.SerializationSettings));
+    Console.WriteLine("Creating data factory " + dataFactoryName + "...");
+    Factory resource = new Factory
+    {
+        Location = region
+    };
+    Console.WriteLine(SafeJsonConvert.SerializeObject(resource, client.SerializationSettings));
 
-while (client.Factories.Get(resourceGroup, dataFactoryName).ProvisioningState == "PendingCreation")
-{
-    System.Threading.Thread.Sleep(1000);
+    Factory response;
+    {
+        response = client.Factories.CreateOrUpdate(resourceGroup, dataFactoryName, resource);
+    }
+
+    while (client.Factories.Get(resourceGroup, dataFactoryName).ProvisioningState == "PendingCreation")
+    {
+        System.Threading.Thread.Sleep(1000);
+    }
+    return response;
 }
 ```
 
-## Create Azure Storage linked service
 
+
+Add the following code to **Main** method that creates a **data factory**. 
+
+```csharp
+Factory df = CreateOrUpdateDataFactory(client);
+```
+
+## Create Azure Storage linked service
+Create a “StorageLinkedServiceDefinition” function in your Program.cs file:
+
+```csharp
+static LinkedServiceResource StorageLinkedServiceDefinition(DataFactoryManagementClient client)
+{
+    Console.WriteLine("Creating linked service " + storageLinkedServiceName + "...");
+    AzureStorageLinkedService storageLinkedService = new AzureStorageLinkedService
+    {
+        ConnectionString = new SecureString("DefaultEndpointsProtocol=https;AccountName=" + storageAccount + ";AccountKey=" + storageKey)
+    };
+    Console.WriteLine(SafeJsonConvert.SerializeObject(storageLinkedService, client.SerializationSettings));
+    LinkedServiceResource linkedService = new LinkedServiceResource(storageLinkedService, name:storageLinkedServiceName);
+    return linkedService;
+}
+```
 Add the following code to the **Main** method that creates an **Azure Storage linked service**. Learn more from [Azure Blob linked service properties](connector-azure-blob-storage.md#linked-service-properties) on supported properties and details.
 
 ```csharp
-// Create an Azure Storage linked service
-Console.WriteLine("Creating linked service " + storageLinkedServiceName + "...");
-
-LinkedServiceResource storageLinkedService = new LinkedServiceResource(
-    new AzureStorageLinkedService
-    {
-        ConnectionString = new SecureString("DefaultEndpointsProtocol=https;AccountName=" + storageAccount + ";AccountKey=" + storageKey)
-    }
-);
-client.LinkedServices.CreateOrUpdate(resourceGroup, dataFactoryName, storageLinkedServiceName, storageLinkedService);
-Console.WriteLine(SafeJsonConvert.SerializeObject(storageLinkedService, client.SerializationSettings));
+client.LinkedServices.CreateOrUpdate(resourceGroup, dataFactoryName, storageLinkedServiceName, StorageLinkedServiceDefinition(client));
 ```
 
 ## Create datasets
@@ -172,69 +193,62 @@ Console.WriteLine(SafeJsonConvert.SerializeObject(storageLinkedService, client.S
 In this section, you create two datasets: one for the source and the other for the sink. 
 
 ### Create dataset for source Azure Blob
-
 Add the following code to the **Main** method that creates an **Azure blob dataset**. Learn more from [Azure Blob dataset properties](connector-azure-blob-storage.md#dataset-properties) on supported properties and details.
 
 You define a dataset that represents the source data in Azure Blob. This Blob dataset refers to the Azure Storage linked service you create in the previous step, and describes:
 
 - The location of the blob to copy from: **FolderPath** and **FileName**;
-- Notice the use of parameters for the FolderPath. “sourceBlobContainer” is the name of the parameter and the expression is replaced with the values passed in the pipeline run. The syntax to define parameters is @pipeline().parameters.<parameterName>
+- Notice the use of parameters for the FolderPath. “sourceBlobContainer” is the name of the parameter and the expression is replaced with the values passed in the pipeline run. The syntax to define parameters is `@pipeline().parameters.<parameterName>`
 
+Create a “SourceBlobDatasetDefinition” function in your Program.cs file
 
 ```csharp
-// Create an Azure Blob source dataset
-Console.WriteLine("Creating dataset " + blobSourceDatasetName + "...");
-DatasetResource sourceBlobDataset = new DatasetResource(
-    new AzureBlobDataset
-    {
+static DatasetResource SourceBlobDatasetDefinition(DataFactoryManagementClient client)
+{
+    Console.WriteLine("Creating dataset " + blobSourceDatasetName + "...");
+    AzureBlobDataset blobDataset = new AzureBlobDataset
+    { 
+        FolderPath = new Expression { Value = "@pipeline().parameters.sourceBlobContainer" },
+        FileName = inputBlobName,
         LinkedServiceName = new LinkedServiceReference
         {
             ReferenceName = storageLinkedServiceName
-        },
-        FolderPath = new Expression { 
-            Value = "@pipeline().parameters.sourceBlobContainer" 
-        },
-        FolderPath = new Expression { Value = "@pipeline().parameters.sourceBlobContainer" },
-        FileName = inputBlobName
-    }
-);
-
-client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobSourceDatasetName, sourceBlobDataset);
-Console.WriteLine(SafeJsonConvert.SerializeObject(sourceBlobDataset, client.SerializationSettings));
-
-client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobDatasetName, blobDataset);
-Console.WriteLine(SafeJsonConvert.SerializeObject(blobDataset, client.SerializationSettings));
+        }
+    };
+    Console.WriteLine(SafeJsonConvert.SerializeObject(blobDataset, client.SerializationSettings));
+    DatasetResource dataset = new DatasetResource(blobDataset, name:blobSourceDatasetName);
+    return dataset;
+}
 ```
 
-### Create dataset for source Azure Blob
+### Create dataset for sink Azure Blob
 
-Add the following code to the **Main** method that creates an **Azure blob dataset**. Learn more from [Azure Blob dataset properties](connector-azure-blob-storage.md#dataset-properties) on supported properties and details.
-
-You define a dataset that represents the source data in Azure Blob. This Blob dataset refers to the Azure Storage linked service you create in the previous step, and describes:
-
-- The location of the blob to copy from: **FolderPath** and **FileName**;
-- Notice the use of parameters for the FolderPath. “sinkBlobContainer” is the name of the parameter and the expression are replaced with the values passed in the pipeline run. The syntax to define parameters is @pipeline().parameters.<parameterName>
-- No filename is included in this dataset. It retains the source dataset name that it is copying from.
-
+Create a “SourceBlobDatasetDefinition” function in your Program.cs file
 
 ```csharp
-// Create an Azure Blob sink dataset
-Console.WriteLine("Creating dataset " + blobSinkDatasetName + "...");
-DatasetResource sinkBlobDataset = new DatasetResource(
-    new AzureBlobDataset
+static DatasetResource SinkBlobDatasetDefinition(DataFactoryManagementClient client)
+{
+    Console.WriteLine("Creating dataset " + blobSinkDatasetName + "...");
+    AzureBlobDataset blobDataset = new AzureBlobDataset
     {
+        FolderPath = new Expression { Value = "@pipeline().parameters.sinkBlobContainer" },
         LinkedServiceName = new LinkedServiceReference
         {
             ReferenceName = storageLinkedServiceName
-        },
-        FolderPath = new Expression { 
-            Value = "@pipeline().parameters.sinkBlobContainer" 
         }
-    }
-);
+    };
+    Console.WriteLine(SafeJsonConvert.SerializeObject(blobDataset, client.SerializationSettings));
+    DatasetResource dataset = new DatasetResource(blobDataset, name: blobSinkDatasetName);
+    return dataset;
+}
+```
 
-client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobSinkDatasetName, sinkBlobDataset);
-Console.WriteLine(SafeJsonConvert.SerializeObject(sinkBlobDataset, client.SerializationSettings));
+Add the following code to the **Main** method that creates both Azure Blob source and sink datasets. 
+
+```csharp
+client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobSourceDatasetName, SourceBlobDatasetDefinition(client));
+
+client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobSinkDatasetName, SinkBlobDatasetDefinition(client));
 ```
 
 ## Create Email class
@@ -349,73 +363,81 @@ In this pipeline you use the following features:
 Let’s break down the following pipeline section by section:
 
 ```csharp
-// Create a pipeline with copy activity
-Console.WriteLine("Creating pipeline " + pipelineName + "...");
-PipelineResource pipeline = new PipelineResource
-{
-    Parameters = new Dictionary<string, ParameterSpecification>
-    {
-        { "sourceBlobContainer", new ParameterSpecification { Type = ParameterType.String } },
-        { "sinkBlobContainer", new ParameterSpecification { Type = ParameterType.String } },
-        { "receiver", new ParameterSpecification { Type = ParameterType.String } }
 
-    },
-    Activities = new List<Activity>
-    {
-        new CopyActivity
+static PipelineResource PipelineDefinition(DataFactoryManagementClient client)
         {
-            Name = copyBlobActivity,
-            Inputs = new List<DatasetReference>
+            Console.WriteLine("Creating pipeline " + pipelineName + "...");
+            PipelineResource resource = new PipelineResource
             {
-                new DatasetReference
+                Parameters = new Dictionary<string, ParameterSpecification>
                 {
-                    ReferenceName = sourceBlobDataset
-                }
-            },
-            Outputs = new List<DatasetReference>
-            {
-                new DatasetReference
+                    { "sourceBlobContainer", new ParameterSpecification { Type = ParameterType.String } },
+                    { "sinkBlobContainer", new ParameterSpecification { Type = ParameterType.String } },
+                    { "receiver", new ParameterSpecification { Type = ParameterType.String } }
+
+                },
+                Activities = new List<Activity>
                 {
-                    ReferenceName = sinkBlobDataset
+                    new CopyActivity
+                    {
+                        Name = copyBlobActivity,
+                        Inputs = new List<DatasetReference>
+                        {
+                            new DatasetReference
+                            {
+                                ReferenceName = blobSourceDatasetName
+                            }
+                        },
+                        Outputs = new List<DatasetReference>
+                        {
+                            new DatasetReference
+                            {
+                                ReferenceName = blobSinkDatasetName
+                            }
+                        },
+                        Source = new BlobSource { },
+                        Sink = new BlobSink { }
+                    },
+                    new WebActivity
+                    {
+                        Name = sendSuccessEmailActivity,
+                        Method = WebActivityMethod.POST,
+                        Url = "https://prod-16.eastus.logic.azure.com:443/workflows/a26fe68279694e99bb951794def0f367/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=JhIdDPfDxPWyogfUMOOt_Wa02eRmoxzCPyqHsAWYFMw",
+                        Body = new EmailRequest("@{activity('CopyBlobtoBlob').output.dataWritten}", "@{pipeline().DataFactory}", "@{pipeline().Pipeline}", "@pipeline().parameters.receiver"),
+                        DependsOn = new List<ActivityDependency>
+                        {
+                            new ActivityDependency
+                            {
+                                Activity = copyBlobActivity,
+                                DependencyConditions = new List<String> { "Succeeded" }
+                            }
+                        }
+                    },
+                    new WebActivity
+                    {
+                        Name = sendFailEmailActivity,
+                        Method =WebActivityMethod.POST,
+                        Url = "https://prod-31.eastus.logic.azure.com:443/workflows/a2ee1dfc90144a3aa36c63e503e2fa59/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=U4vmawgJH6lI8yVXl9ligDASBAEFMreJQKZEOSzcpr8",
+                        Body = new EmailRequest("@{activity('CopyBlobtoBlob').error.message}", "@{pipeline().DataFactory}", "@{pipeline().Pipeline}", "@pipeline().parameters.receiver"),
+                        DependsOn = new List<ActivityDependency>
+                        {
+                            new ActivityDependency
+                            {
+                                Activity = copyBlobActivity,
+                                DependencyConditions = new List<String> { "Failed" }
+                            }
+                        }
+                    }
                 }
-            },
-            Source = new BlobSource { },
-            Sink = new BlobSink { }
-        },
-        new WebActivity
-        {
-            Name = sendCopyEmailActivity,
-            Method = WebActivityMethod.POST,
-            Url = "https://prodxxx.eastus.logic.azure.com:443/workflows/12345 ",
-            Body = new EmailRequest("@{activity('CopyBlobtoBlob').output.dataWritten}", "@{pipeline().DataFactory}", "@{pipeline().Pipeline}", "@pipeline().parameters.receiver"),
-            DependsOn = new List<ActivityDependency>
-            {
-                new ActivityDependency
-                {
-                    Activity = copyBlobActivity,
-                    DependencyConditions = new List<String> { "Succeeded" }
-                }
-            }
-        },
-        new WebActivity
-        {
-            Name = sendFailEmailActivity,
-            Method =WebActivityMethod.POST,
-            Url = "https://prodxxx.eastus.logic.azure.com:443/workflows/a2ee1dfc90144a3aa36c63e500000000/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=334555555xxxxxxI8yVXl9ligDASBAEFMreJQKZEOSzcpr8",
-            Body = new EmailRequest("@{activity('CopyBlobtoBlob').error.message}", "@{pipeline().DataFactory}", "@{pipeline().Pipeline}", "@pipeline().parameters.receiver"),
-            DependsOn = new List<ActivityDependency>
-            {
-                new ActivityDependency
-                {
-                    Activity = copyBlobActivity,
-                    DependencyConditions = new List<String> { "Failed" }
-                }
-            }
+            };
+            Console.WriteLine(SafeJsonConvert.SerializeObject(resource, client.SerializationSettings));
+            return resource;
         }
-    }   
-};
-client.Pipelines.CreateOrUpdate(resourceGroup, dataFactoryName, pipelineName, pipeline);
-Console.WriteLine(SafeJsonConvert.SerializeObject(pipeline, client.SerializationSettings));
+```
+Add the following code to the **Main** method that creates the pipeline:
+
+```
+client.Pipelines.CreateOrUpdate(resourceGroup, dataFactoryName, pipelineName, PipelineDefinition(client));
 ```
 ### Parameters
 The first section of our pipeline defines parameters. 
@@ -468,7 +490,45 @@ Add the following code to the **Main** method that **triggers a pipeline run**.
 ```csharp
 // Create a pipeline run
 Console.WriteLine("Creating pipeline run...");
-CreateRunResponse runResponse = client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName).Result.Body;
+Dictionary<string, object> arguments = new Dictionary<string, object>
+{
+    { "sourceBlobContainer", inputBlobPath },
+    { "sinkBlobContainer", outputBlobPath },
+    { "receiver", emailReceiver }
+};
+
+CreateRunResponse runResponse = client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, arguments).Result.Body;
+Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
+```
+
+## Main class 
+Your final Main method should look like this. Build and run your program to trigger a pipeline run!
+
+```csharp
+// Authenticate and create a data factory management client
+var context = new AuthenticationContext("https://login.windows.net/" + tenantID);
+ClientCredential cc = new ClientCredential(applicationId, authenticationKey);
+AuthenticationResult result = context.AcquireTokenAsync("https://management.azure.com/", cc).Result;
+ServiceClientCredentials cred = new TokenCredentials(result.AccessToken);
+var client = new DataFactoryManagementClient(cred) { SubscriptionId = subscriptionId };
+
+Factory df = CreateOrUpdateDataFactory(client);
+
+client.LinkedServices.CreateOrUpdate(resourceGroup, dataFactoryName, storageLinkedServiceName, StorageLinkedServiceDefinition(client));
+client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobSourceDatasetName, SourceBlobDatasetDefinition(client));
+client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobSinkDatasetName, SinkBlobDatasetDefinition(client));
+
+client.Pipelines.CreateOrUpdate(resourceGroup, dataFactoryName, pipelineName, PipelineDefinition(client));
+
+Console.WriteLine("Creating pipeline run...");
+Dictionary<string, object> arguments = new Dictionary<string, object>
+{
+    { "sourceBlobContainer", inputBlobPath },
+    { "sinkBlobContainer", outputBlobPath },
+    { "receiver", emailReceiver }
+};
+
+CreateRunResponse runResponse = client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, arguments).Result.Body;
 Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 ```
 
@@ -510,14 +570,163 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
     ```
 
 ## Run the code
-
 Build and start the application, then verify the pipeline execution.
+The console prints the progress of creating data factory, linked service, datasets, pipeline, and pipeline run. It then checks the pipeline run status. Wait until you see the copy activity run details with data read/written size. Then, use tools such as Azure Storage explorer to check the blob(s) is copied to "outputBlobPath" from "inputBlobPath" as you specified in variables.
 
-The console prints the progress of creating data factory, linked service, datasets, pipeline, and pipeline run. It then checks the pipeline run status. Wait until you see the copy activity run details with data read/written size. 
+**Sample output:**
 
+```json
+Creating data factory DFTutorialTest...
+{
+  "location": "East US"
+}
+Creating linked service AzureStorageLinkedService...
+{
+  "type": "AzureStorage",
+  "typeProperties": {
+    "connectionString": {
+      "type": "SecureString",
+      "value": "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=***"
+    }
+  }
+}
+Creating dataset SourceStorageDataset...
+{
+  "type": "AzureBlob",
+  "typeProperties": {
+    "folderPath": {
+      "type": "Expression",
+      "value": "@pipeline().parameters.sourceBlobContainer"
+    },
+    "fileName": "input.txt"
+  },
+  "linkedServiceName": {
+    "type": "LinkedServiceReference",
+    "referenceName": "AzureStorageLinkedService"
+  }
+}
+Creating dataset SinkStorageDataset...
+{
+  "type": "AzureBlob",
+  "typeProperties": {
+    "folderPath": {
+      "type": "Expression",
+      "value": "@pipeline().parameters.sinkBlobContainer"
+    }
+  },
+  "linkedServiceName": {
+    "type": "LinkedServiceReference",
+    "referenceName": "AzureStorageLinkedService"
+  }
+}
+Creating pipeline Adfv2TutorialBranchCopy...
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "BlobSource"
+          },
+          "sink": {
+            "type": "BlobSink"
+          }
+        },
+        "inputs": [
+          {
+            "type": "DatasetReference",
+            "referenceName": "SourceStorageDataset"
+          }
+        ],
+        "outputs": [
+          {
+            "type": "DatasetReference",
+            "referenceName": "SinkStorageDataset"
+          }
+        ],
+        "name": "CopyBlobtoBlob"
+      },
+      {
+        "type": "WebActivity",
+        "typeProperties": {
+          "method": "POST",
+          "url": "https://xxxx.eastus.logic.azure.com:443/workflows/... ",
+          "body": {
+            "message": "@{activity('CopyBlobtoBlob').output.dataWritten}",
+            "dataFactoryName": "@{pipeline().DataFactory}",
+            "pipelineName": "@{pipeline().Pipeline}",
+            "receiver": "@pipeline().parameters.receiver"
+          }
+        },
+        "name": "SendSuccessEmailActivity",
+        "dependsOn": [
+          {
+            "activity": "CopyBlobtoBlob",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "WebActivity",
+        "typeProperties": {
+          "method": "POST",
+          "url": "https://xxx.eastus.logic.azure.com:443/workflows/... ",
+          "body": {
+            "message": "@{activity('CopyBlobtoBlob').error.message}",
+            "dataFactoryName": "@{pipeline().DataFactory}",
+            "pipelineName": "@{pipeline().Pipeline}",
+            "receiver": "@pipeline().parameters.receiver"
+          }
+        },
+        "name": "SendFailEmailActivity",
+        "dependsOn": [
+          {
+            "activity": "CopyBlobtoBlob",
+            "dependencyConditions": [
+              "Failed"
+            ]
+          }
+        ]
+      }
+    ],
+    "parameters": {
+      "sourceBlobContainer": {
+        "type": "String"
+      },
+      "sinkBlobContainer": {
+        "type": "String"
+      },
+      "receiver": {
+        "type": "String"
+      }
+    }
+  }
+}
+Creating pipeline run...
+Pipeline run ID: 00000000-0000-0000-0000-0000000000000
+Checking pipeline run status...
+Status: InProgress
+Status: InProgress
+Status: Succeeded
+Checking copy activity run details...
+{
+  "dataRead": 20,
+  "dataWritten": 20,
+  "copyDuration": 4,
+  "throughput": 0.01,
+  "errors": [],
+  "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US)"
+}
+{}
+
+Press any key to exit...
+```
 
 ## Next steps
-The pipeline in this sample copies data from one location to another location in an Azure blob storage. You learned how to: 
+The pipeline in this sample copies data from one location to another location in an Azure blob storage while using branching and parameters. You learned how to: 
 
 > [!div class="checklist"]
 > * Create a data factory.
