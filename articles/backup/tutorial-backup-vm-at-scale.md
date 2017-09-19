@@ -71,7 +71,7 @@ Before registering a virtual machine with a vault, run the discovery process to 
 
     The list of Recovery Services vaults appears.
 
-    ![View of the Recovery Services vaults list](./media/tutorial-backup-vm-at-scale/rs-list-of-vaults.png)
+    ![View of the Recovery Services vaults list](./media/tutorial-backup-vm-at-scale/list-of-rs-vault.png)
 
     From the list of Recovery Services vaults, select a vault to open its dashboard.
 
@@ -155,15 +155,12 @@ To run the initial backup job:
 
   In the **Backup jobs** menu, you can see the status of all jobs. Check if the backup job for your VM is still in progress, or if it has finished. When a backup job is finished, the status is *Completed*.
 
-  > [!NOTE]
-  > As a part of the backup operation, the Azure Backup service issues a command to the backup extension in each VM to flush all writes and take a consistent snapshot.
-  >
   
 ## Clean up resources
 
 Other tutorials in this collection build upon this tutorial. If you plan to continue on to work with subsequent tutorials, do not clean up the resources created in this tutorial. If you do not plan to continue, use the following steps to delete all resources created by this tutorial in the Azure portal.
 
-1. In the list of Recovery Services vaults, select myVault.
+1. In the list of Recovery Services vaults, select *myVault*.
 2. In the myVault dashboard, select the Backup Items tile to open the Backup Items menu.
 3. In the Backup Items menu, click Azure Virtual Machine to open the Backup Items menu for myVault.
   In the list, see the names of the virtual machines that are backed up to myVault.
@@ -185,4 +182,4 @@ In this tutorial you used the Azure portal to:
 Continue to the next tutorial to recover Azure virtual machines using virtual machine templates. 
 
 > [!div class="nextstepaction"]
-> [Restore VMs using templates](./tutorial-manage-vm.md)
+> [Restore VMs using templates](./tutorial-backup-azure-vm.md)
