@@ -101,9 +101,9 @@ The following example shows a policy that limits where resources are deployed:
 
 ## Mode
 
-We recommend that you set `mode` to `all`. When set to `all`, resource groups and all resource types are eligible for the policy. The resources that are actually affected by the policy depend on the properties you use and the scope you assign. 
-
-Set `mode` to `indexed` only when you need to preserve backward compatibility. Previously, resource groups and virtual network subnets did not support policies. They are now supported. If you must explicitly preserve that earlier behavior, use `indexed`. 
+We recommend that you set `mode` to `all`. When you set it to **all**, resource groups and all resource types are evaluated for the policy. The portal uses **all** for all policies. If you use PowerShell or Azure CLI, you need to specify the `mode` parameter and set it to **all**.
+ 
+Previously, policy was evaluated on only resource types that supported tags and location. The `indexed` mode continues this behavior. If you use the **all** mode, policies are also evaluated on resource types that do not support tags and location. [Virtual network subnet](https://github.com/Azure/azure-policy-samples/tree/master/samples/Network/enforce-nsg-on-subnet) is an example of a newly added type. In addition, resource groups are evaluated when mode is set to **all**. For example, you can [enforce tags on a resource group](https://github.com/Azure/azure-policy-samples/tree/master/samples/ResourceGroup/enforce-resourceGroup-tags). 
 
 ## Parameters
 Using parameters helps simplify your policy management by reducing the number of policy definitions. You define a policy for a resource property (such as limiting the locations where resources can be deployed), and include parameters in the definition. Then, you reuse that policy definition for different scenarios by passing in different values (such as specifying one set of locations for a subscription) when assigning the policy.
