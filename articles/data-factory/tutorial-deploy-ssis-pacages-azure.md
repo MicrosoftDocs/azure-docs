@@ -1,5 +1,5 @@
 ---
-title: Deploy SSIS packages to Azure | Microsoft Docs
+title: Move SSIS packages to Azure | Microsoft Docs
 description: This article explains how to deploy SSIS packages to Azure SSIS integration runtime provided by Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.date: 09/06/2017
 ms.author: spelluru
 
 ---
-# Lift and shift SQL Server Integration Services (SSIS) packages to Azure 
+# Deploy SSIS packages to Azure-SSIS integration runtime
 If you want to lift & shift your SSIS workloads, you can create an Azure-SSIS Integration Runtime.  It is a fully-managed cluster of Azure VMs (nodes) dedicated to run your SSIS packages and no other activities.  You can bring your own Azure SQL Database/Managed Instance server to host the catalog of SSIS projects/packages (SSISDB) that will be attached to it.  You can scale it up/out by specifying the node size/number of nodes in the cluster.  Just like Azure VMs, you can manage the cost of running it by starting and stopping it as you see fit.  Once created, you can deploy/manage your existing SSIS packages to run on it with little/no change using familiar tools, such as SQL Server Data Tools (SSDT)/SQL Server Management Studio (SSMS), just like using SSIS on premises. 
 
 In this quickstart, you create a data factory and then provision an Azure-SSIS IR. Once the IR is provisioned, you can use the same tools that you are familiar with to deploy SSIS packages to Azure and run them in the cloud. 
