@@ -138,7 +138,7 @@ The following JSON snippet defines an Azure Machine Learning Batch Execution act
 | webServiceOutputs | Key, Value pairs, mapping the names of Azure Machine Learning Web Service Outputs. Key must match the output parameters defined in the published Azure Machine Learning Web Service. Value is an Azure Storage Linked Services and FilePath properties pair specifying the output Blob locations. | No       |
 | globalParameters  | Key, Value pairs to be passed to the Azure ML Batch Execution Service endpoint. Keys must match the names of web service parameters defined in the published Azure ML web service. Values are passed in the GlobalParameters property of the Azure ML batch execution request | No       |
 
-### Sample 1: Experiments using Web service inputs/outputs that refer to data in Azure Blob Storage
+### Scenario 1: Experiments using Web service inputs/outputs that refer to data in Azure Blob Storage
 
 In this scenario, the Azure Machine Learning Web service makes predictions using data from a file in an Azure blob storage and stores the prediction results in the blob storage. The following JSON defines a Data Factory pipeline with an AzureMLBatchExecution activity. The input and output data in Azure Blog Storage is referenced using a LinkedName and FilePath pair. In the sample Linked Service of inputs and outputs are different, you can use different Linked Services for each of your inputs/outputs for Data Factory to be able to pick up the right files and send to Azure ML Web Service. 
 

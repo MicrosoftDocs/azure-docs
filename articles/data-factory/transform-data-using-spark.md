@@ -85,7 +85,7 @@ Create the following folder structure in the Azure Blob storage referenced by th
 
 | Path                  | Description                              | Required | Type   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
-| .                     | The root path of the Spark job in the storage linked service | Yes      | Folder |
+| `.` (root)            | The root path of the Spark job in the storage linked service | Yes      | Folder |
 | &lt;user defined &gt; | The path pointing to the entry file of the Spark job | Yes      | File   |
 | ./jars                | All files under this folder are uploaded and placed on the java classpath of the cluster | No       | Folder |
 | ./pyFiles             | All files under this folder are uploaded and placed on the PYTHONPATH of the cluster | No       | Folder |
