@@ -29,7 +29,7 @@ Using RBAC in the Azure environment requires:
 * Having a standalone Azure subscription assigned to the user as owner (subscription role)
 * Have the Owner role of the Azure subscription
 * Have access to the [Azure portal](https://portal.azure.com)
-* Make sure to have the following Resource Providers registered for the user subscription: **Microsoft.Authorization**. For more information on how to register the resource providers, see [Resource Manager providers, regions, API versions and schemas](/azure-resource-manager/resource-manager-supported-services.md).
+* Make sure to have the following Resource Providers registered for the user subscription: **Microsoft.Authorization**. For more information on how to register the resource providers, see [Resource Manager providers, regions, API versions and schemas](/azure/azure-resource-manager/resource-manager-supported-services).
 
 > [!NOTE]
 > Office 365 subscriptions or Azure Active Directory licenses (for example: Access to Azure Active Directory) provisioned from the O365 portal don't quality for using RBAC.
