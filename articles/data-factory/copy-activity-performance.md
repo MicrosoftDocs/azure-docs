@@ -234,7 +234,7 @@ You are charged based on two steps: copy duration and copy type.
 
 We suggest that you take these steps to tune the performance of your Data Factory service with Copy Activity:
 
-1. **Establish a baseline**. During the development phase, test your pipeline by using Copy Activity against a representative data sample. Collect execution time and performance characteristics returned in Copy Activity run result -> Output section, below is an exhausted list. Learn how to monitor actiivty run from [quickstart monitoring section](quickstart-create-data-factory-dot-net#monitor-pipeline-run). You can compare the performance and configuration of your scenario to Copy Activity’s [performance reference](#performance-reference) from our tests.
+1. **Establish a baseline**. During the development phase, test your pipeline by using Copy Activity against a representative data sample. Collect execution time and performance characteristics returned in Copy Activity run result -> Output section, below is an exhausted list. Learn how to monitor actiivty run from [quickstart monitoring section](quickstart-create-data-factory-dot-net.md#monitor-pipeline-run). You can compare the performance and configuration of your scenario to Copy Activity’s [performance reference](#performance-reference) from our tests.
 
     | Property name  | Description | Unit |
     |:--- |:--- |:--- |
