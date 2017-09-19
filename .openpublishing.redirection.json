@@ -4500,6 +4500,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/iot-hub/iot-hub-gateway-kit-c-sim-troubleshooting.md",
+            "redirect_url": "/azure/iot-hub/iot-hub-gateway-kit-c-troubleshooting",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md",
             "redirect_url": "/azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started",
             "redirect_document_id": false
