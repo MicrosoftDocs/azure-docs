@@ -109,7 +109,6 @@ Now that you have a cluster, you can import the credentials by using the [az acs
 3. Configure Draft to use your registry and create subdomains for each Helm chart it creates. To configure Draft, you need:
   - your Azure Container Registry name (in this example, `draftacsdemo`)
   - your registry key, or password, from `az acr credential show -n <registry name> --output tsv --query "passwords[0].value"`.
-  - the root deployment domain that you have configured to map to the Kubernetes ingress external IP address (here, `squillace.io`)
 
   Call `draft init` and the configuration process prompts you for the values above; note that the URL format for the registry URL is the registry name (in this example, `draftacsdemo`) plus `.azurecr.io`. Your username is the registry name on its own. The process looks something like the following the first time you run it.
  ```bash
@@ -249,26 +248,26 @@ Use the [az network dns zone create](/cli/azure/network/dns/zone#create) command
     ```
 3. Add the DNS servers you are given to the domain provider for your deployment domain, which enables you to use Azure DNS to repoint your domain as you want. The way you do this varies by domain provide; [delegate your domain nameservers to Azure DNS](../../dns/dns-delegate-domain-azure-dns.md) contains some of the details that you should know. 
 4. Once your domain has been delegated to Azure DNS, create an A record-set entry for your deployment domain mapping to the `ingress` IP from step 2 of the previous section.
-    ```azurecli
-    az network dns record-set a add-record --ipv4-address 13.64.108.240 --record-set-name '*.draft' -g squillace.io -z squillace.io
-    ```
+  ```azurecli
+  az network dns record-set a add-record --ipv4-address 13.64.108.240 --record-set-name '*.draft' -g squillace.io -z squillace.io
+  ```
 The output looks something like:
-    ```json
-    {
-      "arecords": [
-        {
-          "ipv4Address": "13.64.108.240"
-        }
-      ],
-      "etag": "<guid>",
-      "id": "/subscriptions/<guid>/resourceGroups/squillace.io/providers/Microsoft.Network/dnszones/squillace.io/A/*",
-      "metadata": null,
-      "name": "*.draft",
-      "resourceGroup": "squillace.io",
-      "ttl": 3600,
-      "type": "Microsoft.Network/dnszones/A"
-    }
-    ```
+  ```json
+  {
+    "arecords": [
+      {
+        "ipv4Address": "13.64.108.240"
+      }
+    ],
+    "etag": "<guid>",
+    "id": "/subscriptions/<guid>/resourceGroups/squillace.io/providers/Microsoft.Network/dnszones/squillace.io/A/*",
+    "metadata": null,
+    "name": "*.draft",
+    "resourceGroup": "squillace.io",
+    "ttl": 3600,
+    "type": "Microsoft.Network/dnszones/A"
+  }
+  ```
 5. Reinstall **draft**
   1. Remove **draftd** from the cluster by typing `helm delete --purge draft`. 
   2. Reinstall **draft** by using the same `draft-init` command, but with the `--ingress-enabled` option:
