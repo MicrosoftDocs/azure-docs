@@ -97,8 +97,8 @@ Review the impact of migrating to the new Azure portal before you move the servi
 Perform the following steps to transition your service to the Azure portal.
 
 1. Go to your existing StorSimple Manager service in the new Azure portal.
-    ![More services](service-browse01.png)
-    ![Select device manager](service-browse02.png)
+    ![More services](./media/storsimple-8000-manage-service/service-browse01.png)
+    ![Select device manager](./media/storsimple-8000-manage-service/service-browse02.png)
 
 2. You see a notification that informs you that the StorSimple Device Manager service is now available in the Azure portal. Note that in the Azure portal, the service is referred to as StorSimple Device Manager service.
 
