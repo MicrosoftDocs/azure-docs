@@ -6,7 +6,6 @@ documentationcenter: ''
 author: rthorn17
 manager: rithorn
 editor: ''
-tags: billing
 
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: billing
@@ -16,9 +15,6 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: rithorn
-
-experimental: true
-experimental_id: "a2b2579c-cd2e-41"
 ---
 
 
@@ -48,7 +44,7 @@ The introduction of management groups is the first step in unifying the [Enterpr
 
 The [Enterprise Agreement (EA)](https://azure.microsoft.com/en-us/pricing/enterprise-agreement/https:/azure.microsoft.com/en-us/pricing/enterprise-agreement/) enrollment defines the shape and use of Azure services within a company and is the core governance structure. Within the enrollment, customers can subdivide the environment into departments, accounts, and finally, subscriptions. 
 
-The management group structure is created in the environment that you have defined in the Enterprise portal. The entire hierarchy consisting of Enrollment, Departments, and Accounts are mapped to corresponding management groups – all associated with the same directory. Where possible, an existing directory associated with the enrollment user accounts is selected. In some cases, a new directory is created and all existing enrollment users are invited into that directory. This new directory does not impact the directories associated with the subscriptions in the enrollment. Therefore, the hierarchy might get created in a directory different from the subscriptions. [Learn more](billing-enterprise-mgmt-grp-find.md) about how this process impacts the experience of navigating between the hierarchy and its subscriptions.
+The management group structure is created in the environment that you have defined in the Enterprise portal. The entire hierarchy consisting of enrollment, departments, and accounts are mapped to corresponding management groups – all associated with the same directory. Where possible, an existing directory associated with the enrollment user accounts is selected. In some cases, a new directory is created and all existing enrollment users are invited into that directory. This new directory does not impact the directories associated with the subscriptions in the enrollment. Therefore, the hierarchy might get created in a directory different from the subscriptions. [Learn more](billing-enterprise-mgmt-grp-find.md) about how this process impacts the experience of navigating between the hierarchy and its subscriptions.
 
 Here is how the current EA structure maps to management group hierarchy. The initial management group hierarchy is seeded with the hierarchy defined in your enterprise enrollment. 
 
@@ -93,6 +89,6 @@ Management groups within the Azure portal are in preview and are read-only at th
 See the documentation within the enterprise portal for help on making edits and additions.   
 
 ## Policy Management
-Resource Manager enables you to create customized policies for managing your resources. With management groups, polices can be assigned at any level in the hierarchy and the resources inherit those policies.  Learn more
+Resource Manager enables you to create customized policies for managing your resources. With management groups, polices can be assigned at any level in the hierarchy and the resources inherit those policies.  [Learn more](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-policy)
 
  Note: policy is not enforced across directories. 
