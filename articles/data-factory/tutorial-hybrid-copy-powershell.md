@@ -36,12 +36,12 @@ You perform the following steps in this tutorial:
 
 * **Azure subscription**. If you don't have a subscription, you can create a [free trial](http://azure.microsoft.com/pricing/free-trial/) account.
 * **SQL Server**. You use an on-premises SQL Server database as a **source** data store in this tutorial. 
-* **Azure Storage account**. You use the blob storage as a **destination/sink** data store in this tutorial. if you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one.
+* **Azure Storage account**. You use Azure blob storage as a **destination/sink** data store in this tutorial. if you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one.
 * **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
-## Create data factory
+## Create a data factory
 
-1. Launch **PowerShell**. Keep Azure PowerShell open until the end of this quickstart. If you close and reopen, you need to run the commands again.
+1. Launch **PowerShell**. Keep Azure PowerShell open until the end of this tutorial. If you close and reopen, you need to run the commands again.
 
     Run the following command, and enter the user name and password that you use to sign in to the Azure portal:
     ```powershell
@@ -76,7 +76,7 @@ You perform the following steps in this tutorial:
     * To create Data Factory instances, you must be a Contributor or Administrator of the Azure subscription.
     * Currently, Data Factory allows you to create data factory only in the East US and East US 2 region. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 
-## Create self-hosted IR
+## Create a self-hosted IR
 
 In this section, you can create a Self-hosted integration runtime and associate it with an on-prem node (machine).
 
@@ -153,12 +153,9 @@ In this section, you can create a Self-hosted integration runtime and associate 
 
 ## Create linked services 
 
-### Create Azure Storage Linked Service (destination/ sink)
+### Create an Azure Storage linked service (destination/ sink)
 
-1. Create a JSON file named **AzureStorageLinkedService.json** in **C:\ADFv2Tutorial** folder with the following content: (Create the folder ADFv2Tutorial if it does not already exist.)
-
-    > [!IMPORTANT]
-    > Replace &lt;accountname&gt; and &lt;accountkey&gt; with the name and key of your Azure Storage account.
+1. Create a JSON file named **AzureStorageLinkedService.json** in **C:\ADFv2Tutorial** folder with the following content: (Create the folder ADFv2Tutorial if it does not already exist.).  Replace **&lt;accountname&gt; and &lt;accountkey&gt;** with the name and key of your Azure Storage account.
 
    ```json
 	{
@@ -192,13 +189,9 @@ In this section, you can create a Self-hosted integration runtime and associate 
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureStorageLinkedService
     ```
 
-### Create and encrypt SQL Server linked service (source)
+### Create and encrypt a SQL Server linked service (source)
 
-1. Create a JSON file named **SqlServerLinkedService.json** in **C:\ADFv2Tutorial** folder with the following content:  
-
-   > [!IMPORTANT]
-   > Replace &lt;servername&gt;, &lt;databasename&gt;, &lt;username&gt;@&lt;servername&gt; and &lt;password&gt; with values of your SQL Server before saving the file.
-   > Replace &lt;integration runtime name&gt; with the name of your integration runtime. 
+1. Create a JSON file named **SqlServerLinkedService.json** in **C:\ADFv2Tutorial** folder with the following content: Replace **&lt;servername&gt;, &lt;databasename&gt;, &lt;username&gt;@&lt;servername&gt; and &lt;password&gt; **with values of your SQL Server before saving the file. Replace **&lt;integration runtime name&gt;** with the name of your integration runtime. 
 
 	```json
 	{
@@ -220,7 +213,7 @@ In this section, you can create a Self-hosted integration runtime and associate 
    ```
 2. To encrypt the sensitive data from the JSON payload on the on-premise self-hosted integration runtime, we can run **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential** and pass on the above JSON payload. This encryption ensures the credentials are encrypted using Data Protection Application Programming Interface (DPAPI) and stored on the self-hosted integration runtime node locally. The output payload can be redirected to another JSON file (in this case 'encryptedLinkedService.json') which contains encrypted credentials. 
 
-    Replace &lt;integration runtime name&gt; with the name of your integration runtime before running the command.
+    Replace **&lt;integration runtime name&gt;** with the name of your integration runtime before running the command.
 
    ```powershell
    New-AzureRmDataFactoryV2LinkedServiceEncryptCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName <integration runtime name> -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
@@ -235,7 +228,7 @@ In this section, you can create a Self-hosted integration runtime and associate 
 
 ## Create datasets
 
-### Prepare on-premises SQL Server for the tutorial
+### Prepare an on-premises SQL Server for the tutorial
 
 In this step, you create input and output datasets that represent input and output data for the copy operation (On-premises SQL Server database => Azure blob storage). Before creating datasets, do the following steps (detailed steps follows the list):
 
@@ -265,7 +258,7 @@ In this step, you create input and output datasets that represent input and outp
 
 
 
-### Create dataset for source SQL Database
+### Create a dataset for source SQL Database
 
 1. Create a JSON file named **SqlServerDataset.json** in the **C:\ADFv2Tutorial** folder, with the following content:  
 
@@ -302,7 +295,7 @@ In this step, you create input and output datasets that represent input and outp
 2. To create the dataset: **SqlServerDataset**, run the **Set-AzureRmDataFactoryV2Dataset** cmdlet.
 
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactory $df -Name "SqlServerDataset" -File ".\SqlServerDataset.json"
+    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SqlServerDataset" -File ".\SqlServerDataset.json"
     ```
 
     Here is the sample output:
@@ -315,7 +308,7 @@ In this step, you create input and output datasets that represent input and outp
     Properties        : Microsoft.Azure.Management.DataFactory.Models.SqlServerTableDataset
     ```
 
-### Create dataset for sink Azure Blob Storage
+### Create a dataset for sink Azure Blob Storage
 
 1. Create a JSON file named **AzureBlobDataset.json** in the **C:\ADFv2Tutorial** folder, with the following content: 
 
@@ -344,7 +337,7 @@ In this step, you create input and output datasets that represent input and outp
 2. To create the dataset: **AzureBlobDataset**, run the **Set-AzureRmDataFactoryV2Dataset** cmdlet.
 
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactory $df -Name "AzureBlobDataset" -File ".\AzureBlobDataset.json"
+    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureBlobDataset" -File ".\AzureBlobDataset.json"
     ```
 
     Here is the sample output:
@@ -359,7 +352,7 @@ In this step, you create input and output datasets that represent input and outp
 
 ## Create pipelines
 
-### Create pipeline "SqlServerToBlobPipeline"
+### Create the pipeline "SqlServerToBlobPipeline"
 
 1. Create a JSON file named **SqlServerToBlobPipeline.json** in the **C:\ADFv2Tutorial ** folder, with the following content:
 
@@ -400,7 +393,7 @@ In this step, you create input and output datasets that represent input and outp
 2. To create the pipeline: **SQLServerToBlobPipeline**, Run the **Set-AzureRmDataFactoryV2Pipeline** cmdlet.
 
     ```powershell
-    Set-AzureRmDataFactoryV2Pipeline -DataFactory $df -Name "SQLServerToBlobPipeline" -File ".\SQLServerToBlobPipeline.json"
+    Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SQLServerToBlobPipeline" -File ".\SQLServerToBlobPipeline.json"
     ```
 
     Here is the sample output:
@@ -415,7 +408,7 @@ In this step, you create input and output datasets that represent input and outp
 
 
 
-## Start and monitor pipeline run
+## Start and monitor a pipeline run
 
 1. Start a pipeline run for "SQLServerToBlobPipeline" pipeline and capture the pipeline run ID for future monitoring.  
 
@@ -427,7 +420,7 @@ In this step, you create input and output datasets that represent input and outp
 
     ```powershell
     while ($True) {
-        $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactory $df -PipelineRunId $runId -PipelineName 'SQLServerToBlobPipeline' -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+        $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -PipelineName 'SQLServerToBlobPipeline' -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
 
         if (($result | Where-Object { $_.Status -eq "InProgress" } | Measure-Object).count -ne 0) {
             Write-Host "Pipeline run status: In Progress" -foregroundcolor "Yellow"
