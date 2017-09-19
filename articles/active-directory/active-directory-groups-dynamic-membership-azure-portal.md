@@ -117,12 +117,12 @@ Note the use of the "[" and "]" at the beginning and end of the list of values. 
 
 
 ## Query error remediation
-The following table lists potential errors and how to correct them if they occur
+The following table lists common errors and how to correct them
 
 | Query Parse Error | Error Usage | Corrected Usage |
 | --- | --- | --- |
-| Error: Attribute not supported. |(user.invalidProperty -eq "Value") |(user.department -eq "value")<br/>Property should match one from the [supported properties list](#supported-properties). |
-| Error: Operator is not supported on attribute. |(user.accountEnabled -contains true) |(user.accountEnabled -eq true)<br/>Property is of type boolean. Use the supported operators (-eq or -ne) on boolean type from the above list. |
+| Error: Attribute not supported. |(user.invalidProperty -eq "Value") |(user.department -eq "value")<br/><br/>Make sure the attribute is on the [supported properties list](#supported-properties). |
+| Error: Operator is not supported on attribute. |(user.accountEnabled -contains true) |(user.accountEnabled -eq true)<br/><br/>The operator used is not supported for the property type (in this example, -contains cannot be used on type boolean). Use the correct operators for the property type. |
 | Error: Query compilation error. |(user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") |(user.department -eq "Sales") -and (user.department -eq "Marketing")<br/>Logical operator should match one from the supported properties list above.(user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")Error in regular expression. |
 | Error: Binary expression is not in right format. |(user.department –eq “Sales”) (user.department -eq "Sales")(user.department-eq"Sales") |(user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>Query has multiple errors. Parenthesis not in right place. |
 | Error: Unknown error occurred during setting up dynamic memberships. |(user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain") |(user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>Query has multiple errors. Parenthesis not in right place. |
