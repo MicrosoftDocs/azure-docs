@@ -225,7 +225,7 @@ In the **New update deployment** screen, specify the following:
 * **Schedule settings** - You can either accept the default date and time, which is 30 minutes after current time, or specify a different time.
    You can also specify whether the deployment occurs once or set up a recurring schedule. Click the Recurring option under Recurrence to set up a recurring schedule.
 
-   ![Update Schedule Settings screen](./media/tutorial-monitoring/manageupdates-schedule-linux.png)
+   ![Update Schedule Settings screen](./media/tutorial-monitoring/manageupdate-schedule-linux.png)
 
 * **Maintenance window (minutes)** - Specify the period of time you want the update deployment to occur within.  This helps ensure changes are performed within your defined maintenance windows. 
 
