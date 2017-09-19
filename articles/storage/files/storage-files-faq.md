@@ -49,6 +49,12 @@ ms.author: renash
 * **Q. What replications are supported by Azure Files?**  
    
     Azure Files only supports LRS or GRS right now. We plan to support RA-GRS but there is no timeline to share yet.
+    
+## Scale Targets/Limits
+
+* **Q. How many clients mount an Azure File shares simultaneously?**
+
+    Azure Files currently has a quota of 2,000 open handles per Azure File share. Once you have 2,000 open handles, trying to mount the share on additional machines will result in an error that quota has been reached.
 
 ## Security, Authentication and Access Control
 
