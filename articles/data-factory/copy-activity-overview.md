@@ -3,7 +3,7 @@ title: Copy Activity in Azure Data Factory | Microsoft Docs
 description: Learn about the copy activity in Azure Data Factory that you can use to copy data from a supported source data store to a supported sink data store. 
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
+author: linda33wj
 manager: jhubbard
 editor: spelluru
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: 
 ms.date: 09/18/2017
-ms.author: shlo
+ms.author: jingwang
 
 ---
 # Copy Activity in Azure Data Factory
@@ -31,10 +31,12 @@ In Azure Data Factory, you can use Copy Activity to copy data among data stores 
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Copy Activity in V1](v1/data-factory-data-movement-activities.md).
 
-Copy Activity is executed on an [Integration Runtime](concepts-integration-runtime.md). For different data copy scenario, you can choose different flavor of Integration Runtime:
+Copy Activity is executed on an [Integration Runtime](concepts-integration-runtime.md). For different data copy scenario, different flavor of Integration Runtime can be leveraged:
 
 * When copying data between data stores that both are publicly accessible, copy activity can be empowered by **Azure Integration Runtime**, which is secure, reliable, scalable, and [globally available](concepts-integration-runtime.md#integration-runtime-location).
 * When copying data from/to data stores located on-premises or in a network with access control (for example, Azure Virtual Network), you need to set up a **self-hosted Integrated Runtime** to empower data copy.
+
+Integration Runtime need to be associated with each source and sink data store. Learn details on how copy activity [determines which IR to use](concepts-integration-runtime.md#determining-which-ir-to-use).
 
 Copy Activity goes through the following stages to copy data from a source to a sink. The service that powers Copy Activity:
 
@@ -134,6 +136,43 @@ The following template of a copy activity lists exhausted supported properties. 
 | parallelCopies | Specify the parallelism that you want Copy Activity to use when reading data from source and writing data to sink.<br/><br/>Learn details from [Parallel copy](copy-activity-performance.md#parallel-copy). | No |
 | enableStaging<br/>stagingSettings | Choose to stage the interim data in aa blob storage instead of directly copy data from source to sink.<br/><br/>Learn the useful scenarios and configuration details from [Staged copy](copy-activity-performance.md#staged-copy). | No |
 | enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Choose how to handle incompatible rows when copying data from source to sink.<br/><br/>Learn details from [Fault tolerance](copy-activity-fault-tolerance.md). | No |
+
+## Monitoring
+
+Copy activity execution details and performance characteristics are returned in Copy Activity run result -> Output section. Below is an exhausted list. Learn how to monitor activity run from [quickstart monitoring section](quickstart-create-data-factory-dot-net.md#monitor-pipeline-run). You can compare the performance and configuration of your scenario to Copy Activity's [performance reference](copy-activity-performance.md#performance-reference) from in-house testing.
+
+| Property name  | Description | Unit |
+|:--- |:--- |:--- |
+| dataRead | Data size read from source | Int64 value in bytes |
+| dataWritten | Data size written to sink | Int64 value in bytes |
+| rowsCopied | Number of rows being copied (not applicable for binary copy). | Int64 value (no unit) |
+| rowsSkipped | Number of incompatible rows being skipped. You can turn on the feature by set "enableSkipIncompatibleRow" to true. | Int64 value (no unit) |
+| throughput | Ratio at which data are transferred | Floating point number in KB/s |
+| copyDuration | The duration of the copy | Int32 value in seconds |
+| sqlDwPolyBase | If PolyBase is used when copying data into SQL Data Warehouse. | Boolean |
+| redshiftUnload | If UNLOAD is used when copying data from Redshift. | Boolean |
+| hdfsDistcp | If DistCp is used when copying data from HDFS. | Boolean |
+| effectiveIntegrationRuntime | Show which Integration Runtime(s) is used to empower the activity run, in the format of "<IR name> (<region for Azure IR>)". | Text (string) |
+| usedCloudDataMovementUnits | The effective cloud data movement units during copy. | Int32 value |
+| redirectRowPath | Path to the log of skipped incompatible rows in the blob storage you configure under "redirectIncompatibleRowSettings". See below example. | Text (string) |
+| billedDuration | The duration being billed for data movement. | Int32 value in seconds |
+
+```json
+"output": {
+    "dataRead": 1024,
+    "dataWritten": 2048,
+    "rowsCopies": 100,
+    "rowsSkipped": 2,
+    "throughput": 1024.0,
+    "copyDuration": 3600,
+    "redirectRowPath": "https://<account>.blob.core.windows.net/<path>/<pipelineRunID>/",
+    "redshiftUnload": true,
+    "sqlDwPolyBase": true,
+    "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (West US)",
+    "usedCloudDataMovementUnits": 8,
+    "billedDuration": 28800
+}
+```
 
 ## Schema and data type mapping
 

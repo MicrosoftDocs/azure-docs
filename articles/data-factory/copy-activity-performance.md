@@ -91,7 +91,7 @@ A **cloud data movement unit (DMU)** is a measure that represents the power (a c
 
 To override this default, specify a value for the **cloudDataMovementUnits** property as follows. The **allowed values** for the **cloudDataMovementUnits** property are 2, 4, 8, 16, 32. The **actual number of cloud DMUs** that the copy operation uses at run time is equal to or less than the configured value, depending on your data pattern. For information about the level of performance gain you might get when you configure more units for a specific copy source and sink, see the [performance reference](#performance-reference).
 
-You can see the actually used cloud data movement units for each copy run in the copy activity output when monitoring an activity run. Learn details from [Performance tuning steps](#performance-tuning-steps) - step 1.
+You can see the actually used cloud data movement units for each copy run in the copy activity output when monitoring an activity run. Learn details from [Copy activity monitoring](copy-activity-overview.md#monitoring).
 
 > [!NOTE]
 > If you need more cloud DMUs for a higher throughput, contact [Azure support](https://azure.microsoft.com/support/). Setting of 8 and above currently works only when you **copy multiple files from Blob storage/Data Lake Store/Amazon S3/cloud FTP/cloud SFTP to any other cloud data stores.**.
@@ -234,40 +234,7 @@ You are charged based on two steps: copy duration and copy type.
 
 We suggest that you take these steps to tune the performance of your Data Factory service with Copy Activity:
 
-1. **Establish a baseline**. During the development phase, test your pipeline by using Copy Activity against a representative data sample. Collect execution time and performance characteristics returned in Copy Activity run result -> Output section, below is an exhausted list. Learn how to monitor actiivty run from [quickstart monitoring section](quickstart-create-data-factory-dot-net.md#monitor-pipeline-run). You can compare the performance and configuration of your scenario to Copy Activity’s [performance reference](#performance-reference) from our tests.
-
-    | Property name  | Description | Unit |
-    |:--- |:--- |:--- |
-    | dataRead | Data size read from source | Int64 value in bytes |
-    | dataWritten | Data size written to sink | Int64 value in bytes |
-    | rowsCopied | Number of rows being copied (not applicable for binary copy). | Int64 value (no unit) |
-    | rowsSkipped | Number of incompatible rows being skipped. You can turn on the feature by set "enableSkipIncompatibleRow" to true. | Int64 value (no unit) |
-    | throughput | Ratio at which data are transferred | Floating point number in KB/s |
-    | copyDuration | The duration of the copy | Int32 value in seconds |
-    | sqlDwPolyBase | If PolyBase is used when copying data into SQL Data Warehouse. | Boolean |
-    | redshiftUnload | If UNLOAD is used when copying data from Redshift. | Boolean |
-    | hdfsDistcp | If DistCp is used when copying data from HDFS. | Boolean |
-    | effectiveIntegrationRuntime | Show which Integration Runtime(s) is used to empower the activity run, in the format of "<IR name> (<region for Azure IR>)". | Text (string) |
-    | usedCloudDataMovementUnits | The effective cloud data movement units during copy. | Int32 value |
-    | redirectRowPath | Path to the log of skipped incompatible rows in the blob storage you configure under "redirectIncompatibleRowSettings". See below example. | Text (string) |
-    | billedDuration | The duration being billed for data movement. | Int32 value in seconds |
-
-    ```json
-    "output": {
-        "dataRead": 1024,
-        "dataWritten": 2048,
-        "rowsCopies": 100,
-        "rowsSkipped": 2,
-        "throughput": 1024.0,
-        "copyDuration": 3600,
-        "redirectRowPath": "https://<account>.blob.core.windows.net/<path>/<pipelineRunID>/",
-        "redshiftUnload": true,
-        "sqlDwPolyBase": true,
-        "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (West US)",
-        "usedCloudDataMovementUnits": 8,
-        "billedDuration": 28800
-    }
-    ```
+1. **Establish a baseline**. During the development phase, test your pipeline by using Copy Activity against a representative data sample. Collect execution time and performance characteristics following [Copy activity monitoring](copy-activity-overview.md#monitoring).
 
 2. **Diagnose and optimize performance**. If the performance you observe doesn't meet your expectations, you need to identify performance bottlenecks. Then, optimize performance to remove or reduce the effect of bottlenecks. A full description of performance diagnosis is beyond the scope of this article, but here are some common considerations:
 
