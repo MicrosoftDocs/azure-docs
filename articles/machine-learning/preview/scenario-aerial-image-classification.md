@@ -75,7 +75,7 @@ Load the Aerial Image Classification project in Azure Machine Learning Workbench
 1. From your Azure Machine Learning Workbench project, open a Command Line Interface (CLI) by clicking File -> Open Command Prompt.
 1. From the command line interface, log in to your Azure account by running the following command:
 
-    ````
+    ```
     az login
     ```
 
@@ -244,7 +244,7 @@ Azure Machine Learning Workbench helps data scientists easily deploy their code 
 
 ## Next steps
 To dive deeper into this example:
-- In Vienna's Run History feature, click the gear symbols to select which graphs and metrics are displayed.
+- In Azure Machine Learning Workbench's Run History feature, click the gear symbols to select which graphs and metrics are displayed.
 - Examine the sample scripts for statements calling the `run_logger`. Check that you understand how each metric is being recorded.
 - Examine the sample scripts for statements calling the `blob_service`. Check that you understand how trained models and predictions are stored and retrieved from the cloud.
 - Explore the contents of the containers created in your blob storage account. Ensure that you understand which script or command is responsible for creating each group of files.
