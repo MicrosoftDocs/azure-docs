@@ -41,6 +41,7 @@ For more information about creating custom endpoints in IoT Hub, see [IoT Hub en
 
 For more information about reading from custom endpoints, see:
 
+* Reading from [Azure Storage containers][lnk-getstarted-storage].
 * Reading from [Event Hubs][lnk-getstarted-eh].
 * Reading from [Service Bus queues][lnk-getstarted-queue].
 * Reading from [Service Bus topics][lnk-getstarted-topic].
@@ -61,3 +62,4 @@ The [Process IoT Hub device-to-cloud messages using routes][lnk-d2c-tutorial] tu
 [lnk-getstarted-eh]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [lnk-getstarted-queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 [lnk-getstarted-topic]: ../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md
+[lnk-getstarted-storage]: ../storage/blobs/storage-blobs-introduction.md
