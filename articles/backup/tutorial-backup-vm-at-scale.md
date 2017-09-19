@@ -160,13 +160,24 @@ To run the initial backup job:
 
 Other tutorials in this collection build upon this tutorial. If you plan to continue on to work with subsequent tutorials, do not clean up the resources created in this tutorial. If you do not plan to continue, use the following steps to delete all resources created by this tutorial in the Azure portal.
 
-1. In the list of Recovery Services vaults, select *myVault*.
-2. In the myVault dashboard, select the Backup Items tile to open the Backup Items menu.
-3. In the Backup Items menu, click Azure Virtual Machine to open the Backup Items menu for myVault.
-  In the list, see the names of the virtual machines that are backed up to myVault.
-4. Select the elipses for myVM to open the sub-menu, and select Stop backup.
-5. In the Stop Backup menu, choose Delete Backup Data, and type myVM in the Backup Item dialog, then click **Stop Backup**. 
-6. From the left-hand menu in the Azure portal, click **Resource groups** and then click **myResourceGroup**. 
+1. On the myVM menu, click **Backup** to open the Backup dashboard.
+
+  ![choose Backup option from menu](./media/quick-backup-vm-portal/choose-backup-from-menu.png)
+
+2. In the Backup dashboard, click **...More** to show additional options, then click **Stop backup** to open the Stop Backup menu.
+
+  ![choose additional Backup options from menu](./media/quick-backup-vm-portal/stop-backup-menu-item-in-dashboard.png)
+
+3. In the Stop Backup menu, select the upper drop-down menu and choose **Delete Backup Data**.
+
+4. In the **Type the name of the Backup item** dialog, type *myVM*.
+ 
+5. Once the backup item is verified, the Stop backup button is enabled. Click **Stop Backup** to delete the restore point and the Recovery Services vault.</br> 
+
+  ![click Stop backup to delete vault](./media/quick-backup-vm-portal/provide-reason-for-delete.png).
+
+6. From the left-hand menu in the Azure portal, click **Resource groups** and then click **myResourceGroup**.
+
 7. On your resource group page, click **Delete**, type **myResourceGroup** in the text box, and then click **Delete**.
 
 
