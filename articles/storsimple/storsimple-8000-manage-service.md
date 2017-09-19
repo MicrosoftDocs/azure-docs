@@ -89,7 +89,7 @@ Review the impact of migrating to the new Azure portal before you move the servi
 
 * You can no longer manage your devices from the classic portal.
 
-* The existing Azure Service Management (ASM) PowerShell CmdLets are not supported. Update the scripts to manage your devices through the Azure Resource Manager. For scripts using ARM SDK, refer [here](https://github.com/anoobbacker/storsimpledevicemgmttools).
+* The existing Azure Service Management (ASM) PowerShell cmdlets are not supported. Update the scripts to manage your devices through the Azure Resource Manager. For more information, go to the [script samples using ARM SDK](https://github.com/anoobbacker/storsimpledevicemgmttools).
 
 * Your service and device configuration are retained. All your volumes and backups are also transitioned to the Azure portal.
 
@@ -101,7 +101,7 @@ Perform the following steps to transition your service to the Azure portal.
     ![More services](./media/storsimple-8000-manage-service/service-browse01.png)
     ![Select device manager](./media/storsimple-8000-manage-service/service-browse02.png)
 
-2. You see a notification that informs you that the StorSimple Device Manager service is now available in the Azure portal. Note that in the Azure portal, the service is referred to as StorSimple Device Manager service.
+2. You see a notification that informs you that the StorSimple Device Manager service is now available in the Azure portal. In the Azure portal, the service is referred to as the StorSimple Device Manager service.
 
     ![Migration notification](./media/storsimple-8000-manage-service/service-transition1.jpg)
 
@@ -112,7 +112,7 @@ Perform the following steps to transition your service to the Azure portal.
 
 Once the transition is complete, you can manage your devices via the StorSimple Device Manager service in the Azure portal.
 
-In the Azure portal, only the StorSimple devices running Update 3.0 and higher are supported. The devices that are running older versions have limited support. The following table summrizes which operations are supported on the device running versios prior to Update 3.0, once you have migrated from the classic to the Azure portal.
+In the Azure portal, only the StorSimple devices running Update 3.0 and higher are supported. The devices that are running older versions have limited support. After you have migrated to the Azure portal, use the following table to understand which operations are supported on devices running versions prior to Update 3.0.
 
 | Operation                                                                                                                       | Supported      |
 |---------------------------------------------------------------------------------------------------------------------------------|----------------|
