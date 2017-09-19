@@ -47,14 +47,16 @@ Before you can test-drive the API from the online console, you will need the **O
   ![Try Image List API - Create Step 1](images/try-terms-list-create-1.png)
 
 6.	Use the key-value pair placeholders to assign more descriptive metadata to your list. For example, you could enter something on these lines:
-    {
-      "Name": "MyExclusionList",
-      "Description": "MyListDescription",
-      "Metadata": {
-      "Category": "Competitors",
-      "Type": "Exclude"
-      }
-    }
+
+        {
+           "Name": "MyExclusionList",
+           "Description": "MyListDescription",
+           "Metadata": 
+           {
+             "Category": "Competitors",
+             "Type": "Exclude"
+           }
+        }
 
   Note that we are adding list metadata as key value pairs, not the actual terms.
  
