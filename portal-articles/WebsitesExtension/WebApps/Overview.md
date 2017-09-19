@@ -19,20 +19,20 @@ Azure Web Apps enables you to build and host web applications in the programming
 
 Learn how to deploy your first application to the cloud using Web Apps:
 
-- [.NET](/azure/app-service-web/app-service-web-get-started-dotnet)
-- [Node.js](/azure/app-service-web/app-service-web-get-started-nodejs)
-- [PHP](/azure/app-service-web/app-service-web-get-started-php)
-- [Java](/azure/app-service-web/app-service-web-get-started-java)
-- [Python](/azure/app-service-web/app-service-web-get-started-python)
-- [HTML](/azure/app-service-web/app-service-web-get-started-html)
+- [.NET](/azure/app-service/app-service-web-get-started-dotnet)
+- [Node.js](/azure/app-service/app-service-web-get-started-nodejs)
+- [PHP](/azure/app-service/app-service-web-get-started-php)
+- [Java](/azure/app-service/app-service-web-get-started-java)
+- [Python](/azure/app-service/app-service-web-get-started-python)
+- [HTML](/azure/app-service/app-service-web-get-started-html)
 
 ## Step-by-Step Tutorials
 
 Learn how to deploy, manage, and monitor secure web applications on Azure.
 
-- Create an application using [.NET with Azure SQL DB](/azure/app-service-web/app-service-web-tutorial-dotnet-sqldatabase) or [Node.js with MongoDB](/azure/app-service-web/app-service-web-tutorial-nodejs-mongodb-app)
-- [Map an existing custom domain to your application](/azure/app-service-web/app-service-web-tutorial-custom-domain)
-- [Bind an existing SSL certificate to your application](/azure/app-service-web/app-service-web-tutorial-custom-SSL)
+- Create an application using [.NET with Azure SQL DB](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase) or [Node.js with MongoDB](/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app)
+- [Map an existing custom domain to your application](/azure/app-service/app-service-web-tutorial-custom-domain)
+- [Bind an existing SSL certificate to your application](/azure/app-service/app-service-web-tutorial-custom-SSL)
 
 ## Free Pluralsight Video Training
 
@@ -43,8 +43,8 @@ Learn how to deploy, manage, and monitor secure web applications on Azure.
 
 Find scripts to manage common tasks.
 
-- [Azure CLI](/azure/app-service-web/app-service-cli-sample)
-- [Azure Powershell](/azure/app-service-web/app-service-powershell-samples)
+- [Azure CLI](/azure/app-service/app-service-cli-sample)
+- [Azure Powershell](/azure/app-service/app-service-powershell-samples)
 
 ## More
 
