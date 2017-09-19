@@ -56,7 +56,6 @@
 ### [Diagnostics logs](stream-analytics-job-diagnostic-logs.md)
 
 ## Automate
-### [Tools for Visual Studio](stream-analytics-tools-for-visual-studio.md)
 ### [Use the Management .NET SDK](stream-analytics-dotnet-management-sdk.md)
 ### [One-click PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
