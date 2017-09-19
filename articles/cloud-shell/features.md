@@ -17,7 +17,7 @@ ms.date: 09/25/2017
 ms.author: juluk
 ---
 
-# Features and tools for Bash in Azure Cloud Shell
+# Features & tools for Bash in Azure Cloud Shell
 
 [!include [features-introblock](features-introblock.md)]
 

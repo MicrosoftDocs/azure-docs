@@ -17,7 +17,7 @@ ms.date: 09/12/2017
 ms.author: damaerte
 ---
 
-# Features and tools for PowerShell in Azure Cloud Shell
+# Features & tools for PowerShell in Azure Cloud Shell
 
 [!include [features-introblock](<features-introblock.md)]
 

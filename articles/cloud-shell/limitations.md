@@ -20,7 +20,7 @@ ms.author: juluk
 # Limitations of Azure Cloud Shell
 Azure Cloud Shell has the following known limitations:
 
-## General Limitations
+## General limitations
 
 ### System state and persistence
 The machine that provides your Cloud Shell session is temporary, and it is recycled after your session is inactive for 20 minutes. Cloud Shell requires a file share to be mounted. As a result, your subscription must be able to set up storage resources to access Cloud Shell. Other considerations include:
@@ -37,12 +37,12 @@ Ctrl+C and Ctrl+V do not function as copy/paste shortcuts in Cloud Shell on Wind
 Right-click copy-and-paste options are also available, but right-click function is subject to browser-specific clipboard access. 
 
 ### For a given user, only one shell can be active
-Users can only launch one type of shell at a time, either **Bash** or **PowerShell**. However, you may have multiple instances of Bash or PowerShell running at one time. Swapping between Bash or PowerShell will trigger a Cloud Shell restart which terminates existing sessions.
+Users can only launch one type of shell at a time, either **Bash** or **PowerShell**. However, you may have multiple instances of Bash or PowerShell running at one time. Swapping between Bash or PowerShell causes Cloud Shell to restart, which terminates existing sessions.
 
 ### Usage limits
 Cloud Shell is intended for interactive use cases. As a result, any long-running non-interactive sessions are ended without warning.
 
-## Bash Limitations
+## Bash limitations
 
 ### User permissions
 Permissions are set as regular users without sudo access. Any installation outside your `$Home` directory will not persist.
@@ -54,13 +54,13 @@ Take caution when editing .bashrc, doing so can cause unexpected errors in Cloud
 ### .bash_history
 Your history of bash commands may be inconsistent because of Cloud Shell session disruption or concurrent sessions.
 
-## PowerShell Limitations
+## PowerShell limitations
 
 ### Slow startup time
 PowerShell in Azure Cloud Shell could take up to 60 seconds to initialize during preview.
 
 ### No $Home directory persistence
-Any application (such as: git, vim, and others) that writes data to $Home will not be persisted across PowerShell sessions.  For a workaround [see here TODO]() 
+Data written to $Home by any application (such as: git, vim, and others) does not persist across PowerShell sessions.  For a workaround [see here TODO]().
 
 ## Next steps
 [Troubleshooting Cloud Shell](troubleshooting.md) <br>
