@@ -40,7 +40,7 @@ Next, you create a function in the new function app.
 
 <a name="create-function"></a>
 
-## Create a Cosmos DB triggered function
+## Create Azure Cosmos DB trigger
 
 1. Expand your function app and click the **+** button next to **Functions**. If this is the first function in your function app, select **Custom function**. This displays the complete set of function templates.
 
@@ -48,11 +48,11 @@ Next, you create a function in the new function app.
 
 2. Locate and choose the **Azure CosmosDBTrigger** template for your desired language.
 
-    ![Create the Cosmos DB triggered function](./media/functions-create-cosmos-db-triggered-function/select-cosmos-db-trigger-portal.png)
+    ![Create the Azure Cosmos DB triggered function](./media/functions-create-cosmos-db-triggered-function/select-cosmos-db-trigger-portal.png)
 
 3. Configure the new trigger with the settings as specified in the table below the image.
 
-    ![Create the Cosmos DB triggered function](./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png)
+    ![Create the Azure Cosmos DB triggered function](./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png)
     
     | Setting      | Suggested value  | Description                                |
     | ------------ | ---------------- | ------------------------------------------ |
@@ -63,7 +63,7 @@ Next, you create a function in the new function app.
 
 4. Select **New** next to the **Azure Cosmos DB account connection** label, and select **+ Create new**. 
  
-    ![Configure Cosmos DB connection](./media/functions-create-cosmos-db-triggered-function/functions-create-CosmosDB.png)
+    ![Configure Azure Cosmos DB connection](./media/functions-create-cosmos-db-triggered-function/functions-create-CosmosDB.png)
 
 6. Use the **New account** settings as specified in the table.
 
@@ -77,23 +77,23 @@ Next, you create a function in the new function app.
 
 6. Click **OK** to create the database. It may take a few minutes to create the database. After the database is created, the database connection string is stored as a function app setting. The name of this app setting is inserted in **Azure Cosmos DB account connection**. 
 
-7. Click **Create** to create your Cosmos DB triggered function. After the function is created, the template-based function code is displayed.  
+7. Click **Create** to create your Azure Cosmos DB triggered function. After the function is created, the template-based function code is displayed.  
 
     ![Cosmos DB function template in C#](./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png)
 
     This function template writes the number of documents and the first document ID to the logs. 
 
-Next, you connect to your Cosmos DB account and create the **Tasks** collection in the database. 
+Next, you connect to your Azure Cosmos DB account and create the **Tasks** collection in the database. 
 
-## Create the collection
+## Create the Items collection
 
 1. Open a second instance of the [Azure portal](https://portal.azure.com) in a new tab in the browser. 
 
 2. On the left side of the portal, expand the icon bar, type `cosmos` in the search field, and select **Azure Cosmos DB**.
 
-    ![Search for the Cosmos DB service](./media/functions-create-cosmos-db-triggered-function/functions-search-cosmos-db.png)
+    ![Search for the Azure Cosmos DB service](./media/functions-create-cosmos-db-triggered-function/functions-search-cosmos-db.png)
 
-2. Choose your Cosmos DB account, then select the **Data Explorer**. 
+2. Choose your Azure Cosmos DB account, then select the **Data Explorer**. 
  
 3. In **Collections**, choose **taskDatabase** and select **New Collection**.
 
@@ -141,7 +141,7 @@ After the collection specified in the function binding exists, you can test the 
 
 ## Next steps
 
-You have created a function that runs when a document is added or modified in your Cosmos DB.
+You have created a function that runs when a document is added or modified in your Azure Cosmos DB.
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
