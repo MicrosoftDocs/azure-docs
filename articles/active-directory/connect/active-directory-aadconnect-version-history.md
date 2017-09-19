@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
+ms.date: 08/30/2017
 ms.author: billmath
 
 ---
@@ -29,6 +29,54 @@ Topic |  Details
 Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a previous version to the latest](active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect release.
 Required permissions | For permissions required to apply an update, see [accounts and permissions](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## 1.1.614.0
+Status: September 05 2017
+
+### Azure AD Connect
+
+#### Known issues
+* There is a known issue with Azure AD Connect Upgrade that is affecting customers who have enabled [Seamless Single Sign-On](active-directory-aadconnect-sso.md). After Azure AD Connect is upgraded, the feature appears as disabled in the wizard, even though the feature remains enabled. A fix for this issue will be provided in future release. Customers who are concerned about this display issue can manually fix it by enabling Seamless Single Sign-On in the wizard.
+
+#### Fixed issues
+* Fixed an issue that prevented Azure AD Connect from updating the claims rules in on-premises ADFS while enabling the [msDS-ConsistencyGuid as Source Anchor](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) feature. The issue occurs if you try to enable the feature for an existing Azure AD Connect deployment that has ADFS configured as the sign-in method. The issue occurs because the wizard does not prompt for ADFS credentials before trying to update the claims rules in ADFS.
+* Fixed an issue that caused Azure AD Connect to fail installation if the on-premises AD forest has NTLM disabled. The issue is due to Azure AD Connect wizard not providing fully qualified credentials when creating the security contexts required for Kerberos authentication. This causes Kerberos authentication to fail and Azure AD Connect wizard to fall back to using NTLM.
+
+### Azure AD Connect Sync
+#### Fixed issues
+* Fixed an issue where new synchronization rule cannot be created if the Tag attribute isn’t populated.
+* Fixed an issue that caused Azure AD Connect to connect to on-premises AD for Password Synchronization using NTLM, even though Kerberos is available. This issue occurs if the on-premises AD topology has one or more domain controllers that was restored from a backup.
+* Fixed an issue that caused full synchronization steps to occur unnecessarily after upgrade. In general, running full synchronization steps is required after upgrade if there are changes to out-of-box synchronization rules. The issue was due to an error in the change detection logic that incorrectly detected a change when encountering synchronization rule expression with newline characters. Newline characters are inserted into sync rule expression to improve readability.
+* Fixed an issue that can cause the Azure AD Connect server to not work correctly after Automatic Upgrade. This issue affects Azure AD Connect servers with version 1.1.443.0 (or earlier). For details about the issue, refer to article [Azure AD Connect is not working correctly after an automatic upgrade](https://support.microsoft.com/help/4038479/azure-ad-connect-is-not-working-correctly-after-an-automatic-upgrade).
+* Fixed an issue that can cause Automatic Upgrade to be retried every 5 minutes when errors are encountered. With the fix, Automatic Upgrade retries with exponential back-off when errors are encountered.
+* Fixed an issue where password synchronization event 611 is incorrectly shown in Windows Application Event logs as **informational** instead of **error**. Event 611 is generated whenever password synchronization encounters an issue. 
+* Fixed an issue in the Azure AD Connect wizard that allows Group writeback feature to be enabled without selecting an OU required for Group writeback.
+
+#### New features and improvements
+* Added a Troubleshoot task to Azure AD Connect wizard under Additional Tasks. Customers can leverage this task to troubleshoot issues related to password synchronization and collect general diagnostics. In the future, the Troubleshoot task will be extended to include other directory synchronization-related issues.
+* Azure AD Connect now supports a new installation mode called **Use Existing Database**. This installation mode allows customers to install Azure AD Connect that specifies an existing ADSync database. For more information about this feature, refer to article [Use an existing database](active-directory-aadconnect-existing-database.md).
+* For improved security, Azure AD Connect now defaults to using TLS1.2 to connect to Azure AD for directory synchronization. Previously, the default was TLS1.0.
+* When Azure AD Connect Password Synchronization Agent starts up, it tries to connect to Azure AD well-known endpoint for password synchronization. Upon successful connection, it is redirected to a region-specific endpoint. Previously, the Password Synchronization Agent caches the region-specific endpoint until it is restarted. Now, the agent clears the cache and retries with the well-known endpoint if it encounters connection issue with the region-specific endpoint. This change ensures that password synchronization can failover to a different region-specific endpoint when the cached region-specific endpoint is no longer available.
+* To synchronize changes from an on-premises AD forest, an AD DS account is required. You can either (i) create the AD DS account yourself and provide its credential to Azure AD Connect, or (ii) provide an Enterprise Admin credentials and let Azure AD Connect create the AD DS account for you. Previously, (i) is the default option in the Azure AD Connect wizard. Now, (ii) is the default option.
+
+### Azure AD Connect Health
+
+#### New features and improvements
+* Added support for Microsoft Azure Government Cloud and Microsoft Cloud Germany.
+
+### AD FS Management
+#### Fixed issues
+* The Initialize-ADSyncNGCKeysWriteBack cmdlet in the AD prep powershell module was incorrectly ACL’ing the device registration container and would therefore only inherit existing permissions.  This was updated so that the sync service account has the correct permissions.
+
+#### New features and improvements
+* The AAD Connect Verify ADFS Login task was updated so that it verifies logins against Microsoft Online and not just token retrieval from ADFS.
+* When setting up a new ADFS farm using AAD Connect, the page asking for ADFS credentials was moved so that it now occurs before the user is asked to provide ADFS and WAP servers.  This allows AAD Connect to check that the account specified has the correct permissions.
+* During AAD Connect upgrade, we will no longer fail an upgrade if the ADFS AAD Trust fails to update.  If that happens, the user will be shown an appropriate warning message and should proceed to reset the trust via the AAD Connect additional task.
+
+### Seamless Single Sign-On
+#### Fixed issues
+* Fixed an issue that caused Azure AD Connect wizard to return an error if you try to enable [Seamless Single Sign-On](active-directory-aadconnect-sso.md). The error message is *“Configuration of Microsoft Azure AD Connect Authentication Agent failed.”* This issue affects existing customers who had manually upgraded the preview version of the Authentication Agents for [Pass-through Authentication](active-directory-aadconnect-sso.md) based on the steps described in this [article](active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md).
+
 
 ## 1.1.561.0
 Status: July 23 2017

@@ -2,7 +2,7 @@
 title: Azure Storage Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to use Azure Storage - Blob, Table, Queue, File, and Virtual Machine Disk storage in the cloud. Tutorials, API references, and other documentation.
 services: storage
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

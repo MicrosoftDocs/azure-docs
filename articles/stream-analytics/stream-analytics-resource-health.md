@@ -4,7 +4,7 @@ description: How to pinpoint issues when troubleshooting Stream Analytics jobs.
 keywords: troubleshoot flowchart, resource blade
 documentationcenter: ''
 services: stream-analytics
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 05/01/2017
-ms.author: jeffstok
+ms.author: samacha
 
 ---
 

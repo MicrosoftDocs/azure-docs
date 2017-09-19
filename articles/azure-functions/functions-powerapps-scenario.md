@@ -40,7 +40,7 @@ In this topic, you learn how to:
 ## Prerequisites
 
 + An active [PowerApps account](https://powerapps.microsoft.com/tutorials/signup-for-powerapps.md) with the same sign in credentials as your Azure account. 
-+ Excel, because you will use Escel as a data source for your app.
++ Excel, because you will use Excel as a data source for your app.
 + Complete the tutorial [Create an OpenAPI definition for a function](functions-openapi-definition.md).
 
 
@@ -69,32 +69,7 @@ You start off by preparing sample data that you use in the app. Copy the followi
 
 1. Save the Excel workbook.
 
-## Export an API definition
-You have an OpenAPI definition for your function, from [Create an OpenAPI definition for a function](functions-openapi-definition.md). The next step in this process is to export the API definition so that PowerApps and Microsoft Flow can use it in a custom API.
-
-> [!IMPORTANT]
-> Remember that you must be signed into Azure with the same credentials that you use for your PowerApps and Microsoft Flow tenants. This enables Azure to create the custom API and make it available for both PowerApps and Microsoft Flow.
-
-1. Click your function app name (like **function-demo-energy**) > **Platform features** > **API definition**.
-
-    ![API definition](media/functions-powerapps-scenario/api-definition.png)
-
-1. Click **Export to PowerApps + Flow**.
-
-    ![API definition source](media/functions-powerapps-scenario/export-api-1.png)
-
-1. In the right pane, use the settings as specified in the table.
-
-    |Setting|Description|
-    |--------|------------|
-    |**Export Mode**|Select **Express** to automatically generate the custom API. Selecting **Manual** exports the API definition, but then you must import it into PowerApps and Microsoft Flow manually.|
-    |**Environment**|Select the environment that the custom API should be saved to. For more information, see [Environments overview](https://powerapps.microsoft.com/tutorials/environments-overview/).|
-    |**Custom API Name**|Enter a name, like `Turbine Repair`.|
-    |**API Key Name**|Enter the name that app and flow builders should see in the custom API UI. Note that the example includes helpful information.|
- 
-    ![API definition source](media/functions-powerapps-scenario/export-api-2.png)
-
-1. Click **OK**. The custom API is now built and added to the environment you specified.
+[!INCLUDE [Export an API definition](../../includes/functions-export-api-definition.md)]
 
 ## Add a connection to the API
 The custom API (also known as a custom connector) is available in PowerApps, but you must make a connection to the API before you can use it in an app.

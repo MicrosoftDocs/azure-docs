@@ -15,7 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: curtand
-ms.reviewer: rodejo
+ms.reviewer: kairaz.contractor
+ms.custom: oldportal
 
 ---
 
@@ -191,6 +192,7 @@ Allowed operators
 | Properties | Allowed values | Usage |
 | --- | --- | --- |
 | otherMails |Any string value |(user.otherMails -contains "alias@domain") |
+
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
 ## Multi-value properties
@@ -242,7 +244,8 @@ An example of a rule that uses a custom attribute is
 
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
 
-The custom attribute name can be found in the directory by querying a user's attribute using Graph Explorer and searching for the attribute name.
+The custom attribute name can be found in the directory by querying a user's attribute using Graph Explorer and searching for the attribute name. 
+Currently we do not support multi-value attributes synchronized from on premises Active Directory. 
 
 ## "Direct Reports" Rule
 You can create a group containing all direct reports of a manager. When the manager's direct reports change in the future, the group's membership will be adjusted automatically.
@@ -274,10 +277,10 @@ You can also create a rule that selects device objects for membership in a group
 | displayName             | any string value                | (device.displayName -eq "Rob Iphone”)                       |
 | deviceOSType            | any string value                | (device.deviceOSType -eq "IOS")                             |
 | deviceOSVersion         | any string value                | (device.OSVersion -eq "9.1")                                |
-| deviceCategory          | any string value                | (device.deviceCategory -eq "")                              |
+| deviceCategory          | a valid device category name    | (device.deviceCategory -eq "BYOD")                          |
 | deviceManufacturer      | any string value                | (device.deviceManufacturer -eq "Microsoft")                 |
 | deviceModel             | any string value                | (device.deviceModel -eq "IPhone 7+")                        |
-| deviceOwnership         | any string value                | (device.deviceOwnership -eq "")                             |
+| deviceOwnership         | Personal, Company               | (device.deviceOwnership -eq "Company")                      |
 | domainName              | any string value                | (device.domainName -eq "contoso.com")                       |
 | enrollmentProfileName   | any string value                | (device.enrollmentProfileName -eq "")                       |
 | isRooted                | true false                      | (device.deviceOSType -eq true)                              |

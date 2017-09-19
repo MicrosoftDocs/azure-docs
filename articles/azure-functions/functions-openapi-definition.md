@@ -1,6 +1,6 @@
 ---
 title: Create an OpenAPI definition for a function | Microsoft Docs
-description: Create an OpenAPI definition that enables other apps and services to call your function.
+description: Create an OpenAPI definition that enables other apps and services to call your function in Azure.
 services: functions
 keywords: OpenAPI, Swagger, cloud apps, cloud services,
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/25/2017
-ms.author: mblythe
-ms.custom: ''
+ms.author: mblythe; glenga
+ms.custom: mvc
 ---
 
 # Create an OpenAPI definition for a function
@@ -27,11 +27,10 @@ In this tutorial, you create a function that determines whether an emergency rep
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a function app to host your function.
-> * Create a function.
-> * Generate an OpenAPI definition using OpenAPI tools.
-> * Modify the definition to provide additional metadata.
-> * Test the definition by calling the function.
+> * Create a function in Azure
+> * Generate an OpenAPI definition using OpenAPI tools
+> * Modify the definition to provide additional metadata
+> * Test the definition by calling the function
 
 ## Create a function app
 
@@ -171,20 +170,9 @@ Now you're ready to generate the OpenAPI definition. This definition can be used
     This definition is described as a _template_ because it requires more metadata to be a full OpenAPI definition. You'll modify the definition in the next step.
 
 ## Modify the OpenAPI definition
-Now that you have a template definition, you modify it to provide additional metadata about the API's operations and data structures. For this tutorial, you can simply paste the modified definition below into the **API definition** pane and click **Save**.
+Now that you have a template definition, you modify it to provide additional metadata about the API's operations and data structures. In **API definition**, delete the generated definition from `post` to the bottom of the definition, paste in the content below, and click **Save**.
 
 ```yaml
-swagger: '2.0'
-info:
-  title: Turbine Repair
-  version: 1.0.0
-host: function-demo-energy.azurewebsites.net
-basePath: /
-schemes:
-  - https
-  - http
-paths:
-  /api/TurbineRepair:
     post:
       operationId: CalculateCosts
       description: Determines if a technician should be sent for repair
@@ -244,7 +232,7 @@ securityDefinitions:
     in: query
 ```
 
-That said, it's important to understand the types of modifications we made to the default template:
+In this case you could just paste in updated metadata, but it's important to understand the types of modifications we made to the default template:
 
 + Specified that the API produces and consumes data in a JSON format.
 
@@ -296,10 +284,11 @@ Before you use the API definition, it's a good idea to test it in the Azure Func
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Create a function app to host your function.
-> * Create a function.
-> * Generate an OpenAPI definition using OpenAPI tools.
-> * Modify the definition to provide additional metadata.
-> * Test the definition by calling the function.
+> * Create a function in Azure
+> * Generate an OpenAPI definition using OpenAPI tools
+> * Modify the definition to provide additional metadata
+> * Test the definition by calling the function
 
-To learn how to create a PowerApps app that uses the OpenAPI definition you created, see [Call a function from PowerApps](functions-powerapps-scenario.md).
+Advance to the next topic to learn how to create a PowerApps app that uses the OpenAPI definition you created.
+> [!div class="nextstepaction"]
+> [Call a function from PowerApps](functions-powerapps-scenario.md)

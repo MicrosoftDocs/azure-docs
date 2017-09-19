@@ -12,12 +12,29 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 09/13/2017
 ms.author: markvi
 ms.reviewer: jairoc
 
 ---
 # Azure Active Directory device management FAQ
+
+
+
+**Q: How can I register a macOS device?**
+
+**A:** To register macOS device:
+
+1.	[Create a compliance policy](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
+2.	[Define a conditional access policy for macOS devices](active-directory-conditional-access-azure-portal.md) 
+
+**Remarks:**
+
+- The users that are included in your conditional access policy need a [supported version of Office for macOS](active-directory-conditional-access-technical-reference.md#supported-mobile-apps-and-desktop-clients) to access resources. 
+
+- During the first access attempt, your users are prompted to enroll the device using the company portal.
+
+---
 
 **Q: I registered the device recently. Why can’t I see the device under my user info in the Azure portal?**
 
@@ -138,19 +155,9 @@ Please create a different local account before using Azure Active Directory Join
 
 ---
 
-**Q: Where can I find instructions for the setup of automatic device registration?**
+**Q: Where can I find instructions for the setup of hybrid Azure AD joined devices?**
 
-**A:** For detailed instructions, see [How to configure automatic registration of Windows domain-joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md)
+**A:** For detailed instructions, see [set up hybrid Azure Active Directory-joined devices](device-management-hybrid-azuread-joined-devices-setup.md).
 
----
-
-**Q: Where can I find troubleshooting information about the automatic device registration?**
-
-**A:** For troubleshooting information, see:
-
-- [Troubleshooting auto-registration of domain joined computers to Azure AD – Windows 10 and Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md)
-
-- [Troubleshooting auto-registration of domain joined computers to Azure AD for Windows down-level clients](active-directory-device-registration-troubleshoot-windows-legacy.md)
- 
 ---
 
