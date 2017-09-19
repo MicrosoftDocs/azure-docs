@@ -107,7 +107,7 @@ Stream the logs to your PowerShell session with the following command:
 
 	PS C:\> Get-AzureWebSiteLog -Name MyFunctionApp -Tail
 
-For more information, see [How to: Stream logs for web apps](../app-service-web/web-sites-enable-diagnostic-log.md#streamlogs). 
+For more information, see [How to: Stream logs for web apps](../app-service/web-sites-enable-diagnostic-log.md#streamlogs). 
 
 ## Next steps
 For more information, see the following resources:

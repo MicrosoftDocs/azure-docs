@@ -12,22 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/19/2017
 ms.author: elkuzmen
 ---
 
-# Use a Windows VM Managed Service Identity (MSI) to access Azure storage
+# Use a Windows VM Managed Service Identity to access Azure storage
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to enable Managed Service Identity (MSI) for a Linux Virtual Machine and then use that identity to access Storage Keys. You can use Storage Keys as usual when doing storage operations, for example when using Storage SDK. For this tutorial we will upload and download blobs using Azure CLI. You will learn how to:
+This tutorial shows you how to enable Managed Service Identity (MSI) for a Windows Virtual Machine and then use that identity to access Storage Keys. You can use Storage Keys as usual when doing storage operations, for example when using Storage SDK. For this tutorial, we upload and download blobs using Azure Storage PowerShell. You will learn how to:
 
 
 > [!div class="checklist"]
 > * Enable MSI on a Windows Virtual Machine 
-> * Create a new Storage Account
-> * Grant your VM access to Storage 
-> * Get an access token for your Storage Account using the VM identity 
+> * Grant your VM access to storage keys in Resource Manager 
+> * Get an access token using VM identity and use it to retrieve storage keys from Resource Manager 
 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -53,31 +52,44 @@ For this tutorial, we create a new Windows VM. You can also enable MSI on an exi
 
 A Virtual Machine MSI enables you to get access tokens from Azure AD without you needing to put credentials into your code. Under the covers, enabling MSI does two things: it installs the MSI VM extension on your VM and it enables MSI for the Virtual Machine.  
 
-1. Select the **Virtual Machine** that you wnat to enable MSI on.
-2. On the left navigation bar click **Configuration**.
-3. You will see **Managed Service Identity**. To register and enable the MSI, select **Yes**, if you wish to disable it, choose No.
+1. Navigate to the resource group of your new virtual machine, and select the virtual machine you created in the previous step.
+2. Under the VM Setting on the left, click **Configuration**.
+3. To register and enable the MSI, select **Yes**, if you wish to disable it, choose No.
 4. Ensure you click **Save** to save the configuration.
 
     ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
-5. If you wish to check which extensions are on this **Windows VM**, click **Extensions**. If MSI is enabled, the **ManagedIdentityExtensionforWindows** will appear on the list.
+5. If you wish to check which extensions are on the VM, click **Extensions**. If MSI is enabled, the **ManagedIdentityExtensionforWindows** appears in the list.
 
     ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
-## Create a new Storage Account 
+## Create a storage Account 
 
-You can use Storage keys as usual when doing Storage operations, in this example we will focus on uploading and downloading blobs using the Azure CLI. 
+If you don't already have one, you will now create a storage account. You can also skip this step and grant your VM MSI access to the keys of an existing storage account. 
 
-1. Navigate to the side-bar and select **Storage**.  
-2. Create a new **Storage Account**.  
-3. In **Deployment model**, enter in **Resource Manager** and **Account kind** with **General Purpose**.  
-4. Ensure the **Subscription** and **Resource Group** are the one that you used when you created your **Linux Virtual Machine** in the step above.
+1. Click the **New** button found on the upper left-hand corner of the Azure portal.
+2. Click **Storage**, then **Storage Account**, and a new "Create storage account" panel will display.
+3. Enter a name for the storage account, which you will use later.  
+4. **Deployment model** and **Account kind** should be set to "Resource manager" and "General purpose", respectively. 
+5. Ensure the **Subscription** and **Resource Group** match the ones you specified when you created your VM in the previous step.
+6. Click **Create**.
 
-    ![Alt image text](media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+    ![Create new storage account](media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+
+## Create a blob container in the storage account
+
+Later we will upload and download a file to the new storage account. Because files require blob storage, we need to create a blob container in which to store the file.
+
+1. Navigate back to your newly created storage account.
+2. Click the **Containers** link on the left navigation bar, under "Blob service."
+3. Click **+ Container** on the top of the page, and a "New container" panel slides out.
+4. Give the container a name, select an access level, then click **OK**. The name you specified will be used later in the tutorial. 
+
+    ![Create storage container](media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
 ## Grant your VM identity access to use Storage Keys 
 
-Using MSI your code can get access tokens to authenticate to resources that support Azure AD authentication.   
+Azure Storage does not natively support Azure AD authentication.  However, you can use an MSI to retrieve Storage keys from the Resource Manager, and use those keys to access storage.  In this step, you grant your VM MSI access to the keys to your Storage account.   
 
 1. Navigate to tab for **Storage**.  
 2. Select the specific **Storage Account** you created earlier.   
@@ -91,7 +103,7 @@ Using MSI your code can get access tokens to authenticate to resources that supp
 
 ## Get an access token using the VM Identity and use it to call Azure Resource Manager 
 
-You will need to use **PowerShell** in this portion.  If you don’t have installed, download it [here](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1). 
+You will need to use Azure Resource Manager **PowerShell** in this portion.  If you don’t have it installed, [download the latest version](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1) before continuing.
 
 1. In the portal, navigate to **Virtual Machines** and go to your Windows virtual machine and in the **Overview**, click **Connect**. 
 2. Enter in your **Username** and **Password** for which you added when you created the Windows VM. 
@@ -99,7 +111,7 @@ You will need to use **PowerShell** in this portion.  If you don’t have instal
 4. Using Powershell’s Invoke-WebRequest, make a request to the local MSI endpoint to get an access token for Azure Resource Manager.
 
     ```powershell
-       $response = Invoke-WebRequest -Uri http://localhost/50342/oauth2/token -Method GET -Body @resource="https://management.azure.com/"} -Headers @{Metadata="true"}
+       $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://management.azure.com/"} -Headers @{Metadata="true"}
     ```
     
     > [!NOTE]
@@ -108,53 +120,43 @@ You will need to use **PowerShell** in this portion.  If you don’t have instal
     Next, extract the full response, which is stored as a JavaScript Object Notation (JSON) formatted string in the $response object. 
     
     ```powershell
-    $content = $repsonse.Content | ConvertFrom-Json
+    $content = $response.Content | ConvertFrom-Json
     ```
     Next, extract the access token from the response.
     
     ```powershell
     $ArmToken = $content.access_token
     ```
-    
-    Finally, call Azure Resource Manager using the access token. In this example, we're also using PowerShell's Invoke-WebRequest to make the call to Azure Resource Manager, and include the access token in the Authorization header.
-    
-    ```powershell
-    (Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-06-01 -Method GET -ContentType "application/json" -Headers @{ Authorization ="Bearer $ArmToken"}).content
-    ```
-    > [!NOTE]
-    > The URL is case-sensitive, so ensure if you are using the exact same case as you used earlier when you named the Resource Group, and the uppercase "G" in "resourceGroup."
-    
-## Get the Storage Keys from Azure Resource Manager 
+ 
+## Get storage keys from Azure Resource Manager to make storage calls 
+
+Now we use PowerShell to make a call to Resource Manager using the access token we retrieved in the previous section, to retrieve the storage access key. Once we have the storage access key, we can call storage upload/download operations.
 
 ```powershell
-PS C:\> $keysResponse = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/97f51385-2edc-4b69-bed8-7778dd4cb761/resourceGroups/SKwan_Test/providers/Microsoft.Storage/storageAccounts/skwanteststorage/listKeys/?api-version=2016-12-01 -Method POST$ -Headers @{Authorization="Bearer $ARMToken"}
+PS C:\> $keysResponse = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE-ACCOUNT>/listKeys/?api-version=2016-12-01 -Method POST -Headers @{Authorization="Bearer $ARMToken"}
 ```
+> [!NOTE] 
+> The URL is case-sensitive, so ensure you use the exact same case used earlier, when you named the Resource Group, including the uppercase "G" in "resourceGroups." 
 
 ```powershell
 PS C:\> $keysContent = $keysResponse.Content | ConvertFrom-Json
-```
-
-```powershell
 PS C:\> $key = $keysContent.keys[0].value
 ```
 
-**Create a file to be uploaded using Azure CLI**
+Next we create a file called "test.txt". Then use the storage key to authenticate with Azure Storage PowerShell and upload the file to our blob container, then download the file.
 
 ```bash
 echo "This is a test text file." > test.txt
 ```
 
-**Upload the file using the Azure CLI and authenticating with the Storage Key**
-
 > [!NOTE]
 > First remember to install Azure storage commandlets “Install-Module Azure.Storage”. 
 
-PowerShell request:
-
+You can upload the blob you just created, using the `Set-AzureStorageBlobContent` PowerShell cmdlet:
 
 ```powershell
-PS C:\> $ctx = New-AzureStorageContext -StorageAccountName skwanteststorage -StorageAccountKey $key
-PS C:\> Set-AzureStorageBlobContent -File test.txt -Container testcontainer -Blob testblob -Context $ctx
+PS C:\> $ctx = New-AzureStorageContext -StorageAccountName <STORAGE-ACCOUNT> -StorageAccountKey $key
+PS C:\> Set-AzureStorageBlobContent -File test.txt -Container <CONTAINER-NAME> -Blob testblob -Context $ctx
 ```
 
 Response:
@@ -171,12 +173,10 @@ Context           : Microsoft.WindowsAzure.Commands.Storage.AzureStorageContext
 Name              : testblob
 ```
 
-**Download the file using the Azure CLI and authenticating with the Storage Key**
-
-PowerShell request:
+You can also download the blob you just uploaded, using the `Get-AzureStorageBlobContent` PowerShell cmdlet:
 
 ```powershell
-PS C:\> Get-AzureStorageBlobContent -Blob <blob name> -Container <container name> -Destination <file> -Context $ctx
+PS C:\> Get-AzureStorageBlobContent -Blob <blob name> -Container <CONTAINER-NAME> -Destination test2.txt -Context $ctx
 ```
 
 Response:

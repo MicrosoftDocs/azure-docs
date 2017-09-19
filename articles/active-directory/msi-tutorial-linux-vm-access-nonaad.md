@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/19/2017
 ms.author: elkuzmen
 ---
 
@@ -33,12 +33,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 
 ## Sign in to Azure
-<<<<<<< HEAD
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
-=======
->>>>>>> 9556aed7734bda473c8b60bfa42ff4f82a6eedd4
-
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ## Create a Linux Virtual Machine in a new Resource Group
 
@@ -47,10 +42,7 @@ For this tutorial, we create a new Linux VM. You can also enable MSI on an exist
 1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 2. Select **Compute**, and then select **Ubuntu Server 16.04 LTS**.
 3. Enter the virtual machine information. For **Authentication type**, select **SSH public key** or **Password**. The created credentials will allow you to login to the VM.
-<<<<<<< HEAD
-=======
 
->>>>>>> 9556aed7734bda473c8b60bfa42ff4f82a6eedd4
     ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Choose a **Subscription** for the virtual machine in the dropdown.
@@ -110,7 +102,7 @@ To complete these steps, you will need an SSH client.  If you are using Windows
     The CURL request for the access token is below.  
     
     ```bash
-    curl http://localhost:50432/oauth2/token --data "resource=https://vault.azure.net" -H Metadata:true  
+    curl http://localhost:50342/oauth2/token --data "resource=https://vault.azure.net" -H Metadata:true  
     ```
     The response includes the access token you need to access Resource Manager. 
     
