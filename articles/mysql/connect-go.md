@@ -14,7 +14,7 @@ ms.date: 09/20/2017
 ---
 
 # Azure Database for MySQL: Use Go language to connect and query data
-This quickstart demonstrates how to connect to an Azure Database for MySQL from Windows, Ubuntu Linux, and Apple macOS platforms by using code written in the [Go](https://golang.org/) language. It shows how to use SQL statements to query, insert, update, and delete data in the database. This topic assumes you are familiar with development using Go, but that you are new to working with Azure Database for MySQL.
+This quickstart demonstrates how to connect to an Azure Database for MySQL from Windows, Ubuntu Linux, and Apple macOS platforms by using code written in the [Go](https://golang.org/) language. It shows how to use SQL statements to query, insert, update, and delete data in the database. This topic assumes that you are familiar with development using Go and that you are new to working with Azure Database for MySQL.
 
 ## Prerequisites
 This quickstart uses the resources created in either of these guides as a starting point:
