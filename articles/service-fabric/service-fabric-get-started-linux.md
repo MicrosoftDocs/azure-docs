@@ -33,6 +33,21 @@ The following operating system versions are supported for development:
 
 * Ubuntu 16.04 (`Xenial Xerus`)
 
+## Runtime and common SDK Installation Methods
+
+### 1. Script installation
+The following command automatically installs the Service Fabric runtime and common SDK. It also sets-up the Azure Service Fabric CLI 'sfctl'.
+After the script is executed successfully, you can directly skip to [Set up a local cluster](#set-up-a-local-cluster).
+
+```bash
+sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-templates/master/scripts/SetupServiceFabric/SetupServiceFabric.sh | sudo bash
+```
+
+
+### 2. Manual Installation
+For manual installation of Service Fabric runtime and common SDK, follow the steps mentioned below.
+
+
 ## Update your APT sources
 To install the SDK and the associated runtime package via the apt-get command-line tool, you must first update your Advanced Packaging Tool (APT) sources.
 
@@ -191,6 +206,14 @@ To update the Java SDK binaries from Maven, you need to update the version detai
 
 > [!NOTE]
 > Updating the packages might cause your local development cluster to stop running. Restart your local cluster after an upgrade by following the instructions on this page.
+
+## Remove the SDK
+To remove the Service Fabric SDKs, run the following:
+
+```bash
+sudo apt-get remove servicefabric servicefabicsdkcommon servicefabricsdkcsharp servicefabricsdkjava
+sudo apt-get install -f
+```
 
 ## Next steps
 

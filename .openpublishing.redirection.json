@@ -1,5 +1,6 @@
 {
-    "redirections": [{
+    "redirections": [
+        {
             "source_path": "articles/virtual-machines/linux/impactful-maintenance.md",
             "redirect_url": "/azure/virtual-machines/linux/planned-maintenance",
             "redirect_document_id": false
@@ -11175,11 +11176,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/container-service/kubernetes/container-service-kubernetes-service-principal.md",
-            "redirect_url": "/azure/container-service/kubernetes/container-service-kubernetes-walkthrough",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/virtual-machines/linux/planned-maintenance.md",
             "redirect_url": "/azure/virtual-machines/linux/maintenance-and-updates",
             "redirect_document_id": false
@@ -11678,7 +11674,7 @@
             "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-create-group.md",
             "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started",
             "redirect_document_id": false
-        },            
+        },
         {
             "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-enableaadds.md",
             "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started",
@@ -11840,8 +11836,28 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-machines/terraform-install-configure.md",
+            "redirect_url": "/azure/virtual-machines/linux/terraform-install-configure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/terraform-create-complete-vm.md",
+            "redirect_url": "/azure/virtual-machines/linux/terraform-create-complete-vm",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-toolkit-for-intellij-whats-new.md",
             "redirect_url": "/java/azure/intellij/azure-toolkit-for-intellij-whats-new",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/index.md",
+            "redirect_url": "/azure/app-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-api/index.md",
+            "redirect_url": "azure/app-service",
             "redirect_document_id": false
         }
     ]

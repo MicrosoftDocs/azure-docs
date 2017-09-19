@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2017
+ms.date: 09/15/2017
 ms.author: mimig
 ms.custom: cda
 ---
@@ -71,6 +71,22 @@ Tip 6: Is MEAN your thing? Learn how to easily migrate your app to Azure #cosmos
 > [!VIDEO https://www.youtube.com/embed/vlAUxc3d2ak]
 
 [![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/907634936160559105)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6313400758263967744/)
+
+## Tip 8: Build a Node.js app by using SQL API
+
+Tip 8: Build a @nodejs app by using SQL API and Azure #CosmosDB. Learn more on docs page [https://aka.ms/Bd77a8](https://aka.ms/Bd77a8)  
+
+> [!VIDEO https://www.youtube.com/embed/_gd9ZY-rHtM]
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/908344625101815808)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6314096399197757440)
+
+## Tip 9: Query using MongoDB in Node.js
+
+Tip 9: Query Azure #CosmosDB using the MongoDB API in Node.js. Learn more on docs page [https://aka.ms/Dert0r](https://aka.ms/Dert0r)  
+
+![Query with MongoDB](./media/20-days-of-tips/cosmos-db-tip-9-mongodb-query.png)
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/908737218759376896)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6314500690261655552)
 
 ## Next steps
 

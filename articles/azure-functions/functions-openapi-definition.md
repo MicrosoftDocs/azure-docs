@@ -170,20 +170,9 @@ Now you're ready to generate the OpenAPI definition. This definition can be used
     This definition is described as a _template_ because it requires more metadata to be a full OpenAPI definition. You'll modify the definition in the next step.
 
 ## Modify the OpenAPI definition
-Now that you have a template definition, you modify it to provide additional metadata about the API's operations and data structures. For this tutorial, you can simply paste the modified definition below into the **API definition** pane and click **Save**.
+Now that you have a template definition, you modify it to provide additional metadata about the API's operations and data structures. In **API definition**, delete the generated definition from `post` to the bottom of the definition, paste in the content below, and click **Save**.
 
 ```yaml
-swagger: '2.0'
-info:
-  title: Turbine Repair
-  version: 1.0.0
-host: function-demo-energy.azurewebsites.net
-basePath: /
-schemes:
-  - https
-  - http
-paths:
-  /api/TurbineRepair:
     post:
       operationId: CalculateCosts
       description: Determines if a technician should be sent for repair
@@ -243,7 +232,7 @@ securityDefinitions:
     in: query
 ```
 
-That said, it's important to understand the types of modifications we made to the default template:
+In this case you could just paste in updated metadata, but it's important to understand the types of modifications we made to the default template:
 
 + Specified that the API produces and consumes data in a JSON format.
 
