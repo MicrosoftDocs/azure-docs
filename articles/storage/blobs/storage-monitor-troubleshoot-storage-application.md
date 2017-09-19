@@ -29,15 +29,15 @@ In part four of the series, you learn how to:
 > * Run test traffic with incorrect SAS tokens
 > * Download and analyze logs
 
-## Turn on logging and metrics
-
 [Azure storage analytics](../common/storage-analytics.md) provides logging and metric data for a storage account. This data provides insights into the health of your storage account. Before you can be visibility into your storage account, you need to set up data collection. This process involves turning on logging, configuring metrics, and enabling alerts.
 
 Logging and metrics from storage accounts are enabled from the **Diagnostics** tab in the Azure portal. There are two types of metrics. **Aggregate** metrics collect ingress/egress, availability, latency, and success percentages. These metrics are aggregated for the blob, queue, table, and file services. **Per API** collects the same set of metrics for each storage operation in the Azure Storage service API. Storage logging enables you to record details for both successful and failed requests in your storage account. These logs enable you to see details of read, write, and delete operations against your Azure tables, queues, and blobs. They also enable you to see the reasons for failed requests such as timeouts, throttling, and authorization errors.
 
-### Sign in to Azure
+## Log in to the Azure portal
 
-Open the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
+Log in to the [Azure portal](https://portal.azure.com)
+
+## Turn on logging and metrics
 
 From the left menu, select **Resource Groups**, select **myResourceGroup**, and then select your storage account in the resource list.
 
