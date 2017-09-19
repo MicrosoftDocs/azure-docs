@@ -725,7 +725,7 @@ You can use Fabric for iOS to sign users into your application using Twitter. Cl
 preferable to using the `loginWithProvider:completion:` method, as it provides a more native UX feel and allows
 for additional customization.
 
-1. Configure your mobile app backend for Twitter sign-in by following the [How to configure App Service for Twitter login](app-service-mobile-how-to-configure-twitter-authentication.md) tutorial.
+1. Configure your mobile app backend for Twitter sign-in by following the [How to configure App Service for Twitter login](../app-service/app-service-mobile-how-to-configure-twitter-authentication.md) tutorial.
 2. Add Fabric to your project by following the [Fabric for iOS - Getting Started] documentation and setting up
    TwitterKit.
 
@@ -806,7 +806,7 @@ You can use the Google Sign-In SDK for iOS to sign users into your application u
 recently announced changes to their OAuth security policies.  These policy changes will require the use of the
 Google SDK in the future.
 
-1. Configure your mobile app backend for Google sign-in by following the [How to configure App Service for Google login](app-service-mobile-how-to-configure-google-authentication.md) tutorial.
+1. Configure your mobile app backend for Google sign-in by following the [How to configure App Service for Google login](../app-service/app-service-mobile-how-to-configure-google-authentication.md) tutorial.
 2. Install the Google SDK for iOS by following the [Google Sign-In for iOS - Start integrating](https://developers.google.com/identity/sign-in/ios/start-integrating)
    documentation. You may skip the "Authenticate with a Backend Server" section.
 3. Add the following to your delegate's `signIn:didSignInForUser:withError:` method, according to the language
@@ -926,7 +926,7 @@ Google SDK in the future.
 [4]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags
 [5]: http://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:
 [6]: https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h
-[7]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[7]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 [8]: ../active-directory/active-directory-devquickstarts-ios.md
-[9]: app-service-mobile-how-to-configure-facebook-authentication.md
+[9]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
 [10]: https://developers.facebook.com/docs/ios/getting-started
