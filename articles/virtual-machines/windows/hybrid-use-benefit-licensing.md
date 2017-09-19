@@ -13,12 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 5/26/2017
+ms.date: 9/13/2017
 ms.author: xujing
 
 ---
 # Azure Hybrid Use Benefit for Windows Server
 For customers with Software Assurance, Azure Hybrid Use Benefit allows you to use your on-premises Windows Server and Windows Client licenses and run Windows virtual machines in Azure at a reduced cost. Azure Hybrid Use Benefit for Windows Server includes Windows Server 2008R2, Windows Server 2012, Windows Server 2012R2, and Windows Server 2016. For more information, please see the [Azure Hybrid Use Benefit licensing page](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
+
+> [!IMPORTANT]
+> The '[HUB]' Windows Server images that were published for customers with Enterprise Agreement on Azure Marketplace has been retired as of 9/11/2017, please use the standard Windows Server with the "Save Money" option for Azure Hybrid Use Benefit. For more information, please refer to this [article.](https://support.microsoft.com/en-us/help/4036360/retirement-azure-hybrid-use-benefit-images-for-ea-subscriptions)
+>
 
 > [!NOTE]
 > This article shows you to implement the licensing benefit for Windows Server images. You can also perform these steps for [Windows 10 Desktop images](#windows-desktop-multitenant-hosting-deployment).
