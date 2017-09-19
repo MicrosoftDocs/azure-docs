@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 09/15/2017
 ---
 
-# How to configure server parameters in Azure Database for MySQL using the Azure portal
+# How to configure server parameters in Azure Database for MySQL by using the Azure portal
 
-Azure Database for MySQL supports configuration of some server parameters. This article describes how to configure these parameters using the Azure portal, and lists the supported parameters, the default values, and the range of valid values. Not all server parameters can be adjusted. Only the ones listed here are supported.
+Azure Database for MySQL supports configuration of some server parameters. This topic describes how to configure these parameters by using the Azure portal and lists the supported parameters, the default values, and the range of valid values. Not all server parameters can be adjusted; only the ones listed here are supported.
 
 ## Navigate to Server Parameters blade on Azure portal
 
@@ -23,8 +23,9 @@ Log in to the Azure portal, then click your Azure Database for MySQL server name
 
 ## List of configurable server parameters
 
-The following table lists the currently supported server parameters. The parameters can be configured according to your application requirements.
+Currently supported server parameters are listed in the following table. The parameters can be configured according to your application requirements.
 
+> [!div class="mx-tableFixed"]
 |Parameter Name|Default Value|Range|Description|
 |---|---|---|---|
 |binlog_group_commit_sync_delay|1000|0, 11-1000000|Controls how many microseconds the binary log commit waits before synchronizing the binary log file to disk.|
@@ -50,4 +51,4 @@ The following table lists the currently supported server parameters. The paramet
 |wait_timeout|120|60-240|The number of seconds the server waits for activity on a noninteractive connection before closing it.|
 
 ## Next steps
-- [Connection libraries for Azure Database for MySQL](concepts-connection-libraries.md)
+- [Connection libraries for Azure Database for MySQL](concepts-connection-libraries.md).

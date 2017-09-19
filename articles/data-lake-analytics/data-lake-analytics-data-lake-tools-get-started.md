@@ -4,7 +4,7 @@ description: Learn how to install Data Lake Tools for Visual Studio, and how to 
 services: data-lake-analytics
 documentationcenter: ''
 author: saveenr
-manager: saveenr
+manager: jhubbard
 editor: cgronlun
 
 ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/06/2017
-ms.author: edmaca, yanacai
+ms.date: 06/28/2017
+ms.author: saveenr, yanacai
 
 ---
 # Develop U-SQL scripts by using Data Lake Tools for Visual Studio
@@ -29,7 +29,7 @@ information about Data Lake Analytics, see [Azure Data Lake Analytics overview](
 
 * **Visual Studio**: All editions except Express are supported.
     * Visual Studio 2017
-    * Visual Studio 2015 Update 4
+    * Visual Studio 2015
     * Visual Studio 2013
 * **Microsoft Azure SDK for .NET** version 2.7.1 or later.  Install it by using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
 * A **Data Lake Analytics** account. To create an account, see [Get Started with Azure Data Lake Analytics using Azure portal](data-lake-analytics-get-started-portal.md).
@@ -85,10 +85,10 @@ OUTPUT @a
 
     ![U-SQL Visual Studio Data Lake Analytics job performance graph](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
 
-   *  **Job Summary** shows the summary of the job.   
+   * **Job Summary** shows the summary of the job.   
    * **Job Details** shows more specific information about the job, including the script, resources, and vertices.
-   *  **Job Graph** visualizes the progress of the job.
-   *  **MetaData Operations** shows all the actions that were taken on the U-SQL catalog.
+   * **Job Graph** visualizes the progress of the job.
+   * **MetaData Operations** shows all the actions that were taken on the U-SQL catalog.
    * **Data** shows all the inputs and outputs.
    * **Diagnostics** provides an advanced analysis for job execution and performance optimization.
 
@@ -107,6 +107,6 @@ OUTPUT @a
 
 ## Next steps
 
-* Get started with Data Lake Analytics using: [Azure portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) 
+* [Run U-SQL scripts on your own workstation for testing and debugging](data-lake-analytics-data-lake-tools-local-run.md)
 * [Debug C# code in U-SQL jobs](data-lake-analytics-debug-u-sql-jobs.md)
 * [Use the Azure Data Lake Tools for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)

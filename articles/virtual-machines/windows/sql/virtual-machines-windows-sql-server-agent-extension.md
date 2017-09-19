@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/24/2017
+ms.date: 08/07/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
 ---
@@ -62,16 +62,16 @@ Requirements to use the SQL Server IaaS Agent Extension on your VM:
 * [Download and configure the latest Azure PowerShell commands](/powershell/azure/overview)
 
 ## Installation
-The SQL Server IaaS Agent Extension is automatically installed when you provision one of the SQL Server virtual machine gallery images.
+The SQL Server IaaS Agent Extension is automatically installed when you provision one of the SQL Server virtual machine gallery images. If you need to reinstall the extension manually on one of these SQL Server VMs, use the following PowerShell command:
 
-It is also possible to install the SQL Server IaaS Agent Extension on an OS-only Windows Server virtual machine. This is only supported if you have also manually installed SQL Server on that machine. Then install the extension manually by using the **Set-AzureVMSqlServerExtension** PowerShell cmdlet. For example, the following command installs the extension on an OS-only Windows Server VM and names it "SQLIaaSExtension".
+```powershell
+Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SQLIaasExtension" -Version "1.2" -Location "East US 2"
+```
 
-    Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SQLIaasExtension" -Version "1.2" -Location "East US 2"
+It is also possible to install the SQL Server IaaS Agent Extension on an OS-only Windows Server virtual machine. This is only supported if you have also manually installed SQL Server on that machine. Then install the extension manually by using the same **Set-AzureVMSqlServerExtension** PowerShell cmdlet.
 
 > [!NOTE]
-> If you manually install the SQL Server IaaS Agent Extension, you can not manage the SQL Server configuration settings through the Azure portal. In this scenario, you must make all changes with PowerShell.
-
-If you update to the latest version of the SQL IaaS Agent Extension, you must restart your virtual machine after updating the extension.
+> If you manually install the SQL Server IaaS Agent Extension on an OS-only Windows Server VM, you can not manage the SQL Server configuration settings through the Azure portal. In this scenario, you must make all changes with PowerShell.
 
 ## Status
 One way to verify that the extension is installed is to view the agent status in the Azure Portal. Select **All settings** in the virtual machine blade, and then click on **Extensions**. You should see the **SQLIaaSExtension** extension listed.

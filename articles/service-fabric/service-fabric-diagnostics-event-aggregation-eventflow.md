@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/26/2017
+ms.date: 06/30/2017
 ms.author: dekapur
 
 ---
@@ -28,7 +28,7 @@ EventFlow binaries are available as a set of NuGet packages. To add EventFlow to
 
 ![EventFlow NuGet packages in Visual Studio NuGet package manager UI](./media/service-fabric-diagnostics-event-aggregation-eventflow/eventflow-nuget.png)
 
-You will see a list of various packages show up, labeled with "Inputs" and "Outputs". EventFlow supports various different logging providers and analyzers. The service hosting EventFlow should include appropriate packages depending on the source and destination for the application logs. In addition to the core ServiceFabric package, you also need at least one Input and Output configured. For exmaple, you can add the following packages to sent EventSource events to Application Insights:
+You will see a list of various packages show up, labeled with "Inputs" and "Outputs". EventFlow supports various different logging providers and analyzers. The service hosting EventFlow should include appropriate packages depending on the source and destination for the application logs. In addition to the core ServiceFabric package, you also need at least one Input and Output configured. For example, you can add the following packages to sent EventSource events to Application Insights:
 
 * `Microsoft.Diagnostics.EventFlow.Input.EventSource` to capture data from the service's EventSource class, and from standard EventSources such as *Microsoft-ServiceFabric-Services* and *Microsoft-ServiceFabric-Actors*)
 * `Microsoft.Diagnostics.EventFlow.Output.ApplicationInsights` (we are going to send the logs to an Azure Application Insights resource)

@@ -6,9 +6,9 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.custom: mvc
-ms.topic: article
+ms.topic: quickstart
 ms.devlang: java
 ms.date: 06/20/2017
 ---
@@ -23,14 +23,14 @@ This quickstart uses the resources created in either of these guides as a starti
 
 You also need to:
 - Download the JDBC driver [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/)
-- Include the JDBC jar file (for example mysql-connector-java-5.1.42-bin.jar) into your application classpath.
+- Include the JDBC jar file (for example mysql-connector-java-5.1.42-bin.jar) into your application classpath. If you have trouble with this, please consult your environment's documentation for class path specifics, such as [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) or [Java SE](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
 - Ensure your Azure Database for MySQL connection security is configured with the firewall opened and SSL settings adjusted for your application to connect successfully.
 
 ## Get connection information
 Get the connection information needed to connect to the Azure Database for MySQL. You need the fully qualified server name and login credentials.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
-2. From the left-hand menu in Azure portal, click **All resources** and search for the server you have created, such as **myserver4demo**.
+2. In the left pane, click **All resources**, and then search for the server you have created (for example, **myserver4demo**).
 3. Click the server name.
 4. Select the server's **Properties** page. Make a note of the **Server name** and **Server admin login name**.
  ![Azure Database for MySQL server name](./media/connect-java/1_server-properties-name-login.png)

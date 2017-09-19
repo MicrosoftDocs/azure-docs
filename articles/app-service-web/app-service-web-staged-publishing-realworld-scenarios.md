@@ -237,7 +237,7 @@ require_once(ABSPATH. 'wp-settings.php');
 ```
 
 #### Set up a staging environment
-1. If you already have a WordPress web app running on your Azure subscription, sign in to the [Azure portal](http://portal.azure.com), and then go to your WordPress web app. If you don't have a WordPress web app, you can create one from the Azure Marketplace. To learn more, see [Create a WordPress web app in Azure App Service](web-sites-php-web-site-gallery.md).
+1. If you already have a WordPress web app running on your Azure subscription, sign in to the [Azure portal](http://portal.azure.com), and then go to your WordPress web app. If you don't have a WordPress web app, you can <a href="https://portal.azure.com/#create/WordPress.WordPress" target="_blank">create one from the Azure Marketplace</a>. 
 Click **Settings** > **Deployment slots** > **Add** to create a deployment slot with the name *stage*. A deployment slot is another web application that shares the same resources as the primary web app that you created previously.
 
     ![Create stage deployment slot](./media/app-service-web-staged-publishing-realworld-scenarios/1setupstage.png)

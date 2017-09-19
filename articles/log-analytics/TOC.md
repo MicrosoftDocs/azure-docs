@@ -31,12 +31,23 @@
 #### [IIS logs](log-analytics-data-sources-iis-logs.md)
 #### [Custom logs](log-analytics-data-sources-custom-logs.md)
 #### [Custom fields](log-analytics-custom-fields.md)
+
 ## Query data
 ### [Log searches overview](log-analytics-log-searches.md)
 ### [Search reference](log-analytics-search-reference.md)
 #### [Regular expressions](log-analytics-log-searches-regex.md)
 ### [Take action from search results](log-analytics-log-search-takeaction.md)
 ### [Computer groups](log-analytics-computer-groups.md)
+
+## New log search
+### [Upgrade your workspace](log-analytics-log-search-upgrade.md)
+### [FAQ](log-analytics-log-search-faq.md)
+### [Log searches overview](log-analytics-log-search-new.md)
+### [Log search portals](log-analytics-log-search-portals.md)
+#### [Use the log search portal](log-analytics-log-search-log-search-portal.md)
+### [Transitioning from legacy language](log-analytics-log-search-transition.md)
+### [Flow connector](log-analytics-flow-tutorial.md)
+
 ## Analyze data
 ### [Dashboards](log-analytics-dashboards.md)
 ### [View Designer](log-analytics-view-designer.md)
@@ -56,15 +67,17 @@
 ### [Activity Log Analytics](log-analytics-activity.md)
 ### [AD Assessment](log-analytics-ad-assessment.md)
 ### [AD Replication Status](log-analytics-ad-replication-status.md)
+### [Agent Health](../operations-management-suite/oms-solution-agenthealth.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 ### [Alert management](log-analytics-solution-alert-management.md)
+### [Application Insights Connector](log-analytics-app-insights-connector.md)
 ### [Azure SQL Analytics](log-analytics-azure-sql.md)
 ### [Azure Web Apps Analytics](log-analytics-azure-web-apps-analytics.md)
 ### [Capacity and performance](log-analytics-capacity.md)
 ### [Change Tracking](log-analytics-change-tracking.md)
 ### [Containers](log-analytics-containers.md)
 ### [DNS Analytics](log-analytics-dns.md)
-### [IT Service Management Connector in OMS](log-analytics-itsmc-overview.md)
-#### [IT Service Management connections in OMS](log-analytics-itsmc-connections.md)
+### [IT Service Management Connector](log-analytics-itsmc-overview.md)
+#### [IT Service Management connections](log-analytics-itsmc-connections.md)
 ### [Key Vault](log-analytics-azure-key-vault.md)
 ### Logic Apps B2B Messages
 #### [Logic Apps B2B Messages solution](../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json)
@@ -72,9 +85,11 @@
 ### [Malware Assessment](log-analytics-malware.md)
 ### [Networking Analytics](log-analytics-azure-networking-analytics.md)
 ### [Network Performance Monitor](log-analytics-network-performance-monitor.md)
+### [Office 365](../operations-management-suite/oms-solution-office-365.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 ### [SCOM Assessment](log-analytics-scom-assessment.md)
 ### [Security Audit](../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json)
-### [Service Fabric](log-analytics-service-fabric.md)
+### [Service Fabric with PowerShell](log-analytics-service-fabric.md)
+#### [Service Fabric with Azure Resource Manager](log-analytics-service-fabric-azure-resource-manager.md)
 ### [Service Map](../operations-management-suite/operations-management-suite-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 ### [SQL Assessment](log-analytics-sql-assessment.md)
 ### [Surface Hub](log-analytics-surface-hubs.md)
@@ -89,6 +104,7 @@
 ### [PowerShell cmdlets](log-analytics-powershell-workspace-configuration.md)
 ### [Resource Manager templates](log-analytics-template-workspace-configuration.md)
 ### [Log Search API](log-analytics-log-search-api.md)
+#### [Python](log-analytics-log-search-api-python.md)
 ### [Alert API](log-analytics-api-alerts.md)
 
 # Reference
@@ -98,5 +114,6 @@
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Pricing](https://azure.microsoft.com/pricing/details/log-analytics/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=log-analytics)
 ## [Windows Analytics](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics)

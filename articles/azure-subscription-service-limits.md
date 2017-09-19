@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2017
+ms.date: 09/01/2017
 ms.author: byvinyal
 
 ---
@@ -48,20 +48,22 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Application Gateway](#application-gateway-limits)
 * [Application Insights](#application-insights-limits)
 * [Automation](#automation-limits)
+* [Azure Cosmos DB](#azure-cosmos-db-limits)
+* [Azure Event Grid](#azure-event-grid-limits)
 * [Azure Redis Cache](#azure-redis-cache-limits)
-* [Azure RemoteApp](#azure-remoteapp-limits)
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)
 * [BizTalk Services](#biztalk-services-limits)
 * [CDN](#cdn-limits)
 * [Cloud Services](#cloud-services-limits)
+* [Container Instances](#container-instances-limits)
 * [Data Factory](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
 * [DNS](#dns-limits)
-* [DocumentDB](#documentdb-limits)
 * [Event Hubs](#event-hubs-limits)
 * [IoT Hub](#iot-hub-limits)
+* [IoT Hub Device Provisioning Service](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
 * [Log Analytics / Operational Insights](#log-analytics-limits)
 * [Media Services](#media-services-limits)
@@ -112,6 +114,9 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 ### Virtual Machine Scale Sets limits
 [!INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]
 
+### Container Instances Limits
+[!INCLUDE [container-instances-limits](../includes/container-instances-limits.md)]
+
 ### Networking limits
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
 
@@ -131,7 +136,7 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 [!INCLUDE [dns-limits](../includes/dns-limits.md)]
 
 ### Storage limits
-For additional details on storage account limits, see [Azure Storage Scalability and Performance Targets](storage/storage-scalability-targets.md).
+For additional details on storage account limits, see [Azure Storage Scalability and Performance Targets](storage/common/storage-scalability-targets.md).
 <!--like # storage accts --> 
 #### Storage Service limits
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
@@ -174,8 +179,8 @@ The following table shows the limits for Azure Biztalk Services.
 
 [!INCLUDE [biztalk-services-service-limits](../includes/biztalk-services-service-limits.md)]
 
-### DocumentDB limits
-DocumentDB is a global scale database in which throughput and storage can be scaled to handle whatever your application requires. If you have any questions about the scale DocumentDB provides, please send email to askdocdb@microsoft.com.
+### Azure Cosmos DB limits
+Azure Cosmos DB is a global scale database in which throughput and storage can be scaled to handle whatever your application requires. If you have any questions about the scale Azure Cosmos DB provides, please send email to askcosmosdb@microsoft.com.
 
 ### Mobile Engagement limits
 [!INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
@@ -221,6 +226,9 @@ To learn more about limits on a more granular level, such as document size, quer
 ### IoT Hub limits
 [!INCLUDE [azure-iothub-limits](../includes/iot-hub-limits.md)]
 
+### IoT Hub Device Provisioning Service limits
+[!INCLUDE [azure-iotdps-limits](../includes/iot-dps-limits.md)]
+
 ### Data Factory limits
 [!INCLUDE [azure-data-factory-limits](../includes/azure-data-factory-limits.md)]
 
@@ -236,8 +244,8 @@ To learn more about limits on a more granular level, such as document size, quer
 ### Active Directory limits
 [!INCLUDE [AAD-service-limits](../includes/active-directory-service-limits-include.md)]
 
-### Azure RemoteApp limits
-[!INCLUDE [azure-remoteapp-limits](../includes/azure-remoteapp-limits.md)]
+### Azure Event Grid limits
+[!INCLUDE [event-grid-limits](../includes/event-grid-limits.md)]
 
 ### StorSimple System limits
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]

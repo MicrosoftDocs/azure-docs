@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 09/30/2016
+ms.date: 07/05/2017
 ms.author: sstein
 
 ---
@@ -79,5 +79,5 @@ Monitor your recommendations and continue to apply them to refine performance. D
 ## Additional resources
 * [Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [Role-based access control](../active-directory/role-based-access-control-configure.md)
+* [Role-based access control](../active-directory/role-based-access-control-what-is.md)
 

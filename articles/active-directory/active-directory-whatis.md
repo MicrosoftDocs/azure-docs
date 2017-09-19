@@ -3,22 +3,22 @@ title: What is Azure Active Directory?
 description: Use Azure Active Directory to extend your existing on-premises identities into the cloud or develop Azure AD integrated applications.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: jeffgilb
 manager: femila
-editor: ''
-
+ms.reviewer: jsnow
+ms.author: jeffgilb
 ms.assetid: 498820c4-9ebe-42be-bda2-ecf38cc514ca
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
-ms.author: curtand
+ms.date: 07/17/2017
+ms.custom: it-pro
 
 ---
 # What is Azure Active Directory?
-Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based directory and identity management service.
+Azure Active Directory (Azure AD) is Microsoft’s multi-tenant, cloud based directory and identity management service. Azure AD combines core directory services, advanced identity governance, and application access management. Azure AD also offers a rich, standards-based platform that enables developers to deliver access control to their applications, based on centralized policy and rules. 
 
 For IT Admins, Azure AD provides an affordable, easy to use solution to give employees and business partners single sign-on (SSO) access to [thousands of cloud SaaS Applications](active-directory-saas-tutorial-list.md) like Office365, Salesforce.com, DropBox, and Concur.
 
@@ -28,7 +28,7 @@ Azure AD also includes a full suite of identity management capabilities includin
 
 Additionally, with just [four clicks](./connect/active-directory-aadconnect-get-started-express.md), Azure AD can be integrated with an existing Windows Server Active Directory, giving organizations the ability to leverage their existing on-premises identity investments to manage access to cloud based SaaS applications.
 
-If you are an Office365, Azure or Dynamics CRM Online customer, you might not realize that you are already using Azure AD. Every Office365, Azure and Dynamics CRM tenant is actually already an Azure AD tenant. Whenever you want you can start using that tenant to manage access to thousands of other cloud applications Azure AD integrates with!
+If you are an Office 365, Azure or Dynamics CRM Online customer, you might not realize that you are already using Azure AD. Every Office 365, Azure and Dynamics CRM tenant is actually already an Azure AD tenant. Whenever you want you can start using that tenant to manage access to thousands of other cloud applications Azure AD integrates with!
 
 ![Azure AD Connect Stack](./media/active-directory-whatis/Azure_Active_Directory.png)
 
@@ -37,27 +37,25 @@ The multi-tenant, geo-distributed, high availability design of Azure AD means th
 
 For more details, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
 
-## What are the benefits of Azure AD?
-Your organization can use Azure AD to improve employee productivity, streamline IT processes, improve security and cut costs in many ways:
+## Choose an edition
+All Microsoft Online business services rely on Azure Active Directory (Azure AD) for sign-in and other identity needs. If you subscribe to any of Microsoft Online business services (for example, Office 365 or Microsoft Azure), you get Azure AD with access to all of the Free features. With the Azure Active Directory Free edition, you can manage users and groups, synchronize with on-premises directories, get single sign-on across Azure, Office 365, and thousands of popular SaaS applications like Salesforce, Workday, Concur, DocuSign, Google Apps, Box, ServiceNow, Dropbox, and more. 
 
-* Quickly adopt cloud services, providing employees and partners with an easy single-sign on experience powered by Azure AD’s fully automated SaaS app access management and provisioning services capabilities.
-* Empower employees with access to world class cloud apps and self-service capabilities from wherever they need to work on the devices they love to use.
-* Easily and securely manage employee and vendor access to your corporate social media accounts.
-* Improve application security with Azure AD multifactor authentication and conditional access.
-* Implement consistent, self-service application access management, empowering business owners to move quickly while cutting IT costs and overheads.
-* Monitor application usage and protect your business from advanced threats with security reporting and monitoring.
-* Secure mobile (remote) access to on-premises applications.
+To enhance your Azure Active Directory, you can add paid capabilities using the Azure Active Directory Basic, Premium P1, and Premium P2 editions. Azure Active Directory paid editions are built on top of your existing free directory, providing enterprise class capabilities spanning self-service, enhanced monitoring, security reporting, Multi-Factor Authentication (MFA), and secure access for your mobile workforce.
 
-## How does Azure AD compare to on-premises Active Directory Domain Services (AD DS)?
+> [!NOTE]
+> For the pricing options of these editions, see [Azure Active Directory Pricing](https://azure.microsoft.com/pricing/details/active-directory/). Azure Active Directory Premium P1, Premium P2, and Azure Active Directory Basic are not currently supported in China. Please contact us at the Azure Active Directory Forum for more information.
+>
 
-Both Azure Active Directory (Azure AD) and on-premises Active Directory (Active Directory Domain Services or AD DS) are systems that store directory data and manage communication between users and resources, including user logon processes, authentication, and directory searches.
+* **Azure Active Directory Basic** - Designed for task workers with cloud-first needs, this edition provides cloud centric application access and self-service identity management solutions. With the Basic edition of Azure Active Directory, you get productivity enhancing and cost reducing features like group-based access management, self-service password reset for cloud applications, and Azure Active Directory Application Proxy (to publish on-premises web applications using Azure Active Directory), all backed by an enterprise-level SLA of 99.9 percent uptime.
+* **Azure Active Directory Premium P1** - Designed to empower organizations with more demanding identity and access management needs, Azure Active Directory Premium edition adds feature-rich enterprise-level identity management capabilities and enables hybrid users to seamlessly access on-premises and cloud capabilities. This edition includes everything you need for information worker and identity administrators in hybrid environments across application access, self-service identity and access management (IAM), identity protection and security in the cloud. It supports advanced administration and delegation resources like dynamic groups and self-service group management. It includes Microsoft Identity Manager (an on-premises identity and access management suite) and provides cloud write-back capabilities enabling solutions like self-service password reset for your on-premises users.
+* **Azure Active Directory Premium P2** - Designed with advanced protection for all your users and administrators, this new offering includes all the capabilities in Azure AD Premium P1 as well as our new Identity Protection and Privileged Identity Management. Azure Active Directory Identity Protection leverages billions of signals to provide risk-based conditional access to your applications and critical company data. We also help you manage and protect privileged accounts with Azure Active Directory Privileged Identity Management so you can discover, restrict and monitor administrators and their access to resources and provide just-in-time access when needed.  
 
-AD DS is a server role on Windows Server, which means that it can be deployed on physical or virtual machines. It has a hierarchical structure based on X.500. It uses DNS for locating objects, can be interacted with using LDAP, and it primarily uses Kerberos for authentication. Active Directory enables organizational units (OUs) and Group Policy Objects (GPOs) in addition to joining machines to the domain, and trusts are created between domains.
-
-Azure AD is a multi-customer public directory service, which means that within Azure AD you can create a tenant for your cloud servers and applications such as Office 365. Users and groups are created in a flat structure without OUs or GPOs. Authentication is performed through protocols such as SAML, WS-Federation, and OAuth. It's possible to query Azure AD, but instead of using LDAP you must use a REST API called AD Graph API. These all work over HTTP and HTTPS.
-
-
-
+> [!NOTE]
+> A number of Azure Active Directory capabilities are available through "pay as you go" editions:
+>
+> * Active Directory B2C is the identity and access management solution for your consumer-facing applications. For more details, see [Azure Active Directory B2C](https://azure.microsoft.com/documentation/services/active-directory-b2c/)
+> * Azure Multi-Factor Authentication can be used through per user or per authentication providers. For more details, see [What is Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
+>
 
 ## How can I get started?
 
@@ -65,7 +63,7 @@ Azure AD is a multi-customer public directory service, which means that within A
 
 * [Try it out!](https://azure.microsoft.com/trial/get-started-active-directory/) - you can sign up for a free 30 day trial today and deploy your first cloud solution in under 5 minutes using this link
 
-* Read “Getting started with Azure AD” for tips and tricks on getting an Azure AD tenant up and running fast
+* Read [Getting started with Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-get-started-premium) for tips and tricks on getting an Azure AD tenant up and running fast
 
 **If you are a developer:**
  
@@ -73,17 +71,5 @@ Azure AD is a multi-customer public directory service, which means that within A
 
 * [Start a trial](https://azure.microsoft.com/trial/get-started-active-directory/) – sign up for a free 30 day trial today and  start integrating your apps with Azure AD
 
-## Where can I learn more?
-We have a ton of great resources online to help you learn all about Azure AD. Here’s a list of great articles to get you started:
-
-* [Enabling your directory for hybrid management with Azure AD Connect](active-directory-aadconnect.md)
-* [Additional security for an ever connected world](../multi-factor-authentication/multi-factor-authentication.md)
-* [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](active-directory-saas-app-provisioning.md)
-* [Getting started with Azure AD Reporting](active-directory-reporting-getting-started.md)
-* [Manage your passwords from anywhere](active-directory-passwords.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-* [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](active-directory-saas-app-provisioning.md)
-* [How to provide secure remote access to on-premises applications](active-directory-application-proxy-get-started.md)
-* [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
-* [What is Microsoft Azure Active Directory licensing?](active-directory-licensing-what-is.md)
-* [How can I discover unsanctioned cloud apps that are used within my organization](active-directory-cloudappdiscovery-whatis.md)
+## Next steps
+[Learn more about the fundamentals of Azure identity and access management](https://docs.microsoft.com/azure/active-directory/identity-fundamentals)

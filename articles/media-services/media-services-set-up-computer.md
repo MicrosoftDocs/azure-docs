@@ -4,7 +4,7 @@ description: Set up your environment for developing with Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 0258a633-8b42-4853-acc7-3b5162d1d8cd
@@ -13,12 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2017
+ms.date: 07/10/2017
 ms.author: juliako
 
 ---
 # Set up your Media Services development environment
-
 
 The following steps describe prerequisites required for developing with Azure Media Services.
 
@@ -37,10 +36,7 @@ To set up REST dev environment, see [this](media-services-rest-how-to-use.md) to
 
 ## Connect programmatically
 
-To connect to Azure Media Services using .NET, see [this](media-services-dotnet-connect-programmatically.md) topic.  
-
-To connect to Azure Media Services using REST, see [this](media-services-rest-connect-programmatically.md) topic.  
-
+To connect to the Azure Media Services API, see [access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).  
 
 ## Next steps: Azure Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

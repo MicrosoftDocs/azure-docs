@@ -58,7 +58,7 @@ text=when+its+your+turn+turn,+john,+come+runing
 > V7 Preview request.
 >
 > ```  
-> POST https://api.cognitive.microsoft.com/bing/v5.0/spellcheck?mode=proof&mkt=en-us HTTP/1.1  
+> POST https://api.cognitive.microsoft.com/bing/v7.0/spellcheck?mode=proof&mkt=en-us HTTP/1.1  
 > Content-Type: application/x-www-form-urlencoded  
 > Content-Length: 47  
 > Ocp-Apim-Subscription-Key: 123456789ABCDE  

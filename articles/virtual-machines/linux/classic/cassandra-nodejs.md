@@ -3,8 +3,8 @@ title: Run Cassandra with Linux on Azure | Microsoft Docs
 description: How to run a Cassandra cluster on Linux in Azure Virtual Machines from a Node.js app
 services: virtual-machines-linux
 documentationcenter: nodejs
-author: hanuk
-manager: erikre
+author: tomarcher
+manager: routlaw
 editor: ''
 tags: azure-service-management
 
@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: hanuk;robmcm
+ms.date: 08/17/2017
+ms.author: tarcher
 
 ---
 # Running Cassandra with Linux on Azure and Accessing it from Node.js
@@ -75,7 +75,7 @@ Single region Cassandra cluster configuration:
 
 **Azure Considerations for Cassandra Cluster:** Microsoft Azure Virtual Machines capability uses Azure Blob storage for disk persistence; Azure Storage saves 3 replicas of each disk for high durability. That means each row of data inserted into a Cassandra table is already stored in 3 replicas and hence data consistency is already taken care of even if the Replication Factor (RF) is 1. The main problem with Replication Factor being 1 is that the application will experience downtime even if a single Cassandra node fails. However, if a node is down for the problems (e.g. hardware, system software failures) recognized by Azure Fabric Controller, it will provision a new node in its place using the same storage drives. Provisioning a new node to replace the old one may take a few minutes.  Similarly for planned maintenance activities like guest OS changes, Cassandra upgrades and application changes Azure Fabric Controller performs rolling upgrades of the nodes in the cluster.  Rolling upgrades also may take down a few nodes at a time and hence the cluster may experience brief downtime for a few partitions. However, the data will not be lost due to the built-in Azure Storage redundancy.  
 
-For systems deployed to Azure that doesn’t require high availability (e.g. around 99.9 which is equivalent to 8.76 hrs/year; see [High Availability](http://en.wikipedia.org/wiki/High_availability) for details) you may be able to run with RF=1 and Consistency Level=ONE.  For applications with high availability requirements, RF=3 and Consistency Level=QUORUM will tolerate the down time of one of the nodes one of the replicas. RF=1 in traditional deployments (e.g. on-premise) can’t be used due to the possible data loss resulting from problems like disk failures.   
+For systems deployed to Azure that doesn’t require high availability (e.g. around 99.9 which is equivalent to 8.76 hrs/year; see [High Availability](http://en.wikipedia.org/wiki/High_availability) for details) you may be able to run with RF=1 and Consistency Level=ONE.  For applications with high availability requirements, RF=3 and Consistency Level=QUORUM will tolerate the down time of one of the nodes one of the replicas. RF=1 in traditional deployments (e.g. on-premises) can’t be used due to the possible data loss resulting from problems like disk failures.   
 
 ## Multi-region Deployment
 Cassandra’s data-center-aware replication and consistency model described above helps with the multi-region deployment out of the box without the need for any external tooling. This is quite different from the traditional relational databases where the setup for database mirroring for multi-master writes can be quite complex. Cassandra in a multi-region set up can help with the usage scenarios including the following:
@@ -302,15 +302,13 @@ This will take a few seconds and the image should be available in MY IMAGES sect
 
 ## Single Region Deployment Process
 **Step 1: Create the Virtual Network**
-Log into the Azure classic portal and create a Virtual Network with the attributes show in the table. See [Configure a Cloud-Only Virtual Network in the Azure classic portal](../../../virtual-network/virtual-networks-create-vnet-classic-portal.md) for detailed steps of the process.      
+Log into the Azure portal and create a virtual network (classic) with the attributes shown in the following table. See [Create a virtual network (classic) using the Azure portal](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) for detailed steps of the process.      
 
 <table>
 <tr><th>VM Attribute Name</th><th>Value</th><th>Remarks</th></tr>
 <tr><td>Name</td><td>vnet-cass-west-us</td><td></td></tr>
 <tr><td>Region</td><td>West US</td><td></td></tr>
-<tr><td>DNS Servers    </td><td>None</td><td>Ignore this as we are not using a DNS Server</td></tr>
-<tr><td>Configure a point-to-site VPN</td><td>None</td><td> Ignore this</td></tr>
-<tr><td>Configure a site-to-site VPN</td><td>None</td><td> Ignore this</td></tr>
+<tr><td>DNS Servers</td><td>None</td><td>Ignore this as we are not using a DNS Server</td></tr>
 <tr><td>Address Space</td><td>10.1.0.0/16</td><td></td></tr>    
 <tr><td>Starting IP</td><td>10.1.0.0</td><td></td></tr>    
 <tr><td>CIDR </td><td>/16 (65531)</td><td></td></tr>

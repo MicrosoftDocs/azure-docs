@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/12/2017
+ms.date: 07/12/2017
 ms.author: magoedte;bwren
 
 ---
@@ -22,8 +22,8 @@ Syslog is an event logging protocol that is common to Linux.  Applications will 
 
 > [!NOTE]
 > Log Analytics supports collection of messages sent by rsyslog or syslog-ng, where rsyslog is the default daemon. The default syslog daemon on version 5 of Red Hat Enterprise Linux, CentOS, and Oracle Linux version (sysklog) is not supported for syslog event collection. To collect syslog data from this version of these distributions, the [rsyslog daemon](http://rsyslog.com) should be installed and configured to replace sysklog.
-> 
-> 
+>
+>
 
 ![Syslog collection](media/log-analytics-data-sources-syslog/overview.png)
 
@@ -44,8 +44,8 @@ When the [OMS agent is installed on a Linux client](log-analytics-linux-agents.m
 
 > [!NOTE]
 > If you edit the syslog configuration, you must restart the syslog daemon for the changes to take effect.
-> 
-> 
+>
+>
 
 #### rsyslog
 The configuration file for rsyslog is located at **/etc/rsyslog.d/95-omsagent.conf**.  Its default contents are shown below.  This collects syslog messages sent from the local agent for all facilities with a level of warning or higher.
@@ -133,7 +133,7 @@ You can remove a facility by removing its section of the configuration file.  Yo
 
 
 ### Collecting data from additional Syslog ports
-The OMS agent listens for Syslog messages on the local client on port 25224.  When the agent is installed, a default syslog configuration is applied and found in the following location: 
+The OMS agent listens for Syslog messages on the local client on port 25224.  When the agent is installed, a default syslog configuration is applied and found in the following location:
 
 * Rsyslog: `/etc/rsyslog.d/95-omsagent.conf`
 * Syslog-ng: `/etc/syslog-ng/syslog-ng.conf`
@@ -157,7 +157,7 @@ You can change the port number by creating two configuration files: a FluentD co
 
     > [!NOTE]
     > If you modify this value in the configuration file `95-omsagent.conf`, it will be overwritten when the agent applies a default configuration.
-    > 
+    >
 
         # OMS Syslog collection for workspace %WORKSPACE_ID%
         kern.warning              @127.0.0.1:%SYSLOG_PORT%
@@ -169,7 +169,7 @@ You can change the port number by creating two configuration files: a FluentD co
 
     > [!NOTE]
     > If you modify the default values in the configuration file, they will be overwritten when the agent applies a default configuration.
-    > 
+    >
 
         filter f_custom_filter { level(warning) and facility(auth; };
         destination d_custom_dest { udp("127.0.0.1" port(%SYSLOG_PORT%)); };
@@ -201,8 +201,17 @@ The following table provides different examples of log queries that retrieve Sys
 | Type=Syslog &#124; measure count() by Computer |Count of Syslog records by computer. |
 | Type=Syslog &#124; measure count() by Facility |Count of Syslog records by facility. |
 
-## Next steps
-* Learn about [log searches](log-analytics-log-searches.md) to analyze the data collected from data sources and solutions. 
-* Use [Custom Fields](log-analytics-custom-fields.md) to parse data from syslog records into individual fields.
-* [Configure Linux agents](log-analytics-linux-agents.md) to collect other types of data. 
+>[!NOTE]
+> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following.
 
+> | Query | Description |
+|:--- |:--- |
+| Syslog |All Syslogs. |
+| Syslog &#124; where SeverityLevel == "error" |All Syslog records with severity of error. |
+| Syslog &#124; summarize AggregatedValue = count() by Computer |Count of Syslog records by computer. |
+| Syslog &#124; summarize AggregatedValue = count() by Facility |Count of Syslog records by facility. |
+
+## Next steps
+* Learn about [log searches](log-analytics-log-searches.md) to analyze the data collected from data sources and solutions.
+* Use [Custom Fields](log-analytics-custom-fields.md) to parse data from syslog records into individual fields.
+* [Configure Linux agents](log-analytics-linux-agents.md) to collect other types of data.

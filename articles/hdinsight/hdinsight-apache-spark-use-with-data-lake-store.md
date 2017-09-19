@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/21/2017
+ms.date: 08/28/2017
 ms.author: nitinme
 
 ---
@@ -25,15 +25,15 @@ In this tutorial, you use Jupyter notebook available with HDInsight Spark cluste
 
 ## Prerequisites
 
-* Azure Data Lake Store account. Follow the instructions at [Get started with Azure Data Lake Store using the Azure Portal](../data-lake-store/data-lake-store-get-started-portal.md).
+* Azure Data Lake Store account. Follow the instructions at [Get started with Azure Data Lake Store using the Azure portal](../data-lake-store/data-lake-store-get-started-portal.md).
 
-* Azure HDInsight Spark cluster with Data Lake Store as storage. Follow the instructions at [Create an HDInsight cluster with Data Lake Store using Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+* Azure HDInsight Spark cluster with Data Lake Store as storage. Follow the instructions at [Create an HDInsight cluster with Data Lake Store using Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 	
 ## Prepare the data
 
 > [!NOTE]
-> You do not need to perform this step if you have created the HDInsight cluster with Data Lake Store as default storage. The cluster creation processes adds some sample data in the Data Lake Store account that you specify while creating the cluster. Skip to the section [Use HDInsight Spark cluster with Data Lake Store](#use-an-hdinsight-spark-cluster-with-data-lake-store).
+> You do not need to perform this step if you have created the HDInsight cluster with Data Lake Store as default storage. The cluster creation process adds some sample data in the Data Lake Store account that you specify while creating the cluster. Skip to the section [Use HDInsight Spark cluster with Data Lake Store](#use-an-hdinsight-spark-cluster-with-data-lake-store).
 >
 >
 
@@ -53,7 +53,7 @@ If you created an HDInsight cluster with Data Lake Store as additional storage a
    > Make sure you the file and path names are in the proper case.
    >
    >
-3. You will be prompted to enter the credentials for the Azure subscription under which you have your Data Lake Store account. You will see an output similar to the following:
+3. You are prompted to enter the credentials for the Azure subscription under which you have your Data Lake Store account. You see an output similar to the following snippet:
 
         Initializing Copy.
         Copy Started.

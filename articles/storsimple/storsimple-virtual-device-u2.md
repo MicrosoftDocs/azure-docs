@@ -30,7 +30,7 @@ The StorSimple virtual device is available in two models, a standard 8010 (forme
 | **Azure VM** |Standard_A3 (4 cores, 7 GB memory) |Standard_DS3 (4 cores, 14 GB memory) |
 | **Version compatibility** |Versions running pre-Update 2 or later |Versions running Update 2 or later |
 | **Region availability** |All Azure regions |All Azure regions that support Premium Storage and DS3 Azure VMs<br></br> Use [this list](https://azure.microsoft.com/en-us/regions/services) to see if both *Virtual Machines > DS-series* and *Storage > Disk storage* are available in your region. |
-| **Storage type** |Uses Azure Standard Storage for local disks<br></br> Learn how to [create a Standard Storage account](../storage/storage-create-storage-account.md) |Uses Azure Premium Storage for local disks<sup>2</sup> <br></br>Learn how to [create a Premium Storage account](../storage/storage-premium-storage.md) |
+| **Storage type** |Uses Azure Standard Storage for local disks<br></br> Learn how to [create a Standard Storage account](../storage/common/storage-create-storage-account.md) |Uses Azure Premium Storage for local disks<sup>2</sup> <br></br>Learn how to [create a Premium Storage account](../storage/common/storage-premium-storage.md) |
 | **Workload guidance** |Item level retrieval of files from backups |Cloud dev and test scenarios, low latency, higher performance workloads <br></br>Secondary device for disaster recovery |
 
 <sup>1</sup> *Formerly known as the 1100*.
@@ -65,7 +65,7 @@ The following sections explain the configuration prerequisites for your StorSimp
 #### Azure requirements
 Before you provision the virtual device, you need to make the following preparations in your Azure environment:
 
-* For the virtual device, [configure a virtual network on Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). If using Premium Storage, you must create a virtual network in an Azure region that supports Premium Storage. The Premium storage regions are regions that correspond to the row for *Disk storage* in the list of [Azure Services by Region](https://azure.microsoft.com/en-us/regions/services).
+* For the virtual device, [configure a virtual network on Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). If using Premium Storage, you must create a virtual network in an Azure region that supports Premium Storage. The Premium storage regions are regions that correspond to the row for *Disk storage* in the list of [Azure Services by Region](https://azure.microsoft.com/en-us/regions/services).
 * It is advisable to use the default DNS server provided by Azure instead of specifying your own DNS server name. If your DNS server name is not valid or if the DNS server is not able to resolve IP addresses correctly, the creation of the virtual device will fail.
 * Point-to-site and site-to-site are optional, but not required. If you wish, you can configure these options for more advanced scenarios.
 * You can create [Azure Virtual Machines](../virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (host servers) in the virtual network that can use the volumes exposed by the virtual device. These servers must meet the following requirements:                             
@@ -79,7 +79,7 @@ Before you provision the virtual device, you need to make the following preparat
 Make the following updates to your Azure StorSimple service before you create a virtual device:
 
 * Add [access control records](storsimple-manage-acrs.md) for the VMs that are going to be host servers for your virtual device.
-* Use a [storage account](storsimple-manage-storage-accounts.md#add-a-storage-account) in the same region as the virtual device. Storage accounts in different regions may result in poor performance. You can use a Standard or Premium Storage account with the virtual device. More information on how to create a [Standard Storage account](../storage/storage-create-storage-account.md) or a [Premium Storage account](../storage/storage-premium-storage.md)
+* Use a [storage account](storsimple-manage-storage-accounts.md#add-a-storage-account) in the same region as the virtual device. Storage accounts in different regions may result in poor performance. You can use a Standard or Premium Storage account with the virtual device. More information on how to create a [Standard Storage account](../storage/common/storage-create-storage-account.md) or a [Premium Storage account](../storage/common/storage-premium-storage.md)
 * Use a different storage account for virtual device creation from the one used for your data. Using the same storage account may result in poor performance.
 
 Make sure that you have the following information before you begin:

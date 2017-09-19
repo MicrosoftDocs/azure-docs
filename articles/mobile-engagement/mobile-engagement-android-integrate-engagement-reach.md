@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/19/2016
+ms.date: 06/27/2016
 ms.author: piyushjo
 
 ---
@@ -24,11 +24,6 @@ ms.author: piyushjo
 > 
 
 ## Standard integration
-The Reach SDK requires the **Android Support library (v4)**.
-
-The fastest way to add the library to your project in **Eclipse** is `Right click on your project -> Android Tools -> Add Support Library...`.
-
-If you don't use Eclipse, you can read the instructions [here].
 
 Copy Reach resource files from the SDK in your project :
 
@@ -103,10 +98,6 @@ Edit your `AndroidManifest.xml` file:
           <uses-permission android:name="android.permission.VIBRATE" />
   
   Without this permission, Android prevents system notifications from being shown if you checked the ring or the vibrate option in the Reach Campaign manager.
-* If you build your application using **ProGuard** and have errors related to the Android Support library or the Engagement jar, add the following lines to your `proguard.cfg` file:
-  
-          -dontwarn android.**
-          -keep class android.support.v4.** { *; }
 
 ## Native Push
 Now that you configured Reach module, you need to configure native push to be able to receive the campaigns on the device.

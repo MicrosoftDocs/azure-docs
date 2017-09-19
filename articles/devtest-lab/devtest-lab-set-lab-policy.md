@@ -20,9 +20,6 @@ ms.custom: H1Hack27Feb2017
 
 ---
 # Manage all policies for a lab in Azure DevTest Labs
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-VM-policies-in-a-DevTest-Lab/player]
-> 
-> 
 
 Azure DevTest Labs lets you control cost and minimize waste in your labs by managing policies (settings) for each lab. This article explains in step-by-step detail how to set each policy.  
 

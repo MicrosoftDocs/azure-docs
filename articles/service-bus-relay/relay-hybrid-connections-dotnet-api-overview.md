@@ -13,16 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 07/05/2017
 ms.author: sethm
 
 ---
 
 # Azure Relay Hybrid Connections .NET Standard API overview
+
 This article summarizes some of the key Azure Relay Hybrid Connections .NET Standard [client APIs](/dotnet/api/microsoft.azure.relay).
   
 ## Relay Connection String Builder
-The [RelayConnectionStringBuilder][RelayConnectionStringBuilder] class will format connection strings that are specific to Relay Hybrid Connections. You can use it to verify the format of a connection string, or to build a connection string from scratch. See the following for an example.
+
+The [RelayConnectionStringBuilder][RelayConnectionStringBuilder] class formats connection strings that are specific to Relay Hybrid Connections. You can use it to verify the format of a connection string, or to build a connection string from scratch. See the following code for an example:
 
 ```csharp
 var endpoint = "{Relay namespace}";
@@ -39,7 +41,7 @@ var connectionStringBuilder = new RelayConnectionStringBuilder()
 };
 ```
 
-You can also pass a connection string directly to the `RelayConnectionStringBuilder` method. This will enable you to verify that the connection string is in a valid format, and the constructor will throw an `ArgumentException` if any of the parameters are invalid.
+You can also pass a connection string directly to the `RelayConnectionStringBuilder` method. This operation enables you to verify that the connection string is in a valid format. If any of the parameters are invalid, the constructor generates an `ArgumentException`.
 
 ```csharp
 var myConnectionString = "{RelayConnectionString}";
@@ -62,7 +64,7 @@ The [HybridConnectionStream][HCStream] class is the primary object used to send 
 ### Getting a Hybrid Connection Stream
 
 #### Listener
-Using a [HybridConnectionListener][HCListener], you can obtain a `HybridConnectionStream` as follows:
+Using a [HybridConnectionListener][HCListener], you can obtain a `HybridConnectionStream` object as follows:
 
 ```csharp
 // Use the RelayConnectionStringBuilder to get a valid connection string
@@ -74,7 +76,7 @@ var hybridConnectionStream = await listener.AcceptConnectionAsync();
 ```
 
 #### Client
-Using a [HybridConnectionClient][HCClient], you can obtain a `HybridConnectionStream` as follows:
+Using a [HybridConnectionClient][HCClient], you can obtain a `HybridConnectionStream` object as follows:
 
 ```csharp
 // Use the RelayConnectionStringBuilder to get a valid connection string
@@ -84,9 +86,9 @@ var hybridConnectionStream = await client.CreateConnectionAsync();
 ```
 
 ### Receiving data
-The [HybridConnectionStream][HCStream] class allows for two way communication. In most use cases, you will want to continuously receive from the stream. If you are reading text from the stream, you may also want to use a [StreamReader](https://msdn.microsoft.com/library/system.io.streamreader(v=vs.110).aspx), which enables easier parsing of the data. For example, you can read data as text, rather than as `byte[]`.
+The [HybridConnectionStream][HCStream] class enables two-way communication. In most cases, you continuously receive from the stream. If you are reading text from the stream, you may also want to use a [StreamReader](https://msdn.microsoft.com/library/system.io.streamreader(v=vs.110).aspx) object, which enables easier parsing of the data. For example, you can read data as text, rather than as `byte[]`.
 
-The following code reads individual lines of text from the stream until a cancellation is requested.
+The following code reads individual lines of text from the stream until a cancellation is requested:
 
 ```csharp
 // Create a CancellationToken, so that we can cancel the while loop

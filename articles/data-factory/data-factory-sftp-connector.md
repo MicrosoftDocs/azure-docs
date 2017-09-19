@@ -214,7 +214,7 @@ Whereas, the properties available in the typeProperties section of the activity 
 ## Supported file and compression formats
 See [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md) article on details.
 
-### JSON Example: Copy data from SFTP server to Azure blob
+## JSON Example: Copy data from SFTP server to Azure blob
 The following example provides sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data from SFTP source to Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
 
 > [!IMPORTANT]

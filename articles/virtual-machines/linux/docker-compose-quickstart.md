@@ -83,7 +83,7 @@ You see output similar to *docker-compose 1.6.2, build 4d72027*.
 
 
 ## Create a docker-compose.yml configuration file
-Next you create a `docker-compose.yml` file, which is just a text configuration file, to define the Docker containers to run on the VM. The file specifies the image to run on each container (or it could be a build from a Dockerfile), necessary environment variables and dependencies, ports, and the links between containers. For details on yml file syntax, see [Compose file reference](http://docs.docker.com/compose/yml/).
+Next you create a `docker-compose.yml` file, which is just a text configuration file, to define the Docker containers to run on the VM. The file specifies the image to run on each container (or it could be a build from a Dockerfile), necessary environment variables and dependencies, ports, and the links between containers. For details on yml file syntax, see [Compose file reference](https://docs.docker.com/compose/compose-file/).
 
 Create the *docker-compose.yml* file as follows:
 

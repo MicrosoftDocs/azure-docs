@@ -1,4 +1,4 @@
----
+﻿---
 title: Profiling live web apps on Azure with Application Insights | Microsoft Docs
 description: Identify the hot path in your web server code with a low-footprint profiler.
 services: application-insights
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
-ms.author: cfreeman
+ms.author: bwren
 
 ---
 # Profiling live Azure web apps with Application Insights
@@ -21,8 +21,7 @@ ms.author: cfreeman
 
 Find out how much time is spent in each method in your live web application by using the profiling tool of [Azure Application Insights](app-insights-overview.md). It shows you detailed profiles of live requests that were served by your app, and highlights the 'hot path' that is using the most time. It automatically selects examples that have different response times. The profiler uses various techniques to minimize overhead.
 
-The profiler currently works for ASP.NET web apps running on Azure App Services, in at least the Basic pricing tier. (If you're using ASP.NET Core, the target framework must be `.NetCoreApp`.)
-
+The profiler currently works for ASP.NET web apps running on Azure App Services, in at least the Basic pricing tier.
 
 <a id="installation"></a>
 ## Enable the profiler
@@ -57,16 +56,22 @@ If you use WebDeploy to deploy changes to your web application, ensure that you 
 
 ### Using profiler with Azure VMs and Compute resources (preview)
 
-When you [enable Application Insights for Azure app services at run time](app-insights-azure-web-apps.md#run-time-instrumentation-with-application-insights), Profiler is automatically available. (If you already enabled Application Insights for the resource, you might need to update to the lates version through the **Configure** wizard.)
+When you [enable Application Insights for Azure app services at run time](app-insights-azure-web-apps.md#run-time-instrumentation-with-application-insights), Profiler is automatically available. (If you already enabled Application Insights for the resource, you might need to update to the latest version through the **Configure** wizard.)
 
 There is a [preview version of the Profiler for Azure Compute resources](https://go.microsoft.com/fwlink/?linkid=848155).
 
 
-## Limits
+## Limitations
 
 The default data retention is 5 days. Maximum 10 GB ingested per day.
 
 There is no charge for the profiler service. Your web app must be hosted in at least the Basic tier of App Services.
+
+## Overhead and sampling algorithm
+
+The Profiler randomly runs 2 minutes every hour on each Virtual Machine that hosts the application with Profiler enabled to capture traces. When the Profiler is running, it adds between 5-15% CPU overhead to the server.
+The more servers available for hosting the application, the less impact Profiler has on the overall application performance. This is because the sampling algorithm results in the profiler running on only run on 5% of servers at any given time, and more servers will be available to serve web requests to offset the servers having overhead from the Profiler.
+
 
 ## Viewing profiler data
 
@@ -215,6 +220,23 @@ When you see parallel threads in your traces, you need to determine which thread
 
 File a support ticket from the portal. Please include the correlation ID from the error message.
 
+### Deployment error Directory Not Empty 'D:\\home\\site\\wwwroot\\App_Data\\jobs'
+
+If you are redeploying your web app to an App Services resource with the Profiler enabled, you might encounter the error similar to the following:
+Directory Not Empty 'D:\\home\\site\\wwwroot\\App_Data\\jobs'
+This error will happen if you run Web Deploy from scripts or on VSTS Deployment Pipeline.
+The solution to this problem is to add the following additional deployment parameters to the Web Deploy task:
+
+```
+-skip:skipaction='Delete',objectname='filePath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler\\.*' 
+-skip:skipaction='Delete',objectname='dirPath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler\\.*'
+-skip:skipaction='Delete',objectname='filePath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler2\\.*'
+-skip:skipaction='Delete',objectname='dirPath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler2\\.*'
+```
+
+This will delete the folder used by the App Insights Profiler and unblock the redeploy process. It will not affect the currently running Profiler instance.
+
+
 ## Manual installation
 
 When you configure the profiler, the following updates are made to the Web App's settings. You can do them yourself manually if your environment requires, for example, if your application runs in Azure App Service Environment (ASE):
@@ -231,8 +253,7 @@ When you configure the profiler, the following updates are made to the Web App's
 
 ## <a id="aspnetcore"></a>ASP.NET Core Support
 
-ASP.NET Core 1.1.2 applications targeting to AI SDK 2.0 or higher would work with the Profiler. 
-
+ASP.NET Core application needs to install Microsoft.ApplicationInsights.AspNetCore Nuget package 2.1.0-beta6 or higher to work with the Profiler. We no longer support the lower versions after 6/27/2017.
 
 ## Next steps
 

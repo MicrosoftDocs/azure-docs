@@ -4,6 +4,8 @@
   items:
   - name: Learn about the Custom Speech Service
     href: cognitive-services-custom-speech-home.md
+  - name: Meters, quotas and scaling
+    href: cognitive-services-custom-speech-meters.md
 - name: Get started
   items:
   - name: Explore the main features
@@ -18,6 +20,8 @@
     href: CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-endpoint.md
   - name: Use a custom speech-to-text endpoint
     href: CustomSpeech-How-to-Topics/cognitive-services-custom-speech-use-endpoint.md
+  - name: Learn how to migrate your deployments to new pricing tier
+    href: CustomSpeech-How-to-Topics/cognitive-services-custom-speech-migrate-tiers.md
 - name: Resources
   items:
   - name: Azure Roadmap

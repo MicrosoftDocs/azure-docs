@@ -65,7 +65,7 @@ See also the following sections on [Deploying WebJobs](#deploy) and [Testing and
 
 ## <a name="schedule"></a>Scheduling WebJobs
 * [The Add Azure WebJob Dialog](websites-dotnet-deploy-webjobs.md#configure)
-* [Create a Scheduled WebJob in the Azure Portal](web-sites-create-web-jobs.md#CreateScheduled)
+* [Create a Scheduled WebJob in the Azure Portal](web-sites-create-web-jobs.md#CreateScheduledCRON)
 * [Hooking up a scheduler job to a WebJob](http://blog.davidebbo.com/2015/05/scheduled-webjob.html)
 * [Scheduling Azure WebJobs with cron expressions](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
 * [Scheduling individual WebJob functions using the WebJobs SDK TimerTrigger](websites-dotnet-webjobs-sdk.md#schedule)
@@ -78,7 +78,7 @@ See also the following sections on [Deploying WebJobs](#deploy) and [Testing and
 * [Who wrote that blob?](http://blogs.msdn.com/b/jmstall/archive/2014/02/19/who-wrote-that-blob.aspx) 
 * [Hosting interactive code in the Cloud](http://blogs.msdn.com/b/jmstall/archive/2014/04/26/hosting-interactive-code-in-the-cloud.aspx)
 * [Adding Trace to Azure WebJobs](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)
-* [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../storage/storage-monitoring-diagnosing-troubleshooting.md)
+* [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../storage/common/storage-monitoring-diagnosing-troubleshooting.md)
 * Videos
   * [WebJobs Tooling and Remote Debugging](http://channel9.msdn.com/Shows/Web+Camps+TV/WebJobs-GA-Series-Episode-1-WebJobs-Tooling-with-Brady-Gaster) 
 

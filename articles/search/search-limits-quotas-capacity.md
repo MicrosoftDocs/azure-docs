@@ -44,13 +44,15 @@ There is a one-to-one correspondence between limits on indexes and limits on ind
 | Index: maximum scoring profiles per index |100 |100 |100 |100 |100 |100 |
 | Index: maximum functions per profile |8 |8 |8 |8 |8 |8 |
 | Indexers: maximum indexing load per invocation |10,000 documents |Limited only by maximum documents |Limited only by maximum documents |Limited only by maximum documents |Limited only by maximum documents |N/A <sup>2</sup> |
-| Indexers: maximum running time |3 minutes |24 hours |24 hours |24 hours |24 hours |N/A <sup>2</sup> |
+| Indexers: maximum running time | 1-3 minutes <sup>3</sup> |24 hours |24 hours |24 hours |24 hours |N/A <sup>2</sup> |
 | Blob indexer: maximum blob size, MB |16 |16 |128 |256 |256 |N/A <sup>2</sup> |
 | Blob indexer: maximum characters of content extracted from a blob |32,000 |64,000 |4 million |4 million |4 million |N/A <sup>2</sup> |
 
 <sup>1</sup> Basic tier is the only SKU with a lower limit of 100 fields per index.
 
 <sup>2</sup> S3 HD doesn't currently support indexers. Contact Azure Support if you have an urgent need for this capability.
+
+<sup>3</sup> Indexer maximum execution time for the Free tier is 3 minutes for blob sources and 1 minute for all other data sources.
 
 ## Document size limits
 | Resource | Free | Basic | S1 | S2 | S3 | S3 HD |

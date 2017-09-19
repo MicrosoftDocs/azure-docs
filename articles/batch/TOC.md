@@ -8,6 +8,7 @@
 ## [Batch .NET tutorial](batch-dotnet-get-started.md)
 ## [Batch Python tutorial](batch-python-tutorial.md)
 ## [Batch Node.js tutorial](batch-nodejs-get-started.md)
+## [Batch Rendering service](batch-rendering-service.md)
 # How To
 ## Develop
 ### [Application packages](batch-application-packages.md)
@@ -15,7 +16,10 @@
 ### Azure AD authentication
 #### [Azure AD with Batch service](batch-aad-auth.md)
 #### [Azure AD with Batch Management](batch-aad-auth-management.md)
+### [Compute-intensive VMs](batch-pool-compute-intensive-sizes.md)
 ### [Concurrent node tasks](batch-parallel-node-tasks.md)
+### [Count tasks by state](batch-get-task-counts.md)
+### [Create a pool with a custom image](batch-custom-images.md)
 ### [Efficient list queries](batch-efficient-list-queries.md)
 ### [Job preparation and completion tasks](batch-job-prep-release.md)
 ### [Linux compute nodes](batch-linux-nodes.md)
@@ -31,12 +35,13 @@
 ## Manage
 ### [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md)
 ### [Azure CLI](batch-cli-get-started.md)
+#### [Run Batch jobs without code](batch-cli-templates.md)
 #### [Create a Batch account](./scripts/batch-cli-sample-create-account.md)
 #### [Add an application](./scripts/batch-cli-sample-add-application.md)
 #### [Manage pools](./scripts/batch-cli-sample-manage-pool.md)
 #### [Run a job and tasks](./scripts/batch-cli-sample-run-job.md)
-
 # Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=batch)
 ## [PowerShell](/powershell/module/azurerm.batch)
 ## [Azure CLI](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
@@ -59,15 +64,15 @@
 # Related
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
 ## [Data processing with Batch and Data Factory](../data-factory/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
-## [Batch and HPC solutions in the Azure cloud](batch-hpc-solutions.md)
+## [Batch, HPC, and Big Compute solutions in Azure](../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json)
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
-## [Big Compute resources](big-compute-resources.md)
 ## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
 ## [C# code samples](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
 ## [Pricing](https://azure.microsoft.com/pricing/details/batch/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Python code samples](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
 ## [Service updates](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)

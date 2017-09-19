@@ -4,7 +4,7 @@ description: Use the iothub-explorer CLI tool for Azure IoT Hub device managemen
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'azure iot device management, azure iot hub device management, device management iot, iot hub device management'
 
@@ -14,7 +14,7 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/15/2017
+ms.date: 07/12/2017
 ms.author: xshi
 
 ---
@@ -54,7 +54,8 @@ Run iothub-explorer with various management options.
   - An active Azure subscription.
   - An Azure IoT hub under your subscription.
   - A client application that sends messages to your Azure IoT hub.
-- iothub-explorer. ([Install iothub-explorer](https://github.com/azure/iothub-explorer) on your development machine)
+- Make sure your device is running with the client application during this tutorial.
+- iothub-explorer, [Install iothub-explorer](https://github.com/azure/iothub-explorer) on your development machine.
 
 ## Connect to your IoT hub
 
@@ -109,7 +110,8 @@ iothub-explorer get-twin <your device id>
 Add a field role = temperature&humidity to the device by running the following command:
 
 ```bash
-iothub-explorer update-twin <your device id> {\"tags\":{\"role\":\"temperature&humidity\"}}
+iothub-explorer update-twin <your device id> "{\"tags\":{\"role\":\"temperature&humidity\"}}"
+
 ```
 
 ## Use iothub-explorer with Cloud-to-device messages

@@ -28,9 +28,13 @@
 ### [Design patterns for multitenancy](search-modeling-multitenant-saas-applications.md)
 
 ## Develop
+### [API versions](search-api-versions.md)
 ### [Upgrade the SDK](search-dotnet-sdk-migration.md)
 ### [Upgrade the REST API](search-api-migration.md)
 ### [Model complex data types](search-howto-complex-data-types.md)
+### [Handle concurrent updates](search-howto-concurrency.md)
+### [Code samples](https://azure.microsoft.com/resources/samples/?service=search)
+
 ## Manage
 ### Administer Azure Search
 #### [Azure portal](search-manage.md)
@@ -55,7 +59,8 @@
 #### [Lucene query syntax ](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
 #### [Lucene syntax query examples](search-query-lucene-examples.md)
 #### [Filter expression syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
-### Custom Search
+### Analyzers in Azure Search
+#### [Overview](search-analyzers.md)
 #### [Language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support)
 #### [Custom analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
 ### [Paging results](search-pagination-page-layout.md)
@@ -71,24 +76,28 @@
 ## [Python (Management)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
 ## [REST](/rest/api/searchservice)
 ## [REST (Management)](/rest/api/searchmanagement)
+## [Service REST (Preview)](search-api-2015-02-28-preview.md)
 
 # Resources
-## [API versions](search-api-versions.md)
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=web-mobile)
+## [FAQ - Frequently Asked Questions](search-faq-frequently-asked-questions.md)
 ## [Pricing](https://azure.microsoft.com/pricing/details/search/)
-## [Service REST (Preview)](search-api-2015-02-28-preview.md)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=search)
 ## Courseware & tutorials
-## Demo sites
-## Partner & community
-### [Azure Search GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
-### [Azure Search GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
-### [Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
-### [Job listings app](http://aka.ms/azjobsdemo)
-### [Live demo apps](https://searchsamples.azurewebsites.net/)
-### [Model relational data](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
-### [Multilevel faceting](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
-### [Search Analyzer Demo](http://alice.unearth.ai/)
-### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
 ### [Videos and tutorials](search-video-demo-tutorial-list.md)
 ### [Virtual academy](https://mva.microsoft.com/training-courses/using-windows-azure-search-10540?l=ADkxnd97_9304984382)
+## Demo sites
+### [Search Analyzer Demo](http://alice.unearth.ai/)
+### [Live demo apps](https://searchsamples.azurewebsites.net/)
+### [Job listings app](http://aka.ms/azjobsdemo)
+## Partner & community
+### [Azure Search GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
+### [MSDN Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureSearch)
+### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
+### [blog: Model relational data](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
+### [[blog: Multilevel faceting](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
+
+
+
