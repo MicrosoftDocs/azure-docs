@@ -54,7 +54,7 @@ Get the connection information needed to connect to the Azure Database for MySQL
 5. If you forget your server login information, navigate to the **Overview** page to view the Server admin login name, and if necessary reset the password.
 
 ## Connect, create table, and insert data
-Use the following code to connect and load the data by using **CREATE TABLE** and  **INSERT INTO** SQL statements. The code uses sql::Driver class with the connect() method to establish a connection to MySQL. Then the code uses method createStatement() and execute() to run the database commands. 
+Use the following code to connect and load the data by using **CREATE TABLE** and **INSERT INTO** SQL statements. The code uses sql::Driver class with the connect() method to establish a connection to MySQL. Then the code uses method createStatement() and execute() to run the database commands. 
 
 Replace the Host, DBName, User, and Password parameters with the values that you specified when you created the server and database. 
 
@@ -121,7 +121,7 @@ int main()
 
 ## Read data
 
-Use the following code to connect to and read the data by using a **SELECT** SQL statement. The code uses sql::Driver class with the connect() method to establish a connection to MySQL. Then the code uses method prepareStatement() and executeQuery() to run the select commands. Next, the code uses next() to advance to the records in the results. Finally, the code uses getInt() and getString() to parse the values in the record.
+Use the following code to connect and read the data by using a **SELECT** SQL statement. The code uses sql::Driver class with the connect() method to establish a connection to MySQL. Then the code uses method prepareStatement() and executeQuery() to run the select commands. Next, the code uses next() to advance to the records in the results. Finally, the code uses getInt() and getString() to parse the values in the record.
 
 Replace the Host, DBName, User, and Password parameters with the values that you specified when you created the server and database. 
 
@@ -173,7 +173,7 @@ int main()
 ```
 
 ## Update data
-Use the following code to connect to and read the data by using an **UPDATE** SQL statement. The code uses sql::Driver class with the connect() method to establish a connection to MySQL. Then the code uses method prepareStatement() and executeQuery() to run the update commands. 
+Use the following code to connect and read the data by using an **UPDATE** SQL statement. The code uses sql::Driver class with the connect() method to establish a connection to MySQL. Then the code uses method prepareStatement() and executeQuery() to run the update commands. 
 
 Replace the Host, DBName, User, and Password parameters with the values that you specified when you created the server and database. 
 
@@ -223,7 +223,7 @@ int main()
 
 
 ## Delete data
-Use the following code to connect to and read the data by using a **DELETE** SQL statement. The code uses sql::Driver class with the connect() method to establish a connection to MySQL. Then the code uses method prepareStatement() and executeQuery() to run the delete commands.
+Use the following code to connect and read the data by using a **DELETE** SQL statement. The code uses sql::Driver class with the connect() method to establish a connection to MySQL. Then the code uses method prepareStatement() and executeQuery() to run the delete commands.
 
 Replace the Host, DBName, User, and Password parameters with the values that you specified when you created the server and database. 
 
