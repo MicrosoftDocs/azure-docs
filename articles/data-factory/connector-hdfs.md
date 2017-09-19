@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 09/18/2017
 ms.author: jingwang
 
 ---
@@ -92,7 +92,7 @@ The following properties are supported for HDFS linked service:
         {
             "url" : "http://<machine>:50070/webhdfs/v1/",
             "authenticationType": "Windows",
-            "userName": "<domain>\\<user>",
+            "userName": "<username>@<domain>.com (for Kerberos auth)",
             "password": {
                 "type": "SecureString",
                 "value": "<password>"
@@ -173,7 +173,7 @@ To copy data from HDFS, set the source type in the copy activity to **HdfsSource
     "distcpSettings": {
         "resourceManagerEndpoint": "resourcemanagerendpoint:8088",
         "tempScriptPath": "/usr/hadoop/tempscript",
-        "distcpOptions": "-strategy dynamic -map 100"
+        "distcpOptions": "-m 100"
     }
 }
 ```
