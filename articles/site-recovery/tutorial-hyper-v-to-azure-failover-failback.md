@@ -88,6 +88,7 @@ This procedure describes how to run a regular failover.
 	- **Latest** (default): This option first processes all the data sent to Site Recovery. It provides the lowest RPO (Recovery Point Objective) because the Azure VM created after failover has all the data that was replicated to Site Recovery when the failover was triggered.
 	- **Latest processed**: This option fails over the VM to the latest recovery point processed by Site Recovery. This option provides a low RTO (Recovery Time Objective), because no time is spent processing unprocessed data.
 	- **Latest app-consistent**: This option fails over the VM to the latest app-consistent recovery point processed by Site Recovery. 
+	- **Custom**: Specify a recovery point.
 3. If you're failing over Hyper-V VMs in System Center VMM clouds, to Azure, and data encryption is enabled for the cloud, in **Encryption Key**, select the certificate that was issued when you enabled data encryption during Provider setup on the VMM server..
 4. Select **Shut down machine before beginning failover** if you want Site Recovery to attempt to do a shutdown of source virtual machines before triggering the failover. Site Recovery will also try to synchronize on-premises data that hasn't yet been sent to Azure, before triggering the failover. Note that failover continues even if shutdown fails. You can follow the failover progress on the **Jobs** page.
 5. If you prepared to connect to the Azure VM, connect to validate it after the failover.

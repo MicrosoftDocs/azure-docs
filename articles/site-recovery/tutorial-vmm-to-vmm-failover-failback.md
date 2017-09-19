@@ -1,6 +1,6 @@
 ---
 title: Fail over and fail back Hyper-V VMs replicated to a secondary data center with Site Recovery | Microsoft Docs
-description: Learn how to fail over Hyper-V VMs to a secondary VMM site, and fail back to the on-premises site, with Azure Site Recovery
+description: Learn how to fail over Hyper-V VMs to your secondary on-premises site and fail back to primary site, with Azure Site Recovery
 services: site-recovery
 documentationcenter: ''
 author: rayne-wiselman
@@ -18,7 +18,7 @@ ms.author: raynew
 
 ---
 
-# Fail over and fail back Hyper-V VMs replicated to a secondary VMM site
+# Fail over and fail back Hyper-V VMs replicated to your secondary on-premises site
 
 The [Azure Site Recovery](site-recovery-overview.md) service manages and orchestrates replication, failover, and failback of on-premises machines, and Azure virtual machines (VMs).
 
@@ -26,14 +26,16 @@ This tutorial describes how to fail over a Hyper-V VM managed in a System Center
 
 > [!div class="checklist"]
 > * Fail over a Hyper-V VM from a primary VMM cloud to a secondary VMM cloud
-> * Fail back from the secondary site to the primary, and start replicating from primary to secondary again.
+> * Reprotect from the secondary site to the primary, and fail back
+> * Optionally start replicating from primary to secondary again
 
 ## Overview
 
-Failover and failback has two stages:
+Failover and failback has three stages:
 
 1. **Fail over to secondary site**: Fail machines over from the primary site to the secondary.
-2. **Fail back from the secondary site**: Run a planned failover from the secondary to primary site. After the planned failover, you enable reverse replication, to start replicating from the primary site to the secondary.
+2. **Fail back from the secondary site**: Replicate VMs from secondary to primary, and run a planned failover to fail back.
+3. After the planned failover, optionally start replicating from the primary site to the secondary again.
 
 
 ## Fail over to a secondary site
@@ -67,30 +69,31 @@ This procedure describes how to run a regular failover.
 > **Don't cancel a failover in progress**: Before failover is started, VM replication is stopped. If you cancel a failover in progress, failover stops, but the VM won't replicate again.  
 
 
-## Fail back from secondary to primary
+## Reprotect and fail back from secondary to primary
 
 ### Prerequisites for failback
 
 To complete failback, make sure that the primary and secondary VMM servers are connected to Site Recovery.
 
 
-### Run a failback and reprotect primary VMs
+### Reprotect and fail back
 
-Fail over from the secondary site to the primary, and start replicating VMs from the primary site to the secondary.
+Start replicating from the secondary site to the primary, and fail back to the primary site. After VMs are running in the primary site again, you can replicate them to the secondary site again.  
 
-1. In **Settings** > **Replicated items** click the VM > **Planned Failover**.
-2. In **Confirm Planned Failover**, verify the failover direction (from secondary VMM cloud), and select the source and target locations. 
-3. In **Data Synchronization**, specify how you want to synchronize:
+1. In **Settings** > **Replicated items** click the VM  and enable **Reverse Replicate**. The VM starts replicating back to the primary site.
+2. Click the VM > **Planned Failover**.
+3. In **Confirm Planned Failover**, verify the failover direction (from secondary VMM cloud), and select the source and target locations. 
+4. In **Data Synchronization**, specify how you want to synchronize:
     - **Synchronize data before failover (synchronize delta changes only)**—This option minimizes VM downtime because it synchronizes without shutting down the VM. Here's what it does:
         - Takes a snapshot of the replica VM, and copies it to the primary Hyper-V host. The replica VM keeps running.
         - Shuts down the replica VM, so that no new changes occur there. The final set of delta changes are transferred to the primary site, and the VM in the primary site is started.
     - **Synchronize data during failover only (full download)**—Use this option if you've been running in the secondary site for a long time. This option is faster, because we expect multiple disk changes, and don't spend time on checksum calculations. This option performs a disk download. It's also useful when the primary VM has been deleted.
-1. The encryption key isn't relevant in this scenario.
-2. Initiate the failover. You can follow the failover progress on the **Jobs** tab.
-3. If you selected to synchronize data before the failover, after the initial data synchronization is done and you're ready to shut down the replica VM in the secondary site, click **Jobs** > planned failover job name > **Complete Failover**. This shuts down the secondary VM, transfers the latest changes to the primary site, and starts the primary VM.
-4. In the primary VMM cloud, check that the VM is available.
-5. The primary VM is now in a Commit Pending state. Click **Commit**, to commit the failover.
-6. To start replicating the primary VM to the secondary site again, enable **Reverse Replicate**.
+5. The encryption key isn't relevant in this scenario.
+6. Initiate the failover. You can follow the failover progress on the **Jobs** tab.
+7. If you selected to synchronize data before the failover, after the initial data synchronization is done and you're ready to shut down the replica VM in the secondary site, click **Jobs** > planned failover job name > **Complete Failover**. This shuts down the secondary VM, transfers the latest changes to the primary site, and starts the primary VM.
+8. In the primary VMM cloud, check that the VM is available.
+9. The primary VM is now in a Commit Pending state. Click **Commit**, to commit the failover.
+10. If you want to start replicating the primary VM back to the secondary site again, enable **Reverse Replicate**.
 
 
 > [!NOTE]

@@ -2,40 +2,40 @@
 ## [What is Site Recovery?](site-recovery-overview.md)
 
 # Quickstarts
-## Configure disaster recovery for an Azure VM
+## [Replicate an Azure VM to a secondary region](azure-to-azure-quickstart.md)
 
 # Tutorials
-## [Disaster recovery for Azure VMs](azure-to-azure-tutorial-enable-replication.md)
-## [Disaster recovery to Azure for VMware VMs](tutorial-vmware-to-azure.md)
-## [Disaster recovery to Azure for Hyper-V VMs](tutorial-hyper-v-to-azure.md)
-## [Disaster recovery to Azure for physical servers](tutorial-physical-to-azure.md)
-## [Disaster recovery to a secondary VMM site for Hyper-V VMs](tutorial-vmm-to-vmm.md)
-## [Disaster recovery to a secondary site for VMware VMs and physical servers](tutorial-vmware-to-vmware.md)
-## [Run a disaster recovery drill between Azure regions](azure-to-azure-tutorial-dr-drill.md)
-## [Run a disaster recovery drill from on-premises to Azure](tutorial-dr-drill-azure.md)
-## [Run a disaster recovery drill to a secondary VMM site](tutorial-dr-drill-secondary.md)
-## [Fail over and fail back Azure VMs replicated to a secondary region](azure-to-azure-tutorial-failover-failback.md)
-## [Fail over and fail back VMware VMs and physical servers replicated to Azure](tutorial-vmware-to-azure-failover-failback.md)
-## [Fail over and fail back Hyper-V VMs replicated to Azure](tutorial-hyper-v-to-azure-failover-failback.md)
-## [Fail over and fail back Hyper-V VMs between VMM sites](tutorial-vmm-to-vmm-failover-failback.md)
-## [Migrate on-premises machines to Azure](tutorial-migrate-on-premises-to-azure.md)
-## [Migrate AWS instances to Azure](tutorial-migrate-aws-to-azure.md)
+
+## Azure VMs
+### [Set up disaster recovery](azure-to-azure-tutorial-enable-replication.md)
+### [Run a disaster recovery drill](azure-to-azure-tutorial-dr-drill.md)
+### [Run failover and failback](azure-to-azure-tutorial-failover-failback.md)
+## VMware VMs
+### [Prepare Azure](tutorial-prepare-azure.md)
+### [Prepare on-premises VMware](tutorial-prepare-on-premises-vmware.md)
+### [Set up disaster recovery](tutorial-vmware-to-azure.md)
+### [Run a disaster recovery drill](tutorial-dr-drill-azure.md)
+### [Run failover and failback](tutorial-vmware-to-azure-failover-failback.md)
+## Migrate to Azure
+### [Prepare Azure](tutorial-prepare-azure.md)
+### [Migrate on-premises machines to Azure](tutorial-migrate-on-premises-to-azure.md)
+### [Migrate AWS instances to Azure](tutorial-migrate-aws-to-azure.md)
 
 # Concepts
-## [Azure to Azure replication architecture](concepts-azure-to-azure-architecture.md)
-## [VMware to Azure replication architecture](concepts-vmware-to-azure-architecture.md)
-## [Hyper-V to Azure replication architecture](concepts-hyper-v-to-azure-architecture.md)
-## [Physical to Azure replication architecture](concepts-physical-to-azure-architecture.md)
-## [Hyper-V to secondary site replication architecture](concepts-hyper-v-to-secondary-architecture.md)
+## [Azure to Azure architecture](concepts-azure-to-azure-architecture.md)
+## [VMware to Azure architecture](concepts-vmware-to-azure-architecture.md)
+## [Hyper-V to Azure architecture](concepts-hyper-v-to-azure-architecture.md)
+## [Physical to Azure architecture](concepts-physical-to-azure-architecture.md)
+## [Hyper-V to secondary site architecture](concepts-hyper-v-to-secondary-architecture.md)
 ## [On-premises to Azure support matrix](site-recovery-support-matrix-to-azure.md)
 ## [On-premises to secondary site support matrix](site-recovery-support-matrix-to-sec-site.md)
 ## [Disaster recovery for workloads](site-recovery-workload.md)
-## [Networking for Azure to Azure replication (preview)](site-recovery-azure-to-azure-networking-guidance.md)
+## [Azure to Azure networking (preview)](site-recovery-azure-to-azure-networking-guidance.md)
 ## [VM connectivity after failover to Azure](concepts-on-premises-to-azure-networking.md)
 ## [VM connectivity after failover to a secondary site](concepts-on-premises-to-on-premises-networking.md)
 ## [Network mapping for Azure VM replication](site-recovery-network-mapping-azure-to-azure.md)
 ## [Network mapping for Hyper-V VM replication to Azure](site-recovery-network-mapping.md)
-## [Role-based access permissions for replication](site-recovery-role-based-linked-access-control.md)
+## [Role-based access permissions](site-recovery-role-based-linked-access-control.md)
 ## [FAQ](site-recovery-faq.md)
 ## [Capacity planning for VMware replication to Azure](site-recovery-plan-capacity-vmware.md)
 ### [Deployment Planner for VMware replication to Azure](site-recovery-deployment-planner.md)
@@ -43,6 +43,16 @@
 
 # How-To Guides
 
+## Disaster recovery
+### [To Azure for Hyper-V VMs](tutorial-hyper-v-to-azure.md)
+### [To Azure for physical servers](tutorial-physical-to-azure.md)
+### [To a secondary site for Hyper-V VMs](tutorial-vmm-to-vmm.md)
+### [To a secondary site for VMware VMs and physical servers](tutorial-vmware-to-vmware.md)
+### [Run a disaster recovery drill to Azure](tutorial-dr-drill-azure.md)
+### [Run a disaster recovery drill to a secondary site](tutorial-dr-drill-secondary.md)
+### [Run a failover and failback for physical servers](tutorial-vmware-to-azure-failover-failback.md)
+### [Run a failover and failback for Hyper-V VMs](tutorial-hyper-v-to-azure-failover-failback.md)
+### [Run a failover and failback between on-premises sites](tutorial-vmm-to-vmm-failover-failback.md)
 ## Configure
 ### Set up the source environment
 #### [Source environment for VMware to Azure](site-recovery-set-up-vmware-to-azure.md)
@@ -75,9 +85,6 @@
 ### [Set up Hyper-V replication to Azure (with VMM) using PowerShell](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 ### [Set up Hyper-V replication to a secondary VMM site using PowerShell](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
 ## Migrate
-### [Migrate to Azure](site-recovery-migrate-to-azure.md)
-### [Migrate between Azure regions](site-recovery-migrate-azure-to-azure.md)
-### [Migrate AWS Windows instances to Azure](site-recovery-migrate-aws-to-azure.md)
 ### [Replicate migrated machines to another Azure region](site-recovery-azure-to-azure-after-migration.md)
 ## Workloads
 ### [Active Directory and DNS](site-recovery-active-directory.md)
