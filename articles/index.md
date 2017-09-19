@@ -89,6 +89,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/virtual-machines/linux/">Linux virtual machines</a></li>
                                                     <li><a class="barLink" href="/azure/virtual-machines/windows/">Windows virtual machines</a></li>
+                                                    <li><a class="barLink" href="/azure/containers/">Windows and Linux containers</a></li>
                                                 </ul>
                                             </div>
                                         </div>
