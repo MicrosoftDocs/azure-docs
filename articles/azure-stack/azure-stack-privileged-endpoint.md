@@ -21,7 +21,7 @@ ms.author: twooley
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-As an Azure Stack operator, you should use the administrator portal, PowerShell, or Azure Resource Manager APIs for most day-to-day management tasks. However, for some less common operations, you’ll need to use the *privileged endpoint*. This endpoint is a pre-configured remote PowerShell console that provides you with just enough capabilities to help you perform a required task. The endpoint leverages PowerShell JEA (Just Enough Administration) to expose only a restricted set of cmdlets. To access the privileged endpoint and invoke the restricted set of cmdlets, a low-privileged account is used. No administrator accounts are required. For additional security, scripting is not allowed.
+As an Azure Stack operator, you should use the administrator portal, PowerShell, or Azure Resource Manager APIs for most day-to-day management tasks. However, for some less common operations, you need to use the *privileged endpoint*. This endpoint is a pre-configured remote PowerShell console that provides you with just enough capabilities to help you perform a required task. The endpoint leverages PowerShell JEA (Just Enough Administration) to expose only a restricted set of cmdlets. To access the privileged endpoint and invoke the restricted set of cmdlets, a low-privileged account is used. No administrator accounts are required. For additional security, scripting is not allowed.
 
 You can use the privileged endpoint to perform tasks such as the following:
 
@@ -71,14 +71,14 @@ We recommend that you connect to the privileged endpoint only from the hardware 
       ```` 
    When prompted, use the following credentials:
 
-    - **User name**: Specify the CloudAdmin account, in the format **&lt;*Azure Stack domain*&gt;\cloudadmin**. (For ASDK, this is **azurestack\cloudadmin**.)
+    - **User name**: Specify the CloudAdmin account, in the format **&lt;*Azure Stack domain*&gt;\cloudadmin**. (For ASDK, the user name is **azurestack\cloudadmin**.)
     - **Password**: Enter the same password that was provided during installation for the AzureStackAdmin domain administrator account.
     
 3.	After you connect, the prompt will change to **[*IP address or ERCS VM name*]: PS>** or to **[azs-ercs01]: PS>**, depending on the environment. From here, run `Get-Command` to view the list of available cmdlets.
 
     ![Get-Command cmdlet output showing list of available commands](media/azure-stack-privileged-endpoint/getcommandoutput.png)
 
-    Many of these cmdlets are intended only for integrated system environments (such as those related to datacenter integration). In the ASDK, the following cmdlets have been validated:
+    Many of these cmdlets are intended only for integrated system environments (such as the cmdlets related to datacenter integration). In the ASDK, the following cmdlets have been validated:
 
     - Clear-Host
     - Close-PrivilegedEndpoint
@@ -104,7 +104,7 @@ We recommend that you connect to the privileged endpoint only from the hardware 
     Get-Command <command_name> -Syntax
     ```` 
 > [!NOTE]
-> Any type of script operation will fail with the error **ScriptsNotAllowed**. This is expected.
+> Any type of script operation will fail with the error **ScriptsNotAllowed**. This behavior is expected.
 
 ## Close the privileged endpoint session
 
@@ -118,7 +118,7 @@ To close the endpoint session:
 
     ![Close-PrivilegedEndpoint cmdlet output that shows where you specify the transcript destination path](media/azure-stack-privileged-endpoint/closeendpoint.png)
 
-After the transcript log files are successfully transferred to the file share, they're automatically deleted from the privileged endpoint. If you close the privileged endpoint session by using the cmdlets `Exit-PSSession` or `Exit`, or you just close the PowerShell console, the transcript logs won’t transfer to a file share. They remain in the privileged endpoint. The next time you run `Close-PrivilegedEndpoint` and include a file share, the transcript logs from the previous session(s) will also transfer.
+After the transcript log files are successfully transferred to the file share, they're automatically deleted from the privileged endpoint. If you close the privileged endpoint session by using the cmdlets `Exit-PSSession` or `Exit`, or you just close the PowerShell console, the transcript logs don't transfer to a file share. They remain in the privileged endpoint. The next time you run `Close-PrivilegedEndpoint` and include a file share, the transcript logs from the previous session(s) will also transfer.
 
 ## Next steps
 [Azure Stack diagnostic tools](azure-stack-diagnostics.md)
