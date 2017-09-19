@@ -23,12 +23,14 @@ Update management allows you to manage updates and patches for your Azure Window
 Directly from your virtual machine, you can quickly assess the status of available updates, schedule installation of required updates,
 and review deployment results to verify updates were applied successfully to the virtual machine.
 
-If you don't already have a VM to use, you can create one using the [Windows quickstart](quick-create-portal.md). In this tutorial you learn how to:
+If you don't already have a virtual machine to use, you can create one using the [Windows quickstart](quick-create-portal.md). In this tutorial you learn how to:
 
 > [!div class="checklist"]
-> * Enable the Update management solution for your  VM
+> * Enable the Update management solution for your  virtual machine
 > * View missing updates
 > * Schedule installation of updates
+
+For pricing information, see [Automation pricing for Update management](https://azure.microsoft.com/pricing/details/automation/)
 
 ## Sign in to Azure
 
@@ -36,7 +38,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Enable Update management
 
-Enable the Update management solution for your VM:
+Enable the Update management solution for your virtual machine:
  
 1. On the left-hand side of the screen, select **Virtual machines**.
 1. From the list, select a virtual machine.
@@ -47,11 +49,20 @@ If these prerequisites are not met, a banner appears that gives you the option t
 
    ![Update Management onboard configuration banner](./media/tutorial-manage-windows-updates/manageupdates-onboard-solution-banner.png)
 
-Click the banner to enable the solution. The **Enable Update Management** screen opens. Configure the settings, and click **Enable**.
+Click the banner to enable the solution. If any of the following prerequisites were found to be missing after the validation,
+they will be automatically added:
+
+* [Log Analytics](../log-analytics/log-analytics-overview.md) workspace
+* [Automation](../automation/automation-offering-get-started.md)
+* A [Hybrid runbook worker](../automation/automation-hybrid-runbook-worker.md) is enabled on the virtual machine
+
+The **Enable Update Management** screen opens. Configure the settings, and click **Enable**.
 
    ![Enable Update management solution](./media/tutorial-manage-windows-updates/manageupdates-update-enable.png)
 
-Enabling Update management can take up to 15 minutes, and during this time you should not close the browser window.
+Enabling the solution can take up to 15 minutes, and during this time you should not close the browser window. After the solution is enabled,
+information about missing updates on the virtual machine flows to Log Analytics.
+It can take between 30 minutes and 6 hours for the data to be available for analysis.
 
 ## View update assessment
 
@@ -64,7 +75,7 @@ After **Update management** is enabled, the **Update management** screen appears
 To install updates, schedule a deployment that follows your release schedule and service window.
 You can choose which update types to include in the deployment. For example you can include critical or security updates and exclude update rollups.
 
-Schedule a new Update Deployment for the VM by clicking **Schedule update deployment** at the top of the **Update management** screen. 
+Schedule a new Update Deployment for the virtual machine by clicking **Schedule update deployment** at the top of the **Update management** screen. 
 In the **New update deployment** screen, specify the following:
 
 * **Name** - Provide a unique name to identify the update deployment.
@@ -100,7 +111,7 @@ Click the completed update deployment to see the dashboard for that update deplo
 
    ![Update Deployment status dashboard for specific deployment](./media/tutorial-manage-windows-updates/manageupdates-view-results.png)
 
-In **Update results** tile is a summary of the total number of updates and deployment results on the VM.
+In **Update results** tile is a summary of the total number of updates and deployment results on the virtual machine.
 In the table to the right is a detailed breakdown of each update and the installation results, which could be one of the following values:
 
 * Not attempted - the update was not installed because there was insufficient time available based on the maintenance window duration defined.
@@ -109,7 +120,7 @@ In the table to the right is a detailed breakdown of each update and the install
 
 Click **All logs** to see all log entries that the deployment created.
 
-Click the **Output** tile to see job stream of the runbook responsible for managing the update deployment on the target VM.
+Click the **Output** tile to see job stream of the runbook responsible for managing the update deployment on the target virtual machine.
 
 Click **Errors** to see detailed information about any errors from the deployment.
 
@@ -118,7 +129,7 @@ Click **Errors** to see detailed information about any errors from the deploymen
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Enable the Update management solution for your  VM
+> * Enable the Update management solution for your  virtual machine
 > * View missing updates
 > * Schedule installation of updates
 
