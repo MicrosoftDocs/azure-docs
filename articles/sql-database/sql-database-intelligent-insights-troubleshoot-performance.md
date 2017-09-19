@@ -23,7 +23,7 @@ ms.author: v-daljep
 This page provides information on Azure SQL Database performance issues detected through [Intelligent Insights](sql-database-intelligent-insights.md) database performance diagnostics log. This diagnostics log can be sent to [Azure Log Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql), [Azure Event Hub](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs), [Azure Storage](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-metrics-diag-logging#stream-into-azure-storage), or a third-party solution for custom DevOps alerting and reporting capabilities.
 
 > [!NOTE]
-> ***For quick Azure SQL Database performance troubleshooting guide through Intelligent Insights, see [Recommended flow of troubleshooting](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-flow-of-troubleshooting) flowchart in this document.***
+> ***For a quick Azure SQL Database performance troubleshooting guide through Intelligent Insights, see [Recommended flow of troubleshooting](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-flow-of-troubleshooting) flowchart in this document.***
 >
 
 ## Detectable Database Performance Patterns
@@ -178,8 +178,10 @@ Specific queries that have caused a statistically significant performance degrad
 Diagnostics log outputs query hashes for the queries that have been identified to impact the workload performance. You might want to consider building indexes for these queries. You might also want to consider also optimizing or removing these queries if they are not required. It is a good performance practice to avoid querying data that you do not use.
 
 > [!TIP]
-> ***Did you know that Azure built-in intelligence can automatically manage the best performing indexes for your databases? For continuous performance optimization of Azure SQL Database it is recommended that you enable [Azure SQL Database Automatic Tuning](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-automatic-tuning) – a unique feature of Azure SQL built-in intelligence that continuously monitors your Azure SQL database and automatically tunes and creates indexes for your databases.***
-> 
+> ***Did you know that Azure built-in intelligence can automatically manage the best performing indexes for your databases?
+>
+> For continuous performance optimization of Azure SQL Database it is recommended that you enable [Azure SQL Database Automatic Tuning](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-automatic-tuning) – a unique feature of Azure SQL built-in intelligence that continuously monitors your Azure SQL database and automatically tunes and creates indexes for your databases.***
+>
 
 ## New query
 
@@ -257,8 +259,9 @@ Diagnostics log outputs the query hashes, good plan ID, bad plan ID, and query I
 
 You might want to analyze which plan is better performing for your specific queries that you can identify with the query hashes provided. Once you determine which plan works better for your queries, you can manually force a particular plan setting “FORCE_LAST_GOOD_PLAN=ON”. For more information, see [How SQL Server prevents plan regressions](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/04/25/you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions/).
 
-> [!TIP]
-> **Did you know that Azure built-in intelligence can automatically manage the best performing query execution plans for your databases?** ***For continuous performance optimization of Azure SQL Database it is recommended that you enable [Azure SQL Database Automatic Tuning]( https://docs.microsoft.com/en-us/azure/sql-database/sql-database-automatic-tuning) – a unique feature of Azure SQL built-in intelligence that continuously monitors your Azure SQL database and automatically tunes and creates best-performing query execution plans for your databases.***
+> [!TIP] **Did you know that Azure built-in intelligence can automatically manage the best performing query execution plans for your databases?**
+>
+> ***For continuous performance optimization of Azure SQL Database it is recommended that you enable [Azure SQL Database Automatic Tuning]( https://docs.microsoft.com/en-us/azure/sql-database/sql-database-automatic-tuning) – a unique feature of Azure SQL built-in intelligence that continuously monitors your Azure SQL database and automatically tunes and creates best-performing query execution plans for your databases.***
 >
 
 ## Database-scoped configuration value change

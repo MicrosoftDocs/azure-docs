@@ -75,7 +75,7 @@ Intelligent Insights diagnostics log can be sent to Azure Log Analytics, Azure E
 
 ## Built-in Intelligent Insights analytics with Azure Log Analytics 
 
-Azure Log Analytics solution provides reporting and alerting capabilities on top of the Intelligent Insights diagnostics log data. The following is an example of SQL Analytics blade that can be used to access Intelligent Insights.
+Azure Log Analytics solution provides reporting and alerting capabilities on top of the Intelligent Insights diagnostics log data. Below is an example of the Intelligent Insights report in Azure SQL Analytics.
 
 ![Server](./media/sql-database-intelligent-insights/intelligent-insights-azure-sql-analytics.png)
 
