@@ -23,12 +23,12 @@ ms.custom:
 
 You can set up your mobile application developed using Visual Studio Mobile Center to send Real User Measurements to Traffic Manager by following the steps below:
 
-[!NOTE]
+>[!NOTE]
 > Currently, sending Real User Measurements to Traffic manager is only supported for Android.
 
 To configure Real User Measurements, you need to obtain an key and instrument your app with the RUM package.
 
-### Step 1: Obtain a Key
+## Step 1: Obtain a Key
     
 The measurements you take and sent to Traffic Manager from your client application are identified by the service using a unique string, called the Real User Measurements (RUM) Key. You can get a RUM key using the Azure Portal, a REST API or by using the PowerShell / CLI interfaces.
 
@@ -38,20 +38,19 @@ To obtain the RUM Key using Azure Portal using the following procedure:
    3. In the Traffic Manager profile blade, click **Real User Measurements** under **Settings**.
    4. Click **Generate Key** to create a new RUM Key.
         
-       ![Generate Real User Measurements key](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
+    ![Generate Real User Measurements key](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
- 
-      **Figure 1: Real User Measurements key generation**
+    **Figure 1: Real User Measurements key generation**
 
    5.	The blade will now show the RUM Key generated and a JavaScript code snippet that needs to be embedded into your HTML page.
  
-       ![Javascript code for Real User Measurements key](./media/traffic-manager-create-rum-visual-studio/rum-key.png)
+    ![Javascript code for Real User Measurements key](./media/traffic-manager-create-rum-visual-studio/rum-key.png)
 
-      **Figure 2: Real User Measurements Key and Measurement JavaScript**
+    **Figure 2: Real User Measurements Key and Measurement JavaScript**
  
    6. Click the **Copy** button to copy the RUM Key. 
 
-### Step 2: Instrument your app with the RUM package of Mobile Center SDK
+## Step 2: Instrument your app with the RUM package of Mobile Center SDK
 
 If you're new to Visual Studio Mobile Center, visit its [website](https://mobile.azure.com) . For detailed instructions on SDK integration, see
 [Getting Started with the Android SDK](https://docs.microsoft.com/mobile-center/sdk/getting-started/Android)
@@ -59,17 +58,19 @@ If you're new to Visual Studio Mobile Center, visit its [website](https://mobile
 To use Real User Measurements, complete the following procedure:
 
 1.  Add the SDK to the project
-During the preview of the ATM RUM SDK, you need to explicitly reference the package repository. In your app/build.gradle file add the following lines:
-
+    During the preview of the ATM RUM SDK, you need to explicitly reference the package repository. In your app/build.gradle file add the following lines:
+    ```
     repositories { maven { url "https://dl.bintray.com/mobile-center/mobile-center-snapshot" } }
-
-In your app/build.gradle file add the following lines: 
+    ```
+    In your app/build.gradle file add the following lines: 
         
+    ```
     dependencies {   
- 
-    def mobileCenterSdkVersion = '0.12.1-11+ff55f76'    
-    compile "com.microsoft.azure.mobile:mobile-center-rum:${mobileCenterSdkVersion}"
-    }
+     
+        def mobileCenterSdkVersion = '0.12.1-11+ff55f76'    
+        compile "com.microsoft.azure.mobile:mobile-center-rum:${mobileCenterSdkVersion}"
+        }
+    ```
 
 2. Start the SDK
 Open your app’s main activity class and add the following import statement:

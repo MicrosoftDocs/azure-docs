@@ -46,7 +46,7 @@ To obtain the RUM Key using Azure portal:
  
 6.	Click the **Copy** button to copy the JavaScript code. 
 
-[!IMPORTANT]
+>[!IMPORTANT]
 > Use the generated JavaScript for Real User Measurements feature to function properly. Any changes to this script or the scripts used by Real User Measurements can lead to unpredictable behavior.
 
 ## Embed the code to an HTML web page
@@ -56,9 +56,9 @@ After you have obtained the RUM key, the next step is to embed this copied JavaS
 1.	Open the HTML page in a text editor
 2.	Paste the JavaScript code you had copied in the earlier step to the BODY section of the HTML (the copied code is on line 8 & 9, see figure 3).
  
-![Embed Javascript code into web page for Real User Measurements](./media/traffic-manager-create-rum-web-pages/rum-javascript-code.png)  
+    ![Embed Javascript code into web page for Real User Measurements](./media/traffic-manager-create-rum-web-pages/rum-javascript-code.png)  
 
-**Figure 3: Simple HTML with embedded Real User Measurements JavaScript**
+    **Figure 3: Simple HTML with embedded Real User Measurements JavaScript**
 
 3.	Save the HTML file
 4. Next time this page is rendered on a web browser, the JavaScript referenced is downloaded and the script will execute the measurement and reporting operations.
