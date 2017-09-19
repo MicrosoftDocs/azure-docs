@@ -216,7 +216,7 @@ By setting "PrepareEnvironment" to true, you allow Azure ML Workbench to create 
 
 #####  2. Data preparation and feature engineering on DSVM Docker
 
-Run the script `etl.py` on DSVM Docker with debug parameter ༖༗ that filters the loaded data with specific server IP addresses:
+Run the script `etl.py` on DSVM Docker with debug parameter that filters the loaded data with specific server IP addresses:
 
 ```az ml experiment submit -t dockerdsvm -c dockerdsvm ./Code/etl.py ./Config/storageconfig.json FILTER_IP```
 
