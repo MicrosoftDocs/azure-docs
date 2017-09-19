@@ -275,7 +275,7 @@ To execute your script in a Docker container on a remote Linux machine, you need
  
    ```azurecli
    REM create myvm compute target
-   az ml computetarget attach --name myvm --address <IP address> --username <username> --password <password>
+   az ml computetarget attach --name myvm --address <IP address> --username <username> --password <password> --type remotedocker
    ```
    
    >[!NOTE]
