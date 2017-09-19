@@ -81,7 +81,7 @@ Following is a quick walkthrough of how to create a metric chart by using the Az
 >
 >
 
-Azure Monitor also has a new metrics charting experience available in preview. This experience enables users to overlay metrics from multiple resources on one chart. Users can also plot, segment, and filter multi-dimensional metrics using this new metric charting experience. To learn more [click here](monitoring-metric-charts.md)
+Azure Monitor also has a new metrics charting experience available in preview. This experience enables users to overlay metrics from multiple resources on one chart. Users can also plot, segment, and filter multi-dimensional metrics using this new metric charting experience. To learn more [click here](https://aka.ms/azuremonitor/new-metrics-charts)
 
 ## Access metrics via the REST API
 Azure Metrics can be accessed via the Azure Monitor APIs. There are two APIs that help you discover and access metrics:
