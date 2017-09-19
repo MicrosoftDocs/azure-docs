@@ -34,16 +34,16 @@ all run in an App Service plan.  Apps in the same subscription, and region can s
 
 All applications assigned to an **App Service plan** share the resources defined by it. This sharing saves money when hosting multiple apps in a single App Service plan.
 
-Your **App Service plan** can scale from **Free** and **Shared** SKUs to **Basic**, **Standard**, **Premium**, and **Isolated** SKUs giving you access to more resources and features along the way.
+Your **App Service plan** can scale from **Free** and **Shared** tiers to **Basic**, **Standard**, **Premium**, and **Isolated** tiers. Each higher tier gives you access to more resources and features.
 
-If your App Service plan is set to **Basic** SKU or higher, then you can control the **size** and scale count of the VMs.
+If your App Service plan is set to **Basic** tier or higher, then you can control the **size** and scale count of the VMs.
 
-For example, if your plan is configured to use two "small" instances in the standard service tier, all apps that are associated with that plan run on both instances. Apps also have access to the standard service tier features. Plan instances on which apps are running are fully managed and highly available.
+For example, if your plan is configured to use two "small" instances in the **Standard** tier, all apps in that plan run on both instances. Apps also have access to the **Standard** tier features. Plan instances on which apps are running are fully managed and highly available.
 
 > [!IMPORTANT]
-> The **SKU** and **Scale** of the App Service plan determines the cost and not the number of apps hosted in it.
+> The pricing tier (SKU) of the App Service plan determines the cost and not the number of apps hosted in it.
 
-This article explores the key characteristics, such as tier and scale, of an App Service plan and how they come into play while managing your apps.
+This article explores the key characteristics of an App Service plan, such as pricing tiers and scale, and how they work when you manage your apps.
 
 ## New pricing tier: PremiumV2
 
@@ -75,9 +75,7 @@ For example, a highly available app running in two regions includes at least two
 
 ## Create an App Service plan or use existing one
 
-When you create an app, you should consider creating a resource group. On the other hand, if this app is a component for a larger application, create it within the resource group that's allocated for that larger application.
-
-Whether the app is an altogether new application or part of a larger one, you can choose to use an existing plan to host it or create a new one. This decision is more a question of capacity and expected load.
+When creating an App Service app, you can put it in an existing plan to create a new plan for it. This decision depends on capacity and expected load.
 
 We recommend isolating your app into a new App Service plan when:
 
@@ -90,10 +88,9 @@ This way you can allocate a new set of resources for your app and gain greater c
 ## Create an App Service plan
 
 > [!TIP]
-> If you have an App Service Environment, you can review the documentation specific to App Service Environments here: 
-[Create an App Service plan in an App Service Environment](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md#createplan)
+> If you have an App Service Environment, see [Create an App Service plan in an App Service Environment](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md#createplan).
 
-You can create an empty App Service plan from the App Service plan browse experience or as part of app creation.
+You can create an empty App Service plan or as part of app creation.
 
 In the [Azure portal](https://portal.azure.com), click **New** > **Web + mobile**, and then select **Web App** or other App Service app kind.
 
@@ -107,7 +104,7 @@ To create an App Service plan, click **[+] Create New**, type the **App Service 
 
 ## Move an app to a different App Service plan
 
-You can move an app to a different App Service plan in the [Azure portal](https://portal.azure.com). You can move apps between plans as long as the plans are in the same resource group and geographical region.
+You can move an app to a different App Service plan in the [Azure portal](https://portal.azure.com). You can move apps between plans as long as the plans are in the _same resource group and geographical region_.
 
 To move an app to another plan:
 
@@ -115,16 +112,7 @@ To move an app to another plan:
 - In the **Menu**, look for the **App Service Plan** section.
 - Select **Change App Service plan** to start the process.
 
-**Change App Service plan** opens the **App Service plan** selector. At this point, you can pick an existing plan to move this app into.
-
-> [!IMPORTANT]
-> The select App Service plan UI is filtered by the following criteria:
-> - Exists within the same Resource Group
-> - Exists in the same Geographical Region
-> - Exists within the same Webspace
->
-> A Webspace is a logical construct within App Service which defines a grouping of server resources. A Geographical region (such as West US) contains many Webspaces in order to allocate customers using App Service. Currently, App Service resources aren’t able to be moved between Webspaces.
->
+**Change App Service plan** opens the **App Service plan** selector. At this point, you can pick an existing plan to move this app into. Only plans in the same resource group and region are displayed.
 
 ![App Service plan selector.][change]
 
@@ -156,7 +144,7 @@ You can change the pricing tier and instance size by clicking the **Scale Up** i
 > [!IMPORTANT]
 > **App Service plans** that have no apps associated to them still incur charges since they continue to reserve the compute capacity.
 
-To avoid unexpected charges, when the last app hosted in an App Service plan is deleted, the resulting empty App Service plan is also deleted.
+To avoid unexpected charges, when the last app hosted in an App Service plan is deleted, the resulting empty App Service plan is also deleted by default.
 
 ## Summary
 
