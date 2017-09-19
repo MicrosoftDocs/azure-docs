@@ -93,9 +93,9 @@ For both SQL Database and SQL Data Warehouse, allow Azure services to access SQL
 2. Run the **Set-AzureRmDataFactoryV2** cmdlet to create a data factory. Replace place-holders with your own values before executing the command.
 
     ```powershell
-    $resourceGroupName = "<your resource group to create the factory>"
-    $dataFactoryName = "<specify the name of data factory to create. It must be globally unique.>"
-    $df = Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName
+	$resourceGroupName = "<your resource group to create the factory>"
+	$dataFactoryName = "<specify the name of data factory to create. It must be globally unique.>"
+	Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName
     ```
 
     Note the following points:
@@ -103,7 +103,7 @@ For both SQL Database and SQL Data Warehouse, allow Azure services to access SQL
     * The name of the Azure data factory must be globally unique. If you receive the following error, change the name and try again.
 
         ```
-        Data factory name "ADFv2QuickStartDataFactory" is not available.
+        The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
         ```
 
     * To create Data Factory instances, you must be a Contributor or Administrator of the Azure subscription.
@@ -137,10 +137,10 @@ In this tutorial, you create three linked services for source, sink, and staging
 
 2. In **Azure PowerShell**, switch to the **ADFv2TutorialBulkCopy** folder.
 
-3. Run the **Set-AzureRmDataFactoryV2LinkedService** cmdlet to create the linked service: **AzureSqlDatabaseLinkedService**. This cmdlet, and other Data Factory cmdlets you use in this quickstart requires you to pass values for the **ResourceGroupName** and **DataFactoryName** parameters. Alternatively, you can pass the **DataFactory** object returned by the Set-AzureRmDataFactoryV2 cmdlet without typing ResourceGroupName and DataFactoryName each time you run a cmdlet.
+3. Run the **Set-AzureRmDataFactoryV2LinkedService** cmdlet to create the linked service: **AzureSqlDatabaseLinkedService**. 
 
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactory $df -Name "AzureSqlDatabaseLinkedService" -File ".\AzureSqlDatabaseLinkedService.json"
+    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDatabaseLinkedService" -File ".\AzureSqlDatabaseLinkedService.json"
     ```
 
     Here is the sample output:
@@ -177,7 +177,7 @@ In this tutorial, you create three linked services for source, sink, and staging
 2. To create the linked service: **AzureSqlDWLinkedService**, run the **Set-AzureRmDataFactoryV2LinkedService** cmdlet.
 
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactory $df -Name "AzureSqlDWLinkedService" -File ".\AzureSqlDWLinkedService.json"
+    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDWLinkedService" -File ".\AzureSqlDWLinkedService.json"
     ```
 
     Here is the sample output:
@@ -216,7 +216,7 @@ In this tutorial, you use Azure Blob storage as an interim staging area to enabl
 2. To create the linked service: **AzureStorageLinkedService**, run the **Set-AzureRmDataFactoryV2LinkedService** cmdlet.
 
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactory $df -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
+    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
     ```
 
     Here is the sample output:
@@ -255,7 +255,7 @@ In this tutorial, you create source and sink datasets, which specify the locatio
 2. To create the dataset: **AzureSqlDatabaseDataset**, run the **Set-AzureRmDataFactoryV2Dataset** cmdlet.
 
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactory $df -Name "AzureSqlDatabaseDataset" -File ".\AzureSqlDatabaseDataset.json"
+    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDatabaseDataset" -File ".\AzureSqlDatabaseDataset.json"
     ```
 
     Here is the sample output:
@@ -299,7 +299,7 @@ In this tutorial, you create source and sink datasets, which specify the locatio
 2. To create the dataset: **AzureSqlDWDataset**, run the **Set-AzureRmDataFactoryV2Dataset** cmdlet.
 
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactory $df -Name "AzureSqlDWDataset" -File ".\AzureSqlDWDataset.json"
+    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDWDataset" -File ".\AzureSqlDWDataset.json"
     ```
 
     Here is the sample output:
@@ -391,7 +391,7 @@ This pipeline takes a list of tables as a parameter. For each table in the list,
 2. To create the pipeline: **IterateAndCopySQLTables**, Run the **Set-AzureRmDataFactoryV2Pipeline** cmdlet.
 
     ```powershell
-    Set-AzureRmDataFactoryV2Pipeline -DataFactory $df -Name "IterateAndCopySQLTables" -File ".\IterateAndCopySQLTables.json"
+    Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IterateAndCopySQLTables" -File ".\IterateAndCopySQLTables.json"
     ```
 
     Here is the sample output:
@@ -467,7 +467,7 @@ This pipeline performs two steps:
 2. To create the pipeline: **GetTableListAndTriggerCopyData**, Run the **Set-AzureRmDataFactoryV2Pipeline** cmdlet.
 
     ```powershell
-    Set-AzureRmDataFactoryV2Pipeline -DataFactory $df -Name "GetTableListAndTriggerCopyData" -File ".\GetTableListAndTriggerCopyData.json"
+    Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "GetTableListAndTriggerCopyData" -File ".\GetTableListAndTriggerCopyData.json"
     ```
 
     Here is the sample output:
@@ -488,52 +488,71 @@ This pipeline performs two steps:
     $runId = Invoke-AzureRmDataFactoryV2PipelineRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName 'GetTableListAndTriggerCopyData'
     ```
 
-2. Run the following script to continuously check the run status of pipeline "**GetTableListAndTriggerCopyData**", and print out the final result.
+2. 	Run the following script to continuously check the run status of pipeline **GetTableListAndTriggerCopyData**, and print out the final pipeline run and activity run result.
 
     ```powershell
-    while ($True) {
-        $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactory $df -PipelineRunId $runId -PipelineName 'GetTableListAndTriggerCopyData' -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+	while ($True) {
+    $run = Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
 
-        if (($result | Where-Object { $_.Status -eq "InProgress" } | Measure-Object).count -ne 0) {
-            Write-Host "Pipeline run status: In Progress" -foregroundcolor "Yellow"
-            Start-Sleep -Seconds 30
-        }
-        else {
-            Write-Host "Pipeline 'GetTableListAndTriggerCopyData' run finished. Result:" -foregroundcolor "Yellow"
-            $result
+    if ($run) {
+        if ($run.Status -ne 'InProgress') {
+            Write-Host "Pipeline run finished. The status is: " $run.Status -foregroundcolor "Yellow"
+            Write-Host "Pipeline run details:" -foregroundcolor "Yellow"
+            $run
             break
         }
     }
+
+    Write-Host  "Pipeline is running...status: " $run.Status -foregroundcolor "Yellow"
+    Start-Sleep -Seconds 15
+
+	$result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -PipelineName 'GetTableListAndTriggerCopyData' -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+    Write-Host "Activity run details:" -foregroundcolor "Yellow"
+    $result
     ```
 
     Here is the output of the sample run:
 
     ```json
+	Pipeline run details:
+    ResourceGroupName : adf
+    DataFactoryName   : lindaTutorialBulkCopy3
+    RunId             : 0000000000-00000-0000-0000-000000000000
+    PipelineName      : GetTableListAndTriggerCopyData
+    LastUpdated       : 9/18/2017 4:08:15 PM
+    Parameters        : {}
+    RunStart          : 9/18/2017 4:06:44 PM
+    RunEnd            : 9/18/2017 4:08:15 PM
+    DurationInMs      : 90637
+    Status            : Succeeded
+    Message           : 
+
+    Activity run details:
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
     ActivityName      : LookupTableList
-    PipelineRunId     : 4ec8980c-62f6-466f-92fa-e69b10f33640
+    PipelineRunId     : 0000000000-00000-0000-0000-000000000000
     PipelineName      : GetTableListAndTriggerCopyData
     Input             : {source, dataset, firstRowOnly}
-    Output            : {count, value}
+    Output            : {count, value, effectiveIntegrationRuntime}
     LinkedServiceName : 
-    ActivityRunStart  : 9/13/2017 1:35:22 PM
-    ActivityRunEnd    : 9/13/2017 1:35:42 PM
-    DurationInMs      : 20824
+    ActivityRunStart  : 9/18/2017 4:06:46 PM
+    ActivityRunEnd    : 9/18/2017 4:07:09 PM
+    DurationInMs      : 22995
     Status            : Succeeded
     Error             : {errorCode, message, failureType, target}
 
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
     ActivityName      : TriggerCopy
-    PipelineRunId     : 4ec8980c-62f6-466f-92fa-e69b10f33640
+    PipelineRunId     : 0000000000-00000-0000-0000-000000000000
     PipelineName      : GetTableListAndTriggerCopyData
     Input             : {pipeline, parameters, waitOnCompletion}
     Output            : {pipelineRunId}
     LinkedServiceName : 
-    ActivityRunStart  : 9/13/2017 1:35:45 PM
-    ActivityRunEnd    : 9/13/2017 1:36:38 PM
-    DurationInMs      : 53269
+    ActivityRunStart  : 9/18/2017 4:07:11 PM
+    ActivityRunEnd    : 9/18/2017 4:08:14 PM
+    DurationInMs      : 62581
     Status            : Succeeded
     Error             : {errorCode, message, failureType, target}
     ```
@@ -554,7 +573,7 @@ This pipeline performs two steps:
     ```
 
     ```powershell
-    $result2 = Get-AzureRmDataFactoryV2ActivityRun -DataFactory $df -PipelineRunId <copy above run ID> -PipelineName 'IterateAndCopySQLTables' -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+    $result2 = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId <copy above run ID> -PipelineName 'IterateAndCopySQLTables' -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
     $result2
     ```
 
