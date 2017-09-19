@@ -28,7 +28,7 @@ Azure SQL Database is a fully managed data service that monitors the queries tha
 [Automatic tuning](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning) options available in Azure SQL Database are:
  1. **CREATE INDEX** that identifies the indexes that may improve performance of your workload, creates the indexes, and verifies that they improve performance of the queries.
  2. **DROP INDEX** that identifies redundant and duplicate indexes, and indexes that were not used in the long period of time.
- 3. **PLAN REGRESSION CORRECTION** that identifies SQL queries that are using execution plan that are slower than previous good plan, and uses the last known good plan instead of the regresed plan.
+ 3. **PLAN REGRESSION CORRECTION** that identifies SQL queries that are using execution plan that are slower than previous good plan, and uses the last known good plan instead of the regressed plan.
 
 Azure SQL Database identifies **CREATE INDEX**, **DROP INDEX**, and **PLAN REGRESSION CORRECTION** recommendations that can optimize your database and shows them in Azure portal. Find more information about identification of indexes that should be changed at [Find index recommendations in Azure portal](sql-database-advisor-portal.md). You can either manually apply recommendations using the portal or you can let Azure SQL Database to automatically apply recommendations, monitor workload after the change, and verify that the recommendation improved the performance of your workload.
 
