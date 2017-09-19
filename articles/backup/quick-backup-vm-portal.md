@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 
 # Back up a virtual machine in Azure
-Azure backups can be created through the Azure portal. This method provides a browser-based user interface for creating and configuring Azire backups and all related resources. You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. This article details how to back up a virtual machine (VM) with the Azure PowerShell module. You can also perform these steps with the [Azure CLI](quick-backup-vm-cli.md) or [Azure PowerShell](quick-backup-vm-powershell.md).
+Azure backups can be created through the Azure portal. This method provides a browser-based user interface to create and configure Azure backups and all related resources. You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. This article details how to back up a virtual machine (VM) with the Azure PowerShell module. You can also perform these steps with the [Azure CLI](quick-backup-vm-cli.md) or [Azure PowerShell](quick-backup-vm-powershell.md).
 
 This quick start enables backup on an existing Azure VM. If you need to create a VM, you can [create a VM with the Azure portal](../virtual-machines/windows/quick-create-portal.md).
 
