@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 06/19/2017
+ms.date: 09/19/2017
 ms.author: carlrab
 ---
 # What is the Azure SQL Database service? 
@@ -62,13 +62,12 @@ Either way you go — single databases or elastic pools — you are not locked i
 ### Extensive monitoring and alerting capabilities
 
 But how can you compare the relative performance of single databases and elastic pools? How do you know the right click-stop when you dial up and down? You use the [built-in performance monitoring](sql-database-performance.md) and [alerting](sql-database-insights-alerts-portal.md) tools, combined with the performance ratings based on [Database Transaction Units (DTUs) for single databases and elastic DTUs (eDTUs) for elastic pools](sql-database-what-is-a-dtu.md). Using these tools, you can quickly assess the impact of scaling up or down based on your current or project performance needs. See [SQL Database options and performance: Understand what's available in each service tier](sql-database-service-tiers.md) for details.
-
+](sql-database-automatic-tuning.md#automatic-index-management)
 Additionally, SQL Database can [emit metrics and diagnostic logs](sql-database-metrics-diag-logging.md) for easier monitoring. You can configure SQL Database to store resource usage, workers and sessions, and connectivity into one of these Azure resources:
 
 - **Azure Storage**: For archiving vast amounts of telemetry for a small price
 - **Azure Event Hub**: For integrating SQL Database telemetry with your custom monitoring solution or hot pipelines
 - **Azure Log Analytics**: For built-in monitoring solution with reporting, alerting, and mitigating capabilities
-
     ![architecture](./media/sql-database-metrics-diag-logging/architecture.png)
 
 ## Availability capabilities
@@ -80,7 +79,7 @@ Azure's industry leading 99.99% availability service level agreement [(SLA)](htt
 - **[Active geo-replication](sql-database-geo-replication-overview.md)**: SQL Database allows you to configure up to four readable secondary databases in either the same or globally distributed Azure data centers.  For example, if you have a SaaS application with a catalog database that has a high volume of concurrent read-only transactions, use active geo-replication to enable global read scale and remove bottlenecks on the primary that are due to read workloads. 
 - **[Failover groups](sql-database-geo-replication-overview.md)**: SQL Database allows you to enable high availability and load balancing at global scale, including transparent geo-replication and failover of large sets of databases and elastic pools. Failover groups and active geo-replication enables creation of globally distributed SaaS applications with minimal administration overhead leaving all the complex monitoring, routing, and failover orchestration to SQL Database.
 
-## Built-in intelligence
+# Built-in intelligence
 
 With SQL Database, you get built-in intelligence that helps you dramatically reduce the costs of running and managing databases and maximizes both performance and security of your application. Running millions of customer workloads around-the-clock, SQL Database collects and processes a massive amount of telemetry data, while also fully respecting customer privacy behind the scenes. Various algorithms are continuously evaluating the telemetry data so that the service can learn and adapt with your application. Based on this analysis, the service comes up with performance improving recommendations tailored to your specific workload. 
 
@@ -90,10 +89,10 @@ SQL Database provides detailed insight into the queries that you need to monitor
 
 Today, many of our partners running [SaaS multi-tenant apps](sql-database-design-patterns-multi-tenancy-saas-applications.md) on top of SQL Database are relying on automatic performance tuning to make sure their applications always have stable and predictable performance. For them, this feature tremendously reduces the risk of having a performance incident in the middle of the night. In addition, since part of their customer base also uses SQL Server, they are using the same indexing recommendations provided by SQL Database to help their SQL Server customers.
 
-There are two automatic tuning aspects that are available in SQL Database:
+There are two automatic tuning aspects that are [available in SQL Database](sql-database-automatic-tuning.md):
 
-- **[Automatic index management](sql-database-automatic-tuning.md#automatic-index-management)**: Identifies indexes that should be added in your database, and indexes that should be removed.
-- **[Automatic plan correction](sql-database-automatic-tuning.md#automatic-plan-choice-correction)**: Identifies problematic plans and fixes SQL plan performance problems (coming soon, already available in SQL Server 2017).
+- **Automatic index management**: Identifies indexes that should be added in your database, and indexes that should be removed.
+- **Automatic plan correction**: Identifies problematic plans and fixes SQL plan performance problems (coming soon, already available in SQL Server 2017).
 
 ### Adaptive query processing
 
