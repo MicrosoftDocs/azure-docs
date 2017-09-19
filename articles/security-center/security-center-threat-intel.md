@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2017
+ms.date: 09/12/2017
 ms.author: yurid
 
 ---
@@ -61,7 +61,7 @@ To visualize the current threat intelligence for your environment, you must firs
 	* **Threat location**: help you to identify the current locations around the globe that communicates with your environment. There are orange (incoming) and red (outgoing) arrows in this map that identify the traffic direction, if you click in one of these arrows, it will show the type of threat and the traffic direction.
 	* **Threat details**: shows more details about the threat that you selected in the map.
 
-Regardless of which option tile you select, the dashboard that will appear is based on the [Log Search](https://docs.microsoft.com/azure/security-center/security-center-search) query, the only difference is the type of query and the result.
+Regardless of which option tile you select, the dashboard that will appear is based on the Log Search  query, the only difference is the type of query and the result.
 
 ### Threat types
 Once you click the **Threat types** tile the **Log Search** dashboard appears, and there you have the filter options on the left, and the query results in the right.
