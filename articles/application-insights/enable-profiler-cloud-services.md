@@ -110,13 +110,13 @@ There are several ways to publish an application to an Azure VM. One way is to u
 
 
 ## Enable the profiler
-1. Go to your Application Insights **Performance** blade and select **Configure**.
+1. Go to your Application Insights **Performance** blade and click on **Profiler** in the top right corner to configure it.
 
-   ![Configure icon](./media/enable-profiler-compute/enableprofiler1.png)
+   ![Configure Profiler button](./media/enable-profiler-compute/PerformanceTriageViewPofilerButton.png)
 
 2. Select **Enable Profiler**.
 
-   ![Enable Profiler icon](./media/enable-profiler-compute/enableprofiler2.png)
+   ![Enable Profiler button](./media/enable-profiler-compute/enableprofiler2.png)
 
 ## Add a performance test to your application
 Follow these steps so we can collect some sample data to be displayed in Application Insights Profiler:
@@ -131,9 +131,15 @@ Follow these steps so we can collect some sample data to be displayed in Applica
 
 1. Wait 10-15 minutes for the profiler to collect and analyze the data.
 
-2. Go to the **Performance** blade in your Application Insights resource and view how your application is performing when it's under load.
+2. Go to the **Performance** blade in your Application Insights resource and view how your application is performing when it's under load. Focus on the slow operation of interest with enough usage, by sorting operational grid by the Count column. Observe which duration ranges have profiler traces by looking at the Profiler lane above the duration distribution. Note that the longer you monitor your application the more traces profiler will collect, and thus more of the distribution will be covered in the rich code-level examples supported by the profiler traces. 
 
-   ![Viewing performance](./media/enable-profiler-compute/aiperformance.png)
+   ![Profiler traces in Performance triage view](./media/enable-profiler-compute/PerformanceTriageViewProfilerTraces.png)
+
+You can zoom-in to the duration range of interest, such as the third spike around 95th percentile. This will constrain the number of samples and profiler traces in the Take Action buttons. 
+
+![Zoom into duration range](./media/enable-profiler-compute/DurationRangeZoomedTo95th.png)
+
+Now click on the **Profiler traces** button to open Profiler with the appropriate trace.
 
 3. Select the icon under **Examples** to open the **Trace View** blade.
 
