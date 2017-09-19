@@ -54,15 +54,22 @@ In the code, notice that CodeLens shows data about the exceptions:
 ![CodeLens notification of exceptions.](./media/app-insights-asp-net-exceptions/35.png)
 
 ## Diagnosing failures using the Azure portal
-From the Application Insights overview of your app, the Failures tile shows you charts of exceptions and failed HTTP requests, together with a list of the request URLs that cause the most frequent failures.
+Application Insights comes with a curated APM experience to help you diagnose failures in your monitored applications. To start, click on the Failures option in the Application Insights resource menu located in the Investigate section. 
+You should see a full-screen view that shows you the failure rate trends for your requests, how many of them are failing, and how many users are impacted. On the right you'll see some of the most 
+useful distributions specific to the selected failing operation, including top 3 response codes, top 3 exception types, and top 3 failing depedency types. 
 
-![Select Settings, Failures](./media/app-insights-asp-net-exceptions/012-start.png)
+![Failures triage view (operations tab)](./media/app-insights-asp-net-exceptions/FailuresTriageView.png)
 
-Click through one of the failed exception types in the list to get to individual occurrences of the exception, where you can see the details and stack trace:
+In a single click you can then review representative samples for each of these subsets of operations. In particular, to diagnose exceptions, you can click on the count of a particular exception to be presented with an Exceptions details blade,
+such as this one:
 
-![Select an instance of a failed request, and under exception details, get to instances of the exception.](./media/app-insights-asp-net-exceptions/030-req-drill.png)
+![Exception details blade](./media/app-insights-asp-net-exceptions/ExceptionDetailsBlade.png)
 
-**Alternatively,** you can start from the list of requests and find exceptions related to it.
+**Alternatively,** instead of looking at exceptions of a specific failing operation, you can start from the overall view of exceptions, by switching to the Exceptions tab:
+
+![Failures triage view (exceptions tab)](./media/app-insights-asp-net-exceptions/FailuresTriageView_Exceptions.png)
+
+Here you can see all the exceptions collected for your monitored app.
 
 *No exceptions showing? See [Capture exceptions](#exceptions).*
 
