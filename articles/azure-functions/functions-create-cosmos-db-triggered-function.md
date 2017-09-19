@@ -9,7 +9,7 @@ editor: ''
 tags: ''
 
 ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
-ms.service: functions
+ms.service: functions; cosmos-db
 ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
