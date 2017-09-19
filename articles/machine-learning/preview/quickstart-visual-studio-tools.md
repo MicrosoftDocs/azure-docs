@@ -14,7 +14,7 @@ ms.date: 09/12/2017
 ---
 
 # Visual Studio Code Tools for AI
-Visual Studio Code Tools for AI is a development extension to build, test, and deploy Deep Learning / AI solutions. It features a seamless integration with Azure Machine Learning, notably a run history view, detailing the performance of previous trainings and custom metrics. It offers a samples explorer view, allowing to browse and bootstrap new project with  [Microsoft Cognitive Toolkit (previously known as CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org), and other deep-learning framework. It also provides an explorer for compute targets.  
+Visual Studio Code Tools for AI is a development extension to build, test, and deploy Deep Learning / AI solutions. It features a seamless integration with Azure Machine Learning, notably a run history view, detailing the performance of previous trainings and custom metrics. It offers a samples explorer view, allowing to browse and bootstrap new project with  [Microsoft Cognitive Toolkit (previously known as CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org), and other deep-learning framework. Finally, it provides an explorer for compute targets, which enables you to submit jobs to train models on remote environments like Azure Virtual Machines or Linux servers with GPU. 
  
 ## Getting started 
 To get started, you first need to download and install [Visual Studio Code](https://code.visualstudio.com/Download). Once you have Visual Studio Code open, do the following steps:
@@ -23,14 +23,14 @@ To get started, you first need to download and install [Visual Studio Code](http
 3. Click on the **Install** button. 
 4. After installation, click on **Reload** button. 
 
-Once Visual Studio Code is reloaded, the extension is activate. 
+Once Visual Studio Code is reloaded, the extension is activate. [Learn more about installing extensions](https://code.visualstudio.com/docs/editor/extension-gallery).
 
 ## Exploring project samples
 Visual Studio Code Tools for AI comes with a samples explorer. The samples explorer makes it easy to discover sample and try them with only a few clicks. 
 To open the explorer, do as follow:   
 1. Open the command palette (View > **Command Palette** or **Ctrl+Shift+P**).
-2. Enter "ML Sample". 
-3. You get a recommendation for "Machine Learning: Open Azure Machine Learning Samples Explorer", select it and press enter. 
+2. Enter "AI Sample". 
+3. You get a recommendation for "AI: Open Azure ML Sample Explorer", select it and press enter. 
 
 Alternatively, you can click on the samples explorer icon.
 
@@ -50,11 +50,11 @@ The project will then be created.
 ## Submitting experiment with the new project
 The new project being open in Visual Studio Code, we submit a job to our different compute target (local and VM with docker).
 Visual Studio Code Tools for AI provides multiple ways to submit an experiment. 
-1. Context Menu (right click) - **Machine Learning: Submit Job**.
-2. From the command palette: "Machine Learning: Submit Job".
+1. Context Menu (right click) - **AI: Submit Job**.
+2. From the command palette: "AI: Submit Job".
 3. Alternatively, you can run the command directly using Azure CLI, Machine Learning Commands, using the embedded terminal.
 
-Open iris_sklearn.py, right click and select **Machine Learning: Submit Job**.
+Open iris_sklearn.py, right click and select **AI: Submit Job**.
 1. Select your platform: "Azure Machine Learning".
 2. Select your run-configuration: "Docker-Python."
 
@@ -66,8 +66,8 @@ Once the job is submitted, the embedded-terminal displays the progress of the ru
 ## View list of jobs
 Once the jobs are submitted, you can list the jobs from the run history.
 1. Open the command palette (View > **Command Palette** or **Ctrl+Shift+P**).
-2. Enter "ML List."
-3. You get a recommendation for "Machine Learning: List Jobs", select and press enter.
+2. Enter "AI List."
+3. You get a recommendation for "AI: List Jobs", select and press enter.
 4. Select the platform "Azure Machine Learning."
 
 The Job List View opens and displays all the runs and some related information.
