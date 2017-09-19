@@ -137,7 +137,7 @@ SELECT * FROM [dbo].[OrderInformation];
 
 > [!NOTE]
 >
-> You should notice that despite few values, this query takes considerable time to return. When using elastic query with data warehouse, one should consider the overhead costs of query processing and movement over the wire. Avoid moving small subsections of data.
+> You should notice that despite few values, this query takes considerable time to return. When using elastic query with data warehouse, one should consider the overhead costs of query processing and movement over the wire. Utilize elastic query remote execution when the compute power, not latency, is the priority.
 
 Congratulations, you have set up the very basics of Elastic Query. 
 
