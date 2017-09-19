@@ -84,8 +84,10 @@ This practice is often to separate out a set of data that requires additional pr
 - *Append Rows*. Merge two or more dataflows vertically (row-wise). 
 - *Append Columns*. Merge two or more dataflows horizontally (column-wise).
 
+
 >[!NOTE]
 >AppendColumns fails if a column collision occurs.
+
 
 After a merge operation, one or more dataflows will be referenced by a source dataflow. DataPrep notifies you with a notification in the bottom right corner of the app, beneath the list of steps.
 
