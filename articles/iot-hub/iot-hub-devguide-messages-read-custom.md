@@ -12,7 +12,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 09/19/2017
 ms.author: dobett
 
 ---
@@ -29,7 +29,10 @@ IoT Hub enables you to route [device-to-cloud messages][lnk-device-to-cloud] to 
 
 A single message may match the condition on multiple routing rules, in which case IoT Hub delivers the message to the endpoint associated with each matched rule. IoT Hub also automatically deduplicates message delivery, so if a message matches multiple rules that all have the same destination, it is only written to that destination once.
 
-An IoT hub has a default [built-in endpoint][lnk-built-in]. You can create custom endpoints to route messages to by linking other services in your subscription to the hub. IoT Hub currently supports Event Hubs, Service Bus queues, and Service Bus topics as custom endpoints.
+An IoT hub has a default [built-in endpoint][lnk-built-in]. You can create custom endpoints to route messages to by linking other services in your subscription to the hub. IoT Hub currently supports Azure Storage containers, Event Hubs, Service Bus queues, and Service Bus topics as custom endpoints.
+
+> [!NOTE]
+> IoT Hub only supports writing data to Azure Storage containers as blobs.
 
 > [!WARNING]
 > Service Bus queues and topics with **Sessions** or **Duplicate Detection** enabled are not supported as custom endpoints.
