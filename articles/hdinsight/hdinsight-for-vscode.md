@@ -191,10 +191,12 @@ To test the connection, you can list your HDInsight clusters:
 The HDInsight for VSCode supports the following features:
 
 -	IntelliSense auto-complete. Suggestions are popped up around keyword, method, variables, etc. Different icons represent different types of the objects:
-![HDInsight Tools for Visual Studio Code IntelliSense object types](./media/hdinsight-for-vscode/hdinsight-for-vscode-auto-complete-objects.png)
+
+    ![HDInsight Tools for Visual Studio Code IntelliSense object types](./media/hdinsight-for-vscode/hdinsight-for-vscode-auto-complete-objects.png)
 -	IntelliSense error marker. The language service underlines the editing errors for hive script.     
 -	Syntax highlights. The language service uses different color to differentiate variables, keywords, data type, functions, etc. 
-![HDInsight Tools for Visual Studio Code syntax highlights](./media/hdinsight-for-vscode/hdinsight-for-vscode-syntax-highlights.png)
+
+    ![HDInsight Tools for Visual Studio Code syntax highlights](./media/hdinsight-for-vscode/hdinsight-for-vscode-syntax-highlights.png)
 
 
 ### Demo
