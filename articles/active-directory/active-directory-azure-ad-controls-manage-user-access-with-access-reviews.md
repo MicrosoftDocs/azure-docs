@@ -3,7 +3,7 @@ title: Manage user access with Azure AD access reviews| Microsoft Docs
 description: Learn how to manage users access as membership of a group or assignment to an application with Azure Active Directory access reviews
 services: active-directory
 documentationcenter: ''
-author: mwahl
+author: markwahl-msft
 manager: femila
 editor: ''
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/14/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ---
 
