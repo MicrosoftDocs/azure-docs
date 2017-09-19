@@ -21,15 +21,19 @@ ms.author: anoopkv
 
 Configuration Server acts as a coordinator between the Site Recovery services and your on-premises infrastructure. This article describes how you can set up, configure, and manage the Configuration Server.
 
-## Prerequisites
-The following are the minimum hardware, software, and network configuration required to set up a Configuration Server.
-
 > [!NOTE]
 > [Capacity planning](site-recovery-capacity-planner.md) is an important step to ensure that you deploy the Configuration Server with a configuration that suites your load requirements. Read more about [Sizing requirements for a Configuration Server](#sizing-requirements-for-a-configuration-server).
+
+
+## Prerequisites
+The following are the minimum hardware, software, and network configuration required to set up a Configuration Server.
+> [!IMPORTANT]
+> When deploying a Configuration Server for protecting VMware virtual machines, we recommend that you deploy it as a **Highly Available (HA)** virtual machine.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 ## Downloading the Configuration Server software
+
 1. Log on to the Azure portal and browse to your Recovery Services Vault.
 2. Browse to **Site Recovery Infrastructure** > **Configuration Servers** (under For VMware & Physical Machines).
 
@@ -126,10 +130,10 @@ ProxyPassword="Password"
 1. Login to your Configuration Server.
 2. from an admin command prompt, run the command
 
-```
-reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
-net stop dra
-```
+    ```
+    reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
+    net stop dra
+    ```
 3. Launch the cspsconfigtool.exe using the shortcut on your.
 4. Click the **Vault Registration** tab.
 5. Download a new Registration file from the portal and provide it as input to the tool.
