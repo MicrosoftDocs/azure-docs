@@ -82,6 +82,12 @@ When completing the environment setup:
 - During the authentication process, you are prompted for an account to authenticate with. Important: Select an account that has a valid Azure subscription and sufficient permissions to create resources in the account.- When the log-in is complete, your subscription information is presented and you are prompted whether you wish to continue with the selected account.
 
 ### Environment Setup
+To start the setup process, you need to register the environment provider by entering the following command:
+
+```azurecli
+az provider register -n Microsoft.MachineLearningCompute
+```
+
 #### Local deployment
 To deploy and test your web service on the local machine, set up a local environment using the following command:
 
