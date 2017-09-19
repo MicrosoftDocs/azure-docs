@@ -43,13 +43,13 @@ ms.author: wgries
 Azure Files offers two, built-in, convenient data access methods that you can use separately, or in combination with each other, to access your data:
 
 1. **Direct cloud access**: Any Azure File share can be mounted by [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md), and/or [Linux](storage-how-to-use-files-linux.md) with the industry standard Server Message Block (SMB) protocol or via the File REST API. With SMB, reads and writes to files on the share are made directly on the file share in Azure. To mount by a VM in Azure, the SMB client in the OS must support at least SMB 2.1. To mount on-premises, such as on a user's workstation, the SMB client supported by the workstation must support at least SMB 3.0 (with encryption). In addition to SMB, new applications or services may directly access the file share via File REST, which provides an easy and scalable application programming interface for software development.
-2. **Azure File Sync** (preview): With Azure File Sync, shares can be replicated to Windows Servers on-premises or in Azure. You and your users would then access the file share through the Windows Server, such as through a SMB or NFS share. This is particularly useful for scenarios in which data will be accessed and modified far away from an Azure datacenter, such as in a branch office scenario. Data may be replicated between multiple Windows Server endpoints, such as between multiple branch offices. Finally, data may be tiered to Azure Files, such that all data is still accessible via the Server, but the Server does not have a fully copy of the data. Rather, data is seamlessly recalled when opened by your user.
+2. **Azure File Sync** (preview): With Azure File Sync, shares can be replicated to Windows Servers on-premises or in Azure. Your users would access the file share through the Windows Server, such as through an SMB or NFS share. This is useful for scenarios in which data will be accessed and modified far away from an Azure datacenter, such as in a branch office scenario. Data may be replicated between multiple Windows Server endpoints, such as between multiple branch offices. Finally, data may be tiered to Azure Files, such that all data is still accessible via the Server, but the Server does not have a full copy of the data. Rather, data is seamlessly recalled when opened by your user.
 
 The following table illustrates how your users and applications can access your Azure File share:
 
 | | Direct cloud access | Azure File Sync |
 |------------------------|------------|-----------------|
-| What protocols do you need to use? | Azure Files supports SMB 2.1, SMB 3.0, and File REST API. | Access your Azure File share via any supported protcool on Windows Server (SMB, NFS, FTPS, etc) |  
+| What protocols do you need to use? | Azure Files supports SMB 2.1, SMB 3.0, and File REST API. | Access your Azure File share via any supported protocol on Windows Server (SMB, NFS, FTPS, etc.) |  
 | Where are you running your workload? | **In Azure**: Azure Files offers direct access to your data. | **On-premises with slow network**: Windows, Linux, and macOS clients can mount a local on-premises Windows File share as a fast cache of your Azure File share. |
 | What level of ACLs do you need? | Share and file level. | Share, file, and user level. |
 
@@ -57,7 +57,7 @@ The following table illustrates how your users and applications can access your 
 Azure Files has several built-in options for ensuring data security:
 
 * Support for encryption in both over-the-wire protocols: SMB 3.0 encryption and File REST over HTTPS. By default: 
-    * Clients which support SMB 3.0 encryption will send and receive data over an encrypted channel.
+    * Clients which support SMB 3.0 encryption send and receive data over an encrypted channel.
     * Clients which do not support SMB 3.0, can communicate intra-datacenter over SMB 2.1 or SMB 3.0 without encryption. Note that clients are not allowed to communicate inter-datacenter over SMB 2.1 or SMB 3.0 without encryption.
     * Clients can communicate over File REST with either HTTP or HTTPS.
 * Optional encryption at-rest: when selected, data will be encrypted with fully-managed keys. Enabling encryption at-rest does not increase storage costs or reduce performance. 

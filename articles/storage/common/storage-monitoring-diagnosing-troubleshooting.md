@@ -232,30 +232,30 @@ In many cases, the log data from Storage Logging and the Storage Client Library 
 End-to-end tracing using a variety of log files is a useful technique for investigating potential issues. You can use the date/time information from your metrics data as an indication of where to start looking in the log files for the detailed information that will help you troubleshoot the issue.
 
 ### <a name="correlating-log-data"></a>Correlating log data
-When viewing logs from client applications, network traces, and server-side storage logging it is critical to be able to correlate requests across the different log files. The log files include a number of different fields that are useful as correlation identifiers. The client request id is the most useful field to use to correlate entries in the different logs. However sometimes, it can be useful to use either the server request id or timestamps. The following sections provide more details about these options.
+When viewing logs from client applications, network traces, and server-side storage logging it is critical to be able to correlate requests across the different log files. The log files include a number of different fields that are useful as correlation identifiers. The client request ID is the most useful field to use to correlate entries in the different logs. However sometimes, it can be useful to use either the server request ID or timestamps. The following sections provide more details about these options.
 
 ### <a name="client-request-id"></a>Client request ID
-The Storage Client Library automatically generates a unique client request id for every request.
+The Storage Client Library automatically generates a unique client request ID for every request.
 
-* In the client-side log that the Storage Client Library creates, the client request id appears in the **Client Request ID** field of every log entry relating to the request.
-* In a network trace such as one captured by Fiddler, the client request id is visible in request messages as the **x-ms-client-request-id** HTTP header value.
-* In the server-side Storage Logging log, the client request id appears in the Client request ID column.
+* In the client-side log that the Storage Client Library creates, the client request ID appears in the **Client Request ID** field of every log entry relating to the request.
+* In a network trace such as one captured by Fiddler, the client request ID is visible in request messages as the **x-ms-client-request-id** HTTP header value.
+* In the server-side Storage Logging log, the client request ID appears in the Client request ID column.
 
 > [!NOTE]
-> It is possible for multiple requests to share the same client request id because the client can assign this value (although the Storage Client Library assigns a
-> new value automatically). In the case of retries from the client, all attempts share the same client request id. In the case of a batch sent from the client, the batch has a single client request id.
+> It is possible for multiple requests to share the same client request ID because the client can assign this value (although the Storage Client Library assigns a
+> new value automatically). In the case of retries from the client, all attempts share the same client request ID. In the case of a batch sent from the client, the batch has a single client request ID.
 > 
 > 
 
 ### <a name="server-request-id"></a>Server request ID
 The storage service automatically generates server request ids.
 
-* In the server-side Storage Logging log, the server request id appears the **Request ID header** column.
-* In a network trace such as one captured by Fiddler, the server request id appears in response messages as the **x-ms-request-id** HTTP header value.
-* In the client-side log that the Storage Client Library creates, the server request id appears in the **Operation Text** column for the log entry showing details of the server response.
+* In the server-side Storage Logging log, the server request ID appears the **Request ID header** column.
+* In a network trace such as one captured by Fiddler, the server request ID appears in response messages as the **x-ms-request-id** HTTP header value.
+* In the client-side log that the Storage Client Library creates, the server request ID appears in the **Operation Text** column for the log entry showing details of the server response.
 
 > [!NOTE]
-> The storage service always assigns a unique server request id to every request it receives, so every retry attempt from the client and every operation included in a batch has a unique server request id.
+> The storage service always assigns a unique server request ID to every request it receives, so every retry attempt from the client and every operation included in a batch has a unique server request ID.
 > 
 > 
 
@@ -571,7 +571,7 @@ The following table shows a sample server-side log message from the Storage Logg
 | Authentication type| Sas                          |
 | Service type       | Blob 						|
 | Request URL		 | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
-| nbsp;				 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
+| &nbsp;				 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
 | Request id header  | a1f348d5-8032-4912-93ef-b393e5252a3b |
 | Client request ID  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 
@@ -650,7 +650,7 @@ It is important to note that these operations have completed successfully and th
 You can find a list of common REST API error codes that the storage services return on the page [Common REST API Error Codes](http://msdn.microsoft.com/library/azure/dd179357.aspx).
 
 ### <a name="capacity-metrics-show-an-unexpected-increase"></a>Capacity metrics show an unexpected increase in storage capacity usage
-If you see sudden, unexpected changes in capacity usage in your storage account, you can investigate the reasons by first looking at your availability metrics; for example, an increase in the number of failed delete requests might lead to an increase in the amount of blob storage you are using as application specific cleanup operations you might have expected to be freeing up space may not be working as expected (for example, because the SAS tokens used for freeing up space have expired).
+If you see sudden, unexpected changes in capacity usage in your storage account, you can investigate the reasons by first looking at your availability metrics; for example, an increase in the number of failed delete requests might lead to an increase in the amount of blob storage you are using as application-specific cleanup operations you might have expected to be freeing up space may not be working as expected (for example, because the SAS tokens used for freeing up space have expired).
 
 ### <a name="you-are-experiencing-unexpected-reboots"></a>You are experiencing unexpected reboots of Azure Virtual Machines that have a large number of attached VHDs
 If an Azure Virtual Machine (VM) has a large number of attached VHDs that are in the same storage account, you could exceed the scalability targets for an individual storage account causing the VM to fail. You should check the minute metrics for the storage account (**TotalRequests**/**TotalIngress**/**TotalEgress**) for spikes that exceed the scalability targets for a storage account. See the section "[Metrics show an increase in PercentThrottlingError]" for assistance in determining if throttling has occurred on your storage account.
@@ -671,7 +671,7 @@ The storage emulator does not support all of the features of the Azure storage s
 For those features that the storage emulator does not support, use the Azure storage service in the cloud.
 
 #### <a name="error-HTTP-header-not-correct-format"></a>Error "The value for one of the HTTP headers is not in the correct format" when using the storage emulator
-You are testing your application that use the Storage Client Library against the local storage emulator and method calls such as **CreateIfNotExists** fail with the error message "The value for one of the HTTP headers is not in the correct format." This indicates that the version of the storage emulator you are using does not support the version of the storage client library you are using. The Storage Client Library adds the header **x-ms-version** to all the requests it makes. If the storage emulator does not recognize the value in the **x-ms-version** header, it rejects the request.
+You are testing your application that uses the Storage Client Library against the local storage emulator and method calls such as **CreateIfNotExists** fail with the error message "The value for one of the HTTP headers is not in the correct format." This indicates that the version of the storage emulator you are using does not support the version of the storage client library you are using. The Storage Client Library adds the header **x-ms-version** to all the requests it makes. If the storage emulator does not recognize the value in the **x-ms-version** header, it rejects the request.
 
 You can use the Storage Library Client logs to see the value of the **x-ms-version header** it is sending. You can also see the value of the **x-ms-version header** if you use Fiddler to trace the requests from your client application.
 
@@ -753,7 +753,7 @@ WireShark will highlight any errors that exist in the **packetlist** window. You
 
 ![][7]
 
-You can also chose to view the TCP data as the application layer sees it by right-clicking on the TCP data and selecting **Follow TCP Stream**. This is particularly useful if you captured your dump without a capture filter. For more information, see [Following TCP Streams](http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
+You can also choose to view the TCP data as the application layer sees it by right-clicking on the TCP data and selecting **Follow TCP Stream**. This is particularly useful if you captured your dump without a capture filter. For more information, see [Following TCP Streams](http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
 
 ![][8]
 
@@ -813,7 +813,7 @@ You can also use the Application Insights feature for Visual Studio Team Service
 * Make sure your web service is available and responsive. Whether your app is a web site or a device app that uses a web service, it can test your URL every few minutes from locations around the world, and let you know if there's a problem.
 * Quickly diagnose any performance issues or exceptions in your web service. Find out if CPU or other resources are being stretched, get stack traces from exceptions, and easily search through log traces. If the app's performance drops below acceptable limits, we can send you an email. You can monitor both .NET and Java web services.
 
-You can find more information at [What is Application Insights?](../../application-insights/app-insights-overview.md).
+You can find more information at [What is Application Insights](../../application-insights/app-insights-overview.md).
 
 <!--Anchors-->
 [Introduction]: #introduction
