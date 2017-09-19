@@ -30,11 +30,11 @@ Refer to the [Quickstart](quick-start.md) page to sign up for Content Moderator 
 
 ## 2. Configure image moderation workflow (threshold)
 
-Refer to the [Workflows](review-tool-user-guide/workflows) page to configure a custom image workflow (threshold). Note the workflow name.
+Refer to the [Workflows](review-tool-user-guide/workflows) page to configure a custom image workflow (threshold). Note the workflow **name**.
 
 ## 3. Configure text moderation workflow (threshold)
 
-Use steps similar to the [Workflows](review-tool-user-guide/workflows) page to configure a custom text threshold and workflow. Note the workflow name.
+Use steps similar to the [Workflows](review-tool-user-guide/workflows) page to configure a custom text threshold and workflow. Note the workflow **name**.
 
 ![Configure Text Workflow](images/text-workflow-configure.PNG)
 
