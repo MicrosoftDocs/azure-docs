@@ -116,7 +116,7 @@ The following properties are supported for ODBC linked service:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by ODBC dataset.
+For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by ODBC dataset.
 
 To copy data from/to ODBC-compatible data store, set the type property of the dataset to **RelationalTable**. The following properties are supported:
 
