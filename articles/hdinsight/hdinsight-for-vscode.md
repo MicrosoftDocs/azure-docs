@@ -26,7 +26,7 @@ Learn how to use the Azure HDInsight Tools for Visual Studio Code (VSCode) to cr
 
 ## Prerequisites
 
-The Azure HDInsight Tools can be installed on the platforms supported by VSCode including Windows, Linux, and MacOS. You can find the prerequisites for different platforms, and don't need to install Mono on windows. If it is Linux or MacOS, Mono need to be installed.
+The Azure HDInsight Tools can be installed on the platforms supported by VSCode including Windows, Linux, and MacOS. You can find the prerequisites for different platforms, and don't need to install Mono on windows. If it is Linux or MacOS, Mono needs to be installed.
 
 - [Visual Studio Code]( https://www.visualstudio.com/products/code-vs.aspx)
     
@@ -51,7 +51,7 @@ Install **Azure HDInsight tools**
 
 Install **Python**
 
-To use pySpark you need to install Python extension, which is not must have for Spark users.
+To use pySpark, you need to install Python extension, which is not must have for Spark users.
 1. Open **Visual Studio Code**.
 2. Click **Extensions** in the left pane. Enter **python** in the search box. You can see a list of python extensions. One of them is **Python**.
 3. Click **Install** next to **Python**. After a few seconds, the **Install** button will be changed to **Reload**.
@@ -70,11 +70,11 @@ Before you can submit scripts to cluster, you must connect to your Azure account
 2. There are two options to Log in. The Login info is shown in the **OUTPUT** pane.
 
     ![HDInsight Tools for Visual Studio Code log in](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
-    ![HDInsight Tools for Visual Studio Code log in options](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login-options.png)
+    ![HDInsight Tools for Visual Studio Code login options](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login-options.png)
     - Azure:
-    ![HDInsight Tools for Visual Studio Code log in info](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-Azurelogin-info.png)
+    ![HDInsight Tools for Visual Studio Code login info](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-Azurelogin-info.png)
     - AzureChina:
-    ![HDInsight Tools for Visual Studio Code China log in info](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-AzureChinalogin-info.png)
+    ![HDInsight Tools for Visual Studio Code China login info](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-AzureChinalogin-info.png)
      
 3. CTRL-click login URL: https://aka.ms/devicelogin or https://aka.ms/deviceloginchina to open the login web page. Copy and paste the corresponding code into the following text box, click Continue.
 
@@ -116,7 +116,7 @@ After submitting a hive job, the submission success info and jobid is shown in *
 
 ## Interactive Hive
 
-Our tool enables the interactive Hive query using LLAP and run interactive Hive analytics.
+Our tool enables the interactive Hive query using LLAP and runs interactive Hive analytics.
 1. Create a file in your current folder and named **xxx.hql**.
 2. Copy and paste the following code into **xxx.hql**, then save it.
 
