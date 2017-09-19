@@ -1,4 +1,4 @@
-﻿---
+---
 title: Monitor your app's health and usage with Application Insights
 description: Get started with Application Insights. Analyze usage, availability and performance of your on-premises or Microsoft Azure applications.
 services: application-insights
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/25/2015
+ms.date: 09/19/2017
 ms.author: bwren
 
 ---
@@ -23,7 +23,7 @@ Make sure your application is performing well, and find out quickly about any fa
 
 Application Insights can monitor both Java and ASP.NET web applications and services, WCF services. They can be hosted on-premises, on virtual machines, or as Microsoft Azure websites. 
 
-On the client side, Application Insights can take telemetry from web pages and a wide variety of devices including iOS, Android and Windows Store apps.
+On the client side, Application Insights can take telemetry from web pages and a wide variety of devices including iOS, Android, and Windows Store apps.
 
 >[!Note]
 > We have made a new experience available for finding slow performing pages in your web application. If you don't have access to it, enable it by configuring your preview options with the [Preview blade](app-insights-previews.md). Read about this new experience in [Find and fix performance bottlenecks with the interactive Performance investigation](#Find-and-fix-performance-bottlenecks-with-an-interactive-Performance-investigation).
@@ -113,11 +113,11 @@ Here are a few tips for finding and diagnosing performance issues:
 * Monitor your Web app in operation with [Live Metrics Stream][livestream].
 * Capture the state of your .Net application with [Snapshot Debugger][snapshot].
 
-NOTE: We are in the process of transitioning Application Insights performance investigation to an interactive full-screen experience. Following documentation covers the new experience first, and then reviews the previous experience, in case you still need to access it, while it remains available throughout the transition.
+NOTE: We are in the process of transitioning Application Insights performance investigation to an interactive full-screen experience. The following documentation covers the new experience first and then reviews the previous experience, in case you still need to access it, while it remains available throughout the transition.
 
 ## Find and fix performance bottlenecks with an interactive full-screen performance investigation
 
-You can use the new Application Insights interactive performance investigation to review slow performing operations in your Web app. You can quickly select a specific slow operation and use [Profiler](app-insights-profiler.md) to root cause the slow operations down to code. Using the new duration distribution shown for the selected operation you can quickly at a glance assess just how bad the experience is for your customers. In fact, for each slow operation you can see how many of your user interactions were impacted. In the following example, we've decided to take a closer look at the experence for GET Customers/Details operation. In the duration distributionp we can see that there are three spikes. Leftmost spike is around 400ms and represent great responsive experience. Middle spike is around 1.2s and represents a mediocre experience. Finally at the 3.6s we have another small spike that represents the 99th percentile experience, which is likely to cause our customers to leave dissatisfied. That experience is ten times slower than the great experience for the same operation. 
+You can use the new Application Insights interactive performance investigation to review slow performing operations in your Web app. You can quickly select a specific slow operation and use [Profiler](app-insights-profiler.md) to root cause the slow operations down to code. Using the new duration distribution shown for the selected operation you can quickly at a glance assess just how bad the experience is for your customers. In fact, for each slow operation you can see how many of your user interactions were impacted. In the following example, we've decided to take a closer look at the experience for GET Customers/Details operation. In the duration distribution we can see that there are three spikes. Leftmost spike is around 400ms and represents great responsive experience. Middle spike is around 1.2s and represents a mediocre experience. Finally at the 3.6s we have another small spike that represents the 99th percentile experience, which is likely to cause our customers to leave dissatisfied. That experience is ten times slower than the great experience for the same operation. 
 
 ![GET Customers/Details three duration spikes](./media/app-insights-web-monitor-performance/PerformanceTriageViewZoomedDistribution.png)
 
@@ -131,7 +131,7 @@ To narrow in on the slow experiences, we next zoom into the durations that fall 
 
 We can now either look at the representative samples, by clicking on the Samples button, or at the representative profiler traces, by clicking on the Profiler traces button. In this example there are four traces that have been collected for GET Customers/Details in the time window and range duration of interest.
 
-Sometimes the issue will not be in your code, but rather in a dependency you code calls. You can switch to the Dependencies tab in the performance triage view to investigate such slow dependencies. Note that by default the performance view is trending averages, but what you really want to look at is the 95th percentile (or the 99th, in case you are monitoring a very mature service). In the following example we have focused on the slow Azure BLOB dependency, where we call PUT fabrikamaccount. The good experiences cluster around 40ms, while the slow calls to the same dependency are three times slower, clustering around 120ms. It doesn't take many of these calls to add up to cause the respective operation to noticably slow down. You can drill into the representative samples and profiler traces, just like you can with the Operations tab.
+Sometimes the issue will not be in your code, but rather in a dependency you code calls. You can switch to the Dependencies tab in the performance triage view to investigate such slow dependencies. Note that by default the performance view is trending averages, but what you really want to look at is the 95th percentile (or the 99th, in case you are monitoring a very mature service). In the following example we have focused on the slow Azure BLOB dependency, where we call PUT fabrikamaccount. The good experiences cluster around 40ms, while the slow calls to the same dependency are three times slower, clustering around 120ms. It doesn't take many of these calls to add up to cause the respective operation to noticeably slow down. You can drill into the representative samples and profiler traces, just like you can with the Operations tab.
 
 ![GET Customers/Details three duration spikes in 7 days range with a time window](./media/app-insights-web-monitor-performance/SlowDependencies95thTrend.png)
 
@@ -143,7 +143,7 @@ Application Insights in the new performance triage view can literally help you f
 
 ## Deprecated: Find and fix performance bottlenecks with a narrow bladed legacy performance investigation
 
-You can use the legacy Application Insights bladed performance investigation to locate areas of your Web app that are slowing down overall performance. You can find specific pages that are slowing down, and use the [Profiler](app-insights-profiler.md) to root cause these issues down to code. 
+You can use the legacy Application Insights bladed performance investigation to locate areas of your Web app that are slowing down overall performance. You can find specific pages that are slowing down, and use the [Profiler](app-insights-profiler.md) to trace the root cause of these issues down to code. 
 
 ### Create a list of slow performing pages 
 

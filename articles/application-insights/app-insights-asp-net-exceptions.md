@@ -1,4 +1,4 @@
-﻿---
+---
 title: Diagnose failures and exceptions in web apps with Azure Application Insights | Microsoft Docs
 description: Capture exceptions from ASP.NET apps along with request telemetry.
 services: application-insights
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 09/19/2017
 ms.author: bwren
 
 ---
@@ -434,13 +434,13 @@ Open a Metric Explorer blade, add a new chart, and select **Exception rate**, li
 
 The .NET framework calculates the rate by counting the number of exceptions in an interval and dividing by the length of the interval.
 
-Note that it will be different from the 'Exceptions' count calculated by the Application Insights portal by counting TrackException reports. The sampling intervals are different, and the SDK doesn't send TrackException reports for all handled and unhandled exceptions.
+This is different from the 'Exceptions' count calculated by the Application Insights portal counting TrackException reports. The sampling intervals are different, and the SDK doesn't send TrackException reports for all handled and unhandled exceptions.
 
 ## Video
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
 
 ## Next steps
-* [Monitor REST, SQL and other calls to dependencies](app-insights-asp-net-dependencies.md)
+* [Monitor REST, SQL, and other calls to dependencies](app-insights-asp-net-dependencies.md)
 * [Monitor page load times, browser exceptions, and AJAX calls](app-insights-javascript.md)
 * [Monitor performance counters](app-insights-performance-counters.md)
