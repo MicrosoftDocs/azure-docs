@@ -22,8 +22,8 @@ ms.author: maheshu
 The following guidelines help you select a virtual network to use with Azure AD Domain Services.
 
 ### Type of Azure virtual network
-* **Resource maanger virtual networks**: Azure AD Domain Services can be enabled in virtual networks created using Azure Resource Manager.
-* You can enable Azure AD Domain Services in a classic Azure virtual network. However, support for classic virtual networks will be deprecated soon. We recommend using resource manager virtual networks for newly created managed domains.
+* **Resource Manager virtual networks**: Azure AD Domain Services can be enabled in virtual networks created using Azure Resource Manager.
+* You can enable Azure AD Domain Services in a classic Azure virtual network. However, support for classic virtual networks will be deprecated soon. We recommend using Resource Manager virtual networks for newly created managed domains.
 * You can connect other virtual networks to the virtual network in which Azure AD Domain Services is enabled. For more information, see the [Network connectivity](active-directory-ds-networking.md#network-connectivity) section.
 * **Regional Virtual Networks**: If you plan to use an existing virtual network, ensure that it is a regional virtual network.
 
@@ -73,11 +73,11 @@ The following ports are required for Azure AD Domain Services to service and mai
 
 Port 5986 is used to perform management tasks using PowerShell remoting on your managed domain. The domain controllers for your managed domain do not usually listen on this port. The service opens this port on managed domain controllers only when a management or maintenance operation needs to be performed for the managed domain. As soon as the operation completes, the service shuts down this port on the managed domain controllers.
 
-Port 3389 is used for remote desktop connections to your managed domain. This port too remains usually turned off on your managed domain. The service enables this port only if we need to connect to your managed domain for troubleshooting purposes, usually initiated in response to a service request you initiate. This mechanism is not used on an ongoing basis since management and monitoring tasks are performed using PowerShell remoting. This port is used only in the rare event that we need to connect remotely to your managed domain for advanced troubleshooting. The port is closed as soon as the troubleshooting operation is complete.
+Port 3389 is used for remote desktop connections to your managed domain. This port also remains largely turned off on your managed domain. The service enables this port only if we need to connect to your managed domain for troubleshooting purposes, usually initiated in response to a service request you initiate. This mechanism is not used on an ongoing basis since management and monitoring tasks are performed using PowerShell remoting. This port is used only in the rare event that we need to connect remotely to your managed domain for advanced troubleshooting. The port is closed as soon as the troubleshooting operation is complete.
 
 
 ### Sample NSG for virtual networks with Azure AD Domain Services
-The following table illustrates a sample NSG you can configure for a virtual network with an Azure AD Domain Services managed domain. This rule allows inbound traffic from the above specified ports to ensure your managed domain stays patched, updated and can be monitored by Microsoft. The default 'DenyAll' rule applies to all other inbound traffic from the internet.
+The following table illustrates a sample NSG you can configure for a virtual network with an Azure AD Domain Services managed domain. This rule allows inbound traffic over the required ports to ensure your managed domain stays patched, updated and can be monitored by Microsoft. The default 'DenyAll' rule applies to all other inbound traffic from the internet.
 
 Additionally, the NSG also illustrates how to lock down secure LDAP access over the internet. Skip this rule if you have not enabled secure LDAP access to your managed domain over the internet. The NSG contains a set of rules that allow inbound LDAPS access over TCP port 636 only from a specified set of IP addresses. The NSG rule to allow LDAPS access over the internet from specified IP addresses has a higher priority than the DenyAll NSG rule.
 
