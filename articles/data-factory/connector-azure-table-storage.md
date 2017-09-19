@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 09/18/2017
 ms.author: jingwang
 
 ---
@@ -47,6 +47,7 @@ You can create an Azure Storage linked service by using the account key, which p
 |:--- |:--- |:--- |
 | type | The type property must be set to: **AzureStorage** |Yes |
 | connectionString | Specify information needed to connect to Azure storage for the connectionString property. Mark this field as SecureString. |Yes |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**
 
@@ -59,6 +60,10 @@ You can create an Azure Storage linked service by using the account key, which p
             "connectionString": {
                 "type": "SecureString",
                 "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
         }
     }
 }
@@ -80,6 +85,7 @@ To use Service SAS authentication, the following properties are supported:
 |:--- |:--- |:--- |
 | type | The type property must be set to: **AzureStorage** |Yes |
 | sasUri | Specify Shared Access Signature URI to the Azure Storage resources such as blob, container, or table. Mark this field as SecureString. |Yes |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**
 
@@ -93,6 +99,10 @@ To use Service SAS authentication, the following properties are supported:
                 "type": "SecureString",
                 "value": "<SAS URI of the Azure Storage resource>"
             }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
         }
     }
 }

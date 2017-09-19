@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: 
-ms.date: 09/08/2017
+ms.date: 09/18/2017
 ms.author: shlo
 
 ---
@@ -33,7 +33,7 @@ In Azure Data Factory, you can use Copy Activity to copy data among data stores 
 
 Copy Activity is executed on an [Integration Runtime](concepts-integration-runtime.md). For different data copy scenario, you can choose different flavor of Integration Runtime:
 
-* When copying data between data stores that both are publicly accessible, copy activity can be empowered by **Azure Integration Runtime**, which is secure, reliable, scalable, and [globally available](concepts-integration-runtime.md).
+* When copying data between data stores that both are publicly accessible, copy activity can be empowered by **Azure Integration Runtime**, which is secure, reliable, scalable, and [globally available](concepts-integration-runtime.md#integration-runtime-location).
 * When copying data from/to data stores located on-premises or in a network with access control (for example, Azure Virtual Network), you need to set up a **self-hosted Integrated Runtime** to empower data copy.
 
 Copy Activity goes through the following stages to copy data from a source to a sink. The service that powers Copy Activity:

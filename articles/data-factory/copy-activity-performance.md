@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 09/18/2017
 ms.author: jingwang
 
 ---
@@ -79,20 +79,22 @@ Points to note:
 
 ## Cloud data movement units
 
-A **cloud data movement unit (DMU)** is a measure that represents the power (a combination of CPU, memory, and network resource allocation) of a single unit in Data Factory. DMU only applies to [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime), but not [Self-hosted Integration Runtime](concepts-integration-runtime.md#self-hosted-integration-runtime).
+A **cloud data movement unit (DMU)** is a measure that represents the power (a combination of CPU, memory, and network resource allocation) of a single unit in Data Factory. **DMU only applies to [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)**, but not [Self-hosted Integration Runtime](concepts-integration-runtime.md#self-hosted-integration-runtime).
 
 **The minimal cloud data movement units to empower Copy Activity run is two.** The following table lists the default DMUs used in different copy scenarios.
 
 | Copy scenario | Default DMUs determined by service |
-|: --- |: --- |
-| Copy data between file-based stores | Between 2 and 8 depending on the number and size of the files. |
+|:--- |:--- |
+| Copy data between file-based stores | Between 2 and 16 depending on the number and size of the files. |
 | Copy data from Salesforce/Dynamics | 4 |
 | All other copy scenarios | 2 |
 
 To override this default, specify a value for the **cloudDataMovementUnits** property as follows. The **allowed values** for the **cloudDataMovementUnits** property are 2, 4, 8, 16, 32. The **actual number of cloud DMUs** that the copy operation uses at run time is equal to or less than the configured value, depending on your data pattern. For information about the level of performance gain you might get when you configure more units for a specific copy source and sink, see the [performance reference](#performance-reference).
 
+You can see the actually used cloud data movement units for each copy run in the copy activity output when monitoring an activity run. Learn details from [Performance tuning steps](#performance-tuning-steps) - step 1.
+
 > [!NOTE]
-> If you need more cloud DMUs for a higher throughput, contact [Azure support](https://azure.microsoft.com/support/). Setting of 8 and above currently works only when you **copy multiple files from Blob storage/Data Lake Store/Amazon S3/cloud FTP/cloud SFTP to Blob storage/Data Lake Store/Azure SQL Database/Cosmos DB**.
+> If you need more cloud DMUs for a higher throughput, contact [Azure support](https://azure.microsoft.com/support/). Setting of 8 and above currently works only when you **copy multiple files from Blob storage/Data Lake Store/Amazon S3/cloud FTP/cloud SFTP to any other cloud data stores.**.
 >
 
 **Example:**
@@ -117,7 +119,7 @@ To override this default, specify a value for the **cloudDataMovementUnits** pro
 ]
 ```
 
-### Billing impact
+### Cloud data movement units billing impact
 
 It's **important** to remember that you are charged based on the total time of the copy operation. The total duration you are billed for data movement is the sum of duration across DMUs. If a copy job used to take one hour with two cloud units and now it takes 15 minutes with eight cloud units, the overall bill remains almost the same.
 
@@ -133,7 +135,7 @@ For each Copy Activity run, Data Factory determines the number of parallel copie
 | Copy data from any source data store to Azure Table storage |4 |
 | All other copy scenarios |1 |
 
-Usually, the default behavior should give you the best throughput. However, to control the load on machines that host your data stores, or to tune copy performance, you may choose to override the default value and specify a value for the **parallelCopies** property. The value must be between 1 and 32 (both inclusive). At run time, for the best performance, Copy Activity uses a value that is less than or equal to the value that you set.
+Usually, the default behavior should give you the best throughput. However, to control the load on machines that host your data stores, or to tune copy performance, you may choose to override the default value and specify a value for the **parallelCopies** property. The value must be an integer greater than or equal to 1. At run time, for the best performance, Copy Activity uses a value that is less than or equal to the value that you set.
 
 ```json
 "activities":[
@@ -221,7 +223,7 @@ Here's a sample definition of Copy Activity with the properties that are describ
 ]
 ```
 
-### Billing impact
+### Staged copy billing impact
 
 You are charged based on two steps: copy duration and copy type.
 
@@ -232,7 +234,7 @@ You are charged based on two steps: copy duration and copy type.
 
 We suggest that you take these steps to tune the performance of your Data Factory service with Copy Activity:
 
-1. **Establish a baseline**. During the development phase, test your pipeline by using Copy Activity against a representative data sample. Collect execution time and performance characteristics returned in Copy Activity run result -> Output section, below is an exhausted list. You can compare the performance and configuration of your scenario to Copy Activity’s [performance reference](#performance-reference) from our tests.
+1. **Establish a baseline**. During the development phase, test your pipeline by using Copy Activity against a representative data sample. Collect execution time and performance characteristics returned in Copy Activity run result -> Output section, below is an exhausted list. Learn how to monitor actiivty run from [quickstart monitoring section](quickstart-create-data-factory-dot-net.md#monitor-pipeline-run). You can compare the performance and configuration of your scenario to Copy Activity’s [performance reference](#performance-reference) from our tests.
 
     | Property name  | Description | Unit |
     |:--- |:--- |:--- |
