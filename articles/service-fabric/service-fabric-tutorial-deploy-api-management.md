@@ -32,14 +32,14 @@ In this tutorial, you learn how to:
 
 In this tutorial series you learn how to:
 > [!div class="checklist"]
-> * Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster-arm.md) or [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster-arm.md) on Azure using a template
+> * Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) or [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) on Azure using a template
 > * Deploy API Management with Service Fabric
 
 ## Prerequisites
 Before you begin this tutorial:
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Install the [Azure Powershell module version 4.1 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) or [Azure CLI 2.0](/cli/azure/install-azure-cli).
-- Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster-arm.md) or [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster-arm.md) on Azure
+- Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) or [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) on Azure
 
 ## Sign-in to Azure and select your subscription
 This tutorial uses [Azure PowerShell][azure-powershell]. When you start a new PowerShell session, sign in to your Azure account and select your subscription before you execute Azure commands.
@@ -60,7 +60,7 @@ az account set --subscription <guid>
 ## Deploy API Management
 Cloud applications typically need a front-end gateway to provide a single point of ingress for users, devices, or other applications. In Service Fabric, a gateway can be any stateless service such as an ASP.NET Core application, or another service designed for traffic ingress, such as Event Hubs, IoT Hub, or Azure API Management. This tutorial is an introduction to using Azure API Management as a gateway to your Service Fabric applications. API Management integrates directly with Service Fabric, allowing you to publish APIs with a rich set of routing rules to your back-end Service Fabric services. 
 
-Now that you have a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster-arm.md) or [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster-arm.md) on Azure, deploy API Management to the virtual network (VNET) in the subnet and NSG designated for API Management. For this tutorial, the API Management Resource Manager template is pre-configured to use the names of the VNET, subnet, and NSG that you set up in the previous [Windows cluster tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster-arm.md) or [Linux cluster tutorial](service-fabric-tutorial-create-vnet-and-linux-cluster-arm.md). 
+Now that you have a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) or [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) on Azure, deploy API Management to the virtual network (VNET) in the subnet and NSG designated for API Management. For this tutorial, the API Management Resource Manager template is pre-configured to use the names of the VNET, subnet, and NSG that you set up in the previous [Windows cluster tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md) or [Linux cluster tutorial](service-fabric-tutorial-create-vnet-and-linux-cluster.md). 
 
 Download the following Resource Manager template and parameters file:
  
@@ -101,7 +101,7 @@ The API Management REST API is currently the only way to configure a backend ser
 
 #### Upload a Service Fabric client certificate
 
-API Management must authenticate with your Service Fabric cluster for service discovery using a client certificate that has access to your cluster. For simplicity, this tutorial uses the same certificate specified previously when creating the [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster-arm.md#createvaultandcert_anchor) or [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster-arm.md#createvaultandcert_anchor), which by default can be used to access your cluster.
+API Management must authenticate with your Service Fabric cluster for service discovery using a client certificate that has access to your cluster. For simplicity, this tutorial uses the same certificate specified previously when creating the [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md#createvaultandcert_anchor) or [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md#createvaultandcert_anchor), which by default can be used to access your cluster.
 
  1. In the API Management service, select **Client certificates** under **Security**.
  2. Click the **+ Add** button.
