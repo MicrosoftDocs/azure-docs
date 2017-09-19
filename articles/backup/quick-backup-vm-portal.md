@@ -46,7 +46,7 @@ This quickstart assumes you already have a virtual machine running in Azure. If 
   - For Backup policy use **(new) DailyPolicy**
   - Click **Enable Backup** to create the vault and establish the policy.
 
-  ![make selections to Enable backup menu](./media/quick-backup-vm-portal/configure-recovery-services-vault.png)
+    ![make selections to Enable backup menu](./media/quick-backup-vm-portal/configure-recovery-services-vault.png)
 
 ## Create an initial backup
 
@@ -62,11 +62,9 @@ Though you enabled the schedule for backup policy, which backs up the virtual ma
 
   The **Backup Now** menu opens. The backup job you are triggering isn't handled by the backup policy. For this reason, you must specify how long to retain the restore point.
 
-3. On the **Backup Now** menu, use the calendar control to select the last day this recovery point is retained, and click **Backup**.</br>
+3. On the **Backup Now** menu, enter the date of the last day to retain the recovery point, and click **Backup**.</br>
 
-  ![select Backup Now in menu](./media/quick-backup-vm-portal/set-retention-for-initial-backup.png) 
-
-  The initial backup takes a while to complete. It may take as long as 20 minutes or more to create the restore point. Once the restore point has been created, you see it in the Restore points tile.
+  The initial backup takes a while to complete. It may take as long as 20 minutes or more to create the restore point. Once the restore point has been created, you see it in the Restore points tile on the Backup dashboard.
 
   ![Recovery points](./media/quick-backup-vm-portal/backup-complete.png)
 
