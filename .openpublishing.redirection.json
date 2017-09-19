@@ -1,5 +1,6 @@
 {
-    "redirections": [{
+    "redirections": [
+        {
             "source_path": "articles/virtual-machines/linux/impactful-maintenance.md",
             "redirect_url": "/azure/virtual-machines/linux/planned-maintenance",
             "redirect_document_id": false
@@ -11847,6 +11848,16 @@
         {
             "source_path": "articles/azure-toolkit-for-intellij-whats-new.md",
             "redirect_url": "/java/azure/intellij/azure-toolkit-for-intellij-whats-new",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/index.md",
+            "redirect_url": "/azure/app-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-api/index.md",
+            "redirect_url": "azure/app-service",
             "redirect_document_id": false
         }
     ]
