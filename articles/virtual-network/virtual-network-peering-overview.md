@@ -19,11 +19,11 @@ ms.author: narayan;anavin
 ---
 # Virtual network peering
 
-[Azure’s Virtual Network (VNet)](virtual-networks-overview.md)is a logical isolation of Azure which enables you to securely connect Azure resources to each other. VNet lets you create your own private space in Azure.
+[Azure’s Virtual Network (VNet)](virtual-networks-overview.md) is your own private network space in Azure which enables you to securely connect Azure resources to each other.
 
 VNet peering enables you to seemlessly connect virtual networks. Once peered, the VNets appear as one for connectivity purposes. The virtual machines in the peered VNets can communicate with each other directly through private IP addresses.
 
-The traffic between virtual machines in the peered virtual networks is routed through the Microsoft backbone infrastructure, much like traffic is routed between virtual machines in the same virtual network through *private IPs* only.
+The traffic between virtual machines in the peered virtual networks is routed through the Microsoft backbone infrastructure, much like traffic is routed between virtual machines in the same virtual network through *private* IP addresses only.
 
 
 The benefits of using virtual network peering include:
@@ -49,7 +49,7 @@ The benefits of using virtual network peering include:
 * Though the communication between virtual machines in peered Vnets has no additional bandwidth restrictions, there is a maximum network bandwidth depending on the virtual machine size that still applies. To learn more about maximum network bandwidth for different virtual machine sizes, read the [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine sizes articles.
 * Azure-provided internal DNS name resolution for virtual machines doesn't work across peered VNets. Virtual machines have internal DNS names that are resolvable only within the local virtual network. You can however, configure virtual machines connected to peered VNets as DNS servers for a virtual network. For further details, read the [Name resolution using your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) article.
 
-![Basic virtual network peering](./media/virtual-networks-peering-overview/figure01.png)
+     ![Basic virtual network peering](./media/virtual-networks-peering-overview/figure01.png)
 
 ## Connectivity
 
@@ -103,11 +103,13 @@ For example, if you were peering virtual networks named myVnetA and myVnetB, you
 
 You can monitor the status of your peering connection. The peering status can be one of the following:
 
-* *Initiated*: For a successful peering connection between VNets, you must create two peering links. For example, to peer *myVNetA* and *myVNetB*, you need a peering link from *myVNetA* to *myVnetB* and *myVnetB* to *myVnetA*. Your peering status will be initiated when only one connection is created.
+When peering two virtual networks created through Resource Manager, a peering must be configured for each virtual network in the peering.
 
-* *Connected*: This implies that your peering connection is successfully set up. Yout virtual machines in one VNet are able to directly communicate to those in the other.
+* *Initiated*: When you create the peering to the second virtual network from the first virtual network, the peering status is Initiated.
 
-* *Disconnected*: If one of your peering links was deleted after a connection was established, your peering status is disconnected.
+* *Connected*: When you create the peering from the second virtual network to the first virtual network, its peering status is Connected. If you view the peering status for the first virtual network, you see its status changed from Initiated to Connected. The peering is not successfully established until the peering status for both virtual network peerings is Connected
+
+* *Disconnected*: If one of your peering links is deleted after a connection was established, your peering status is disconnected.
 
 ## Troubleshoot
 
