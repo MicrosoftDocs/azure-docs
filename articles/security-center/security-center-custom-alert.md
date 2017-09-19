@@ -43,8 +43,7 @@ Open **Security Center** dashboard, and follow these steps to create a custom al
 5.	Type a brief description that reflects the intent of this rule in the **Description** field.
 6.	Select the severity level (High, Medium, Low) according to your needs in the **Severity** field.
 7.	Select the subscription in which this rule is applicable in the **Subscription** field.
-8.	Select the workspace that you want to monitor with this rule in the **Workspace** field.
-9.	In the **Search Query** field, the query that you to use to obtain the results. The query’s result triggers the alert. Notice that when you type a valid query, the green check mark appears in the right corner of this field:
+8.	Select the workspace that you want to monitor with this rule in the **Workspace** field, and in the **Search Query** field, the query that you to use to obtain the results. The query’s result triggers the alert. Notice that when you type a valid query, the green check mark appears in the right corner of this field:
 
 	![Query](./media/security-center-custom-alert/security-center-custom-alert-fig3.png)
 
