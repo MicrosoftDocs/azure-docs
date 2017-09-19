@@ -49,8 +49,8 @@ The following table illustrates how your users and applications can access your 
 
 | | Direct cloud access | Azure File Sync |
 |------------------------|------------|-----------------|
-| What protocols do you need to use? | Azure Files supports SMB 2.1, SMB 3.0, and File REST API. | Access your Azure File share via any supported protcool on Windows Server |  
-| Where are you running your workload? | **In Azure**: Azure Files offers fast direct access to your data. | **On-premises with slow network**: Windows, Linux, and macOS clients can mount a local on-premises Windows File share as a fast cache of your Azure File share. |
+| What protocols do you need to use? | Azure Files supports SMB 2.1, SMB 3.0, and File REST API. | Access your Azure File share via any supported protcool on Windows Server (SMB, NFS, FTPS, etc) |  
+| Where are you running your workload? | **In Azure**: Azure Files offers direct access to your data. | **On-premises with slow network**: Windows, Linux, and macOS clients can mount a local on-premises Windows File share as a fast cache of your Azure File share. |
 | What level of ACLs do you need? | Share and file level. | Share, file, and user level. |
 
 ## Data security
