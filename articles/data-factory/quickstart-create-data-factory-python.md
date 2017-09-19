@@ -28,7 +28,7 @@ This quickstart describes how to use Python to create an Azure data factory. The
 * **Download and install [Azure .NET SDK](http://azure.microsoft.com/downloads/)**.
 * **Create an application in Azure Active Directory** following [this instruction](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Make note of the following values that you use in later steps: **application ID**, **authentication key**, and **tenant ID**. Assign application to "**Contributor**" role by following instructions in the same article. 
 
-### Create and upload input file
+### Create and upload an input file
 
 1. Launch Notepad. Copy the following text and save it as **input.txt** file on your disk.
     
@@ -38,7 +38,7 @@ This quickstart describes how to use Python to create an Azure data factory. The
     ```
 2.	Use tools such as [Azure Storage Explorer](http://storageexplorer.com/) to create the **adfv2tutorial** container, and to upload the input.txt file to the container. 
 
-## Install python package
+## Install the Python package
 
 1.	Download the Azure Data Factory Python file into a directory where you’ll run your project.
 2.	Open a terminal or command prompt with administrator privileges. 
@@ -54,7 +54,7 @@ This quickstart describes how to use Python to create an Azure data factory. The
     Successfully installed azure-common-1.1.8 azure-mgmt-datafactory-0.1.0 azure-mgmt-nspkg-2.0.0 azure-nspkg-2.0.0 certifi-2017.7.27.1 idna-2.6 msrest-0.4.14 msrestazure-0.4.14
     ```
 
-## Create a Data Factory client
+## Create a data factory client
 
 1. Create a file named **datafactory.py**. Add the following statements to add references to namespaces.
     
@@ -88,7 +88,7 @@ This quickstart describes how to use Python to create an Azure data factory. The
           print("\t\tProvisioning State: {}".format(props.provisioning_state))
       print("\n\n")    
     ```
-3. 3.	Add the following code to the **Main** method that creates an instance of DataFactoryManagementClient class. You use this object to create the data factory, linked service, datasets, and pipeline. You also use this object to monitor the pipeline run details.
+3. Add the following code to the **Main** method that creates an instance of DataFactoryManagementClient class. You use this object to create the data factory, linked service, datasets, and pipeline. You also use this object to monitor the pipeline run details.
 
     ```python   
     subscription_id = '<your subscription ID where the factory resides>'
@@ -124,7 +124,7 @@ while df.provisioning_state != 'Succeeded':
 print_item(adf_client.factories.get(rg_name, df_name))
 ```
 
-## Create linked service
+## Create a linked service
 
 Add the following code to the **Main** method that creates an **Azure Storage linked service**.
 
@@ -174,7 +174,7 @@ dsOut = adf_client.datasets.create_or_update(rg_name, df_name, dsOut_name, dsOut
 print_item(dsOut)
 ```
 
-## Create pipeline
+## Create a pipeline
 
 Add the following code to the **Main** method that creates a **pipeline with a copy activity**.
 
@@ -196,7 +196,7 @@ print_item(p)
 ```
 
 
-## Create pipeline run
+## Create a pipeline run
 
 Add the following code to the **Main** method that **triggers a pipeline run**.
 
