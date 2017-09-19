@@ -906,7 +906,7 @@ public static async Task Run(TimerInfo myTimer, UserSubscription[] existingSubsc
 
 public class UserSubscription {
     public string UserId {get; set;}
-    public string SubscriptionId {get; set;}
+    public string Id {get; set;}
 }
 ```
 
