@@ -1,7 +1,7 @@
 ---
 title:  Azure Monitor Metrics Explorer | Microsoft Docs
 description: Learn about new features Azure Monitor Metrics Explorer
-author: vitaly.gorbenko
+author: vgorbenko
 manager: Victor.Mushkatin
 editor: mbullwinkle
 services: monitoring-and-diagnostics
