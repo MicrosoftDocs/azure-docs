@@ -42,6 +42,7 @@
 #### [Identify and resolve license problems in a group](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Migrate individual licensed users to group-based licensing](active-directory-licensing-group-migration-azure-portal.md)
 #### [Additional scenarios for group-based licensing](active-directory-licensing-group-advanced.md)
+#### [Provide terms of use for users and services](active-directory-tou.md)
 #### [PowerShell examples for group-based licensing](active-directory-licensing-ps-examples.md)
 ### [Add users from other directories (classic portal)](active-directory-create-users-external.md)
 ### [Manage user profiles](active-directory-users-profile-azure-portal.md)
