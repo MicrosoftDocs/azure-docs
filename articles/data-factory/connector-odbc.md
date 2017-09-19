@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 09/18/2017
 ms.author: jingwang
 
 ---
@@ -53,9 +53,10 @@ The following properties are supported for ODBC linked service:
 | type | The type property must be set to: **Odbc** | Yes |
 | connectionString | The connection string excluding the credential portion. See examples in the next section. | Yes |
 | authenticationType | Type of authentication used to connect to the ODBC data store.<br/>Allowed values are: **Basic** and **Anonymous**. | Yes |
-| username | Specify user name if you are using Basic authentication. | No |
-| password | Specify password for the user account you specified for the username. | No |
-| credential | The access credential portion of the connection string specified in driver-specific property-value format. Example: `"RefreshToken=<secret refresh token>;"`. | No |
+| userName | Specify user name if you are using Basic authentication. | No |
+| password | Specify password for the user account you specified for the userName. Mark this field as a SecureString. | No |
+| credential | The access credential portion of the connection string specified in driver-specific property-value format. Example: `"RefreshToken=<secret refresh token>;"`. Mark this field as a SecureString. | No |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. A Self-hosted Integration Runtime is required as mentioned in [Prerequisites](#prerequisites). |Yes |
 
 **Example 1: using Basic authentication**
 
@@ -236,7 +237,7 @@ To copy data to ODBC-compatible data store, set the sink type in the copy activi
 ]
 ```
 
-## GE Historian store
+## GE Historian source
 
 You create an ODBC linked service to link a [GE Proficy Historian (now GE Historian)](http://www.geautomation.com/products/proficy-historian) data store to an Azure data factory as shown in the following example:
 
@@ -245,13 +246,19 @@ You create an ODBC linked service to link a [GE Proficy Historian (now GE Histor
     "name": "HistorianLinkedService",
     "properties":
     {
-        "type": "OnPremisesOdbc",
+        "type": "Odbc",
         "typeProperties":
         {
-            "connectionString": "DSN=<name of the GE Historian store>",
             "authenticationType": "Basic",
-            "userName": "<user name>",
-            "password": "<password>"
+            "connectionString": {
+                "type": "SecureString",
+                "value": "<GE Historian store connection string or DSN>"
+            },
+            "userName": "<username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -261,9 +268,50 @@ You create an ODBC linked service to link a [GE Proficy Historian (now GE Histor
 }
 ```
 
-Set up a Self-hosted Integration Runtime on a machine with access to your data store. The Integration Runtime uses the ODBC driver for GE Historian to connect to the GE Historian data store. Therefore, install the driver if it is not already installed on the same machine. See [Prerequisites](#prerequisites) section for details.
+Set up a Self-hosted Integration Runtime on a machine with access to your data store. The Integration Runtime uses the ODBC driver for GE Historian to connect to the data store. Therefore, install the driver if it is not already installed on the same machine. See [Prerequisites](#prerequisites) section for details.
 
 Before you use the GE Historian store in a Data Factory solution, verify whether the Integration Runtime can connect to the data store using instructions in the next section.
+
+Read the article from the beginning for a detailed overview of using ODBC data stores as source/sink data stores in a copy operation.
+
+## SAP HANA sink
+
+>[!NOTE]
+>To copy data from SAP HANA data store, refer to native [SAP HANA connector](connector-sap-hana). To copy data to SAP HANA, please follow this instruction to use ODBC connector. Note the linked services for SAP HANA connector and ODBC connector are with different type thus cannot be reused.
+>
+
+You create an ODBC linked service to link a SAP HANA data store to an Azure data factory as shown in the following example:
+
+```json
+{
+    "name": "SAPHANAViaODBCLinkedService",
+    "properties":
+    {
+        "type": "Odbc",
+        "typeProperties":
+        {
+            "authenticationType": "Basic",
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Driver={HDBODBC};servernode=<HANA server>.clouddatahub-int.net:30015"
+            },
+            "userName": "<username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+Set up a Self-hosted Integration Runtime on a machine with access to your data store. The Integration Runtime uses the ODBC driver for SAP HANA to connect to the data store. Therefore, install the driver if it is not already installed on the same machine. See [Prerequisites](#prerequisites) section for details.
+
+Before you use the SAP HANA sink in a Data Factory solution, verify whether the Integration Runtime can connect to the data store using instructions in the next section.
 
 Read the article from the beginning for a detailed overview of using ODBC data stores as source/sink data stores in a copy operation.
 

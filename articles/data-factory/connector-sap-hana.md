@@ -23,7 +23,6 @@ ms.author: jingwang
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from an SAP HANA database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
-
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [SAP HANA connector in V1](v1/data-factory-sap-hana-connector.md).
 
@@ -36,6 +35,9 @@ Specifically, this SAP HANA connector supports:
 - Copying data from any version of SAP HANA database.
 - Copying data from **HANA information models** (such as Analytic and Calculation views) and **Row/Column tables** using SQL queries.
 - Copying data using **Basic** or **Windows** authentication.
+
+> [!NOTE]
+> To copy data **into** SAP HANA data store, use generic ODBC connector. See [SAP HANA sink](connector-odbc.md#sap-hana-sink) with details. Note the linked services for SAP HANA connector and ODBC connector are with different type thus cannot be reused.
 
 ## Prerequisites
 
