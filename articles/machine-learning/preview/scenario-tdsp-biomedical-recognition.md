@@ -1,6 +1,6 @@
 ---
-title: Biomedical Entity Recognition | Azure Machine Learning Workbench TDSP template | Microsoft Docs
-description: A TDSP project quickstart that uses deep learning for biomedical entity recognition in Azure Machine Learning Workbench.
+title: Biomedical entity recognition - Team Data Science Process - Azure Machine Learning | Microsoft Docs
+description: A Team Data Science Process project quickstart that uses deep learning for biomedical entity recognition in Azure Machine Learning Workbench.
 services: machine-learning
 documentationcenter: ''
 author: bradsev
@@ -18,7 +18,7 @@ ms.author: bradsev
 
 ---
 
-# Biomedical Entity Recognition using TDSP Template
+# Biomedical entity recognition using a Team Data Science Process template
 
 
 ## Introduction
@@ -39,7 +39,7 @@ The aim of this real-world scenario is to highlight how to use Azure Machine Lea
     * Execution of jobs in remote GPU VMs on Azure.
     * Easy operationalization of deep learning models as web services on Azure Container Services.
 
-## Use Case Overview
+## Use case overview
 Biomedical named entity recognition is a critical step for complex biomedical NLP tasks such as: 
 * Extraction of diseases, symptoms from electronic medical or health records.
 * Drug discovery
@@ -53,7 +53,7 @@ The following figure shows the architecture that was used to process data and tr
 
 ![Architecture](./media/scenario-tdsp-biomedical-recognition/architecture.png)
 
-## Data Description
+## Data description
 
 ### 1. Word2Vec model training data
 We first downloaded the raw MEDLINE abstract data from [MEDLINE](https://www.nlm.nih.gov/pubs/factsheets/medline.html). The data is publically available in the form of XML files on their [FTP server](https://ftp.ncbi.nlm.nih.gov/pubmed/baseline). There are 892 XML files available on the server and each of the XML files has the information of 30,000 articles. More details about the data collection step are provided in the Project Structure section. The fields present in each file are 
@@ -121,7 +121,7 @@ automatically provisioned for runs against docker, VM, and HDI cluster targets. 
 * [How to use Jupyter Notebooks](how-to-use-jupyter-notebooks.md)
 * [How to use GPU](how-to-use-gpu.md)
 
-## Scenario Structure
+## Scenario structure
 For the scenario, we use the TDSP project structure and documentation templates (Figure 1), which follows the [TDSP lifecycle](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md). Project is created based on instructions provided [here](./how-to-use-tdsp-in-azure-ml.md).
 
 
@@ -129,7 +129,7 @@ For the scenario, we use the TDSP project structure and documentation templates 
 
 The step-by-step data science workflow is as follows:
 
-### 1. [Data Acquisition and Understanding](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/Code/01_Data_Acquisition_and_Understanding/ReadMe.md)
+### 1. [Data acquisition and understanding](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/Code/01_Data_Acquisition_and_Understanding/ReadMe.md)
 
 The raw MEDLINE corpus has a total of 27 million abstracts where about 10 million articles have an empty abstract field. Azure HDInsight Spark is used to process big data that cannot be loaded into the memory of a single machine as a [Pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html). First, the data is downloaded into the Spark cluster. Then the following steps are executed on the [Spark DataFrame](https://spark.apache.org/docs/latest/sql-programming-guide.html): 
 * parse the XML files using Medline XML Parser
