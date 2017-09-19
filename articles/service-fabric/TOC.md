@@ -17,8 +17,14 @@
 ### [1- Create a secure cluster on Azure](service-fabric-tutorial-create-cluster-azure-ps.md)
 ### [2- Deploy a .NET app using Docker Compose](service-fabric-host-app-in-a-container.md)
 
+## Create and manage a cluster
+### 1- Create a cluster on Azure
+#### [1a- Create a secure Windows cluster on Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+#### [1b- Create a secure Linux cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+### [2- Deploy API Management with Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+
 # Samples
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=service-fabric)
 ## [PowerShell](service-fabric-powershell-samples.md)
 ## [Service Fabric CLI](samples-cli.md)
 # Concepts
