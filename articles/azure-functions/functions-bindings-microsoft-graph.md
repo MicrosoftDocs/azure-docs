@@ -16,6 +16,7 @@ ms.author: mahender
 ---
 
 # Azure Functions Microsoft Graph bindings
+[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 This article explains how to configure and work with Microsoft Graph triggers and bindings in Azure Functions.
 With these, you can use Azure Functions to work with data, insights, and events from the [Microsoft Graph](https://graph.microsoft.io).
@@ -31,11 +32,12 @@ The Microsoft Graph extension provides the following bindings:
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-> [!Note] Microsoft Graph extensions are currently in preview. 
+> [!Note] 
+> Microsoft Graph extensions are currently in preview. 
 
 ## Setting up the extension
 
-Microsoft Graph bindings are available as a _binding extension_. Binding extensions are optional components to the Azure Functions runtime. This section will show you how to set up the Microsoft Graph and Auth token extensions.
+Microsoft Graph bindings are available as a _binding extension_. Binding extensions are optional components to the Azure Functions runtime. This section will show you how to set up the Microsoft Graph and auth token extensions.
 
 ### Enabling Functions 2.0 preview
 
@@ -55,7 +57,8 @@ If you are using Visual Studio, you can get the extensions by installing these N
 
 The bindings outlined in this topic require an identity to be used. This allows the Microsoft Graph to enforce permissions and audit interactions. The identity can be a user accessing your application or the application itself. To configure this identity, you will need to set up [App Service Authentication / Authorization](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) with Azure Active Directory. You will also need to request any resource permissions your functions require.
 
-> [!Note] The Microsoft Graph extension only supports AAD authentication.
+> [!Note] 
+> The Microsoft Graph extension only supports AAD authentication. Users need to log in with a work or school account.
 
 If using the Azure portal, below the prompt to install the extension, you will see a warning which prompts you to configure App Service Authentication / Authorization and request any permissions the template or binding requires. Click **Configure AAD now** or **Add permissions now** as appropriate.
 
@@ -67,7 +70,7 @@ If using the Azure portal, below the prompt to install the extension, you will s
 <a name="token-input"></a>
 ## Auth token input binding
 
-This binding gets an AAD token for a given resource. The resource can be any for which the application has permissions. 
+This binding gets an AAD token for a given resource and provides it to your code as a string. The resource can be any for which the application has permissions. 
 
 ### Configuring an auth token input binding
 
@@ -89,6 +92,8 @@ The binding supports the following properties:
 ### Using an auth token input binding from code
 
 The token is always presented to code as a string.
+
+#### Sample: Getting user profile information
 
 Suppose you have the following function.json that defines an HTTP trigger with a token input binding:
 
@@ -170,7 +175,9 @@ The binding supports the following properties:
 The binding exposes the following types to .NET functions:
 - string[][]
 - Microsoft.Graph.WorkbookTable
-- Custom object types
+- Custom object types (using structural model binding)
+
+#### Sample: Reading an Excel table
 
 Suppose you have the following function.json that defines an HTTP trigger with an Excel input binding:
 
@@ -248,7 +255,9 @@ The binding exposes the following types to .NET functions:
 - string[][]
 - Newtonsoft.Json.Linq.JObject
 - Microsoft.Graph.WorkbookTable
-- Custom object types
+- Custom object types (using structural model binding)
+
+#### Sample: Adding rows to an Excel table
 
 Suppose you have the following function.json that defines an HTTP trigger with an Excel output binding:
 
@@ -294,6 +303,7 @@ public static async Task Run(HttpRequest req, IAsyncCollector<object> newExcelRo
         .Value;
     await newExcelRow.AddAsync(new {
         Text = input
+        // Add other properties for additional columns here
     });
     return;
 }
@@ -335,6 +345,8 @@ The binding exposes the following types to .NET functions:
 - Stream
 - string
 - Microsoft.Graph.DriveItem
+
+#### Sample: Reading a file from OneDrive
 
 Suppose you have the following function.json that defines an HTTP trigger with a OneDrive input binding:
 
@@ -410,6 +422,7 @@ The binding exposes the following types to .NET functions:
 - string
 - Microsoft.Graph.DriveItem
 
+#### Sample: Writing to a file in OneDrive
 
 Suppose you have the following function.json that defines an HTTP trigger with a OneDrive output binding:
 
@@ -490,7 +503,9 @@ The binding exposes the following types to .NET functions:
 - Microsoft.Graph.Message
 - Newtonsoft.Json.Linq.JObject
 - string
-- Custom object types
+- Custom object types (using structural model binding)
+
+#### Sample: Sending an email through Outlook
 
 Suppose you have the following function.json that defines an HTTP trigger with an Outlook message output binding:
 
@@ -567,7 +582,7 @@ For more about webhooks, see [Working with webhooks in Microsoft Graph].
 <a name="webhook-trigger"></a>
 ### Microsoft Graph webhook trigger
 
-This trigger allows a function to react to an incoming webhook from the Microsoft Graph. Each instance of this trigger can react to one Microsoft Grap resource type.
+This trigger allows a function to react to an incoming webhook from the Microsoft Graph. Each instance of this trigger can react to one Microsoft Graph resource type.
 
 #### Configuring a Microsoft Graph webhook trigger
 
@@ -580,13 +595,14 @@ The binding supports the following properties:
 |**direction**|Required - must be set to `trigger`.|
 |**resourceType**|Required - the graph resource for which this function should respond to webhooks. The value can be one of the following values:<ul><li><code>#Microsoft.Graph.Message</code></li><li><code>#Microsoft.Graph.DriveItem</code></li><li><code>#Microsoft.Graph.Contact</code></li><li><code>#Microsoft.Graph.Event</code></li></ul>|
 
-> [!Note] A function app can only have one function which is registered against a given `resourceType` value.
+> [!Note]
+> A function app can only have one function which is registered against a given `resourceType` value.
 
 #### Using a Microsoft Graph webhook trigger from code
 
 The binding exposes the following types to .NET functions:
 - Microsoft Graph SDK types relevant to the resource type, e.g., Microsoft.Graph.Message, Microsoft.Graph.DriveItem
-- Custom object types
+- Custom object types (using structural model binding)
 
 For examples of using this binding in code, please see [Microsoft Graph webhook samples](#webhook-samples).
 
@@ -594,6 +610,8 @@ For examples of using this binding in code, please see [Microsoft Graph webhook 
 
 <a name="webhook-input"></a>
 ### Microsoft Graph webhook subscription input binding
+
+This binding allows you to retrieve the list of subscriptions managed by this function app. The binding reads from function app storage, and does not reflect other subscriptions created from outside the app.
 
 #### Configuring a Microsoft Graph webhook subscription input binding
 
@@ -634,9 +652,9 @@ The binding supports the following properties:
 |**identity**|Required - The identity that will be used to perform the action. The value can be one of the following values:<ul><li><code>userFromRequest</code>&mdash;Only valid with [HTTP trigger]. Uses the identity of the calling user.</li><li><code>userFromId</code>&mdash;Uses the identity of a previously logged-in user with the specified ID. See the <code>userId</code> property.</li><li><code>userFromToken</code>&mdash;Uses the identity represented by the specified token. See the <code>userToken</code> property.</li><li><code>clientCredentials</code>&mdash;Uses the identity of the function app.</li></ul>|
 |**userId**	|Needed if and only if _identity_ is set to `userFromId`. A user principal ID associated with a previously logged-in user.|
 |**userToken**|Needed if and only if _identity_ is set to `userFromToken`. A token valid for the function app. |
-|**action**|The value can be one of the following values:<ul><li><code>create</code>&mdash;Registers a new subscription.</li><li><code>delete&mdash;Deletes a specified subscription.</code></li></ul>|
-|**subscriptionResource**|Needed if and only if the action is set to `create`. Specifies the Microsoft Graph resource that will be monitored for changes. See [Working with webhooks in Microsoft Graph]. |
-|**changeType**|Needed if and only if the action is set to `create`. Indicates the type of change in the subscribed resource that will raise a notification. The supported values are: `created`, `updated`, `deleted`. Multiple values can be combined using a comma-separated list.|
+|**action**|The value can be one of the following values:<ul><li><code>create</code>&mdash;Registers a new subscription.</li><li><code>delete</code>&mdash;Deletes a specified subscription.</li></ul>|
+|**subscriptionResource**|Needed if and only if the _action_ is set to `create`. Specifies the Microsoft Graph resource that will be monitored for changes. See [Working with webhooks in Microsoft Graph]. |
+|**changeType**|Needed if and only if the _action_ is set to `create`. Indicates the type of change in the subscribed resource that will raise a notification. The supported values are: `created`, `updated`, `deleted`. Multiple values can be combined using a comma-separated list.|
 
 #### Using a Microsoft Graph webhook subscription output binding from code
 
@@ -649,7 +667,7 @@ For examples of using this binding in code, please see [Microsoft Graph webhook 
 <a name="webhook-samples"></a>
 ### Microsoft Graph webhook samples
 
-**Creating a subscription**
+#### Sample: Creating a subscription
 
 Suppose you have the following function.json that defines an HTTP trigger with a subscription output binding using the create action:
 
@@ -696,7 +714,7 @@ public static HttpResponseMessage run(HttpRequestMessage req, out string clientS
 }
 ```
 
-**Handling notifications**
+#### Sample: Handling notifications
 
 Suppose you have the following function.json that defines Graph webhook trigger to handle Outlook messages:
 
@@ -725,14 +743,14 @@ public static async Task Run(Message msg, TraceWriter log)
 {
 	log.Info("Microsoft Graph webhook trigger function processed a request.");
 
-    // Testable by sending oneself an email with the Subject "Azure Functions" and some text body
+    // Testable by sending oneself an email with the subject "Azure Functions" and some text body
     if (msg.Subject.Contains("Azure Functions") && msg.From.Equals(msg.Sender)) {
         log.Info($"Processed email: {msg.BodyPreview}");
     }
 }
 ```
 
-**Deleting subscriptions**
+#### Sample: Deleting subscriptions
 
 Suppose you have the following function.json that defines an HTTP trigger with a subscription input binding and a subscription output binding using the delete action:
 
@@ -783,7 +801,7 @@ public static async Task Run(HttpRequest req, string[] existingSubscriptions, IA
 }
 ```
 
-**Refreshing subscriptions**
+#### Sample: Refreshing subscriptions
 
 There are two approaches to refreshing subscriptions:
 - Use the application identity to deal with all subscriptions. This will require consent from an Azure Active Directory admin. This can be used by all languages supported by Azure Functions.
@@ -867,7 +885,7 @@ public static async Task Run(TimerInfo myTimer, UserSubscription[] existingSubsc
   log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
 	foreach (var subscription in existingSubscriptions)
 	{
-        //binding in code to allow dynamic identity
+        // binding in code to allow dynamic identity
         using (var subscriptionsToRefresh = await binder.BindAsync<IAsyncCollector<string>>(
             new GraphWebhookSubscriptionAttribute() {
                 Action = "refresh",
@@ -891,5 +909,5 @@ public class UserSubscription {
 
 
 
-[HTTP trigger]: ../functions-bindings-http-webhook.md
+[HTTP trigger]: functions-bindings-http-webhook.md
 [Working with webhooks in Microsoft Graph]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/webhooks
