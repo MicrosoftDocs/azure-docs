@@ -42,7 +42,7 @@
 #### [Identify and resolve license problems in a group](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Migrate individual licensed users to group-based licensing](active-directory-licensing-group-migration-azure-portal.md)
 #### [Additional scenarios for group-based licensing](active-directory-licensing-group-advanced.md)
-#### [Provide terms of use for users and services](active-directory-tou.md)
+#### [Provide terms of use for users and apps](active-directory-tou.md)
 #### [PowerShell examples for group-based licensing](active-directory-licensing-ps-examples.md)
 ### [Add users from other directories (classic portal)](active-directory-create-users-external.md)
 ### [Manage user profiles](active-directory-users-profile-azure-portal.md)
@@ -275,6 +275,17 @@
 #### [Assign admin roles](active-directory-users-assign-role-azure-portal.md)
 ### [Administrative units](active-directory-administrative-units-management.md)
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
+
+## Access reviews
+### [Access reviews overview](active-directory-azure-ad-controls-access-reviews-overview.md)
+### [Complete an access review](active-directory-azure-ad-controls-complete-access-review.md)
+### [Create an access review](active-directory-azure-ad-controls-create-access-review.md)
+### [How to perform an access review](active-directory-azure-ad-controls-perform-access-review.md)
+### [How to review your access](active-directory-azure-ad-controls-how-to-review-your-access.md)
+### [Guest access with access reviews](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
+### [Managing user access with reviews](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
+### [Managing programs and controls](active-directory-azure-ad-controls-manage-programs-controls.md)
+
 
 ## Secure your identities
 ### [Conditional access](active-directory-conditional-access-azure-portal.md)
