@@ -1,7 +1,7 @@
 ---
-title: Create your first workflow between cloud apps & cloud services - Azure Logic Apps | Microsoft Docs
-description: Automate business processes for system integration and enterprise application integration (EAI) scenarios by creating and running workflows in Azure Logic Apps
-author: jeffhollan
+title: Create your first automated workflow between systems & cloud services - Azure Logic Apps | Microsoft Docs
+description: Automate business processes and workflows for system integration and enterprise application integration (EAI) scenarios by creating and running logic apps
+author: ecfan
 manager: anneta
 editor: ''
 services: logic-apps
@@ -14,221 +14,299 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/31/2017
-ms.author: LADocs; jehollan; estfan
+ms.date: 09/18/2017
+ms.author: LADocs; estfan
 ---
 
-# Create your first logic app workflow to automate processes between cloud apps and cloud services
+# Create your first logic app for automating workflows and processes through the Azure portal
 
-Without writing any code, you can automate business processes more easily and quickly 
-when you create and run workflows with [Azure Logic Apps](logic-apps-what-are-logic-apps.md). 
-This first example shows how to create a basic logic app workflow that checks 
-an RSS feed for new content on a website. When new items appear in the website's feed, 
-the logic app sends email from an Outlook or Gmail account.
+Without writing code, you can integrate systems and services 
+by building and running automated workflows with 
+[Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md). 
+This tutorial creates a basic logic app that checks an RSS feed 
+for new content on a website. For each new item in the feed, 
+the logic app sends an email. This tutorial walks you through 
+building this logic app:
 
-To create and run a logic app, you need these items:
+![Overview - first logic app example](./media/logic-apps-create-a-logic-app/logic-app-overview.png)
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Create a blank logic app.
+> * Add a trigger for starting your logic app when an RSS feed item is published.
+> * Add an action for sending email with details about the RSS feed item.
+> * Run and check your logic app.
+
+## Prerequisites
 
 * An Azure subscription. If you don't have a subscription, you can 
 [start with a free Azure account](https://azure.microsoft.com/free/). 
 Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
 
-  Your Azure subscription is used for billing logic app usage. Learn how 
-  [usage metering](../logic-apps/logic-apps-pricing.md) and 
-  [pricing](https://azure.microsoft.com/pricing/details/logic-apps) 
-  work for Azure Logic Apps.
+* An email account from [any email provider supported by Azure Logic Apps](../connectors/apis-list.md) 
+for sending notifications. For example, you can use Office 365 Outlook, 
+Outlook.com, Gmail, or another supported provider. This tutorial uses Office 365 Outlook.
 
-Also, this example requires these items:
-
-* An Outlook.com, Office 365 Outlook, or Gmail account
-
-	> [!TIP]
-	> If you have a personal 
-	> [Microsoft account](https://account.microsoft.com/account), 
-	> you have an Outlook.com account. 
-	> Otherwise, if you have an Azure work or school account, 
-	> you have an **Office 365 Outlook** account.
+  > [!TIP]
+  > If you have a personal 
+  > [Microsoft account](https://account.microsoft.com/account), 
+  > you have an Outlook.com account. 
+  > Otherwise, if you have an Azure work or school account, 
+  > you have an Office 365 Outlook account.
 
 * A link to a website's RSS feed. This example uses the 
 [RSS feed for top stories from the CNN.com website](http://rss.cnn.com/rss/cnn_topstories.rss): 
 `http://rss.cnn.com/rss/cnn_topstories.rss`
 
-## Add a trigger that starts your workflow
-
-A [*trigger*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) 
-is an event that starts your logic app workflow 
-and is the first item that your logic app needs.
+## 1. Create a blank logic app 
 
 1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal").
 
-2. From the left menu, choose **New** > **Enterprise Integration** > **Logic App** 
-as shown here:
+2. From the main Azure menu, choose 
+**New** > **Enterprise Integration** > **Logic App**.
 
-	 ![Azure portal, New, Enterprise Integration, Logic App](media/logic-apps-create-a-logic-app/azure-portal-create-logic-app.png)
+   ![Azure portal, New, Enterprise Integration, Logic App](media/logic-apps-create-a-logic-app/azure-portal-create-logic-app.png)
 
-   > [!TIP]
-   > You can also choose **New**, then in the search box, 
-   > type `logic app`, and press Enter. 
-   > Then choose **Logic App** > **Create**.
+3. Create your logic app with the settings specified in the table.
 
-3. Name your logic app and select your Azure subscription. 
-Now create or select an Azure resource group, which helps you organize and 
-manage related Azure resources. Finally, select the datacenter location 
-for hosting your logic app. When you're ready, 
-choose **Pin to dashboard** and then **Create**.
+   ![Provide logic app details](./media/logic-apps-create-a-logic-app/logic-app-settings.png)
 
-	 ![Logic app details](media/logic-apps-create-a-logic-app/logic-app-settings.png)
+   | Setting | Suggested value | Description | 
+   | ------- | --------------- | ----------- | 
+   | **Name** | *your-logic-app-name* | Provide a unique logic app name. | 
+   | **Subscription** | *your-Azure-subscription* | Select the Azure subscription that you want to use. | 
+   | **Resource group** | *your-Azure-resource-group* | Create or select an Azure resource group, which helps you organize and manage related Azure resources. | 
+   | **Location** | *your-Azure-region* | Select the datacenter region for deploying your logic app. | 
+   |||| 
 
-   > [!NOTE]
+4. When you're ready, select **Pin to dashboard**, then choose **Create**.
+
+   You've now created an Azure resource for your logic app. 
+   After Azure deploys your logic app, the Logic Apps Designer 
+   shows you templates for common patterns so you can get started faster.
+
+   > [!NOTE] 
    > When you select **Pin to dashboard**, 
    > your logic app appears on the Azure dashboard after deployment, 
-   > and opens automatically. If your logic app doesn't appear on the dashboard, 
-   > on the **All resources** tile, choose **See More**, and select your logic app. 
-   > Or on the left menu, choose **More services**. Under **Enterprise Integration**, 
-   > choose **Logic Apps**, and select your logic app.
+   > and automatically opens in Logic Apps Designer. 
+   > If not, you can manually find and open your logic app.
 
-4. When you open your logic app for the first time, 
-the Logic App Designer shows templates that 
-you can use to get started. 
-For now, choose **Blank Logic App** so you can 
-build your logic app from scratch.
+5. For now, under **Templates**, choose **Blank Logic App** 
+so that you can build your logic app from scratch.
 
-	The Logic App Designer opens and shows 
- 	available services and *triggers* that 
- 	you can use in your logic app.
+   ![Choose logic app template](./media/logic-apps-create-a-logic-app/choose-logic-app-template.png)
 
-5. In the search box, type `RSS`, and select 
-this trigger: **RSS - When a feed item is published** 
+   The Logic Apps Designer now shows you available [*connectors*](../connectors/apis-list.md) and their [*triggers*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts), 
+   which you use for starting your logic app workflow.
 
-	![RSS trigger](media/logic-apps-create-a-logic-app/rss-trigger.png)
+   ![Logic app triggers](./media/logic-apps-create-a-logic-app/logic-app-triggers.png)
 
-6. Enter the link for the website's RSS feed that you want to track. 
+## 2. Add a trigger for starting the workflow
 
-	 You can also change **Frequency** and **Interval**. 
-	 These settings determine how often your logic app checks for 
-	 new items and returns all items found during that time span.
+Every logic app must start with a [*trigger*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts). 
+The trigger fires when a specific event happens or when new data 
+meets the condition that you've set. The Logic Apps engine then 
+creates a logic app instance for running your workflow. 
+Each time that the trigger fires, the engine creates another 
+separate instance that runs your logic app workflow.
 
-	 For this example, let's check every day for 
-     top stories posted to the CNN website.
+1. In the search box, type "rss" as your filter. 
+Select this trigger: **RSS - When a feed item is published** 
 
-	 ![Set up trigger with RSS feed, frequency, and interval](media/logic-apps-create-a-logic-app/rss-trigger-setup.png)
+   ![Select trigger: "RSS - When a feed item is published"](./media/logic-apps-create-a-logic-app/rss-trigger.png)
 
-7. Save your work for now. (On the designer command bar, choose **Save**.)
+2. Provide the link for the website's RSS feed that you want to track, for example, `http://rss.cnn.com/rss/cnn_topstories.rss`. 
+Set the interval and frequency for the recurrence. 
+In this example, set these properties to check the feed every day. 
 
-   ![Save your logic app](media/logic-apps-create-a-logic-app/save-logic-app.png)
+   ![Set up trigger with RSS feed, frequency, and interval](./media/logic-apps-create-a-logic-app/rss-trigger-setup.png)
 
-   When you save, your logic app goes live, but currently, 
-   your logic app only checks for new items in the specified RSS feed. 
-   To make this example more useful, we add an action that your 
-   logic app performs after your trigger fires.
+3. Save your work for now. On the designer toolbar, choose **Save**.
+To collapse and hide the trigger's details, choose the trigger's title bar.
 
-## Add an action that responds to your trigger
+   ![Save your logic app](./media/logic-apps-create-a-logic-app/save-logic-app.png)
 
-An [*action*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) 
-is a task performed by your logic app workflow. After you add a trigger to your logic app, 
-you can add an action to perform operations with data generated by that trigger. 
-For our example, we now add an action that sends email when new items appear in the website's RSS feed.
+   Your logic app is now live but doesn't do anything 
+   other than check for new items in the RSS feed 
+   until you add actions to the workflow. 
 
-1. In the designer, under your trigger, choose **New step** > **Add an action** as shown here:
+## 3. Add an action that responds to the trigger
 
-   ![Add an action](media/logic-apps-create-a-logic-app/add-new-action.png)
+Now add an [*action*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts), 
+which is a task that your logic app workflow performs. In this example, 
+add an action that sends email when a new item appears in the RSS feed.
+
+1. In the Logic Apps Designer, under the trigger, 
+choose **+ New step** > **Add an action**.
+
+   ![Add an action](./media/logic-apps-create-a-logic-app/add-new-action.png)
 
    The designer shows [available connectors](../connectors/apis-list.md) so 
    that you can select an action to perform when your trigger fires.
 
-2. Based on your email account, follow the steps for Outlook or Gmail.
+   ![Select from action list](./media/logic-apps-create-a-logic-app/logic-app-actions.png)
 
-   * To send email from your Outlook account, in the search box, 
-   enter `outlook`. Under **Services**, choose **Outlook.com** for personal Microsoft accounts, 
-   or choose **Office 365 Outlook** for Azure work or school accounts. 
-   Under **Actions**, select **Send an email**.
+2. In the search box, enter "send email" as your filter. 
+Based on your email provider, find and select the matching connector. 
+Then select the "send email" action for your connector. 
+For example: 
 
-       ![Select Outlook "Send an email" action](media/logic-apps-create-a-logic-app/actions.png)
+   * For an Azure work or school account, 
+   select the Office 365 Outlook connector. 
+   * For personal Microsoft accounts, 
+   select the Outlook.com connector. 
+   * For Gmail accounts, select the Gmail connector. 
 
-   * To send email from your Gmail account, in the search box, enter `gmail`. 
-   Under **Actions**, select **Send email**.
+   We're going to continue with the Office 365 Outlook connector. 
+   If you use a different provider, the steps remain the same, 
+   but your UI might appear different. 
 
-       ![Choose "Gmail - Send email"](media/logic-apps-create-a-logic-app/actions-gmail.png)
+   ![Select this action: "Office 365 Outlook - Send an email"](./media/logic-apps-create-a-logic-app/actions.png)
 
 3. When you're prompted for credentials, 
 sign in with the username and password for your email account. 
 
-4. Provide the details for this action, like the destination email address, 
-and choose the parameters for the data to include in the email, 
-for example:
+4. Provide the details specified in the table and 
+choose the fields that you want included in the mail.
 
-   ![Select data to include in email](media/logic-apps-create-a-logic-app/rss-action-setup.png)
+   * To select fields available for your workflow, 
+   click in an edit box so that the **Dynamic content** list opens, 
+   or choose **Add dynamic content**. 
+   
+   * To view any other available fields, 
+   choose **See more** for each section in the **Dynamic content** list. 
 
-	So if you chose Outlook, 
-	your logic app might look like this example:
+   * To add blank lines in your content, press Shift + Enter.
+   
+   * To close the **Dynamic content** list, 
+   choose **Add dynamic content**.
 
-	![Completed logic app](media/logic-apps-create-a-logic-app/save-run-complete-logic-app.png)
+   ![Select data to include in email](./media/logic-apps-create-a-logic-app/rss-action-setup.png)
 
-5.	Save your changes. (On the designer command bar, choose **Save**.)
+   | Setting | Suggested value | Description | 
+   | ------- | --------------- | ----------- | 
+   | **To** | *recipient-email-address* | Enter the recipient's email address. For testing purposes, you can use your own email address. | 
+   | **Subject** | New CNN post: **Feed title** | Enter the content for the email's subject. <p>For this tutorial, enter the suggested text and select the trigger's **Feed title** field, which shows the feed item's title. | 
+   | **Body** | Title: **Feed title** <p>Date published: **Feed primary link** <p>Link: **Primary feed link** | Enter the content for the email's body. <p>For this tutorial, enter the suggested text, then select these trigger fields: <p>- **Feed title**, which shows the feed item's title again </br>- **Feed published on**, which shows the item's published date and time </br>- **Primary feed link**, which shows the URL for the feed item | 
+   |||| 
 
-6. You can now manually run your logic app for testing. 
-On the designer command bar, choose **Run**. Otherwise, 
-you can let your logic app check the specified RSS feed 
-based on the schedule that you set up.
+   > [!NOTE] 
+   > If you select a field that stores an array, 
+   > the designer automatically adds a "For each" loop 
+   > around the action that references the array. 
+   > That way, your logic app performs that action on each array item.
+
+5. When you're done, save your changes. On the designer toolbar, choose **Save**.
+
+   ![Completed logic app](./media/logic-apps-create-a-logic-app/save-complete-logic-app.png)
+
+   To test your logic app now, continue to the next section.
+
+## 4. Run and test your logic app workflow
+
+1. To manually run your logic app for testing, 
+on the designer toolbar bar, choose **Run**. 
+Or, you can let your logic app check the specified 
+RSS feed based on the schedule that you set up.
+
+   ![Run logic app](./media/logic-apps-create-a-logic-app/run-complete-logic-app.png)
 
    If your logic app finds new items, 
-   the logic app sends email that includes your selected data. 
-   If no new items are found, your logic app skips 
-   the action that sends email.
+   the logic app sends email that 
+   includes your selected data, for example:
 
-7. To monitor and check your logic app's run and trigger history, 
+   ![Email sent for new RSS feed item](./media/logic-apps-create-a-logic-app/rss-feed-email.png)
+
+   If your logic app doesn't find any new items, 
+   the logic app skips the action that sends email 
+   and waits for the next interval before checking again. 
+
+2. To review your logic app's runs and trigger history, 
 on your logic app menu, choose **Overview**.
+To view more details about a run, choose the row for that run.
 
-   ![Monitor and view logic app run and trigger history](media/logic-apps-create-a-logic-app/logic-app-run-trigger-history.png)
+   ![Monitor and view logic app run and trigger history](./media/logic-apps-create-a-logic-app/logic-app-run-trigger-history.png)
 
    > [!TIP]
-   > If you don't find the data that you expect, on the command bar, 
-   > try choosing **Refresh**.
+   > If you don't find the data that you expect, 
+   > on the toolbar, try choosing **Refresh**.
 
-   To learn more about your logic app's status or run and trigger 
-   history, or to diagnose your logic app, see 
-   [Troubleshoot your logic app](logic-apps-diagnosing-failures.md).
+   Whether the run passed or failed, the Run Details view 
+   shows the steps that passed or failed. 
 
-      > [!NOTE]
-      > Your logic app continues running until you turn off your app. 
-      > To turn off your app for now, on your logic app menu, 
-      > choose **Overview**. On the command bar, choose **Disable**.
+   ![View details for a logic app run](./media/logic-apps-create-a-logic-app/logic-app-run-details.png)
 
-Congratulations, you just set up and run your first basic logic app. 
-You also learned how easily you can create workflows that automate 
-processes, and integrate cloud apps and cloud services - all without code.
+   To learn more about your logic app's status, runs history, 
+   and trigger history, or to diagnose your logic app, see 
+   [Troubleshoot your logic app](../logic-apps/logic-apps-diagnosing-failures.md).
 
-## Manage your logic app
+3. To view the inputs and outputs for each step, 
+expand the step that you want to review. 
+This information can help you diagnose and debug 
+problems in your logic app. For example:
 
-To manage your app, you can perform tasks like check the status, 
-edit, view history, turn off, or delete your logic app.
+   ![View step details](./media/logic-apps-create-a-logic-app/logic-app-run-details-expanded.png)
 
-1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal").
+   For more information, see 
+   [Monitor your logic app](../logic-apps/logic-apps-monitor-your-logic-apps.md).
 
-2. On the left menu, choose **More services**. Under **Enterprise Integration**, 
-choose **Logic Apps**. Select your logic app. 
+Congratulations, you've now created and run your first basic logic app. 
+This example shows how easily you can create workflows that automate 
+processes for integrating systems and services - all without code.
 
-   In the logic app menu, you can find these logic app management tasks:
+> [!NOTE]
+> Your logic app continues running until you turn off your app. 
+> To temporarily turn off your app, continue to the next section.
 
-   |Task|Steps| 
-   |:---|:---| 
-   | View your app's status, execution history, and general information| Choose **Overview**.| 
-   | Edit your app | Choose **Logic App Designer**. | 
-   | View your app's workflow JSON definition | Choose **Logic App Code View**. | 
-   | View operations performed on your logic app | Choose **Activity log**. | 
-   | View past versions for your logic app | Choose **Versions**. | 
-   | Turn off your app temporarily | Choose **Overview**, then on the command bar, choose **Disable**. | 
-   | Delete your app | Choose **Overview**, then on the command bar, choose **Delete**. Enter your logic app's name, and choose **Delete**. | 
+## Clean up resources
 
-## Get help
+This tutorial uses resources and performs actions 
+that might incur charges on your Azure subscription. 
+When you're done with the tutorial and testing, 
+make sure that you disable or delete any resources 
+where you don't want to incur charges.
 
-To ask questions, answer questions, and learn what other Azure Logic Apps users are doing, 
-visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+You can stop your logic app from running and 
+sending email without deleting the app. 
+On your logic app menu, choose **Overview**. 
+On the toolbar, choose **Disable**.
 
-To help improve Azure Logic Apps and connectors, vote on or submit ideas at the 
-[Azure Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+![Turn off your logic app](./media/logic-apps-create-a-logic-app/turn-off-disable-logic-app.png)
+
+## FAQ
+
+**Q:** What else can I do with my logic app? </br>
+**A:** There are other tasks that you can perform, 
+for example, edit, view the JSON definition, 
+review the activity log, or delete your logic app.
+
+To find other logic app management tasks, 
+review these commands in the logic app menu:
+
+| Task | Steps | 
+| ---- | ----- | 
+| View your app's status, runs and trigger history, and general information | Choose **Overview**. | 
+| Edit your app | Choose **Logic App Designer**. | 
+| View your app's workflow JSON definition | Choose **Logic App Code View**. | 
+| View operations performed on your logic app | Choose **Activity log**. | 
+| View past versions for your logic app | Choose **Versions**. | 
+| Turn off your app temporarily | Choose **Overview**, then on the toolbar, choose **Disable**. | 
+| Delete your app | Choose **Overview**, then on the toolbar, choose **Delete**. Enter your logic app's name, and choose **Delete**. | 
+||| 
+
+## Get support
+
+* For questions about Azure Logic Apps, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+
+* Want to help improve Azure Logic Apps and connectors? Vote on or submit ideas at the 
+[Azure Logic Apps User Voice site](http://aka.ms/logicapps-wish).
 
 ## Next steps
 
-*  [Add conditions and run workflows](../logic-apps/logic-apps-use-logic-app-features.md)
-*	 [Logic app templates](../logic-apps/logic-apps-use-logic-app-templates.md)
-*  [Create logic apps from Azure Resource Manager templates](../logic-apps/logic-apps-arm-provision.md)
+* [Create your logic app with Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md)
+* [Add conditions and run workflows](../logic-apps/logic-apps-use-logic-app-features.md)
+*	[Logic app templates](../logic-apps/logic-apps-use-logic-app-templates.md)
+* [Create logic apps from Azure Resource Manager templates](../logic-apps/logic-apps-arm-provision.md)
+* [Logic Apps usage metering](../logic-apps/logic-apps-pricing.md) 
+* [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps)
