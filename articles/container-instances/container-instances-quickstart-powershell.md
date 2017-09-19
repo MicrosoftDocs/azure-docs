@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 09/20/2017
 ms.author: marsma
 ms.custom:
 ---

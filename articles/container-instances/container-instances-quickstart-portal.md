@@ -1,5 +1,5 @@
 ---
-title: Create your first Azure Container Instances container | Azure Docs
+title: Create your first Azure Container Instances container with the Azure portal
 description: Deploy and get started with Azure Container Instances
 services: container-instances
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/08/2017
+ms.date: 09/20/2017
 ms.author: marsma
 ms.custom:
 ---
