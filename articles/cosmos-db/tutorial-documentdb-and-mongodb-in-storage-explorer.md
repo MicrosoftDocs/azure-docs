@@ -1,9 +1,10 @@
 ---
 title: 'Use Azure Cosmos DB in Azure Storage Explorer'
 description: Use Azure Cosmos DB in Azure Storage Explorer.
+Keywords: Azure Cosmos DB, Azure Storage Explorer, DocumentDB, MongoDB, Document DB
 services: Azure Cosmos-db
 documentationcenter: ''
-author: t-jiajl
+author: Jiaj-Li 
 manager: omafnan
 editor: 
 tags: Azure Cosmos DB
@@ -15,8 +16,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2017
-ms.author: t-jiajl
+ms.date: 09/19/2017
+ms.author: Jiaj-Li 
 
 ---
 # Use Azure Cosmos DB in Azure Storage Explorer
