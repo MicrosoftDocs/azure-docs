@@ -63,8 +63,6 @@ Perform the following steps to create a Windows virtual machine joined to the vi
     ![Done](./media/active-directory-domain-services-admin-guide/create-windows-vm-done.png)
 9. After the deployment completes, you can see information about the VM in the **Overview** page.
 
-    ![Virtual machine is up and running](./media/active-directory-domain-services-admin-guide/create-windows-vm-running.png)
-
 
 ## Step 2: Connect to the Windows Server virtual machine using the local administrator account
 Now, connect to the newly created Windows Server virtual machine, to join it to the domain. Use the local administrator credentials you specified when creating the virtual machine.
