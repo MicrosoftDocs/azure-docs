@@ -15,7 +15,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
-ms.author: glenga, mimig
+ms.author: glenga
 ms.custom: 
 ---
 # Create a function triggered by Azure Cosmos DB
