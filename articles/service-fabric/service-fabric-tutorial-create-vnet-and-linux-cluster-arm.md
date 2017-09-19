@@ -25,7 +25,6 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a VNET in Azure using a template
-> * Create a key vault and upload a certificate
 > * Create a secure Service Fabric cluster in Azure using a template
 > * Secure the cluster with an X.509 certificate
 > * Connect to the cluster using Service Fabric CLI
@@ -84,7 +83,7 @@ az group deployment create \
     --template-file network.json \
     --parameters @network.parameters.json
 ```
-
+<a id="createvaultandcert" name="createvaultandcert_anchor"></a>
 ## Deploy the Service Fabric cluster
 Once the network resources have finished deploying, the next step is to deploy a Service Fabric cluster to the VNET in the subnet and NSG designated for the Service Fabric cluster. For this tutorial series, the Service Fabric Resource Manager template is pre-configured to use the names of the VNET, subnet, and NSG that you set up in a previous step.
 
@@ -138,7 +137,6 @@ In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Create a VNET in Azure using a template
-> * Create a key vault and upload a certificate
 > * Create a secure Service Fabric cluster in Azure using a template
 > * Secure the cluster with an X.509 certificate
 > * Connect to the cluster using Service Fabric CLI
