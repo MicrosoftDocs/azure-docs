@@ -62,7 +62,8 @@ Create a new resource group for your deployment and give it a name and a locatio
 
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"
-az group create --name $ResourceGroupName --location "South Central US"
+Location="southcentralus"
+az group create --name $ResourceGroupName --location $Location
 ```
 
 ## Deploy the network topology
@@ -87,28 +88,6 @@ az group deployment create \
 ## Deploy the Service Fabric cluster
 Once the network resources have finished deploying, the next step is to deploy a Service Fabric cluster to the VNET in the subnet and NSG designated for the Service Fabric cluster. For this tutorial series, the Service Fabric Resource Manager template is pre-configured to use the names of the VNET, subnet, and NSG that you set up in a previous step.
 
-### Simple deployment
-We'll discuss the template deployment later, but the simplest way to deploy a cluster to Azure is to use the Azure CLI [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) command:
-
-```azurecli
-ResourceGroupName="aztestclustergroup" 
-ClusterName="aztestcluster" 
-Location="southcentralus" 
-Password="q6D7nN%6ck@6" 
-Subject="aztestcluster.southcentralus.cloudapp.azure.com" 
-VaultName="aztestkeyvault" 
-
-az group create --name $ResourceGroupName --location $Location 
-
-az sf cluster create --resource-group $ResourceGroupName --location $Location \ 
-  --certificate-output-folder . --certificate-password $Password --certificate-subject-name $Subject \
-  --cluster-name $ClusterName --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName \ 
-  --vault-resource-group $ResourceGroupName --vm-password "NewJobYay!123" --vm-user-name "sfadmin"
-```
-
-This command creates a self-signed certificate, adds it to a keyvault and downloads the certificate locally.  The new certificate is used to secure the cluster when it deploys.  You can also use an existing certificate instead of creating a new one.  Either way, the certificate's subject name must match the domain that you use to access the Service Fabric cluster. This match is required to provide an SSL for the cluster's HTTPS management endpoints and Service Fabric Explorer. You cannot obtain an SSL certificate from a CA for the `.cloudapp.azure.com` domain. You must obtain a custom domain name for your cluster. When you request a certificate from a CA, the certificate's subject name must match the custom domain name that you use for your cluster.
-
-### Template deployment
 Deploying a cluster to an existing VNET and subnet (deployed previously in this article) requires a Resource Manager template.  Download the following Resource Manager template and parameters file:
 - [linuxcluster.json][cluster-arm]
 - [linuxcluster.parameters.json][cluster-parameters-arm]
@@ -118,11 +97,9 @@ Fill in the empty **clusterName**, **adminUserName**, and **adminPassword** para
 Use the following script to deploy the cluster using the Resource Manager template and parameter files.  A self-signed certificate is created in the specified key vault and is used to secure the cluster.  The certificate is also downloaded locally.
 
 ```azurecli
-ResourceGroupName="aztestclustergroup"
-Location="southcentralus"
 Password="q6D7nN%6ck@6"
 Subject="aztestcluster.southcentralus.cloudapp.azure.com"
-VaultName="aztestkeyvault"
+VaultName="linuxclusterkeyvault"
 az group create --name $ResourceGroupName --location $Location
 
 az sf cluster create --resource-group $ResourceGroupName --location $Location \
@@ -140,15 +117,9 @@ sfctl cluster select --endpoint https://mysfcluster.southcentralus.cloudapp.azur
 --pem ./aztestcluster201709151446.pem --no-verify
 ```
 
-You can also connect using a cert and key:
-```azurecli
-sfctl cluster select --endpoint https://mysfcluster.southcentralus.cloudapp.azure.com:19080 \
---cert ./client.crt --key ./keyfile.key --no-verify
-```
-
 Check that you are connected and the cluster is healthy using the `sfctl cluster health` command.
 
-```powershell
+```azurecli
 sfctl cluster health
 ```
 
@@ -159,10 +130,6 @@ A cluster is made up of other Azure resources in addition to the cluster resourc
 Log in to Azure and select the subscription ID with which you want to remove the cluster.  You can find your subscription ID by logging in to the [Azure portal](http://portal.azure.com). Delete the resource group and all the cluster resources using the [az group delete](/cli/azure/group?view=azure-cli-latest#az_group_delete) command.
 
 ```azurecli
-az login
-az account set --subscription <guid>
-
-ResourceGroupName = "sfclustertutorialgroup"
 az group delete --name $ResourceGroupName
 ```
 
