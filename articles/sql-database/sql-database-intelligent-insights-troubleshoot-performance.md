@@ -23,10 +23,10 @@ ms.author: v-daljep
 This page provides information on Azure SQL Database performance issues detected through [Intelligent Insights](sql-database-intelligent-insights.md) database performance diagnostics log. This diagnostics log can be sent to [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md), [Azure Event Hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-azure-storage), or a third-party solution for custom DevOps alerting and reporting capabilities.
 
 > [!NOTE]
-> For a quick Azure SQL Database performance troubleshooting guide through Intelligent Insights, see [Recommended flow of troubleshooting](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-flow-of-troubleshooting) flowchart in this document.
+> For a quick Azure SQL Database performance troubleshooting guide through Intelligent Insights, see [Recommended flow of troubleshooting](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) flowchart in this document.
 >
 
-## Detectable Database Performance Patterns
+## Detectable database performance patterns
 
 Intelligent Insights automatically detects performance issues with Azure SQL Database based on a query execution performance, wait times, error, or timeouts and it outputs detected performance patterns to the diagnostics log. Detectable performance patterns are summarized in the following table:
 
@@ -90,7 +90,7 @@ Diagnostics log outputs the number of queries whose execution has increased, and
 
 You also might want to consider distributing the workloads more evenly to the database. You might also want to consider optimizing your largest queries, adding indexes or optimize applications using Azure SQL Database. Another approach to consider might be distributing your workload amongst multiple databases. If this is not possible, you might want to consider increasing the pricing tier of your Azure SQL Database subscription to increase the amount of resources available.
 
-## Memory Pressure
+## Memory pressure
 
 ### What is happening
 
@@ -114,7 +114,7 @@ You also might want to consider reducing the workloads or distributing the workl
 
 This detectable performance pattern indicates degradation in the current database performance in which excessive database locking was detected compared to the past 7-day performance baseline. 
 
-In modern RDBMS locking is essential to implementing multithreaded systems in which performance is maximized through running multiple simultaneous workers, and where possible parallel database transactions. In simple terms, locking in this context refers to the built-in access mechanism in which only a single transaction can exclusively access rows, pages and files required and not compete with another transaction for resources. When the transaction that has locked the resources for use is done with them, the lock on those resources is released allowing other transactions to access required resources. For more information on locking, see [Locking in the Database Engine](https://msdn.microsoft.com/en-us/library/ms190615.aspx).
+In modern RDBMS locking is essential to implementing multithreaded systems in which performance is maximized through running multiple simultaneous workers, and where possible parallel database transactions. In simple terms, locking in this context refers to the built-in access mechanism in which only a single transaction can exclusively access rows, pages and files required and not compete with another transaction for resources. When the transaction that has locked the resources for use is done with them, the lock on those resources is released allowing other transactions to access required resources. For more information on locking, see [Locking in the Database Engine](https://msdn.microsoft.com/library/ms190615.aspx).
 
 In case transactions executed by the SQL engine are waiting for prolonged periods of time to access resources locked for use, this wait time is impacting the slowdown of the workload execution performance. 
 
@@ -144,7 +144,7 @@ You might want to look first into possibility to optimize or simplify complex qu
 
 Setting MAXDOP zero (0) as a default value would denote that SQL server can use all available logical CPU cores to parallelize threads executing a single query. Setting MAXDOP to one (1) denotes that only one core can be used for a single query execution -- in practical terms this would mean that parallelism is turned off. Depending on the case per case basis, available cores to the database, and diagnostic log information, you might want to reduce MAXDOP anywhere from 2 to the maximum of 32,767 processor cores supported by the SQL server.
 
-## Pagelatch Contention
+## Pagelatch contention
 
 ### What is happening
 
@@ -189,7 +189,7 @@ Diagnostics log outputs query hashes for the queries that have been identified t
 
 This detectable performance pattern indicates a new query was detected that is performing poorly and affecting the workload performance compared to the 7-day performance baseline.
 
-Writing a good performing query sometimes can be a challenging task. For more information on writing queries, see [Writing SQL Queries](https://technet.microsoft.com/en-us/library/bb264565(v=sql.90).aspx), and in order to optimize existing query performance, see [Query Tuning](https://technet.microsoft.com/en-us/library/ms176005(v=sql.105).aspx).
+Writing a good performing query sometimes can be a challenging task. For more information on writing queries, see [Writing SQL Queries](https://msdn.microsoft.com/library/bb264565.aspx), and in order to optimize existing query performance, see [Query Tuning](https://msdn.microsoft.com/library/ms176005.aspx).
 
 ### Troubleshooting
 
@@ -209,7 +209,7 @@ In this case the system could not classify the poor performing queries under any
 
 Diagnostics log outputs information on unusual wait time details, query hashes of the affected queries and the wait times.
 
-In this case as the system could not successfully identify the root cause for poor performing queries, the diagnostics information on the poor performing queries might serve as a good starting point for manual troubleshooting. With the query hashes provided the diagnostics log pinpoints the poor performing queries. You might consider optimizing the performance of these queries. It is typically a good practice not to fetch data you do not use and to simplify and break down complex queries into smaller ones. For more information on optimizing query performance, see [Query Tuning](https://technet.microsoft.com/en-us/library/ms176005(v=sql.105).aspx).
+In this case as the system could not successfully identify the root cause for poor performing queries, the diagnostics information on the poor performing queries might serve as a good starting point for manual troubleshooting. With the query hashes provided the diagnostics log pinpoints the poor performing queries. You might consider optimizing the performance of these queries. It is typically a good practice not to fetch data you do not use and to simplify and break down complex queries into smaller ones. For more information on optimizing query performance, see [Query Tuning](https://msdn.microsoft.com/library/ms176005.aspx).
 
 ## TempDB contention
 
@@ -307,7 +307,7 @@ If you have reduced your pricing tier, and therefore DTUs available to the Azure
 
 On the other hand, if following the reduction of your pricing tier you are unsatisfied with your Azure SQL Database performance, you might want to consider either reducing your database workloads or consider increasing the pricing tier to a higher level.
 
-## Recommended flow of troubleshooting
+## Recommended troubleshooting flow
 
 Please follow the flowchart below for a recommended approach to troubleshoot performance issues using Intelligent Insights.
 
@@ -318,7 +318,7 @@ Access Intelligent Insights through Azure portal by navigating to Azure SQL Anal
 Intelligent Insights usually needs 1hr of time to perform the root cause analysis of the performance issue. In the case you cannot locate your issue in Intelligent Insights (in most cases these are issues less than 1hr old), and if this issue is critical for you, use Query Data Store (QDS) to manually identify the root cause of the performance issue. For more information, see [Monitoring performance by using the Query Store](https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
 
 ## Next steps
-- [Intelligent Insights Concept](sql-database-intelligent-insights.md)
-- [Use Intelligent Insights Azure SQL Database performance diagnostics log](sql-database-intelligent-insights-use-diagnostics-log.md)
-- [Monitor Azure SQL Database using Azure SQL Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql)
-- [Collect and consume log data from your Azure resources](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+- Learn [Intelligent Insights](sql-database-intelligent-insights.md) concepts
+- Use the [Intelligent Insights Azure SQL Database performance diagnostics log](sql-database-intelligent-insights-use-diagnostics-log.md)
+- Monitor [Azure SQL Database using Azure SQL Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql)
+- Learn to [collect and consume log data from your Azure resources](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)

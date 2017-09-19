@@ -103,7 +103,7 @@ To enable metrics and diagnostics logging using PowerShell, use the following co
 
 You can combine these parameters to enable multiple output options.
 
-### CLI
+### Azure CLI
 
 To enable metrics and diagnostics logging using the Azure CLI, use the following commands:
 
@@ -356,7 +356,7 @@ See [Download metrics and diagnostic logs from Azure Storage](../storage/blobs/s
 |query_hash_s|Query hash of the failed query if available|
 |query_plan_hash_s|Query plan hash of the failed query if available|
 
-[Click here to learn more about SQL Server errors.](https://technet.microsoft.com/en-us/library/cc645603(v=sql.105).aspx)
+[SQL Server error messages](https://msdn.microsoft.com/en-us/library/cc645603.aspx)
 
 ### Database waits dataset
 
