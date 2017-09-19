@@ -284,6 +284,8 @@
       href: monitor-accounts.md
     - name: Manage keys and consistency
       href: manage-account.md
+    - name: Manage Cosmos DB in Azure Storage Explorer
+      href: tutorial-documentdb-and-mongodb-in-storage-explorer.md
     - name: Security
       items:
       - name: Encryption at rest
@@ -322,8 +324,6 @@
       href: odbc-driver.md
     - name: Use Spring Boot Starter with DocumentDB APIs
       href: documentdb-java-spring-boot-starter-with-cosmos-db.md
-    - name: Use Azure Storage Explorer
-      href: tutorial-documentdb-and-mongodb-in-storage-explorer.md 
 - name: Reference
   items:
   - name: Code samples

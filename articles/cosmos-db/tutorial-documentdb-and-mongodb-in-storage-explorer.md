@@ -1,6 +1,6 @@
 ---
-title: 'Use Azure Cosmos DB in Azure Storage Explorer'
-description: Use Azure Cosmos DB in Azure Storage Explorer.
+title: 'Manage Azure Cosmos DB in Azure Storage Explorer'
+description: Manage Azure Cosmos DB in Azure Storage Explorer.
 Keywords: Azure Cosmos DB, Azure Storage Explorer, DocumentDB, MongoDB, Document DB
 services: Azure Cosmos-db
 documentationcenter: ''
@@ -20,24 +20,22 @@ ms.date: 09/19/2017
 ms.author: Jiaj-Li 
 
 ---
-# Use Azure Cosmos DB in Azure Storage Explorer
+# Manage Azure Cosmos DB in Azure Storage Explorer (Preview)
 
-Azure Cosmos DB is Microsoft’s globally distributed database service designed to enable developer to build planet scale applications. Azure Cosmos DB allows you to quickly create and query document, key/value, and graph databases. 
+Azure Cosmos DB in Azure Storage Explorer allows users to manage Azure Cosmos DB entities, manipulate data, update stored procedure/trigger along with other Azure entities like blob and queue. Now users can use the same tool to manage their different Azure entities in one place. In this release, Document DB and MongoDB are supported.
 
-Azure Cosmos DB on Azure Storage Explorer allows users to manage Azure Cosmos DB entities, manipulate data, update stored procedure/trigger along with other Azure entities like blob and queue. Now users can use the same tool to manage their different Azure entities in one place. In this release, Document DB and MongoDB are supported.
-
-In this article, you can learn how to use Storage Explorer (Preview) to work with Azure Cosmos DB (Document DB API and MongoDB API).
+In this article, you can learn how to use Storage Explorer to manage Azure Cosmos DB (Document DB API and MongoDB API).
 
 
 ## Prerequisites
 
-- Azure subscription. If you don't have, create a  [free Azure account](https://azure.microsoft.com/en-us/free/) first.
+- Azure subscription. If you don't have one, create a  [free Azure account](https://azure.microsoft.com/en-us/free/) first.
 - Create your own Azure Cosmos DB account on Azure portal, remember to choose “SQL (Document DB)” API or “Mongo” API, refer to this link: [Azure Cosmos DB: Build a DocumentDB API web app with .NET and the Azure portal](https://docs.microsoft.com/en-us/azure/Azure Cosmos-db/create-documentdb-dotnet).
-- Install the newest Azure Storage Explorer bits. You can install it by the following links: [Linux](https://go.microsoft.com/fwlink/?linkid=858559), [Mac](https://go.microsoft.com/fwlink/?linkid=858561), [Windows](https://go.microsoft.com/fwlink/?linkid=858562).
+- Install the newest Azure Storage Explorer bits. You can install it using the following links: [Linux](https://go.microsoft.com/fwlink/?linkid=858559), [Mac](https://go.microsoft.com/fwlink/?linkid=858561), [Windows](https://go.microsoft.com/fwlink/?linkid=858562).
 
 ## Connect to Azure subscription
 
-1. After installing the **Azure Storage Explorer**, click the third **plug-in** icon on the left, then choose **Add an Azure Account**.
+1. After installing the **Azure Storage Explorer**, click the **plug-in** icon on the left as shown blow, then choose **Add an Azure Account**.
        
    ![plug in icon](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/plug-in-icon.png)
 
@@ -74,10 +72,7 @@ You can manage Azure Cosmos DB account by doing following operations:
 * Database: create, delete
 * Collection: create, delete
 * Document: create, edit, delete, and filter
-* Stored Procedure: create, edit, and delete
-* Trigger: create, edit, and delete
-* User-Defined Functions: create, edit, and delete
-* Another scenario when user use partition key
+* Manage Stored Procedures, Triggers, and User-Defined Functions
 
 ### Open in Portal, Add to Quick Access, Search, Refresh
 
@@ -95,22 +90,22 @@ You can manage Azure Cosmos DB account by doing following operations:
 1. **Create Database**: Right-click the Azure Cosmos DB account, choose **Create Database**, input the database name, **Enter** to complete.
 
     ![create database](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/create-database.png) 
-2. **Delete Database**: Right-click the database, click **Delete Database**, Click **Yes** on the pop-up window, the database node can be deleted and the Azure Cosmos DB account refresh automatically.
+2. **Delete Database**: Right-click the database, click **Delete Database**, Click **Yes** on the pop-up window, the database node can be deleted and the Azure Cosmos DB account can refresh automatically.
 
     ![delete database1](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/delete-database1.png)  
     ![delete database2](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/delete-database2.png) 
 
-3. **Create Collection**: Right-click your database, choose **Create Collection**, and then provide the following information like Collection ID, Storage capacity, etc. Click **OK** to finish. For partition key setting. refer to this link:  [Design for partitioning](https://docs.microsoft.com/en-us/azure/Azure Cosmos-db/partition-data#designing-for-partitioning).
-If using partition key when create collection, once completing the creation, the partition key value can't be changed in documents, the Stored Procedure, Trigger, and UDF can't be changed once saved.
+3. **Create Collection**: Right-click your database, choose **Create Collection**, and then provide the following information like Collection ID, Storage capacity, etc. Click **OK** to finish. For partition key setting, refer to this link:  [Design for partitioning](https://docs.microsoft.com/en-us/azure/Azure Cosmos-db/partition-data#designing-for-partitioning).
+If partition key is used when creating collection, once creation is completed, the partition key value can't be changed in documents, the Stored Procedure, Trigger, and UDF can't be changed once saved.
     ![create collection1](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/create-collection.png)
     ![create collection2](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/create-collection2.png) 
-4. **Delete Collection**: Right-click the collection, click **Delete Collection**, Click **Yes** on the pop-up window, the collection node can be deleted and the database refresh automatically.
+4. **Delete Collection**: Right-click the collection, click **Delete Collection**, Click **Yes** on the pop-up window, the collection node can be deleted and the database can refresh automatically.
 
     ![delete collection](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/delete-collection.png) 
 
 ### Documents management
 
-1. Open **Documents** in the right window, click **New Document** to new a document, edit in the right pane, **Save**, or **Discard** the document. You can also update the existing document, **Save** or **Discard** the change.
+1. Open **Documents** in the left window, click **New Document** to new a document, edit in the right pane, **Save**, or **Discard** the document. You can also update the existing document, **Save** or **Discard** the change.
 
     ![document](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/document.png)
 
@@ -130,8 +125,6 @@ If using partition key when create collection, once completing the creation, the
 
 ## Next steps
 * [Get started with Storage Explorer (Preview)](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer)
-
-### Demo
 * Use Azure Cosmos DB in Azure Storage Explorer (video): [Use Azure Cosmos DB in Azure Storage Explorer](https://go.microsoft.com/fwlink/?linkid=858710)
-* Storage Explorer Overview (video): [Storage Explorer Overview](https://azure.microsoft.com/en-us/resources/videos/storage-explorer-overview/)
+
 
