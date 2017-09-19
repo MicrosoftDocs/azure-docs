@@ -71,8 +71,8 @@ We recommend that you connect to the privileged endpoint only from the hardware 
       ```` 
    When prompted, use the following credentials:
 
-      - **User name**: Specify the CloudAdmin account, in the format **&lt;*Azure Stack domain*&gt;\cloudadmin**. (For ASDK, the user name is **azurestack\cloudadmin**.)
-      - **Password**: Enter the same password that was provided during installation for the AzureStackAdmin domain administrator account.
+   - **User name**: Specify the CloudAdmin account, in the format **&lt;*Azure Stack domain*&gt;\cloudadmin**. (For ASDK, the user name is **azurestack\cloudadmin**.)
+   - **Password**: Enter the same password that was provided during installation for the AzureStackAdmin domain administrator account.
     
 3.	After you connect, the prompt will change to **[*IP address or ERCS VM name*]: PS>** or to **[azs-ercs01]: PS>**, depending on the environment. From here, run `Get-Command` to view the list of available cmdlets.
 
