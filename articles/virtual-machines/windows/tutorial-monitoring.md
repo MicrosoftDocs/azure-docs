@@ -110,7 +110,9 @@ Enable Update management for your virtual machine:
 
 Validation is performed to determine if Update management is enabled for this virtual machine. The validation includes checks for Log Analytics workspace and linked Automation account, if the solution is in the workspace, and if the virtual machine is provisioned with the Microsoft Monitoring Agent (MMA) and hybrid worker.
 If these prerequisites are not met, a banner appears that gives you the option to enable the solution.
-   ![Update Management onboard configuration banner](./media/tutorial-monitoring/manageupdates-onboard-solution-banner.png)
+
+![Update Management onboard configuration banner](./media/tutorial-monitoring/manageupdates-onboard-solution-banner.png)
+
 Click the banner to enable the solution. If any of the following prerequisites were found to be missing after the validation,
 they will be automatically added:
 
@@ -120,7 +122,7 @@ they will be automatically added:
 
 The **Enable Update Management** screen opens. Configure the settings, and click **Enable**.
 
-   ![Enable Update management solution](./media/tutorial-monitoring/manageupdates-update-enable.png)
+![Enable Update management solution](./media/tutorial-monitoring/manageupdates-update-enable.png)
 
 Enabling the solution can take up to 15 minutes, and during this time you should not close the browser window. After the solution is enabled,
 information about missing updates on the virtual machine flows to Log Analytics.
@@ -130,7 +132,7 @@ It can take between 30 minutes and 6 hours for the data to be available for anal
 
 After **Update management** is enabled, the **Update management** screen appears. You can see a list of missing updates on the **Missing updates** tab.
 
-   ![View update status](./media/tutorial-monitoring/manageupdates-view-status-win.png)
+ ![View update status](./media/tutorial-monitoring/manageupdates-view-status-win.png)
 
 ### Schedule an update deployment
 
@@ -152,9 +154,9 @@ In the **New update deployment** screen, specify the following:
   * Updates
 
 * **Schedule settings** - You can either accept the default date and time, which is 30 minutes after current time, or specify a different time.
-   You can also specify whether the deployment occurs once or set up a recurring schedule. Click the Recurring option under Recurrence to set up a recurring schedule.
+  You can also specify whether the deployment occurs once or set up a recurring schedule. Click the Recurring option under Recurrence to set up a recurring schedule.
 
-   ![Update Schedule Settings screen](./media/tutorial-monitoring/manageupdates-schedule-win.png)
+  ![Update Schedule Settings screen](./media/tutorial-monitoring/manageupdates-schedule-win.png)
 
 * **Maintenance window (minutes)** - Specify the period of time you want the update deployment to occur within.  This helps ensure changes are performed within your defined service windows.
 
