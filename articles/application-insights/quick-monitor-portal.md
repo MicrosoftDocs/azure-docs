@@ -57,7 +57,7 @@ You can now open Application Insights in the Azure portal to view various detail
 
 1. Right-click on **Connected Services Application Insights** folder in Solution Explorer and click **Open Application Insights Portal**.  You see some information about your application and a variety of options.
 
-	![Application Map](media/quick-monitor-portal/tiles.png)
+	![Application Map](media/quick-monitor-portal/001.png)
 
 2. Click on **App map** to get a visual layout of the dependency relationships between your application components.  Each component shows KPIs such as load, performance, failures, and alerts.
 
