@@ -246,5 +246,5 @@ To run your scripts on GPU, you can follow the guidance in this article:["How to
 
 
 ## Next steps
-* [Quick Start Tutorial](quick-start-iris.md)
+* [Create and Install Azure Machine Learning](quickstart-installation.md)
 * [Model Management](model-management-overview.md)
