@@ -17,8 +17,6 @@
       href: quickstart-create-data-factory-python.md      
     - name: REST   
       href: quickstart-create-data-factory-rest-api.md
-    - name: Azure Portal
-      href: quickstart-create-data-factory-portal.md     
 - name: Tutorials
   items:
   - name: 1. Move SSIS packages to Azure
@@ -29,9 +27,11 @@
     href: tutorial-hybrid-copy-powershell.md
   - name: 4 - Copy data in bulk
     href: tutorial-bulk-copy.md
-  - name: 5 - Transform data in cloud
+  - name: 5 - Copy data incrementally
+    href: tutorial-incremental-copy-powershell.md      
+  - name: 6 - Transform data in cloud
     href: tutorial-transform-data-using-spark-powershell.md
-  - name: 6 - Control flow
+  - name: 7 - Control flow
     href: tutorial-control-flow.md    
 - name: Samples
   items:

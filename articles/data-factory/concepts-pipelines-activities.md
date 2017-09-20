@@ -389,5 +389,4 @@ For example, say you have a scheduler trigger, “Trigger A” that I wish to ki
 ## Next steps
 See the following tutorials for step-by-step instructions for creating pipelines with activities: 
 
-- [Build a pipeline with a copy activity](quickstart-create-data-factory-powershell.md)
-- [Build a pipeline with a data transformation activity](tutorial-transform-data-using-spark-powershell.md)
+- [Quickstart: create a data factory using .NET](quickstart-create-data-factory-dot-net.md)
