@@ -40,14 +40,14 @@ Make sure you have the following items:
     ![Screen shot of Connected Service download bits.png](./media/connected-service/connected-service-downloadbits.png) 
 
 ## <a id="SetupVS"></a>Set up your Visual Studio solution
-1. Open **Visual Studio** in your computer.
+1. Open **Visual Studio** on your computer.
 2. On the **File** menu, select **New**, and then choose **Project**.
 3. In the **New Project** dialog, select **Visual C#** / **Console App (.NET Framework)** or **WPF App (.NET Framework)**, name your project, and then click **OK**.
 
     ![Screen shot of the New Project window](./media/connected-service/connected-service-new-project.png)
     
 ## Add Connected Service and add account
-1. Right click on the Project node, then select **Add** / **Connected Service**. Or click on the **Project** menu, and then select **Add Connected Service**.
+1. In Solution Explorer, right click on the project node, then select **Add** / **Connected Service**. Or click on the **Project** menu, and then select **Add Connected Service**.
 
     ![Screen shot of the Add Connected Service window](./media/connected-service/connected-service-add-connectedservice-rightclick.png)
 2. In the connected service page, click **Connected Services** / **Azure Cosmos DB** to open the **Azure Cosmos DB** page.
@@ -56,19 +56,19 @@ Make sure you have the following items:
 3. Click the down arrow to sign in for the first time or add an account. After sign-in, all Azure Cosmos DB accounts are shown in the blank area. Choose one Azure Cosmos DB account to add to your project.
 
     ![Screen shot of the sign-in and listed db account window](./media/connected-service/connected-service-add-db-account.png)
-4. After you've added an Azure Cosmos DB account, an Azure Cosmos DB account connected service folder was added to the project. You can add more than one Azure Cosmos DB account through repeating step 1 to step 3.
+4. After you've added an Azure Cosmos DB account, an Azure Cosmos DB account connected service folder is added to the project. You can add more than one Azure Cosmos DB account by repeating step 1 to step 3.
 
     ![Screen shot of the connected service folder window](./media/connected-service/connected-service-add-connectedservice-folder.png)
 
-5. When you have added an Azure Cosmos DB connected service, we would modify your project to enable access to Azure Cosmos DB database mainly in below two ways.
+5. Once you have added an Azure Cosmos DB connected service, modify your project to enable access to Azure Cosmos DB in one of the following ways:
 
-* Some nuget packages that are required by Azure Cosmos DB client are installed. You can see them from your packages configuration file. 
+    * Some nuget packages that are required by Azure Cosmos DB client are installed. You can see them from your packages configuration file. 
 
-    ![The new Azure Cosmos DB packages config](./media/connected-service/connected-service-packages-config.png)   
+        ![The new Azure Cosmos DB packages config](./media/connected-service/connected-service-packages-config.png)   
     
-* Cosmos DB connection uri and key are added to project configuration file, in this case, App.config. 
+    * The Azure Cosmos DB connection uri and key are added to project configuration file, in this case, App.config. 
 
-    ![The new Azure Cosmos DB app config](./media/connected-service/connected-service-app-config.png) 
+        ![The new Azure Cosmos DB app config](./media/connected-service/connected-service-app-config.png) 
 
 ## Open Azure Cosmos DB Explorer
 1. Right click on Project node, select **Open Cosmos DB Explorer...**.
