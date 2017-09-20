@@ -38,7 +38,7 @@
 ## Walkthroughs
 ### [Walkthrough of Azure Monitor](monitoring-get-started.md)
 ### [Walkthrough of autoscale](monitoring-autoscale-get-started.md)
-### [Multi-dimensional metrics explorer](monitoring-metric-charts)
+### [Multi-dimensional metrics explorer](monitoring-metric-charts.md)
 ### [Azure CLI 1.0 samples](insights-cli-samples.md)
 ### [PowerShell samples](insights-powershell-samples.md)
 
