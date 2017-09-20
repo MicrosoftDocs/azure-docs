@@ -64,16 +64,16 @@ Detected performance issues are reported with the following detections property 
 ```json
 "detections_s" : [{
 "impact" : 1 to 3, // impact of the issue detected, possible values 1-3 (1 low, 2 moderate, 3 high impact)
-"category" : "Detectable performance patterns", // type of performance issue detected (see the following table)
+"category" : "Detectable performance pattern", // tperformance issue detected, see the table
 "details": <Details outputted> // details of an issue (see the table)
 }] 
 ```
 
 Detectable performance patterns and details outputted to diagnostics log are provided in the table below.
 
-### Detectable performance patterns
+### Detection Category
 
-Category (category) property describes categorization of a detectable performance patterns. See the following table for all possible categories of detectable performance patterns. Further details are available at the [Troubleshoot database performance issues with Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md) page.
+Category (category) property describes category of a detectable performance patterns. See the following table for all possible categories of detectable performance patterns. Further details are available at the [Troubleshoot database performance issues with Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md) page.
 
 Depending on the performance issue detected, details outputted in the diagnostics log file differ accordingly.
 
@@ -82,13 +82,13 @@ Depending on the performance issue detected, details outputted in the diagnostic
 | Reaching Resource Limits | <li>Resources affected</li><li>Query hashes</li><li>Resource consumption percentage</li> |
 | Workload Increase | <li>Number of queries whose execution increased</li><li>Query hashes of queries with the largest contribution to the workload increase</li> |
 | Memory Pressure | <li>Memory clerk</li> |
-| Locking | <li>Blocking query hashes</li><li>Query hashes</li> |
+| Locking | <li>Affected query hashes</li><li>Blocking query hashes</li> |
 | Increased MAXDOP | <li>Query hashes</li><li>CXP wait times</li><li>Wait times</li> |
-| Pagelatch Contention | <li>Query hashes</li> |
+| Pagelatch Contention | <li>Query hashes of queries causing contention</li> |
 | Missing Index | <li>Query hashes</li> |
-| New Query | <li>Query hash</li> |
+| New Query | <li>Query hash of the new queries</li> |
 | Unusual Wait Statistic | <li>Unusual wait types</li><li>Query hashes</li><li>Query wait times</li> |
-| TempDB Contention | <li>Query hashes</li><li>Query attribution to the overall database pagelatch contention wait time [ % ]</li> |
+| TempDB Contention | <li>Query hashes of queries causing contention</li><li>Query attribution to the overall database pagelatch contention wait time [ % ]</li> |
 | Elastic Pool DTU Shortage | <li>Elastic Pool</li><li>Top DTU Consuming Database</li><li>Percent of pool DTU used by the top consumer</li> |
 | Plan Regression | <li>Query hash</li><li>Good plan IDs</li><li>Bad plan IDs</li><li>Query hashes</li> |
 | Database Scoped Configuration Value Change | <li>DB scoped configuration changes compared to the default values</li> |
