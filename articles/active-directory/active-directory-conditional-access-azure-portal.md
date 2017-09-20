@@ -105,7 +105,7 @@ For a complete list of the cloud apps you can use in your conditional access pol
 
 As long as access to your apps is performed under conditions you can control, there might be no need for imposing additional controls on how your cloud apps are accessed by your users. However, things might look different if access to your cloud apps is performed, for example, from networks that are not trusted or devices that are not compliant. In a condition statement, you can define certain access conditions that have additional requirements for how access to your apps is performed.
 
-![Conditions](./media/active-directory-conditional-access-azure-portal/21.png)
+![Conditions](./media/active-directory-conditional-access-azure-portal/01.png)
 
 
 ## Conditions
@@ -118,7 +118,7 @@ In the current implementation of Azure Active Directory, you can define conditio
 - Client apps
 - Time
 
-![Conditions](./media/active-directory-conditional-access-azure-portal/21.png)
+![Conditions](./media/active-directory-conditional-access-azure-portal/01.png)
 
 ### Sign-in risk
 
@@ -188,11 +188,7 @@ Legacy authentication refers to clients using basic authentication such as older
 
 For a complete list of the client apps you can use in your conditional access policy, see the [Azure Active Directory Conditional Access technical reference](active-directory-conditional-access-technical-reference.md#client-apps-condition).
 
-### Time
 
-The time condition allows you to create policies that are only applied during certain times of the day. You can either specify time ranges for days of the week or a date range you want the policy to apply. When configuring a time based policy, a time zone will need to be selected. The time zone is for defining a time range. Choosing a time zone does not mean that the policy will only apply to that region. For example, '9am-5pm' for one user may be '10am - 6pm' for another user.
-
-![Time](./media/active-directory-conditional-access-azure-portal/41.png)
 
 
 ## Common scenarios
