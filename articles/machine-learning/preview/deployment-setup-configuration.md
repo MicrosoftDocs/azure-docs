@@ -13,7 +13,6 @@ ms.date: 08/29/2017
 ---
 # Model management setup
 
-## Overview
 This document gets you started with using Azure ML model management to deploy and manage your machine learning models as web services. 
 
 Using Azure ML model management, you can efficiently deploy and manage Machine Learning models that are built using a number of frameworks including SparkML, Keras, TensorFlow, the Microsoft Cognitive Toolkit, or Python. 
@@ -59,11 +58,11 @@ pip install azure-cli
 pip install azure-cli-ml
 ```
 
-### Configuring docker on Linux
-In order to configure docker on Linux for use by non-root users, follow the instructions here: [Post-installation steps for Linux](https://docs.docker.com/engine/installation/linux/linux-postinstall/)
+### Configuring Docker on Linux
+In order to configure Docker on Linux for use by non-root users, follow the instructions here: [Post-installation steps for Linux](https://docs.docker.com/engine/installation/linux/linux-postinstall/)
 
 >[!NOTE]
-> On a Linux DSVM, you can run the script below to configure docker correctly. **Remember to log out and log back in after running the script.**
+> On a Linux DSVM, you can run the script below to configure Docker correctly. **Remember to log out and log back in after running the script.**
 >```
 >sudo /opt/microsoft/azureml/initial_setup.sh
 >```
@@ -80,6 +79,11 @@ When completing the environment setup:
 - During the authentication process, you are prompted for an account to authenticate with. Important: Select an account that has a valid Azure subscription and sufficient permissions to create resources in the account.- When the log-in is complete, your subscription information is presented and you are prompted whether you wish to continue with the selected account.
 
 ### Environment Setup
+To start the setup process, you need to register the environment provider by entering the following command:
+
+```azurecli
+az provider register -n Microsoft.MachineLearningCompute
+```
 #### Local deployment
 To deploy and test your web service on the local machine, set up a local environment using the following command. The resource group name is optional.
 
@@ -160,5 +164,5 @@ You are now ready to deploy your saved model as a web service.
 az ml service create realtime --model-file [model file/folder path] -f [scoring file e.g. score.py] -n [your service name] -s [schema file e.g. service_schema.json] -r [runtime for the Docker container e.g. spark-py or python] -c [conda dependencies file for additional python packages]
 ```
 
-### Next Steps
+## Next steps
 Try one of the many samples in the Gallery.

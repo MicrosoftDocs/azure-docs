@@ -18,18 +18,11 @@ ms.manager: tihazen
 
 ---
 
-# Q & A Matching
-
-## Link of the Gallery GitHub repository
-Following is the link to the public GitHub repository: 
-
-[https://github.com/Azure/MachineLearningSamples-QnAMatching](https://github.com/Azure/MachineLearningSamples-QnAMatching)
-
-
-## Introduction
-
+##  Q & A Matching using Azure Machine Learning workbench
 Answering open ended questions is difficult and often requires manual effort from subject matter experts (SMEs). To help reduce the demands on internal SMEs, companies often create lists of Frequently Asked Questions (FAQs) as a means of assisting users. This example showcases various effective machine learning methods to match open ended queries to pre-existing FAQ question/answers pairs. This example demonstrates an easy development process for building such a solution using the Azure Machine Learning Workbench. 
 
+## Link to the gallery GitHub repository
+[https://github.com/Azure/MachineLearningSamples-QnAMatching](https://github.com/Azure/MachineLearningSamples-QnAMatching)
 
 ## Overview
 
@@ -48,10 +41,10 @@ The key steps required to deliver this solution are as follows:
 The prerequisites to run this example are as follows:
 
 1. An [Azure account](https://azure.microsoft.com/free/) (free trials are available).
-2. An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) following the [quick start installation guide](./quick-start-installation.md) to install the program and create a workspace.
+2. An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) following the [quick start installation guide](./quickstart-installation.md) to install the program and create a workspace.
 3. This example could be run on any compute context. However, it is recommended to run it on a multi-core machine with at least of 16-GB memory and 5-GB disk space.
 
-## Create a new Workbench project
+## Create a new workbench project
 
 Create a new project using this example as a template:
 1.	Open Azure Machine Learning Workbench

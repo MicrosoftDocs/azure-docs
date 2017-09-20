@@ -13,7 +13,9 @@ ms.topic: article
 ms.date: 09/14/2017
 ---
 
+
 # Derive column by example transformation
+
 The **Derive Column by Example** transform enables users to create a derivative of one or more existing columns using user provided examples of the derived result. The derivative can be any combination of the supported String, Date, and Number transformations. 
 
 Following String, Date, and Number transformations are supported:
@@ -69,8 +71,10 @@ A user can edit an existing **Derive Column By Example** transform by selecting 
 
 ## Examples of string transformations by example
 
+
 >[!NOTE] 
 >Values in **bold** represent the examples that were provided in order to complete the transformation in the shown dataset.
+
 
 ### S1. Extracting file names from file paths
 
@@ -192,6 +196,7 @@ Number of Examples that were required for this case: 3
 >[!NOTE] 
 >Values in **bold** represent the examples that were provided in order to complete the transformation in the shown dataset.
 
+
 ### N1. Rounding to nearest 10
 
 Number of Examples that were required for this case: 1
@@ -272,6 +277,7 @@ Number of Examples that were required for this case: 1
 
 >[!NOTE] 
 >Values in **bold** represent the examples that were provided in order to complete the transformation in the shown dataset.
+
 
 ### D1. Extracting date parts
 

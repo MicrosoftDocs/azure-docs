@@ -9,6 +9,7 @@ ms.topic: article
 ms.date: 09/07/2017
 ---
 
+
 # Getting started with data preparation
 
 Welcome to the Data Preparation Getting Started Guide. 
