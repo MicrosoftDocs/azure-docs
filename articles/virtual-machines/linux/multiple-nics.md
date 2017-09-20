@@ -176,11 +176,7 @@ You can also use a `copyIndex()` to then append a number to a resource name, whi
 
 You can read a complete example of [creating multiple NICs using Resource Manager templates](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
 
-## Next steps
-Review [Linux VM sizes](sizes.md) when trying to creating a VM with multiple NICs. Pay attention to the maximum number of NICs each VM size supports. 
-
 ## Configure guest OS for multiple NICs
-### Overview
 
 When creating multiple NICs for a Linux Guest-OS based VM
 it is required to create additional routing rules which allows to send and receive traffic
@@ -192,8 +188,10 @@ due to the defined default route.
 
 First add two routing tables to the file /etc/iproute2/rt_tables
 
-    echo "200 eth0-rt" >> /etc/iproute2/rt_tables
-    echo "201 eth1-rt" >> /etc/iproute2/rt_tables
+```bash
+echo "200 eth0-rt" >> /etc/iproute2/rt_tables
+echo "201 eth1-rt" >> /etc/iproute2/rt_tables
+```
 
 To make the change persistent and applied during the network stack activation, it is required 
 to alter the */etc/sysconfig/network-scipts/ifcfg-eth0* and */etc/sysconfig/network-scipts/ifcfg-eth1* file.
@@ -204,7 +202,7 @@ Next step is to extend the routing tables. In order to make the next steps more 
 
 *Routing*
 
-``` 
+```bash
 default via 10.0.1.1 dev eth0 proto static metric 100
 10.0.1.0/24 dev eth0 proto kernel scope link src 10.0.1.4 metric 100
 10.0.1.0/24 dev eth1 proto kernel scope link src 10.0.1.5 metric 101
@@ -214,7 +212,7 @@ default via 10.0.1.1 dev eth0 proto static metric 100
     
 *Interfaces*
 
-```
+```bash
 lo: inet 127.0.0.1/8 scope host lo
 eth0: inet 10.0.1.4/24 brd 10.0.1.255 scope global eth0    
 eth1: inet 10.0.1.5/24 brd 10.0.1.255 scope global eth1
@@ -229,7 +227,7 @@ With the above information it is possible to create the following additional fil
 *   /etc/sysconfig/network-scripts/route-eth1
 
 The content of each file is the following
-```
+```bash
 cat /etc/sysconfig/network-scripts/rule-eth0
 from 10.0.1.4/32 table eth0-rt
 to 10.0.1.4/32 table eth0-rt

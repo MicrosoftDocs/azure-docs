@@ -90,10 +90,10 @@ Managing a huge number of databases might be impossible to do efficiently even w
 
 Today, many of our partners running [SaaS multi-tenant apps](sql-database-design-patterns-multi-tenancy-saas-applications.md) on top of SQL Database are relying on automatic performance tuning to make sure their applications always have stable and predictable performance. For them, this feature tremendously reduces the risk of having a performance incident in the middle of the night. In addition, since part of their customer base also uses SQL Server, they are using the same indexing recommendations provided by SQL Database to help their SQL Server customers.
 
-There are two automatic tuning aspects that are available in SQL Database:
+There are two automatic tuning aspects that are [available in SQL Database](sql-database-automatic-tuning.md):
 
-- **[Automatic index management](sql-database-automatic-tuning.md#automatic-index-management)**: Identifies indexes that should be added in your database, and indexes that should be removed.
-- **[Automatic plan correction](sql-database-automatic-tuning.md#automatic-plan-choice-correction)**: Identifies problematic plans and fixes SQL plan performance problems (coming soon, already available in SQL Server 2017).
+- **Automatic index management**: Identifies indexes that should be added in your database, and indexes that should be removed.
+- **Automatic plan correction**: Identifies problematic plans and fixes SQL plan performance problems (coming soon, already available in SQL Server 2017).
 
 ### Adaptive query processing
 

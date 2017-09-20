@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 08/15/2017
 ms.author: jeedes
 
 ---
@@ -121,7 +121,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-absorblms-tutorial/tutorial_general_400.png)
 	
-7. On the **Absorb LMS Configuration** section, click **Configure Absorb LMS** to open **Configure sign-on** window. Copy the **Sign-Out URL and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+7. On the **Absorb LMS Configuration** section, click **Configure Absorb LMS** to open **Configure sign-on** window. Copy the **Sign-Out URL** from the **Quick Reference section.**
 
 	![Absorb LMS Configuration](./media/active-directory-saas-absorblms-tutorial/tutorial_absorblms_configure.png) 
 
@@ -143,15 +143,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-absorblms-tutorial/4.png)
 
-	a. Select the appropriate **Mode**.
+	a. Select **Identity Provider Initiated**.
 
-	b. Open the Certificate that you have downloaded from the Azure portal in notepad, remove the **---BEGIN CERTIFICATE---** and **---END CERTIFICATE---** tag and then paste the remaining content in the **Key** textbox.
+	b. Open the Certificate that you have downloaded from the Azure portal in notepad, remove the **---BEGIN CERTIFICATE---** and **---END CERTIFICATE---** tags and then paste the remaining content in the **Key** textbox.
 	
 	c. In the **Id Property**, select the appropriate attribute which you have configured as the user identifier in the Azure AD (For example, If the userprinciplename is selected in Azure AD, then Username would be selected here.)
 
-	d. In the **Login URL**, paste the **“SAML Single Sign-On Service URL”** value you have copied from the **Configure sign-on** window of the Azure portal.
+	d. In the **Login URL**, paste the **User Access URL** from the application's **Properties** page of the Azure portal..
 
-	e. In the **Logout URL**, paste the **“Sign-Out URL”** value you have copied from the **Configure sign-on** window of the Azure portal.
+	e. In the **Logout URL**, paste the **Sign-Out URL** value you have copied from the **Configure sign-on** window of the Azure portal.
 
 13. Enable **‘Only Allow SSO Login’**.
 
@@ -273,6 +273,7 @@ Click the Absorb LMS tile in the Access Panel, you will get automatically signed
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
 
 
 <!--Image references-->

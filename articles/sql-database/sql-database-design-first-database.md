@@ -72,14 +72,14 @@ Follow these steps to create a blank SQL database.
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
    | **Server admin login** | Any valid name | For valid login names, see [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
-   | **Password** | Any valid password | Your password must have at least 8 characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
+   | **Password** | Any valid password | Your password must have at least eight characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
    | **Location** | Any valid location | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/). |
 
    ![create database-server](./media/sql-database-design-first-database/create-database-server.png)
 
 5. Click **Select**.
 
-6. Click **Pricing tier** to specify the service tier, the number of DTUs, and the amount of storage. Explore the options for the amount of DTUs and storage that is available to you for each service tier. 
+6. Click **Pricing tier** to specify the service tier, the number of DTUs, and the amount of storage. Explore the options for the number of DTUs and storage that is available to you for each service tier. 
 
 7. For this tutorial, select the **Standard** service tier and then use the slider to select **100 DTUs (S3)** and **400** GB of storage.
 
@@ -153,7 +153,7 @@ Use [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-serve
    | Setting       | Suggested value | Description | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Server type | Database engine | This value is required |
-   | Server name | The fully qualified server name | The name should be something like this: **mynewserver20170313.database.windows.net**. |
+   | Server name | The fully qualified server name | The name should be something like this: **mynewserver20170824.database.windows.net**. |
    | Authentication | SQL Server Authentication | SQL Authentication is the only authentication type that we have configured in this tutorial. |
    | Login | The server admin account | This is the account that you specified when you created the server. |
    | Password | The password for your server admin account | This is the password that you specified when you created the server. |
