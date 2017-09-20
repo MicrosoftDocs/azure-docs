@@ -194,7 +194,7 @@ Under **Delegated permissions**, choose **Access Azure Service Management as org
 
    | Option | Suggested value | Description | 
    | ------ | --------------- | ----------- | 
-   | **Delegated permissions**| | Select permissions for delegated access to your Web API | 
+   | **Delegated permissions** | | Select permissions for delegated access to your Web API | 
    |||| 
 
 7. Now on the **Add API access** menu, choose **Done**.

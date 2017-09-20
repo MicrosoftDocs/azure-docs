@@ -27,14 +27,16 @@ Along with OpenAPI's out-of-the-box functionality, you can also
 include these OpenAPI extensions when you create custom connectors 
 for Logic Apps and Flow:
 
-* `summary`
-* `x-ms-summary`
-* `description`
-* `x-ms-visibility`
-* `x-ms-dynamic-values`
-* `x-ms-dynamic-schema`
+* [`summary`](#summary)
+* [`x-ms-summary`](#x-ms-summary)
+* [`description`](#description)
+* [`x-ms-visibility`](#x-ms-visibility)
+* [`x-ms-dynamic-values`](#x-ms-dynamic-values)
+* [`x-ms-dynamic-schema`](#x-ms-dynamic-schema)
 
 Here are more details about these extensions:
+
+<a name="summary"></a>
 
 ## summary
 
@@ -54,6 +56,8 @@ Example: "When an event is added to calendar" or "Send an email"
   }
 },
 ```
+
+<a name="x-ms-summary"></a>
 
 ## x-ms-summary
 
@@ -78,6 +82,8 @@ Example: "Calendar ID", "Subject", "Event Description", and so on
   }
 },
 ```
+
+<a name="description"></a>
 
 ## description
 
@@ -138,6 +144,8 @@ are hiding `advanced` operations and parameters.
   }
 },
 ```
+
+<a name="x-ms-dynamic-values"></a>
 
 ## x-ms-dynamic-values
 
@@ -203,6 +211,8 @@ Here's an example that shows the properties in `x-ms-dynamic-values`:
     }
 }
 ```
+
+<a name="x-ms-dynamic schema"></a>
 
 ## x-ms-dynamic-schema
 

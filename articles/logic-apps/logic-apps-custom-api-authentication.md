@@ -313,17 +313,16 @@ find the **Authorization** section, and include this line:
 | Element | Required | Description | 
 | ------- | -------- | ----------- | 
 | tenant | Yes | The GUID for the Azure AD tenant | 
-| audience | Required | The GUID for the target resource that you want to access, which is the client ID from the application identity for your web app or API app | 
-| clientId |Required | The GUID for the client requesting access, which is the client ID from the application identity for your logic app | 
-| secret | Required | The key or password from the application identity for the client that's requesting the access token | 
-| type | Required | The authentication type. For ActiveDirectoryOAuth authentication, the value is `ActiveDirectoryOAuth`. | 
+| audience | Yes | The GUID for the target resource that you want to access, which is the client ID from the application identity for your web app or API app | 
+| clientId | Yes | The GUID for the client requesting access, which is the client ID from the application identity for your logic app | 
+| secret | Yes | The key or password from the application identity for the client that's requesting the access token | 
+| type | Yes | The authentication type. For ActiveDirectoryOAuth authentication, the value is `ActiveDirectoryOAuth`. | 
 |||| 
 
 For example:
 
 ``` json
 {
-   ...
    "actions": {
       "some-action": {
          "conditions": [],
@@ -359,11 +358,12 @@ In the **Authorization** section, include this line:
 
 `{"type": "clientcertificate", "password": "password", "pfx": "long-pfx-key"}`
 
-| Element | Description |
-| ------- | ----------- |
-| type |Required. The authentication type. For SSL client certificates, the value must be `ClientCertificate`. |
-| password |Required. The password for accessing the client certificate (PFX file) |
-| pfx |Required. Base64-encoded contents of the client certificate (PFX file) |
+| Element | Required | Description | 
+| ------- | -------- | ----------- | 
+| type | Yes | The authentication type. For SSL client certificates, the value must be `ClientCertificate`. | 
+| password | Yes | The password for accessing the client certificate (PFX file) | 
+| pfx | Yes | The base64-encoded contents of the client certificate (PFX file) | 
+|||| 
 
 <a name="basic"></a>
 
@@ -378,11 +378,12 @@ In the **Authorization** section, include this line:
 
 `{"type": "basic", "username": "username", "password": "password"}`.
 
-| Element | Description |
-| --- | --- |
-| type |Required. The authentication type. For basic authentication, the value must be `Basic`. |
-| username |Required. The username for authentication |
-| password |Required. The password for authentication |
+| Element | Required | Description | 
+| ------- | -------- | ----------- | 
+| type | Yes | The authentication type that you want to use. For basic authentication, the value must be `Basic`. | 
+| username | Yes | The username that you want to use for authentication | 
+| password | Yes | The password that you want to use for authentication | 
+|||| 
 
 <a name="azure-ad-code"></a>
 
