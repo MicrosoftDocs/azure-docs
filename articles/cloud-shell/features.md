@@ -22,7 +22,7 @@ ms.author: juluk
 [!include [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
 > [!TIP]
-> [PowerShell in Azure Cloud Shell](features-powershell.md) is also available.
+> Features & tools in [PowerShell](features-powershell.md) is also available.
 
 Bash in Cloud Shell runs on `Ubuntu 16.04 LTS`.
 
