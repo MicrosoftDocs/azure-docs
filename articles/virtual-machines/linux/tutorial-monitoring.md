@@ -1,6 +1,6 @@
 ---
-title: Monitor Linux virtual machines in Azure | Microsoft Docs
-description: Learn how to monitor boot diagnostics and performance metrics on a Linux virtual machine in Azure
+title: Monitor and update Linux virtual machines in Azure | Microsoft Docs
+description: Learn how to monitor boot diagnostics and performance metrics and manage package updates on a Linux virtual machine in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: davidmu1
@@ -18,7 +18,7 @@ ms.date: 05/08/2017
 ms.author: davidmu
 ms.custom: mvc
 ---
-# How to monitor a Linux virtual machine in Azure
+# How to monitor and update a Linux virtual machine in Azure
 
 To ensure your virtual machines (VMs) in Azure are running correctly, you can review boot diagnostics and performance metrics. In this tutorial, you learn how to:
 
@@ -165,7 +165,7 @@ By using Update management, you can manage package updates and patches for your 
 Directly from your virtual machine, you can quickly assess the status of available updates, schedule installation of required updates,
 and review deployment results to verify updates were applied successfully to the virtual machine.
 
-If you don't already have a virtual machine to use, you can create one using the [Linux quickstart](quick-create-portal.md). In this tutorial you learn how to:
+In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * Enable the Update management solution for your virtual machine
@@ -173,10 +173,6 @@ If you don't already have a virtual machine to use, you can create one using the
 > * Schedule installation of updates
 
 For pricing information, see [Automation pricing for Update management](https://azure.microsoft.com/pricing/details/automation/)
-
-### Sign in to the Azure portal
-
-Sign in to the [Azure portal](https://portal.azure.com/).
 
 ### Enable Update management
 
