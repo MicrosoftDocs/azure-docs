@@ -109,9 +109,9 @@ We are limited to using pre-shared keys (PSK) for authentication.
 * Azure portal: navigate to the classic virtual network > VPN connections > Site-to-site VPN connections > Local site name > Local site > Client address space. 
 * Classic portal: add each range that you want sent through the gateway for your virtual network on the Networks page under Local Networks. 
 
-### Can I configure Forced Tunneling?
+### Can I configure Force Tunneling?
 
-Yes. See [Configure forced tunneling](vpn-gateway-about-forced-tunneling.md).
+Yes. See [Configure force tunneling](vpn-gateway-about-forced-tunneling.md).
 
 ### Can I set up my own VPN server in Azure and use it to connect to my on-premises network?
 
@@ -155,9 +155,13 @@ We support Windows Server 2012 Routing and Remote Access (RRAS) servers for Site
 
 Other software VPN solutions should work with our gateway as long as they conform to industry standard IPsec implementations. Contact the vendor of the software for configuration and support instructions.
 
-## <a name="P2S"></a>Point-to-Site connections
+## <a name="P2S"></a>Point-to-Site - Azure native certificate authentication
 
-[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-point-to-site-include.md)]
+[!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
+
+## Point-to-Site - RADIUS authentication
+
+[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 
 ## <a name="V2VMulti"></a>VNet-to-VNet and Multi-Site connections
 
