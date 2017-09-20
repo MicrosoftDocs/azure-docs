@@ -3,13 +3,12 @@ title: What is Azure Machine Learning? | Microsoft Docs
 description: Overview of Azure Machine Learning Experimentation and Model Management, an integrated, end-to-end data science solution for professional data scientists to develop, experiment and deploy advanced analytics applications at cloud scale.
 services: machine-learning
 author: haining
+ms.author: haining
 manager: mwinkle
-editor: garyericson
-ms.service: machine-learning
+ms.reviewer: garyericson, jasonwhowell, mldocsms.service: machine-learning
 ms.workload: data-services
 ms.topic: get-started-article
 ms.date: 09/20/2017
-ms.author: haining
 ---
 # What is Azure Machine Learning?
 
