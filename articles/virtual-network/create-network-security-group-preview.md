@@ -207,7 +207,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
 ## PowerShell
 
 1. Install and configure [PowerShell](/powershell/azure/install-azurerm-ps).
-2. Ensure you have a version greater than 4.3.1 of the AzureRm module installed. You can check your currently installed version by entering the `Get-Module -ListAvailable AzureRM` command. If you need to install or upgrade, install the latest version of the AzureRM module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureRM).
+2. Ensure you have version 4.4.0 or higher of the AzureRm module installed. You can check your currently installed version by entering the `Get-Module -ListAvailable AzureRM` command. If you need to install or upgrade, install the latest version of the AzureRM module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureRM).
 3. In a PowerShell session, log in to Azure with your [Azure account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account) using the `login-azurermaccount` command.
 4. Register for the preview by entering the following commands:
     
