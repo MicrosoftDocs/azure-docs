@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
+ms.date: 09/20/2017
 ms.author: vturecek
 
 ---
@@ -380,7 +380,7 @@ Following changes are required to use the Remoting V2 Stack.
 
  2. Build and Upgrade ActorService And Actor Client projects to start using V2 Stack .
 
-### Actor Service Upgrade to Remoting V2 Stack Without impacting service Availability.
+### Actor Service Upgrade to Remoting V2 Stack without impacting Service Availability.
 This will be a 2-step upgrade . Follow the steps in the same sequence as listed.
 
 1.  Add the following asssembly attribute on Actor Interfaces. This attribute will start 2 listeners for ActorService , V1 (existing) and V2 Listener. Upgrade ActorService with this change.
