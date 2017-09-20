@@ -59,6 +59,8 @@
 ### [Send to Application Insights](azure-diagnostics-configure-application-insights.md)
 ### [Send to Event Hubs](azure-diagnostics-streaming-event-hubs.md)
 ### [Troubleshooting](azure-diagnostics-troubleshooting.md)
+## [Use Azure Monitor Metrics Explorer]
+### [Create Metrics Charts ](monitoring-metric-charts.md)
 
 # Reference
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=monitor)
