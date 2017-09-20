@@ -19,7 +19,7 @@ ms.author: mimig
 ---
 # Azure Cosmos DB diagnostic logging
 
-Once you've started using one or more Azure Cosmos DB databases, you may want to monitor how and when your databases are accessed, and by whom. Diagnostic logging in Azure Cosmos DB enables you to perform this monitoring. By enabling diagnostic logging, you can send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/en-us/services/event-hubs/), and/or export them into an [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite) workspace via [Log Analytics](https://azure.microsoft.com/services/log-analytics/).
+Once you've started using one or more Azure Cosmos DB databases, you may want to monitor how and when your databases are accessed. Diagnostic logging in Azure Cosmos DB enables you to perform this monitoring. By enabling diagnostic logging, you can send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/en-us/services/event-hubs/), and/or export them into an [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite) workspace via [Log Analytics](https://azure.microsoft.com/services/log-analytics/).
 
 ![Diagnostic logging to Storage, Event Hubs, or Operations Management Suite via Log Analytics](./media/logging/azure-cosmos-db-logging-overview.png)
 
@@ -27,9 +27,9 @@ Use this tutorial to get started with Azure Cosmos DB logging via the Azure port
 
 ## What is logged?
 
-* All authenticated requests are logged, which includes failed requests as a result of access permissions, system errors, or bad requests.
-* Operations on the database itself, which includes CRUD and query operations on all databases, containers (e.g. collections, tables, and graphs), and items (e.g. documents, nodes, and edges).
-* The logs surfaced use backend Cosmos DB operation names, resource names, and status codes. Extended logs specific to MongoDB, Graph, and Table APIs will be added in the future.
+* All authenticated REST DocumentDB (SQL) API requests are logged, which includes failed requests as a result of access permissions, system errors, or bad requests. Support for MongoDB, Graph, and Table APIs is not currently available.
+* Operations on the database itself, which includes CRUD operations on all documents, containers, and databases.
+* Operations on account keys, which include creating, modifying, or deleting these keys.
 * Unauthenticated requests that result in a 401 response. For example, requests that do not have a bearer token, or are malformed or expired, or have an invalid token.
 
 ## Prerequisites
@@ -120,7 +120,7 @@ Set-AzureRmContext -SubscriptionId <subscription ID>
 
 > [!NOTE]
 > If you have multiple subscriptions associated with your account it is important to specify the subscription.
->   
+>
 >
 
 For more information about configuring Azure PowerShell, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
@@ -144,12 +144,12 @@ $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup `
 Set the Azure Cosmos DB account name to a variable named **account**, where ResourceName is the name of the Azure Cosmos DB account.
 
 ```powershell
-$account = Get-AzureRmResource -ResourceGroupName ContosoResourceGroup`
- -ResourceName contosocosmosdb -ResourceType "Microsoft.DocumentDb/databaseAccounts"
-
+$account = Get-AzureRmResource -ResourceGroupName ContosoResourceGroup `
+-ResourceName contosocosmosdb -ResourceType "Microsoft.DocumentDb/databaseAccounts"
+```
 
 ### <a id="enable"></a>Enable logging
-To enable logging for Azure Cosmos DB, use the Set-AzureRmDiagnosticSetting cmdlet, together with the variables for the new storage account and the Azure Cosmos DB account. Run the following command, setting the **-Enabled** flag to **$true**:
+To enable logging for Azure Cosmos DB, use the Set-AzureRmDiagnosticSetting cmdlet, together with the variables for the new storage account, Azure Cosmos DB account and the category for which you would like to enable logs. Run the following command, setting the **-Enabled** flag to **$true**:
 
 ```powershell
 Set-AzureRmDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories DataPlaneRequests
@@ -158,19 +158,31 @@ Set-AzureRmDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId 
 The output for the command should resemble the following:
 
 ```powershell
-StorageAccountId: /subscriptions/<subscription-ID>/resourceGroups/ContosoResourceGroup/providers/Microsoft.S
-                       torage/storageAccounts/contosocosmosdblogs
-    ServiceBusRuleId :
-    Metrics          : {}
-    Logs             : {Microsoft.Azure.Management.Insights.Models.LogSettings}
-    WorkspaceId      : /subscriptions/<subscription-ID>/resourcegroups/HealthService/providers/Microsoft
-                       .OperationalInsights/workspaces/shoeboxtest
-    Id               : /subscriptions/<subscription-ID>/resourcegroups/ContosoResourceGroup/providers/microsoft.d
-                       ocumentdb/databaseaccounts/contosocosmosdb/providers/microsoft.insights/diagnosticSettings/service
-    Name             : service
-    Type             :
-    Location         :
-    Tags             :
+    StorageAccountId            : /subscriptions/<subscription-ID>/resourceGroups/ContosoResourceGroup/providers`
+    /Microsoft.Storage/storageAccounts/contosocosmosdblogs
+    ServiceBusRuleId            :
+    EventHubAuthorizationRuleId :
+    Metrics
+        TimeGrain       : PT1M
+        Enabled         : False
+        RetentionPolicy
+        Enabled : False
+        Days    : 0
+    
+    Logs
+        Category        : DataPlaneRequests
+        Enabled         : True
+        RetentionPolicy
+        Enabled : False
+        Days    : 0
+    
+    WorkspaceId                 :
+    Id                          : /subscriptions/<subscription-ID>/resourcegroups/ContosoResourceGroup/providers`
+    /microsoft.documentdb/databaseaccounts/contosocosmosdb/providers/microsoft.insights/diagnosticSettings/service
+    Name                        : service
+    Type                        :
+    Location                    :
+    Tags                        :
 ```
 
 This confirms that logging is now enabled for your database, saving information to your storage account.
@@ -184,7 +196,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
 ```
 
 ### <a id="access"></a>Access your logs
-Azure Cosmos DB logs are stored in the **data-plane-requets** container in the storage account you provided. 
+Azure Cosmos DB logs for **DataPlaneRequests** category are stored in the **insights-logs-data-plane-requests**  container in the storage account you provided. 
 
 First, create a variable for the container name. This will be used throughout the rest of the walk-through.
 
@@ -210,15 +222,15 @@ SnapshotTime      :
 ContinuationToken:
 Context           : Microsoft.WindowsAzure.Commands.Common.Storage.`
                     LazyAzureStorageContext
-Name              : resourceId=contosocosmosdb/y=2017/m=06/d=28/h=19/`
-                    m=00/PT1H.json
+Name              : resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS`
+/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/CONTOSOCOSMOSDB/y=2017/m=09/d=28/h=19/m=00/PT1H.json
 ```
 
-As you can see from this output, the blobs follow a naming convention: **resourceId=<Database Account Name>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json**
+As you can see from this output, the blobs follow a naming convention: `resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<Database Account Name>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`
 
 The date and time values use UTC.
 
-Because the same storage account can be used to collect logs for multiple resources, the full resource ID in the blob name is very useful to access or download just the blobs that you need. But before we do that, we'll first cover how to download all the blobs.
+Because the same storage account can be used to collect logs for multiple resources, the fully qualified resource ID in the blob name is very useful to access or download just the blobs that you need. But before we do that, we'll first cover how to download all the blobs.
 
 First, create a folder to download the blobs. For example:
 
@@ -236,7 +248,7 @@ $blobs = Get-AzureStorageBlob -Container $container -Context $sa.Context
 Pipe this list through 'Get-AzureStorageBlobContent' to download the blobs into our destination folder:
 
 ```powershell
-$blobs | Get-AzureStorageBlobContent`
+$blobs | Get-AzureStorageBlobContent `
  -Destination 'C:\Users\username\ContosoCosmosDBLogs'
 ```
 
@@ -247,27 +259,27 @@ To selectively download blobs, use wildcards. For example:
 * If you have multiple databases and want to download logs for just one database, named CONTOSOCOSMOSDB3:
 
     ```powershell
-    Get-AzureStorageBlob -Container $container`
-     -Context $sa.Context -Blob '*/VAULTS/CONTOSOCOSMOSDB3
+    Get-AzureStorageBlob -Container $container `
+     -Context $sa.Context -Blob '*/DATABASEACCOUNTS/CONTOSOCOSMOSDB3
     ```
 
-* If you have multiple resource groups and want to download logs for just one resource group, use 
+* If you have multiple resource groups and want to download logs for just one resource group, use `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
 
     ```powershell
-    -Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
-    Get-AzureStorageBlob -Container $container`
+    Get-AzureStorageBlob -Container $container `
     -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
+    ```
 * If you want to download all the logs for the month of July 2017, use `-Blob '*/year=2017/m=07/*'`:
 
     ```powershell
-    Get-AzureStorageBlob -Container $container`
+    Get-AzureStorageBlob -Container $container `
      -Context $sa.Context -Blob '*/year=2017/m=07/*'
     ```
 
-You're now ready to start looking at what's in the logs. But before moving onto that, two more parameters for Get-AzureRmDiagnosticSetting that you might need to know:
+You're now ready to start looking at what's in the logs. But before moving onto that, two more parameters for `Get-AzureRmDiagnosticSetting` that you might need to know:
 
 * To query the  status of diagnostic settings for your database resource: `Get-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
-* To disable logging for your database vault resource: `Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories DataPlaneRequests`
+* To disable logging of **DataPlaneRequests** category for your database account resource: `Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories DataPlaneRequests`
 
 ## <a id="interpret"></a>Interpret your Azure Cosmos DB logs
 Individual blobs are stored as text, formatted as a JSON blob. This JSON is an example log entry:
@@ -285,7 +297,7 @@ Individual blobs are stored as text, formatted as a JSON blob. This JSON is an e
                "userAgent": "documentdb-dotnet-sdk/1.12.0 Host/64-bit MicrosoftWindowsNT/6.2.9200.0 AzureSearchIndexer/1.0.0",`
                "resourceType": "Database","statusCode": "200","documentResourceId": "",`
                "clientIpAddress": "13.92.241.0","requestCharge": "2.260","collectionRid": "",`
-               "duration": "9250","requestLength": "72","responseLength": "209"}
+               "duration": "9250","requestLength": "72","responseLength": "209", "resourceTokenUserRid": ""}
             }
         ]
     }
@@ -308,14 +320,15 @@ The following table lists the fields logged inside the properties field.
 | activityId | The unique GUID for the logged operation. |
 | userAgent |A string that specifies the client user agent performing the request. The format is {user agent name}/{version}.|
 | resourceType | The type of the resource accessed. This value can be any of the following resource types: Database, Collection, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction, or Offer. |
-| statusCode |The response status of the operation. Cosmos DB uses standard [HTTP status codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) (e.g. 2xx Success, 4xx Client errors, 5xx Server errors) |
-| documentResourceId | The unique resource ID (_rid) scoped to the request (e.g. the id of the document is shown for an update document request, the id of the collection is shown for issuing a query against a collection, etc).|
-| clientIpAddress |The first three octets of the client's IP address. |
+| statusCode |The response status of the operation. |
+| requestResourceId | The resourceId pertaining to the request, may point to databaseRid, collectionRid or documentRid depending on the operation performed.|
+| clientIpAddress |The client's IP address. |
 | requestCharge | The number of RUs used by the operation |
-| collectionRid | The unique resource ID (_rid) for the collection.|
+| collectionRid | The unique ID for the collection.|
 | duration | The duration of operation, in ticks. |
 | requestLength |The length of the request, in bytes. |
 | responseLength | The length of the response, in bytes.|
+| resourceTokenUserRid | This is non-empty when [resource tokens](https://docs.microsoft.com/en-us/azure/cosmos-db/secure-access-to-data#resource-tokens) are used for authentication and points to resource ID of the user. |
 
 ## Managing your logs
 
