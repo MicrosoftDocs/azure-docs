@@ -71,34 +71,39 @@ Make sure you have the following items:
         ![The new Azure Cosmos DB app config](./media/connected-service/connected-service-app-config.png) 
 
 ## Open Azure Cosmos DB Explorer
-1. Right click on Project node, select **Open Cosmos DB Explorer...**.
+1. Right click on the project node, and select **Open Cosmos DB Explorer...**.
 
     ![Screen shot of the try to Open Data Explorer window](./media/connected-service/connected-service-right-click-open-data-exporer.png)
-2. In the **Choose a Cosmos DB Account** page, click dropdown list to select one Azure Cosmos DB account.
+2. In the **Choose a Cosmos DB Account** page, click the dropdown list to select one Azure Cosmos DB account.
 
     ![Screen shot of the Added Account Connected Service window](./media/connected-service/connected-service-open-explorer.png)
-3. Click **Open**, then data explorer window is shown.
+3. Click **Open**, then the data explorer window is shown.
 
 ## <a id="Create-an-Azure-Cosmo-DB-account-in-Connected-Service-tool"></a>Create an Azure Cosmos DB account in Connected Service tool
-1. In the connected service page, in the left bottom pane, click **Create a New Cosmos DB Account** to open **Create Cosmos DB Account** page.
+1. In the connected service page, in the left bottom of the pane, click **Create a New Cosmos DB Account** to open the **Create Cosmos DB Account** page.
 
     ![Screen shot of the open Create Azure Cosmos DB Account entry point window](./media/connected-service/connected-service-click-new-db-account.png)
 2. On the **Create Cosmos DB Account** page, specify the configuration that you want for this Azure Cosmos DB account.
 
-* Complete the fields on the **Create Cosmos DB Account** page, using information in the following screenshot as reference. 
+    Complete the fields on the **Create Cosmos DB Account** page, using information in the following screenshot as reference. 
  
-   ![The new Azure Cosmos DB page](./media/connected-service/connected-service-create-new-account.png)        
+    ![The new Azure Cosmos DB page](./media/connected-service/connected-service-create-new-account.png)        
 3. Click **Create** to create the account.
 
 ## Use Data Explorer
 
-After opening Data Explorer, we can Create and Delete database, Create, and Delete Collection. And Create and Delete documents, Filter Document, Create, and Delete Stored Procedure. We can also Create and Delete Triggers, Create, and Delete User-Defined Function to perform server-side business logic. For how to use Data Explorer, refers to [Azure Cosmos DB docs on Microsoft website](https://docs.microsoft.com/en-us/azure/cosmos-db/).
+After opening Data Explorer, you can do the following:
+* Create and delete databases
+* Create and delete collections
+* Create, delete, and filter documents
+* Create and delete stored procedures
+* Create and delete triggers and user-defined functions to perform server-side business logic. 
 
 ![The new Azure Cosmos DB page](./media/connected-service/connected-service-dataexplorerui.png)
 
 ## Demo
 
-Use Azure Cosmos DB Connected Service in Visual Studio(video): [Use Azure Cosmos DB Connected Service in Visual Studio](https://go.microsoft.com/fwlink/?linkid=858711)
+Watch the following video to see how to use Azure Cosmos DB Connected Service in Visual Studio: [Use Azure Cosmos DB Connected Service in Visual Studio](https://go.microsoft.com/fwlink/?linkid=858711)
 
 ## Next Steps
 In this document, you've learned following items:
@@ -109,11 +114,10 @@ In this document, you've learned following items:
 > * Open Azure Cosmos DB Explorer
 > * Use Data Explorer
 
+Now that you have Connected Services up and running and connected to your Azure Cosmos DB account, proceed to one of the tutorials to start developing your solution:
 
-* Develop with the DocumentDB API in .NET [Develop with the DocumentDB API in .NET](tutorial-develop-documentdb-dotnet.md).
-* DocumentDB API getting started tutorial [Azure Cosmos DB: DocumentDB API getting started tutorial](documentdb-get-started.md).
+* [Develop with the DocumentDB API in .NET](tutorial-develop-documentdb-dotnet.md).
+* [Azure Cosmos DB: DocumentDB API getting started tutorial](documentdb-get-started.md).
 * Want to perform scale and performance testing with Azure Cosmos DB? See [Performance and Scale Testing with Azure Cosmos DB](performance-testing.md).
 * Learn how to [Monitor an Azure Cosmos DB account](monitor-accounts.md).
-* To learn more about Azure Cosmos DB, see [Welcome to Azure Cosmos DB](introduction.md).
-
 
