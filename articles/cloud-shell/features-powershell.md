@@ -6,8 +6,8 @@ documentationcenter: ''
 author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
- 
-ms.assetid: 
+
+ms.assetid:
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -35,8 +35,8 @@ PowerShell in Cloud Shell securely and automatically authenticates account acces
 ### Files persistence across sessions
 
 To persist files across sessions, Cloud Shell walks you through attaching an Azure file share on first launch.
-Once completed, Cloud Shell will automatically attach your storage (mount as `$home\clouddrive`) for all future sessions.
-Since, each request for Cloud Shell is allocating a temporary machine, files outside of your `$home\clouddrive` and machine state are not persisted across sessions.
+Once completed, Cloud Shell will automatically attach your storage (mounted as `$home\clouddrive`) for all future sessions.
+Since each request for Cloud Shell is allocating a temporary machine, files outside of your `$home\clouddrive` and machine state are not persisted across sessions.
 
 [Learn more about attaching Azure file shares to Cloud Shell.](persisting-shell-storage-powershell.md)
 
@@ -72,16 +72,16 @@ IntelliSense support is implemented via a vim-plugin that interacts with a local
 ### Extensible model
 
 Using [PowerShellGet](https://docs.microsoft.com/powershell/module/powershellget), you can easily install (and update) custom modules and scripts from the [PowerShell Gallery](https://www.powershellgallery.com).
-After installation, your modules are automatically persists across Cloud Shell sessions.
+After installation, your modules are automatically persisted across Cloud Shell sessions.
 
 > [!TIP]
-> Modules installed by the users are saved in `$Home\CloudDrive\.pscloudshell\WindowsPowerShell` folder. A symbolic link for this folder is created in user's document folder (`$home\Document\WindowsPowerShell`).
+> Modules installed by users are saved in the `$Home\CloudDrive\.pscloudshell\WindowsPowerShell` folder. A symbolic link for this folder is created in the user's documents folder (`$home\Documents\WindowsPowerShell`).
 
 ![](media/features-powershell/powershellget-module.png)
 
 ### Management of Guest VMs
 
-Using the two built-in commands - `Enter-AzureRmVM` and `Invoke-AzureRmVMCommand`, you can remotely manage your Azure VMs.
+Using two built-in commands - `Enter-AzureRmVM` and `Invoke-AzureRmVMCommand`, you can remotely manage your Azure VMs.
 These commands are built on top of PowerShell remoting and require PowerShell connectivity to the Azure VMs.
 
 ## Tools
