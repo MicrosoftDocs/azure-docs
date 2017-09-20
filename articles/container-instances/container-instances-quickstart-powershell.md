@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 09/25/2017
 ms.author: marsma
 ms.custom:
 ---
@@ -89,7 +89,7 @@ Once the container **ProvisioningState** moves to `Succeeded`, you can reach it 
 
 When you are done with the container, you can remove it using the `Remove-AzureRmContainerGroup` cmdlet:
 
-```azurecli-interactive
+```powershell
 Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 ```
 
