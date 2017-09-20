@@ -238,9 +238,9 @@ Click the completed update deployment to see the dashboard for that update deplo
 In **Update results** tile is a summary of the total number of updates and deployment results on the virtual machine.
 In the table to the right is a detailed breakdown of each update and the installation results, which could be one of the following values:
 
-* Not attempted - the update was not installed because there was insufficient time available based on the maintenance window duration defined.
-* Succeeded - the update was successfully downloaded and installed on the virtual machine
-* Failed - the update failed to download or install on the virtual machine.
+* **Not attempted** - the update was not installed because there was insufficient time available based on the maintenance window duration defined.
+* **Succeeded** - the update was successfully downloaded and installed on the virtual machine
+* **Failed** - the update failed to download or install on the virtual machine.
 
 Click **All logs** to see all log entries that the deployment created.
 
