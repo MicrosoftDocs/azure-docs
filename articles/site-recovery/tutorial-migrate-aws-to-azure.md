@@ -38,7 +38,7 @@ You migrate a VM by enabling replication for it, and running a failover from AWS
 
 Here's what you need to do for this tutorial.
 
-- You need to have completed the [Prepare Azure](tutorial-prepare-azure.md) before starting this tutorial. You need to make sure you have a subscription, virtual network, and storage account prepared..
+- You need to have completed the [Prepare Azure](tutorial-prepare-azure.md) tutorial before starting this tutorial. You need to make sure you have a subscription, virtual network, and storage account prepared..
 - You need one or more VMs that you want to migrate. These EC2 instance should be running the 64-bit version of Windows Server 2008 R2 SP1 or later, Windows Server 2012, Windows Server 2012 R2 or Red Hat Enterprise Linux 6.7 (HVM virtualized instances only). The server must have only Citrix PV or AWS PV drivers. Instances running RedHat PV drivers aren't supported.
 - Check the [Site Recovery support matrix](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) to make sure that your EC2 instances meet Azure requirements for disk size, VM name etc.
 - You need a separate EC2 instance that you can use as the Site Recovery configuration server. This instance must be running Windows Server 2012 R2.    
@@ -114,18 +114,17 @@ When you are done, click **OK** to move to the next section.
 
 ### 2 Source Prepare
 
-On the **Prepare source** page, click **+ Configuration Server**. Follow the steps on the **Add Server** page to configure one of your EC2 instances as a configuration server. 
-
-Once you are done creating your configuration server and registering it with the vault, go back to the **2 Source Prepare** page and select your server from the list.
+On the **Prepare source** page, choose the configuration server that you created earlier from the drop-down and then click **OK**. 
 
 ### 3 Target Prepare 
 
-<!--
-1. Click **Prepare infrastructure** > **Target**, and select the Azure subscription you want to use.
-2. Specify the target deployment model.
-3. Site Recovery checks that you have one or more compatible Azure storage accounts and networks.
+In this section you will be entering in information about the the subscription you used and the resources you created when you went through the [Prepare Azure](tutorial-prepare-azure.md) tutorial before you started this tutorial.
 
--->
+1. In **Subscription**, select the Azure subscription that you used for the [Prepare Azure](tutorial-prepare-azure.md) tutorial.
+2. Select **Resource Manager** as the deployment model.
+3. Site Recovery checks that you have one or more compatible Azure storage accounts and networks. These should be the resources you created when you went through the [Prepare Azure](tutorial-prepare-azure.md) tutorial.
+
+
 
 ### 4 Replication settings Prepare
 
@@ -158,46 +157,6 @@ Enable replication for each VM you want to migrate.
 3. Click **Enable Replication**. You can track progress of the **Enable Protection** job in **Settings** > **Jobs** > **Site Recovery Jobs**. After the **Finalize Protection** job runs the machine is ready for failover.
 -->
 ### 5 Deployment planning Select
-
-
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-## Set up the source environment
-
-Once the vault has been created, you need to set up the configuration server.
-
-1. On the page for your vault, select **Site Recovery** from the **Getting Started** section.
-2. In the Resource Menu, click **Site Recovery** > **Prepare Infrastructure** > **Protection goal**.
-3. In **Protection goal**, select **To Azure** > **Not virtualized/Other**.
-1. Click **Site Recovery** > **Prepare Infrastructure** > **Source**.
-2. If you don’t have a configuration server, click **+Configuration server**.
-3. In **Add Server**, check that **Configuration Server** appears in **Server type**.
-4. Download the Site Recovery Unified Setup installation file to the EC2 VM you want to use.
-5. Download the vault registration key. You need this when you run Unified Setup. The key is valid for five days after you generate it.
-
-## Register the configuration server in the vault
-
-Do the following before you start: 
-
-- On the configuration server VM, make sure that the system clock is synchronized with a [Time Server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). It should match. If it's 15 minutes in front or behind, setup might fail.
-- Make sure the machine can access these URLs:
-    [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
-- Any IP address-based firewall rules should allow communication to Azure.
-- Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port.
-- Allow IP address ranges for the Azure region of your subscription, and for West US (used for Access Control and Identity Management).
-
-Run Unified Setup as a Local Administrator, to install the configuration server.
-
-[!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
-
-After registration finishes, the configuration server is displayed on the **Settings** > **Servers** page in the vault. It might take up to 15 minutes for it to appear. After it appears, check that it can communicate with the instances you want to migrate.
-
-![Configuration server](./media/tutorial-migrate-aws-to-azure/configuration-server.png)
-
-
-
-
-
-
 
 
 
