@@ -113,7 +113,7 @@ For Google Chrome on Mac OS and other non-Windows platforms, refer to [this arti
 
 Using third-party Active Directory Group Policy extensions to roll out the Azure AD URLs to Firefox and Google Chrome on Mac users is outside of this article's scope.
 
-#### Known limitations
+#### Known browser limitations
 
 Seamless SSO doesn't work in private browsing mode on Firefox and Edge browsers. It also doesn't work on Internet Explorer if the browser is running in Enhanced Protection mode.
 
@@ -137,7 +137,7 @@ To test the scenario where the user doesn't have to enter the username or the pa
 
 ## Step 5: Roll over keys
 
-In Step 2, Azure AD Connect creates computer accounts (representing Azure AD) in all the AD forests on which you have enabled Seamless SSO. Learn more in detail [here](active-directory-aadconnect-sso-how-it-works.md). For improved security, it is recommended that you periodically roll over the Kerberos decryption keys of these computer accounts. The instructions on how to roll over are [here](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacct-computer-account).
+In Step 2, Azure AD Connect creates computer accounts (representing Azure AD) in all the AD forests on which you have enabled Seamless SSO. Learn more in detail [here](active-directory-aadconnect-sso-how-it-works.md). For improved security, it is recommended that you periodically roll over the Kerberos decryption keys of these computer accounts. The instructions on how to roll over are [here](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account).
 
 >[!IMPORTANT]
 >You don't need to do this step _immediately_ after you have enabled the feature. Roll over the Kerberos decryption keys at least every 30 days.
