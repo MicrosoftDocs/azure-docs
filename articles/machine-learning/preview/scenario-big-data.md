@@ -171,7 +171,7 @@ All the files/blobs in the preceding table are used for operationalization.
 
 
 The following diagram shows the end-to-end workflow of using Azure ML Workbench to develop the model:
-![architecture](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Images/architecture.PNG)
+![architecture](media/scenario-big-data/architecture.PNG)
 
 
 
