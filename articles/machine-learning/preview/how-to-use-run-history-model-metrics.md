@@ -20,8 +20,8 @@ This article describes how to make effective use of these features to increase t
 
 ## Prerequisites
 To step through this how-to guide, you need to:
-- [Install AML Workbench](doc-template-how-to.md)
-- [Create a Project](quick-start-iris.md)
+* [Create and Install Azure Machine Learning](quickstart-installation.md)
+- [Create a Project](quickstart-installation.md)
 
 
 ## Azure ML Logging API Overview
@@ -52,7 +52,7 @@ logger.log("dataframe", df)
 It is easy to use the logger within your Azure ML Workbench projects, and this article shows you how to do so.
 
 ## Create a Project in Azure ML Workbench
-If you don't already have a project, you can create one from the [Classifying Iris template.](quick-start-iris.md)
+If you don't already have a project, you can create one from the [Create and Install Quickstart](quickstart-installation.md)
 From the **Project Dashboard**, you can open the **iris_sklearn.py** script (as shown.)
 
 ![accessing a script from the files tab](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-01b.png)

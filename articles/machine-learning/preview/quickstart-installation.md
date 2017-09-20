@@ -30,13 +30,13 @@ Log in to the [Azure portal](https://portal.azure.com/).
 Use the Azure portal to provision Azure Machine Learning accounts. 
 1. Select the **New** button (+) in the upper-left corner of the portal.
 
-2. Type in "Machine Learning" into the search bar. Select the search result named **Machine Learning Experimentation (preview)**. 
+2. Type in "Machine Learning" into the search bar. Select the search result named **Machine Learning Experimentation (preview)**.  Click the star icon to make this selection a favorite in your Azure portal.
 
-   ![Azure Machine Learning Search](media/quickstart-installation/ibiza-search-ml.png)
+   ![Azure Machine Learning Search](media/quickstart-installation/portal-more-services.png)
 
-3. Click **Create** to open the form to configure a new Machine Learning Experimentation account. 
+3. Click **+ Add** to configure a new Machine Learning Experimentation account. The detailed form will open.
 
-   ![Machine Learning Experimentation Account](media/quickstart-installation/ibiza-experimentation-account-screen.png)
+   ![Machine Learning Experimentation Account](media/quickstart-installation/portal-create-experimentation.png)
 
 4. Fill out the Machine Learning Experimentation form with the following information:
 
@@ -60,6 +60,8 @@ Use the Azure portal to provision Azure Machine Learning accounts.
 6. On the upper right of the Azure portal toolbar, click **Notifications** (bell icon) to monitor the deployment process. 
 
    The notification shows "Deployment in progress...". The status changes to "Deployment succeeded" once it is done. Your Machine Learning Experimentation account page opens upon success.
+   
+   ![Azure portal notifications](media/quickstart-installation/portal-notification.png)
 
 Now, depending on which operating system you use on your local computer, follow one of the next two sections to install Azure Machine Learning Workbench on your computer. 
 
