@@ -17,7 +17,7 @@ ms.date: 09/15/2017
 ms.author: daden
 ---
 
-# Workload forecasting on terabytes data
+# Server workload forecasting on terabytes data
 
 This example illustrates how data scientists can use Azure ML Workbench to develop solutions that require use of big data. We show how a user by using Azure ML Workbench can follow a happy path of starting from a sample of a large dataset, iterating through data preparation, feature engineering and machine learning, and then eventually extending the process to the entire large dataset. 
 
@@ -48,7 +48,7 @@ Forecasting the workload on servers is a common business need for technology com
 The prerequisites to run this example are as follows:
 
 * An [Azure account](https://azure.microsoft.com/free/) (free trials are available).
-* An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) following the [quick start installation guide](./quick-start-installation.md) to install the program and create a workspace.
+* An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) following the [quick start installation guide](./quickstart-installation.md) to install the program and create a workspace.
 * This scenario assumes that you are running Azure Machine Learning (ML) Workbench on Windows 10. If you are using macOS, the instruction is largely the same.
 * A Data Science Virtual Machine (DSVM) for Linux (Ubuntu). You can provision an Ubuntu DSVM following the [instructions](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). Click [here](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu) for quick start. We recommend using a virtual machine with at least 8 cores and 32 GB of memory.  You need the DSVM IP address, user name, and password to try out this example. Save the following table with the DSVM info for later steps:
 
