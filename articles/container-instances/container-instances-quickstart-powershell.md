@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: marsma
-ms.custom:
+ms.custom: mvc
 ---
 
 # Create your first container in Azure Container Instances

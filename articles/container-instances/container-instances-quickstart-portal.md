@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: marsma
-ms.custom:
+ms.custom: mvc
 ---
 
 # Create your first container in Azure Container Instances
 
-Azure Container Instances makes it easy to create and manage containers in Azure. In this quick start, you will create a container in Azure and expose it to the internet with a public IP address. This operation is completed by using the Azure portal. With just a few clicks, you will see this in your browser:
+Azure Container Instances makes it easy to create and manage containers in Azure. In this quick start, you create a container in Azure and expose it to the internet with a public IP address. This operation is completed by using the Azure portal. With just a few clicks, you will see this in your browser:
 
 ![App deployed using Azure Container Instances viewed in browser][aci-app-browser]
 
@@ -34,7 +34,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
 Select the **New** > **Containers** > **Azure Container Instances (preview)**.
 
-![Creating a container instance in the Azure portal][aci-portal-01]
+![Begin creating a new container instance in the Azure portal][aci-portal-01]
 
 Enter the following values in the **Container name**, **Container image**, and **Resource group** text boxes. Leave the other values at their defaults, then click **OK**.
 
@@ -42,23 +42,25 @@ Enter the following values in the **Container name**, **Container image**, and *
 * Container image: `microsoft/aci-helloworld`
 * Resource group: `myResourceGroup`
 
-![Creating a container instance in the Azure portal][aci-portal-03]
+![Configuring basic settings for a new container instance in the Azure portal][aci-portal-03]
 
-Under **Configuration**, leave all settings at their defaults and click **OK** to validate the configuration.
+You can create both Windows and Linux containers in Azure Container Instances. In this quickstart, we'll leave the default setting of **Linux** since we specified a Linux-based container (`microsoft/aci-helloworld`) in the previous step.
 
-![Creating a container instance in the Azure portal][aci-portal-04]
+Leave the other settings in **Configuration** at their defaults, then click **OK** to validate the configuration.
+
+![Configuring a new container instance in the Azure portal][aci-portal-04]
 
 When the validation completes, you are shown a summary of your container settings. Select **OK** to submit your container deployment request.
 
-![Creating a container instance in the Azure portal][aci-portal-05]
+![Settings summary for a new container instance in the Azure portal][aci-portal-05]
 
 When deployment starts, a tile is placed on your portal dashboard indicating deployment progress. Once deployment completes, the tile is updated to show your new **mycontainer-myc1** container group.
 
-![Creating a container instance in the Azure portal][aci-portal-08]
+![Creation progress of a new container instance in the Azure portal][aci-portal-08]
 
 Select the **mycontainer-myc1** container group to display the container group properties. Take note of the **Ip address** of the container group, as well as the **STATE** of your container.
 
-![Creating a container instance in the Azure portal][aci-portal-06]
+![Container group overview in the Azure portal][aci-portal-06]
 
 Once the container moves to the **Running** state, navigate to the IP address you noted in the previous step to display the application hosted in your new container.
 
