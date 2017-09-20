@@ -6,7 +6,7 @@ services: HDInsight
 documentationcenter: ''
 author: jejiang
 manager: 
-editor: 
+editor: jgao
 tags: azure-portal
 
 ms.assetid: 
@@ -34,7 +34,7 @@ The following items are reqruied for completing this article:
 
 ## Install the HDInsight Tools
    
-After you have installed the prerequisites, you can install the Azure HDInsight Tools for VSCode. For Spark users, the Python extension is recommended for better language service experiences. The Python extension is not required for Hive users. 
+After you have installed the prerequisites, you can install the Azure HDInsight Tools for VSCode. 
 
 **To Install Azure HDInsight tools**
 
@@ -45,6 +45,8 @@ After you have installed the prerequisites, you can install the Azure HDInsight 
 5. Click **Reload Window** to confirm. You can see **Azure HDInsight tools** in the Extensions pane.
 
    ![HDInsight for Visual Studio Code Python install](./media/hdinsight-for-vscode/install-hdInsight-plugin.png)
+
+For Spark users, the Python extension is recommended for better language service experiences. The Python extension is not required for Hive users. 
 
 **To install Python**
 
@@ -58,6 +60,10 @@ After you have installed the prerequisites, you can install the Azure HDInsight 
 
 ## Open HDInsight workspace
 
+You must create a workspace in VSCode before you can connect to Azure.
+
+**To open a workspace**
+
 1. From the **File** menu, click **Open Folder**, specify or create a new folder as your work folder.
 2. From the **File** menu, click **New File** to create a new file under the newly created work folder. An **Untilted-1** file is shown in the script editor (the right pane).
 
@@ -65,16 +71,16 @@ After you have installed the prerequisites, you can install the Azure HDInsight 
 3. Right-click **Untitled-1** from the left pane, and then select **Save As** to save the file with either the .hql (Hive queries) or the .py (Spark script) file extension. Notice an **XXXX_hdi_settings.json** configuration file is automatically added to the work folder.
 4. Open **XXXX_hdi_settings.json** from **EXPLORER**, or right-click on the script editor to select **Set Configuration**. You can configure login entry, default cluster, and job submission parameters, as shown in the sample in the file. You also can leave the remaining parameters empty.
 
-
 ## Connect to Azure
 
 Before you can submit scripts to HDInsight clusters from VSCode, you need connect to your Azure account.
 
 **To connect to Azure**
 
-1. Right-click a script editor, and then select **HDInsight: Login** from the context menu. You can also press **CTRL+SHIFT+P** and entering **HDInsight: Login**.
+1. Create a new work folder and a new script file if you don't have one.
+2. Right-click the script editor, and then select **HDInsight: Login** from the context menu. You can also press **CTRL+SHIFT+P** and entering **HDInsight: Login**.
     ![HDInsight Tools for Visual Studio Code log in](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
-2. Click **Azure** or **AzureChina** based on your subscription.
+3. Click **Azure** or **AzureChina** based on your subscription.
 
     ![HDInsight Tools for Visual Studio Code login options](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login-options.png)
 
@@ -95,7 +101,40 @@ Before you can submit scripts to HDInsight clusters from VSCode, you need connec
 
     ![HDInsight Tools for Visual Studio Code script editor context menu](./media/hdinsight-for-vscode/hdinsight-for-vscode-context-menu.png)
 
-5. From the context menu, select **HDInsight: Set Default Cluster** to set the default cluster. 
+5. From the context menu, you can perform the following tasks:
+
+    - logout
+    - list clusters
+    - Set default cluster
+    - Submit interactive Hive queries
+    - Submit Hive batch script
+    - Set configuration
+
+## List HDInsight clusters
+
+To test the connection, you can list your HDInsight clusters:
+
+**To list HDInsight clusters under your Azure subscription**
+1. Open a workspace and connect to Azure. See [Open HDInsight workspace](#open-hdinsight-workspace) and [Connect to Azure](#connect-to-azure).
+2. Right-click the script editor, and then select **HDInsight: List Cluster** from the context menu. 
+3. The Hive and Spark clusters appear in the **Output** pane.
+
+    ![set default cluster configuration](./media/hdinsight-for-vscode/list-cluster-result.png)
+
+## Set default cluster
+1. Open a workspace and connect to Azure. See [Open HDInsight workspace](#open-hdinsight-workspace) and [Connect to Azure](#connect-to-azure).
+2. Right-click the script editor, and then click **HDInsight: Set Default Cluster**. 
+3. Select a cluster as default cluster for the current script file. The Tools automaticaly update the configuration file, **XXXX_hdi_settings.json**. 
+
+   ![set default cluster configuration](./media/hdinsight-for-vscode/set-default-cluster-configuration.png)
+
+## Set Azure environment 
+1. Open the command palette by pressing **CTRL+SHIFT+P**.
+2. Enter **HDInsight: Set Azure Environment**.
+3. Select one way from Azure and AzureChina as your default login entry.
+4. Meanwhile, our tool already saved what you selected default login entry into **XXXX_hdi_settings.json**. You also directly update it in this configuration file. 
+
+   ![set default login entry configuration](./media/hdinsight-for-vscode/set-default-login-entry-configuration.png)
 
 ## Submit interactive Hive queries
 
@@ -134,8 +173,10 @@ Comparing to [submitting interactivehive queries](#submit-interactive-hive-queri
 
 
 ## Submit PySpark job
-1. Create a file in your current folder and named **xxx.py**.
-2. Copy and paste the following code into **xxx.py**, then save it.
+
+1. Create a new work folder and a new script file with the .py extension if you don't have one.
+2. Connect to your Azure account, and then configure the default cluster if you haven't done so.
+2. Copy and paste the following code into the script file:
 
         from __future__ import print_function
         import sys
@@ -157,37 +198,12 @@ Comparing to [submitting interactivehive queries](#submit-interactive-hive-queri
             spark.stop()
 
 
-3. Right-click a Hive script editor, and then click **HDInsight: Submit PySpark Job**. You can also use another way of pressing **CTRL+SHIFT+P** and entering **HDInsight: Submit PySpark Job**.
+3. Right-click the script editor, and then click **HDInsight: Submit PySpark Job**. 
 4. Select a cluster to submit your PySpark job. 
 
    ![submit python job result](./media/hdinsight-for-vscode/submit-pythonjob-result.png) 
 
 After submitting a python job, submission logs is shown in **OUTPUT** window in VSCode. The **Spark UI URL** and **Yarn UI URL** are shown as well. You can open the URL in a web browser to track the job status.
-
-## List HDInsight clusters
-
-To test the connection, you can list your HDInsight clusters:
-
-**To list HDInsight cluster under your Azure subscription**
-1. Right-click a Hive script editor, and then click **HDInsight: List Cluster**. You can also use another way of pressing **CTRL+SHIFT+P** and entering **HDInsight: List Cluster**.
-2. The Hive and Spark clusters appear in the **Output** pane.
-
-    ![set default cluster configuration](./media/hdinsight-for-vscode/list-cluster-result.png)
-
-## Set default cluster
-1. Right-click a Hive script editor, and then click **HDInsight: Set Default Cluster**. You can also use another way of pressing **CTRL+SHIFT+P** and entering **HDInsight: Set Default Cluster**.
-2. Select a cluster as default cluster for the current script file. 
-3. Meanwhile, our tool already saved what you selected default clusters into **XXXX_hdi_settings.json**. You also directly update it in this configuration file. 
-   
-   ![set default cluster configuration](./media/hdinsight-for-vscode/set-default-cluster-configuration.png)
-
-## Set Azure environment 
-1. Open the command palette by pressing **CTRL+SHIFT+P**.
-2. Enter **HDInsight: Set Azure Environment**.
-3. Select one way from Azure and AzureChina as your default login entry.
-4. Meanwhile, our tool already saved what you selected default login entry into **XXXX_hdi_settings.json**. You also directly update it in this configuration file. 
-
-   ![set default login entry configuration](./media/hdinsight-for-vscode/set-default-login-entry-configuration.png)
 
 
 ## Additional features
