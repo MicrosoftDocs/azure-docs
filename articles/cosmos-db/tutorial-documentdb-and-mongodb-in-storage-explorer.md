@@ -63,7 +63,7 @@ An alternative way of connecting to an Azure Cosmos DB is to use a connection st
 
     ![connect to Azure Cosmos DB by connection string](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connect-to-db-by-connection-string.png)
 
-2. Choose Azure Cosmos DB API, paste your **Connection String**, and then click **OK** to connect Azure Cosmos DB account.For information on retrieving the connection string, see [Get the connection string](https://docs.microsoft.com/en-us/azure/cosmos-db/manage-account#get-the--connection-string).
+2. Choose Azure Cosmos DB API, paste your **Connection String**, and then click **OK** to connect Azure Cosmos DB account. For information on retrieving the connection string, see [Get the connection string](https://docs.microsoft.com/en-us/azure/cosmos-db/manage-account#get-the--connection-string).
 
     ![connection-string](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connection-string.png)
 
@@ -122,7 +122,7 @@ Edit the document filter by entering [a SQL query](https://docs.microsoft.com/en
     ![filter](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/filter.png)
 
 ### Manage stored procedures, triggers, and UDFs
-* To create a stored procedure,in the left tree, right-click **Stored Procedure**, choose **Create Stored Procedure**, enter name in the left, type the stored procedure scripts in the right window, and click **Create**. 
+* To create a stored procedure, in the left tree, right-click **Stored Procedure**, choose **Create Stored Procedure**, enter name in the left, type the stored procedure scripts in the right window, and click **Create**. 
 * You can also edit existing stored procedure through double-click, click **Update** to save, or click **Discard** to cancel the change.
 
     ![stored procedure](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/stored-procedure.png)
