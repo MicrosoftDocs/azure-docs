@@ -55,6 +55,9 @@ The primary purpose of this sample is to show how to instantiate and execute a m
 
 The dataset for this sample is from the UCI ML Repository [[link]](https://archive.ics.uci.edu/ml/datasets/adult). It is taken from the 1994 US Census database and contains census and income information for about 50,000 individuals. This is structured dataset having numerical and categorical features, and a categorical target consisting of two income categories ('>50 K' or '<=50 K'). 
 
+### Optional: Version control repository
+If you would like to save and version your project and its contents, you need to have a version control repository where this can be done. You can enter the Git repository location while creating the new project using the TDSP template in Azure Machine Learning. See [how to use Git in Azure Machine Learning](using-git-ml-project.md) for further details.
+
 ### Informational: about Azure Machine Learning
 * [FAQ - How to get started](faq.md)
 * [Overview](overview-what-is-azure-ml.md)
@@ -62,6 +65,7 @@ The dataset for this sample is from the UCI ML Repository [[link]](https://archi
 * [Execution](experiment-execution-configuration.md)
 * [Using TDSP](https://aka.ms/how-to-use-tdsp-in-aml)
 * [Read and write files](how-to-read-write-files.md)
+* [Using Git with Azure Machine Learning](using-git-ml-project.md)
 * [Deploying an ML model as a web service](model-management-service-deploy.md)
 
 ### Create a new workbench project
