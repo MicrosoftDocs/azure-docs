@@ -134,7 +134,7 @@ Please note that a CSR is just a text file. It does NOT have to be created from 
 
 ## How can I add an Antimalware extension for my Cloud Services in an automated way?
 
-You can enable Antimalware extension using PowerShell script in the Startup Task. Follow the steps in the these articles to implement it: 
+You can enable Antimalware extension using PowerShell script in the Startup Task. Follow the steps in these articles to implement it: 
  
 - [Create a PowerShell startup task](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
 - [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/Azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
