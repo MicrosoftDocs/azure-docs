@@ -238,6 +238,8 @@ In this tutorial, you learned how to:
 > * Use an OMS workspace to view and query logs from your containers and nodes
 > * Configure the OMS agent to pick up container and node metrics
 
+Now that you have set up monitoring for your containerized application, try the following:
+
 * Set up the OMS for a Linux cluster, following similar steps as above. Reference [this template](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux) to make changes in your Resource Manager template.
 * Configure OMS to set up [automated alerting](../log-analytics/log-analytics-alerts.md) to aid in detecting and diagnostics.
 * Explore Service Fabric's list of [recommended performance counters](service-fabric-diagnostics-event-generation-perf.md) to configure for your clusters.
