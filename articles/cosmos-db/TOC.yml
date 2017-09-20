@@ -231,7 +231,7 @@
       href: geospatial.md
     - name: Indexing
       href: indexing-policies.md
-    - name: Azure Cosmos DB ConnectedService in VisualStudio 
+    - name: ConnectedService in VisualStudio
       href: connected-service.md
   - name: Manage
     items:

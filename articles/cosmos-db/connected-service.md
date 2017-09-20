@@ -1,6 +1,6 @@
 ---
 title: 'Visual Studio Connected Service for Azure Cosmos DB'
-description: allows developers to connect to Azure Cosmos DB account easily and manage resources through Visual Studio Connected Service
+description: Enables developers to connect to Azure Cosmos DB account easily and manage resources through Visual Studio Connected Service
 services: cosmos-db
 documentationcenter: ''
 author: jejiang
@@ -21,30 +21,21 @@ ms.author: jejiang
 ---
 # Azure Cosmos DB: Visual Studio Connected Service
 
-The Connected Service for Azure Cosmos DB in Visual Studio allows developers to connect to Azure Cosmos DB account easily and manage resources.
+Visual Studio Connected Services enables developers to easily connect their Azure Cosmos DB account and manage their resources.
 
-You can also use Data Explorer in Connected Service to create stored procedures, UDFs, and triggers to perform server-side business logic. Data Explorer exposes all of the built-in programmatic data access available in the APIs, but provides easy access to your data.
+You can also use Data Explorer in Connected Service to create stored procedures, UDFs, and triggers to perform server-side business logic. Data Explorer exposes all the built-in programmatic data access available in the APIs, but provides easy access to your data.
 
 ## Prerequisites
 
 Make sure you have the following items:
 
 * An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/). 
-    * if you want to use a local environment for development purposes, you can use the [Azure Cosmos DB Emulator](local-emulator.md). The environment emulates the Azure Cosmos DB service.
+    * If you want to use a local environment for development purposes, you can use the [Azure Cosmos DB Emulator](local-emulator.md). The environment emulates the Azure Cosmos DB service.
+* Assume you already have an Azure Cosmos DB account. If not, follow the steps at [creating an Azure Cosmos DB account](create-documentdb-dotnet.md) to create one in Azure portal or [Create an Azure Cosmos DB account in Connected Service tool](#Create-an-Azure-Cosmo-DB-account-in-Connected-Service-tool). If so, skip ahead to [Set up your Visual Studio solution](#SetupVS)
 * [Visual Studio](http://www.visualstudio.com/).
-* Install the latest Azure Cosmos DB ConnectedService bits. You can download Azure Cosmos DB connected service from VisaulStudio marketplace according to below screen shot. Or you can install it from [Here](https://go.microsoft.com/fwlink/?linkid=858709). Open **Visual Studio** in your computer. On the **Tools** menu, select **Extensions and update...**, and then choose **Online** / **Visual Studio Marketplace**. Enter **cosmosdb** to search the bits.
+* Install the latest Azure Cosmos DB Connected Service bits. You can download Azure Cosmos DB connected service from Visual Studio marketplace according to below screen shot. Or you can install it from [Visual Studio Marketplace](https://go.microsoft.com/fwlink/?linkid=858709). Open **Visual Studio** in your computer. On the **Tools** menu, select **Extensions and update...**, and then choose **Online** / **Visual Studio Marketplace**. Enter **cosmosdb** to search the bits.
 
  ![Screen shot of Connected Service download bits.png](./media/connected-service/connected-service-downloadbits.png)
-
-## Create an Azure Cosmos DB account
-
-Assume you already have an Azure Cosmos DB account. If not, follow the steps at [creating an Azure Cosmos DB account](create-documentdb-dotnet.md) to create one in Azure portal or in Connected Service tool.
-
-> [!TIP]
-> * Already have an Azure Cosmos DB account? If so, skip ahead to [Set up your Visual Studio solution](#SetupVS)
-> * If you are using the Azure Cosmos DB Emulator, follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to setup the emulator and skip ahead to [Set up your Visual Studio Solution](#SetupVS). 
->
->
 
 ## <a id="SetupVS"></a>Set up your Visual Studio solution
 1. Open **Visual Studio** in your computer.
@@ -53,27 +44,27 @@ Assume you already have an Azure Cosmos DB account. If not, follow the steps at 
 
     ![Screen shot of the New Project window](./media/connected-service/connected-service-new-project.png)
 
-## Add ConnectedService and add account
-1. Right click on Project node, select **Add** / **Connected Service** or click **Project** menu, select **Add Connected Service**.
+## Add Connected Service and add account
+1. Right click on the Project node, then select **Add** / **Connected Service**. Or click on the **Project** menu, and then select **Add Connected Service**.
 
     ![Screen shot of the Add Connected Service window](./media/connected-service/connected-service-add-connectedservice-rightclick.png)
-2. In the connected service page, click **Connected Services** / **Azure Cosmos DB** to open **Azure Cosmos DB** page.
+2. In the connected service page, click **Connected Services** / **Azure Cosmos DB** to open the **Azure Cosmos DB** page.
 
     ![Screen shot of the Azure Cosmos DB window](./media/connected-service/connected-service-choose-azure-cosmosdb.png)
-3. Click down arrow to sign in for the first time or add an Account. After sign-in, All Azure Cosmos DB accounts are shown in the blank area. Choose one Azure Cosmos DB account to add to your project.
+3. Click the down arrow to sign in for the first time or add an account. After sign-in, all Azure Cosmos DB accounts are shown in the blank area. Choose one Azure Cosmos DB account to add to your project.
 
     ![Screen shot of the sign-in and listed db account window](./media/connected-service/connected-service-add-db-account.png)
-4. After added an Azure Cosmos DB account, an Azure Cosmos DB account connected service folder was added to the project. You can add more than one Azure Cosmos DB account through repeating step 1 to step 3.
+4. After you've added an Azure Cosmos DB account, an Azure Cosmos DB account connected service folder was added to the project. You can add more than one Azure Cosmos DB account through repeating step 1 to step 3.
 
     ![Screen shot of the connected service folder window](./media/connected-service/connected-service-add-connectedservice-folder.png)
 
-5. When you add an Azure Cosmos DB connected service, we would modify your project to enable access to Azure Cosmos DB database mainly in below two ways.
+5. When you have added an Azure Cosmos DB connected service, we would modify your project to enable access to Azure Cosmos DB database mainly in below two ways.
 
-* Some nuget packages that are required by Azure Cosmos DB client are installed. we can see them from your packages configuration file. 
+* Some nuget packages that are required by Azure Cosmos DB client are installed. You can see them from your packages configuration file. 
 
     ![The new Azure Cosmos DB packages config](./media/connected-service/connected-service-packages-config.png)   
     
-* DocumentDB connection uri and key are added to project configuration file, in this case, App.config. 
+* Cosmos DB connection uri and key are added to project configuration file, in this case, App.config. 
 
     ![The new Azure Cosmos DB app config](./media/connected-service/connected-service-app-config.png) 
 
@@ -86,7 +77,7 @@ Assume you already have an Azure Cosmos DB account. If not, follow the steps at 
     ![Screen shot of the Added Account Connected Service window](./media/connected-service/connected-service-open-explorer.png)
 3. Click **Open**, then data explorer window is shown.
 
-## Create a New Azure Cosmos DB Account
+## <a id="Create-an-Azure-Cosmo-DB-account-in-Connected-Service-tool"></a>Create an Azure Cosmos DB account in Connected Service tool
 1. In the connected service page, in the left bottom pane, click **Create a New Cosmos DB Account** to open **Create Cosmos DB Account** page.
 
     ![Screen shot of the open Create Azure Cosmos DB Account entry point window](./media/connected-service/connected-service-click-new-db-account.png)
@@ -99,20 +90,20 @@ Assume you already have an Azure Cosmos DB account. If not, follow the steps at 
 
 ## Use Data Explorer
 
-After opening Data Explorer, we can Create and Delete database, Create, and Delete Collection. And Create and Delete documents, Filter Document, Create, and Delete Stored Procedure. Also we can  Create and Delete Triggers, Create, and Delete User-Defined Function to perform server-side business logic. For how to use Data Explorer, refers to [Azure Cosmos DB docs on Microsoft website](https://docs.microsoft.com/en-us/azure/cosmos-db/).
+After opening Data Explorer, we can Create and Delete database, Create, and Delete Collection. And Create and Delete documents, Filter Document, Create, and Delete Stored Procedure. We can also Create and Delete Triggers, Create, and Delete User-Defined Function to perform server-side business logic. For how to use Data Explorer, refers to [Azure Cosmos DB docs on Microsoft website](https://docs.microsoft.com/en-us/azure/cosmos-db/).
 
 ![The new Azure Cosmos DB page](./media/connected-service/connected-service-dataexplorerui.png)
 
 ## Demo
 
-Use Azure Cosmos DB ConnectedService in VisualStudio(video): [Use Azure Cosmos DB ConnectedService in VisualStudio](https://go.microsoft.com/fwlink/?linkid=858711)
+Use Azure Cosmos DB Connected Service in Visual Studio(video): [Use Azure Cosmos DB Connected Service in Visual Studio](https://go.microsoft.com/fwlink/?linkid=858711)
 
 ## Next Steps
 In this document, you've learned following items:
 
 > [!div class="checklist"]
 > * Create an Azure Cosmos DB account
-> * Add ConnectedService and add account
+> * Add Connected Service and add account
 > * Open Azure Cosmos DB Explorer
 > * Use Data Explorer
 
