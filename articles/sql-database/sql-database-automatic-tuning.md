@@ -25,6 +25,8 @@ Azure SQL Database is a fully managed data service that monitors the queries tha
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure-in-the-Enterprise/Enabling-Azure-SQL-Database-Auto-Tuning-at-Scale-for-Microsoft-IT/player]
 >
 
+## Automatic tuning options
+
 [Automatic tuning](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning) options available in Azure SQL Database are:
  1. **CREATE INDEX** that identifies the indexes that may improve performance of your workload, creates the indexes, and verifies that they improve performance of the queries.
  2. **DROP INDEX** that identifies redundant and duplicate indexes, and indexes that were not used in the long period of time.
@@ -40,5 +42,5 @@ See this article for the steps to [enable automatic tuning](sql-database-automat
 
 - To enable automatic tuning in Azure SQL Database and let automatic tuning feature fully manage your workload, see [Enable automatic tuning](sql-database-automatic-tuning-enable.md).
 - To use manual tuning, you can review [Tuning recommendations in Azure portal](sql-database-advisor-portal.md) and manually apply the ones that improve performance of your queries.
-- Read more about built-in intelligence that tunes the [Azure SQL Database](https://azure.microsoft.com/en-us/blog/artificial-intelligence-tunes-azure-sql-databases/).
+- Read more about built-in intelligence that tunes the [Azure SQL Database](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/).
 - Read more about [Automatic tuning](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning) in Azure SQL Database and SQL Server 2017.
