@@ -174,9 +174,11 @@ Now that the code is complete, you can use the Azure Function's local debugging 
 
    ![Set the endpoint and authorization key in the local.settings.json file](./media/tutorial-functions-http-trigger/07-local-functions-settings.png)
 
-2. Before you run the app, change the StartUp project to the new Functions app. In Solution Explorer, right-click PeopleDataFunctions, and select Set as StartUp Project.
+2. Change the StartUp project to the new Functions app. In **Solution Explorer**, right-click **PeopleDataFunctions**, and select **Set as StartUp Project**.
 
-3. After you configure the Azure Function app with your Azure Cosmos DB endpoint and authorization key so that it knows how to find your Azure Cosmos DB database, press F5 to launch the local debugging tool, func.exe, with the Azure Function code hosted and ready for use.
+3. In **Solution Explorer**, right click **Dependencies** in the **PeopleDataFunctions** project, and then click **Add Reference**. From the list, select System.Configuration and then click **OK**.
+
+3. Now let's run the app. Press F5 to launch the local debugging tool, func.exe, with the Azure Function code hosted and ready for use.
 
    At the end of the initial output from func.exe, we see that Azure Function is being hosted at localhost:7071. This is helpful to test it in a client.
 
@@ -216,25 +218,43 @@ After the Azure Function is validated and seems to be working properly, the last
 
    ![Create a new Azure Function app](./media/tutorial-functions-http-trigger/13-publish-panel.png)
 
-   The **Publish** panel opens next, allowing you to name your Azure Function. We'll opt for creating a new Consumption-based App Service Plan because we intend to use the pay-per-use billing method for the serverless Azure Function. 
+3. In the **Publish** dialog, complete the following steps as shown in the following image.
+   
+    In **App Name**, give the function a unique name.
 
-   In addition, we'll create a new Storage Account to use with the Azure Function in case we ever need support for Blobs, Tables, or Queues to trigger execution of other functionality.
+    In **Subscription**, select the Azure subscription to use.
+   
+    In **Resource Group**, create a new resource group and use the same name as the app name.
+   
+    For **App Service Plan**, click **New** to create a new Consumption-based App Service Plan because we intend to use the pay-per-use billing method for the serverless Azure Function. Use the defaults on the **Configure App Service Plan** page, and then click **OK**.
+   
+    For **Storage Account**, also click **New** to create a new Storage Account to use with the Azure Function in case we ever need support for Blobs, Tables, or Queues to trigger execution of other functionality. Use the defaults on the **Storage Account** page, and then click **OK**.
 
-3. Click the **Create** button in the dialog to create all the resources in your Azure subscription. Then, Visual Studio will download a publish profile (a simple XML file) that it will use the next time you publish your Azure Function code.
+    Then click the **Create** button in the dialog to create all the resources in your Azure subscription. Visual Studio downloads a publish profile (a simple XML file) that it uses the next time you publish your Azure Function code.
 
    ![Create the Storage account](./media/tutorial-functions-http-trigger/14-new-function-app.png)
 
-4. After the Azure Function is published, you can go to the Azure portal blade for your Azure Function. There, you can see a link to the Azure Function's **Application settings**. You'll need to go here, as this is where you'll configure the live Azure Function for connectivity to the Azure Cosmos DB database with your Person data.
+    Visual Studio then displays a Publish page that you can use if you make changes to the Function and need to republish it. You don't have to take any action on that page now.
+
+4. After the Azure Function is published, you can go to the [Azure portal](https://portal.azure.com/) blade for your Azure Function. There, you can see a link to the Azure Function's **Application settings**. You'll need to go here, as this is where you'll configure the live Azure Function for connectivity to the Azure Cosmos DB database with your Person data.
 
    ![Review application settings](./media/tutorial-functions-http-trigger/15-function-in-portal.png)
 
-5. Just as you did earlier in the console application's App.config file and in the Azure Function app's local.settings.json file, you'll need to configure the published Azure Function with the Endpoint and AuthKey values appropriate for your Azure Cosmos DB database. This way, you never have to check in configuration code that contains your keys - you can configure them in the portal and be sure they're not stored in source control.
+5. Just as you did earlier in the console application's App.config file and in the Azure Function app's local.settings.json file, you'll need to add the  Endpoint and AuthKey to the Azure Cosmos DB database to the published function. This way, you never have to check in configuration code that contains your keys - you can configure them in the portal and be sure they're not stored in source control. To add each value, click the **Add new setting** button, add **Endpoint** and your value from app.config, then click **Add new setting** again and add **AuthKey** and your custom value. Once you've added and saved the values, your settings should look like the following.
 
    ![Configure Endpoint and AuthKey](./media/tutorial-functions-http-trigger/16-app-settings.png)
 
-6. Once the Azure Function is configured properly in your Azure subscription, you can again use the Visual Studio Code REST Client extension to query the publicly available Azure Function URL, which is https://peoplesearchfunction.azurewebsites.net for this function.
+6. Once the Azure Function is configured properly in your Azure subscription, you can again use the Visual Studio Code REST Client extension to query the publicly available Azure Function URL. Add these two lines of code to the test-function-locally.http and then run each line to test this function. Replace the name of the function in the URL with the name of your function.
 
-  ![Use the REST client to query the Azure Function](./media/tutorial-functions-http-trigger/17-calling-function-from-code.png)
+    ```javascript
+    get https://peoplesearchfunction.azurewebsites.net/api/Search
+
+    get https://peoplesearchfunction.azurewebsites.net/api/Search?name=thomas
+    ```
+
+    The function responds with the data retrieved from the Azure Cosmos DB.
+
+    ![Use the REST client to query the Azure Function](./media/tutorial-functions-http-trigger/17-calling-function-from-code.png)
 
 
 ## Next steps
