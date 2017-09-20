@@ -24,11 +24,6 @@
       items:
         - name: Quickstart - Create container instance
           href: https://docs.microsoft.com/en-us/azure/container-instances/container-instances-quickstart
-          items:
-            - name: Overview - Introduction to Azure Container Service for Kubernetes
-              href: https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-intro-kubernetes
-            - name: Quickstart - Deploy Kubernetes cluster for Linux containers
-              href: https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-kubernetes-walkthrough
         - name: Tutorial - Build and deploy a container
           items:
             - name: 1 - Create container image
