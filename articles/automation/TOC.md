@@ -70,9 +70,9 @@
 ### [Deploy an Azure Resource Manager template in an Azure Automation PowerShell runbook](automation-deploy-template-runbook.md)
 ## Solutions
 ### [Update Management](../operations-management-suite/oms-solution-update-management.md)
-### [Change Tracking](../log-analytics/log-analytics-change-tracking.md)
-### [Track changes in your virtual machines](automation-vm-change-tracking.md)
-### [Manage a virtual machine with inventory collection](automation-vm-inventory.md)
+### [Change tracking](../log-analytics/log-analytics-change-tracking.md)
+### [Track changes in your VMs](automation-vm-change-tracking.md)
+### [Manage a VM with inventory collection](automation-vm-inventory.md)
 ### [Start/stop VMs during off-hours](automation-solution-vm-management.md)
 ## Monitor
 ### [Forward Azure Automation job data to Log Analytics](automation-manage-send-joblogs-log-analytics.md)

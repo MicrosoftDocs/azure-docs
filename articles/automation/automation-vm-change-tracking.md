@@ -1,5 +1,5 @@
 ---
-title: Track changes in your virtual machines | Microsoft Docs
+title: Track changes in your Azure virtual machines | Microsoft Docs
 description: Use Change tracking to track changes in files and registry on your virtual machines 
 services: automation
 documentationcenter: automation
@@ -19,7 +19,7 @@ ms.author: eslesar
 ms.custom:  
 ---
 
-# Track changes in your virtual machines
+# Track changes in your Azure virtual machines
 
 By enabling change tracking, you can track changes to files and Windows registry keys on your virtual machines. . Identifying configuration changes can help you pinpoint operational issues.
 
@@ -58,7 +58,7 @@ A status bar notifies you that the solution is being enabled. This process can t
 
 After change tracking is enabled, the **Change tacking** screen appears. Choose which files and registry keys to track by clicking **Edit settings**.
 
-    ![Change tracking edit settings](./media/automation-vm-change-tracking/change-edit-settings.png)
+![Change tracking edit settings](./media/automation-vm-change-tracking/change-edit-settings.png)
 
 The **Workspace Configuration** screen opens. Click **Add** on the appropriate tab to add Windows registry keys, Windows files, or Linux files to be tracked.
 
