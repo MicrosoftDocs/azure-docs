@@ -35,15 +35,13 @@ Make sure you have the following items:
 * [Visual Studio](http://www.visualstudio.com/).
 * Install the latest Azure Cosmos DB Connected Service bits. You can download Azure Cosmos DB connected service from Visual Studio marketplace according to below screen shot. Or you can install it from [Visual Studio Marketplace](https://go.microsoft.com/fwlink/?linkid=858709). Open **Visual Studio** in your computer. On the **Tools** menu, select **Extensions and update...**, and then choose **Online** / **Visual Studio Marketplace**. Enter **cosmosdb** to search the bits.
 
- ![Screen shot of Connected Service download bits.png](./media/connected-service/connected-service-downloadbits.png)
-
+ ![Screen shot of Connected Service download bits.png](./media/connected-service/connected-service-downloadbits.png) 
 ## <a id="SetupVS"></a>Set up your Visual Studio solution
 1. Open **Visual Studio** in your computer.
 2. On the **File** menu, select **New**, and then choose **Project**.
 3. In the **New Project** dialog, select **Visual C#** / **Console App (.NET Framework)** or **WPF App (.NET Framework)**, name your project, and then click **OK**.
 
     ![Screen shot of the New Project window](./media/connected-service/connected-service-new-project.png)
-
 ## Add Connected Service and add account
 1. Right click on the Project node, then select **Add** / **Connected Service**. Or click on the **Project** menu, and then select **Add Connected Service**.
 
