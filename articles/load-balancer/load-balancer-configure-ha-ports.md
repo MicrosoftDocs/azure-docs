@@ -63,13 +63,6 @@ At Step # 4 of [Creating an internal Load Balancer Set](load-balancer-get-starte
 azure network lb rule create --resource-group contoso-rg --lb-name contoso-ilb --name haportsrule --protocol all --frontend-port 0 --backend-port 0 --frontend-ip-name feilb --backend-address-pool-name beilb
 ```
 
-### Configure HA Ports LB Rule via Resource Manager Template
-
-The sample template available in the public repository uses a parameter file containing the default values used to generate the scenario described in this article. To deploy this template using click to deploy, follow [this link](http://<github link for template>), click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal.
-
-For instructions on how to deploy this template via PowerShell or CLI, see [Create an internal load balancer using a template](load-balancer-get-started-ilb-arm-template.md).
-
-
 ## Next steps
 
 - Learn more about [high availability ports](load-balancer-ha-ports-overview.md)
