@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: cynthn
+ROBOTS: NOINDEX
 
 ---
 
