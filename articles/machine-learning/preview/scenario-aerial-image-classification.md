@@ -25,9 +25,9 @@ The public GitHub repository for this real world scenario contains all materials
 
 ## Use case description
 
-In this scenario, we train deep neural networks (DNNs) to classify the type of land shown in aerial images of 224-meter x 224-meter plots. Land use classification models can be used to track urbanization, deforestation, loss of wetlands, and other major environmental trends using periodically collected aerial imagery. We have prepared training and validation image sets based on imagery from the U.S. National Agriculture Imagery Program and land use labels published by the U.S. National Land Cover Database. Example images in each land use class are shown below:
+In this scenario, we train machine learning models to classify the type of land shown in aerial images of 224-meter x 224-meter plots. Land use classification models can be used to track urbanization, deforestation, loss of wetlands, and other major environmental trends using periodically collected aerial imagery. We have prepared training and validation image sets based on imagery from the U.S. National Agriculture Imagery Program and land use labels published by the U.S. National Land Cover Database. Example images in each land use class are shown below:
 
-![Example regions for each land use label](media/scenario-aerial-image-classification/example-labels.png)
+![Example regions for each land use label](media/scenario-aerial-image-classification/example-labels.PNG)
 
 After training and validating the classifier model, we will apply it to aerial images spanning Middlesex County, MA -- home of Microsoft's New England Research & Development (NERD) Center -- to demonstrate how these models can be used to study trends in urban development.
 
@@ -37,7 +37,7 @@ To produce an image classifier using transfer learning, data scientists often co
 
 In this example, image data and pretrained models are housed in an Azure storage account. An Azure HDInsight Spark cluster reads these files and constructs an image classification model using MMLSpark. The trained model and its predictions are then written to the storage account, where they can be analyzed and visualized by a Jupyter notebook running locally. Azure Machine Learning Workbench coordinates remote execution of scripts on the Spark cluster. It also tracks accuracy metrics for multiple models trained using different methods, allowing the user to select the most performant model.
 
-![Schematic for the aerial image classification real world scenario](media/scenario-aerial-image-classification/scenario-schematic.png)
+![Schematic for the aerial image classification real world scenario](media/scenario-aerial-image-classification/scenario-schematic.PNG)
 
 The [step-by-step instructions](https://github.com/MicrosoftDocs/azure-docs-pr/tree/release-ignite-aml-v2/articles/machine-learning/) begin by guiding you through the creation and preparation of an Azure storage account and Spark cluster, including data transfer and dependency installation. They then describe how to launch training jobs and compare the performance of the resulting models. Finally, they illustrate how to apply a chosen model to a large image set on the Spark cluster and analyze the prediction results locally.
 
@@ -53,7 +53,7 @@ The following instructions guide you through the process of setting up execution
 - [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md)
     - Follow the [quick start installation guide](./quick-start-installation.md) to install the program and create a workspace
 - [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy), a free utility for coordinating file transfer between Azure storage accounts
-
+    - Ensure that the folder containing the AzCopy executable is on your system's PATH environment variable. (Instructions on modifying environment variables are available [here](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp))
 This example was tested on a Windows 10 PC; you should be able to run it from any Windows machine, including Azure Data Science Virtual Machines. Minor modifications may be required (for example, changes to filepaths) when running this example on macOS.
 
 ### Set up Azure resources
@@ -115,12 +115,12 @@ We now create the storage account that hosts project files that must be accessed
     az storage account keys list --resource-group %AZURE_RESOURCE_GROUP% --account-name %STORAGE_ACCOUNT_NAME%
     ```
 
-    Record the value of `key1` where indicated in the following command, then run the command to store the value.
+    Record the value of `key1` as the storage key in the following command, then run the command to store the value.
     ```
     set STORAGE_ACCOUNT_KEY=[storage account key]
     ```
 1. In your favorite text editor, load the `settings.cfg` file from the Azure Machine Learning Workbench project's "Code" subdirectory, and insert the storage account name and key as indicated. Save and close the `settings.cfg` file.
-1. If you have not already done so, download and install the [AzCopy](http://aka.ms/downloadazcopy) utility.
+1. If you have not already done so, download and install the [AzCopy](http://aka.ms/downloadazcopy) utility. Ensure that the AzCopy executable is on your system path by typing "AzCopy" and pressing Enter to show its documentation.
 1. Issue the following commands to copy all of the sample data, pretrained models, and model training scripts to the appropriate locations in your storage account:
 
     ```
@@ -162,6 +162,7 @@ Once HDInsight cluster creation is complete, register the cluster as a compute t
 
     This command adds two files, `myhdi.runconfig` and `myhdi.compute`, to your project's `aml_config` folder.
 
+1. Open the `myhdi.compute` file in your favorite text editor. Modify the `yarnDeployMode: cluster` line to read `yarnDeployMode: client`, then save and close the file.
 1. Run the following command to prepare your environment for use:
    ```
    az ml experiment prepare -c myhdi
@@ -237,18 +238,6 @@ The "Model prediction analysis" Jupyter notebook in the "Code\04_Result_Analysis
 5. Click on "Cell -> Run All" to execute all cells in the notebook.
 6. Read along with the notebook to learn more about the analyses and visualizations it presents.
 
-## Conclusions
-
-Azure Machine Learning Workbench helps data scientists easily deploy their code on remote compute targets. In this example, local code was deployed for remote execution on an HDInsight cluster. Azure Machine Learning Workbench's run history feature tracked the performance of multiple models and helped us identify the most accurate model. Workbench's Jupyter notebooks feature helped visualize our models' predictions in an interactive, graphical environment.
-
-## Next steps
-To dive deeper into this example:
-- In Vienna's Run History feature, click the gear symbols to select which graphs and metrics are displayed.
-- Examine the sample scripts for statements calling the `run_logger`. Check that you understand how each metric is being recorded.
-- Examine the sample scripts for statements calling the `blob_service`. Check that you understand how trained models and predictions are stored and retrieved from the cloud.
-- Explore the contents of the containers created in your blob storage account. Ensure that you understand which script or command is responsible for creating each group of files.
-- Modify the training script to train a different MMLSpark model type or to change the model hyperparameters. Use the run history feature to determine whether your changes increased or decreased the model's accuracy.
-
 ## Cleanup
 When you have completed the example, we recommend that you delete all of the resources you have created by executing the following command from the Azure Command Line Interface:
 
@@ -262,3 +251,15 @@ When you have completed the example, we recommend that you delete all of the res
    - Describes dataset construction from freely available imagery and labels
 - [MMLSpark](https://github.com/Azure/mmlspark) GitHub repository
    - Contains additional examples of model training and evaluation with MMLSpark
+
+## Conclusions
+
+Azure Machine Learning Workbench helps data scientists easily deploy their code on remote compute targets. In this example, local code was deployed for remote execution on an HDInsight cluster. Azure Machine Learning Workbench's run history feature tracked the performance of multiple models and helped us identify the most accurate model. Workbench's Jupyter notebooks feature helped visualize our models' predictions in an interactive, graphical environment.
+
+## Next steps
+To dive deeper into this example:
+- In Azure Machine Learning Workbench's Run History feature, click the gear symbols to select which graphs and metrics are displayed.
+- Examine the sample scripts for statements calling the `run_logger`. Check that you understand how each metric is being recorded.
+- Examine the sample scripts for statements calling the `blob_service`. Check that you understand how trained models and predictions are stored and retrieved from the cloud.
+- Explore the contents of the containers created in your blob storage account. Ensure that you understand which script or command is responsible for creating each group of files.
+- Modify the training script to train a different MMLSpark model type or to change the model hyperparameters. Use the run history feature to determine whether your changes increased or decreased the model's accuracy.

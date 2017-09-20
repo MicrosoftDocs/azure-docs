@@ -13,7 +13,6 @@ ms.date: 09/11/2017
 ---
 # How to use Jupyter notebook in Azure Machine Learning Workbench
 
-## Introduction
 Azure Machine Learning Workbench supports interactive data science experimentation via its integration of Jupyter notebook. This article describes how to make effective use of this feature to increase the rate and the quality of your interactive data science experimentation.
 
 ## Prerequisites
