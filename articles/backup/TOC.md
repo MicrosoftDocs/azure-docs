@@ -5,13 +5,15 @@
 
 # Quickstarts
 
-## [Back up VMs - Portal](quick-backup-vm-portal.md)
-## [Back up VMs - PowerShell](quick-backup-vm-powershell.md)
-## [Back up VMs - CLI](quick-backup-vm-cli.md)
+## [Back up a VM - Portal](quick-backup-vm-portal.md)
+## [Back up a VM - PowerShell](quick-backup-vm-powershell.md)
+## [Back up a VM - CLI](quick-backup-vm-cli.md)
 
 # Tutorials
 
 ## [Back up Azure VMs at scale](tutorial-backup-azure-vm.md)
+## [Restore a disk](tutorial-restore-disk.md)
+## [Restore individual files](tutorial-restore-files.md)
 ## [Back up Windows Server to Azure](tutorial-backup-windows-server-to-azure.md)
 
 # Samples
