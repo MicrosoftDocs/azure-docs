@@ -22,7 +22,7 @@ ms.author: bryanla
 
 Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
-In this article, you learn how to enable and remove MSI for an Azure Windows VM, using PowerShell.
+In this article, you learn how to enable and remove MSI for an Azure VM, using PowerShell.
 
 ## Prerequisites
 
@@ -32,7 +32,15 @@ Also, install [Azure PowerShell version 4.3.1](https://www.powershellgallery.com
 
 ## Enable MSI during creation of an Azure VM
 
-A new MSI-enabled Windows Virtual Machine resource is created in a new resource group, using the specified configuration parameters. Also note that many these cmdlets can run 30 seconds or more before returning, with the final VM creation taking several minutes to complete.
+To create your VM, refer to one of the following Azure VM Quickstarts, completing only the necessary sections ("Log in to Azure", "Create resource group", "Create networking group", "Create the VM"). 
+
+> [!IMPORTANT] 
+> When you get to the "Create the VM" section, make a slight modification to the [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvm) cmdlet. Be sure to add the `-IdentityType "SystemAssigned"` parameter, which allows the VM to be provisioned with an MSI.
+>  
+> `$vmConfig = New-AzureRmVMConfig -VMName myVM -IdentityType "SystemAssigned" ...`
+
+  - [Create a Windows virtual machine using PowerShell](../virtual-machines/windows/quick-create-powershell.md)
+  - [Create a Linux virtual machine using PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
 1. Sign in to Azure using `Login-AzureRmAccount`. Use an account that is associated with the Azure subscription under which you would like to deploy the VM.
 
@@ -142,7 +150,10 @@ If you have a Virtual Machine that no longer needs an MSI, you can use the `Remo
 ## Related content
 
 - [Managed Service Identity overview](msi-overview.md)
-- This article is adapted from the [Create a Windows virtual machine with PowerShell](../virtual-machines/windows/quick-create-powershell.md) QuickStart, modified to include MSI-specific instructions. 
+- This article is adapted from the following articles, modified to include MSI-specific instructions:
+  
+  - [Create a Windows virtual machine with PowerShell](../virtual-machines/windows/quick-create-powershell.md) 
+  - [Create a Linux virtual machine with PowerShell](../virtual-machines/linux/quick-create-powershell.md) 
 
 Use the following comments section to provide feedback and help us refine and shape our content.
 
