@@ -36,7 +36,7 @@ Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.co
   * You can choose from three different **pricing tiers** in Log Analytics, but for this quickstart you are going to select the **free** tier.  For additional information about the particular tiers, see [Log Analytics Pricing Details](https://azure.microsoft.com/pricing/details/log-analytics/).
 
         ![Create Log Analytics resource blade](./media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-01.png)<br>  
-3. After providing the required information on the **OMS Workspace** blade, click **OK**.  
+3. After providing the required information on the **OMS Workspace** pane, click **OK**.  
 
 While the information is verified and the workspace is created, you can track its progress under **Notifications** from the menu. 
 
