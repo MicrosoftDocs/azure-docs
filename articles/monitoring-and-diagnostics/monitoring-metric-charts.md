@@ -1,4 +1,4 @@
----
+m---
 title:  Azure Monitor Metrics Explorer | Microsoft Docs
 description: Learn about new features in Azure Monitor Metrics Explorer
 author: vgorbenko
@@ -41,7 +41,7 @@ The example below illustrates two datasets for a hypothetical metric called "Net
 ### Network Throughput
 (This metric has no dimensions)
 
- |Timestamp        | Metric Value | 
+ | Timestamp        | Metric Value | 
    | ------------- |:-------------| 
    | 8/9/2017 8:14 | 1,331.8 Kbps | 
    | 8/9/2017 8:15 | 1,141.4 Kbps |
