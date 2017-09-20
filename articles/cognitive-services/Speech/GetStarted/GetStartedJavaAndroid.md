@@ -28,7 +28,7 @@ Download the [Bing Speech API client library for Android](https://github.com/mic
 ### Subscribe to the Bing Speech API, and get a free-trial subscription key 
 Before you create the example, you must subscribe to the Bing Speech API, which is part of Microsoft Cognitive Services on Azure. Select the yellow **Try for free** button on one of the offered services, in this case Speech API, and follow the directions. 
 
-For subscription and key management details, see [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up). Both the primary and secondary key can be used in this tutorial. 
+For subscription and key management details, see [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up). Both the primary and secondary keys can be used in this tutorial. 
 
 ## Step 1: Install the example application, and create the application framework
 
@@ -47,7 +47,7 @@ Create an Android application project to implement use of the Bing Speech API.
 
     a. Go to **Bin** > **SpeechSDK**, and copy the **speechsdk.jar** file to the **your-application\app\libs** folder.
 
-    b. Right-click "**app**" in the project tree, and select **Open module settings**. Select the **Dependencies** tab, and select **+** to add a **File dependency**.
+    b. Right-click **app** in the project tree, and select **Open module settings**. Select the **Dependencies** tab, and select **+** to add a **File dependency**.
 
     c. In the **Select Path** dialog box, select **libs\speechsdk.jar**.
 
@@ -112,7 +112,7 @@ void initializeRecoClient()
 ### Create a client
 Create one of the following clients:
 
-* **DataRecognitionClient**. Speech recognition with PCM data, for example, from a file or audio source. The data is broken up into buffers, and each buffer is sent to the speech recognition service. No modification is done to the buffers, so the user can apply their own silence detection if desired. If the data is provided from wave files, you can send data from the file directly to the server. If you have raw data, for example, audio coming over Bluetooth, you first send a format header to the server followed by the data.
+* **DataRecognitionClient**. Speech recognition with PCM data, for example, from a file or audio source. The data is broken up into buffers, and each buffer is sent to the speech recognition service. No modification is done to the buffers, so the user can apply their own silence detection if desired. If the data is provided from wave files, you can send data from the file directly to the server. If you have raw data--for example, audio coming over Bluetooth--you first send a format header to the server, followed by the data.
 
 * **MicrophoneRecognitionClient**. Speech recognition with audio coming from the microphone. Make sure the microphone is turned on. Data from the microphone is sent to the speech recognition service. A built-in silence detector is applied to the microphone data before it's sent to the recognition service.
 
@@ -138,7 +138,7 @@ zh-CN    |   en-AU  | en-CA  |    sv-SE
 You also need to provide the recognition mode: 
 
 * **ShortPhrase mode**. An utterance up to 15 seconds long. As data is sent to the service, the client receives multiple partial results and one final multiple n-best choice result.
-* **LongDictation mode:** An utterance up to two minutes long. As data is sent to the service, the client receives multiple partial results and multiple final results, based on where the server identifies sentence pauses.
+* **LongDictation mode**. An utterance up to two minutes long. As data is sent to the service, the client receives multiple partial results and multiple final results, based on where the server identifies sentence pauses.
 
 ### Attach an event handler
 From the created client, you can attach various event handlers:
