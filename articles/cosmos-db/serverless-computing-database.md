@@ -47,7 +47,7 @@ The Azure Cosmos DB trigger, input binding, and output binding can be used in th
 
 The following use cases demonstrate a few ways you can make the most of your Azure Cosmos DB data - by connecting your data to event-driven Azure Functions.
 
-### IoT use case - Azure Cosmos DB trigger
+### IoT use case - Azure Cosmos DB trigger and output binding
 
 In IoT implementations, you can invoke a function when the check engine light is displayed in a connected car.
 
