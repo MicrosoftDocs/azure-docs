@@ -27,103 +27,90 @@ This page provides information on using Azure SQL Database performance diagnosti
 
 Diagnostics log uses JSON standard format to output Intelligent insights findings. The exact category property for accessing Intelligent Insights log is a fixed value &#8220;**SQLInsights**&#8221;.
 
-The header of the log is common and consists of the timestamp (time) when an entry was created including a resource ID (resourceId) referring to a particular Azure SQL Database the entry relates to. Category (category), level (level), and operation name (operationName) are fixed properties whose value does not change – they indicate that the log entry is informational and that it comes from the Intelligent Insights (SQLInsights). 
+The header of the log is common and consists of the timestamp (TimeGenerated) when an entry was created including a resource ID (ResourceId) referring to a particular Azure SQL Database the entry relates to. Category (Category), level (Level), and operation name (OperationName) are fixed properties whose value does not change – they indicate that the log entry is informational and that it comes from the intelligent insights (SQLInsights).
 
 ```json
-"time" : "2017-9-25 11:00:00", // time stamp of the log entry
-"resourceId” : "database identifier", // value points to a database resource
-"category": "SQLInsights", // fixed property
-"level" : "Informational", // fixed property
-"operationName" : "Insight", // fixed property
+"TimeGenerated" : "2017-9-25 11:00:00", // time stamp of the log entry
+"ResourceId" : "database identifier", // value points to a database resource
+"Category": "SQLInsights", // fixed property
+"Level" : "Informational", // fixed property
+"OperationName" : "Insight", // fixed property
 ```
 
 ## Issue ID and database affected
 
-The issue identification property (IssueId) provides a way of uniquely tracking performance issues until resolved. Intelligent Insights observes each issue lifecycle as: Active, Verifying, and Completed. Through each of these status phases Intelligent insights can record multiple event records in the log, and for each of these entries the issue ID number remains unique. Intelligent Insights tracks the issue through its lifecycle and generate an insight in the diagnostic log every 15 minutes. 
+The issue identification property (issueId_d) provides a way of uniquely tracking performance issues until resolved. Intelligent Insights observes each issue lifecycle as: Active, Verifying, and Completed. Through each of these status phases Intelligent insights can record multiple event records in the log, and for each of these entries the issue ID number remains unique. Intelligent Insights tracks the issue through its lifecycle and generate an insight in the diagnostic log every 15 minutes.
 
-Once a performance issue is detected and as long as it lasts, the issue is reported as Active under the status (Status) property. Once an issue detected is mitigated, it is being verified until it is resolved upon which it is reported as Verified under the status (Status) property. In the case a detected issue has been fully resolved and verified as resolved, the status (Status) property reports this issue as Completed. 
+Once a performance issue is detected and as long as it lasts, the issue is reported as “Active” under the status (Status) property. Once an issue detected is mitigated, it is being verified and reported as “Verifying” under the status (Status) property. In the case the issue is no longer present, the status (Status) property reports this issue as “Completed”.
+Along with the Issue ID, the diagnostics log reports the start (intervalStartTime_t) and end (intervalEndTme_t) timestamps of the particular event related to an issue reported in the diagnostic log.
 
-Along with the Issue ID, the diagnostics log reports the start (intervalStartTime) and end (intervalEndTime) timestamps of the particular event related to an issue reported in the diagnostic log.
-
-Property elastic pool (ElesticPool) indicates to which elastic pool the database with an issue belongs. If the database is not part of an elastic pool, this property has no value. Database on which an issue has been detected is disclosed in the database name (DatabaseName) property. 
+Property elastic pool (elasticPoolName_s) indicates to which elastic pool the database with an issue belongs. If the database is not part of an elastic pool, this property has no value. Database on which an issue has been detected is disclosed in the database name (databaseName_s) property.
 
 ```json
 "intervalStartTime_t": "2017-9-25 11:00", // start of the issue reported timestamp
 "intervalEndTme_t":"2017-9-25 12:00", // end of the issue reported timestamp
-"ElasticPool" : "", // resource elastic pool (if applicable) 
+"elasticPoolName_s" : "", // resource elastic pool (if applicable) 
 "databaseName_s" : "db_name",  // database name
 "issueId_d" : 1525, // unique ID of the issue detected
-"Status" : "Active" // status of the issue – possible values: Active, Verifying and Complete
+"status_s" : "Active" // status of the issue – possible values: Active, Verifying and Complete
 ```
 
 ## Detected issues
 
-Next section of the Intelligent insights performance log contains detected performance issues through the built-in artificial intelligence. Detections are disclosed within the JSON property detections consisting of category of an issue, impact of the issues, queries affected and metrics. It should be noted that detections property might contain multiple performance issues detected.
+Next section of the Intelligent insights performance log contains performance issues detected through the built-in artificial intelligence. Detections are disclosed within the JSON property detections consisting of category of an issue, impact of the issues, queries affected and metrics. It should be noted that detections property might contain multiple performance issues detected.
 
-Detected performance issues are reported with the following Detections property structure:
+Detected performance issues are reported with the following detections property structure:
 
 ```json
 "detections_s" : [{
 "impact" : 1 to 3, // impact of the issue detected, possible values 1-3 (1 low, 2 moderate, 3 high impact)
-"category" : "Category name", // type of performance issue detected (see the following table)
-"details": < Details of an issue > // details of an issue (see the following table)
+"category" : "Detectable performance patterns", // type of performance issue detected (see the following table)
+"details": <Details outputted> // details of an issue (see the table)
 }] 
 ```
 
-The category name and details of an issue are provided in the following table.
+Detectable performance patterns and details outputted to diagnostics log are provided in the table below.
 
-### Category and details
+### Detectable performance patterns
 
-Category (category) property describes categorization of a database performance issue detected. See the following table for all possible categories of detectable performance issues. Further details are available at the [Troubleshoot database performance issues with Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md) page.
+Category (category) property describes categorization of a detectable performance patterns. See the following table for all possible categories of detectable performance patterns. Further details are available at the [Troubleshoot database performance issues with Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md) page.
 
-Depending on the performance issue category detected, parameters outputted in the diagnostics log file differ accordingly.
+Depending on the performance issue detected, details outputted in the diagnostics log file differ accordingly.
 
-| Category name - performance issue | Details - parameters outputted |
-| :------------------- | ------------------- |
-| Reaching Resource Limits | Resources affected |
-| | Query hashes |
-| | Resource consumption percentage |
-| Workload Increase | Number of queries whose execution increased
-| | Query with the largest contribution to increase |
-| Memory Pressure | Object store details |
-| Locking | Locking details |
-| Increased MAXDOP | Query hashes |
-| | CXP wait times |
-| | Wait times |
-| Pagelatch Contention | Page latch contention details |
-| Missing Index | Query hashes |
-| New Query | New query details |
-| Unusual Wait Statistic | Unusual wait times details |
-| | Query hashes |
-| | Query wait times |
-| TempDB Contention | Temporary database contention details |
-| Elastic Pool DTU Shortage | Elastic Pool
-| | Top DTU Consuming Database |
-| | Percent of pool DTU used by the top consumer |
-| Plan Regression | Query hash |
-| | Good plan IDs |
-| | Bad plan IDs |
-| | Query IDs |
-| Database Scoped Configuration Value Change | DB scoped configuration changes compared to the default values |
-| Slow Client | Query hashes |
-| | Wait times |
-| Pricing Tier Downgrade | Text notification |
+| Detectable performance patterns | Details outputted |
+| :------------------- | :------------------- |
+| Reaching Resource Limits | <li>Resources affected</li><li>Query hashes</li><li>Resource consumption percentage</li> |
+| Workload Increase | <li>Number of queries whose execution increased</li><li>Query hashes of queries with the largest contribution to the workload increase</li> |
+| Memory Pressure | <li>Memory clerk</li> |
+| Locking | <li>Blocking query hashes</li><li>Query hashes</li> |
+| Increased MAXDOP | <li>Query hashes</li><li>CXP wait times</li><li>Wait times</li> |
+| Pagelatch Contention | <li>Query hashes</li> |
+| Missing Index | <li>Query hashes</li> |
+| New Query | <li>Query hash</li> |
+| Unusual Wait Statistic | <li>Unusual wait types</li><li>Query hashes</li><li>Query wait times</li> |
+| TempDB Contention | <li>Query hashes</li><li>Query attribution to the overall database pagelatch contention wait time [ percentage ]</li> |
+| Elastic Pool DTU Shortage | <li>Elastic Pool</li><li>Top DTU Consuming Database</li><li>Percent of pool DTU used by the top consumer</li> |
+| Plan Regression | <li>Query hash</li><li>Good plan IDs</li><li>Bad plan IDs</li><li>Query hashes</li> |
+| Database Scoped Configuration Value Change | <li>DB scoped configuration changes compared to the default values</li> |
+| Slow Client | <li>Query hashes</li><li>Wait times</li> |
+| Pricing Tier Downgrade | <li>Text notification</li> |
+|||
 
 ### Impact
 
-Impact (impact) property describes how much a detected behavior contributed to the problem database is having, ranging from 1 to 3, whereas 3 is the highest contribution, 2 is moderate, and 1 is the lowest contribution. The impact value might be used as an input for custom alerting automation, depending on your specific needs. Property queries impacted (queries_impacted) provides a list of query hashes that were affected by a particular detection.
+Impact (impact) property describes how much a detected behavior contributed to the problem database is having, ranging from 1 to 3, whereas 3 is the highest contribution, 2 is moderate, and 1 is the lowest contribution. The impact value might be used as an input for custom alerting automation, depending on your specific needs. Property queries impacted (QueryHashes) provides a list of query hashes that were affected by a particular detection.
 
 ### Impacted queries
 
-Next section of intelligent insights log provides information about particular queries that were affected by the detected performance issues. This information is disclosed as an array of objects embedded in the impact property. Impact property consists of entities and metrics. Entities refer to a particular query (type: Query) and unique query hash disclosed under the property value (Value). In addition, each of the queries disclosed is followed by a metric and a value, indicating a detected performance issue.
+Next section of intelligent insights log provides information about particular queries that were affected by the detected performance issues. This information is disclosed as an array of objects embedded in the impact_s property. Impact property consists of entities and metrics. Entities refer to a particular query (type: Query) and unique query hash disclosed under the property value (Value). In addition, each of the queries disclosed is followed by a metric and a value, indicating a detected performance issue.
 
-In the following log example, it can be noted that the query with the hash 0X0000001 was detected to have an increased duration of execution (metric: DurationIncreaseSeconds) with the value of 110 seconds – indicating that this particular query took 110 seconds longer to execute. It should be noted that multiple queries can be detected due to which this particular log section may include multiple query entries.
+In the following log example, it can be noted that the query with the hash 0x9102EXZ4 was detected to have an increased duration of execution (metric: DurationIncreaseSeconds) with the value of 110 seconds – indicating that this particular query took 110 seconds longer to execute. It should be noted that multiple queries can be detected due to which this particular log section may include multiple query entries.
 
 ```json
 "impact" : [{
 "entity" : { 
 "Type" : "Query", // type of entity - query
-"Value" : "query hash value", // example of a query hash value - 0X0000001 },
+"Value" : "query hash value", // for example "0x9102EXZ4" query hash value },
 "Metric" : "DurationIncreaseSeconds", // measured metric and the measurement unit (in this case seconds)
 "Value" : 110 // value of the measured metric (in this case seconds)
 }]
@@ -131,23 +118,23 @@ In the following log example, it can be noted that the query with the hash 0X000
 
 ### Metrics
 
-The unit of measurement for each metric reported is provided under the metric (Metric) property with the possible values: seconds, number and percentage. Value of a measured metric is reported in the value (Value) property. 
+The unit of measurement for each metric reported is provided under the metric (metric) property with the possible values: seconds, number and percentage. Value of a measured metric is reported in the value (value) property.
 
-DurationIncreaseSeconds property provides unit of measurement in seconds, and for CriticalErrorCount the unit of measurement is a number representing an error count. 
+DurationIncreaseSeconds property provides unit of measurement in seconds, and for CriticalErrorCount the unit of measurement is a number representing an error count.
 
 ```json
-"Metric" : "DurationIncreaseSeconds", // issue metric type – possible values: DurationIncreaseSeconds, CriticalErrorCount, WaitingSeconds
-"Value" : 102 // value of the measured metric (in this case seconds)
+"metric" : "DurationIncreaseSeconds", // issue metric type – possible values: DurationIncreaseSeconds, CriticalErrorCount, WaitingSeconds
+"value" : 102 // value of the measured metric (in this case seconds)
 ```
 
 ## Root cause analysis and improvement recommendations
 
-The last part of the Intelligent insights performance log pertains to the automated root cause analysis of identified performance degradation issue in a human-friendly verbiage through the root cause analysis (rootCauseAnalysis) property. Improvement recommendations are included in the verbiage recorded in the log in cases where this is possible. 
+The last part of the Intelligent insights performance log pertains to the automated root cause analysis of identified performance degradation issue in a human-friendly verbiage through the root cause analysis (rootCauseAnalysis_s) property. Improvement recommendations are included in the verbiage recorded in the log in cases where this is possible.
 
 ```json
 // example of reported root cause analysis of the detected performance issue, in a human-readable format
 
-"rootCauseAnalysis" : "High data IO caused performance to degrade. It seems that this database is missing some indexes that could help."
+"rootCauseAnalysis_s" : "High data IO caused performance to degrade. It seems that this database is missing some indexes that could help."
 ```
 
 Intelligent insights performance log can be used with [Azure Log Analytics]( https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql) or a third-party solution for custom DevOps alerting and reporting capabilities.
