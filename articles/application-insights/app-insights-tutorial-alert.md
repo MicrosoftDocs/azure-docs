@@ -4,7 +4,7 @@ description: Tutorial to send alerts in response to errors in your application u
 keywords:
 author: bwren
 ms.author: bwren
-ms.date: 09/19/2017
+ms.date: 09/20/2017
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: article
@@ -80,7 +80,7 @@ In addition to sending alerts from an availability test, you can create an alert
 	![Add alert rule](media/app-insights-tutorial-alert/add-alert-02.png)
 
 
-## Create a Logic App to mail reports
+## Proactively send information
 Alerts are created in reaction to a particular set of issues identified in your application, and you typically reserve alerts for critical conditions requiring immediate attention.  You can proactively receive information about your application with a Logic App that runs automatically on a schedule.  For example, you could have a mail sent to administrators daily with summary information that requires further evaluation.
 
 For details on creating a Logic App with Application Insights, see [Automate Application Insights processes by using Logic Apps](automate-with-logic-apps.md)
