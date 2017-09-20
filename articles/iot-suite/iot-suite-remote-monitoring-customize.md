@@ -56,14 +56,67 @@ The Java solution currently uses the .NET authentication, simulation, and revers
 
 The following sections describe options to customize the presentation and visualizations layer in the remote monitoring solution:
 
-<!--
 ### Change the logo in the UI
 
 The default deployment uses the Contoso company name and logo in the UI. To change these UI elements to display your company name and logo:
 
-1. Step 1
+1. Use the following command to clone the Web UI repository:
 
-1. Step 2
+    ```cmd/sh
+    git clone https://github.com/Azure/pcs-remote-monitoring-webui.git
+    ```
+
+1. To change the company name, open the `src/common/lang.js` file in a text editor.
+
+1. Locate the following line in the file:
+
+    ```js
+    CONTOSO: 'Contoso',
+    ```
+
+1. Replace `Contoso` with the name of your company. For example:
+
+    ```js
+    CONTOSO: 'YourCo',
+    ```
+
+1. Save the file.
+
+1. To update the logo, add a new SVG file to the `assets/icons` folder. The existing logo is the `assets/icons/Contoso.svg` file.
+
+1. Open the `src/components/layout/leftNav/leftNav.js` file in a text editor.
+
+1. Locate the following line in the file:
+
+    ```js
+    import ContosoIcon from '../../../assets/icons/Contoso.svg';
+    ```
+
+1. Replace `Contoso.svg` with the name of your logo file. For example:
+
+    ```js
+    import ContosoIcon from '../../../assets/icons/YourCo.svg';
+    ```
+
+1. Locate the following line in the file:
+
+    ```js
+    alt="ContosoIcon"
+    ```
+
+1. Replace `ContosoIcon` with your `alt` text. For example:
+
+    ```js
+    alt="YourCoIcon"
+    ```
+
+1. Save the file.
+
+1. To test the changes, see the [Azure PCS Remote Monitoring WebUI](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/README.md) readme file.
+
+1. To deploy your changes, see the [Developer Reference Guide](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide).
+
+<!--
 
 ### Add a new KPI to the Dashboard page
 
