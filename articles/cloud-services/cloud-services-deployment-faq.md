@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/10/2017
+ms.date: 9/20/2017
 ms.author: genli
 
 ---
@@ -66,9 +66,9 @@ Since the Cloud Service is a Classic resource which is not directly compatible w
  
 - Deploying through REST API.
 
-    When you deploy through Service Management REST API, you could get around the limitation by specifying a SAS URL to the blob storage, which will work with both Classic and Azure Resource Manager Storage account. Read more about the 'PackageUrl' property here.
+    When you deploy through Service Management REST API, you could get around the limitation by specifying a SAS URL to the blob storage, which will work with both Classic and Azure Resource Manager Storage account. Read more about the 'PackageUrl' property [here](https://msdn.microsoft.com/library/azure/ee460813.aspx).
   
 - Deploying through [Azure portal](https://portal.azure.com).
 
-    This will work from the Azure portal](https://portal.azure.com) as the call goes through a proxy/shim which allows communication between Azure Resource Manager and Classic resources. 
+    This will work from the [Azure portal](https://portal.azure.com) as the call goes through a proxy/shim which allows communication between Azure Resource Manager and Classic resources. 
  

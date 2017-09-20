@@ -58,11 +58,14 @@ The distribution algorithm used is a 5-tuple (source IP, source port, destinatio
 
 ## How can I redirect the incoming traffic to my default URL of Cloud Service to a custom URL? 
 
-The URL Rewrite Module of IIS could be used to redirect traffic coming to the default URL for the cloud service (such as *.cloudapp.net) to some custom DNS Name/URL. Since the URL Rewrite Module is by default enabled on the Web Roles and its rules are configured in the application’s web.config, it would always be available on the VM irrespective of reboots/reimages. For more information, see [Creating Rewrite Rules for the URL Rewrite Module](https://docs.microsoft.com/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module).
+The URL Rewrite Module of IIS could be used to redirect traffic coming to the default URL for the cloud service (for example, \*.cloudapp.net) to some custom DNS Name/URL. Since the URL Rewrite Module is by default enabled on the Web Roles and its rules are configured in the application's web.config, it would always be available on the VM irrespective of reboots/reimages. For more information, see:
+
+- [Creating Rewrite Rules for the URL Rewrite Module](https://docs.microsoft.com/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)
+- [How to remove default link](https://stackoverflow.com/questions/32286487/azure-website-how-to-remove-default-link?answertab=votes#tab-top)
 
 ## How can I block/disable the incoming traffic to the default URL of my Cloud Service? 
 
-You may prevent the incoming traffic to the default URL/Name of your cloud service (i.e., \*.cloudapp.net) by setting the host header to a custom DNS name (e.g., www.MyCloudService.com) under site binding configuration in the cloud service definition (*.csdef) file as indicated below: 
+You may prevent the incoming traffic to the default URL/Name of your cloud service (for example, \*.cloudapp.net) by setting the host header to a custom DNS name (for example, www.MyCloudService.com) under site binding configuration in the cloud service definition (*.csdef) file as indicated below: 
  
 
     <?xml version="1.0" encoding="utf-8"?> 
@@ -88,11 +91,10 @@ As this host header binding is enforced through csdef file, the service would on
 
 ## How to make sure the public facing IP address of a Cloud Service (aka, VIP) never changes so that it could be customarily whitelisted by few specific clients?
 
-For whitelisting the IP address of your Cloud Services, it is recommended that you have a Reserved IP  
-associated with it otherwise the Virtual IP provided by Azure will be deallocated from your subscription if you delete the deployment. Please note that for successful VIP swap operation you would need individual Reserved IPs for both Production and Staging slots, in the absence of which swap operation will fail. Follow these articles to Reserve an IP address and associate it with your Cloud Services:  
+For whitelisting the IP address of your Cloud Services, it is recommended that you have a Reserved IP associated with it otherwise the Virtual IP provided by Azure will be deallocated from your subscription if you delete the deployment. Please note that for successful VIP swap operation you would need individual Reserved IPs for both Production and Staging slots, in the absence of which swap operation will fail. Follow these articles to Reserve an IP address and associate it with your Cloud Services:  
  
-1. [Reserve the IP address of an existing cloud service](../virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
-2. [Associate a reserved IP to a cloud service by using a service configuration file](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file) 
+- [Reserve the IP address of an existing cloud service](../virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
+- [Associate a reserved IP to a cloud service by using a service configuration file](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file) 
 
 As long as you have more than one instance for your roles, associating RIP with your Cloud Service shouldn't cause any downtime. Alternatively, you can whitelist the IP range of your Azure Datacenter. You can find all Azure IP ranges [here](https://www.microsoft.com/en-us/download/details.aspx?id=41653). 
 
@@ -100,4 +102,4 @@ This file contains the IP address ranges (including Compute, SQL and Storage ran
 
 ## How can I use Azure Resource Manager VNets with Cloud Services? 
 
-Cloud services cannot be placed in an  Azure Resource Manager VNets, but an  Azure Resource Manager VNets and a Classic VNets can be connected through peering. For more information, see [Virtual network peering](../virtual-network/virtual-network-peering-overview.md).
+Cloud services cannot be placed in an Azure Resource Manager VNets, but an Azure Resource Manager VNets and a Classic VNets can be connected through peering. For more information, see [Virtual network peering](../virtual-network/virtual-network-peering-overview.md).
