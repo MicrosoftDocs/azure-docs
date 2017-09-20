@@ -1,4 +1,4 @@
- ---
+---
 title: 'Tutorial: Azure Active Directory integration with OpenAthens | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and OpenAthens.
 services: active-directory
@@ -34,7 +34,7 @@ For more information about SaaS app integration with Azure AD, see [What is appl
 To configure Azure AD integration with OpenAthens, you need the following items:
 
 - An Azure AD subscription
-- A OpenAthens single sign-on enabled subscription
+- An OpenAthens single sign-on enabled subscription
 
 To test the steps in this tutorial, you should follow these recommendations:
 
@@ -45,8 +45,8 @@ To test the steps in this tutorial, you should follow these recommendations:
 In this tutorial, you test Azure AD single sign-on in a test environment. 
 The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding OpenAthens from the gallery.
-2. Configuring and testing Azure AD single sign-on.
+1. Adding OpenAthens from the gallery
+2. Configuring and testing Azure AD single sign-on
 
 ## Adding OpenAthens from the gallery
 To configure the integration of OpenAthens into Azure AD, you need to add OpenAthens from the gallery to your list of managed SaaS apps.
@@ -79,11 +79,11 @@ In OpenAthens, assign the value of the **user name** in Azure AD as the value of
 
 To configure and test Azure AD single sign-on with OpenAthens, you need to complete the following building blocks:
 
-1. **[Configure Azure AD single sign-On](#configure-azure-ad-single-sign-on)**, to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)**, to test Azure AD single sign-on with Britta Simon.
-3. **[Create an OpenAthens test user](#create-a-openathens-test-user)**, to have a counterpart of Britta Simon in OpenAthens that is linked to the Azure AD representation of the user.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)**, to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)**, to verify whether the configuration works.
+1. [Configure Azure AD single sign-On](#configure-azure-ad-single-sign-on), to enable your users to use this feature.
+2. [Create an Azure AD test user](#create-an-azure-ad-test-user), to test Azure AD single sign-on with Britta Simon.
+3. [Create an OpenAthens test user](#create-a-openathens-test-user), to have a counterpart of Britta Simon in OpenAthens that is linked to the Azure AD representation of the user.
+4. [Assign the Azure AD test user](#assign-the-azure-ad-test-user), to enable Britta Simon to use Azure AD single sign-on.
+5. [Test single sign-on](#test-single-sign-on), to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -131,7 +131,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. In **Display name mapping**, select **Use attribute**.
 
-	b. In the **Display name attribute** text box, ether the value `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+	b. In the **Display name attribute** text box, enter the value `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 	
 	c. In **Unique user mapping**, select **Use attribute**.
 
