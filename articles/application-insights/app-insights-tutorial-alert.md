@@ -44,11 +44,11 @@ Availability tests in Application Insights allow you to automatically test your 
 	![Add availability test](media/app-insights-tutorial-alert/add-test.png)
 
 2. Type in a name for the test and leave the other defaults.  This requests the home page of the application every 5 minutes from 5 different geographic locations. 
-3. Select **Alerts** to open the **Alerts** blade where you can define details for how to respond if the test fails. Type in an email address to send when the alert criteria is met.  You could optionally type in the address of a webhook to call when the alert criteria is met.
+3. Select **Alerts** to open the **Alerts** panel where you can define details for how to respond if the test fails. Type in an email address to send when the alert criteria is met.  You could optionally type in the address of a webhook to call when the alert criteria is met.
 
 	![Create test](media/app-insights-tutorial-alert/create-test.png)
  
-4. Return to the test blade, and after a few minutes you should start seeing results from the availability test.  Click on the test name to view details from each location.  The scatter chart shows the success and duration of each test.
+4. Return to the test panel, and after a few minutes you should start seeing results from the availability test.  Click on the test name to view details from each location.  The scatter chart shows the success and duration of each test.
 
 	![Test details](media/app-insights-tutorial-alert/test-details.png)
 
@@ -64,8 +64,8 @@ Availability tests in Application Insights allow you to automatically test your 
 ## Create an alert from metrics
 In addition to sending alerts from an availability test, you can create an alert from any performance metrics that are being collected for your application.
 
-2. Select **Alerts** from the **Configure** menu.  This opens the Azure Alerts blade.  There may be other alert rules configured here for other services.
-3. Click **Add metric alert**.  This opens the blade to create a new alert rule.
+2. Select **Alerts** from the **Configure** menu.  This opens the Azure Alerts panel.  There may be other alert rules configured here for other services.
+3. Click **Add metric alert**.  This opens the panel to create a new alert rule.
 
 	![Add metric alert](media/app-insights-tutorial-alert/add-metric-alert.png)
 
@@ -89,4 +89,4 @@ For details on creating a Logic App with Application Insights, see [Automate App
 Now that you've learned how to alert on issues, advance to the next tutorial to learn how to analyze how users are interacting with your application.
 
 > [!div class="nextstepaction"]
-> Understand users
+> [Understand users](app-insights-tutorial-users.md)
