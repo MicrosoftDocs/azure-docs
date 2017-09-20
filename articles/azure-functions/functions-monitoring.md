@@ -429,7 +429,7 @@ module.exports = function (context, item) {
         {
             operation: item.operation, 
             query: JSON.stringify(item.item),
-            tagOverrides:{‘ai.operation.id’: context.invocationId}   
+            tagOverrides:{'ai.operation.id': context.invocationId}   
         });
 
     items.add(item.item, () => {
