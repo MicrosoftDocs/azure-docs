@@ -26,31 +26,13 @@ This document details how to use the PowerShell in Cloud Shell in the [Azure por
 
 ## Start Cloud Shell
 
-1. Click on **Cloud Shell** button from the top navigation bar of the Azure portal <br>
+1. Click on **Cloud Shell** button from the top navigation bar of the Azure portal
 
   ![](media/quickstart-powershell/shell-icon.png)
 
-2. Select the PowerShell environment from the drop-down <br>
+2. Select the PowerShell environment from the drop-down and you will be in Azure drive `(Azure:)`
 
   ![](media/quickstart-powershell/environment-ps.png)
-
-3. Select PowerShell
-
-4. The `Azure drive` appears as follows
-
-  ``` Powershell
-  Requesting a Cloud Shell... Succeeded.
-  Connecting terminal...
-
-  Welcome to Azure Cloud Shell (Preview)
-
-  Type "dir" to see your Azure resources.
-  Type "help" to learn about Cloud Shell.
-
-  VERBOSE: Authenticating to Azure ...
-  VERBOSE: Building your Azure drive ...
-  PS Azure:\>
-  ```
 
 ## Run PowerShell commands
 
@@ -58,7 +40,7 @@ Run regular PowerShell commands in the Cloud Shell, such as:
 
 ```Powershell
 PS Azure:\> Get-Date
-Wednesday, May 24, 2017 11:05:09 AM
+Monday, September 25, 2017 08:55:09 AM
 
 PS Azure:\> Get-AzureRmVM -Status
 
@@ -84,12 +66,11 @@ MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    S
     PS Azure:\MySubscriptionName>
     ```
 
- 3. View your all Azure resources under the current subscription
+ 3. View all your Azure resources under the current subscription
  
-    Type `dir` under your subscription to get multiple views of your Azure resources.
+    Type `dir` to list multiple views of your Azure resources.
  
     ``` PowerShell
-    
     PS Azure:\MySubscriptionName> dir
 
         Directory: azure:\MySubscriptionName
@@ -104,16 +85,39 @@ MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    S
      ```
 
 ### AllResources view 
-Type `dir` under AllResources directory to view your Azure resources.
+Type `dir` under `AllResources` directory to view your Azure resources.
     
     PS Azure:\MySubscriptionName> dir AllResources
-     
+
+### Explore resource groups
+
+ You can go to the `ResourceGroups` directory and inside a specific resource group you can find virtual machines.
+
+``` PowerShell
+PS Azure:\MySubscriptionName> cd ResourceGroups\MyResourceGroup1\Microsoft.Compute\virtualMachines
+
+PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup1\Microsoft.Compute\virtualMachines> dir
+
+
+    Directory: Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup1\Microsoft.Compute\virtualMachines
+
+
+VMName    Location   ProvisioningState VMSize          OS            SKU             OSVersion AdminUserName  NetworkInterfaceName
+------    --------   ----------------- ------          --            ---             --------- -------------  --------------------
+TestVm1   westus     Succeeded         Standard_DS2_v2 WindowsServer 2016-Datacenter Latest    AdminUser      demo371
+TestVm2   westus     Succeeded         Standard_DS1_v2 WindowsServer 2016-Datacenter Latest    AdminUser      demo271
+
+```
+> [!NOTE]
+> You may notice that the second time when you type `dir`, the cloud shell is able to display the items much faster.
+> This is because the child items are cached in memory for a better user experience.
+However, you can always use `dir -Force` to get fresh data.
+
 ### Navigate storage resources
     
 By entering into the `StorageAccounts` folder you can easily navigate your storage resources
     
 ``` PowerShell 
-
 PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> dir
 
     Directory: Azure:\MySubscriptionNameStorageAccounts\MyStorageAccountName\Files
@@ -131,7 +135,6 @@ MyFileShare3  \\MyStorageAccountName.file.core.windows.net\MyFileShare3;AccountN
 With the connection string, you can use the following command to mount the Azure File share.
         
 ``` PowerShell
-
 net use <DesiredDriveLetter>: \\<MyStorageAccountName>.file.core.windows.net\<MyFileShareName> <AccountKey> /user:Azure\<MyStorageAccountName>
 
 
@@ -143,7 +146,6 @@ You can also navigate the directories under the Azure File share as follows:
 
             
 ``` PowerShell
-
 PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> cd .\MyFileShare1\
 PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files\MyFileShare1> dir
 
@@ -155,12 +157,11 @@ Mode  Name
     
 ```
 
-### Interact with VMs
+### Interact with virtual machines
 
 You can find all your virtual machines under the current subscription via `VirtualMachines` directory.
     
 ``` PowerShell
-
 PS Azure:\MySubscriptionName\VirtualMachines> dir
 
     Directory: Azure:\MySubscriptionName\VirtualMachines
@@ -175,32 +176,10 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
 
 ```
 
-Or you can go to the `ResourceGroups` directory to find the virtual machines under the current resource group.
-
-
-``` PowerShell
-
-PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup1\Microsoft.Compute\virtualMachines> dir
-
-
-    Directory: Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup1\Microsoft.Compute\virtualMachines
-
-
-VMName    Location   ProvisioningState VMSize          OS            SKU             OSVersion AdminUserName  NetworkInterfaceName
-------    --------   ----------------- ------          --            ---             --------- -------------  --------------------
-TestVm1   westus     Succeeded         Standard_DS2_v2 WindowsServer 2016-Datacenter Latest    AdminUser      demo371
-TestVm2   westus     Succeeded         Standard_DS1_v2 WindowsServer 2016-Datacenter Latest    AdminUser      demo271
-
-```
-> [!NOTE]
-> You may notice that the second time when you type `dir`, the cloud shell is able to display the items much faster.
-
-This is because the child items are cached in memory for a better user experience.
-However, you can always use `dir -force` to get fresh data.
-
-
-
 #### Invoke PowerShell script across remote VMs
+
+ > [!WARNING]
+ > Please refer to [Troubleshooting remote management of Azure VMs](troubleshooting.md#powershell-resolutions).
 
   Assuming you have a VM, MyVM1, let's use `Invoke-AzureRmVMCommand` to invoke a PowerShell scriptblock on the remote machine.
 
@@ -243,10 +222,11 @@ You can also navigate to the `virtualMachines` directory first and run `Enter-Az
  PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzureRmVM
  ```
 
-### WebApps
+### Discover WebApps
+
+By entering into the `WebApps` folder you can easily navigate your storage resources
 
 ``` PowerShell
-
 PS Azure:\MySubscriptionName> dir .\WebApps\
 
     Directory: Azure:\MySubscriptionName\WebApps
@@ -287,9 +267,9 @@ Under `Azure` drive, type `Get-AzureRmCommand` to get context specific Azure com
 
 Alternatively, you can always use `Get-Command *azurerm* -Module AzureRM.*` to find out the available Azure commands.
 
-## Install modules
+## Install custom modules
 
-You can run `Install-Module` to install modules from the [PowerShellGallery.com][gallery].
+You can run `Install-Module` to install modules from the [PowerShell Gallery][gallery].
 
 ## Get-Help
 
@@ -317,35 +297,41 @@ PS C:\users\ContainerAdministrator\CloudDrive> .\helloworld.ps1
 Hello World!
 ```
 
-Next time when you use PowerShell in Cloud Shell, the `helloworld.ps1` file should still exist under the `CloudDrive` folder mounts your Azure cloud files share.
+Next time when you use PowerShell in Cloud Shell, the `helloworld.ps1` file will exist under the `CloudDrive` folder that mounts your Azure File share.
 
-## User custom profile
+## Use custom profile
 
-If you want to customize your environment, you can create a PowerShell profile, name it as `Microsoft.PowerShell_profile.ps1` or `profile.ps1` and save it under the CloudDrive so that it can be loaded to every PowerShell session when you launch the Cloud Shell.
+You can customize your PowerShell environment, by creating PowerShell profile(s) - `profile.ps1` or `Microsoft.PowerShell_profile.ps1`. Save it under the `CloudDrive` so that it can be loaded in every PowerShell session when you launch the Cloud Shell.
 
 For how to create a profile, refer to [About Profiles][profile].
 
 ## Use Git
 
-To clone a repo in the CloudShell, you need to create a [personal access token][githubtoken] and use it as username. Once you have your  token clone the repository as follows:
+To clone a git repo in the CloudShell, you need to create a [personal access token][githubtoken] and use it as the username. Once you have your  token, clone the repository as follows:
 
  ``` PowerShell
   git clone https://<your-access-token>@github.com/username/repo.git
 
 ```
-
-As the CloudShell session will be gone once you sign out or the session gets timed out, the git config file will not be persisted. To avoid entering your git identity every time you use git, you may add git config information in your custom profile. For example you may add the following to your profile.ps1. 
+Since sessions in CloudShell do not persist when you sign out or the session times out, the Git config file will not exist upon the next logon. To have your Git config persist, you must save your .gitconfig to your `CloudDrive` and copy it or create a symlink when the `CloudShell` gets launched. Use the following code snippet in your profile.ps1, to create a symlink to `CloudDrive`.
 
  ``` PowerShell
  
-git config --global user.name "John Doe"
-git config --global user.email johndoe@example.com
+# .gitconfig path relative to this script
+$script:gitconfigPath = Join-Path $PSScriptRoot .gitconfig
+
+# Create a symlink to .gitconfig in user's $home
+if(Test-Path $script:gitconfigPath){
+
+    if(-not (Test-Path (Join-Path $Home .gitconfig ))){
+         New-Item -ItemType SymbolicLink -Path $home -Name .gitconfig -Value $script:gitconfigPath
+    }
+}
 
 ```
-
 ## Exit the shell
 
-Type `exit` to close the session.
+Type `exit` to terminate the session.
 
 [bashqs]:quickstart.md
 [gallery]:https://www.powershellgallery.com/
