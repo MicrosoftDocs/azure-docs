@@ -72,7 +72,7 @@
 ### [Update Management](../operations-management-suite/oms-solution-update-management.md)
 ### [Change Tracking](../log-analytics/log-analytics-change-tracking.md)
 ### [Track changes in your virtual machines](automation-vm-change-tracking.md)
-### [Manage a virtual machine with inventory collection](automation-vm-inventory)
+### [Manage a virtual machine with inventory collection](automation-vm-inventory.md)
 ### [Start/stop VMs during off-hours](automation-solution-vm-management.md)
 ## Monitor
 ### [Forward Azure Automation job data to Log Analytics](automation-manage-send-joblogs-log-analytics.md)

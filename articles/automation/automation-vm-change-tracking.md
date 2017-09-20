@@ -47,8 +47,8 @@ a banner appears that gives you the option to enable the solution.
 
 Click the banner to enable the solution. If you do not have the following, they are added automatically:
 
-* [Log Analytics](../../log-analytics/log-analytics-overview.md) workspace
-* [Automation](../../automation/automation-offering-get-started.md) account
+* [Log Analytics](../log-analytics/log-analytics-overview.md) workspace
+* [Automation](../automation/automation-offering-get-started.md) account
 
 Select a Log Analytics work space to store data logs from change tracking and an Automation account to track changes, and click **Enable**.
 
@@ -105,7 +105,7 @@ The **Workspace Configuration** screen opens. Click **Add** on the appropriate t
 
 On the **Change tracking** screen, you can see changes in each of the various categories for your virtual machine over time.
 
-   ![Change tracking add view changes](./media/automation-vm-change-tracking/change-view-changes-file.png)
+   ![Change tracking add view changes](./media/automation-vm-change-tracking/change-view-changes.png)
 
 You can select the categories and the time range of changes to view. On the top of the screen, you see a graphical view of changes over time.
 On the bottom of the screen, you see a list of recent changes.
@@ -115,9 +115,9 @@ On the bottom of the screen, you see a list of recent changes.
 Change tracking generates log data that is sent to Log Analytics. To search the logs by running queries, click **Log Analytics** at the top
 of the **Change tracking** screen.
 
-   ![Change tracking log analytics](./media/automation-vm-change-tracking/change-log-analytics-file.png)
+   ![Change tracking log analytics](./media/automation-vm-change-tracking/change-log-analytics.png)
 
-To learn more about running searching log files in Log Analytics, see [Log Analytics](../../log-analytics/log-analytics-overview.md).
+To learn more about running searching log files in Log Analytics, see [Log Analytics](../log-analytics/log-analytics-overview.md).
 
 ## Next steps
 
