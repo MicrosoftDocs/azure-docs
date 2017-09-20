@@ -13,7 +13,6 @@ ms.date: 08/29/2017
 ---
 # Model management setup
 
-## Overview
 This document gets you started with using Azure ML model management to deploy and manage your machine learning models as web services. 
 
 Using Azure ML model management, you can efficiently deploy and manage Machine Learning models that are built using a number of frameworks including SparkML, Keras, TensorFlow, the Microsoft Cognitive Toolkit, or Python. 
@@ -160,5 +159,5 @@ You are now ready to deploy your saved model as a web service.
 az ml service create realtime --model-file [model file/folder path] -f [scoring file e.g. score.py] -n [your service name] -s [schema file e.g. service_schema.json] -r [runtime for the Docker container e.g. spark-py or python] -c [conda dependencies file for additional python packages]
 ```
 
-### Next Steps
+## Next steps
 Try one of the many samples in the Gallery.
