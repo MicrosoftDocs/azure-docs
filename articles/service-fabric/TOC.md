@@ -104,7 +104,6 @@
 
 ## Create and manage clusters
 ### [Overview](service-fabric-deploy-anywhere.md)
-### [Service Fabric on Linux](service-fabric-linux-overview.md)
 ### Plan and prepare
 #### [Capacity planning](service-fabric-cluster-capacity.md)
 #### [Disaster recovery](service-fabric-disaster-recovery.md)

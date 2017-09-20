@@ -122,7 +122,7 @@ sudo apt-get install servicefabricsdkcommon
 
 
   > [!NOTE]
-  > Standalone clusters aren't supported in Linux. The preview supports only one-box and Azure Linux multi-machine clusters.
+  > Standalone clusters aren't supported in Linux.
   >
 
 ## Set up the Service Fabric CLI

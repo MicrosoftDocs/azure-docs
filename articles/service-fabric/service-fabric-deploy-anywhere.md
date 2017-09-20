@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/20/2017
+ms.date: 09/19/2017
 ms.author: chackdan
 
 ---
@@ -30,10 +30,10 @@ You are able to create clusters on VMs running these operating systems:
 
 * Windows Server 2012 R2
 * Windows Server 2016 
-* Linux Ubuntu 16.04
+* Linux Ubuntu 16.04  
 
 ## Create Service Fabric standalone clusters on-premises or with any cloud provider
-Service Fabric provides an install package for you to create standalone Service Fabric clusters on-premises or on any cloud provider
+Service Fabric provides an install package for you to create standalone Service Fabric clusters on-premises or on any cloud provider.
 
 For more information on setting up standalone Service Fabric clusters on Windows Server, read [Service Fabric cluster creation for Windows Server](service-fabric-cluster-creation-for-windows-server.md)
 
@@ -57,7 +57,7 @@ You are able to create clusters on VMs or computers running these operating syst
 
 * Windows Server 2012 R2
 * Windows Server 2016 
-* Linux
+* Linux is not yet supported.
 
 ## Advantages of Service Fabric clusters on Azure over standalone Service Fabric clusters created on-premises
 Running Service Fabric clusters on Azure provides advantages over the on-premises option, so if you don't have specific needs for where you run your clusters, then we suggest that you run them on Azure. On Azure, we provide integration with other Azure features and services, which makes operations and management of the cluster easier and more reliable.
@@ -72,6 +72,6 @@ Running Service Fabric clusters on Azure provides advantages over the on-premise
 ## Next steps
 
 * Create a cluster on VMs or computers running Windows Server: [Service Fabric cluster creation for Windows Server](service-fabric-cluster-creation-for-windows-server.md)
-* Create a cluster on VMs or computers running Linux: [Service Fabric on Linux](service-fabric-linux-overview.md)
+* Create a cluster on VMs or computers running Linux: [Create a Linux cluster](service-fabric-cluster-creation-via-portal.md)
 * Learn about [Service Fabric support options](service-fabric-support.md)
 
