@@ -46,6 +46,7 @@ Use the *Enable Profiler* or *Disable Profiler* buttons in the Configure blade t
 
 ![Configure blade][linked app services]
 
+## Disable the profiler
 To stop or restart the profiler for an individual App Service instance, you'll find it **in the App Service resource**, in **Web Jobs**. To delete it, look under **Extensions**.
 
 ![Disable profiler for a web jobs][disable-profiler-webjob]
@@ -87,9 +88,13 @@ The columns in the table are:
 * **Count** - The number of these requests in the time range of the blade.
 * **Median** - The typical time your app takes to respond to a request. Half of all responses were faster than this.
 * **95th percentile** 95% of responses were faster than this. If this figure is very different from the median, there might be an intermittent problem with your app. (Or it might be explained by a design feature such as caching.)
-* **Examples** - an icon indicates that the profiler has captured stack traces for this operation.
+* **Profiler Traces** - an icon indicates that the profiler has captured stack traces for this operation.
 
-Click the Examples icon to open the trace explorer. The explorer shows several samples that the profiler has captured, classified by response time.
+Click the View button to open the trace explorer. The explorer shows several samples that the profiler has captured, classified by response time.
+
+If you are using Preview Performance Blade, go to **Take Actions** section on the bottom right corner to view profiler traces. Click Profiler Traces button.
+
+![Application Insights Performance blade preview Profiler Traces][performance-blade-v2-examples]
 
 Select a sample to show a code-level breakdown of time spent executing the request.
 
@@ -232,10 +237,7 @@ This error will happen if you run Web Deploy from scripts or on VSTS Deployment 
 The solution to this problem is to add the following additional deployment parameters to the Web Deploy task:
 
 ```
--skip:skipaction='Delete',objectname='filePath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler\\.*' 
--skip:skipaction='Delete',objectname='dirPath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler\\.*'
--skip:skipaction='Delete',objectname='filePath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler2\\.*'
--skip:skipaction='Delete',objectname='dirPath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler2\\.*'
+-skip:Directory='.*\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler.*' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs\\continuous$' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs$'  -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data$'
 ```
 
 This will delete the folder used by the App Insights Profiler and unblock the redeploy process. It will not affect the currently running Profiler instance.
@@ -265,6 +267,7 @@ ASP.NET Core application needs to install Microsoft.ApplicationInsights.AspNetCo
 
 [performance-blade]: ./media/app-insights-profiler/performance-blade.png
 [performance-blade-examples]: ./media/app-insights-profiler/performance-blade-examples.png
+[performance-blade-v2-examples]:./media/app-insights-profiler/performance-blade-v2-examples.png
 [trace-explorer]: ./media/app-insights-profiler/trace-explorer.png
 [trace-explorer-toolbar]: ./media/app-insights-profiler/trace-explorer-toolbar.png
 [trace-explorer-hint-tip]: ./media/app-insights-profiler/trace-explorer-hint-tip.png
