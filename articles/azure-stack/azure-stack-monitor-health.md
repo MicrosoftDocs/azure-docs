@@ -40,7 +40,7 @@ To view the health state in the portal, click the region that you want to view i
 You can click a resource provider or infrastructure role to view more detailed information.
 
 > [!WARNING]
->If you click an infrastructure role, and then click the role instance, there are options to Start, Restart, or Shutdown. Do **not** use these options in an Azure Stack Development Kit environment. These options are designed only for an integrated systems environment, where there is more than one role instance per infrastructure role. Restarting a role instance (especially AzS-Xrp01) in the development kit causes system instability. For troubleshooting assistance, post your issue to the [Azure Stack forum](https://aka.ms/azurestackforum).
+>If you click an infrastructure role, and then click the role instance, there are options to Start, Restart, or Shutdown. Do not use these actions when you apply updates to an integrated system. Also, do **not** use these options in an Azure Stack Development Kit environment. These options are designed only for an integrated systems environment, where there is more than one role instance per infrastructure role. Restarting a role instance (especially AzS-Xrp01) in the development kit causes system instability. For troubleshooting assistance, post your issue to the [Azure Stack forum](https://aka.ms/azurestackforum).
 >
  
 ## View alerts
@@ -65,7 +65,7 @@ You can click a specific alert to view the alert details. The alert details show
 
 ![The Alert details blade](media/azure-stack-monitor-health/image7.png)
 
-After the infrastructure role instance is back online, this alert automatically closes.
+After the infrastructure role instance is back online, this alert automatically closes. Many, but not every alert automatically closes when the underlying issue is resolved. We recommend that you select **Close Alert** after you perform remediation steps. If the issue persists, Azure Stack generates a new alert. If you resolve the issue, the alert remains closed and requires no additional action.
 
 ## Next steps
 
