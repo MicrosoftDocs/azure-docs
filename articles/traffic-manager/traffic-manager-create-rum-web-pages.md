@@ -1,6 +1,6 @@
 ---
-title: Real User Measurements with Web Pages to Azure Traffic Manager | Microsoft Docs
-description: set up your mobile application developed using Visual Studio Mobile Center to send Real User Measurements to Traffic Manager
+title: Real User Measurements to Azure Traffic Manager with web pages | Microsoft Docs
+description: Set up your web pages to send Real User Measurements to Traffic Manager
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
@@ -19,7 +19,7 @@ ms.author: kumud
 ms.custom: 
 ---
 
-# How to send Real User Measurements with Web Pages to Traffic Manager
+# How to send Real User Measurements to Azure Traffic Manager using web pages
 
 >[!NOTE]
 >The Real User Measurements feature in Traffic Manager is in Public Preview and may not have the same level of availability and reliability as features that are in general availability release. The feature is not supported, may have constrained capabilities, and may not be available in all Azure locations. For the most up-to-date notifications on availability and status of this feature, check the [Azure Traffic Manager updates](https://azure.microsoft.com/updates/?product=traffic-manager) page.

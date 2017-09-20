@@ -1,17 +1,16 @@
 ---
-title: Real User Measurements with Visual Studio Mobile Center to Azure Traffic Manager | Microsoft Docs
-description: set up your mobile application developed using Visual Studio Mobile Center to send Real User Measurements to Traffic Manager
+title: Real User Measurements to Azure Traffic Manager with Visual Studio Mobile Center | Microsoft Docs
+description: Set up your mobile application developed using Visual Studio Mobile Center to send Real User Measurements to Traffic Manager
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
 manager: timlt
 editor: 
 tags: 
-
 ms.assetid: 
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: 
+ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
 ms.date: 09/20/2017
@@ -19,7 +18,7 @@ ms.author: kumud
 ms.custom: 
 ---
 
-# How to send Real User Measurements with Visual Studio Mobile Center to Traffic Manager
+# How to send Real User Measurements to Traffic Manager with Visual Studio Mobile Center
 
 >[!NOTE]
 >The Real User Measurements feature in Traffic Manager is in Public Preview and may not have the same level of availability and reliability as features that are in general availability release. The feature is not supported, may have constrained capabilities, and may not be available in all Azure locations. For the most up-to-date notifications on availability and status of this feature, check the [Azure Traffic Manager updates](https://azure.microsoft.com/updates/?product=traffic-manager) page.
@@ -31,7 +30,7 @@ You can set up your mobile application developed using Visual Studio Mobile Cent
 
 To configure Real User Measurements, you need to obtain a key and instrument your app with the RUM package.
 
-## Step 1: Obtain a Key
+## Step 1: Obtain a key
     
 The measurements you take and sent to Traffic Manager from your client application are identified by the service using a unique string, called the Real User Measurements (RUM) Key. You can get a RUM key using the Azure portal, a REST API or by using the PowerShell / CLI interfaces.
 

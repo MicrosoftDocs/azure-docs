@@ -11,7 +11,7 @@ tags:
 ms.assetid: 
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: 
+ms.topic: article 
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
 ms.date: 09/19/2017
@@ -19,7 +19,7 @@ ms.author: kumud
 ms.custom: 
 ---
 
-# Traffic Manager Real User Measurements Overview
+# Traffic Manager Real User Measurements overview
 
 >[!NOTE]
 >The Real User Measurements feature in Traffic Manager is in Public Preview and may not have the same level of availability and reliability as features that are in general availability release. The feature is not supported, may have constrained capabilities, and may not be available in all Azure locations. For the most up-to-date notifications on availability and status of this feature, check the [Azure Traffic Manager updates](https://azure.microsoft.com/updates/?product=traffic-manager) page.
@@ -28,7 +28,7 @@ When you set up a Traffic Manager profile to use the performance routing method,
 
 Real User Measurements enables you to measure network latency measurements to Azure regions, from the client applications your end users use, and have Traffic Manager consider that information as well when making routing decisions. By choosing to use the Real User Measurements, you can increase the accuracy of the routing for requests coming from those networks where your end users reside. 
 
-## How Real User Measurements Work
+## How Real User Measurements work
 
 Real User Measurements work by having your client applications measure latency to Azure regions as it is seen from the end user networks in which they are used. As an example, if you have a web page that is accessed by users across different locations (for example, in the North American regions), you can leverage the power of Real User Measurements when you use performance routing method to get them to the best Azure region in which your server application is hosted.
 
