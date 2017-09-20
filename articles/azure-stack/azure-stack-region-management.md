@@ -23,7 +23,7 @@ ms.author: efemmano
 
 Azure Stack has the concept of regions, which are logical entities comprised of the hardware resources that make up the Azure Stack infrastructure. Inside Region management, you can find all resources that are required to successfully operate the Azure Stack infrastructure lifecycle.
 
-One integrated systems deployment (referred to as an *Azure Stack cloud*) makes up a single region. The Azure Stack Development Kit has one region, named **local**. If you deploy a second Azure Stack integrated system, or you set up another instance of the development kit on separate hardware, this Azure Stack cloud is a different region.
+One integrated system deployment (referred to as an *Azure Stack cloud*) makes up a single region. The Azure Stack Development Kit has one region, named **local**. If you deploy a second Azure Stack integrated system, or you set up another instance of the development kit on separate hardware, this Azure Stack cloud is a different region.
 
 ## Information available through the Region management tile
 Azure Stack has a set of region management capabilities available in the **Region management** tile. This tile is available to an Azure Stack operator on the default dashboard in the administrator portal. Through this tile, you can monitor and update your Azure Stack region and its components, which are region-specific.
