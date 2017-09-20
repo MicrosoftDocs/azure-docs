@@ -4,7 +4,7 @@ description: Provides instructions to quickly setup a ASP.NET Core Web App for m
 services: application-insights
 keywords:
 author: mrbullwinkle
-ms.author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 09/15/2017
 ms.service: application-insights
 ms.custom: mvc
@@ -23,8 +23,8 @@ This quickstart guides you through adding the Application Insights SDK to an exi
 To complete this quickstart:
 
 - [Install Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
-  ASP.NET and web development
-  Azure development
+  - ASP.NET and web development
+  - Azure development
 - [Install .NET Core 2.0 SDK](https://www.microsoft.com/net/core)
 - You will need an Azure subscription and an existing .NET Core web application.
 

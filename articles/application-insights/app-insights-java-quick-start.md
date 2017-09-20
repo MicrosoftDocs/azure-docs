@@ -4,7 +4,7 @@ description: Provides instructions to quickly setup a Java Web App for monitorin
 services: application-insights
 keywords:
 author: mrbullwinkle
-ms.author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 09/10/2017
 ms.service: application-insights
 ms.custom: mvc

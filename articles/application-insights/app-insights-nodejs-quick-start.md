@@ -16,7 +16,7 @@ manager: carmonm
 
 With Azure Application Insights, you can easily monitor your web application for availability, performance, and usage. You can also quickly identify and diagnose errors in your application without waiting for a user to report them. With the version 0.20 SDK release onward, you can monitor common third-party packages, including MongoDB, MySql, and Redis.
 
-This quickstart guides you through adding the Application Insights SDK to an existing Node.js web application. If you do not have a Node.js web application, you can create one by following the [Create a Node.js web app quickstart](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-nodejs).
+This quickstart guides you through adding the version 0.22 Application Insights SDK for Node.js to an existing Node.js web application.
 
 ## Prerequisites
 
