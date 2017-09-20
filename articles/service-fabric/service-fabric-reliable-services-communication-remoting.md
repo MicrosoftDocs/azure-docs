@@ -116,17 +116,14 @@ Here are the steps to follow to change to V2 Stack.
 2.  Use Following Extension Method to Create Remoting Listener.
 
   ```csharp
-
-          protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
-          {
-              return this.CreateServiceRemotingInstanceListeners();
-          }
-
+    protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+    {
+        return this.CreateServiceRemotingInstanceListeners();
+    }
   ```
 3.  Add Assembly Attribute on Remoting Interfaces.
   ```csharp
   [assembly: FabricTransportServiceRemotingProvider(RemotingListener = RemotingListener.V2Listener, RemotingClient = RemotingClient.V2Client)]
-
   ```
 No Changes are required in Client Project.
 Building Client assembly with interface assembly , will make sure that above assembly attribuite is being used.
@@ -143,10 +140,9 @@ Here are the steps to follow.
   </Resources>```
 
 
-2. Use Remoting V2Listener(https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingistener?view=azure-dotnet). Default Service Endpoint  used is "ServiceEndpointV2".
+2. Use [Remoting V2Listener](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingistener?view=azure-dotnet). Default Service Endpoint  used is "ServiceEndpointV2".
 
   ```csharp
-
   protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
         return new[]
@@ -161,19 +157,20 @@ Here are the steps to follow.
 
   ```
 
-3. Use V2 Client Factory(https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet) .
+3. Use V2 [Client Factory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet) .
   ```csharp
-var proxyFactory = new ServiceProxyFactory((c) =>
+  var proxyFactory = new ServiceProxyFactory((c) =>
           {
               return new FabricTransportServiceRemotingClientFactory();
           });
-
             ```
+
 ## How to upgrade from Remoting V1 to Remoting V2.
-In order to upgrade from V1 to V2 , 3 upgrades are required. These steps needs to be followed in the sequence listed.
+In order to upgrade from V1 to V2 , 2 step upgrades are required. These steps needs to be followed in the sequence listed.
 
 1. Upgrade the V1 Service to V2 Service by using CompactListener Attribute.
 This will make sure that service is listening  on V1 and V2 Listener.
+
     a) Add Service Endpoint with name as "ServiceEndpointV2" .
 
       ```xml
@@ -185,17 +182,16 @@ This will make sure that service is listening  on V1 and V2 Listener.
 
     b)  Use Following Extension Method to Create Remoting Listener.
 
-      ```csharp
-
-              protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
-              {
-                  return this.CreateServiceRemotingInstanceListeners();
-              }
-
+    ```csharp
+    protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+    {
+        return this.CreateServiceRemotingInstanceListeners();
+    }
       ```
-      c)  Add Assembly Attribute on Remoting Interfaces to use CompatListener and V2 Client.
-      ```csharp
-      [assembly: FabricTransportServiceRemotingProvider(RemotingListener = RemotingListener.CompatListener, RemotingClient = RemotingClient.V2Client)]
+
+    c)  Add Assembly Attribute on Remoting Interfaces to use CompatListener and V2 Client.
+    ```csharp
+    [assembly: FabricTransportServiceRemotingProvider(RemotingListener = RemotingListener.CompatListener, RemotingClient = RemotingClient.V2Client)]
 
       ```
 2. Upgrade the V1 Client to  V2 Client by using V2 Client Attribute.
@@ -213,7 +209,7 @@ Below example uses Json Serialization with Remoting V2.
 
     ```csharp
     public class ServiceRemotingJsonSerializationProvider : IServiceRemotingMessageSerializationProvider
-  {
+    {
       public IServiceRemotingRequestMessageBodySerializer CreateRequestMessageSerializer(Type serviceInterfaceType,
           IEnumerable<Type> requestBodyTypes)
       {
