@@ -43,7 +43,7 @@ Known resolutions for issues in Azure Cloud Shell include:
  `Starting a browser to display online Help failed. No program or browser is associated to open the URI http://go.microsoft.com/fwlink/?LinkID=398574.`
  - **Resolution**: Copy the url and open it manually on your browser.
  
-### Ensure the WinRM service is running
+### Troubleshooting remote management of Azure VMs
  - **Details**: Due to the default Windows Firewall settings for WinRM the user may see the following error:
  `Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
  - **Resolution**:  Make sure your VM is running. You can run `Get-AzureRmVM -Status` to find out the VM Status.  Next, add a new firewall rule on the remote VM to allow WinRM connections from any subnet, for example,
