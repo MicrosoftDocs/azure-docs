@@ -108,7 +108,7 @@ You cannot remove the default rules, but you can override them by creating rules
 > The AzureTrafficManager, Storage, and Sql service tags are available in preview release. Before using the tags read [Preview features](#preview-features) for important information. 
 
 > [!NOTE]
-> If you implement a virtual network [service endpoint](service-endpoint-overview.md) for a service such as Azure Storage or Azure SQL Database, Azure adds a route to a virtual network subnet for the service. The address prefixes for the route are the same address prefixes, or CIDR ranges, as the corresponding service tag.
+> If you implement a virtual network [service endpoint](virtual-network-service-endpoints-overview.md) for a service such as Azure Storage or Azure SQL Database, Azure adds a route to a virtual network subnet for the service. The address prefixes for the route are the same address prefixes, or CIDR ranges, as the corresponding service tag.
 
 ## Application security groups
 
