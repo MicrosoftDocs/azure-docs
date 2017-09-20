@@ -79,4 +79,4 @@ az group delete --name myResourceGroup
 In this Quickstart, you created a resource group and a general-purpose standard storage account. To learn how to transfer data to and from your storage account, continue to the Blob storage Quickstart.
 
 > [!div class="nextstepaction"]
-> [Work with blobs](../blobs/storage-quickstart-blobs-cli.md)
+> [Transfer objects to and from Azure Blob storage using the Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
