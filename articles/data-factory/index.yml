@@ -63,6 +63,6 @@ sections:
     - title: Command-Line
       html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p>
     - title: Languages
-      html: <p><a href="/dotnet/api/microsoft.azure.management.datafactory">.NET</a></p><p><a href="/python/api/overview/azure/data-factory?view=azure-python">Python</a></p>
+      html: <p><a href="/dotnet/api/microsoft.azure.management.datafactory">.NET</a></p><p><a href="/python/api/overview/azure/datafactory?view=azure-python">Python</a></p>
     - title: REST
-      html: <p><a href="/rest/api/data-factory">REST API Reference</a></p>      
+      html: <p><a href="/rest/api/datafactory">REST API Reference</a></p>      
