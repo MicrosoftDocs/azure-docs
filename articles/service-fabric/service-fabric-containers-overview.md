@@ -22,9 +22,6 @@ ms.author: msfussell
 ## Introduction
 Azure Service Fabric is an [orchestrator](service-fabric-cluster-resource-manager-introduction.md) of services across a cluster of machines, with years of usage and optimization in massive scale services at Microsoft. Services can be developed in many ways, from using the [Service Fabric programming models](service-fabric-choose-framework.md) to deploying [guest executables](service-fabric-deploy-existing-app.md). By default, Service Fabric deploys and activates these services as processes. Processes provide the fastest activation and highest density usage of the resources in a cluster. Service Fabric can also deploy services in container images. Importantly, you can mix services in processes and services in containers in the same application.   
 
-## Containers and Service Fabric roadmap
-In forthcoming releases, continual improvements are planned for container orchestration with Service Fabric. Improvements include features for [networking](service-fabric-networking-modes.md), [security](service-fabric-securing-containers.md), [volume drivers](service-fabric-containers-volume-logging-drivers.md),  improved diagnostics, and developer tooling support. 
-
 ## What are containers?
 Containers are encapsulated, individually deployable components that run as isolated instances on the same kernel to take advantage of virtualization that an operating system provides. Thus, each application and its runtime, dependencies, and system libraries run inside a container with full, private access to the container's own isolated view of operating system constructs. Along with portability, this degree of security and resource isolation is the main benefit for using containers with Service Fabric, which otherwise runs services in processes.
 
@@ -39,7 +36,7 @@ Containers are a virtualization technology that virtualizes the underlying opera
 Service Fabric supports containers on both Linux and Windows, and also supports Hyper-V isolation mode on the latter. 
 
 > [!NOTE]
-> Deploying containers to a Service Fabric cluster on Windows 10 isn't supported yet, and is coming in the next release. 
+> Deploying containers to a Service Fabric cluster on Windows 10 isn't currently supported. 
 > 
 
 ### Docker containers on Linux
