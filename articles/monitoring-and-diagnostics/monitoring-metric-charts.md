@@ -1,4 +1,4 @@
----
+m---
 title:  Azure Monitor Metrics Explorer | Microsoft Docs
 description: Learn about new features in Azure Monitor Metrics Explorer
 author: vgorbenko
@@ -28,11 +28,11 @@ If you are looking for information about the old experience which only supports 
 
 Azure Monitor Metrics Explorer is a component of the Microsoft Azure portal that allows plotting charts, visually correlating trends, and investigating spikes and dips in metrics' values. Metrics Explorer is an essential starting point for investigating various performance and availability issues with your applications and infrastructure hosted in Azure or monitored by Azure Monitor services. 
 
-## What are Metrics in Azure?
+## What are metrics in Azure?
 
 Metrics in Microsoft Azure are the series of measured values and counts that are collected and stored over time. There are standard (or “platform”) metrics, and custom metrics. The standard metrics are provided to you by the Azure platform itself. Standard metrics reflect the health and usage statistics of your Azure resources. Whereas custom metrics are sent to Azure by your applications using the [Application Insights API for custom events](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Custom metrics are stored in the Application Insights resources together with other application specific metrics.
 
-## What are Multi-Dimensional Metrics?
+## What are multi-dimensional metrics?
 
 Many of Azure's resources now expose multi-dimensional metrics. These metrics track multiple series of values for one or many named dimensions. For example, a metric "Available disk space" can have a dimension called "Drive" with values "C:", "D:", which would allow viewing either available disk space across all drives or for each drive individually. 
 
