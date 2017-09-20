@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/14/2017
+ms.date: 09/20/2017
 ms.author: magoedte
 
 ---
@@ -27,16 +27,16 @@ In Log Analytics you can leverage log searches by constructing queries to analyz
 
 To complete the example in this tutorial, you must have an existing virtual machine [connected to the Log Analytics workspace](log-analytics-quick-collect-azurevm.md).  
 
+## Log in to Azure portal
+Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
 
 ## Open the Log Search portal 
 Start by opening the Log Search portal.   
 
 1. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
-2. In the Log Analytics subscriptions blade, select a workspace and then select the **Log Search** tile.  
+2. In the Log Analytics subscriptions pane, select a workspace and then select the **Log Search** tile.<br> ![Log Search button](media/log-analytics-tutorial-viewdata/azure-portal-01.png)
 
-![Log Search button](media/log-analytics-tutorial-viewdata/log-search-tile.png)
-
-You may have noticed the purple banner across the top of your Log Analytics resource page in the portal inviting you to upgrade.<br> ![Log Analytics upgrade notice in the Azure portal](./media/log-analytics-tutorial-viewdata/log-analytics-portal-upgradebanner.png)
+You may have noticed the purple banner across the top of your Log Analytics resource page in the portal inviting you to upgrade.<br> ![Log Analytics upgrade notice in the Azure portal](media/log-analytics-tutorial-viewdata/log-analytics-portal-upgradebanner.png)
 
 Log Analytics recently introduced a new query language to makes it easier to construct queries, correlate data from various sources, and analyze to quickly identify trends or issues.
 
@@ -63,7 +63,7 @@ Data is returned in the default list view, and you can see how many total record
 Only the first few properties of each record are displayed.  Click **show more** to display all properties for a particular record.
 
 ## Filter results of the query
-On the left side of the screen is the filter pane which allows you to add filtering to the query without modifying it directly.  Several properties of the records returned are displayed with their top ten values with their record count.
+On the left side of the screen is the filter pane which allows you to add filtering to the query without modifying it directly.  Several record properties are displayed for that record type, and you can select one or more property values to narrow your search results.
 
 If you're working with **Event**, select the checkbox next to **Error** under **EVENTLEVELNAME**.   If you're working with **Syslog**, select the checkbox next to **err** under **SEVERITYLEVEL**.  This changes the query to one of the following to limit the results to error events.
 
@@ -149,4 +149,4 @@ Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor 
 In this tutorial, you learned how to create basic log searches to analyze event and performance data.  Advance to the next tutorial to learn how to visualize the data by creating a dashboard.
 
 > [!div class="nextstepaction"]
-> [Log Analytics tutorials](log-analytics-tutorial-dashboards.md)
+> [Create and share Log Analytics dashboards](log-analytics-tutorial-dashboards.md)
