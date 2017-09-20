@@ -92,10 +92,6 @@ The following information is something to be aware of and can assist with using 
 
 -	Global administrator, security administrator, or conditional access administrator need read/write access.
 
--	After creating a Terms of Use, using the “access to cloud apps” template, the admin starts to see “sad clouds” when access other areas of the portal. If they refresh the browser, they start to see Azure AD token issues
-    - This behavior is expected.
-    - **Reason**: the user created a new conditional access policy that they are in scope of. The new policy is not satisfied so they are unable to access any cloud apps until that policy in satisfied.
-    - **Resolution**: in order to resolve the user must sign out and sign back in. 
 
 
 
