@@ -1,6 +1,6 @@
 ---
-title: Manage Web Apps for Containers using Azure CLI 2.0 | Microsoft Docs
-description: Manage Web Apps for Containers using Azure CLI.
+title: Manage Web App for Containers using Azure CLI 2.0 | Microsoft Docs
+description: Manage Web App for Containers using Azure CLI.
 keywords: azure app service, web app, cli, linux, oss
 services: app-service
 documentationCenter: ''
@@ -18,9 +18,9 @@ ms.date: 08/22/2017
 ms.author: aelnably
 
 ---
-# Manage Web Apps for Containers using Azure CLI
+# Manage Web App for Containers using Azure CLI
 
-Using the commands in this article you are able to create and manage a Web Apps for Containers using Azure CLI 2.0.
+Using the commands in this article you are able to create and manage a Web App for Containers using Azure CLI 2.0.
 You can start using the new version of the CLI in two ways:
 
 * [Installing Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) on your machine.
@@ -50,7 +50,7 @@ To activate the Docker container logging, you can use the following command:
 az webapp log config -n sname -g rgname --web-server-logging filesystem
 ```
 
-## Change the custom Docker container for an existing Web Apps for Containers App
+## Change the custom Docker container for an existing Web App for Containers App
 
 To change a previously created app, from the current Docker image to a new image, you can use the following command:
 
@@ -74,15 +74,15 @@ With the following command you can enable the CD functionality, and get the webh
 az webapp deployment container config -n sname -g rgname -e true
 ```
 
-## Create a Web Apps for Containers App using one of our built-in runtime frameworks
+## Create a Web App for Containers App using one of our built-in runtime frameworks
 
-To create a PHP 5.6 Web Apps for Containers App that, you can use the following command.
+To create a PHP 5.6 Web App for Containers App that, you can use the following command.
 
 ```azurecli-interactive
 az webapp create -n sname -g rgname -p pname -r "php|5.6"
 ```
 
-## Change framework version for an existing Web Apps for Containers App
+## Change framework version for an existing Web App for Containers App
 
 To change a previously created app, from the current framework version to Node.js 6.11, you can use the following command:
 
@@ -100,8 +100,8 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 
 ## Next steps
 
-* [What is Azure Web Apps for Containers?](app-service-linux-intro.md)
+* [What is Azure Web App for Containers?](app-service-linux-intro.md)
 * [Install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 * [Azure Cloud Shell (Preview)](../../cloud-shell/overview.md)
-* [Set up staging environments in Azure App Service](../../app-service-web/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Continuous Deployment with Azure Web Apps for Containers](app-service-linux-ci-cd.md)
+* [Set up staging environments in Azure App Service](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+* [Continuous Deployment with Azure Web App for Containers](app-service-linux-ci-cd.md)

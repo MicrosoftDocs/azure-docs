@@ -279,7 +279,7 @@ The first step when importing data using the Azure Import/Export service is to p
   Below is a sample dataset CSV file example for importing data as Azure blobs:
     
     ```
-    BasePath,DstBlobPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
+    BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
     "F:\50M_original\100M_1.csv.txt","containername/100M_1.csv.txt",BlockBlob,rename,"None",None
     "F:\50M_original\","containername/",BlockBlob,rename,"None",None 
     ```
@@ -287,7 +287,7 @@ The first step when importing data using the Azure Import/Export service is to p
   Below is a sample dataset CSV file example for importing data as Azure Files:
   
     ```
-    BasePath,DstBlobPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
+    BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
     "F:\50M_original\100M_1.csv.txt","fileshare/100M_1.csv.txt",file,rename,"None",None
     "F:\50M_original\","fileshare/",file,rename,"None",None 
     ```

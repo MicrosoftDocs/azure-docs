@@ -36,7 +36,7 @@ Basically, connectors are web APIs that use REST for pluggable interfaces,
 and JSON as their data exchange format. Because connectors are REST APIs 
 that communicate through HTTP endpoints, you can use any language, 
 like .NET, Java, or Node.js, for building connectors. 
-You can also host your APIs on [Azure App Service](../app-service/app-service-value-prop-what-is.md), 
+You can also host your APIs on [Azure App Service](../app-service/app-service-web-overview.md), 
 a platform-as-a-service (PaaS) offering that provides one of the best, easiest, 
 and most scalable ways for API hosting. 
 
@@ -51,15 +51,13 @@ based on the behavior that you want your API to provide.
 
 > [!TIP] 
 > Although you can deploy your APIs as 
-> [web apps](../app-service-web/app-service-web-overview.md), 
+> web apps, 
 > consider deploying your APIs as 
-> [API apps](../app-service-api/app-service-api-apps-why-best-platform.md), 
+> API apps, 
 > which can make your job easier when you build, host, and consume APIs 
 > in the cloud and on premises. You don't have to change any code in your 
 > APIs -- just deploy your code to an API app. Learn how to 
-> [build API apps created with ASP.NET](../app-service-api/app-service-api-dotnet-get-started.md), 
-> [Java](../app-service-api/app-service-api-java-api-app.md), 
-> or [Node.js](../app-service-api/app-service-api-nodejs-api-app.md). 
+> [build API apps](../app-service/app-service-web-tutorial-rest-api.md).
 >
 > For API App samples built for logic apps, visit the 
 > [Azure Logic Apps GitHub repository](http://github.com/logicappsio) or [blog](http://aka.ms/logicappsblog).

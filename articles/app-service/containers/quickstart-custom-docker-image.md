@@ -1,6 +1,6 @@
 ---
-title: Run a custom Docker Hub image in Azure Web Apps for Containers | Microsoft Docs
-description: How to use a custom Docker image for Azure Web Apps for Containers.
+title: Run a custom Docker Hub image in Azure Web App for Containers | Microsoft Docs
+description: How to use a custom Docker image for Azure Web App for Containers.
 keywords: azure app service, web app, linux, docker, container
 services: app-service
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.author: naziml;wesmc
 
 ---
 
-# Run a custom Docker Hub image in Azure Web Apps for Containers #
+# Run a custom Docker Hub image in Azure Web App for Containers #
 
 App Service provides pre-defined application stacks on Linux with support for specific versions, such as PHP 7.0 and Node.js 4.5. You can also use a custom Docker image to deploy your web app to an application stack that is not already defined in Azure. This quickstart shows how to create a web app and deploy a Python image to it. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
 
@@ -33,7 +33,7 @@ App Service provides pre-defined application stacks on Linux with support for sp
 
 ## Create a web app
 
-Create a [web app](../../app-service-web/app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#create) command. Don't forget to replace `<app name>` with a unique app name.
+Create a [web app](../app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#create) command. Don't forget to replace `<app name>` with a unique app name.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name elnably/dockerimagetest
@@ -68,7 +68,7 @@ http://<app_name>.azurewebsites.net
 
 ![Sample app running in Azure](media/quickstart-custom-docker-image/hello-world-in-browser.png)
 
-**Congratulations!** You've deployed a custom Docker image to Web Apps for Containers.
+**Congratulations!** You've deployed a custom Docker image to Web App for Containers.
 
 ## Next steps
 
