@@ -138,7 +138,7 @@ Update values for the following properties in the linked service definition:
 - **servicePrincipalId**, **servicePrincipalKey**. Replace &lt;servicePrincipalID&gt; and &lt;servicePrincipalKey&gt; with ID and key of your service principal in the Azure Active Directory. This service principal needs to be a member of the Contributor role of the subscription or the resource Group in which the cluster is created. See [create Azure Active Directory application and service principal](../azure-resource-manager/resource-group-create-service-principal-portal.md) for details. 
 - **clusterResourceGroup**. Replace &lt;resourceGroupOfHDICluster&gt; with the name of the resource group in which the HDInsight cluster needs to be created. 
 
-> [!NOTE}
+> [!NOTE]
 > Azure HDInsight has limitation on the total number of cores you can use in each Azure region it supports. For On-Demand HDInsight Linked Service, the HDInsight cluster will be created in the same location of the Azure Storage used as its primary storage. Ensure that you have enough core quotas for the cluster to be created successfully. For more information, see [Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). 
 
 
@@ -274,13 +274,10 @@ You have authored linked service and pipeline definitions in JSON files. Now, le
 	Write-Host "Activity `Error` section:" -foregroundcolor "Yellow"
 	$result.Error -join "`r`n" 
     ```  
+3. Here is the output of the sample run: 
 
-    Here is the output of the sample run: 
-
-    ```json
+	```
 	Pipeline run status: In Progress
-	
-	
 	ResourceGroupName : ADFTutorialResourceGroup
 	DataFactoryName   : 
 	ActivityName      : MySparkActivity
@@ -297,8 +294,6 @@ You have authored linked service and pipeline definitions in JSON files. Now, le
 	…
 	
 	Pipeline ' MySparkOnDemandPipeline' run finished. Result:
-	
-	
 	ResourceGroupName : ADFTutorialResourceGroup
 	DataFactoryName   : MyDataFactory09102017
 	ActivityName      : MySparkActivity
@@ -324,7 +319,6 @@ You have authored linked service and pipeline definitions in JSON files. Now, le
 	"failureType": ""
 	"target": "MySparkActivity"
     ```
-
 4. Confirm that a folder named `outputfiles` is created in the `spark` folder of adftutorial container with the output from the spark program. 
 
 
