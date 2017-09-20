@@ -331,7 +331,7 @@ if(Test-Path $script:gitconfigPath){
 ```
 ## Exit the shell
 
-Type `exit` to close the session.
+Type `exit` to terminate the session.
 
 [bashqs]:quickstart.md
 [gallery]:https://www.powershellgallery.com/
