@@ -12,16 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ---
 
 # Azure Active Directory Seamless Single Sign-On: Technical deep dive
 
 This article gives you technical details into how the Azure Active Directory Seamless Single Sign-On (Seamless SSO) feature works.
-
->[!IMPORTANT]
->The Seamless SSO feature is currently in preview.
 
 ## How does Seamless SSO work?
 
