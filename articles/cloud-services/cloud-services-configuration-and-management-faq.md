@@ -136,10 +136,10 @@ Please note that a CSR is just a text file. It does NOT have to be created from 
 
 You can enable Antimalware extension using PowerShell script in the Startup Task. Follow the steps in the these articles to implement it: 
  
-- [Create a PowerShell startup task](cloud-services-startup-tasks-common,md#create-a-powershell-startup-task)
+- [Create a PowerShell startup task](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
 - [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/Azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
 
-For more information about Antimalware deployment scenarios and how to enable it from the portal, see [Antimalware Deployment Scenarios](../security/azure-security-antimalware#antimalware-deployment-scenarios.md).
+For more information about Antimalware deployment scenarios and how to enable it from the portal, see [Antimalware Deployment Scenarios](../security/azure-security-antimalware.md#antimalware-deployment-scenarios).
 
 ## How to enable Server Name Indication (SNI) for Cloud Services?
 
