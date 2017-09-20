@@ -21,7 +21,7 @@ ms.author: juluk
 
 This document explains how to use the Cloud Shell window.
 
-## Swap between Bash and PowerShell
+## Swap between Bash and PowerShell environments
 ![](media/using-the-shell-window/env-selector.png)
 
 Use the environment selector in the Cloud Shell toolbar to swap between Bash and PowerShell environments.
@@ -49,6 +49,10 @@ If exiting a session, be sure to exit from each session window as each process r
 
 ## Scrolling text display
 * Scroll with your mouse or touchpad to move terminal text.
+
+## Changing the text size
+![](media/using-the-shell-window/text-size.png)
+* Click the settings icon on the top left of the window, then hover over the "Text size" option and select your desired text size.
 
 ## Exit command
 Running `exit` terminates the active session. This behavior occurs by default after 10 minutes without interaction.
