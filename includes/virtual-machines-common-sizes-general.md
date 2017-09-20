@@ -18,7 +18,7 @@
 > - Europe - West
 > - Asia Pacific - Southeast
 
-The B-series [burstable](../articles/virtual-machines/linux/b-series-burstable.md) VM’s are ideal for workloads that do not need the full performance of the CPU continuously, like web servers, small databases and development and test environments. These workloads typically have burstable performance requirements. The B-Series provides these customers the ability to purchase a VM size with a price conscience baseline performance that allows the VM instance to build up credits when the VM is utilizing less than its base performance. When the VM has accumulated credit, the VM can burst above the VM’s baseline using up to 100% of the CPU when your application requires the higher CPU performance.
+The B-series burstable VMs are ideal for workloads that do not need the full performance of the CPU continuously, like web servers, small databases and development and test environments. These workloads typically have burstable performance requirements. The B-Series provides these customers the ability to purchase a VM size with a price conscience baseline performance that allows the VM instance to build up credits when the VM is utilizing less than its base performance. When the VM has accumulated credit, the VM can burst above the VM’s baseline using up to 100% of the CPU when your application requires the higher CPU performance.
 
 
 | Size             | vCPU  | Memory: GiB | Local SSD: GiB | Base Perf of a Core | Credits banked / hour | Max Banked Credits | Max data disks | Max local disk perf: IOPS / MBps | Max uncached disk perf: IOPS / MBps | Max NICs |          
