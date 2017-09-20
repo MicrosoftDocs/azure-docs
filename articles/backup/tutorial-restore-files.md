@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 
 # Restore files to a virtual machine in Azure
-Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery point, you can restore the whole VM or individual files. This article details how to restore individual files. You can also [restore a complete VM](tutorial-restore-disks.md). In this tutorial you learn how to:
+Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery point, you can restore the whole VM or individual files. This article details how to restore individual files. You can also [restore a complete VM](tutorial-restore-disk.md). In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * List and select recovery points
@@ -29,11 +29,11 @@ Azure Backup creates recovery points that are stored in geo-redundant recovery v
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 
 ## Backup overview
-When Azure initiates a backup, the backup extension on the VM takes a point-in-time snapshot. The backup extension is installed on the VM when the first backup is requested. As no application writes occur while the VM is stopped, Azure Backup can also take a snapshot of the underlying storage if the VM is not running when the backup takes place
+When Azure initiates a backup, the backup extension on the VM takes a point-in-time snapshot. The backup extension is installed on the VM when the first backup is requested. Azure Backup can also take a snapshot of the underlying storage if the VM is not running when the backup takes place.
 
 By default, Azure Backup takes a file system consistent backup. Once Azure Backup takes the snapshot, the data is transferred to the Recovery Services vault. To maximize efficiency, Azure Backup identifies and transfers only the blocks of data that have changed since the previous backup.
 
@@ -47,7 +47,7 @@ This tutorial requires a Linux VM that has been protected with Azure Backup. To 
 ## Delete a file from a VM
 If you accidentally delete or make changes to a file, you can restore invididual files from a recovery point. This process allows you to browse all the file backed up in a recovery point and restore only the files you need. In this example, we delete a file from a web server to demonstrate the file-level recovery process.
 
-1. To connect to your VM, obtain the IP address of your VM with [az vm show]():
+1. To connect to your VM, obtain the IP address of your VM with [az vm show](/cli/azure/vm?view=azure-cli-latest#az_vm_show):
 
      ```azurecli-interactive
      az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
@@ -83,7 +83,7 @@ If you accidentally delete or make changes to a file, you can restore invididual
 ## Generate file recovery script
 To restore your files, Azure Backup provides a script to run on your VM that connects your recovery point as a local drive. You can browse this local drive, restore files to the VM itself, then disconnect the recovery point. Azure Backup then continues to back up your data based on the assigned policy for schedule and retention.
 
-1. To list recovery points for your VM, use [az backup recoverypoint list](). In this example, we select the most recent recovery point with `--query [0].name` for the VM named *myVM* that is protected in *myRecoveryServicesVault*:
+1. To list recovery points for your VM, use **az backup recoverypoint list**. In this example, we select the most recent recovery point with `--query [0].name` for the VM named *myVM* that is protected in *myRecoveryServicesVault*:
 
     ```azurecli-interactive
     az backup recoverypoint list \
@@ -95,7 +95,7 @@ To restore your files, Azure Backup provides a script to run on your VM that con
         --output tsv
     ```
 
-2. To obtain the script that connects, or mounts, the recovery point to your VM, use [az backup restore files mount-rp](). The following example obtains the script for the VM named *myVM* that is protected in *myRecoveryServicesVault*. Replace *myRecoveryPointName* with the name of your recovery point that you obtained in the preceding command:
+2. To obtain the script that connects, or mounts, the recovery point to your VM, use **az backup restore files mount-rp**. The following example obtains the script for the VM named *myVM* that is protected in *myRecoveryServicesVault*. Replace *myRecoveryPointName* with the name of your recovery point that you obtained in the preceding command:
 
     ```azurecli-interactive
     az backup restore files mount-rp \
@@ -140,7 +140,7 @@ With the recovery script copied to your VM, you can now connect the recovery poi
     ./myVM_we_1571974050985163527.sh
     ```
 
-    As the script runs, you are prompted to enter a password to access the recovery point. Enter the password that was output from the [az backup restore files mount-rp]() command that generated the recovery script.
+    As the script runs, you are prompted to enter a password to access the recovery point. Enter the password that was output from the **az backup restore files mount-rp** command that generated the recovery script.
 
 4. The output from the script gives you the path for the recovery point. The following example output shows that the recovery point is mounted at */home/azureuser/myVM-20170919213536/Volume1*:
 
@@ -180,7 +180,7 @@ With the recovery script copied to your VM, you can now connect the recovery poi
     exit
     ```
 
-    Unmount the recovery point from your VM with [az backup restore files unmount-rp](). The following example unmounts the recovery point from the VM named *myVM* in *myRecoveryServicesVault*. Replace *myRecoveryPointName* with the name of your recovery point that you obtained in the previous commands:
+    Unmount the recovery point from your VM with **az backup restore files unmount-rp**. The following example unmounts the recovery point from the VM named *myVM* in *myRecoveryServicesVault*. Replace *myRecoveryPointName* with the name of your recovery point that you obtained in the previous commands:
     
     ```azurecli-interactive
     az backup restore files unmount-rp \

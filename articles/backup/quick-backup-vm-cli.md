@@ -28,11 +28,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 
 ## Register the Azure Backup resource provider
-The first time you use Azure Backup, you must register the Azure Recovery Service provider with your subscription with [az provider register]().
+The first time you use Azure Backup, you must register the Azure Recovery Service provider with your subscription with [az provider register](/cli/azure/provider?view=azure-cli-latest#az_provider_register).
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.RecoveryServices
@@ -54,7 +54,7 @@ By default, the vault is set for Geo-Redundant storage. To further protect your 
 
 
 ## Enable backup for an Azure VM
-You create and use policies to define when a backup job runs and how long the recovery points are stored. The default protection policy runs a backup job each day at midnight and retains recovery points for 30 days. You can use these default policy values to quickly protect your VM. To enable backup protection for a VM, use [az backup protection enable—for-vm](). Specify the policy to use, then the resource group and VM to protect:
+You create and use policies to define when a backup job runs and how long the recovery points are stored. The default protection policy runs a backup job each day at midnight and retains recovery points for 30 days. You can use these default policy values to quickly protect your VM. To enable backup protection for a VM, use **az backup protection enable—for-vm**. Specify the policy to use, then the resource group and VM to protect:
 
 ```azurecli-interactive 
 az backup protection enable-for-vm \
@@ -66,7 +66,7 @@ az backup protection enable-for-vm \
 
 
 ## Start a backup job
-To start a backup now rather than wait for the default policy to run the job at midnight, use [az backup protection backup-now](). This first backup job creates a full recovery point. Each backup job after this initial backup creates incremental recovery points. Incremental recovery points are storage and time-efficient, as they only transfer changes made since the last backup.
+To start a backup now rather than wait for the default policy to run the job at midnight, use **az backup protection backup-now**. This first backup job creates a full recovery point. Each backup job after this initial backup creates incremental recovery points. Incremental recovery points are storage and time-efficient, as they only transfer changes made since the last backup.
 
 The following parameters are used to back up the VM:
 
@@ -89,7 +89,7 @@ As this first backup job creates a full recovery point, the process can take up 
 
 
 ## Monitor the backup job
-To monitor the status of backup jobs, use [az backup job list]():
+To monitor the status of backup jobs, use **az backup job list**:
 
 ```azurecli-interactive 
 az backup job list \
@@ -98,7 +98,7 @@ az backup job list \
     --output table
 ```
 
-The output is similar to the following example, which shows the backup job is **InProgress**:
+The output is similar to the following example, which shows the backup job is *InProgress*:
 
 ```
 Name             Operation        Status      Item Name    Start Time UTC       Duration
