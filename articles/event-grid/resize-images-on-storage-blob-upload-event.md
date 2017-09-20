@@ -10,21 +10,17 @@ ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2017
+ms.date: 09/20/2017
 ms.author: glenga
 ms.custom: mvc
 ---
 # Automate resizing uploaded images using Event Grid
 
-[Azure Event Grid](overview.md) is an eventing service for the cloud. Event Grid enables you to create subscriptions to events raised by Azure services or third-party resources.  In this article, Event Grid enables [Azure Functions](..\azure-functions\functions-overview.md) to respond to [Azure Blob storage](..\storage\blobs\storage-blobs-introduction.md) events and generate thumbnails of uploaded images. An event subscription is created against the Blob storage create event. When a blob is added to a specific Blob storage container, a function endpoint is called. Data passed to the function binding from Event Grid is used to access the blob and generate the thumbnail image. You use the Azure CLI and the Azure portal to create and configure the application topology. You test the resize functionality by using a sample web app.   
+[Azure Event Grid](overview.md) is an eventing service for the cloud. Event Grid enables you to create subscriptions to events raised by Azure services or third-party resources.  In this article, Event Grid enables [Azure Functions](..\azure-functions\functions-overview.md) to respond to [Azure Blob storage](..\storage\blobs\storage-blobs-introduction.md) events and generate thumbnails of uploaded images. An event subscription is created against the Blob storage create event. When a blob is added to a specific Blob storage container, a function endpoint is called. Data passed to the function binding from Event Grid is used to access the blob and generate the thumbnail image. 
 
-> [!WARNING]
-> This tutorial requires Event Grid functionality that is currently in a reduced-access preview. To be able to successfully complete this topic, you must first [request access to Blob storage events](#request-storage-access).  
->
->After access is granted, an email is sent to the user who requested access. You can also [check your approval status](#check-access-status) from the Azure CLI.  
->
->After you have confirmed that your subscription has been granted access to Blob storage events, you can [complete the rest of this tutorial](#create-rg). 
+You use the Azure CLI and the Azure portal to create and configure the application topology. You test the resize functionality by using a sample web app.  
 
+[!INCLUDE [storage-events-note.md](../../includes/storage-events-note.md)]
 
 ![Published web app in Edge browser](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
@@ -49,7 +45,7 @@ To complete this tutorial:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0.14 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 If you are not using Cloud Shell, you must first sign in using `az login`.
 
@@ -139,9 +135,9 @@ Make a note of your blob storage account name and key. The sample app uses these
 
 ## Create a function app  
 
-You must have a function app to host the execution of your functions. The function app provides an environment for serverless execution of your function code. Create a function app by using the [az functionapp create](/cli/azure/functionapp#create) command. 
+You must have a function app to host the execution of your function. The function app provides an environment for serverless execution of your function code. Create a function app by using the [az functionapp create](/cli/azure/functionapp#create) command. 
 
-In the following command, substitute your own unique function app name where you see the `<function_app_name>` placeholder. The `<function_app>` is used as the default DNS domain for the function app, and so the name needs to be unique across all apps in Azure. In this case, `<general_storage_account>` is the name of the general storage account you created.  
+In the following command, substitute your own unique function app name where you see the `<function_app>` placeholder. The `<function_app>` is used as the default DNS domain for the function app, and so the name needs to be unique across all apps in Azure. In this case, `<general_storage_account>` is the name of the general storage account you created.  
 
 ```azurecli-interactive
 az functionapp create --name <function_app> --storage-account  <general_storage_account>  \
@@ -162,14 +158,14 @@ storageConnectionString=$(az storage account show-connection-string \
 az functionapp config appsettings set --name <function_app> \
 --resource-group myResourceGroup \
 --settings myblobstorage_STORAGE=$storageConnectionString \
-myThumbContainerName=thumbs myImageContainerName=image
+myContainerName=thumbs
 ```
 
 You can now deploy a function code project to this function app.
 
 ## Deploy the function code 
 
-The C# function that performs image resizing is available in this [sample GitHub repository](https://github.com/Azure-Samples/function-image-upload-resize). The project also contains a function that deletes thumbnails when the main image is deleted. Deploy this Functions project code to the function app by using the [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config) command. 
+The C# function that performs image resizing is available in this [sample GitHub repository](https://github.com/Azure-Samples/function-image-upload-resize). Deploy this Functions code project to the function app by using the [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config) command. 
 
 In the following command, `<function_app>` is the same function app you created in the previous script.
 
@@ -179,19 +175,19 @@ az functionapp deployment source config --name <function_app> \
 --repo-url https://github.com/Azure-Samples/function-image-upload-resize
 ```
 
-The image resize function is triggered by an event subscription to a Blob created event. The data passed to the trigger includes the URL of the blob, which is used to retrieve the image from Blob storage. The function generates a thumbnail image and writes the resulting stream to a separate container in Blob storage. To learn more about this function, see the [readme file in the sample repository](https://github.com/Azure-Samples/function-image-upload-resize/blob/master/README.md).
+The image resize function is triggered by an event subscription to a Blob created event. The data passed to the trigger includes the URL of the blob, which is in turn passed to the input binding to obtain the uploaded image from Blob storage. The function generates a thumbnail image and writes the resulting stream to a separate container in Blob storage. To learn more about this function, see the [readme file in the sample repository](https://github.com/Azure-Samples/function-image-upload-resize/blob/master/README.md).
  
-The function project code is deployed directly from the public sample repo. To learn more about deployment options for Azure Functions, see [Continuous deployment for Azure Functions](../azure-functions/functions-continuous-deployment.md).
+The function project code is deployed directly from the public sample repository. To learn more about deployment options for Azure Functions, see [Continuous deployment for Azure Functions](../azure-functions/functions-continuous-deployment.md).
 
-## Create your event subscriptions
+## Create your event subscription
 
-An event subscription indicates which provider-generated events you want sent to a specific endpoint. In this case, the endpoints are exposed by your functions. Use the following steps to create event subscriptions from your functions in the Azure portal: 
+An event subscription indicates which provider-generated events you want sent to a specific endpoint. In this case, the endpoint is exposed by your function. Use the following steps to create an event subscription from your function in the Azure portal: 
 
 1. In the [Azure portal](https://portal.azure.com), click the arrow at the bottom left to expand all services, type `functions` in the **Filter** field, and then choose **Function Apps**. 
 
     ![Browse to Function Apps in the Azure portal](./media/resize-images-on-storage-blob-upload-event/portal-find-functions.png)
 
-2. Expand your function app, choose the **imageresizer** function, and then select **Add Event Grid subscription**.
+2. Expand your function app, choose the **imageresizerfunc** function, and then select **Add Event Grid subscription**.
 
     ![Browse to Function Apps in the Azure portal](./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png)
 
@@ -210,22 +206,7 @@ An event subscription indicates which provider-generated events you want sent to
     | **Subscriber endpoint** | autogenerated | Use the endpoint URL that is generated for you. | 
     | **Prefix filter** | /blobServices/default/containers/images/blobs/ | Filters storage events to only those on the **images** container.| 
 
-4. Click **Create** to add the event subscription. This creates an event subscription that triggers the **imageresizer** function when a blob is added to the **images** container. Resized images are added to the **thumbs** container.
-
-5. Repeat steps 2-4 from the **imagedelete** function in the portal using the settings in the following table: 
-
-    | Setting      | Suggested value  | Description                                        |
-    | ------------ |  ------- | -------------------------------------------------- |
-    | **Name** | imagedeletesub | Name that identifies your new event subscription. | 
-    | **Topic type** |  Storage accounts | Choose the Storage account event provider. | 
-    | **Subscription** | Your subscription | By default, your current subscription should be selected.   |
-    | **Resource group** | myResourceGroup | Select **Use existing** and choose the resource group you have been using in this topic.  |
-    | **Instance** |  `<blob_storage_account>` |  Choose the Blob storage account you created. |
-    | **Event types** | Blob deleted | Uncheck all types other than **Blob deleted**. Only event types of `Microsoft.Storage.BlobDeleted` are passed to the function.| 
-    | **Subscriber endpoint** | autogenerated | Use the endpoint URL that is generated for you. | 
-    | **Prefix filter** | /blobServices/default/containers/ | Handle delete events from both containers.| 
-
-6. Click **Create** to add the event subscription for the **imagedelete** function. This creates an event subscription that triggers the **imagedelete** function when a blob is deleted from either Blob storage container. This makes sure that a related image isn't orphaned when one is deleted. 
+4. Click **Create** to add the event subscription. This creates an event subscription that triggers  **imageresizerfunc** when a blob is added to the **images** container. Resized images are added to the **thumbs** container.
 
 Now that the backend services are configured, you publish the sample web app to Azure. 
 
