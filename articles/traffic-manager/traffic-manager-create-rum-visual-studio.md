@@ -52,36 +52,49 @@ To obtain the RUM Key using Azure Portal using the following procedure:
 
 ## Step 2: Instrument your app with the RUM package of Mobile Center SDK
 
-If you're new to Visual Studio Mobile Center, visit its [website](https://mobile.azure.com) . For detailed instructions on SDK integration, see
-[Getting Started with the Android SDK](https://docs.microsoft.com/mobile-center/sdk/getting-started/Android)
+If you're new to Visual Studio Mobile Center, visit its [website](https://mobile.azure.com). For detailed instructions on SDK integration, see
+[Getting Started with the Android SDK](https://docs.microsoft.com/mobile-center/sdk/getting-started/Android).
 
 To use Real User Measurements, complete the following procedure:
 
 1.  Add the SDK to the project
-    During the preview of the ATM RUM SDK, you need to explicitly reference the package repository. In your app/build.gradle file add the following lines:
+
+    During the preview of the ATM RUM SDK, you need to explicitly reference the package repository.
+
+    In your **app/build.gradle** file add the following lines:
+
+    ```groovy
+    repositories {
+        maven {
+            url "https://dl.bintray.com/mobile-center/mobile-center-snapshot"
+        }
+    }
     ```
-    repositories { maven { url "https://dl.bintray.com/mobile-center/mobile-center-snapshot" } }
-    ```
-    In your app/build.gradle file add the following lines: 
-        
-    ```
+    In your **app/build.gradle** file add the following lines:
+
+    ```groovy
     dependencies {   
      
-        def mobileCenterSdkVersion = '0.12.1-11+ff55f76'    
+        def mobileCenterSdkVersion = '0.12.1-11+ff55f76'
         compile "com.microsoft.azure.mobile:mobile-center-rum:${mobileCenterSdkVersion}"
-        }
+    }
     ```
 
 2. Start the SDK
-Open your app’s main activity class and add the following import statement:
 
-    import com.microsoft.azure.mobile.MobileCenter;import com.microsoft.azure.mobile.analytics.rum.RealUserMeasurement;
+    Open your app’s main activity class and add the following import statements:
 
-Look for onCreate callback in the same file and add the following command:
-        
-       RealUserMeasurements.setRumKey("<Your RUM Key>");
-       MobileCenter.start(getApplication(), "<Your Mobile Center AppSecret>",                   RealUserMeasurements.class);
+    ```java
+    import com.microsoft.azure.mobile.MobileCenter;
+    import com.microsoft.azure.mobile.rum.RealUserMeasurements;
+    ```
 
+    Look for the `onCreate` callback in the same file and add the following code:
+
+    ```java
+    RealUserMeasurements.setRumKey("<Your RUM Key>");
+    MobileCenter.start(getApplication(), "<Your Mobile Center AppSecret>", RealUserMeasurements.class);
+    ```
 
 ## Next steps
 - Learn more about [Real User Measurements](traffic-manager-rum-overview.md)
