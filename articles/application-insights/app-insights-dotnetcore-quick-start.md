@@ -16,7 +16,7 @@ manager: carmonm
 
 With Azure Application Insights, you can easily monitor your web application for availability, performance, and usage. You can also quickly identify and diagnose errors in your application without waiting for a user to report them. 
 
-This quickstart guides you through adding the Application Insights SDK to an existing ASP.Net Core web application. If you do not have a ASP.NET Core web application, you can create one by following the [Create an ASP.NET Core Web App Guide](https://docs.microsoft.com/en-us/aspnet/core/tutorials/publish-to-azure-webapp-using-vs).
+This quickstart guides you through adding the Application Insights SDK to an existing ASP.Net Core web application. 
 
 ## Prerequisites
 
@@ -29,14 +29,19 @@ To complete this quickstart, you need the following:
 - [.NET Core 2.0 SDK](https://www.microsoft.com/net/core)
 - Existing .NET Core web application.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/en-us/free/) before you begin.
+If you do not have a ASP.NET Core web application, you can create one by following the [Create an ASP.NET Core Web App Guide](https://docs.microsoft.com/en-us/aspnet/core/tutorials/publish-to-azure-webapp-using-vs).
+
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+
+## Log in to the Azure portal
+
+Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Enable Application Insights
 
 Application Insights can gather telemetry data from any internet-connected application, regardless of whether it's running on-premises or in the cloud. Use the following steps to start viewing this data.
 
-1. Sign into the [Azure portal](https://portal.azure.com).
-2. Select **New** > **Developer Tools** > **Application Insights**.
+1. Select **New** > **Monitoring + Management** > **Application Insights**.
 
    ![Adding Application Insights Resource](./media/app-insights-dotnetcore-quick-start/0001-dc.png)
 
@@ -49,7 +54,7 @@ Application Insights can gather telemetry data from any internet-connected appli
    | **Resource Group**     | myResourceGroup      | Name for the new resource group to host App Insights data |
    | **Location** | East US | Choose a location near you, or near where your app is hosted |
 
-3. Click **Create**.
+2. Click **Create**.
 
 ## Configure App Insights SDK
 

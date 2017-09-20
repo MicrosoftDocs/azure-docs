@@ -25,27 +25,30 @@ To complete this quickstart, you need the following:
 - Azure Subscription.
 - Existing Node.js web application.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/en-us/free/) before you begin.
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+
+## Log in to the Azure portal
+
+Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Enable Application Insights
 
 Application Insights can gather telemetry data from any internet-connected application, regardless of whether it's running on-premises or in the cloud. Use the following steps to start viewing this data.
 
-1. Sign into the [Azure portal](https://portal.azure.com).
-2. Select **New** > **Developer Tools** > **Application Insights**.
+1. Select **New** > **Monitoring + Management** > **Application Insights**.
 
    ![Adding Application Insights Resource](./media/app-insights-nodejs-quick-start/001-u.png)
 
    A configuration box will appear, use the table below to fill out the input fields.
 
-    | Settings        | Suggested value           | Description  |
+    | Settings        | Value           | Description  |
    | ------------- |:-------------|:-----|
    | **Name**      | Globally Unique Value | Name that identifies the app you are monitoring |
    | **Application Type** | Node.js Application | Type of app you are monitoring |
    | **Resource Group**     | myResourceGroup      | Name for the new resource group to host App Insights data |
    | **Location** | East US | Choose a location near you, or near where your app is hosted |
 
-3. Click **Create**.
+2. Click **Create**.
 
 ## Configure App Insights SDK
 

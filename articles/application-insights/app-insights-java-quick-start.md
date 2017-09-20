@@ -16,7 +16,7 @@ manager: carmonm
 
 With Azure Application Insights, you can easily monitor your web application for availability, performance, and usage. You can also quickly identify and diagnose errors in your application without waiting for a user to report them. With the Application Insights Java SDK, you can monitor common third-party packages including MongoDB, MySql, and Redis.
 
-This quickstart guides you through adding the Application Insights SDK to an existing Java Dynamic Web Project. If you do not have a Java Dynamic Web Project, you can create one by with the [Create a Java web app quickstart](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-java).
+This quickstart guides you through adding the Application Insights SDK to an existing Java Dynamic Web Project.
 
 ## Prerequisites
 
@@ -26,28 +26,33 @@ To complete this quickstart, you need the following:
 - Oracle JRE 1.6 or later, or Zulu JRE 1.6 or later
 - The free [Eclipse IDE for Java EE Developers](http://www.eclipse.org/downloads/). This quickstart uses Eclipse Oxygen (4.7)
 - Existing Java Dynamic Web Project
+ 
+If you do not have a Java Dynamic Web Project, you can create one with the [Create a Java web app quickstart](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-java).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/en-us/free/) before you begin.
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+
+## Log in to the Azure portal
+
+Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Enable Application Insights
 
 Application Insights can gather telemetry data from any internet-connected application, regardless of whether it's running on-premises or in the cloud. Use the following steps to start viewing this data.
 
-1. Sign into the [Azure portal](https://portal.azure.com).
-2. Select **New** > **Developer Tools** > **Application Insights**.
+1. Select **New** > **Monitoring + Management** > **Application Insights**.
 
    ![Adding Application Insights Resource](./media/app-insights-java-quick-start/001-j.png)
 
    A configuration box will appear, use the table below to fill out the input fields.
 
-    | Settings        | Suggested value           | Description  |
+    | Settings        | Value           | Description  |
    | ------------- |:-------------|:-----|
    | **Name**      | Globally Unique Value | Name that identifies the app you are monitoring |
    | **Application Type** | Java web application | Type of app you are monitoring |
    | **Resource Group**     | myResourceGroup      | Name for the new resource group to host App Insights data |
    | **Location** | East US | Choose a location near you, or near where your app is hosted |
 
-3. Click **Create**.
+2. Click **Create**.
 
 ## Install App Insights Plugin
 
