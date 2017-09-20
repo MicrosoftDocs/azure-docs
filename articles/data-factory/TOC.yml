@@ -21,7 +21,7 @@
       href: quickstart-create-data-factory-portal.md      
 - name: Tutorials
   items:
-  - name: 1. Deploy SSIS packages to Azure
+  - name: 1 - Deploy SSIS packages to Azure
     href: tutorial-deploy-ssis-packages-azure.md    
   - name: 2 - Copy data in cloud
     href: tutorial-copy-data-dot-net.md
