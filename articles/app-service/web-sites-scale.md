@@ -20,7 +20,7 @@ ms.author: cephalin
 # Scale up an app in Azure
 
 > [!NOTE]
-> The new **PremiumV2** tier, which is currently in Preview, gives you faster CPUs, SSD storage, and double the memory-to-core ratio than the existing pricing tiers. To scale up to **PremiumV2** tier, see [Configure PremiumV2 tier (Preview) for App Service](app-service-configure-premium-tier.md).
+> The new **PremiumV2** tier gives you faster CPUs, SSD storage, and double the memory-to-core ratio than the existing pricing tiers. To scale up to **PremiumV2** tier, see [Configure PremiumV2 tier for App Service](app-service-configure-premium-tier.md).
 >
 
 This article shows you how to scale your app in Azure App Service. There are two workflows for scaling, scale up and scale out, and this article explains the scale up workflow.
@@ -83,7 +83,7 @@ If your app depends on other services, such as Azure SQL Database or Azure Stora
 
 ## Compare pricing tiers
 For detailed information, such as VM sizes for each pricing tier, see [App Service Pricing Details](https://azure.microsoft.com/pricing/details/web-sites/).
-For an exhaustive table of service limits, quotas, and constraints, and supported features in each tier, see [App Service limits](../azure-subscription-service-limits.md#app-service-limits).
+For a table of service limits, quotas, and constraints, and supported features in each tier, see [App Service limits](../azure-subscription-service-limits.md#app-service-limits).
 
 > [!NOTE]
 > If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/) where you can immediately create a short-lived starter web app in App Service. No credit cards are required and there are no commitments.

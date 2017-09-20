@@ -47,7 +47,7 @@ This article explores the key characteristics of an App Service plan, such as pr
 
 ## New pricing tier: PremiumV2
 
-The new **PremiumV2** pricing tier is currently in Preview. This tier features [Dv2-series VMs](../virtual-machines/windows/sizes-general.md#dv2-series) with faster processors, SSD storage, and double memory-to-core ratio compared to **Standard** tier. **PremiumV2** also supports higher scale via increased instance count while still providing all the advanced capabilities found in the Standard plan. All features available in the existing **Premium** tier are included in **PremiumV2**.
+The new **PremiumV2** pricing tier provides [Dv2-series VMs](../virtual-machines/windows/sizes-general.md#dv2-series) with faster processors, SSD storage, and double memory-to-core ratio compared to **Standard** tier. **PremiumV2** also supports higher scale via increased instance count while still providing all the advanced capabilities found in the Standard plan. All features available in the existing **Premium** tier are included in **PremiumV2**.
 
 Similar to other dedicated tiers, three VM sizes are available for this tier:
 
@@ -55,7 +55,7 @@ Similar to other dedicated tiers, three VM sizes are available for this tier:
 - Medium (2 CPU cores, 7 GiB memory) 
 - Large (4 CPU core, 14 GiB memory)  
 
-During the Preview timeframe, the pricing for **PremiumV2** is the same **Premium**. For more information, see [App Service Pricing](/pricing/details/app-service/).
+For **PremiumV2** pricing information, see [App Service Pricing](/pricing/details/app-service/).
 
 To get started with the new **PremiumV2** pricing tier, see [Configure PremiumV2 tier for App Service](app-service-configure-premium-tier.md).
 
