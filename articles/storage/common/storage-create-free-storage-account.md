@@ -3,7 +3,7 @@ title: How to create a free storage account in the Azure portal | Microsoft Docs
 description: Create a new free storage account. Learn about standard and premium storage accounts.
 services: storage
 documentationcenter: ''
-author: dchimes94
+author: dchimes
 manager: amberbhargava
 editor: 
 
