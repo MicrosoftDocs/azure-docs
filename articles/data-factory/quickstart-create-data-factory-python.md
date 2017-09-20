@@ -92,7 +92,7 @@ This quickstart describes how to use Python to create an Azure data factory. The
     ```python   
     subscription_id = '<your subscription ID where the factory resides>'
     credentials = ServicePrincipalCredentials(
-            client_id=1`'<yourClientId>',
+            client_id='<yourClientId>',
             secret='<YourPassword>',
             tenant='<YourTenandId>'
     )

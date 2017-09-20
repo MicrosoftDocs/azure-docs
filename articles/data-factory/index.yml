@@ -24,13 +24,17 @@ sections:
     style: icon48
     items: 
     - image: 
+        src: /azure/data-factory/media/index/logo_powershell.svg
+      text: PowerShell
+      href: /azure/data-factory/quickstart-create-data-factory-powershell   
+    - image: 
         src: /azure/data-factory/media/index/logo_net.svg
       text: .NET
       href: /azure/data-factory/quickstart-create-data-factory-dot-net
     - image: 
-        src: /azure/data-factory/media/index/logo_powershell.svg
-      text: PowerShell
-      href: /azure/data-factory/quickstart-create-data-factory-powershell
+        src: /azure/data-factory/media/index/logo_python.svg
+      text: .NET
+      href: /azure/data-factory/quickstart-create-data-factory-python      
     - image: 
         src: /azure/data-factory/media/index/logo_rest.svg
       text: REST
@@ -61,4 +65,4 @@ sections:
     - title: Languages
       html: <p><a href="/dotnet/api/microsoft.azure.management.datafactory">.NET</a></p><p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
     - title: REST
-      html: <p><a href="/rest/api/data-factory">Data Factory REST API Reference</a></p>      
+      html: <p><a href="/rest/api/data-factory">REST API Reference</a></p>      
