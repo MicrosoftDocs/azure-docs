@@ -74,9 +74,12 @@ In this article, you learned how to use Power Query to retrieve data from HDInsi
 * [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][hdinsight-ODBC]
 * [Upload Data to HDInsight][hdinsight-upload-data]
 
-[hdinsight-ODBC]: hdinsight-connect-excel-hive-odbc-driver.md
-[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-upload-data]: hdinsight-upload-data.md
+* [Visualize Hive data with Microsoft Power BI in Azure HDInsight](./hdinsight-connect-hive-power-bi.md).
+* [Use Zeppelin to run Hive queries in Azure HDInsight ](./hdinsight-connect-hive-zeppelin.md).
+* [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver](./hdinsight-connect-excel-hive-odbc-driver.md).
+* [Connect to Azure HDInsight and run Hive queries using Data Lake Tools for Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md).
+* [Use Visual Studio Code for Hive, LLAP or pySpark](hdinsight-for-vscode).
+* [Upload data to HDInsight](./hdinsight-upload-data.md).
 
 [image-hdi-powerquery-hdi-source]: ./media/hdinsight-connect-excel-power-query/hdi.powerquery.selecthdisource.png
 [image-hdi-powerquery-importdata]: ./media/hdinsight-connect-excel-power-query/hdi.powerquery.importdata.png
