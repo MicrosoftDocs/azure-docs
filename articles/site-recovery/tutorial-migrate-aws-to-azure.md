@@ -74,13 +74,25 @@ Use one of the EC2 instances to create a configuration server and register it wi
 
 1. Configure the proxy on the VM so that it can access the [Service URLs](site-recovery-support-matrix-to-azure.md#service-urls).
 
-2. Download the [Microsoft Azure Site Recovery Unified Setup](http://aka.ms/unifiedinstaller_wus) to the virtual machine.
+2. Download the [Microsoft Azure Site Recovery Unified Setup](http://aka.ms/unifiedinstaller_wus) program. You can download it to your local machine and then copy it over to the VM.
 
-3. Download the vault registration key
+3. In the Azure portal, go to All resources > myVault > Properties and click the **Downlaod** button to download the **Backup Credentials**. Copy the downloaded file over the to VM to use as the **Site Recovery Registration Key**.
 
-4. Run the **Microsoft Azure Site Recovery Unified Setup** installer to set up the Configuration Server and Process Server and use the vault registration key to register it with the vault.
+4. On the VM, right-click installer you downloaded for the **Microsoft Azure Site Recovery Unified Setup** and select **Run as administrator**. In the setup wizard provide the following values for each page:
+
+	1. In **Before You Begin**, select **Install the configuration server and process server** and then click **Next**.
+	2. In **Third Party Software Licesnse**, select **I accept the third party license agreement.** and then click **Next**.
+	3. In **Registration**, click browse and navigate to where you put the **Backup Credentials** file and then click **Next**.
+	4. In **Internet Settings**, select **Connect to Azure Site Recovery without a proxy server.** and then click **Next**.
+	5. In the **Prerequisites Check** page, it will run checks for several items. When it is complete, click **Next**. 
+	6. In **MySQL Configuration**, provide the required passwords and then click **Next**.
+	7. In **Environment Details**, select **No** and then click **Next**.
+	8. In **Install Location**, click **Next** to accept the default.
+	9. In **Network Selection**, click **Next** to accept the default.
+	10. In **Summary** click **Install**.
+	11. **Installation Progress** will show you information about where you are in the installation process. When it is complete, click **Finish**. You may need to OK a reboot for the installation to complete. You might also get a pop-up about a passphrase, copy it to your clipbloard and save it somewhere safe.
     
-5. On the VM, run **cspsconfigtool.exe** to create one or more management accounts on the configuration server. Make sure the management accounts have administrator permissions on the Ec2 instances that you want to migrate.
+5. On the VM, run **cspsconfigtool.exe** to create one or more management accounts on the configuration server. Make sure the management accounts have administrator permissions on the EC2 instances that you want to migrate.
 
 
 
