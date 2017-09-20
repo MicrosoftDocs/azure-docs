@@ -20,13 +20,13 @@ ms.custom: mvc
 ---
 
 # Back up a virtual machine in Azure with the CLI
-The Azure CLI is used to create and manage Azure resources from the command line or in scripts. You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that can be stored in geo-redundant recovery vaults. This article details how to back up a virtual machine (VM) in Azure with the Azure CLI. You can also perform these steps with [Azure PowerShell](quick-backup-vm-powershell.md) or [Azure portal](quick-backup-vm-portal.md).
+The Azure CLI is used to create and manage Azure resources from the command line or in scripts. You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that can be stored in geo-redundant recovery vaults. This article details how to back up a virtual machine (VM) in Azure with the Azure CLI. You can also perform these steps with [Azure PowerShell](quick-backup-vm-powershell.md) or in the [Azure portal](quick-backup-vm-portal.md).
 
 This quick start enables backup on an existing Azure VM. If you need to create a VM, you can [create a VM with the Azure CLI](../virtual-machines/linux/quick-create-cli.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.18 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 
 ## Register the Azure Backup resource provider
@@ -40,7 +40,7 @@ az provider register --namespace Microsoft.RecoveryServices
 ## Create a recovery services vault
 A Recovery Services vault is a logical container that stores the backup data for each protected resource, such as Azure VMs. When the backup job for a protected resource runs, it creates a recovery point inside the Recovery Services vault. You can then use one of these recovery points to restore data to a given point in time.
 
-Create a Recovery Services vault with **az backup vault create**. Specify the same resource group and location as the VM you wish to protect. If you used the sample script, the resource group is named *myResourceGroup*, the VM is named *myVM*, and the resources are in the *eastus* location.
+Create a Recovery Services vault with **az backup vault create**. Specify the same resource group and location as the VM you wish to protect. If you used the [VM quickstart](../virtual-machines/linux/quick-create-cli.md), the resource group is named *myResourceGroup*, the VM is named *myVM*, and the resources are in the *eastus* location.
 
 ```azurecli-interactive 
 az backup vault create --resource-group myResourceGroup \
@@ -52,7 +52,7 @@ By default, the vault is set for Geo-Redundant storage. To further protect your 
 
 
 ## Enable backup for an Azure VM
-You create and use policies to define when a backup job runs and how long the recovery points are stored. The default protection policy runs a backup job each day and retains recovery points for 30 days. You can use these default policy values to quickly protect your VM. To enable backup protection for a VM, use **az backup protection enable—for-vm**. Specify the policy to use, then the resource group and VM to protect:
+You create and use policies to define when a backup job runs and how long the recovery points are stored. The default protection policy runs a backup job each day and retains recovery points for 30 days. You can use these default policy values to quickly protect your VM. To enable backup protection for a VM, use **az backup protection enable—for-vm**. Specify the resource group and VM to protect, then the policy to use:
 
 ```azurecli-interactive 
 az backup protection enable-for-vm \
@@ -70,7 +70,7 @@ The following parameters are used to back up the VM:
 
 - `--container-name` is the name of your VM
 - `--item-name` is the name of your VM
-- `--retain-until` value should be set to the last available date, in UTC time format (**dd-mm-yyy**), that you wish the recovery point to be available
+- `--retain-until` value should be set to the last available date, in UTC time format (**dd-mm-yyyy**), that you wish the recovery point to be available
 
 The following example backs up the VM named *myVM* and sets the expiration of the recovery point to October 18, 2017:
 
@@ -111,7 +111,7 @@ When the *Status* of the backup job reports *Completed*, your VM is protected wi
 ## Clean up deployment
 When no longer needed, you can disable protection on the VM, remove the restore points and Recovery Services vault, then delete the resource group and associated VM resources. If you used an existing VM, you can skip the final [az group delete](/cli/azure/group?view=azure-cli-latest#az_group_delete) command to leave the resource group and VM in place.
 
-If you are going to continue on to a Backup tutorial that explains how to restore data for your VM, go to [Next steps](#next-steps). 
+If you are going to continue on to a Backup tutorial that explains how to restore data for your VM, skip the steps in this section and go to [Next steps](#next-steps). 
 
 ```azurecli-interactive 
 az backup protection disable \

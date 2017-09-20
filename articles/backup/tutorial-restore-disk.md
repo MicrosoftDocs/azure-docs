@@ -29,7 +29,7 @@ Azure Backup creates recovery points that are stored in geo-redundant recovery v
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.18 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 
 ## Prerequisites
@@ -45,7 +45,7 @@ When the data transfer is complete, the snapshot is removed and a recovery point
 
 
 ## List available recovery points
-To restore a disk, you select a recovery point as the source for the recovery data. As the default policy creates a recovery point every evening and retains them for 30 days, you can keep a set of recovery points that allows you to select a particular point in time for recovery. 
+To restore a disk, you select a recovery point as the source for the recovery data. As the default policy creates a recovery point each day and retains them for 30 days, you can keep a set of recovery points that allows you to select a particular point in time for recovery. 
 
 To see a list of available recovery points, use **az backup recoverypoint list**. The recovery point **name** is used to recover disks. In this tutorial, we want the most recent recovery point available. The `--query [0].name` parameter selects the most recent recovery point name as follows:
 
@@ -61,7 +61,7 @@ az backup recoverypoint list \
 
 
 ## Restore a VM disk
-To restore your disk from the recovery point, you first create an Azure storage account. This storage account is used to store the restored disk. In additional steps, the recovered disk is used to create a VM.
+To restore your disk from the recovery point, you first create an Azure storage account. This storage account is used to store the restored disk. In additional steps, the restored disk is used to create a VM.
 
 1. To create a storage account, use [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_create). The storage account name must be all lowercase, and be globally unique. Replace *mystorageaccount* with your own unique name:
 
@@ -86,7 +86,7 @@ To restore your disk from the recovery point, you first create an Azure storage 
 
 
 ## Monitor the restore job
-To monitor the status of backup jobs, use **az backup job list**:
+To monitor the status of restore job, use **az backup job list**:
 
 ```azurecli-interactive 
 az backup job list \

@@ -29,7 +29,7 @@ Azure Backup creates recovery points that are stored in geo-redundant recovery v
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.18 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 
 ## Prerequisites
@@ -59,13 +59,13 @@ If you accidentally delete or make changes to a file, you can restore individual
 
 3. Connect to your VM with SSH. Replace *publicIpAddress* with the public IP address that you obtained in a previous command:
 
-    ```azurecli-interactive
+    ```bash
     ssh publicIpAddress
     ```
 
 4. Delete the default page from the web server at */var/www/html/index.nginx-debian.html* as follows:
 
-    ```azurecli-interactive
+    ```bash
     sudo rm /var/www/html/index.nginx-debian.html
     ```
 
@@ -75,7 +75,7 @@ If you accidentally delete or make changes to a file, you can restore individual
 
 6. Close the SSH session to your VM as follows:
 
-    ```azurecli-interactive
+    ```bash
     exit
     ```
 
@@ -126,19 +126,19 @@ With the recovery script copied to your VM, you can now connect the recovery poi
 
 1. Connect to your VM with SSH. Replace *publicIpAddress* with the public IP address of your VM as follows:
 
-    ```azurecli-interactive
+    ```bash
     ssh publicIpAddress
     ```
 
-2. To allow your script to run correctly, add execute permissions with **chmod**. Enter the name of your own script as follows:
+2. To allow your script to run correctly, add execute permissions with **chmod**. Enter the name of your own script:
 
-    ```azurecli-interactive
+    ```bash
     chmod +x myVM_we_1571974050985163527.sh
     ```
 
-3. To mount the recovery point, run the script. Enter the name of your own script as follows:
+3. To mount the recovery point, run the script. Enter the name of your own script:
 
-    ```azurecli-interactive
+    ```bash
     ./myVM_we_1571974050985163527.sh
     ```
 
@@ -166,9 +166,9 @@ With the recovery script copied to your VM, you can now connect the recovery poi
     ************ Open File Explorer to browse for files. ************
     ```
 
-4. Use **cp** to copy the NGINX default web page from the mounted recovery point back to the original file location. Replace the */home/azureuser/myVM-20170919213536/Volume1* mount point with your own location as follows:
+4. Use **cp** to copy the NGINX default web page from the mounted recovery point back to the original file location. Replace the */home/azureuser/myVM-20170919213536/Volume1* mount point with your own location:
 
-    ```azurecli-interactive
+    ```bash
     sudo cp /home/azureuser/myVM-20170919213536/Volume1/var/www/html/index.nginx-debian.html /var/www/html/
     ```
 
@@ -178,7 +178,7 @@ With the recovery script copied to your VM, you can now connect the recovery poi
 
 7. Close the SSH session to your VM as follows:
 
-    ```azurecli-interactive
+    ```bash
     exit
     ```
 

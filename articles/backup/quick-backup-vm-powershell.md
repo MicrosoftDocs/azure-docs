@@ -24,7 +24,7 @@ The Azure PowerShell module is used to create and manage Azure resources from th
 
 This quick start enables backup on an existing Azure VM. If you need to create a VM, you can [create a VM with Azure PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json).
 
-This quick start requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+This quick start requires the Azure PowerShell module version 4.4 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 
 ## Log in to Azure
@@ -44,12 +44,12 @@ Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
 ## Create a recovery services vault
 A Recovery Services vault is a logical container that stores the backup data for each protected resource, such as Azure VMs. When the backup job for a protected resource runs, it creates a recovery point inside the Recovery Services vault. You can then use one of these recovery points to restore data to a given point in time.
 
-Create a Recovery Services vault with [New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault). Specify the same resource group and location as the VM you wish to protect. If you used the sample script, the resource group is named *myResourceGroup*, the VM is named *myVM*, and the resources are in the *WestEurope* location.
+Create a Recovery Services vault with [New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault). Specify the same resource group and location as the VM you wish to protect. If you used the [sample script](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) to create your VM, the resource group is named *myResourceGroup*, the VM is named *myVM*, and the resources are in the *WestEurope* location.
 
 ```powershell
 New-AzureRmRecoveryServicesVault `
-    -Name "myRecoveryServicesVault" `
     -ResourceGroupName "myResourceGroup" `
+    -Name "myRecoveryServicesVault" `
     -Location "WestEurope"
 ```
 
@@ -83,7 +83,7 @@ Enable-AzureRmRecoveryServicesBackupProtection `
 ## Start a backup job
 To start a backup now rather than wait for the default policy to run the job at the scheduled time, use [Backup-AzureRmRecoveryServicesBackupItem](/powershell/module/azurerm.recoveryservices.backup/backup-azurermrecoveryservicesbackupitem). This first backup job creates a full recovery point. Each backup job after this initial backup creates incremental recovery points. Incremental recovery points are storage and time-efficient, as they only transfer changes made since the last backup.
 
-In the following set of commands, you specify a container in the recovery services vault that holds your backup data with [Get-AzureRmRecoveryServicesBackupContainer](/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer). Each VM to back up is treated as an item. To start a backup job, obtain information on your VM item with [Get-AzureRmRecoveryServicesBackupItem](/powershell/module/AzureRM.RecoveryServices.Backup/Get-AzureRmRecoveryServicesBackupItem).
+In the following set of commands, you specify a container in the Recovery Services vault that holds your backup data with [Get-AzureRmRecoveryServicesBackupContainer](/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer). Each VM to back up is treated as an item. To start a backup job, obtain information on your VM item with [Get-AzureRmRecoveryServicesBackupItem](/powershell/module/AzureRM.RecoveryServices.Backup/Get-AzureRmRecoveryServicesBackupItem).
 
 ```powershell
 $backupcontainer = Get-AzureRmRecoveryServicesBackupContainer `
@@ -122,7 +122,7 @@ When the *Status* of the backup job reports *Completed*, your VM is protected wi
 ## Clean up deployment
 When no longer needed, you can disable protection on the VM, remove the restore points and Recovery Services vault, then delete the resource group and associated VM resources. If you used an existing VM, you can skip the final [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) cmdlet to leave the resource group and VM in place.
 
-If you are going to continue on to a Backup tutorial that explains how to restore data for your VM, go to [Next steps](#next-steps). 
+If you are going to continue on to a Backup tutorial that explains how to restore data for your VM, skip the steps in this section and go to [Next steps](#next-steps). 
 
 ```powershell
 Disable-AzureRmRecoveryServicesBackupProtection -Item $item -RemoveRecoveryPoints

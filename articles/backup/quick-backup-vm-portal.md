@@ -60,13 +60,13 @@ You can start a backup now rather than wait for the default policy to run the jo
 
 
 ## Monitor the backup job
-In the **Backup** window for your VM, the status of the backup and number of completed restore points are shown. Once the VM backup job is complete, information on the **Last backup time**, **Latest restore point**, and **Oldest restore point** is shown.
+In the **Backup** window for your VM, the status of the backup and number of completed restore points are shown. Once the VM backup job is complete, information on the **Last backup time**, **Latest restore point**, and **Oldest restore point** is shown on the right-hand side of the **Overview** window.
 
 
 ## Clean up deployment
 When no longer needed, you can disable protection on the VM, remove the restore points and Recovery Services vault, then delete the resource group and associated VM resources
 
-If you are going to continue on to a Backup tutorial that explains how to restore data for your VM, go to [Next steps](#next-steps).
+If you are going to continue on to a Backup tutorial that explains how to restore data for your VM, skip the steps in this section and go to [Next steps](#next-steps).
 
 1. Select the **Backup** option for your VM.
 
