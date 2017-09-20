@@ -1,8 +1,6 @@
 ---
 title: Organize your resources with Azure Management Groups - Azure | Microsoft Docs
 description: Learn about the management groups and how to use them. 
-services: ''
-documentationcenter: ''
 author: rthorn17
 manager: rithorn
 editor: ''
@@ -63,7 +61,7 @@ To view an enrollment, department, or an account within the preview, sign in to 
 
 ![hierarchy](media/billing-enterprise-mgmt-groups/hierarchy.png)
 
-### Viewing Costs 
+### Viewing costs 
 On the detail screens of management groups, you see the current month-to-date costs. These costs are based on usage and do not account for prepaid amounts, overages, included quantities, adjustments, and taxes. For the management group corresponding to your enrollment, the costs section shows you the commitment remaining.  
 
 ![enrollment-detail](media/billing-enterprise-mgmt-groups/enrollment.png)
@@ -86,9 +84,10 @@ As your enrollment hierarchy is mapped to management groups, a trust relationshi
 Management groups within the Azure portal are in preview and are read-only at this initial release. To make any updates, go to the Enterprise portal. Your updates are reflected in the Azure portal automatically. 
 See the documentation within the enterprise portal for help on making edits and additions.   
 
-## Policy Management
+## Policy management
 Resource Manager enables you to create customized policies for managing your resources. With management groups, polices can be assigned at any level in the hierarchy and the resources inherit those policies.  [Learn more](https://go.microsoft.com/fwlink/?linkid=858942)
 
- Note: policy is not enforced across directories. 
+> [!Note]
+> Policy is not enforced across directories. 
 
 

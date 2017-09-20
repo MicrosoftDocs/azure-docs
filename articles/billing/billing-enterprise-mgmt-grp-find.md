@@ -1,8 +1,6 @@
 ---
 title: Find an Azure subscription or management group - Azure | Microsoft Docs
 description: How to navigate between multiple directories to see your management groups and subscriptions
-services: ''
-documentationcenter: ''
 author: rthorn17
 manager: rithorn
 editor: ''

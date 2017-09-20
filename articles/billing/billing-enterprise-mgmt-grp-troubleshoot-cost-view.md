@@ -1,8 +1,6 @@
 ---
 title: Troubleshoot enterprise cost views - Azure | Microsoft Docs
 description: Learn how to resolve any issues you might have with organizational cost views within the Azure portal.  
-services: ''
-documentationcenter: ''
 author: rthorn17
 manager: rithorn
 editor: ''
@@ -26,7 +24,7 @@ Within enterprise enrollments, there are multiple settings that could cause user
 
 ## Enabling access to costs
 
-Are you are seeing a message Unauthorized, or *"Cost views are disabled in your enrollment. Learn more at https://aka.ms/EnableAzureCosts"* when looking for cost information?
+Are you are seeing a message Unauthorized, or *"Cost views are disabled in your enrollment."* when looking for cost information?
 ![unauthorized](media/billing-enterprise-mgmt-groups/unauthorized.png)
 
 It might be due to one of the following reasons:
