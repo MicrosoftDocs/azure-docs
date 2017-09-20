@@ -1,5 +1,5 @@
 ---
-title: Monitoring and Debugging with Metrics in Azure Cosmos DB | Microsoft Docs
+title: Monitoring and debugging with metrics in Azure Cosmos DB | Microsoft Docs
 description: Use metrics in Azure Cosmos DB to debug common issues and monitor the database.
 keywords: metrics
 services: cosmos-db
