@@ -25,7 +25,7 @@ There aren't any Azure Stack operator specific tasks that you can perform by usi
 
 * **The Azure Stack CA root certificate** is required if your users are using CLI from a workstation outside the Azure Stack development kit.  
 
-* **The virtual machine aliases endpoint** provides a shorter name that references an image publisher, offer, SKU, and version as a single parameter when deploying VMs.  
+* **The virtual machine aliases endpoint** provides an alias, like "UbuntuLTS" or "Win2012Datacenter", that references an image publisher, offer, SKU, and version as a single parameter when deploying VMs.  
 
 The following sections describe how to get these values.
 
