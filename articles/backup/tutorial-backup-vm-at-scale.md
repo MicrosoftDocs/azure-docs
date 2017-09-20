@@ -47,7 +47,7 @@ The Recovery Services vault contains the backup data, and the backup policy appl
 
     A Recovery Services vault must be in the same location as the virtual machines being protected. If you have virtual machines in multiple regions,create a Recovery Services vault in each region. This tutorial creates a Recovery Services vault in *West Europe* because that is where *myVM* (the virtual machine created with the quickstart) was created.
 
-    It can take several minutes for the Recovery Services vault to be created. Monitor the status notifications in the upper right-hand area of the portal. Once your vault is created, it appears in the list of Recovery Services vaults. If after several minutes you don't see your vault, in the Recovery Services vaults menu click **Refresh**.
+    It can take several minutes for the Recovery Services vault to be created. Monitor the status notifications in the upper right-hand area of the portal. Once your vault is created, it appears in the list of Recovery Services vaults.
 
     When you create a Recovery Services vault, by default the vault has geo-redundant storage. To provide data resiliency, geo-redundant storage replicates the data multiple times across two Azure regions.
 
@@ -113,14 +113,11 @@ To run an on-demand backup job:
 
 3. On the **Backup Items** list, click the ellipses **...** to open the Context menu.
 
-
 4. On the Context menu, select **Backup now**.
 
     ![Context menu](./media/tutorial-backup-vm-at-scale/context-menu.png)
 
     The Backup Now menu opens.
-
-    ![shows the Backup Now menu](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
 
 5. On the Backup Now menu, enter the last day to retain the recovery point, and click **Backup**.
 
@@ -155,19 +152,19 @@ If you plan to continue on to work with subsequent tutorials, do not clean up th
 
     ![Settings icon](./media/tutorial-backup-vm-at-scale/context-menu-for-delete.png)
 
-5. In the Stop Backup menu, select the upper drop-down menu and choose **Delete Backup Data**.
+5. In the **Stop Backup** menu, select the upper drop-down menu and choose **Delete Backup Data**.
 
 6. In the **Type the name of the Backup item** dialog, type *myVM*.
  
-7. Once the backup item is verified (a checkmark appears), the Stop backup button is enabled. Click **Stop Backup** to stop the policy and delete the restore points. 
+7. Once the backup item is verified (a checkmark appears), **Stop backup** button is enabled. Click **Stop Backup** to stop the policy and delete the restore points. 
 
     ![click Stop backup to delete vault](./media/tutorial-backup-vm-at-scale/provide-reason-for-delete.png).
 
-8. In the myRecoveryServicesVault menu, click **Delete**.
+8. In the **myRecoveryServicesVault** menu, click **Delete**.
 
     ![click Stop backup to delete vault](./media/tutorial-backup-vm-at-scale/deleting-the-vault.png)
 
-    Once the vault is deleted, you return to the list of Recovery Services vaults. 
+    Once the vault is deleted, you return to the list of Recovery Services vaults.
 
 
 ## Next steps
