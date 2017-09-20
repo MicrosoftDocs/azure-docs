@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: mvc
-ms.date: 09/08/2017
+ms.date: 09/25/2017
 ms.author: mimig
 
 ---
@@ -55,11 +55,11 @@ This tutorial covers the following tasks:
 
     b. In the **Browse** tab, enter **azure.graphs** to find the **Microsoft.Azure.Graphs** package, and then  click **Install**. This package contains the Graph API .NET Client SDK.
 
-   ![Update Nuget packages](./media/tutorial-functions-http-trigger/03-add-azure-graphs.png)
+   ![Install the Graph API](./media/tutorial-functions-http-trigger/03-add-azure-graphs.png)
 
     c. In the **Browse** tab, enter **mono.csharp** to find the **Mono.CSharp** package, and then click **Install**.
 
-   ![Update Nuget packages](./media/tutorial-functions-http-trigger/04-add-mono.png)
+   ![Install Mono.CSharp](./media/tutorial-functions-http-trigger/04-add-mono.png)
 
 3. Your Solution Explorer should now include the packages you installed, as shown here. 
    
@@ -68,15 +68,15 @@ This tutorial covers the following tasks:
     a. Right mouse click on the project node in **Solution Explorer**, then choose **Add** > **New Item**.   
     b. In the **Add New Item** dialog, select **Visual C# Items**, select **Azure Function**, type **Search** as the name for your project, and then click **Add**.  
  
-   ![Update Nuget packages](./media/tutorial-functions-http-trigger/05-add-function.png)
+   ![Create a new function named Search](./media/tutorial-functions-http-trigger/05-add-function.png)
 
 4. The Azure Function will respond to HTTP requests, so the Http trigger template is appropriate here.
    
    In the **New Azure Function** box, select **Http trigger**. We want this Azure Function to be "wide open," too, so we set the **Access rights** to **Anonymous**, which lets everyone through. Click **OK**.
 
-   ![Update Nuget packages](./media/tutorial-functions-http-trigger/06-http-trigger.png)
+   ![Set access rights to anonymous](./media/tutorial-functions-http-trigger/06-http-trigger.png)
 
-5. After you add Search.cs to the Azure Function project, add these **using** statements to the top of the file:
+5. After you add Search.cs to the Azure Function project, copy these **using** statements over the existing using statements:
 
    ```csharp
    using Microsoft.Azure.Documents;
@@ -165,25 +165,25 @@ Now that the code is complete, you can use the Azure Function's local debugging 
 
 1. Before the code runs properly, you must configure it for local execution with your Azure Cosmos DB connection information. You can use the local.settings.json file to configure the Azure Function for local execution much in the same way you would use the App.config file to configure the original console application for execution.
 
-   ![Update Nuget packages](./media/tutorial-functions-http-trigger/07-local-functions-settings.png)
+   ![Set the endpoint and authorization key in the local.settings.json file](./media/tutorial-functions-http-trigger/07-local-functions-settings.png)
 
 2. After you configure the Azure Function app with your Azure Cosmos DB endpoint and authorization key so that it knows how to find your Azure Cosmos DB database, press F5 to launch the local debugging tool, func.exe, with the Azure Function code hosted and ready for use.
 
    At the end of the initial output from func.exe, we see that Azure Function is being hosted at localhost:7071. This is helpful to test it in a client.
 
-   ![Update Nuget packages](./media/tutorial-functions-http-trigger/08-functions-emulator.png)
+   ![Test the client](./media/tutorial-functions-http-trigger/08-functions-emulator.png)
 
 3. To test the Azure Function, use [Visual Studio Code](http://code.visualstudio.com/) with Huachao Mao's extension, [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client). REST Client offers local or remote HTTP request capability in a single right-click. We'll add the URL of our person search function and execute the HTTP request. Right-click the first URL, then select **Send Request**.
 
-   ![Update Nuget packages](./media/tutorial-functions-http-trigger/09-rest-client-in-vs-code.png)
+   ![Send a REST request from Visual Studio code](./media/tutorial-functions-http-trigger/09-rest-client-in-vs-code.png)
 
    You are presented with the raw HTTP response from the locally-running Azure Function headers, JSON body content, everything.
 
-   ![Update Nuget packages](./media/tutorial-functions-http-trigger/10-general-results.png)
+   ![REST reponse](./media/tutorial-functions-http-trigger/10-general-results.png)
 
 4. By adding the `name` query string parameter with a value known to be in the database, we can filter the results the Azure Function returns.
 
-   ![Update Nuget packages](./media/tutorial-functions-http-trigger/11-search-for-ben.png)
+   ![Filter the results of the Azure Function](./media/tutorial-functions-http-trigger/11-search-for-ben.png)
 
 After the Azure Function is validated and seems to be working properly, the last step is to publish it to Azure App Service and configure it to run in the cloud.
 
@@ -191,11 +191,11 @@ After the Azure Function is validated and seems to be working properly, the last
 
 1. In **Solution Explorer**, right-click the project, then select **Publish**.
 
-   ![Update Nuget packages](./media/tutorial-functions-http-trigger/12-publish-function.png)
+   ![Publish the new project](./media/tutorial-functions-http-trigger/12-publish-function.png)
 
 2. We're ready to publish this to the cloud to test it in a publicly available scenario. In the **Publish** tab, select **Azure Function App**, select **Create New** to create an Azure Function in your Azure subscription, then click **Publish**.
 
-   ![Update Nuget packages](./media/tutorial-functions-http-trigger/13-publish-panel.png)
+   ![Create a new Azure Function app](./media/tutorial-functions-http-trigger/13-publish-panel.png)
 
    The **Publish** panel opens next, allowing you to name your Azure Function. We'll opt for creating a new Consumption-based App Service Plan because we intend to use the pay-per-use billing method for the serverless Azure Function. 
 
@@ -203,19 +203,19 @@ After the Azure Function is validated and seems to be working properly, the last
 
 3. Click the **Create** button in the dialog to create all the resources in your Azure subscription. Then, Visual Studio will download a publish profile (a simple XML file) that it will use the next time you publish your Azure Function code.
 
-   ![Update Nuget packages](./media/tutorial-functions-http-trigger/14-new-function-app.png)
+   ![Create the Storage account](./media/tutorial-functions-http-trigger/14-new-function-app.png)
 
 4. After the Azure Function is published, you can go to the Azure portal blade for your Azure Function. There, you can see a link to the Azure Function's **Application settings**. You'll need to go here, as this is where you'll configure the live Azure Function for connectivity to the Azure Cosmos DB database with your Person data.
 
-   ![Update Nuget packages](./media/tutorial-functions-http-trigger/15-function-in-portal.png)
+   ![Review application settings](./media/tutorial-functions-http-trigger/15-function-in-portal.png)
 
 5. Just as you did earlier in the console application's App.config file and in the Azure Function app's local.settings.json file, you'll need to configure the published Azure Function with the Endpoint and AuthKey values appropriate for your Azure Cosmos DB database. This way, you never have to check in configuration code that contains your keys - you can configure them in the portal and be sure they're not stored in source control.
 
-   ![Update Nuget packages](./media/tutorial-functions-http-trigger/16-app-settings.png)
+   ![Configure Endpoint and AuthKey](./media/tutorial-functions-http-trigger/16-app-settings.png)
 
-6. Once the Azure Function is configured properly in your Azure subscription, you can again use the Visual Studio Code REST Client extension to query the publicly available Azure Function URL.
+6. Once the Azure Function is configured properly in your Azure subscription, you can again use the Visual Studio Code REST Client extension to query the publicly available Azure Function URL, which is https://peoplesearchfunction.azurewebsites.net for this function.
 
-  ![Update Nuget packages](./media/tutorial-functions-http-trigger/17-calling-function-from-code.png)
+  ![Use the REST client to query the Azure Function](./media/tutorial-functions-http-trigger/17-calling-function-from-code.png)
 
 
 ## Next steps
