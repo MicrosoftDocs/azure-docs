@@ -139,6 +139,9 @@
 ### Virtual machines
 #### [Move a VM to a different subnet](virtual-networks-move-vm-role-to-subnet.md)
 ### [Public IP addresses](virtual-network-public-ip-address.md)
+### DDoS Protection
+#### [Portal](ddos-protection-manage-portal.md)
+#### [PowerShell](ddos-protection-manage-ps.md)
 
 ## Troubleshoot
 ### Network security groups
