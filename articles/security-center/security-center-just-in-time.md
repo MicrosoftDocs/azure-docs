@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2017
+ms.date: 09/15/2017
 ms.author: terrylan
 
 ---
-# Manage virtual machine access using just in time
+# Manage virtual machine access using just in time (Preview)
 
 Just in time virtual machine (VM) access can be used to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed.
 
@@ -47,13 +47,15 @@ When a user requests access to a VM, Security Center checks that the user has [R
 
 ## Using just in time access
 
-The **Just in time VM access** tile on the **Security Center** blade shows the number of VMs configured for just in time access and the number of approved access requests made in the last week.
-
-Select the **Just in time VM access** tile and the **Just in time VM access** blade opens.
+The **Just in time VM access** tile under **Security Center** shows the number of VMs configured for just in time access and the number of approved access requests made in the last week.
 
 ![Just in time VM access tile][2]
 
-The **Just in time VM access** blade provides information on the state of your VMs:
+Select the **Just in time VM access** tile and **Just in time VM access** opens.
+
+![Just in time VM access tile][10]
+
+**Just in time VM access** provides information on the state of your VMs:
 
 - **Configured** - VMs that have been configured to support just in time VM access. The data presented is for the last week and includes for each VM the number of approved requests, last access date and time, and last user.
 - **Recommended** - VMs that can support just in time VM access but have not been configured to. We recommend that you enable just in time VM access control for these VMs. See [Enable just in time VM access](#enable-just-in-time-vm-access).
@@ -66,11 +68,11 @@ The **Just in time VM access** blade provides information on the state of your V
 
 To select the VMs that you want to enable:
 
-1. On the **Just in time VM access** blade, select the **Recommended** tab.
+1. Under **Just in time VM access**, select the **Recommended** tab.
 
   ![Enable just in time access][3]
 
-2. Under **VMs**, select the VMs that you want to enable. This puts a checkmark next to a VM.
+2. Under **VIRTUAL MACHINE**, select the VMs that you want to enable. This puts a checkmark next to a VM.
 3. Select **Enable JIT on VMs**.
 4. Select **Save**.
 
@@ -78,21 +80,21 @@ To select the VMs that you want to enable:
 
 You can see the default ports that Security Center recommends enabling just in time.
 
-1. On the **Just in time VM access** blade, select the **Recommended** tab.
+1. Under **Just in time VM access**, select the **Recommended** tab.
 
   ![Display default ports][6]
 
-2. Under **VMs**, select a VM. This puts a checkmark next to the VM and opens the **JIT VM access configuration** blade. This blade displays the default ports.
+2. Under **VMs**, select a VM. This puts a checkmark next to the VM and opens **JIT VM access configuration**. This blade displays the default ports.
 
 ### Add ports
 
-From the **JIT VM access configuration** blade, you can also add and configure a new port on which you want to enable the just in time solution.
+Under **JIT VM access configuration**, you can also add and configure a new port on which you want to enable the just in time solution.
 
-1. On the **JIT VM access configuration** blade, select **Add**. This opens the **Add port configuration** blade.
+1. Under **JIT VM access configuration**, select **Add**. This opens **Add port configuration**.
 
   ![Port configuration][7]
 
-2. On **Add port configuration** blade, you identify the port, protocol type, allowed source IPs, and maximum request time.
+2. Under **Add port configuration**, you identify the port, protocol type, allowed source IPs, and maximum request time.
 
   Allowed source IPs are the IP ranges allowed to get access upon an approved request.
 
@@ -104,13 +106,13 @@ From the **JIT VM access configuration** blade, you can also add and configure a
 
 To request access to a VM:
 
-1. On the **Just in time VM access** blade, select the **Configured** tab.
+1. Under **Just in time VM access**, select the **Configured** tab.
 2. Under **VMs**, select the VMs that you want to enable access. This puts a checkmark next to a VM.
-3. Select **Request access**. This opens the **Request access** blade.
+3. Select **Request access**. This opens **Request access**.
 
   ![Request access to a VM][4]
 
-4. On the **Request access** blade, you configure for each VM the ports to open along with the source IP that the port is opened to and the time window for which the port is opened. You can request access only to the ports that are configured in the just in time policy. Each port has a maximum allowed time derived from the just in time policy.
+4. Under **Request access**, you configure for each VM the ports to open along with the source IP that the port is opened to and the time window for which the port is opened. You can request access only to the ports that are configured in the just in time policy. Each port has a maximum allowed time derived from the just in time policy.
 5. Select **Open ports**.
 
 ## Editing a just in time access policy
@@ -120,15 +122,15 @@ You can change a VM's existing just in time policy by adding and configuring a n
 In order to edit an existing just in time policy of a VM, the **Configured** tab is used:
 
 1. Under **VMs**, select a VM to add a port to by clicking on the three dots within the row for that VM. This opens a menu.
-2. Select **Edit** in the menu. This opens the **JIT VM access configuration** blade.
+2. Select **Edit** in the menu. This opens **JIT VM access configuration**.
 
   ![Edit policy][8]
 
-3. On the **JIT VM access configuration** blade, you can either edit the existing settings of an already protected port by clicking on its port, or you can select **Add**. This opens the **Add port configuration** blade.
+3. Under **JIT VM access configuration**, you can either edit the existing settings of an already protected port by clicking on its port, or you can select **Add**. This opens **Add port configuration**.
 
   ![Add a port][7]
 
-4. On **Add port configuration** blade identify the port, protocol type, allowed source IPs, and maximum request time.
+4. Under **Add port configuration**, identify the port, protocol type, allowed source IPs, and maximum request time.
 5. Select **OK**.
 6. Select **Save**.
 
@@ -136,15 +138,15 @@ In order to edit an existing just in time policy of a VM, the **Configured** tab
 
 You can gain insights into VM activities using log search. To view logs:
 
-1. On the **Just in time VM access** blade, select the **Configured** tab.
+1. Under **Just in time VM access**, select the **Configured** tab.
 2. Under **VMs**, select a VM to view information about by clicking on the three dots within the row for that VM. This opens a menu.
-3. Select **Activity Log** in the menu. This opens the **Activity log** blade.
+3. Select **Activity Log** in the menu. This opens **Activity log**.
 
-![Select activity log][9]
+  ![Select activity log][9]
 
-The **Activity log** blade provides a filtered view of previous operations for that VM along with time, date, and subscription.
+  **Activity log** provides a filtered view of previous operations for that VM along with time, date, and subscription.
 
-![View activity log][5]
+  ![View activity log][5]
 
 You can download the log information by selecting **Click here to download all the items as CSV**.
 
@@ -153,7 +155,7 @@ Modify the filters and select **Apply** to create a search and log.
 ## Using just in time VM access via PowerShell
 
 In order to use the just in time solution via PowerShell, make sure you have the [latest](/powershell/azure/install-azurerm-ps) Azure PowerShell version.
-Once you do, you need to install the [latest](https://www.powershellgallery.com/packages/Azure-Security-Center/0.0.12) Azure Security Center from the PowerShell gallery.
+Once you do, you need to install the [latest](https://aka.ms/asc-psgallery) Azure Security Center from the PowerShell gallery.
 
 ### Configuring a just in time policy for a VM
 
@@ -182,6 +184,7 @@ To learn more about Security Center, see the following:
 <!--Image references-->
 [1]: ./media/security-center-just-in-time/just-in-time-scenario.png
 [2]: ./media/security-center-just-in-time/just-in-time.png
+[10]: ./media/security-center-just-in-time/just-in-time-access.png
 [3]: ./media/security-center-just-in-time/enable-just-in-time-access.png
 [4]: ./media/security-center-just-in-time/request-access-to-a-vm.png
 [5]: ./media/security-center-just-in-time/activity-log.png
