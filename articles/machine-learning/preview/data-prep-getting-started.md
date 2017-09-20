@@ -6,7 +6,7 @@ ms.author: cforbe
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 9/07/2017
+ms.date: 09/07/2017
 ---
 
 # Getting started with data preparation
