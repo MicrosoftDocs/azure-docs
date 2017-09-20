@@ -775,7 +775,7 @@ Suppose you have the following function.json that defines an HTTP trigger with a
     },
     {
       "type": "http",
-      "name": "res",
+      "name": "$return",
       "direction": "out"
     }
   ],
@@ -791,10 +791,21 @@ using System.Net;
 
 public static HttpResponseMessage run(HttpRequestMessage req, out string clientState, TraceWriter log)
 {
-    log.Info("C# HTTP trigger function processed a request.");
+  log.Info("C# HTTP trigger function processed a request.");
 	clientState = Guid.NewGuid().ToString();
 	return new HttpResponseMessage(HttpStatusCode.OK);
 }
+```
+
+The following JS sample registers a webhook that will notify this function app when the calling user receives an Outlook message:
+
+```js
+const uuidv4 = require('uuid/v4');
+
+module.exports = function (context, req) {
+    context.bindings.clientState = uuidv4();
+    context.done();
+};
 ```
 
 #### Sample: Handling notifications
@@ -824,13 +835,27 @@ using System.Net;
 
 public static async Task Run(Message msg, TraceWriter log)  
 {
-	log.Info("Microsoft Graph webhook trigger function processed a request.");
+    log.Info("Microsoft Graph webhook trigger function processed a request.");
 
     // Testable by sending oneself an email with the subject "Azure Functions" and some text body
     if (msg.Subject.Contains("Azure Functions") && msg.From.Equals(msg.Sender)) {
         log.Info($"Processed email: {msg.BodyPreview}");
     }
 }
+```
+
+The following JS sample reacts to incoming mail messages and logs the body of those sent by the recipient and containing "Azure Functions" in the subject:
+
+```js
+module.exports = function (context) {
+    context.log("Microsoft Graph webhook trigger function processed a request.");
+    const msg = context.bindings.msg
+    // Testable by sending oneself an email with the subject "Azure Functions" and some text body
+    if((msg.subject.indexOf("Azure Functions") > -1) && (msg.from === msg.sender) ) {
+      context.log(`Processed email: ${msg.bodyPreview}`);
+    }
+    context.done();
+};
 ```
 
 #### Sample: Deleting subscriptions
@@ -873,15 +898,30 @@ The following C# sample gets all subscriptions for the calling user and then del
 ```csharp
 using System.Net;
 
-public static async Task Run(HttpRequest req, string[] existingSubscriptions, IAsyncCollector<string> subscriptionsToDelete, TraceWriter log)  
+public static async Task Run(HttpRequest req, string[] existingSubscriptions, IAsyncCollector<string> subscriptionsToDelete, TraceWriter log)
 {
     log.Info("C# HTTP trigger function processed a request.");
-	foreach (var subscription in existingSubscriptions)
-	{
-		log.Info($"Deleting subscription {subscription}");
+    foreach (var subscription in existingSubscriptions)
+    {
+        log.Info($"Deleting subscription {subscription}");
         await subscriptionsToDelete.AddAsync(subscription);
     }
 }
+```
+
+The following JS sample gets all subscriptions for the calling user and then deletes them:
+
+```js
+module.exports = function (context, req) {
+    const existing = context.bindings.existingSubscriptions;
+    var toDelete = [];
+    for (var i = 0; i < existing.length; i++) {
+        context.log(`Deleting subscription ${existing[i]}`);
+        todelete.push(existing[i]);
+    }
+    context.bindings.subscriptionsToDelete = toDelete;
+    context.done();
+};
 ```
 
 #### Sample: Refreshing subscriptions
@@ -891,6 +931,8 @@ There are two approaches to refreshing subscriptions:
 - Use the identity associated with each subscription by manually binding each user ID. This will require some custom code to perform the binding. This can only be used by .NET functions.
 
 Both options are shown below.
+
+**Using the application identity**
 
 Suppose you have the following function.json that defines a timer trigger with a subscription input binding  subscription output binding, using the application identity:
 
@@ -937,6 +979,26 @@ public static void Run(TimerInfo myTimer, string[] existingSubscriptions, IColle
     }
 }
 ```
+
+The following JS sample refreshes the subscriptions on a timer, using the application identity:
+
+```js
+// This template uses application permissions and requires consent from an Azure Active Directory admin.
+// See https://go.microsoft.com/fwlink/?linkid=858780
+
+module.exports = function (context) {
+    const existing = context.bindings.existingSubscriptions;
+    var toRefresh = [];
+    for (var i = 0; i < existing.length; i++) {
+        context.log(`Deleting subscription ${existing[i]}`);
+        todelete.push(existing[i]);
+    }
+    context.bindings.subscriptionsToRefresh = toRefresh;
+    context.done();
+};
+```
+
+**Using dynamic user identities**
 
 For the alternative option, suppose you have the following function.json that defines a timer trigger, deferring binding to the subscription input binding to the function code:
 
