@@ -90,7 +90,7 @@ In this scenario, you use [Microsoft Message Analyzer](http://technet.microsoft.
 
 ### Download Microsoft Message Analyzer
 
-Download [Microsoft Message Analyzer](https://www.microsoft.com/en-us/download/details.aspx?id=44226) and install the application.
+Download [Microsoft Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226) and install the application.
 
 Launch the application and choose **File** > **Open** > **From Other File Sources**.
 
@@ -108,7 +108,7 @@ Once the log opens, you can view the storage events. As you can see from the fol
 
 ![Microsoft Message Analyzer - Viewing events](media/storage-monitor-troubleshoot-storage-application/figure5.png)
 
-[Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) is another tool that can be used to interact with your storage accounts, including the **$logs** container and the logs that are contained in it.
+[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is another tool that can be used to interact with your storage accounts, including the **$logs** container and the logs that are contained in it.
 
 ## Next steps
 
