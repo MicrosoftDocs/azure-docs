@@ -70,6 +70,8 @@
 ### [Deploy an Azure Resource Manager template in an Azure Automation PowerShell runbook](automation-deploy-template-runbook.md)
 ## Solutions
 ### [Change Tracking](../log-analytics/log-analytics-change-tracking.md)
+#### [Manage updates for multiple VMs](manage-update-multi.md)
+#### [Integrate SCCMr with OMS Update Management]()oms-solution-updatemgmt-sccmintegration.md)
 ### [Update Management](../operations-management-suite/oms-solution-update-management.md)
 ### [Start/stop VMs during off-hours](automation-solution-vm-management.md)
 ## Monitor
