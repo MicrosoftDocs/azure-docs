@@ -34,7 +34,8 @@ Also, install [Azure PowerShell version 4.3.1](https://www.powershellgallery.com
 
 To create your VM, refer to one of the following Azure VM Quickstarts, completing only the necessary sections ("Log in to Azure", "Create resource group", "Create networking group", "Create the VM"). 
 
-> [!IMPORTANT] When you get to the "Create the VM" section, make a slight modification to the [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvm) cmdlet. Be sure to add the `-IdentityType "SystemAssigned"` parameter, which allows the VM to be provisioned with an MSI.
+> [!IMPORTANT] 
+> When you get to the "Create the VM" section, make a slight modification to the [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvm) cmdlet. Be sure to add the `-IdentityType "SystemAssigned"` parameter, which allows the VM to be provisioned with an MSI.
 >  
 > `$vmConfig = New-AzureRmVMConfig -VMName myVM -IdentityType "SystemAssigned" ...`
 
