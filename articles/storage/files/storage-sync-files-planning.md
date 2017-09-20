@@ -13,16 +13,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 09/18/2017
 ms.author: wgries
 ---
 
 # Planning for an Azure File Sync (preview) deployment
-With Azure File Sync (preview), shares can be replicated to Windows Servers on-premises or in Azure. You and your users would then access the file share through the Windows Server, such as through a SMB or NFS share. This is particularly useful for scenarios in which data will be accessed and modified far away from an Azure datacenter, such as in a branch office scenario. Data may be replicated between multiple Windows Server endpoints, such as between multiple branch offices. 
+With Azure File Sync (preview), shares can be replicated to Windows Servers on-premises or in Azure. You and your users then access the file share through the Windows Server, such as through a SMB or NFS share. This is particularly useful for scenarios in which data will be accessed and modified far away from an Azure datacenter, such as in a branch office scenario. Data may be replicated between multiple Windows Server endpoints, such as between multiple branch offices. 
 
 This guide describes what to consider when deploying Azure File Sync. It is recommended that you read the [Planning for an Azure Files deployment](storage-files-planning.md) guide before testing. 
 
 ## Understanding Azure File Sync terminology
+Before going into the Azure File Sync details, it’s important to understand the terminology.
+
 ### Storage Sync Service
 The Storage Sync Service is the top-level Azure resource representing Azure File Sync. The Storage Sync Service resource is a peer of the Storage Account resource, and can similarily be deployed into Azure Resouce Groups. A distinct top-level resource from the Storage Account resource is required because the Storage Sync Service can create sync relationships with multiple storage accounts via multiple Sync Groups. A subscription can have multiple Storage Sync Service resources deployed.
 
@@ -30,7 +32,7 @@ The Storage Sync Service is the top-level Azure resource representing Azure File
 A Sync Group defines the sync topology for a set of files. Endpoints within a Sync Group will be kept in sync with each other. If, for example, you have two distinct sets of files that you want to manage with AFS, you would create two Sync Groups and add different endpoints to each. A Storage Sync Service can host as many Sync Groups as you need.  
 
 ### Registered Server
-The Registered Server object represents a trust-relationship between your server (or cluster) and the Storage Sync Service. You can register as many servers to a Storage Sync Service instance as you like however, a server (or cluster) can only be registered with one Storage Sync Service at any given time.
+The Registered Server object represents a trust-relationship between your server (or cluster) and the Storage Sync Service. You can register as many servers to a Storage Sync Service instance as you like. However, a server (or cluster) can only be registered with one Storage Sync Service at any given time.
 
 ### Azure File Sync agent
 The Azure File Sync agent is a downloadable package which enables a Windows Server to be synchronized with an Azure File share. The Azure File Sync agent consists of three main components: 
@@ -49,7 +51,9 @@ A Server Endpoint represents a specific location on a Registered Server, such as
 ### Cloud tiering 
 Cloud tiering is an optional feature of Azure File Sync, which enables infrequently used or access files to be tiered to Azure Files. When a file is tiered, the Azure File Sync file system filter (StorageSync.sys) replaces the file locally with a pointer, or reparse point, representing a URL to the file in Azure Files. A tiered file has the "offline" attribute set in NTFS, so third party applications can identify tiered files. When a user opens a tiered file, the Azure File Sync seamlessly recalls the file data from Azure Files without the user needing to know the file is not stored locally on the system. This functionality is also known as Hierarchical Storage Management (HSM).
 
-## Interoperability with Windows Server
+## Azure File Sync Interoperability 
+This section covers Azure File Sync interoperability with Windows Server features and roles and 3rd party solutions.
+
 ### Supported versions of Windows Server
 At present, the supported versions of Windows Server by Azure File Sync are:
 
@@ -61,7 +65,7 @@ At present, the supported versions of Windows Server by Azure File Sync are:
 Future versions of Windows Server will be added as they are released, older versions of Windows may be added based on user feedback.
 
 > [!Important]  
-> We recommend keeping all of your Windows Servers used with Azure File Sync up to date with the latest updates from Windows Update. 
+> We recommend keeping all of your Windows Servers used with Azure File Sync up-to-date with the latest updates from Windows Update. 
 
 ### File system features
 | Feature | Support Status | Notes |
