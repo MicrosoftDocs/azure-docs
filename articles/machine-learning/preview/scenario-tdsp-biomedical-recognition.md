@@ -18,12 +18,9 @@ ms.author: bradsev
 
 ---
 
-# Biomedical entity recognition using a Team Data Science Process template
+# Biomedical entity recognition using Team Data Science Process (TDSP) template
 
-
-## Introduction
-
-The aim of this real-world scenario is to highlight how to use Azure Machine Learning Workbench to solve a complicated NLP task such as entity extraction from unstructured text:
+The aim of this real-world scenario is to highlight how to use Azure Machine Learning Workbench to solve a complicated Natural Language Processing (NLP) task such as entity extraction from unstructured text:
 
 1. How to train a neural word embeddings model on a text corpus of about 18 million PubMed abstracts using [Spark Word2Vec implementation](https://spark.apache.org/docs/latest/mllib-feature-extraction.html#word2vec).
 2. How to build a deep Long Short-Term Memory (LSTM) recurrent neural network model for entity extraction on a GPU-enabled Azure Data Science Virtual Machine (GPU DS VM) on Azure.
@@ -109,12 +106,12 @@ All the required dependencies are defined in the aml_config/conda_dependencies.y
 automatically provisioned for runs against docker, VM, and HDI cluster targets. For details about the Conda environment file format, refer to [here](https://conda.io/docs/using/envs.html#create-environment-file-by-hand).
 
 * [TensorFlow](https://www.tensorflow.org/install/)
-* [CNTK 2.0](https://docs.microsoft.com/en-us/cognitive-toolkit/using-cntk-with-keras)
+* [CNTK 2.0](https://docs.microsoft.com/cognitive-toolkit/using-cntk-with-keras)
 * [Keras](https://keras.io/#installation)
 * NLTK
 * Fastparquet
 
-### Basic instructions for Azure Machine Learning (AML) Workbench
+### Basic instructions for Azure Machine Learning (AML) workbench
 * [Overview](overview-what-is-azure-ml.md)
 * [Installation](quickstart-installation.md)
 * [Using TDSP](how-to-use-tdsp-in-azure-ml.md)
@@ -130,7 +127,9 @@ For the scenario, we use the TDSP project structure and documentation templates 
 
 The step-by-step data science workflow is as follows:
 
-### 1. [Data acquisition and understanding](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/Code/01_Data_Acquisition_and_Understanding/ReadMe.md)
+### 1. Data acquisition and understanding
+
+See [Data Acquisition and Understanding](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/Code/01_Data_Acquisition_and_Understanding/ReadMe.md).
 
 The raw MEDLINE corpus has a total of 27 million abstracts where about 10 million articles have an empty abstract field. Azure HDInsight Spark is used to process big data that cannot be loaded into the memory of a single machine as a [Pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html). First, the data is downloaded into the Spark cluster. Then the following steps are executed on the [Spark DataFrame](https://spark.apache.org/docs/latest/sql-programming-guide.html): 
 * parse the XML files using Medline XML Parser
@@ -149,12 +148,18 @@ The neural entity extraction model has been trained and evaluated on publiclly a
  * [BioCreative V CDR task corpus](http://www.biocreative.org/tasks/biocreative-v/track-3-cdr/)
  * [Semeval 2013 - Task 9.1 (Drug Recognition)](https://www.cs.york.ac.uk/semeval-2013/task9/)
 
-### 2. [Modeling](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/Code/02_Modeling)
+### 2. Modeling
+
+See [Modeling](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/Code/02_Modeling).
+
 Modeling is the stage where we show how you can use the data downloaded in the previous section for training your own word embedding model and use it for other downstream tasks. Although we are using the PubMed data, the pipeline to generate the embeddings is generic and can be reused to train word embeddings for any other domain. For embeddings to be an accurate representation of the data, it is essential that the word2vec is trained on a large amount of data.
 Once we have the word embeddings ready, we can train a deep neural network model that uses the learned embeddings to initialize the Embedding layer. We mark the embedding layer as non-trainable but that is not mandatory. The training of the word embedding model is unsupervised and hence we are able to take advantage of unlabeled texts. However, the training of the entity recognition model is a supervised learnign task and its accuracy depends on the amount and teh quality of a manually-annotated data. 
 
 
-#### 2.1. [Feature generation](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/Code/02_Modeling/01_FeatureEngineering)
+#### 2.1. Feature generation
+
+See [Feature generation](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/Code/02_Modeling/01_FeatureEngineering).
+
 Word2Vec is the word embedding learning algorithm that trains a neural network model in an unlabeled training corpus. It produces a continuous vector for each word in the corpus that represents its semantic information. These models are simple neural networks with one hidden layer. The word vectors/embeddings are learned by backpropagation and stochastic gradient descent. There are two types of word2vec models, namely, the Skip-Gram and the continuous-bag-of-words (check [here](https://arxiv.org/pdf/1301.3781.pdf) for more details). Since we are using the MLlib's implementation of the word2vec, which supports the Skip-gram model, we briefly describe it here (image taken from [link](https://ahmedhanibrahim.wordpress.com/2017/04/25/thesis-tutorials-i-understanding-word2vec-for-word-embedding-i/)): 
 
 ![Skip Gram Model](./media/scenario-tdsp-biomedical-recognition/skip-gram.png)
@@ -186,7 +191,10 @@ As shown in the following figure, the t-SNE visualization provides more separati
 
 ![Points closest to Cancer](./media/scenario-tdsp-biomedical-recognition/nearesttocancer.png)
 
-#### 2.2. [Train the neural entity extractor](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/Code/02_Modeling/02_ModelCreation/ReadMe.md)
+#### 2.2. Train the neural entity extractor
+
+See [Train the neural entity extractor](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/Code/02_Modeling/02_ModelCreation/ReadMe.md).
+
 The feed-forward neural network architecture suffer from a problem that they treat each input and output as independent of the other inputs and outputs. This architecture can't model sequence-to-sequence labeling tasks such as machine translation and entity extraction. Recurrent neural network models overcome this problem as they can pass information computed until now to the next node. This property is called having memory in the network since it is able to use the previously computed information as shown in the following figure:
 
 ![RNN](./media/scenario-tdsp-biomedical-recognition/rnn-expanded.png)
@@ -238,7 +246,10 @@ All the reported model are trained using Keras with TensorFlow as backend. Keras
 We concluded that CNTK performs as good as Tensorflow both in terms of the training time taken per epoch (60 secs for CNTK and 75 secs for Tensorflow) and the number of test entities detected. We are using the Unidirectional layers for evaluation.
 
 
-### 3. [Deployment](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/Code/03_Deployment)
+### 3. Deployment
+
+See [Deployment](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/Code/03_Deployment).
+
 We deployed a web service on a cluster in the [Azure Container Service (ACS)](https://azure.microsoft.com/services/container-service/). The operationalization environment provisions Docker and Kubernetes in the cluster to manage the web-service deployment. You can find further information about the operationalization process [here](model-management-service-deploy.md ).
 
 

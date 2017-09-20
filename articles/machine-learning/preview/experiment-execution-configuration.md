@@ -164,7 +164,7 @@ Execution environment on local Docker is prepared using the Azure ML base Docker
 >[!IMPORTANT]
 >You need to run _az ml experiment prepare -c docker_ command first to prepare the Docker image for your first run. You can also set the **PrepareEnvironment** parameter to true in your docker.runconfig file. This action will automatically prepare your environment as part of your run execution.  
 
-[!NOTE]
+>[!NOTE]
 >If running a PySpark script on Spark, spark_dependencies.yml is also used in addition to conda_dependencies.yml.
 
 Running your scripts on a Docker image gives you the following benefits:

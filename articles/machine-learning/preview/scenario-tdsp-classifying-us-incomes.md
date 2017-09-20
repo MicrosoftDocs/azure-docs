@@ -18,24 +18,19 @@ ms.author: bradsev
 
 ---
 
-# Income classification with the Team Data Science Process template
-
-## [Link To GitHub Repository](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome)
-We provide summary documentation here about the sample. More extensive documentation can be found on the GitHub site.
-
-## Introduction
+# Income classification with Team Data Science Process (TDSP) project
 
 Standardization of the structure and documentation of data science projects, that is anchored to an established [data science lifecycle](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md), is key to facilitating effective collaboration in data science teams. Creating Azure Machine Learning projects with the [Team Data Science Process (TDSP)](https://github.com/Azure/Microsoft-TDSP) template provides a framework for such standardization.
 
 We had previously released a [GitHub repository for the TDSP project structure and templates](https://github.com/Azure/Azure-TDSP-ProjectTemplate). But it was not possible, until now to instantiate the TDSP structure and templates within a data science tool. We have now enabled creation of Azure Machine Learning projects that are instantiated with [TDSP structure and documentation templates for Azure Machine Learning](https://github.com/amlsamples/tdsp). Instructions on how to use TDSP structure and templates in Azure Machine Learning is provided [here](https://aka.ms/how-to-use-tdsp-in-aml). Here we provide an example of how an actual machine learning project can be created using TDSP structure, populated with project-specific code, artifacts and documents, and executed within the Azure Machine Learning.
 
+## Link to GitHub repository
+We provide summary documentation [here](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) about the sample. More extensive documentation can be found on the GitHub site.
 
-### Purpose & scope
 ### Purpose
 The primary purpose of this sample is to show how to instantiate and execute a machine learning project using the [Team Data Science Process (TDSP)](https://github.com/Azure/Microsoft-TDSP) structure and templates in Azure Machine Learning. For this purpose, we use the well-known [1994 US Census data from the UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/adult). The modeling task is to predict US annual income classes from US Census information (for example, age, race, education level, country of origin, etc.)
 
 ### Scope
-
  * Data exploration, training, and deployment of a machine learning model which address the prediction problem described in the Use Case Overview. 
  * Execution of the project in Azure Machine Learning using the Team Data Science Process (TDSP) template from Azure Machine Learning for this project. For project execution and reporting, we're going to use the TDSP lifecycle.
  * Operationalization of the solution directly from Azure Machine Learning in Azure Container Services.
@@ -43,21 +38,21 @@ The primary purpose of this sample is to show how to instantiate and execute a m
  The project highlights several features of Azure Machine Learning, such TDSP structure instantiation, execution of code in Jupyter notebooks as well as Python files, and easy operationalization in Azure Container Services using Docker and Kubernetes.
 
 
-## [Team Data Science Process (TDSP) lifecycle](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md)
+## Team Data Science Process (TDSP) lifecycle
+See [Team Data Science Process (TDSP) Lifecycle](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md)
 
-<img src="./media/scenario-tdsp-classifying-us-incomes/tdsp-lifecycle.jpg" width="800" height="600">
+![](./media/scenario-tdsp-classifying-us-incomes/tdsp-lifecycle.jpg)
 
 ## Prerequisites
-### Required: Subscription, hardware, and software
+### Required: subscription, hardware, software
 1. An Azure [subscription](https://azure.microsoft.com). You can get a [free subscription](https://azure.microsoft.com/free/?v=17.16&WT.srch=1&WT.mc_id=AID559320_SEM_cZGgGOIg) to execute this sample also.
 2. An [Azure Data Science Virtual Machine (DSVM) Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm), (VM Size: [DS3_V2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), with 4 virtual CPUs and 14-Gb RAM). Although tested on an Azure DSVM, it is likely to work on any Windows 10 machine.
 3. Review documentation on Azure Machine Learning and its related services (see below for links).
-4. Make sure that you have properly installed Azure Machine Learning by the [quick start installation guide](quickstart-installation.md).
+4. Make sure that you have properly installed Azure Machine Learning by the [quick start installation guide](./quickstart-installation.md).
 
 The dataset for this sample is from the UCI ML Repository [[link]](https://archive.ics.uci.edu/ml/datasets/adult). It is taken from the 1994 US Census database and contains census and income information for about 50,000 individuals. This is structured dataset having numerical and categorical features, and a categorical target consisting of two income categories ('>50 K' or '<=50 K'). 
 
-
-### Informational: About Azure Machine Learning 
+### Informational: about Azure Machine Learning
 * [FAQ - How to get started](faq.md)
 * [Overview](overview-what-is-azure-ml.md)
 * [Installation](quickstart-installation.md)
@@ -65,7 +60,7 @@ The dataset for this sample is from the UCI ML Repository [[link]](https://archi
 * [Read and write files](how-to-read-write-files.md)
 * [Deploying an ML model as a web service](model-management-service-deploy.md)
 
-### Create a new Workbench project
+### Create a new workbench project
 
 Create a new project using this example as a template:
 1.	Open Azure Machine Learning Workbench
@@ -92,15 +87,12 @@ This data was extracted from the Census Bureau database found at: https://www.ce
 
 
 ## Project structure and reporting
-
 ### Structure
 For this project, we use the TDSP folder structure and documentation templates (below), which follows the [TDSP lifecycle](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md). 
 
 Project is created based on instructions provided [here](https://aka.ms/how-to-use-tdsp-in-aml). After it is filled with the project's code and artifacts, the structure looks as follows (see project structure boxed in red in figure below).
 
-
-<img src="./media/scenario-tdsp-classifying-us-incomes/instantiation-4.png" width="900" height="700">
-
+![](./media/scenario-tdsp-classifying-us-incomes/instantiation-4.png)
 
 The step-by-step data science workflow was as follows:
 
@@ -112,7 +104,7 @@ Data exploration is performed using the Python 3 [IDEAR (Interactive Data Explor
 
 The location of the final data exploration report is [IDEAR.html](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome/tree/master/docs/deliveralbe_docs). A view of the IDEAR report is shown below:
 
-<img src="./media/scenario-tdsp-classifying-us-incomes/idear.png" width="800" height="700">
+![](./media/scenario-tdsp-classifying-us-incomes/idear.png)
 
 * [**Modeling**](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome/tree/master/code/02_modeling)
 
@@ -122,23 +114,22 @@ AUC of both Elastic Net and Random Forest models were > 0.85. We save both model
 
 ROC curve of **Random Forest model** on test data is shown below. This was the model that was deployed:
 
-<img src="./media/scenario-tdsp-classifying-us-incomes/rf-auc.png" width="400" height="350">
+![](./media/scenario-tdsp-classifying-us-incomes/rf-auc.png)
 
 Feature importance (top 20) of Random Forest model is shown below. It shows features capital gain amount, eduction, marital status, have highest feature importance
 
-<img src="./media/scenario-tdsp-classifying-us-incomes/featImportance.png" width="600" height="350">
-
+![](./media/scenario-tdsp-classifying-us-incomes/featImportance.png)
 
 * [**Deployment**](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome/tree/master/code/03_deployment)
 
 We  deployed the Random Forest model as a web-service on a cluster in the [Azure Container Service (ACS)](https://azure.microsoft.com/services/container-service/). The operationalization environment provisions Docker and Kubernetes in the cluster to manage the web-service deployment. You can find further information on the operationalization process [here](model-management-service-deploy.md).
 
-
-### [Final project report](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome/blob/master/docs/deliveralbe_docs/ProjectReport.md)
+### Final project report
+See [Final Project Report](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome/blob/master/docs/deliveralbe_docs/ProjectReport.md)
 Details about each of the above sections are provided in the compiled final project report [ProjectReport](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome/blob/master/docs/deliveralbe_docs/ProjectReport.md). The project report also contains further details about the use case, model performance metrics, deployment, and infrastructure on which the project was developed and deployed.
 
 
-## Conclusion & next steps
+## Conclusion and next steps
 
 In this sample, we showed now to use TDSP structure and templates in Azure Machine Learning. We hope you use this feature of Azure Machine Learning to facilitate with project structure standardization and collaboration within your data science teams.
 

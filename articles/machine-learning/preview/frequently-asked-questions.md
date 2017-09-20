@@ -10,9 +10,9 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017 
 ---
-# Frequently Asked Questions
+# Azure Machine Learning frequently asked questions
 
-## General Product Questions
+## General product questions
 
 **What is Azure Machine Learning?**
 
@@ -75,7 +75,7 @@ The Experimentation service can execute your experiments on local machines (dire
 
 **What is Azure Machine Learning Model Management?**
 
-Azure Machine Learning Model Management is a managed Azure service that allows data scientists and dev-ops teams to deploy predictive models reliably into a wide variety of environments. Git repositories and Docker containers provide traceability and repeatability. Models can be deployed reliably in the cloud, on-premises, or edge. Once in production, you can manage model performance, then proactively retrain if performance degrades. You can deploy models on local machines, to [Azure VMs](https://azure.microsoft.com/services/virtual-machines/), Spark on [HDInsight](https://azure.microsoft.com/services/hdinsight/) or Kubernetes-orchestrated [Azure Container Service](https://azure.microsoft.com/en-us/services/container-service/) clusters.  
+Azure Machine Learning Model Management is a managed Azure service that allows data scientists and dev-ops teams to deploy predictive models reliably into a wide variety of environments. Git repositories and Docker containers provide traceability and repeatability. Models can be deployed reliably in the cloud, on-premises, or edge. Once in production, you can manage model performance, then proactively retrain if performance degrades. You can deploy models on local machines, to [Azure VMs](https://azure.microsoft.com/services/virtual-machines/), Spark on [HDInsight](https://azure.microsoft.com/services/hdinsight/) or Kubernetes-orchestrated [Azure Container Service](https://azure.microsoft.com/services/container-service/) clusters.  
 
 **What is a "model"?**
 
@@ -217,7 +217,7 @@ Bills are produced daily. For billing purposes, a day commences at midnight UTC.
 - Azure Stream Analytics 
 For further details, or to view a sample bill, visit our pricing page. 
 
-## Support and Training
+## Support and training
 
 **Where can I get training for Azure Machine Learning?**
 
