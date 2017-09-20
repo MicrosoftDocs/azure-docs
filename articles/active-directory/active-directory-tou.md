@@ -90,7 +90,12 @@ Users, who are in scope, will see the following once a terms of use is created a
 ## Additional information
 The following information is something to be aware of and can assist with using terms of use.
 
--	Global administrator, security administrator, or conditional access administrator need read/write access.
+
+Users in scope will need to sign-out and sign-in in order to satisfy a new policy if:
+ - a conditional access policy is enabled on a terms of use
+ - or a second terms of use is created
+
+This is because conditional access policies take effect immediately. When this happens the admin will start to see “sad clouds” or "Azure AD token issues". The admin must sign-out and sign-in again in order to satisfy the new policy.
 
 
 
