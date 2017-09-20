@@ -74,7 +74,7 @@ In this tutorial, you learned how to:
 > * Create a user with user access
 > * Create entities
 
-Advance to the next tutorial to learn about reviewing usage and costs to track trends, detect inefficiencies, and create alerts.
+Advance to the Cloudyn documentation to learn more getting started with Cloudyn and using its features.
 
 > [!div class="nextstepaction"]
-> [Review usage and costs](tutorial-review-usage.md)
+> [Cloudyn documentation](https://support.cloudyn.com/hc/)

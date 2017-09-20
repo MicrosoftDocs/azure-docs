@@ -26,7 +26,7 @@ Cost Management by Cloudy shows you usage and costs so that you can track trends
 
 ## Open the Cloudyn portal
 
-You review all usage and costs in the Cloudyn portal. Open the Cloudyn portal from the Azure portal or navigate to https://app.cloudyn.com.
+You review all usage and costs in the Cloudyn portal. Open the Cloudyn portal from the Azure portal or navigate to https://app.cloudyn.com and log in.
 
 ## Track usage and cost trends
 
@@ -40,11 +40,11 @@ The report shows all spending over the last 30 days. To view only spending for A
 
 ![filtered services](./media/tutorial-review-usage/actual-cost02.png)
 
-In the example above, less money was spent starting on 2017-08-31 than before. That cost trend continues for the various services for about nine days. Then, additional spending continues as before. However, too many columns can obscure an obvious trend. Can change the report view to a line or area chart to see the data displayed in other views. The image below shows the trend more clearly.
+In the example above, less money was spent starting on 2017-08-31 than before. That cost trend continues for the various services for about nine days. Then, additional spending continues as before. However, too many columns can obscure an obvious trend. You can change the report view to a line or area chart to see the data displayed in other views. The image below shows the trend more clearly.
 
 ![trend in report](./media/tutorial-review-usage/actual-cost03.png)
 
-In the example, you clearly see that Azure/Storage service started spending less starting on 2017-08-31 while spending on other Azure services remained level. So, what caused that reduction in spending? In this example, some employees were on vacation away from work and did not use the Storage service.
+In the example, you clearly see that Azure Storage cost dropped starting on 2017-08-31 while spending on other Azure services remained level. So, what caused that reduction in spending? In this example, some employees were on vacation away from work and did not use the Storage service.
 
 ## Detect usage inefficiencies
 
@@ -90,10 +90,8 @@ In this tutorial, you learned how to:
 > * Detect usage inefficiencies
 > * Create alerts for unusual spending or overspending
 
- 
-<!--
-Advance to the next tutorial to learn about [summarized title of next article].
+
+Advance to the next tutorial to learn about controlling access to data.
 
 > [!div class="nextstepaction"]
-> [Article title](file-name.md)
--->
+> [Control access to data](tutorial-user-access.md)
