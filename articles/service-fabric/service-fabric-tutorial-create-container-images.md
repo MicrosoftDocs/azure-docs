@@ -60,7 +60,7 @@ From the cloned directory, use the following command to enter the working direct
 cd Linux/container-tutorial/
 ```
 
-Inside this working directory is the 'azure-vote' directory. The directory contains the front-end source code and the 'redis' directory that contains a Dockerfile to  build the redis image. These directories contain the necessary assets for this tutorial set. 
+The 'container-tutorial' directory contains a folder named 'azure-vote'. This 'azure-vote' folder contains the front-end source code and a Dockerfile to build the front-end. The 'container-tutorial' directory also contains the 'redis' directory which has the Dockerfile to build the redis image. These directories contain the necessary assets for this tutorial set. 
 
 ## Create container images
 
@@ -164,7 +164,7 @@ docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
 Next, tag the *azure-vote-back* image with the loginServer of the container registry. Also, add `:v1` to the end of the image name. This tag indicates the image version.
 
 ```bash
-docker tag azure-vote-front <acrLoginServer>/azure-vote-back:v1
+docker tag azure-vote-back <acrLoginServer>/azure-vote-back:v1
 ```
 
 Once tagged, run 'docker images' to verify the operation.
