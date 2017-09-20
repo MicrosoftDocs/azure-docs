@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 09/18/2017
+ms.date: 09/19/2017
 ms.author: cynthn
 
 ---
@@ -30,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create the VM
 
-We will use the [New-AzVM](/powershell/module/azurerm.network/new-azvm) cmdlet to create the VM with smart defaults that include using the Windows Server 2016 Datacenter image from the Azure Marketplace. You can use New-AzVM alone and it will use default values for the resource names. In this example, we will set the **-Name** parameter as *myVM*. The cmdlet will create all the required resources using *myVM* as the name. 
+We will use the [New-AzVM](/powershell/module/azurerm.network/new-azvm) cmdlet to create the VM with smart defaults that include using the Windows Server 2016 Datacenter image from the Azure Marketplace. You can use New-AzVM alone and it will use default values for the resource names. In this example, we will set the **-Name** parameter as *myVM*. The cmdlet will create all the required resources using *myVM* as the prefix for the resource name. 
 
 Make sure that **PowerShell** is selected in Cloud Shell and type:
 
@@ -43,7 +43,7 @@ You will be asked to create a username and password for the VM, which will be us
 It will take a minute to create the VM and the associated resources. When finished, you can see all of the resources that were created using the [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) cmdlet.
 
 ```powershell-interactive
-Find-AzureRmResource -ResourceGroupNameEquals myVM | Format-table
+Find-AzureRmResource -ResourceGroupNameEquals myVMResourceGroup | Format-Table Name
 ```
 
 ## Connect to virtual machine
@@ -53,7 +53,7 @@ After the deployment has completed, create a remote desktop connection with the 
 Use the [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) command to return the public IP address of the virtual machine. Take note of this IP Address so you can connect to it with your browser to test web connectivity in a future step.
 
 ```powershell-interactive
-Get-AzureRmPublicIpAddress -ResourceGroupName myVM | Select IpAddress
+Get-AzureRmPublicIpAddress -ResourceGroupName myVMResourceGroup | Select IpAddress
 ```
 
 Use the following command to create a remote desktop session with the virtual machine. Replace the &lt;publicIPAddress&gt; with the IP address of your virtual machine. When prompted, enter the username and password you gave your VM when it was created.
@@ -67,7 +67,7 @@ mstsc /v:<publicIpAddress>
 When no longer needed, you can use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) command to remove the resource group, VM, and all related resources.
 
 ```powershell-interactive
-Remove-AzureRmResourceGroup -Name myVM
+Remove-AzureRmResourceGroup -Name myVMResourceGroup
 ```
 
 ## Next steps
