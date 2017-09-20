@@ -58,9 +58,6 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * For user provisioning to Active Directory, a domain-joined server running Windows Service 2012 or greater is required to host the [on-premises synchronization agent](https://go.microsoft.com/fwlink/?linkid=847801)
 * [Azure AD Connect](connect/active-directory-aadconnect.md) for synchronizing between Active Directory and Azure AD
 
-> [!NOTE]
-> If your Azure AD tenant is located in Europe, please see the [Known issues](#known-issues) section below.
-
 
 ### Solution architecture
 
@@ -432,6 +429,10 @@ Agent\\Modules\\AADSyncAgent
 
 * Input: Global admin username and password for your Azure AD tenant
 
+>[!IMPORTANT]
+>There is presently a known issue with global administrator credentials not working if they use a custom domain (example: admin@contoso.com). As a workaround, create and use a global administrator account with an onmicrosoft.com domain (example: admin@contoso.onmicrosoft.com)
+
+
 **Command #4**
 
 > Get-AdSyncAgentProvisioningTasks
@@ -460,22 +461,48 @@ Agent\\Modules\\AADSyncAgent
 
 > net start aadsyncagent
 
+>[!TIP]
+>In addition to the "net" commands in Powershell, the synchronization agent service can also be started and stopped using **Services.msc**. If you get errors when running the Powershell commands, ensure that the **Microsoft Azure AD Connect Provisioning Agent** is running in *Services.msc**.
+
+![Services](./media/active-directory-saas-workday-inbound-tutorial/Services.png)  
+
+**Additional configuration for customers in the European Union**
+If your Azure Active Directory tenant is located in one of the EU data centers, then follow the additional steps below.
+
+1. Open **Services.msc** , and stop the **Microsoft Azure AD Connect Provisioning Agent** service.
+2. Go to the agent installation folder (example: C:\Program Files\Microsoft Azure AD Connect Provisioning Agent).
+3. Open **SyncAgnt.exe.config** in a text editor.
+4. Replace https://manage.hub.syncfabric.windowsazure.com/Management with **https://eu.manage.hub.syncfabric.windowsazure.com/Management**
+5. Replace https://provision.hub.syncfabric.windowsazure.com/Provisioning with **https://eu.provision.hub.syncfabric.windowsazure.com/Provisioning**
+6. Save the **SyncAgnt.exe.config** file.
+7. Open **Services.msc**, and start the **Microsoft Azure AD Connect Provisioning Agent** service.
+
+**Agent troubleshooting**
+The Windows Application log on the Windows Server machine hosting the agent contains events for all operations performed by the agent. To view these events:
+	
+1. Open **Eventvwr.msc**.
+2. Select **Windows Logs > Application**.
+3. View all events logged under the source **AADSyncAgent**. 
+4. Check for errors and warnings.
+
+If if there is a permissions problem with either the Active Directory or Azure Active Directory credentials provided in the agent Powershell commands, you will see an error such as this one: 
+	
+![Services.msc](./media/active-directory-saas-workday-inbound-tutorial/Services.png) 
+
+
 ### Part 4: Start the service
 Once parts 1-3 have been completed, you can start the provisioning service back in the Azure Management Portal.
 
-1.  In the **Provisioning** tab, set the **Provisioning Status** to
-    **On**.
+1.  In the **Provisioning** tab, set the **Provisioning Status** to **On**.
 
 2. Click **Save**.
 
 3. This will start the initial sync, which can take a variable number of hours depending on how many users are in Workday.
 
-4. Individual sync events such as what users are being read out of
-    Workday, and then subsequently added or updated to Active Directory,
-    can be viewed in the **Audit Logs** tab. **[See the provisioning reporting guide for detailed instructions on how to read the audit logs](active-directory-saas-provisioning-reporting.md)**
+4. At any time, check the **Audit logs** tab in the Azure portal to see what actions the provisioning service has performed. The audit logs lists all individual sync events performed by the provisioing service, such as which users are being read out of Workday and then subsequently added or updated to Active Directory. **[See the provisioning reporting guide for detailed instructions on how to read the audit logs](active-directory-saas-provisioning-reporting.md)**
 
-5.  The Windows Application log on the agent machine will show all
-    operations performed via the agent.
+5.  Check the Windows Application log on the Windows Server machine hosting the agent for any new errors or warnings. These events are viewable by launching **Eventvwr.msc** on the server and selecting **Windows Logs > Application**. All provisioning related messages are logged under the source **AADSyncAgent**. 
+	
 
 6. One completed, it will write an audit summary report in the
     **Provisioning** tab, as shown below.
@@ -530,8 +557,7 @@ The following sections describe setting up a connection between Workday and Azur
         endpoint for your tenant. This should look like:
         https://wd3-impl-services1.workday.com/ccx/service/contoso4,
         where contoso4 is replaced with your correct tenant name and
-        wd3-impl is replaced with the correct environment string (if
-        necessary).
+        wd3-impl is replaced with the correct environment string. If this URL is not known, please work with your Workday integration partner or support representive to determine the correct URL to use.
 
    * **Notification Email –** Enter your email address, and check the
         “send email if failure occurs” checkbox.
@@ -722,7 +748,9 @@ Once parts 1-2 have been completed, you can start the provisioning service.
 
 ## Known issues
 
-* **Audit logs in European locales** - As of the release of this technical preview, there is a known issue with the [audit logs](active-directory-saas-provisioning-reporting.md) for the Workday connector apps not appearing in the [Azure portal](https://portal.azure.com) if the Azure AD tenant resides in a European data center. A fix for this issue is forthcoming. Please check this space again in the near future for updates. 
+* **Azure AD credentials used by agent** -  When running the **Add-ADSyncAgentAzureActiveDirectoryConfiguration** Powershell command, there is presently a known issue with global administrator credentials not working if they use a custom domain (example: admin@contoso.com). As a workaround, create and use a global administrator account in Azure AD with an onmicrosoft.com domain (example: admin@contoso.onmicrosoft.com).
+
+* A previous issue with audit logs not appearing in Azure AD tenants located in the European Union has been resolved. However, additional agent configuration is required for Azure AD tenants in the EU. For details, see [Part 3: Configure the on-premises synchronization agent](###Part 3: Configure the on-premises synchronization agent)
 
 ## Additional resources
 * [Tutorial: Configuring single sign-on between Workday and Azure Active Directory](active-directory-saas-workday-tutorial.md)
