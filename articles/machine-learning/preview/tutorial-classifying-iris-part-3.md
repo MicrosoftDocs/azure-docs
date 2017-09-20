@@ -164,18 +164,19 @@ Use the following command to create a real-time web service:
    ```azurecli
    az ml service create realtime -f iris_score.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
    ```
+   This generates a web service ID you can use later.
 
    The following are switches for the `az ml service create realtime` command:
-   * -n: app name, must be lower case.
+   * -n: app name, must be all lower case.
    * -f: scoring script file name
    * --model-file: model file, in this case it is the pickled model.pkl file
    * -r: type of model, in this case it is a python model
    * --collect-model-data true: enables data collection
 
    >[!IMPORTANT]
-   >The service name (which is also the new Docker image name) must be all lower-case, otherwise yohttps://github.com/hning86/azure-docs-pr/blob/vienna/articles/machine-learning/preview/media/tutorial-iris-azure-cli/no_account_found.png?raw=trueu get an error. 
+   >The service name (which is also the new Docker image name) must be all lower case, otherwise you get an error. 
 
-   When you run the command, the model and the scoring file are uploaded into to the storage account you created as part of environment setup above. The deployment process builds docker image with your model, schema, scoring file and pushes it to the ACR registry: `<ACR_name>.azureacr.io/<imagename>:<version>`. It then pulls down that image locally to your computer, and starts a Docker container based on that image. (If your environment is configured in cluster mode, the Docker container is deployed into the Kubernetes cluster instead.)
+   When you run the command, the model and the scoring file are uploaded into to the storage account you created as part of environment setup above. The deployment process builds a Docker image with your model, schema, scoring file in it, and pushes it to the ACR registry: `<ACR_name>.azureacr.io/<imagename>:<version>`. It then pulls down that image locally to your computer, and starts a Docker container based on that image. (If your environment is configured in cluster mode, the Docker container is deployed into the ACS Kubernetes cluster instead.)
 
    As part of the deployment, an HTTP REST endpoint for the web service is created on your local machine. After a few minutes the command should finish with a success message and your web service is ready for action!
 
@@ -183,40 +184,42 @@ Use the following command to create a real-time web service:
    ```azurecli
    docker ps
    ```
-
-As an alternate to `az ml service create realtime` command shown above, follow these steps to create a real-time web service:
+### Alternative route
+As an alternate to `az ml service create realtime` command shown above, you can also perform the individaul steps. This gives your more flexibility at each step. Follow the below instructions to create a real-time web service:
 
 1. Register the model by providing the pickle file name.
-
-   This azure CLI command registers the model:
 
    ```azurecli
    az ml model register --model model.pkl --name model.pkl
    ```
+   This generates a model ID.
 
 2. Create manifest
 
    In order to create a manifest, use this command and provide the model ID output from the previous step:
 
    ```azurecli
-   az ml manifest create --manifest-name irismanifest -f iris_score.py -r python -i <modelid> -s service_schema.json
+   az ml manifest create --manifest-name <new manifest name> -f iris_score.py -r python -i <model ID> -s service_schema.json
    ```
+   This generates a manifest ID.
 
-3. Create an image
+3. Create a Docker image
 
-   In order to create an image, use this command and provide the manifest ID value output from the previous step:
+   In order to create a Docker image, use this command and provide the manifest ID value output from the previous step:
 
    ```azurecli
-   az ml image create -n irisimage --manifest-id <manifestid>
+   az ml image create -n irisimage --manifest-id <manifest ID>
    ```
+   This generates a Docker image ID.
    
 4. Create the service
 
    In order to create a service, use the command listed and provide the image ID output from the previous step:
 
    ```azurecli
-   az ml service create realtime --image-id <imageid> -n irisapp --collect-model-data true
+   az ml service create realtime --image-id <image ID> -n irisapp --collect-model-data true
    ```
+   This genereates a web service ID.
 
 You are now ready to run the web service.
 
@@ -227,7 +230,7 @@ Test the running `irisapp` web service by feeding it with a JSON encoded record 
 1. The web service creation included sample data. When running in local mode, you can call the `az ml service show realtime` command to retrieve a sample run command that you can use to test the service. This will also give you the scoring url that you can use to incorporate the service in your own custom app:
 
    ```azurecli
-   az ml service show realtime -i <web service id>
+   az ml service show realtime -i <web service ID>
    ```
 
 2. To test the service, execute the returned service run command.
@@ -240,7 +243,7 @@ Test the running `irisapp` web service by feeding it with a JSON encoded record 
 3. If you want to run the service from outside the CLI, you need to get the keys for authentication:
 
    ```azurecli
-   az ml service keys realtime -i <web service id>
+   az ml service keys realtime -i <web service ID>
    ```
 
 ## View the collected data in Azure blob storage:
