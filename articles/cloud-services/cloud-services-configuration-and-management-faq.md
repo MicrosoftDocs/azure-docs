@@ -145,13 +145,12 @@ For more information about Antimalware deployment scenarios and how to enable it
 
 You can enable SNI in Cloud Services by using one of the following methods:
 
-### Method 1 Use PowerShell
+### Method 1: Use PowerShell
 
 The SNI binding can be configured using the PowerShell cmdlet **New-WebBinding** in a startup task for a cloud service role instance as below:
- 
-    ``` 
+    
     New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddress -HostHeader $HostHeader -SslFlags $sslFlags 
-    ```
+    
 As described [here](https://technet.microsoft.com/en-us/library/ee790567.aspx), the $sslFlags could be one of the values as the following:
 
 |Value|Meaning|
@@ -161,7 +160,7 @@ As described [here](https://technet.microsoft.com/en-us/library/ee790567.aspx), 
 |2 |Non SNI binding which uses Central Certificate Store|
 |3|SNI binding which uses Central Certificate store |
  
-### Method 2 Use code
+### Method 2: Use code
 
 The SNI binding could also be configured via code in the role startup as described on this [blog post](https://blogs.msdn.microsoft.com/jianwu/2014/12/17/expose-ssl-service-to-multi-domains-from-the-same-cloud-service/):
 
