@@ -1,6 +1,6 @@
 ---
 title: Elastic Query Concepts with SQL Data Warehouse | Microsoft Docs
-description: 'Elastic Query concepts with SQL Data Warehouse '
+description: 'Elastic Query concepts with SQL Data Warehouse'
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -20,13 +20,11 @@ ms.author: elbutter
 
 
 
-# Elastic Query Concepts with SQL Data Warehouse
+# How to use Elastic Query with SQL Data Warehouse
 
 
 
-Elastic Query with Azure SQL Data Warehouse allows you to write Transact-SQL in a SQL Database that is sent remotely to a Azure SQL Data Warehouse instance through the use of external tables. A remote external table definition is created in a SQL database instance which points to a table in the SQL database warehouse.
-
-When you use a query that uses an external table, the portion of the query query referring to the external table is sent to the SQL data warehouse instance to be processed. Once the query has completed, the result set is sent back to the calling SQL database instance. For a brief tutorial of setting up an Elastic Query between SQL database and SQL data warehouse, see the [Elastic Query tutorial][Elastic Query tutorial].
+Elastic Query with Azure SQL Data Warehouse allows you to write Transact-SQL in a SQL Database that is sent remotely to a Azure SQL Data Warehouse instance through the use of external tables. Using this feature provides cost-savings and more performant architectures depending on the scenario.
 
 This feature enables two primary scenarios:
 
@@ -47,6 +45,22 @@ Elastic query can provide the ability to easily select subsets of SQL data wareh
 
 Elastic query allows for remote query execution on a SQL data warehouse instance. This means that you can get the best of both SQL database and SQL data warehouse by separating your hot and cold data between the two databases. Users can keep more recent years of data within a SQL database which can serve reports and large numbers of average business users. However, when more data or computation is needed, a user can offload part of the query to a SQL data warehouse instance where large scale aggregates can be processed much faster and more efficiently.
 
+
+
+## Elastic Query Overview
+
+An elastic query can be used to make data located within a SQL data warehouse available to SQL database instances. This allows queries from a SQL database refer to tables in a remote SQL data warehouse instance. 
+
+The first step is to create an external data source definition which refers to the SQL data warehouse instance which uses existing user credentials within the SQL data warehouse. No changes are necessary on the remote SQL data warehouse instance. 
+
+[!IMPORTANT] You must possess ALTER ANY EXTERNAL DATA SOURCE permission. This permission is included with the ALTER DATABASE permission. ALTER ANY EXTERNAL DATA SOURCE permissions are needed to refer to remote data sources.
+
+Next we create a remote external table definition in a SQL database instance which points to a remote table in the SQL data warehouse. When you use a query that uses an external table, the portion of the query query referring to the external table is sent to the SQL data warehouse instance to be processed. Once the query has completed, the result set is sent back to the calling SQL database instance. For a brief tutorial of setting up an Elastic Query between SQL database and SQL data warehouse, see the [Configure Elastic Query with SQL Data Warehouse][Configure Elastic Query with SQL Data Warehouse].
+
+For more information on Elastic Query with SQL database, see the [Azure SQL Database elastic query overview][Azure SQL Database elastic query overview ].
+
+
+
 ## Best Practices
 
 ### General
@@ -57,6 +71,7 @@ Elastic query allows for remote query execution on a SQL data warehouse instance
 - Ensure SQL database instances used as a cache are partitioned to enable more granular updates and easier management. 
 - Ideally use PremiumRS databases because they provide the analytical benefits of clustered columnstore indexing with a focus on IO-intensive workloads at a discount from Premium databases.
 - After loads, utilize load or effective date identification columns for upserts in the SQL Database instances to maintain cache-source integrity. 
+- Create a separate login and user in your SQL data warehouse instance for your SQL database remote login credentials defined in the external data source. 
 
 ### Elastic Querying
 
@@ -156,9 +171,12 @@ A: You can store spatial types in SQL Data Warehouse as varbinary(max) values. W
 <!--Article references-->
 
 [SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop/
-[Elastic Query tutorial]: ./sql-data-warehouse-elastic-query-with-sql-database.md
+[Configure Elastic Query with SQL Data Warehouse]: .tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md
 [Feedback Page]: https://feedback.azure.com/forums/307516-sql-data-warehouse
+[Azure SQL Database elastic query overview]: ../sql-database/sql-database-elastic-query-overview.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
+
+[Azure SQL Database elastic query overview ]: 

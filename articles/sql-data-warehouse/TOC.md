@@ -78,6 +78,8 @@
 ### [Power BI visualization](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 ### [Stream Analytics](sql-data-warehouse-integrate-azure-stream-analytics.md)
 
+### [<u>Elastic Query with SQL Database and SQL Data Warehouse</u>][how-to-use-elastic-query-with-sql-data-warehouse.md]
+
 ## Load
 
 ### [Overview](sql-data-warehouse-overview-load.md)

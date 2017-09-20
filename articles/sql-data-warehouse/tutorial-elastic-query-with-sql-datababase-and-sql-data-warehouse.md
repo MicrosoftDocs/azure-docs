@@ -20,9 +20,9 @@ ms.author: elbutter
 
 
 
-# Elastic Query with SQL Data Warehouse
+# Configure Elastic Query with SQL Data Warehouse
 
-In this tutorial, you will learn how to use Elastic Query to submit a query from SQL Database to SQL Data Warehouse. Elastic Query is functionality that exists between Azure SQL products. For more information about Elastic Query as a concept, see [**Elastic Query Concepts with SQL Data Warehouse**][Elastic Query Concepts with SQL Data Warehouse]
+In this tutorial, you will learn how to use Elastic Query to submit a query from SQL Database to SQL Data Warehouse. Elastic Query is functionality that exists between Azure SQL products. For more information about Elastic Query as a concept, see [**How to use Elastic Query with SQL Data Warehouse**][How to use Elastic Query with SQL Data Warehouse].
 
 ## Prerequisites for the tutorial
 
@@ -144,13 +144,11 @@ Congratulations, you have set up the very basics of Elastic Query.
 
 
 
-
-
 <!--Image references-->
 
 <!--Article references-->
 
-[Elastic Query Concepts with SQL Data Warehouse]: ./sql-data-warehouse-elastic-query-with-sql-database-concepts.md
+[How to use Elastic Query with SQL Data Warehouse]: ./how-to-use-elastic-query-with-sql-data-warehouse.md
 
 <!--MSDN references-->
 
