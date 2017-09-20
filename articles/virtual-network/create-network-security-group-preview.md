@@ -1,6 +1,6 @@
 ---
-title: Filter network traffic with Azure network security groups (Preview) | Microsoft Docs
-description: Learn how to create network security groups (Preview) to restrict the type of network traffic in and out of virtual machines.
+title: Filter network traffic with Azure network and application security groups (Preview) | Microsoft Docs
+description: Learn how to create network and application security groups (Preview) to restrict the type of network traffic in and out of virtual machines.
 services: virtual-network
 documentationcenter: ''
 author: jimdial
@@ -14,24 +14,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/19/2017
+ms.date: 09/20/2017
 ms.author: jdial
 ms.custom: 
 
 ---
-# Filter network traffic with network security groups (Preview)
+# Filter network traffic with network and application security groups (Preview)
 
-In this tutorial, learn how to create network security groups to filter network traffic to and from virtual machines.
-
-<Diagram>
-
+In this tutorial, learn how to create network security groups to filter network traffic to and from groups of virtual machines with application security groups. To learn more about network security groups and application security groups, see [Security overview](security-overview.md). 
 
 The following sections include steps that you can take to create network security groups using the Azure command-line interface ([Azure CLI](#azure-cli)) and [Azure PowerShell](#powershell). The result is the same, regardless of which tool you use to create the network security groups. Click a tool link to go to that section of the tutorial. 
 
 This article provides steps to create network security groups through the Resource Manager deployment model, which is the deployment model we recommend using when creating network security groups. If you need to create a network security group (classic), see [Create a network security group (classic)](virtual-networks-create-nsg-classic-ps.md). If you're not familiar with Azure's deployment models, see [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 > [!NOTE]
-> This tutorial utilizes network security group features that are currently in preview release. Features in preview release have limited region availability, and do not have the same availability and reliability as features in general release. If you want to implement network security groups using only features in general release, see [Create a network security group](virtual-networks-create-nsg-arm-pportal.md).
+> This tutorial utilizes network security group features that are currently in preview release. Features in preview release do not have the same availability and reliability as features in general release. While in preview, the features are available only in the following regions: East US, West US, West US 2, West Central US, Australia East, Australia Southeast, and UK South. If you want to implement network security groups using only features in general release, see [Create a network security group](virtual-networks-create-nsg-arm-pportal.md). 
 
 ## Azure CLI
 
@@ -40,7 +37,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
 1. [Install and configure the Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Ensure you are using a version of the CLI 2.0 higher than 2.0.17 by entering the `az --version` command. If you are not, install the most recent version.
 3. Log in to Azure with the `az login` command.
-4. Register for the preview features used in this tutorial by completing steps 1-5 in [PowerShell](#powershell). You can only register for the preview using PowerShell.
+4. Register for the preview features used in this tutorial by completing steps 1-5 in [PowerShell](#powershell). You can only register for the preview using PowerShell. Do not continue with the remaining steps until your registration is successful or the steps fail.
 5. Run the following script to create a resource group:
 
     ```azurecli-interactive
@@ -126,9 +123,20 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       --name myVnet \
       --resource-group myResourceGroup \
       --subnet-name mySubnet \
+      --address-prefix 10.0.0.0/16 \
       --location westcentralus
 
-10. Create three network interfaces, one for each server type. 
+10. Associate the network security group to the subnet in the virtual network:
+
+    ```azurecli-interactive
+    az network vnet subnet update \
+      --name mySubnet \
+      --resource-group myResourceGroup \
+      --vnet-name myVnet \
+      --network-security-group myNsg
+
+
+11. Create three network interfaces, one for each server type. 
 
     ```azurecli-interactive
     az network nic create \
@@ -160,7 +168,8 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
     ```
 
     Only the corresponding security rule you created in step 8 is applied to the network interface, based on the application security group the network interface is a member of. For example, only the *WebRule* is effective for the *myWebNic*, because the network interface is a member of the *WebServers* application security group and the rule specifies the *WebServers* application security group as its destination. The *AppRule* and *DatabaseRule* rules are not applied to the *myWebNic*, because the network interface is not a member of the *AppServers* and *DatabaseServers* application security groups.
-11. Create one virtual machine for each server type, attaching the corresponding network interface to each virtual machine. This example creates Windows virtual machines, but you can change *win2016datacenter* to *UbuntuLTS* to create Linux virtual machines instead.
+
+12. Create one virtual machine for each server type, attaching the corresponding network interface to each virtual machine. This example creates Windows virtual machines, but you can change *win2016datacenter* to *UbuntuLTS* to create Linux virtual machines instead.
 
     ```azurecli-interactive
     # Update for your admin password
@@ -169,7 +178,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
     az vm create \
       --resource-group myResourceGroup \
       --name myWebVm \
-      --location westeurope \
+      --location westcentralus \
       --nics myWebNic \
       --image win2016datacenter \
       --admin-username azureuser \
@@ -178,7 +187,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
     az vm create \
       --resource-group myResourceGroup \
       --name myAppVm \
-      --location westeurope \
+      --location westcentralus \
       --nics myAppNic \
       --image win2016datacenter \
       --admin-username azureuser \
@@ -187,13 +196,14 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
     az vm create \
       --resource-group myResourceGroup \
       --name myDatabaseVm \
-      --location westeurope \
+      --location westcentralus \
       --nics myDatabaseNic \
       --image win2016datacenter \
       --admin-username azureuser \
       --admin-password $AdminPassword    
     ```
-12. **Optional**: Delete the resources that you create in this tutorial by completing the steps in [Delete resources](#delete-cli).
+
+13. **Optional**: Delete the resources that you create in this tutorial by completing the steps in [Delete resources](#delete-cli).
 
 ## PowerShell
 
@@ -213,7 +223,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
     Get-AzureRmProviderFeature -FeatureName AllowApplicationSecurityGroups -ProviderNamespace Microsoft.Network
     ```
 
-    Do not continue until *Registered* appears in the **RegistrationState** column of the output returned from the previous command. If you continue before you're registered, subsequent steps fail.
+    Do not continue with the remaining steps until *Registered* appears in the **RegistrationState** column of the output returned from the previous command. If you continue before you're registered, remaining steps fail.
         
 6. Create a resource group:
 
@@ -251,7 +261,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       -Protocol Tcp `
       -Direction Inbound `
       -Priority 200 `
-	  -SourceAddressPrefix Internet `
+	    -SourceAddressPrefix Internet `
       -SourcePortRange * `
       -DestinationApplicationSecurityGroupId $webAsg.id `
       -DestinationPortRange 80	
@@ -262,7 +272,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       -Protocol Tcp `
       -Direction Inbound `
       -Priority 300 `
-	  -SourceApplicationSecurityGroupId $webAsg.id `
+	    -SourceApplicationSecurityGroupId $webAsg.id `
       -SourcePortRange * `
       -DestinationApplicationSecurityGroupId $appAsg.id `
       -DestinationPortRange 443	
@@ -273,7 +283,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       -Protocol Tcp `
       -Direction Inbound `
       -Priority 400 `
-	  -SourceApplicationSecurityGroupId $appAsg.id `
+	    -SourceApplicationSecurityGroupId $appAsg.id `
       -SourcePortRange * `
       -DestinationApplicationSecurityGroupId $databaseAsg.id `
       -DestinationPortRange 1336	
@@ -289,23 +299,34 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       -SecurityRules $WebRule,$AppRule,$DatabaseRule
     ```
 
-10. Create a virtual network: 
+10. Create a subnet configuration and associate the network security group to it:
     
     ```powershell
-    $myVnet = New-AzureRmVirtualNetwork `
-      -Name MyVnet `
+    $subnet = New-AzureRmVirtualNetworkSubnetConfig `
+      -AddressPrefix 10.0.0.0/24 `
+      -Name mySubnet `
+      -NetworkSecurityGroup $nsg
+    ```
+
+11. Create a virtual network: 
+    
+    ```powershell
+    $vNet = New-AzureRmVirtualNetwork `
+      -Name myVnet `
+      -AddressPrefix '10.0.0.0/16' `
+      -Subnet $subnet
       -ResourceGroupName myResourceGroup `
       -Location westcentralus
     ```
 
-11. Create three network interfaces, one for each server type. 
+12. Create three network interfaces, one for each server type. 
 
     ```powershell
     $webNic = New-AzureRmNetworkInterface `
       -Name myWebNic `
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
-	  -Subnet $myVNet.Subnets[0] `
+	    -Subnet $vNet.Subnets[0] `
       -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $webRule,$appRule
 
@@ -313,7 +334,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       -Name myAppNic `
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
-	  -Subnet $myVNet.Subnets[0] `
+	    -Subnet $vNet.Subnets[0] `
       -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $appRule
 
@@ -321,13 +342,14 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       -Name myDatabaseNic `
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
-	  -Subnet $myVNet.Subnets[0] `
+	    -Subnet $vNet.Subnets[0] `
       -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $databaseRule
     ```
 
     Only the corresponding security rule you created in step 8 is applied to the network interface, based on the application security group the network interface is a member of. For example, only the *WebRule* is effective for the *myWebNic*, because the network interface is a member of the *WebServers* application security group and the rule specifies the *WebServers* application security group as its destination. The *AppRule* and *DatabaseRule* rules are not applied to the *myWebNic*, because the network interface is not a member of the *AppServers* and *DatabaseServers* application security groups.
-12. Create one virtual machine for each server type, attaching the corresponding network interface to each virtual machine. This example creates Windows virtual machines, but before executing the script, you can change *-Windows* to *-Linux*, *MicrosoftWindowsServer* to *Canonical*, *WindowsServer* to *UbuntuServer* and *2016-Datacenter* to *14.04.2-LTS* to create Linux virtual machines instead.
+
+13. Create one virtual machine for each server type, attaching the corresponding network interface to each virtual machine. This example creates Windows virtual machines, but before executing the script, you can change *-Windows* to *-Linux*, *MicrosoftWindowsServer* to *Canonical*, *WindowsServer* to *UbuntuServer* and *2016-Datacenter* to *14.04.2-LTS* to create Linux virtual machines instead.
 
     ```powershell
     # Create user object
@@ -336,7 +358,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
     # Create the web server virtual machine configuration and virtual machine.
     $webVmConfig = New-AzureRmVMConfig `
       -VMName myWebVm `
-      -VMSize Standard_D1 | `
+      -VMSize Standard_DS1_V2 | `
     Set-AzureRmVMOperatingSystem -Windows `
       -ComputerName myWebVm `
       -Credential $cred | `
@@ -355,7 +377,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
     # Create the app server virtual machine configuration and virtual machine.
     $appVmConfig = New-AzureRmVMConfig `
       -VMName myAppVm `
-      -VMSize Standard_D1 | `
+      -VMSize Standard_DS1_V2 | `
     Set-AzureRmVMOperatingSystem -Windows `
       -ComputerName myAppVm `
       -Credential $cred | `
@@ -374,7 +396,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
     # Create the database server virtual machine configuration and virtual machine.
     $databseVmConfig = New-AzureRmVMConfig `
       -VMName mydatabaseVm `
-      -VMSize Standard_D1 | `
+      -VMSize Standard_DS1_V2 | `
     Set-AzureRmVMOperatingSystem -Windows `
       -ComputerName mydatabaseVm `
       -Credential $cred | `
@@ -390,7 +412,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       -Location westeurope `
       -VM $databaseVmConfig
     ```
-13. **Optional**: Delete the resources that you create in this tutorial by completing the steps in [Delete resources](#delete-cli).
+14. **Optional**: Delete the resources that you create in this tutorial by completing the steps in [Delete resources](#delete-cli).
 
 ## <a name="delete"></a>Delete resources
 
