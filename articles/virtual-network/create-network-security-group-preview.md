@@ -327,7 +327,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
       -NetworkSecurityGroup $nsg `
-      -ApplicationSecurityGroup $webRule,$appRule
+      -ApplicationSecurityGroup $webAsg,$appAsg
 
     $appNic = New-AzureRmNetworkInterface `
       -Name myAppNic `
@@ -335,7 +335,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
       -NetworkSecurityGroup $nsg `
-      -ApplicationSecurityGroup $appRule
+      -ApplicationSecurityGroup $appAsg
 
     $databaseNic = New-AzureRmNetworkInterface `
       -Name myDatabaseNic `
@@ -343,7 +343,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
       -NetworkSecurityGroup $nsg `
-      -ApplicationSecurityGroup $databaseRule
+      -ApplicationSecurityGroup $databaseAsg
     ```
 
     Only the corresponding security rule you created in step 8 is applied to the network interface, based on the application security group the network interface is a member of. For example, only the *WebRule* is effective for the *myWebNic*, because the network interface is a member of the *WebServers* application security group and the rule specifies the *WebServers* application security group as its destination. The *AppRule* and *DatabaseRule* rules are not applied to the *myWebNic*, because the network interface is not a member of the *AppServers* and *DatabaseServers* application security groups.
