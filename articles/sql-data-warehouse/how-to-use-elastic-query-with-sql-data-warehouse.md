@@ -158,14 +158,6 @@ A: You can store spatial types in SQL Data Warehouse as varbinary(max) values. W
 
 
 
-
-
-
-
-
-
-
-
 <!--Image references-->
 
 <!--Article references-->
@@ -178,5 +170,3 @@ A: You can store spatial types in SQL Data Warehouse as varbinary(max) values. W
 <!--MSDN references-->
 
 <!--Other Web references-->
-
-[Azure SQL Database elastic query overview ]: 
