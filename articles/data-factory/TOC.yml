@@ -33,9 +33,7 @@
     href: tutorial-incremental-copy-powershell.md
   - name: 6 - Transform data in cloud
     href: tutorial-transform-data-using-spark-powershell.md
-  - name: 7 - Transform data in virtual network
-    href: tutorial-transform-data-hive-virtual-network.md   
-  - name: 8 - Control flow
+  - name: 7 - Control flow
     href: tutorial-control-flow.md    
 - name: Samples
   items:
