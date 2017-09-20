@@ -206,5 +206,5 @@ In this tutorial, you connected a recovery point to a VM and restored files for 
 Advance to the next tutorial to learn about how to back up on-premises servers.
 
 > [!div class="nextstepaction"]
-> [Back up on-premises server to Azure](tutorial-backup-windows-server-to-azure.md)
+> [Back up on-premises server to Azure]()
 
