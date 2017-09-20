@@ -23,11 +23,11 @@ ms.author: LADocs; stepsic
 After you [create custom APIs](./logic-apps-create-api-app.md) 
 for use in logic app workflows, you must deploy your APIs before you can call them. 
 You can deploy your APIs as [web apps](../app-service-web/app-service-web-overview.md), 
-but consider deploying your APIs as [API apps](../app-service-api/app-service-api-apps-why-best-platform.md), 
+but consider deploying your APIs as [API apps](../app-service/app-service-web-tutorial-rest-api.md), 
 which make your job easier when you build, host, and consume APIs 
 in the cloud and on premises. You don't have to change any code in your 
 APIs - just deploy your code to an API app. You can host your APIs on 
-[Azure App Service](../app-service/app-service-value-prop-what-is.md), 
+[Azure App Service](../app-service/app-service-web-overview.md), 
 a platform-as-a-service (PaaS) offering that provides highly scalable, 
 easy API hosting.
 
@@ -43,7 +43,7 @@ Before you can call your custom API from a logic app,
 deploy your API as a web app or API app to Azure App Service. 
 Also, to make your OpenAPI file readable by the Logic Apps Designer, 
 set the API definition properties and turn on 
-[cross-origin resource sharing (CORS)](../app-service-api/app-service-api-cors-consume-javascript.md#corsconfig) 
+[cross-origin resource sharing (CORS)](../app-service/app-service-web-overview.md) 
 for your web app or API app.
 
 1. In the [Azure portal](https://portal.azure.com), 
@@ -66,10 +66,8 @@ Set the CORS policy for **Allowed origins** to **'*'** (allow all).
 
    ![Permit requests from Logic App Designer to your custom API](./media/logic-apps-custom-api-deploy-call/custom-api-cors.png)
 
-For more information, see these articles:
-
-* [Add Swagger metadata for ASP.NET web APIs](../app-service-api/app-service-api-dotnet-get-started.md#use-swagger-api-metadata-and-ui)
-* [Deploy ASP.NET web APIs to Azure App Service](../app-service-api/app-service-api-dotnet-get-started.md)
+For more information, see 
+[Build a Node.js RESTful API](../app-service/app-service-web-tutorial-rest-api.md).
 
 ## Call your custom API from logic app workflows
 

@@ -13,7 +13,7 @@ ms.workload: logic-apps
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 09/25/2017
 ms.author: LADocs; estfan
 ---
 
@@ -47,13 +47,11 @@ or [Azure AD authentication](#azure-ad-code) through code.
 
 Here's the general steps for this method:
 
-1. Create two 
-[Azure Active Directory (Azure AD) application identities](../app-service-api/app-service-api-dotnet-service-principal-auth.md): 
+1. Create two Azure Active Directory (Azure AD) application identities: 
 one for your logic app and one for your web app (or API app).
 
 2. To authenticate calls to your API, use the credentials (client ID and secret) for the 
-[service principal](../app-service-api/app-service-api-dotnet-service-principal-auth.md) 
-that's associated with the Azure AD application identity for your logic app.
+service principal that's associated with the Azure AD application identity for your logic app.
 
 3. Include the application IDs in your logic app definition.
 
@@ -74,7 +72,7 @@ choose **Azure Active Directory**.
 2. Confirm that you're in the same directory as your web app or API app.
 
    > [!TIP]
-   > To switch directories, click your profile and select another directory. 
+   > To switch directories, choose your profile and select another directory. 
    > Or, choose **Overview** > **Switch directory**.
 
 3. On the directory menu, under **Manage**, 
@@ -157,7 +155,7 @@ for your logic app to use in Part 3.
    you specify this key as the "secret" or password.
 
 For more information, learn how to 
-[configure your App Service application to use Azure Active Directory login](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md).
+[configure your App Service application to use Azure Active Directory login](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
 
 <a name="powershell"></a>
 
@@ -257,7 +255,6 @@ and also to use in your web app or API app's deployment template, if necessary.
 
 For more information, see these topics:
 
-* [User authentication for API apps in Azure App Service](../app-service-api/app-service-api-dotnet-user-principal-auth.md)
 * [Authentication and authorization in Azure App Service](../app-service/app-service-authentication-overview.md)
 
 <a name="authen-deploy"></a>
@@ -281,23 +278,21 @@ in your app's deployment template and also for Part 3.
 After you get the client ID and tenant ID, include these IDs 
 as a subresource of your web app or API app in your deployment template:
 
-   ```
-   "resources": [
-       {
-           "apiVersion": "2015-08-01",
-           "name": "web",
-           "type": "config",
-           "dependsOn": ["[concat('Microsoft.Web/sites/','parameters('webAppName'))]"],
-           "properties": {
-               "siteAuthEnabled": true,
-               "siteAuthSettings": {
-                 "clientId": "{client-ID}",
-                 "issuer": "https://sts.windows.net/{tenant-ID}/",
-               }
-           }
-       }
-   ]
-   ```
+``` json
+"resources": [ {
+    "apiVersion": "2015-08-01",
+    "name": "web",
+    "type": "config",
+    "dependsOn": ["[concat('Microsoft.Web/sites/','parameters('webAppName'))]"],
+    "properties": {
+        "siteAuthEnabled": true,
+        "siteAuthSettings": {
+            "clientId": "{client-ID}",
+            "issuer": "https://sts.windows.net/{tenant-ID}/",
+        }
+    }
+} ]
+```
 
 To automatically deploy a blank web app and a logic app together with 
 Azure Active Directory authentication, [view the complete template here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-custom-api/azuredeploy.json), 
@@ -315,17 +310,18 @@ find the **Authorization** section, and include this line:
 
 `{"tenant": "{tenant-ID}", "audience": "{client-ID-from-Part-2-web-app-or-API app}", "clientId": "{client-ID-from-Part-1-logic-app}", "secret": "{key-from-Part-1-logic-app}", "type": "ActiveDirectoryOAuth" }`
 
-| Element | Description |
-| ------- | ----------- |
-| tenant |The GUID for the Azure AD tenant |
-| audience |Required. The GUID for the target resource that you want to access - the client ID from the application identity for your web app or API app |
-| clientId |The GUID for the client requesting access - the client ID from the application identity for your logic app |
-| secret |Required. The key or password from the application identity for the client that's requesting the access token |
-| type |The authentication type. For ActiveDirectoryOAuth authentication, the value is `ActiveDirectoryOAuth`. |
+| Element | Required | Description | 
+| ------- | -------- | ----------- | 
+| tenant | Yes | The GUID for the Azure AD tenant | 
+| audience | Required | The GUID for the target resource that you want to access, which is the client ID from the application identity for your web app or API app | 
+| clientId |Required | The GUID for the client requesting access, which is the client ID from the application identity for your logic app | 
+| secret | Required | The key or password from the application identity for the client that's requesting the access token | 
+| type | Required | The authentication type. For ActiveDirectoryOAuth authentication, the value is `ActiveDirectoryOAuth`. | 
+|||| 
 
 For example:
 
-```
+``` json
 {
    ...
    "actions": {
@@ -357,7 +353,7 @@ For example:
 
 To validate the incoming requests from your logic app to your web app or API app, 
 you can use client certificates. To set up your code, learn 
-[how to configure TLS mutual authentication](../app-service-web/app-service-web-configure-tls-mutual-auth.md).
+[how to configure TLS mutual authentication](../app-service/app-service-web-configure-tls-mutual-auth.md).
 
 In the **Authorization** section, include this line: 
 
@@ -401,13 +397,12 @@ To restrict API access to your logic app through code,
 extract the header that has the JSON web token (JWT). 
 Check the caller's identity, and reject requests that don't match.
 
-Going further, to implement this authentication entirely in your own code, 
+<!-- Going further, to implement this authentication entirely in your own code, 
 and not use the Azure portal, learn how to 
-[authenticate with on-premises Active Directory in your Azure app](../app-service-web/web-sites-authentication-authorization.md).
+[authenticate with on-premises Active Directory in your Azure app](../app-service/app-service-authentication-overview.md).
 
-To create an application identity for your logic app 
-and use that identity to call your API, 
-you must follow the previous steps.
+To create an application identity for your logic app and use that identity to call your API, 
+you must follow the previous steps. -->
 
 ## Next steps
 

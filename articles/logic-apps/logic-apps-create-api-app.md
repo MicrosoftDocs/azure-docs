@@ -31,6 +31,15 @@ that you can call from logic app workflows:
 * Help customers use your service to manage professional or personal tasks.
 * Expand the reach, discoverability, and use for your service.
 
+Basically, connectors are web APIs that use REST for pluggable interfaces, 
+[Swagger metadata format](http://swagger.io/specification/) for documentation, 
+and JSON as their data exchange format. Because connectors are REST APIs 
+that communicate through HTTP endpoints, you can use any language, 
+like .NET, Java, or Node.js, for building connectors. 
+You can also host your APIs on [Azure App Service](../app-service/app-service-web-overview.md), 
+a platform-as-a-service (PaaS) offering that provides one of the best, easiest, 
+and most scalable ways for API hosting. 
+
 For custom APIs to work with logic apps, your API can provide 
 [*actions*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) 
 that perform specific tasks in logic app workflows. Your API can also act as a 
@@ -41,21 +50,23 @@ for building actions and triggers in your API,
 based on the behavior that you want your API to provide.
 
 You can host your APIs on 
-[Azure App Service](../app-service/app-service-value-prop-what-is.md), 
+[Azure App Service](../app-service/app-service-web-overview.md), 
 a platform-as-a-service (PaaS) offering that provides highly scalable, 
 easy API hosting.
 
 > [!TIP] 
-> Although you can deploy your APIs as 
-> [web apps](../app-service-web/app-service-web-overview.md), 
-> consider deploying your APIs as 
-> [API apps](../app-service-api/app-service-api-apps-why-best-platform.md), 
+> Although you can deploy your APIs as web apps, 
+> consider deploying your APIs as API apps, 
 > which can make your job easier when you build, host, and consume APIs 
 > in the cloud and on premises. You don't have to change any code in your 
-> APIs - just deploy your code to an API app. Learn how to 
-> [build API apps created with ASP.NET](../app-service-api/app-service-api-dotnet-get-started.md), 
-> [Java](../app-service-api/app-service-api-java-api-app.md), 
-> or [Node.js](../app-service-api/app-service-api-nodejs-api-app.md). 
+> APIs -- just deploy your code to an API app. For example, learn how to 
+> build API apps created with these languages: 
+> 
+> * [ASP.NET](../app-service/app-service-web-get-started-dotnet.md) 
+> * [Java](../app-service/app-service-web-get-started-java.md)
+> * [Node.js](../app-service/app-service-web-get-started-nodejs.md)
+> * [PHP](../app-service/app-service-web-get-started-php.md)
+> * [Python](../app-service/app-service-web-get-started-python.md)
 >
 > For API App samples built for logic apps, visit the 
 > [Azure Logic Apps GitHub repository](http://github.com/logicappsio) or [blog](http://aka.ms/logicappsblog).

@@ -28,9 +28,13 @@ You can troubleshoot errors encountered while using Azure Backup with informatio
 
 ## Backup
 
-## Error: The specified Disk Configuration is not supported
+### Error: The specified Disk Configuration is not supported
 
-Currently Azure Backup doesn’t support disk sizes greater than 1023GB. Please make sure that disk sizes are less than the limit by splitting the disks. To split the disks, you need to copy data from disks greater than 1023GB into newly created disks of size less than 1023GB.
+Currently Azure Backup doesn’t support disk sizes [greater than 1023GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
+- If you have disks greater than 1 TB , [attach new disks](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) which are less than 1 TB <br>
+- Then, copy the data from disk greater than 1TB into newly created disk(s) of size less than 1TB. <br>
+- Ensure that all data has been copied and remove the disks greater than 1TB
+- Initiate the backup.
 
 | Error details | Workaround |
 | --- | --- |
