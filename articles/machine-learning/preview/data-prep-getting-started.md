@@ -9,7 +9,7 @@ ms.topic: article
 ms.date: 9/7/2017
 ---
 
-# Getting started with Data Preparation #
+# Getting started with Data Preparation 
 
 Welcome to the Data Preparation Getting Started Guide. 
 
@@ -35,7 +35,7 @@ A Package contains one or more Dataflows that are the steps and transforms appli
 
 A Package may use another Package as a Data Source (referred to as a Reference Data Flow).
 
-### The Dataflow ###
+### The Dataflow 
 A Dataflow has a source and optional Transforms which are arranged through a series of Steps and optional destinations. Clicking on a Step re-executes all the sources and Transforms prior to and including the selected Step.  The transformed data through that step is shown within the grid. Steps can be added, moved, and deleted within a Dataflow through the Step List.
 
 The Step List on the right side of the client can be opened and closed to provide more screen space.
@@ -60,7 +60,7 @@ Some Inspectors support a “Halo” mode. This mode shows the value or state be
 ### The Destination
 A Destination is where you write/export the data to after you have prepared it in a Dataflow. A given Dataflow can have multiple Destinations. Each Destination has a different user experience to allow it to be configured. The Destination consumes data in a “rectangular”/tabular format and writes it out to some location in a given format. [Appendix 5 provides the current list of supported Destinations](data-prep-appendix5-supported-destinations.md).
 
-### Using Data Preparation ###
+### Using Data Preparation 
 Data Preparation assumes a basic five-step methodology/approach to data preparation.
 
 #### Step 1: Ingestion ####
@@ -82,7 +82,7 @@ Different Inspectors are provided for continuous vs categorical variables/column
 When working with wide datasets that have many columns, a pragmatic approach of working with subsets is advisable. This approach includes focusing on a small number of columns (for example, 5-10), preparing them and then working through the remaining columns. The grid inspector supports vertical partitioning of columns and so if you have more than 300 columns then you need to "page" through them.
  
 
-#### Step 3: Transform the Data ####
+#### Step 3: Transform the Data 
 Transforms change the data and allow the execution of the data to support the current working hypothesis. Transforms appear as Steps in the Step List on the right-hand side. It is possible to “time travel” through the Step List by clicking on any arbitrary point in the Step List.
 
 A green icon to the left of a given Step indicates that it has run and the data reflects the execution of the Transform. A vertical bar to the left of the Step indicates the current state of the data in the Inspectors.

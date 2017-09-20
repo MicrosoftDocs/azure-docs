@@ -16,6 +16,8 @@ ms.date: 09/12/2017
 
 # Supported Data Sources for this release 
 
+The supported data sources for this release are listed below.
+
 ## Types 
 ### Directory vs File
 Files/Directories - Choose a single file and read it into Data Prep, the file type is parsed to determine the default parameters for the file connection that is on the next screen. Choose a directory or set of files within a directory (the file picker is multiselect), using either approach results in the files being read in as a single dataflow with the files appended to each other (with headers stripped out if needed)

@@ -131,7 +131,8 @@ Examples:
 ### Purpose 
 This extension point lets you fully control the process of reading a file into a dataflow. The system calls your code, passing in the list of files that you should process, and your code needs to create and return a Pandas dataframe. 
 
-**NOTE:** This extension point does not work in Spark. 
+> [!NOTE]
+> This extension point does not work in Spark. 
 
 ### How to use 
 You access this extension point from the Open Data Source wizard. Choose File on the first page, and then choose your file location. On the ‘Choose File Parameters’ page, drop down the File Type and choose ‘Custom File (Script)’. 
@@ -167,7 +168,8 @@ def read(df):
 ### Purpose 
 The writer extension point lets you fully control the process of writing data from a dataflow. The system calls your code, passing in a dataframe and your code can use the dataframe to write data however you wish. 
 
-**NOTE:** The writer extension point does not work in Spark. 
+> [!NOTE]
+> The writer extension point does not work in Spark. 
 
 ### How to use 
 You can add this extension point using the ‘Write Dataflow (Script)’ block. It is available on the top-level Transformations menu. 
@@ -239,7 +241,8 @@ def includerow(row):
 ### Purpose 
 The extension point lets you completely transform the dataflow. You have access to a Pandas dataframe that contains all the columns and rows that you are processing and your code must return a Pandas dataframe with the new data. 
 
-**NOTE:** In Python, all the data to be loaded into memory in a Pandas dataframe if this extension is used. 
+> [!NOTE]
+> In Python, all the data to be loaded into memory in a Pandas dataframe if this extension is used. 
 
 In Spark, all the data is collected onto a single worker node. This could result in a worker running out of memory if the data is very large. Use it carefully.
 
@@ -269,7 +272,8 @@ def transform(df):
 ### Purpose 
 This extension point lets you transform a partition of the dataflow. You have access to a Pandas dataframe that contains all the columns and rows for that partition and your code must return a Pandas dataframe with the new data. 
 
-**NOTE:** In Python, you may end up with a single partition or multiple partitions depending on the size of your data. In Spark, you are working with a dataframe that holds the data for a partition on a given worker node. In both cases, you cannot assume that you have access to the entire data set. 
+> [!NOTE]
+> In Python, you may end up with a single partition or multiple partitions depending on the size of your data. In Spark, you are working with a dataframe that holds the data for a partition on a given worker node. In both cases, you cannot assume that you have access to the entire data set. 
 
 ### How to use
 You can add this extension point using the ‘Transform Partition (Script)’ block. It is available on the top-level Transformations menu. 
@@ -302,7 +306,7 @@ In Data Prep, there exists the concept of error values. They're creation and rea
 
 It is possible to encounter Error Values in custom python code. They are instances of a Python class called `DataPrepError`. This class wraps a Python Exception and has a couple of properties, which contain information about the error that occurred when processing the original value, as well as the original value. 
 
-### DataPrepError Class definition ### 
+### DataPrepError Class definition
 ```python 
 class DataPrepError(Exception): 
     def __bool__(self): 
@@ -317,11 +321,11 @@ DataPrepError({
    '__errorCode__':'Microsoft.DPrep.ErrorValues.InvalidNumericType' 
 }) 
 ``` 
-#### How to use #### 
+#### How to use 
 It is possible for Python being run at an extension point to generate DataPrepErrors as return values, using the creation method from earlier. 
 It is much more likely that DataPrepErrors will encountered when processing data at an extension point. At this point, the custom Python code needs to handle DataPrepError as a valid data type. 
 
-#### Syntax #### 
+#### Syntax 
 Expression:  
 ```python 
     if (isinstance(row["Score"], DataPrepError)): 

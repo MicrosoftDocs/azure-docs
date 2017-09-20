@@ -17,21 +17,15 @@ ms.date: 09/16/2017
 ms.author: miprasad
 ---
 
-
-# Sentiment Analysis using Deep Learning with Azure Machine Learning
-
-## Link of the Gallery GitHub repository
-
-Follow this link to the public GitHub repository:
-
-[https://github.com/Azure/MachineLearningSamples-SentimentAnalysis](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis)
-
-
-## Introduction
+# Sentiment analysis using deep learning with Azure Machine Learning
 
 Sentiment analysis is a well-known task in the realm of natural language processing. Given a set of texts, the aim is to determine the sentiment of that text. The objective of this solution is to use CNTK as the backend for Keras (a model level library, providing high-level building blocks for developing deep learning models) and implement sentiment analysis from movie reviews.
 
 The solution is located at https://github.com/Azure/MachineLearningSamples-SentimentAnalysis
+
+## Link to the gallery GitHub repository
+
+[https://github.com/Azure/MachineLearningSamples-SentimentAnalysis](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis)
 
 ## Use case overview
 
@@ -41,15 +35,15 @@ To get value from sentiment analysis, businesses must have the ability to mine v
 
 ## Prerequisites
 
-* An [Azure account](https://azure.microsoft.com/en-us/free/) (free trials are available).
+* An [Azure account](https://azure.microsoft.com/free/) (free trials are available).
 
-* An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) following the [quick start installation guide](./quick-start-installation.md) to install the program and create a workspace.
+* An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) following the [quick start installation guide](./quickstart-installation.md) to install the program and create a workspace.
 
 * For operationalization, it is best if you have Docker engine installed and running locally. If not, you can use the cluster option. However, running an Azure Container Service (ACS) can be expensive.
 
 * This Solution assumes that you are running Azure Machine Learning Workbench on Windows 10 with Docker engine locally installed. On a macOS, the instruction is largely the same.
 
-## Create a new Workbench project
+## Create a new workbench project
 
 Create a new project using this example as a template:
 1.	Open Azure Machine Learning Workbench
