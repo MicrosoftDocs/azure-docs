@@ -122,6 +122,9 @@ Yes, only API version 2017-03-01 and newer supports the Geographic routing type.
 
 ## Real User Measurements
 
+>[!NOTE]
+>The Real User Measurements feature in Traffic Manager is in Public Preview and may not have the same level of availability and reliability as features that are in general availability release. The feature is not supported, may have constrained capabilities, and may not be available in all Azure locations. For the most up-to-date notifications on availability and status of this feature, check the [Azure Traffic Manager updates](https://azure.microsoft.com/updates/?product=traffic-manager) page.
+
 ### What are the benefits of using Real User Measurements?
 When you use performance routing method, Traffic Manager picks the best Azure region for your end user to connect to by inspecting the source IP and EDNS Client Subnet (if passed in) and checking it against the network latency intelligence the service maintains. Real User Measurements enhances this for your end user base by having their experience contribute to this latency table in addition to ensuring that this table adequately spans the end user networks from where your end users connect to Azure. This leads to an increased accuracy in the routing of your end users.
 
@@ -182,7 +185,10 @@ As mentioned in the previous answer, the server-side components of Real User Mea
 
 ## Traffic View
 
-## What does Traffic View do?
+>[!NOTE]
+>The Traffic View feature in Traffic Manager is in Public Preview and may not have the same level of availability and reliability as features that are in general availability release. The feature is not supported, may have constrained capabilities, and may not be available in all Azure locations. For the most up-to-date notifications on availability and status of this feature, check the [Azure Traffic Manager updates](https://azure.microsoft.com/updates/?product=traffic-manager) page.
+
+### What does Traffic View do?
 Traffic View is a feature of Traffic Manager that helps you understand more about your users and how their experience is. It uses the queries received by Traffic Manager and the network latency intelligence tables that the service maintains to provide you with the following:
 - The regions from where your users are connecting to your endpoints in Azure.
 - The volume of users connecting from these regions.

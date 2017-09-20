@@ -21,6 +21,9 @@ ms.custom:
 
 # Traffic Manager Traffic View
 
+>[!NOTE]
+>The Traffic View feature in Traffic Manager is in Public Preview and may not have the same level of availability and reliability as features that are in general availability release. The feature is not supported, may have constrained capabilities, and may not be available in all Azure locations. For the most up-to-date notifications on availability and status of this feature, check the [Azure Traffic Manager updates](https://azure.microsoft.com/updates/?product=traffic-manager) page.
+
 Traffic Manager provides you with DNS level routing so that your end users are directed to healthy endpoints based on the routing method you had set up when the profile is created. This provides Traffic Manager with a view of your user bases (at a DNs resolver granularity level) and their traffic pattern. When you enable Traffic View, this information is processed to provide you with actionable insights. 
 
 By using Traffic View, you can:
