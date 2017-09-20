@@ -15,6 +15,8 @@ ms.date: 09/07/2017
 ---
 # Supported Transforms for this release 
 
+The supported transforms for this release are described below.
+
 ## Column selection 
 Many of the following listed transforms work on a single column or many. To select multiple columns, use Control Click on each column or use Shift Click on a range of columns.
 

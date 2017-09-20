@@ -15,16 +15,15 @@ ms.date: 09/25/2017
 
 # Predictive Maintenance Real World Scenario
 
-## Link of the Gallery GitHub repository
-
-Following is the link to the public GitHub repository: 
-[https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)
-
-## Introduction
 
 The impact of unscheduled equipment downtime can be detrimental for any business. It is critical to therefore keep field equipment running in order to maximize utilization and performance and by minimizing costly, unscheduled downtime. Early identification of issues can help allocate limited maintenance resources in a cost-effective way and enhance quality and supply chain processes. 
 
 For this scenario, we use a relatively [large-scale data](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data) to walk the user through the main steps from data ingestion, feature engineering, model building, and then finally model operationalization and deployment. The code for the entire process is written in PySpark and implemented using Jupyter notebooks within Azure ML Workbench. The best model is finally operationalized using Azure Machine Learning Model Management for use in a production environment for making realtime failure predictions.   
+
+## Link to the Gallery GitHub repository
+
+Following is the link to the public GitHub repository: 
+[https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)
 
 
 ## Use case overview
@@ -38,7 +37,7 @@ The business problem for this simulated data is to predict issues caused by comp
 ## Prerequisites
 
 * An [Azure account](https://azure.microsoft.com/en-us/free/) (free trials are available).
-* An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) following the [quick start installation guide](./quick-start-installation.md) to install the program and create a workspace.
+* An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) following the [quick start installation guide](./quickstart-installation.md) to install the program and create a workspace.
 * Intermediate results for use across Jupyter notebooks in this scenario are stored in an Azure Blob Storage container. Instructions for setting up an Azure Storage account are available at this [link](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-python-how-to-use-blob-storage). 
 * For [operationalization](https://github.com/Azure/Machine-Learning-Operationalization) of the model, it is best if the user runs a [Docker engine](https://www.docker.com/) installed and running locally. If not, you can use the cluster option but be aware that running an [Azure Container Service (ACS)](https://azure.microsoft.com/en-us/services/container-service/) can often be expensive.
 * This scenario assumes that the user is running Azure ML Workbench on a Windows 10 machine with Docker engine locally installed. 
