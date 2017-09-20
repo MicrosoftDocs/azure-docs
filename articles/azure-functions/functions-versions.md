@@ -17,7 +17,7 @@ ms.author: glenga
 ---
 # How to set the Azure Functions runtime version
 
-Azure Functions now has support for .NET Core 2.0, which is in preview. This preview support lets you run your function apps on the .NET Core
+Azure Functions includes preview support for .NET Core 2.0. This means that you can run your function apps on the .NET Core runtime.
 
 Enable 2.0 runtime via portal
 
