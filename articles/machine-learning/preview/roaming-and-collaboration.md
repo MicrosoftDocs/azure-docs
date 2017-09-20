@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 09/05/2017 
 ---
 
-# Roaming and Collaboration in Azure Machine Learning Workbench
+# Roaming and collaboration in Azure Machine Learning Workbench
 This document walks you through how Azure Machine Learning Workbench can help roam your projects across machines as well as enable collaboration with your teammates. 
 
 When you create an Azure Machine Learning project with a remote Git Repository (repo) link, the project metadata and snapshots are stored in the cloud. The cloud link enables you to access the project from a different computer (Roaming). You can also give access to your co-workers, thus enabling collaboration. 
@@ -77,7 +77,7 @@ The newly downloaded project reflects the project state as of the last run in th
 ## Collaboration
 You can collaborate with your teammates on projects linked to a VSTS Git repo. You can assign permissions to users on the Experimentation Account, Workspace, and Project. At this time, you can perform the Azure Resource Manager commands using the Azure CLI. You can also use [Azure portal](https://portal.azure.com). See [following section](#portal).    
 
-### Using Command Line to Add Users
+### Using command line to add Users
 Lets use an example. Say, Alice is the Owner of th e_Iris_ project and she wants to share access with Bob. 
 
 Alice clicks on the **File** menu, and selects the **Command Prompt** menu item to launch the command-prompt configured to the _iris_ project. Alice is then able to decide what level fo access she wants to grant to Bob by executing the following commands.  
