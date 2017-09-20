@@ -42,10 +42,6 @@ At this time, Azure Policy is available in Limited Preview, so you need to regis
 
    Depending on demand, it may take up to a couple of days for us to accept your registration request. Once your request gets accepted, you will be notified via email that you can begin using the service.
 
-## Prerequisites
-
-In this tutorial, we assume you have a working SQL server. If not, go to the [Create a SQL database](../sql-database/sql-database-get-started-portal.md) quickstart in the Azure portal quickstart and create one.
-
 ## Assign a policy
 
 The first step in enforcing compliance with Azure Policy is to assign a policy definition. A policy definition defines under what condition a policy is enforced, and what action to take. In this example, we assign a built-in policy definition called *Require SQL Server Version 12.0*, to enforce the condition that all SQL Server databases must be v12.0 to be compliant.

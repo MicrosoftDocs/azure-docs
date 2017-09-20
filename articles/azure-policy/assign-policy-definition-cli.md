@@ -41,10 +41,6 @@ Azure Policy is now available in Limited Preview, so you need to register to req
 
    It may take a couple of days for us to accept your registration request, based on demand. Once your request gets accepted, you are notified via email that you can begin using the service.
 
-## Prerequisites
-
-In this quickstart, we assume you have a working SQL server. If not, go to the [Create a SQL database](../sql-database/sql-database-get-started-portal.md) in the Azure portal quickstart and create one.
-
 ## Create a policy assignment
 
 In this quickstart, we create a policy assignment and assign the Require SQL Server Version 12.0 definition. This policy definition identifies resources that do not comply with the conditions set in the policy definition.
