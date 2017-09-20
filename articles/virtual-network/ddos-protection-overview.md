@@ -1,5 +1,5 @@
 ---
-title: DDoS Protection Service Overview | Microsoft Docs
+title: Azure DDoS Protection Standard Overview | Microsoft Docs
 description: Learn about the Azure DDoS Protection service.
 services: virtual-network
 documentationcenter: na
@@ -18,7 +18,7 @@ ms.date: 09/15/2017
 ms.author: kumud
 
 ---
-# DDoS Protection Service overview
+# Azure DDoS Protection Standard overview
 
 >[!IMPORTANT]
 >Azure DDoS Protection Standard (DDoS Protection) is currently in preview. A limited number of Azure resources support DDoS Protection, and in a select number of regions. You need to [register for the service](http://aka.ms/ddosprotection) during the limited preview to get DDoS Protection enabled for your subscription. You are contacted by the Azure DDoS team upon registration to guide you through the enablement process. DDoS Protection is available in US East, US West, and US Central regions. During preview, you are not charged for using the service.
