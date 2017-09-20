@@ -33,15 +33,15 @@ The Microsoft Graph extension provides the following bindings:
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!Note] 
-> Microsoft Graph extensions are currently in preview. 
+> Microsoft Graph bindings are currently in preview.
 
-## Setting up the extension
+## Setting up the extensions
 
-Microsoft Graph bindings are available as a _binding extension_. Binding extensions are optional components to the Azure Functions runtime. This section will show you how to set up the Microsoft Graph and auth token extensions.
+Microsoft Graph bindings are available through _binding extensions_. Binding extensions are optional components to the Azure Functions runtime. This section will show you how to set up the Microsoft Graph and auth token extensions.
 
 ### Enabling Functions 2.0 preview
 
-Microsoft Graph extensions are only available only for Azure Functions 2.0 preview. To enable Functions 2.0, set the `FUNCTIONS_EXTENSION_VERSION` application setting to "beta".  To learn how to configure application settings, see [Application settings in Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings#settings).
+Binding extensions are only available only for Azure Functions 2.0 preview. To enable Functions 2.0, set the `FUNCTIONS_EXTENSION_VERSION` application setting to "beta".  To learn how to configure application settings, see [Application settings in Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings#settings).
 
 ### Installing the extension
 
@@ -86,7 +86,7 @@ The binding supports the following properties:
 |**name**|Required - the variable name used in function code for the auth token. See [Using an auth token input binding from code](#token-input-code).|
 |**type**|Required - must be set to `token`.|
 |**direction**|Required - must be set to `in`.|
-|**identity**|Required - The identity that will be used to perform the action. The value can be one of the following values:<ul><li><code>userFromRequest</code>&mdash;Only valid with [HTTP trigger]. Uses the identity of the calling user.</li><li><code>userFromId</code>&mdash;Uses the identity of a previously logged-in user with the specified ID. See the <code>userId</code> property.</li><li><code>userFromToken</code>&mdash;Uses the identity represented by the specified token. See the <code>userToken</code> property.</li><li><code>clientCredentials</code>&mdash;Uses the identity of the function app.</li></ul>|
+|**identity**|Required - The identity that will be used to perform the action. Can be one of the following values:<ul><li><code>userFromRequest</code> - Only valid with [HTTP trigger]. Uses the identity of the calling user.</li><li><code>userFromId</code> - Uses the identity of a previously logged-in user with the specified ID. See the <code>userId</code> property.</li><li><code>userFromToken</code> - Uses the identity represented by the specified token. See the <code>userToken</code> property.</li><li><code>clientCredentials</code> - Uses the identity of the function app.</li></ul>|
 |**userId**	|Needed if and only if _identity_ is set to `userFromId`. A user principal ID associated with a previously logged-in user.|
 |**userToken**|Needed if and only if _identity_ is set to `userFromToken`. A token valid for the function app. |
 |**resource**|Required - An AAD resource URL for which the token is being requested.|
@@ -195,7 +195,7 @@ The binding supports the following properties:
 |**name**|Required - the variable name used in function code for the Excel table. See [Using an Excel table input binding from code](#excel-input-code).|
 |**type**|Required - must be set to `excel`.|
 |**direction**|Required - must be set to `in`.|
-|**identity**|Required - The identity that will be used to perform the action. The value can be one of the following values:<ul><li><code>userFromRequest</code>&mdash;Only valid with [HTTP trigger]. Uses the identity of the calling user.</li><li><code>userFromId</code>&mdash;Uses the identity of a previously logged-in user with the specified ID. See the <code>userId</code> property.</li><li><code>userFromToken</code>&mdash;Uses the identity represented by the specified token. See the <code>userToken</code> property.</li><li><code>clientCredentials</code>&mdash;Uses the identity of the function app.</li></ul>|
+|**identity**|Required - The identity that will be used to perform the action. Can be one of the following values:<ul><li><code>userFromRequest</code> - Only valid with [HTTP trigger]. Uses the identity of the calling user.</li><li><code>userFromId</code> - Uses the identity of a previously logged-in user with the specified ID. See the <code>userId</code> property.</li><li><code>userFromToken</code> - Uses the identity represented by the specified token. See the <code>userToken</code> property.</li><li><code>clientCredentials</code> - Uses the identity of the function app.</li></ul>|
 |**userId**	|Needed if and only if _identity_ is set to `userFromId`. A user principal ID associated with a previously logged-in user.|
 |**userToken**|Needed if and only if _identity_ is set to `userFromToken`. A token valid for the function app. |
 |**path**|Required - the path in OneDrive to the Excel workbook.|
@@ -284,13 +284,13 @@ The binding supports the following properties:
 |**name**|Required - the variable name used in function code for the auth token. See [Using an Excel table output binding from code](#excel-output-code).|
 |**type**|Required - must be set to `excel`.|
 |**direction**|Required - must be set to `out`.|
-|**identity**|Required - The identity that will be used to perform the action. The value can be one of the following values:<ul><li><code>userFromRequest</code>&mdash;Only valid with [HTTP trigger]. Uses the identity of the calling user.</li><li><code>userFromId</code>&mdash;Uses the identity of a previously logged-in user with the specified ID. See the <code>userId</code> property.</li><li><code>userFromToken</code>&mdash;Uses the identity represented by the specified token. See the <code>userToken</code> property.</li><li><code>clientCredentials</code>&mdash;Uses the identity of the function app.</li></ul>|
+|**identity**|Required - The identity that will be used to perform the action. Can be one of the following values:<ul><li><code>userFromRequest</code> - Only valid with [HTTP trigger]. Uses the identity of the calling user.</li><li><code>userFromId</code> - Uses the identity of a previously logged-in user with the specified ID. See the <code>userId</code> property.</li><li><code>userFromToken</code> - Uses the identity represented by the specified token. See the <code>userToken</code> property.</li><li><code>clientCredentials</code> - Uses the identity of the function app.</li></ul>|
 |**userId**	|Needed if and only if _identity_ is set to `userFromId`. A user principal ID associated with a previously logged-in user.|
 |**userToken**|Needed if and only if _identity_ is set to `userFromToken`. A token valid for the function app. |
 |**path**|Required - the path in OneDrive to the Excel workbook.|
 |**worksheetName**|The worksheet in which the table is found.|
 |**tableName**|The name of the table. If not specified, the contents of the worksheet will be used.|
-|**updateType**|Required - The type of change to make to the table. The value can be one of the following values:<ul><li><code>update</code>&mdash;Replaces the contents of the table in OneDrive.</li><li><code>append</code>&mdash;Adds the payload to the end of the table in OneDrive by creating new rows.</li></ul>|
+|**updateType**|Required - The type of change to make to the table. Can be one of the following values:<ul><li><code>update</code> - Replaces the contents of the table in OneDrive.</li><li><code>append</code> - Adds the payload to the end of the table in OneDrive by creating new rows.</li></ul>|
 
 <a name="excel-output-code"></a>
 ### Using an Excel table output binding from code
@@ -387,7 +387,7 @@ The binding supports the following properties:
 |**name**|Required - the variable name used in function code for the file. See [Using a OneDrive file input binding from code](#onedrive-input-code).|
 |**type**|Required - must be set to `onedrive`.|
 |**direction**|Required - must be set to `in`.|
-|**identity**|Required - The identity that will be used to perform the action. The value can be one of the following values:<ul><li><code>userFromRequest</code>&mdash;Only valid with [HTTP trigger]. Uses the identity of the calling user.</li><li><code>userFromId</code>&mdash;Uses the identity of a previously logged-in user with the specified ID. See the <code>userId</code> property.</li><li><code>userFromToken</code>&mdash;Uses the identity represented by the specified token. See the <code>userToken</code> property.</li><li><code>clientCredentials</code>&mdash;Uses the identity of the function app.</li></ul>|
+|**identity**|Required - The identity that will be used to perform the action. Can be one of the following values:<ul><li><code>userFromRequest</code> - Only valid with [HTTP trigger]. Uses the identity of the calling user.</li><li><code>userFromId</code> - Uses the identity of a previously logged-in user with the specified ID. See the <code>userId</code> property.</li><li><code>userFromToken</code> - Uses the identity represented by the specified token. See the <code>userToken</code> property.</li><li><code>clientCredentials</code> - Uses the identity of the function app.</li></ul>|
 |**userId**	|Needed if and only if _identity_ is set to `userFromId`. A user principal ID associated with a previously logged-in user.|
 |**userToken**|Needed if and only if _identity_ is set to `userFromToken`. A token valid for the function app. |
 |**path**|Required - the path in OneDrive to the file.|
@@ -473,7 +473,7 @@ The binding supports the following properties:
 |**name**|Required - the variable name used in function code for file. See [Using a OneDrive file output binding from code](#onedrive-output-code).|
 |**type**|Required - must be set to `onedrive`.|
 |**direction**|Required - must be set to `out`.|
-|**identity**|Required - The identity that will be used to perform the action. The value can be one of the following values:<ul><li><code>userFromRequest</code>&mdash;Only valid with [HTTP trigger]. Uses the identity of the calling user.</li><li><code>userFromId</code>&mdash;Uses the identity of a previously logged-in user with the specified ID. See the <code>userId</code> property.</li><li><code>userFromToken</code>&mdash;Uses the identity represented by the specified token. See the <code>userToken</code> property.</li><li><code>clientCredentials</code>&mdash;Uses the identity of the function app.</li></ul>|
+|**identity**|Required - The identity that will be used to perform the action. Can be one of the following values:<ul><li><code>userFromRequest</code> - Only valid with [HTTP trigger]. Uses the identity of the calling user.</li><li><code>userFromId</code> - Uses the identity of a previously logged-in user with the specified ID. See the <code>userId</code> property.</li><li><code>userFromToken</code> - Uses the identity represented by the specified token. See the <code>userToken</code> property.</li><li><code>clientCredentials</code> - Uses the identity of the function app.</li></ul>|
 |**userId**	|Needed if and only if _identity_ is set to `userFromId`. A user principal ID associated with a previously logged-in user.|
 |**userToken**|Needed if and only if _identity_ is set to `userFromToken`. A token valid for the function app. |
 |**path**|Required - the path in OneDrive to the file.|
@@ -562,7 +562,7 @@ The binding supports the following properties:
 |**name**|Required - the variable name used in function code for the mail message. See [Using an Outlook message output binding from code](#outlook-output-code).|
 |**type**|Required - must be set to `outlook`.|
 |**direction**|Required - must be set to `out`.|
-|**identity**|Required - The identity that will be used to perform the action. The value can be one of the following values:<ul><li><code>userFromRequest</code>&mdash;Only valid with [HTTP trigger]. Uses the identity of the calling user.</li><li><code>userFromId</code>&mdash;Uses the identity of a previously logged-in user with the specified ID. See the <code>userId</code> property.</li><li><code>userFromToken</code>&mdash;Uses the identity represented by the specified token. See the <code>userToken</code> property.</li><li><code>clientCredentials</code>&mdash;Uses the identity of the function app.</li></ul>|
+|**identity**|Required - The identity that will be used to perform the action. Can be one of the following values:<ul><li><code>userFromRequest</code> - Only valid with [HTTP trigger]. Uses the identity of the calling user.</li><li><code>userFromId</code> - Uses the identity of a previously logged-in user with the specified ID. See the <code>userId</code> property.</li><li><code>userFromToken</code> - Uses the identity represented by the specified token. See the <code>userToken</code> property.</li><li><code>clientCredentials</code> - Uses the identity of the function app.</li></ul>|
 |**userId**	|Needed if and only if _identity_ is set to `userFromId`. A user principal ID associated with a previously logged-in user.|
 |**userToken**|Needed if and only if _identity_ is set to `userFromToken`. A token valid for the function app. |
 
@@ -654,7 +654,7 @@ Webhooks allow you to react to events in the Microsoft Graph. To support webhook
 - A [Microsoft Graph webhook subscription input binding](#webhook-input) allows you to list existing subscriptions and optionally refresh them.
 - A [Microsoft Graph webhook subscription output binding](#webhook-output) allows you to create or delete webhook subscriptions.
 
-The bindings themselves do not require any AAD permissions, but you will need to request permissions relevant to the resource type you wish to react to. For a list of which permissions are needed for each resource type, see [subscription permissions](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/subscription_post_subscriptions#permissions).
+The bindings themselves do not require any AAD permissions, but you will need to request permissions relevant to the resource type you wish to react to. For a list of which permissions are needed for each resource type, see [subscription permissions](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/subscription_post_subscriptions#permissions).
 
 For more about webhooks, see [Working with webhooks in Microsoft Graph].
 
@@ -676,7 +676,7 @@ The binding supports the following properties:
 |**name**|Required - the variable name used in function code for the mail message. See [Using an Outlook message output binding from code](#outlook-output-code).|
 |**type**|Required - must be set to `graphWebhook`.|
 |**direction**|Required - must be set to `trigger`.|
-|**resourceType**|Required - the graph resource for which this function should respond to webhooks. The value can be one of the following values:<ul><li><code>#Microsoft.Graph.Message</code></li><li><code>#Microsoft.Graph.DriveItem</code></li><li><code>#Microsoft.Graph.Contact</code></li><li><code>#Microsoft.Graph.Event</code></li></ul>|
+|**resourceType**|Required - the graph resource for which this function should respond to webhooks. Can be one of the following values:<ul><li><code>#Microsoft.Graph.Message</code> - changes made to Outlook messages.</li><li><code>#Microsoft.Graph.DriveItem</code> - changes made to OneDrive root items.</li><li><code>#Microsoft.Graph.Contact - changes made to personal contacts in Outlook.</code></li><li><code>#Microsoft.Graph.Event - changes made to Outlook calendar items.</code></li></ul>|
 
 > [!Note]
 > A function app can only have one function which is registered against a given `resourceType` value.
@@ -732,10 +732,10 @@ The binding supports the following properties:
 |**name**|Required - the variable name used in function code for the mail message. See [Using an Outlook message output binding from code](#outlook-output-code).|
 |**type**|Required - must be set to `graphWebhookSubscription`.|
 |**direction**|Required - must be set to `out`.|
-|**identity**|Required - The identity that will be used to perform the action. The value can be one of the following values:<ul><li><code>userFromRequest</code>&mdash;Only valid with [HTTP trigger]. Uses the identity of the calling user.</li><li><code>userFromId</code>&mdash;Uses the identity of a previously logged-in user with the specified ID. See the <code>userId</code> property.</li><li><code>userFromToken</code>&mdash;Uses the identity represented by the specified token. See the <code>userToken</code> property.</li><li><code>clientCredentials</code>&mdash;Uses the identity of the function app.</li></ul>|
+|**identity**|Required - The identity that will be used to perform the action. Can be one of the following values:<ul><li><code>userFromRequest</code> - Only valid with [HTTP trigger]. Uses the identity of the calling user.</li><li><code>userFromId</code> - Uses the identity of a previously logged-in user with the specified ID. See the <code>userId</code> property.</li><li><code>userFromToken</code> - Uses the identity represented by the specified token. See the <code>userToken</code> property.</li><li><code>clientCredentials</code> - Uses the identity of the function app.</li></ul>|
 |**userId**	|Needed if and only if _identity_ is set to `userFromId`. A user principal ID associated with a previously logged-in user.|
 |**userToken**|Needed if and only if _identity_ is set to `userFromToken`. A token valid for the function app. |
-|**action**|Required - specifies the action the binding should perform. The value can be one of the following values:<ul><li><code>create</code>&mdash;Registers a new subscription.</li><li><code>delete</code>&mdash;Deletes a specified subscription.</li><li><code>refresh</code>&mdash;Refreshes a specified subscription to keep it from expiring.</li></ul>|
+|**action**|Required - specifies the action the binding should perform. Can be one of the following values:<ul><li><code>create</code> - Registers a new subscription.</li><li><code>delete</code> - Deletes a specified subscription.</li><li><code>refresh</code> - Refreshes a specified subscription to keep it from expiring.</li></ul>|
 |**subscriptionResource**|Needed if and only if the _action_ is set to `create`. Specifies the Microsoft Graph resource that will be monitored for changes. See [Working with webhooks in Microsoft Graph]. |
 |**changeType**|Needed if and only if the _action_ is set to `create`. Indicates the type of change in the subscribed resource that will raise a notification. The supported values are: `created`, `updated`, `deleted`. Multiple values can be combined using a comma-separated list.|
 
@@ -783,7 +783,7 @@ Suppose you have the following function.json that defines an HTTP trigger with a
 }
 ```
 
-The following C# sample registers a webhook that will notify this function app when the calling user recieves an Outlook message:
+The following C# sample registers a webhook that will notify this function app when the calling user receives an Outlook message:
 
 ```csharp
 using System;
@@ -892,7 +892,7 @@ There are two approaches to refreshing subscriptions:
 
 Both options are shown below.
 
-Suppose you have the following function.json that defines an timer trigger with a subscription input binding  subscription output binding, using the application identity:
+Suppose you have the following function.json that defines a timer trigger with a subscription input binding  subscription output binding, using the application identity:
 
 ```json
 {
@@ -938,7 +938,7 @@ public static void Run(TimerInfo myTimer, string[] existingSubscriptions, IColle
 }
 ```
 
-For the alternative option, suppose you have the following function.json that defines an timer trigger, deferring binding to the subscription input binding to the function code:
+For the alternative option, suppose you have the following function.json that defines a timer trigger, deferring binding to the subscription input binding to the function code:
 
 ```json
 {
