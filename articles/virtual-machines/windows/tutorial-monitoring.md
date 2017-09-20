@@ -98,14 +98,7 @@ Update management allows you to manage updates and patches for your Azure Window
 Directly from your virtual machine, you can quickly assess the status of available updates, schedule installation of required updates,
 and review deployment results to verify updates were applied successfully to the virtual machine.
 
-
-> [!div class="checklist"]
-> * Enable the Update management solution for your  virtual machine
-> * View missing updates
-> * Schedule installation of updates
-
 For pricing information, see [Automation pricing for Update management](https://azure.microsoft.com/pricing/details/automation/)
-
 
 ### Enable Update management
 
@@ -117,9 +110,7 @@ Enable Update management for your virtual machine:
 
 Validation is performed to determine if Update management is enabled for this virtual machine. The validation includes checks for Log Analytics workspace and linked Automation account, if the solution is in the workspace, and if the virtual machine is provisioned with the Microsoft Monitoring Agent (MMA) and hybrid worker.
 If these prerequisites are not met, a banner appears that gives you the option to enable the solution.
-
    ![Update Management onboard configuration banner](./media/tutorial-monitoring/manageupdates-onboard-solution-banner.png)
-
 Click the banner to enable the solution. If any of the following prerequisites were found to be missing after the validation,
 they will be automatically added:
 
@@ -185,9 +176,9 @@ Click the completed update deployment to see the dashboard for that update deplo
 In **Update results** tile is a summary of the total number of updates and deployment results on the virtual machine.
 In the table to the right is a detailed breakdown of each update and the installation results, which could be one of the following values:
 
-* Not attempted - the update was not installed because there was insufficient time available based on the maintenance window duration defined.
-* Succeeded - the update succeeded
-* Failed - the update failed
+* **Not attempted** - the update was not installed because there was insufficient time available based on the maintenance window duration defined.
+* **Succeeded** - the update succeeded
+* **Failed** - the update failed
 
 Click **All logs** to see all log entries that the deployment created.
 
