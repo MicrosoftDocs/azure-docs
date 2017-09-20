@@ -20,8 +20,8 @@ ms.author: raynew
 # Run a disaster recovery drill to Azure
 
 This tutorial shows you how to run a disaster recovery drill for on-premises machines to Azure,
-using a test failover. A drill validates your replication strategy without data loss or downtime,
-and doesn't affect your production environment. In this tutorial, you learn how to:
+using a test failover. A drill validates your replication strategy without data loss. In this
+tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Set up an isolated network for the test failover
@@ -31,25 +31,9 @@ and doesn't affect your production environment. In this tutorial, you learn how 
 This is the fourth tutorial in a series. This tutorial assumes that you have already completed the
 tasks in the previous tutorials.
 
-- [Prepare Azure](tutorial-prepare-azure.md)
-- [Prepare on-premises VMware](tutorial-prepare-on-premises-vmware.md)
-- [Set up disaster recovery](tutorial-vmware-to-azure.md)
-
-## Create a network for test failover
-
-Create a test network that's isolated from your production network. By default, an Azure virtual
-network is isolated when it's created. When running a test failover, Site Recovery tries to create
-test VMs in a subnet with the same name and address as the VM's production network.
-
-1. In the **Favorites** pane of the portal, click **New**.
-2. Click **Networking** > **Virtual network**
-3. Leave **Resource Manager** selected as the deployment model, and click **Create**.
-   - Specify a network name. The name must be unique within the Azure resource group. We will use the name **ContosoTestNet**
-   - Use the existing resource group **contosoRG**.
-   - Specify the same network address range as the production network.
-   - Create the same number of subnets as your production network, and the same subnet names.
-   - Select the location **West Europe**. The network must be in the same region as the Recovery
-     Services vault.
+1. [Prepare Azure](tutorial-prepare-azure.md)
+2. [Prepare on-premises VMware](tutorial-prepare-on-premises-vmware.md)
+3. [Set up disaster recovery](tutorial-vmware-to-azure.md)
 
 ## Verify VM properties
 

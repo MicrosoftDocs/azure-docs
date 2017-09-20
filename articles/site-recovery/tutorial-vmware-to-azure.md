@@ -28,8 +28,8 @@ Windows. In this tutorial, you learn how to:
 This is the third tutorial in a series. This tutorial assumes that you have already completed the
 tasks in the previous tutorials:
 
-- [Prepare Azure](tutorial-prepare-azure.md)
-- [Prepare on-premises VMware](tutorial-prepare-on-premises-vmware.md)
+1. [Prepare Azure](tutorial-prepare-azure.md)
+2. [Prepare on-premises VMware](tutorial-prepare-on-premises-vmware.md)
 
 Before you start, it's helpful to [review the architecture](concepts-vmware-to-azure-architecture.md)
 for disaster recovery scenario.
@@ -114,11 +114,15 @@ subscription, and for West US (used for Access Control and Identity Management).
 
 ### Download the Site Recovery Unified Setup
 
-1. Click **Site Recovery** > **Step 1: Prepare Infrastructure** > **Source**.
-2. Click **+Configuration server**.
-3. In **Add Server**, check that **Configuration Server** appears in **Server type**.
-4. Download the Site Recovery Unified Setup installation file.
-5. Download the vault registration key. You need this when you run Unified Setup. The key is valid
+1. Open the [Azure portal](https://portal.azure.com) and click on **All resources**.
+2. Click on the Recovery Service vault named **ContosoVMVault**.
+3. Click **Site Recovery** > **Prepare Infrastructure** > **Protection goal**.
+4. Select **On-premises** for where your machines are located, **To Azure** for where you want to
+   replicate your machines, and **Yes, with VMware vSphere Hypervisor**. Then, click **OK**.
+5. In the Prepare source pane, click **+Configuration server**.
+6. In **Add Server**, check that **Configuration Server** appears in **Server type**.
+7. Download the Site Recovery Unified Setup installation file.
+8. Download the vault registration key. You need this when you run Unified Setup. The key is valid
    for five days after you generate it.
 
    ![Set up source](./media/tutorial-vmware-to-azure/source-settings.png)
@@ -195,10 +199,13 @@ administrator privileges on the server.
 
 To add a server:
 
-1. Select **+vCenter** to connect to a vCenter server or vSphere ESXi host.
-2. In **Add vCenter**, specify a friendly name for the server. Then, specify the IP address or FQDN.
-3. Leave the port set to 443, unless your VMware servers listen for requests on a different port.
-4. Select the account to use for connecting to the server. Click **OK**.
+1. Open the [Azure portal](https://portal.azure.com) and click on **All resources**.
+2. Click on the Recovery Service vault named **ContosoVMVault**.
+3. Click **Site Recovery** > **Prepare Infrastructure** > **Source**
+4. Select **+vCenter** to connect to a vCenter server or vSphere ESXi host.
+5. In **Add vCenter**, specify a friendly name for the server. Then, specify the IP address or FQDN.
+6. Leave the port set to 443, unless your VMware servers listen for requests on a different port.
+7. Select the account to use for connecting to the server. Click **OK**.
 
 Site Recovery connects to VMware servers using the specified settings, and discovers VMs.
 
@@ -218,17 +225,20 @@ Select and verify target resources.
 
 ## Create a replication policy
 
-1. Open the Azure Portal
-2. To create a replication policy, click **Site Recovery infrastructure** > **Replication
+1. Open the [Azure portal](https://portal.azure.com) and click on **All resources**.
+2. Click on the Recovery Service vault named **ContosoVMVault**.
+3. To create a replication policy, click **Site Recovery infrastructure** > **Replication
    Policies** > **+Replication Policy**.
-3. In **Create replication policy**, specify a policy name.
-4. In **RPO threshold**, specify the RPO limit. This value defines how often recovery points are
-   created. An alert is generated if continuous replication exceeds this limit.
-5. In **Recovery point retention**, specify (in hours) how long the retention window is for each
-   recovery point. For this tutorial we select 72 hours. Replicated VMs can be recovered to any
-   point in a window.
-6. In **App-consistent snapshot frequency**, specify how often (in minutes) recovery points
-   containing application-consistent snapshots will be created. Click **OK** to create the policy.
+4. In **Create replication policy**, specify a policy name **VMwareRepPolicy**.
+5. In **RPO threshold**, use the default of 60 minutes. This value defines how often recovery
+   points are created. An alert is generated if continuous replication exceeds this limit.
+6. In **Recovery point retention**, use the default of 24 hours for how long the retention window
+   is for each recovery point. For this tutorial we select 72 hours. Replicated VMs can be
+   recovered to any point in a window.
+7. In **App-consistent snapshot frequency**, use the default of 60 minutes for the frequency that
+   application-consistent snapshots are created. Click **OK** to create the policy.
+
+   ![Policy](./media/tutorial-vmware-to-azure/replication-policy.png)
 
 The policy is automatically associated with the configuration server. By default, a matching policy
 is automatically created for failback. For example, if the replication policy is **rep-policy**

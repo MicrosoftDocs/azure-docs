@@ -19,12 +19,6 @@ ms.author: raynew
 ---
 # Prepare on-premises VMware servers for disaster recovery to Azure
 
-The [Azure Site Recovery](site-recovery-overview.md) service contributes to your business
-continuity and disaster recovery (BCDR) strategy by keeping your business apps up and running
-available during planned and unplanned outages. Site Recovery manages and orchestrates disaster
-recovery of on-premises machines and Azure virtual machines (VMs), including replication, failover,
-and recovery.
-
 This tutorial shows you how to prepare your on-premises VMware infrastructure when you want to
 replicate VMware VMs to Azure. In this tutorial you'll learn how to:
 
@@ -69,13 +63,14 @@ Create the account as follows:
 
 ## Prepare an account for Mobility service installation
 
-The Mobility service must be installed on the VM you want to replicate.
-- Site Recovery installs this service automatically when you enable replication for the VM.
-- For automatic installation, you need to prepare an account that Site Recovery will use to access the VM.
-- You'll specify this account when you set up disaster recovery in the Azure console.
+The Mobility service must be installed on the VM you want to replicate. Site Recovery installs this
+service automatically when you enable replication for the VM. For automatic installation, you need
+to prepare an account that Site Recovery will use to access the VM. You'll specify this account
+when you set up disaster recovery in the Azure console.
 
 1. Prepare a domain or local account with permissions to install on the VM.
-2. To install on Windows VMs, if you're not using a domain account, disable Remote User Access control on the local machine.
+2. To install on Windows VMs, if you're not using a domain account, disable Remote User Access
+   control on the local machine.
    - From the registry, under
      **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, add the
      DWORD entry **LocalAccountTokenFilterPolicy**, with a value of 1.
@@ -95,7 +90,7 @@ Make sure VMware servers meet the following requirements.
 
 Make sure that the VM complies with the Azure requirements summarized in the following table.
 
-**Requirement** | **Details**
+**VM Requirement** | **Details**
 --- | ---
 **Operating system disk size** | Up to 2048 GB.
 **Operating system disk count** | 1
