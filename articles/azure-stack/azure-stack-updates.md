@@ -28,7 +28,7 @@ Your original equipment manufacturer (OEM) hardware vendor will also release upd
 To keep your system under support, you must keep Azure Stack updated to a specific version level. Make sure that you review the [Azure Stack servicing policy](azure-stack-servicing-policy.md).
 
 > [!NOTE]
-> You can't apply Azure Stack update packages to Azure Stack Development Kit. The update packages are designed for highly available integrated systems.
+> You can't apply Azure Stack update packages to Azure Stack Development Kit. The update packages are designed for integrated systems.
 
 ## The Update resource provider
 
