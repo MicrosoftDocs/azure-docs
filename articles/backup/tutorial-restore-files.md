@@ -114,7 +114,7 @@ To restore your files, Azure Backup provides a script to run on your VM that con
     File downloaded: myVM_we_1571974050985163527.sh. Use password c068a041ce12465
     ```
 
- 3. To transfer the script to your VM, use Secure Copy (SCP). Provide the name of your downloaded script, and replace *publicIpAddress* with the public IP address of your VM. Make sure you include the trailing `:` at the end of the SCP command as follows:
+3. To transfer the script to your VM, use Secure Copy (SCP). Provide the name of your downloaded script, and replace *publicIpAddress* with the public IP address of your VM. Make sure you include the trailing `:` at the end of the SCP command as follows:
 
     ```bash
     scp myVM_we_1571974050985163527.sh 52.174.241.110:
