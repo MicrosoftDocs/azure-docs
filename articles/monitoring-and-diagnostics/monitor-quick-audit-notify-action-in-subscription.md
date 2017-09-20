@@ -71,7 +71,7 @@ Click on the **JSON** tab to view the full event details. This includes the deta
 
 5. Under **Alert via** select **New** action group and provide a **name** and **short name** for the action group. The action group defines the set of actions taken when the alert is activated (when the criteria match a new event).
 
-6. Under **Actions** add one or more actions by providing a **Name** for the action, the **Action type** (for example, email or SMS), and **Details** for that particular action type (for example, a webhook URL , email address, or SMS number).
+6. Under **Actions** add 1 or more actions by providing a **Name** for the action, the **Action type** (for example, email or SMS), and **Details** for that particular action type (for example, a webhook URL, email address, or SMS number).
 
     ![Create a network security group in the portal](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-alert-actions.png)
 
@@ -88,7 +88,7 @@ To test the alert, repeat the preceding section to **Create a network security g
 
 ## Clean up resources
 
-When no longer needed, delete the resource group and network security group. To do so, type the name of the resource group you created into the search box at the top of the portal, and click on the name of the resource group. In the sectino that is displayed, click the **Delete resource group** button, type the name of the resource group, and click **Delete**.
+When no longer needed, delete the resource group and network security group. To do so, type the name of the resource group you created into the search box at the top of the portal, and click on the name of the resource group. In the section that is displayed, click the **Delete resource group** button, type the name of the resource group, and click **Delete**.
 
 ## Next steps
 
