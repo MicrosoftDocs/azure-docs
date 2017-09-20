@@ -15,8 +15,6 @@ ms.date: 09/14/2017
 
 # Derive Column by Example Transformation
 
-## Overview
-
 The **Derive Column by Example** transform enables users to create a derivative of one or more existing columns using user provided examples of the derived result. The derivative can be any combination of the supported String, Date, and Number transformations. 
 
 Following String, Date, and Number transformations are supported:
@@ -70,9 +68,10 @@ User can switch between the **Basic Mode** and the **Advanced Mode** by clicking
 
 A user can edit an existing **Derive Column By Example** transform by selecting **Edit** option of the Transformation Step. Clicking on **Edit** opens the Transform Editor in **Advanced Mode**, and all the examples that were provided during creation of the transform are shown.
 
-## Examples of String Transformations By example
+## Examples of string transformations by example
 
-Note: Values in **bold** represent the examples that were provided in order to complete the transformation in the shown dataset.
+> [!NOTE]
+> Values in **bold** represent the examples that were provided in order to complete the transformation in the shown dataset.
 
 ### S1. Extracting file names from file paths
 
@@ -188,9 +187,10 @@ Number of Examples that were required for this case: 3
 |Male|0|
 |Female|1|
 
-## Examples of Number Transformations By example
+## Examples of number transformations by example
 
-Note: Values in **bold** represent the examples that were provided in order to complete the transformation in the shown dataset.
+> [!NOTE]
+> Values in **bold** represent the examples that were provided in order to complete the transformation in the shown dataset.
 
 ### N1. Rounding to nearest 10
 
@@ -268,9 +268,10 @@ Number of Examples that were required for this case: 1
 |10029|10029|
 |7204|07204|
 
-## Examples of Date Transformations By example
+## Examples of date transformations by example
 
-Note: Values in **bold** represent the examples that were provided in order to complete the transformation in the shown dataset.
+> [!NOTE]
+> Values in **bold** represent the examples that were provided in order to complete the transformation in the shown dataset.
 
 ### D1. Extracting date parts
 
