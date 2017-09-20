@@ -351,7 +351,7 @@ Below example uses Json Serialization with Remoting V2.
             return this.jobject.ToString();
         }
     }
-       ```
+    ```
 
 2.    Override Default Serialization Provider with JsonSerializationProvider for Remoting Listener.
   ```csharp
@@ -366,16 +366,17 @@ Below example uses Json Serialization with Remoting V2.
            })
        };
    }
-      ```
-3. Override Default Serialization Provider with JsonSerializationProvider for Remoting Client Factory.
-  ```csharp
+  ```
+3.    Override Default Serialization Provider with JsonSerializationProvider for Remoting Client Factory.
+
+```csharp
   var proxyFactory = new ServiceProxyFactory((c) =>
             {
                 return new FabricTransportServiceRemotingClientFactory(
                     serializationProvider: new ServiceRemotingJsonSerializationProvider());
             });
   ```
-  
+
 ## Next steps
 * [Web API with OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 * [WCF communication with Reliable Services](service-fabric-reliable-services-communication-wcf.md)
