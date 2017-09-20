@@ -28,7 +28,7 @@ Microsoft recommends using the latest version of the Azure CLI, version 2.0. For
 
 ## Set up the Azure CLI
 
-To install the Azure CLI, follow the steps outlined in [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli.md).
+To install the Azure CLI, follow the steps outlined in [Install the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 > [!TIP]
 > We recommend that you update your Azure CLI installation frequently to take advantage of service updates and enhancements.
