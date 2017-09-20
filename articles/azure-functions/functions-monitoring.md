@@ -31,20 +31,24 @@ Functions also has built-in monitoring that doesn't use Application Insights. We
 
 For a function app to send data to Application Insights, it needs to know the instrumentation key of an Application Insights instance. There are two ways to make that connection in the [Azure portal](https://portal.azure.com):
 
-* If you want a new function app and Application Insights instance, the portal can automatically create both at the same time.
-* If you want to use an existing function app or an existing Application Insights instance, you have to copy and paste the instrumentation key manually.
+* [Create a connected Application Insights instance when you create the function app](#new-function-app).
+* [Connect an Application Insights instance to an existing function app](#existing-function-app).
  
 ### New function app
 
-On the Function App **Create** page, set the **Application Insights** switch **On**.
+Enable Application Insights on the Function App **Create** page:
 
-![Enable Application Insights while creating a function app](media/functions-monitoring/enable-ai-new-function-app.png)
+1. Set the **Application Insights** switch **On**.
 
-### Existing function app or Application Insights instance
+2. Select an **Application Insights Location**.
 
-Follow these steps to get an instrumentation key and save it in a function app:
+   ![Enable Application Insights while creating a function app](media/functions-monitoring/enable-ai-new-function-app.png)
 
-1. Create the Application Insights instance if you want to use a new one. Set application type to **General**.
+### Existing function app
+
+Get an instrumentation key and save it in a function app:
+
+1. Create the Application Insights instance. Set application type to **General**.
 
    ![Create an Application Insights instance, type General](media/functions-monitoring/ai-general.png)
 
@@ -52,11 +56,11 @@ Follow these steps to get an instrumentation key and save it in a function app:
 
    ![Copy the Application Insights instrumentation key](media/functions-monitoring/copy-ai-key.png)
 
-1. Create the function app if you want to use a new one.
-
 1. In the function app's **Application settings** page, [add an app setting](functions-how-to-use-azure-function-app-settings.md#settings) named APPINSIGHTS_INSTRUMENTATIONKEY and paste the instrumentation key.
 
    ![Add instrumentation key to app settings](media/functions-monitoring/add-ai-key.png)
+
+1. Click **Save**.
 
 ## View telemetry data
 
