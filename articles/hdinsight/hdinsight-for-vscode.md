@@ -26,7 +26,7 @@ Learn how to use the Azure HDInsight Tools for Visual Studio Code (VSCode) to cr
 
 ## Prerequisites
 
-The Azure HDInsight Tools can be installed on the platforms supported by VSCode including Windows, Linux, and MacOS. You can find the prerequisites for different platforms, and don't need to install Mono on windows. If it is Linux or MacOS, Mono needs to be installed.
+The Azure HDInsight Tools can be installed on the platforms supported by VSCode including Windows, Linux, and MacOS. You can find the prerequisites for different platforms.
 
 - [Visual Studio Code]( https://www.visualstudio.com/products/code-vs.aspx)
     
@@ -98,14 +98,14 @@ To sign off, use the command **HDInsight: Logout**
 
 ## Interactive Hive
 
-HDInsight tools for VSCode enables you to submit interactive Hive query to HDInsight LLAP cluster and displays query results.
+HDInsight tool for VSCode enables you to submit interactive Hive query to HDInsight LLAP cluster and displays query results.
 1. Create a file in your current folder and named **xxx.hql** or **xxx.hive**.
 2. Copy and paste the following code into your hive file, then save it.
 
         SELECT * FROM hivesampletable;
 
 3. Right-click a hive script editor, and then click **HDInsight: Interactive Hive** to query the result quickly. You can also use another way of pressing **CTRL+SHIFT+P** and entering **HDInsight: Interactive Hive**.
-4. Our tool also supports that select a few lines of script, and submit by context menu. 
+4. Our tool also supports that selects a few lines of script, and submit by context menu. 
 5. Select cluster that support **LLAP** (interactive Hive) to submit your query. Soon after, the query result tab is shown on the left.
 
    ![interactive hive result](./media/hdinsight-for-vscode/interactive-hive-result.png)
