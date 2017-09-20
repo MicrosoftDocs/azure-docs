@@ -66,6 +66,7 @@ Seamless SSO can be combined with either the [Password Hash Synchronization](act
 
 - Edge browser support.
 - License activation on Office clients, especially in shared computer scenarios, causes additional sign-in prompts for users.
+- In a few cases, enabling Seamless SSO can take up to 30 minutes.
 
 ## Next steps
 
