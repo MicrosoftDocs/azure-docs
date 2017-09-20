@@ -114,23 +114,25 @@ To deploy the web service, along with the model file, you also need a scoring sc
 Now you are ready to prepare your environment to operationalize the model.
 
 ## Prepare to operationalize locally
-Use _local mode_ deployment to run in Docker containers on your local computer, whether that is your desktop or a Linux VM running on Azure.
+Use _local mode_ deployment to run in Docker containers on your local computer.
 
-   You can use _local mode_ for development and testing. The Docker engine must be running locally to complete the following steps to operationalize the model. You can use `-h` flag at the end of the commands for command help.
+You can use _local mode_ for development and testing. The Docker engine must be running locally to complete the following steps to operationalize the model. You can use `-h` flag at the end of the commands for command help.
 
-1. Open the Command Line Interface 
+>[!NOTE]
+>If you don't have Docker engine locally, you can still procreed by creating a cluster in Azure for deployment. Just be sure to delete the cluster after the tutorial so you don't incur ongoing charges.
+
+1. Open the Command-line Interface 
    In the Azure Machine Learning Workbench, in the File menu, click **Open Command Prompt**.
 
-   The command-line prompt opens in your current project folder location. You can change directory to another project folder if needed.
-   `c:\temp\myIris>`
+   The command-line prompt opens in your current project folder location `c:\temp\myIris>`.
 
-2. Create the environment. This step is required to be run once per environment, for example, dev or prod. Use _local mode_ for this first environment. Later you can use -c switch in the command to set up an environment in _cluster mode_:
+2. Create the environment. This step is required to be run once per environment, for example, dev or prod. Use _local mode_ for this first environment. (You can try the `-c` or `--cluster` switch in the below command to set up an environment in _cluster mode_ later.)
 
    ```azurecli
    az ml env setup -n <new deployment environment name> --location <e.g. eastus2>
    ```
    
-   Follow the on-screen instructions to provision a storage account for storing Docker images, an ACR (Azure Container Registry) for listing Docker images, an AppInsight account for gathering telemetry. If you use the -c switch, it creates an ACS (Azure Container Service) cluster too.
+   Follow the on-screen instructions to provision a storage account for storing Docker images, an ACR (Azure Container Registry) for listing Docker images, an AppInsight account for gathering telemetry. If you used the `-c` switch, it creates an ACS (Azure Container Service) cluster too.
 
 3. Create a Model Management account (this is a one time setup)  
    ```azurecli
@@ -171,7 +173,7 @@ Use the following command to create a real-time web service:
    * --collect-model-data true: enables data collection
 
    >[!IMPORTANT]
-   >The service name (which is also the new Docker image name) must be all lower-case, otherwise you get an error. 
+   >The service name (which is also the new Docker image name) must be all lower-case, otherwise yohttps://github.com/hning86/azure-docs-pr/blob/vienna/articles/machine-learning/preview/media/tutorial-iris-azure-cli/no_account_found.png?raw=trueu get an error. 
 
    When you run the command, the model and the scoring file are uploaded into to the storage account you created as part of environment setup above. The deployment process builds docker image with your model, schema, scoring file and pushes it to the ACR registry: `<ACR_name>.azureacr.io/<imagename>:<version>`. It then pulls down that image locally to your computer, and starts a Docker container based on that image. (If your environment is configured in cluster mode, the Docker container is deployed into the Kubernetes cluster instead.)
 
