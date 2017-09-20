@@ -128,16 +128,14 @@ description: Learn how to build and manage powerful applications using Microsoft
 															Node.js</a>
 													</li>
 												</ul>
-                                                <div>
-                                                    <h4>App Models</h4>
-                                                    <ul class="noBullet">
-                                                        <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
-                                                        <li><a class="barLink" href="/azure/azure-functions/">Serverless Functions</a></li>
-                                                        <li><a class="barLink" href="/azure/container-instances/">Container Instances</a></li>
-                                                        <li><a class="barLink" href="/azure/container-service/kubernetes/">Containers with Kubernetes</a></li>
-                                                        <li><a class="barLink" href="/azure/service-fabric/">Microservices with Service Fabric</a></li>
-                                                    </ul>
-                                                </div>
+                                                <h4>App Models</h4>
+                                                <ul class="noBullet">
+                                                    <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
+                                                    <li><a class="barLink" href="/azure/azure-functions/">Serverless Functions</a></li>
+                                                    <li><a class="barLink" href="/azure/container-instances/">Container Instances</a></li>
+                                                    <li><a class="barLink" href="/azure/container-service/kubernetes/">Containers with Kubernetes</a></li>
+                                                    <li><a class="barLink" href="/azure/service-fabric/">Microservices with Service Fabric</a></li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
