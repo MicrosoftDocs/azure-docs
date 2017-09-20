@@ -271,7 +271,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       -Protocol Tcp `
       -Direction Inbound `
       -Priority 300 `
-	    -SourceApplicationSecurityGroupId $webAsg.id `
+      -SourceApplicationSecurityGroupId $webAsg.id `
       -SourcePortRange * `
       -DestinationApplicationSecurityGroupId $appAsg.id `
       -DestinationPortRange 443	
