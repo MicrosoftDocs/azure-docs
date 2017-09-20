@@ -35,31 +35,13 @@ Also, install [Azure PowerShell version 4.3.1](https://www.powershellgallery.com
 To create your VM, refer to one of the following Azure VM Quickstarts, completing only the necessary sections ("Log in to Azure", "Create resource group", "Create networking group", "Create the VM"). 
 
 > [!IMPORTANT] 
-> When you get to the "Create the VM" section, make a slight modification to the [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvm) cmdlet. Be sure to add the `-IdentityType "SystemAssigned"` parameter, which allows the VM to be provisioned with an MSI.
+> When you get to the "Create the VM" section, make a slight modification to the [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvm) cmdlet. Be sure to add a `-IdentityType "SystemAssigned"` parameter to provision the VM with an MSI.
 >  
 > `$vmConfig = New-AzureRmVMConfig -VMName myVM -IdentityType "SystemAssigned" ...`
 
   - [Create a Windows virtual machine using PowerShell](../virtual-machines/windows/quick-create-powershell.md)
   - [Create a Linux virtual machine using PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
-1. Sign in to Azure using `Login-AzureRmAccount`. Use an account that is associated with the Azure subscription under which you would like to deploy the VM.
-
-   ```powershell
-   Login-AzureRmAccount
-   ```
-
-2. Create a [resource group](../azure-resource-manager/resource-group-overview.md#terminology) for containment and deployment of your VM and its related resources, using the `New-AzureRmResourceGroup` cmdlet. You can skip this step if you already have a resource group you would like to use instead:
-
-   ```powershell
-   New-AzureRmResourceGroup -Name myResourceGroup -Location WestUS
-   ```
-3. Create networking resources for the VM.
-
-   a. Create a virtual network, subnet, and a public IP address. These resources are used to provide network connectivity to the virtual machine and connect it to the internet:
-
-   ```powershell
-   # Create a subnet configuration
-   $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
 
    # Create a virtual network
    $vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroup -Location WestUS -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
