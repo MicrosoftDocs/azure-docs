@@ -16,7 +16,7 @@ ms.date: 09/06/2017
 ms.author: jingwang
 
 ---
-# Create Data Factory and pipeline using REST API
+# Create an Azure data factory and pipeline by using the REST API
 This quickstart describes how to use REST API to create an Azure data factory. The pipeline in this data factory copies data from one location to another location in an Azure blob storage.
 
 ## Prerequisites
@@ -26,6 +26,7 @@ This quickstart describes how to use REST API to create an Azure data factory. T
 * Create a **blob container** in Blob Storage, create an input **folder** in the container, and upload some files to the folder. 
 * Install **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps). This quickstart uses PowerShell to invoke REST API calls.
 * **Create an application in Azure Active Directory** following [this instruction](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Make note of the following values that you use in later steps: **application ID**, **authentication key**, and **tenant ID**. Assign application to "**Contributor**" role.
+* [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/). You can use this tool to connect to Azure Blob storage, create a blob container, upload input file, and verify the output file. 
 
 ## Set global variables
 
@@ -58,7 +59,7 @@ This quickstart describes how to use REST API to create an Azure data factory. T
     $apiVersion = "2017-09-01-preview"
     ```
 
-## Authenticate with AAD
+## Authenticate with Azure AD
 
 Run the following commands to authenticate with Azure Active Directory (AAD):
 
@@ -73,23 +74,20 @@ $authHeader = @{
 } 
 ```
 
-## Create data factory
+## Create a data factory
 
 Run the following commands to create a data factory:
-
-> [!IMPORTANT]
-> Replace the places-holders in $body with your own values before executing those commands.
 
 ```powershell
 $request = "https://management.azure.com/subscriptions/${subsId}/resourceGroups/${resourceGroup}/providers/Microsoft.DataFactory/factories/${dataFactoryName}?api-version=${apiVersion}"
 $body = @"
 {
-    "name": "<specify the name of data factory to create. It must be globally unique.>",
-    "properties": {
-        "loggingStorageAccountName": "<your storage account name>",
-        "loggingStorageAccountKey": "<your storage account key>"
-    },
-    "location": "East US"
+    "name": "$dataFactoryName",
+    "location": "East US",
+    "properties": {},
+    "identity": {
+        "type": "SystemAssigned"
+    }
 }
 "@
 $response = Invoke-RestMethod -Method PUT -Uri $request -Header $authHeader -Body $body
@@ -107,20 +105,28 @@ Note the following points:
 Here is the sample response:
 
 ```json
+
 {
     "name":  "<dataFactoryName>",
-    "tags":  { },
+    "tags": {
+
+            },
     "properties":  {
-                       "provisioningState":  "Succeeded",
-                       "loggingStorageAccountName":  "<storageAccount>",
-                       "loggingStorageAccountKey":  "**********",
-                       "createTime":  "2017-08-25T10:21:46.2985731Z",
-                       "apiVersion":  "2017-09-01-preview"
-                   },
-    "id":  "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<dataFactoryName>",
+        "provisioningState":  "Succeeded",
+        "loggingStorageAccountKey":  "**********",
+        "createTime":  "2017-09-14T06:22:59.9106216Z",
+        "version":  "2017-09-01-preview"
+    },
+    "identity":  {
+        "type":  "SystemAssigned",
+        "principalId":  "<service principal ID>",
+        "tenantId":  "<tenant ID>"
+    },
+    "id":  "dataFactoryName",
     "type":  "Microsoft.DataFactory/factories",
     "location":  "East US"
-}
+} 
+
 ```
 
 ## Create linked services
@@ -129,8 +135,7 @@ You create linked services in a data factory to link your data stores and comput
 
 Run the following commands to create a linked service named **AzureStorageLinkedService**:
 
-> [!IMPORTANT]
-> Replace &lt;accountName&gt; and &lt;accountKey&gt; with name and key of your Azure storage account before executing the commands.
+Replace &lt;accountName&gt; and &lt;accountKey&gt; with name and key of your Azure storage account before executing the commands.
 
 ```powershell
 $request = "https://management.azure.com/subscriptions/${subsId}/resourceGroups/${resourceGroup}/providers/Microsoft.DataFactory/factories/${dataFactoryName}/linkedservices/AzureStorageLinkedService?api-version=${apiVersion}"
@@ -304,8 +309,7 @@ Here is the sample output:
 
 In this step, you set values of **inputPath** and **outputPath** parameters specified in pipeline with the actual values of source and sink blob paths, and trigger a pipeline run. The pipeline run ID returned in the response body is used in later monitoring API.
 
-> [!IMPORTANT]
-> Replace value of "inputPath" and "outputPath" with your source and sink blob path to copy data from and to before saving the file.
+Replace value of **inputPath** and **outputPath** with your source and sink blob path to copy data from and to before saving the file.
 
 
 ```powershell
@@ -353,9 +357,9 @@ Here is the sample output:
 
     ```json
     {
-        "key":  "2f26be35-c112-43fa-9eaa-8ba93ea57881",
+        "key":  "000000000-0000-0000-0000-00000000000",
         "timestamp":  "2017-09-07T13:12:39.5561795Z",
-        "runId":  "2f26be35-c112-43fa-9eaa-8ba93ea57881",
+        "runId":  "000000000-0000-0000-0000-000000000000",
         "dataFactoryName":  "<dataFactoryName>",
         "pipelineName":  "Adfv2QuickStartPipeline",
         "parameters":  [
@@ -395,9 +399,9 @@ Here is the sample output:
     {
         "value":  [
                     {
-                        "id":  "49cc182f-8c5a-4e6e-8c23-e268d6234ed3",
+                        "id":  "000000000-0000-0000-0000-00000000000",
                         "timestamp":  "2017-09-07T13:12:38.4780542Z",
-                        "pipelineRunId":  "2f26be35-c112-43fa-9eaa-8ba93ea57881",
+                        "pipelineRunId":  "000000000-0000-00000-0000-0000000000000",
                         "pipelineName":  "Adfv2QuickStartPipeline",
                         "status":  "Succeeded",
                         "failureType":  "",
@@ -420,7 +424,7 @@ Here is the sample output:
 Use Azure Storage explorer to check the blob(s) is copied to "outputBlobPath" from "inputBlobPath" as you specified when creating a pipeline run.
 
 ## Clean up resources
-You can clean up the resources that you created in the Quickstart in two ways. You can delete the [Azure resource group]((../azure-resource-manager/resource-group-overview.md), which includes all the resources in the resource group. If you want to keep the other resources intact, delete only the data factory you created in this tutorial.
+You can clean up the resources that you created in the Quickstart in two ways. You can delete the [Azure resource group](../azure-resource-manager/resource-group-overview.md), which includes all the resources in the resource group. If you want to keep the other resources intact, delete only the data factory you created in this tutorial.
 
 Run the following command to delete the entire resource group: 
 ```powershell

@@ -19,8 +19,8 @@
       href: quickstart-create-data-factory-rest-api.md
 - name: Tutorials
   items:
-  - name: 1 - Deploy SSIS packages to Azure
-    href: tutorial-deploy-ssis-packages.md    
+  - name: 1. Deploy SSIS packages to Azure
+    href: tutorial-deploy-ssis-packages-azure.md    
   - name: 2 - Copy data in cloud
     href: tutorial-copy-data-dot-net.md
   - name: 3 - Copy on-prem data to cloud
@@ -183,7 +183,7 @@
     - name: Azure integration runtime
       href: create-azure-integration-runtime.md   
     - name: Azure SSIS integration runtime
-      href: tutorial-deploy-ssis-packages.md    
+      href: create-azure-ssis-integration-runtime.md
     - name: Self hosted integration runtime
       href: create-self-hosted-integration-runtime.md
 - name: Reference

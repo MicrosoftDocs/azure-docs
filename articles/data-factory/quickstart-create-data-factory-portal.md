@@ -10,7 +10,7 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: hero-article
-ms.date: 09/13/2017
+ms.date: 09/19/2017
 ms.author: jingwang
 
 ---
