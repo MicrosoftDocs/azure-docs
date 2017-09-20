@@ -54,11 +54,7 @@ Identified Azure SQL Database performance degradations are recorded in the diagn
 | :------------------- | ------------------- |
 | Database information  | Metadata about a database on which an insight was detected, such as resource URI |
 | Observed time range | Start and end time for the period of detected insight |
-| Impacted metrics | Metrics causing an insight to be generated: |
-||- Query duration increase [seconds]|
-||- Excessive waiting [seconds]|
-||- Timed out requests [percentage]|
-||- Errored out requests [percentage] |
+| Impacted metrics | Metrics causing an insight to be generated: <ul><li>Query duration increase [seconds]</li><li>Excessive waiting [seconds]</li><li>Timed out requests [percentage]</li><li>Errored out requests [percentage]</li></ul>|
 | Impact value | Value of a metric measured |
 | Impacted queries and error codes | Query hash or error code. These can be used to easily correlate to impacted queries. Metrics consisting of either query duration increase, waiting time, timeout counts, or error codes are provided. |
 | Detections | Detection identified at the database during the time of an event. There are 15 detection patterns. See [Troubleshoot database performance issues with Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md). |
