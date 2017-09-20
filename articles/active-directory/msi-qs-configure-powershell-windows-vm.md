@@ -40,8 +40,8 @@ To create an MSI-enabled VM:
    >  
    > `$vmConfig = New-AzureRmVMConfig -VMName myVM -IdentityType "SystemAssigned" ...`
 
-- [Create a Windows virtual machine using PowerShell](../virtual-machines/windows/quick-create-powershell.md)
-- [Create a Linux virtual machine using PowerShell](../virtual-machines/linux/quick-create-powershell.md)
+   - [Create a Windows virtual machine using PowerShell](../virtual-machines/windows/quick-create-powershell.md)
+   - [Create a Linux virtual machine using PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
 
 
