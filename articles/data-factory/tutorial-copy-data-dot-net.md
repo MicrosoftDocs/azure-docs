@@ -95,8 +95,8 @@ Using Visual Studio 2015/2017, create a C# .NET console application.
 2. In the **Package Manager Console**, run the following commands to install packages:
 
     ```
-    Install-Package Microsoft.Azure.Management.DataFactory 
-    Install-Package Microsoft.Azure.Management.ResourceManager
+    Install-Package Microsoft.Azure.Management.DataFactory -Prerelease
+    Install-Package Microsoft.Azure.Management.ResourceManager -Prerelease
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
     ```
 
