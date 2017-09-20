@@ -296,3 +296,17 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 #Remove-AzureRmResourceGroup -Name $ResourceGroupName -Force
 
 ```
+## Next steps
+In this tutorial, you learned how to: 
+
+> [!div class="checklist"]
+> * Create a data factory.
+> * Create an Azure-SSIS integration runtime
+> * Start the Azure-SSIS integration runtime
+> * Deploy SSIS packages
+> * Review the complete script
+
+Advance to the following tutorial to learn about coping data from on-premises to cloud: 
+
+> [!div class="nextstepaction"]
+>[Copy data in cloud](tutorial-copy-data-dot-net.md)

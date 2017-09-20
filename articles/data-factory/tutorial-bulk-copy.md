@@ -590,3 +590,6 @@ You performed the following steps in this tutorial:
 > * Start a pipeline run.
 > * Monitor the pipeline and activity runs.
 
+Advance to the following tutorial to learn about copy data incrementally from a source to a destination:
+> [!div class="nextstepaction"]
+>[Copy data incrementally](tutorial-incremental-copy-powershell.md)

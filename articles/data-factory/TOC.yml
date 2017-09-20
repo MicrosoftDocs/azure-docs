@@ -17,6 +17,8 @@
       href: quickstart-create-data-factory-python.md      
     - name: REST   
       href: quickstart-create-data-factory-rest-api.md
+    - name: Portal   
+      href: quickstart-create-data-factory-portal.md      
 - name: Tutorials
   items:
   - name: 1. Deploy SSIS packages to Azure
@@ -30,8 +32,10 @@
   - name: 5 - Copy data incrementally
     href: tutorial-incremental-copy-powershell.md
   - name: 6 - Transform data in cloud
-    href: tutorial-transform-data-using-spark-powershell.md
-  - name: 7 - Control flow
+    href: tutorial-transform-data-spark-powershell.md
+  - name: 7 - Transform data in virtual network
+    href: tutorial-transform-data-hive-virtual-network.md       
+  - name: 8 - Control flow
     href: tutorial-control-flow.md    
 - name: Samples
   items:
@@ -187,8 +191,9 @@
 - name: Reference
   items:
   - name: .NET
+    href: /dotnet/api/microsoft.azure.management.datafactory
   - name: PowerShell
-    href: /powershell/azure/data-factory
+    href: /powershell/module/azurerm.datafactory/
   - name: REST API
     href: /rest/api/data-factory
   - name: Python

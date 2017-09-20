@@ -488,3 +488,7 @@ The pipeline in this sample copies data from one location to another location in
 
 See [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) article for a list of data stores supported by Azure Data Factory as sources and sinks.
 
+Advance to the following tutorial to learn about copy data in bulk from a source to a destination:
+
+> [!div class="nextstepaction"]
+>[Copy data in bulk](tutorial-bulk-copy.md)

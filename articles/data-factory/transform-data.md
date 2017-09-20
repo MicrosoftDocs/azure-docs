@@ -76,4 +76,4 @@ You create a linked service for the compute environment and then use the linked 
 See [Compute Linked Services](compute-linked-services.md) article to learn about compute services supported by Data Factory. 
 
 ## Next steps
-See the following tutorial for an example of using a transformation activity: [Tutorial: transform data using Spark](tutorial-transform-data-using-spark-powershell.md)
+See the following tutorial for an example of using a transformation activity: [Tutorial: transform data using Spark](tutorial-transform-data-spark-powershell.md)

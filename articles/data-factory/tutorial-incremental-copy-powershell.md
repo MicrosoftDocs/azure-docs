@@ -688,7 +688,10 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
 ## Next steps
 See list of data stores that are supported by copy activity as sources and sinks in the [Copy activity overview](copy-activity-overview.md) article. 
 
+Advance to the following tutorial to learn about transforming data by using a Spark cluster on Azure:
 
+> [!div class="nextstepaction"]
+>[Transform data using Spark cluster in cloud](tutorial-transform-data-spark-powershell.md)
 
 
 
