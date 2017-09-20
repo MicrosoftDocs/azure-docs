@@ -9,7 +9,7 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/05/2017 
+ms.date: 09/19/2017 
 ---
 
 # Azure Machine Learning Workbench - Known Issues And Troubleshooting Guide 
@@ -64,6 +64,17 @@ read: connection refused
 * Text clustering transforms are not supported on Mac.
 * RevoScalePy library is not supported on Mac.
 
+## Azure Machine Learning service Limits
+
+- Max allowed project folder size: 25 MB
+    >[!Note]
+    >This limit doesn't apply to `.git`, `docs` and `outputs` folder. These folder names are case-sensitive.
+
+- Max allowed experiment execution time: 7 days
+- Max size of tracked file in `outputs` folder after a run: 512 MB 
+
+>[!NOTE]
+>If you are working with large files, refer to [Persisting Changes and Deal with Large Files](how-to-read-write-files.md).
 
 ## Other issues
 If you are aware of other undocumented issues, send us feedback through _Send a Smile/Frown_. 
