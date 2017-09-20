@@ -103,6 +103,10 @@ Service Fabric provides scaffolding tools which will help you create a Service F
   ```
 4. To build a Service Fabric Java application on Mac, you would need - JDK 1.8 and Gradle installed on the machine.
 
+## Setup .NET Core 2.0 development
+
+Install the [.NET Core 2.0 SDK for Mac](https://www.microsoft.com/net/core#macos) to start [creating C# Service Fabric applications](service-fabric-create-your-first-linux-application-with-csharp.md). Packages for .NET Core 2.0 Service Fabric applications are hosted on NuGet.org, currently in preview.
+
 
 ## Install the Service Fabric plugin for Eclipse Neon
 

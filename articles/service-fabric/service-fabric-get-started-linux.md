@@ -157,7 +157,7 @@ After you have installed the generators, you should be able to create guest exec
 
 ## Setup .NET Core 2.0 development
 
-Install the [.NET Core 2.0 SDK for Ubuntu](https://www.microsoft.com/net/core#linuxubuntu) and follow the [C# getting started on guide for Linux](service-fabric-create-your-first-linux-application-with-csharp.md) to start writing .NET Core 2.0 Service Fabric services. All the .NET packages for Service Fabric you need are hosted on NuGet.org, currently in preview.
+Install the [.NET Core 2.0 SDK for Ubuntu](https://www.microsoft.com/net/core#linuxubuntu) to start [creating C# Service Fabric applications](service-fabric-create-your-first-linux-application-with-csharp.md). Packages for .NET Core 2.0 Service Fabric applications are hosted on NuGet.org, currently in preview.
 
 ## Set up Java development
 
