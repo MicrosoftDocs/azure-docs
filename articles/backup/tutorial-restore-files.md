@@ -45,7 +45,7 @@ This tutorial requires a Linux VM that has been protected with Azure Backup. To 
 
 
 ## Delete a file from a VM
-If you accidentally delete or make changes to a file, you can restore invididual files from a recovery point. This process allows you to browse all the file backed up in a recovery point and restore only the files you need. In this example, we delete a file from a web server to demonstrate the file-level recovery process.
+If you accidentally delete or make changes to a file, you can restore individual files from a recovery point. This process allows you to browse the files backed up in a recovery point and restore only the files you need. In this example, we delete a file from a web server to demonstrate the file-level recovery process.
 
 1. To connect to your VM, obtain the IP address of your VM with [az vm show](/cli/azure/vm?view=azure-cli-latest#az_vm_show):
 
