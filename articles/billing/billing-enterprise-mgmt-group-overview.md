@@ -61,8 +61,12 @@ The table below shows how the users from the Enterprise portal are mapped to the
 
 To view an enrollment, department, or an account within the preview, sign in to the Azure portal with the link in the welcome email.   
 
+![hierarchy](media/billing-enterprise-mgmt-groups/hierarchy.png)
+
 ### Viewing Costs 
 On the detail screens of management groups, you see the current month-to-date costs. These costs are based on usage and do not account for prepaid amounts, overages, included quantities, adjustments, and taxes. For the management group corresponding to your enrollment, the costs section shows you the commitment remaining.  
+
+![enrollment-detail](media/billing-enterprise-mgmt-groups/enrollment.png)
 
  “Costs billed separately” are the monthly accumulation of separate changes like marketplace, overages, and other costs that do not go against your enrollment’s commitment.  For more information about the cost breakdown, see the [Enterprise portal](https://ea.azure.com). 
 
