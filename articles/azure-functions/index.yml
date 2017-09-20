@@ -46,6 +46,10 @@ sections:
       text: GitHub webhook
       href: /azure/azure-functions/functions-create-github-webhook-triggered-function
     - image: 
+        src: media/index/cosmosdb.svg
+      text: Azure Cosmos DB
+      href: /azure/azure-functions/functions-create-cosmos-db-triggered-function
+    - image: 
         src: media/index/blob.svg
       text: Blob
       href: /azure/azure-functions/functions-create-storage-blob-triggered-function
