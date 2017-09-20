@@ -33,8 +33,6 @@ The machine that provides your Cloud Shell session is temporary, and it is recyc
 Cloud Shell supports the latest versions of Microsoft Edge, Microsoft Internet Explorer, Google Chrome, Mozilla Firefox, and Apple Safari. Safari in private mode is not supported.
 
 ### Copy and paste
-Ctrl+C and Ctrl+V do not function as copy/paste shortcuts in Cloud Shell on Windows machines, use Ctrl+Insert and Shift+Insert to copy and paste respectively. <br>
-Right-click copy-and-paste options are also available, but right-click function is subject to browser-specific clipboard access. 
 
 [!include [copy-paste](../../includes/cloud-shell-copy-paste.md)]
 
@@ -62,7 +60,7 @@ Your history of bash commands may be inconsistent because of Cloud Shell session
 PowerShell in Azure Cloud Shell could take up to 60 seconds to initialize during preview.
 
 ### No $Home directory persistence
-Data written to $Home by any application (such as: git, vim, and others) does not persist across PowerShell sessions.  For a workaround [see here TODO]().
+Data written to $Home by any application (such as: git, vim, and others) does not persist across PowerShell sessions.  For a workaround [see here TODO](troubleshooting.md#powershellresolutions).
 
 ## Next steps
 [Troubleshooting Cloud Shell](troubleshooting.md) <br>
