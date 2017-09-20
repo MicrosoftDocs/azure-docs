@@ -47,7 +47,7 @@ The Azure Cosmos DB trigger, input binding, and output binding can be used in th
 
 The following use cases demonstrate a few ways you can make the most of your Azure Cosmos DB data - by connecting your data to event-driven Azure Functions.
 
-### IoT use case
+### IoT use case - Azure Cosmos DB trigger
 
 In IoT implementations, you can invoke a function when the check engine light is displayed in a connected car.
 
@@ -65,7 +65,7 @@ The following image shows the code written in the Azure portal for this trigger.
 
 ![Create an Azure Cosmos DB trigger in the Azure portal](./media/serverless-computing-database/cosmos-db-trigger-portal.png)
 
-### Financial use case
+### Financial use case - Timer trigger and input binding
 
 In financial implementations, you can invoke a function when a bank account balance falls under a certain amount.
 
@@ -81,7 +81,7 @@ The following images show the code in the Azure portal for this scenario.
 
 ![Run.csx file for a Timer trigger for a financial scenario](./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png)
 
-### Gaming use case
+### Gaming use case - Azure Cosmos DB trigger and output binding
 
 In gaming, when a new user is created you can search for other users who might know them by using the [Azure Cosmos DB Graph API](graph-introduction.md). You can then write the results to an [Azure Cosmos DB Table database](table-introduction.md) for easy retrieval.
 
@@ -92,7 +92,7 @@ In gaming, when a new user is created you can search for other users who might k
 3. The function queries the graph database to search for all the users that are directly related to the new user and returns that dataset to the function.
 4. This data is then stored in an Azure Cosmos DB [table database](table-introduction.md) as a key-value set of pairs, which can then be easily retrieved by any front-end application that shows the new user their connected friends.
 
-### Retail use case
+### Retail use case - Multiple functions
 
 In retail implementations, when a user adds an item to their basket you now have the flexibility to create and invoke functions for optional business pipeline components.
 
