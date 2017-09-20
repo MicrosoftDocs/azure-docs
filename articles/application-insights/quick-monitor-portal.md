@@ -12,32 +12,25 @@ ms.topic: hero-article
 manager: carmonm
 ---
 
-<!---
-Definition of Quickstart:
-Fundamental, Day 1 instructions for new customers to use an Azure subscription to quickly use a specific product/service
-(zero to Wow in < 10 minutes). Include short, simple info and steps that require a new customer to have an Azure subscription and interact with your Azure service.
-Minimize the use of screenshots in Quickstart articles (rules for screenshots below)
-
-- Metadata for this article should have ms.topic: hero-article; ms.custom: mvc
--->
-
-
 # Start monitoring your ASP.NET Web Application
 
 With Azure Application Insights, you can easily monitor your web application for availability,
 performance, and usage.  You can also quickly identify and diagnose errors in your application without waiting for a user to report them.  With the information that you collect from Application Insights about the performance and effectiveness of your
 app, you can make informed choices to maintain and improve your application.
 
-This Quickstart shows how to add Application Insights to an existing ASP.NET web application and start
+This quickstart shows how to add Application Insights to an existing ASP.NET web application and start
 analyzing live statistics, which is just one of the various methods you can use to analyze your application. If you do not have a ASP.NET web application, you can create one following the
-[Create a ASP.NET Web App Quickstart](../app-service-web/app-service-web-get-started-dotnet.md).
+[Create a ASP.NET Web App quickstart](../app-service-web/app-service-web-get-started-dotnet.md).
 
 ## Prerequisites
-To complete this Quickstart:
+To complete this quickstart:
 
 - Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
 	- ASP.NET and web development
 	- Azure development
+
+
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Enable Application Insights
 
@@ -62,7 +55,7 @@ Application Insights gathers telemetry data for your application regardless of w
 
 You can now open Application Insights in the Azure portal to view various details about your running application.
 
-1. Right-click on **Applicationinsights.config** in Solution Explorer and click **Open Application Insights Portal**.  You see some information about your application and a variety of options.
+1. Right-click on **Connected Services Application Insights** folder in Solution Explorer and click **Open Application Insights Portal**.  You see some information about your application and a variety of options.
 
 	![Application Map](media/quick-monitor-portal/tiles.png)
 
