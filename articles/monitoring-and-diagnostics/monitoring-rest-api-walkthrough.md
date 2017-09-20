@@ -94,7 +94,7 @@ Use the [Azure Monitor Metric definitions REST API](https://docs.microsoft.com/e
 
 **Method**: GET
 
-**Request URI**: https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/${resourceProviderNamespace}/${resourceType}/${resourceName}/providers/microsoft.insights/metricDefinitions?api-version=${apiVersion}
+**Request URI**: https://management.azure.com/subscriptions/*{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}*/*{resourceType}*/*{resourceName*/providers/microsoft.insights/metricDefinitions?api-version=*{apiVersion}*
 
 For example, to retrieve the metric definitions for an Azure Storage account, the request would appear as follows:
 
@@ -354,7 +354,7 @@ Use the [Azure Monitor Metric definitions REST API](https://msdn.microsoft.com/l
 
 **Method**: GET
 
-**Request URI**: https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/${resourceProviderNamespace}/${resourceType}/${resourceName}/providers/microsoft.insights/metricDefinitions?api-version=${apiVersion}
+**Request URI**: https://management.azure.com/subscriptions/*{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}*/*{resourceType}*/*{resourceName}*/providers/microsoft.insights/metricDefinitions?api-version=*{apiVersion}*
 
 For example, to retrieve the metric definitions for an Azure Logic App, the request would appear as follows:
 
