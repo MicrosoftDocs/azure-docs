@@ -25,7 +25,7 @@ There aren't any Azure Stack operator specific tasks that you can perform by usi
 
 * **The Azure Stack CA root certificate** - The root certificate is required if your users are using CLI from a workstation outside the Azure Stack development kit.  
 
-* **The virtual machine aliases endpoint** - This endpoint is required to create virtual machines by using CLI.
+* **The virtual machine aliases endpoint** - This endpoint provides a shorter name that references an image publisher, offer, SKU, and version as a single parameter when deploying VMs.  
 
 The following sections describe how to get these values.
 
@@ -52,10 +52,16 @@ certutil -encode root.cer root.pem
 
 ## Set up the virtual machine aliases endpoint
 
-Azure Stack operators should set up a publicly accessible endpoint that contains virtual machine image aliases. Azure Stack operators must [Download the image to Azure Stack marketplace](azure-stack-download-azure-marketplace-item.md) before they add it to image aliases endpoint.
+Azure Stack operators should set up a publicly accessible endpoint that hosts a virtual machine aliases file.  The virtual machine alias file is a JSON file that provides a common name for an image, which is subsequently specified when deploying a VM as an Azure CLI parameter.  
+
+Before you add an entry to an alias file, make sure that you [download images from the marketplace]((azure-stack-download-azure-marketplace-item.md), or have [published your own custom image](azure-stack-add-vm-image.md).  If you publish a custom image, make note of the publisher, offer, SKU, and version information you specified during publishing.  If it is an image from the marketplace, you can view the information using the Get-AzureVMImage commandlet.  
    
-For example, Azure contains uses following URI: 
-https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. The operator should set up a similar endpoint for Azure Stack with the images that are available in their marketplace.
+A [sample alias file](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) with many common image aliases is available, which you can use as a starting point.  You should host this file in a space that your CLI clients can reach it.  One way to do this, is to host in a blob storage account, and share the URL with your users.  High-level steps for this, are:
+
+1.  Download the [sample file](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) from GitHub.
+2.  Create a new storage account in Azure Stack.  Once complete, create a new blob container.  Set the access policy to "public".  
+3.  Upload the JSON file to the new container.  Once complete, you can view the URL of the blob by clicking the fblob name, and then selecting the URL from the blob properties.
+
 
 ## Next steps
 
