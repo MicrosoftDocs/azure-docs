@@ -108,7 +108,7 @@
 
 # Reference
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=cloud-services)
-## [.csdef XML Schema](schema-csdef-csdef-file.md)
+## [.csdef XML Schema](schema-csdef-file.md)
 ### [LoadBalancerProbe Schema](schema-csdef-loadbalancerprobe.md)
 ### [WebRole Schema](schema-csdef-webrole.md)
 ### [WorkerRole Schema](schema-csdef-workerrole.md)
