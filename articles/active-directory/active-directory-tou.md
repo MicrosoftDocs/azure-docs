@@ -84,7 +84,7 @@ Azure AD Terms of Use provides easy to use auditing so that you can see who has 
 Users, who are in scope, will see the following once a terms of use is created and enforced.
 -	Best practice is to have the font within the PDF at size 24.
 ![Audit Event](media/active-directory-tou/tou10.png)
--	This screen is how it appears on mobiles
+-	This screen is how it appears on mobiles</br>
 ![Audit Event](media/active-directory-tou/tou11.png)
 
 ## Additional information
@@ -106,3 +106,12 @@ The following information is something to be aware of and can assist with using 
 
 -	If a Terms of Use is enforced using a custom conditional access policy be aware of the following conditions:
     - if the admin wants to delete a Terms of Use, the admin needs to make sure that it is not enforced with any policies.
+
+## Frequently asked questions
+
+**Q: Where will I see when/if a user has accepted a terms of use?**</br>
+A: User accepting the terms of use will be written to the audit log and so you will be able to search the Azure AD audit log to see the results.  
+
+**Q: If you change the terms of use terms does it require users to accept again?**</br>
+A: Yes, an admin can change the terms of use terms and it will require re-accepting the new terms.
+
