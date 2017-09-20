@@ -1,5 +1,5 @@
 ---
-title: Connected factory Azure IoT Suite solution walkthrough | Microsoft Docs
+title: Connected factory solution walkthrough - Azure | Microsoft Docs
 description: A description of the Azure IoT preconfigured solution connected factory and its architecture.
 services: ''
 suite: iot-suite

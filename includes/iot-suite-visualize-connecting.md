@@ -37,6 +37,12 @@ To invoke methods on your devices, use the **Devices** page in the remote monito
 > [!NOTE]
 > To track the status of the job in the solution, choose **View**.
 
+## Create a physical device type
+
+To define a new physical device type, you upload a model definition to the **Devices** page in the solution. The device model definition is a JSON file similar to the device model files that you use with the device simulation service. You are given the opportunity to upload a device type definition whne you provision a new physical device on the **Devices** page:
+
+<!-- TODO Add screenshot here -->
+
 ## Next steps
 
 The article [Customize the remote monitoring preconfigured solution](../articles/iot-suite/iot-suite-remote-monitoring-customize.md) describes some ways to customize the preconfigured solution.

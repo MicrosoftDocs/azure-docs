@@ -1,5 +1,5 @@
 ﻿---
-title: Enable Azure Application Insights Profiler on a Cloud Services resource | Microsoft Docs
+title: Enable Azure Application Insights Profiler on Azure Compute resources | Microsoft Docs
 description: Learn how to set up the profiler on an ASP.NET application hosted by an Azure Cloud Services resource.
 services: application-insights
 documentationcenter: ''
@@ -42,7 +42,7 @@ New-AzureRmResourceGroup -Name "Replace_With_Resource_Group_Name" -Location "Rep
 ```
 
 ## Create an Application Insights resource in the resource group
-On the **Application Insights** blade, enter the information for your resource, as shown in this example: 
+On the **Application Insights** blade, enter the information for your resource, as shown in this example:
 
 ![Application Insights blade](./media/enable-profiler-compute/createai.png)
 
@@ -51,11 +51,11 @@ On the **Application Insights** blade, enter the information for your resource, 
 1. If you haven't downloaded the template yet, download it from [GitHub](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json).
 
 2. Find the Application Insights key.
-   
+
    ![Location of the key](./media/enable-profiler-compute/copyaikey.png)
 
 3. Replace the template value.
-   
+
    ![Value replaced in the template](./media/enable-profiler-compute/copyaikeytotemplate.png)
 
 ## Create an Azure VM to host the web application
@@ -111,25 +111,25 @@ There are several ways to publish an application to an Azure VM. One way is to u
 
 ## Enable the profiler
 1. Go to your Application Insights **Performance** blade and select **Configure**.
-   
+
    ![Configure icon](./media/enable-profiler-compute/enableprofiler1.png)
- 
+
 2. Select **Enable Profiler**.
-   
+
    ![Enable Profiler icon](./media/enable-profiler-compute/enableprofiler2.png)
 
 ## Add a performance test to your application
 Follow these steps so we can collect some sample data to be displayed in Application Insights Profiler:
 
-1. Browse to the Application Insights resource that you created earlier. 
+1. Browse to the Application Insights resource that you created earlier.
 
-2. Go to the **Availability** blade and add a performance test that sends web requests to your application URL. 
+2. Go to the **Availability** blade and add a performance test that sends web requests to your application URL.
 
    ![Add performance test](./media/enable-profiler-compute/AvailabilityTest.png)
 
 ## View your performance data
 
-1. Wait 10-15 minutes for the profiler to collect and analyze the data. 
+1. Wait 10-15 minutes for the profiler to collect and analyze the data.
 
 2. Go to the **Performance** blade in your Application Insights resource and view how your application is performing when it's under load.
 
@@ -143,7 +143,7 @@ Follow these steps so we can collect some sample data to be displayed in Applica
 ## Work with an existing template
 
 1. Locate the Azure Diagnostics resource declaration in your deployment template.
-   
+
    If you don't have a declaration, you can create one that resembles the declaration in the following example. You can update the template from the [Azure Resource Explorer website](https://resources.azure.com).
 
 2. Change the publisher from `Microsoft.Azure.Diagnostics` to `AIP.Diagnostics.Test`.
@@ -229,12 +229,12 @@ A Service Fabric cluster can be secure or non-secure. You can set one gateway cl
    ```
 
 ### Install the Application Insights SDK in the project and configure the Application Insights key
-Install the Application Insights SDK from the [NuGet package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/). Make sure that you install a stable version, 2.3 or later. 
+Install the Application Insights SDK from the [NuGet package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/). Make sure that you install a stable version, 2.3 or later.
 
 For information about configuring Application Insights in your projects, see [Using Service Fabric with Application Insights](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md).
 
 ### Add application code to instrument telemetry
-1. For any piece of code that you want to instrument, add a using statement around it. 
+1. For any piece of code that you want to instrument, add a using statement around it.
 
    In the following  example, the `RunAsync` method is doing some work, and the `telemetryClient` class captures the telemetry after it starts. The event needs a unique name across the application.
 

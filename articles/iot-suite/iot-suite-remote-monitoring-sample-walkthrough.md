@@ -1,5 +1,5 @@
 ---
-title: Architecture of Azure IoT Suite remote monitoring | Microsoft Docs
+title: Architecture of remote monitoring solution - Azure | Microsoft Docs
 description: A walkthrough of the architecture of the remote monitoring preconfigured solution.
 services: ''
 suite: iot-suite
@@ -36,7 +36,7 @@ The following diagram outlines the logical components of the remote monitoring p
 
 ## Why microservices?
 
-[TODO]
+Cloud architecture has evolved since Microsoft released the first preconfigured solutions. [Microservices](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) have emerged as a proven practice to achieve scale and flexibility without sacrificing development speed. Several Microsoft services use this architectural pattern internally with great reliability and scalability results. The updated preconfigured solutions put these learnings into practice so you can also benefit from them.
 
 ## Device connectivity
 
@@ -59,9 +59,9 @@ You can connect physical devices to the solution. You can implement the behavior
 
 You can provision physical devices from the dashboard in the solution portal.
 
-### IoT Hub
+### IoT Hub and the IoT manager microservice
 
-The [IoT hub](../iot-hub/index.md) ingests data sent from the devices into the cloud and makes it available to the `stream-analytics` microservice.
+The [IoT hub](../iot-hub/index.md) ingests data sent from the devices into the cloud and makes it available to the `telemetry-agent` microservice.
 
 The IoT hub in the solution also:
 
@@ -89,7 +89,7 @@ The solution includes the following components in the data processing and analyt
 
 The solution includes two microservices to handle device telemetry.
 
-The `stream-analytics` microservice:
+The `telemetry-agent` microservice:
 
 * Stores telemetry in Cosmos DB.
 * Analyzes the telemetry stream from devices.
@@ -97,7 +97,7 @@ The `stream-analytics` microservice:
 
 The alarms are stored in Cosmos DB.
 
-The `device-telemetry` microservice enables the solution portal to read the telemetry sent from the devices. The solution portal also uses this service to:
+The `telemetry-agent` microservice enables the solution portal to read the telemetry sent from the devices. The solution portal also uses this service to:
 
 * Define monitoring rules such as the thresholds that trigger alarms
 * Retrieve the list of past alarms.
@@ -118,7 +118,7 @@ The solution includes the following components in the presentation part of the l
 
 The web user interface is a React Javascript application. The application:
 
-* Uses Javascript only and runs entirely in the browser.
+* Uses Javascript React only and runs entirely in the browser.
 * Is styled with CSS.
 * Interacts with public facing microservices through AJAX calls.
 

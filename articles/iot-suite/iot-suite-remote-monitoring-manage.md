@@ -1,5 +1,5 @@
 ---
-title: Device management on Azure IoT Suite remote monitoring | Microsoft Docs
+title: Device management in remote monitoring solution - Azure | Microsoft Docs
 description: This tutorial shows you how to manage devices connected to the remote monitoring solution.
 services: ''
 suite: iot-suite
@@ -15,6 +15,8 @@ ms.workload: NA
 ---
 
 # Manage and configure your devices
+
+This tutorial shows the device management capabilities of the remote monitoring solution. To introduce these capabilities, the tutorial uses a scenario in the Contoso IoT application:
 
 Contoso has ordered new machinery to expand one of their facilities to increase output. While you wait for the new machinery to be delivered, you want to run a simulation to verify the behavior of your solution. As an operator, you want to manage and configure the devices in the remote monitoring solution.
 
@@ -76,7 +78,9 @@ To track the status of the job on the **Maintenance** page, choose **View**:
 
 ### Methods in other devices
 
-Other device types support different methods. The device model specifies the methods the device should support. To schedule a method to run on multiple devices, you can select multiple devices in the list on the **Devices** page. The **Schedule** panel shows the types of method common to all the devices you selected.
+When you explore the different simulated device types, you see that other device types support different methods. In a deployment with physical devices, the device model specifies the methods the device should support. Typically, the device developer is responsible for developing the code that makes the device act in response to a method call.
+
+To schedule a method to run on multiple devices, you can select multiple devices in the list on the **Devices** page. The **Schedule** panel shows the types of method common to all the selected devices.
 
 ## Reconfigure a device
 
@@ -88,7 +92,7 @@ To make a change, add a name for the job, update the property values, and choose
 
 <!-- Insert screenshot here -->
 
-To track the status of the job ion the **Maintenance** page, choose **View**:
+To track the status of the job on the **Maintenance** page, choose **View**:
 
 <!-- Insert screenshot here -->
 
@@ -107,6 +111,6 @@ Now that you have learned how to manage your devices, the suggested next steps a
 
 * [Troubleshoot and remediate device issues](iot-suite-remote-monitoring-maintain.md).
 * [Test your solution with simulated devices](iot-suite-remote-monitoring-test.md).
-* [Connect your device to the remote monitoring preconfigured solution](iot-suite-connecting-devices-node.md)
+* [Connect your device to the remote monitoring preconfigured solution](iot-suite-connecting-devices-node.md).
 
 <!-- Next tutorials in the sequence -->

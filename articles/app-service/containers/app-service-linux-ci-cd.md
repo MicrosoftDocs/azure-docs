@@ -1,6 +1,6 @@
 ---
-title: Continuous Deployment with Azure Web Apps for Containers | Microsoft Docs
-description: How to setup continuous deployment in Azure Web Apps for Containers.
+title: Continuous Deployment with Azure Web App for Containers | Microsoft Docs
+description: How to setup continuous deployment in Azure Web App for Containers.
 keywords: azure app service, linux, oss, acr
 services: app-service
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.date: 05/10/2017
 ms.author: aelnably;wesmc
 
 ---
-# Continuous deployment with Azure Web Apps for Containers
+# Continuous deployment with Azure Web App for Containers
 
 In this tutorial, you configure continuous deployment for a custom container image from Managed [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/) repositories or [Docker Hub](https://hub.docker.com).
 

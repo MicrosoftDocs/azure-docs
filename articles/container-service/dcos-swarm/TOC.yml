@@ -75,6 +75,8 @@
     href: /cli/azure/acs
   - name: REST
     href: /rest/api/container-services
+  - name: PowerShell
+    href: /powershell/module/azurerm.compute/#container_service
 - name: Resources
   items:
   - name: Azure Roadmap

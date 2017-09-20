@@ -1,5 +1,5 @@
 ---
-title: Modify Azure IoT Suite remote monitoring using CLI | Microsoft Docs 
+title: Modify remote monitoring solution using CLI - Azure | Microsoft Docs 
 description: This tutorial shows you how to modify the remote monitoring preconfigured solution using the CLI.
 services: ''
 suite: iot-suite

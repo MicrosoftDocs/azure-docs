@@ -1,6 +1,6 @@
 ---
-title: Next steps for access management using groups | Microsoft Docs
-description: Advanced How-to's for managing security groups and how to use these groups to manage access to a resource.
+title: Managing  group owners in Azure Active Directory | Microsoft Docs
+description: Managing  group owners and how to use these groups to manage access to a resource.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -13,38 +13,34 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 09/13/2017
 ms.author: curtand
 
-ms.custom: oldportal;it-pro;
+ms.custom: it-pro
 
 ---
 # Managing owners for a group
-Once a resource owner has assigned access to a resource to an Azure AD group, the membership of the group is managed by the group owner. The resource owner effectively delegates the permission to assign users to the resource to the owner of the group.
+After a resource owner assigns access to a resource to an Azure AD group, the membership of the group is managed by the group owner. The resource owner effectively delegates the permission to assign users to the resource to the owner of the group.
 
-> [!IMPORTANT]
-> Microsoft recommends that you manage Azure AD using the [Azure AD admin center](https://aad.portal.azure.com) in the Azure portal instead of using the Azure classic portal referenced in this article. 
+## Add an owner to a group
 
-## Assigning group ownership
-**To add an owner to a group**
+1. In the [Azure AD admin center](https://aad.portal.azure.com), select **Users and groups**.
+2. Select **All groups**, and then open the group that you want to add owners to.
+3. Select **Owners**, and then select **Add owners**.
+4. On the **Add owners** page, select the user that you want to add as the owner of this group, and then click or tap **Select**. 
 
-1. In the [Azure classic portal](https://manage.windowsazure.com), select **Active Directory**, and then open your organization’s directory.
-2. Select the **Groups** tab, and then open the group that you want to add owners to.
-3. Select **Add Owners**.
-4. On the **Add owners** page, select the user that you want to add as the owner of this group, and make sure this name is added to the **Selected** pane.
+## Remove an owner from a group
 
-**To remove an owner from a group**
-
-1. In the [Azure classic portal](https://manage.windowsazure.com), select **Active Directory**, and then open your organization’s directory.
-2. Select the **Groups** tab, and then open the group that you want to remove an owner from.
-3. Select the **Owners** tab.
-4. Select the owner that you want to remove from this group, and then select **Remove**.
+1. In the [Azure AD admin center](https://aad.portal.azure.com), select **Users and groups**.
+2. Select **All groups**, and then open the group from which you want to remove owners.
+3. Select **Owners**, select the owner that you want to remove from this group, and then click or tap **Select**.
+4. In the open pane for the selected owner, select **Remove**.
 
 ## Additional information
-These articles provide additional information on Azure Active Directory.
+These articles provide additional information on Azure Active Directory groups.
 
-* [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
-* [Azure Active Directory cmdlets for configuring group settings](active-directory-accessmanagement-groups-settings-cmdlets.md)
-* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-* [What is Azure Active Directory?](active-directory-whatis.md)
-* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+* [See existing groups](active-directory-groups-view-azure-portal.md)
+* [Create a new group and adding members](active-directory-groups-create-azure-portal.md)
+* [Manage settings of a group](active-directory-groups-settings-azure-portal.md)
+* [Manage memberships of a group](active-directory-groups-membership-azure-portal.md)
+* [Manage dynamic rules for users in a group](active-directory-groups-dynamic-membership-azure-portal.md)

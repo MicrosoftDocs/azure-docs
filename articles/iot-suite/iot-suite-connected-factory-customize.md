@@ -1,5 +1,5 @@
 ---
-title: Customize Azure IoT Suite connected factory | Microsoft Docs
+title: Customize the connected factory solution - Azure | Microsoft Docs
 description: A description of how to customize the behavior of the connected factory preconfigured solution.
 services: ''
 suite: iot-suite

@@ -3,7 +3,7 @@ title: Anomaly Detection in Azure Usage Guide  (Preview)| Microsoft Docs
 description: Use stream analytics and machine learning to detect anomalies.
 services: stream-analytics
 documentationcenter: ''
-author: samacha
+author: jeanb
 manager: jhubbard
 
 ms.service: stream-analytics
@@ -11,8 +11,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
-ms.author: samacha
+ms.date: 08/28/2017
+ms.author: jeanb
 ---
 
 # Using the ANOMALYDETECTION operator
@@ -20,7 +20,7 @@ ms.author: samacha
 > [!IMPORTANT]
 > This functionality is in preview. We do not recommend use in production.
 
-The **ANOMALYDETECTION** operator can be used to detect anomalies in event streams.
+The **ANOMALYDETECTION** operator can be used to detect anomalies in **live event streams** coming from IoT Hub and Event Hub.
 For example, a slow decrease in free memory over a long time can be indicative
 of a memory leak, or the number of web service requests that are stable in a
 range might dramatically increase or decrease.
@@ -133,8 +133,8 @@ having this step will result in a compilation error.
 - A non-partitioned query using the **ANOMALYDETECTION** function can produce results with a computation latency of about 25ms on average.
 - The latency experienced by a partitioned query varies slightly with the number of partitions, as the number of computations is higher. However, the latency is about the same as the non-partitioned case for a comparable total number of events across all partitions.
 - While reading non-real-time data, a large amount of data is ingested quickly. Processing this data is currently significantly slower. The latency in such scenarios was found to increase linearly with the number of data points in the window rather than the window size or event interval per se. To reduce the latency in non-real-time cases, consider using a smaller window size. Alternatively, consider starting your job from the current time. A few examples of latencies in a non-partitioned query: 
-    - 60 data points in the detection window can result in a latency of 10 seconds with a throughput of 3MBps. 
-    - At 600 data points, the latency can reach about 80 seconds with a throughput of 0.4MBps.
+    - At 60 data points in the detection window, a latency of 10 seconds with a throughput of 3 MBps have been observed.
+    - At 600 data points, it has been observed that the latency can reach about 80 seconds with a throughput of 0.4 MBps.
 
 ## Example
 

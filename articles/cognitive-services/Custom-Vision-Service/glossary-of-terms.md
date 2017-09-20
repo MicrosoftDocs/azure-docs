@@ -27,6 +27,8 @@ When you create a project, you select a "domain" for that project. The domain op
 - **The Landmark domain.** Optimized for recognizable landmarks, both natural and artificial. This domain works best when the landmark is clearly visible in the photograph, even if the landmark is slightly obstructed by a group of people posing in front of it.
 - **The Retail domain.** Optimized for classifying images in a shopping catalog or shopping website. If you want high precision when classifying dresses, pants, shirts, etc., then use the Retail domain.
 - **The Adult domain.** Optimized to better define between adult content and non-adult content. For example, if you want to block images of people in bathing suits, this domain allows you to build a custom classifier to do that.
+- **Generic (compact) domain.** This is a general domain which has been optimized for the constraints of real-time classification on mobile devices. Models built with a compact domain can be exported to run locally on device (currently iOS only.) 
+
 
 ## Training Image
 

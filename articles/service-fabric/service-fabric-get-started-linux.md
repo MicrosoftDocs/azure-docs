@@ -113,12 +113,9 @@ sudo apt-get install servicefabricsdkcommon
 ## Set up the Service Fabric CLI
 
 The [Service Fabric CLI](service-fabric-cli.md) has commands for interacting with Service Fabric entities,
-including clusters and applications. It is based on python, so be sure to have python and pip installed before you
-proceed with the following command:
+including clusters and applications.
+Please follow the instructions at [Service Fabric CLI](service-fabric-cli.md) to install the CLI.
 
-```bash
-pip install sfctl
-```
 
 ## Install and set up the generators for containers and guest-executables
 Service Fabric provides scaffolding tools which will help you create a Service Fabric applications from terminal using Yeoman template generator. Please follow the steps below to ensure you have the Service Fabric yeoman template generator for working on your machine.
