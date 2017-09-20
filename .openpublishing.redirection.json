@@ -2336,11 +2336,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/app-service/app-service-environment/readme.md",
-            "redirect_url": "/azure/app-service/environment/intro",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/app-service/app-service-scale-readme.md",
             "redirect_url": "/azure/app-service/web-sites-scale",
             "redirect_document_id": false
