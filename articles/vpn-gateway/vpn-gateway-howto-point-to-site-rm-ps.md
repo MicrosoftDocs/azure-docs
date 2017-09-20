@@ -363,13 +363,13 @@ This method is has more steps than Method 1, but has the same result. It is incl
   -VirtualNetworkGatewayName "VNet1GW"
   ```
 
-## <a name="revoke"></a>Revoke a client certificate
+## <a name="revoke"></a>To revoke a client certificate
 
 You can revoke client certificates. The certificate revocation list allows you to selectively deny Point-to-Site connectivity based on individual client certificates. This is different than removing a trusted root certificate. If you remove a trusted root certificate .cer from Azure, it revokes the access for all client certificates generated/signed by the revoked root certificate. Revoking a client certificate, rather than the root certificate, allows the other certificates that were generated from the root certificate to continue to be used for authentication.
 
 The common practice is to use the root certificate to manage access at team or organization levels, while using revoked client certificates for fine-grained access control on individual users.
 
-### <a name="revokeclientcert"></a>To revoke a client certificate
+### <a name="revokeclientcert"></a>Revoke a client certificate
 
 1. Retrieve the client certificate thumbprint. For more information, see [How to retrieve the Thumbprint of a Certificate](https://msdn.microsoft.com/library/ms734695.aspx).
 2. Copy the information to a text editor and remove all spaces so that it is a continuous string. This string is declared as a variable in the next step.
