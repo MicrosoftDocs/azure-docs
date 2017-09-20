@@ -28,7 +28,7 @@ The following sections include steps that you can take to create network securit
 This article provides steps to create network security groups through the Resource Manager deployment model, which is the deployment model we recommend using when creating network security groups. If you need to create a network security group (classic), see [Create a network security group (classic)](virtual-networks-create-nsg-classic-ps.md). If you're not familiar with Azure's deployment models, see [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 > [!NOTE]
-> This tutorial utilizes network security group features that are currently in preview release. Features in preview release do not have the same availability and reliability as features in general release. While in preview, the features are available only in the following regions: East US, West US, West US 2, West Central US, Australia East, Australia Southeast, and UK South. If you want to implement network security groups using only features in general release, see [Create a network security group](virtual-networks-create-nsg-arm-pportal.md). 
+> This tutorial utilizes network security group features that are currently in preview release. Features in preview release do not have the same availability and reliability as features in general release. While in preview, the features are available only in the following regions: WestCentralUS. If you want to implement network security groups using only features in general release, see [Create a network security group](virtual-networks-create-nsg-arm-pportal.md). 
 
 ## Azure CLI
 
@@ -370,7 +370,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       -Id $nic1.Id
     New-AzureRmVM `
       -ResourceGroupName myResourceGroup `
-      -Location westeurope `
+      -Location westcentralus `
       -VM $webVmConfig
 
     # Create the app server virtual machine configuration and virtual machine.
@@ -389,7 +389,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       -Id $nic2.Id
     New-AzureRmVM `
       -ResourceGroupName myResourceGroup `
-      -Location westeurope `
+      -Location westcentralus `
       -VM $appVmConfig
 
     # Create the database server virtual machine configuration and virtual machine.
@@ -408,7 +408,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       -Id $nic3.Id
     New-AzureRmVM `
       -ResourceGroupName myResourceGroup `
-      -Location westeurope `
+      -Location westcentralus `
       -VM $databaseVmConfig
     ```
 
