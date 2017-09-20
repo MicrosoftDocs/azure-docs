@@ -43,7 +43,7 @@ While the information is verified and the workspace is created, you can track it
 ## Enable the Log Analytics VM Extension
 For Windows and Linux virtual machines already deployed in Azure, you install the Log Analytics agent with the Log Analytics VM Extension.  Using the extension simplifies the installation process and automatically configures the agent to send data to the Log Analytics workspace that you specify. The agent is also upgraded automatically, ensuring that you have the latest features and fixes.
 
-You may notice the purple banner across the top of your Log Analytics resource page in the portal inviting you to upgrade.<br> ![Log Analytics upgrade notice in the Azure portal](media/log-analytics-quick-collect-azurevm/log-analytics-portal-upgradebanner.png)
+You may notice the banner across the top of your Log Analytics resource page in the portal inviting you to upgrade.<br> ![Log Analytics upgrade notice in the Azure portal](media/log-analytics-quick-collect-azurevm/log-analytics-portal-upgradebanner.png)
 
 In the next tutorial you will perform the upgrade, so for now you can safely ignore it. 
 

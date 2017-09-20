@@ -36,7 +36,7 @@ Start by opening the Log Search portal.
 1. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
 2. In the Log Analytics subscriptions pane, select a workspace and then select the **Log Search** tile.<br> ![Log Search button](media/log-analytics-tutorial-viewdata/azure-portal-01.png)
 
-You may have noticed the purple banner across the top of your Log Analytics resource page in the portal inviting you to upgrade.<br> ![Log Analytics upgrade notice in the Azure portal](media/log-analytics-tutorial-viewdata/log-analytics-portal-upgradebanner.png)
+You may have noticed the banner across the top of your Log Analytics resource page in the portal inviting you to upgrade.<br> ![Log Analytics upgrade notice in the Azure portal](media/log-analytics-tutorial-viewdata/log-analytics-portal-upgradebanner.png)
 
 Log Analytics recently introduced a new query language to makes it easier to construct queries, correlate data from various sources, and analyze to quickly identify trends or issues.
 
@@ -74,11 +74,11 @@ Event | where (EventLevelName == "Error")
 Syslog | where (SeverityLevel == "err")
 ```
 
-![Filter](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-03.png)
+![Filter](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-02.png)
 
 Add properties to the filter pane by selecting **Add to filters** from the property menu on one of the records.
 
-![Add to filter menu](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-04.png)
+![Add to filter menu](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-03.png)
 
 You can set the same filter by selecting **Filter** from the property menu for a record with the value you want to filter.  
 
@@ -86,7 +86,7 @@ You only have the **Filter** option for properties with their name in blue when 
 
 You can group the results on a single property by selecting the **Group by** option in the record menu.  This will add a [summarize](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) operator to your query that displays the results in a chart.  You can group on more than one property, but you would need to edit the query directly.  Select the record menu next the the **Computer** property and select **Group by 'Computer'**.  
 
-![Group by computer](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-05.png)
+![Group by computer](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-04.png)
 
 ## Work with results
 The Log Search portal has a variety of features for working with the results of a query.  You can sort, filter, and group results to analyze the data without modifying the actual query.  Results of a query are not sorted by default.
