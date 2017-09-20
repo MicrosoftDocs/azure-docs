@@ -27,8 +27,8 @@ Load Balancer Standard can be used in a public or internal configuration and con
 - Port forward inbound traffic to a single backend instance
 - Translate outbound traffic from a private IP address within the VNet to a public IP address
 
-> [!IMPORTANT]
-> Load Balancer Standard SKU is currently in Preview.  Use the Generally Available [Load Balancer Basic SKU](load-balancer-overview.md) for your production services.
+>[!NOTE]
+> Load Balancer Standard SKU is currently in Preview. During preview, the feature may not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use the Generally Available [Load Balancer Basic SKU](load-balancer-overview.md) for your production services.
 
 For these scenarios, the following capabilities are supported. Click the capability for more details:
 
@@ -38,7 +38,7 @@ For these scenarios, the following capabilities are supported. Click the capabil
 
 **[Diagnostic insights](#diagnosticinsights)**: Load Balancer and Public IPs are now exposing new multi-dimensional metrics, integrated with Azure Monitor. Your virtual data center now has continuous data plane health measurements, per endpoint health probe statistics, counters for inbound connection attempts, outbound connections, packets, and bytes.
 
-**[Network Security Groups](#mandatorynsg)**: Load Balancer Standard fully onboards to the VNet and NSG are now mandatory. NSG needs to be placed on subnets or NICs on the backend pool and explicitly whitelist traffic.
+**[Network Security Groups](#nsg)**: Load Balancer Standard fully onboards to the VNet and NSG are now mandatory. NSG needs to be placed on subnets or NICs on the backend pool and explicitly whitelist traffic.
 
 **[Outbound Connections](#outboundconnections)**: When a public Load Balancer resource is associated with VM instances, the [outbound connections](load-balancer-outbound-connections.md) from the private IP address space of the VNet are translated to the public IP address of the Load Balancer frontend.  Load Balancer Standard features a new port masquerading Source Network Address Translation (SNAT) algorithm for increased robustness and scale.
 
@@ -104,7 +104,7 @@ Load Balancer Standard provides new multi-dimensional diagnostic capabilities fo
 | Byte counters | Azure Load Balancer reports the data processed per frontend and per backend instance.|
 | Packet counters | Azure Load Balancer reports the packets processed per frontend and per backend instance. |
 
-## <a name = "mandatorynsg"></a>Network Security Groups
+## <a name = "nsg"></a>Network Security Groups
 
 Load Balancer Standard fully onboards to the VNet and use of Network Security Groups is now mandatory.  You must explicitly whitelist which traffic you want to permit with the NSG. Until this whitelisting has been performed, traffic will not flow.
 
