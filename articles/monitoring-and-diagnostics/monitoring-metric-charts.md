@@ -1,9 +1,9 @@
 ---
 title:  Azure Monitor Metrics Explorer | Microsoft Docs
-description: Learn about new features Azure Monitor Metrics Explorer
+description: Learn about new features in Azure Monitor Metrics Explorer
 author: vgorbenko
 manager: Victor.Mushkatin
-editor: mbullwinkle
+editor: mrbullwinkle
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
-ms.author: 
+ms.author: vitaly.gorbenko
 
 ---
 
@@ -156,4 +156,4 @@ After configuring your chart, click on the **Chart Actions** menu in the right t
 
 ## Next steps
 
-  Read [Creating custom KPI dashboards](http://brian-wren-is-writing-this-topic-for-ignite/) to learn about the best practices for creating actionable dashboards with metrics.
+  Read [Creating custom KPI dashboards](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards) to learn about the best practices for creating actionable dashboards with metrics.
