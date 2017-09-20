@@ -231,7 +231,7 @@
       href: geospatial.md
     - name: Indexing
       href: indexing-policies.md
-    - name: ConnectedService in VisualStudio
+    - name: Connected Service in Visual Studio
       href: connected-service.md
   - name: Manage
     items:
