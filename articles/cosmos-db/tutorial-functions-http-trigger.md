@@ -51,7 +51,7 @@ This tutorial covers the following tasks:
 
     a. To make sure you have the latest Functions SDK, use the NuGet Manager to update the **Microsoft.NET.Sdk.Functions** package. In **Solution Explorer**, right-click the project, and select **Manage NuGet Packages**. In the **Installed** tab, select Microsoft.NET.Sdk.Functions, then click **Update**.
 
-   ![Update Nuget packages](./media/tutorial-functions-http-trigger/02-update-functions-sdk.png)
+   ![Update NuGet packages](./media/tutorial-functions-http-trigger/02-update-functions-sdk.png)
 
     b. In the **Browse** tab, enter **azure.graphs** to find the **Microsoft.Azure.Graphs** package, and then  click **Install**. This package contains the Graph API .NET Client SDK.
 
@@ -167,7 +167,7 @@ Now that the code is complete, you can use the Azure Function's local debugging 
 
     To do this, add the following lines of code to local.settings.json, and then copy in your Endpoint and AuthKey from the App.Config file in the GraphGetStarted project as shown in the following image.
 
-   ```javascript
+   ```json
     "Endpoint": "",
     "AuthKey": ""
     ```
@@ -200,7 +200,7 @@ Now that the code is complete, you can use the Azure Function's local debugging 
 
    You are presented with the raw HTTP response from the locally-running Azure Function headers, JSON body content, everything.
 
-   ![REST reponse](./media/tutorial-functions-http-trigger/10-general-results.png)
+   ![REST response](./media/tutorial-functions-http-trigger/10-general-results.png)
 
 5. Now select the second line of code, and then select **Send Request**. By adding the `name` query string parameter with a value known to be in the database, we can filter the results the Azure Function returns.
 
@@ -218,25 +218,25 @@ After the Azure Function is validated and seems to be working properly, the last
 
    ![Create a new Azure Function app](./media/tutorial-functions-http-trigger/13-publish-panel.png)
 
-3. In the **Publish** dialog, complete the following steps as shown in the following image.
+3. In the **Publish** dialog, do the following:
    
-    In **App Name**, give the function a unique name.
+    a. In **App Name**, give the function a unique name.
 
-    In **Subscription**, select the Azure subscription to use.
+    b. In **Subscription**, select the Azure subscription to use.
    
-    In **Resource Group**, create a new resource group and use the same name as the app name.
+    c. In **Resource Group**, create a new resource group and use the same name as the app name.
    
-    For **App Service Plan**, click **New** to create a new Consumption-based App Service Plan because we intend to use the pay-per-use billing method for the serverless Azure Function. Use the defaults on the **Configure App Service Plan** page, and then click **OK**.
+    d. For **App Service Plan**, click **New** to create a new Consumption-based App Service Plan because we intend to use the pay-per-use billing method for the serverless Azure Function. Use the defaults on the **Configure App Service Plan** page, and then click **OK**.
    
-    For **Storage Account**, also click **New** to create a new Storage Account to use with the Azure Function in case we ever need support for Blobs, Tables, or Queues to trigger execution of other functionality. Use the defaults on the **Storage Account** page, and then click **OK**.
+    e. For **Storage Account**, also click **New** to create a new Storage Account to use with the Azure Function in case we ever need support for Blobs, Tables, or Queues to trigger execution of other functionality. Use the defaults on the **Storage Account** page, and then click **OK**.
 
-    Then click the **Create** button in the dialog to create all the resources in your Azure subscription. Visual Studio downloads a publish profile (a simple XML file) that it uses the next time you publish your Azure Function code.
+    f. Then click the **Create** button in the dialog to create all the resources in your Azure subscription. Visual Studio downloads a publish profile (a simple XML file) that it uses the next time you publish your Azure Function code.
 
    ![Create the Storage account](./media/tutorial-functions-http-trigger/14-new-function-app.png)
 
     Visual Studio then displays a Publish page that you can use if you make changes to the Function and need to republish it. You don't have to take any action on that page now.
 
-4. After the Azure Function is published, you can go to the [Azure portal](https://portal.azure.com/) blade for your Azure Function. There, you can see a link to the Azure Function's **Application settings**. You'll need to go here, as this is where you'll configure the live Azure Function for connectivity to the Azure Cosmos DB database with your Person data.
+4. After the Azure Function is published, you can go to the [Azure portal](https://portal.azure.com/) page for your Azure Function. There, you can see a link to the Azure Function's **Application settings**. Open this link to configure the live Azure Function for connectivity to the Azure Cosmos DB database with your Person data.
 
    ![Review application settings](./media/tutorial-functions-http-trigger/15-function-in-portal.png)
 
@@ -252,7 +252,7 @@ After the Azure Function is validated and seems to be working properly, the last
     get https://peoplesearchfunction.azurewebsites.net/api/Search?name=thomas
     ```
 
-    The function responds with the data retrieved from the Azure Cosmos DB.
+    The function responds with the data retrieved from Azure Cosmos DB.
 
     ![Use the REST client to query the Azure Function](./media/tutorial-functions-http-trigger/17-calling-function-from-code.png)
 
