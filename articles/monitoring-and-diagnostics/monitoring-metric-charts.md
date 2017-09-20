@@ -1,4 +1,4 @@
-m---
+---
 title:  Azure Monitor Metrics Explorer | Microsoft Docs
 description: Learn about new features in Azure Monitor Metrics Explorer
 author: vgorbenko
