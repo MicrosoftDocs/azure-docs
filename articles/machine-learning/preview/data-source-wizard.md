@@ -57,7 +57,7 @@ You can specify one or more sampling strategies for the dataset, and choose one 
 
 You can specify as many sampling strategies as you want, but there is only one that can be set to active when preparing your data. You can set any strategy to be the active by selecting the strategy and click Set as Active  in the toolbar.
 
-Depending on where the data comes from, some sample strategies may not be supported. For more information about sampling, see <<insert link to sampling doc Monica is working on>>
+Depending on where the data comes from, some sample strategies may not be supported. For more information about sampling, the sampling section in [this document](data-prep-user-guide.md) 
 
 ![step 6](media/data-source-wizard/step5.png)
 
