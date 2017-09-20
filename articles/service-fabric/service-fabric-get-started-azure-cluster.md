@@ -233,6 +233,18 @@ Remove-AzureRmResourceGroup -Name $RGname -Force
         --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName --vault-resource-group $VaultGroupName \
         --vm-password $VmPassword --vm-user-name $VmUserName
     ```
+### Connect to the cluster
+Run the following CLI command to connect to the cluster using the certificate .  When using a client certificate for authentication, the certificate details must match a certificate deployed to the cluster nodes.  Use the `--no-verify` option for a self-signed certificate.
+
+```azurecli
+az sf cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.azure.com:19080 --pem ./linuxcluster201709161647.pem --no-verify
+```
+
+Run the following command to check that you are connected and the cluster is healthy.
+
+```azurecli
+az sf cluster health
+```
 
 ## Next steps
 Now that you have set up a development cluster, try the following:
