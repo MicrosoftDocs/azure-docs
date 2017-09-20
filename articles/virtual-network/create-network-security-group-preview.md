@@ -140,7 +140,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
     ```azurecli-interactive
     az network nic create \
       --resource-group myResourceGroup \
-      --name myWebNic \
+      --name myNic1 \
       --vnet-name myVnet \
       --subnet mySubnet \
       --network-security-group myNsg \
@@ -149,7 +149,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
 
     az network nic create \
       --resource-group myResourceGroup \
-      --name myAppNic \
+      --name myNic2 \
       --vnet-name myVnet \
       --subnet mySubnet \
       --network-security-group myNsg \
@@ -158,7 +158,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
 
     az network nic create \
       --resource-group myResourceGroup \
-      --name myDatabaseNic \
+      --name myNic3 \
       --vnet-name myVnet \
       --subnet mySubnet \
       --network-security-group myNsg \
@@ -178,7 +178,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       --resource-group myResourceGroup \
       --name myWebVm \
       --location westcentralus \
-      --nics myWebNic \
+      --nics myNic1 \
       --image win2016datacenter \
       --admin-username azureuser \
       --admin-password $AdminPassword
@@ -187,7 +187,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       --resource-group myResourceGroup \
       --name myAppVm \
       --location westcentralus \
-      --nics myAppNic \
+      --nics myNic2 \
       --image win2016datacenter \
       --admin-username azureuser \
       --admin-password $AdminPassword
@@ -196,7 +196,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       --resource-group myResourceGroup \
       --name myDatabaseVm \
       --location westcentralus \
-      --nics myDatabaseNic \
+      --nics myNic3 \
       --image win2016datacenter \
       --admin-username azureuser \
       --admin-password $AdminPassword    
@@ -321,24 +321,24 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
 12. Create three network interfaces, one for each server type. 
 
     ```powershell
-    $webNic = New-AzureRmNetworkInterface `
-      -Name myWebNic `
+    $nic1 = New-AzureRmNetworkInterface `
+      -Name myNic1 `
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
       -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $webAsg,$appAsg
 
-    $appNic = New-AzureRmNetworkInterface `
-      -Name myAppNic `
+    $nic2 = New-AzureRmNetworkInterface `
+      -Name myNic2 `
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
       -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $appAsg
 
-    $databaseNic = New-AzureRmNetworkInterface `
-      -Name myDatabaseNic `
+    $nic3 = New-AzureRmNetworkInterface `
+      -Name myNic3 `
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
@@ -367,7 +367,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       -Skus 2016-Datacenter `
       -Version latest | `
     Add-AzureRmVMNetworkInterface `
-      -Id $webNic.Id
+      -Id $nic1.Id
     New-AzureRmVM `
       -ResourceGroupName myResourceGroup `
       -Location westeurope `
@@ -386,7 +386,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       -Skus 2016-Datacenter `
       -Version latest | `
     Add-AzureRmVMNetworkInterface `
-      -Id $appNic.Id
+      -Id $nic2.Id
     New-AzureRmVM `
       -ResourceGroupName myResourceGroup `
       -Location westeurope `
@@ -405,7 +405,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       -Skus 2016-Datacenter `
       -Version latest | `
     Add-AzureRmVMNetworkInterface `
-      -Id $databaseNic.Id
+      -Id $nic3.Id
     New-AzureRmVM `
       -ResourceGroupName myResourceGroup `
       -Location westeurope `
