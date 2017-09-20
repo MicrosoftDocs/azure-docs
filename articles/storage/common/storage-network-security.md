@@ -20,7 +20,7 @@ ms.author: cbrooks
 Azure Storage provides a layered security model allowing you to secure your storage accounts to a specific set of allowed networks​.  When network rules are configured, only applications from allowed networks can access a storage account.  When calling from an allowed network, applications continue to require proper authorization (a valid access key or SAS token) to access the storage account.
 
 ## Preview availability and support
-Storage Firewalls and Virtual Networks are in preview.  This capability is currently available for new or existing storage accounts in the following locations:
+Storage Firewalls and Virtual Networks are in preview.  This capability is currently available for new or existing storage accounts in the following regions:
 - East US
 - West US
 - West US 2
@@ -104,13 +104,13 @@ By enabling a [Service Endpoint](/azure/virtual-network/virtual-networks-service
 
 Each storage account can support up to 100 Virtual Network rules which may be combined with [IP network rules](#grant-access-from-an-internet-ip-range).
 
-### Available Virtual Network locations
-In general, Service Endpoints work between Virtual Networks and service instances in the same Azure location.  When Service Endpoints are used with Azure Storage, this scope is expanded to include the [paired region](/azure/best-practices-availability-paired-regions).  This allows continuity during a regional failover as well as seemless access to read-only geo-reduntant storage (RA-GRS) instances.  Network rules that grant access from a virtual network to a storage account also grant access to any RA-GRS instance.
+### Available Virtual Network regions
+In general, Service Endpoints work between Virtual Networks and service instances in the same Azure region.  When Service Endpoints are used with Azure Storage, this scope is expanded to include the [paired region](/azure/best-practices-availability-paired-regions).  This allows continuity during a regional failover as well as seemless access to read-only geo-reduntant storage (RA-GRS) instances.  Network rules that grant access from a virtual network to a storage account also grant access to any RA-GRS instance.
 
 When planning for disaster recovery during a regional outage, you should provision the Virtual Networks in the paired region in advance. Service Endpoints for Azure Storage should be enabled, and network rules granting access from these alternative Virtual Networks should be applied to your geo-redundant storage accounts.
 
 > [!NOTE]
-> Service Endpoints do not apply to traffic outside the location of the Virtual Network and the designated region pair.  Network rules granting access from Virtual Networks to Storage accounts can only be applied for Virtual Networks in the primary location of a Storage account or in the designated region pair of that location.
+> Service Endpoints do not apply to traffic outside the region of the Virtual Network and the designated region pair.  Network rules granting access from Virtual Networks to Storage accounts can only be applied for Virtual Networks in the primary region of a Storage account or in the designated paired region.
 >
 
 ### Required permissions
