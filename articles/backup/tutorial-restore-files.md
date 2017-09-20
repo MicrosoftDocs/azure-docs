@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 
 # Restore files to a virtual machine in Azure
-Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery point, you can restore the whole VM or individual files. This article details how to restore individual files. You can also [restore a complete VM](tutorial-restore-disk.md). In this tutorial you learn how to:
+Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery point, you can restore the whole VM or individual files. This article details how to restore individual files. In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * List and select recovery points

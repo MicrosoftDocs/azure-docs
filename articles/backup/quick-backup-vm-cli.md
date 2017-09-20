@@ -20,11 +20,9 @@ ms.custom: mvc
 ---
 
 # Back up a virtual machine in Azure with the CLI
-The Azure CLI is used to create and manage Azure resources from the command line or in scripts. You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. This article details how to back up a virtual machine (VM) in Azure with the Azure CLI. You can also perform these steps with [Azure PowerShell](quick-backup-vm-powershell.md) or [Azure portal](quick-backup-vm-portal.md).
+The Azure CLI is used to create and manage Azure resources from the command line or in scripts. You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that can be stored in geo-redundant recovery vaults. This article details how to back up a virtual machine (VM) in Azure with the Azure CLI. You can also perform these steps with [Azure PowerShell](quick-backup-vm-powershell.md) or [Azure portal](quick-backup-vm-portal.md).
 
 This quick start enables backup on an existing Azure VM. If you need to create a VM, you can [create a VM with the Azure CLI](../virtual-machines/linux/quick-create-cli.md).
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -40,7 +38,7 @@ az provider register --namespace Microsoft.RecoveryServices
 
 
 ## Create a recovery services vault
-A Recovery Services vault is a logical container that stores the backup data for each protected resource, such as Azure VMs. When the backup job for a protected resource runs, it creates a recovery point inside the Recovery Services vault. These recovery points are used to then restore data to a given point in time as needed.
+A Recovery Services vault is a logical container that stores the backup data for each protected resource, such as Azure VMs. When the backup job for a protected resource runs, it creates a recovery point inside the Recovery Services vault. You can then use one of these recovery points to restore data to a given point in time.
 
 Create a Recovery Services vault with **az backup vault create**. Specify the same resource group and location as the VM you wish to protect. If you used the sample script, the resource group is named *myResourceGroup*, the VM is named *myVM*, and the resources are in the *eastus* location.
 
@@ -54,7 +52,7 @@ By default, the vault is set for Geo-Redundant storage. To further protect your 
 
 
 ## Enable backup for an Azure VM
-You create and use policies to define when a backup job runs and how long the recovery points are stored. The default protection policy runs a backup job each day at midnight and retains recovery points for 30 days. You can use these default policy values to quickly protect your VM. To enable backup protection for a VM, use **az backup protection enable—for-vm**. Specify the policy to use, then the resource group and VM to protect:
+You create and use policies to define when a backup job runs and how long the recovery points are stored. The default protection policy runs a backup job each day and retains recovery points for 30 days. You can use these default policy values to quickly protect your VM. To enable backup protection for a VM, use **az backup protection enable—for-vm**. Specify the policy to use, then the resource group and VM to protect:
 
 ```azurecli-interactive 
 az backup protection enable-for-vm \
@@ -66,7 +64,7 @@ az backup protection enable-for-vm \
 
 
 ## Start a backup job
-To start a backup now rather than wait for the default policy to run the job at midnight, use **az backup protection backup-now**. This first backup job creates a full recovery point. Each backup job after this initial backup creates incremental recovery points. Incremental recovery points are storage and time-efficient, as they only transfer changes made since the last backup.
+To start a backup now rather than wait for the default policy to run the job at the scheduled time, use **az backup protection backup-now**. This first backup job creates a full recovery point. Each backup job after this initial backup creates incremental recovery points. Incremental recovery points are storage and time-efficient, as they only transfer changes made since the last backup.
 
 The following parameters are used to back up the VM:
 
@@ -111,7 +109,9 @@ When the *Status* of the backup job reports *Completed*, your VM is protected wi
 
 
 ## Clean up deployment
-If you are going to continue on to a Backup tutorial that explains how to restore data for your VM, go to [Next steps](#next-steps). When no longer needed, you can disable protection on the VM, remove the restore points and Recovery Services vault, then delete the resource group and associated VM resources:
+When no longer needed, you can disable protection on the VM, remove the restore points and Recovery Services vault, then delete the resource group and associated VM resources. If you used an existing VM, you can skip the final [az group delete](/cli/azure/group?view=azure-cli-latest#az_group_delete) command to leave the resource group and VM in place.
+
+If you are going to continue on to a Backup tutorial that explains how to restore data for your VM, go to [Next steps](#next-steps). 
 
 ```azurecli-interactive 
 az backup protection disable \

@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 
 # Restore a disk and create a recovered VM in Azure
-Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery point, you can restore the whole VM or individual files. This article explains how to restore a complete VM. You can also [restore individual files](tutorial-restore-files.md). In this tutorial you learn how to:
+Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery point, you can restore the whole VM or individual files. This article explains how to restore a complete VM. In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * List and select recovery points
@@ -47,7 +47,7 @@ When the data transfer is complete, the snapshot is removed and a recovery point
 ## List available recovery points
 To restore a disk, you select a recovery point as the source for the recovery data. As the default policy creates a recovery point every evening and retains them for 30 days, you can keep a set of recovery points that allows you to select a particular point in time for recovery. 
 
-To see a list of available recovery points, use **az backup recoverypoint list**. The recovery point **name** is used to recover disks. In this tutorial, we want the most recent recovery point available. The `--query` parameter selects the most recent recovery point name as follows:
+To see a list of available recovery points, use **az backup recoverypoint list**. The recovery point **name** is used to recover disks. In this tutorial, we want the most recent recovery point available. The `--query [0].name` parameter selects the most recent recovery point name as follows:
 
 ```azurecli-interactive
 az backup recoverypoint list \
@@ -61,7 +61,7 @@ az backup recoverypoint list \
 
 
 ## Restore a VM disk
-To restore your disk from the recovery point, you first create an Azure storage account. The storage account is used to separate the recovered disks from existing Azure resources. In additional steps, we then use the recovered disk to create a VM.
+To restore your disk from the recovery point, you first create an Azure storage account. This storage account is used to store the restored disk. In additional steps, the recovered disk is used to create a VM.
 
 1. To create a storage account, use [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_create). The storage account name must be all lowercase, and be globally unique. Replace *mystorageaccount* with your own unique name:
 
@@ -109,9 +109,9 @@ When the *Status* of the restore job reports *Completed*, the disk has been rest
 
 
 ## Convert the restored disk to a Managed Disk
-To create a VM, you need to convert the restored disk to an Azure Managed Disk. Managed Disks offer many management benefits over unmanaged disks. The restore job created an unmanaged disk in a storage account so that you have options as to what operations you can then perform on the disk. 
+The restore job creates an unmanaged disk. In order to create a VM from the disk, it must first be converted to a managed disk.
 
-1. To perform additional actions on the disk, obtain the connection information for your storage account with [az storage account show-connection-string](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_show_connection_string). Replace *mystorageaccount* with the name of your storage account as follows:
+1. Obtain the connection information for your storage account with [az storage account show-connection-string](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_show_connection_string). Replace *mystorageaccount* with the name of your storage account as follows:
     
     ```azurecli-interactive
     export AZURE_STORAGE_CONNECTION_STRING=$( az storage account show-connection-string \
@@ -167,7 +167,7 @@ The final step is to create a VM from the Managed Disk.
 
 
 ## Next steps
-In this tutorial, you restored a disk from a recovery point then created a VM from the disk. You learned how to:
+In this tutorial, you restored a disk from a recovery point and then created a VM from the disk. You learned how to:
 
 > [!div class="checklist"]
 > * List and select recovery points
