@@ -43,7 +43,7 @@ If you consistently need to use an update infrastructure other than Azure-hosted
 
 RHUI is available in all regions where RHEL on-demand images are available. It currently includes all public regions listed on the [Azure status dashboard](https://azure.microsoft.com/status/) page, Azure US Government, and Microsoft Azure Germany regions. 
 
-If you're using a network configuration to further restrict access from RHEL PAYG VMs, make sure the following IPs are allowed for `yum update` to work. The IP addresses vary by region. 
+If you're using a network configuration to further restrict access from RHEL PAYG VMs, make sure the following IPs are allowed for `yum update` to work depending on the environment you're in: 
 
 ```
 # Azure Global
@@ -127,7 +127,8 @@ This procedure is provided for reference only. RHEL PAYG images already have the
 
 5. Download, verify, and install a client RPM Package Manager (RPM).
     
-    [!NOTE] 
+    [!NOTE]
+
     Package versions change. If you manually connect to Azure RHUI, you can find the latest version of the client package for each RHEL family by provisioning the latest image from the gallery.
   
    a. Download. 
@@ -136,7 +137,8 @@ This procedure is provided for reference only. RHEL PAYG images already have the
 
             ```bash
             curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel6/rhui-azure-rhel6-2.1-32.noarch.rpm 
-        ```
+             ```
+    
     - For RHEL 7:
 
             ```bash
