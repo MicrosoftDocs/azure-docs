@@ -394,8 +394,8 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       -VM $appVmConfig
 
     # Create the database server virtual machine configuration and virtual machine.
-    $databseVmConfig = New-AzureRmVMConfig `
-      -VMName mydatabaseVm `
+    $databaseVmConfig = New-AzureRmVMConfig `
+      -VMName myDatabaseVm `
       -VMSize Standard_DS1_V2 | `
     Set-AzureRmVMOperatingSystem -Windows `
       -ComputerName mydatabaseVm `
@@ -412,6 +412,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       -Location westeurope `
       -VM $databaseVmConfig
     ```
+
 14. **Optional**: Delete the resources that you create in this tutorial by completing the steps in [Delete resources](#delete-cli).
 
 ## <a name="delete"></a>Delete resources
