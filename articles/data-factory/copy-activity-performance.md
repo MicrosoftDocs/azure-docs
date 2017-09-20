@@ -234,7 +234,7 @@ You are charged based on two steps: copy duration and copy type.
 
 We suggest that you take these steps to tune the performance of your Data Factory service with Copy Activity:
 
-1. **Establish a baseline**. During the development phase, test your pipeline by using Copy Activity against a representative data sample. Collect execution time and performance characteristics following [Copy activity monitoring](copy-activity-overview.md#monitoring).
+1. **Establish a baseline**. During the development phase, test your pipeline by using Copy Activity against a representative data sample. Collect execution details and performance characteristics following [Copy activity monitoring](copy-activity-overview.md#monitoring).
 
 2. **Diagnose and optimize performance**. If the performance you observe doesn't meet your expectations, you need to identify performance bottlenecks. Then, optimize performance to remove or reduce the effect of bottlenecks. A full description of performance diagnosis is beyond the scope of this article, but here are some common considerations:
 

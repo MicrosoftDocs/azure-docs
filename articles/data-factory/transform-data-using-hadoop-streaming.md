@@ -1,5 +1,5 @@
 ---
-title: Transform data using Hadoop Streaming Activity in Azure Data Factory | Microsoft Docs
+title: Transform data using Hadoop Streaming activity in Azure Data Factory | Microsoft Docs
 description: Explains how to use Hadoop Streaming Activity in Azure Data Factory to transform data by running Hadoop Streaming programs on a Hadoop cluster. 
 services: data-factory
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.date: 08/10/2017
 ms.author: shengc
 
 ---
-# Transform data using Hadoop Streaming Activity in Azure Data Factory
+# Transform data using Hadoop Streaming activity in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1 - GA](v1/data-factory-hadoop-streaming-activity.md)
 > * [Version 2 - Preview](transform-data-using-hadoop-streaming.md)
@@ -26,7 +26,7 @@ The HDInsight Streaming Activity in a Data Factory [pipeline](concepts-pipelines
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Hadoop Streaming Activity in V1](v1/data-factory-hadoop-streaming-activity.md).
 
-If you are new to Azure Data Factory, read through [Introduction to Azure Data Factory](introduction.md) and do the tutorial: [Tutorial: transform data](tutorial-transform-data-using-spark-powershell.md) before reading this article. 
+If you are new to Azure Data Factory, read through [Introduction to Azure Data Factory](introduction.md) and do the tutorials before reading this article. 
 
 ## JSON sample
 ```json
@@ -74,7 +74,7 @@ If you are new to Azure Data Factory, read through [Introduction to Azure Data F
 | name              | Name of the activity                     | Yes      |
 | description       | Text describing what the activity is used for | No       |
 | type              | For Hadoop Streaming Activity, the activity type is HDInsightStreaming | Yes      |
-| linkedServiceName | Reference to the HDInsight cluster registered as a linked service in Data Factory | Yes      |
+| linkedServiceName | Reference to the HDInsight cluster registered as a linked service in Data Factory. To learn about this linked service, see [Compute linked services](compute-linked-services.md) article. | Yes      |
 | mapper            | Specifies the name of the mapper executable | Yes      |
 | reducer           | Specifies the name of the reducer executable | Yes      |
 | combiner          | Specifies the name of the combiner executable | No       |
@@ -89,11 +89,11 @@ If you are new to Azure Data Factory, read through [Introduction to Azure Data F
 ## Next steps
 See the following articles that explain how to transform data in other ways: 
 
-* [U-SQL Activity](transform-data-using-data-lake-analytics.md)
-* [Hive Activity](transform-data-using-hadoop-hive.md)
-* [Pig Activity](transform-data-using-hadoop-pig.md)
-* [MapReduce Activity](transform-data-using-hadoop-map-reduce.md)
-* [Spark Activity](transform-data-using-spark.md)
+* [U-SQL activity](transform-data-using-data-lake-analytics.md)
+* [Hive activity](transform-data-using-hadoop-hive.md)
+* [Pig activity](transform-data-using-hadoop-pig.md)
+* [MapReduce activity](transform-data-using-hadoop-map-reduce.md)
+* [Spark activity](transform-data-using-spark.md)
 * [.NET custom activity](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning Bach Execution Activity](transform-data-using-machine-learning.md)
+* [Machine Learning Batch Execution activity](transform-data-using-machine-learning.md)
 * [Stored procedure activity](transform-data-using-stored-procedure.md)

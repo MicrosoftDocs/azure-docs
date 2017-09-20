@@ -39,6 +39,30 @@ For Azure IR, the type must be set to **Managed**. You do not need to specify co
 
 You can configure an existing Azure IR to change its location using the Set-AzureRmDataFactoryV2IntegrationRuntime PowerShell cmdlet. For more information about the location of an Azure IR, see [Introduction to integration runtime](concepts-integration-runtime.md).
 
+## Use Azure IR
+
+Once an Azure IR is created, you can reference it in your Linked Service definition. Below is a sample of how you can reference the Azure Integration Runtime created above from an Azure Storage Linked Service:  
+
+```json
+{
+    "name": "MyStorageLinkedService",
+    "properties": {
+      "type": "AzureStorage",
+      "typeProperties": {
+        "connectionString": {
+          "value": "DefaultEndpointsProtocol=https;AccountName=myaccountname;AccountKey=...",
+          "type": "SecureString"
+        }
+      },
+      "connectVia": {
+        "referenceName": "MySampleAzureIR",
+        "type": "IntegrationRuntimeReference"
+      }   
+    }
+}
+
+```
+
 ## Next steps
 See the following articles on how to create other types of integration runtimes:
 
