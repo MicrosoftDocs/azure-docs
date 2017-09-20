@@ -32,7 +32,7 @@ In this tutorial, you use Azure PowerShell to create a Data Factory pipeline tha
 
 ## Prerequisites
 * **Azure subscription**. If you don't have a subscription, you can create a [free trial](http://azure.microsoft.com/pricing/free-trial/) account.
-* **Azure Storage account**. You create a python script and an input file, and upload them to the Azure storage. The output from the spark program is stored in this storage account. The on-demand Spark cluster uses the same storage account. 
+* **Azure Storage account**. You create a python script and an input file, and upload them to the Azure storage. The output from the spark program is stored in this storage account. The on-demand Spark cluster uses the same storage account as its primary storage.  
 * **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 
@@ -135,8 +135,11 @@ Update values for the following properties in the linked service definition:
 
 - **hostSubscriptionId**. Replace &lt;subscriptionID&gt; with the ID of your Azure subscription. The on-demand HDInsight cluster is created in this subscription. 
 - **tenant**. Replace &lt;tenantID&gt; with ID of your Azure tenant. 
-- **servicePrincipalId**, **servicePrincipalKey**. Replace &lt;servicePrincipalID&gt; and &lt;servicePrincipalKey&gt; with ID and key of your service principal in the Azure Active Directory. See [create Azure Active Directory application and service principal](../azure-resource-manager/resource-group-create-service-principal-portal.md) for details. 
+- **servicePrincipalId**, **servicePrincipalKey**. Replace &lt;servicePrincipalID&gt; and &lt;servicePrincipalKey&gt; with ID and key of your service principal in the Azure Active Directory. This service principal needs to be a member of the Contributor role of the subscription or the resource Group in which the cluster is created. See [create Azure Active Directory application and service principal](../azure-resource-manager/resource-group-create-service-principal-portal.md) for details. 
 - **clusterResourceGroup**. Replace &lt;resourceGroupOfHDICluster&gt; with the name of the resource group in which the HDInsight cluster needs to be created. 
+
+> [!NOTE}
+> Azure HDInsight has limitation on the total number of cores you can use in each Azure region it supports. For On-Demand HDInsight Linked Service, the HDInsight cluster will be created in the same location of the Azure Storage used as its primary storage. Ensure that you have enough core quotas for the cluster to be created successfully. For more information, see [Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more](../hdinsight/hdinsight-hadoop-provision-linux-clusters). 
 
 
 ## Author a pipeline 
@@ -242,74 +245,84 @@ You have authored linked service and pipeline definitions in JSON files. Now, le
 1. Start a pipeline run. It also captures the pipeline run ID for future monitoring.
 
     ```powershell
-    $runId = Inovke-AzureRmDataFactoryV2PipelineRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName  -Parameters @{ dummy = "b"}
+    $runId = Invoke-AzureRmDataFactoryV2PipelineRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName  -Parameters @{ dummy = "b"}
     ```
-2. Run the following script to continuously check the pipeline run status until it finishes copying the data.
+2. Run the following script to continuously check the pipeline run status until it finishes.
 
     ```powershell
-    while ($True) {
-        $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -PipelineName $pipelineName -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+	while ($True) {
+	    $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -PipelineName $pipelineName -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+	
+	    if(!$result) {
+	        Write-Host "Waiting for pipeline to start..." -foregroundcolor "Yellow"
+	    }
+	    elseif (($result | Where-Object { $_.Status -eq "InProgress" } | Measure-Object).count -ne 0) {
+	        Write-Host "Pipeline run status: In Progress" -foregroundcolor "Yellow"
+	    }
+	    else {
+	        Write-Host "Pipeline '"$pipelineName"' run finished. Result:" -foregroundcolor "Yellow"
+	        $result
+	        break
+	    }
+	    ($result | Format-List | Out-String)
+	    Start-Sleep -Seconds 15
+	}
 
-        if (($result | Where-Object { $_.Status -eq "InProgress" } | Measure-Object).count -ne 0) {
-            Write-Host "Pipeline run status: In Progress" -foregroundcolor "Yellow"
-            Start-Sleep -Seconds 30
-        }
-        else {
-            Write-Host "Pipeline run finished. Result:" -foregroundcolor "Yellow"
-            $result
-            break
-        }
-    }
+	Write-Host "Activity `Output` section:" -foregroundcolor "Yellow"
+	$result.Output -join "`r`n"
+
+	Write-Host "Activity `Error` section:" -foregroundcolor "Yellow"
+	$result.Error -join "`r`n" 
     ```  
 
     Here is the output of the sample run: 
 
     ```json
-    Pipeline run status:  InProgress
-    Pipeline run status:  InProgress
-    Pipeline run status:  Succeeded
-
-    Key                  : 35792305-f328-41ce-8e15-b964bc24f2d4
-    Timestamp            : 9/10/2017 10:38:39 PM
-    RunId                : 35792305-f328-41ce-8e15-b964bc24f2d4
-    DataFactoryName      : MyDataFactory09102017
-    PipelineName         : MySparkOnDemandPipeline
-    Parameters           : {}
-    ParametersCount      : 0
-    ParameterNames       : {}
-    ParameterNamesCount  : 0
-    ParameterValues      : {}
-    ParameterValuesCount : 0
-    RunStart             : 9/10/2017 10:25:55 PM
-    RunEnd               : 9/10/2017 10:38:39 PM
-    DurationInMs         : 763623
-    Status               : Succeeded
-    Message              :
-    ```
-
-3. Run the following command: 
-
-    ```powershell
-    Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(10)
-    ```
-    
-    Here is the sample output: 
-
-    ```json
-    ResourceGroupName : ADFTutorialResourceGroup
-    DataFactoryName   : MyDataFactory09102017
-    ActivityName      : MySparkActivity
-    Timestamp         : 9/10/2017 10:38:36 PM
-    PipelineRunId     : 35792305-f328-41ce-8e15-b964bc24f2d4
-    PipelineName      : MySparkOnDemandPipeline
-    Input             : {rootPath, entryFilePath, getDebugInfo, sparkJobLinkedService}
-    Output            : {clusterInUse, jobId, ExecutionProgress}
-    LinkedServiceName :
-    ActivityStart     : 9/10/2017 10:25:59 PM
-    ActivityEnd       : 9/10/2017 10:38:36 PM
-    Duration          :
-    Status            : Succeeded
-    Error             : {errorCode, message, failureType, target}
+	Pipeline run status: In Progress
+	
+	
+	ResourceGroupName : ADFTutorialResourceGroup
+	DataFactoryName   : 
+	ActivityName      : MySparkActivity
+	PipelineRunId     : 94e71d08-a6fa-4191-b7d1-cf8c71cb4794
+	PipelineName      : MySparkOnDemandPipeline
+	Input             : {rootPath, entryFilePath, getDebugInfo, sparkJobLinkedService}
+	Output            : 
+	LinkedServiceName : 
+	ActivityRunStart  : 9/20/2017 6:33:47 AM
+	ActivityRunEnd    : 
+	DurationInMs      : 
+	Status            : InProgress
+	Error             :
+	…
+	
+	Pipeline ' MySparkOnDemandPipeline' run finished. Result:
+	
+	
+	ResourceGroupName : ADFTutorialResourceGroup
+	DataFactoryName   : MyDataFactory09102017
+	ActivityName      : MySparkActivity
+	PipelineRunId     : 94e71d08-a6fa-4191-b7d1-cf8c71cb4794
+	PipelineName      : MySparkOnDemandPipeline
+	Input             : {rootPath, entryFilePath, getDebugInfo, sparkJobLinkedService}
+	Output            : {clusterInUse, jobId, ExecutionProgress, effectiveIntegrationRuntime}
+	LinkedServiceName : 
+	ActivityRunStart  : 9/20/2017 6:33:47 AM
+	ActivityRunEnd    : 9/20/2017 6:46:30 AM
+	DurationInMs      : 763466
+	Status            : Succeeded
+	Error             : {errorCode, message, failureType, target}
+	
+	Activity Output section:
+	"clusterInUse": "https://ADFSparkSamplexxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurehdinsight.net/"
+	"jobId": "0"
+	"ExecutionProgress": "Succeeded"
+	"effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US)"
+	Activity Error section:
+	"errorCode": ""
+	"message": ""
+	"failureType": ""
+	"target": "MySparkActivity"
     ```
 
 4. Confirm that a folder named `outputfiles` is created in the `spark` folder of adftutorial container with the output from the spark program. 
