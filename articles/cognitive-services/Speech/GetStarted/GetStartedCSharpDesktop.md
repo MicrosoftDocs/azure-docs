@@ -14,7 +14,7 @@ ms.author: prrajan
 
 # Get started with Bing speech recognition in C&#35; for .NET on Windows
 
-Develop a basic Windows application that uses the Bing Speech API to convert spoken audio to text by sending audio to Microsoft's servers in the cloud. Using the client library allows for real-time streaming. Thus, at the same time your client application sends audio to the service, it simultaneously and asynchronously receives partial recognition results. This article describes how to use the client library, which currently supports speech in seven languages. The following example defaults to American English, "en-US". 
+Develop a basic Windows application that uses the Bing Speech API to convert spoken audio to text by sending audio to Microsoft servers in the cloud. Using the client library allows for real-time streaming. Thus, at the same time your client application sends audio to the service, it simultaneously and asynchronously receives partial recognition results. This article describes how to use the client library, which currently supports speech in seven languages. The following example defaults to American English, "en-US". 
 
 For the client library API reference, see the [Microsoft Bing Speech SDK](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-Windows/master/docs/SpeechSDK/index.html).
 
@@ -30,7 +30,7 @@ Download the Bing Speech API client library and the example through the [SDK](ht
 ### Subscribe to the Bing Speech API, and get a free-trial subscription key
 Before you create the example, you must subscribe to the Bing Speech API, which is part of Microsoft Cognitive Services on Azure (previously Project Oxford). 
 
-For subscription and key management details, see [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up). Both the primary and secondary key can be used in this tutorial.
+For subscription and key management details, see [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up). Both the primary and secondary keys can be used in this tutorial.
 
 <a name="Step1"></a>
 ## Step 1: Install the example application
@@ -59,17 +59,17 @@ For subscription and key management details, see [Subscriptions](https://www.mic
 
 3. Under **Speech Recognition Source**, choose one of the six speech sources, which fall into two main input categories:
 
-  a. Use your computer's microphone, or an attached microphone, to capture speech.
+  * Use your computer's microphone, or an attached microphone, to capture speech.
 
-  b. Play an audio file.
+  * Play an audio file.
 
   Each category has three recognition modes:
 
-  a. **ShortPhrase mode**. An utterance up to 15 seconds long. As data is sent to the server, the client receives multiple partial results and one final multiple n-best choice result.
+  * **ShortPhrase mode**. An utterance up to 15 seconds long. As data is sent to the server, the client receives multiple partial results and one final multiple n-best choice result.
 
-  b. **LongDictation mode**. An utterance up to two minutes long. As data is sent to the server, the client receives multiple partial results and multiple final results, based on where the server identifies sentence pauses.
+  * **LongDictation mode**. An utterance up to two minutes long. As data is sent to the server, the client receives multiple partial results and multiple final results, based on where the server identifies sentence pauses.
 
-  c. **Intent detection**. The server returns additional structured information about the speech input. To use intent, you need to first train a model. For more information, see [LUIS](https://www.luis.ai/).
+  * **Intent detection**. The server returns additional structured information about the speech input. To use intent, you need to first train a model. For more information, see [LUIS](https://www.luis.ai/).
 
 Example audio files are available for use with this example application. The files are in the repository you downloaded with this example. Go to **SpeechRecognitionServiceExample** > **samples** > **Windows** > **SpeechToText**. If no other files are chosen, these example audio files run automatically when you select **Use wav file for Shortphrase mode** or **Use wav file for LongDictation mode**. Currently, only wav audio format is supported.
 
