@@ -23,9 +23,9 @@ In this tutorial, you use Azure PowerShell to create a Data Factory pipeline tha
 You perform the following steps in this tutorial:
 
 > [!div class="checklist"]
-> * Create a data factory.
-> * Create self-hosted integration runtime
-> * Create and encrypt on-prem SQL Server linked service on Self-hosted integration runtime
+> * Create a data factory..
+> * Create self-hosted integration runtime.
+> * Create and encrypt on-prem SQL Server linked service on Self-hosted integration runtime.
 > * Create Azure Storage linked service.
 > * Create SQL Server and Azure Storage datasets.
 > * Create a pipeline with a copy activity to move the data.
@@ -153,9 +153,9 @@ In this section, you can create a Self-hosted integration runtime and associate 
 
 ## Create linked services 
 
-### Create an Azure Storage linked service (destination/ sink)
+### Create an Azure Storage linked service (destination/sink)
 
-1. Create a JSON file named **AzureStorageLinkedService.json** in **C:\ADFv2Tutorial** folder with the following content: (Create the folder ADFv2Tutorial if it does not already exist.).  Replace **&lt;accountname&gt; and &lt;accountkey&gt;** with the name and key of your Azure Storage account.
+1. Create a JSON file named **AzureStorageLinkedService.json** in **C:\ADFv2Tutorial** folder with the following content. Create the folder ADFv2Tutorial if it does not already exist.  Replace &lt;accountname&gt; and &lt;accountkey&gt; with the name and key of your Azure Storage account.
 
    ```json
 	{
@@ -172,7 +172,7 @@ In this section, you can create a Self-hosted integration runtime and associate 
 	}
    ```
 
-2. In **Azure PowerShell**, switch to the **ADFv2Tutorial ** folder.
+2. In **Azure PowerShell**, switch to the **ADFv2Tutorial** folder.
 
    Run the **Set-AzureRmDataFactoryV2LinkedService** cmdlet to create the linked service: **AzureStorageLinkedService**. The cmdlets used in this tutorial take values for the **ResourceGroupName** and **DataFactoryName** parameters. Alternatively, you can pass the **DataFactory** object returned by the Set-AzureRmDataFactoryV2 cmdlet without typing ResourceGroupName and DataFactoryName each time you run a cmdlet.
 
@@ -354,7 +354,7 @@ In this step, you create input and output datasets that represent input and outp
 
 ### Create the pipeline "SqlServerToBlobPipeline"
 
-1. Create a JSON file named **SqlServerToBlobPipeline.json** in the **C:\ADFv2Tutorial ** folder, with the following content:
+1. Create a JSON file named **SqlServerToBlobPipeline.json** in the **C:\ADFv2Tutorial** folder, with the following content:
 
     ```json
     {

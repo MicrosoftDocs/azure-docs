@@ -25,7 +25,7 @@
     href: tutorial-deploy-ssis-packages.md    
   - name: 2 - Copy data in cloud
     href: tutorial-copy-data-dot-net.md
-  - name: 3 - Copy on-prem data to cloud
+  - name: 3 - Copy on-premises data to cloud
     href: tutorial-hybrid-copy-powershell.md
   - name: 4 - Copy data in bulk
     href: tutorial-bulk-copy.md
