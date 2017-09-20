@@ -22,13 +22,13 @@ This article explains how to configure and work with Microsoft Graph triggers an
 With these, you can use Azure Functions to work with data, insights, and events from the [Microsoft Graph](https://graph.microsoft.io).
 
 The Microsoft Graph extension provides the following bindings:
-- An [auth token input binding](#token-input)
-- An [Excel table input binding](#excel-input)
-- An [Excel table output binding](#excel-output)
-- An [OneDrive file input binding](#onedrive-input)
-- An [OneDrive file output binding](#onedrive-output)
-- An [Outlook message output binding](#outlook-output)
-- A collection of [Microsoft Graph webhook triggers and bindings](#webhooks)
+- An [auth token input binding](#token-input) allows you to interact with any Microsoft Graph API.
+- An [Excel table input binding](#excel-input) allows you to read data from Excel.
+- An [Excel table output binding](#excel-output) allows you to modify Excel data.
+- An [OneDrive file input binding](#onedrive-input) allows you to read files from OneDrive.
+- An [OneDrive file output binding](#onedrive-output) allows you to write to files in OneDrive.
+- An [Outlook message output binding](#outlook-output) allows you to send email through Outlook.
+- A collection of [Microsoft Graph webhook triggers and bindings](#webhooks) allows you to react to events from the Microsoft Graph.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -652,7 +652,7 @@ module.exports = function (context, req) {
 Webhooks allow you to react to events in the Microsoft Graph. To support webhooks, functions are needed to create, refresh, and react to _webhook subscriptions_. A complete webhook solution will require a combination of the following bindings:
 - A [Microsoft Graph webhook trigger](#webhook-trigger) allows you to react to an incoming webhook.
 - A [Microsoft Graph webhook subscription input binding](#webhook-input) allows you to list existing subscriptions and optionally refresh them.
-- A [Microsoft Graph webhook subscription input binding](#webhook-output) allows you to create or delete webhook subscriptions.
+- A [Microsoft Graph webhook subscription output binding](#webhook-output) allows you to create or delete webhook subscriptions.
 
 The bindings themselves do not require any AAD permissions, but you will need to request permissions relevant to the resource type you wish to react to. For a list of which permissions are needed for each resource type, see [subscription permissions](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/subscription_post_subscriptions#permissions).
 
