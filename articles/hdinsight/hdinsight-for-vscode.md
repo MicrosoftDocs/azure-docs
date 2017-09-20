@@ -145,9 +145,9 @@ HDInsight Tools for VSCode enable you to submit interactive Hive queries to HDIn
 2. Connect to your Azure account, and then configure the default cluster if you haven't done so.
 3. Copy and paste the following code into your Hive file, then save it.
 
-```hiveql
+    ```hiveql
     SELECT * FROM hivesampletable;
-```
+    ```
 3. Right-click the script editor, and then click **HDInsight: Interactive Hive** to submit the query. The Tools also allow you to submit a block of code instead of the whole script file using the context menu. Soon after, the query result is shown in a new tab:
 
    ![interactive Hive result](./media/hdinsight-for-vscode/interactive-hive-result.png)
@@ -163,9 +163,9 @@ Comparing to [running a Hive batch job](#submit-hive-batch-scripts), the interac
 2. Connect to your Azure account, and then configure the default cluster if you haven't done so.
 3. Copy and paste the following code into your Hive file, then save it.
 
-```hiveql
+    ```hiveql
     SELECT * FROM hivesampletable;
-```
+    ```
 3. Right-click the script editor, and then click **HDInsight: Submit Hive Batch Script** to submit a Hive job. 
 4. Select a cluster where you want to submit to.  
 
