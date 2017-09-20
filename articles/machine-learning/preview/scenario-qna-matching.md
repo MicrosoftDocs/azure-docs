@@ -40,7 +40,7 @@ The key steps required to deliver this solution are as follows:
 The prerequisites to run this example are as follows:
 
 1. An [Azure account](https://azure.microsoft.com/free/) (free trials are available).
-2. An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) following the [quick start installation guide](./quick-start-installation.md) to install the program and create a workspace.
+2. An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) following the [quick start installation guide](./quickstart-installation.md) to install the program and create a workspace.
 3. This example could be run on any compute context. However, it is recommended to run it on a multi-core machine with at least of 16-GB memory and 5-GB disk space.
 
 ## Create a new workbench project
