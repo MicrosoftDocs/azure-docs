@@ -1,20 +1,14 @@
 ---
 title: Back up Azure virtual machines at scale | Microsoft Docs 
 description: Simultaneously back up multiple virtual machines to Azure
-services: service-name-with-dashes-AZURE-ONLY 
-keywords: Don’t add or edit keywords without consulting your SEO champ.
+services: backup 
+keywords: virtual machine backup; virtual machine back up; back up vm; backup vm; backup Azure vm; backup and disaster recovery
 author: markgalioto
 ms.author: markgal
 ms.date: 09/16/2017
 ms.topic: article
 ms.service: backup
 
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.devlang:devlang-from-white-list
-# ms.suite: 
-# ms.tgt_pltfrm:
-# ms.reviewer:
 ---
 
 # Use Azure portal to back up multiple virtual machines

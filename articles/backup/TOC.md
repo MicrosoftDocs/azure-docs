@@ -10,7 +10,7 @@
 
 # Tutorials
 
-## [Back up Azure VMs at scale](tutorial-backup-azure-vm.md)
+## [Back up Azure VMs at scale](tutorial-backup-vm-at-scale.md)
 
 # Samples
 
