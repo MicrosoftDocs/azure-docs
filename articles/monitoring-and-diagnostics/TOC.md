@@ -56,7 +56,7 @@
 ### [Common patterns](monitoring-autoscale-common-scale-patterns.md)
 ### [Autoscale using a custom metric](monitoring-autoscale-scale-by-custom-metric.md)
 ### [Autoscale VM scale sets using Resource Manager templates](insights-advanced-autoscale-virtual-machine-scale-sets.md)
-### [Automatically scale machines in a VM Scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
+### [Automatically scale machines in a VM scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Configure webhooks and email notifications on autoscale](insights-autoscale-to-webhook-email.md)
 ## Use the activity log
 ### [View events in activity log](../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
