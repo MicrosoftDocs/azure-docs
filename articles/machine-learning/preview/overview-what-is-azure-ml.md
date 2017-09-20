@@ -131,8 +131,7 @@ The [MMLSpark](https://github.com/Azure/mmlspark)(Microsoft Machine Learning Lib
 - Train classification and regression models easily via implicit featurization of data
 - Compute a rich set of evaluation metrics including per-instance metrics
 
- For more information, reference [Using MMLSpark in Azure Machine Learning](how-to-use-mmlspark.md).
-
+For more information, reference [Using MMLSpark in Azure Machine Learning](how-to-use-mmlspark.md).
 
 ## Visual Studio Code Tools for AI
 Visual Studio Code Tools for AI is an extension in VS Code to build, test, and deploy Deep Learning and AI solutions. It features many integration points with Azure Machine Learning, including:
@@ -207,9 +206,9 @@ Microsoft Cognitive Services is a set of 30 APIs that enable you build apps that
 - Language understanding
 - Knowledge and search
 
-Microsoft Cognitive Services can be to develop apps across devices and platforms. The APIs keep improving, and are easy to set up. 
+Microsoft Cognitive Services can be used to develop apps across devices and platforms. The APIs keep improving, and are easy to set up. 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## Next Steps
-* [Create and Install Azure Machine Learning](quickstart-installation.md)
+* [Install and create Azure Machine Learning](quickstart-installation.md)
