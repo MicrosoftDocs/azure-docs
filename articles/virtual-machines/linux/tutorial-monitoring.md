@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 # How to monitor and update a Linux virtual machine in Azure
 
-To ensure your virtual machines (VMs) in Azure are running correctly, you can review boot diagnostics and performance metrics and manage package updates.
+To ensure your virtual machines (VMs) in Azure are running correctly, you can review boot diagnostics, performance metrics and manage package updates.
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
