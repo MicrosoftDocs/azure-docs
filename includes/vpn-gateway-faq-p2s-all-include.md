@@ -50,4 +50,4 @@ It's difficult to maintain the exact throughput of the VPN tunnels. IPsec and SS
 
 ### Can I use any software VPN client for Point-to-Site that supports SSTP and/or IKEv2?
 
-No. You can only use the native VPN client on Windows for SSTP, and the native VPN client on Mac for IKEv2. See the list of [supported client operating systems](#supportedclientos).
+No. You can only use the native VPN client on Windows for SSTP, and the native VPN client on Mac for IKEv2. Refer to the list of supported client operating systems.

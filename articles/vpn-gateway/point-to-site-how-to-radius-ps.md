@@ -199,6 +199,8 @@ The VPN client configuration lets devices connect to a VNet over a P2S connectio
 
 ## <a name="connect"></a>6. Connect to Azure
 
+### To connect from a Windows VPN client
+
 1. To connect to your VNet, on the client computer, navigate to VPN connections and locate the VPN connection that you created. It is named the same name as your virtual network. Enter your domain credentials and click 'Connect'. A pop-up message requesting elevated rights appears. Accept it and enter the credentials.
 
   ![VPN client connects to Azure](./media/point-to-site-how-to-radius-ps/client.png)
@@ -206,7 +208,13 @@ The VPN client configuration lets devices connect to a VNet over a P2S connectio
 
   ![Connection established](./media/point-to-site-how-to-radius-ps/connected.png)
 
-## <a name="verify"></a>7. Verify your connection
+### Connect from a Mac VPN client
+
+From the Network dialog box, locate the client profile that you want to use, then click **Connect**.
+
+  ![Mac connection](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
+
+## <a name="verify"></a>To verify your connection
 
 1. To verify that your VPN connection is active, open an elevated command prompt, and run *ipconfig/all*.
 2. View the results. Notice that the IP address you received is one of the addresses within the Point-to-Site VPN Client Address Pool that you specified in your configuration. The results are similar to this example:
@@ -224,7 +232,7 @@ The VPN client configuration lets devices connect to a VNet over a P2S connectio
       NetBIOS over Tcpip..............: Enabled
   ```
 
-## <a name="connectVM"></a>Connect to a virtual machine
+## <a name="connectVM"></a>To connect to a virtual machine
 
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-p2s-include.md)]
 

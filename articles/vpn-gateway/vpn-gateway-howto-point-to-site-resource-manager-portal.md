@@ -147,7 +147,7 @@ The VPN client configuration files contain settings to configure devices to conn
 
 ## <a name="connect"></a>10. Connect to Azure
 
-### Connect from a Windows VPN client
+### To connect from a Windows VPN client
 
 1. To connect to your VNet, on the client computer, navigate to VPN connections and locate the VPN connection that you created. It is named the same name as your virtual network. Click **Connect**. A pop-up message may appear that refers to using the certificate. Click **Continue** to use elevated privileges.
 
@@ -162,13 +162,15 @@ The VPN client configuration files contain settings to configure devices to conn
 
 [!INCLUDE [verifies client certificates](../../includes/vpn-gateway-certificates-verify-client-cert-include.md)]
 
-### Connect from a Mac VPN client
+### To connect from a Mac VPN client
 
 From the Network dialog box, locate the client profile that you want to use, then click **Connect**.
 
   ![Mac connection](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 
-## <a name="verify"></a>11. Verify your connection from a Windows client
+## <a name="verify"></a>To verify your connection
+
+These instructions apply to Windows clients.
 
 1. To verify that your VPN connection is active, open an elevated command prompt, and run *ipconfig/all*.
 2. View the results. Notice that the IP address you received is one of the addresses within the Point-to-Site VPN Client Address Pool that you specified in your configuration. The results are similar to this example:
@@ -186,11 +188,13 @@ From the Network dialog box, locate the client profile that you want to use, the
       NetBIOS over Tcpip..............: Enabled
   ```
 
-## <a name="connectVM"></a>Connect to a virtual machine from a Windows client
+## <a name="connectVM"></a>To connect to a virtual machine
+
+These instructions apply to Windows clients.
 
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-p2s-include.md)]
 
-## <a name="add"></a>Add or remove trusted root certificates
+## <a name="add"></a>To add or remove trusted root certificates
 
 You can add and remove trusted root certificates from Azure. When you remove a root certificate, clients that have a certificate generated from that root won't be able to authenticate, and thus will not be able to connect. If you want a client to authenticate and connect, you need to install a new client certificate generated from a root certificate that is trusted (uploaded) to Azure.
 
