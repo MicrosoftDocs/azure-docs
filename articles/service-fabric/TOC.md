@@ -17,6 +17,7 @@
 ## Containerize an existing .NET app
 ### [1- Create a secure cluster on Azure](service-fabric-tutorial-create-cluster-azure-ps.md)
 ### [2- Deploy a .NET app using Docker Compose](service-fabric-host-app-in-a-container.md)
+### [3- Monitor your container](service-fabric-tutorial-monitoring-wincontainers.md)
 
 # Samples
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
