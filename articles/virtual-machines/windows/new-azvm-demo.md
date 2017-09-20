@@ -1,6 +1,6 @@
 ﻿---
 title: Create Windows VM using New-AzVM cmdlet in Azure Cloud Shell| Microsoft Docs
-description: Quickly learn to create a Windows virtual machines with the New-AzVMcmdlet in Azure Cloud Shell.
+description: Quickly learn to create Windows virtual machines with the New-AzVMcmdlet in Azure Cloud Shell.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -30,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create the VM
 
-We will use the [New-AzVM](/powershell/module/azurerm.network/new-azvm) cmdlet to create the VM with smart defaults that include using the Windows Server 2016 Datacenter image from the Azure Marketplace. You can use New-AzVM alone and it will use default values for the resource names. In this example, we will set the **-Name** parameter as *myVM*. The cmdlet will create all the required resources using *myVM* as the prefix for the resource name. 
+You can use the [New-AzVM](/powershell/module/azurerm.network/new-azvm) cmdlet to create a VM with smart defaults that include using the Windows Server 2016 Datacenter image from the Azure Marketplace. You can use New-AzVM alone and it will use default values for the resource names. In this example, we set the **-Name** parameter as *myVM*. The cmdlet will create all the required resources using *myVM* as the prefix for the resource name. 
 
 Make sure that **PowerShell** is selected in Cloud Shell and type:
 
@@ -46,11 +46,11 @@ It will take a minute to create the VM and the associated resources. When finish
 Find-AzureRmResource -ResourceGroupNameEquals myVMResourceGroup | Format-Table Name
 ```
 
-## Connect to virtual machine
+## Connect to the VM
 
 After the deployment has completed, create a remote desktop connection with the virtual machine.
 
-Use the [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) command to return the public IP address of the virtual machine. Take note of this IP Address so you can connect to it with your browser to test web connectivity in a future step.
+Use the [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) command to return the public IP address of the virtual machine. Take note of this IP Address.
 
 ```powershell-interactive
 Get-AzureRmPublicIpAddress -ResourceGroupName myVMResourceGroup | Select IpAddress
