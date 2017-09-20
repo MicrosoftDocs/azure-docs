@@ -111,7 +111,8 @@ Here are the steps to follow to change to V2 Stack.
     <Endpoints>
       <Endpoint Name="ServiceEndpointV2" />  
     </Endpoints>
-  </Resources>```
+  </Resources>
+  ```
 
 2.  Use Following Extension Method to Create Remoting Listener.
 
@@ -154,7 +155,6 @@ Here are the steps to follow.
             })
         };
     }
-
   ```
 
 3. Use V2 [Client Factory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet) .
@@ -163,7 +163,7 @@ Here are the steps to follow.
           {
               return new FabricTransportServiceRemotingClientFactory();
           });
-            ```
+  ```
 
 ## How to upgrade from Remoting V1 to Remoting V2.
 In order to upgrade from V1 to V2 , 2 step upgrades are required. These steps needs to be followed in the sequence listed.
@@ -172,13 +172,13 @@ In order to upgrade from V1 to V2 , 2 step upgrades are required. These steps ne
 This will make sure that service is listening  on V1 and V2 Listener.
 
     a) Add Service Endpoint with name as "ServiceEndpointV2" .
-
       ```xml
       <Resources>
         <Endpoints>
           <Endpoint Name="ServiceEndpointV2" />  
         </Endpoints>
-      </Resources>```
+      </Resources>
+      ```
 
     b)  Use Following Extension Method to Create Remoting Listener.
 
@@ -187,7 +187,7 @@ This will make sure that service is listening  on V1 and V2 Listener.
     {
         return this.CreateServiceRemotingInstanceListeners();
     }
-      ```
+    ```
 
     c)  Add Assembly Attribute on Remoting Interfaces to use CompatListener and V2 Client.
     ```csharp
