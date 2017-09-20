@@ -126,8 +126,8 @@ description: Learn how to build and manage powerful applications using Microsoft
 														<a class="barLink" href="/nodejs/azure/?view=azure-node-2.0.0">
 															<img src="media/index/logo_nodejs.svg" alt="">
 															Node.js</a>
-													</li>
-												</ul>
+													</div>
+												</div>
                                                 <div>
                                                     <h4>App Models</h4>
                                                     <ul class="noBullet">
