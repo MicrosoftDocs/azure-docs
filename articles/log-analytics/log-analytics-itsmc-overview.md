@@ -1,6 +1,6 @@
 ---
-title: IT Service Management Connector in OMS | Microsoft Docs
-description: Use the IT Service Management Connector to centrally monitor and manage the ITSM work items in OMS, and resolve any issues quickly.  
+title: IT Service Management Connector in Azure Log Analytics | Microsoft Docs
+description: Use the IT Service Management Connector to centrally monitor and manage the ITSM work items in Azure Log Analytics, and resolve any issues quickly.  
 services: log-analytics
 documentationcenter: ''
 author: JYOTHIRMAISURI
@@ -297,7 +297,7 @@ When creating/editing an Azure alert rule, use an Action Group, which has an ITS
 3.	If you fail to create service bus relay namespace, ensure that the required resource provider is registered in the subscription. If not registered, manually create service bus relay namespace from the Azure portal. You can also create it while [creating the hybrid connection](log-analytics-itsmc-connections.md#configure-the-hybrid-connection) from the Azure portal.
 
 
-## Contact Us
+## Contact us
 
 For any queries or feedback on the IT Service Management Connector, contact us at [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com).
 
