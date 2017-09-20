@@ -64,7 +64,7 @@ Follow these instructions to verify that you have enabled Seamless SSO correctly
 
 ## Step 3: Roll out the feature
 
-To roll out the feature to your users, you need to add two Azure AD URLs (https://autologon.microsoftazuread-sso.com and https://aadg.windows.net.nsatc.net) to users' Intranet zone settings via Group Policy in Active Directory.
+To roll out the feature to your users, you need to add a couple of Azure AD URLs to users' Intranet zone settings using Group Policy in Active Directory.
 
 >[!NOTE]
 > The following instructions only work for Internet Explorer and Google Chrome on Windows  (if it shares set of trusted site URLs with Internet Explorer). Read the next section for instructions to set up Mozilla Firefox and Google Chrome on Mac.
@@ -137,7 +137,7 @@ To test the scenario where the user doesn't have to enter the username or the pa
 
 ## Step 5: Roll over keys
 
-In Step 2, Azure AD Connect creates computer accounts (representing Azure AD) in all the AD forests on which you have enabled Seamless SSO. Learn more in detail [here](active-directory-aadconnect-sso-how-it-works.md). For improved security, it is recommended that  you frequently roll over the Kerberos decryption keys of these computer accounts.
+In Step 2, Azure AD Connect creates computer accounts (representing Azure AD) in all the AD forests on which you have enabled Seamless SSO. Learn more in detail [here](active-directory-aadconnect-sso-how-it-works.md). For improved security, it is recommended that you periodically roll over the Kerberos decryption keys of these computer accounts. The instructions on how to roll over are [here](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacct-computer-account).
 
 >[!IMPORTANT]
 >You don't need to do this step _immediately_ after you have enabled the feature. Roll over the Kerberos decryption keys at least every 30 days.
