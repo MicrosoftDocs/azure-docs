@@ -89,7 +89,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/virtual-machines/linux/">Linux virtual machines</a></li>
                                                     <li><a class="barLink" href="/azure/virtual-machines/windows/">Windows virtual machines</a></li>
-                                                    <li><a class="barLink" href="/azure/containers/">Windows and Linux containers</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -133,8 +132,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/app-service-web/">Web apps</a></li>
                                                     <li><a class="barLink" href="/azure/azure-functions/">Serverless functions</a></li>
-                                                    <li><a class="barLink" href="/azure/container-instances/">Container instances</a></li>
-                                                    <li><a class="barLink" href="/azure/container-service/kubernetes/">Containers with Kubernetes</a></li>
+                                                    <li><a class="barLink" href="/azure/containers/">Containers</a></li>
                                                     <li><a class="barLink" href="/azure/service-fabric/">Microservices with Service Fabric</a></li>
                                                 </ul>
                                             </div>
