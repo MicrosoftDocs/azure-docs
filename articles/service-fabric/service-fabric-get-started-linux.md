@@ -155,7 +155,7 @@ Service Fabric provides scaffolding tools which will help you create Service Fab
 
 After you have installed the generators, you should be able to create guest executable or container services by running `yo azuresfguest` or `yo azuresfcontainer`, respectively.
 
-## Setup .NET Core 2.0 development
+## Set up .NET Core 2.0 development
 
 Install the [.NET Core 2.0 SDK for Ubuntu](https://www.microsoft.com/net/core#linuxubuntu) to start [creating C# Service Fabric applications](service-fabric-create-your-first-linux-application-with-csharp.md). Packages for .NET Core 2.0 Service Fabric applications are hosted on NuGet.org, currently in preview.
 
