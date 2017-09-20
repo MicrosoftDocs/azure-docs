@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2017
+ms.date: 09/15/2017
 ms.author: mimig
 ms.custom: cda
 ---
@@ -87,6 +87,14 @@ Tip 8: Build a @nodejs app by using SQL API and Azure #CosmosDB. Learn more on d
 > [!VIDEO https://www.youtube.com/embed/_gd9ZY-rHtM]
 
 [![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/908344625101815808)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6314096399197757440)
+
+## Tip 9: Query using MongoDB in Node.js
+
+Tip 9: Query Azure #CosmosDB using the MongoDB API in Node.js. Learn more on docs page [https://aka.ms/Dert0r](https://aka.ms/Dert0r)  
+
+![Query with MongoDB](./media/20-days-of-tips/cosmos-db-tip-9-mongodb-query.png)
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/908737218759376896)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6314500690261655552)
 
 ## Next steps
 

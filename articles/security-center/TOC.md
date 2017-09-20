@@ -19,7 +19,9 @@
 
 ## Security policy
 ### [Data collection](security-center-enable-data-collection.md)
-### [Set security policies](security-center-policies.md)
+### [Security policy](security-center-policies.md)
+### [Email notifications](security-center-provide-security-contact-details.md)
+### [Pricing tier](security-center-pricing.md)
 
 ## [Onboarding](security-center-onboarding.md)
 ## [Events](security-center-events-dashboard.md)
@@ -37,7 +39,6 @@
 #### [Enable encryption for storage account](security-center-enable-encryption-for-storage-account.md)
 #### [Enable VM Agent](security-center-enable-vm-agent.md)
 #### [Install Endpoint Protection](security-center-install-endpoint-protection.md)
-#### [Provide security contact details](security-center-provide-security-contact-details.md)
 #### [Reboot after system updates](security-center-apply-system-updates.md#reboot-after-system-updates)
 #### [Remediate OS vulnerabilities](security-center-remediate-os-vulnerabilities.md)
 #### [Resolve endpoint protection health alerts](security-center-resolve-endpoint-protection-health-alerts.md)
@@ -87,7 +88,6 @@
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Azure Security, Privacy, & Compliance blog](http://blogs.msdn.com/b/azuresecurity/)
-## [Pricing](security-center-pricing.md)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service overview](https://azure.microsoft.com/services/security-center/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=security-center)

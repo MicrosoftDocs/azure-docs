@@ -64,8 +64,7 @@ RecoveryServicesVaultUpgrade-1.0.2.ps1 **-SubscriptionID** `<subscriptionID>` **
 
 >[!NOTE]
 > Resource Group names have constraints. Be sure to follow the guidance; failure to do so could cause vault upgrades to fail.
->
->
+>Azure US Government customers need to set the environment to “AzureUSGovernment” while running the script.
 
 The following code snippet is an example of what your PowerShell command should look like:
 
