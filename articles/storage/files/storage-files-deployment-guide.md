@@ -23,7 +23,7 @@ ms.author: wgries
 We strongly recommend reading [Planning for an Azure Files deployment](storage-files-planning.md) prior to following the steps in this article.
 
 ## Prerequisites
-This article assumes that you have already:
+This article assumes that you have already completed the following steps:
 
 - Created an Azure Storage Account with your desired resiliency and encryption options, in the region you desire. See [Create a Storage Account](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for step-by-step directions on how to create a Storage Account.
 - Created an Azure File share with your desired quota in your Storage Account. See [Create a file share](storage-how-to-create-file-share.md) for step-by-step directions on how to create a file share.
@@ -32,7 +32,7 @@ This article assumes that you have already:
 You may wish to migrate existing file shares, such as those stored on-premises, to your new Azure File share. This section will show you how to move data into an Azure File share via several popular methods detailed from the [planning guide](storage-files-planning.md#data-transfer-method)
 
 ### Azure File Sync (preview)
-Azure File Sync (preview) maybe used to migrate data into an Azure File share, even if the sync mechanism isn't desired for long-term use. More information on how to use Azure File Sync ingress data into Azure File share can be found in the [Planning for an Azure File Sync deployment](storage-sync-files-planning.md) and the [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md) guides.
+Azure File Sync (preview) maybe used to migrate data into an Azure File share, even if the sync mechanism isn't desired for long-term use. More information on how to use Azure File Sync to ingress data into Azure File share can be found in [Planning for an Azure File Sync deployment](storage-sync-files-planning.md) and [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md).
 
 ### Azure Import/Export
 The Azure Import/Export service allows you to securely transfer large amounts of data into an Azure File share by shipping hard disk drives to an Azure datacenter. See [Use the Microsoft Azure Import/Export service to transfer data to Azure storage](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for a more detailed overview of the service.
