@@ -135,13 +135,43 @@ You need to create a replication policy, before you can enable replication
 2. In **Name**, type **myReplicationPolicy**.
 3. Leave the rest of the default settings and click **OK** to create the policy. The new policy is automatically associated with the configuration server. 
 
+### 5 Deployment planning Select
 
-Enable replication for each VM you want to migrate.
+In **Have you completed deployment planning?**, select **I will do it later** from the drop-down and then click **OK**.
 
-- Site Recovery will install the Mobility service when replication is enabled.
-- When you enable replication for a VM, it can take 15 minutes or longer for changes to take effect and appear in the portal.
+When you are all done with all 5 sections of **Prepare infrastructure**, click **OK**.
 
-1. Click **Replicate application** > **Source**.
+
+## Enable replication
+
+Enable replication for each VM you want to migrate. When replication is enables, Site Recovery will install the Mobility service automatically. 
+
+1. On the page for you vault, under **Getting Started**, click **Site Recovery**.
+2. Under **For on-premises machines and Azure VMs**, click **Step 1:Replicate application**. Complete the wizerd pages with the following information and click **OK** on each page when finished:
+	- 1 Source Configure:
+	
+		Source: On Premises
+		Source location: the name of your configuration server Ec2 instance
+		Machine type: Physical machines
+		Process server: select the configuration server from the drop-down list
+	
+	- 2 Target Configure
+		
+		Target: leave the default
+		Subscription: use the subscription you used for the [Prepare Azure](tutorial-prepare-azure.md) tutorial
+		Post-failover resource group: use the resource group you created during the [Prepare Azure](tutorial-prepare-azure.md) tutorial
+		Post-failover deployment model: choose Resource manager
+		Storage account: choose the storage account you creating for the [Prepare Azure](tutorial-prepare-azure.md) tutorial
+		Azure network: choose **Configure now for selected machines**
+		Post-failover Azure network: choose the network you created for the [Prepare Azure](tutorial-prepare-azure.md) tutorial
+		Subnet: select the **default** from the drop-down
+	
+	- 3 Physical Machines Select
+		Click **+ Physical machine** and then enter the **Name**, the **IP Address** and **OS Type** of the Ec2 instance that you want to migrate and then click **OK**
+		
+		
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx		
+		
 2. In **Source**, select the configuration server.
 3. In **Machine type**, select **Physical machines**.
 4. Select the process server (the configuration server). Then click **OK**.
@@ -155,13 +185,9 @@ Enable replication for each VM you want to migrate.
 1. In **Properties** > **Configure properties**, select the account that will be used by the process server to automatically install the Mobility service on the machine.
 2. In **Replication settings** > **Configure replication settings**, verify that the correct replication policy is selected. 
 3. Click **Enable Replication**. You can track progress of the **Enable Protection** job in **Settings** > **Jobs** > **Site Recovery Jobs**. After the **Finalize Protection** job runs the machine is ready for failover.
--->
-### 5 Deployment planning Select
 
-In **Have you completed deployment planning?**, select **I will do it later** from the drop-down and then click **OK**.
 
-When you are all done with all 5 sections of **Prepare infrastructure**, click **OK**.
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+When you enable replication for a VM, it can take 15 minutes or longer for changes to take effect and appear in the portal.
 
 ## Run a test failover
 
