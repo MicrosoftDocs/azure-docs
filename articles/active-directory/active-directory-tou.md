@@ -42,7 +42,7 @@ Use the following steps to configure Azure AD Terms of Use:
 
 
 
-## Add Terms of Use
+## Add Company Terms of Use
 Once you have finalized your Terms of Use, use the following procedure to add it.
 
 ### To add Terms of Use
@@ -51,8 +51,8 @@ Once you have finalized your Terms of Use, use the following procedure to add it
 ![Add TOU](media/active-directory-tou/tou2.png)
 3. Enter the **Name** for the Terms of Use
 4. Enter **Display Name**.  This is the header that users see when they sign in.
-5. **Browse** to your finalized terms of use pdf and select it.
-6. You can **Enforce** the terms of use by using a template or a custom conditional access policy.  Custom conditional access policies enable allow granular terms of use, down to a specific cloud application or group of users.  From more information see [configuring conditional access policies](active-directory-conditional-access-best-practices.md)
+5. **Browse** to your finalized terms of use pdf and select it.  The recommended font size is 24.
+6. You can **Enforce** the uploaded terms of use by using a template or a custom conditional access policy.  Custom conditional access policies enables granular terms of use, down to a specific cloud application or group of users.  For more information see [configuring conditional access policies](active-directory-conditional-access-best-practices.md)
 7. Click **Create**.
 8. If you selected a custom conditional access template, then a new screen appears which allows you to customize the CA policy.
 7. You should now see your new Terms of Use.</br>
@@ -81,7 +81,7 @@ Azure AD Terms of Use provides easy to use auditing so that you can see who has 
 4.  You can also download the information in a .csv file for use locally.
 
 ## What users see
-Users, who are in scope, will see the following once a terms of use is created and enforced.
+Users, who are in scope, will see the following once a terms of use is created and enforced.  They will see these screens during sign in.
 -	Best practice is to have the font within the PDF at size 24.
 ![Audit Event](media/active-directory-tou/tou10.png)
 -	This screen is how it appears on mobiles</br>
@@ -120,3 +120,6 @@ A: No, currently it is not possible to have multiple languages in a single terms
 
 **Q: When is the terms of use triggered?**
 A: The terms of use will be triggered during the sign-in experience.
+
+**Q: What applications can I target a terms of use too?**
+A: You can create a conditional access policy on the enterprise applications using modern authentication. 
