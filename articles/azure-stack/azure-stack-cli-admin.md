@@ -54,7 +54,7 @@ certutil -encode root.cer root.pem
 
 Azure Stack operators should set up a publicly accessible endpoint that hosts a virtual machine aliases file.  The virtual machine alias file is a JSON file that provides a common name for an image, which is subsequently specified when deploying a VM as an Azure CLI parameter.  
 
-Before you add an entry to an alias file, make sure that you [download images from the marketplace]((azure-stack-download-azure-marketplace-item.md), or have [published your own custom image](azure-stack-add-vm-image.md).  If you publish a custom image, make note of the publisher, offer, SKU, and version information you specified during publishing.  If it is an image from the marketplace, you can view the information using the Get-AzureVMImage commandlet.  
+Before you add an entry to an alias file, make sure that you [download images from the marketplace]((azure-stack-download-azure-marketplace-item.md), or have [published your own custom image](azure-stack-add-vm-image.md).  If you publish a custom image, make note of the publisher, offer, SKU, and version information you specified during publishing.  If it is an image from the marketplace, you can view the information using the ```Get-AzureVMImage``` cmdlet.  
    
 A [sample alias file](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) with many common image aliases is available, which you can use as a starting point.  You should host this file in a space that your CLI clients can reach it.  One way to do this, is to host in a blob storage account, and share the URL with your users:
 
