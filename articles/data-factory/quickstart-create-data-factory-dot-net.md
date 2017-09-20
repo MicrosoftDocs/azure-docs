@@ -46,8 +46,8 @@ Using Visual Studio 2013/2015/2017, create a C# .NET console application.
 2. In the **Package Manager Console**, run the following commands to install packages:
 
     ```
-    Install-Package Microsoft.Azure.Management.DataFactory 
-    Install-Package Microsoft.Azure.Management.ResourceManager
+    Install-Package Microsoft.Azure.Management.DataFactory -Prerelease
+    Install-Package Microsoft.Azure.Management.ResourceManager -Prerelease
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
     ```
 
@@ -265,8 +265,11 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
     ```csharp
     // Check the copy activity run details
     Console.WriteLine("Checking copy activity run details...");
+   
     List<ActivityRun> activityRuns = client.ActivityRuns.ListByPipelineRun(
-        resourceGroup, dataFactoryName, runResponse.RunId, DateTime.UtcNow.AddMinutes(-10), DateTime.UtcNow.AddMinutes(10), pipelineName).ToList();
+    resourceGroup, dataFactoryName, runResponse.RunId, DateTime.UtcNow.AddMinutes(-10), DateTime.UtcNow.AddMinutes(10)).ToList(); 
+ 
+
     if (pipelineRun.Status == "Succeeded")
         Console.WriteLine(activityRuns.First().Output);
     else
@@ -404,3 +407,5 @@ The pipeline in this sample copies data from one location to another location in
 Tutorial | Description
 -------- | -----------
 [Tutorial: copy data from Azure Blob Storage to Azure SQL Database](tutorial-copy-data-dot-net.md) | Shows you how to copy data from a blob storage to a SQL database. For a list of data stores supported as sources and sinks in a copy operation by data factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats). 
+[Tutorial: copy data from an on-premises SQL Server to an Azure blob storage](tutorial-hybrid-copy-powershell.md) | Shows you how to copy data from an on-premises SQL Server database to an Azure blob storage. 
+[Tutorial: transform data using Spark](tutorial-transform-data-spark-powershell.md) | Shows you how to transform data in the cloud by using a Spark cluster on Azure

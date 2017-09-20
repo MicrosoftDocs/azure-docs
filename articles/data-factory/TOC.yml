@@ -17,14 +17,16 @@
       href: quickstart-create-data-factory-python.md      
     - name: REST   
       href: quickstart-create-data-factory-rest-api.md
+    - name: Portal   
+      href: quickstart-create-data-factory-portal.md      
 - name: Tutorials
   items:
-  - name: 1. Deploy SSIS packages to Azure
+  - name: 1 - Deploy SSIS packages to Azure
     href: tutorial-deploy-ssis-packages-azure.md    
   - name: 2 - Copy data in cloud
     href: tutorial-copy-data-dot-net.md
-  - name: 3 - Copy on-prem data to cloud
-    href: tutorial-copy-onprem-data-to-cloud-powershell.md
+  - name: 3 - Copy on-premises data to cloud
+    href: tutorial-hybrid-copy-powershell.md
   - name: 4 - Copy data in bulk
     href: tutorial-bulk-copy.md
   - name: 5 - Copy data incrementally
@@ -189,11 +191,13 @@
 - name: Reference
   items:
   - name: .NET
+    href: /dotnet/api/microsoft.azure.management.datafactory
   - name: PowerShell
-    href: /powershell/azure/data-factory
+    href: /powershell/module/azurerm.datafactory/
   - name: REST API
-    href: /rest/api/data-factory
+    href: /rest/api/datafactory
   - name: Python
+    href: /python/api/overview/azure/datafactory?view=azure-python
 - name: Resources
   items:
   - name: Azure Roadmap

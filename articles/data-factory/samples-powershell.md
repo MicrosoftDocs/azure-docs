@@ -36,6 +36,6 @@ Go through the following tutorials to learn about using Data Factory in more sce
 
 Tutorial | Description
 -------- | -----------
-[Tutorial: copy data from an on-premises SQL Server to an Azure blob storage](tutorial-copy-onprem-data-to-cloud-powershell.md) | Shows you how to copy data from an on-premises SQL Server database to an Azure blob storage. 
+[Tutorial: copy data from an on-premises SQL Server to an Azure blob storage](tutorial-hybrid-copy-powershell.md) | Shows you how to copy data from an on-premises SQL Server database to an Azure blob storage. 
 [Tutorial: Bulk copy](tutorial-bulk-copy.md) | Shows you how to copy data in bulk form a source data store to a destination data store. 
 

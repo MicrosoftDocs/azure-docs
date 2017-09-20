@@ -73,7 +73,7 @@ Here is a high-level data flow for the summary of steps for copy with self-hoste
 - As copy activity runs happen on a specific frequency, the resource usage (CPU, memory) on the machine also follows the same pattern with peak and idle times. Resource utilization also depends heavily on the amount of data being moved. When multiple copy jobs are in progress, you see resource usage go up during peak times.
 
 ## Installation best practices
-Self-hosted integration runtime can be installed by downloading an MSI setup package from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). See [Move data between on-premises and cloud article](tutorial-copy-onprem-data-to-cloud-powershell.md) for step-by-step instructions.
+Self-hosted integration runtime can be installed by downloading an MSI setup package from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). See [Move data between on-premises and cloud article](tutorial-hybrid-copy-powershell.md) for step-by-step instructions.
   
 - Configure power plan on the host machine for the self-hosted integration runtime so that the machine does not hibernate. If the host machine hibernates, the self-hosted integration runtime turns offline.
 - Back up the credentials associated with the self-hosted integration runtime regularly.
@@ -104,7 +104,7 @@ A Self-hosted Integration Runtime can be associateed to multiple on-premise mach
 1. Higher availability of Self-hosted Integration Runtime so that it is no longer the single point of failure in your Big Data	solution or cloud data integration with Azure Data Factory, ensuring continuity with up to 4 nodes.
 2. Improved performance and throughput during data movement between on-premises and cloud data stores. Get more information on [performance comparisons](copy-activity-performance.md).
 
-You can associate multiple nodes by simply installing the Self-hosted Integration Runtime software from the [download center](https://www.microsoft.com/download/details.aspx?id=39717) and by registering it by either of the Authentication Keys obtainined from New-AzureRmDataFactoryV2IntegrationRuntimeKey cmdlet as described in the [Tutorial](tutorial-copy-onprem-data-to-cloud-powershell.md) 
+You can associate multiple nodes by simply installing the Self-hosted Integration Runtime software from the [download center](https://www.microsoft.com/download/details.aspx?id=39717) and by registering it by either of the Authentication Keys obtainined from New-AzureRmDataFactoryV2IntegrationRuntimeKey cmdlet as described in the [Tutorial](tutorial-hybrid-copy-powershell.md) 
 
 > [!NOTE]
 > You do not need to create new Self-hosted Integration Runtime for associating each node. 
@@ -235,5 +235,5 @@ If you choose not to open the port 8060 on the self-hosted integration runtime m
 
 
 ## Next steps
-See the following tutorial for step-by-step instructions: [Tutorial: copy on-premises data to cloud](tutorial-copy-onprem-data-to-cloud-powershell.md).
+See the following tutorial for step-by-step instructions: [Tutorial: copy on-premises data to cloud](tutorial-hybrid-copy-powershell.md).
 

@@ -113,7 +113,7 @@ An Azure subscription may have one or more Azure Data Factory instances (or data
 A data factory may have one or more pipelines. Pipeline is a logical grouping of activities to perform a unit of work. Together, the activities in a pipeline perform a task. For example, a pipeline could contain a group of activities that ingests data from an Azure blob, and then run a Hive query on an HDInsight cluster to partition the data. The benefit of this is that the pipeline allows you to manage the activities as a set instead of each one individually. The activities in a pipeline can be chained together to operate sequentially or can operate independently in parallel
 
 ### Activity
-Activities represent a processing step in a pipeline. For example, you may use a Copy activity to copy data from one data store to another data store. Similarly, you may use a Hive activity, which runs a Hive query on an Azure HDInsight cluster to transform or analyze your data. Data Factory supports two types of activities: data movement activities, data transformation activities, and control activities
+Activities represent a processing step in a pipeline. For example, you may use a Copy activity to copy data from one data store to another data store. Similarly, you may use a Hive activity, which runs a Hive query on an Azure HDInsight cluster to transform or analyze your data. Data Factory supports three types of activities: data movement activities, data transformation activities, and control activities
 
 ### Datasets
 Datasets represent data structures within the data stores, which simply point or reference the data you want to use in your activities as inputs or outputs. 
@@ -143,12 +143,21 @@ A linked service is also a strongly typed parameter containing the connection in
 Orchestration of pipeline activities that includes chaining activities in a sequence, branching, and parameters that can be defined at the pipeline level and arguments passed while invoking the pipeline on demand or from a trigger. Also includes custom state passing and looping containers, that is, For-each iterators.
 
 
-
 For more information about Data Factory concepts, see the following articles:
 
 - [Dataset and linked services](concepts-datasets-linked-services.md)
 - [Pipelines and activities](concepts-pipelines-activities.md)
 - [Integration runtime](concepts-integration-runtime.md)
+
+## Supported Regions:
+
+Currently, you can create data factories in the East US, and East US 2 regions. However, a data factory can access data stores and compute services in other Azure regions to move data between data stores or process data using compute services.
+
+Azure Data Factory itself does not store any data. It lets you create data-driven workflows to orchestrate movement of data between supported data stores and processing of data using compute services in other regions or in an on-premises environment. It also allows you to monitor and manage workflows using both programmatic and UI mechanisms.
+
+Even though Data Factory is available in only East US and East US 2 regions, the service powering the data movement in Data Factory is available globally in several regions. If a data store is behind a firewall, then a Data Management Gateway installed in your on-premises environment moves the data instead.
+
+For an example, let us assume that your compute environments such as Azure HDInsight cluster and Azure Machine Learning are running out of West Europe region. You can create and use an Azure Data Factory instance in North Europe and use it to schedule jobs on your compute environments in West Europe. It takes a few milliseconds for Data Factory to trigger the job on your compute environment but the time for running the job on your computing environment does not change.
 
 ## Next steps
 Learn how to create a data factory by following step-by-step instructions in the following Quickstarts: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [REST API](quickstart-create-data-factory-rest-api.md), and Azure portal. 

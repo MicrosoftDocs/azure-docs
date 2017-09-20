@@ -460,7 +460,7 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
     }
     ```json
 
-	If you are using a source table with a name different from the one used in the tutorial (**datasoruce**), replace **datasource** in the sqlReaderQuery with the name of your source table. 
+	If you are using a source table with a name different from the one used in the tutorial (**datasource**), replace **datasource** in the sqlReaderQuery with the name of your source table. 
 	
 
 2. Run the Set-AzureRmDataFactoryV2Pipeline cmdlet to create the pipeline: IncrementalCopyPipeline.
@@ -688,7 +688,10 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
 ## Next steps
 See list of data stores that are supported by copy activity as sources and sinks in the [Copy activity overview](copy-activity-overview.md) article. 
 
+Advance to the following tutorial to learn about transforming data by using a Spark cluster on Azure:
 
+> [!div class="nextstepaction"]
+>[Transform data using Spark cluster in cloud](tutorial-transform-data-spark-powershell.md)
 
 
 
