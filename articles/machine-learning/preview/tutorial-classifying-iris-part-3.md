@@ -130,7 +130,7 @@ Use _local mode_ deployment to run in Docker containers on your local computer, 
    az ml env setup -n <new deployment environment name> --location <e.g. eastus2>
    ```
    
-   Follow the on-screen instructions to provision a storage account for storing Docker images, an ACR (Azure Container Registry) for listing Docker images, an AppInsight account for gathering telemetry. If you use the _-c_ switch it creates a ACS (Azure Container Service) cluster too.
+   Follow the on-screen instructions to provision a storage account for storing Docker images, an ACR (Azure Container Registry) for listing Docker images, an AppInsight account for gathering telemetry. If you use the -c switch, it creates an ACS (Azure Container Service) cluster too.
 
 3. Create a Model Management account (this is a one time setup)  
    ```azurecli
