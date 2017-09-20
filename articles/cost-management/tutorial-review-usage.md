@@ -90,7 +90,7 @@ In this tutorial, you learned how to:
 > * Detect usage inefficiencies
 > * Create alerts for unusual spending or overspending
 
-
+ 
 <!--
 Advance to the next tutorial to learn about [summarized title of next article].
 
