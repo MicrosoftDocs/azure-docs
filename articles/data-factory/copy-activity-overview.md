@@ -139,7 +139,7 @@ The following template of a copy activity lists exhausted supported properties. 
 
 ## Monitoring
 
-Copy activity execution details and performance characteristics are returned in Copy Activity run result -> Output section. Below is an exhausted list. Learn how to monitor activity run from [quickstart monitoring section](quickstart-create-data-factory-dot-net.md#monitor-pipeline-run). You can compare the performance and configuration of your scenario to Copy Activity's [performance reference](copy-activity-performance.md#performance-reference) from in-house testing.
+Copy activity execution details and performance characteristics are returned in Copy Activity run result -> Output section. Below is an exhausted list. Learn how to monitor activity run from [quickstart monitoring section](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run). You can compare the performance and configuration of your scenario to Copy Activity's [performance reference](copy-activity-performance.md#performance-reference) from in-house testing.
 
 | Property name  | Description | Unit |
 |:--- |:--- |:--- |
