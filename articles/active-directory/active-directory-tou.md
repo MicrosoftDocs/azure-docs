@@ -90,7 +90,7 @@ Users, who are in scope, will see the following once a terms of use is created a
 ## Additional information
 The following information is something to be aware of and can assist with using terms of use.
 
--	Global administrator, security administrator, or conditional access administrator need read/write access.
+
 
 
 
