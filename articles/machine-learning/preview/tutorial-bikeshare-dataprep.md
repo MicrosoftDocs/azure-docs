@@ -30,7 +30,7 @@ In this tutorial, you use Azure Machine Learning services (preview) to learn how
 > You can use the prepared data to train your own prediction models. For example, you might create a model to predict bike demand during a 2-hour window.
 
 ## Prerequisites
-1. Azure Machine Learning Workbench needs to be installed locally. For more information, follow the [installation Quickstart](quick-start-installation.md).
+1. Azure Machine Learning Workbench needs to be installed locally. For more information, follow the [installation Quickstart](quickstart-installation.md).
 2. Familiarity with creating a new project in the Workbench.
 
 
