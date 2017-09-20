@@ -211,5 +211,5 @@ For SQL Database analysis, you can get historical statistics on sessions by quer
 
 ## Next steps
 
-•	Automatically tune database indexes and query execution plans using [Azure SQL Database automatic tuning](ql-database-automatic-tuning.md).
+•	Automatically tune database indexes and query execution plans using [Azure SQL Database automatic tuning](sql-database-automatic-tuning.md).
 •	Monitor database performance automatically using [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md). This feature provides diagnostics information and root cause analysis of performance issues.

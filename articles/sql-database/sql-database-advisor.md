@@ -74,7 +74,7 @@ Once you apply this recommendation, it will enable forced parameterization withi
 Monitor your recommendations and continue to apply them to refine performance. Database workloads are dynamic and change continuously. SQL Database advisor continues to monitor and provide recommendations that can potentially improve your database's performance. 
 
 * See [Azure SQL Database automatic tuning](sql-database-automatic-tuning.md) for automatic tuning of database indexes and query execution plans.
-* See [Azure SQL Intelligent Insights](sql-database/sql-database-intelligent-insights.md) for automatically monitoring database performance with automated diagnostics and root cause analysis of performance issues.
+* See [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md) for automatically monitoring database performance with automated diagnostics and root cause analysis of performance issues.
 * See [Performance recommendations in the Azure portal](sql-database-advisor-portal.md) for steps on how to use performance recommendations in the Azure portal.
 * See [Query Performance Insights](sql-database-query-performance.md) to learn about and view the performance impact of your top queries.
 
