@@ -18,7 +18,7 @@
     href: storage-quickstart-blobs-dotnet.md
 - name: Tutorials
   items:
-    -name: Upload and process an image
+  - name: Upload and process an image
     items:
       - name: 1 - Upload and retrieve image data in the cloud
         href: storage-upload-process-images.md
