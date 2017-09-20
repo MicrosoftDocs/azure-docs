@@ -58,7 +58,7 @@ At this time, you must request access to the Blob storage events feature.
 You request access with the `az feature register` command.
 
 > [!IMPORTANT]  
-> We are accepting Blob storage events preview participants in the order they requested to join. You might experience a delay in being granted access to this feature. We are currently processing requests submitted on September 8.
+> We are accepting Blob storage events preview participants in the order they requested to join. You might experience a delay of 1-2 business days in being granted access to this feature. 
 
 ```azurecli-interactive
 az feature register --name storageEventSubscriptions --namespace Microsoft.EventGrid
