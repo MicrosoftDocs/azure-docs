@@ -36,7 +36,7 @@ Before you begin the tutorial, you must have the following prerequisites:
 
 1. Using SSMS or another query client, open a new query for database **master** on your logical server.
 
-2. Create a login and user that will represent the SQL database to data warehouse connection.
+2. Create a login and user that represents the SQL database to data warehouse connection.
 
   ```sql
   CREATE LOGIN SalesDBLogin WITH PASSWORD = 'aReallyStrongPassword!@#';
@@ -50,24 +50,21 @@ Before you begin the tutorial, you must have the following prerequisites:
    CREATE USER SalesDBUser FOR LOGIN SalesDBLogin;
    ```
 
-5. Grant permissions to the user from Step 4 that you would like the SQL Database would like to execute. In this example, permission is only being granted for SELECT on a specific schema. This illustrates
-   how we may restrict the database to a specific domain of our control. 
+5. Grant permissions to the user from Step 4 that you would like the SQL Database would like to execute. In this example, permission is only being granted for SELECT on a specific schema, illustrating how we may restrict queries from the SQL database to a specific domain. 
 
    ```sql
    GRANT SELECT ON SCHEMA :: [dbo] TO SalesDBUser;
    ```
 
-6. Using SSMS or another query c
+6. Using SSMS or another query client, open a new query for the **SQL database instance** on your logical server.
 
-7. lient, open a new query for the **SQL database instance** on your logical server.
-
-8. Create a master key if you do not already have one. 
+7. Create a master key if you do not already have one. 
 
    ```sql
    CREATE MASTER KEY; 
    ```
 
-9. Create a database scoped credential using the credentials you created in Step 2.
+8. Create a database scoped credential using the credentials you created in Step 2.
 
    ```sql
    CREATE DATABASE SCOPED CREDENTIAL SalesDBElasticCredential
@@ -75,7 +72,7 @@ Before you begin the tutorial, you must have the following prerequisites:
    SECRET = 'aReallyStrongPassword@#!';
    ```
 
-10. Create an external data source which points to the data warehouse instance.
+9. Create an external data source that points to the data warehouse instance.
 
   ```sql
   CREATE EXTERNAL DATA SOURCE EnterpriseDwSrc WITH 
@@ -86,7 +83,7 @@ Before you begin the tutorial, you must have the following prerequisites:
   ) ;
   ```
 
-11. Now you can create external tables that reference this external data source. Queries using those tables will be sent to the data warehouse instance to be processed and sent back to the database instance.
+10. Now you can create external tables that reference this external data source. Queries using those tables are sent to the data warehouse instance to be processed and sent back to the database instance.
 
 
 ## Elastic Query from SQL database to SQL data warehouse
@@ -129,7 +126,7 @@ In the next few steps we will create a table in our data warehouse instance with
    ![elastic query external table definition](./media/sql-data-warehouse-elastic-query-with-sql-database/elastic-query-external-table.png)
 
 
-6. Submit the following query, which will query the data warehouse instance. You should receive the five values that you inserted in Step 2. 
+6. Submit the following query, which queries the data warehouse instance. You should receive the five values that you inserted in Step 2. 
 
 ```sql
 SELECT * FROM [dbo].[OrderInformation];
@@ -137,7 +134,7 @@ SELECT * FROM [dbo].[OrderInformation];
 
 > [!NOTE]
 >
-> You should notice that despite few values, this query takes considerable time to return. When using elastic query with data warehouse, one should consider the overhead costs of query processing and movement over the wire. Utilize elastic query remote execution when the compute power, not latency, is the priority.
+> Notice that despite few values, this query takes considerable time to return. When using elastic query with data warehouse, one should consider the overhead costs of query processing and movement over the wire. Utilize elastic query remote execution when the compute power, not latency, is the priority.
 
 Congratulations, you have set up the very basics of Elastic Query. 
 

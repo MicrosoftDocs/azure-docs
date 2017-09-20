@@ -24,7 +24,7 @@ ms.author: elbutter
 
 
 
-Elastic Query with Azure SQL Data Warehouse allows you to write Transact-SQL in a SQL Database that is sent remotely to a Azure SQL Data Warehouse instance through the use of external tables. Using this feature provides cost-savings and more performant architectures depending on the scenario.
+Elastic Query with Azure SQL Data Warehouse allows you to write Transact-SQL in a SQL Database that is sent remotely to an Azure SQL Data Warehouse instance through the use of external tables. Using this feature provides cost-savings and more performant architectures depending on the scenario.
 
 This feature enables two primary scenarios:
 
@@ -33,7 +33,7 @@ This feature enables two primary scenarios:
 
 ### Domain isolation
 
-Domain isolation refers to the classic data mart scenario. In certain cases, one may want to provide a logical domain of data to downstream users which are isolated from the rest of the data warehouse.  This can occur for a variety of reasons including but not limited to:
+Domain isolation refers to the classic data mart scenario. In certain scenarios, one may want to provide a logical domain of data to downstream users that are isolated from the rest of the data warehouse, for a variety of reasons including but not limited to:
 
 1. Resource Isolation - SQL database is optimized to serve a large base of concurrent users serving slightly different workloads than the large analytical queries that the data warehouse is reserved for. Isolation ensures the right workloads are served by the right tools.
 2. Security isolation - to separate an authorized data subset selectively via certain schemas.
@@ -43,19 +43,19 @@ Elastic query can provide the ability to easily select subsets of SQL data wareh
 
 ### Remote query execution
 
-Elastic query allows for remote query execution on a SQL data warehouse instance. This means that you can get the best of both SQL database and SQL data warehouse by separating your hot and cold data between the two databases. Users can keep more recent years of data within a SQL database which can serve reports and large numbers of average business users. However, when more data or computation is needed, a user can offload part of the query to a SQL data warehouse instance where large scale aggregates can be processed much faster and more efficiently.
+Elastic query allows for remote query execution on a SQL data warehouse instance. One can utilize the best of both SQL database and SQL data warehouse by separating your hot and cold data between the two databases. Users can keep more recent data within a SQL database, which can serve reports and large numbers of average business users. However, when more data or computation is needed, a user can offload part of the query to a SQL data warehouse instance where large-scale aggregates can be processed much faster and more efficiently.
 
 
 
 ## Elastic Query Overview
 
-An elastic query can be used to make data located within a SQL data warehouse available to SQL database instances. This allows queries from a SQL database refer to tables in a remote SQL data warehouse instance. 
+An elastic query can be used to make data located within a SQL data warehouse available to SQL database instances. Elastic query allows queries from a SQL database refer to tables in a remote SQL data warehouse instance. 
 
-The first step is to create an external data source definition which refers to the SQL data warehouse instance which uses existing user credentials within the SQL data warehouse. No changes are necessary on the remote SQL data warehouse instance. 
+The first step is to create an external data source definition that refers to the SQL data warehouse instance, which uses existing user credentials within the SQL data warehouse. No changes are necessary on the remote SQL data warehouse instance. 
 
 [!IMPORTANT] You must possess ALTER ANY EXTERNAL DATA SOURCE permission. This permission is included with the ALTER DATABASE permission. ALTER ANY EXTERNAL DATA SOURCE permissions are needed to refer to remote data sources.
 
-Next we create a remote external table definition in a SQL database instance which points to a remote table in the SQL data warehouse. When you use a query that uses an external table, the portion of the query query referring to the external table is sent to the SQL data warehouse instance to be processed. Once the query has completed, the result set is sent back to the calling SQL database instance. For a brief tutorial of setting up an Elastic Query between SQL database and SQL data warehouse, see the [Configure Elastic Query with SQL Data Warehouse][Configure Elastic Query with SQL Data Warehouse].
+Next we create a remote external table definition in a SQL database instance which points to a remote table in the SQL data warehouse. When you use a query that uses an external table, the portion of the query referring to the external table is sent to the SQL data warehouse instance to be processed. Once the query has completed, the result set is sent back to the calling SQL database instance. For a brief tutorial of setting up an Elastic Query between SQL database and SQL data warehouse, see the [Configure Elastic Query with SQL Data Warehouse][Configure Elastic Query with SQL Data Warehouse].
 
 For more information on Elastic Query with SQL database, see the [Azure SQL Database elastic query overview][Azure SQL Database elastic query overview ].
 
@@ -66,7 +66,7 @@ For more information on Elastic Query with SQL database, see the [Azure SQL Data
 ### General
 
 - When using remote query execution, ensure you're only selecting necessary columns and applying the right filters. Not only does this increase the compute necessary, but it also increases the size of the result set and therefore the amount of data that need to be moved between the two instances.
-- Maintain data for analytical purposes in both SQL Data Warehouse and SQL Database in clustered columnstore for analytical performance.
+- Maintain data for analytical purposes in both SQL Data Warehouse and SQL Database in clustered columnstore for analytiIcal performance.
 - Ensure that source tables are partitioned for query and data movement.
 - Ensure SQL database instances used as a cache are partitioned to enable more granular updates and easier management. 
 - Ideally use PremiumRS databases because they provide the analytical benefits of clustered columnstore indexing with a focus on IO-intensive workloads at a discount from Premium databases.
@@ -77,7 +77,7 @@ For more information on Elastic Query with SQL database, see the [Azure SQL Data
 
 - The external table and interally cached table exist as different objects with the SQL database instance. Consider creating a view over the top of the cached portion of the table and the external table which unions both tables and applies filters on the boundary point of each table.
 
-  Imagine we would like to keep the most recent year of data in a SQL database instance. We have two tables **ext.Orders** which references the data warehouse orders tables and **dbo.Orders** which represents the most recent years worth of data within the SQL database instance. Instead of asking users to decide whether to query one table or another, we create a view over the top of both tables on the partition point of the most recent year.
+  Imagine we would like to keep the most recent year of data in a SQL database instance. We have two tables **ext.Orders**, which references the data warehouse orders tables, and **dbo.Orders** which represents the most recent years worth of data within the SQL database instance. Instead of asking users to decide whether to query one table or another, we create a view over the top of both tables on the partition point of the most recent year.
 
   ```sql
   CREATE VIEW dbo.Orders_Elastic AS
@@ -102,7 +102,7 @@ For more information on Elastic Query with SQL database, see the [Azure SQL Data
   	YEAR([o_orderdate]) < '<Most Recent Year>'
   ```
 
-  A view produced in such a way let's the query compiler determine whether it need to use the data warehouse instance to answer your users query. 
+  A view produced in such a way let's the query compiler determine whether it needs to use the data warehouse instance to answer your users query. 
 
   There is overhead of submitting, compiling, running, and moving data associated with each elastic query against the data warehouse instance. Be cognizant that each elastic query counts against your concurrency slots and uses resources.  
 
@@ -119,7 +119,7 @@ For more information on Elastic Query with SQL database, see the [Azure SQL Data
 #### Azure Analysis Services
 
 - You plan on using your cache with a BI tool that submits large numbers of small queries
-- You need sub-second query latency
+- You need subsecond query latency
 - You are experienced in managing/developing models for Analysis Services 
 
 #### SQL Database
@@ -146,7 +146,7 @@ A: Customers who wish to use more advanced security features with SQL Database c
 
 Q: Can I write from my SQL database instance to data warehouse instance?
 
-A: Currently this feature is not supported. If this is something you want, visit our [Feedback page][Feedback page] page to create/vote for this functionality. 
+A: Currently this feature is not supported. Visit our [Feedback page][Feedback page] to create/vote for this functionality if this is a feature you would like to see in the future. 
 
 Q: Can I use spatial types like geometry/geography?
 
