@@ -3,7 +3,7 @@ documentType: LandingData
 title: Cost Management Documentation
 metadata:
   title: Cost Management Documentation - Tutorials, API Reference | Microsoft Docs
-  description: Azure Cost Management by Cloudyn is a multi-cloud cost management solution that helps you use Azure and other cloud resources.  Learn how to register Cost Management, review usage and costs, actively manage costs, forecast spending, and optimize costs with our quickstarts and tutorials.
+  description: Azure Cost Management by Cloudyn is a multi-cloud cost management solution that helps you use Azure and other cloud resources. Learn how to review usage and costs, actively manage costs, forecast spending, and optimize costs with our quickstarts and tutorials.
   services: cost-managment
   author: czeumault
   manager: carolz
@@ -14,7 +14,7 @@ metadata:
   ms.date: 09/18/2017
   ms.author: carolz
 abstract:
-  description: Azure Cost Management by Cloudyn is a multi-cloud cost management solution that helps you use Azure and other cloud resources.  Learn how to register Cost Management, review usage and costs, actively manage costs, forecast spending, and optimize costs with our quickstarts and tutorials.
+  description: Azure Cost Management by Cloudyn is a multi-cloud cost management solution that helps you use Azure and other cloud resources. Learn how to review usage and costs, actively manage costs, forecast spending, and optimize costs with our quickstarts and tutorials.
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -24,17 +24,9 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/portal.svg
-      text: Register an individual Azure subscription and view cost data
+        src: https://docs.microsoft.com/en-us/media/common/i_billing.svg
+      text: View Cost Data
       href: quick-register-azure-sub
-    - image: 
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/portal.svg
-      text: Register with the CSP Partner program and view cost data
-      href: quick-register-ea
-    - image: 
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/portal.svg
-      text: Register an Azure Enterprise Agreement and view cost data
-      href: quick-register-ea
 - title: Step-by-step Tutorials
   items:
   - type: paragraph
@@ -42,5 +34,5 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="tutorial-user-access">Learn to assign access to cost management data</a>
-    - html: <a href="tutorial-review-usage">Learn to analyze and track usage and costs and to detect anomalies and inefficiencies</a>
+    - html: <a href="tutorial-review-usage">Review usage and costs to detect anomalies and efficiencies</a>
+    - html: <a href="tutorial-user-access">Assign access to Cost Management data</a>
