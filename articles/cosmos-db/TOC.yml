@@ -270,6 +270,8 @@
       href: geospatial.md
     - name: Indexing
       href: indexing-policies.md
+    - name: Connected Service in Visual Studio
+      href: connected-service.md
   - name: Manage
     items:
     - name: Cost-effective reads and writes
