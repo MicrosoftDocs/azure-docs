@@ -96,7 +96,7 @@ Any Azure SQL or Azure SQL DW resources in the sloution should be enabled with A
 | AAD with SQL Database and SQL Data Warehouse | [Use Azure Active Directory Authentication for authentication with SQL Database or SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication) |
 | Configure and manage AAD | [Configure and manage Azure Active Directory authentication with SQL Database or SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure) |
 | Azure WebApps authentication | [Authentication and authorization in Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-overview) |
-| Configure WebApps with AAD | [How to configure your App Service application to use Azure Active Directory login](https://docs.microsoft.com/en-us/azure/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication)|
+| Configure WebApps with AAD | [How to configure your App Service application to use Azure Active Directory login](https://docs.microsoft.com/en-us/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication)|
 
 ### Datasets accessible to end-users should support role-based access control
 While executing the evaluation tool, you will be asked to specify any reporting or publishing resources. It is assumed that these resources are intended for access by end-users, not developers. These resources should be provide role-based access control (RBAC) in order to ensure that end users are only able to access authorized data.
