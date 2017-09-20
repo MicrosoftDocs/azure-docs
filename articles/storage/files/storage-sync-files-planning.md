@@ -23,7 +23,7 @@ With Azure File Sync (preview), shares can be replicated to Windows Servers on-p
 This guide describes what to consider when deploying Azure File Sync. It is recommended that you read [Planning for an Azure Files deployment](storage-files-planning.md) guide testing. 
 
 ## Understanding Azure File Sync terminology
-Before going into the Azure File Sync details, it’s important to understand the terminology.
+Before going into the Azure File Sync details, it's important to understand the terminology.
 
 ### Storage Sync Service
 The Storage Sync Service is the top-level Azure resource representing Azure File Sync. The Storage Sync Service resource is a peer of the Storage Account resource, and can similarily be deployed into Azure Resouce Groups. A distinct top-level resource from the Storage Account resource is required because the Storage Sync Service can create sync relationships with multiple storage accounts via multiple Sync Groups. A subscription can have multiple Storage Sync Service resources deployed.
