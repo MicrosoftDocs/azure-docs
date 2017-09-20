@@ -183,6 +183,8 @@ The X.509 certificate-based security in the IoT Hub requires you to start with a
         Write-Host "Success"
     }    
     ```
+    This script creates a file named *RootCA.cer* in your working directory. 
+
 <a id="uploadcerts"></a>
 
 ## Task 2: Upload X.509 certificates through the portal
@@ -191,45 +193,110 @@ These steps show you how to add a new Certificate Authority to your hub through 
 
 1. In the Azure portal, navigate to your IoT hub and open the **Certificate Explorer**. 
 2. Click **Add** to add a new certificate.
-3. Enter a friendly display name to your certificate, select the root certificate file from your machine, and **Upload** it. Make sure to avoid adding sensitive information in the display name.
+3. Enter a friendly display name to your certificate, and select the root certificate file named from your machine, for example, the *RootCA.cer* created in the previous section. Click **Upload**.
 4. The **Certificate** box will show your certificate once uploaded. Click **Save**.
 
     ![Upload certificate](./media/iot-hub-security-x509-get-started/add-new-cert.png)  
 
-   This will show your certificate in the **Certificate Explorer** list.
+   This will show your certificate in the **Certificate Explorer** list. Note the **STATUS** of this certificate is *Unverified*.
 
-<a id="verifycerts"></a>
-
-## Task 3: Verify your certificate with your IoT hub
-
-1. In the Azure portal, navigate to your IoT hub's **Certificate Explorer** and click on the certificate that you added in the previous section.
-2. In the certificate information blade, click **Generate Verification Code**.
-3. It creates a **Verfication Code** for your certificate. Copy the code to your clipboard. 
+5. Click on the certificate that you added in the previous step.
+6. In the **Certificate Details** blade, click **Generate Verification Code**.
+7. It creates a **Verfication Code** for to validate the certificate ownership. Copy the code to your clipboard. 
 
    ![Verify certificate](./media/iot-hub-security-x509-get-started/verify-cert.png)  
 
-4. In the PowerShell window on your desktop, run the following code.
-    ```
+8. In the PowerShell window on your desktop, run the following code.
+    ```PowerShell
+    function New-CAVerificationCert([string]$requestedSubjectName)
+    {
+        $cnRequestedSubjectName = ("CN={0}" -f $requestedSubjectName)
+        $verifyRequestedFileName = ".\verifyCert4.cer"
+        $rootCACert = Get-CACertBySubjectName $_rootCertSubject
+        Write-Host "Using Signing Cert:::" 
+        Write-Host $rootCACert
+    
+        $verifyCert = New-CASelfsignedCertificate $cnRequestedSubjectName $rootCACert $false
+
+        Export-Certificate -cert $verifyCert -filePath $verifyRequestedFileName -Type Cert
+        if (-not (Test-Path $verifyRequestedFileName))
+        {
+            throw ("Error: CERT file {0} doesn't exist" -f $verifyRequestedFileName)
+        }
+    
+        Write-Host ("Certificate with subject {0} has been output to {1}" -f $cnRequestedSubjectName, (Join-Path (get-location).path $verifyRequestedFileName)) 
+    }
     New-CAVerificationCert "<your verification code>"
     ```
-   This creates a certificate with the given subject name, signed by the CA. This lets your IoT hub know that you actually have the signing permission (for example, the private key) of this CA.
-5. In the certificate information blade on the Azure portal, navigate to the **Verification Certificate .pem or .cer file**, and select the output of the preceding PowerShell command to **Upload**.
+   This creates a certificate with the given subject name, signed by the CA, as a file named *VerifyCert4.cer* in your working directory. This informs your IoT hub that you have the signing permission (the private key) of this CA.
+9. In the **Certificate Details** blade on the Azure portal, navigate to the **Verification Certificate .pem or .cer file**, and select the *VerifyCert4.cer* created by the preceding PowerShell command to **Upload**.
+
+10. Once the certificate is uploaded, and you see it below the **Verification Certificate** box, click **Verify**. Once the certificate is verified, you should see the **STATUS** of your certificate change to **_Verified_** in the **Certificate Explorer** blade. 
 
    ![Upload certificate verification](./media/iot-hub-security-x509-get-started/upload-cert-verification.png)  
 
-   Once the certificate is verified, you should see the **STATUS** of your certificate change to **_Verified_** in the **Certificate Explorer** blade. 
 
 <a id="registerdevice"></a>
 
-## Task 4: Register your device with your IoT hub
+## Task 4: Register your X.509 device with your IoT hub
 
 1. In the Azure portal, navigate to your IoT hub's **Device Explorer**.
-2. 
+2. Click **Add** to add a new device. 
+3. Give a friendly display name for the **Device ID**, and select **_X.509_** as the **Authentication Type**. 
 
+   ![Create X.509 device in portal](./media/iot-hub-security-x509-get-started/create-x509-device.png)
+
+4. In the PowerShell window on your local machine, run the following script to create a CA-signed X.509 certificate for this device:
+    ```PowerShell
+    function New-CADevice([string]$deviceName, [string]$signingCertSubject=$_rootCertSubject)
+    {
+        $cnNewDeviceSubjectName = ("CN={0}" -f $deviceName)
+        $newDevicePfxFileName = ("./{0}.pfx" -f $deviceName)
+        $newDevicePemAllFileName      = ("./{0}-all.pem" -f $deviceName)
+        $newDevicePemPrivateFileName  = ("./{0}-private.pem" -f $deviceName)
+        $newDevicePemPublicFileName   = ("./{0}-public.pem" -f $deviceName)
+    
+        $signingCert = Get-CACertBySubjectName $signingCertSubject ## "CN=Azure IoT CA Dogfood Intermediate 1 CA"
+
+        $newDeviceCertPfx = New-CASelfSignedCertificate $cnNewDeviceSubjectName $signingCert $false
+    
+        $certSecureStringPwd = ConvertTo-SecureString -String $_privateKeyPassword -Force -AsPlainText
+
+        # Export the PFX of the cert we've just created.  The PFX is a format that contains both public and private keys.
+        Export-PFXCertificate -cert $newDeviceCertPfx -filePath $newDevicePfxFileName -password $certSecureStringPwd
+        if (-not (Test-Path $newDevicePfxFileName))
+        {
+            throw ("Error: CERT file {0} doesn't exist" -f $newDevicePfxFileName)
+        }
+
+        # Begin the massaging.  First, turn the PFX into a PEM file which contains public key, private key, and other attributes.
+        Write-Host ("When prompted for password by openssl, enter the password as {0}" -f $_privateKeyPassword)
+        openssl pkcs12 -in $newDevicePfxFileName -out $newDevicePemAllFileName -nodes
+
+        # Convert the PEM to get formats we can process
+        if ($useEcc -eq $true)
+        {
+            openssl ec -in $newDevicePemAllFileName -out $newDevicePemPrivateFileName
+        }
+        else
+        {
+            openssl rsa -in $newDevicePemAllFileName -out $newDevicePemPrivateFileName
+        }
+        openssl x509 -in $newDevicePemAllFileName -out $newDevicePemPublicFileName
+ 
+        Write-Host ("Certificate with subject {0} has been output to {1}" -f $cnNewDeviceSubjectName, (Join-Path (get-location).path $newDevicePemPublicFileName)) 
+    }
+    New-CADevice "yourTestDevice"
+    ```
+   When prompted for the password for the CA's private key, enter "123". 
+
+<!--
 <a id="deviceconnects"></a>
 
 ## Task 5: Device connects to the hub
 
+This is still TBD.
+-->
 
 ## See also
 To learn more about securing your IoT solution, see:
