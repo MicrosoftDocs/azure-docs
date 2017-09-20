@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/18/2017
+ms.date: 09/19/2017
 ms.author: billmath
 
 ---
 
-# Azure Active Directory Terms of Use (Preview)
+# Azure Active Directory Terms of Use feature (Preview)
 Azure AD Terms of Use provides a simple method organizations can use to present information to end users.  This ensures users see relevant disclaimers for legal or compliance requirements.
 
 Azure AD Terms of Use uses the pdf format to present content.   This pdf can be any content, such as existing contract documents, allowing you to collect end user agreements during user sign-in.  You can use the terms of use for applications, groups of users, or if you have multiple terms of use for different purposes.
@@ -110,8 +110,13 @@ The following information is something to be aware of and can assist with using 
 ## Frequently asked questions
 
 **Q: Where will I see when/if a user has accepted a terms of use?**</br>
-A: User accepting the terms of use will be written to the audit log and so you will be able to search the Azure AD audit log to see the results.  
+A: A user accepting the terms of use will be written to the audit log. You can search the Azure AD audit log to see the results.  
 
 **Q: If you change the terms of use terms does it require users to accept again?**</br>
 A: Yes, an admin can change the terms of use terms and it will require re-accepting the new terms.
 
+**Q: Can a terms of use support multi languages?**
+A: No, currently it is not possible to have multiple languages in a single terms of use.  However, you can scope to a group (e.g., terms of use for France is different from terms of use for UK). 
+
+**Q: When is the terms of use triggered?**
+A: The terms of use will be triggered during the sign-in experience.
