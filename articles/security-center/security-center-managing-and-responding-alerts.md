@@ -35,13 +35,13 @@ Security Center automatically collects, analyzes, and integrates log data from y
 >
 
 ## Managing security alerts
-You can review your current alerts by looking at the **Security alerts** tile. Open Azure Portal and follow the steps below to see more details about each alert:
+You can review your current alerts by looking at the **Security alerts** tile. Follow the steps below to see more details about each alert:
 
 1. On the Security Center dashboard, you see the **Security alerts** tile.
 
     ![Security alerts tile in Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig1-ga.png)
 
-2. Click the tile to open the **Security alerts**, there you see more details about the alerts as shown below.
+2. Click the tile to open the **Security alerts** to see more details about the alerts.
 
    ![The Security alerts in Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig2-ga.png)
 
@@ -63,7 +63,7 @@ You can filter alerts based on date, state, and severity. Filtering alerts can b
     ![Filtering alerts in Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig3-2017.png)
 
 ### Respond to security alerts
-Select a security alert to learn more about the event(s) that triggered the alert and what, if any, steps you need to take to remediate an attack. Security alerts are grouped by type and date. Clicking a security alert open a page containing a list of the grouped alerts.
+Select a security alert to learn more about the event(s) that triggered the alert and what, if any, steps you need to take to remediate an attack. Security alerts are grouped by type and date. Clicking a security alert opens a page containing a list of the grouped alerts.
 
 ![Respond to security alerts in Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig5-ga.png)
 
