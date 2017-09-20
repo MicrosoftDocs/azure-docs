@@ -1,9 +1,9 @@
 ---
-title: Azure Load Balancer Standard overview | Microsoft Docs
-description: Overview of Azure Load Balancer Standard features
+title: Azure Standard Load Balancer overview | Microsoft Docs
+description: Overview of Azure Standard Load Balancer features
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: kumudd
 manager: timlt
 editor: ''
 
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/20/2017
+ms.date: 09/25/2017
 ms.author: kumud
 ---
 
-# Azure Load Balancer Standard Overview
+# Azure Load Balancer Standard (Preview)
 
-The Azure Load Balancer Standard SKU and Public IP Standard SKU together enable you to build highly scalable and reliable architectures.  Applications using Load Balancer enjoy low latency, high throughput, and up to millions of flows for all TCP and UDP applications. Load Balancer fully onboards to the VNet and can now be used with any virtual machine instance within a Virtual Network. Diagnostics insights allow you to understand, manage, and troubleshoot this vital component of your virtual data center. Use Azure Monitor to show data path health from frontend to VM, per endpoint health probes, and traffic counters. Network Security Groups are now mandatory for any VM instance associated with a Standard SKU Load Balancer or Public IP.  In addition, you can use Load Balancer Standard with Availability Zones to construct zone-redundant, zonal architectures with cross-zone load balancing, and no dependency on DNS records.
+The Azure Load Balancer Standard SKU and Public IP Standard SKU together enable you to build highly scalable and reliable architectures.  Applications using Load Balancer enjoy low latency, high throughput, and up to millions of flows for all TCP and UDP applications. Load Balancer fully onboards to the VNet and can now be used with any Virtual Machine instance within a Virtual Network. Diagnostics insights allow you to understand, manage, and troubleshoot this vital component of your virtual data center. Use Azure Monitor to show data path health from frontend to VM, per endpoint health probes, and traffic counters. Network Security Groups are now mandatory for any VM instance associated with a Standard SKU Load Balancer or Public IP.  And you can use Load Balancer Standard with Availability Zones to construct zone-redundant, zonal architectures with cross-zone load balancing and no dependency on DNS records.
 
 Load Balancer Standard can be used in a public or internal configuration and continues to support the following fundamental scenarios:
 
@@ -27,10 +27,10 @@ Load Balancer Standard can be used in a public or internal configuration and con
 - Port forward inbound traffic to a single backend instance
 - Translate outbound traffic from a private IP address within the VNet to a public IP address
 
-> [!IMPORTANT]
-> >The Azure Load Balancer Standard SKU is in Public Preview and may not have the same level of availability and reliability as features that are in general availability release. The SKU is not supported, may have constrained capabilities, and may not be available in all Azure locations. Use the Generally Available [Load Balancer Basic SKU](load-balancer-overview.md) for your production services. For the most up-to-date notifications on availability and status of Load balancer features, check the [Azure Load Balancer updates](https://azure.microsoft.com/updates/?product=load-balancer) page.
+>[!NOTE]
+> Load Balancer Standard SKU is currently in Preview. During preview, the feature may not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use the Generally Available [Load Balancer Basic SKU](load-balancer-overview.md) for your production services.
 
-For these scenarios, the following capabilities are supported:
+For these scenarios, the following capabilities are supported. Click the capability for more details:
 
 **[Enterprise Scale](#enterprisescale):** Scale and resiliency by design is the foundation of this platform.  Build your virtual data center and use Load Balancer Standard for any TCP or UDP application scenario in your VNet.  You may use standalone VM instances or up to 1000 instance virtual machine scale sets in a backend pool. Your application enjoys low forwarding latency, high throughput performance, and scale to millions of flows on a fully managed infrastructure platform.
 
@@ -38,7 +38,7 @@ For these scenarios, the following capabilities are supported:
 
 **[Diagnostic insights](#diagnosticinsights)**: Load Balancer and Public IPs are now exposing new multi-dimensional metrics, integrated with Azure Monitor. Your virtual data center now has continuous data plane health measurements, per endpoint health probe statistics, counters for inbound connection attempts, outbound connections, packets, and bytes.
 
-**[Mandatory Network Security Groups](#mandatorynsg)**: Load Balancer Standard fully onboards to the VNet and NSG are now mandatory. NSG needs to be placed on subnets or NICs on the backend pool and explicitly whitelist traffic.
+**[Network Security Groups](#nsg)**: Load Balancer Standard fully onboards to the VNet and NSG are now mandatory. NSG needs to be placed on subnets or NICs on the backend pool and explicitly whitelist traffic.
 
 **[Outbound Connections](#outboundconnections)**: When a public Load Balancer resource is associated with VM instances, the [outbound connections](load-balancer-outbound-connections.md) from the private IP address space of the VNet are translated to the public IP address of the Load Balancer frontend.  Load Balancer Standard features a new port masquerading Source Network Address Translation (SNAT) algorithm for increased robustness and scale.
 
@@ -97,16 +97,16 @@ Load Balancer Standard provides new multi-dimensional diagnostic capabilities fo
 
 | Metric | Description |
 | --- | --- |
-| VIP Availability | Azure Load Balancer continuously exercises the data path from within a region to the Load Balancer frontend and finally the SDN stack supporting your VM.  As long as healthy instances remain, the measurement follows the same path as your applications load balanced traffic. The measurement is invisible to your application and does not interfere. |
+| VIP Availability | Azure Load Balancer continuously exercises the data path from within a region to the Load Balancer frontend and finally to the SDN stack supporting your VM.  As long as healthy instances remain, the measurement follows the same path as your applications load balanced traffic. The measurement is invisible to your application and does not interfere. |
 | DIP Availability | Azure Load Balancer uses a distributed health probing service that monitors your application endpoint's health according to what you have configured.  This metric provides an aggregate or per endpoint filtered view of each individual endpoint in the Load Balancer pool |
 | SYN packets | Azure Load Balancer does not terminate TCP connections or interact with TCP or UDP packet flows.  To troubleshoot your scenario, it can be useful to understand how many TCP connection attempts are made.  This metric reports the number of TCP SYN packets, which were received and may reflect clients attempting to establish connections to your service. |
 | SNAT connections | Azure Load Balancer reports the number of outbound connections masqueraded to the public IP address frontend. |
 | Byte counters | Azure Load Balancer reports the data processed per frontend and per backend instance.|
 | Packet counters | Azure Load Balancer reports the packets processed per frontend and per backend instance. |
 
-## <a name = "mandatorynsg"></a>Mandatory Network Security Groups
+## <a name = "nsg"></a>Network Security Groups
 
-Load Balancer Standard fully onboards to the VNet and use of Network Security Groups is now mandatory.  Explicitly whitelist the traffic you wish to permit inside the NSG.
+Load Balancer Standard fully onboards to the VNet and use of Network Security Groups is now mandatory.  You must explicitly whitelist which traffic you want to permit with the NSG. Until this whitelisting has been performed, traffic will not flow.
 
 Review this article for more background on [Network Security Groups](../virtual-network/virtual-networks-nsg.md).
 
@@ -120,9 +120,9 @@ Availability Zones are currently in Preview in specific regions and require addi
 
 Load Balancer Standard provides abilities for constructing Availability Zone scenarios with zonal or zone-redundant options and cross-zone load balancing.
 
-With public or internal Load Balancer and Availability Zones, your frontend becomes zone-redundant by default.  If you do not specify a zone, Azure helps protect your data path from zone failure automatically. Not additional action is required. A zone-redundant frontend is served by all Availability Zones in a region simultaneously.
+With public or internal Load Balancer and Availability Zones, your frontend is zone-redundant by default.  If you do not specify a zone, Azure protects your data path from zone failure automatically. A Load Balancer Standard frontend is always zone-redundant unless constrained to a zone. No additional action is required. A zone-redundant frontend is served by all Availability Zones in a region simultaneously.
 
-No DNS names are required for resiliency.  With a zone-redundant configuration, you can use a single backend subnet with your VM instances and address it with a single zone-redundant Load Balancer frontend IP address.
+Multiple frontend IP addresses or DNS names are required for resiliency.  With a zone-redundant configuration, you can use a single backend subnet with your VM instances and address it with a single zone-redundant Load Balancer frontend IP address.
 
 This zone-redundancy is available for public or internal frontends. Your Public IP address may be zone-redundant and your internal Load Balancer frontend's private IP address may be as well.
 
@@ -175,7 +175,6 @@ The 2017-08-01 API version for Microsoft.Network/loadBalancers introduces SKUs t
             {
                 "name": "Standard"
             },
-            [..]
 ```
 
 ### Public IP
@@ -195,7 +194,6 @@ The 2017-08-01 API version for Microsoft.Network/publicIPAddresses resources int
             {
                 "name": "Standard"
             },
-            [..]
 ```
 
 Unlike Public IP Basic which offers multiple allocation methods, Public IP Standard is always Static allocation.
@@ -268,9 +266,9 @@ Customers continue to enjoy Load Balancer Basic SKU at no charge.
 
 ## Limitations
 
-- VNet Peering is not supported at this time.
-- You can use either Basic SKU or Standard SKU with a standalone VM or any VM instance Availability Set, not both.
-- Using an internal Standard Load Balancer with a VM instance (or any part of an Availability Set) disables [default SNAT outbound connections](load-balancer-outbound-connections.md).  You may restore this ability to a standalone VM or VM instances Availability Set make outbound connections by simultaneously assigning a public Standard Load Balancer or Standard Public IP to the same VM instance. Once completed, port masquerading SNAT to a Public IP address is provided again.
+- Load Balancer backend instances cannot be in peered VNets at this time.
+- You can use either Basic SKU or Standard SKU with a standalone VM, all VM instances in an Availability Set or VMSS. A standalone VM, all VM instances in an Availability Set or VMSS may not be used with both simultaneously.
+- Using an internal Standard Load Balancer with a VM instance (or any part of an Availability Set) disables [default SNAT outbound connections](load-balancer-outbound-connections.md).  You may restore this ability to a standalone VM or VM instances Availability Set or VMSS and make outbound connections by simultaneously assigning a public Standard Load Balancer or Standard Public IP as Instance-Level Public IP to the same VM instance. Once completed, port masquerading SNAT to a Public IP address is provided again.
 
 ## Next steps
 
