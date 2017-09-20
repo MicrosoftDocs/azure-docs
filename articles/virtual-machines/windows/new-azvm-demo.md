@@ -58,7 +58,7 @@ Get-AzureRmPublicIpAddress -ResourceGroupName myVMResourceGroup | Select IpAddre
 
 On your local machine, open a cmd prompt and use the **mstsc** command to start an remote desktop session with your new VM. Replace the &lt;publicIPAddress&gt; with the IP address of your virtual machine. When prompted, enter the username and password you gave your VM when it was created.
 
-```powershell-interactive
+```
 mstsc /v:<publicIpAddress>
 ```
 
