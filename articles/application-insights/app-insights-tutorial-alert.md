@@ -1,6 +1,6 @@
 ---
-title: Tutorial for Azure Application Insights | Microsoft Docs
-description: Send alerts in response to errors in your application using Azure Application Insights.
+title: Send alerts from Azure Application Insights | Microsoft Docs
+description: Tutorial to send alerts in response to errors in your application using Azure Application Insights.
 keywords:
 author: bwren
 ms.author: bwren
