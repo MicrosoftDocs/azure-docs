@@ -24,14 +24,14 @@ This tutorial describes the tasks you need to do to set up the CA-based X.509 ba
 This tutorial requires that you have the following resources ready:
 
 - You have created an IoT hub with your Azure subscription. See [Create an IoT hub through portal](iot-hub-create-through-portal.md) for detailed steps to create a hub. 
-- You have downloaded the OpenSSL source code and built the binaries on your machine. You may also ownload and install the [third-party OpenSSL binaries for your development environment](https://wiki.openssl.org/index.php/Binaries), such as [SourceForge](https://sourceforge.net/projects/openssl/). Make sure the environment variables such as *PATH* are updated.
+- You have downloaded the OpenSSL source code and built the binaries on your machine. You may also download and install the [third-party OpenSSL binaries for your development environment](https://wiki.openssl.org/index.php/Binaries), such as [SourceForge](https://sourceforge.net/projects/openssl/). Make sure the environment variables such as *PATH* are updated.
 
 <a id="createcerts"></a>
 
 ## Task 1: Create X.509 certificates
 The X.509 certificate-based security in the IoT Hub requires you to start with an [X.509 certificate chain](https://en.wikipedia.org/wiki/X.509#Certificate_chains_and_cross-certification), which includes the root certificate as well as any intermediate certificates up until the leaf certificate. The following steps show you how to create these certificates locally. 
 
-1. Open a PowerShell windows as an *Administrator*. 
+1. Open a PowerShell window as an *Administrator*. 
 2. Navigate to your working directory. Run the following script to set the global variables. 
     ```PowerShell
     $openSSLBinSource = "<full_path_to_the_binaries>\OpenSSL\bin"
@@ -75,7 +75,7 @@ The X.509 certificate-based security in the IoT Hub requires you to start with a
     }
     Initialize-CAOpenSSL
     ```
-4. Next run the following script that searches if certificate by the specified *Subject Name* is already installed and whether OpenSSL is configured correctly on your machine:
+4. Next run the following script that searches whether a certificate by the specified *Subject Name* is already installed, and whether OpenSSL is configured correctly on your machine:
     ```PowerShell
     function Get-CACertBySubjectName([string]$subjectName)
     {
@@ -111,7 +111,7 @@ The X.509 certificate-based security in the IoT Hub requires you to start with a
     Test-CAPrerequisites
     ```
     If everything is configured correctly, you should see "Success" message.
-5. Create a certificate chain with a root CA, for example, "CN=Azure IoT Root CA" that this sample uses, by running the following PowerShell script. This also updates your Windows OS certificate store, as well creates certificate files in your working directory. 
+5. Create a certificate chain with a root CA, for example, "CN=Azure IoT Root CA" that this sample uses, by running the following PowerShell script. This script also updates your Windows OS certificate store, as well creates certificate files in your working directory. 
     1. The following script creates a PowerShell function to create a self signed certificate, for a given *Subject Name* and signing authority. 
     ```PowerShell
     function New-CASelfsignedCertificate([string]$subjectName, [object]$signingCert, [bool]$isASigner=$true)
@@ -202,11 +202,11 @@ These steps show you how to add a new Certificate Authority to your hub through 
 
 5. Click on the certificate that you added in the previous step.
 6. In the **Certificate Details** blade, click **Generate Verification Code**.
-7. It creates a **Verfication Code** for to validate the certificate ownership. Copy the code to your clipboard. 
+7. It creates a **Verification Code** for to validate the certificate ownership. Copy the code to your clipboard. 
 
    ![Verify certificate](./media/iot-hub-security-x509-get-started/verify-cert.png)  
 
-8. In the PowerShell window on your desktop, run the following code.
+8. In the PowerShell window on your desktop, run the following code:
     ```PowerShell
     function New-CAVerificationCert([string]$requestedSubjectName)
     {
@@ -238,7 +238,7 @@ These steps show you how to add a new Certificate Authority to your hub through 
 
 <a id="registerdevice"></a>
 
-## Task 4: Register your X.509 device with your IoT hub
+## Task 3: Register your X.509 device with your IoT hub
 
 1. In the Azure portal, navigate to your IoT hub's **Device Explorer**.
 2. Click **Add** to add a new device. 
@@ -290,12 +290,12 @@ These steps show you how to add a new Certificate Authority to your hub through 
     ```
    When prompted for the password for the CA's private key, enter "123". 
 
+
 <!--
 <a id="deviceconnects"></a>
 
 ## Task 5: Device connects to the hub
 
-This is still TBD.
 -->
 
 ## See also
