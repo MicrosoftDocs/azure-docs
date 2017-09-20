@@ -72,10 +72,6 @@ In [Metrics Explorer](../application-insights/app-insights-metrics-explorer.md),
 
 ![Metrics Explorer](media/functions-monitoring/metrics-explorer.png)
 
-When you edit a chart, add metrics for individual functions by expanding **Custom** in the **Chart details** pane.
-
-![Metrics Explorer - custom metrics](media/functions-monitoring/custom-metrics.png)
-
 On the [Failures](../application-insights/app-insights-asp-net-exceptions.md) tab, you can create charts and alerts based on function failures and server exceptions. The **Operation Name** is the function name. Failures in dependencies are not shown unless you implement [custom telemetry](#create-custom-telemetry-data-in-c-function-code) for dependencies.
 
 ![Failures](media/functions-monitoring/failures.png)
@@ -114,21 +110,20 @@ The tables that are available are shown in the **Schema** tab of the left pane. 
 * **traces** - Logs created by the runtime and by function code.
 * **requests** - One for each function invocation.
 * **exceptions** - Any exceptions thrown by the runtime.
-* **customMetrics** - Count of successful and failing invocations, success rate, average duration, maximum duration, minimum duration.
+* **customMetrics** - Count of successful and failing invocations, success rate, duration.
 * **customEvents** - Events tracked by the runtime, for example:  HTTP requests that trigger a function.
 * **performanceCounters** - Info about the performance of the servers that the functions are running on.
 
 The other tables are for availability tests and client/browser telemetry. You can implement custom telemetry to add data to them.
 
-Within each table, some of the Functions-specific data is in a customDimensions field.  For example, the following query retrieves all traces that have log level `Error`.
+Within each table, some of the Functions-specific data is in a `customDimensions` field.  For example, the following query retrieves all traces that have log level `Error`.
 
 ```
 traces 
 | where customDimensions.LogLevel == "Error"
 ```
 
-The runtime provides customDimensions.LogLevel and customDimensions.Category. You can provide additional fields in logs you write in your function code. See [Structured logging](#structured-logging) later in this article.
-
+The runtime provides `customDimensions.LogLevel` and `customDimensions.Category`. You can provide additional fields in logs you write in your function code. See [Structured logging](#structured-logging) later in this article.
 
 ## Configure categories and log levels
 
@@ -218,7 +213,7 @@ All of these logs are written at `Information` level, so if you filter at `Warni
 
 These logs provide counts and averages of function invocations over a [configurable](#configure-aggregator) period of time. The default period is 30 seconds or 1,000 results, whichever comes first. 
 
-The logs show as "customMetrics" in Application Insights. Examples are number of runs, success rate, minimum duration, maximum duration, and average duration.
+The logs show as "customMetrics" in Application Insights. Examples are number of runs, success rate, and duration.
 
 ![customMetrics query](media/functions-monitoring/custom-metrics-query.png)
 
@@ -250,7 +245,7 @@ As noted in the previous section, the runtime aggregates data about function exe
 
 ## Configure sampling
 
-Application Insights has a *sampling* feature that can protect you from producing too much telemetry data at times of peak load. When the number of telemetry items exceeds a specified rate, Application Insights starts to randomly ignore some of the incoming items. You can configure sampling in *host.json*.  Here's an example:
+Application Insights has a [sampling](../application-insights/app-insights-sampling.md) feature that can protect you from producing too much telemetry data at times of peak load. When the number of telemetry items exceeds a specified rate, Application Insights starts to randomly ignore some of the incoming items. You can configure sampling in *host.json*.  Here's an example:
 
 ```json
 {
@@ -269,7 +264,9 @@ You can write logs in your function code that appear as traces in Application In
 
 ### ILogger
 
-Use an [ILogger](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.ilogger) parameter in your functions instead of a `TraceWriter` parameter. You can then use `Log<level>` [extension methods on ILogger](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loggerextensions#Methods_) to create logs. For example, the following code writes `Information` logs with category "Function".
+Use an [ILogger](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.ilogger) parameter in your functions instead of a `TraceWriter` parameter. Logs created by using `TraceWriter` do go to Application Insights, but `ILogger` lets you do [structured logging](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
+
+With an `ILogger` object you call `Log<level>` [extension methods on ILogger](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loggerextensions#Methods_) to create logs. For example, the following code writes `Information` logs with category "Function".
 
 ```cs
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger logger)
@@ -289,13 +286,13 @@ logger.LogInformation("partitionKey={partitionKey}, rowKey={rowKey}", partitionK
 
 If you keep the same message string and reverse the order of the parameters, the resulting message text would have the values in the wrong places.
 
-Placeholders are handled this way so that you can do [semantic logging, also known as structured logging](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging). Application Insights stores the parameter name-value pairs in addition to the message string. The result is that the message arguments become fields that you can query on.
+Placeholders are handled this way so that you can do structured logging. Application Insights stores the parameter name-value pairs in addition to the message string. The result is that the message arguments become fields that you can query on.
 
-For example, if your logger method call looks like the previous example, you could query the field customDimensions.prop\_\_rowKey. The prefix is added to ensure that there are no collisions between fields the runtime adds and fields your function code adds.
+For example, if your logger method call looks like the previous example, you could query the field `customDimensions.prop__rowKey`. The prefix is added to ensure that there are no collisions between fields the runtime adds and fields your function code adds.
 
-You can also query on the original message string by referencing the field customDimensions.prop\_\_{OriginalFormat}.  
+You can also query on the original message string by referencing the field `customDimensions.prop__{OriginalFormat}`.  
 
-Here's a sample JSON representation of customDimensions data:
+Here's a sample JSON representation of `customDimensions` data:
 
 ```json
 {
@@ -308,12 +305,38 @@ Here's a sample JSON representation of customDimensions data:
 }
 ```
 
-### Write logs in JavaScript functions
+### Logging custom metrics  
+
+In C# script functions, you can use `ILogger` to create custom metrics in Application Insights. Here's a sample method call:
+
+```csharp
+logger.LogMetric("TestMetric", 1234, new Dictionary<string, object> 
+{ 
+    ["Count"] = 50, 
+    ["Min"] = 10.4, 
+    ["Max"] = 23, 
+    ["MyCustomMetricProperty"] = 100 
+}); 
+```
+
+## Write logs in JavaScript functions
 
 In Node.js functions, use `context.log` to write logs. Structured logging is not enabled.
 
 ```
 context.log('JavaScript HTTP trigger function processed a request.' + context.invocationId);
+```
+### Logging custom metrics  
+
+In Node.js functions, you can use `context.log` to create custom metrics in Application Insights. Here's a sample method call:
+
+```javascript
+context.log.metric("TestMetric", 1234, { 
+    count: 50, 
+    min: 10.4, 
+    max: 23, 
+    MyCustomMetricProperty: 100 
+}); 
 ```
 
 ## Custom telemetry in C# functions
