@@ -157,7 +157,32 @@ After the setup is complete, set the environment variables required to operation
 Now you are ready to create the real-time web service.
 
 ## Create a real-time web service
-Follow these steps to create a real-time web service:
+Use the following command to create a real-time web service:
+
+   ```azurecli
+   az ml service create realtime -f iris_score.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
+   ```
+
+   The following are switches for the `az ml service create realtime` command:
+   * -n: app name, must be lower case.
+   * -f: scoring script file name
+   * --model-file: model file, in this case it is the pickled model.pkl file
+   * -r: type of model, in this case it is a python model
+   * --collect-model-data true: enables data collection
+
+   >[!IMPORTANT]
+   >The service name (which is also the new Docker image name) must be all lower-case, otherwise you get an error. 
+
+   When you run the command, the model and the scoring file are uploaded into to the storage account you created as part of environment setup above. The deployment process builds docker image with your model, schema, scoring file and pushes it to the ACR registry: `<ACR_name>.azureacr.io/<imagename>:<version>`. It then pulls down that image locally to your computer, and starts a Docker container based on that image. (If your environment is configured in cluster mode, the Docker container is deployed into the Kubernetes cluster instead.)
+
+   As part of the deployment, an HTTP REST endpoint for the web service is created on your local machine. After a few minutes the command should finish with a success message and your web service is ready for action!
+
+   You can see the running Docker container using the `docker ps` command:
+   ```azurecli
+   docker ps
+   ```
+
+As an alternate to `az ml service create realtime` command shown above, follow these steps to create a real-time web service:
 
 1. Register the model by providing the pickle file name.
 
@@ -189,31 +214,6 @@ Follow these steps to create a real-time web service:
 
    ```azurecli
    az ml service create realtime --image-id <imageid> -n irisapp --collect-model-data true
-   ```
-
-5. Instead of following the four steps mentioned above, you can use `az ml service create realtime` command as shown below to create a realtime web service. This internally creates a manifest, image, and registers the model.
-
-   ```azurecli
-   az ml service create realtime -f iris_score.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
-   ```
-
-   The following are switches for the `az ml service create realtime` command:
-   * -n: app name, must be lower case.
-   * -f: scoring script file name
-   * --model-file: model file, in this case it is the pickled model.pkl file
-   * -r: type of model, in this case it is a python model
-   * --collect-model-data true: enables data collection
-
-   >[!IMPORTANT]
-   >The service name (which is also the new Docker image name) must be all lower-case, otherwise you get an error. 
-
-   When you run the command, the model and the scoring file are uploaded into to the storage account you created as part of environment setup above. The deployment process builds docker image with your model, schema, scoring file and pushes it to the ACR registry: `<ACR_name>.azureacr.io/<imagename>:<version>`. It then pulls down that image locally to your computer, and starts a Docker container based on that image. (If your environment is configured in cluster mode, the Docker container is deployed into the Kubernetes cluster instead.)
-
-   As part of the deployment, an HTTP REST endpoint for the web service is created on your local machine. After a few minutes the command should finish with a success message and your web service is ready for action!
-
-   You can see the running Docker container using the `docker ps` command:
-   ```azurecli
-   docker ps
    ```
 
 You are now ready to run the web service.
