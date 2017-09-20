@@ -62,12 +62,6 @@ Seamless SSO can be combined with either the [Password Hash Synchronization](act
 >[!NOTE]
 >For Windows 10, the recommendation is to use [Azure AD Join](../active-directory-azureadjoin-overview.md) for the optimal single sign-on experience with Azure AD.
 
-## Known limitations
-
-- Edge browser support.
-- License activation on Office clients, especially in shared computer scenarios, causes additional sign-in prompts for users.
-- In a few cases, enabling Seamless SSO can take up to 30 minutes.
-
 ## Next steps
 
 - [**Quick Start**](active-directory-aadconnect-sso-quick-start.md) - Get up and running Azure AD Seamless SSO.
