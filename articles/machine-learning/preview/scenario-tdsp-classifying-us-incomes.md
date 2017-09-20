@@ -48,14 +48,14 @@ See [Team Data Science Process (TDSP) Lifecycle](https://github.com/Azure/Micros
 1. An Azure [subscription](https://azure.microsoft.com). You can get a [free subscription](https://azure.microsoft.com/free/?v=17.16&WT.srch=1&WT.mc_id=AID559320_SEM_cZGgGOIg) to execute this sample also.
 2. An [Azure Data Science Virtual Machine (DSVM) Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm), (VM Size: [DS3_V2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), with 4 virtual CPUs and 14-Gb RAM). Although tested on an Azure DSVM, it is likely to work on any Windows 10 machine.
 3. Review documentation on Azure Machine Learning and its related services (see below for links).
-4. Make sure that you have properly installed Azure Machine Learning by the [quick start installation guide](./quick-start-installation.md).
+4. Make sure that you have properly installed Azure Machine Learning by the [quick start installation guide](./quickstart-installation.md).
 
 The dataset for this sample is from the UCI ML Repository [[link]](https://archive.ics.uci.edu/ml/datasets/adult). It is taken from the 1994 US Census database and contains census and income information for about 50,000 individuals. This is structured dataset having numerical and categorical features, and a categorical target consisting of two income categories ('>50 K' or '<=50 K'). 
 
 ### Informational: about Azure Machine Learning
 * [FAQ - How to get started](faq.md)
 * [Overview](overview-what-is-azure-ml.md)
-* [Installation](quick-start-installation.md)
+* [Installation](quickstart-installation.md)
 * [Using TDSP](https://aka.ms/how-to-use-tdsp-in-aml)
 * [Read and write files](how-to-read-write-files.md)
 * [Deploying an ML model as a web service](model-management-service-deploy.md)
