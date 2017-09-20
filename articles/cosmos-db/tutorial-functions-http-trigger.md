@@ -43,7 +43,7 @@ This tutorial covers the following tasks:
  
 ## Build a function in Visual Studio
 
-1. Add an **Azure Functions** project to your solution by right-clicking on the project node in **Solution Explorer**, the choose **Add** > **New Item**. Choose **Azure Functions** from the dialog box, and name it **PeopleDataFunctions**.
+1. Add an **Azure Functions** project to your solution by right-clicking on the solution node in **Solution Explorer**, the choose **Add** > **New Project**. Choose **Azure Functions** from the dialog box, and name it **PeopleDataFunctions**.
 
    ![Add an Azure Function project to the solution](./media/tutorial-functions-http-trigger/01-add-function-project.png)
 
@@ -66,13 +66,13 @@ This tutorial covers the following tasks:
    Next, we need to write some code, so we'll add a new **Azure Function** item to the project. 
 
     a. Right mouse click on the project node in **Solution Explorer**, then choose **Add** > **New Item**.   
-    b. In the **Add New Item** dialog, select **Visual C#**, select **Azure Function**, type **Search** as the name for your project, and click **OK**.  
+    b. In the **Add New Item** dialog, select **Visual C# Items**, select **Azure Function**, type **Search** as the name for your project, and then click **Add**.  
  
    ![Update Nuget packages](./media/tutorial-functions-http-trigger/05-add-function.png)
 
 4. The Azure Function will respond to HTTP requests, so the Http trigger template is appropriate here.
    
-   In the **New Azure Function** box, select **Http trigger**,  We want this Azure Function to be "wide open," too, so we set the **Access rights** to **Anonymous**, which lets everyone through. Click **OK**.
+   In the **New Azure Function** box, select **Http trigger**. We want this Azure Function to be "wide open," too, so we set the **Access rights** to **Anonymous**, which lets everyone through. Click **OK**.
 
    ![Update Nuget packages](./media/tutorial-functions-http-trigger/06-http-trigger.png)
 
