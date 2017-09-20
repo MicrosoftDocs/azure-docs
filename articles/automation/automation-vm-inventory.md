@@ -45,9 +45,9 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 By default, Software, Windows Services, and Linux Daemons are configured for collection. To collect Windows Registy and File inventory, you configure the inventory collection settings.
 
-1. From the **Inventory (Preview)** view, select the **Edit Settings** button with the gear at the top of the page.
-1. To add a new collection setting, navigate to the setting category you wish to add by using the tabs that read **Windows Registry**, **Windows Files**, and **Linux Files**. Click **Add** at the top of the page.
-1. To view details and descriptions of each setting property, visit the [Inventory documentation page](https://aka.ms/configinventorydocs).
+1. From the **Inventory (Preview)** view, select the **Edit Settings** button at the top of the page.
+2. To add a new collection setting, navigate to the setting category you wish to add by using the tabs that read **Windows Registry**, **Windows Files**, and **Linux Files**. Click **Add** at the top of the page.
+3. To view details and descriptions of each setting property, visit the [Inventory documentation page](https://aka.ms/configinventorydocs).
 
 ## Disconnecting your virtual machine from management
 
@@ -59,8 +59,5 @@ To remove your machine from inventory management:
 
 ## Next steps
 
-In this quick start, you’ve connected a virtual machine to management through Log Analytics. To learn more about managament through Log Analytics, continue to the tutorial for Change tracking or Update management.
-
-> [!div class="nextstepaction"]
-> [Manage VM with change tracking](./tutorial-manage-vm.md)
-> [Manage WM with update assessment and deployment](./tutorial-manage-vm.md)
+* To learn about managing changes in files and registry settings on your virtual machines, see [Change Tracking](../log-analytics/log-analytics-change-tracking.md).
+* To learn about managing Windows and package updates on your virtual machines, see [Update Management](../operations-management-suite/oms-solution-update-management.md)
