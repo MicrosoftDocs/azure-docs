@@ -122,4 +122,10 @@ A: No, currently it is not possible to have multiple languages in a single terms
 A: The terms of use will be triggered during the sign-in experience.
 
 **Q: What applications can I target a terms of use too?**</br>
-A: You can create a conditional access policy on the enterprise applications using modern authentication. 
+A: You can create a conditional access policy on the enterprise applications using modern authentication.  For more information see [enterprise applications](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-view-azure-portal).
+
+**Q: Can I add multiple terms of use to a given user or app?**</br>
+A: Yes, by creating multiple conditional access policies targeting those groups or apps. If a user falls in scope of multiple terms of use they will agree to one terms of use at a time.
+ 
+**Q: What happens if a user declines the terms of use?**</br>
+A: The user will be blocked from getting access to the application. The user would have to sign-in again and agree to the terms in order to get access.
