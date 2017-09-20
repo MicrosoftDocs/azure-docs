@@ -31,7 +31,7 @@ The aim of this solution is to demonstrate predictive churn analytics using Azur
 
 4. Deploy.
 
-## Link to the Gallery GitHub repository
+## Link of the gallery GitHub repository
 Following is the link to the public GitHub repository where all the code is hosted:
 
 [https://github.com/Azure/MachineLearningSamples-ChurnPrediction](https://github.com/Azure/MachineLearningSamples-ChurnPrediction)
