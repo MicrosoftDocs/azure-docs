@@ -246,7 +246,7 @@ After the Azure Function is validated and seems to be working properly, the last
 
 6. Once the Azure Function is configured properly in your Azure subscription, you can again use the Visual Studio Code REST Client extension to query the publicly available Azure Function URL. Add these two lines of code to the test-function-locally.http and then run each line to test this function. Replace the name of the function in the URL with the name of your function.
 
-    ```javascript
+    ```json
     get https://peoplesearchfunction.azurewebsites.net/api/Search
 
     get https://peoplesearchfunction.azurewebsites.net/api/Search?name=thomas
