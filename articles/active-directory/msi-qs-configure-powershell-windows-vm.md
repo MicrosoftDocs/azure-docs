@@ -32,10 +32,11 @@ Also, install [Azure PowerShell version 4.3.1](https://www.powershellgallery.com
 
 ## Enable MSI during creation of an Azure VM
 
-To create your VM, refer to one of the following Azure VM Quickstarts, completing only the necessary sections ("Log in to Azure", "Create resource group", "Create networking group", "Create the VM"). 
+To create your VM:
+1. Refer to one of the following Azure VM Quickstarts, completing only the necessary sections ("Log in to Azure", "Create resource group", "Create networking group", "Create the VM"). 
 
 > [!IMPORTANT] 
-> When you get to the "Create the VM" section, make a slight modification to the [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvm) cmdlet. Be sure to add a `-IdentityType "SystemAssigned"` parameter to provision the VM with an MSI.
+> When you get to the "Create the VM" section, make a slight modification to the [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvm) cmdlet. Be sure to add a `-IdentityType "SystemAssigned"` parameter to provision the VM with an MSI, such as:
 >  
 > `$vmConfig = New-AzureRmVMConfig -VMName myVM -IdentityType "SystemAssigned" ...`
 
@@ -43,15 +44,8 @@ To create your VM, refer to one of the following Azure VM Quickstarts, completin
   - [Create a Linux virtual machine using PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
 
-   ```
 
-   b. Provision the new VM:
-
-   ```powershell
-   New-AzureRmVM -ResourceGroupName myResourceGroup -Location WestUS -VM $vmConfig
-   ```
-
-5. Add the MSI VM extension using the `-Type "ManagedIdentityExtensionForWindows"` parameter on the [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet. The `-Settings` parameter specifies the port used by the OAuth token endpoint for token acquisition:
+2. Add the MSI VM extension using the `-Type` parameter on the [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet. You can pass either "ManagedIdentityExtensionForWindows" or "ManagedIdentityExtensionForLinux". The `-Settings` parameter specifies the port used by the OAuth token endpoint for token acquisition:
 
    ```powershell
    $settings = @{ "port" = 50342 }
