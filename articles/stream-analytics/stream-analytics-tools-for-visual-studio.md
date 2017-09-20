@@ -32,7 +32,7 @@ After completing this tutorial, you will be able to:
 * Export existing jobs to projects.
 
 ## Prerequisites
-You will need the following prerequisites to complete this tutorial:
+You need the following prerequisites to complete this tutorial:
 * Finish the steps before **Create a Stream Analytics job** from the [Build an IoT solution by using Stream Analytics tutorial](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics). 
 * Install Visual Studio 2017, Visual Studio 2015, Visual Studio 2013 update 4. Enterprise (Ultimate/Premium), Professional, Community editions are supported; Express edition is not supported. 
 * Follow the [installation instructions](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install) to install Stream Analytics Tools for Visual Studio.
@@ -53,15 +53,15 @@ You will see a project **Toll** generated in **Solution Explorer**.
 
 ## Define input sources
 1.	In **Solution Explorer**, expand **Inputs** node and rename **Input.json** to **EntryStream.json**. Double-click **EntryStream.json**.
-2.	Your **INPUT ALIAS** now should be **EntryStream**. Please note that input alias is the one will be used in query script. 
+2.	Your **INPUT ALIAS** now should be **EntryStream**. Note that input alias is the one be used in query script. 
 3.	Source Type is **Data Stream**.
 4.	Source is **Event hub**.
-5.	Service Bus Namescape should be the **tollData** one in the drop-down.
+5.	Service Bus Namespace should be the **tollData** one in the drop-down.
 6.	Event hub name should be set to **entry**.
 7.	Event hub policy name is **RootManageSharedAccessKey** (the default value).
 8.	Select **JSON** for **EVENT SERIALIZATION FORMAT** and **UTF8** for **ENCODING**.
    
-   Your settings will look like:
+   Your settings look like:
    
    ![Define input sources](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-01.png)
    
@@ -73,7 +73,7 @@ You will see a project **Toll** generated in **Solution Explorer**.
    
    ![Define input sources](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-03.png)
    
-11.	Double-click **ExitStream.json** in the project and follow the same steps as the entry stream to fill in. Be sure to enter values for Event Hub name as on the following screenshot.
+11.	Double-click **ExitStream.json** in the project and follow the same steps as the entry stream to fill in. Be sure to enter values for Event Hub name as on the following screenshot:
    
    ![Define input sources](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-04.png)
    
@@ -139,11 +139,11 @@ In the project, double-click Script.asaql to open the script in editor and paste
    
    ![Add local input](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-01.png)
    
-   In the pop-up window select the sample data from your local path. Click **Save**.
+   In the pop-up window, select the sample data from your local path. Click **Save**.
    
    ![Add local input](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-02.png)
    
-   A file named **local_EntryStream.json** will be added automatically to your inputs folder.
+   A file named **local_EntryStream.json** is added automatically to your inputs folder.
    
    ![Add local input](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-03.png)
    
@@ -227,7 +227,7 @@ There are two ways you can export an existing job to a project.
    
    ![Export job](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-01.png)
    
-   You will see the generated project in **Solution Explorer**.
+   The generated project in **Solution Explorer**.
    
    ![Export job](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-02.png)
    
