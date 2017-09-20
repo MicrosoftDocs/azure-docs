@@ -26,6 +26,7 @@ This quickstart describes how to use REST API to create an Azure data factory. T
 * Create a **blob container** in Blob Storage, create an input **folder** in the container, and upload some files to the folder. 
 * Install **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps). This quickstart uses PowerShell to invoke REST API calls.
 * **Create an application in Azure Active Directory** following [this instruction](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Make note of the following values that you use in later steps: **application ID**, **authentication key**, and **tenant ID**. Assign application to "**Contributor**" role.
+* [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/). You can use this tool to connect to Azure Blob storage, create a blob container, upload input file, and verify the output file. 
 
 ## Set global variables
 
@@ -73,7 +74,7 @@ $authHeader = @{
 } 
 ```
 
-## Create data factory
+## Create a data factory
 
 Run the following commands to create a data factory:
 
@@ -82,7 +83,7 @@ $request = "https://management.azure.com/subscriptions/${subsId}/resourceGroups/
 $body = @"
 {
     "name": "$dataFactoryName",
-    "location": "East US"
+    "location": "East US",
     "properties": {},
     "identity": {
         "type": "SystemAssigned"
@@ -134,8 +135,7 @@ You create linked services in a data factory to link your data stores and comput
 
 Run the following commands to create a linked service named **AzureStorageLinkedService**:
 
-> [!IMPORTANT]
-> Replace &lt;accountName&gt; and &lt;accountKey&gt; with name and key of your Azure storage account before executing the commands.
+Replace **&lt;accountName&gt; and &lt;accountKey&gt;** with name and key of your Azure storage account before executing the commands.
 
 ```powershell
 $request = "https://management.azure.com/subscriptions/${subsId}/resourceGroups/${resourceGroup}/providers/Microsoft.DataFactory/factories/${dataFactoryName}/linkedservices/AzureStorageLinkedService?api-version=${apiVersion}"
@@ -309,8 +309,7 @@ Here is the sample output:
 
 In this step, you set values of **inputPath** and **outputPath** parameters specified in pipeline with the actual values of source and sink blob paths, and trigger a pipeline run. The pipeline run ID returned in the response body is used in later monitoring API.
 
-> [!IMPORTANT]
-> Replace value of "inputPath" and "outputPath" with your source and sink blob path to copy data from and to before saving the file.
+Replace value of **inputPath** and **outputPath** with your source and sink blob path to copy data from and to before saving the file.
 
 
 ```powershell

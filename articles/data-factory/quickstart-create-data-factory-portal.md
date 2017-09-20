@@ -43,12 +43,9 @@ Here are the steps you perform as part of this tutorial:
 4. Select **V2 (Preview)** for the **version**.
 5. Select the **location** for the data factory. Currently, you can create V2 data factories only in **East US** region. However, the compute and data stores used in data factories can be in other regions. 
 6. Select **Pin to dashboard**.     
-7. Click **Create**.
+7. Click **Create**.      
       
-      > [!IMPORTANT]
-      > To create Data Factory instances, you must be a member of the [Data Factory Contributor](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) role at the subscription/resource group level.
-      > 
-      > The name of the data factory may be registered as a DNS name in the future and hence become publically visible.             
+      To create Data Factory instances, you must be a member of the [Data Factory Contributor](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) role at the subscription/resource group level.      
 3. On the dashboard, you see the following tile with status: **Deploying data factory**. 
 
 	![deploying data factory tile](media//quickstart-create-data-factory-portal/deploying-data-factory.png)

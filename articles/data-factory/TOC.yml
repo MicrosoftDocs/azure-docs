@@ -185,11 +185,7 @@
     - name: Azure integration runtime
       href: create-azure-integration-runtime.md   
     - name: Azure SSIS integration runtime
-<<<<<<< HEAD
       href: quickstart-lift-shift-ssis-packages-powershell.md     
-=======
-      href: tutorial-deploy-ssis-packages.md    
->>>>>>> 32046460ab6119715324a087859776fcb6df85f2
     - name: Self hosted integration runtime
       href: create-self-hosted-integration-runtime.md
 - name: Reference
