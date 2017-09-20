@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/25/2017
+ms.date: 09/19/2017
 ms.author: renash
 ---
 # How to use PowerShell to manage Azure Files
