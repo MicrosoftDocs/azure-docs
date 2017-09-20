@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2017
+ms.date: 09/12/2017
 ms.author: yurid
 
 ---
@@ -67,7 +67,7 @@ The content that you see in the when you open Security Solutions may vary accord
 
 The **Connected solutions** section shows all security solutions that are currently connected with Security Center. 
 
-![Connected solutions](./media/security-center-partner-integration/security-center-partner-integration-fig10.png)
+![Connected solutions](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
 
 The information that you see on each may vary according to the solution. Some information available on each tile may include:
 
@@ -102,7 +102,7 @@ Azure AD Identity Protection alerts go through Security Center’s detection pip
 
 You can add Azure and non-Azure computers to integrate with Security Center.  Adding non-Azure computers means that you can add on-premises computer, or an appliance that supports CEF. 
 
-![Data sources](./media/security-center-partner-integration/security-center-partner-integration-fig11.png)
+![Data sources](./media/security-center-partner-integration/security-center-partner-integration-fig7.png)
 
 
 ## See also
