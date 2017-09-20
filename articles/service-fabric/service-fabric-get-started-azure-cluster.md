@@ -108,7 +108,7 @@ Delete a resource group in the Azure portal:
     ![Delete the resource group][cluster-delete]
 
 
-## Use Azure Powershell to deploy a secure cluster
+## Use Azure Powershell to deploy a secure Windows cluster
 1. Download the [Azure Powershell module version 4.0 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) on your machine.
 
 2. Open a Windows PowerShell window, Run the following command. 
@@ -213,6 +213,42 @@ A cluster is made up of other Azure resources in addition to the cluster resourc
 Remove-AzureRmResourceGroup -Name $RGname -Force
 
 ```
+## Use Azure CLI to deploy a secure Linux cluster
+
+1. Install the [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest) on your computer.
+2. Login to Azure and select the subscription you want to create the cluster in.
+   ```azurecli
+   az login
+   az account set --subscription <GUID>
+   ```
+3. Run the [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) command to create a secure cluster.
+
+    ```azurecli
+    #!/bin/bash
+
+    # Variables
+    ResourceGroupName="aztestclustergroup" 
+    ClusterName="aztestcluster" 
+    Location="southcentralus" 
+    Password="q6D7nN%6ck@6" 
+    Subject="aztestcluster.southcentralus.cloudapp.azure.com" 
+    VaultName="aztestkeyvault" 
+    VaultGroupName="testvaultgroup"
+    VmPassword="Mypa$$word!321"
+    VmUserName="sfadminuser"
+
+    # Create resource groups
+    az group create --name $ResourceGroupName --location $Location 
+    az group create --name $VaultGroupName --location $Location
+
+    # Create secure five node Linux cluster. Creates a key vault in a resource group
+    # and creates a certficate in the key vault. The certificate's subject name must match 
+    # the domain that you use to access the Service Fabric cluster.  The certificate is downloaded locally.
+    az sf cluster create --resource-group $ResourceGroupName --location $Location --certificate-output-folder . \
+        --certificate-password $Password --certificate-subject-name $Subject --cluster-name $ClusterName \
+        --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName --vault-resource-group $VaultGroupName \
+        --vm-password $VmPassword --vm-user-name $VmUserName
+    ```
 
 ## Next steps
 Now that you have set up a development cluster, try the following:
