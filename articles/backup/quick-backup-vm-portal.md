@@ -58,7 +58,7 @@ You can start a backup now rather than wait for the default policy to run the jo
 
     ![Perform immediate VM backup in the Azure portal](./media/quick-backup-vm-portal/backup-now.png)
 
-2. To accept the default back retention policy of 30 days, leave the **Retain Backup Till** date. To start the job, select **Backup**.
+2. To accept the backup retention policy of 30 days, leave the default **Retain Backup Till** date. To start the job, select **Backup**.
 
 
 ## Monitor the backup job
@@ -68,7 +68,7 @@ In the **Backup** window for your VM, the status of the backup and number of com
 ## Clean up deployment
 If you are going to continue on to a Backup tutorial that explains how to restore data for your VM, go to [Next steps](#next-steps). When no longer needed, you can disable protection on the VM, remove the restore points and Recovery Services vault, then delete the resource group and associated VM resources:
 
-1. On the **Backup** window for your VM, select **Backup now**.
+1. Select the **Backup** option for your VM.
 
 2. Select **...More** to show additional options, then choose **Stop backup**.
 
@@ -91,4 +91,4 @@ Once the VM backup has been stopped and recovery points removed, delete the reso
 In this quick start, you created a Recovery Services vault, enabled protection on a VM, and created the initial recovery point. To learn more about Azure Backup and Recovery Services, continue to the tutorials.
 
 > [!div class="nextstepaction"]
-> [Restore VMs using templates](./tutorial-backup-azure-vm.md)
+> [Backup tutorials](./tutorial-backup-azure-vm.md)

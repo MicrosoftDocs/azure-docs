@@ -32,7 +32,7 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 
 ## Register the Azure Backup resource provider
-The first time you use Azure Backup, you must register the Azure Recovery Service provider with your subscription with [az provider register](/cli/azure/provider?view=azure-cli-latest#az_provider_register).
+The first time you use Azure Backup, you must register the Azure Recovery Service provider in your subscription with [az provider register](/cli/azure/provider?view=azure-cli-latest#az_provider_register).
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.RecoveryServices
@@ -101,10 +101,10 @@ az backup job list \
 The output is similar to the following example, which shows the backup job is *InProgress*:
 
 ```
-Name             Operation        Status      Item Name    Start Time UTC       Duration
----------------  ---------------  ----------  -----------  -------------------  --------------
-a0a8e5e6-{snip}  Backup           InProgress  myvm         2017-09-19T03:09:21  0:00:48.718366
-fe5d0414-{snip}  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31.191807
+Name      Operation        Status      Item Name    Start Time UTC       Duration
+--------  ---------------  ----------  -----------  -------------------  --------------
+a0a8e5e6  Backup           InProgress  myvm         2017-09-19T03:09:21  0:00:48.718366
+fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31.191807
 ```
 
 When the *Status* of the backup job reports *Completed*, your VM is protected with Recovery Services and has a full recovery point stored.
@@ -131,4 +131,4 @@ az group delete --name myResourceGroup
 In this quick start, you created a Recovery Services vault, enabled protection on a VM, and created the initial recovery point. To learn more about Azure Backup and Recovery Services, continue to the tutorials.
 
 > [!div class="nextstepaction"]
-> [Restore VMs using templates](./tutorial-backup-azure-vm.md)
+> [Backup tutorials](./tutorial-backup-azure-vm.md)

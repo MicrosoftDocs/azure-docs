@@ -36,7 +36,7 @@ Log in to your Azure subscription with the `Login-AzureRmAccount` command and fo
 Login-AzureRmAccount
 ```
 
-The first time you use Azure Backup, you must register the Azure Recovery Service provider with your subscription with [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider).
+The first time you use Azure Backup, you must register the Azure Recovery Service provider in your subscription with [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider).
 
 ```powershell
 Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
@@ -110,8 +110,8 @@ The output is similar to the following example, which shows the backup job is **
 ```
 WorkloadName   Operation         Status       StartTime              EndTime                JobID
 ------------   ---------         ------       ---------              -------                -----
-myvm           Backup            InProgress   9/18/2017 9:38:02 PM                          9f9e8f14-{snip}
-myvm           ConfigureBackup   Completed    9/18/2017 9:33:18 PM   9/18/2017 9:33:51 PM   fe79c739-{snip}
+myvm           Backup            InProgress   9/18/2017 9:38:02 PM                          9f9e8f14
+myvm           ConfigureBackup   Completed    9/18/2017 9:33:18 PM   9/18/2017 9:33:51 PM   fe79c739
 ```
 
 When the *Status* of the backup job reports *Completed*, your VM is protected with Recovery Services and has a full recovery point stored.
@@ -132,4 +132,4 @@ Remove-AzureRmResourceGroup -Name "myResourceGroup"
 In this quick start, you created a Recovery Services vault, enabled protection on a VM, and created the initial recovery point. To learn more about Azure Backup and Recovery Services, continue to the tutorials.
 
 > [!div class="nextstepaction"]
-> [Restore VMs using templates](./tutorial-backup-azure-vm.md)
+> [Backup tutorials](./tutorial-backup-azure-vm.md)
