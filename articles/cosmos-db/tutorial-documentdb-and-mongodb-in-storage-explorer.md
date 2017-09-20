@@ -63,7 +63,7 @@ An alternative way of connecting to an Azure Cosmos DB is to use a connection st
 
     ![connect to Azure Cosmos DB by connection string](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connect-to-db-by-connection-string.png)
 
-2. Choose Azure Cosmos DB API, paste your **Connection String**, and then click **OK** to connect Azure Cosmos DB account.For information on retrieving the connection string, see Get the connection string.
+2. Choose Azure Cosmos DB API, paste your **Connection String**, and then click **OK** to connect Azure Cosmos DB account.For information on retrieving the connection string, see [Get the connection string](https://docs.microsoft.com/en-us/azure/cosmos-db/manage-account#get-the--connection-string).
 
     ![connection-string](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connection-string.png)
 
@@ -119,7 +119,7 @@ To create a new document, open **Documents** in the left window, click **New Doc
 Click the **Delete** button to delete the selected document.
 
 #### Query for documents
-Edit the document filter by entering a SQL query and then click **Apply**.
+Edit the document filter by entering [a SQL query](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sql-query) and then click **Apply**.
     ![filter](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/filter.png)
 
 ### Manage stored procedures, triggers, and UDFs
