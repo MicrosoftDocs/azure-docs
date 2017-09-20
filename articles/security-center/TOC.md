@@ -74,7 +74,7 @@
 
 ## Cloud defenses
 ### [Just in time access](security-center-just-in-time.md)
-### [Adaptive Application Controls](security-center-adaptive-application.md)
+### [Adaptive application controls](security-center-adaptive-application.md)
 
 ## Automation and Orchestration
 ### [Playbooks](security-center-playbooks.md)
