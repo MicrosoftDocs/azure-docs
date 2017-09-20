@@ -21,6 +21,10 @@ ms.author: rithorn
 
 If you’re having trouble finding a subscription or management group in Azure, you might be looking in the wrong directory. This situation could happen when your account exists in multiple Azure Active Directories. Each [active directory is independent](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-directory-independence) and access is not inherited across directories.      
 
+![Switch Directory Menu](media/billing-enterprise-mgmt-groups/mgempty.png)
+
+
+
 ## Switch directories 
 You can easily switch directories in the Azure portal.
 1.	Sign into the [Azure portal](https://portal.azure.com).
@@ -30,8 +34,12 @@ You can easily switch directories in the Azure portal.
 
 ![Switch Directory Menu](media/billing-enterprise-mgmt-groups/switch-directory.png)
 
-## Asset not found? 
-If you are receiving an error message "Asset not found" when trying to access a subscription or management group, then you do not have the correct role to view this item.  Contact the administer of the subscription or management groups to be given access.  
+## Asset is unavailable? 
+If you are receiving an error message "This asset is unavailable" when trying to access a subscription or management group, then you do not have the correct role to view this item.  
+
+![asset-not-found](media/billing-enterprise-mgmt-groups/asset-not-found.png)
+
+Contact the administer of the subscription or management groups to be given access.  
 * For subscriptions, reference [Azure Role-Based Access Control (RBAC)](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) document for help on which role is needed.
 * For management groups, RBAC access is not available and is coming soon. Contact your enterprise portal administer to have access assigned.   
 

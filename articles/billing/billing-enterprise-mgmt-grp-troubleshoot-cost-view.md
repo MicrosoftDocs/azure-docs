@@ -22,10 +22,14 @@ ms.author: rithorn
 Within enterprise enrollments, there are multiple settings that could cause users within the enrollment to not be able to view costs.  These settings are managed by the enrollment administrator, or by the partner if the enrollment is not purchased directly with Microsoft.  This article helps you understand what the settings are and how they impact the enrollment. These settings are independent of the [Azure RBAC Roles](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure). 
 
 > [!Note]
-> If you are interested in a chance to participate in the Enterprise Private Preview of management groups, [sign up here](https://forms.office.com/Pages/DesignPage.aspx#FormId=v4j5cvGGr0GRqy180BHbR0YtfU6ham9OsGsPPYdu2xdUNk1BQUwzTkUyOVc5NUpCTFcwR0pIOVFETS4u).     
+> This feature is currently in a private preview. [Sign up here](https://forms.office.com/Pages/DesignPage.aspx#FormId=v4j5cvGGr0GRqy180BHbR0YtfU6ham9OsGsPPYdu2xdUNk1BQUwzTkUyOVc5NUpCTFcwR0pIOVFETS4u) to have your enrollment join the preview.     
 
 ## Enabling access to costs
-If you are seeing a message Unauthorized, or *"Cost views are disabled in your enrollment. Learn more at https://aka.ms/EnableAzureCosts"*, it might be due to one of the following reasons:
+
+Are you are seeing a message Unauthorized, or *"Cost views are disabled in your enrollment. Learn more at https://aka.ms/EnableAzureCosts"* when looking for cost information?
+![unauthorized](media/billing-enterprise-mgmt-groups/unauthorized.png)
+
+It might be due to one of the following reasons:
 
 1. You’ve purchased Azure through an enterprise partner, and the partner hasn’t released pricing yet. To release pricing, contact your partner to do update the setting within the [Enterprise portal](https://ea.azure.com).
 2. Alternatively, if you’re an EA Direct customer, there are a couple of possibilities:
@@ -36,8 +40,11 @@ If you are seeing a message Unauthorized, or *"Cost views are disabled in your e
 ![Enterprise Portal Settings](media/billing-enterprise-mgmt-groups/ea-portal-settings.png)
 
 
-## Asset not found? 
-If you are receiving an error message "Asset not found" when trying to access a subscription or management group, then you do not have the correct role to view this item.  Contact the administer of the subscription or management groups to be given access.  
-* For subscriptions, reference [Azure Role-Based Access Control (RBAC)](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) document for help on which role is needed.
-* For management groups, RBAC access is not available and is coming soon. Contact your enterprise portal administer to have access assigned.
+## Asset is unavailable? 
+If you are receiving an error message "This asset is unavailable" when trying to access a subscription or management group, then you do not have the correct role to view this item.  
 
+![asset-not-found](media/billing-enterprise-mgmt-groups/asset-not-found.png)
+
+Contact the administer of the subscription or management groups to be given access.  
+* For subscriptions, reference [Azure Role-Based Access Control (RBAC)](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) document for help on which role is needed.
+* For management groups, RBAC access is not available and is coming soon. Contact your enterprise portal administer to have access assigned.   

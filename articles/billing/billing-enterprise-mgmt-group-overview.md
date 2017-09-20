@@ -23,7 +23,7 @@ ms.author: rithorn
 If you have multiple subscriptions, you can organize them into containers called “management groups" to help you manage access, policy, costs, and compliance across your subscriptions. As an example, you can apply policies to a management group that limit which resource types can be created.
 
 > [!Note]
-> If you are interested in a chance to participate in the Enterprise Private Preview of management groups, [sign up here](https://forms.office.com/Pages/DesignPage.aspx#FormId=v4j5cvGGr0GRqy180BHbR0YtfU6ham9OsGsPPYdu2xdUNk1BQUwzTkUyOVc5NUpCTFcwR0pIOVFETS4u). 
+> This feature is currently in a private preview. [Sign up here](https://forms.office.com/Pages/DesignPage.aspx#FormId=v4j5cvGGr0GRqy180BHbR0YtfU6ham9OsGsPPYdu2xdUNk1BQUwzTkUyOVc5NUpCTFcwR0pIOVFETS4u) to have your enrollment join the preview.  
  
 A few items to note: 
 * Management groups are currently available to Azure Enterprise Agreement customers. 
@@ -45,7 +45,7 @@ Like subscriptions, management groups also have a trust relationship with Azure 
 
 Where possible, an existing directory associated with the enrollment user accounts is selected. In some cases, a new directory is created and all existing enrollment users are invited into that directory. This new directory does not impact the directories associated with the subscriptions in the enrollment. Therefore, the hierarchy might get created in a directory different from the subscriptions. [Learn more](billing-enterprise-mgmt-grp-find.md) about how this process impacts the experience of navigating between the hierarchy and its subscriptions.
 
-## View your enterprise's hierarchy using management groups in the Azure portal
+## View your Azure Enterprise Agreement hierarchy using management groups in the Azure portal
 The introduction of management groups is a step in the larger journey of transitioning  [Enterprise portal](https://ea.azure.com) features to the [Azure portal](https://portal.azure.com).
 
 The [Enterprise Agreement (EA)](https://azure.microsoft.com/en-us/pricing/enterprise-agreement/) enrollment defines the use of Azure services within a company and is the core of the hierarchy structure. Within the enrollment, customers can subdivide the resources into departments, accounts, and finally, subscriptions. 
@@ -65,9 +65,6 @@ The users from the Enterprise portal are added with a role to manage the mapped 
 |    Department Administrator                      |    Billing Reader                                |    Can read costs and view hierarchy and below the department node                                 |
 |    Department Administrator in read-only mode    |    Billing Reader                                |    Can read costs and view hierarchy and below the department node                                 |
 |    Account Owner                                 |    Resource Policy Contributor                   |    Can view costs, manage resource policy and view hierarchy at and   below the account node       |
-
-
-
 
 
 
