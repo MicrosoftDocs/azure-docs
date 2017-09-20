@@ -31,7 +31,7 @@ Cloud Shell persists files through both of the following methods:
 With Bash in Cloud Shell, you can run a command called `clouddrive`, which enables you to manually update the file share that is mounted to Cloud Shell.
 ![Running the "clouddrive" command](media/persisting-shell-storage/clouddrive-h.png)
 
-## Mount a new `clouddrive`
+## Mount a new clouddrive
 
 ### Prerequisites for manual mounting
 You can update the file share that's associated with Cloud Shell by using the `clouddrive mount` command.
@@ -40,7 +40,7 @@ If you mount an existing file share, the storage accounts must be:
 * Locally redundant storage or geo-redundant storage to support file shares.
 * Located in your assigned region. When you are onboarding, the region you are assigned to is listed in the resource group name `cloud-shell-storage-<region>`.
 
-### The `clouddrive mount` command
+### The clouddrive mount command
 
 > [!NOTE]
 > If you're mounting a new file share, a new user image is created for your `$Home` directory. Your previous `$Home` image is kept in your previous file share.
@@ -55,7 +55,7 @@ To view more details, run `clouddrive mount -h`, as shown here:
 
 ![Running the `clouddrive mount`command](media/persisting-shell-storage/mount-h.png)
 
-## Unmount `clouddrive`
+## Unmount clouddrive
 You can unmount a file share that's mounted to Cloud Shell at any time. Since Cloud Shell requires a mounted file share to be used, you will be prompted to create and mount another file share on the next session.
 
 1. Run `clouddrive unmount`.
