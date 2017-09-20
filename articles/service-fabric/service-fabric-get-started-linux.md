@@ -214,6 +214,8 @@ To remove the Service Fabric SDKs, run the following:
 
 ```bash
 sudo apt-get remove servicefabric servicefabicsdkcommon servicefabricsdkcsharp
+sudo npm uninstall generator-azuresfcontainer
+sudo npm uninstall generator-azuresfguest
 sudo apt-get install -f
 ```
 
