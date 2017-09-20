@@ -20,7 +20,7 @@ abstract:
     image:
       alt: 
       height: 110
-      src: https://docs.microsoft.com/en-us/azure/app-service-web/media/index/create-a-web-app-with-nodejs-and-azure-app-service.png
+      src: https://docs.microsoft.com/en-us/azure/app-service/media/index/create-a-web-app-with-nodejs-and-azure-app-service.png
       width: 250  
     title: Create a Web App with Node.js and Azure App Service. (2:41)
     href: https://azure.microsoft.com/en-us/resources/videos/create-a-web-app-with-nodejs-and-azure-app-service/
@@ -34,29 +34,29 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_net.svg
+        src: https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_net.svg
       text: .NET
-      href: https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-dotnet
+      href: https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-dotnet
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_nodejs.svg
+        src: https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_nodejs.svg
       text: Node.js
-      href: https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-nodejs
+      href: https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-nodejs
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_php.svg
+        src: https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_php.svg
       text: PHP
-      href: https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-php
+      href: https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-php
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_java.svg
+        src: https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_java.svg
       text: Java
-      href: https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-java
+      href: https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-java
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_python.svg
+        src: https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_python.svg
       text: Python
-      href: https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-python
+      href: https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-python
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_html5.svg
+        src: https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_html5.svg
       text: HTML
-      href: https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-html
+      href: https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-html
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
@@ -64,10 +64,10 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Create an application using <a href="/en-us/azure/app-service-web/app-service-web-tutorial-dotnet-sqldatabase">.NET with Azure SQL DB</a> or <a href="/en-us/azure/app-service-web/app-service-web-tutorial-nodejs-mongodb-app">Node.js with MongoDB</a>
-    - html: <a href="/en-us/azure/app-service-web/app-service-web-tutorial-custom-domain">Map an existing custom domain to your application </a>
-    - html: <a href="/en-us/azure/app-service-web/app-service-web-tutorial-custom-SSL">Bind an existing SSL certificate to your application</a>
-    - html: <a href="/en-us/azure/app-service-web/app-service-web-tutorial-content-delivery-network">Add a CDN to your application</a>
+    - html: Create an application using <a href="/en-us/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase">.NET with Azure SQL DB</a> or <a href="/en-us/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app">Node.js with MongoDB</a>
+    - html: <a href="/en-us/azure/app-service/app-service-web-tutorial-custom-domain">Map an existing custom domain to your application </a>
+    - html: <a href="/en-us/azure/app-service/app-service-web-tutorial-custom-SSL">Bind an existing SSL certificate to your application</a>
+    - html: <a href="/en-us/azure/app-service/app-service-web-tutorial-content-delivery-network">Add a CDN to your application</a>
 - title: Free PluralSight Video Training
   items:
   - type: list
@@ -76,11 +76,11 @@ sections:
     items:
     - html: <p><a href="https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Developing with .NET</a></p>
       image: 
-        src: https://docs.microsoft.com/en-us/azure/app-service-web/media/index/video-training-dotnet.png
+        src: https://docs.microsoft.com/en-us/azure/app-service/media/index/video-training-dotnet.png
         href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
     - html: <p><a href="https://www.pluralsight.com/courses/developing-nodejs-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Developing with Node.js</a></p>
       image: 
-        src: https://docs.microsoft.com/en-us/azure/app-service-web/media/index/video-training-nodejs.png
+        src: https://docs.microsoft.com/en-us/azure/app-service/media/index/video-training-nodejs.png
         href: https://www.pluralsight.com/courses/developing-nodejs-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
 - title: Samples
   items:
