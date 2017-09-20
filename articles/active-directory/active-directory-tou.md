@@ -50,9 +50,9 @@ Once you have finalized your Terms of Use, use the following procedure to add it
 2. Click Add.</br>
 ![Add TOU](media/active-directory-tou/tou2.png)
 3. Enter the **Name** for the Terms of Use
-4. Enter **Display Name**.  This is the header that users see when they sign in.
+4. Enter **Display Name**.  This header is what users see when they sign in.
 5. **Browse** to your finalized terms of use pdf and select it.  The recommended font size is 24.
-6. You can **Enforce** the uploaded terms of use by using a template or a custom conditional access policy.  Custom conditional access policies enables granular terms of use, down to a specific cloud application or group of users.  For more information see [configuring conditional access policies](active-directory-conditional-access-best-practices.md)
+6. You can **Enforce** the uploaded terms of use by using a template or a custom conditional access policy.  Custom conditional access policies enables granular terms of use, down to a specific cloud application or group of users.  For more information, see [configuring conditional access policies](active-directory-conditional-access-best-practices.md)
 7. Click **Create**.
 8. If you selected a custom conditional access template, then a new screen appears which allows you to customize the CA policy.
 7. You should now see your new Terms of Use.</br>
@@ -109,23 +109,23 @@ The following information is something to be aware of and can assist with using 
 
 ## Frequently asked questions
 
-**Q: Where will I see when/if a user has accepted a terms of use?**</br>
-A: A user accepting the terms of use will be written to the audit log. You can search the Azure AD audit log to see the results.  
+**Q: How do I see when/if a user has accepted a terms of use?**</br>
+A: A user accepting the terms of use is written to the audit log. You can search the Azure AD audit log to see the results.  
 
 **Q: If you change the terms of use terms does it require users to accept again?**</br>
-A: Yes, an admin can change the terms of use terms and it will require re-accepting the new terms.
+A: Yes, an admin can change the terms of use terms and it requires reaccepting the new terms.
 
 **Q: Can a terms of use support multi languages?**</br>
-A: No, currently it is not possible to have multiple languages in a single terms of use.  However, you can scope to a group (e.g., terms of use for France is different from terms of use for UK). 
+A: No, currently it is not possible to have multiple languages in a single terms of use.  However, you can scope to a group (for example, terms of use for France is different from terms of use for UK). 
 
 **Q: When is the terms of use triggered?**</br>
-A: The terms of use will be triggered during the sign-in experience.
+A: The terms of use is triggered during the sign-in experience.
 
 **Q: What applications can I target a terms of use too?**</br>
-A: You can create a conditional access policy on the enterprise applications using modern authentication.  For more information see [enterprise applications](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-view-azure-portal).
+A: You can create a conditional access policy on the enterprise applications using modern authentication.  For more information, see [enterprise applications](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-view-azure-portal).
 
 **Q: Can I add multiple terms of use to a given user or app?**</br>
-A: Yes, by creating multiple conditional access policies targeting those groups or apps. If a user falls in scope of multiple terms of use they will agree to one terms of use at a time.
+A: Yes, by creating multiple conditional access policies targeting those groups or apps. If a user falls in scope of multiple terms of use they agree to one terms of use at a time.
  
 **Q: What happens if a user declines the terms of use?**</br>
-A: The user will be blocked from getting access to the application. The user would have to sign-in again and agree to the terms in order to get access.
+A: The user is blocked from getting access to the application. The user would have to sign-in again and agree to the terms in order to get access.
