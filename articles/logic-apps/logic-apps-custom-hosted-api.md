@@ -28,12 +28,7 @@ for the best experience, add [Swagger metadata](http://swagger.io/specification/
 that describes your API's operations and parameters. 
 This Swagger file helps your API work better and integrate more easily with logic apps.
 
-You can deploy your APIs as [web apps](../app-service-web/app-service-web-overview.md), 
-but consider deploying your APIs as [API apps](../app-service-api/app-service-api-apps-why-best-platform.md), 
-which can make your job easier when you build, host, and consume APIs 
-in the cloud and on premises. You don't have to change any code in your 
-APIs -- just deploy your code to an API app. You can host your APIs on 
-[Azure App Service](../app-service/app-service-value-prop-what-is.md), 
+You can deploy your APIs on [Azure Web Apps](../app-service/app-service-web-overview.md)
 a platform-as-a-service (PaaS) offering that provides one of the best, easiest, 
 and most scalable ways for API hosting.
 
@@ -47,8 +42,7 @@ you can require and enforce authentication through your API's code.
 Before you can call your custom API from a logic app, 
 deploy your API as a web app or API app to Azure App Service. 
 Also, to make your Swagger document readable by the Logic App Designer, 
-set the API definition properties and turn on 
-[cross-origin resource sharing (CORS)](../app-service-api/app-service-api-cors-consume-javascript.md#corsconfig) 
+set the API definition properties and turn on CORS 
 for your web app or API app.
 
 1. In the Azure portal, select your web app or API app.
@@ -72,8 +66,7 @@ Set the CORS policy for **Allowed origins** to **'*'** (allow all).
 
 For more information, see these articles:
 
-* [Add Swagger metadata for ASP.NET web APIs](../app-service-api/app-service-api-dotnet-get-started.md#use-swagger-api-metadata-and-ui)
-* [Deploy ASP.NET web APIs to Azure App Service](../app-service-api/app-service-api-dotnet-get-started.md)
+* [Deploy ASP.NET web APIs to Azure App Service](../app-service/app-service-web-tutorial-rest-api.md)
 
 ## Call your custom API from logic app workflows
 
@@ -114,13 +107,11 @@ or [Azure AD authentication](#azure-ad-code) through code.
 
 Here's the general steps for this method:
 
-1. Create two 
-[Azure Active Directory (Azure AD) application identities](../app-service-api/app-service-api-dotnet-service-principal-auth.md): 
+1. Create two Azure Active Directory (Azure AD) application identities: 
 one for your logic app and one for your web app (or API app).
 
 2. To authenticate calls to your API, use the credentials (client ID and secret) for the 
-[service principal](../app-service-api/app-service-api-dotnet-service-principal-auth.md) 
-that's associated with the Azure AD application identity for your logic app.
+service principal that's associated with the Azure AD application identity for your logic app.
 
 3. Include the application IDs in your logic app definition.
 
@@ -224,7 +215,7 @@ for your logic app to use in Part 3.
    you specify this key as the "secret" or password.
 
 For more information, learn how to 
-[configure your App Service application to use Azure Active Directory login](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md).
+[configure your App Service application to use Azure Active Directory login](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
 
 <a name="powershell"></a>
 
@@ -324,7 +315,6 @@ and also to use in your web app or API app's deployment template, if necessary.
 
 For more information, see these topics:
 
-* [User authentication for API apps in Azure App Service](../app-service-api/app-service-api-dotnet-user-principal-auth.md)
 * [Authentication and authorization in Azure App Service](../app-service/app-service-authentication-overview.md)
 
 <a name="authen-deploy"></a>
@@ -423,7 +413,7 @@ For example:
 
 To validate the incoming requests from your logic app to your web app or API app, 
 you can use client certificates. To set up your code, learn 
-[how to configure TLS mutual authentication](../app-service-web/app-service-web-configure-tls-mutual-auth.md).
+[how to configure TLS mutual authentication](../app-service/app-service-web-configure-tls-mutual-auth.md).
 
 In the **Authorization** section, include this line: 
 
@@ -467,12 +457,12 @@ To restrict API access to your logic app through code,
 extract the header that has the JSON web token (JWT). 
 Check the caller's identity, and reject requests that don't match.
 
-Going further, to implement this authentication entirely in your own code, 
+<!-- Going further, to implement this authentication entirely in your own code, 
 and not use the Azure portal, learn how to 
 [authenticate with on-premises Active Directory in your Azure app](../app-service-web/web-sites-authentication-authorization.md).
 
 To create an application identity for your logic app and use that identity to call your API, 
-you must follow the previous steps.
+you must follow the previous steps. -->
 
 ## Next steps
 
