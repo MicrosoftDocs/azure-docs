@@ -18,7 +18,7 @@ This article helps you find and correct errors or failures encountered as a part
 > [!NOTE]
 > When communicating with the support team over emails or forum posts, it is helpful to have the build number. You can find out the build number of the app by clicking on the **Help** menu. Clicking on the build number copies it to your clipboard. You can paste it into emails or support forums to help report issues.
 
-![check version number](media/quick-start-installation/version.png)
+![check version number](media/known-issues-and-troubleshooting-guide/version.png)
 
 ## Windows and Mac
 ### CentOS-based Azure Data Science Virtual Machine 
