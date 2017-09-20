@@ -21,12 +21,15 @@ ms.custom:
 ---
 # Back up Windows Server to Azure
 
+
 You can use Azure Backup to protect your Windows Server from corruptions, attacks, and disasters. Azure Backup provides a lightweight tool known as the Microsoft Azure Recovery Services (MARS) agent. The MARS agent is installed on the Windows Server to protect files and folders, and server configuration info via Windows Server System State. This tutorial explains how you can use MARS Agent to back up your Windows Server to Azure. In this tutorial you learn how to: 
+
 
 > [!div class="checklist"]
 > * Download and set up the MARS Agent
 > * Configure back up times and retention schedule for your server’s backups
 > * Perform an ad-hoc back up
+
 
 # Sign in to the Azure portal
 
@@ -98,7 +101,7 @@ The Microsoft Azure Recovery Services (MARS) agent creates an association betwee
 
 5. Click **Finish**. 
 
-## Configure Backup and Retention 
+## Configure Backup and Retention
 
 You use the Microsoft Azure Recovery Services agent to schedule when backups to Azure, occur on Windows Server. Execute the following steps on the server where you downloaded the agent.
 
@@ -118,12 +121,15 @@ You use the Microsoft Azure Recovery Services agent to schedule when backups to 
 
     ![prepare infrastructure](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
  
+
+
 7.	On the **Select Retention Policy** page, select the Retention Policy for the backup copy for files and folders. The retention period of System State backups is automatically set to 60 days.
 8.	On the **Choose Initial Back up Type** page, leave the option **Automatically over the network** selected, and then click **Next**.
 9.	On the **Confirmation** page, review the information, and then click **Finish**.
 10.	After the wizard finishes creating the backup schedule, click **Close**.
 
 ## Perform an ad-hoc back up
+
 
 You have established the schedule when backup jobs run. However, you have not backed up the server. It is a disaster recovery best practice to run an on-demand backup to ensure data resiliency for your server.
 
