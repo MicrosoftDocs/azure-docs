@@ -177,10 +177,9 @@ Enable Update management for your virtual machine
 1. On the virtual machine screen, in the **Operations** section, click **Update management**. The **Enable Update management** screen opens.
 
 Validation is performed to determine if the Update management solution is enabled for this virtual machine.
-
 The validation includes checks for Log Analytics workspace and linked Automation account and if the virtual machine is provisioned with the Microsoft Monitoring Agent (MMA) and hybrid worker. If these prerequisites are not met, a banner appears that gives you the option to enable the solution.
 
-   ![Update Management onboard configuration banner](./media/tutorial-monitoring/manageupdates-onboard-solution-banner.png)
+![Update Management onboard configuration banner](./media/tutorial-monitoring/manageupdates-onboard-solution-banner.png)
 
 Click the banner to enable the solution. If any of the following prerequisites were found to be missing after the validation,
 they will be automatically added:
@@ -191,7 +190,7 @@ they will be automatically added:
 
 The **Enable Update Management** screen opens. Configure the settings, and click **Enable**.
 
-   ![Enable Update management solution](./media/tutorial-monitoring/manageupdates-update-enable.png)
+![Enable Update management solution](./media/tutorial-monitoring/manageupdates-update-enable.png)
 
 Enabling the solution can take up to 15 minutes, and during this time you should not close the browser window. After the solution is enabled,
 information about missing updates from the package manager on the virtual machine flows to Log Analytics.
@@ -199,9 +198,9 @@ It can take between 30 minutes and 6 hours for the data to be available for anal
 
 ### View update assessment
 
-AFter the **Update management** solution is enabled, the **Update management** screen appears. You can see a list of missing updates on the **Missing updates** tab.
+After the **Update management** solution is enabled, the **Update management** screen appears. You can see a list of missing updates on the **Missing updates** tab.
 
-   ![View update status](./media/tutorial-monitoring/manageupdates-view-status-linux.png)
+![View update status](./media/tutorial-monitoring/manageupdates-view-status-linux.png)
 
 ### Schedule an update deployment
 
@@ -214,7 +213,7 @@ In the **New update deployment** screen, specify the following:
 * **Updates to exclude** - select this to enter names of packages to exclude from the update.
 * **Schedule settings** - You can either accept the default date and time, which is 30 minutes after current time, or specify a different time. You can also specify whether the deployment occurs once or set up a recurring schedule. Click the Recurring option under Recurrence to set up a recurring schedule.
 
-   ![Update Schedule Settings screen](./media/tutorial-monitoring/manageupdate-schedule-linux.png)
+  ![Update Schedule Settings screen](./media/tutorial-monitoring/manageupdate-schedule-linux.png)
 
 * **Maintenance window (minutes)** - Specify the period of time you want the update deployment to occur within.  This helps ensure changes are performed within your defined maintenance windows. 
 
@@ -233,7 +232,7 @@ If it is currently running, it's status shows as **In progress**. After it compl
 If there is a failure with one or more updates in the deployment, the status is **Failed**.
 Click the completed update deployment to see the dashboard for that update deployment.
 
-   ![Update Deployment status dashboard for specific deployment](./media/tutorial-monitoring/manageupdates-view-results.png)
+![Update Deployment status dashboard for specific deployment](./media/tutorial-monitoring/manageupdates-view-results.png)
 
 In **Update results** tile is a summary of the total number of updates and deployment results on the virtual machine.
 In the table to the right is a detailed breakdown of each update and the installation results, which could be one of the following values:
