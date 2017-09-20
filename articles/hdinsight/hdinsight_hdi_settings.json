@@ -1,0 +1,44 @@
+// workspace configuration template of HDInsight extension
+{
+    /* example:
+        "script_to_cluster": [{
+            "clusterName": "hdi_cluster_1",
+            "filePath": "a.hql"
+        }, 
+        {
+        "clusterName": "hdi_cluster_2",
+        "filePath": "src/b.py"
+        }]
+    */
+    "script_to_cluster": [
+        {}
+    ],
+    /* more details from: https://spark.apache.org/docs/latest/configuration.html
+    examples:
+        "spark_conf": {
+            "spark.driver.memory": "1G",
+            "spark.driver.cores": "1"
+            "spark.executor.memory": "2G"
+        }
+    */
+    "spark_conf": {},
+    /* more details from: https://github.com/cloudera/livy
+    examples:
+        "livy_conf": {
+            "driverMemory": "1G",
+            "driverCores": 2,
+            "executorMemory": "512M",
+            "executorCores": 10,
+            "numExecutors": 5
+        }
+    */
+    "livy_conf": {},
+    /* examples: 
+        "additional_conf": {
+            azure_environment: AzureChina // Only Azure or AzureChina works here
+        }
+    */
+    "additional_conf": {
+        "azure_environment": "Azure"
+    }
+}
