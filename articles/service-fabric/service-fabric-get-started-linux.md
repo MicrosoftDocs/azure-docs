@@ -213,7 +213,7 @@ To update the Java SDK binaries from Maven, you need to update the version detai
 To remove the Service Fabric SDKs, run the following:
 
 ```bash
-sudo apt-get remove servicefabric servicefabicsdkcommon servicefabricsdkcsharp servicefabricsdkjava
+sudo apt-get remove servicefabric servicefabicsdkcommon servicefabricsdkcsharp
 sudo apt-get install -f
 ```
 
