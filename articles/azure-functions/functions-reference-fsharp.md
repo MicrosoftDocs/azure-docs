@@ -76,7 +76,7 @@ let Run(input: string, item: byref<Item>) =
 ```
 
 ## Logging
-To log output to your [streaming logs](../app-service-web/web-sites-streaming-logs-and-console.md) in F#, your function should take an argument of type `TraceWriter`. For consistency, we recommend this argument is named `log`. For example:
+To log output to your [streaming logs](../app-service/web-sites-enable-diagnostic-log.md) in F#, your function should take an argument of type `TraceWriter`. For consistency, we recommend this argument is named `log`. For example:
 
 ```fsharp
 let Run(blob: string, output: byref<string>, log: TraceWriter) =

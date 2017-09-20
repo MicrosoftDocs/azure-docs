@@ -15,6 +15,8 @@ ms.author: edwardsa
 
 The Azure Service Fabric command-line interface (CLI) is a command-line utility for interacting with and managing Service Fabric entities. The Service Fabric CLI can be used with either Windows or Linux clusters. The Service Fabric CLI runs on any platform where Python is supported.
 
+[!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
+
 ## Prerequisites
 
 Prior to installation, make sure your environment has both Python and pip installed. For more information, see the [pip quickstart documentation](https://pip.pypa.io/en/latest/quickstart/) and the official [Python installation documentation](https://wiki.python.org/moin/BeginnersGuide/Download).
@@ -49,6 +51,13 @@ Then run the following command to install the Service Fabric CLI:
 ```
 pip install sfctl
 sfctl -h
+```
+
+If you run into an error stating that `sfctl` is not found, run the following commands:
+
+```bash
+export PATH=$PATH:~/.local/bin
+echo "export PATH=$PATH:~/.local/bin" >> .bashrc
 ```
 
 ### Ubuntu
@@ -199,6 +208,16 @@ Here is another example:
 ```azurecli
 sfctl application create -h
 ```
+
+## Updating the Service Fabric CLI 
+
+To update the Service Fabric CLI, run the following commands (replace `pip` with `pip3` depending on what you chose during your original install):
+
+```bash
+pip uninstall sfctl 
+pip install sfctl 
+```
+
 
 ## Next steps
 
