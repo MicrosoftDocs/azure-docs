@@ -34,13 +34,17 @@ The following limits apply only for networking resources managed through Azure R
 | NSG rules per NSG |200 |500 |
 | User defined route tables |100 |200 |
 | User defined routes per route table |100 |400 |
-| Public IP addresses (dynamic) |60 |contact support |
-| Public IP addresses (Static) |20 |contact support |
+| Public IP addresses - dynamic |(Basic) |60 |contact support |
+| Public IP addresses - static |(Basic) 20 |contact support |
+| Public IP addresses - static |(Standard) 20 |contact support |
 | Load Balancers (internal and internet facing, Basic and Standard) |100 |1,000 |
-| Load Balancer (Basic and Standard) rules per load balancer |150 |250 |
-| Load Balancer (Basic and Standard) rules per IP configuration |250 |250 |
-| Public front end IP per Load Balancer |10 |30 |
-| Private front end IP per Load Balancer |10 |contact support |
+| Load Balancer (Basic) rules per load balancer |150 |250 |
+| Load Balancer (Standard) rules per load balancer | 1,250 | 1,500|
+| Load Balancer (Basic) rules per IP configuration |250 |250 |
+| Public front end IP per Load Balancer (Basic) |10 |30 |
+| Public front end IP per Load Balancer (Standard) | 10 | 600 |
+| Private front end IP per Load Balancer (Basic) |10 |contact support |
+| Private front end IP per Load Balancer (Standard) | 10 | 600 |
 | Point-to-Site Root Certificates per VPN Gateway |20 |20 |
 
 [Contact support](../articles/azure-supportability/resource-manager-core-quotas-request.md ) in case you need to increase limits from default.
