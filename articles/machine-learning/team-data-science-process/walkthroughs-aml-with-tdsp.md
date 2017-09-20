@@ -30,9 +30,9 @@ Additional data science walkthroughs that execute the Team Data Science Process 
 For a tutorial showing how create a TDSP project in Azure Machine Learning Workbench, see [Team Data Science Process Tutorial: Classify UCI incomes in Azure Machine Learning Workbench](../preview/scenario-tdsp-classifying-us-incomes.md) 
 
 
-## Bio-medical entity recognition using Natural Language Processing with Deep Learning
+## Biomedical entity recognition using Natural Language Processing with Deep Learning
 
-For a sample that uses a TDSP-instantiated project in Azure Machine Learning Workbench, see [Bio-medical entity recognition using Natural Language Processing with Deep Learning](../preview/scenario-tdsp-biomedical-recognition.md)
+For a sample that uses a TDSP-instantiated project in Azure Machine Learning Workbench, see [Biomedical entity recognition using Natural Language Processing with Deep Learning](../preview/scenario-tdsp-biomedical-recognition.md)
 
 ## Next steps
 

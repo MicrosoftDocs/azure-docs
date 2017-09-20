@@ -30,7 +30,7 @@ In this tutorial, you use Azure Machine Learning services (preview) to learn how
 > You can use the prepared data to train your own prediction models. For example, you might create a model to predict bike demand during a 2-hour window.
 
 ## Prerequisites
-1. Azure Machine Learning Workbench needs to be installed locally. For more information, follow the [installation Quickstart](quick-start-installation.md).
+1. Azure Machine Learning Workbench needs to be installed locally. For more information, follow the [installation Quickstart](quickstart-installation.md).
 2. Familiarity with creating a new project in the Workbench.
 
 
@@ -38,7 +38,7 @@ In this tutorial, you use Azure Machine Learning services (preview) to learn how
 This tutorial uses the [Boston Hubway dataset](https://s3.amazonaws.com/hubway-data/index.html) and Boston weather data from [NOAA](http://www.noaa.gov/).
 
 1. Download the data files from the following links to your local development environment. 
-   * [Boston weather data](https://azuremluxcdnprod001.blob.core.windows.net/docs/vienna/bikeshare/BostonWeather.csv). 
+   * [Boston weather data](https://azuremluxcdnprod001.blob.core.windows.net/docs/azureml/bikeshare/BostonWeather.csv). 
    * Hubway trip data from Hubway website.
 
       - [201501-hubway-tripdata.zip](https://s3.amazonaws.com/hubway-data/201501-hubway-tripdata.zip)
