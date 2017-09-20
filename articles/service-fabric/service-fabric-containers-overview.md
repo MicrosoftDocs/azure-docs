@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/19/2017
+ms.date: 9/20/2017
 ms.author: msfussell
 
 ---
@@ -23,7 +23,7 @@ ms.author: msfussell
 Azure Service Fabric is an [orchestrator](service-fabric-cluster-resource-manager-introduction.md) of services across a cluster of machines, with years of usage and optimization in massive scale services at Microsoft. Services can be developed in many ways, from using the [Service Fabric programming models](service-fabric-choose-framework.md) to deploying [guest executables](service-fabric-deploy-existing-app.md). By default, Service Fabric deploys and activates these services as processes. Processes provide the fastest activation and highest density usage of the resources in a cluster. Service Fabric can also deploy services in container images. Importantly, you can mix services in processes and services in containers in the same application.   
 
 ## Containers and Service Fabric roadmap
-In forthcoming releases, many improvements are planned for container orchestration with Service Fabric. Improvements include features for [networking](service-fabric-networking-modes.md), [security](service-fabric-securing-containers.md), [volume drivers](service-fabric-containers-volume-logging-drivers.md),  improved diagnostics, and tooling support. 
+In forthcoming releases, continual improvements are planned for container orchestration with Service Fabric. Improvements include features for [networking](service-fabric-networking-modes.md), [security](service-fabric-securing-containers.md), [volume drivers](service-fabric-containers-volume-logging-drivers.md),  improved diagnostics, and developer tooling support. 
 
 ## What are containers?
 Containers are encapsulated, individually deployable components that run as isolated instances on the same kernel to take advantage of virtualization that an operating system provides. Thus, each application and its runtime, dependencies, and system libraries run inside a container with full, private access to the container's own isolated view of operating system constructs. Along with portability, this degree of security and resource isolation is the main benefit for using containers with Service Fabric, which otherwise runs services in processes.
@@ -83,8 +83,10 @@ Service Fabric has several container capabilities that help you build applicatio
 ## Next steps
 In this article, you learned about containers, that Service Fabric is a container orchestrator, and that Service Fabric has features that support containers. As a next step, we will go over examples of each of the features to show you how to use them.
 
-[Deploy a Windows container to Service Fabric on Windows Server 2016](service-fabric-get-started-containers.md)
+[Create your first Service Fabric container application on Windows](service-fabric-get-started-containers.md)
 
-[Deploy a Docker container to Service Fabric on Linux](service-fabric-get-started-containers-linux.md)
+[Create your first Service Fabric container application on Linux](service-fabric-get-started-containers-linux.md)
+
+[Learn more about Windows Containers](https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/)
 
 [Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png
