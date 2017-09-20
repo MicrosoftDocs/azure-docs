@@ -77,7 +77,7 @@ The remediation suggested by Security Center vary according to the security aler
 
 > [!NOTE]
 > Security Center has released to limited preview a new set of detections that leverage auditd records, a common auditing framework, to detect malicious behaviors on Linux machines. Please send an email 
-> with your subscription IDs to [us](ASC_linuxdetections@microsoft.com) to join the preview.
+> with your subscription IDs to [us](mailto:ASC_linuxdetections@microsoft.com) to join the preview.
 
 
 ## See also
