@@ -106,7 +106,7 @@ If partition key is used when creating collection, once creation is completed, t
     ![create collection2](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/create-collection2.png) 
 
 #### Delete collection
-Right-click the collection, click **Delete Collection**, Click **Yes** on the pop-up window, the collection node can be deleted, and the database can refresh automatically.
+Right-click the collection, click **Delete Collection**, Click **Yes** on the pop-up window, the collection node can be deleted, and the database can refresh automatically.  
     ![delete collection](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/delete-collection.png) 
 
 ### Document management
@@ -117,7 +117,6 @@ To create a new document, open **Documents** in the left window, click **New Doc
 
 #### Delete a document
 Click the **Delete** button to delete the selected document.
-
 #### Query for documents
 Edit the document filter by entering [a SQL query](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sql-query) and then click **Apply**.
     ![filter](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/filter.png)
