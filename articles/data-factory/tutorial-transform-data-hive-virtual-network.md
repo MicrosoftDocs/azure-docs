@@ -382,3 +382,11 @@ In this tutorial, you learned how to:
 > * Monitor the pipeline run 
 > * verify the output. 
 
+Advance to the next tutorial to learn how to implement branching in control flow of a pipeline.
+
+> [!div class="nextstepaction"]
+> [Tutorial: control flow](tutorial-control-flow.md).
+
+
+
+

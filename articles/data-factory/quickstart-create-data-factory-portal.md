@@ -15,14 +15,14 @@ ms.author: jingwang
 
 ---
 # Create a data factory using the Azure portal
-In This quickstart, you use Azure portal to create a data factory. Currently, you cannot create pipelines in a data factory by using Azure portal. After you create the data factory, use the code or PowerShell commands from other quickstarts to create a data pipeline. 
+In this quickstart, you use Azure portal to create a data factory. Currently, you cannot create pipelines in a data factory by using Azure portal. After you create the data factory, use the code or PowerShell commands from other quickstarts to create a data pipeline. 
 
 ## Prerequisites
 
 * **Azure subscription**. If you don't have a subscription, you can create a [free trial](http://azure.microsoft.com/pricing/free-trial/) account.
 
-## Steps
-Here are the steps you perform as part of this tutorial:
+## Create a data factory
+Here are the steps you perform as part of this quickstart:
 1. After logging in to the [Azure portal](https://portal.azure.com/), click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
    
    ![New->DataFactory](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
@@ -39,7 +39,7 @@ Here are the steps you perform as part of this tutorial:
       - Select **Use existing**, and select an existing resource group from the drop-down list. 
       - Select **Create new**, and enter the name of a resource group.   
          
-      Some of the steps in this tutorial assume that you use the name: **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
+      Some of the steps in this quickstart assume that you use the name: **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
 4. Select **V2 (Preview)** for the **version**.
 5. Select the **location** for the data factory. Currently, you can create V2 data factories only in **East US** region. However, the compute and data stores used in data factories can be in other regions. 
 6. Select **Pin to dashboard**.     
@@ -58,8 +58,8 @@ Here are the steps you perform as part of this tutorial:
 
 
 ## Next steps
-See the following tutorial for step-by-step instructions for creating pipelines and datasets by using one of these tools or SDKs. 
+See the following quickstarts for step-by-step instructions for creating pipelines and datasets by using one of these tools or SDKs. 
 
-- [Quickstart: create a data factory using .NET](quickstart-create-data-factory-dot-net.md)
-- [Quickstart: create a data factory using PowerShell](quickstart-create-data-factory-powershell.md)
-- [Quickstart: create a data factory using REST API](quickstart-create-data-factory-rest-api.md)
+- [Quickstart: Create a data factory using .NET](quickstart-create-data-factory-dot-net.md)
+- [Quickstart: Create a data factory using PowerShell](quickstart-create-data-factory-powershell.md)
+- [Quickstart: Create a data factory using REST API](quickstart-create-data-factory-rest-api.md)
