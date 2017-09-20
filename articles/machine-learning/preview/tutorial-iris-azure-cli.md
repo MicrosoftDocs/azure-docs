@@ -24,7 +24,7 @@ In this tutorial, you learn to use the command-line interface (CLI) tools in Azu
 
 ## Prerequisites
 - You need access to an Azure subscription and permissions to create resources in that subscription. You can create a [free Azure subscription](https://azure.microsoft.com/free/) before you begin. 
-- You also need to install Azure Machine Learing workbench app by following the installation instructions in the [Create Azure Machine Learning preview accounts and install Azure Machine Learning Workbench](quick-start-installation.md) guide. 
+- You also need to install Azure Machine Learing workbench app by following the installation instructions in the [Create Azure Machine Learning preview accounts and install Azure Machine Learning Workbench](quickstart-installation.md) guide. 
   >[!NOTE]
   >You only need to install the Azure ML Workbench location. You can skip the resource provisioning part in the above guide since you can do that using CLI tools shown below.
  
