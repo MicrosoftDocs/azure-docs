@@ -105,7 +105,7 @@ After opening Data Explorer, you can do the following:
 
 Watch the following video to see how to use Azure Cosmos DB Connected Service in Visual Studio: [Use Azure Cosmos DB Connected Service in Visual Studio](https://go.microsoft.com/fwlink/?linkid=858711)
 
-## Next Steps
+## Next steps
 In this document, you've learned following items:
 
 > [!div class="checklist"]
@@ -114,7 +114,7 @@ In this document, you've learned following items:
 > * Open Azure Cosmos DB Explorer
 > * Use Data Explorer
 
-Now that you have Connected Services up and running and connected to your Azure Cosmos DB account, proceed to one of the tutorials to start developing your solution:
+Now that you have Connected Services up and running with your Azure Cosmos DB account, proceed to one of the tutorials to start developing your solution:
 
 * [Develop with the DocumentDB API in .NET](tutorial-develop-documentdb-dotnet.md).
 * [Azure Cosmos DB: DocumentDB API getting started tutorial](documentdb-get-started.md).
