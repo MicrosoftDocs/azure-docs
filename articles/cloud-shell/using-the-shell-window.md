@@ -1,7 +1,7 @@
 ---
 title: Using the Azure Cloud Shell (Preview) window | Microsoft Docs
 description: Overview of how to use the Azure Cloud Shell window.
-services: 
+services: azure
 documentationcenter: ''
 author: jluk
 manager: timlt
@@ -21,7 +21,7 @@ ms.author: juluk
 
 This document explains how to use the Cloud Shell window.
 
-## Swap between Bash and PowerShell
+## Swap between Bash and PowerShell environments
 ![](media/using-the-shell-window/env-selector.png)
 
 Use the environment selector in the Cloud Shell toolbar to swap between Bash and PowerShell environments.
@@ -42,16 +42,17 @@ Use the environment selector in the Cloud Shell toolbar to swap between Bash and
 Cloud Shell enables multiple concurrent sessions across browser tabs by allowing each session to exist as a separate Bash process.
 If exiting a session, be sure to exit from each session window as each process runs independently although they run on the same machine.
 
-## Copy and paste
-* Windows: `Ctrl-insert` to copy and `Shift-insert` to paste. Right-click dropdown can also enable copy/paste.
-  * FireFox/IE may not support clipboard permissions properly.
-* Mac OS: `Cmd-c` to copy and `Cmd-v` to paste. Right-click dropdown can also enable copy/paste.
+[!include [copy-paste](../../includes/cloud-shell-copy-paste.md)]
 
 ## Resize Cloud Shell window
 * Click and drag the top edge of the toolbar up or down to resize the Cloud Shell window.
 
 ## Scrolling text display
 * Scroll with your mouse or touchpad to move terminal text.
+
+## Changing the text size
+![](media/using-the-shell-window/text-size.png)
+* Click the settings icon on the top left of the window, then hover over the "Text size" option and select your desired text size.
 
 ## Exit command
 Running `exit` terminates the active session. This behavior occurs by default after 10 minutes without interaction.
