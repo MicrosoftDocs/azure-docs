@@ -22,7 +22,7 @@ ms.custom:
 
 This sample script connects to a Service Fabric cluster and lists all of the provisioned applications.
 
-[!INCLUDE [links to azure cli and service fabric cli](../,,/../includes/service-fabric-sfctl.md)]
+[!INCLUDE [links to azure cli and service fabric cli](../../../includes/service-fabric-sfctl.md)]
 
 ## Sample script
 

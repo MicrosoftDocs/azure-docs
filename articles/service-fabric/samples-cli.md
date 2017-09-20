@@ -23,7 +23,7 @@ ms.custom: mvc
 
 The following table includes links to [Service Fabric CLI](service-fabric-cli.md) script samples that manage Service Fabric clusters, applications, and services.
 
-[!INCLUDE [links to azure cli and service fabric cli](../,,/../includes/service-fabric-sfctl.md)]
+[!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
 | | |
 |-|-|
