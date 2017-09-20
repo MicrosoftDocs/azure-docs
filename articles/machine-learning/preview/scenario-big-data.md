@@ -335,91 +335,87 @@ Choose a unique string as the environment for operationalization and we use the 
 
 1. Create the environment for operationalization and create the  resource group.
 
-```az ml env setup -c -n [unique] --location eastus2 --cluster -z 5 --yes ```
+        az ml env setup -c -n [unique] --location eastus2 --cluster -z 5 --yes
 
-Note we choose to use Azure Container Service as the environment by using  `--cluster` in `az ml env setup` command. We choose to operationalize the machine learning model on [Azure Container Service](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-intro-kubernetes)  as it uses [Kubernetes](https://kubernetes.io/) for automating deployment, scaling, and management of containerized applications.
-This command takes around 20 minutes to run. Use 
+   Note we choose to use Azure Container Service as the environment by using  `--cluster` in `az ml env setup` command. We choose to operationalize the machine learning model on [Azure Container Service](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-intro-kubernetes)  as it uses [Kubernetes](https://kubernetes.io/) for automating deployment, scaling, and management of containerized applications.This command takes around 20 minutes to run. Use 
 
-```az ml env show -g [unique]rg -n [unique]```
+        az ml env show -g [unique]rg -n [unique]
 
-to check if the deployment is finished successfully.
+   to check if the deployment is finished successfully.
 
-Set the deployment environment as the one you just created by running
+   Set the deployment environment as the one you just created by running
 
-```az ml env set -g [unique]rg -n [unique] ```
+        az ml env set -g [unique]rg -n [unique]
 
 2. Create a model management account and use the model management account.
 
-Create a  model management account by running
+   Create a  model management account by running
 
-```az ml account modelmanagement create --location  eastus2 -n [unique]acc -g [unique]rg --sku-instances 4 --sku-name S3 ```
+    az ml account modelmanagement create --location  eastus2 -n [unique]acc -g [unique]rg --sku-instances 4 --sku-name S3 
 
-Use the model management for operationalization by running
+   Use the model management for operationalization by running
 
-```az ml account modelmanagement set  -n [unique]acc -g [unique]rg ```
+        az ml account modelmanagement set  -n [unique]acc -g [unique]rg  
 
-Model management account is used to manage the models and web services. From Azure portal, you can see a new model management account is created and you can use it to  see the models, manifests, Docker images, and services that are created by using this model management account.
+   Model management account is used to manage the models and web services. From Azure portal, you can see a new model management account is created and you can use it to  see the models, manifests, Docker images, and services that are created by using this model management account.
 
 3. Download and register the models.
 
-Download the models  in the "fullmodel" container to your local machine in the directory of code. Do not download the parquet data file with name "vmlSource.parquet" as it is not a model file but an intermediate compute result. You can also reuse the model files we have included in the git repository. Visit [DownloadModelsFromBlob.md](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Docs/DownloadModelsFromBlob.md) for details of downloading the parquet files. 
+   Download the models  in the "fullmodel" container to your local machine in the directory of code. Do not download the parquet data file with name "vmlSource.parquet" as it is not a model file but an intermediate compute result. You can also reuse the model files we have included in the git repository. Visit [DownloadModelsFromBlob.md](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Docs/DownloadModelsFromBlob.md) for details of downloading the parquet files. 
 
-Go to the `Model` folder in the CLI and register the models as follows:
+   Go to the `Model` folder in the CLI and register the models as follows:
 
-```az ml model register -m  mlModel -n vmlModel -t fullmodel ```
+        az ml model register -m  mlModel -n vmlModel -t fullmodel
+        az ml model register -m  featureScaleModel -n featureScaleModel -t fullmodel
+        az ml model register -m  oneHotEncoderModel -n  oneHotEncoderModel -t fullmodel
+        az ml model register -m  stringIndexModel -n stringIndexModel -t fullmodel
+        az ml model register -m  info -n info -t fullmodel
 
-```az ml model register -m  featureScaleModel -n featureScaleModel -t fullmodel```
-
-```az ml model register -m  oneHotEncoderModel -n  oneHotEncoderModel -t fullmodel```
-
-```az ml model register -m  stringIndexModel -n stringIndexModel -t fullmodel```
-
-```az ml model register -m  info -n info -t fullmodel```
-
-The output of each command gives a model ID which is needed in the next step. Save them in a text file for future use.
+   The output of each command gives a model ID which is needed in the next step. Save them in a text file for future use.
 
 4. Create manifest for the web service.
 
-Manifest is the recipe which is used to create of the Docker image for web service containers. It includes the code for the web service, all the machine learning models and run-time environemnt dependencies.  Go to the `Code` folder in the CLI and  run the command line:
+   Manifest is the recipe which is used to create of the Docker image for web service containers. It includes the code for the web service, all the machine learning models and run-time environemnt dependencies.  Go to the `Code` folder in the CLI and  run the command line:
 
-```az ml manifest create -n $webserviceName -f webservice.py -r spark-py -c ../Config/conda_dependencies_webservice.yml -i $modelID1 -i $modelID2 -i $modelID3 -i $modelID4 -i $modelID5```
+        az ml manifest create -n $webserviceName -f webservice.py -r spark-py -c ../Config/conda_dependencies_webservice.yml -i $modelID1 -i $modelID2 -i $modelID3 -i $modelID4 -i $modelID5
 
-The output gives a manifest ID for the next step. 
+   The output gives a manifest ID for the next step. 
 
-Stay in the `Code` directory, and you can test webservice.py by running 
+   Stay in the `Code` directory, and you can test webservice.py by running 
 
-```az ml experiment submit -t dockerdsvm -c dockerdsvm webservice.py```
+        az ml experiment submit -t dockerdsvm -c dockerdsvm webservice.py
 
 5. Create a Docker image. 
 
-```az ml image create -n [unique]image --manifest-id $manifestID```
+        az ml image create -n [unique]image --manifest-id $manifestID
 
-The output gives an image ID for the next step as this docker image is used in ACS. 
+   The output gives an image ID for the next step as this docker image is used in ACS. 
 
 6. Deploy the web service to the ACS cluster
 
-```az ml service create realtime -n [unique] --image-id $imageID --cpu 0.5 --memory 2G ```
+        az ml service create realtime -n [unique] --image-id $imageID --cpu 0.5 --memory 2G
 
-The output gives a service ID, and you need to use it to get the authorization key and service URL.
+   The output gives a service ID, and you need to use it to get the authorization key and service URL.
 
 7. Call the webservice in Python code to score in mini-batches.
 
-Use the following command  to get the authorization key
+   Use the following command  to get the authorization key
 
-``` az ml service keys realtime -i $ServiceID ``` 
+         az ml service keys realtime -i $ServiceID 
 
-and use the following command  to get the service scoring URL
+   and use the following command  to get the service scoring URL
 
-` az ml service usage realtime -i $ServiceID`
+        az ml service usage realtime -i $ServiceID
 
-Modify the content in `./Config/webservice.json` with the right service scoring URL and authorization key (keep the "Bearer " in the original file and replace the "xxx" part). 
-Go to the root directory of your project, and test the web service for mini-batch scoring by using
+   Modify the content in `./Config/webservice.json` with the right service scoring URL and authorization key (keep the "Bearer " in the original file and replace the "xxx" part). 
+   
+   Go to the root directory of your project, and test the web service for mini-batch scoring by using
 
-```az ml experiment submit -t dockerdsvm -c dockerdsvm ./Code/scoring_webservice.py ./Config/webservice.json```
+        az ml experiment submit -t dockerdsvm -c dockerdsvm ./Code/scoring_webservice.py ./Config/webservice.json
 
 8. Scale the web service. 
 
-Refer to [How to scale operationalization on your ACS cluster](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/how-to-scale.md) to scale the web service.
+   Refer to [How to scale operationalization on your ACS cluster](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/how-to-scale.md) to scale the web service.
  
 
 ## Conclusion
