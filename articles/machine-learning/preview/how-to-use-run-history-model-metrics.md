@@ -20,7 +20,7 @@ This article describes how to make effective use of these features to increase t
 
 ## Prerequisites
 To step through this how-to guide, you need to:
-- [Install AML Workbench](doc-template-how-to.md)
+- [Install AML Workbench](quickstart-installation.md)
 - [Create a Project](quick-start-iris.md)
 
 

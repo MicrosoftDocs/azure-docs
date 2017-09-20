@@ -53,7 +53,7 @@ See [Team Data Science Process (TDSP) Lifecycle](https://github.com/Azure/Micros
 The dataset for this sample is from the UCI ML Repository [[link]](https://archive.ics.uci.edu/ml/datasets/adult). It is taken from the 1994 US Census database and contains census and income information for about 50,000 individuals. This is structured dataset having numerical and categorical features, and a categorical target consisting of two income categories ('>50 K' or '<=50 K'). 
 
 ### Informational: about Azure Machine Learning
-* [FAQ - How to get started](faq.md)
+* [FAQ - How to get started](frequently-asked-questions.md)
 * [Overview](overview-what-is-azure-ml.md)
 * [Installation](quickstart-installation.md)
 * [Using TDSP](https://aka.ms/how-to-use-tdsp-in-aml)
