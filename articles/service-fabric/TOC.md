@@ -18,6 +18,11 @@
 ### [1- Create a secure cluster on Azure](service-fabric-tutorial-create-cluster-azure-ps.md)
 ### [2- Deploy a .NET app using Docker Compose](service-fabric-host-app-in-a-container.md)
 
+## Create a Linux container app
+### [1- Create container images](service-fabric-tutorial-create-container-images.md)
+### [2- Package and deploy containers](service-fabric-tutorial-package-containers.md)
+### [3- Fail over and scale](service-fabric-tutorial-containers-failover.md)
+
 ## Create and manage a cluster
 ### 1- Create a cluster on Azure
 #### [1a- Create a secure Windows cluster on Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
