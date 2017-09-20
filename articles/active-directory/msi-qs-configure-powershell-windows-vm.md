@@ -42,24 +42,7 @@ To create your VM, refer to one of the following Azure VM Quickstarts, completin
   - [Create a Windows virtual machine using PowerShell](../virtual-machines/windows/quick-create-powershell.md)
   - [Create a Linux virtual machine using PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
-  
-   c. Create a virtual network card for the virtual machine. The network card connects the virtual machine to a subnet, network security group, and public IP address:
 
-   ```powershell
-   # Create a virtual network card and associate with public IP address and NSG
-   $nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGroup -Location WestUS -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
-   ```
-
-4. Create the VM.
-
-   a. Create a configurable VM object. These settings are used when deploying the virtual machine, such as a virtual machine image, size, and authentication configuration. The `-IdentityType "SystemAssigned"` parameter used in the [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvm) cmdlet causes the VM to be provisioned with an MSI. The `Get-Credential` cmdlet prompts for credentials, which are configured as the user name and password for the virtual machine:
-
-   ```powershell
-   # Define a credential object (prompts for user/password to be used for VM authentication)
-   $cred = Get-Credential
-
-   # Create a configurable VM object with a Managed Service Identity
-   $vmConfig = New-AzureRmVMConfig -VMName myVM -VMSize Standard_DS2 -IdentityType "SystemAssigned" | Set-AzureRmVMOperatingSystem -Windows -ComputerName myVM -Credential $cred | Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter -Version latest | Add-AzureRmVMNetworkInterface -Id $nic.Id
    ```
 
    b. Provision the new VM:
