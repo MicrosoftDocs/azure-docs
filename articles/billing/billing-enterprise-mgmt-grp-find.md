@@ -26,7 +26,7 @@ You can easily switch directories in the Azure portal.
 1.	Sign into the [Azure portal](https://portal.azure.com).
 2.  Select your name in the top right of the screen. 
 3.	The bottom of the menu lists all the directories you have access to.
-4.	Select the directory you are looking to switch to. 
+4.	Select a directory's name to access. 
 
 ![Switch Directory Menu](media/billing-enterprise-mgmt-groups/switch-directory.png)
 
@@ -43,7 +43,7 @@ You can transfer your subscriptions or your management groups into the directory
 You can move a subscription to the directory associated with your management groups. This move can be achieved by having your enrollment administrator transfer your subscription to an account in the target directory. To learn more, sign in at the [Enterprise portal](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription).
 
 ### Transfer your management groups
-We are working on providing the ability to associate a management group hierarchy with a different directory. This will be enabled soon. 
+We are working on providing the ability to associate a management group hierarchy with a different directory. This feature is coming soon. 
  
 
 

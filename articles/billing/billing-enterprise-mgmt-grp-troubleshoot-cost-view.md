@@ -25,9 +25,9 @@ Within enterprise enrollments, there are multiple settings that could cause user
 > If you are interested in a chance to participate in the Enterprise Private Preview of management groups, [sign up here](https://forms.office.com/Pages/DesignPage.aspx#FormId=v4j5cvGGr0GRqy180BHbR0YtfU6ham9OsGsPPYdu2xdUNk1BQUwzTkUyOVc5NUpCTFcwR0pIOVFETS4u).     
 
 ## Enabling access to costs
-If you are seeing a message Unauthorized, or "Cost views are disabled in your enrollment. Learn more at https://aka.ms/EnableAzureCosts", it might be due to one of the following reasons:
+If you are seeing a message Unauthorized, or *"Cost views are disabled in your enrollment. Learn more at https://aka.ms/EnableAzureCosts"*, it might be due to one of the following reasons:
 
-1. You’ve purchased Azure through a channel partner, and the partner hasn’t released pricing yet. To release pricing, contact your partner to do update the setting within the [Enterprise portal](https://ea.azure.com).
+1. You’ve purchased Azure through an enterprise partner, and the partner hasn’t released pricing yet. To release pricing, contact your partner to do update the setting within the [Enterprise portal](https://ea.azure.com).
 2. Alternatively, if you’re an EA Direct customer, there are a couple of possibilities:
     * You are an Account Owner and your Enrollment Administrator has disabled the "AO view charges" setting.  
     * You are a Department Administrator and your Enrollment Administrator has disabled the "DA view charges" setting.
@@ -37,5 +37,7 @@ If you are seeing a message Unauthorized, or "Cost views are disabled in your en
 
 
 ## Asset not found? 
-If you are receiving an error message "Asset not found" when trying to access a subscription or [management group](billing-enterprise-mgmt-group-overview.md), then you do not have the correct role to view this item.  See the [Azure Role-Based Access Control (RBAC)](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) document for help.  
+If you are receiving an error message "Asset not found" when trying to access a subscription or management group, then you do not have the correct role to view this item.  Contact the administer of the subscription or management groups to be given access.  
+* For subscriptions, reference [Azure Role-Based Access Control (RBAC)](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) document for help on which role is needed.
+* For management groups, RBAC access is not available and is coming soon. Contact your enterprise portal administer to have access assigned.
 

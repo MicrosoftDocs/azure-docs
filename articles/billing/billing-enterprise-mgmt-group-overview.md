@@ -21,32 +21,38 @@ ms.author: rithorn
 # Organize your resources with Azure Management Groups 
 
 If you have multiple subscriptions, you can organize them into containers called “management groups" to help you manage access, policy, costs, and compliance across your subscriptions. As an example, you can apply policies to a management group that limit which resource types can be created.
+
+> [!Note]
+> If you are interested in a chance to participate in the Enterprise Private Preview of management groups, [sign up here](https://forms.office.com/Pages/DesignPage.aspx#FormId=v4j5cvGGr0GRqy180BHbR0YtfU6ham9OsGsPPYdu2xdUNk1BQUwzTkUyOVc5NUpCTFcwR0pIOVFETS4u). 
  
 A few items to note: 
 * Management groups are currently available to Azure Enterprise Agreement customers. 
 * Support for the following customers will be enabled in future releases. 
     * [Pay-As-You-Go](https://azure.microsoft.com/en-us/offers/ms-azr-0003p/)
     * [Cloud Solution Provider](https://partner.microsoft.com/en-us/cloud-solution-provider) 
-    * [Enterprise Indirect Partners](https://www.microsoftpartnerserverandcloud.com/Pages/home.aspx)  
+    * [Enterprise Partners](https://www.microsoftpartnerserverandcloud.com/Pages/home.aspx)  
     * [Azure Government](https://azure.microsoft.com/en-us/overview/clouds/government/) 
     * [Azure Germany](https://azure.microsoft.com/en-us/overview/clouds/germany/)
     * [Azure China](https://www.azure.cn/)
 
-Management groups can be organized into a hierarchy. The structure shown is a sample representation of a management group hierarchy that you can create:
+Management groups can be organized into a hierarchy. The structure shown is a sample representation of a management group hierarchy that can exist:
+
 
 ![Hierarchy Tree](media/billing-enterprise-mgmt-groups/tree.png)
 
-### Management group administrator must belong to the same directory as management group
+## Management groups have a relationship with your directory   
 Like subscriptions, management groups also have a trust relationship with Azure AD. A management group hierarchy trusts a single directory to authenticate users. All admins associated with a management group hierarchy must belong to the same directory.
 
+Where possible, an existing directory associated with the enrollment user accounts is selected. In some cases, a new directory is created and all existing enrollment users are invited into that directory. This new directory does not impact the directories associated with the subscriptions in the enrollment. Therefore, the hierarchy might get created in a directory different from the subscriptions. [Learn more](billing-enterprise-mgmt-grp-find.md) about how this process impacts the experience of navigating between the hierarchy and its subscriptions.
+
 ## View your enterprise's hierarchy using management groups in the Azure portal
-The introduction of management groups is the first step in unifying the [Enterprise portal](https://ea.azure.com) and the Azure portal.
+The introduction of management groups is a step in the larger journey of transitioning  [Enterprise portal](https://ea.azure.com) features to the [Azure portal](https://portal.azure.com).
 
-The [Enterprise Agreement (EA)](https://azure.microsoft.com/en-us/pricing/enterprise-agreement/) enrollment defines the shape and use of Azure services within a company and is the core governance structure. Within the enrollment, customers can subdivide the environment into departments, accounts, and finally, subscriptions. 
+The [Enterprise Agreement (EA)](https://azure.microsoft.com/en-us/pricing/enterprise-agreement/) enrollment defines the use of Azure services within a company and is the core of the hierarchy structure. Within the enrollment, customers can subdivide the resources into departments, accounts, and finally, subscriptions. 
 
-The management group structure is created in the environment that you have defined in the Enterprise portal. The entire hierarchy consisting of enrollment, departments, and accounts are mapped to corresponding management groups – all associated with the same directory. Where possible, an existing directory associated with the enrollment user accounts is selected. In some cases, a new directory is created and all existing enrollment users are invited into that directory. This new directory does not impact the directories associated with the subscriptions in the enrollment. Therefore, the hierarchy might get created in a directory different from the subscriptions. [Learn more](billing-enterprise-mgmt-grp-find.md) about how this process impacts the experience of navigating between the hierarchy and its subscriptions.
+The management group structure is created as it was defined in the Enterprise portal. The entire hierarchy consisting of enrollment, departments, and accounts are mapped to corresponding management groups – all associated with the same directory. 
 
-Here is how the current EA structure maps to management group hierarchy. The initial management group hierarchy is seeded with the hierarchy defined in your enterprise enrollment. 
+Here is how the current EA structure maps to management group hierarchy. 
 
 ![Hierarchy Tree](media/billing-enterprise-mgmt-groups/tree2.png)
 
