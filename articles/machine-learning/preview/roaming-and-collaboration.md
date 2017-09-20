@@ -18,7 +18,7 @@ This document walks you through how Azure Machine Learning Workbench can help ro
 When you create an Azure Machine Learning project with a remote Git Repository (repo) link, the project metadata and snapshots are stored in the cloud. The cloud link enables you to access the project from a different computer (Roaming). You can also give access to your co-workers, thus enabling collaboration. 
 
 ## Prerequisites
-First, install the Azure Machine Learning Workbench with access to an Experimentation Account. Follow the [installation guide](quick-start-installation.md) for more details.
+First, install the Azure Machine Learning Workbench with access to an Experimentation Account. Follow the [installation guide](quickstart-installation.md) for more details.
 
 Second, access [Visual Studio Team System](https://www.visualstudio.com) and create a repo to link your project to. For detailed information about Git, reference the [Using Git Repo with an Azure Machine Learning Workbench Project](using-git-ml-project.md) article.
 
