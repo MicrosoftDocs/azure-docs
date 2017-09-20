@@ -79,10 +79,10 @@
     items:
     - name: Set up Model Management
       href: deployment-setup-configuration.md
-    - name: Consume a web service
-      href: model-management-consumption.md  
     - name: Deploy a web service
       href: model-management-service-deploy.md
+    - name: Consume a web service
+      href: model-management-consumption.md  
     - name: How to use model data collection
       href: how-to-use-model-data-collection.md
   - name: Real-world examples
