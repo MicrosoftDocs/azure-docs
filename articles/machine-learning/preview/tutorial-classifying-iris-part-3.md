@@ -185,7 +185,7 @@ Use the following command to create a real-time web service:
    docker ps
    ```
 ### Alternative route
-As an alternate to `az ml service create realtime` command shown above, you can also perform the individaul steps. This gives your more flexibility at each step. Follow the below instructions to create a real-time web service:
+As an alternate to `az ml service create realtime` command shown above, you can also perform the model registration, manifest generation, Docker image build, and web service creation steps individually. This gives your more flexibility at each step, and you can reuse entities generated from the previous step, and rebuild entities only when needed. Follow the below instructions to see how this can be achived:
 
 1. Register the model by providing the pickle file name.
 
