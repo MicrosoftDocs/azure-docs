@@ -369,7 +369,6 @@ To secure Azure resources to a subnet:
 - the resource should be secured to the vnet by adding a virtual network rule on the resource.
 
 ### Deleting service endpoints with resources secured to the subnet
-
 If Azure service resources are secured to the subnet and the service endpoint is deleted, you cannot access the resource from the subnet anymore.
 Re-enabling the endpoint alone won't restore access to the resources previously secured to the subnet.
 
