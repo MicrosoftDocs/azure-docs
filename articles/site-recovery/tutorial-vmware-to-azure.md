@@ -79,6 +79,7 @@ The configuration server VM should be a highly available VMware VM that meets th
 requirements:
 
 | **Requirement** | **Details** |
+|-----------------|-------------|
 | Number of CPU cores| 8 |
 | RAM | 12 GB |
 | Number of disks | 3 - OS disk, process server cache disk, retention drive (for failback) |
