@@ -178,6 +178,10 @@ resources. For example, if on average you use two CPUs over an interval then you
 
 ## <a id="troubleshooting"></a>Troubleshooting
 
+### Too many active profiling sessions
+
+Currently you can enable profiler on at most 4 Azure Web Apps and deployment slots running on the same service plan. If you see the profiler web job reporting too many active profiling sessions, you need to move some Web Apps to a different service plan.
+
 ### How can I know whether Application Insights profiler is running?
 
 The profiler runs as a continuous web job in Web App. You can open the Web App resource in https://portal.azure.com and check "ApplicationInsightsProfiler" status in the WebJobs blade. If it isn't running, open **Logs** to find out more.
