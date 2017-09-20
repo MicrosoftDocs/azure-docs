@@ -5,7 +5,7 @@ keywords: app service, azure app service, scale, scalable, app service plan, app
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: syntaxc4
+manager: cfowler
 editor: ''
 
 ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
@@ -23,11 +23,15 @@ ms.author: cephalin
 
 The new **PremiumV2** pricing tier (Preview) features [Dv2-series VMs](../virtual-machines/windows/sizes-general.md#dv2-series) with faster processors, SSD storage, and double memory-to-core ratio compared to **Standard** tier. In this article, you learn how to create an app in **PremiumV2** tier or scale up an app to **PremiumV2** tier.
 
+## Prerequisites
+
+To follow this how-to guide, you need to have a Web App in Azure App Service that runs in a pricing tier lower than **PremiumV2**.
+
 <a name="availability"></a>
 
 ## PremiumV2 availability
 
-The PremiumV2 tier is currently available for App Service on _Windows_. Web Apps on Containers is not yet supported.
+The PremiumV2 tier is currently available for App Service on _Windows_ only. Linux containers are not yet supported.
 
 PremiumV2 is already available in most regions, and it will be available in all Azure regions in the near future. To see if it is available in your region, run the following Azure CLI command in the [Azure Cloud Shell](../cloud-shell/overview.md):
 
@@ -35,25 +39,11 @@ PremiumV2 is already available in most regions, and it will be available in all 
 az appservice list-locations --sku P1V2
 ```
 
-<a name="create"></a>
-
-## Create an app in PremiumV2 tier
-
-The pricing tier of an App Service app is defined in the [App Service plan](azure-web-sites-web-hosting-plans-in-depth-overview.md) that it runs on. 
-
-When configuring the App Service plan in the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, select **Pricing tier**. 
-
-Choose one of the **PremiumV2** options and click **Select**.
-
-![](media/app-service-configure-premium-tier/pick-premium-tier.png)
-
-If you do not see **P1V2**, **P2V2**, and **P3V2** as options, either PremiumV2 is not available in your region of choice, or you are configuring a Linux App Service plan, which does not support **PremiumV2**.
-
-If you receive an error during deployment, then **PremiumV2** is most likely not available for your region of choice.
+If you receive an error during app creation or App Service plan creation, then **PremiumV2** is most likely not available for your region of choice.
 
 ## Scale up an existing app to PremiumV2 tier
 
-Before scaling an existing app to PremiumV2 tier, make sure that PremiumV2 is available in your region. For information, see [PremiumV2 availability](#availability).
+Before scaling an existing app to PremiumV2 tier, make sure that PremiumV2 is available in your region. For information, see [PremiumV2 availability](#availability). If it is not available in your region, see [Scale up from an unsupported region](#unsupported).
 
 Depending on your hosting environment, scaling up may require extra steps. 
 
@@ -87,20 +77,37 @@ Select the App Service plan you just created.
 
 Once the change operation completes, your app is running in **PremiumV2** tier.
 
+<a name="unsupported"></a>
+
 ## Scale up from an unsupported region
 
-If your app runs in a region where **PremiumV2** is not yet available, you can move your app to different region to take advantage of **PremiumV2**. You have two options:
+If your app runs in a region where **PremiumV2** is not yet available, you can move your app to a different region to take advantage of **PremiumV2**. You have two options:
 
-- Create an app in new PremiumV2 plan, then redeploy your application code. Follow the steps at [Create an app in PremiumV2 tier](#create) to set it to **PremiumV2** tier. If desired, use the same scale-out configuration as your existing App Service plan (number of instances, autoscale, and so on).
+- Create an app in new **PremiumV2** plan, then redeploy your application code. Follow the steps at [Create an app in PremiumV2 tier](#create) to set it to **PremiumV2** tier. If desired, use the same scale-out configuration as your existing App Service plan (number of instances, autoscale, and so on).
 - If your app already runs in an existing **Premium** tier, then you can clone your app with all app settings, connection strings, and deployment configuration.
 
     ![](media/app-service-configure-premium-tier/clone-app.png)
 
     In the **Clone app** page, you can create a new App Service plan in the region you want, and specify the settings that you want to clone.
 
+<a name="create"></a>
+
+## Create an app in PremiumV2 tier
+
+The pricing tier of an App Service app is defined in the [App Service plan](azure-web-sites-web-hosting-plans-in-depth-overview.md) that it runs on. You can create an App Service plan by itself or as part of Web App creation.
+
+When configuring the App Service plan in the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, select **Pricing tier**. 
+
+Choose one of the **PremiumV2** options and click **Select**.
+
+![](media/app-service-configure-premium-tier/pick-premium-tier.png)
+
+> [!IMPORTANT] 
+> If you do not see **P1V2**, **P2V2**, and **P3V2** as options, either **PremiumV2** is not available in your region of choice, or you are configuring a Linux App Service plan, which does not support **PremiumV2**.
+
 ## Automate with scripts
 
-You can automate app creation in the PremiumV2 tier with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/overview).
+You can automate app creation in the **PremiumV2** tier with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/overview).
 
 ### Azure CLI
 

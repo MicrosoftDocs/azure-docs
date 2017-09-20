@@ -75,7 +75,7 @@ For example, a highly available app running in two regions includes at least two
 
 ## Create an App Service plan or use existing one
 
-When creating an App Service app, you can put it in an existing plan to create a new plan for it. This decision depends on capacity and expected load.
+When creating a new Web App in App Service, you can share hosting resources by placing the app into an existing App Service plan. To determine whether the new app will have the necessary resources, you need to understand the capacity of the existing App Service plan, and the expected load for the new app. Over-allocating resources can potentially cause downtime for your new and existing apps.
 
 We recommend isolating your app into a new App Service plan when:
 
