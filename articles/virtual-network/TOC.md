@@ -8,6 +8,7 @@
 ## [IP addressing](virtual-network-ip-addresses-overview-arm.md)
 ## [Security](security-overview.md)
 ## [FAQ](virtual-networks-faq.md)
+## [DDoS Protection](ddos-protection-overview.md)
 ## Classic
 ### [IP addressing](virtual-network-ip-addresses-overview-classic.md)
 ### [Access control lists](virtual-networks-acl.md)
