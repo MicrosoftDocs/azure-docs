@@ -32,24 +32,23 @@ To create a Server Endpoint, you must first ensure that the following criteria a
 - Ensure that the server is connected to the internet and that Azure is accessible.
 
 ## Add a Server Endpoint
-To add a Server Endpoint, navigate to the desired Sync Group, and click "Add server endpoint".
+To add a Server Endpoint, navigate to the desired Sync Group, and select "Add server endpoint".
 
 ![Add a new Server Endpoint in the Sync Group pane](media/storage-sync-files-server-endpoint/add-server-endpoint-1.png)
 
-The resulting "Add server endpoint" pane requires the following information to create a Server Endpoint:
+The following information is required under **Add server endpoint**:
 
 - **Registered Server**: The name of the server or cluster to create the Server Endpoint on.
-- **Path**: The Path on the Windows Server to be synchronized as part of the Sync Group.
+- **Path**: The path on the Windows Server to be synchronized as part of the Sync Group.
 - **Cloud Tiering**: A switch to enable or disable cloud tiering, which enables infrequently used or access files to be tiered to Azure Files.
-- **Volume Free Space**: the amount of free space to reserve on the volume which the Server Endpoint resides. For example, if the Volume Free Space is set to 50% on a volume with a single Server Endpoint, roughly half the amount of data will be tiered to Azure Files. Regardless of whether cloud tiering is enabled, your Azure File share always has a complete copy of the data in the Sync Group.
+- **Volume Free Space**: the amount of free space to reserve on the volume which the Server Endpoint resides. For example, if the volume free space is set to 50% on a volume with a single Server Endpoint, roughly half the amount of data will be tiered to Azure Files. Regardless of whether cloud tiering is enabled, your Azure File share always has a complete copy of the data in the Sync Group.
 
-Click "Create" to add the Server Endpoint. The files within a namespace of a Sync Group will now be kept in sync. 
+Select **Create** to add the Server Endpoint. The files within a namespace of a Sync Group will now be kept in sync. 
 
 ## Remove a Server Endpoint
-### (Optional) Recall all tiered data
 When enabled for a Server Endpoint, cloud tiering will *tier* files to your Azure File shares. This enables on-premises file shares to act as a cache, rather than a complete copy of the dataset, to make efficient use of the space on the file server. However, if a Server Endpoint is removed with tiered files still locally on the server, those files will become unaccessible. Therefore, if continued file access is desired, you must recall all tiered files from Azure Files before continuing with deregistration. 
 
-This can be done with the simple PowerShell cmdlet as shown below:
+This can be done with the PowerShell cmdlet as shown below:
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
@@ -57,10 +56,9 @@ Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
 ```
 
 > [!Warning]  
-> If the local volume hosting the server does not have enough free space to recall all the tiered data, the `Invoke-StorageSyncFileRecall` cmdlet will fail.  
+> If the local volume hosting the server does not have enough free space to recall all the tiered data, the `Invoke-StorageSyncFileRecall` cmdlet fails.  
 
-### Remove the Server Endpoint from all Sync Groups
-Before unregistering the server on the Storage Sync Service, all Server Endpoints for that server must be removed. This can be done via the Portal:
+To remove the Server Endpoint:
 
 1. Navigate to the Storage Sync Service where your server is registered.
 2. Navigate to the desired Sync Group.
