@@ -166,13 +166,6 @@ By using Update management, you can manage package updates and patches for your 
 Directly from your virtual machine, you can quickly assess the status of available updates, schedule installation of required updates,
 and review deployment results to verify updates were applied successfully to the virtual machine.
 
-In this tutorial you learn how to:
-
-> [!div class="checklist"]
-> * Enable the Update management solution for your virtual machine
-> * View missing updates
-> * Schedule installation of updates
-
 For pricing information, see [Automation pricing for Update management](https://azure.microsoft.com/pricing/details/automation/)
 
 ### Enable Update management
@@ -219,8 +212,7 @@ In the **New update deployment** screen, specify the following:
 
 * **Name** - Provide a unique name to identify the update deployment.
 * **Updates to exclude** - select this to enter names of packages to exclude from the update.
-* **Schedule settings** - You can either accept the default date and time, which is 30 minutes after current time, or specify a different time.
-   You can also specify whether the deployment occurs once or set up a recurring schedule. Click the Recurring option under Recurrence to set up a recurring schedule.
+* **Schedule settings** - You can either accept the default date and time, which is 30 minutes after current time, or specify a different time. You can also specify whether the deployment occurs once or set up a recurring schedule. Click the Recurring option under Recurrence to set up a recurring schedule.
 
    ![Update Schedule Settings screen](./media/tutorial-monitoring/manageupdate-schedule-linux.png)
 
