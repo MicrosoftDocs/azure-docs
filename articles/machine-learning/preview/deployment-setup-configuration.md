@@ -58,11 +58,11 @@ pip install azure-cli
 pip install azure-cli-ml
 ```
 
-### Configuring docker on Linux
-In order to configure docker on Linux for use by non-root users, follow the instructions here: [Post-installation steps for Linux](https://docs.docker.com/engine/installation/linux/linux-postinstall/)
+### Configuring Docker on Linux
+In order to configure Docker on Linux for use by non-root users, follow the instructions here: [Post-installation steps for Linux](https://docs.docker.com/engine/installation/linux/linux-postinstall/)
 
 >[!NOTE]
-> On a Linux DSVM, you can run the script below to configure docker correctly. **Remember to log out and log back in after running the script.**
+> On a Linux DSVM, you can run the script below to configure Docker correctly. **Remember to log out and log back in after running the script.**
 >```
 >sudo /opt/microsoft/azureml/initial_setup.sh
 >```
