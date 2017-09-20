@@ -20,11 +20,10 @@ ms.author: wgries
 # Troubleshoot Azure File Sync (preview)
 With Azure File Sync (preview), shares can be replicated to Windows Servers on-premises or in Azure. You and your users would then access the file share through the Windows Server, such as through a SMB or NFS share. This is particularly useful for scenarios in which data will be accessed and modified far away from an Azure datacenter, such as in a branch office scenario. Data may be replicated between multiple Windows Server endpoints, such as between multiple branch offices.
 
-This article is designed to help you troubleshoot and resolve issues encountered with your Azure File Sync deployment. Failing that, this guide illustrates how to collect important logs from the system to aid in a deeper investigation of the issues. There are several options for getting support for Azure File Sync:
+This article is designed to help you troubleshoot and resolve issues encountered with your Azure File Sync deployment. Failing that, this guide illustrates how to collect important logs from the system to aid in a deeper investigation of the issues. The following options are available for getting support for Azure File Sync:
 
 - Microsoft Support: To create a new support case, navigate to the "Help + support" tab on the Azure portal and click "New support request".
 - [Azure Storage Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazuredata)
-- [Azure Files on StackOverflow](https://stackoverflow.com/questions/tagged/azure-storage-file+or+azure-files+or+azure-file-storage)
 
 ## How to troubleshoot agent installation failures
 If the Azure File Sync agent installation is failing, run the following command from an elevated command prompt to enable logging during the agent installation:
@@ -46,7 +45,7 @@ If a server is not listed under Registered Servers for a Storage Sync Service, p
 
 This message is displayed if the server was previously registered with a Storage Sync Service. To unregister the server with the current Storage Sync Service and register with a new Storage Sync Service, follow the steps to [Unregister a server with Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
-## How to troubleshoot sync not working on a server:
+## How to troubleshoot sync not working on a server
 If sync is failing on a server, perform the following:
 - Verify a Server Endpoint exists in the Azure portal for the directory you want to sync to an Azure File share:
     
