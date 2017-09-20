@@ -29,7 +29,7 @@ and approval for publishing.
 | Capability | Details | Required or Recommended |
 |------------|---------|-------------------------|
 | Software-as-a-Service (SaaS) app | Meets a user scenario that fits well with Logic Apps, Flow, and PowerApps. | Required |
-| Authentication Type | Your API must support OAuth2, API Key, or Basic Authentication. | Required | 
+| Authentication type | Your API must support OAuth2, API Key, or Basic Authentication. | Required | 
 | Support | You must provide a support contact so that customers can get help. | Required | 
 | Availability and uptime | Your app has at least 99.9% uptime. | Recommended | 
 |||| 
@@ -38,6 +38,17 @@ Also, if you're not a Microsoft partner or Independent Software Vendor (ISV),
 and you want to certify and publicly release a connector, 
 you must either own the underlying service or present explicit 
 rights to use the API.
+
+## Validation phases
+
+Microsoft uses these validation phases 
+for evaluating your connector:
+
+| Validation phase | Description | 
+| ----- | ----------- |
+| Functionality | Microsoft tests your connector with Logic Apps, Flow, and PowerApps for these errors: <p>- Invalid OpenAPI (Swagger) or JSON errors that appear in the Definition section from the custom connector wizard <p>- Runtime and schema validation errors that appear in the Test section from the custom connector wizard | 
+| Content | Microsoft checks that your connector uses friendly names and descriptions for each entity. Make sure that each operation, input parameter, and response attribute in your connector's Swagger has these elements: <p>- [Summary](../logic-apps/custom-connector-openapi-extensions.md#summary) <br>- [Description](../logic-apps/custom-connector-openapi-extensions.md#description) </br>- [Visibility information](../logic-apps/custom-connector-openapi-extensions.md#visibility) | 
+||| 
 
 ## Nominate and submit your connector to Microsoft for certification
 
@@ -52,8 +63,9 @@ To apply for certification, follow these steps:
       3. Choose **Submit**.
 
    2. Sign the mutual Non-Disclosure Agreement and Partner Agreement that you receive. 
-   Microsoft requires these signed contracts before proceeding. 
-   We can then check whether your connector meets the certification criteria. 
+
+      Microsoft requires these signed contracts before proceeding. 
+      We can then check whether your connector meets the certification criteria. 
    
    3. If your connector is approved, Microsoft notifies you 
    with instructions for onboarding.
@@ -82,7 +94,7 @@ To apply for certification, follow these steps:
     After we validate your connector's functionality and content, 
     we stage the connector for deployment across all products and regions.
     
-    By default, all connectors are published as "premium." 
+    By default, all connectors are published as "premium" connectors. 
     If you built your app with Azure, you can apply for 
     listing your connector as a "standard" connector that's 
     available to all users with Office 365 Enterprise plans. 
