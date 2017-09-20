@@ -33,7 +33,7 @@ sections:
       href: /azure/data-factory/quickstart-create-data-factory-dot-net
     - image: 
         src: /azure/data-factory/media/index/logo_python.svg
-      text: .NET
+      text: Python
       href: /azure/data-factory/quickstart-create-data-factory-python      
     - image: 
         src: /azure/data-factory/media/index/logo_rest.svg
