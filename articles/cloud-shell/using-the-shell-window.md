@@ -42,6 +42,7 @@ Use the environment selector in the Cloud Shell toolbar to swap between Bash and
 Cloud Shell enables multiple concurrent sessions across browser tabs by allowing each session to exist as a separate Bash process.
 If exiting a session, be sure to exit from each session window as each process runs independently although they run on the same machine.
 
+## Copy and paste
 [!include [copy-paste](../../includes/cloud-shell-copy-paste.md)]
 
 ## Resize Cloud Shell window

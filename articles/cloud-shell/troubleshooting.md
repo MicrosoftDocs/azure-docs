@@ -18,7 +18,7 @@ ms.author: damaerte
 ---
 
 # Troubleshooting Azure Cloud Shell
-Known resolutions for issues in Azure Cloud Shell:
+Known resolutions for issues in Azure Cloud Shell include:
 
 ## Error: 400 DisallowedOperation
  - **Details**: When using an Azure Active Directory subscription, you cannot create storage.
