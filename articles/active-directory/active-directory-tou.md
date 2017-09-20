@@ -104,8 +104,7 @@ The following information is something to be aware of and can assist with using 
     - **Reason**: due to limitations in the conditional access extensibility framework.
     - **Resolution**: in order to resolve the user must sign out and sign back in. Users will get a fresh token. 
 
--	If a Terms of Use is enforced using a custom conditional access policy be aware of the following conditions:
-    - if the admin wants to delete a Terms of Use, the admin needs to make sure that it is not enforced with any policies.
+
 
 ## Frequently asked questions
 
