@@ -1,5 +1,5 @@
 ---
-title: Configure PremiumV2 tier for App Service | Microsoft Docs
+title: Configure PremiumV2 tier for Azure App Service | Microsoft Docs
 description: Learn how to better performance for your web, mobile, and API app in Azure App Service by scaling to the new PremiumV2 pricing tier.
 keywords: app service, azure app service, scale, scalable, app service plan, app service cost
 services: app-service
@@ -19,7 +19,7 @@ ms.author: cephalin
 
 ---
 
-# Configure PremiumV2 tier for App Service
+# Configure PremiumV2 tier for Azure App Service
 
 The new **PremiumV2** pricing tier provides [Dv2-series VMs](../virtual-machines/windows/sizes-general.md#dv2-series) with faster processors, SSD storage, and double memory-to-core ratio compared to **Standard** tier. In this article, you learn how to create an app in **PremiumV2** tier or scale up an app to **PremiumV2** tier.
 
