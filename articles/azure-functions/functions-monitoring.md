@@ -307,25 +307,20 @@ Here's a sample JSON representation of `customDimensions` data:
 
 ### Logging custom metrics  
 
-In C# script functions, you can use `ILogger` to create custom metrics in Application Insights. Here's a sample method call:
+In C# script functions, you can use the `LogMetric` extension method on `ILogger` to create custom metrics in Application Insights. Here's a sample method call:
 
 ```csharp
-logger.LogMetric("TestMetric", 1234, new Dictionary<string, object> 
-{ 
-    ["Count"] = 50, 
-    ["Min"] = 10.4, 
-    ["Max"] = 23, 
-    ["MyCustomMetricProperty"] = 100 
-}); 
+logger.LogMetric("TestMetric", 1234); 
 ```
 
 ## Write logs in JavaScript functions
 
-In Node.js functions, use `context.log` to write logs. Structured logging is not enabled.
+In Node.js functions, you can use the `context.log.metric` method to create custom metrics in Application Insights. Here's a sample method call:
 
+```javascript
+context.log.metric("TestMetric", 1234); 
 ```
-context.log('JavaScript HTTP trigger function processed a request.' + context.invocationId);
-```
+
 ### Logging custom metrics  
 
 In Node.js functions, you can use `context.log` to create custom metrics in Application Insights. Here's a sample method call:
