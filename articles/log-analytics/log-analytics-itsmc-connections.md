@@ -1,6 +1,6 @@
 ---
-title: ITSM connections in OMS IT Service Management Connector | Microsoft Docs
-description: Connect your ITSM products/services with IT Service Management Connector in OMS to centrally monitor and manage the ITSM work items.
+title: Supported connections with IT Service Management Connector in Azure Log Analytics | Microsoft Docs
+description: Connect your ITSM products/services with IT Service Management Connector in Azure Log Analytics to centrally monitor and manage the ITSM work items.
 documentationcenter: ''
 author: JYOTHIRMAISURI
 manager: riyazp
