@@ -1,5 +1,5 @@
 ---
-title: Create a Windows VM using New-AzVM | Microsoft Docs
+title: Create a Windows VM using New-AzVM in Azure | Microsoft Docs
 description: Azure PowerShell Script Sample - Create a Windows VM using the New-AzVM cmdlet.
 services: virtual-machines-windows
 documentationcenter: virtual-machines

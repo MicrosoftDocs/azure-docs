@@ -1,5 +1,5 @@
 ﻿---
-title: Create a VM with IIS using DSC and New-AzVM | Microsoft Docs
+title: Create a VM with IIS using DSC and New-AzVM in Azure | Microsoft Docs
 description: Azure PowerShell Script Sample - create an IIS VM with DSC and New-AzVM.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -18,7 +18,7 @@ ms.date: 09/17/2017
 ms.author: cynthn
 ---
 
-# Create an IIS VM with PowerShell
+# Create an IIS VM with PowerShell using New-AzVM
 
 This script creates an Azure Virtual Machine running Windows Server 2016 using New-AzVM, and then uses the Azure Virtual Machine DSC Extension to install IIS. After running the script, you can access the default IIS website on the public IP address of the virtual machine.
 

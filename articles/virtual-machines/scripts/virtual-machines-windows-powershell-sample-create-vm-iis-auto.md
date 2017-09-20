@@ -1,5 +1,5 @@
 ﻿---
-title: Use New-AzVM to create an IIS VM | Microsoft Docs
+title: Use New-AzVM to create an IIS VM in Azure | Microsoft Docs
 description: Azure PowerShell Script Sample - create a VM running IIS using New-AzVM.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
