@@ -17,7 +17,7 @@ ms.date: 09/25/2017
 ms.author: juluk
 ---
 
-# Features and tools for Bash in Azure Cloud Shell
+# Features & tools for Bash in Azure Cloud Shell
 
 [!include [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
@@ -50,7 +50,7 @@ Files outside of `$Home` and machine state are not persisted across sessions.
 |Category   |Name   |
 |---|---|
 |Linux shell interpreter|Bash<br> sh               |
-|Azure tools            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) and [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)     |
+|Azure tools            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) and [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard) <br>    |
 |Text editors           |vim<br> nano<br> emacs       |
 |Source control         |git                    |
 |Build tools            |make<br> maven<br> npm<br> pip         |
