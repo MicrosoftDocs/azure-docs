@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/15/2017
+ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
 
 ---
@@ -160,7 +160,7 @@ To view the operation while it is processing, or to view when it completed, open
 Once [restore disks operation is completed](#Track-the-restore-operation), you can use the template that is generated as part of restore operation to create a new VM with a configuration different from backup configuration or to customize names of resources created as create a new vm from restore point. 
 
 > [!NOTE]
-> Templates will be added as part of Restore Disks for recovery points taken after 1st March, 2017. They are applicable for non-encrypted and non-managed disk VMs. Support for encrypted VMs and Managed Disk VMs is coming in upcoming releases. 
+> Templates will be added as part of Restore Disks for recovery points taken after 1st March, 2017. They are applicable for non-managed disk VMs. Support for Managed Disk VMs is coming in upcoming releases. 
 >
 >
 

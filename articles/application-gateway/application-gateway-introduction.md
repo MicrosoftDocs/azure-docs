@@ -3,7 +3,7 @@ title: Introduction to Azure Application Gateway | Microsoft Docs
 description: This page provides an overview of the Application Gateway service for layer 7 load balancing, including gateway sizes, HTTP load balancing, cookie-based session affinity, and SSL offload.
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
-ms.author: gwallace
+ms.author: davidmu
 
 ---
 # Overview of Application Gateway
