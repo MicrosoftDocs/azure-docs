@@ -42,7 +42,7 @@ Intelligent Insights analyzes Azure SQL Database performance comparing the datab
 
 Once performance degradation issue is detected from multiple observed metrics using artificial intelligence, analysis is performed outputting a diagnostic log with an intelligent insight on what is happening with your database. Intelligent Insights makes it easy to track the database performance issue from its first appearance until resolution. This is achieved through tracking states of each detected issue through its lifecycle from initial issue detection, verification of performance improvement and its completion. Updates are provided in the diagnostic log every 15 minutes. 
 
-![Server](./media/sql-database-intelligent-insights/intelligent-insights-concept.png)
+<center>![Server](./media/sql-database-intelligent-insights/intelligent-insights-concept.png)</center>
 
 Metrics used to measure and detect database performance issues are based on query duration, timeout requests, excessive wait times, and errored request and are further elaborated in [Detection Metrics](sql-database-intelligent-insights.md#detection-metrics) section of this document.
 
