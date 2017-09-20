@@ -257,7 +257,7 @@ App Service supports several ways to deploy content to a web app. In this tutori
 ```azurecli-interactive
 az webapp deployment source config --name <web_app>  \
 --resource-group myResourceGroup --branch master --manual-integration \
---repo-url https://github.com/Azure-Samples/integration-image-resize-web-app
+--repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
 ```
 
 ## Configure web app settings
