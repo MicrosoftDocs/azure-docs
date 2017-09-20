@@ -91,16 +91,16 @@ Following is the link to the public GitHub repository of the real-world scenario
 
 ## Prerequisites
 
-* An Azure [subscription](https://azure.microsoft.com/en-us/free/)
+* An Azure [subscription](https://azure.microsoft.com/free/)
 * Azure Machine Learning Workbench. See [installation guide](quickstart-installation.md). Currently the Azure Machine Learning Workbench can be installed on the following operating systems only: 
     * Windows 10 or Windows Server 2016
     * macOS Sierra (or newer)
 
 ### Azure services
-* [HDInsight Spark cluster](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql) version Spark 2.1 on Linux (HDI 3.6) for scale-out computation. To process the full amount of MEDLINE abstracts discussed below, you need the minimum configuration of: 
-    * Head node: [D13_V2](https://azure.microsoft.com/en-us/pricing/details/hdinsight/) size
-    * Worker nodes: At least 4 of [D12_V2](https://azure.microsoft.com/en-us/pricing/details/hdinsight/). In our work, we used 11 worker nodes of D12_V2 size.
-* [NC6 Data Science Virtual Machine (DSVM)](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-linux-dsvm-intro) for scale-up computation.
+* [HDInsight Spark cluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql) version Spark 2.1 on Linux (HDI 3.6) for scale-out computation. To process the full amount of MEDLINE abstracts discussed below, you need the minimum configuration of: 
+    * Head node: [D13_V2](https://azure.microsoft.com/pricing/details/hdinsight/) size
+    * Worker nodes: At least 4 of [D12_V2](https://azure.microsoft.com/pricing/details/hdinsight/). In our work, we used 11 worker nodes of D12_V2 size.
+* [NC6 Data Science Virtual Machine (DSVM)](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-linux-dsvm-intro) for scale-up computation.
 
 ### Python packages
 
@@ -230,7 +230,7 @@ We perform the evaluation of the word embeddings on other datasets in the simila
 ![Model Comparison 5](./media/scenario-tdsp-biomedical-recognition/mc5.png)
 
 #### TensorFlow versus CNTK
-All the reported model are trained using Keras with TensorFlow as backend. Keras with CNTK backend does not support "reverse" at the time this work was done. Therefore, for the sake of comparison, we have trained a unidirectional LSTM model with the CNTK backend and compared it to a unidirectional LSTM model with TensorFlow backend. Install CNTK 2.0 for Keras from [here](https://docs.microsoft.com/en-us/cognitive-toolkit/using-cntk-with-keras). 
+All the reported model are trained using Keras with TensorFlow as backend. Keras with CNTK backend does not support "reverse" at the time this work was done. Therefore, for the sake of comparison, we have trained a unidirectional LSTM model with the CNTK backend and compared it to a unidirectional LSTM model with TensorFlow backend. Install CNTK 2.0 for Keras from [here](https://docs.microsoft.com/cognitive-toolkit/using-cntk-with-keras). 
 
 ![Model Comparison 6](./media/scenario-tdsp-biomedical-recognition/mc6.png)
 
@@ -238,7 +238,7 @@ We concluded that CNTK performs as good as Tensorflow both in terms of the train
 
 
 ### 3. [Deployment](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/Code/03_Deployment)
-We deployed a web service on a cluster in the [Azure Container Service (ACS)](https://azure.microsoft.com/en-us/services/container-service/). The operationalization environment provisions Docker and Kubernetes in the cluster to manage the web-service deployment. You can find further information about the operationalization process [here](model-management-service-deploy.md ).
+We deployed a web service on a cluster in the [Azure Container Service (ACS)](https://azure.microsoft.com/services/container-service/). The operationalization environment provisions Docker and Kubernetes in the cluster to manage the web-service deployment. You can find further information about the operationalization process [here](model-management-service-deploy.md ).
 
 
 ## Conclusion
