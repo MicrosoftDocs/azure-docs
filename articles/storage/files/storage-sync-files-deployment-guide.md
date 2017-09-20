@@ -27,7 +27,7 @@ We strongly recommend reading [Planning for an Azure Files deployment](storage-f
     - [Region availability](storage-sync-files-planning.md#region-availability) of Azure File Sync,
     - [Create a Storage Account](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for step-by-step directions on how to create a Storage Account, and
     - [Create a file share](storage-how-to-create-file-share.md) for step-by-step directions on how to create a file share.
-* At least one supported Windows Server or Windows Server cluster to sync with Azure File Sync. See [Interoperability with Windows Server](storage-sync-files-planning.md#interoperability-with-windows-server) for more information on supported versions of Windows Server.
+* At least one supported Windows Server or Windows Server cluster to sync with Azure File Sync. See [Interoperability with Windows Server](storage-sync-files-planning.md#azure-file-sync-interoperability) for more information on supported versions of Windows Server.
 
 ## Deploy the Storage Sync Service 
 The Storage Sync Service is the top-level Azure resource representing Azure File Sync. To deploy a Storage Sync Service, navigate to the [Azure portal](https://portal.azure.com/), and search for Azure File Sync. After selecting "Azure File Sync (preview)" from the search results, select "Create" to pop open the "Deploy Storage Sync" tab.
