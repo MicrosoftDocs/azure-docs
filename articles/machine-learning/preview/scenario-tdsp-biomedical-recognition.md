@@ -92,7 +92,7 @@ Following is the link to the public GitHub repository of the real-world scenario
 ## Prerequisites
 
 * An Azure [subscription](https://azure.microsoft.com/en-us/free/)
-* Azure Machine Learning Workbench. See [installation guide](quick-start-installation.md). Currently the Azure Machine Learning Workbench can be installed on the following operating systems only: 
+* Azure Machine Learning Workbench. See [installation guide](quickstart-installation.md). Currently the Azure Machine Learning Workbench can be installed on the following operating systems only: 
     * Windows 10 or Windows Server 2016
     * macOS Sierra (or newer)
 
@@ -115,7 +115,7 @@ automatically provisioned for runs against docker, VM, and HDI cluster targets. 
 
 ### Basic instructions for Azure Machine Learning (AML) Workbench
 * [Overview](overview-what-is-azure-ml.md)
-* [Installation](quick-start-installation.md)
+* [Installation](quickstart-installation.md)
 * [Using TDSP](how-to-use-tdsp-in-azure-ml.md)
 * [How to read and write files](how-to-read-write-files.md)
 * [How to use Jupyter Notebooks](how-to-use-jupyter-notebooks.md)
