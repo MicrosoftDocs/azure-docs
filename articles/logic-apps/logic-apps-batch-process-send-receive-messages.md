@@ -86,13 +86,22 @@ and specify criteria for releasing the batch, for example:
 
    * **Batch Name**: The name used to identify the batch, 
    which is "TestBatch" in this example.
+   * **Release Criteria**: Release criteria for releasing the batch, which could be based on the message count, schedule or both.
+   
+   ![Provide Batch trigger details](./media/logic-apps-batch-process-send-receive-messages/receive-batch-release-criteria.png)
+
    * **Message Count**: The number of messages to hold as a batch 
    before releasing for processing, which is "5" in this example.
 
-   ![Provide Batch trigger details](./media/logic-apps-batch-process-send-receive-messages/receive-batch-trigger-details.png)
+   ![Provide Batch trigger details](./media/logic-apps-batch-process-send-receive-messages/receive-batch-count-based.png)
+
+   * **Schedule**: The schedule for releasing the batch for processing, which is "every 5 minute" in this example.
+
+   ![Provide Batch trigger details](./media/logic-apps-batch-process-send-receive-messages/receive-batch-schedule-based.png)
+
 
 4. Add another action that sends an email when the batch trigger fires. 
-Each time the batch has five items, the logic app sends an email.
+Each time the batch has five items or its past 5 minutes, the logic app sends an email.
 
    1. Under the batch trigger, choose **+ New Step** > **Add an action**.
 
