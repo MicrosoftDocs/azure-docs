@@ -143,11 +143,11 @@ The following mobile apps and desktop clients support conditional access for Off
 
 
 | Client apps| Target Service| Platform |
-| :-- | --- | --- |
+| --- | --- | --- |
 | MFA and location policy for apps. Device based policies are not supported.| Any My Apps app service| Android and iOS|
 | Azure Remote app| Azure Remote App service| Windows 10, Windows 8.1, Windows 7, iOS, Android, and Mac OS X|
 | Dynamics CRM app| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS, and Android|
-| Microsoft Teams Services - this controls all services that support Microsoft Teams and all its Client Apps - Windows Desktop, MAC OS X, iOS, Android, WP, and web client| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS/Android and MAC OSX|
+| Microsoft Teams Services - this controls all services that support Microsoft Teams and all its Client Apps - Windows Desktop, iOS, Android, WP, and web client| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS and Android|
 | Mail/Calendar/People app, Outlook 2016, Outlook 2013 (with modern authentication), Skype for Business (with modern authentication)| Office 365 Exchange Online| Windows 10|
 | Outlook 2016, Outlook 2013 (with modern authentication), Skype for Business (with modern authentication)| Office 365 Exchange Online| Windows 8.1, Windows 7|
 | Outlook mobile app| Office 365 Exchange Online| iOS|

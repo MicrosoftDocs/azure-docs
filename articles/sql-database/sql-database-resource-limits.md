@@ -142,5 +142,5 @@ When encountering high session or worker utilization, mitigation options include
 - For information about service tiers, see [Service tiers](sql-database-service-tiers.md).
 - For information about single databases, see [Single database resources](sql-database-resource-limits.md).
 - For information about elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
-- For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits.md).
+- For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 - For information about DTUs and eDTUs, see [DTUs and eDTUs](sql-database-what-is-a-dtu.md).

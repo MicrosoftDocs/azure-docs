@@ -3,7 +3,7 @@ title: Check connectivity with Azure Network Watcher - Azure CLI 2.0 | Microsoft
 description: This page explains how to use connectivity check with Network Watcher using Azure CLI 2.0
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 07/11/2017
-ms.author: gwallace
+ms.author: jdial
 ---
 
 # Check connectivity with Azure Network Watcher using Azure CLI 2.0

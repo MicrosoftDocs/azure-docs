@@ -81,7 +81,7 @@ A Managed Snapshot is a read-only full copy of a managed disk which is stored as
 To learn more about how to create snapshots with Managed Disks, please check out these resources:
 
 * [Create copy of VHD stored as a Managed Disk using Snapshots in Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 
 ## Images

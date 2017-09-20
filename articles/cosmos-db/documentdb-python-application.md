@@ -46,12 +46,11 @@ application that allows you to vote for a poll.
 Before following the instructions in this article, you should ensure
 that you have the following installed:
 
-* An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
- 
-    OR 
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
-    A local installation of the [Azure Cosmos DB Emulator](local-emulator.md).
-* [Microsoft Visual Studio Community 2017](http://www.visualstudio.com/).  
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
+* If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.  
 * [Python Tools for Visual Studio](https://github.com/Microsoft/PTVS/).  
 * [Microsoft Azure SDK for Python 2.7](https://azure.microsoft.com/downloads/). 
 * [Python 2.7.13](https://www.python.org/downloads/windows/). 
