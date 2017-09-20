@@ -34,32 +34,25 @@ These alerts differ from regular metric alerts in few ways
 
 ## What resources can I create near real-time metric alerts for?
 Full list of resource types that are supported by near real-time metric alerts:
+
 * Microsoft.ApiManagement/service
-* Microsoft.Automation/automationAccounts
 * Microsoft.Batch/batchAccounts
 * Microsoft.Cache/Redis
-* Microsoft.ClassicCompute/virtualMachines
-* Microsoft.CognitiveServices/accounts
 * Microsoft.Compute/virtualMachines
 * Microsoft.Compute/virtualMachineScaleSets
-* Microsoft.DataFactory/dataFactories
 * Microsoft.DataFactory/factories
-* Microsoft.DataLakeAnalytics/accounts
-* Microsoft.DataLakeStore/accounts
 * Microsoft.DBforMySQL/servers
 * Microsoft.DBforPostgreSQL/servers
-* Microsoft.Devices/IotHubs
 * Microsoft.EventHub/namespaces
 * Microsoft.Logic/workflows
 * Microsoft.Network/applicationGateways
 * Microsoft.Network/publicipaddresses
-* Microsoft.Network/networkInterfaces
-* Microsoft.Network/trafficmanagerprofiles
 * Microsoft.Search/searchServices
 * Microsoft.ServiceBus/namespaces
-* Microsoft.Sql/servers/databases
+* Microsoft.Sql/servers/elasticpools
 * Microsoft.StreamAnalytics/streamingjobs
 * Microsoft.Timeseriesinsights
+* Microsoft.CognitiveServices/accounts
 
 
 ## Create a Near Real-Time Metric Alert
