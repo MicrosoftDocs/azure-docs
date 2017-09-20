@@ -2,7 +2,7 @@
 
 # Get started with Bing speech recognition in C&#35; for .NET on Windows Phone 8.1
 
-Develop a basic Windows Phone 8.1 application that uses the [Windows.Media.SpeechRecognition API client library](https://msdn.microsoft.com/en-us/library/windows.media.speechrecognition.aspx) to convert spoken audio input into text by sending audio to Microsoft's servers in the cloud.
+Develop a basic Windows Phone 8.1 application that uses the [Windows.Media.SpeechRecognition API client library](https://msdn.microsoft.com/en-us/library/windows.media.speechrecognition.aspx) to convert spoken audio input into text by sending audio to Microsoft servers in the cloud.
 
 Using the Windows.Media.SpeechRecognition API client library allows for real-time streaming. Thus, at the same time your client application sends audio to the service, it simultaneously and asynchronously receives partial recognition results. This tutorial describes the use of the [Windows.Media.SpeechRecognition API client library](https://msdn.microsoft.com/en-us/library/windows.media.speechrecognition.aspx).
 
@@ -17,7 +17,7 @@ You can access the Windows.Media.SpeechRecognition [client library](https://msdn
 Extract the downloaded zip file to a folder of your choice. Many users choose the Visual Studio 2015 folder. If the Windows Phone tools aren't already installed, you might need to download the optional add-on to Visual Studio.
 
 ### Subscribe to the Bing Speech API, and get a free-trial subscription key
-Before you create the example, you must subscribe to the Bing Speech API, which is part of Microsoft Cognitive Services on Azure (previously Project Oxford). For subscription and key management details, see [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up). Both the primary and secondary key can be used in this example.
+Before you create the example, you must subscribe to the Bing Speech API, which is part of Microsoft Cognitive Services on Azure (previously Project Oxford). For subscription and key management details, see [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up). Both the primary and secondary keys can be used in this example.
 
 ## <a name="Step1">Step 1: Install the Windows Phone 8.1 example application</a>
 1. Start Visual Studio 2015, and select **File** > **Open** > **Project/Solution**.
@@ -49,16 +49,11 @@ Before you create the example, you must subscribe to the Bing Speech API, which 
 ## Review and learn
 One SpeechRecognizer object can be used for multiple recognition sessions.
 
-
-```
-protected async override void OnNavigatedTo(NavigationEventArgs e)
-![WindowsPhone code](./Images/WindowsPhone-codeSample.PNG)
-```
 ![Windows Phone code](../Images/WindowsPhone_codeSample.png)
 
 A speech recognition session can be started by calling the SpeechRecognizer.RecognizeAsync method. This method returns an IAsyncOperation <SpeechRecognitionResult> object, which provides the Completed event that is triggered upon completion of the recognition session. The session is terminated, and the recognition results are returned when a pause is detected by the recognizer. The results are passed as an argument to any handlers attached to the Completed event.
 
-The results are available in a SpeechRecognitionResult object accessible through the arguments of the Completed event handler. This object provides n-best alternatives in decreasing order of quality. (Results with the highest recognition confidence level come first followed by results with decreasing recognition confidence levels.)
+The results are available in a SpeechRecognitionResult object accessible through the arguments of the Completed event handler. This object provides n-best alternatives in decreasing order of quality. (Results with the highest recognition confidence level come first, followed by results with decreasing recognition confidence levels.)
 
 <a name="Summary"> </a>
 ## Summary
