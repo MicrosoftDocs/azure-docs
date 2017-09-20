@@ -60,7 +60,7 @@ When an application is installed on a cluster (either on an existing cluster, or
   > [!IMPORTANT]
   > The name of the application installation script must be unique for a specific cluster. The script name must have the following format:
   > 
-  > name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
+  > "name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
   > 
   > The script name has three parts:
   > 

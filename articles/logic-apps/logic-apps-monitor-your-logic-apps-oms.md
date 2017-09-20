@@ -163,7 +163,7 @@ select a row, which opens the Log Search page.
 
      Here on the Azure Log Analytics page, 
      you can update queries and view the results from the table. 
-     This query uses [Kusto query language](https://docs.loganalytics.io/learn/tutorials/getting_started_with_queries.html), 
+     This query uses [Kusto query language](https://docs.loganalytics.io/docs/Language-Reference), 
      which you can edit if you want to view different results. 
 
      ![Azure Log Analytics - query view](media/logic-apps-monitor-your-logic-apps-oms/query.png)

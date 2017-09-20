@@ -27,6 +27,7 @@
 ### [When you already have Azure AD](active-directory-aadconnect-existing-tenant.md)
 ## [Manage Azure AD Connect](active-directory-aadconnect-whats-next.md)
 ### [Renew certs for O365 and Azure AD](active-directory-aadconnect-o365-certs.md)
+### [Update the SSL certificate for an Active Directory Federation Services (AD FS) farm](active-directory-aadconnectfed-ssl-update.md)
 ### [Enable device writeback](active-directory-aadconnect-feature-device-writeback.md)
 ### [User sign-on options](active-directory-aadconnect-user-signin.md)
 #### [Seamless Single Sign-on](active-directory-aadconnect-sso.md)
