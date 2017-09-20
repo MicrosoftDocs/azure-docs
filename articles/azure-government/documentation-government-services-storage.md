@@ -43,9 +43,9 @@ To view the current secondary region of your geo-redundant storage or read-acces
 | Service or feature | USGov Virginia | USGov Iowa | USGov Arizona | USGov Texas | USDoD East | USDoD Central| 
 | --- | --- | --- | --- | --- | --- | --- |
 | [Blob storage](../storage/common/storage-introduction.md#blob-storage) |GA |GA |GA |GA |GA |GA |
+| [Azure Files](../storage/common/storage-introduction.md#azure-files) |GA |GA |GA |GA |GA |GA |
 | [Table storage](../storage/common/storage-introduction.md#table-storage) |GA  |GA |GA |GA |GA |GA |
 | [Queue storage](../storage/common/storage-introduction.md#queue-storage) |GA |GA |GA |GA |GA |GA |
-| [File storage](../storage/common/storage-introduction.md#file-storage) |GA |GA |GA |GA |GA |GA |
 | [Hot/cool blob storage](../storage/blobs/storage-blob-storage-tiers.md) |GA |- |GA |GA |- |- |
 | [Locally redundant storage](../storage/common/storage-redundancy.md#locally-redundant-storage) |GA |GA |GA |GA |GA |GA |
 | [Geo-redundant storage](../storage/common/storage-redundancy.md#geo-redundant-storage) |GA |GA |GA |GA |GA |GA |
