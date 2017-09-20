@@ -39,8 +39,6 @@ The Azure HDInsight Tools can be installed on the platforms supported by VSCode 
    
 After you have installed the prerequisites, you can install the Python and Azure HDInsight Tools for VSCode.
 
-**To install the Python and HDInsight Tools**
-
 Install **Azure HDInsight tools**
 
 1. Open **Visual Studio Code**.
@@ -53,7 +51,7 @@ Install **Azure HDInsight tools**
 
 Install **Python**
 
-To use pySpark, you need to install Python extension, which is not must have for Hive users.
+For Spark users, it is suggested to download the Python extension for better language service experiences. This is not required for Hive users. 
 1. Open **Visual Studio Code**.
 2. Click **Extensions** in the left pane. Enter **python** in the search box. You can see a list of python extensions. One of them is **Python**.
 3. Click **Install** next to **Python**. After a few seconds, the **Install** button will be changed to **Reload**.
@@ -64,18 +62,17 @@ To use pySpark, you need to install Python extension, which is not must have for
 
 ## Connect to Azure
 
-Before you can submit scripts to cluster, you must connect to your Azure account.
-
-**To connect to Azure**
+Before you can submit scripts to HDInsight cluster, you need connect to your Azure account.
 
 1. Right-click a hive script editor, and then click **HDInsight: Login**. You can also use another way of pressing **CTRL+SHIFT+P** and entering **HDInsight: Login**.
 2. There are two options to Log in. The Login info is shown in the **OUTPUT** pane.
 
     ![HDInsight Tools for Visual Studio Code log in](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
     ![HDInsight Tools for Visual Studio Code login options](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login-options.png)
-    - Azure:
+
+    Azure:
     ![HDInsight Tools for Visual Studio Code login info](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-Azurelogin-info.png)
-    - AzureChina:
+    AzureChina:
     ![HDInsight Tools for Visual Studio Code China login info](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-AzureChinalogin-info.png)
      
 3. CTRL-click login URL: https://aka.ms/devicelogin or https://aka.ms/deviceloginchina to open the login web page. Copy and paste the corresponding code into the following text box, click Continue.
@@ -89,11 +86,7 @@ Before you can submit scripts to cluster, you must connect to your Azure account
 
 To sign off, use the command **HDInsight: Logout**
  
-## Work with HDInsight folder
-
-You need open a Hive file, a PySpark file, or a folder to work with file.
-
-**To open a folder for your HDInsight file**
+## Open HDInsight workspace
 
 1. From Visual Studio Code, Click the **File** menu, and then click **Open Folder**.
 2. Specify or Create a new folder, and then click **Select Folder**.
@@ -102,6 +95,23 @@ You need open a Hive file, a PySpark file, or a folder to work with file.
    ![new file](./media/hdinsight-for-vscode/new-file.png)
 4. Save the file as .hql or .py in the opened folder. Notice an **XXXX_hdi_settings.json** configuration file is also added to the work folder.
 5. Open **XXXX_hdi_settings.json** from **EXPLORER**, or right-click on script editor to select **Set Configuration**. You can configure login entry, default cluster, and job submission parameters, as shown in the sample in the file. You also can leave the remaining parameters empty.
+
+## Interactive Hive
+
+HDInsight tools for VSCode enables you to submit interactive Hive query to HDInsight LLAP cluster and displays query results.
+1. Create a file in your current folder and named **xxx.hql** or **xxx.hive**.
+2. Copy and paste the following code into your hive file, then save it.
+
+        SELECT * FROM hivesampletable;
+
+3. Right-click a hive script editor, and then click **HDInsight: Interactive Hive** to query the result quickly. You can also use another way of pressing **CTRL+SHIFT+P** and entering **HDInsight: Interactive Hive**.
+4. Our tool also supports that select a few lines of script, and submit by context menu. 
+5. Select cluster that support **LLAP** (interactive Hive) to submit your query. Soon after, the query result tab is shown on the left.
+
+   ![interactive hive result](./media/hdinsight-for-vscode/interactive-hive-result.png)
+- **RESULTS** panel: You can save the whole result as CSV,JSON,EXCEL to local path, or just select multiple lines.
+- **MESSAGES** panel: Clicking **Line** number, it jumps to the first line of the running script.
+
 
 ## Submit Hive batch script
 1. Create a file in your current folder and named **xxx.hql** or **xxx.hive**.
@@ -112,25 +122,10 @@ You need open a Hive file, a PySpark file, or a folder to work with file.
 3. Right-click a hive script editor, and then click **HDInsight: Submit Hive Batch Script** to submit a hive job. You can also use another way of pressing **CTRL+SHIFT+P** and entering **HDInsight: Submit Hive Batch Script**.
 4. Select a cluster to submit your Hive Script. And Make sure the hivesampletable is already exists in your cluster.  
 
-![submit hive job result](./media/hdinsight-for-vscode/submit-hivejob-result.png)
+   ![submit hive job result](./media/hdinsight-for-vscode/submit-hivejob-result.png)
 
 After submitting a hive job, the submission success info and jobid is shown in **OUTPUT** panel. And it opens **WEB BROWSER** which the job realtime logs and status shown in.
 
-## Interactive Hive
-
-Our tool enables the interactive Hive query using LLAP and runs interactive Hive analytics.
-1. Create a file in your current folder and named **xxx.hql** or **xxx.hive**.
-2. Copy and paste the following code into your hive file, then save it.
-
-        SELECT * FROM hivesampletable;
-
-3. Right-click a hive script editor, and then click **HDInsight: Interactive Hive** to query the result quickly. You can also use another way of pressing **CTRL+SHIFT+P** and entering **HDInsight: Interactive Hive**.
-4. Our tool also supports that select a few lines of script, and submit by context menu. 
-5. Select cluster that support **LLAP** (interactive Hive) to submit your query. Soon after, the query result tab is shown on the left.
-
-![interactive hive result](./media/hdinsight-for-vscode/interactive-hive-result.png)
-- **RESULTS** panel: You can save the whole result as CSV,JSON,EXCEL to local path, or just select multiple lines.
-- **MESSAGES** panel: Clicking **Line** number, it jumps to the first line of the running script.
 
 ## Submit PySpark job
 1. Create a file in your current folder and named **xxx.py**.
@@ -159,7 +154,7 @@ Our tool enables the interactive Hive query using LLAP and runs interactive Hive
 3. Right-click a hive script editor, and then click **HDInsight: Submit PySpark Job**. You can also use another way of pressing **CTRL+SHIFT+P** and entering **HDInsight: Submit PySpark Job**.
 4. Select a cluster to submit your PySpark job. 
 
-![submit python job result](./media/hdinsight-for-vscode/submit-pythonjob-result.png) 
+   ![submit python job result](./media/hdinsight-for-vscode/submit-pythonjob-result.png) 
 
 After submitting a python job, submission logs is shown in **OUTPUT** window in VSCode. The **Spark UI URL** and **Yarn UI URL** are shown as well. You can open the URL in a web browser to track the job status.
 
