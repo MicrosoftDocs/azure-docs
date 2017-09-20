@@ -51,6 +51,13 @@ pip install sfctl
 sfctl -h
 ```
 
+If you run into an error stating that `sfctl` is not found, run the following commands:
+
+```bash
+export PATH=$PATH:~/.local/bin
+echo "export PATH=$PATH:~/.local/bin" >> .bashrc
+```
+
 ### Ubuntu
 
 For Ubuntu 16.04 Desktop, you can install Python 3.6 by using a third-party personal package archive (PPA).
@@ -199,6 +206,16 @@ Here is another example:
 ```azurecli
 sfctl application create -h
 ```
+
+## Updating the Service Fabric CLI 
+
+To update the Service Fabric CLI, run the following commands (replace `pip` with `pip3` depending on what you chose during your original install):
+
+```bash
+pip uninstall sfctl 
+pip install sfctl 
+```
+
 
 ## Next steps
 
