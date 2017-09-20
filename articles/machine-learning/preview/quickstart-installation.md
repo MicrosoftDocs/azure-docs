@@ -21,7 +21,7 @@ This Quickstart shows you how to create experimentation and model management acc
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
-Currently the Azure Machine Learning Workbench can be installed on the following operating systems only: Windows 10, Windows Server 2016, macOS Sierra (or newer).
+Currently the Azure Machine Learning Workbench can be installed on the following operating systems only: Windows 10, Windows Server 2016, and macOS Sierra.
 
 ## Log in to the Azure portal
 Log in to the [Azure portal](https://portal.azure.com/).
@@ -85,7 +85,7 @@ Install the Azure Machine Learning Workbench on your computer running Windows 10
    `C:\Users\<user>\AppData\Local\AmlWorkbench`
 
 ## Install Azure Machine Learning Workbench on macOS
-Install the Azure Machine Learning Workbench on your computer running macOS Sierra or newer.
+Install the Azure Machine Learning Workbench on your computer running macOS Sierra.
 
 1. Install openssl library using [Homebrew](http://brew.sh). See [Prerequisite for .NET Core on Mac](https://docs.microsoft.com/dotnet/core/macos-prerequisites) for more details.
    ```
