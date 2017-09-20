@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/19/2017
+ms.date: 09/20/2017
 ms.author: asaxton
 ---
 # Toggle between view and edit mode for reports in Power BI Workspace Collections
@@ -23,14 +23,14 @@ ms.author: asaxton
 Learn how to toggle between view and edit mode for your reports within Power BI Workspace Collections.
 
 > [!IMPORTANT]
-> Power BI Workspace Collections is deprecated and will be available until June 2018 or when your contract indicates. You are encouraged to plan your migration to Power BI Embedded to avoid interruption in your application. For information on how to migrate your data to Power BI Embedded, see [How to migrate Power BI Workspace Collections content to Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+> Power BI Workspace Collections is deprecated and is available until June 2018 or when your contract indicates. You are encouraged to plan your migration to Power BI Embedded to avoid interruption in your application. For information on how to migrate your data to Power BI Embedded, see [How to migrate Power BI Workspace Collections content to Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
 ## Creating an access token
 
-You will need to create an access token that gives you the ability to both view and edit a report. To edit and save a report, you will need the **Report.ReadWrite** token permission. For more information, see [Authenticating and authorizing in Power BI Workspace Collections](app-token-flow.md).
+You need to create an access token that gives you the ability to both view and edit a report. To edit and save a report, you need the **Report.ReadWrite** token permission. For more information, see [Authenticating and authorizing in Power BI Workspace Collections](app-token-flow.md).
 
 > [!NOTE]
-> This will allow you to edit and save changes to an existing report. If you would also like the function of supporting **Save As**, you will need to supply additional permissions. For more information, see [Scopes](app-token-flow.md#scopes).
+> This allows you to edit and save changes to an existing report. If you would also like the function of supporting **Save As**, you need to supply additional permissions. For more information, see [Scopes](app-token-flow.md#scopes).
 
 ```
 using Microsoft.PowerBI.Security;
@@ -44,9 +44,9 @@ var token = embedToken.Generate("{access key}");
 
 ## Embed configuration
 
-You will need to supply permissions and a viewMode in order to see the save button when in edit mode. For more information, see [Embed configuration details](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embed-Configuration-Details).
+You need to supply permissions and a viewMode in order to see the save button when in edit mode. For more information, see [Embed configuration details](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embed-Configuration-Details).
 
-For example in JavaScript:
+For example, in JavaScript:
 
 ```
    <div id="reportContainer"></div>
@@ -78,7 +78,7 @@ For example in JavaScript:
     var report = powerbi.embed(reportContainer, config);
 ```
 
-This will indicate to embed the report in view mode based on **viewMode** being set to **models.ViewMode.View**.
+This indicates to embed the report in view mode based on **viewMode** being set to **models.ViewMode.View**.
 
 ## View mode
 

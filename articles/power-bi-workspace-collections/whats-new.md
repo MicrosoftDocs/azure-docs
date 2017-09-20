@@ -15,15 +15,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/19/2017
+ms.date: 09/20/2017
 ms.author: asaxton
 ---
 # What's new in Power BI Workspace Collections
 
-Updates to **Power BI Workspace Collections** are released on a regular basis. However, not every release includes new user-facing features; some releases are focused on back-end service capabilities. We’ll highlight new user-facing capabilities here.
+Updates to **Power BI Workspace Collections** are released on a regular basis. However, not every release includes new user-facing features; some releases are focused on back-end service capabilities. We highlight new user-facing capabilities here.
 
 > [!IMPORTANT]
-> Power BI Workspace Collections is deprecated and will be available until June 2018 or when your contract indicates. You are encouraged to plan your migration to Power BI Embedded to avoid interruption in your application. For information on how to migrate your data to Power BI Embedded, see [How to migrate Power BI Workspace Collections content to Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+> Power BI Workspace Collections is deprecated and is available until June 2018 or when your contract indicates. You are encouraged to plan your migration to Power BI Embedded to avoid interruption in your application. For information on how to migrate your data to Power BI Embedded, see [How to migrate Power BI Workspace Collections content to Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
 ## March 2017
 
@@ -56,22 +56,22 @@ Updates to **Power BI Workspace Collections** are released on a regular basis. H
 
 * [Advanced Analytics with Power BI Workspace Collections and R](https://powerbi.microsoft.com/blog/r-in-pbie/)
 
-## August 31st, 2016
+## August 31, 2016
 Included in this release:
 
 * All new JavaScript SDK that supports [advanced filtering and page navigation](interact-with-reports.md).
 * Power BI Workspace Collections are now supported in the Canada Central datacenter. Check [datacenter status](https://azure.microsoft.com/status/).
 
-## July 11th, 2016
+## July 11, 2016
 Included in this release:
 
-* **Great news!** The Power BI Workspace Collections service is no longer in preview - it’s now GA (generally available).  
+* **Great news!** The Power BI Workspace Collections service is no longer in preview - its now GA (generally available).  
 * All REST APIs have moved from **/beta** to **/v1.0**.
 * .NET and JavaScript SDKs has been updated for **v1.0**.
-* Power BI API calls can now be authenticated directly by using API keys. App tokens are only needed for embedding. As part of this, provision and dev tokens have been deprecated in v1.0 APIs, but they’ll continue to work in the beta version until 12/30/2016. To learn more, see [Authenticating and Authorizing with Power BI Workspace Collections](app-token-flow.md).
+* Power BI API calls can now be authenticated directly by using API keys. App tokens are only needed for embedding. As part of this, provision and dev tokens have been deprecated in v1.0 APIs, but they’ll continue to work in the beta version until December 30, 2016. To learn more, see [Authenticating and Authorizing with Power BI Workspace Collections](app-token-flow.md).
 * Row level security (RLS) support for app tokens and embedded reports. To learn more, see [Row level security with Power BI Workspace Collections](row-level-security.md).
 * Updated sample application for all **v1.0** API calls.
-* Power BI Workspace Collections support for Azure SDK, PowerShell and CLI.
+* Power BI Workspace Collections support for Azure SDK, PowerShell, and CLI.
 * Users can export visualization data to a **.csv**.
 * Power BI Workspace Collections are now supported in all the same languages/locales as Microsoft Azure. To learn more, see  [Azure - Languages](http://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx).
 

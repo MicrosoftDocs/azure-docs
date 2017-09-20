@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/19/2017
+ms.date: 09/20/2017
 ms.author: asaxton
 
 ---
@@ -26,16 +26,16 @@ Learn how you can embed reports from Power BI Workspace Collections using the RE
 ![Embedded report within application](media/iframe/view-report.png)
 
 > [!IMPORTANT]
-> Power BI Workspace Collections is deprecated and will be available until June 2018 or when your contract indicates. You are encouraged to plan your migration to Power BI Embedded to avoid interruption in your application. For information on how to migrate your data to Power BI Embedded, see [How to migrate Power BI Workspace Collections content to Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+> Power BI Workspace Collections is deprecated and is available until June 2018 or when your contract indicates. You are encouraged to plan your migration to Power BI Embedded to avoid interruption in your application. For information on how to migrate your data to Power BI Embedded, see [How to migrate Power BI Workspace Collections content to Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
 ## Create a Power BI Workspace Collection and get access key
 
-Power BI Workspace Collections is an Azure service. Only the ISV who uses Azure Portal is charged for usage fees \(per hourly user session), and the user who views the report isn't charged or even require an Azure subscription.
-Before starting our application development, we must create the **Power BI Workspace Collection** by using Azure Portal.
+Power BI Workspace Collections is an Azure service. Only the ISV who uses Azure portal is charged for usage fees \(per hourly user session), and the user who views the report isn't charged or even require an Azure subscription.
+Before starting our application development, we must create the **Power BI Workspace Collection** by using Azure portal.
 
 Each workspace in Power BI Workspace Collections is the workspace for each customer (tenant), and we can add many workspaces in each workspace collection. The same access key is used in each workspace collection. In-effect, the workspace collection is the security boundary for Power BI Workspace Collections.
 
-When we finish creating the workspace collection, copy the access key from Azure Portal.
+When we finish creating the workspace collection, copy the access key from Azure portal.
 
 ![Access keys within Azure portal](media/iframe/copy-access-key.png)
 
@@ -46,13 +46,13 @@ When we finish creating the workspace collection, copy the access key from Azure
 
 Next, we must create the data connection and reports to be embedded.
 For this task, there’s no programming or code. We just use Power BI Desktop.
-In this article, we won't go through the details about how to use Power BI Desktop. If you need some help here, see [Getting started with Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/). For our example, we'll just use the [Retail Analysis Sample](https://powerbi.microsoft.com/documentation/powerbi-sample-datasets/).
+In this article, we don't go through the details about how to use Power BI Desktop. If you need some help here, see [Getting started with Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/). For our example, the [Retail Analysis Sample](https://powerbi.microsoft.com/documentation/powerbi-sample-datasets/) is used.
 
 ![Report within Power BI Desktop](media/iframe/power-bi-desktop-1.png)
 
 ## Create a Power BI workspace
 
-Now that the provisioning is all done, let’s get started creating a customer’s workspace in the workspace collection via REST APIs. The following HTTP POST Request (REST) is creating the new workspace in our existing workspace collection. This is the [POST Workspace API](https://msdn.microsoft.com/library/azure/mt711503.aspx). In our example, the workspace collection name is **mypbiapp**. We just set the access key, which we previously copied, as **AppKey**. It’s very simple authentication!
+Now that the provisioning is all done, let’s get started creating a customer’s workspace in the workspace collection via REST APIs. The following HTTP POST Request (REST) is creating the new workspace in our existing workspace collection. This is the [POST Workspace API](https://msdn.microsoft.com/library/azure/mt711503.aspx). In our example, the workspace collection name is **mypbiapp**. We just set the access key, which we previously copied, as **AppKey**. Its simple authentication!
 
 **HTTP Request**
 
@@ -76,13 +76,11 @@ RequestId: 4220d385-2fb3-406b-8901-4ebe11a5f6da
 }
 ```
 
-The returned **workspaceId** is used for the following subsequent API calls. Our application must retain this value.
+The returned **workspaceId** is used for the following subsequent API calls: Our application must retain this value.
 
 ## Import .pbix file into the workspace
 
-Each report in a workspace corresponds to a single Power BI Desktop file with a dataset \(including datasource settings). We can import our .pbix file to the workspace as shown in the code below. As you can see, we can upload the binary of .pbix file using MIME multipart in http.
-
-The uri fragment **32960a09-6366-4208-a8bb-9e0678cdbb9d** is the workspaceId, and query parameter **datasetDisplayName** is the dataset name to create. The created dataset holds all data related artifacts in .pbix file such as imported data, the pointer to the data source, etc..
+Each report in a workspace corresponds to a single Power BI Desktop file with a dataset (including datasource settings). We can import our .pbix file to the workspace as shown in the following code.
 
 ```
 POST https://api.powerbi.com/v1.0/collections/mypbiapp/workspaces/32960a09-6366-4208-a8bb-9e0678cdbb9d/imports?datasetDisplayName=mydataset01
@@ -96,7 +94,11 @@ Content-Disposition: form-data
 --A300testx--
 ```
 
-This import task might run for a while. When complete, our application can ask the task status using import id. In our example, the import id is **4eec64dd-533b-47c3-a72c-6508ad854659**.
+As you can see, we can upload the binary of .pbix file using MIME multipart in http.
+
+The uri fragment **32960a09-6366-4208-a8bb-9e0678cdbb9d** is the workspaceId, and query parameter **datasetDisplayName** is the dataset name to create. The created dataset holds all data-related artifacts in .pbix file such as imported data, the pointer to the data source, etc.
+
+This import task might run for a while. When complete, our application can ask the task status using import ID. In our example, the import ID is **4eec64dd-533b-47c3-a72c-6508ad854659**.
 
 ```
 HTTP/1.1 202 Accepted
@@ -107,7 +109,7 @@ RequestId: 658bd6b4-b68d-4ec3-8818-2a94266dc220
 {"id":"4eec64dd-533b-47c3-a72c-6508ad854659"}
 ```
 
-The following is asking status using this import id:
+The following code snippet is asking for the status of the upload using this import ID:
 
 ```
 GET https://api.powerbi.com/v1.0/collections/mypbiapp/workspaces/32960a09-6366-4208-a8bb-9e0678cdbb9d/imports/4eec64dd-533b-47c3-a72c-6508ad854659
@@ -167,7 +169,7 @@ RequestId: eb2c5a85-4d7d-4cc2-b0aa-0bafee4b1606
 
 While almost all of the artifacts in .pbix file are imported into our workspace, the  credentials for data sources are not. As a result, when using **DirectQuery mode**, the embedded report cannot be shown correctly. But, when using **Import mode**, we can view the report using the existing imported data. In such a case, we must set the credential using the following steps via REST calls.
 
-First, we must get the gateway datasource. We know the dataset **id** is the previously returned id.
+First, we must get the gateway datasource. We know the dataset **ID** is the previously returned ID.
 
 **HTTP Request**
 
@@ -196,7 +198,7 @@ RequestId: 574b0b18-a6fa-46a6-826c-e65840cf6e15
 }
 ```
 
-Using the returned gateway id and datasource id \(see the previous **gatewayId** and **id** in the returned result), we can change the credential of this datasource as follows:
+Using the returned gateway ID and datasource ID \(see the previous **gatewayId** and **ID** in the returned result), we can change the credential of this datasource as follows:
 
 **HTTP Request**
 
@@ -222,7 +224,7 @@ Content-Type: application/octet-stream
 RequestId: 0e533c13-266a-4a9d-8718-fdad90391099
 ```
 
-In production, we can also set the different connection string for each workspace using REST API. \(i.e, we can separate the database for each customers.)
+In production, we can also set the different connection string for each workspace using REST API. \(i.e, we can separate the database for each customer.)
 
 The following is changing the connection string of datasource via REST.
 
@@ -236,10 +238,10 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-Or, we can use Row Level Security in Power BI Workspace Collections and we can separate the data for each users in one report. As a result, we can provision each customer report with same .pbix \(UI, etc.) and different data sources.
+Or, we can use Row Level Security in Power BI Workspace Collections and we can separate the data for each user in one report. As a result, we can provision each customer report with same .pbix \(UI, etc.) and different data sources.
 
 > [!NOTE]
-> If you’re using **Import mode** instead of **DirectQuery mode**, there’s no way to refresh models via API. And, on-premises datasources through Power BI gateway isn't yet supported in Power BI Workspace Collections. However, you'll really want to keep an eye on the [Power BI blog](https://powerbi.microsoft.com/blog/) for what's new and what's coming in future releases.
+> If you’re using **Import mode** instead of **DirectQuery mode**, there’s no way to refresh models via API. And, on-premises datasource through Power BI gateway isn't yet supported in Power BI Workspace Collections. However, you'll really want to keep an eye on the [Power BI blog](https://powerbi.microsoft.com/blog/) for what's new and what's coming in future releases.
 
 ## Authentication and hosting (embedding) reports in our web page
 
@@ -251,7 +253,7 @@ When we embed the report in our web page, we must use the computed token instead
 
 ![OAuth JWT breakdown](media/iframe/oauth-jwt.png)
 
-First, we must prepare the input value, which is signed later. This value is the base64 url encoded (rfc4648) string of the following json, and these are delimited by the dot \(.) character. Later, we'll explain how to get the report id.
+First, we must prepare the input value, which is signed later. This value is the base64 url encoded (rfc4648) string of the following json, and these are delimited by the dot \(.) character. Later, we explain how to get the report ID.
 
 > [!NOTE]
 > If we want to use Row Level Security (RLS) with Power BI Workspace Collections, we must also specify **username** and **roles** in the claims.
@@ -278,7 +280,7 @@ First, we must prepare the input value, which is signed later. This value is the
 
 Next, we must create the base64 encoded string of HMAC \(the signature) with SHA256 algorithm. This signed input value is the previous string.
 
-Last, we must combine the input value and signature string using period \(.) character. The completed string is the app token for the report embedding. Even if the app token is discovered by a malicious user, they cannot get the original access key. This app token will expire quickly.
+Last, we must combine the input value and signature string using period \(.) character. The completed string is the app token for the report embedding. Even if the app token is discovered by a malicious user, they cannot get the original access key. This app token expires quickly.
 
 Here's a PHP example for these steps:
 
@@ -331,7 +333,7 @@ function rfc4648_base64_encode($arg) {
 
 ## Finally, embed the report into the web page
 
-For embedding our report, we must get the embed url and report **id** using the following REST API.
+For embedding our report, we must get the embed url and report **ID** using the following REST API:
 
 **HTTP Request**
 
@@ -365,7 +367,7 @@ We can embed the report in our web app using the previous app token.
 If we look at the next sample code, the former part is the same as the previous example. In the latter part, this sample shows the **embedUrl** \(see the previous result) in the iframe, and is posting the app token into the iframe.
 
 > [!NOTE]
-> You'll need to change the report id value to one of your own. Also, due to a bug in our content management system, the iframe tag in the code sample is read literally. Remove the capped text from the tag if you copy and paste this sample code.
+> You need to change the report ID value to one of your own. Also, due to a bug in our content management system, the iframe tag in the code sample is read literally. Remove the capped text from the tag if you copy and paste this sample code.
 
 ```
     <?php

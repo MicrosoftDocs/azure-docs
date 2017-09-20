@@ -15,29 +15,29 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/19/2017
+ms.date: 09/20/2017
 ms.author: asaxton
 ---
 # What are Power BI Workspace Collections?
 
 With **Power BI Workspace Collections**, you can integrate Power BI reports right into your web or mobile applications.
 
-![Application diagrame](media/what-are-power-bi-workspace-collections/what-is.png)
+![Application diagram](media/what-are-power-bi-workspace-collections/what-is.png)
 
 > [!IMPORTANT]
-> Power BI Workspace Collections is deprecated and will be available until June 2018 or when your contract indicates. You are encouraged to plan your migration to Power BI Embedded to avoid interruption in your application. For information on how to migrate your data to Power BI Embedded, see [How to migrate Power BI Workspace Collections content to Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+> Power BI Workspace Collections is deprecated and is available until June 2018 or when your contract indicates. You are encouraged to plan your migration to Power BI Embedded to avoid interruption in your application. For information on how to migrate your data to Power BI Embedded, see [How to migrate Power BI Workspace Collections content to Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
-Power BI Workspace Collecations are an **Azure service** that enables ISVs and app developers to surface Power BI data experiences within their applications. As a developer, you've built applications, and those applications have their own users and distinct set of features. Those apps may also happen to have some built-in data elements like charts and reports that can now be powered by Microsoft Power BI Workspace Collections. You don’t need a Power BI account to use your app. You can continue to sign in to your application just like before, and view and interact with the Power BI reporting experience without requiring any additional licensing.
+Power BI Workspace Collections are an **Azure service** that enables ISVs and app developers to surface Power BI data experiences within their applications. As a developer, you've built applications, and those applications have their own users and distinct set of features. Those apps may also happen to have some built-in data elements like charts and reports that can now be powered by Microsoft Power BI Workspace Collections. You don’t need a Power BI account to use your app. You can continue to sign in to your application just like before, and view and interact with the Power BI reporting experience without requiring any additional licensing.
 
 ## Licensing for Microsoft Power BI Workspace Collections
 
-In the **Microsoft Power BI Workspace Collections** usage model, licensing for Power BI is not the responsibility of the end-user.  Instead, **sessions** are purchased by the developer of the app that is consuming the visuals, and are charged to the subscription that owns those resources. 
+In the **Microsoft Power BI Workspace Collections** usage model, licensing for Power BI is not the responsibility of the end user.  Instead, **sessions** are purchased by the developer of the app that is consuming the visuals, and are charged to the subscription that owns those resources. 
 
 ## Microsoft Power BI Workspace Collections conceptual model
 
 ![Application flow with workspace collections](media/what-are-power-bi-workspace-collections/model.png)
 
-Like any other service in Azure, resources for Power BI Workspace Collections are provisioned through the [Azure Resource Manager APIs](https://msdn.microsoft.com/library/mt712306.aspx). In this case, the resource that you provision is a **Power BI Workspace Collection**.
+Like any other service in Azure, resources for Power BI Workspace Collections are provisioned through the [Azure Resource Manager APIs](https://msdn.microsoft.com/library/mt712306.aspx). In this case, the resource that is provision is a **Power BI Workspace Collection**.
 
 ## Workspace collection
 
@@ -75,7 +75,7 @@ These tokens are used for the various phases of your interactions with **Microso
 
 ## Create or edit reports within your application
 
-You can now edit exist reports or create new reports directly in your application without having to use Power BI Desktop. This requires that a dataset exist within your workspace.
+You can now edit existing reports or create new reports directly in your application without having to use Power BI Desktop. This requires that a dataset exist within your workspace.
 
 ## See also
 

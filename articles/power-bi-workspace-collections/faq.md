@@ -15,14 +15,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/19/2017
+ms.date: 09/20/2017
 ms.author: asaxton
 
 ---
 # Power BI Workspace Collections FAQ
 
 > [!IMPORTANT]
-> Power BI Workspace Collections is deprecated and will be available until June 2018 or when your contract indicates. You are encouraged to plan your migration to Power BI Embedded to avoid interruption in your application. For information on how to migrate your data to Power BI Embedded, see [How to migrate Power BI Workspace Collections content to Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+> Power BI Workspace Collections is deprecated and is available until June 2018 or when your contract indicates. You are encouraged to plan your migration to Power BI Embedded to avoid interruption in your application. For information on how to migrate your data to Power BI Embedded, see [How to migrate Power BI Workspace Collections content to Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
 ## What is Microsoft Power BI Workspace Collections?
 Power BI Workspace Collections is an Azure service that allows Application developers to embed stunning, fully interactive reports and visualizations in customer facing apps without the time and expense of having to build your own controls from the ground-up. We now have Power BI Workspace Collections available with SLA in 9 data centers worldwide. We have also enhanced functionalities in the service like support for data security via row-level security (RLS) in Power BI Workspace Collections for advanced filtering. We have also simplified and updated the Power BI Workspace Collections pricing model.
@@ -49,34 +49,34 @@ The Power BI Workspace Collections service is available in most data centers now
 Power BI Workspace Collections with Azure standard SLA. See [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/) for more information.
 
 ## What is a report session and how is it billed?
-A session is a set of interactions between an end user and a Power BI Workspace Collections report. Each time a Power BI Workspace Collections report is displayed to a user, a session is initiated and the subscription holder will be charged for a session. Sessions are billed at a flat rate, independent of the number of visual elements in a report or how frequently the report content is refreshed. A session ends when either the user closes the report, or the session times out after one hour.
+A session is a set of interactions between an end user and a Power BI Workspace Collections report. Each time a Power BI Workspace Collections report is displayed to a user, a session is initiated and the subscription holder is charged for a session. Sessions are billed at a flat rate, independent of the number of visual elements in a report or how frequently the report content is refreshed. A session ends when either the user closes the report, or the session times out after one hour.
 
 ## Do you offer any tools or guidance to help me estimate how many renders/session I should expect? How will I know how many renders have been completed?
-The Azure Portal will provide billing details on how many renders / report sessions have been performed against your subscription.
+The Azure portal provides billing details on how many renders / report sessions have been performed against your subscription.
 
 ## Do I need a Power BI subscription in order to develop applications with Power BI Workspace Collections? How do I get started?
-As the application developer, you do not need to have a Power BI subscription in order to create the reports and visualizations you wish to use in your application. You will need a Microsoft Azure subscription and the free Power BI Desktop application.
+As the application developer, you do not need to have a Power BI subscription in order to create the reports and visualizations you wish to use in your application. You need a Microsoft Azure subscription and the free Power BI Desktop application.
 
-Please see our service documentation for details on how to use the Power BI Workspace Collections service.
+See our service documentation for details on how to use the Power BI Workspace Collections service.
 
 ## I have an Azure subscription. Can I use Power BI Workspace Collections using my existing subscription?
 Yes. You can use your existing Azure subscription to provision and use the Microsoft Power BI Workspace Collections service.
 
 ## Does my application end-user need a Power BI license?
-No. Your application’s end-users are not required to buy or the Power BI subscription separately in order to access the in-app data visualizations. In the Power BI Workspace Collections model you, as the application provider, will be billed for the service through the Azure consumption meter. Please refer to the [Pricing and licensing page](http://go.microsoft.com/fwlink/?LinkId=760527).
+No. Your application’s end users are not required to buy or the Power BI subscription separately in order to access the in-app data visualizations. In the Power BI Workspace Collections model you, as the application provider, is billed for the service through the Azure consumption meter. Refer to the [Pricing and licensing page](http://go.microsoft.com/fwlink/?LinkId=760527).
 
 ## How does user authentication work with Power BI Workspace Collections?
-The Power BI Workspace Collections service uses App Tokens for authentication and authorization instead of explicit end-user authentication. In the App Token model, your application manages authentication and authorization for your end-users. Then, when necessary, your app creates
+The Power BI Workspace Collections service uses App Tokens for authentication and authorization instead of explicit end-user authentication. In the App Token model, your application manages authentication and authorization for your end users. Then, when necessary, your app creates
 
-and sends the App Tokens which tells our service to render the requested report. This design does not require your app to use Azure AD for user authentication and authorization, although you can do this. You can learn more about App Tokens [here](app-token-flow.md). We also introduced row-level security feature (RLS) in Power BI Workspace Collections for advanced security filtering scenarios.
+and sends the App Tokens that tells our service to render the requested report. This design does not require your app to use Azure AD for user authentication and authorization, although you can do this. You can learn more about App Tokens [here](app-token-flow.md). We also introduced row-level security feature (RLS) in Power BI Workspace Collections for advanced security filtering scenarios.
 
 ## What data sources are currently supported with Power BI Workspace Collections?
-We are going to support access to cloud data sources that use basic credentials via Direct Query. This means that sources such as Azure SQL DB and Azure SQL DW are supported right now. We will add support for other data sources and access types in the coming months. For more information, see [Connect to a data source](connect-datasource.md).
+We are going to support access to cloud data sources that use basic credentials via Direct Query. This means that sources such as Azure SQL DB and Azure SQL DW are supported right now. We add support for other data sources and access types in the coming months. For more information, see [Connect to a data source](connect-datasource.md).
 
 ## How does the tenancy model work for Power BI Workspace Collections?
-In the Power BI Workspace Collections model, there is no explicit requirement to have your customers in Azure AD tenants. You can elect to require Azure AD for your customers, or not. As a result, the architecture of your application and infrastructure is what will determine the tenancy model required for Power BI Workspace Collections.
+In the Power BI Workspace Collections model, there is no explicit requirement to have your customers in Azure AD tenants. You can elect to require Azure AD for your customers, or not. As a result, the architecture of your application and infrastructure is what determines the tenancy model required for Power BI Workspace Collections.
 
-Developers/employees working on or building your application will need to have an AAD user account when they are to manage your Azure Subscription and Workspace Collections via the Azure Portal. Programmatic APIs to enable developers to import reports, modify connection strings and get embed URLs leverage App Tokens for authentication instead, and as a result do not require an AAD.
+Developers/employees working on or building your application needs to have an AAD user account when they are to manage your Azure Subscription and Workspace Collections via the Azure portal. Programmatic APIs to enable developers to import reports, modify connection strings and get embed URLs leverage App Tokens for authentication instead, and as a result do not require an AAD.
 
 ## Where can I learn more?
 You can visit the [Power BI Workspace Collections documentation page](get-started.md). You can stay up-to-date about this service by visiting the [Power BI blog](https://powerbi.microsoft.com/blog/) or by visiting the Power BI developer center at dev.powerbi.com. You can also ask questions at [Stackoverflow](http://stackoverflow.com/questions/tagged/powerbi).

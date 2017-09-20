@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/19/2017
+ms.date: 09/20/2017
 ms.author: asaxton
 ---
 # Get started with Microsoft Power BI Workspace Collections
@@ -23,52 +23,52 @@ ms.author: asaxton
 **Power BI Workspace Collections** are an Azure service that enables application developers to add interactive Power BI reports into their own applications. **Power BI Workspace Collections** work with existing applications without needing redesign or changing the way users sign in.
 
 > [!IMPORTANT]
-> Power BI Workspace Collections is deprecated and will be available until June 2018 or when your contract indicates. You are encouraged to plan your migration to Power BI Embedded to avoid interruption in your application. For information on how to migrate your data to Power BI Embedded, see [How to migrate Power BI Workspace Collections content to Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+> Power BI Workspace Collections is deprecated and is available until June 2018 or when your contract indicates. You are encouraged to plan your migration to Power BI Embedded to avoid interruption in your application. For information on how to migrate your data to Power BI Embedded, see [How to migrate Power BI Workspace Collections content to Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
-Resources for **Microsoft Power BI Workspace Collections** are provisioned through the [Azure ARM APIs](https://msdn.microsoft.com/library/mt712306.aspx). In this case, the resource you provision is a **Power BI Workspace Collection**.
+Resources for **Microsoft Power BI Workspace Collections** are provisioned through the [Azure Resource Manager APIs](https://msdn.microsoft.com/library/mt712306.aspx). In this case, the resource provisioned is a **Power BI Workspace Collection**.
 
 ![General flow of Power BI Workspace Collections](media/get-started/introduction.png)
 
 ## Create a workspace collection
 
-A **Workspace Collection** is the top-level Azure resource and a container for the content that will be embedded in your application. A **Workspace Collection** can be created in two ways::
+A **Workspace Collection** is the top-level Azure resource and a container for the content that will be embedded in your application. A **Workspace Collection** can be created in two ways:
 
-* Manually using the Azure Portal
+* Manually using the Azure portal
 * Programmatically using the Azure Resource Manager(ARM) APIs
 
-Let's walk through the steps to build a **Workspace Collection** using the Azure Portal.
+Let's walk through the steps to build a **Workspace Collection** using the Azure portal.
 
-1. Open and sign into **Azure Portal**: [http://portal.azure.com](http://portal.azure.com).
+1. Open and sign into **Azure portal**: [http://portal.azure.com](http://portal.azure.com).
 2. Select **+ New** on the top panel.
    
-   ![+ New within Azure Portal](media/get-started/create-workspace-1.png)
-3. Under **Data + Analytics** select **Power BI Workspace Collection**.
+   ![+ New within Azure portal](media/get-started/create-workspace-1.png)
+3. Under **Data + Analytics**, select **Power BI Workspace Collection**.
 4. Within the get started message, if you already have an existing Power BI Workspace Collection subscription, select **Create a workspace collection** at the bottom.
 
-5. On the **Workspace Collection Blade**, enter the required information.
+5. On **Workspace Collection**, enter the required information.
    
-   ![Workspace collection creation blade](media/get-started/create-workspace-2.png)
-6. Select **Create**.
+   ![Workspace collection creation](media/get-started/create-workspace-2.png)
+1. Select **Create**.
 
-The **Workspace Collection** will take a few moments to provision. When completed, you'll be taken to the **Workspace Collection Blade**.
+The **Workspace Collection** takes a few moments to provision. When completed, you are taken to **Workspace Collection**.
 
-   ![Workspace collection blade in the Azure portal](media/get-started/create-workspace-3.png)
+   ![Workspace collection in the Azure portal](media/get-started/create-workspace-3.png)
 
-The **Creation Blade** contains the information you need to call the APIs that create workspaces and deploy content to them.
+The **Creation** results contain the information you need to call the APIs that create workspaces and deploy content to them.
 
 <a name="view-access-keys"/>
 
 ## View Power BI API access keys
 
-One of the most important pieces of information needed to call the Power BI REST APIs are the **Access Keys**. These are used to generate the **app tokens** that are used to authenticate your API requests. To view your **Access Keys**, click **Access Keys** on the **Settings Blade**. For more about **app tokens**, see [Authenticating and authorizing with Power BI Workspace Collections](app-token-flow.md).
+One of the most important pieces of information needed to call the Power BI REST APIs are the **Access Keys**. These are used to generate the **app tokens** that are used to authenticate your API requests. To view your **Access Keys**, click **Access Keys** on **Settings**. For more about **app tokens**, see [Authenticating and authorizing with Power BI Workspace Collections](app-token-flow.md).
 
-   ![Access keys within Workspace Collection settings blade in Azure portal](media/get-started/access-keys.png)
+   ![Access keys within Workspace Collection settings in Azure portal](media/get-started/access-keys.png)
 
 You'll notice that you have two keys.
 
-   ![Two keys within Access keys blade](media/get-started/access-keys-2.png)
+   ![Two keys within Access keys](media/get-started/access-keys-2.png)
 
-Copy these keys and store them securely in your application. It's very important that you treat these keys as you would a password, because they'll provide access to all the content in your **Workspace Collection**.
+Copy these keys and store them securely in your application. It's important that you treat these keys as you would a password, because they provide access to all the content in your **Workspace Collection**.
 
 While two keys are listed, only one key is needed at a particular time. The second key is provided so you can periodically regenerate keys without interrupting access to the service.
 
@@ -76,11 +76,11 @@ Now that you have an instance of Power BI for your application, and **Access Key
 
 ## Working with workspaces
 
-After you have created your workspace collection, you will need to create a workspace that will house your reports and datasets. To create a workspace, you will need to use the [Post Worksapce REST API](https://msdn.microsoft.com/library/azure/mt711503.aspx).
+After you have created your workspace collection, you will need to create a workspace that will house your reports and datasets. To create a workspace, you need to use the [Post Workspace REST API](https://msdn.microsoft.com/library/azure/mt711503.aspx).
 
 ## Create Power BI datasets and reports to embed into an app using Power BI Desktop
 
-Now that you have created an instance of Power BI for your application, and have **Access Keys**, you will need to create the Power BI datasets and reports that you want to embed. Datasets and reports can be created by using **Power BI Desktop**. You can download [Power BI Desktop for free](https://go.microsoft.com/fwlink/?LinkId=521662). Or, to quickly get started, you can download the [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547).
+Now that you have created an instance of Power BI for your application, and have **Access Keys**, you need to create the Power BI datasets and reports that you want to embed. Datasets and reports can be created by using **Power BI Desktop**. You can download [Power BI Desktop for free](https://go.microsoft.com/fwlink/?LinkId=521662). Or, to quickly get started, you can download the [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547).
 
 > [!NOTE]
 > To learn more about how to use **Power BI Desktop**, see [Getting Started with Power BI Desktop](https://powerbi.microsoft.com/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
@@ -102,7 +102,7 @@ After you save your work in **Power BI Desktop**, a PBIX file is created. This f
 
 ## Create Power BI datasets and reports using APIs
 
-### Datsets
+### Datasets
 
 You can create datasets within Power BI Workspace Collections using the REST API. You can then push data into your dataset. This allows you to work with data without the need of Power BI Desktop. For more information, see [Post Datasets](https://msdn.microsoft.com/library/azure/mt778875.aspx).
 

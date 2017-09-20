@@ -15,18 +15,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/19/2017
+ms.date: 09/20/2017
 ms.author: asaxton
 
 ---
 # Get started with Power BI Workspace Collections sample
 
-With **Microsoft Power BI Workspace Collections**, you can integrate Power BI reports right into your web or mobile applications. In this article, we'll introduce you to the **Power BI Workspace Collections** get started sample.
+With **Microsoft Power BI Workspace Collections**, you can integrate Power BI reports right into your web or mobile applications. In this article, we introduce you to the **Power BI Workspace Collections** get started sample.
 
 > [!IMPORTANT]
-> Power BI Workspace Collections is deprecated and will be available until June 2018 or when your contract indicates. You are encouraged to plan your migration to Power BI Embedded to avoid interruption in your application. For information on how to migrate your data to Power BI Embedded, see [How to migrate Power BI Workspace Collections content to Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+> Power BI Workspace Collections is deprecated and is available until June 2018 or when your contract indicates. You are encouraged to plan your migration to Power BI Embedded to avoid interruption in your application. For information on how to migrate your data to Power BI Embedded, see [How to migrate Power BI Workspace Collections content to Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
-Before we go any further, you'll probably want to save the following resources. They'll help you when integrating Power BI reports into the sample app and your own apps too.
+Before we go any further, you want to save the following resources: They help you when integrating Power BI reports into the sample app and your own apps too.
 
 * [Sample workspace web app](http://go.microsoft.com/fwlink/?LinkId=761493)
 * [Power BI Workspace Collections API reference](https://msdn.microsoft.com/en-US/library/azure/mt711507.aspx)
@@ -34,23 +34,23 @@ Before we go any further, you'll probably want to save the following resources. 
 * [JavaScript Report Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 > [!NOTE]
-> Before you can configure and run the Power BI Workspace Collections get started sample, you need to create at least one **Workspace Collection** in your Azure subscription. To learn how to create a **Workspace Collection** in the Azure Portal see [Getting Started with Power BI Workspace Collections](get-started.md).
+> Before you can configure and run the Power BI Workspace Collections get started sample, you need to create at least one **Workspace Collection** in your Azure subscription. To learn how to create a **Workspace Collection** in the Azure portal, see [Getting Started with Power BI Workspace Collections](get-started.md).
 
 ## Configure the sample app
 
 Let's walk through setting up your Visual Studio development environment to access the  components needed to run the sample app.
 
 1. Download and unzip the [Power BI Workspace Collections - Integrate a report into a web app](http://go.microsoft.com/fwlink/?LinkId=761493) sample on GitHub.
-2. Open **PowerBI-embedded.sln** in Visual Studio. You may need to execute the **Update-Package** command in the NuGET Package Manager Console in order to update the packages used in this solution.
+2. Open **PowerBI-embedded.sln** in Visual Studio. You may need to execute the **Update-Package** command in the NuGet Package Manager Console in order to update the packages used in this solution.
 3. Build the solution.
 4. Run the **ProvisionSample** console app. In the sample console app, you provision a workspace and import a PBIX file.
 5. To provision a new **Workspace**, select option 1, **Collection management**, and then select option 6, **Provision a new Workspace**
 6. To import a new **Report**, select option 2, **Report management**, and then select option 3, **Import PBIX Desktop file into a workspace**.
 
-7. Enter your **Workspace Collection** name, and **Access Key**. You can get these in the **Azure Portal**. To learn more about how to get your **Access Key**, see [View Power BI API Access Keys](get-started.md#view-power-bi-api-access-keys) in Get started with Microsoft Power BI Embedded.
+7. Enter your **Workspace Collection** name, and **Access Key**. You can get these in the **Azure portal**. To learn more about how to get your **Access Key**, see [View Power BI API Access Keys](get-started.md#view-power-bi-api-access-keys) in Get started with Microsoft Power BI Embedded.
 
     ![Access keys within Azure portal](media/get-started-sample/azure-portal.png)
-8. Copy and save the newly created **Workspace ID** to use later in this article. After the **Workspace ID** is created, you can find it the **Azure Portal**.
+8. Copy and save the newly created **Workspace ID** to use later in this article. After the **Workspace ID** is created, you can find it the **Azure portal**.
 
     ![Workspace ID within Azure portal](media/get-started-sample/workspace-id.png)
 9. To import a PBIX file into your **Workspace**, select option **6. Import PBIX Desktop file into an existing workspace**. If you don't have a PBIX file handy, you can download the [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547).
@@ -72,7 +72,7 @@ At this point, you have a Power BI PBIX report imported into your **Workspace**.
 
 The web app sample is a sample application that renders reports imported into your **Workspace**. Here's how to configure the web app sample.
 
-1. In the **PowerBI-embedded** Visual Studio solution, right click the **EmbedSample** web application, and choose **Set as StartUp project**.
+1. In the **PowerBI-embedded** Visual Studio solution, right-click the **EmbedSample** web application, and choose **Set as StartUp project**.
 2. In **web.config**, in the **EmbedSample** web application, edit the **appSettings**: **AccessKey**, **WorkspaceCollection** name, and **WorkspaceId**.
 
     ```
@@ -130,7 +130,7 @@ The connection string must be in the following format:
 Data Source=tcp:MyServer.database.windows.net,1433;Initial Catalog=MyDatabase
 ```
 
-Using common server and database attributes will fail. For example: Server=tcp:MyServer.database.windows.net,1433;Database=MyDatabase,
+Using common server and database attributes fail. For example: Server=tcp:MyServer.database.windows.net,1433;Database=MyDatabase,
 
 ### View
 
