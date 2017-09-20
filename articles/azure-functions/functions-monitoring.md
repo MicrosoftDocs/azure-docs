@@ -297,6 +297,7 @@ You can also query on the original message string by referencing the field custo
 
 Here's a sample JSON representation of customDimensions data:
 
+```json
 {
   customDimensions: {
     "prop__{OriginalFormat}":"C# Queue trigger function processed: {message}",
@@ -305,6 +306,7 @@ Here's a sample JSON representation of customDimensions data:
     "prop__message":"c9519cbf-b1e6-4b9b-bf24-cb7d10b1bb89"
   }
 }
+```
 
 ### Write logs in JavaScript functions
 
