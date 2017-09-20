@@ -60,7 +60,6 @@ Azure Files has several built-in options for ensuring data security:
     * Clients which support SMB 3.0 encryption send and receive data over an encrypted channel.
     * Clients which do not support SMB 3.0, can communicate intra-datacenter over SMB 2.1 or SMB 3.0 without encryption. Note that clients are not allowed to communicate inter-datacenter over SMB 2.1 or SMB 3.0 without encryption.
     * Clients can communicate over File REST with either HTTP or HTTPS.
-* Optional encryption at-rest: when selected, data will be encrypted with fully-managed keys. Enabling encryption at-rest does not increase storage costs or reduce performance. 
 * Optional requirement of encrypted data in-transit: when selected, Azure Files will not allow access to the data over unencrypted channels. Specifically, only HTTPS and SMB 3.0 with encryption connections will be allowed. 
 
     > [!Important]  
