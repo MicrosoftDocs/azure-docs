@@ -165,15 +165,34 @@ Now that the code is complete, you can use the Azure Function's local debugging 
 
 1. Before the code runs properly, you must configure it for local execution with your Azure Cosmos DB connection information. You can use the local.settings.json file to configure the Azure Function for local execution much in the same way you would use the App.config file to configure the original console application for execution.
 
+    To do this, add the following lines of code to local.settings.json, and then copy in your Endpoint and AuthKey from the App.Config file in the GraphGetStarted project as shown in the following image.
+
+   ```javascript
+    "Endpoint": "",
+    "AuthKey": ""
+    ```
+
    ![Set the endpoint and authorization key in the local.settings.json file](./media/tutorial-functions-http-trigger/07-local-functions-settings.png)
 
-2. After you configure the Azure Function app with your Azure Cosmos DB endpoint and authorization key so that it knows how to find your Azure Cosmos DB database, press F5 to launch the local debugging tool, func.exe, with the Azure Function code hosted and ready for use.
+2. Before you run the app, change the StartUp project to the new Functions app. In Solution Explorer, right-click PeopleDataFunctions, and select Set as StartUp Project.
+
+3. After you configure the Azure Function app with your Azure Cosmos DB endpoint and authorization key so that it knows how to find your Azure Cosmos DB database, press F5 to launch the local debugging tool, func.exe, with the Azure Function code hosted and ready for use.
 
    At the end of the initial output from func.exe, we see that Azure Function is being hosted at localhost:7071. This is helpful to test it in a client.
 
    ![Test the client](./media/tutorial-functions-http-trigger/08-functions-emulator.png)
 
-3. To test the Azure Function, use [Visual Studio Code](http://code.visualstudio.com/) with Huachao Mao's extension, [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client). REST Client offers local or remote HTTP request capability in a single right-click. We'll add the URL of our person search function and execute the HTTP request. Right-click the first URL, then select **Send Request**.
+4. To test the Azure Function, use [Visual Studio Code](http://code.visualstudio.com/) with Huachao Mao's extension, [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client). REST Client offers local or remote HTTP request capability in a single right-click. 
+
+    To do this, create a new file named test-function-locally.http and add the following code:
+
+    ```http
+    get http://localhost:7071/api/Search
+
+    get http://localhost:7071/api/Search?name=ben
+   ```
+
+    Now right-click the first line of code, then select **Send Request** as shown in the following image.
 
    ![Send a REST request from Visual Studio code](./media/tutorial-functions-http-trigger/09-rest-client-in-vs-code.png)
 
@@ -181,7 +200,7 @@ Now that the code is complete, you can use the Azure Function's local debugging 
 
    ![REST reponse](./media/tutorial-functions-http-trigger/10-general-results.png)
 
-4. By adding the `name` query string parameter with a value known to be in the database, we can filter the results the Azure Function returns.
+5. Now select the second line of code, and then select **Send Request**. By adding the `name` query string parameter with a value known to be in the database, we can filter the results the Azure Function returns.
 
    ![Filter the results of the Azure Function](./media/tutorial-functions-http-trigger/11-search-for-ben.png)
 
