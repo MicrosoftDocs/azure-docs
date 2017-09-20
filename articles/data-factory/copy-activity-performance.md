@@ -1,5 +1,5 @@
 ---
-title: Copy Activity performance and tuning guide | Microsoft Docs
+title: Copy Activity performance and tuning guide in Azure Data Factory | Microsoft Docs
 description: Learn about key factors that affect the performance of data movement in Azure Data Factory when you use Copy Activity.
 services: data-factory
 documentationcenter: ''
@@ -259,7 +259,7 @@ If your copy activity is executed on a Self-hosted Integration Runtime, note the
 
 **Setup**: We recommend that you use a dedicated machine to host Integration Runtime. See [Considerations for using Self-hosted Integration Runtime](concepts-integration-runtime.md).
 
-**Scale-up/out**: A single logical Self-hosted Integration Runtime with one or more nodes can serve multiple Copy Activity runs at the same time concurrently. If you have heavy need on hybrid data movement either with large number of concurrent copy activity runs or with large volume of data to copy, consider to [scale up or scale out Self-hosted Integration Runtime](concepts-integration-runtime.md) so as to better utilize your resource or to provision more resource to empower copy.
+**Scale out**: A single logical Self-hosted Integration Runtime with one or more nodes can serve multiple Copy Activity runs at the same time concurrently. If you have heavy need on hybrid data movement either with large number of concurrent copy activity runs or with large volume of data to copy, consider to [scale out Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md#high-availability-and-scalability) so as to provision more resource to empower copy.
 
 ## Considerations for the source
 
@@ -345,6 +345,8 @@ You can set the **columnMappings** property in Copy Activity to map all or a sub
 
 If your source data store is queryable, for example, if it's a relational store like SQL Database or SQL Server, or if it's a NoSQL store like Table storage or Azure Cosmos DB, consider pushing the column filtering and reordering logic to the **query** property instead of using column mapping. This way, the projection occurs while the data movement service reads data from the source data store, where it is much more efficient.
 
+Learn more from [Copy Activity schema mapping](copy-activity-schema-and-type-mapping.md).
+
 ## Other considerations
 
 If the size of data you want to copy is large, you can adjust your business logic to further partition the data and schedule Copy Activity to run more frequently to reduce the data size for each Copy Activity run.
@@ -391,3 +393,10 @@ Here is performance monitoring and tuning references for some of the supported d
 * Azure Cosmos DB: [Performance levels in Azure Cosmos DB](../cosmos-db/performance-levels.md)
 * On-premises SQL Server: [Monitor and tune for performance](https://msdn.microsoft.com/library/ms189081.aspx)
 * On-premises file server: [Performance tuning for file servers](https://msdn.microsoft.com/library/dn567661.aspx)
+
+## Next steps
+See the other Copy Activity articles:
+
+- [Copy activity overview](copy-activity-overview.md)
+- [Copy Activity schema mapping](copy-activity-schema-and-type-mapping.md)
+- [Copy activity fault tolerance](copy-activity-fault-tolerance.md)
