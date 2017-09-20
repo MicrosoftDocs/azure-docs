@@ -1,6 +1,6 @@
 ---
-title: Manage DDoS Protection using the Azure portal | Microsoft Docs
-description: Learn how to use the Azure DDoS Protection service telemetry while under an attack using the Azure Monitor.
+title: Manage Azure DDoS Protection Standard using the Azure portal | Microsoft Docs
+description: Learn how to use Azure DDoS Protection Standard telemetry in Azure Monitor to mitigate an attack.
 services: virtual-network
 documentationcenter: na
 author: kumudD
@@ -19,12 +19,12 @@ ms.author: kumud
 
 ---
 
-# Manage DDoS Protection using the Azure portal
-
-This article shows you how to use the Azure portal to enable DDoS Protection, disable DDoS Protection, and use telemetry to mitigate an attack. 
+# Manage Azure DDoS Protection Standard using the Azure portal
 
 >[!IMPORTANT]
->DDoS Protection is currently in preview. A limited number of Azure resources support DDoS Protection, and in a select number of regions. You need to [register for the service](http://aka.ms/ddosprotection) during the limited preview to get the DDoS Protection service enabled for your subscription. You are contacted by the Azure DDoS team upon registration to guide you through the enablement process. Azure DDoS Protection service is available in US East, US West, and US Central regions. During preview, you are not charged for using the service.
+>Azure DDoS Protection Standard (DDoS Protection) is currently in preview. A limited number of Azure resources support DDoS Protection, and in a select number of regions. You need to [register for the service](http://aka.ms/ddosprotection) during the limited preview to get DDoS Protection enabled for your subscription. You are contacted by the Azure DDoS team upon registration to guide you through the enablement process. DDoS Protection is available in US East, US West, and US Central regions. During preview, you are not charged for using the service.
+
+This article shows you how to use the Azure portal to enable DDoS Protection, disable DDoS Protection, and use telemetry to mitigate an attack. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

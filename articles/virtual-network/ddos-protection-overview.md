@@ -21,7 +21,7 @@ ms.author: kumud
 # DDoS Protection Service overview
 
 >[!IMPORTANT]
->DDoS Protection is currently in preview. A limited number of Azure resources support DDoS Protection, and in a select number of regions. You need to [register for the service](http://aka.ms/ddosprotection) during the limited preview to get the DDoS Protection service enabled for your subscription. You are contacted by the Azure DDoS team upon registration to guide you through the enablement process. Azure DDoS Protection service is available in US East, US West, and US Central regions. During preview, you are not charged for using the service.
+>Azure DDoS Protection Standard (DDoS Protection) is currently in preview. A limited number of Azure resources support DDoS Protection, and in a select number of regions. You need to [register for the service](http://aka.ms/ddosprotection) during the limited preview to get DDoS Protection enabled for your subscription. You are contacted by the Azure DDoS team upon registration to guide you through the enablement process. DDoS Protection is available in US East, US West, and US Central regions. During preview, you are not charged for using the service.
 
 Distributed Denial of Service (DDoS), is a type of attack where an attacker sends more requests to an application than the application is capable of handling. The resulting effect is depletion of resources, affecting the application’s availability and ability to service its customers. 
 
@@ -53,17 +53,17 @@ DDoS Protection can mitigate these types of attacks:
 - **Protocol attacks** - also known as state exhaustion attacks target the connection state tables in firewalls, web application servers, and other infrastructure components. Includes but not limited to, SYN flood attacks, reflection attacks, and other protocol attacks. 
 - **Application layer attacks** - can be mitigated by using DDoS Protection in combination with [Application Gateway](https://azure.microsoft.com/services/application-gateway/) WAF SKU to achieve complete protection both at the network layer and application layer.
 
-DDoS Protection protects resources in a virtual network including Public IPs associated with VMs, internal load balancers, and application gateways. When coupled with the Application Gateway WAF SKU, DDoS Protection service can provide full L3 to L7 mitigation capability.
+DDoS Protection protects resources in a virtual network including Public IPs associated with VMs, internal load balancers, and application gateways. When coupled with the Application Gateway WAF SKU, DDoS Protection can provide full L3 to L7 mitigation capability.
 
 ## How DDoS Protection works
 
 ![DDoS functionality](./media/ddos-protection-overview/ddos-overview-fig1.png)
 
-DDoS Protection service features include: 
+DDoS Protection features include: 
 
-- **Native platform integration:** Azure DDoS Protection is natively integrated into Azure and includes configuration through the Azure portal and PowerShell. Azure DDoS Protection understands your resources and resource configuration.
+- **Native platform integration:** DDoS Protection is natively integrated into Azure and includes configuration through the Azure portal and PowerShell. DDoS Protection understands your resources and resource configuration.
 - **Always-on traffic monitoring:** Your application traffic patterns are monitored 24x7, looking for indicators of DDoS attacks. Mitigation is performed when protection policies are exceeded.
-- **Turn-key protection:** Simplified configuration immediately protects all resources on a virtual network as soon as Azure DDoS Protection is enabled. No intervention or user definition is required - DDoS Protection instantly and automatically mitigates the attack once it has been detected.
+- **Turn-key protection:** Simplified configuration immediately protects all resources on a virtual network as soon as DDoS Protection is enabled. No intervention or user definition is required - DDoS Protection instantly and automatically mitigates the attack once it has been detected.
 - **Adaptive tuning:** Intelligent traffic profiling learns your application’s traffic over time, and selects and updates the profile that is the most suitable for your service. The profile adjusts as traffic changes over time.
 - **L3 to L7 Protection with an application gateway:** Application Gateway WAF features providing full stack DDoS protection.
 - **Extensive mitigation scale:** Over 60 different attack types can be mitigated with global capacity to protect against the largest known DDoS attacks. 
