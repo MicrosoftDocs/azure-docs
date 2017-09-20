@@ -1,4 +1,4 @@
-﻿---
+---
 title: Enable Azure Application Insights Profiler on Azure Compute resources | Microsoft Docs
 description: Learn how to set up the profiler on an ASP.NET application hosted by an Azure Cloud Services resource.
 services: application-insights
@@ -135,11 +135,11 @@ Follow these steps so we can collect some sample data to be displayed in Applica
 
    ![Profiler traces in Performance triage view](./media/enable-profiler-compute/PerformanceTriageViewProfilerTraces.png)
 
-You can zoom-in to the duration range of interest, such as the third spike around 95th percentile. This will constrain the number of samples and profiler traces in the Take Action buttons. 
+	You can zoom-in to the duration range of interest, such as the third spike around 95th percentile. This will constrain the number of samples and profiler traces in the Take Action buttons. 
 
-![Zoom into duration range](./media/enable-profiler-compute/DurationRangeZoomedTo95th.png)
+	![Zoom into duration range](./media/enable-profiler-compute/DurationRangeZoomedTo95th.png)
 
-Now click on the **Profiler traces** button to open Profiler with the appropriate trace.
+	Now click on the **Profiler traces** button to open Profiler with the appropriate trace.
 
 3. Select the icon under **Examples** to open the **Trace View** blade.
 

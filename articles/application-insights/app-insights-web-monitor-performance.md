@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 09/20/2017
 ms.author: bwren
 
 ---
@@ -113,7 +113,8 @@ Here are a few tips for finding and diagnosing performance issues:
 * Monitor your Web app in operation with [Live Metrics Stream][livestream].
 * Capture the state of your .Net application with [Snapshot Debugger][snapshot].
 
-NOTE: We are in the process of transitioning Application Insights performance investigation to an interactive full-screen experience. The following documentation covers the new experience first and then reviews the previous experience, in case you still need to access it, while it remains available throughout the transition.
+>[!Note]
+> We are in the process of transitioning Application Insights performance investigation to an interactive full-screen experience. The following documentation covers the new experience first and then reviews the previous experience, in case you still need to access it, while it remains available throughout the transition.
 
 ## Find and fix performance bottlenecks with an interactive full-screen performance investigation
 
