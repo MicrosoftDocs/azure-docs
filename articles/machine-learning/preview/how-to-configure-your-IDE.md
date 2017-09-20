@@ -12,9 +12,8 @@ ms.topic: article
 ms.date: 09/05/2017
 ---
 
-# How to configure Azure Machine Learning Workbench to work with an IDE? 
+# How to configure Azure Machine Learning Workbench to work with an IDE 
 
-## Supported IDEs
 Azure Machine Learning Workbench can be configured to work with popular Python IDEs (Integrated Development Environment). It enables a smooth data science development experience moving between data preparation, code authoring, run tracking and operationalization. Currently the supported IDEs are:
 - Microsoft Visual Studio Code 
 - JetBrain PyCharm 
