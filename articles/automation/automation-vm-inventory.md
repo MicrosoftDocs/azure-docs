@@ -30,7 +30,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
     ![View the status bar when your machine is not enabled](./media/automation-vm-inventory/inventory-not-onboarded.png)
 
-1. Select Log Analytics Workpsace to store your data logs. If no workspaces are available to you for that region, you are prompted to create a default workspace and Automation account. Click **Enable** to start onboarding your computer.
+1. Select a Log Analytics Workpsace to store your data logs. If no workspaces are available to you for that region, you are prompted to create a default workspace and Automation account. Click **Enable** to start onboarding your computer.
 
     ![View onboarding options](./media/automation-vm-inventory/inventory-onboarding-options.png)  
 
@@ -38,8 +38,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
     ![View the inventory solution immediately after onboarding](./media/automation-vm-inventory/inventory-onboarded.png)
 
-1. When the deployment is complete, the status bar will disappears. At this time, the system is still still collecting inventory data,
-1. and data may not be visible yet. A full collection of data can take 24 hours.
+1. When the deployment is complete, the status bar will disappears. At this time, the system is still still collecting inventory data, and data may not be visible yet. A full collection of data can take 24 hours.
 
 ## Configure your inventory settings
 
