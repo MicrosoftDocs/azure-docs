@@ -52,7 +52,7 @@ When you define your cost entity hierarchy, a best practice is to identify the s
 
 As you build the tree, consider how you want or need to see their costs segregated by business units, cost centers, environments, and sales departments. The entity tree in Cloudyn is flexible due to entity inheritance. Individual subscriptions for your cloud accounts are linked to specific entities. So, entities are multi-tenant. You can assign specific users access to only their segment of your business using entities. Doing so keeps data isolated, even across large portions of a business like subsidiaries. And, data isolation helps with governance.  
 
-When you registered your Azure agreement or account with Cloudyn, your Azure resource data including usage, performance, billing, and tag data from your subscriptions was copied to your Cloudyn account. However, you must manually create your entity tree. If you skipped the ARM registration, then only billing data and a few asset reports are available in the Cloudyn portal.
+When you registered your Azure agreement or account with Cloudyn, your Azure resource data including usage, performance, billing, and tag data from your subscriptions was copied to your Cloudyn account. However, you must manually create your entity tree. If you skipped the Azure Resource Manager registration, then only billing data and a few asset reports are available in the Cloudyn portal.
 
 In the Cloudyn portal, click **Settings** in the upper right and select **Cloud Accounts**. You start with a single entity (root) and build your entity tree under the root. Here's an example of an entity hierarchy that might resemble many IT organizations after the tree is complete:
 

@@ -15,7 +15,7 @@ manager: carmonm
 
 # Review usage and costs
 
-Cost Management by Cloudy shows you usage and costs so that you can track trends, detect inefficiencies, and create alerts. All usage and cost data is displayed in Cloudyn dashboards and reports. The quickstart articles familiarized you with viewing cost data using dashboards and reports. The examples in this tutorial walk you though reviewing usage and costs in more depth. In this tutorial, you learn how to:
+Cost Management by Cloudyn shows you usage and costs so that you can track trends, detect inefficiencies, and create alerts. All usage and cost data is displayed in Cloudyn dashboards and reports. The quickstart articles familiarized you with viewing cost data using dashboards and reports. The examples in this tutorial walk you though reviewing usage and costs in more depth. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Track usage and cost trends
