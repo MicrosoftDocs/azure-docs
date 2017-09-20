@@ -20,7 +20,7 @@
 ### [Azure portal (classic)](vpn-gateway-howto-site-to-site-classic-portal.md)
 ### [Classic portal (classic)](vpn-gateway-site-to-site-create.md)
 
-## Configure Point-to-Site connections - Azure native certificate authentication
+## Configure Point-to-Site connections - native Azure certificate authentication
 ### Configure a P2S VPN
 #### [Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 #### [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)

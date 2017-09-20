@@ -227,7 +227,7 @@ For install steps, see [Install a client certificate](point-to-site-how-to-vpn-c
 
 ## <a name="clientconfig"></a>8. Configure the native VPN client
 
-The VPN client configuration files contain settings to configure devices to connect to a VNet over a P2S connection. For instructions to generate and install VPN client configuration files, see [Create and install VPN client configuration files for Azure native certificate authentication P2S configurations](point-to-site-vpn-client-configuration-azure-cert.md).
+The VPN client configuration files contain settings to configure devices to connect to a VNet over a P2S connection. For instructions to generate and install VPN client configuration files, see [Create and install VPN client configuration files for native Azure certificate authentication P2S configurations](point-to-site-vpn-client-configuration-azure-cert.md).
 
 ## <a name="connect"></a>9. Connect to Azure
 

@@ -155,7 +155,7 @@ We support Windows Server 2012 Routing and Remote Access (RRAS) servers for Site
 
 Other software VPN solutions should work with our gateway as long as they conform to industry standard IPsec implementations. Contact the vendor of the software for configuration and support instructions.
 
-## <a name="P2S"></a>Point-to-Site - Azure native certificate authentication
+## <a name="P2S"></a>Point-to-Site - native Azure certificate authentication
 
 [!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 

@@ -18,9 +18,9 @@ ms.date: 09/19/2017
 ms.author: cherylmc
 
 ---
-# Create and install VPN client configuration files for Azure native certificate authentication P2S configurations
+# Create and install VPN client configuration files for native Azure certificate authentication P2S configurations
 
-VPN client configuration files are contained in a zip file. Configuration files provide the settings required for a native Windows or Mac IKEv2 VPN client to connect to a VNet over Point-to-Site connections that use Azure native certificate authentication.
+VPN client configuration files are contained in a zip file. Configuration files provide the settings required for a native Windows or Mac IKEv2 VPN client to connect to a VNet over Point-to-Site connections that use native Azure certificate authentication.
 
 ### <a name="workflow"></a>P2S Workflow
 
