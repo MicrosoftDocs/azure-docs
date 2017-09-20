@@ -121,16 +121,16 @@ AzCopy is a command-line utility designed for copying data to and from Azure Fil
     azcopy --source <path-to-local-share> --destination https://<storage-account>.file.core.windows.net/<file-share>/ --dest-key <storage-account-key> --recursive
     ```
 
-    AzCopy has a significant number of options to modify the copy behavior as desired. For more information, view the [AzCopy on Windows](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) and [AzCopy on Linux](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+    AzCopy has a significant number of options to modify the copy behavior as desired. For more information, view [AzCopy on Windows](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) and [AzCopy on Linux](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 ## Automatically mount on needed PCs/Servers
 To replace an on-premises file share, it is helpful to pre-mount the shares on the machines it will be used on. This can be done automatically on a list of machines.
 
 > [!Note]  
-> Mounting an Azure File share requires using the Storage Account Key as the password, therefore we only recommend mounting in trusted environments. 
+> Mounting an Azure File share requires using the storage account key as the password, therefore we only recommend mounting in trusted environments. 
 
 ### Windows
-PowerShell can be used run the mount command on multiple PCs. In the following example, `$computers` is manually populated, but you can generate the list of computers to mount automatically. For example, one possibility is to populate this variable with results from Active Directory.
+PowerShell can be used run the mount command on multiple PCs. In the following example, `$computers` is manually populated, but you can generate the list of computers to mount automatically. For example, you can populate this variable with results from Active Directory.
 
 ```PowerShell
 $computer = "MyComputer1", "MyComputer2", "MyComputer3", "MyComputer4"
