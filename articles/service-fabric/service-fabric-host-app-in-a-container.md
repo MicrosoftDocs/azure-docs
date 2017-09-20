@@ -126,11 +126,11 @@ To get the application ready for running in Service Fabric in Azure, we need to 
 ### Expose the port for the app
 The Service Fabric cluster we have configured, has port *80* open by default in the Azure Load Balancer, that balances incoming traffic to the cluster. We can expose our container on this port via our docker-compose.yml file.
 
-In Visual Studio, open **Solution Explorer**, find **docker-compose**, and open the file **docker-compose.override.yml**.
+In Visual Studio, open **Solution Explorer**, find **docker-compose**, and open the file **docker-compose.yml**.
 
 Modify the `fabrikamfiber.web:` node, add a child node named `ports:`.
 
-Add a string entry `- "80:80"`.
+Add a string entry `- "80:80"`. This is what your docker-compose.yml file should look like:
 
 ```yml
   version: '3'

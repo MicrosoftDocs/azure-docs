@@ -17,15 +17,8 @@ ms.date: 09/17/2017
 ms.author: miprasad
 ---
 
-# Customer Churn Prediction using Azure Machine Learning
+# Customer churn prediction using Azure Machine Learning
 
-## Link of the Gallery GitHub repository
-Following is the link to the public GitHub repository where all the code is hosted:
-
-[https://github.com/Azure/MachineLearningSamples-ChurnPrediction](https://github.com/Azure/MachineLearningSamples-ChurnPrediction)
-
-
-## Introduction
 On average, keeping existing customers is five times cheaper than the cost of recruiting new ones. As a result, marketing executives often find themselves trying to estimate the likelihood of customer churn and finding the necessary actions to minimize the churn rate.
 
 The aim of this solution is to demonstrate predictive churn analytics using Azure Machine Learning Workbench. This solution provides an easy to use template to develop churn predictive data pipelines for retailers. The template can be used with different datasets and different definitions of churn. The aim of the hands-on example is to:
@@ -37,6 +30,11 @@ The aim of this solution is to demonstrate predictive churn analytics using Azur
 3. Integrate third-party libraries (such as `scikit-learn` and `azureml`) to develop Bayesian and Tree-based classifiers for predicting churn.
 
 4. Deploy.
+
+## Link of the gallery GitHub repository
+Following is the link to the public GitHub repository where all the code is hosted:
+
+[https://github.com/Azure/MachineLearningSamples-ChurnPrediction](https://github.com/Azure/MachineLearningSamples-ChurnPrediction)
 
 ## Use case overview
 Companies need an effective strategy for managing customer churn. Customer churn includes customers stopping the use of a service, switching to a competitor service, switching to a lower-tier experience in the service or reducing engagement with the service.
@@ -55,9 +53,9 @@ In this solution, we will use a concrete example of building a predictive custom
 
 ## Prerequisites
 
-* An [Azure account](https://azure.microsoft.com/en-us/free/) (free trials are available)
+* An [Azure account](https://azure.microsoft.com/free/) (free trials are available)
 
-* An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) following the [quick start installation guide](./quick-start-installation.md) to install the program and create a workspace
+* An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) following the [quick start installation guide](./quickstart-installation.md) to install the program and create a workspace
 
 * For operationalization, it is best if you have Docker engine installed and running locally. If not, you can use the cluster option but be aware that running an Azure Container Service (ACS) can be expensive.
 
