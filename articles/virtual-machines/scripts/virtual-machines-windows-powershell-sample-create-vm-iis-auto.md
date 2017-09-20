@@ -45,7 +45,7 @@ $nsgRuleHTTP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroup
   -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
   -DestinationPortRange 80 -Access Allow
 
-$nsg = Get-AzureRmNetworkSecurityGroup -Name myNSG -ResourceGroupName westeurope
+$nsg = Get-AzureRmNetworkSecurityGroup -Name myNSG -ResourceGroupName myResourceGroup
 $nsg | Add-AzureRmNetworkSecurityRuleConfig -Name $nsgRuleHTTP -NetworkSecurityGroup myNSG 
 $nsg | Set-AzureRmNetworkSecurityGroup
 
