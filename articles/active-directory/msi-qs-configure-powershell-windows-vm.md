@@ -36,12 +36,12 @@ To create an MSI-enabled VM:
 1. Refer to one of the following Azure VM Quickstarts, completing only the necessary sections ("Log in to Azure", "Create resource group", "Create networking group", "Create the VM"). 
 
    > [!IMPORTANT] 
-   > When you get to the "Create the VM" section, make a slight modification to the [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvm) cmdlet. Be sure to add a `-IdentityType "SystemAssigned"` parameter to provision the VM with an MSI, such as:
+   > When you get to the "Create the VM" section, make a slight modification to the [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvm) cmdlet syntax. Be sure to add a `-IdentityType "SystemAssigned"` parameter to provision the VM with an MSI, such as:
    >  
    > `$vmConfig = New-AzureRmVMConfig -VMName myVM -IdentityType "SystemAssigned" ...`
 
-   - [Create a Windows virtual machine using PowerShell](../virtual-machines/windows/quick-create-powershell.md)
-   - [Create a Linux virtual machine using PowerShell](../virtual-machines/linux/quick-create-powershell.md)
+- [Create a Windows virtual machine using PowerShell](../virtual-machines/windows/quick-create-powershell.md)
+- [Create a Linux virtual machine using PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
 
 
