@@ -135,7 +135,6 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       --vnet-name myVnet \
       --network-security-group myNsg
 
-
 11. Create three network interfaces, one for each server type. 
 
     ```azurecli-interactive
@@ -261,7 +260,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       -Protocol Tcp `
       -Direction Inbound `
       -Priority 200 `
-	    -SourceAddressPrefix Internet `
+      -SourceAddressPrefix Internet `
       -SourcePortRange * `
       -DestinationApplicationSecurityGroupId $webAsg.id `
       -DestinationPortRange 80	
@@ -283,7 +282,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       -Protocol Tcp `
       -Direction Inbound `
       -Priority 400 `
-	    -SourceApplicationSecurityGroupId $appAsg.id `
+      -SourceApplicationSecurityGroupId $appAsg.id `
       -SourcePortRange * `
       -DestinationApplicationSecurityGroupId $databaseAsg.id `
       -DestinationPortRange 1336	
@@ -326,7 +325,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       -Name myWebNic `
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
-	    -Subnet $vNet.Subnets[0] `
+      -Subnet $vNet.Subnets[0] `
       -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $webRule,$appRule
 
@@ -334,7 +333,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       -Name myAppNic `
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
-	    -Subnet $vNet.Subnets[0] `
+      -Subnet $vNet.Subnets[0] `
       -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $appRule
 
@@ -342,7 +341,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       -Name myDatabaseNic `
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
-	    -Subnet $vNet.Subnets[0] `
+      -Subnet $vNet.Subnets[0] `
       -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $databaseRule
     ```
