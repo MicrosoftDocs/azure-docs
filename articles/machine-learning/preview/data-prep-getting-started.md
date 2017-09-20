@@ -75,7 +75,7 @@ Next, use a combination of other Inspectors plus the grid to better understand d
 
 It’s likely that several Inspectors across several columns are needed to understand the data. You can scroll through various Inspectors in the Profiling Well. Within the well, you can also move Inspectors to the head of the list in order to see them in the immediately viewable area.
 
-![inspectors](media/data-prep-getting-started/inspectors.png)
+![inspectors](media/data-prep-getting-started/inspectors.PNG)
 
 Different Inspectors are provided for continuous vs categorical variables/columns. The Inspector menu enables and disables options depending on the type of variables/columns you have.
 
@@ -87,7 +87,7 @@ Transforms change the data and allow the execution of the data to support the cu
 
 A green icon to the left of a given Step indicates that it has run and the data reflects the execution of the Transform. A vertical bar to the left of the Step indicates the current state of the data in the Inspectors.
 
-![steps](media/data-prep-getting-started/steps.png)
+![steps](media/data-prep-getting-started/steps.PNG)
 
 Try to make small frequent changes to the data and to validate (Step 4) after each change as the hypothesis evolves.
 
@@ -96,7 +96,7 @@ Decide if the hypothesis was correct. If correct, then develop the next hypothes
 
 The primary way to determine if the Transform had the right impact is to use the Inspectors. Use existing. Use Inspectors with the Halo effect enabled or launch multiple Inspectors to view the data at given points in time.
 
-![halo inspector](media/data-prep-getting-started/halo1.png) ![halo inspector](media/data-prep-getting-started/halo2.png)
+![halo inspector](media/data-prep-getting-started/halo1.PNG) ![halo inspector](media/data-prep-getting-started/halo2.PNG)
 
 To undo a Transformation, go the Steps List on the right-hand side of the UI. (The Steps List panel may need to be popped back out. To open it, click the double chevron pointing left). In the panel, select the Transform that was executed that you wish to undo. Select the drop-down on the right-hand side of the UI block. Select either **Edit** to make changes or **Delete** to remove the Transform from the Steps List and the Dataflow.
 
@@ -113,4 +113,3 @@ When finished with your data preparation, you can write the Dataflow to an outpu
 [Appendix 8 - Sample Data Sources in Python](data-prep-appendix8-sample-source-connections-python.md)  
 [Appendix 9 - Sample Destination Connections in Python](data-prep-appendix9-sample-destination-connections-python.md)  
 [Appendix 10 - Sample Column Transforms in Python](data-prep-appendix10-sample-custom-column-transforms-python.md)  
-
