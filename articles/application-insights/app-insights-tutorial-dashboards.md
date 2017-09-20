@@ -5,7 +5,7 @@ keywords:
 services: application-insights
 author: bwren
 ms.author: bwren
-ms.date: 09/17/2017
+ms.date: 09/20/2017
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: article
@@ -159,7 +159,7 @@ Since Azure Applications Insights Analytics is a separate service, you need to s
 
 
 ## Next steps
-Now that you've learned how to create custom dashboards, advance to the next tutorial to learn how to integrate with your DevOps pipeline.
+Now that you've learned how to create custom dashboards, have a look at the rest of the Application Insights documentation including a case study.
 
 > [!div class="nextstepaction"]
-> Integrate with DevOps
+> [Deep diagnostics](app-insights-devops.md)
