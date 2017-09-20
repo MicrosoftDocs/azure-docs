@@ -20,9 +20,7 @@ ms.author: wgries
 # Register/unregister a server with Azure File Sync (preview)
 With Azure File Sync (preview), shares can be replicated on-premises or in Azure and accessed through SMB or NFS shares on Windows Server. Azure File Sync is useful for scenarios in which data needs to be accessed and modified far away from an Azure datacenter, such as in a branch office scenario. Data may be replicated between multiple Windows Server endpoints, such as between multiple branch offices.
 
-Before a Windows Server can be used as a *Server Endpoint* in an Azure File Sync *Sync Group*, it must be registered with a *Storage Sync Service*. Note that a server can only be registered with one *Storage Sync Service* at a time.
-
-See [How to deploy Azure File Sync (preview)](storage-sync-files-deployment-guide.md) for information on how to deploy Azure File Sync end-to-end.
+The following article illustrates how to register and unregister a server with a Storage Sync Service. This may be desired if a server is being decomissioned or if a new Server Endpoint is desired in a Sync Group. See [How to deploy Azure File Sync (preview)](storage-sync-files-deployment-guide.md) for information on how to deploy Azure File Sync end-to-end.
 
 ## Prerequisites
 To register a Windows Server with a Storage Sync Service, you must first prepare a Windows Server with the necessary prerequisites:
@@ -39,13 +37,15 @@ To register a Windows Server with a Storage Sync Service, you must first prepare
     > We recommend using the newest version of the AzureRM PowerShell module to register/unregister a server. If the AzureRM package has been previously installed on this server (and the PowerShell version on this server is 5.* or greater), you can use the `Update-Module` cmdlet to update this package. 
 
 ## Register a server with Storage Sync Service
+Before a Windows Server can be used as a *Server Endpoint* in an Azure File Sync *Sync Group*, it must be registered with a *Storage Sync Service*. Note that a server can only be registered with one *Storage Sync Service* at a time.
+
 ### Install the Azure File Sync agent
 1. [Download the Azure File Sync agent](https://go.microsoft.com/fwlink/?linkid=858257).
 2. Start the Azure File Sync agent installer.
     
     ![The first pane of the Azure File Sync agent installer](media/storage-sync-files-server-registration/install-afs-agent-1.png)
 
-3. Be sure to enable updates to the Azure File Sync agent via Microsoft Update. This is important because critical security fixes and feature enhancements to the server package are shipped via Microsoft Update.
+3. Be sure to enable updates to the Azure File Sync agent using Microsoft Update. This is important because critical security fixes and feature enhancements to the server package are shipped via Microsoft Update.
 
     ![Ensure Microsoft Update is enabled in the Microsoft Update pane of the Azure File Sync agent installer](media/storage-sync-files-server-registration/install-afs-agent-1.png)
 
@@ -72,10 +72,12 @@ To register a Windows Server with a Storage Sync Service, you must first prepare
 > If the server is a member of a Failover Cluster, each server needs to run the Server Registration. Azure File Sync will automatically recognize each node as a member of the same Failover Cluster, and will group them together.
 
 ## Unregister the server with Storage Sync Service
+There are several steps that are required to unregister a server with a Storage Sync Service. Let's take a look at how to properly unregister a server.
+
 ### (Optional) Recall all tiered data
 When enabled for a Server Endpoint, cloud tiering will *tier* files to your Azure File shares. This enables on-premises file shares to act as a cache, rather than a complete copy of the dataset, to make efficient use of the space on the file server. However, if a Server Endpoint is removed with tiered files still locally on the server, those files will become unaccessible. Therefore, if continued file access is desired, you must recall all tiered files from Azure Files before continuing with deregistration. 
 
-This can be done with the simple PowerShell cmdlet as shown below:
+This can be done with the PowerShell cmdlet as shown below:
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
