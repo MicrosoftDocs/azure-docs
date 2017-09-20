@@ -113,6 +113,36 @@ The VM must also be running a supported operating system. See the
 [Site Recovery support matrix](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
 for a complete list of supported versions.
 
+## Prepare to connect to Azure VMs after failover
+
+During a failover scenario you may want to connect to your replicated VMs in Azure from your
+on-premises network.
+
+To connect to Windows VMs using RDP after failover, do the following:
+
+1. To access over the internet, enable RDP on the on-premises VM before failover. Make sure that
+   TCP, and UDP rules are added for the **Public** profile, and that RDP is allowed in **Windows
+   Firewall** > **Allowed Apps** for all profiles.
+2. To access over site-to-site VPN, enable RDP on the on-premises machine. RDP should be allowed in
+   the **Windows Firewall** -> **Allowed apps and features** for **Domain and Private** networks.
+   Check that the operating system's SAN policy is set to **OnlineAll**. [Learn
+   more](https://support.microsoft.com/kb/3031135). There should be no Windows updates pending on
+   the VM when you trigger a failover. If there are, you won't be able to log in to the virtual
+   machine until the update completes.
+3. On the Windows Azure VM after failover, check **Boot diagnostics** to view a screenshot of the
+   VM. If you can't connect, check that the VM is running and review these
+   [troubleshooting tips](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+
+To connect to Linux VMs using SSH after failover, do the following:
+
+1. On the on-premises machine before failover, check that the Secure Shell service is set to start
+   automatically on system boot. Check that firewall rules allow an SSH connection.
+
+2. On the Azure VM after failover, allow incoming connections to the SSH port for the network
+   security group rules on the failed over VM, and for the Azure subnet to which it's connected.
+   [Add a public IP address](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine)
+   for the VM. You can check **Boot diagnostics** to view a screenshot of the VM.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
