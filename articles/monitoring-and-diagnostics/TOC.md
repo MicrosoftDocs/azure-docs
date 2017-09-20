@@ -3,7 +3,7 @@
 
 # Quickstarts
 ## [Audit subscription activity](monitor-quick-audit-subscription-portal.md)
-## [Browse Metrics - Portal](monitor-quick-resource-metrics-portal.md)
+## [Browse metrics - portal](monitor-quick-resource-metrics-portal.md)
 ## [Alert on metric](monitor-quick-resource-metric-alert-portal.md)
 ## [Alert subscription activity](monitor-quick-notify-action-in-subscription.md)
 	
@@ -17,7 +17,7 @@
 ## [Partner integrations](monitoring-partners.md)
 
 
-## Additional Overviews
+## Additional overviews
 ### [Monitoring tools across Azure](monitoring-overview.md)
 ### [Metrics](monitoring-overview-metrics.md)
 ### [Alerts](monitoring-overview-alerts.md)
@@ -43,7 +43,7 @@
 ### [PowerShell samples](insights-powershell-samples.md)
 
 ## Use alerts
-### [Configure Near Real-time alerts in Azure portal](monitoring-near-real-time-metric-alerts.md) 
+### [Configure near real-time alerts in Azure portal](monitoring-near-real-time-metric-alerts.md) 
 ### [Configure alerts in Azure portal](insights-alerts-portal.md)
 ### [Configure alerts with CLI](insights-alerts-command-line-interface.md)
 ### [Configure alerts with PowerShell](insights-alerts-powershell.md)
@@ -51,11 +51,11 @@
 ### [Create a metric alert with a Resource Manager template](monitoring-enable-alerts-using-template.md)
 
 ## Use autoscale
-### [Best Practices](insights-autoscale-best-practices.md)
+### [Best practices](insights-autoscale-best-practices.md)
 ### [Common metrics](insights-autoscale-common-metrics.md)
 ### [Common patterns](monitoring-autoscale-common-scale-patterns.md)
 ### [Autoscale using a custom metric](monitoring-autoscale-scale-by-custom-metric.md)
-### [Autoscale VM Scale sets using Resource Manager templates](insights-advanced-autoscale-virtual-machine-scale-sets.md)
+### [Autoscale VM scale sets using Resource Manager templates](insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Automatically scale machines in a VM Scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Configure webhooks and email notifications on autoscale](insights-autoscale-to-webhook-email.md)
 ## Use the activity log
