@@ -103,28 +103,23 @@ Specify base64-encoded contents of a PFX file and the password.
 When you use the POST/PUT method, the body property represents the payload that is sent to the endpoint. You can pass linked services and datasets as part of the payload. Here is the schema for the payload: 
 
 ```json
-{  
-   "body":{  
-      "message":"Sample"
-   },
-   "datasets":[  
-      {  
-         "name":"MyDataset1",
-         "properties":{  
-            ...
-         }
-      }
-   ],
-   "linkedServices":[  
-      {  
-         "name":"MyStorageLinkedService1",
-         "properties":{  
-            ...
-         }
-      }
-   ]
-}
-
+{
+    "body": {
+        "myMessage": "Sample",
+        "datasets": [{
+            "name": "MyDataset1",
+            "properties": {
+                ...
+            }
+        }],
+        "linkedServices": [{
+            "name": "MyStorageLinkedService1",
+            "properties": {
+                ...
+            }
+        }]
+    }
+} 
 ```
 
 ## Example
