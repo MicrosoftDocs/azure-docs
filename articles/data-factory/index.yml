@@ -51,7 +51,7 @@ sections:
     - html: <a href="../data-factory/tutorial-hybrid-copy-powershell">Copy on-premises data to cloud</a>
     - html: <a href="../data-factory/tutorial-bulk-copy">Copy data in bulk</a>    
     - html: <a href="../data-factory/tutorial-incremental-copy-powershell">Copy data incrementally</a>        
-    - html: <a href="../data-factory/tutorial-transform-data-using-spark-powershell">Transform data in cloud</a>    
+    - html: <a href="../data-factory/tutorial-transform-data-spark-powershell">Transform data in cloud using Spark</a>    
     - html: <a href="../data-factory/tutorial-transform-data-hive-virtual-network">Transform data in virtual network</a>        
     - html: <a href="../data-factory/tutorial-control-flow">Control flow</a>   
 - title: Reference
