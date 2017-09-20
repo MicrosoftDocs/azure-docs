@@ -123,17 +123,17 @@ In this section you will be entering in information about the the subscription y
 1. In **Subscription**, select the Azure subscription that you used for the [Prepare Azure](tutorial-prepare-azure.md) tutorial.
 2. Select **Resource Manager** as the deployment model.
 3. Site Recovery checks that you have one or more compatible Azure storage accounts and networks. These should be the resources you created when you went through the [Prepare Azure](tutorial-prepare-azure.md) tutorial.
+4. When you are done, click **OK**.
 
 
 
 ### 4 Replication settings Prepare
 
-<!--
 You need to create a replication policy, before you can enable replication
 
-1. To create a new replication policy, click **Site Recovery infrastructure** > **Replication Policies** > **+Replication Policy**.
-2. In **Create replication policy**, specify a policy name.
-3. Leave the default settings, and click **OK** to create the policy. The new policy is automatically associated with the configuration server. 
+1. Click **+ Replicate and Associate**.
+2. In **Name**, type **myReplicationPolicy**.
+3. Leave the rest of the default settings and click **OK** to create the policy. The new policy is automatically associated with the configuration server. 
 
 
 Enable replication for each VM you want to migrate.
@@ -158,13 +158,15 @@ Enable replication for each VM you want to migrate.
 -->
 ### 5 Deployment planning Select
 
+In **Have you completed deployment planning?**, select **I will do it later** from the drop-down and then click **OK**.
 
+When you are all done with all 5 sections of **Prepare infrastructure**, click **OK**.
 
 ## Run a test failover
 
 Run a [test failover](tutorial-dr-drill-azure.md) to make sure everything's working as expected.
 
-
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ## Migrate to Azure
 
 Run a fail over for EC2 instances. 
