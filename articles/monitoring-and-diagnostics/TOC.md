@@ -99,8 +99,8 @@
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
-## [Regional Availability] (https://azure.microsoft.com/en-us/regions/services/)
+## [Regional availability](https://azure.microsoft.com/regions/services/)
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=monitor) 
-## [Quickstart templates](https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Insights)
+## [Quickstart templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights)
 ## [Stack Overflow](https://stackoverflow.com/search?q=monitoring)
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=monitor)
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=monitor)
