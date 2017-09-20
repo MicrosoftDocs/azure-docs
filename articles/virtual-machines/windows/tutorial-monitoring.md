@@ -1,6 +1,6 @@
 ---
-title: Azure Monitoring and Windows Virtual Machines | Microsoft Docs
-description: Tutorial - Monitor a Windows Virtual Machine with Azure PowerShell 
+title: Azure Monitoring and updating and Windows Virtual Machines | Microsoft Docs
+description: Tutorial - Monitor and update a Windows Virtual Machine with Azure PowerShell 
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: davidmu1
@@ -19,9 +19,13 @@ ms.author: davidmu
 ms.custom: mvc
 ---
 
-# Monitor a Windows Virtual Machine with Azure PowerShell
+# Monitor and update a Windows Virtual Machine with Azure PowerShell
 
-Azure monitoring uses agents to collect boot and performance data from Azure VMs, store this data in Azure storage, and make it accessible through portal, the Azure PowerShell module, and the Azure CLI. In this tutorial, you learn how to:
+Azure monitoring uses agents to collect boot and performance data from Azure VMs, store this data in Azure storage, and make it accessible through portal, the Azure PowerShell module, and the Azure CLI.
+
+Update management allows you to manage updates and patches for your Azure Windows virtual machines.
+
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Enable boot diagnostics on a VM
@@ -30,6 +34,7 @@ Azure monitoring uses agents to collect boot and performance data from Azure VMs
 > * Install the diagnostics extension
 > * View VM metrics
 > * Create an alert
+> * Manage Windows updates
 > * Set up advanced monitoring
 
 This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
@@ -93,7 +98,6 @@ Update management allows you to manage updates and patches for your Azure Window
 Directly from your virtual machine, you can quickly assess the status of available updates, schedule installation of required updates,
 and review deployment results to verify updates were applied successfully to the virtual machine.
 
-If you don't already have a virtual machine to use, you can create one using the [Windows quickstart](quick-create-portal.md). In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * Enable the Update management solution for your  virtual machine
@@ -102,9 +106,6 @@ If you don't already have a virtual machine to use, you can create one using the
 
 For pricing information, see [Automation pricing for Update management](https://azure.microsoft.com/pricing/details/automation/)
 
-### Sign in to Azure
-
-Sign in to the [Azure portal](https://portal.azure.com/).
 
 ### Enable Update management
 
@@ -231,6 +232,7 @@ In this tutorial, you configured and reviewed VMs with Azure Security Center. Yo
 > * Install the diagnostics extension
 > * View VM metrics
 > * Create an alert
+> * Manage Windows updates
 > * Set up advanced monitoring
 
 Advance to the next tutorial to learn about Azure security center.
