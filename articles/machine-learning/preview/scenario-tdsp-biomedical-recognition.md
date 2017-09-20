@@ -89,12 +89,13 @@ Following is the link to the public GitHub repository of the real-world scenario
 [https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction)
 
 
-## Prerequisites
+## Prerequisites 
 
 * An Azure [subscription](https://azure.microsoft.com/free/)
 * Azure Machine Learning Workbench. See [installation guide](quickstart-installation.md). Currently the Azure Machine Learning Workbench can be installed on the following operating systems only: 
     * Windows 10 or Windows Server 2016
     * macOS Sierra (or newer)
+
 
 ### Azure services
 * [HDInsight Spark cluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql) version Spark 2.1 on Linux (HDI 3.6) for scale-out computation. To process the full amount of MEDLINE abstracts discussed below, you need the minimum configuration of: 
