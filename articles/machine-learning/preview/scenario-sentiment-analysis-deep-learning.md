@@ -35,7 +35,7 @@ To get value from sentiment analysis, businesses must have the ability to mine v
 
 ## Prerequisites
 
-* An [Azure account](https://azure.microsoft.com/en-us/free/) (free trials are available).
+* An [Azure account](https://azure.microsoft.com/free/) (free trials are available).
 
 * An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) following the [quick start installation guide](./quick-start-installation.md) to install the program and create a workspace.
 
