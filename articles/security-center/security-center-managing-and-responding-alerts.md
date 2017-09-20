@@ -76,7 +76,7 @@ In the **Description** field you find more details about this event. These addit
 The remediation suggested by Security Center vary according to the security alert. In some cases, you may have to use other Azure capabilities to implement the recommended remediation. For example, the remediation for this attack is to blacklist the IP address that is generating this attack by using a [network ACL](../virtual-network/virtual-networks-acl.md) or a [network security group](../virtual-network/virtual-networks-nsg.md) rule. For more information on the different types of alerts, read [Security Alerts by Type in Azure Security Center](security-center-alerts-type.md).
 
 > [!NOTE]
-> New Linux detections now in preview: Security Center has released to limited preview a new set of detections that leverage auditd records, a common auditing framework, to detect malicious behaviors on Linux machines. Please send an email 
+> Security Center has released to limited preview a new set of detections that leverage auditd records, a common auditing framework, to detect malicious behaviors on Linux machines. Please send an email 
 > with your subscription IDs to [us](ASC_linuxdetections@microsoft.com) to join the preview.
 
 
