@@ -11932,7 +11932,7 @@
         },
         {
             "source_path": "articles/app-service-api/index.md",
-            "redirect_url": "azure/app-service",
+            "redirect_url": "/azure/app-service",
             "redirect_document_id": false
         },
         {
