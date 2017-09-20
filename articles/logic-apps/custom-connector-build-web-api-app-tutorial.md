@@ -79,7 +79,7 @@ make the changes you want, and choose **Create**.
 
    | Setting | Suggested value | Description | 
    | ------- | --------------- | ----------- | 
-   | Your Azure work or school account, or your personal Microsoft account | | Select your user account. | 
+   | Your Azure work or school account, or your personal Microsoft account | {see description} | Select your user account. | 
    | **Web App Name** | *custom-web-api-app-name* or the default name | Enter the name for your Web API app, which is used in your app's URL, for example: http://*web-api-app-name*. | 
    | **Subscription** | *Azure-subscription-name* | Select the Azure subscription that you want to use. | 
    | **Resource Group** | *Azure-resource-group-name* | Select an existing Azure resource group, or if you haven't already, create a resource group. <p>**Note**: An Azure resource group organizes Azure resources in your Azure subscription. | 
@@ -91,7 +91,7 @@ make the changes you want, and choose **Create**.
    | Setting | Suggested value | Description | 
    | ------- | --------------- | ----------- | 
    | **Location** | *deployment-region* | Select the region for deploying your app. | 
-   | **Size** | *app-service-plan-size* | Select your plan size, which determines the cost and computing resource capacity for your service plan. | 
+   | **Size** | *App-Service-plan-size* | Select your plan size, which determines the cost and computing resource capacity for your service plan. | 
    |||| 
 
    To set up any other resources required by your app, 
@@ -99,7 +99,7 @@ make the changes you want, and choose **Create**.
 
    | Setting | Suggested value | Description | 
    | ------- | --------------- | ----------- | 
-   | **Resource Type** | *Azure-resource-type* |Select and set up any additional resources required by your app. | 
+   | **Resource Type** | *Azure-resource-type* | Select and set up any additional resources required by your app. | 
    |||| 
 
 6. After Visual Studio deploys your project, 
