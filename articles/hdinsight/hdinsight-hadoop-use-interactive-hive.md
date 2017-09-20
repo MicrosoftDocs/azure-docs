@@ -16,7 +16,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2017
+ms.date: 09/20/2017
 ms.author: jgao
 
 ---
@@ -48,9 +48,14 @@ To execute Hive queries, you have the following options:
 * Use Visual Studio
 
     See [Connect to Azure HDInsight and run Hive queries using Data Lake Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md#run-a-hive-query).
+
+* Use Visual Studio Code
+
+    See [Use Azure HDInsight Tool for Visual Studio Code](./hdinsight-for-vscode.md).
+
 * Run Hive by using Ambari Hive View.
   
-    See [Use Hive View with Hadoop in HDInsight](hdinsight-hadoop-use-hive-ambari-view.md).
+    See [Use Hive View with Hadoop in Azure HDInsight](hdinsight-hadoop-use-hive-ambari-view.md).
 * Run Hive by using Beeline.
   
     See [Use Hive with Hadoop in HDInsight with Beeline](hdinsight-hadoop-use-hive-beeline.md).
@@ -69,7 +74,13 @@ To find the Java Database Connectivity (JDBC) connection string:
    ![HDInsight Hadoop Interactive Query LLAP JDBC](./media/hdinsight-hadoop-use-interactive-hive/hdinsight-hadoop-use-interactive-hive-jdbc.png)
 
 ## Next steps
+
 * Learn how to [create Interactive Query clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+* Learn how to [visualize big data with Power BI in Azure HDInsight](./hdinsight-connect-hive-power-bi.md).
+* Learn how to [use Zeppelin to run Hive queries in Azure HDInsight ](./hdinsight-connect-hive-zeppelin.md).
+* Learn how to [run Hive queries using Data Lake Tools for Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md#run-a-hive-query).
+* Learn how to [use Azure HDInsight Tool for Visual Studio Code](./hdinsight-for-vscode.md).
+* Learn how to [use Hive View with Hadoop in HDInsight](hdinsight-hadoop-use-hive-ambari-view.md)
 * Learn how to [use Beeline to submit Hive queries in HDInsight](hdinsight-hadoop-use-hive-beeline.md).
 * Learn how to [connect Excel to Hadoop with the Microsoft Hive ODBC driver](hdinsight-connect-excel-hive-odbc-driver.md).
 
