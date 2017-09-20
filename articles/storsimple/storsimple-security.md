@@ -3,7 +3,7 @@ title: StorSimple 8000 series security | Microsoft Docs
 description: Describes the security and privacy features that protect your StorSimple service, device, and data on premises and in the cloud.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: alkohli
 manager: carmonm
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/03/2016
-ms.author: v-sharos
+ms.date: 09/19/2017
+ms.author: alkohli
 
 ---
 # StorSimple security and data protection

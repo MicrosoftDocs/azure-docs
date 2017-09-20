@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/18/2017
+ms.date: 09/19/2017
 ms.author: billmath
 
 ---
 
-# Azure Active Directory Terms of Use (Preview)
+# Azure Active Directory Terms of Use feature (Preview)
 Azure AD Terms of Use provides a simple method organizations can use to present information to end users.  This ensures users see relevant disclaimers for legal or compliance requirements.
 
 Azure AD Terms of Use uses the pdf format to present content.   This pdf can be any content, such as existing contract documents, allowing you to collect end user agreements during user sign-in.  You can use the terms of use for applications, groups of users, or if you have multiple terms of use for different purposes.
@@ -42,7 +42,7 @@ Use the following steps to configure Azure AD Terms of Use:
 
 
 
-## Add Terms of Use
+## Add Company Terms of Use
 Once you have finalized your Terms of Use, use the following procedure to add it.
 
 ### To add Terms of Use
@@ -50,9 +50,9 @@ Once you have finalized your Terms of Use, use the following procedure to add it
 2. Click Add.</br>
 ![Add TOU](media/active-directory-tou/tou2.png)
 3. Enter the **Name** for the Terms of Use
-4. Enter **Display Name**.  This is the header that users see when they sign in.
-5. **Browse** to your finalized terms of use pdf and select it.
-6. You can **Enforce** the terms of use by using a template or a custom conditional access policy.  Custom conditional access policies enable allow granular terms of use, down to a specific cloud application or group of users.  From more information see [configuring conditional access policies](active-directory-conditional-access-best-practices.md)
+4. Enter **Display Name**.  This header is what users see when they sign in.
+5. **Browse** to your finalized terms of use pdf and select it.  The recommended font size is 24.
+6. You can **Enforce** the uploaded terms of use by using a template or a custom conditional access policy.  Custom conditional access policies enables granular terms of use, down to a specific cloud application or group of users.  For more information, see [configuring conditional access policies](active-directory-conditional-access-best-practices.md)
 7. Click **Create**.
 8. If you selected a custom conditional access template, then a new screen appears which allows you to customize the CA policy.
 7. You should now see your new Terms of Use.</br>
@@ -81,10 +81,10 @@ Azure AD Terms of Use provides easy to use auditing so that you can see who has 
 4.  You can also download the information in a .csv file for use locally.
 
 ## What users see
-Users, who are in scope, will see the following once a terms of use is created and enforced.
+Users, who are in scope, will see the following once a terms of use is created and enforced.  They will see these screens during sign in.
 -	Best practice is to have the font within the PDF at size 24.
 ![Audit Event](media/active-directory-tou/tou10.png)
--	This screen is how it appears on mobiles
+-	This screen is how it appears on mobiles</br></br>
 ![Audit Event](media/active-directory-tou/tou11.png)
 
 ## Additional information
@@ -106,3 +106,26 @@ The following information is something to be aware of and can assist with using 
 
 -	If a Terms of Use is enforced using a custom conditional access policy be aware of the following conditions:
     - if the admin wants to delete a Terms of Use, the admin needs to make sure that it is not enforced with any policies.
+
+## Frequently asked questions
+
+**Q: How do I see when/if a user has accepted a terms of use?**</br>
+A: A user accepting the terms of use is written to the audit log. You can search the Azure AD audit log to see the results.  
+
+**Q: If you change the terms of use terms does it require users to accept again?**</br>
+A: Yes, an admin can change the terms of use terms and it requires reaccepting the new terms.
+
+**Q: Can a terms of use support multi languages?**</br>
+A: No, currently it is not possible to have multiple languages in a single terms of use.  However, you can scope to a group (for example, terms of use for France is different from terms of use for UK). 
+
+**Q: When is the terms of use triggered?**</br>
+A: The terms of use is triggered during the sign-in experience.
+
+**Q: What applications can I target a terms of use too?**</br>
+A: You can create a conditional access policy on the enterprise applications using modern authentication.  For more information, see [enterprise applications](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-view-azure-portal).
+
+**Q: Can I add multiple terms of use to a given user or app?**</br>
+A: Yes, by creating multiple conditional access policies targeting those groups or apps. If a user falls in scope of multiple terms of use they agree to one terms of use at a time.
+ 
+**Q: What happens if a user declines the terms of use?**</br>
+A: The user is blocked from getting access to the application. The user would have to sign-in again and agree to the terms in order to get access.
