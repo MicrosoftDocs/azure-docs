@@ -284,7 +284,7 @@
       href: monitor-accounts.md
     - name: Manage keys and consistency
       href: manage-account.md
-    - name: Manage Cosmos DB in Azure Storage Explorer
+    - name: Azure Storage Explorer
       href: tutorial-documentdb-and-mongodb-in-storage-explorer.md
     - name: Security
       items:
