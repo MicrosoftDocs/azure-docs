@@ -84,4 +84,4 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 In this quick start, you've created a general-purpose standard storage account. To learn how to upload and download blobs with your storage account, continue to the Blob storage quickstart.
 > [!div class="nextstepaction"]
-> [Work with blobs](../blobs/storage-quickstart-blobs-powershell.md)
+> [Transfer objects to/from Azure Blob storage using PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
