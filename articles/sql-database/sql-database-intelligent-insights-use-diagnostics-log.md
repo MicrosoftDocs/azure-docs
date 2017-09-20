@@ -78,7 +78,7 @@ Category (category) property describes categorization of a detectable performanc
 Depending on the performance issue detected, details outputted in the diagnostics log file differ accordingly.
 
 | Detectable performance patterns | Details outputted |
-| :------------------- | :------------------- |
+| :------------------- | ------------------- |
 | Reaching Resource Limits | <li>Resources affected</li><li>Query hashes</li><li>Resource consumption percentage</li> |
 | Workload Increase | <li>Number of queries whose execution increased</li><li>Query hashes of queries with the largest contribution to the workload increase</li> |
 | Memory Pressure | <li>Memory clerk</li> |
@@ -88,13 +88,12 @@ Depending on the performance issue detected, details outputted in the diagnostic
 | Missing Index | <li>Query hashes</li> |
 | New Query | <li>Query hash</li> |
 | Unusual Wait Statistic | <li>Unusual wait types</li><li>Query hashes</li><li>Query wait times</li> |
-| TempDB Contention | <li>Query hashes</li><li>Query attribution to the overall database pagelatch contention wait time [ percentage ]</li> |
+| TempDB Contention | <li>Query hashes</li><li>Query attribution to the overall database pagelatch contention wait time [ % ]</li> |
 | Elastic Pool DTU Shortage | <li>Elastic Pool</li><li>Top DTU Consuming Database</li><li>Percent of pool DTU used by the top consumer</li> |
 | Plan Regression | <li>Query hash</li><li>Good plan IDs</li><li>Bad plan IDs</li><li>Query hashes</li> |
 | Database Scoped Configuration Value Change | <li>DB scoped configuration changes compared to the default values</li> |
 | Slow Client | <li>Query hashes</li><li>Wait times</li> |
 | Pricing Tier Downgrade | <li>Text notification</li> |
-|||
 
 ### Impact
 
