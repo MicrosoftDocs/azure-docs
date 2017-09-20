@@ -78,23 +78,16 @@ components. This VM runs the configuration server, process server, and master ta
 The configuration server VM should be a highly available VMware VM that meets the following
 requirements:
 
-| **Hardware** | **Details** |
-| --- |--- |
+| **Requirement** | **Details** |
 | Number of CPU cores| 8 |
 | RAM | 12 GB |
 | Number of disks | 3 - OS disk, process server cache disk, retention drive (for failback) |
 | Disk free space (process server cache) | 600 GB |
 | Disk free space (retention disk) | 600 GB |
-
-| **Software** | **Details** |
-| --- | --- |
 | Operating system version | Windows Server 2012 R2 |
 | Operating system locale | English (en-us) |
 | VMware vSphere PowerCLI version | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") |
 | Windows Server roles | Don't enable these roles: Active Directory Domain Services, Internet Information Services, Hyper-V |
-
-| **Network** | **Details** |
-| --- | --- |
 | NIC type | VMXNET3 |
 | IP address type | Static |
 | Ports | 443 (Control channel orchestration)<br/>9443 (Data transport)|
