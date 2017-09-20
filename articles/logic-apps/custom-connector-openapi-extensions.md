@@ -1,6 +1,6 @@
 ---
 title: OpenAPI extensions for custom connectors - Azure Logic Apps | Microsoft Docs
-description: Extend OpenAPI with advanced functionality for custom connectors
+description: Extend your custom connector's OpenAPI with advanced functionality
 author: ecfan
 manager: anneta
 editor: 
@@ -13,11 +13,11 @@ ms.workload: logic-apps
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 09/22/2017
 ms.author: LADocs; estfan
 ---
 
-# Extend OpenAPI with advanced functionality for custom connectors
+# Extend your custom connector's OpenAPI with advanced functionality
 
 To create custom connectors for Azure Logic Apps, Microsoft Flow, 
 or Microsoft PowerApps, you must provide an OpenAPI definition file, 
@@ -86,7 +86,7 @@ functionality or an entity's format and function. </br>
 Applies to: Operations, Parameters, Response Schema </br>
 Recommended: Use *sentence case* for `description`. </br>
 Example: "This operation triggers when a new event is added to the calendar", 
-"Specify the subject of the mail.", and so on
+"Specify the subject of the mail", and so on
 
 !["description" for each operation or entity](./media/custom-connector-openapi-extensions/description.png)
 
@@ -124,14 +124,14 @@ are hiding `advanced` operations and parameters.
 "actions" {
   "Send_an_email": {
      /// Other action properties here...
-     "parameters:": [
+     "parameters": [
          {
            "name": "Subject",
            "type": "string",
            "description": "Specify the subject of the mail",
            "x-ms-summary": "Subject",
            "x-ms-visibility": "important",
-           /// Other parameter properties here
+           /// Other parameter properties here...
          }
      ]
      /// Other action properties here...
@@ -155,7 +155,7 @@ to the parameter's definition. For example, see this [OpenAPI sample](https://pr
 | ---- | -------------------- | ----------- | 
 | **operationID** | Required | The operation to call for populating the list | 
 | **value-path** | Required | A path string in the object inside `value-collection` that refers to the parameter value. </br>If `value-collection` isn't specified, the response is evaluated as an array. | 
-| **value-title** | Optional |A path string in the object inside `value-collection` that refers to the value's description. </br>If `value-collection` isn't specified, the response is evaluated as an array. | 
+| **value-title** | Optional | A path string in the object inside `value-collection` that refers to the value's description. </br>If `value-collection` isn't specified, the response is evaluated as an array. | 
 | **value-collection** | Optional | A path string that evaluates to an array of objects in the response payload | 
 | **parameters** | Optional | An object whose properties specify the input parameters required to invoke a dynamic-values operation | 
 |||| 
