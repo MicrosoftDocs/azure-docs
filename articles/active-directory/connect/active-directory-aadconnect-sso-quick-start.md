@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ---
 
@@ -21,9 +21,6 @@ ms.author: billmath
 ## How to deploy Seamless SSO
 
 Azure Active Directory Seamless Single Sign-On (Azure AD Seamless SSO) automatically signs users in when they are on their corporate desktops connected to your corporate network. It provides your users easy access to your cloud-based applications without needing any additional on-premises components.
-
->[!IMPORTANT]
->The Seamless SSO feature is currently in preview.
 
 To deploy Seamless SSO, you need to follow these steps:
 
