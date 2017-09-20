@@ -108,5 +108,5 @@ If the issue is not resolved after performing the steps above, run the AFSDiag t
 
 3. For the Azure File Sync kernel mode trace level, enter 1 (unless specified to create more verbose traces) and hit enter.
 4. For the Azure File Sync user mode trace level, enter 1 (unless specified to create more verbose traces) and hit enter.
-5. Reproduce the issue and press D when done
+5. Reproduce the issue and press D when done.
 6. A .zip file containing logs and trace files will be in the output directory specified.
