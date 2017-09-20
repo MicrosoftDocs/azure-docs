@@ -252,7 +252,7 @@ under **Triggers**, choose **New trigger**.
    | **Description** | *operation-description* | The description for this trigger. <p>**Tip**: Make sure that your description ends with a period. | 
    | **Operation ID** | *operation-identifier* | A unique name for identifying this trigger. Use camel case, for example: "TriggerOnGitHubPushEvent" | 
    |**Visibility**| **none**, **advanced**, **internal**, or **important** | The user-facing visibility for this trigger. For more information, see [OpenAPI extensions](../logic-apps/custom-connector-openapi-extensions.md#visibility). | 
-   | **Trigger type** | **Webhook** or **Polling** | The type for this trigger. For example, a webhook trigger waits for a specific event to happen before firing. A polling trigger regularly checks a service endpoint based on a specified interval and frequency. | 
+   | **Trigger type** | **Webhook** or **Polling** | The type for this trigger. For example, a webhook trigger waits for a specific event to happen before firing. A polling trigger regularly checks a service endpoint based on a specified interval and frequency. <p>For more information about webhook and polling trigger patterns, see [Create custom APIs](../logic-apps/logic-apps-create-api-app.md). | 
    |||| 
 
 3. Now define the request that creates the trigger. 
