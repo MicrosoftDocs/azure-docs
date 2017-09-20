@@ -155,6 +155,8 @@ Code for deployment is located in: /code/03_deployment.
 ### [Final Project Report](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome/blob/master/docs/deliverable_docs/ProjectReport.md)
 Details about each of the above sections are provided in the compiled final project report [ProjectReport](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome/blob/master/docs/deliverable_docs/ProjectReport.md). The project report also contains further details about the use case, model performance metrics, deployment, and infrastructure on which the project was developed and deployed.
 
+The project report, together with the contents of the entire project folder, and version control repository may be delivered to the client.
+
 
 ## Conclusion
 
