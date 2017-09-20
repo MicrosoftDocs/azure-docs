@@ -23,9 +23,9 @@ This tutorial article provides steps for provisioning an Azure-SSIS integration 
 ## Prerequisites
 
 - **Azure subscription**. If you don't have a subscription, you can create a [free trial](http://azure.microsoft.com/pricing/free-trial/) account.
-- **Azure SQL Database server** or **SQL Server Managed Instance (Extended Private Preview)**. If you don't already have a database server, create one in the Azure portal before you get started. This server hosts the SSIS Catalog database (SSISDB). We recommend that you create the database server in the same Azure region as the integration runtime. This configuration lets the integration runtime write execution logs to SSISDB without crossing Azure regions. 
+- **Azure SQL Database server** or **SQL Server Managed Instance (private preview) (Extended Private Preview)**. If you don't already have a database server, create one in the Azure portal before you get started. This server hosts the SSIS Catalog database (SSISDB). We recommend that you create the database server in the same Azure region as the integration runtime. This configuration lets the integration runtime write execution logs to SSISDB without crossing Azure regions. 
 - **Classic Virtual Network(VNet) (optional)**. You must have an Azure Virtual Network (VNet) if at least one of the following conditions is true:
-    - You are hosting the SSIS Catalog database on a SQL Server Managed Instance that is part of a VNet.
+    - You are hosting the SSIS Catalog database on a SQL Server Managed Instance (private preview) that is part of a VNet.
     - You want to connect to on-premises data stores from SSIS packages running on an Azure-SSIS integration runtime.
 - **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps). You use PowerShell to run a script to provision an Azure-SSIS integration runtime that runs SSIS packages in the cloud. 
 
@@ -50,14 +50,14 @@ $VnetId = "[your VNet resource ID or leave it empty]" # OPTIONAL: In public prev
 $SubnetName = "[your subnet name or leave it empty]" # OPTIONAL: In public preview, only classic VNet is supported.
 
 # SSISDB info
-$SSISDBServerEndpoint = "[your Azure SQL Database server name.database.windows.net or your Azure SQL Managed Instance server endpoint]"
+$SSISDBServerEndpoint = "[your Azure SQL Database server name.database.windows.net or your Azure SQL Managed Instance (private preview) server endpoint]"
 $SSISDBServerAdminUserName = "[your server admin username]"
 $SSISDBServerAdminPassword = "[your server admin password]"
-$SSISDBPricingTier = "[your Azure SQL Database pricing tier, e.g. S3, or leave it empty for Azure SQL Managed Instance]" # Not applicable for Azure SQL Managed Instance
+$SSISDBPricingTier = "[your Azure SQL Database pricing tier, e.g. S3, or leave it empty for Azure SQL Managed Instance (private preview)]" # Not applicable for Azure SQL Managed Instance (private preview)
 ```
 
 ## Validate the connection to database
-Add the following script to validate your Azure SQL Datbabase server server.database.windows.net or your Azure SQL Managed Instance server endpont. 
+Add the following script to validate your Azure SQL Datbabase server server.database.windows.net or your Azure SQL Managed Instance (private preview) server endpont. 
 
 ```powershell
 $SSISDBConnectionString = "Data Source=" + $SSISDBServerEndpoint + ";User ID="+ $SSISDBServerAdminUserName +";Password="+ $SSISDBServerAdminPassword
@@ -163,7 +163,7 @@ Now, use SQL Server Data Tools (SSDT) or SQL Server Management Studio (SSMS) to 
 ## Full script
 In this release, you must use PowerShell to provision an instance of Azure-SSIS integration runtime that runs SSIS packages in the cloud. Currently, it's not possible to provision this runtime by using Azure portal. 
 
-The PowerShell script in this section configures an instance of Azure-SSIS integration runtime in the cloud that runs SSIS packages. After you run this script successfully, you can deploy and run SSIS packages in the Microsoft Azure cloud with SSISDB hosted in Azure SQL Database or on a SQL Server Managed Instance.
+The PowerShell script in this section configures an instance of Azure-SSIS integration runtime in the cloud that runs SSIS packages. After you run this script successfully, you can deploy and run SSIS packages in the Microsoft Azure cloud with SSISDB hosted in Azure SQL Database or on a SQL Server Managed Instance (private preview).
 
 1. Launch the Windows PowerShell Integrated Scripting Environment (ISE).
 2. In the ISE, run the following command from the command prompt.    
@@ -175,7 +175,7 @@ The PowerShell script in this section configures an instance of Azure-SSIS integ
 5. Run the script. The `Start-AzureRmDataFactoryV2IntegrationRuntime` command near the end of the script runs for **20 to 30 minutes**.
 
 > [!NOTE]
-> The script connects to your Azure SQL Database or SQL Server Managed Instance to prepare the SSIS Catalog database (SSISDB). The script also configures permissions and settings for your VNet, if specified, and joins the new instance of Azure-SSIS integration runtime to the VNet.
+> The script connects to your Azure SQL Database or SQL Server Managed Instance (private preview) to prepare the SSIS Catalog database (SSISDB). The script also configures permissions and settings for your VNet, if specified, and joins the new instance of Azure-SSIS integration runtime to the VNet.
 
 
 ```powershell
@@ -197,12 +197,12 @@ $VnetId = "[your VNet resource ID or leave it empty]" # OPTIONAL: In Public Prev
 $SubnetName = "[your subnet name or leave it empty]" # OPTIONAL: In Public Preview, only Classic VNet is supported for now
 
 # SSISDB info
-$SSISDBServerEndpoint = "[your Azure SQL Database server name.database.windows.net or your Azure SQL Managed Instance server endpoint]"
+$SSISDBServerEndpoint = "[your Azure SQL Database server name.database.windows.net or your Azure SQL Managed Instance (private preview) server endpoint]"
 $SSISDBServerAdminUserName = "[your server admin username]"
 $SSISDBServerAdminPassword = "[your server admin password]"
-$SSISDBPricingTier = "[your Azure SQL Database pricing tier, e.g. S3, or leave it empty for Azure SQL Managed Instance]" # Not applicable for Azure SQL Managed Instance
+$SSISDBPricingTier = "[your Azure SQL Database pricing tier, e.g. S3, or leave it empty for Azure SQL Managed Instance (private preview)]" # Not applicable for Azure SQL Managed Instance (private preview)
 
-##### Validate your Azure SQL Database/Managed Instance server ##### 
+##### Validate your Azure SQL Database/Managed Instance (private preview) server ##### 
 $SSISDBConnectionString = "Data Source=" + $SSISDBServerEndpoint + ";User ID="+ $SSISDBServerAdminUserName +";Password="+ $SSISDBServerAdminPassword
 $sqlConnection = New-Object System.Data.SqlClient.SqlConnection $SSISDBConnectionString;
 Try
