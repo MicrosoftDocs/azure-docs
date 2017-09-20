@@ -23,8 +23,8 @@ A project is required before you can use Data Prep, once that project is created
 
 On launching the prepare experience, you are prompted to place your work in an existing preparation package (if one exists) or in a new one. Once you have named it, a new package is created and it appears on the left-hand side under "Data Preparations". Double-clicking on the one you created launches the Data Prep editor.
 
-## Building blocks of Data Preparation ##
-### The Package ###
+## Building blocks of Data Preparation 
+### The Package 
 A Package is the primary container for your work. A Package is the artifact that is saved to and loaded from disk. While working inside the client, the Package is constantly AutoSaved in the background. 
 
 The output/results of a Package can be explored in Python or via a Jupyter Notebook.
@@ -45,10 +45,10 @@ Multiple Dataflows can exist in the UI at a time, each Dataflow is represented a
 ### The Source
 A source is where the data comes from, and the format it is in. A Data Prep Package always sources its data from another Data Flow(Data Source). It is this reference Data Flow that contains the information. Each source has a different user experience to allow it to be configured. The source produces a “rectangular”/tabular view of the data. If the source data originally has a “ragged right”, then the structure is normalized to be “rectangular.” [Appendix 2 provides the current list of supported sources](data-prep-appendix2-supported-data-sources.md).
 
-### The Transform ###
+### The Transform 
 Transforms consume data in a given format, perform some operation on the data (such as changing the data type) and then produce data in the new format. Each Transform has its own UI and behavior(s). Chaining several Transforms together via Steps in the Dataflow is the core of Data Preparation functionality. [Appendix 3 provides the current list of supported Transforms](data-prep-appendix3-supported-transforms.md).
 
-### The Inspector ###
+### The Inspector 
 Inspectors are visualizations of the data and are available to improve understanding of the data.  Understanding the data and data quality issues helps you decide which actions (Transforms) should be taken. Some Inspectors support actions that generate Transforms. For example, the Value Count Inspector allows you to select a Value and then apply a filter to include that Value or to Exclude that Value. Inspectors can also provide context for Transforms. For example, selecting one or more columns changes the possible Transforms that can be applied.
 
 A column may have multiple Inspectors at any point in time (for example, Column Statistics and a Histogram). There can also be instances of an Inspector across multiple columns. For example, all numeric columns could have Histograms at the same time.
@@ -63,10 +63,10 @@ A Destination is where you write/export the data to after you have prepared it i
 ### Using Data Preparation 
 Data Preparation assumes a basic five-step methodology/approach to data preparation.
 
-#### Step 1: Ingestion ####
+#### Step 1: Ingestion 
 Import data for Data Preparation by using the **Add Data Source** option within the project view. All initial ingestion of data is handled through the Data Source Wizard.
 
-#### Step 2: Understand/profile the Data ####
+#### Step 2: Understand/profile the Data 
 First, look at the Data Quality Bar at the top of each column. Green represents the rows that have values. Gray represents rows with a missing value, null, etc. Red indicates error values. Hover over the bar to get a tool tip with the exact numbers of rows in each of the three buckets. The Data Quality Bar uses a logarithmic scale so always check the actual numbers to get a rough feel for the volume of missing data.
 
 ![columns](media/data-prep-getting-started/columns.png)
@@ -91,7 +91,7 @@ A green icon to the left of a given Step indicates that it has run and the data 
 
 Try to make small frequent changes to the data and to validate (Step 4) after each change as the hypothesis evolves.
 
-#### Step 4: Verify the impact of the transformation. ####
+#### Step 4: Verify the impact of the transformation. 
 Decide if the hypothesis was correct. If correct, then develop the next hypothesis and repeat steps 2-3 for the new one. If incorrect, then undo the last transformation and develop a new hypothesis and repeat steps 2-3.
 
 The primary way to determine if the Transform had the right impact is to use the Inspectors. Use existing. Use Inspectors with the Halo effect enabled or launch multiple Inspectors to view the data at given points in time.
@@ -100,10 +100,10 @@ The primary way to determine if the Transform had the right impact is to use the
 
 To undo a Transformation, go the Steps List on the right-hand side of the UI. (The Steps List panel may need to be popped back out. To open it, click the double chevron pointing left). In the panel, select the Transform that was executed that you wish to undo. Select the drop-down on the right-hand side of the UI block. Select either **Edit** to make changes or **Delete** to remove the Transform from the Steps List and the Dataflow.
 
-#### Step 5: Output ####
+#### Step 5: Output 
 When finished with your data preparation, you can write the Dataflow to an output. A Dataflow can have many outputs. From the Transforms menu, you can select which output you want the dataset to be written as. You can also select the output's destination. 
 
-## List of Appendices ##
+## List of Appendices 
 [Appendix 2 - Supported Data Sources](data-prep-appendix2-supported-data-sources.md)  
 [Appendix 3 - Supported Transforms](data-prep-appendix3-supported-transforms.md)  
 [Appendix 4 - Supported Inspectors](data-prep-appendix4-supported-inspectors.md)  
