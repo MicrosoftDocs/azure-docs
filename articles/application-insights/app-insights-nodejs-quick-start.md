@@ -14,7 +14,7 @@ manager: carmonm
 
 # Start Monitoring Your Node.js Web Application
 
-With Azure Application Insights, you can easily monitor your web application for availability, performance, and usage. You can also quickly identify and diagnose errors in your application without waiting for a user to report them. With the version 0.20 SDK release onward, you can monitor common third-party packages, including MongoDB, MySql, and Redis.
+With Azure Application Insights, you can easily monitor your web application for availability, performance, and usage. You can also quickly identify and diagnose errors in your application without waiting for a user to report them. With the version 0.20 SDK release onward, you can monitor common third-party packages, including MongoDB, MySQL, and Redis.
 
 This quickstart guides you through adding the version 0.22 Application Insights SDK for Node.js to an existing Node.js web application.
 
@@ -66,14 +66,14 @@ Application Insights can gather telemetry data from any internet-connected appli
 3. Edit your app's first .js file and add the two lines below to the topmost part of your script. If you are using the [Node.js quickstart app](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-nodejs), you would modify the index.js file. 
 
    ```JavaScript
-   let appInsights = require("applicationinsights");
-   appInsights.setup("<instrumentation_key").start();
+   const appInsights = require('applicationinsights');
+   appInsights.setup('<instrumentation_key').start();
    ```
 
 4. Restart your app.
 
 > [!NOTE]
-> It takes 3-5 minutes before data begins appearing in the portal. If this app is a low-traffic test app, keep in mind that most data is only captured when the app is actively being used.
+> It takes 3-5 minutes before data begins appearing in the portal. If this app is a low-traffic test app, keep in mind that most metrics are only captured when there are active requests or operations occurring.
 
 ## Start monitoring in the Azure portal
 

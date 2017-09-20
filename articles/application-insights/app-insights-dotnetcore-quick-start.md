@@ -66,7 +66,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 3. Select **Debug** > **Start without Debugging** (Ctrl+F5) to Launch your app
 
 > [!NOTE]
-> It takes 3-5 minutes before data begins appearing in the portal. If this app is a low-traffic test app, keep in mind that most data is only captured when the app is actively being used.
+> It takes 3-5 minutes before data begins appearing in the portal. If this app is a low-traffic test app, keep in mind that most metrics are only captured when there are active requests or operations.
 
 ## Start monitoring in the Azure portal
 

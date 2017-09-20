@@ -14,7 +14,7 @@ manager: carmonm
 
 # Start Monitoring Your Java Web Application
 
-With Azure Application Insights, you can easily monitor your web application for availability, performance, and usage. You can also quickly identify and diagnose errors in your application without waiting for a user to report them. With the Application Insights Java SDK, you can monitor common third-party packages including MongoDB, MySql, and Redis.
+With Azure Application Insights, you can easily monitor your web application for availability, performance, and usage. You can also quickly identify and diagnose errors in your application without waiting for a user to report them. With the Application Insights Java SDK, you can monitor common third-party packages including MongoDB, MySQL, and Redis.
 
 This quickstart guides you through adding the Application Insights SDK to an existing Java Dynamic Web Project.
 
@@ -76,7 +76,7 @@ Application Insights can gather telemetry data from any internet-connected appli
    ![Eclipse Azure Config Menu](./media/app-insights-java-quick-start/0007-j.png)
 
 > [!NOTE]
-> The Application Insights SDK for Java is capable of capturing and visualizing live metrics, but when you first enable telemetry collection it can take a few minutes before data begins appearing in the portal. If this app is a low-traffic test app, keep in mind that most data is only captured when the app is actively being used.
+> The Application Insights SDK for Java is capable of capturing and visualizing live metrics, but when you first enable telemetry collection it can take a few minutes before data begins appearing in the portal. If this app is a low-traffic test app, keep in mind that most metrics are only captured when there are active requests or operations.
 
 ## Start monitoring in the Azure portal
 
