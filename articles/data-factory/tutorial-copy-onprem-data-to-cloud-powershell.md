@@ -141,15 +141,6 @@ In this section, you can create a Self-hosted integration runtime and associate 
 
 4. [Download](https://www.microsoft.com/download/details.aspx?id=39717) the Self-hosted integration runtime on a local windows machine, and use the Authentication Key obtained in the previous step to manually register the self-hosted integration runtime. 
 
-   ![Register integration runtime](media/tutorial-hybrid-copy-powershell/register-integration-runtime.png)
-
-   You see the following message when the self-hosted integration runtime is registered successfully: 
-
-   ![Registered successfully](media/tutorial-hybrid-copy-powershell/registered-successfully.png)
-
-   You see the following page when the node is connected to the cloud service: 
-    
-   ![Node is connected](media/tutorial-hybrid-copy-powershell/node-is-connected.png)
 
 ## Create linked services 
 

@@ -91,7 +91,7 @@ You now have the freedom to model any flow style required for their data integra
 For more information, see [tutorial: control flow](tutorial-control-flow.md).
 
 ### Deploy SSIS packages to Azure 
-If you want to move your SSIS workloads, you can create a data factory version 2, and provision an Azure-SSIS Integration Runtime (IR). The Azure-SSIS IR is a fully managed cluster of Azure VMs (nodes) dedicated to run your SSIS packages in the cloud. For step-by-step instructions, see the tutorial: [deploy SSIS packages to Azure](tutorial-deploy-ssis-packages-azure). 
+If you want to move your SSIS workloads, you can create a data factory version 2, and provision an Azure-SSIS Integration Runtime (IR). The Azure-SSIS IR is a fully managed cluster of Azure VMs (nodes) dedicated to run your SSIS packages in the cloud. For step-by-step instructions, see the tutorial: [deploy SSIS packages to Azure](tutorial-deploy-ssis-packages-azure.md). 
  
 
 ## Rich cross-platform SDKs

@@ -135,7 +135,7 @@ You create linked services in a data factory to link your data stores and comput
 
 Run the following commands to create a linked service named **AzureStorageLinkedService**:
 
-Replace **&lt;accountName&gt; and &lt;accountKey&gt;** with name and key of your Azure storage account before executing the commands.
+Replace &lt;accountName&gt; and &lt;accountKey&gt; with name and key of your Azure storage account before executing the commands.
 
 ```powershell
 $request = "https://management.azure.com/subscriptions/${subsId}/resourceGroups/${resourceGroup}/providers/Microsoft.DataFactory/factories/${dataFactoryName}/linkedservices/AzureStorageLinkedService?api-version=${apiVersion}"
