@@ -126,9 +126,11 @@ Virtual Network rules for storage accounts can be managed through the Azure port
 2. Click on the settings menu called **Firewalls and virtual networks**.
 3. Ensure that you have elected to allow access from 'Selected networks'.
 4. To grant access to a Virtual network with a new network rule, under "Virtual networks", click "Add existing" to select an existing Virtual network and subnets, then click *Add*.  To create a new Virtual network and grant it access, click *Add new*, provide the information necessary to create the new Virtual network, and then click *Create*.
+
 > [!NOTE]
 > If a Service Endpoint for Azure Storage has not been previously configured for the selected Virtual network and subnets, it can be configured as part of this operation.
 >
+
 5. To remove a Virtual network or subnet rule, click "..." to open the context menu for the Virtual network or the subnet, and click "Remove".
 6. Click *Save* to apply your changes.
 
