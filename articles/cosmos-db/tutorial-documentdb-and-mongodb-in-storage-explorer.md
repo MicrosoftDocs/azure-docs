@@ -112,7 +112,7 @@ Right-click the collection, click **Delete Collection**, Click **Yes** on the po
 ### Document management
 
 #### Create and modify documents
-To create a new document, open **Documents** in the left window, click **New Document**, edit the contents in the right pane, then click **Save**. You can also update the existing document, and then click **Save**. Changes can be discarded by clicking **Discard**.
+To create a new document, open **Documents** on the left window, click **New Document**, edit the contents in the right pane, then click **Save**. You can also update the existing document, and then click **Save**. Changes can be discarded by clicking **Discard**.
     ![document](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/document.png)
 
 #### Delete a document
