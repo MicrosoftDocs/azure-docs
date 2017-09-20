@@ -38,7 +38,7 @@ Intelligent Insights is a unique capability of Azure’s built-in intelligence p
 
 ## How does Intelligent Insights work?
 
-Intelligent Insights analyzes database usage based on the last 1-hour usage patterns and compares them with the baseline – the last 7-days database usage patterns. The usage patterns are composed of queries from the workload determined to be the most significant to the database performance - such are, for example, most repeated and sizeable queries. Each database is unique based on its structure, data, usage, and application due to which each workload baseline generated is specific and unique to an individual instance. Intelligent Insights, independent of the workload baseline, also monitors absolute operational thresholds and detects issues with excessive wait times, critical exceptions, and issues with query parameterizations that might affect the performance.
+Intelligent Insights analyzes Azure SQL Database performance comparing the database workload from the last 1-hour with the last 7-days baseline workload. Database workload is composed of queries determined to be the most significant to the database performance - such are, for example, the most repeated and largest queries. Each database is unique based on its structure, data, usage, and application due to which each workload baseline generated is specific and unique to an individual instance. Intelligent Insights, independent of the workload baseline, also monitors absolute operational thresholds and detects issues with excessive wait times, critical exceptions, and issues with query parameterizations that might affect the performance.
 
 Once performance degradation issue is detected from multiple observed metrics using artificial intelligence, analysis is performed outputting a diagnostic log with an intelligent insight on what is happening with your database. Intelligent Insights makes it easy to track the database performance issue from its first appearance until resolution. This is achieved through tracking states of each detected issue through its lifecycle from initial issue detection, verification of performance improvement and its completion. Updates are provided in the diagnostic log every 15 minutes. 
 
@@ -93,7 +93,7 @@ For custom alerting and monitoring development, using Microsoft or third-party t
 
 ## Detection metrics
 
-Metrics used for detection models that generate Intelligent Insights are based on measuring the following:
+Metrics used for detection models that generate Intelligent Insights are based on monitoring:
 
 - Query duration
 - Timeout requests
@@ -147,7 +147,7 @@ Once excessive wait times are detected, the Intelligent Insights diagnostics log
 
 Errored requests degradation model monitors individual queries and detects an increase in the number of queries that have errored out compared to the baseline period. This model also monitors critical exceptions that have reached absolute thresholds managed by Azure Database built-in intelligence. The system automatically takes into consideration the number of query requests made to the database and accounts for any workload changes in the monitored period.
 
-When the measured increase in errored query requests in relationship with the overall number of requests made is deemed as significant to the workload performance, these queries are flagged to have the errored requests performance degradation issue.
+When the measured increase in errored requests in relationship with the overall number of requests made is deemed as significant to the workload performance, impacted queries are flagged to have the errored requests performance degradation issue.
 
 The Intelligent insights log outputs the count of errored requests, indication if the performance degradation was related to increase in errored requests or to reaching one of the monitored critical exception thresholds and measured time of the performance degradation. 
 
