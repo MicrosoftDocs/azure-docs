@@ -127,14 +127,14 @@ Use _local mode_ deployment to run in Docker containers on your local computer, 
 2. Create the environment. This step is required to be run once per environment, for example, dev or prod. Use _local mode_ for this first environment. Later you can use -c switch in the command to set up an environment in _cluster mode_:
 
    ```azurecli
-   az ml env setup -n <yourclustername> --location <e.g. eastus2>
+   az ml env setup -n <new deployment environment name> --location <e.g. eastus2>
    ```
    
-   Follow the on-screen instructions to provision a storage account for storing Docker images, an ACR (Azure Container Registry) for listing Docker images, an AppInsight account for gathering telemetry, and an ACS cluster.
+   Follow the on-screen instructions to provision a storage account for storing Docker images, an ACR (Azure Container Registry) for listing Docker images, an AppInsight account for gathering telemetry. If you use the -c switch, it creates an ACS (Azure Container Service) cluster too.
 
-3. Create a Model Management account (one time setup)  
+3. Create a Model Management account (this is a one time setup)  
    ```azurecli
-   az ml account modelmanagement create --location <e.g. eastus2> -n <your-new-acctname> -g <yourresourcegroupname> --sku-name S1
+   az ml account modelmanagement create --location <e.g. eastus2> -n <new model management account name> -g <existing resource group name> --sku-name S1
    ```
    
 4. Set the Model Management account  
@@ -143,9 +143,9 @@ Use _local mode_ deployment to run in Docker containers on your local computer, 
    ```
 
 5. Set the environment.
-After the setup is complete, set the environment variables required to operationalize using the following command. The cluster name is the name used in step 1 above. The resource group name was the output of the same process and would be in the command window when the setup process is completed.
+After the setup is complete, set the environment variables required to operationalize using the following command. The environment name is the name used in step 1 above. The resource group name was the output of the same process and would be in the command window when the setup process is completed.
    ```azurecli
-   az ml env set -n <yourclustername> -g <yourresourcegroupname>
+   az ml env set -n <deployment environment name> -g <existing resource group name>
    ```
 
    To verify that you have properly configured your operationalization environment for local web service deployment, enter the following command:
