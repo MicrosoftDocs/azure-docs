@@ -197,6 +197,7 @@
   - name: REST API
     href: /rest/api/data-factory
   - name: Python
+    href: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.datafactory.html
 - name: Resources
   items:
   - name: Azure Roadmap
