@@ -42,7 +42,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 
     A configuration box will appear, use the table below to fill out the input fields.
 
-    | Settings        | Suggested value           | Description  |
+    | Settings        |  Value           | Description  |
    | ------------- |:-------------|:-----|
    | **Name**      | Globally Unique Value | Name that identifies the app you are monitoring |
    | **Application Type** | ASP.NET web application | Type of app you are monitoring |
@@ -51,7 +51,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 
 3. Click **Create**.
 
-## Configure Application Insights SDK for ASP.NET Core in Visual Studio
+## Configure App Insights SDK
 
 1. Open your ASP.NET Core Web App **project** in Visual Studio > Right-click on the AppName in the **Solution Explorer** > Select **Add** > **Application Insights Telemetry**.
 

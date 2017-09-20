@@ -49,7 +49,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 
 3. Click **Create**.
 
-## Install Application Insights SDK Plugin for Java
+## Install App Insights Plugin
 
 1. Launch **Eclipse** > Click **Help** > Select **Install New Software**.
 
@@ -59,7 +59,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 
 3. Once the installation is complete, you will be prompted to **Restart Eclipse**.
 
-## Configure Application Insights SDK Plugin for Java
+## Configure App Insights Plugin
 
 1. Launch **Eclipse** > Open your **Project** > Right-click the project name in the **Project Explorer** > Select **Azure** > Click **Sign In**.
 
