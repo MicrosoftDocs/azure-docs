@@ -269,7 +269,7 @@ You can write logs in your function code that appear as traces in Application In
 
 ### ILogger
 
-Use an [ILogger](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.ilogger) parameter in your functions instead of a `TraceWriter` parameter. You can then use `Log<level>` methods to create logs. For example, the following code writes `Information` logs with category "Function".
+Use an [ILogger](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.ilogger) parameter in your functions instead of a `TraceWriter` parameter. You can then use `Log<level>` [extension methods on ILogger](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loggerextensions#Methods_) to create logs. For example, the following code writes `Information` logs with category "Function".
 
 ```cs
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger logger)
@@ -289,14 +289,13 @@ logger.LogInformation("partitionKey={partitionKey}, rowKey={rowKey}", partitionK
 
 If you keep the same message string and reverse the order of the parameters, the resulting message text would have the values in the wrong places.
 
-Placeholders are handled this way so that you can do [semantic logging, also known as structured logging](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging). The arguments themselves are passed to the logging system, not just the formatted message string. Application Insights can then store the parameter name-value pairs in addition to the message string. The result is that the message arguments become fields that you can query on.
+Placeholders are handled this way so that you can do [semantic logging, also known as structured logging](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging). Application Insights stores the parameter name-value pairs in addition to the message string. The result is that the message arguments become fields that you can query on.
 
-For example, if your logger method call looks like the previous example, you could query for a specific rowKey value without having to parse message text.
-In Application Insights Analytics, your query would reference customDimensions.prop\_\_rowKey ("prop" followed by two underscores). This prefix ensures that there will be no collisions between fields the runtime adds and fields your function code adds. For example, you might use Category as a parameter name but the runtime adds customDimensions.Category.
+For example, if your logger method call looks like the previous example, you could query the field customDimensions.prop\_\_rowKey. The prefix is added to ensure that there are no collisions between fields the runtime adds and fields your function code adds.
 
-If you need to write a query that references the original message string, you can reference prop\_\_{OriginalFormat}.  
+You can also query on the original message string by referencing the field customDimensions.prop\_\_{OriginalFormat}.  
 
-Here's a sample JSON representation of CustomDimensions data:
+Here's a sample JSON representation of customDimensions data:
 
 {
   customDimensions: {
