@@ -46,7 +46,7 @@ No. A Point-to-Site client can only connect to resources in the VNet in which th
 
 ### How much throughput can I expect through Site-to-Site or Point-to-Site connections?
 
-It's difficult to maintain the exact throughput of the VPN tunnels. IPsec and SSTP are crypto-heavy VPN protocols. Throughput is also limited by the latency and bandwidth between your premises and the Internet. For a VPN Gateway with only IKEv2 Point-to-Site VPN connections, the total throughput that you can expect depends on the Gateway SKU. For more information on throughput, see [Gateway SKUs](vpn-gateway-about-vpngateways.md#gwsku).
+It's difficult to maintain the exact throughput of the VPN tunnels. IPsec and SSTP are crypto-heavy VPN protocols. Throughput is also limited by the latency and bandwidth between your premises and the Internet. For a VPN Gateway with only IKEv2 Point-to-Site VPN connections, the total throughput that you can expect depends on the Gateway SKU. For more information on throughput, see [Gateway SKUs](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
 
 ### Can I use any software VPN client for Point-to-Site that supports SSTP and/or IKEv2?
 
