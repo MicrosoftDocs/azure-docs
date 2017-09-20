@@ -3,7 +3,8 @@ title: Income Classification With Team Data Science Process (TDSP) Project | Mic
 description: How to use the Team Data Science Process template to create a project in Azure Machine Learning Workbench that classifies UCI income.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: garyericson
+ms.author: garye
 manager: cgronlun
 editor: cgronlun
 
@@ -14,7 +15,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
-ms.author: bradsev
 
 ---
 

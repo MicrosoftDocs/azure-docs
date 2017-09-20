@@ -2,8 +2,8 @@
 title: Azure Machine Learning 2017 Preview FAQ | Microsoft Docs
 description: This article contains commonly asked questions and answers for Azure Machine Learning preview features
 services: machine-learning
-author: serinakaye
-ms.author: serinak
+author: garyericson
+ms.author: garye
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services

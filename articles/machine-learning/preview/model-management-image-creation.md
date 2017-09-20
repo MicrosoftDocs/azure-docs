@@ -2,8 +2,8 @@
 title: Create a Docker image for Model Management in Azure Machine Learning | Microsoft Docs
 description: This document describes the steps for creating a Docker image for your web service.
 services: machine-learning
-author: chhavib    
-ms.author: chhavib
+author: garyericson
+ms.author: garye
 manager: neerajkh
 editor: jasonwhowell
 ms.service: machine-learning

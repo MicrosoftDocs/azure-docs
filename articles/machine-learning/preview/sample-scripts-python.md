@@ -2,8 +2,8 @@
 title:  Python samples for Azure Machine Learning | Microsoft Docs
 description: This article lists the Python code samples available for interacting with Azure Machine Learning.
 services: machine-learning
-author: jasonwhowell
-ms.author: jasonh
+author: garyericson
+ms.author: garye
 manager: jhubbard
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
