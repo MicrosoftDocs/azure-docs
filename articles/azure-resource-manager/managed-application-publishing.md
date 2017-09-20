@@ -193,17 +193,15 @@ The parameters used in the preceding example are:
 ## Create managed application with portal
 
 1. If needed, create an Azure Active Directory user group to manage the resources. For more information, see [Create a group and add members in Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md).
-1. In the lower left corner, select **More services**.
+1. In the upper left corner, select **+ New**.
 
-   ![More services](./media/managed-application-publishing/more-services.png)
+   ![New service](./media/managed-application-publishing/new.png)
 
-1. Search for **managed applications**, and select **Managed application definitions**.
+1. Search for **service catalog**.
 
-   ![Search for managed application definitions](./media/managed-application-publishing/search-managed-apps.png)
+1. In the results, scroll until you find **Service Catalog Administrator**. Select it.
 
-1. Select **Add**.
-
-   ![Add definition](./media/managed-application-publishing/add-managed-application.png)
+   ![Search for managed application definitions](./media/managed-application-publishing/search-service-catalog.png)
 
 1. Provide values for name, display name, description, location, subscription, and resource group. For package file URI, provide the path to the zip file you created.
 
