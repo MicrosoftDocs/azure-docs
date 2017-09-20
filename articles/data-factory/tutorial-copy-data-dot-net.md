@@ -85,7 +85,7 @@ Using Visual Studio 2015/2017, create a C# .NET console application.
 
 1. Launch **Visual Studio**.
 2. Click **File**, point to **New**, and click **Project**.
-3. Select **Visual C#** -> **Console App (.NET Framework)** from the list of project types on the right.
+3. Select **Visual C#** -> **Console App (.NET Framework)** from the list of project types on the right. .NET version 4.5.2 or above is required.
 4. Enter **ADFv2Tutorial** for the Name.
 5. Click **OK** to create the project.
 
@@ -359,8 +359,11 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
     ```csharp
     // Check the copy activity run details
     Console.WriteLine("Checking copy activity run details...");
+
     List<ActivityRun> activityRuns = client.ActivityRuns.ListByPipelineRun(
-        resourceGroup, dataFactoryName, runResponse.RunId, DateTime.UtcNow.AddMinutes(-10), DateTime.UtcNow.AddMinutes(10), pipelineName).ToList();
+    resourceGroup, dataFactoryName, runResponse.RunId, DateTime.UtcNow.AddMinutes(-10), DateTime.UtcNow.AddMinutes(10)).ToList(); 
+ 
+
     if (pipelineRun.Status == "Succeeded")
     {
         Console.WriteLine(activityRuns.First().Output);
