@@ -60,7 +60,7 @@ Your history of bash commands may be inconsistent because of Cloud Shell session
 PowerShell in Azure Cloud Shell could take up to 60 seconds to initialize during preview.
 
 ### No $Home directory persistence
-Data written to $Home by any application (such as: git, vim, and others) does not persist across PowerShell sessions.  For a workaround [see here TODO](troubleshooting.md#powershellresolutions).
+Data written to $Home by any application (such as: git, vim, and others) does not persist across PowerShell sessions.  For a workaround [see here](troubleshooting.md#powershellresolutions).
 
 ## Next steps
 [Troubleshooting Cloud Shell](troubleshooting.md) <br>
