@@ -161,12 +161,13 @@ Enable replication for each VM you want to migrate.
 In **Have you completed deployment planning?**, select **I will do it later** from the drop-down and then click **OK**.
 
 When you are all done with all 5 sections of **Prepare infrastructure**, click **OK**.
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ## Run a test failover
 
 Run a [test failover](tutorial-dr-drill-azure.md) to make sure everything's working as expected.
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
 ## Migrate to Azure
 
 Run a fail over for EC2 instances. 
