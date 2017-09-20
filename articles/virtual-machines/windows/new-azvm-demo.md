@@ -20,7 +20,7 @@ ROBOTS: NOINDEX
 
 ---
 
-# Create a Windows virtual machine with using New-AzVM (Preview) in Cloud Shell 
+# Create a Windows virtual machine with the New-AzVM (Preview) in Cloud Shell 
 
 The New-AzVM (Preview) cmdlet is a simplified way of creating a new VM using PowerShell. This guide details how to use PowerShell in Azure Cloud Shell, with the New-AzVM cmdlet preinstalled, to create a new Azure virtual machine running Windows Server 2016. Once deployment is complete, we connect to the server using RDP.  
 
