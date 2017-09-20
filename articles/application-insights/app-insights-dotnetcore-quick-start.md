@@ -20,16 +20,15 @@ This quickstart guides you through adding the Application Insights SDK to an exi
 
 ## Prerequisites
 
-To complete this quickstart, you need the following:
+To complete this quickstart:
 
-- Azure Subscription.
-- [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
+- [Install Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
   ASP.NET and web development
   Azure development
-- [.NET Core 2.0 SDK](https://www.microsoft.com/net/core)
-- Existing .NET Core web application.
+- [Install .NET Core 2.0 SDK](https://www.microsoft.com/net/core)
+- You will need an Azure subscription and an existing .NET Core web application.
 
-If you do not have a ASP.NET Core web application, you can create one by following the [Create an ASP.NET Core Web App Guide](https://docs.microsoft.com/en-us/aspnet/core/tutorials/publish-to-azure-webapp-using-vs).
+If you don't have a ASP.NET Core web application, you can create one by following the [Create an ASP.NET Core Web App Guide](https://docs.microsoft.com/en-us/aspnet/core/tutorials/publish-to-azure-webapp-using-vs).
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 

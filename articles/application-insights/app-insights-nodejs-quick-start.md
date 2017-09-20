@@ -20,11 +20,12 @@ This quickstart guides you through adding the Application Insights SDK to an exi
 
 ## Prerequisites
 
-To complete this quickstart, you need the following:
+To complete this quickstart:
 
-- Azure Subscription.
-- Existing Node.js web application.
+- You need an Azure Subscription and an existing Node.js web application.
 
+If you don't have a Node.js web application, you can create one by following the [Create a Node.js web app quickstart](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-nodejs).
+ 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Log in to the Azure portal
