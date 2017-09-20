@@ -41,7 +41,7 @@ The following scenarios are _not_ supported:
 - Detection of users with [leaked credentials](../active-directory-reporting-risk-events.md#leaked-credentials).
 
 >[!IMPORTANT]
->As a workaround for unsupported scenarios, enable Password Hash Synchronization on the [Optional features](active-directory-aadconnect-get-started-custom.md#optional-features) page in the Azure AD Connect wizard. Password Hash Synchronization acts as a fallback for the preceding scenarios _only_ (and _not_ as a generic fallback to Pass-through Authentication). If you don't need these scenarios, turn off Password Hash Synchronization.
+>As a workaround for unsupported scenarios, enable Password Hash Synchronization on the [Optional features](active-directory-aadconnect-get-started-custom.md#optional-features) page in the Azure AD Connect wizard. Password Hash Synchronization acts as a fallback for the preceding scenarios _only_ (and _not_ as a generic fallback to Pass-through Authentication). Enabling Password Hash Synchronization also gives you the option to failover authentication (through Microsoft Support) if your on-premises infrastructure is disrupted.
 
 ## Next steps
 - [**Quick Start**](active-directory-aadconnect-pass-through-authentication-quick-start.md) - Get up and running Azure AD Pass-through Authentication.
