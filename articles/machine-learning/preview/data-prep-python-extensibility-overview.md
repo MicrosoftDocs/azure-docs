@@ -134,6 +134,7 @@ This extension point lets you fully control the process of reading a file into a
 >[!NOTE]
 >This extension point does not work in Spark. 
 
+
 ### How to use 
 You access this extension point from the Open Data Source wizard. Choose File on the first page, and then choose your file location. On the ‘Choose File Parameters’ page, drop down the File Type and choose ‘Custom File (Script)’. 
 
@@ -170,6 +171,7 @@ The writer extension point lets you fully control the process of writing data fr
 
 >[!NOTE]
 >The writer extension point does not work in Spark. 
+
 
 ### How to use 
 You can add this extension point using the ‘Write Dataflow (Script)’ block. It is available on the top-level Transformations menu. 
@@ -275,6 +277,7 @@ This extension point lets you transform a partition of the dataflow. You have ac
 >[!NOTE]
 >In Python, you may end up with a single partition or multiple partitions depending on the size of your data. In Spark, you are working with a dataframe that holds the data for a partition on a given worker node. In both cases, you cannot assume that you have access to the entire data set. 
 
+
 ### How to use
 You can add this extension point using the ‘Transform Partition (Script)’ block. It is available on the top-level Transformations menu. 
 
@@ -306,7 +309,8 @@ In Data Prep, there exists the concept of error values. They're creation and rea
 
 It is possible to encounter Error Values in custom python code. They are instances of a Python class called `DataPrepError`. This class wraps a Python Exception and has a couple of properties, which contain information about the error that occurred when processing the original value, as well as the original value. 
 
-### DataPrepError class definition ### 
+
+### DataPrepError Class definition
 ```python 
 class DataPrepError(Exception): 
     def __bool__(self): 
@@ -321,11 +325,11 @@ DataPrepError({
    '__errorCode__':'Microsoft.DPrep.ErrorValues.InvalidNumericType' 
 }) 
 ``` 
-#### How to use #### 
+#### How to use 
 It is possible for Python being run at an extension point to generate DataPrepErrors as return values, using the creation method from earlier. 
 It is much more likely that DataPrepErrors will encountered when processing data at an extension point. At this point, the custom Python code needs to handle DataPrepError as a valid data type. 
 
-#### Syntax #### 
+#### Syntax 
 Expression:  
 ```python 
     if (isinstance(row["Score"], DataPrepError)): 

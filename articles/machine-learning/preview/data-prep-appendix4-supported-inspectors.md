@@ -13,9 +13,10 @@ ms.devlang:
 ms.topic: article
 ms.date: 09/11/2017
 ---
+
 # Supported Inspectors for this preview
-This document outlines the set of Inspectors available in this preview.
- 
+This document outlines the set of inspectors available in this preview.
+
 ## The halo effect 
 Some Inspectors support the Halo effect, this effect uses two different colors to immediately show the change visually from a transform. The gray represents the previous value prior to the latest transform, the blue shows the current value. This effect can be enabled/disabled in options.
 
