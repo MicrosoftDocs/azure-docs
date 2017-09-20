@@ -1,4 +1,4 @@
----
+﻿---
 title: Release annotations for Application Insights | Microsoft Docs
 description: Add deployment or build markers to your metrics explorer charts in Application Insights.
 services: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
-ms.author: cfreeman
+ms.author: bwren
 
 ---
 # Annotations on metric charts in Application Insights

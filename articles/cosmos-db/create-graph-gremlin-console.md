@@ -11,8 +11,8 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: terminal
-ms.topic: hero-article
-ms.date: 07/14/2017
+ms.topic: quickstart
+ms.date: 07/27/2017
 ms.author: denlee
 ---
 # Azure Cosmos DB: Create, query, and traverse a graph in the Gremlin console
@@ -23,7 +23,7 @@ This quick start demonstrates how to create an Azure Cosmos DB account, database
 
 ![Azure Cosmos DB from the Apache Gremlin console](./media/create-graph-gremlin-console/gremlin-console.png)
 
-The Gremlin console is Groovy/Java based and runs on Linux, Mac, and Windows. You can download it from the [Apache TinkerPop site](https://www.apache.org/dyn/closer.lua/tinkerpop/3.2.4/apache-tinkerpop-gremlin-console-3.2.4-bin.zip).
+The Gremlin console is Groovy/Java based and runs on Linux, Mac, and Windows. You can download it from the [Apache TinkerPop site](https://www.apache.org/dyn/closer.lua/tinkerpop/3.2.5/apache-tinkerpop-gremlin-console-3.2.5-bin.zip).
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ You need to have an Azure subscription to create an Azure Cosmos DB account for 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-You also need to install the [Gremlin Console](http://tinkerpop.apache.org/). Use version 3.2.4 or above.
+You also need to install the [Gremlin Console](http://tinkerpop.apache.org/). Use version 3.2.5 or above.
 
 ## Create a database account
 
@@ -42,7 +42,7 @@ You also need to install the [Gremlin Console](http://tinkerpop.apache.org/). Us
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a id="ConnectAppService"></a>Connect to your app service
-1. Before starting the Gremlin Console, create or modify the remote-secure.yaml configuration file in the apache-tinkerpop-gremlin-console-3.2.4/conf directory.
+1. Before starting the Gremlin Console, create or modify the remote-secure.yaml configuration file in the apache-tinkerpop-gremlin-console-3.2.5/conf directory.
 2. Fill in your *host*, *port*, *username*, *password*, *connectionPool*, and *serializer* configurations:
 
     Setting|Suggested value|Description
@@ -61,8 +61,11 @@ You also need to install the [Gremlin Console](http://tinkerpop.apache.org/). Us
 ![View and copy your primary key in the Azure portal, Keys page](./media/create-graph-gremlin-console/keys.png)
 
 
-3. In your terminal, run `bin/gremlin.bat` or `bin/gremlin.sh` to start the [Gremlin Console](http://tinkerpop.apache.org/docs/3.2.4/tutorials/getting-started/).
+3. In your terminal, run `bin/gremlin.bat` or `bin/gremlin.sh` to start the [Gremlin Console](http://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/).
 4. In your terminal, run `:remote connect tinkerpop.server conf/remote-secure.yaml` to connect to your app service.
+
+    > [!TIP]
+    > If you receive the error `No appenders could be found for logger` ensure that you updated the serializer value in the remote-secure.yaml file as described in step 2. 
 
 Great! Now that we finished the setup, let's start running some console commands.
 

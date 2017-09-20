@@ -1,4 +1,4 @@
----
+﻿---
 title: Investigate and share usage data with interactive Workbooks in Azure Application Insights | Microsoft docs
 description: Demographic analysis of users of your web app.
 services: application-insights
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 06/12/2017
-ms.author: cfreeman
+ms.author: bwren
 ---
 
 # Investigate and share usage data with interactive workbooks in Application Insights
@@ -83,9 +83,9 @@ Analytics query sections let you add arbitrary queries over your Application Ins
 
 * How many exceptions did your site throw during the same time period as a decline in usage?
 * What was the distribution of page load times for users viewing some page?
-* How many users viewed some set of pages on your site, but not some other set of pages? This can be useful to understand if you have clusters of users who use different subsets of your site's functionality (use the `join` operator with the `kind=leftanti` modifier in the Analytics query language).
+* How many users viewed some set of pages on your site, but not some other set of pages? This can be useful to understand if you have clusters of users who use different subsets of your site's functionality (use the `join` operator with the `kind=leftanti` modifier in the Log Analytics query language).
 
-Use the [Analytics query language reference](app-insights-analytics-reference.md) to learn more about writing queries.
+Use the [Log Analytics query language reference](https://docs.loganalytics.io/) to learn more about writing queries.
 
 ## Adding text and Markdown sections
 
@@ -113,8 +113,12 @@ To pin a link to a workbook to an Azure Dashboard:
 
 ## Next steps
 
-* [Usage overview](app-insights-usage-overview.md)
-* [Users, Sessions, and Events](app-insights-usage-segmentation.md)
-* [Retention](app-insights-usage-retention.md)
-* [Adding custom events to your app](app-insights-api-custom-events-metrics.md)
-
+## Next steps
+- To enable usage experiences, start sending [custom events](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) or [page views](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- If you already send custom events or page views, explore the Usage tools to learn how users use your service.
+    - [Users, Sessions, Events](app-insights-usage-segmentation.md)
+    - [Funnels](usage-funnels.md)
+    - [Retention](app-insights-usage-retention.md)
+    - [User Flows](app-insights-usage-flows.md)
+    - [Add user context](app-insights-usage-send-user-context.md)
+    

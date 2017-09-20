@@ -22,3 +22,5 @@
 # Resources
 ## [Azure Advisor videos](https://azure.microsoft.com/en-us/resources/videos/index/?services=advisor)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=monitoring-management)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
+

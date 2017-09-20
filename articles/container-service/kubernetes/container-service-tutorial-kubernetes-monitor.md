@@ -12,11 +12,12 @@ keywords: Docker, Containers, Micro-services, Kubernetes, Azure
 ms.assetid: 
 ms.service: container-service
 ms.devlang: aurecli
-ms.topic: sample
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: danlep
+ms.custom: mvc
 ---
 
 # Monitor a Kubernetes cluster with Operations Management Suite
@@ -34,9 +35,9 @@ This tutorial, part seven of seven, covers the following tasks:
 
 ## Before you begin
 
-In previous tutorials, an application was packaged into container images, these images uploaded to Azure Container Registry, and a Kubernetes cluster created. If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md). 
+In previous tutorials, an application was packaged into container images, these images uploaded to Azure Container Registry, and a Kubernetes cluster created. 
 
-At minimum, this tutorial requires a Kubernetes cluster with Linux agent nodes, and an Operations Management Suite (OMS) account. If needed, sign up for a [free OMS trial](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite-trial).
+If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md). 
 
 ## Get Workspace settings
 

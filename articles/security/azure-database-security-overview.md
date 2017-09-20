@@ -23,7 +23,7 @@ ms.author: TomSh
 
 Security is a top concern when managing databases, and it has always been a priority for Azure SQL Database. Azure SQL Database supports connection security with firewall rules and connection encryption. It supports authentication with username and password and Azure Active Directory Authentication, which uses identities managed by Azure Active Directory. Authorization uses role-based access control.
 
-Azure SQL Database supports encryption by performing real-time encryption and decryption of the database, associated backups, and transaction log files at rest without requiring changes to the application.
+Azure SQL Database supports encryption by performing real-time encryption and decryption of databases, associated backups, and transaction log files at rest without requiring changes to the application.
 
 Microsoft provides additional ways to encrypt enterprise data:
 

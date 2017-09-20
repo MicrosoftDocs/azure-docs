@@ -1,15 +1,15 @@
 ---
 title: 'Connect to Azure Database for MySQL from C# | Microsoft Docs'
-description: This quickstart provides a C# (.Net) code sample you can use to connect and query data from Azure Database for MySQL.
+description: This quickstart provides a C# (.NET) code sample you can use to connect and query data from Azure Database for MySQL.
 services: MySQL
 author: seanli1988
 ms.author: seal
 manager: janders
 editor: jasonwhowell
-ms.service: MySQL-database
+ms.service: MySQL
 ms.custom: mvc
 ms.devlang: csharp
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 07/10/2017
 ---
 
@@ -22,7 +22,7 @@ This quickstart uses the resources created in either of these guides as a starti
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 You also need to:
-- Install [.Net Framework](https://www.microsoft.com/net/download). Follow the steps in the linked article to install .NET specifically for your platform (Windows, Ubuntu Linux, or macOS). 
+- Install [.NET](https://www.microsoft.com/net/download). Follow the steps in the linked article to install .NET specifically for your platform (Windows, Ubuntu Linux, or macOS). 
 - Install [Visual Studio](https://www.visualstudio.com/downloads/).
 - Install [ODBC Driver for MySQL](https://dev.mysql.com/downloads/connector/odbc/).
 
@@ -203,7 +203,7 @@ namespace driver
 
 
 ## Delete data
-Use the following code to connect and read the data using a **DELETE** SQL statement. 
+Use the following code to connect and delete the data using a **DELETE** SQL statement. 
 
 The code uses ODBC class with method [Open()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) to establish a connection to MySQL. Then the code uses method [CreateCommand()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx), sets the CommandText property, and calls method [ExecuteNonQuery()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbccommand.executenonquery(v=vs.110).aspx) to run the database commands.
 

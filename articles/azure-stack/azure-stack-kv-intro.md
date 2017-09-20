@@ -22,16 +22,16 @@ ms.author: sngun
 ## Before you start
 This article assumes the following:
 
-* Azure Stack cloud administrators must have [created an offer](azure-stack-create-offer.md) that includes the Key Vault service.  
+* Azure Stack operators must have [created an offer](azure-stack-create-offer.md) that includes the Key Vault service.  
 * Users must [subscribe to an offer](azure-stack-subscribe-plan-provision-vm.md) that includes the Key Vault service.  
-* [PowerShell is configured for use with Azure Stack](azure-stack-powershell-configure.md) 
+* [PowerShell is configured for use with Azure Stack](azure-stack-powershell-configure-user.md) 
  
 ## Key Vault basics
 Key Vault in Azure Stack helps safeguard cryptographic keys and secrets that cloud applications and services use. By using Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .pfx files, and passwords).
 
 Key Vault streamlines the key management process and enables you to maintain control of keys that access and encrypt your data. Developers can create keys for development and testing in minutes, and then seamlessly migrate them to production keys. Security administrators can grant (and revoke) permission to keys, as needed.
 
-Anybody with an Azure Stack subscription can create and use key vaults. Although Key Vault benefits developers and security administrators, it can be implemented and managed by the cloud administrator who manages other Azure Stack services for an organization. For example, the cloud administrator can sign in with an Azure Stack subscription, create a vault for the organization in which to store keys, and then be responsible for these operational tasks:
+Anybody with an Azure Stack subscription can create and use key vaults. Although Key Vault benefits developers and security administrators, it can be implemented and managed by the operator who manages other Azure Stack services for an organization. For example, the Azure Stack operator can sign in with an Azure Stack subscription, create a vault for the organization in which to store keys, and then be responsible for these operational tasks:
 
 * Create or import a key or secret
 * Revoke or delete a key or secret
@@ -39,7 +39,7 @@ Anybody with an Azure Stack subscription can create and use key vaults. Although
     then manage or use its keys and secrets
 * Configure key usage (for example, sign or encrypt)
 
-The cloud administrator can then provide developers with URIs to call from their applications, and provide a security administrator with key usage logging information.
+The operator can then provide developers with URIs to call from their applications, and provide a security administrator with key usage logging information.
 
 Developers can also manage the keys directly, by using APIs. For more information, see the Key Vault developer's guide.
 

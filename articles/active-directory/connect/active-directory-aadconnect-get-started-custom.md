@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 08/02/2017
 ms.author: billmath
 
 ---
@@ -275,6 +275,9 @@ The AD FS service requires a domain service account to authenticate users and lo
 
 If you selected Group Managed Service Account and this feature has never been used in Active Directory, you are prompted for Enterprise Admin credentials. These credentials are used to initiate the key store and enable the feature in Active Directory.
 
+> [!NOTE]
+> Azure AD Connect performs a check to detect if the AD FS service is already registered as a SPN in the domain.  AD DS will not allow duplicate SPN’s to be registered at once.  If a duplicate SPN is found, you will not be able to proceed further until the SPN is removed.
+
 ![AD FS Service Account](./media/active-directory-aadconnect-get-started-custom/adfs5.png)
 
 ### Select the Azure AD domain that you wish to federate
@@ -313,6 +316,15 @@ For more information, see [Staging mode](active-directory-aadconnectsync-operati
 
 ### Verify your federation configuration
 Azure AD Connect verifies the DNS settings for you when you click the Verify button.
+
+**Intranet connectivity checks**
+
+* Resolve federation FQDN: Azure AD Connect checks if the  federation FQDN can be resolved by DNS to ensure connectivity. If Azure AD Connect cannot resolve the FQDN, the verification will fail. Ensure that a DNS record is present for the federation service FQDN in order to successfully complete the verification.
+* DNS A record: Azure AD Connect checks if there is an A record for your federation service. In the absence of an A record, the verification will fail. Create an A record and not CNAME record for your federation FQDN in order to successfully complete the verification.
+
+**Extranet connectivity checks**
+
+* Resolve federation FQDN: Azure AD Connect checks if the  federation FQDN can be resolved by DNS to ensure connectivity.
 
 ![Complete](./media/active-directory-aadconnect-get-started-custom/completed.png)
 

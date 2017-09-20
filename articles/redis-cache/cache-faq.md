@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 07/27/2017
 ms.author: sdanie
 
 ---
@@ -125,25 +125,25 @@ The following table shows the maximum bandwidth values observed while testing va
 
 From this table, we can draw the following conclusions:
 
-* Throughput for the caches that are the same size is higher in the Premium tier as compared to the Standard tier. For example, with a 6 GB Cache, throughput of P1 is 140K RPS as compared to 49K for C3.
-* With Redis clustering, throughput increases linearly as you increase the number of shards (nodes) in the cluster. For example, if you create a P4 cluster of 10 shards, then the available throughput is 250K *10 = 2.5 Million RPS.
+* Throughput for the caches that are the same size is higher in the Premium tier as compared to the Standard tier. For example, with a 6 GB Cache, throughput of P1 is 180,000 RPS as compared to 49,000 for C3.
+* With Redis clustering, throughput increases linearly as you increase the number of shards (nodes) in the cluster. For example, if you create a P4 cluster of 10 shards, then the available throughput is 400,000 *10 = 4 Million RPS.
 * Throughput for bigger key sizes is higher in the Premium tier as compared to the Standard Tier.
 
 | Pricing tier | Size | CPU cores | Available bandwidth | 1 KB value size |
 | --- | --- | --- | --- | --- |
 | **Standard cache sizes** | | |**Megabits per sec (Mb/s) / Megabytes per sec (MB/s)** |**Requests per second (RPS)** |
 | C0 |250 MB |Shared |5 / 0.625 |600 |
-| C1 |1 GB |1 |100 / 12.5 |12200 |
-| C2 |2.5 GB |2 |200 / 25 |24000 |
-| C3 |6 GB |4 |400 / 50 |49000 |
-| C4 |13 GB |2 |500 / 62.5 |61000 |
-| C5 |26 GB |4 |1000 / 125 |115000 |
-| C6 |53 GB |8 |2000 / 250 |150000 |
-| **Premium cache sizes** | |**CPU cores per shard** | |**Requests per second (RPS), per shard** |
-| P1 |6 GB |2 |1000 / 125 |140000 |
-| P2 |13 GB |4 |2000 / 250 |220000 |
-| P3 |26 GB |4 |2000 / 250 |220000 |
-| P4 |53 GB |8 |4000 / 500 |250000 |
+| C1 |1 GB |1 |100 / 12.5 |12,200 |
+| C2 |2.5 GB |2 |200 / 25 |24,000 |
+| C3 |6 GB |4 |400 / 50 |49,000 |
+| C4 |13 GB |2 |500 / 62.5 |61,000 |
+| C5 |26 GB |4 |1,000 / 125 |115,000 |
+| C6 |53 GB |8 |2,000 / 250 |150,000 |
+| **Premium cache sizes** | |**CPU cores per shard** | **Megabits per sec (Mb/s) / Megabytes per sec (MB/s)** |**Requests per second (RPS), per shard** |
+| P1 |6 GB |2 |1,500 / 187.5 |180,000 |
+| P2 |13 GB |4 |3,000 / 375 |360,000 |
+| P3 |26 GB |4 |3,000 / 375 |360,000 |
+| P4 |53 GB |8 |6,000 / 750 |400,000 |
 
 For instructions on downloading the Redis tools such as `redis-benchmark.exe`, see the [How can I run Redis commands?](#cache-commands) section.
 

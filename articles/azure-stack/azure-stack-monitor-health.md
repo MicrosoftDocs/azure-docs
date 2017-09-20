@@ -40,7 +40,7 @@ To view the health state in the portal, click the region that you want to view i
 You can click a resource provider or infrastructure role to view more detailed information.
 
 > [!WARNING]
->If you click an infrastructure role, and then click the role instance, there are options in the **Role instance** blade to Start, Restart, or Shutdown. Do **not** use these options in an Azure Stack Development Kit environment. These options are designed only for a multi-node environment, where there is more than one role instance per infrastructure role. Restarting a role instance (especially AzS-Xrp01) in the development kit will cause system instability. For troubleshooting assistance, please post your issue to the [Azure Stack forum](https://aka.ms/azurestackforum).>
+>If you click an infrastructure role, and then click the role instance, there are options in the **Role instance** blade to Start, Restart, or Shutdown. Do **not** use these options in an Azure Stack Development Kit environment. These options are designed only for a multi-node environment, where there is more than one role instance per infrastructure role. Restarting a role instance (especially AzS-Xrp01) in the development kit causes system instability. For troubleshooting assistance, please post your issue to the [Azure Stack forum](https://aka.ms/azurestackforum).
 >
  
 ## View alerts

@@ -12,7 +12,6 @@
 # Get started
 ##[ASP.NET](cache-web-app-howto.md)
 ##[.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
-##[WordPress](../app-service-web/web-sites-connect-to-redis-using-memcache-protocol.md?toc=%2fazure%2fredis-cache%2ftoc.json)
 ##[Node](cache-nodejs-get-started.md)
 ##[Java](cache-java-get-started.md)
 ##[Python](cache-python-get-started.md)
@@ -45,9 +44,11 @@
 ## Scale
 ###[Update to a different size and tier](cache-how-to-scale.md)
 ###[Use Redis cluster to scale in/out](cache-how-to-premium-clustering.md)
+## Integrate with Spring Boot
+###[Use a Spring Boot Initializer app with Redis Cache](cache-java-spring-boot-initializer-with-redis-cache.md)
 
 # Reference
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=redis-cache)
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=redis-cache)
 ## [PowerShell](/powershell/module/azurerm.rediscache)
 ## [Azure CLI 2.0 Preview](/cli/azure/redis)
 ## [.NET](/dotnet/api/microsoft.azure.management.redis)

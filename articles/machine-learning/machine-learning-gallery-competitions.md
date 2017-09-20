@@ -57,13 +57,11 @@ competition
 ![Add your own comments](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## Enter a competition
-If the competition is open, the status on the details page will be **Active**. To enter the competition, click **Enter Competition** and you will be given instructions on the resources you need and the steps you need to take.
+If the competition is open, the status on the details page is **Active**. To enter the competition, click **Enter Competition** and you will be given instructions on the resources you need and the steps you need to take.
 
-![Competition has completed](media/machine-learning-gallery-competitions/open-competition.png)
+![Competition is active](media/machine-learning-gallery-competitions/open-competition.png)
 
-If the competition is no longer open, its status on the details page will be **Completed** and the **Enter Competition** link will be replaced with the word **Finished**.
-
-![Competition has completed](media/machine-learning-gallery-competitions/completed-competition.png)
+If the competition has been completed, then a list of winners is shown.
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**
 

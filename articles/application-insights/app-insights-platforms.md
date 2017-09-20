@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Application Insights: languages, platforms and integrations| Microsoft Docs'
 description: Languages, platforms and integrations available for Application Insights
 services: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
-ms.author: cfreeman
+ms.author: bwren
 
 ---
 # Developer analytics: languages, platforms, and integrations

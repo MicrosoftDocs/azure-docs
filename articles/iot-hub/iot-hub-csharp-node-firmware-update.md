@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/17/2017
+ms.date: 08/30/2017
 ms.author: juanpere
 
 ---
@@ -117,7 +117,7 @@ You are now ready to run the apps.
     ```
     node dmpatterns_fwupdate_device.js
     ```
-2. In Visual Studio, right-click on the **TriggerFWUpdate** projectRun to the C# console app, select **Debug** and **Start new instance**.
+2. In Visual Studio, right-click on the **TriggerFWUpdate** project, select **Debug** and **Start new instance**.
 
 3. You see the device response to the direct method in the console.
 

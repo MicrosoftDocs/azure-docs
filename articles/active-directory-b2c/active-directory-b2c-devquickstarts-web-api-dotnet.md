@@ -32,9 +32,9 @@ To build a web application that calls a web api, you need to:
 
 1. [Create an Azure AD B2C tenant](active-directory-b2c-get-started.md).
 2. [Register a web api](active-directory-b2c-app-registration.md#register-a-web-api).
-3. [Register a web app](active-directory-b2c-app-registration.md#register-a-web-application).
+3. [Register a web app](active-directory-b2c-app-registration.md#register-a-web-app).
 4. [Set up policies](active-directory-b2c-reference-policies.md).
-5. [Grant the web app permissions to use the web api](active-directory-b2c-access-tokens.md#granting-permissions-to-a-web-api).
+5. [Grant the web app permissions to use the web api](active-directory-b2c-access-tokens.md#publishing-permissions).
 
 > [!IMPORTANT]
 > The client application and web API must use the same Azure AD B2C directory.

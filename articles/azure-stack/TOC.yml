@@ -53,18 +53,18 @@
       href: azure-stack-manage-portals.md
     - name: Connect to Azure Stack
       href: azure-stack-connect-azure-stack.md
+    - name: Enable CLI for users
+      href: azure-stack-cli-admin.md
     - name: Set up management environment
       items:
       - name: Install PowerShell
         href: azure-stack-powershell-install.md
       - name: Download tools
         href: azure-stack-powershell-download.md
-      - name: Configure PowerShell
-        href: azure-stack-powershell-configure.md
+      - name: Configure PowerShell - Cloud operator
+        href: azure-stack-powershell-configure-admin.md
       - name: Get up and running with PowerShell
         href: azure-stack-powershell-configure-quickstart.md
-      - name: Install and configure CLI
-        href: azure-stack-connect-cli.md
     - name: Manage updates
       href: azure-stack-updates.md
     - name: Monitor health and alerts
@@ -89,10 +89,12 @@
       href: azure-stack-enable-multitenancy.md
   - name: Offer services
     items:
+    - name: Overview of offering services
+      href: azure-stack-offer-services-overview.md
     - name: Create plans, offers, and quotas
       items:
-      - name: Set quotas
-        href: azure-stack-setting-quotas.md
+      - name: Plan, offer, quota, and subscription overview
+        href: azure-stack-plan-offer-quota-overview.md
       - name: Create a plan
         href: azure-stack-create-plan.md
       - name: Create an offer
@@ -101,6 +103,8 @@
         href: azure-stack-subscribe-plan-provision-vm.md
       - name: Delegate offers in Azure Stack
         href: azure-stack-delegated-provider.md
+      - name: Quota types
+        href: azure-stack-quota-types.md
     - name: Offer SQL or MySQL as PaaS
       items:
       - name: PaaS services overview
@@ -139,6 +143,8 @@
         href: azure-stack-marketplace-publisher.md
       - name: Add a custom virtual machine image
         href: azure-stack-add-vm-image.md
+      - name: Add virtual machine scale sets
+        href: azure-stack-compute-add-scalesets.md
       - name: Deploy Linux virtual machines
         href: azure-stack-linux.md
     - name: Usage and billing
@@ -177,6 +183,8 @@
         href: azure-stack-storage-connect-se.md
     - name: Network
       items:
+      - name: Networking considerations
+        href: azure-stack-network-differences.md
       - name: iDNS for Azure Stack
         href: azure-stack-understanding-dns.md
       - name: DNS in Azure Stack
@@ -191,6 +199,8 @@
         href: azure-stack-kv-manage-portal.md
       - name: Manage with PowerShell
         href: azure-stack-kv-manage-powershell.md
+      - name: Create a VM with a secret
+        href: azure-stack-kv-deploy-vm-with-secret.md
       - name: Create a VM with a certificate
         href: azure-stack-kv-push-secret-into-vm.md
       - name: Key Vault sample app
@@ -205,8 +215,8 @@
         href: azure-stack-powershell-install.md
       - name: Download tools
         href: azure-stack-powershell-download.md
-      - name: Configure PowerShell
-        href: azure-stack-powershell-configure.md
+      - name: Configure PowerShell - User
+        href: azure-stack-powershell-configure-user.md
       - name: Get up and running with PowerShell
         href: azure-stack-powershell-configure-quickstart.md
       - name: Install and configure CLI
@@ -249,5 +259,7 @@
     href: https://azure.microsoft.com/roadmap/
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack
+  - name: Pricing information
+    href: https://azure.microsoft.com/overview/azure-stack/how-to-buy/
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-stack

@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Application Insights Funnels
 description: Learn how you can use Funnels to discover how customers are interacting with your application.
 services: application-insights
@@ -11,7 +11,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
-ms.author: cfreeman
+ms.author: bwren
 ---
 
 # Discover how customers are using your application with the Application Insights Funnels
@@ -39,4 +39,8 @@ The following illustration demonstrates the data the Funnels blade generates. Fr
 ![Funnels blade with data](./media/app-insights-understand-usage-patterns/funnel1.png)
 
 ## Next steps
-- Learn more about [usage analysis](app-insights-usage-overview.md).
+  * [Usage overview](app-insights-usage-overview.md)
+  * [Users, Sessions, and Events](app-insights-usage-segmentation.md)
+  * [Retention](app-insights-usage-retention.md)
+  * [Workbooks](app-insights-usage-workbooks.md)
+  * [Add user context](app-insights-usage-send-user-context.md)

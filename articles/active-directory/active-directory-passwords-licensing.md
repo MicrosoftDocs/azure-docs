@@ -6,7 +6,7 @@ keywords:
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
-ms.reviewer: gahug
+ms.reviewer: sahenry
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 08/30/2017
 ms.author: joflore
 ms.custom: it-pro
 
@@ -34,8 +34,8 @@ To use password writeback, you must have one of the following licenses assigned 
 * Azure AD Premium P2
 * Enterprise Mobility + Security E3
 * Enterprise Mobility + Security E5
-* Secure Productive Enterprise E3
-* Secure Productive Enterprise E5
+* Microsoft 365 E3
+* Microsoft 365 E5
 
 > [!NOTE]
 > Standalone Office 365 licensing plans **do not support password writeback** and require one of the preceding plans for this functionality to work.
@@ -43,8 +43,9 @@ To use password writeback, you must have one of the following licenses assigned 
 Additional licensing info including costs can be found on the following pages
 
 * [Azure Active Directory Pricing site](https://azure.microsoft.com/pricing/details/active-directory/)
+* [Azure Active Directory features and capabilities](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
-* [Secure Productive Enterprise](https://www.microsoft.com/secure-productive-enterprise/default.aspx)
+* [Microsoft 365](https://www.microsoft.com/microsoft-365/enterprise)
 
 ## Enable group or user-based licensing
 
@@ -64,4 +65,3 @@ The following links provide additional information regarding password reset usin
 * [**Technical Deep Dive**](active-directory-passwords-how-it-works.md) - Go behind the curtain to understand how it works
 * [**Frequently Asked Questions**](active-directory-passwords-faq.md) - How? Why? What? Where? Who? When? - Answers to questions you always wanted to ask
 * [**Troubleshoot**](active-directory-passwords-troubleshoot.md) - Learn how to resolve common issues that we see with SSPR
-

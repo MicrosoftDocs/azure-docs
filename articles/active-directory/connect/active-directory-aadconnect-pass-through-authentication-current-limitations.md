@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 08/03/2017
 ms.author: billmath
 ---
 
@@ -28,13 +28,14 @@ The following scenarios are fully supported during preview:
 - User sign-ins into all web browser-based applications.
 - User sign-ins into Office 365 client applications that support [modern authentication](https://aka.ms/modernauthga).
 - Azure AD Join for Windows 10 devices.
+- Exchange ActiveSync support.
 
 ## Unsupported scenarios
 
 The following scenarios are _not_ supported during preview:
 
-- User sign-ins into legacy Office client applications and Exchange ActiveSync (that is, native email applications on mobile devices). Organizations are encouraged to switch to modern authentication, if possible. Modern authentication allows for Pass-through Authentication support but also helps you secure your identities by using [conditional access](../active-directory-conditional-access.md) features such as Multi-Factor Authentication (MFA).
-- User sign-ins into Skype for Business client applications.
+- User sign-ins into legacy Office client applications (Office 2013 or earlier). Organizations are encouraged to switch to modern authentication, if possible. Modern authentication allows for Pass-through Authentication support but also helps you secure your user accounts using [conditional access](../active-directory-conditional-access.md) features such as Multi-Factor Authentication (MFA).
+- User sign-ins into Skype for Business client applications, including Skype for Business 2016.
 - User sign-ins into PowerShell v1.0. It is recommended that you use PowerShell v2.0 instead.
 
 >[!IMPORTANT]

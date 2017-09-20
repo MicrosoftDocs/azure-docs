@@ -6,10 +6,12 @@
 
 # How To
 ## Integrate
-### [Web Apps](../app-service-web/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
+### [Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
 ### [Storage](cdn-create-a-storage-account-with-cdn.md)
 ### [Cross-origin resource sharing](cdn-cors.md)
+### [Map a custom domain to CDN](cdn-map-content-to-custom-domain.md)
+### [Enable HTTPS on a custom domain](cdn-custom-ssl.md)
 ## Optimize content
 ### [Optimization overview](cdn-optimization-overview.md)
 ####[Large file optimization](cdn-large-file-optimization.md)
@@ -17,12 +19,10 @@
 ####[Dynamic site acceleration](cdn-dynamic-site-acceleration.md)
  
 ## Manage
-### [Enable HTTPS on a custom domain](cdn-custom-ssl.md)
 ### [Manage with PowerShell](cdn-manage-powershell.md)
 ### Configure time-to-live
 #### [Web Apps/Cloud Services, ASP.NET, or IIS content](cdn-manage-expiration-of-cloud-service-content.md)
 #### [Storage blob service content](cdn-manage-expiration-of-blob-content.md)
-### [Map a custom domain to CDN](cdn-map-content-to-custom-domain.md)
 ### [Restrict access by country](cdn-restrict-access-by-country.md)
 ### [Improve performance by compressing files](cdn-improve-performance.md)
 ### Cache content by query string
@@ -67,6 +67,7 @@
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
 ## [Pricing](https://azure.microsoft.com/pricing/details/cdn/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=cdn)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cdn)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=cdn)

@@ -49,7 +49,6 @@ ms.custom: H1Hack27Feb2017
 
 ## Release notes
 ### <a name="2.2.0"/>2.2.0
-* Added support for Request Unit per Minute (RU/m) feature.
 * Added support for a new consistency level called ConsistentPrefix.
 
 

@@ -9,7 +9,7 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/15/2017
@@ -210,7 +210,7 @@ The **Azure Resource Group Deployment** task is used to create the deployment gr
 
 * **Enable prerequisites**: `Configure with Deployment Group agent`
 
-* **TFS/VSTS endpoint**: Choose **Add** and, in the "Add new Team Foundation Server/Team Services Connection" dialog, select **Token Based Authentication**. Enter a name of the connection and the URL of your team project. Then generate and enter a [Personal Access Token (PAT)]( https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate.md) to authenticate the connection to your team project.
+* **TFS/VSTS endpoint**: Choose **Add** and, in the "Add new Team Foundation Server/Team Services Connection" dialog, select **Token Based Authentication**. Enter a name of the connection and the URL of your team project. Then generate and enter a [Personal Access Token (PAT)]( https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate) to authenticate the connection to your team project.
 
   ![Create a Personal Access Token](media/tutorial-build-deploy-jenkins/create-a-pat.png)
 
@@ -278,7 +278,7 @@ In this tutorial, you automated the deployment of an app to Azure using Jenkins 
 > * Create a deployment group for the Azure virtual machines
 > * Create a release definition that configures the VMs and deploys the app
 
-Follow this link to see pre-built virtual machine script samples.
+Advance to the next tutorial to learn more about how to deploy a LAMP (Linux, Apache, MySQL, and PHP) stack.
 
 > [!div class="nextstepaction"]
-> [Linux virtual machine script samples](https://github.com/MicrosoftDocs/azure-docs-pr/pull/cli-samples.md)
+> [Deploy LAMP stack](tutorial-lamp-stack.md)

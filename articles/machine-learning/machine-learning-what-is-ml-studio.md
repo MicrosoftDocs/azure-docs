@@ -74,7 +74,7 @@ An experiment consists of datasets that provide data to analytical modules, whic
 * All input ports for modules must have some connection to the data flow
 * All required parameters for each module must be set
 
-You can create an experiment from scratch, or you can use an existing sample experiment as a template. For more information, see [Use sample experiments to create new experiments](machine-learning-sample-experiments.md).
+You can create an experiment from scratch, or you can use an existing sample experiment as a template. For more information, see [Copy example experiments to create new machine learning experiments](machine-learning-sample-experiments.md).
 
 For an example of creating a simple experiment, see [Create a simple experiment in Azure Machine Learning Studio](machine-learning-create-experiment.md).
 

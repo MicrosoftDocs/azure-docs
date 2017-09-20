@@ -4,7 +4,7 @@ description: 'This topic shows how to configure the Wirecast live encoder to sen
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 0d2f1e81-51a6-4ca9-894a-6dfa51ce4c70

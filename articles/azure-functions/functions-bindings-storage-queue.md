@@ -4,7 +4,7 @@ description: Understand how to use Azure Storage triggers and bindings in Azure 
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: ''
 tags: ''
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
@@ -16,7 +16,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
-ms.author: donnam, glenga
+ms.author: glenga
 
 ---
 # Azure Functions Queue Storage bindings

@@ -4,7 +4,7 @@ description: This tutorial helps you get started with Azure SQL Data Sync (Previ
 services: sql-database
 documentationcenter: ''
 author: douglaslms
-manager: jhubbard
+manager: craigg
 editor: ''
 
 ms.assetid: a295a768-7ff2-4a86-a253-0090281c8efa
@@ -25,8 +25,12 @@ This tutorial assumes that you have at least some prior experience with SQL Data
 
 For an overview of SQL Data Sync, see [Sync data](sql-database-sync-data.md).
 
+For complete PowerShell examples that show how to configure SQL Data Sync, see the following articles:
+-   [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md)
+-   [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
+
 > [!NOTE]
-> The complete technical documentation set for Azure SQL Data Sync, formerly located on MSDN, is available as a .pdf. Download it [here](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true).
+> The complete technical documentation set for Azure SQL Data Sync, formerly located on MSDN, is available as a .PDF document. Download it [here](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true).
 
 ## Step 1 - Create sync group
 
@@ -55,7 +59,7 @@ For an overview of SQL Data Sync, see [Sync data](sql-database-sync-data.md).
     2.  In the **Sync Metadata Database** section, choose whether to create a new database (recommended) or to use an existing database.
 
         > [!NOTE]
-        > Microsoft recommends that you create a new, empty database to use as the Sync Metadata Database. Data Sync creates tables in this database and runs a frequent workload. This database is automatically shared as the Sync Metadata Database for all of your Sync groups in the selected region. You can't change the Sync Metadata Database, its name, or its service level without dropping it.
+        > Microsoft recommends that you create a new, empty database to use as the Sync Metadata Database. Data Sync creates tables in this database and runs a frequent workload. This database is automatically shared as the Sync Metadata Database for all of your Sync groups in the selected region. You can't change the Sync Metadata Database or its name without dropping it.
 
         If you chose **New database**, select **Create new database.** The **SQL Database** blade opens. On the **SQL Database** blade, name and configure the new database. Then select **OK**.
 

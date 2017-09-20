@@ -27,7 +27,7 @@ Organizations need a business continuity and disaster recovery (BCDR) strategy t
 
 Site Recovery is an Azure service that contributes to your BCDR strategy. Using Site Recovery, you can deploy application-aware replication to the cloud, or to a secondary site. Whether your apps are Windows or Linux-based, running on physical servers, VMware or Hyper-V, you can use Site Recovery to orchestrate replication, perform disaster recovery testing, and run failovers and failback.
 
-Site Recovery integrates with Microsoft applications, including SharePoint, Exchange, Dynamics, SQL Server and Active Directory. Microsoft also works closely with leading vendors including Oracle, SAP, IBM and Red Hat. You can customize replication solutions on an app-by-app basis.
+Site Recovery integrates with Microsoft applications, including SharePoint, Exchange, Dynamics, SQL Server and Active Directory. Microsoft also works closely with leading vendors including Oracle, SAP and Red Hat. You can customize replication solutions on an app-by-app basis.
 
 ## Why use Site Recovery for application replication?
 Site Recovery contributes to application-level protection and recovery as follows:
@@ -122,11 +122,12 @@ Site Recovery helps protect Exchange, as follows:
 ## Protect SAP
 Use Site Recovery to protect your SAP deployment, as follows:
 
-* Enable protection of the entire SAP deployment, by replicating different deployment layers to Azure, or to a secondary site.
+* Enable protection of SAP NetWeaver and non-NetWeaver Production applications running on-premises, by replicating components to Azure.
+* Enable protection of SAP NetWeaver and non-NetWeaver Production applications running Azure, by replicating components to another Azure datacenter.
 * Simplify cloud migration, by using Site Recovery to migrate your SAP deployment to Azure.
-* Simplify SAP development and testing, by creating a production-like copy on-demand for testing and debugging applications.
+* Simplify SAP project upgrades, testing, and prototyping, by creating a production clone on-demand for testing SAP applications.
 
-[Learn more](http://aka.ms/asr-sap) about protecting SAP.
+[Learn more](site-recovery-sap.md) about protecting SAP.
 
 ## Protect IIS
 Use Site Recovery to protect your IIS deployment, as follows:
@@ -147,10 +148,10 @@ Use Site Recovery to protect your Citrix XenApp and XenDesktop deployments, as f
 * Enable protection of the Citrix XenApp and XenDesktop deployment, by replicating different deployment layers including (AD DNS server, SQL database server, Citrix Delivery Controller, StoreFront server, XenApp Master (VDA), Citrix XenApp License Server) to Azure.
 * Simplify cloud migration, by using Site Recovery to migrate your Citrix XenApp and XenDesktop deployment to Azure.
 * Simplify Citrix XenApp/XenDesktop testing, by creating a production-like copy on-demand for testing and debugging.
-* This solution is only applicable for Windows Server operating system virtual desktops and not client virtual desktops as client virtual desktops are not yet supported for licensing in Azure. 
+* This solution is only applicable for Windows Server operating system virtual desktops and not client virtual desktops as client virtual desktops are not yet supported for licensing in Azure.
 [Learn More](https://azure.microsoft.com/pricing/licensing-faq/) about licensing for client/server desktops in Azure.
 
-[Learn more](site-recovery-citrix-xenapp-and-xendesktop.md) about protecting Citrix XenApp and XenDesktop deployments. Alternatively, you can refer the [whitepaper from Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr) detailing the same. 
+[Learn more](site-recovery-citrix-xenapp-and-xendesktop.md) about protecting Citrix XenApp and XenDesktop deployments. Alternatively, you can refer the [whitepaper from Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr) detailing the same.
 
 ## Next steps
-[Check prerequisites](site-recovery-prereq.md) 
+[Check prerequisites](site-recovery-prereq.md)

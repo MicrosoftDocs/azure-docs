@@ -313,7 +313,7 @@ In the Volume perspective (*VolumeMap*), the tables show all the physical disks 
 
 If the target VM hosts any SQL Server instances, you will see an additional tab in the report that is named **SQL Server**:
 
-![sal tab](media/how-to-use-perfInsights/sqltab.png)
+![sql tab](media/how-to-use-perfInsights/sqltab.png)
 
 This section contains an "Overview" and additional sub tabs for each of the SQL Server instances hosted on the VM.
 

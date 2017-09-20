@@ -4,7 +4,7 @@ description: Azure Media Indexer enables you to make content of your media files
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 85d25525-a498-44eb-ae3a-2ca5ceb8e53d
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 07/31/2017
 ms.author: adsolank;juliako;
 
 ---
@@ -93,7 +93,7 @@ For information about supported files types, see the [supported codecs/formats](
 The following program shows how to:
 
 1. Create an asset and upload a media file into the asset.
-2. Creates a job with an indexing task based on a configuration file that contains the following json preset.
+2. Create a job with an indexing task based on a configuration file that contains the following json preset.
    
         {
           "version":"1.0",
@@ -108,7 +108,7 @@ The following program shows how to:
                "Type":"SpReco"
             }]
         }
-3. Downloads the output files. 
+3. Download the output files. 
    
 #### Create and configure a Visual Studio project
 

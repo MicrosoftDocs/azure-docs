@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 08/08/2017
 ms.author: shlo
 
 ---
@@ -197,7 +197,7 @@ The following guidelines help you determine when to include structure informatio
     As type information is already available for structured data sources, you should not include type information when you do include the structure section.
 * **For schema on read data sources (specifically Blob storage)**, you can choose to store data without storing any schema or type information with the data. For these types of data sources, include structure when you want to map source columns to sink columns. Also include structure when the dataset is an input for a copy activity, and data types of source dataset should be converted to native types for the sink. 
 	
-	Data Factory supports the following values for providing type information in structure: Int16, Int32, Int64, Single, Double, Decimal, Byte[], Bool, String, Guid, Datetime, Datetimeoffset, and Timespan. These values are Common Language Specification (CLS)-compliant, .NET-based type values.
+	Data Factory supports the following values for providing type information in structure: **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset, and Timespan**. These values are Common Language Specification (CLS)-compliant, .NET-based type values.
 
 Data Factory automatically performs type conversions when moving data from a source data store to a sink data store. 
   

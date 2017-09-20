@@ -49,9 +49,9 @@ Make sure you've read the [prerequisites](vmware-walkthrough-prerequisites.md)
 ## Set up an Azure storage account
 
 - Site Recovery replicates on-premises machines to Azure storage. Azure VMs are created from the storage after failover occurs.
-- Set up an [Azure storage account](../storage/storage-create-storage-account.md#create-a-storage-account) for replicated data.
+- Set up an [Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) for replicated data.
 - Site Recovery in the Azure portal can use storage accounts set up in Resource Manager, or in classic mode.
-- The storage account can be standard or [premium](../storage/storage-premium-storage.md).
+- The storage account can be standard or [premium](../storage/common/storage-premium-storage.md).
 - If you set up a premium account, you will also need an additional standard account for log data.
 
 

@@ -2,7 +2,7 @@
 title: Azure Batch Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to use Batch to run large-scale parallel and high-performance computing applications efficiently. Tutorials, API references, and other documentation.
 services: batch
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

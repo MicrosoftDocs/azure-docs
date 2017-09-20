@@ -25,7 +25,7 @@ Webhooks allow you to route an Azure alert notification to other systems for pos
 >
 >
 
-You can set up an Activity Log alert using the [Azure PowerShell Cmdlets](insights-powershell-samples.md#create-alert-rules), [Cross-Platform CLI](insights-cli-samples.md#work-with-alerts), or [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx). Currently, you cannot set one up using the Azure portal.
+You can set up an Activity Log alert using the [Azure PowerShell Cmdlets](insights-powershell-samples.md#create-metric-alerts), [Cross-Platform CLI](insights-cli-samples.md#work-with-alerts), or [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx). Currently, you cannot set one up using the Azure portal.
 
 ## Authenticating the webhook
 The webhook can authenticate using either of these methods:

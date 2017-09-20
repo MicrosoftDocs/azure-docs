@@ -2,7 +2,10 @@
 title: Create a Function App and deploy function code from GitHub | Microsoft Docs 
 description: Create a Function App and deploy function code from GitHub
 services: functions 
+ms.service: functions
 keywords: 
+ms.devlang: azurecli
+
 author: syntaxc4
 ms.author: cfowler
 ms.date: 04/27/2017
@@ -36,10 +39,10 @@ Each command in the table links to command specific documentation. This script u
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az storage account create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Creates an App Service plan. |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/appservice/web#delete) |
-| [az appservice web source-control config](https://docs.microsoft.com/cli/azure/appservice/web/source-control#config) | Associates a function app with a Git or Mercurial repository. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Creates an App Service plan. |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/appservice/web#az_appservice_web_delete) |
+| [az appservice web source-control config](https://docs.microsoft.com/cli/azure/appservice/web/source-control#az_appservice_web_source_control_config) | Associates a function app with a Git or Mercurial repository. |
 
 ## Next steps
 

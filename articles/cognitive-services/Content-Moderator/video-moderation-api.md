@@ -1,6 +1,6 @@
 ---
-title: Video Moderation API in Content Moderator | Microsoft Docs
-description: Sign up for the video moderation in Content Moderator to use the adult content classifier running within Azure Media Services.
+title: Video Moderation API in Azure Content Moderator | Microsoft Docs
+description: Use video moderation in Content Moderator to scan for adult and racy content.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca

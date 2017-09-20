@@ -7,22 +7,15 @@
 ## [Compatible third-party software](active-directory-ds-compatible-software.md)
 
 # Get started
-## Azure classic portal
-### [Task 1: create the administrator group](active-directory-ds-getting-started-create-group.md)
-### [Task 2: create or select virtual network](active-directory-ds-getting-started-vnet.md)
-### [Task 3: enable Azure AD Domain Services](active-directory-ds-getting-started-enableaadds.md)
-### [Task 4: update DNS settings for virtual network](active-directory-ds-getting-started-update-dns.md)
-### [Task 5: enable password synchronization](active-directory-ds-getting-started-password-sync.md)
-## Azure portal (Preview)
-### [Task 1: configure basic settings](active-directory-ds-getting-started.md)
-### [Task 2: configure network settings](active-directory-ds-getting-started-network.md)
-### [Task 3: configure administrator group and enable Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)
-### [Task 4: update DNS settings for virtual network](active-directory-ds-getting-started-dns.md)
-### [Task 5: enable password synchronization](active-directory-ds-getting-started-password-sync.md)
+## [Task 1: configure basic settings](active-directory-ds-getting-started.md)
+## [Task 2: configure network settings](active-directory-ds-getting-started-network.md)
+## [Task 3: configure administrator group and enable Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)
+## [Task 4: update DNS settings for virtual network](active-directory-ds-getting-started-dns.md)
+## [Task 5: enable password synchronization](active-directory-ds-getting-started-password-sync.md)
 
 # How to
 ## Join a managed domain
-### [Join a Windows Server VM](active-directory-ds-admin-guide-join-windows-vm.md)
+### [Join a Windows Server VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [Join a Windows Server VM using PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
 ### [Join a Linux VM](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 ## Administer a managed domain
@@ -60,4 +53,5 @@
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Contact us](active-directory-ds-contact-us.md)
 ## [Pricing](https://azure.microsoft.com/pricing/details/active-directory-ds/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=active-directory-ds)

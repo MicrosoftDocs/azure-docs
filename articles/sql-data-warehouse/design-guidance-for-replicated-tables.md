@@ -39,7 +39,7 @@ A replicated table has a full copy of the table accessible on each Compute node.
 
 The following diagram shows a replicated table that is accessible on each Compute node. In SQL Data Warehouse, the replicated table is fully copied to a distribution database on each Compute node. 
 
-![Replicated table](media/sql-data-warehouse-distributed-data/replicated-table.png "Replicated table")  
+![Replicated table](media/guidance-for-using-replicated-tables/replicated-table.png "Replicated table")  
 
 Replicated tables work well for small dimension tables in a star schema. Dimension tables are usually of a size that makes it feasible to store and maintain multiple copies. Dimensions store descriptive data that changes slowly, such as customer name and address, and product details. The slowly changing nature of the data leads to fewer rebuilds of the replicated table. 
 
@@ -126,11 +126,11 @@ WHERE d.FiscalYear = 2004
 ```
 We re-created `DimDate` and `DimSalesTerritory` as round-robin tables. As a result, the query showed the following query plan, which has multiple broadcast move operations: 
  
-![Round-robin query plan](media/design-guidance-for-replicated-tables/round-robin-tables-query-plan.jpg "Round-robin query plan") 
+![Round-robin query plan](media/design-guidance-for-replicated-tables/round-robin-tables-query-plan.jpg) 
 
 We re-created `DimDate` and `DimSalesTerritory` as replicated tables, and ran the query again. The resulting query plan is much shorter and does not have any broadcast moves.
 
-![Replicated query plan](media/design-guidance-for-replicated-tables/replicated-tables-query-plan.jpg "Round-robin query plan") 
+![Replicated query plan](media/design-guidance-for-replicated-tables/replicated-tables-query-plan.jpg) 
 
 
 ## Performance considerations for modifying replicated tables

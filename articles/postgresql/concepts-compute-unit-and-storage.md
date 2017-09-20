@@ -6,7 +6,7 @@ author: kamathsun
 ms.author: sukamat
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
+ms.service: postgresql
 ms.topic: article
 ms.date: 05/23/2017
 ---

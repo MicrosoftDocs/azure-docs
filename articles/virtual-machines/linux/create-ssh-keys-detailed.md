@@ -53,8 +53,7 @@ ssh-keygen \
 
 `ssh-keygen` = the program used to create the keys
 
-`-t rsa` = type of key to create which is the RSA format [wikipedia](https://en.wikipedia.org/wiki/RSA_(cryptosystem)
-
+`-t rsa` = type of key to create which is the RSA format [wikipedia][parens at end](`https://en.wikipedia.org/wiki/RSA_(cryptosystem) `)
 `-b 2048` = bits of the key
 
 `-C "azureuser@myserver"` = a comment appended to the end of the public key file to easily identify it.  Normally an email is used as the comment but you can use whatever works best for your infrastructure.

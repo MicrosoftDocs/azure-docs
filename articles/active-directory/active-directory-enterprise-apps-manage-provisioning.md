@@ -13,8 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/26/2017
 ms.author: asmalser
+
+ms.reviewer: asmalser
 
 ---
 # Managing user account provisioning for enterprise apps in the Azure portal
@@ -41,7 +43,7 @@ The **Provisioning** blade begins with a **Mode** menu, which shows what provisi
 Selecting the **Automatic** option displays a screen that is divided in four sections:
 
 ### Admin Credentials
-This is where the credentials required for Azure AD to connect to the application's user management API are entered. The input required varies depending on the application. To learn about the credential types and requirements for specific applications, see the [configuration tutorial for that specific application](active-directory-saas-app-provisioning.md#list-of-apps-that-support-automated-user-provisioning).
+This is where the credentials required for Azure AD to connect to the application's user management API are entered. The input required varies depending on the application. To learn about the credential types and requirements for specific applications, see the [configuration tutorial for that specific application](active-directory-saas-app-provisioning.md).
 
 Selecting the **Test Connection** button allows you to test the credentials by having Azure AD attempt to connect to the app's provisioning app using the supplied credentials.
 

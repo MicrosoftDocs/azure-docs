@@ -1,4 +1,4 @@
----
+﻿---
 title: Explore .NET trace logs in Application Insights
 description: Search logs generated with Trace, NLog, or Log4Net.
 services: application-insights
@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/3/2017
-ms.author: cfreeman
+ms.date: 05/03/2017
+ms.author: bwren
 
 ---
 # Explore .NET trace logs in Application Insights
@@ -192,7 +192,7 @@ In Solution Explorer, right-click `ApplicationInsights.config` and choose **Upda
 It can sometimes take a while for all the events and requests to get through the pipeline.
 
 ### <a name="limits"></a>How much data is retained?
-Up to 500 events per second from each application. Events are retained for seven days.
+Several factors impact the amount of data retained. See the [limits](app-insights-api-custom-events-metrics.md#limits) section of the customer event metrics page for more information. 
 
 ### I'm not seeing some of the log entries that I expect
 If your application sends a lot of data and you are using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later, the adaptive sampling feature may operate and send only a percentage of your telemetry. [Learn more about sampling.](app-insights-sampling.md)

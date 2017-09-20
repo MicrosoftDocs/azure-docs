@@ -13,7 +13,7 @@ ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 07/05/2017
 ms.author: carlrab
 
@@ -70,7 +70,6 @@ Get the connection information needed to connect to the Azure SQL database. You 
 8. If a **License Acceptance** window appears, click **I Accept**.
 
 ## Insert code to query SQL database
-
 1. Switch to (or open if necessary) **Program.cs**
 
 2. Replace the contents of **Program.cs** with the following code and add the appropriate values for your server, database, user, and password.
@@ -137,6 +136,6 @@ namespace sqltest
 ## Next steps
 
 - Learn how to [connect and query an Azure SQL database using .NET core](sql-database-connect-query-dotnet-core.md) on Windows/Linux/macOS.  
-- Learn about [Getting started with .NET Core on Windows/Linux/macOS using the command line](/dotnet/core/tutorials/using-with-xplat-cli.md).
+- Learn about [Getting started with .NET Core on Windows/Linux/macOS using the command line](/dotnet/core/tutorials/using-with-xplat-cli).
 - Learn how to [Design your first Azure SQL database using SSMS](sql-database-design-first-database.md) or [Design your first Azure SQL database using .NET](sql-database-design-first-database-csharp.md).
 - For more information about .NET, see [.NET documentation](https://docs.microsoft.com/dotnet/).

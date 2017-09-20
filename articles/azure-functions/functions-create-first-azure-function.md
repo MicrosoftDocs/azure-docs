@@ -4,17 +4,17 @@ description: Learn how to create your first Azure Function for serverless execut
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: ''
 tags: '' 
 
 ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.service: functions
 ms.devlang: multiple
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 08/07/2017
 ms.author: glenga
 ms.custom: mvc
 
@@ -37,8 +37,6 @@ You must have a function app to host the execution of your functions. A function
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-![Function app successfully created.](./media/functions-create-first-azure-function/function-app-create-success.png)
-
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
 Next, you create a function in the new function app.
@@ -47,7 +45,7 @@ Next, you create a function in the new function app.
 
 1. Expand your new function app, then click the **+** button next to **Functions**.
 
-2.  In the **Get started quickly** page, select **WebHook + API**, choose a language for your function, and click **Create this function**. 
+2.  In the **Get started quickly** page, select **WebHook + API**, **Choose a language** for your function, and click **Create this function**. 
    
     ![Functions quickstart in the Azure portal.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 

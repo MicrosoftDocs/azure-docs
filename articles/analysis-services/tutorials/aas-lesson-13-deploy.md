@@ -3,7 +3,7 @@ title: "Azure Analysis Services tutorial lesson 13: Deploy | Microsoft Docs"
 description:  Describes how to deploy the tutorial project to Azure Analysis Services.
 services: analysis-services
 documentationcenter: ''
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: ''
 tags: ''
@@ -23,7 +23,7 @@ ms.author: owend
 
 In this lesson, you configure deployment properties; specifying an Azure Analysis Services server to deploy to and a name for the model. You then deploy the model to that instance. After your model is deployed, users can connect to it by using a reporting client application. To learn more, see [Deploy to Azure Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-deploy).  
   
-Estimated time to complete this lesson: **Five minutes**  
+Estimated time to complete this lesson: **5 minutes**  
   
 ## Prerequisites  
 This topic is part of a tabular modeling tutorial, which should be completed in order. Before performing the tasks in this lesson, you should have completed the previous lesson: [Lesson 12: Analyze in Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  

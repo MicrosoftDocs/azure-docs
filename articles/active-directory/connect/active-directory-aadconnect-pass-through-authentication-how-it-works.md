@@ -12,11 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/27/2017
 ms.author: billmath
 ---
 
 # Azure Active Directory Pass-through Authentication: Technical deep dive
+
+>[!IMPORTANT]
+>Azure AD Pass-through Authentication is currently in preview. 
 
 ## How does Azure Active Directory Pass-through Authentication work?
 

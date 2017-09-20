@@ -5,6 +5,7 @@
 ## Runbook tutorial
 ### [Create graphical runbook](automation-first-runbook-graphical.md)
 ### [Create PowerShell runbook](automation-first-runbook-textual-powershell.md)
+### [My first Python runbook](automation-first-runbook-textual-python2.md)
 ### [Create PowerShell Workflow runbook](automation-first-runbook-textual.md)
 # How to
 ## Authentication and security
@@ -28,7 +29,6 @@
 ## Automate
 ### [Start a runbook](automation-starting-a-runbook.md)
 ### [Start a runbook from a webhook](automation-webhooks.md)
-### [Run runbooks on Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)
 ### [Configure runbook input parameters](automation-runbook-input-parameters.md)
 ### [Error handling in graphical runbooks](automation-runbook-graphical-error-handling.md)
 ### [Track a runbook job](automation-runbook-execution.md)
@@ -36,6 +36,12 @@
 ### [Manage Azure Automation data](automation-managing-data.md)
 ### [Call Azure Automation Runbook from Log Analytics alert](automation-invoke-runbook-from-omsla-alert.md)
 ### [Pass a JSON object to an Azure Automation runbook](automation-pass-json-string.md)
+## Hybrid Runbook Worker
+### [Deploy Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)
+### [Azure Automation Windows Hybrid Runbook Worker](automation-windows-hrw-install.md)
+### [Azure Automation Linux Hybrid Runbook Worker](automation-linux-hrw-install.md)
+### [Run runbooks on worker](automation-hrw-run-runbooks.md)
+### [Remove Azure Automation Hybrid Runbook Workers](automation-remove-hrw.md)
 ## Deploy configuration management (DSC)
 ### [Desired State Configuration (DSC) overview](automation-dsc-overview.md)
 ### [Getting started](automation-dsc-getting-started.md)
@@ -87,6 +93,7 @@
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
 ## [Pricing](https://azure.microsoft.com/pricing/details/automation/)  
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Release notes](https://azure.microsoft.com/updates/?product=automation)
 ## [Service updates](https://azure.microsoft.com/updates/?product=automation)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-automation)

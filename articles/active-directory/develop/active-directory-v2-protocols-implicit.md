@@ -217,7 +217,7 @@ If you receive this error in the iframe request, the user must interactively sig
 Both `id_token`s and `access_token`s will expire after a short period of time, so your app must be prepared to refresh these tokens periodically.  To refresh either type of token, you can perform the same hidden iframe request from above using the `prompt=none` parameter to control Azure AD's behavior.  If you want to receive a new `id_token`, be sure to use `response_type=id_token` and `scope=openid`, as well as a `nonce` parameter.
 
 ## Send a sign out request
-The OpenIdConnect `end_session_endpoint` allows your app to send a request to the v2.0 endpoint to end a user's session and clear cookies set by the v2.0 endpoint.  To fully sign a user out of a web application, your app should end its own session with the user (usually by clearing a token cache or dropping cookies), and then redirect the browser to
+The OpenIdConnect `end_session_endpoint` allows your app to send a request to the v2.0 endpoint to end a user's session and clear cookies set by the v2.0 endpoint.  To fully sign a user out of a web application, your app should end its own session with the user (usually by clearing a token cache or dropping cookies), and then redirect the browser to:
 
 ```
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redirect_uri=https://localhost/myapp/

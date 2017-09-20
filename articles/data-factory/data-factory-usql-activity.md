@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 08/10/2017
 ms.author: spelluru
 
 ---
@@ -79,7 +79,7 @@ Use service principal authentication by specifying the following properties:
         "type": "AzureDataLakeAnalytics",
         "typeProperties": {
             "accountName": "adftestaccount",
-            "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
+            "dataLakeAnalyticsUri": "azuredatalakeanalytics.net",
             "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": "<service principal key>",
             "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
@@ -106,7 +106,7 @@ Alternatively, you can use user credential authentication for Data Lake Analytic
         "type": "AzureDataLakeAnalytics",
         "typeProperties": {
             "accountName": "adftestaccount",
-            "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
+            "dataLakeAnalyticsUri": "azuredatalakeanalytics.net",
             "authorization": "<authcode>",
             "sessionId": "<session ID>", 
             "subscriptionId": "<optional, subscription id of ADLA>",

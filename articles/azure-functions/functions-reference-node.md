@@ -4,7 +4,7 @@ description: Understand how to develop functions by using JavaScript.
 services: functions
 documentationcenter: na
 author: christopheranderson
-manager: erikre
+manager: cfowler
 editor: ''
 tags: ''
 keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
@@ -16,7 +16,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
-ms.author: chrande, glenga
+ms.author: glenga
 
 ---
 # Azure Functions JavaScript developer guide

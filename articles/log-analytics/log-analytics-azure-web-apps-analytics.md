@@ -20,7 +20,7 @@ ms.author: banders
 # View analytic data for metrics across all your Azure Web App resources
 
 ![Web Apps symbol](./media/log-analytics-azure-web-apps-analytics/azure-web-apps-analytics-symbol.png)  
-The Azure Web Apps Analytics (Preview) solution provides insights into your [Azure Web Apps](../app-service-web/app-service-web-overview.md) by collecting different metrics across all your Azure Web App resources. With the solution, you can analyze and search for web app resource metric data.
+The Azure Web Apps Analytics (Preview) solution provides insights into your [Azure Web Apps](../app-service/app-service-web-overview.md) by collecting different metrics across all your Azure Web App resources. With the solution, you can analyze and search for web app resource metric data.
 
 Using the solution, you can view the:
 
@@ -86,6 +86,8 @@ When you add the Azure Web Apps Analytics solution to your workspace, the **Azur
 ### View Azure Web Apps Analytics information
 
 Click the **Azure Web Apps Analytics** tile to open the **Azure Web Apps Analytics** dashboard. The dashboard includes the blades in the following table. Each blade lists up to ten items matching that blade's criteria for the specified scope and time range. You can run a log search that returns all records by clicking **See all** at the bottom of the blade or by clicking the blade header.
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | Column | Description |
 | --- | --- |
