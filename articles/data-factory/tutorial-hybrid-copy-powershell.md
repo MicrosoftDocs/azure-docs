@@ -191,7 +191,7 @@ In this section, you can create a Self-hosted integration runtime and associate 
 
 ### Create and encrypt a SQL Server linked service (source)
 
-1. Create a JSON file named **SqlServerLinkedService.json** in **C:\ADFv2Tutorial** folder with the following content: Replace **&lt;servername&gt;, &lt;databasename&gt;, &lt;username&gt;@&lt;servername&gt; and &lt;password&gt; **with values of your SQL Server before saving the file. Replace **&lt;integration runtime name&gt;** with the name of your integration runtime. 
+1. Create a JSON file named **SqlServerLinkedService.json** in **C:\ADFv2Tutorial** folder with the following content: Replace **&lt;servername>**, **&lt;databasename>**, **&lt;username>**, **&lt;servername>**, and **&lt;password>** with values of your SQL Server before saving the file. Replace  **&lt;integration** **runtime** **name>** with the name of your integration runtime. 
 
 	```json
 	{
