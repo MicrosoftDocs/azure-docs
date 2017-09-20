@@ -105,8 +105,8 @@ For pricing information, see [Automation pricing for Update management](https://
 Enable Update management for your virtual machine:
  
 1. On the left-hand side of the screen, select **Virtual machines**.
-1. From the list, select a virtual machine.
-1. On the virtual machine screen, in the **Operations** section, click **Update management**. The **Enable Update Management** screen opens.
+2. From the list, select a virtual machine.
+3. On the virtual machine screen, in the **Operations** section, click **Update management**. The **Enable Update Management** screen opens.
 
 Validation is performed to determine if Update management is enabled for this virtual machine. The validation includes checks for Log Analytics workspace and linked Automation account, if the solution is in the workspace, and if the virtual machine is provisioned with the Microsoft Monitoring Agent (MMA) and hybrid worker.
 If these prerequisites are not met, a banner appears that gives you the option to enable the solution.
