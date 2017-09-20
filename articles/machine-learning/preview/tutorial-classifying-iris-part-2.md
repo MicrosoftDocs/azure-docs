@@ -40,10 +40,10 @@ You should complete the first part of this tutorial series. Follow the [Prepare 
 
 3. Select the **iris_sklearn.py** file, and the Python code opens in a new text editor tab inside the Workbench.
 
-![open file](media/tutorial-classifying-iris/open_iris_sklearn.png)
+   ![open file](media/tutorial-classifying-iris/open_iris_sklearn.png)
 
->[!NOTE]
->The code you see might not be exactly the same as the preceding code, as this sample project is updated frequently.
+   >[!NOTE]
+   >The code you see might not be exactly the same as the preceding code, as this sample project is updated frequently.
 
 4. Review the Python script code to become familiar with the coding style. Notice that the script performs the following tasks:
 
@@ -86,7 +86,7 @@ Let's prepare to run the **iris_sklearn.py** script for the first time. This scr
 
 5. Next, moving to the right of the same tab, fill the **Arguments** field with a value of `0.01`. 
 
-![img](media/tutorial-classifying-iris/run_control.png)
+   ![img](media/tutorial-classifying-iris/run_control.png)
 
 6. Click on the **Run** button. A job is immediately scheduled. The job is listed in the **Jobs** panel on the right side of the Workbench window. 
 
@@ -134,7 +134,7 @@ Let's prepare to run the **iris_sklearn.py** script for the first time. This scr
 
 10. Close the **Run Properties** tab, and return to the **iris_sklearn.py** tab. 
 
-12. Repeat additional runs. 
+11. Repeat additional runs. 
 
     Enter a series of different numerical values in the **Arguments** field ranging from `0.001` to `10`. Click **Run** to execute the code a few more times. The argument value you change each time is fed to the Logistic Regression algorithm in the code, resulting in different results each time.
 
@@ -143,12 +143,12 @@ In Azure Machine Learning Workbench, every script execution is captured as a run
 
 1. Click the **Runs** button (clock icon) on the left toolbar to open the listing of **Runs**. Then click on **iris_sklearn.py** to show the **Run Dashboard** of `iris_sklearn.py`.
 
-![img](media/tutorial-classifying-iris/run_view.png)
+   ![img](media/tutorial-classifying-iris/run_view.png)
 
 2. The **Run Dashboard** tab opens. 
 Review the statistics captured across multiple runs. Graphs are rendered in the top of the tab, and each numbered run with details is listed in the table at the bottom of the page.
 
-![img](media/tutorial-classifying-iris/run_dashboard.png)
+   ![img](media/tutorial-classifying-iris/run_dashboard.png)
 
 3. Filter the table, and click in the graphs interactively to view status, duration, accuracy, and  regularization rate of each run. 
 
@@ -156,7 +156,7 @@ Review the statistics captured across multiple runs. Graphs are rendered in the 
 
 5. Click on an individual run to see the run detail view. Notice the statistics for the selected run are listed in the _Run Properties_ section. The files written into the output folder are listed in the **Output** section, and can be downloaded.
 
-![img](media/tutorial-classifying-iris/run_details.png)
+   ![img](media/tutorial-classifying-iris/run_details.png)
 
    The two plots, confusion matrix and multi-class ROC curve, are rendered in the **Visualizations** section. All the log files can also be found in the **Logs** section.
 
