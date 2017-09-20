@@ -2,8 +2,8 @@
 title: Azure ML Service Limits | Microsoft Docs
 description: This sample describes limits of the Azure ML services.
 services: machine-learning
-author: hning86
-ms.author: haining
+author: garyericson
+ms.author: garye
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
