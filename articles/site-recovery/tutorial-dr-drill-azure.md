@@ -95,20 +95,14 @@ Run the test failover as follows:
 5. After the failover finishes, the replica Azure VM appears in the Azure portal > **Virtual
    Machines**. Check that the VM is the appropriate size, that it's connected to the right network,
    and that it's running.
-6. If you prepared to connect after failover, you should now be able to connect to the Azure VM.
+6. You should now be able to connect to the replicated VM in Azure.
 7. To delete Azure VMs created during the test failover, click **Cleanup test failover** on the
    recovery plan. In **Notes**, record and save any observations associated with the test failover.
 
 In some scenarios, failover requires additional processing that takes around eight to ten minutes
-to complete. You might notice longer test failover times for physical servers, VMware Linux
-machines, VMware VMs that don't have the DHCP service enables, and VMware VMs that don't have the
-following boot drivers: storvsc, vmbus, storflt, intelide, atapi.
-
-## Connect to VMs in Azure
-
-If you [prepared to connect to Azure after failover](#prepare-to-connect-to-azure-vms-after-failover),
-you can connect to the [Windows](../virtual-machines/windows/connect-logon.md) or
-[Linux](../virtual-machines/linux/quick-create-portal.md#connect-to-virtual-machine) machine.
+to complete. You might notice longer test failover times for VMware Linux machines, VMware VMs that
+don't have the DHCP service enables, and VMware VMs that don't have the following boot drivers:
+storvsc, vmbus, storflt, intelide, atapi.
 
 ## Next steps
 
