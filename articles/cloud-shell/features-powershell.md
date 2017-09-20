@@ -22,7 +22,7 @@ ms.author: damaerte
 [!include [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
 > [!TIP]
-> [Bash in Azure Cloud Shell](features.md) is also available.
+> Features & tools for [Bash](features.md) is also available.
 
 PowerShell in Cloud Shell runs on `Windows Server 2016`.
 
@@ -89,9 +89,10 @@ These commands are built on top of PowerShell remoting and require PowerShell co
 |**Category**    |**Name**                                 |
 |----------------|-----------------------------------------|
 |Azure tools     |[Azure PowerShell (4.3.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1) |
-|Text editors    |vim<br> nano                   |
-|Package Manager |PowerShellGet<br> PackageManagement      |
+|Text editors    |vim<br> nano                             |
+|Package Manager |PowerShellGet<br> PackageManagement<br> npm<br> pip |
 |Source control  |git                                      |
+|Databases       |[SqlServer module](https://www.powershellgallery.com/packages/SqlServer)<br> [sqlcmd Utility](https://docs.microsoft.com/sql/tools/sqlcmd-utility)      |
 |Test tools      |Pester                                   |
 
 ## Language support
