@@ -84,7 +84,7 @@ Azure AD Terms of Use provides easy to use auditing so that you can see who has 
 Users, who are in scope, will see the following once a terms of use is created and enforced.  They will see these screens during sign in.
 -	Best practice is to have the font within the PDF at size 24.
 ![Audit Event](media/active-directory-tou/tou10.png)
--	This screen is how it appears on mobiles</br>
+-	This screen is how it appears on mobiles</br></br>
 ![Audit Event](media/active-directory-tou/tou11.png)
 
 ## Additional information
@@ -115,11 +115,11 @@ A: A user accepting the terms of use will be written to the audit log. You can s
 **Q: If you change the terms of use terms does it require users to accept again?**</br>
 A: Yes, an admin can change the terms of use terms and it will require re-accepting the new terms.
 
-**Q: Can a terms of use support multi languages?**
+**Q: Can a terms of use support multi languages?**</br>
 A: No, currently it is not possible to have multiple languages in a single terms of use.  However, you can scope to a group (e.g., terms of use for France is different from terms of use for UK). 
 
-**Q: When is the terms of use triggered?**
+**Q: When is the terms of use triggered?**</br>
 A: The terms of use will be triggered during the sign-in experience.
 
-**Q: What applications can I target a terms of use too?**
+**Q: What applications can I target a terms of use too?**</br>
 A: You can create a conditional access policy on the enterprise applications using modern authentication. 
