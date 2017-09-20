@@ -422,11 +422,15 @@ module.exports = function (context, item) {
 
 ## Known issues
 
+### Dependencies
+
 Dependencies don't show up automatically, but you can write custom code to show dependencies. The sample code in the [C# custom telemetry section](#create-custom-telemetry-data-in-c-function-code) shows how. The sample code results in an *application map* in Application Insights that looks like this:
 
 ![Application map](media/functions-monitoring/app-map.png)
 
-To report an issue with Application Insights integration in Functions, or to make a suggestion or requet, [create an issue in GitHub](https://github.com/Azure/Azure-Functions/issues/new).
+### Report issues
+
+To report an issue with Application Insights integration in Functions, or to make a suggestion or request, [create an issue in GitHub](https://github.com/Azure/Azure-Functions/issues/new).
 
 ## Monitoring without Application Insights
 
