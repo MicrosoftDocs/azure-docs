@@ -151,4 +151,4 @@ For more information about Data Factory concepts, see the following articles:
 - [Integration runtime](concepts-integration-runtime.md)
 
 ## Next steps
-Learn how to create a data factory by following step-by-step instructions in the following Quickstarts: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [REST API](quickstart-create-data-factory-rest-api.md), and [Azure portal](quickstart-create-data-factory-portal.md). 
+Learn how to create a data factory by following step-by-step instructions in the following Quickstarts: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [REST API](quickstart-create-data-factory-rest-api.md), and Azure portal. 
