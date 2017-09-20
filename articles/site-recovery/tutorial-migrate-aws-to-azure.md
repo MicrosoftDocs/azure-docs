@@ -92,7 +92,7 @@ Use one of the EC2 instances to create a configuration server and register it wi
 	10. In **Summary** click **Install**.
 	11. **Installation Progress** will show you information about where you are in the installation process. When it is complete, click **Finish**. You may need to OK a reboot for the installation to complete. You might also get a pop-up about a passphrase, copy it to your clipbloard and save it somewhere safe.
     
-5. On the VM, run **cspsconfigtool.exe** to create one or more management accounts on the configuration server. Make sure the management accounts have administrator permissions on the EC2 instances that you want to migrate.
+5. On the VM, run **cspsconfigtool.exe** to create one or more management accounts on the configuration server. Make sure the management accounts have administrator permissions on the EC2 instances that you want to migrate. 
 
 
 
@@ -167,26 +167,22 @@ Enable replication for each VM you want to migrate. When replication is enables,
 		Subnet: select the **default** from the drop-down
 	
 	- 3 Physical Machines Select
-		Click **+ Physical machine** and then enter the **Name**, the **IP Address** and **OS Type** of the Ec2 instance that you want to migrate and then click **OK**
 		
+		Click **+ Physical machine** and then enter the **Name**, the **IP Address** and **OS Type** of the Ec2 instance that you want to migrate and then click **OK**.
 		
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx		
+	- 4 Properties Configure Properties
 		
-2. In **Source**, select the configuration server.
-3. In **Machine type**, select **Physical machines**.
-4. Select the process server (the configuration server). Then click **OK**.
-5. In **Target**, select the subscription and the resource group in which you want to create the Azure VMs after failover. Choose the deployment model that you want to use in Azure (classic or resource management).
-6. Select the Azure storage account you want to use for replicating data. 
-7. Select the Azure network and subnet to which Azure VMs will connect, when they're created after failover.
-8. Select **Configure now for selected machines**, to apply the network setting to all machines you select for protection. Select **Configure later** to select the Azure network per machine. 
-9. In **Physical Machines**, and click **+Physical machine**. Specify the name and IP address. Select the operating system of the machine you want to replicate. It takes a few minutes for the servers to be discovered and listed. 
-    - The IP address must belong to the EC2 instance you're migrating.
-    - The EC2 instance must be acessible on this IP address from the configuration server.
-1. In **Properties** > **Configure properties**, select the account that will be used by the process server to automatically install the Mobility service on the machine.
-2. In **Replication settings** > **Configure replication settings**, verify that the correct replication policy is selected. 
-3. Click **Enable Replication**. You can track progress of the **Enable Protection** job in **Settings** > **Jobs** > **Site Recovery Jobs**. After the **Finalize Protection** job runs the machine is ready for failover.
+		Select the account that you created on the configuration server from the drop-down and click **OK**.
+		
+	- 5 Replication Settings Configure replication settings
+	
+		Make sure the replication policy selected in the drop-down is **myReplicationPolicy** and then click **OK**.
+		
+3. When the wizard is complete, click **Enable replication**.
+		
 
-
+You can track progress of the **Enable Protection** job in **Settings** > **Jobs** > **Site Recovery Jobs**. After the **Finalize Protection** job runs the machine is ready for failover.		
+		
 When you enable replication for a VM, it can take 15 minutes or longer for changes to take effect and appear in the portal.
 
 ## Run a test failover
@@ -198,7 +194,7 @@ Run a [test failover](tutorial-dr-drill-azure.md) to make sure everything's work
 
 Run a fail over for EC2 instances. 
 
-R1. In **Settings** > **Replicated items** click the AWS instances > **Failover**.
+1. In **Settings** > **Replicated items** click the AWS instances > **Failover**.
 2. In **Failover** select a **Recovery Point** to fail over to. Select the latest recovery point.
 3. Select **Shut down machine before beginning failover** if you want Site Recovery to attempt to do a shutdown of source virtual machines before triggering the failover. Failover continues even if shutdown fails. You can follow the failover progress on the **Jobs** page.
 4. Check that the VM appears in **Replicated items**. 
