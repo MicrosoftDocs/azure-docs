@@ -520,4 +520,4 @@ The pipeline in this sample copies data from one location to another location in
 > * Monitor the pipeline and activity runs.
 
 > [!div class="nextstepaction"]
->[Copy data from on-premises to cloud](tutorial-copy-onprem-data-to-cloud-powershell.md)
+>[Copy data from on-premises to cloud](tutorial-hybrid-copy-powershell.md)
