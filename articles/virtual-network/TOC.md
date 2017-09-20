@@ -36,8 +36,6 @@
 ##### [PowerShell](virtual-networks-create-nsg-classic-ps.md)
 ##### [CLI](virtual-networks-create-nsg-classic-cli.md)
 
-
-
 ### User-defined routes
 #### [PowerShell](virtual-network-create-udr-arm-ps.md)
 #### [CLI](virtual-network-create-udr-arm-cli.md)
@@ -54,10 +52,7 @@
 
 ### [Virtual network service endpoints](virtual-network-service-endpoints-configure.md)
 
-### Public IP address in an availability zone
-#### [Azure portal](create-public-ip-availability-zone-portal.md)
-#### [PowerShell](create-public-ip-availability-zone-powershell.md)
-#### [Azure CLI](create-public-ip-availability-zone-cli.md)
+### [Public IP address in an availability zone](create-public-ip-availability-zone-portal.md)
 
 ### Virtual machines
 #### Create a VM with a static public IP address
