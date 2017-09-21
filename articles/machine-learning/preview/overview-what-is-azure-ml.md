@@ -5,11 +5,13 @@ services: machine-learning
 author: haining
 ms.author: haining
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocsms.service: machine-learning
+ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.service: machine-learning
 ms.workload: data-services
 ms.topic: get-started-article
 ms.date: 09/20/2017
 ---
+
 # What is Azure Machine Learning?
 
 Azure Machine Learning is an integrated, end-to-end data science and advanced analytics solution. It enables data scientists to prepare data, develop experiments, and deploy models at cloud scale.
