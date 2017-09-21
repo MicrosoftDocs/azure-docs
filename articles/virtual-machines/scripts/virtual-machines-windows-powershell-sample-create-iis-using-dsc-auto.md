@@ -30,12 +30,10 @@ This script creates an Azure Virtual Machine running Windows Server 2016 using N
 
 ```azurepowershell-interactive
 # Variables for common values
-$resourceGroup = "myResourceGroup"
 $location = "westeurope"
 $vmName = "myVM"
 
-New-AzVM -ResourceGroupName $resourceGroup `
-    -Name $vmName `
+New-AzVM -Name $vmName `
 	-VirtualNetworkName myVNet `
 	-Location $location `
 	-SecurityGroupName myNSG `
@@ -48,7 +46,7 @@ $nsgRuleHTTP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroup
   -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
   -DestinationPortRange 80 -Access Allow
 
-$nsg = Get-AzureRmNetworkSecurityGroup -Name myNSG -ResourceGroupName westeurope
+$nsg = Get-AzureRmNetworkSecurityGroup -Name myNSG -ResourceGroupName myVMResourceGroup
 $nsg | Add-AzureRmNetworkSecurityRuleConfig -Name $nsgRuleHTTP -NetworkSecurityGroup myNSG 
 $nsg | Set-AzureRmNetworkSecurityGroup
 
@@ -56,7 +54,7 @@ $nsg | Set-AzureRmNetworkSecurityGroup
 # Install IIS
 $PublicSettings = '{"ModulesURL":"https://github.com/Azure/azure-quickstart-templates/raw/master/dsc-extension-iis-server-windows-vm/ContosoWebsite.ps1.zip", "configurationFunction": "ContosoWebsite.ps1\\ContosoWebsite", "Properties": {"MachineName": "myVM"} }'
 
-Set-AzureRmVMExtension -ExtensionName "DSC" -ResourceGroupName $resourceGroup -VMName $vmName `
+Set-AzureRmVMExtension -ExtensionName "DSC" -ResourceGroupName myVMResourceGroup -VMName $vmName `
   -Publisher "Microsoft.Powershell" -ExtensionType "DSC" -TypeHandlerVersion 2.19 `
   -SettingString $PublicSettings -Location $location
  ```
@@ -65,8 +63,8 @@ Set-AzureRmVMExtension -ExtensionName "DSC" -ResourceGroupName $resourceGroup -V
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+```azurepowershell-interactive
+Remove-AzureRmResourceGroup -Name myVMResourceGroup
 ```
 
 ## Script explanation

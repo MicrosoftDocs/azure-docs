@@ -31,8 +31,7 @@ This script creates an Azure Virtual Machine running Windows Server 2016, and th
 
 ```azurepowershell-interactive
 
-New-AzVM -ResourceGroupName myResourceGroup `
-    -Name myVM `
+New-AzVM -Name myVM `
 	-VirtualNetworkName myVNet `
 	-Location westeurope `
 	-SecurityGroupName myNSG `
@@ -45,13 +44,13 @@ $nsgRuleHTTP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroup
   -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
   -DestinationPortRange 80 -Access Allow
 
-$nsg = Get-AzureRmNetworkSecurityGroup -Name myNSG -ResourceGroupName myResourceGroup
+$nsg = Get-AzureRmNetworkSecurityGroup -Name myNSG -ResourceGroupName myVMResourceGroup
 $nsg | Add-AzureRmNetworkSecurityRuleConfig -Name $nsgRuleHTTP -NetworkSecurityGroup myNSG 
 $nsg | Set-AzureRmNetworkSecurityGroup
 
 # Install IIS
 
-Set-AzureRmVMExtension -ExtensionName "IIS" -ResourceGroupName myResourceGroup -VMName myVM `
+Set-AzureRmVMExtension -ExtensionName "IIS" -ResourceGroupName myVMResourceGroup -VMName myVM `
   -Publisher "Microsoft.Compute" -ExtensionType "CustomScriptExtension" -TypeHandlerVersion 1.4 `
   -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server"}' -Location westeurope
   
@@ -61,8 +60,8 @@ Set-AzureRmVMExtension -ExtensionName "IIS" -ResourceGroupName myResourceGroup -
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+```azurepowershell-interactive
+Remove-AzureRmResourceGroup -Name myVMResourceGroup
 ```
 
 ## Script explanation

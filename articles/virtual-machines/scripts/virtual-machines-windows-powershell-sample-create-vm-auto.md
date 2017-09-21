@@ -32,9 +32,8 @@ This script uses the New-AzVM cmdlet in Cloud Shell to create an Azure Virtual M
 ## Sample script
 
 
-```powershell-intereactive
-New-AzVM -ResourceGroupName myResourceGroup `
-    -Name myVM `
+```azurepowershell-interactive
+New-AzVM -Name myVM `
 	-VirtualNetworkName myVNet `
 	-Location westeurope `
 	-SecurityGroupName myNSG `
@@ -46,8 +45,8 @@ New-AzVM -ResourceGroupName myResourceGroup `
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+```azurepowershell-interactive
+Remove-AzureRmResourceGroup -Name myVMResourceGroup
 ```
 
 
