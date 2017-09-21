@@ -45,7 +45,7 @@ sections:
     - html: <a href="tutorial-backup-vm-at-scale">Backup multiple Azure VMs</a>
     - html: <a href="tutorial-restore-disk">Restore a disk and create a recovered VM</a>
     - html: <a href="tutorial-restore-files">Restore files to a Virtual Machine in Azure</a>
-    - html: <a href="tutorial-backup-windows-server-to-az">Back up a Windows Server to Azure</a>
+    - html: <a href="tutorial-backup-windows-server-to-azure">Back up a Windows Server to Azure</a>
     - html: <a href="tutorial-backup-restore-files-windows-server">Recover files from Azure to a Windows Server</a>
 - title: Samples
   items:
