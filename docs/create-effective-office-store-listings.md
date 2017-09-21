@@ -128,16 +128,20 @@ For SharePoint Add-ins, you have to include an icon in the add-in's package. The
 Make your screenshots rich and informative. Help customers understand how your solution solves problems and helps them get work done more effectively. In your screenshots:
 
 
-- Focus on your solution. Don't show large areas of empty screen.
+- Focus on your solution.
 - Show real content rather than an empty document.
-- Use captions and callouts to clarify features.
+- Use captions to describe the value of the add-in.
 
 >**Note:**  Be sure to remove any personal information from your screenshots that you do not want customers to see.
 
 |**Do**|**Don't**|
 |:------------|:--------------|
 |Use clear and simple captions to convey your add-ins value.|Don’t use callouts that obstruct important content.|
-|![Do checkbox example](../images/screenshot_do1.png)|![Don't checkbox example](../images/screenshot_dont1.png)|
+|![Do basic screenshot example](../images/screenshot_do1.png)|![Don't basic screenshot example](../images/screenshot_dont1.png)|
+|When needed, highlight specific sections of your add-in.|Don't highlight more than one section.|
+|![Do highlight example](../images/highlight_do1.png)|![Do highlight example](../images/highlight_dont1.png)|
+|Incorporate your brand color into your images.|Avoid using non-brand colors.|
+|![Do highlight example](../images/brandColor_do1.png)|![Do highlight example](../images/brandColor_dont1.png)|
 
 ## Use ratings and reviews
 <a name="bk_ratings"> </a>
