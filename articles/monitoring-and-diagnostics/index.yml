@@ -40,6 +40,22 @@ sections:
     items:
     - html: <a href="monitor-tutorial-autoscale-performance-schedule">Autoscale based on Schedule or application performance</a>
     - html: <a href="monitor-tutorial-archive-monitoring-data">Archive monitoring data</a>
+- title: Free PluralSight Video Training
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Getting Started with Microsoft Azure IaaS Monitoring and Management
+      href: https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents
+      image: 
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents
+    - title: Managing Infrastructure on Microsoft Azure - Getting Started
+      href: https://app.pluralsight.com/library/courses/managing-infrastructure-microsoft-azure-getting-started
+      image: 
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://app.pluralsight.com/library/courses/managing-infrastructure-microsoft-azure-getting-started
 - title: Reference
   items:
   - type: list
