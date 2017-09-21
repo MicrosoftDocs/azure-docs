@@ -24,6 +24,7 @@
 ### [Configure alerts with PowerShell](insights-alerts-powershell.md)
 ### [Have a metric alert call a webhook](insights-webhooks-alerts.md)
 ### [Create a metric alert with a Resource Manager template](monitoring-enable-alerts-using-template.md)
+### [Alert off of the Activity Log](monitor-quick-audit-notify-action-in-subscription.md)
 
 ## Use autoscale
 ### [Best Practices](insights-autoscale-best-practices.md)
