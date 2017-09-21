@@ -35,6 +35,8 @@
       href: functions-integrate-store-unstructured-data-cosmosdb.md
 - name: Tutorials
   items:
+  - name: 1 - Image resize with Event Grid
+    href: ../event-grid/.md
   - name: 1 - Functions with Logic Apps
     href: functions-twitter-email.md
   - name: 2 - Create a serverless API

@@ -28,7 +28,11 @@ In part three of the series, you learn how to:
 > * Turn on server-side encryption
 > * Enable HTTPS-only transport
 
-[Azure blob storage](../common/storage-introduction.md#blob-storage) provides a robust service to store files for applications. This tutorial shows how to secure access to your storage account from a web application. When you're finished the images are encrypted and the web app uses secure SAS tokens to access the thumbnail images.
+[Azure blob storage](../common/storage-introduction.md#blob-storage) provides a robust service to store files for applications. This tutorial extends [the previous topic][previous-tutorial] to show how to secure access to your storage account from a web application. When you're finished the images are encrypted and the web app uses secure SAS tokens to access the thumbnail images.
+
+## Prerequisites
+
+To complete this tutorial you must have completed the previous Storage tutorial: [Automate resizing uploaded images using Event Grid][previous-tutorial]. 
 
 ## Set container public access
 
@@ -218,3 +222,5 @@ Advance to part four of the series to learn how to monitor and troubleshoot a cl
 
 > [!div class="nextstepaction"]
 > [Monitor and troubleshoot application cloud application storage](storage-monitor-troubleshoot-storage-application.md)
+
+[previous-tutorial]: ../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
