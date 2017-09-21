@@ -30,7 +30,7 @@ Use Load Balancer Standard for the full range of virtual data centers from small
 
 - [Enterprise scale](#enterprisescale) can be achieved with Load Balancer Standard.  It can be used with any Virtual Machine instance within a Virtual Network, and up to 1000 VM instances.
 
-- [New diagnostic insights](#diagnosticinsights) are available to allow you to understand, manage, and troubleshoot this vital component of your virtual data center. Use Azure Monitor (Preview) to show, filter, and group new multi-dimensional metrics for continuous data path health measurements from frontend to VM, per endpoint health probes, TCP connection attempts, and traffic counters.
+- [New diagnostic insights](#diagnosticinsights) are available to allow you to understand, manage, and troubleshoot this vital component of your virtual data center. Use Azure Monitor (Preview) to show, filter, and group new multi-dimensional metrics for continuous data path health measurements from frontend to VM, per endpoint health probes, TCP connection attempts, outbound connections.
 
 - [Network Security Groups](#nsg) are now required for any VM instance associated with Standard SKUs of Load Balancer or Public IP and provides enhanced security.
 
@@ -63,7 +63,7 @@ There no longer is a requirement for availability sets, but you may choose to us
 
 ### <a name = "diagnosticinsights"></a>Diagnostic insights
 
-Load Balancer Standard provides new multi-dimensional diagnostic capabilities for public and internal Load Balancer configuration. These new metrics are provided through Azure Monitor (Preview) and utilize all related capabilities including ability for integration with various downstream consumers.
+Load Balancer Standard provides new multi-dimensional diagnostic capabilities for public and internal Load Balancer configurations. These new metrics are provided through Azure Monitor (Preview) and utilize all related capabilities including ability for integration with various downstream consumers.
 
 | Metric | Description |
 | --- | --- |
@@ -223,7 +223,7 @@ Load Balancer Standard's new algorithm preallocates SNAT ports to each VM's netw
 
 SNAT ports do not directly translate to the number of connections. A SNAT port can be reused for multiple unique destinations.  Review the [outbound connections](load-balancer-outbound-connections.md) article for details.
 
-If your backend pool is increased and transitions from one size tier to the next larger size, half of your allocated ports get reclaimed. Any connection that is associated with a reclaimed port will timeout and will need to be reestablished. Any new connection attempts will succeed immediately. If your backend pool is reduced from one size tier to the next smaller size, SNAT ports available grow, and existing connections are not affected.
+If your backend pool is increased and transitions from one size tier to the next larger size, half of your allocated ports are reclaimed. Any connection that is associated with a reclaimed port will timeout and will need to be reestablished. Any new connection attempts will succeed immediately. If your backend pool is reduced from one size tier to the next smaller size, SNAT ports available grow, and existing connections are not affected.
 
 Load Balancer Standard also has an additional configuration option on a per rule basis to provide customer control over which frontend is used for port masquerading SNAT when multiple frontends are available.
 
@@ -324,7 +324,7 @@ Load Balancer Standard is currently available in these regions:
 
 Azure [Service Limits for Networking](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#networking-limits) apply per region per subscription. 
 
-The following tables provides a comparison of limits and abilities between the Basic and Standard SKUs for Load Balancer:
+The following table provides a comparison of limits and abilities between the Basic and Standard SKUs for Load Balancer:
 
 | Load Balancer | Basic | Standard |
 | --- | --- | --- |
@@ -340,7 +340,7 @@ The following tables provides a comparison of limits and abilities between the B
 | Outbound SNAT Frontend Selection | Not configurable, multiple Candidates | Optional configuration to reduce candidates |
 | Network Security Group | Optional on NIC/subnet | Required |
 
-The following tables provides a comparison of limits and abilities between the Basic and Standard SKUs for Public IP:
+The following table provides a comparison of limits and abilities between the Basic and Standard SKUs for Public IP:
 
 | Public IP | Basic | Standard |
 | --- | --- | --- |
@@ -353,7 +353,7 @@ The following tables provides a comparison of limits and abilities between the B
 
 ## Preview sign-up
 
-To participate in the Preview for Load Balancer Standard SKU and its companion Public IP Standard SKU, register your subscription to gain access.
+To participate in the Preview for Load Balancer Standard SKU and its companion Public IP Standard SKU, register your subscription to gain access using either PowerShell or Azure CLI 2.0.
 
 - Sign up using PowerShell
 
@@ -382,11 +382,11 @@ The following limitations apply at the time of Preview and are subject to change
 
 - Load Balancer backend instances cannot be located in peered VNets at this time. All backend instances must be in the same region.
 - SKUs are not mutable. You may not change the SKU of an existing resource.
-- You can use either Basic SKU or Standard SKU with a standalone VM, all VM instances in an Availability Set or virtual machine scale set. A standalone VM, all VM instances in an Availability Set or virtual machine scale set may not be used with both simultaneously. Mixing of SKUs is not permitted.
-- Using an internal Standard Load Balancer with a VM instance (or any part of an Availability Set) disables [default SNAT outbound connections](load-balancer-outbound-connections.md).  You may restore this ability to a standalone VM or VM instances Availability Set or virtual machine scale set and make outbound connections by simultaneously assigning a public Standard Load Balancer or Standard Public IP as Instance-Level Public IP to the same VM instance. Once completed, port masquerading SNAT to a Public IP address is provided again.
+- you can use either Basic SKU or Standard SKU with a standalone VM, all VM instances in an Availability Set or virtual machine scale set. A standalone VM, all VM instances in an Availability Set or virtual machine scale set may not be used with both simultaneously. Mixing of SKUs is not permitted.
+- using an internal Standard Load Balancer with a VM instance (or any part of an Availability Set) disables [default SNAT outbound connections](load-balancer-outbound-connections.md).  You may restore this ability to a standalone VM or VM instances Availability Set or virtual machine scale set and make outbound connections by simultaneously assigning a public Standard Load Balancer or Standard Public IP as Instance-Level Public IP to the same VM instance. Once completed, port masquerading SNAT to a Public IP address is provided again.
 - VM instances may need to be grouped into availability sets to achieve full backend pool scale. Up to 150 availability sets and standalone VMs can be placed into a single backend pool.
 - IPv6 is not supported.
-- In the context of Availability Zones, a frontend is not mutable from zonal to zone-redundant or vice versa. Once created as zone-redundant, it is always zone-redundant.  Once crated as zonal, it is always zonal.
+- in the context of Availability Zones, a frontend is not mutable from zonal to zone-redundant or vice versa. Once created as zone-redundant, it is always zone-redundant. Once created as zonal, it is always zonal.
 
 
 ## Next steps
