@@ -43,7 +43,7 @@ This article talks about how to create an **Azure AD native application for end-
   
     ![Get AAD domain](./media/data-lake-store-end-user-authenticate-using-active-directory/get-aad-domain.png)
 
-* Your Azure tenant ID. For instructions on how to retrieve the tenant ID, see [Get the tenant ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id)
+* Your Azure tenant ID. For instructions on how to retrieve the tenant ID, see [Get the tenant ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
 
 ## End-user authentication
 This authentication mechanism is the recommended approach if you want an end user to log in to your application via Azure AD. Your application is then able to access Azure resources with the same level of access as the end user that logged in. Your end user needs to provide their credentials periodically in order for your application to maintain access.
@@ -82,7 +82,7 @@ While following the instructions in the link, make sure you select **Native** fo
 
 See [Get the application ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) to retrieve the application ID (also called the client ID in the Azure classic portal) of the Azure AD native application.
 
-To retrieve the redirect URI, follow the steps below.
+To retrieve the redirect URI, do the following steps.
 
 1. From the Azure portal, select **Azure Active Directory**, click **App registrations**, and then find and click the Azure AD native application that you created.
 
