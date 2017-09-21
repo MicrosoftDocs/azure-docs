@@ -137,44 +137,34 @@ On the VM, run **cspsconfigtool.exe** to create one or more management accounts 
 
 On the portal page for your vault, select **Site Recovery** from the **Getting Started** section and then click **Prepare Infrastructure**.
 
--  1 Protection goal
-
-   Select the following values on the **Protection Goal** page:
+-  1 Protection goal: Select the following values on the **Protection Goal** page:
    
      |   |  | 
      |---------|-----------|
-     |**Where are your machines located?** | **On-premises**.|
-     | **Where do you want to replicate your machines?** |select **To Azure**.|
-     | **Are your machines virtualized?** | select "Not virtualized / Other**.|
+     | Where are your machines located? | **On-premises**|
+     | Where do you want to replicate your machines? |**To Azure**|
+     | Are your machines virtualized? | **Not virtualized / Other**|
 
-When you are done, click **OK** to move to the next section.
+    When you are done, click **OK** to move to the next section.
 
-### 2 Source Prepare
+- 2 Source Prepare: On the **Prepare source** page, choose the configuration server that you created earlier from the drop-down and then click **OK**. 
 
-On the **Prepare source** page, choose the configuration server that you created earlier from the drop-down and then click **OK**. 
+- 3 Target Prepare: In this section you will be entering in information about the resources you created when you went through the [Prepare Azure resources](#prepare-azure-resources) section, earlier in this tutorial.
 
-### 3 Target Prepare 
-
-In this section you will be entering in information about the the subscription you used and the resources you created when you went through the [Prepare Azure resources](#prepare-azure-resources) section, earlier in this tutorial.
-
-1. In **Subscription**, select the Azure subscription that you used for the [Prepare Azure](tutorial-prepare-azure.md) tutorial.
-2. Select **Resource Manager** as the deployment model.
-3. Site Recovery checks that you have one or more compatible Azure storage accounts and networks. These should be the resources you created when you went through the [Prepare Azure resources](#prepare-azure-resources) section, earlier in this tutorial
-4. When you are done, click **OK**.
+     1. In **Subscription**, select the Azure subscription that you used for the [Prepare Azure](tutorial-prepare-azure.md) tutorial.
+     2. Select **Resource Manager** as the deployment model.
+     3. Site Recovery checks that you have one or more compatible Azure storage accounts and networks. These should be the resources you created when you went through the [Prepare Azure resources](#prepare-azure-resources) section, earlier in this tutorial
+     4. When you are done, click **OK**.
 
 
 
-### 4 Replication settings Prepare
+- 4 Replication settings Prepare: You need to create a replication policy, before you can enable replication
 
-You need to create a replication policy, before you can enable replication
+     1. Click **+ Replicate and Associate**.
+     2. In **Name**, type **myReplicationPolicy**.
+     3. Leave the rest of the default settings and click **OK** to create the policy. The new policy is automatically associated with the configuration server. 
 
-1. Click **+ Replicate and Associate**.
-2. In **Name**, type **myReplicationPolicy**.
-3. Leave the rest of the default settings and click **OK** to create the policy. The new policy is automatically associated with the configuration server. 
-
-### 5 Deployment planning Select
-
-In **Have you completed deployment planning?**, select **I will do it later** from the drop-down and then click **OK**.
+- 5 Deployment planning Select: In **Have you completed deployment planning?**, select **I will do it later** from the drop-down and then click **OK**.
 
 When you are all done with all 5 sections of **Prepare infrastructure**, click **OK**.
 
@@ -186,22 +176,26 @@ Enable replication for each VM you want to migrate. When replication is enabled,
 1. On the page for your vault, under **Getting Started**, click **Site Recovery**.
 2. Under **For on-premises machines and Azure VMs**, click **Step 1:Replicate application**. Complete the wizerd pages with the following information and click **OK** on each page when finished:
 	- 1 Source Configure:
-	
-		Source: On Premises
-		Source location: the name of your configuration server Ec2 instance
-		Machine type: Physical machines
-		Process server: select the configuration server from the drop-down list
+	  
+    |  |  |
+    |-----|-----|
+    | Source: | **On Premises**|
+		| Source location:| The name of your configuration server Ec2 instance.|
+		|Machine type: | **Physical machines**|
+		| Process server: | Select the configuration server from the drop-down list.|
 	
 	- 2 Target Configure
 		
-		Target: leave the default
-		Subscription: use the subscription you used for the [Prepare Azure](tutorial-prepare-azure.md) tutorial
-		Post-failover resource group: use the resource group you created during the [Prepare Azure](tutorial-prepare-azure.md) tutorial
-		Post-failover deployment model: choose Resource manager
-		Storage account: choose the storage account you creating for the [Prepare Azure](tutorial-prepare-azure.md) tutorial
-		Azure network: choose **Configure now for selected machines**
-		Post-failover Azure network: choose the network you created for the [Prepare Azure](tutorial-prepare-azure.md) tutorial
-		Subnet: select the **default** from the drop-down
+    |  |  |
+    |-----|-----|
+    | Target: | Leave the default.|
+		| Subscription: | Select the subscription you have been using.|
+		| Post-failover resource group:| Use the resource group you created in the [Prepare Azure resources](#prepare-azure-resources) section.|
+		| Post-failover deployment model: | Choose **Resource manager**|
+		| Storage account: | Choose the storage account you created in the [Prepare Azure resources](#prepare-azure-resources) section.|
+		| Azure network: | Choose **Configure now for selected machines**|
+		| Post-failover Azure network: | Choose the network you created in the [Prepare Azure resources](#prepare-azure-resources) section.|
+		| Subnet: | Select the **default** from the drop-down.|
 	
 	- 3 Physical Machines Select
 		
@@ -224,7 +218,42 @@ When you enable replication for a VM, it can take 15 minutes or longer for chang
 
 ## Run a test failover
 
-Run a [test failover](tutorial-dr-drill-azure.md) to make sure everything's working as expected.
+When you run a test failover, the following happens:
+
+1. A prerequisites check runs to make sure all of the conditions required for failover are in
+   place.
+2. Failover processes the data, so that an Azure VM can be created. If select the latest recovery
+   point, a recovery point is created from the data.
+3. An Azure VM is created using the data processed in the previous step.
+
+Run the test failover as follows:
+
+1. In **Settings** > **Replicated Items**, click the VM > **+Test Failover**.
+
+2. Select a recovery point to use for the failover:
+    - **Latest processed** : Fails the VM over to the latest recovery point that was processed by
+      Site Recovery. The time stamp is shown. With this option, no time is spent processing data, so
+      it provides a low RTO (recovery time objective).
+    - **Latest app-consistent**: This option fails over all VMs to the latest app-consistent
+      recovery point. The time stamp is shown.
+    - **Custom**: Select any recovery point.
+3. In **Test Failover**, select the target Azure network to which Azure VMs will be connected after
+   failover occurs.
+4. Click **OK** to begin the failover. You can track progress by clicking on the VM to open its
+   properties. Or you can click the **Test Failover** job in vault name > **Settings** > **Jobs** >
+   **Site Recovery jobs**.
+5. After the failover finishes, the replica Azure VM appears in the Azure portal > **Virtual
+   Machines**. Check that the VM is the appropriate size, that it's connected to the right network,
+   and that it's running.
+6. You should now be able to connect to the replicated VM in Azure.
+7. To delete Azure VMs created during the test failover, click **Cleanup test failover** on the
+   recovery plan. In **Notes**, record and save any observations associated with the test failover.
+
+In some scenarios, failover requires additional processing that takes around eight to ten minutes
+to complete. You might notice longer test failover times for VMware Linux machines, VMware VMs that
+don't have the DHCP service enables, and VMware VMs that don't have the following boot drivers:
+storvsc, vmbus, storflt, intelide, atapi.
+
 
 
 ## Migrate to Azure
