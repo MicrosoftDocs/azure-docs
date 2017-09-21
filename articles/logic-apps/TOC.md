@@ -78,7 +78,7 @@
 ### [Create a serverless social dashboard](logic-apps-scenario-social-serverless.md)
 ### [Call logic apps with Azure Functions](logic-apps-scenario-function-sb-trigger.md)
 ### [Add error and exception handling](logic-apps-scenario-error-and-exception-handling.md)
-### [B2B processing](logic-apps-enterprise-integration-b2b.md)
+### [Send EDI messages as batches](logic-apps-scenario-EDI-send-batch-messages.md)
 
 ## Pricing & billing
 ### [Pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
