@@ -9,15 +9,15 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/11/2017
+ms.date: 09/20/2017
 ---
 # How to use Jupyter notebook in Azure Machine Learning Workbench
 
 Azure Machine Learning Workbench supports interactive data science experimentation via its integration of Jupyter notebook. This article describes how to make effective use of this feature to increase the rate and the quality of your interactive data science experimentation.
 
 ## Prerequisites
-- [Provision and install Azure Machine Learning](/machine-learning/preview/quick-start-installation.md).
-- Be already familiar with [Jupyter notebook](http://jupyter.org/). Note this article is not about teaching user how to use Jupyter.
+- [Install and create Azure Machine Learning](/machine-learning/preview/quick-start-installation.md).
+- Be familiar with [Jupyter notebook](http://jupyter.org/), since this article is not about teaching how to use Jupyter.
 
 ## Jupyter notebook architecture
 At a high level, Jupyter notebook architecture includes three components, each can run in different compute environments:
