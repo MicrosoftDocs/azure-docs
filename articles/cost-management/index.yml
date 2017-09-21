@@ -24,7 +24,7 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/en-us/media/common/i_billing.svg
+        src: https://docs.microsoft.com/media/common/i_portal.svg
       text: View Cost Data
       href: quick-register-azure-sub
 - title: Step-by-step Tutorials
