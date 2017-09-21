@@ -14,35 +14,27 @@ metadata:
   ms.date: 09/17/2017
   ms.author: carolz
 abstract:
-  description: Azure Site Recovery orchestrates and manages disaster recovery for Azure VMs, and on-premises VMs and physical servers. Learn how to replicate, fail over, and fail back between Azure regions, and to and from on-premises sites.
+  description: Azure Site Recovery orchestrates and manages disaster recovery for Azure VMs, and on-premises VMs and physical servers. Learn how to replicate, fail over, and fail back with our quickstarts and tutorials.
 sections:
 - title: 5-Minute Quickstarts
   items:
-  - type: paragraph
-    text: 'Quickly set up disaster recovery for an Azure IaaS VM.'
   - type: list
-    style: unordered
-    className: spaced noBullet
-    items:
-    - html: <a href="/azure/site-recovery/azure-to-azure-quickstart">Replicate an Azure VM to another region</a> 
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
+      text: Replicate on Azure VM - Portal
+      href: /azure/site-recovery/azure-to-azure-quickstart
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
     text: 'Learn how to set up disaster recovery for VMs and physical servers.'
   - type: list
-    style: ordered
+    style: unordered
     items:
-    - html: <a href="/azure/site-recovery/azure-to-azure-tutorial-enable-replication">Set up disaster recovery to a secondary region for Azure VMs</a>
-    - html: Set up disaster recovery from on-premises to Azure&#58; <a href="/azure/site-recovery/tutorial-vmware-to-azure">VMware VMs</a> | <a href="/azure/site-recovery/tutorial-hyper-v-to-azure">Hyper-V VMs</a> | <a href="/azure/site-recovery/tutorial-physical-to-azure">Physical servers</a>
-    - html: Set up disaster recovery between on-premises sites&#58; <a href="/azure/site-recovery/tutorial-vmm-to-vmm">Hyper-V VMs</a> | <a href="/azure/site-recovery/tutorial-vmware-to-vmware">VMware VMs and physical servers</a>
-    - html: <a href="/azure/site-recovery/azure-to-azure-tutorial-dr-drill">Run a disaster recovery drill between Azure regions</a>
-    - html: <a href="/azure/site-recovery/tutorial-dr-drill-azure">Run a disaster recovery drill to Azure</a>
-    - html: <a href="/azure/site-recovery/tutorial-dr-drill-secondary">Run a disaster recovery drill between VMM clouds</a>
-    - html: <a href="/azure/site-recovery/azure-to-azure-tutorial-failover-failback">Fail over and fail back Azure VMs between regions</a>
-    - html: Fail over and fail back from Azure to on-premises&#58; <a href="/azure/site-recovery/tutorial-vmware-to-azure-failover-failback">VMware VMs</a> | <a href="/azure/site-recovery/tutorial-hyper-v-to-azure-failover-failback">Hyper-V VMs</a> | <a href="/azure/site-recovery/tutorial-vmware-to-azure-failover-failback">Physical servers</a>
-    - html: <a href="/azure/site-recovery/tutorial-vmm-to-vmm-failover-failback">Fail over and fail back from a secondary VMM site</a>
-    - html: <a href="/azure/site-recovery/tutorial-migrate-on-premises-to-azure">Migrate on-premises machines to Azure</a>
-    - html: <a href="/azure/site-recovery/tutorial-migrate-aws-to-azure">Migrate AWS Windows instances to Azure</a>
+    - html: Azure to Azure
+    - html: VMware
+    - html: Migrate to Azure
 - title: Reference
   items:
   - type: list
