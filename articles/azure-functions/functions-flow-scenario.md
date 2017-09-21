@@ -1,5 +1,5 @@
 ---
-title: Call a function from Microsoft Flow | Microsoft Docs
+title: Call an Azure function from Microsoft Flow | Microsoft Docs
 description: Create a custom connector then call a function using that connector.
 services: functions
 keywords: cloud apps, cloud services, Microsoft Flow, business processes, business application

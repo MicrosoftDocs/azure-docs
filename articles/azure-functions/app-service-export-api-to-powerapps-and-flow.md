@@ -146,21 +146,21 @@ This section covers the authentication types that are supported in **Express** m
 ### API key
 When using an API key, the users of your connector are prompted to provide the key when they create a connection. You specify an API key name to help them understand which key is needed. In the earlier example, we use the name `API Key (contact meganb@contoso.com)` so people know where to get information about the API key. For Azure Functions, the key is typically one of the host keys, covering several functions within the function app.
 
-### Azure Active Directory (AAD)
-When using AAD, you need two AAD application registrations: one for the API itself, and one for the custom connector:
+### Azure Active Directory (Azure AD)
+When using Azure AD, you need two Azure AD application registrations: one for the API itself, and one for the custom connector:
 
 - To configure registration for the API, use the [App Service Authentication/Authorization](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md) feature.
 
-- To configure registration for the connector, follow the steps in [Adding an AAD application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#adding-an-application). The registration must have delegated access to your API and a reply URL of `https://msmanaged-na.consent.azure-apim.net/redirect`. 
+- To configure registration for the connector, follow the steps in [Adding an Azure AD application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#adding-an-application). The registration must have delegated access to your API and a reply URL of `https://msmanaged-na.consent.azure-apim.net/redirect`. 
 
-    For more information, see the AAD registration examples for [PowerApps](https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/) and [Microsoft Flow](https://flow.microsoft.com/documentation/customapi-azure-resource-manager-tutorial/). These examples use Azure Resource Manager as the API; substitute your API if you follow the steps.
+    For more information, see the Azure AD registration examples for [PowerApps](https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/) and [Microsoft Flow](https://flow.microsoft.com/documentation/customapi-azure-resource-manager-tutorial/). These examples use Azure Resource Manager as the API; substitute your API if you follow the steps.
 
 The following configuration values are required:
-- **Client ID** - the client ID of your connector AAD registration
-- **Client secret** - the client secret of your connector AAD registration
-- **Login URL** - the base URL for AAD. In Azure, this is typically `https://login.windows.net`.
+- **Client ID** - the client ID of your connector Azure AD registration
+- **Client secret** - the client secret of your connector Azure AD registration
+- **Login URL** - the base URL for Azure AD. In Azure, this is typically `https://login.windows.net`.
 - **Tenant ID** - the ID of the tenant to be used for the login. This should be "common" or the ID of the tenant in which the connector is created.
-- **Resource URL** - the resource URL of the AAD registration for your API
+- **Resource URL** - the resource URL of the Azure AD registration for your API
 
 > [!IMPORTANT]
 > If someone else will import the API definition into PowerApps and Microsoft Flow as part of the manual flow, you must provide them with the client ID and client secret of the *connector registration*, as well as the resource URL of your API. Make sure that these secrets are managed securely. **Do not share the security credentials of the API itself.**
