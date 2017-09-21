@@ -18,13 +18,13 @@ ms.date: 9/21/2017
 ms.author: sujie
 
 ---
-[Learn how to use Stream Analytics tools for Visual Studio](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-tools-for-visual-studio)
-
 # Introduction
 In this tutorial you will learn how to use the Stream Analytics Visual Studio tools to accomplish CI/CD process.
 
 The latest Stream Analytics tools for Visual Studio add the support for **MSBuild**. 
 There is also a newly released NuGet package [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/) that provides the MSBuild, local run and deployment tools that support the CI/CD process of Stream Analytics Visual Studio projects.
+
+[Learn how to use Stream Analytics tools for Visual Studio](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-tools-for-visual-studio)
 
 ## MSBuild
 Like the standard Visual Studio MSBuild experience, to build a project you can either right click on the project then choose **Build**, 
@@ -43,7 +43,8 @@ ARM parameters file.
 *       [ProjectName].JobTemplate.parameters.json   
 
 The default parameters in the parameters.json file are from the settings in your Visual Studio project. If you want to deploy to other environment, just simply replace the parameters accordingly. 
-> [!NOTE] For all the credentials, the default values are all set to null. They are **REQUIRED** to set before you deploy it to the cloud.
+> [!NOTE] 
+For all the credentials, the default values are all set to null. They are **REQUIRED** to set before you deploy it to the cloud.
 ```json
 "Input_EntryStream_sharedAccessPolicyKey": {
       "value": null
