@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/20/2017
+ms.date: 09/21/2017
 ms.author: raynew
 
 ---
@@ -35,8 +35,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 
 You need to have a few resources ready in Azure for the migrated EC2 instances to use. These include a storage account, a vault and a virtual network.
-> * Create an Azure storage account.
-> * Set an Azure network. When Azure VMs are created after failover, they're joined to this Azure network.
+- Create an Azure storage account.
+- Set an Azure network. When Azure VMs are created after failover, they're joined to this Azure network.
 
 ### Create a storage account
 
@@ -48,8 +48,9 @@ when you fail over from on-premises to Azure.
    **contosoawsmigrated**. The name must be unique within Azure, and be between 3 and 24
    characters, witn numbers and lowercase letters only.
 3. Use the **Resource Manager** deployment model.
-4. Select **General purpose** > **Standard**.
-5. Select the default **RA-GRS** for storage redundancy.
+4. Select **General purpose** as the **Account kind**.
+5. For **Performance**, select **Standard**.
+5. Select the default **RA-GRS** for **Replication**.
 6. Select the subscription in which you want to create the new storage account.
 7. Specify a new resource group. An Azure resource group is a logical container into which Azure
    resources are deployed and managed. For this tutorial use the name **migrateRG**.
@@ -58,8 +59,7 @@ when you fail over from on-premises to Azure.
 
 ### Create a vault
 
-1. Sign in to the [Azure portal](https://portal.azure.com) 
-2. In the left navigation, click **More services** and search for and select **Recovery Services vaults**.
+1. In the [Azure portal](https://portal.azure.com), in the left navigation, click **More services** and search for and select **Recovery Services vaults**.
 2. In the Recovery Services vaults page, click **+ Add** in the upper left of the page.
 3. For **Name**, type *myVault*. 
 4. For **Subscription**, select the appropriate subscription.
@@ -74,9 +74,8 @@ The new vault will appear on the **Dashboard** > **All resources**, and on the m
 
 When the Azure VMs are created from storage after the migration (failover), they're joined to this network.
 
-1. In the [Azure portal](https://portal.azure.com) menu, click **New** > **Networking** >
+1. In the [Azure portal](https://portal.azure.com), click **New** > **Networking** >
    **Virtual network**
-2. Leave **Resource Manager** selected as the deployment model. 
 3. For **Name**, type *myMigrationNetwork*.
 4. Leave the default value for **Adress space**.
 5. For **Subscription**, select the appropriate subscription.
@@ -102,38 +101,8 @@ on the local machine:
 	
 You also need a separate EC2 instance that you can use as the Site Recovery configuration server. This instance must be running Windows Server 2012 R2. 
 	
-## Create the configuration server
 
-Use an EC2 instance to create a configuration server and register it with your recovery vault.
-
-### Before you begin 
-
-Configure the proxy on the EC2 instance VM so that it can access the [Service URLs](site-recovery-support-matrix-to-azure.md#service-urls).
-
-Download the [Microsoft Azure Site Recovery Unified Setup](http://aka.ms/unifiedinstaller_wus) program. You can download it to your local machine and then copy it over to the VM.
-
-In the [Azure portal](https://portal.azure.com), go to **All resources** > *myVault* > **Properties** and click the **Download** button to download the **Backup Credentials**. Copy the downloaded file over the to VM to use as the **Site Recovery Registration Key**.
-
-### Install the configuration server
-
-On the VM, right-click installer you downloaded for the **Microsoft Azure Site Recovery Unified Setup** and select **Run as administrator**. 
-
-1. In **Before You Begin**, select **Install the configuration server and process server** and then click **Next**.
-2. In **Third Party Software Licesnse**, select **I accept the third party license agreement.** and then click **Next**.
-3. In **Registration**, click browse and navigate to where you put the **Backup Credentials** file and then click **Next**.
-4. In **Internet Settings**, select **Connect to Azure Site Recovery without a proxy server.** and then click **Next**.
-5. In the **Prerequisites Check** page, it will run checks for several items. When it is complete, click **Next**. 
-6. In **MySQL Configuration**, provide the required passwords and then click **Next**.
-7. In **Environment Details**, select **No** and then click **Next**.
-8. In **Install Location**, click **Next** to accept the default.
-9. In **Network Selection**, click **Next** to accept the default.
-10. In **Summary** click **Install**.
-11. **Installation Progress** will show you information about where you are in the installation process. When it is complete, click **Finish**. You may need to OK a reboot for the installation to complete. You might also get a pop-up about a passphrase, copy it to your clipbloard and save it somewhere safe.
-    
-On the VM, run **cspsconfigtool.exe** to create one or more management accounts on the configuration server. The management accounts need to have administrator permissions on the EC2 instances that you want to migrate. 
-
-
-## Prepare the infrastructure
+## Prepare the infrastructure 
 
 On the portal page for your vault, select **Site Recovery** from the **Getting Started** section and then click **Prepare Infrastructure**.
 
