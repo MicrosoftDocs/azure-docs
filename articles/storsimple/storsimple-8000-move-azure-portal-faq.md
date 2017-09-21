@@ -31,7 +31,6 @@ Questions and answers are arranged in the following categories:
 * Moving StorSimple Data Manager service 
 * Miscellaneous
 
-
 ## Moving StorSimple Device Manager service
 
 ### Can I create a StorSimple Manager in the old classic portal?
@@ -97,15 +96,17 @@ When you move your service to the Azure portal, your storage account is automati
 
 ### Can I migrate from one resource group to another?
 
+No. You cannot move a resource from one resource group to another. For instance, a StorSimple Device Manager created with a resource group cannot be moved to another resource group.
 
 ## Using Azure Resource Manager based cmdlets
 
-### Could you explain how to use the new Azure Resource Manager based SDK?
-
-
 ### I moved to the new Azure portal. Now my scripts based on Azure PowerShell cmdlets are not working? What do I need to do?
 
-The existing Azure Service Management (ASM) PowerShell cmdlets are not supported in the Azure portal. Update the scripts to manage your devices through the Azure Resource Manager.
+The existing Azure Service Management (ASM) PowerShell cmdlets are not supported in the Azure portal. Update the scripts to manage your devices through the Azure Resource Manager. For more information on updating your scripts, go to [Samples for the new Azure portal](https://github.com/anoobbacker/storsimpledevicemgmttools).
+
+### I just moved to the Azure portal and needed to roll over the service data encryption key. Where is this option in the Azure portal?
+
+The option to roll over the service data encyrption key is not in the Azure portal. You can however do the key rollover by running a [Windows PowerShell script](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Authorize-ServiceEncryptionRollover.ps1) in the Azure Resource Manager deployment model.
 
 ### If I am using Windows PowerShell for StorSimple cmdlets on the StorSimple device to extract a Support package, is that affected when I move to the new Azure portal?
 
