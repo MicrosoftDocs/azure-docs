@@ -4,17 +4,11 @@ description: How to summarize and analyze a large collection of documents, inclu
 services: machine-learning
 documentationcenter: ''
 author: kehuan
-manager: tihazen
-editor: kehuan
-
-ms.assetid: 
-ms.service: machine-learning
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 09/15/2017
 ms.author: kehuan
+ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.service: machine-learning
+ms.topic: article
+ms.date: 09/20/2017
 ---
 
 # Document Collection Analysis
@@ -59,7 +53,7 @@ The machine learning techniques/algorithms used in this scenario include:
 
 The prerequisites to run this example are as follows:
 
-* Make sure that you have properly installed [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) by following the [quick start installation guide](./quick-start-installation.md).
+* Make sure that you have properly installed [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) by following the [Install and create Quickstart](quickstart-installation.md).
 
 * This example could be run on any compute context. However, it is recommended to run it on a multi-core machine with at least of 16-GB memory and 5-GB disk space.
 
