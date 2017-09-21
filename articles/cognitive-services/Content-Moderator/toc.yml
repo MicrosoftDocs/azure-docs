@@ -75,6 +75,6 @@
   - name: Windows SDK
     href: https://github.com/MicrosoftContentModerator/Microsoft.CognitiveServices.ContentModerator-Windows/
   - name: Samples
-    href: https://azure.microsoft.com/resources/samples/?service=cognitive-services
+    href: https://github.com/MicrosoftContentModerator
   - name: FAQ
     href: FAQs.md
