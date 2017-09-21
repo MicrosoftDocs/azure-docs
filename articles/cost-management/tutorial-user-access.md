@@ -30,7 +30,7 @@ When you registered your Azure agreement or account, an account with admin permi
 
 ## Create a user with admin access
 
-Although you already have admin access, coworkers in your organization might also need to have admin access. In the Cloudyn portal, click **Settings** in the upper right and select **User Management**. Click **Add New User** to add a new user.
+Although you already have admin access, coworkers in your organization might also need to have admin access. In the Cloudyn portal, click the gear symbol in the upper right and select **User Management**. Click **Add New User** to add a new user.
 
 Enter required information about the user. You can leave the password field empty so that the user can set a new password on first sign in. A link with sign in information gets sent to the user by e-mail from Cloudyn when you select **Notify user by email**. Choose permissions to allow User Management so that the user can create and modify other users. Recipient Lists Management to allow the user to edit recipient lists.
 

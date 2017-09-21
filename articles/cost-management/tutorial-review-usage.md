@@ -15,7 +15,7 @@ manager: carmonm
 
 # Review usage and costs
 
-Cost Management by Cloudyn shows you usage and costs so that you can track trends, detect inefficiencies, and create alerts. All usage and cost data is displayed in Cloudyn dashboards and reports. The quickstart articles familiarized you with viewing cost data using dashboards and reports. The examples in this tutorial walk you though reviewing usage and costs in more depth. In this tutorial, you learn how to:
+Azure Cost Management by Cloudyn shows you usage and costs so that you can track trends, detect inefficiencies, and create alerts. All usage and cost data is displayed in Cloudyn dashboards and reports. The examples in this tutorial walk you though reviewing usage and costs using dashboards and reports. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Track usage and cost trends
@@ -68,7 +68,7 @@ Click the plus symbol next to **List of Candidates** to view VM instance IDs.
 
 ![List of Candidates](./media/tutorial-review-usage/sizing03.png)
 
-## Create alerts for unusual spending or overspending
+## Create alerts for unusual spending
 
 You can alert stakeholders automatically for spending anomalies and overspending risks. You can quickly and easily create alerts using reports that support alerts based on budget and cost thresholds.
 
