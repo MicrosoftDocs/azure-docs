@@ -68,7 +68,6 @@
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
-## [Big Compute resources](big-compute-resources.md)
 ## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
 ## [C# code samples](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)

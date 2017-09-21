@@ -51,18 +51,9 @@ Azure offers services that support your application development and hosting need
 
 When you want the quickest path to publish your web-based projects, consider Azure App Service. App Service makes it easy to extend your web apps to support your mobile clients and publish easily consumed REST APIs. This platform provides authentication by using social providers, traffic-based autoscaling, testing in production, and continuous and container-based deployments.
 
-When you create an app in App Service, you select one of the following types:
+You can create web apps, mobile app back ends, and API apps.
 
-- [Web Apps](../../app-service-web/app-service-web-overview.md):
-    Lets you host websites and web applications that are written in .NET, Java, PHP, Node.js, and Python.
-
-- [Mobile Apps](../../app-service-mobile/app-service-mobile-value-prop.md):
-    Extends Web Apps to support access from mobile devices. It enables authentication with social providers and Azure Active Directory (Azure AD), provides backend storage, and integrates with [Azure Notification Hubs](../../notification-hubs/notification-hubs-push-notification-overview.md) for push notifications.
-
-- [API Apps](../../app-service-api/app-service-api-apps-why-best-platform.md):
-    Lets you more securely expose your APIs in the cloud with Swagger metadata so that clients can easily consume them.
-
-Because all three app types share the App Service runtime, you can host a website, support mobile clients, and expose your APIs in Azure, all from the same project or solution. To learn more about App Service, see [How App Service Works](../../app-service/app-service-how-works-readme.md).
+Because all three app types share the App Service runtime, you can host a website, support mobile clients, and expose your APIs in Azure, all from the same project or solution. To learn more about App Service, see [What is Azure Web Apps](../../app-service/app-service-web-overview.md).
 
 App Service has been designed with DevOps in mind. It supports various tools for publishing and continuous integration deployments, including GitHub webhooks, Jenkins, Visual Studio Team Services, TeamCity, and others.
 
@@ -70,7 +61,7 @@ You can migrate your existing applications to App Service by using the [online m
 
 >**When to use**: Use App Service when you’re migrating existing web applications to Azure, and when you need a fully managed hosting platform for your web apps. You can also use App Service when you need to support mobile clients or expose REST APIs with your app.
 
->**Get started**: App Service makes it easy to create and deploy your first [web app](../../app-service-web/web-sites-dotnet-get-started.md), [mobile app](../../app-service-mobile/app-service-mobile-ios-get-started.md), or [API app](../../app-service-api/app-service-api-dotnet-get-started.md).
+>**Get started**: App Service makes it easy to create and deploy your first [web app](../../app-service/app-service-web-get-started-dotnet.md), [mobile app](../../app-service-mobile/app-service-mobile-ios-get-started.md), or [API app](../../app-service/app-service-web-tutorial-rest-api.md).
 
 >**Try it now**: App Service lets you provision a short-lived app to try the platform without having to sign up for an Azure account. Try the platform and [create your Azure App Service app](https://tryappservice.azure.com/).
 
@@ -196,7 +187,7 @@ Whether it's provisioning VMs or publishing your web apps with continuous integr
 
 >**Try it now:** [Try out several of the DevOps integrations](https://azure.microsoft.com/try/devops/).
 
->**Get started**: To see DevOps options for an App Service app, see [Continuous Deployment to Azure App Service](../../app-service-web/app-service-continuous-deployment.md).
+>**Get started**: To see DevOps options for an App Service app, see [Continuous Deployment to Azure App Service](../../app-service/app-service-continuous-deployment.md).
 
 
 ## Azure regions
