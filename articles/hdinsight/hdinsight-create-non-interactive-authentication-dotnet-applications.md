@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 09/21/2017
 ms.author: jgao
 
 ---
@@ -54,71 +54,71 @@ Assign your Azure AD application a [role](../active-directory/role-based-access-
 
 3. Run the following code:
 
-```csharp
-using System;
- using System.Security;
- using Microsoft.Azure;
- using Microsoft.Azure.Common.Authentication;
- using Microsoft.Azure.Common.Authentication.Factories;
- using Microsoft.Azure.Common.Authentication.Models;
- using Microsoft.Azure.Management.Resources;
- using Microsoft.Azure.Management.HDInsight;
-
- namespace CreateHDICluster
- {
-     internal class Program
-     {
-         private static HDInsightManagementClient _hdiManagementClient;
-
-         private static Guid SubscriptionId = new Guid("<Enter your Azure subscription ID>");
-         private static string tenantID = "<Enter your tenant ID (also called directory ID)>";
-         private static string applicationID = "<Enter your application ID>";
-         private static string secretKey = "<Enter the application secret key>";
-
-         private static void Main(string[] args)
-         {
-             var key = new SecureString();
-             foreach (char c in secretKey) { key.AppendChar(c); }
-
-             var tokenCreds = GetTokenCloudCredentials(tenantID, applicationID, key);
-             var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
-
-             var resourceManagementClient = new ResourceManagementClient(subCloudCredentials);
-             resourceManagementClient.Providers.Register("Microsoft.HDInsight");
-
-             _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
-
-             var results = _hdiManagementClient.Clusters.List();
-             foreach (var name in results.Clusters)
-             {
-                 Console.WriteLine("Cluster Name: " + name.Name);
-                 Console.WriteLine("\t Cluster type: " + name.Properties.ClusterDefinition.ClusterType);
-                 Console.WriteLine("\t Cluster location: " + name.Location);
-                 Console.WriteLine("\t Cluster version: " + name.Properties.ClusterVersion);
-             }
-             Console.WriteLine("Press Enter to continue");
-             Console.ReadLine();
-         }
-
-         /// Get the access token for a service principal and provided key.          
-         public static TokenCloudCredentials GetTokenCloudCredentials(string tenantId, string clientId, SecureString secretKey)
-         {
-             var authFactory = new AuthenticationFactory();
-             var account = new AzureAccount { Type = AzureAccount.AccountType.ServicePrincipal, Id = clientId };
-             var env = AzureEnvironment.PublicEnvironments[EnvironmentName.AzureCloud];
-             var accessToken =
-                 authFactory.Authenticate(account, env, tenantId, secretKey, ShowDialog.Never).AccessToken;
-
-             return new TokenCloudCredentials(accessToken);
-         }
-
-         public static SubscriptionCloudCredentials GetSubscriptionCloudCredentials(SubscriptionCloudCredentials creds, Guid subId)
-         {
-             return new TokenCloudCredentials(subId.ToString(), ((TokenCloudCredentials)creds).Token);
-         }
-     }
- }
-```
+    ```csharp
+    using System;
+    using System.Security;
+    using Microsoft.Azure;
+    using Microsoft.Azure.Common.Authentication;
+    using Microsoft.Azure.Common.Authentication.Factories;
+    using Microsoft.Azure.Common.Authentication.Models;
+    using Microsoft.Azure.Management.Resources;
+    using Microsoft.Azure.Management.HDInsight;
+    
+    namespace CreateHDICluster
+    {
+        internal class Program
+        {
+            private static HDInsightManagementClient _hdiManagementClient;
+    
+            private static Guid SubscriptionId = new Guid("<Enter your Azure subscription ID>");
+            private static string tenantID = "<Enter your tenant ID (also called directory ID)>";
+            private static string applicationID = "<Enter your application ID>";
+            private static string secretKey = "<Enter the application secret key>";
+    
+            private static void Main(string[] args)
+            {
+                var key = new SecureString();
+                foreach (char c in secretKey) { key.AppendChar(c); }
+    
+                var tokenCreds = GetTokenCloudCredentials(tenantID, applicationID, key);
+                var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
+    
+                var resourceManagementClient = new ResourceManagementClient(subCloudCredentials);
+                resourceManagementClient.Providers.Register("Microsoft.HDInsight");
+    
+                _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
+    
+                var results = _hdiManagementClient.Clusters.List();
+                foreach (var name in results.Clusters)
+                {
+                    Console.WriteLine("Cluster Name: " + name.Name);
+                    Console.WriteLine("\t Cluster type: " + name.Properties.ClusterDefinition.ClusterType);
+                    Console.WriteLine("\t Cluster location: " + name.Location);
+                    Console.WriteLine("\t Cluster version: " + name.Properties.ClusterVersion);
+                }
+                Console.WriteLine("Press Enter to continue");
+                Console.ReadLine();
+            }
+    
+            /// Get the access token for a service principal and provided key.          
+            public static TokenCloudCredentials GetTokenCloudCredentials(string tenantId, string clientId, SecureString secretKey)
+            {
+                var authFactory = new AuthenticationFactory();
+                var account = new AzureAccount { Type = AzureAccount.AccountType.ServicePrincipal, Id = clientId };
+                var env = AzureEnvironment.PublicEnvironments[EnvironmentName.AzureCloud];
+                var accessToken =
+                    authFactory.Authenticate(account, env, tenantId, secretKey, ShowDialog.Never).AccessToken;
+    
+                return new TokenCloudCredentials(accessToken);
+            }
+    
+            public static SubscriptionCloudCredentials GetSubscriptionCloudCredentials(SubscriptionCloudCredentials creds, Guid subId)
+            {
+                return new TokenCloudCredentials(subId.ToString(), ((TokenCloudCredentials)creds).Token);
+            }
+        }
+    }
+    ```
 
 
 ## Next steps
