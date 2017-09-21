@@ -75,7 +75,7 @@ The hello\_world\_sample process takes the path to a JSON configuration file a c
 1. Run the following command:
 
     ```sh
-    ./samples/hello_world/hello_world_sample ../samples/hello_world/src/hello_world_lin.json`
+    ./samples/hello_world/hello_world_sample ../samples/hello_world/src/hello_world_lin.json
     ```
 
 [!INCLUDE [iot-hub-iot-edge-getstarted-code](../../includes/iot-hub-iot-edge-getstarted-code.md)]
