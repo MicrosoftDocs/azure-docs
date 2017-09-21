@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial, azure
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 09/21/2017
 ---
 
 # Bike-share tutorial: Advanced data preparation with Azure Machine Learning Workbench
@@ -653,7 +653,6 @@ You have completed the Bike-share Data Preparation tutorial. In this tutorial, y
 > * Generate a training dataset by reusing the Data Preparation package for additional input files
 
 ## Next steps
-Follow the three part tutorial based on the Iris dataset to better understand Azure Machine Learning services (preview):
-- [Part 1: Prepare data](tutorial-classifying-iris-part-1.md)
-- [Part 2: Model building](tutorial-classifying-iris-part-2.md)
-- [Part 3: Model deployment](tutorial-classifying-iris-part-3.md)
+Learn more about data preparation:
+> [!div class="nextstepaction"]
+> [Data preparation user guide](data-prep-user-guide.md)
