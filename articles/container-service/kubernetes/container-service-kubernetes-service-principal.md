@@ -56,9 +56,9 @@ az login
 
 az account set --subscription "mySubscriptionID"
 
-az group create -n "myResourceGroupName" -l "westus"
+az group create --name "myResourceGroup" --location "westus"
 
-az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID/resourceGroups/myResourceGroupName"
+az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID"
 ```
 
 Output is similar to the following (shown here redacted):
