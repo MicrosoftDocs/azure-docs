@@ -9,23 +9,23 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 09/20/2017
 ---
-# Deploying a machine learning model as a web service
+# Deploying a Machine Learning Model as a web service
 
-Azure Machine Learning model management provides interfaces to deploy models as REST API web services. You can deploy models you create using frameworks such as Spark, the Microsoft Cognitive Toolkit (CNTK), Keras, Tensorflow, and Python. 
+Azure Machine Learning Model Management provides interfaces to deploy models as containerized Docker-based web services. You can deploy models you create using frameworks such as Spark, the Microsoft Cognitive Toolkit (CNTK), Keras, Tensorflow, and Python. 
 
-This document covers the steps to deploy your models as web services using the Azure Machine Learning model management command-line interface (CLI)." 
+This document covers the steps to deploy your models as web services using the Azure Machine Learning Model Management command-line interface (CLI).
 
 ## Deploying web services
 Using the CLIs, you can deploy web services to run on the local machine or on a cluster.
 
-We recommend starting with a local deployment. You first validate that your model and code work, then deploy the web service to a cluster for production-scale use. For more info on setting up your environment for cluster deployment, see [this document](model-management-configuration.md). 
+We recommend starting with a local deployment. You first validate that your model and code work, then deploy the web service to a cluster for production-scale use. For more info on setting up your environment for cluster deployment, see [Model Management configuration](model-management-configuration.md). 
 
 The following are the deployment steps:
 1. Use your saved, trained, Machine Learning model
 2. Create a schema for your web service's input and output data
-3. Create an image
+3. Create an Docker-based container image
 4. Create and deploy the web service
 
 ### 1. Save your model
@@ -181,4 +181,4 @@ az ml service run realtime -i <service id> -d "{\"input_df\": [{\"sepal length\"
 ```
 
 ## Next steps
-Now that you have tested your web service to run locally, you can deploy it to a cluster for large-scale use. For details on setting up a cluster for web service deployment, see [this document](model-management-configuration.md). 
+Now that you have tested your web service to run locally, you can deploy it to a cluster for large-scale use. For details on setting up a cluster for web service deployment, see [Model Management Configuration](model-management-configuration.md). 
