@@ -48,7 +48,7 @@ Log in to the Azure portal at http://portal.azure.com.
 After the replication job has finished, you can check the replication status, modify replication settings
 settings, and test the deployment. 
 
-1. In the VM menu, click **Disaster recovery (preview)** .
+1. In the VM menu, click **Disaster recovery (preview)**.
 2. You can verify replication health, recovery points that have been created, and source and target regions on the map. 
 
    ![Replication status](media/azure-to-azure-quickstart/replication-status.png)
@@ -67,7 +67,7 @@ Stop replication as follows:
 2. In **Disaster recovery (preview)**, click **More**.
 3. Click **Disable Replication**.
 
-   ![Disable replication](media/azure-to-azure-quickstart/disable-replication.png)
+   ![Disable replication](media/azure-to-azure-quickstart/disable-replication2.png)
 
 ## Next steps
 
