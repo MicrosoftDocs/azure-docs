@@ -3,12 +3,11 @@ title: Distributed Tuning of Hyperparameters using Azure Machine Learning Workbe
 description: This scenario shows how to do distributed tuning of hyperparameters using Azure Machine Learning Workbench
 services: machine-learning
 author: pechyony
-
 ms.service: machine-learning
 ms.topic: article
-ms.date: 09/13/2017
 ms.author: dmpechyo
-
+ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.date: 09/20/2017
 ---
 
 # Distributed tuning of hyperparameters using Azure Machine Learning Workbench
@@ -31,7 +30,7 @@ Grid search using cross-validation can be time-consuming. If an algorithm has 5 
 ## Prerequisites
 
 * An [Azure account](https://azure.microsoft.com/free/) (free trials are available).
-* An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) following the [quick start installation guide](./quickstart-installation.md) to install the program and create a workspace.
+* An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) following the [Install and create Quickstart](./quickstart-installation.md) to install the Workbench and create accounts.
 * This scenario assumes that you are running Azure ML Workbench on Windows 10 or MacOS with Docker engine locally installed. 
 * To run the scenario with a remote Docker container, provision Ubuntu Data Science Virtual Machine (DSVM) by following the [instructions](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-provision-vm). We recommend using a virtual machine with at least 8 cores and 28 Gb of memory. D4 instances of virtual machines have such capacity. 
 * To run this scenario with a Spark cluster, provision HDInsight cluster by following the [instructions](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). We recommend having a cluster with at least six worker nodes and at least 8 cores and 28 Gb of memory in both header and worker nodes. D4 instances of virtual machines have such capacity. To maximize performance of the cluster, we recommend to change the parameters spark.executor.instances, spark.executor.cores, and spark.executor.memory by following the [instructions](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-resource-manager) and editing the definitions in "custom spark defaults" section.
@@ -48,7 +47,7 @@ We use [TalkingData dataset](https://www.kaggle.com/c/talkingdata-mobile-user-de
 This scenario has multiple folders in GitHub repository. Code and configuration files are in **Code** folder, all documentation is in **Docs** folder and all images are **Images** folder. The root folder has README file that contains a brief summary of this scenario.
 
 ### Getting started
-Click on the Azure Machine Learning Workbench icon to run Azure Machine Learning Workbench and create a project from the  "Distributed Tuning of Hyperparameters" template. You can find detailed instructions on how to create a new project in [Quick Start Tutorial](./quick-start-iris.md).   
+Click on the Azure Machine Learning Workbench icon to run Azure Machine Learning Workbench and create a project from the  "Distributed Tuning of Hyperparameters" template. You can find detailed instructions on how to create a new project in [Install and create Quickstart](quickstart-installation.md).   
 
 ### Configuration of execution environments
 We show how to run our code in a remote Docker container and in a Spark cluster. We start with the description of the settings that are common to both environments. 
