@@ -245,7 +245,7 @@ You have authored linked service and pipeline definitions in JSON files. Now, le
 1. Start a pipeline run. It also captures the pipeline run ID for future monitoring.
 
     ```powershell
-    $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName  -Parameters @{ dummy = "b"}
+    $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName  
     ```
 2. Run the following script to continuously check the pipeline run status until it finishes.
 
