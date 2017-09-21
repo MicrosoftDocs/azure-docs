@@ -38,7 +38,7 @@ This quickstart describes how to use Python to create an Azure data factory. The
 
 ## Install the Python package
 
-1.	Download the Azure Data Factory Python file into a directory where you’ll run your project.
+1.	Download the [Azure Data Factory Python file](https://go.microsoft.com/fwlink/?linkid=859015) into a directory where you’ll run your project.
 2.	Open a terminal or command prompt with administrator privileges. 
 3.	To install the package, run the following commands:
 
