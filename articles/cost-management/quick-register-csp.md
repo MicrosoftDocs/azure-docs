@@ -24,17 +24,14 @@ To complete registration, you must be a partner program administrator with acces
 
 - Log in to the Azure portal at http://portal.azure.com.
 
-## Access Cloudyn from Cost Management + Billing
+## Create a trial registration
 
 1. In the Azure portal, click **Cost Management + Billing** in the list of services.
 2. Under **Overview**, click **Cost Management**  
     ![Marketplace symbol](./media/quick-register-csp/cost-mgt-billing-service.png)
 3. On the **Cost Management** page, **Go to Cloudyn** to open the Cloudyn registration page in a new window.
-
-
-## Create a trial registration
-1. On the Cloudyn portal trial registration page, type your company name and then select **Cloud Service Provider (CSP)**.  
-2. Enter your **Client ID**, **Tenant ID/Microsoft ID**, **Client Secret**, and select **Rate ID**. If you don't have the information handy, sign in to the Partner Center portal at  [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com) with your primary administrator account and do the following steps:
+4. On the Cloudyn portal trial registration page, type your company name and then select **Cloud Service Provider (CSP)**.  
+5. Enter your **Client ID**, **Tenant ID/Microsoft ID**, **Client Secret**, and select **Rate ID**. If you don't have the information handy, sign in to the Partner Center portal at  [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com) with your primary administrator account and do the following steps:
   1. Go to **Dashboard** > **Account Settings** > **App Management**.
   2. If you have previously created a Web App, skip this step. Otherwise, click **Add new web app** in the **Web App** section.
   3. Copy the **Commerce ID** GUID from your web application, which is the Client ID.
@@ -42,15 +39,15 @@ To complete registration, you must be a partner program administrator with acces
     ![CSP Partner Center](./media/quick-register-csp/csp-partner-center.png)
   5. Go back to the registration page and paste the information.  
       ![CSP account credentials](./media/quick-register-csp/csp-reg.png)
-3. Agree to the Terms of Use then validate your information. Click **Next** to authorize Cloudyn to collect Azure resource data. Data collected includes usage, performance, billing, and tag data from your subscriptions.  
-4. Under **Invite other stakeholders**, you can add users by typing their email addresses. When complete, click **Next**. It takes about two hours for all your billing data to get added to Cloudyn.
-5. Click **Go to Cloudyn** to open the Cloudyn portal and then on the **Cloud Accounts Management** page, you should see your registered CSP account information.
+6. Agree to the Terms of Use then validate your information. Click **Next** to authorize Cloudyn to collect Azure resource data. Data collected includes usage, performance, billing, and tag data from your subscriptions.  
+7. Under **Invite other stakeholders**, you can add users by typing their email addresses. When complete, click **Next**. It takes about two hours for all your billing data to get added to Cloudyn.
+8. Click **Go to Cloudyn** to open the Cloudyn portal and then on the **Cloud Accounts Management** page, you should see your registered CSP account information.
 
 [!INCLUDE [cost-management-create-account-view-data](../../includes/cost-management-create-account-view-data.md)]
 
 ## Next steps
 
-In this quick start, you used your CSP information to register with Cost Management. You also signed into the Cloudyn portal and started viewing cost data. To learn more about Azure Cost Management by Cloudyn, continue to the tutorial for Cost Management.
+In this quickstart, you used your CSP information to register with Cost Management. You also signed into the Cloudyn portal and started viewing cost data. To learn more about Azure Cost Management by Cloudyn, continue to the tutorial for Cost Management.
 
 > [!div class="nextstepaction"]
 > [View cost data](./tutorial-review-usage.md)
