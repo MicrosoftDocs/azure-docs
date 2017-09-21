@@ -191,7 +191,7 @@ Azure Machine Learning (AzureML) provides easy to use tools for the creation and
 
 For more information on creating retraining web services in AzureML, see [Retrain Machine Learning models programmatically](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-retrain-models-programmatically).
 
-For more information about automating the model training process using Azure Data Factory, see [Updating Azure Machine Learning models using Update Resource Activity](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-azure-ml-update-resource-activity).
+For more information about automating the model training process using Azure Data Factory, see [Updating Azure Machine Learning models using Update Resource Activity](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-azure-ml-update-resource-activity).
 
 ## Existing documentation
 [Microsoft Azure Certified to grow your cloud business](https://azure.microsoft.com/en-us/marketplace/programs/certified/)
