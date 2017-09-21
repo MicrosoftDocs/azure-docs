@@ -5,6 +5,9 @@
 # Tutorials
 ## [Find run-time exceptions](app-insights-tutorial-runtime-exceptions.md)
 ## [Find performance issues](app-insights-tutorial-performance.md)
+## [Alert on application health](app-insights-tutorial-alert.md)
+## [Understand users](app-insights-tutorial-users.md)
+## [Create custom dashboards](app-insights-tutorial-dashboards.md)
 
 # Concepts
 ## Monitor Azure

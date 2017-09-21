@@ -5,7 +5,7 @@ services: application-insights
 keywords:
 author: bwren
 ms.author: bwren
-ms.date: 09/18/2017
+ms.date: 09/19/2017
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: article
@@ -34,24 +34,29 @@ To complete this tutorial:
 	- Azure development
 - Download and install the [Visual Studio Snapshot Debugger](http://aka.ms/snapshotdebugger).
 - Deploy a .NET application to Azure and [enable the Application Insights SDK](app-insights-asp-net.md). 
+- The tutorial tracks the identification of an exception in your application, so modify your code in your development or test environment to generate an exception. 
+
+## Log in to Azure
+Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+
 
 ## Analyze failures
 Application Insights collects any failures in your application and lets you view their frequency across different operations to help you focus your efforts on those with the highest impact.  You can then drill down on details of these failures to identify root cause.   
 
-1. Sign in to the Azure portal, select **Application Insights**, and then select your subscription.  
-1. To open the **Failures** blade either select **Failures** under the **Investigate** menu or click the **Failed requests** graph.
+1. Select **Application Insights** and then your subscription.  
+1. To open the **Failures** panel either select **Failures** under the **Investigate** menu or click the **Failed requests** graph.
 
 	![Failed requests](media/app-insights-tutorial-runtime-exceptions/failed-requests.png)
 
-2. The **Failed requests** blade shows the count of failed requests and the number of users affected for each operation for the application.  By sorting this information by user you can identify those failures that most impact users.  In this example, the **GET Employees/Create** and **GET Customers/Details** are likely candidates to investigate because of their large number of failures and impacted users.  Selecting an operation shows further information about this operation in the right blade.
+2. The **Failed requests** panel shows the count of failed requests and the number of users affected for each operation for the application.  By sorting this information by user you can identify those failures that most impact users.  In this example, the **GET Employees/Create** and **GET Customers/Details** are likely candidates to investigate because of their large number of failures and impacted users.  Selecting an operation shows further information about this operation in the right panel.
 
-	![Failed requests blade](media/app-insights-tutorial-runtime-exceptions/failed-requests-blade.png)
+	![Failed requests panel](media/app-insights-tutorial-runtime-exceptions/failed-requests-blade.png)
 
 3. Reduce the time window to zoom in on the period where the failure rate shows a spike.
 
 	![Failed requests window](media/app-insights-tutorial-runtime-exceptions/failed-requests-window.png)
 
-4. Click **View Details** to see the details for the operation.  This includes a Gannt chart that shows two failed dependencies which collectively took almost half of a second to complete.  You can find out more about analyzing performance issues by completing the tutorial [Find and diagnose performance issues with Azure Application Insights](app-insights-tutorial-performance.md).
+4. Click **View Details** to see the details for the operation.  This includes a Gantt chart that shows two failed dependencies which collectively took almost half of a second to complete.  You can find out more about analyzing performance issues by completing the tutorial [Find and diagnose performance issues with Azure Application Insights](app-insights-tutorial-performance.md).
 
 	![Failed requests details](media/app-insights-tutorial-runtime-exceptions/failed-requests-details.png)
 
@@ -65,7 +70,7 @@ Application Insights collects any failures in your application and lets you view
 The Snapshot Debugger collects snapshots of the most frequent exceptions in your application to assist you in diagnosing its root cause in production.  You can view debug snapshots in the portal to see the call stack and inspect variables at each call stack frame. You can then debug the source code by downloading the snapshot and opening it in Visual Studio 2017.
 
 1. In the properties of the exception, click **Open debug snapshot**.
-2. The **Debug Snapshot** blade opens with the call stack for the request.  Click any method to view the values of all local variables at the time of the request.  Starting from the top method in this example, we can see local variables that have no value.
+2. The **Debug Snapshot** panel opens with the call stack for the request.  Click any method to view the values of all local variables at the time of the request.  Starting from the top method in this example, we can see local variables that have no value.
 
 	![Debug snapshot](media/app-insights-tutorial-runtime-exceptions/debug-snapshot-01.png)
 
@@ -92,9 +97,9 @@ All data collected by Application Insights is stored in Azure Log Analytics, whi
 ## Add work item
 If you connect Application Insights to a tracking system such as Visual Studio Team Services or GitHub, you can create a work item directly from Application Insights.
 
-1. Return to the **Exception Properties** blade in Application Insights.
+1. Return to the **Exception Properties** panel in Application Insights.
 2. Click **New Work Item**.
-3. The **New Work Item** blade opens with details about the exception already populated.  You can add any additional information before saving it.
+3. The **New Work Item** panel opens with details about the exception already populated.  You can add any additional information before saving it.
 
 	![New Work Item](media/app-insights-tutorial-runtime-exceptions/new-work-item.png)
 
