@@ -9,7 +9,7 @@ editor: seanli1988
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 09/20/2017
+ms.date: 09/22/2017
 ---
 
 # Azure Database for MySQL: Use MySQL Workbench to connect and query data

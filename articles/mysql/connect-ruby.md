@@ -10,7 +10,7 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 09/20/2017
+ms.date: 09/22/2017
 ---
 
 # Azure Database for MySQL: Use Ruby to connect and query data

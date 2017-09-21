@@ -10,7 +10,7 @@ ms.service: MySQL
 ms.custom: mvc
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 09/20/2017
+ms.date: 09/22/2017
 ---
 
 # Azure Database for MySQL: Use .NET (C#) to connect and query data
@@ -37,7 +37,7 @@ Get the connection information needed to connect to the Azure Database for MySQL
 5. If you forget your server login information, navigate to the **Overview** page to view the Server admin login name, and if necessary reset the password.
 
 ## Connect, create table, and insert data
-Use the following code to connect and load the data by using **CREATE TABLE** and  **INSERT INTO** SQL statements. The code uses ODBC class with method [Open()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) to establish a connection to MySQL. Then the code uses method [CreateCommand()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx), sets the CommandText property, and calls method [ExecuteNonQuery()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbccommand.executenonquery(v=vs.110).aspx) to run the database commands. 
+Use the following code to connect and load the data by using **CREATE TABLE** and  **INSERT INTO** SQL statements. The code uses ODBC class with method [Open()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) to establish a connection to MySQL. Then the code uses method [CreateCommand()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx), sets the CommandText property, and calls method [ExecuteNonQuery()](https://msdn.microsoft.com/library/system.data.odbc.odbccommand.executenonquery(v=vs.110).aspx) to run the database commands. 
 
 Replace the Host, DBName, User, and Password parameters with the values that you specified when you created the server and database. 
 
@@ -98,7 +98,7 @@ namespace driver
 
 ## Read data
 
-Use the following code to connect and read the data by using a **SELECT** SQL statement. The code uses ODBC class with method [Open()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) to establish a connection to MySQL. Then the code uses method [CreateCommand()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx) and method [ExecuteReader()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbccommand.executereader(v=vs.110).aspx) to run the database commands. Next the code uses [Read()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcdatareader.read(v=vs.110).aspx) to advance to the records in the results. Then the code uses GetInt32 and GetString to parse the values in the record.
+Use the following code to connect and read the data by using a **SELECT** SQL statement. The code uses ODBC class with method [Open()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) to establish a connection to MySQL. Then the code uses method [CreateCommand()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx) and method [ExecuteReader()](https://msdn.microsoft.com/library/system.data.odbc.odbccommand.executereader(v=vs.110).aspx) to run the database commands. Next the code uses [Read()](https://msdn.microsoft.com/library/system.data.odbc.odbcdatareader.read(v=vs.110).aspx) to advance to the records in the results. Then the code uses GetInt32 and GetString to parse the values in the record.
 
 Replace the Host, DBName, User, and Password parameters with the values that you specified when you created the server and database. 
 
@@ -154,7 +154,7 @@ namespace driver
 ```
 
 ## Update data
-Use the following code to connect and read the data by using an **UPDATE** SQL statement. The code uses ODBC class with method [Open()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) to establish a connection to MySQL. Then the code uses method [CreateCommand()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx), sets the CommandText property, and calls method [ExecuteNonQuery()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbccommand.executenonquery(v=vs.110).aspx) to run the database commands.
+Use the following code to connect and read the data by using an **UPDATE** SQL statement. The code uses ODBC class with method [Open()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) to establish a connection to MySQL. Then the code uses method [CreateCommand()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx), sets the CommandText property, and calls method [ExecuteNonQuery()](https://msdn.microsoft.com/library/system.data.odbc.odbccommand.executenonquery(v=vs.110).aspx) to run the database commands.
 
 Replace the Host, DBName, User, and Password parameters with the values that you specified when you created the server and database. 
 
@@ -205,7 +205,7 @@ namespace driver
 ## Delete data
 Use the following code to connect and delete the data by using a **DELETE** SQL statement. 
 
-The code uses ODBC class with method [Open()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) to establish a connection to MySQL. Then the code uses method [CreateCommand()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx), sets the CommandText property, and calls method [ExecuteNonQuery()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbccommand.executenonquery(v=vs.110).aspx) to run the database commands.
+The code uses ODBC class with method [Open()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) to establish a connection to MySQL. Then the code uses method [CreateCommand()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx), sets the CommandText property, and calls method [ExecuteNonQuery()](https://msdn.microsoft.com/library/system.data.odbc.odbccommand.executenonquery(v=vs.110).aspx) to run the database commands.
 
 Replace the Host, DBName, User, and Password parameters with the values that you specified when you created the server and database. 
 
