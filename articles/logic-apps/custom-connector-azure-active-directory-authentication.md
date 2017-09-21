@@ -165,10 +165,10 @@ You need this ID for later use.
 In the app's **Settings** menu, choose **Reply URLs**. 
 Enter this URL, then choose **Save**.
 
-   | Setting | Suggested value | Description | 
-   | ------- | --------------- | ----------- | 
-   | **Reply URLs** | For the Azure Resource Manager custom connector, enter this URL: `https://msmanaged-na.consent.azure-apim.net/redirect` | | 
-   |||| 
+   | Setting | Suggested value | 
+   | ------- | --------------- | 
+   | **Reply URLs** | For the Azure Resource Manager custom connector, enter this URL: `https://msmanaged-na.consent.azure-apim.net/redirect` | 
+   ||| 
 
    > [!TIP]
    > If the **Settings** menu didn't previously appear, 
@@ -185,7 +185,7 @@ Enter this URL, then choose **Save**.
 
    ![Select an API](./media/custom-connector-azure-active-directory-authentication/add-api-access2-select-api.png)
 
-6. On the **Add API access** menu, choose **Select permissions**. 
+8. On the **Add API access** menu, choose **Select permissions**. 
 Under **Delegated permissions**, choose **Access Azure Service Management as organization users** > **Select**.
 
    ![Choose "Delegated permissions" > "Access Azure Services Management as organization users"](./media/custom-connector-azure-active-directory-authentication/add-api-access3-select-permissions.png)
@@ -197,24 +197,24 @@ Under **Delegated permissions**, choose **Access Azure Service Management as org
    | **Delegated permissions** | | Select permissions for delegated access to your Web API | 
    |||| 
 
-7. Now on the **Add API access** menu, choose **Done**.
+9. Now on the **Add API access** menu, choose **Done**.
 
    !["Add API access" menu > "Done"](./media/custom-connector-azure-active-directory-authentication/add-api-access4-done.png)
 
-8. Now generate a *client key*, or "secret", for your connector's Azure AD app. 
+10. Now generate a *client key*, or "secret", for your connector's Azure AD app. 
 
-   1. Back on the **Settings** menu, choose **Keys**. 
-   Provide a name for your key with 16 or fewer characters, 
-   select an expiration period, and then choose **Save**.
+    1. Back on the **Settings** menu, choose **Keys**. 
+    Provide a name for your key with 16 or fewer characters, 
+    select an expiration period, and then choose **Save**.
 
-      ![Create a client key](./media/custom-connector-azure-active-directory-authentication/add-key.png)
+       ![Create a client key](./media/custom-connector-azure-active-directory-authentication/add-key.png)
 
-   2. When your generated key appears, **make sure that you copy 
-   and save this key somewhere safe** before you leave the **Keys** page.
+    2. When your generated key appears, **make sure that you copy 
+    and save this key somewhere safe** before you leave the **Keys** page.
     
-      ![Manually copy and save your key](./media/custom-connector-azure-active-directory-authentication/save-key.png)
+       ![Manually copy and save your key](./media/custom-connector-azure-active-directory-authentication/save-key.png)
 
-9. After saving your key, you can safely close the **Settings** menu.
+11. After saving your key, you can safely close the **Settings** menu.
 
 ## 3. Add Azure AD authentication to your Web API app
 
@@ -250,7 +250,7 @@ find your Web API app that you previously published in
 
    ![Choose the Azure AD app that represents your Web API app](./media/custom-connector-azure-active-directory-authentication/web-api-app-select-azure-ad-app.png)
 
-6. On the **Authentication / Authorization** page, 
+4. On the **Authentication / Authorization** page, 
 choose **Save**.
 
    ![Save authentication settings](./media/custom-connector-azure-active-directory-authentication/web-api-app-azure-ad-app-save.png)
