@@ -42,7 +42,7 @@ In this example Grafana, ElasticSearch, and Logstash are configured on an Ubuntu
 
 ### Install Logstash
 
-We use Logstash to flatten the JSON formatted flow logs to a flow tuple level.
+You use Logstash to flatten the JSON formatted flow logs to a flow tuple level.
 
 1. To install Logstash run the following commands:
 
@@ -190,6 +190,8 @@ Now that you have successfully configured Grafana to read from the ElasticSearch
 ![Dashboard graph](./media/nsg-networkwatcher-grafana/nsg-networkwatcher-grafana-fig3.png)
 
 The following screenshot depicts a graph and chart showing the top flows and their frequency. Flows are also shown by NSG rule and flows by decision. Grafana is highly customizable so it's advisable that you create dashboards to suit your specific monitoring needs.
+
+![Dashboard graph](./media/nsg-networkwatcher-grafana/nsg-networkwatcher-grafana-fig4.png)
 
 ## Conclusion
 
