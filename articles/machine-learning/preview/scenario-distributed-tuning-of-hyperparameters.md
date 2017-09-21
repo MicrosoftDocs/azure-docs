@@ -3,12 +3,11 @@ title: Distributed Tuning of Hyperparameters using Azure Machine Learning Workbe
 description: This scenario shows how to do distributed tuning of hyperparameters using Azure Machine Learning Workbench
 services: machine-learning
 author: pechyony
-
 ms.service: machine-learning
 ms.topic: article
-ms.date: 09/13/2017
 ms.author: dmpechyo
-
+ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.date: 09/20/2017
 ---
 
 # Distributed tuning of hyperparameters using Azure Machine Learning Workbench
@@ -48,7 +47,7 @@ We use [TalkingData dataset](https://www.kaggle.com/c/talkingdata-mobile-user-de
 This scenario has multiple folders in GitHub repository. Code and configuration files are in **Code** folder, all documentation is in **Docs** folder and all images are **Images** folder. The root folder has README file that contains a brief summary of this scenario.
 
 ### Getting started
-Click on the Azure Machine Learning Workbench icon to run Azure Machine Learning Workbench and create a project from the  "Distributed Tuning of Hyperparameters" template. You can find detailed instructions on how to create a new project in [Quick Start Tutorial](./quick-start-iris.md).   
+Click on the Azure Machine Learning Workbench icon to run Azure Machine Learning Workbench and create a project from the  "Distributed Tuning of Hyperparameters" template. You can find detailed instructions on how to create a new project in [Install and create Quickstart](quickstart-installation.md).   
 
 ### Configuration of execution environments
 We show how to run our code in a remote Docker container and in a Spark cluster. We start with the description of the settings that are common to both environments. 
