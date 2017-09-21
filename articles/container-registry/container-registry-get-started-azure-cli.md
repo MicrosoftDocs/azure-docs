@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2017
+ms.date: 09/20/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
 ---
@@ -40,14 +40,7 @@ az group create --name myResourceGroup --location eastus
 
 ## Create a container registry
 
-Azure Container Registry is available in several different SKUs. When deploying an ACR instance, choose a SKU that matches your image management needs. In this quickstart, we select Basic due to its availability in all regions.
-
-| SKU | Description | Notes |
-|---|---|---|
-| Basic | Limited capability and images stored in an Azure storage account. | Available in all regions. |
-| Managed_Basic | Advanced capabilities such as managed storage and Webhooks. | Preview in limited regions. |
-| Managed_Standard | Advanced capabilities such as managed storage and Webhooks. | Preview in limited regions. |
-| Managed_Premium | Advanced capabilities such as managed storage and Webhooks. | Preview in limited regions. |
+Azure Container Registry is available in several SKUs: `Basic`, `Managed_Basic`, `Managed_Standard`, and `Managed_Premium`. Although the `Managed_*` SKUs provide advanced capabilities like managed storage and Webhooks, they're currently in preview, and are unavailable in some Azure regions. We select the `Basic` SKU in this quickstart due to its availability in all regions.
 
 Create an ACR instance using the [az acr create](/cli/azure/acr#create) command.
 
