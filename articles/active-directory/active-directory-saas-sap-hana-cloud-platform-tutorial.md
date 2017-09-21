@@ -157,27 +157,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     ![Trust](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/ic790800.png "Trust")
 
-8. In trust management section, perform the following steps:
-   
-    ![Get Metadata](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/ic793930.png "Get Metadata")
-   
-    a. Click the **Local Service Provider** tab.
- 
-    b. To download the SAP Cloud Platform metadata file, click **Get Metadata**.
+8. In the Trust Management section, under **Local Service Provider**, perform the following steps:
 
-    c. Open the downloaded SAP Cloud Platform metadata file, and then locate the **ns3:AssertionConsumerService** tag.
- 
-    d. Copy the value of the **Location** attribute, and then paste it into the **SAP Cloud Platform Reply URL** textbox.
-
-9. On the SAP Cloud Platform Cockpit, in the **Local Service Provider** section, perform the following steps:
-   
     ![Trust Management](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/ic793931.png "Trust Management")
    
     a. Click **Edit**.
 
     b. As **Configuration Type**, select **Custom**.
 
-    c. As **Local Provider Name**, leave the default value.
+    c. As **Local Provider Name**, leave the default value. Copy this value and paste it into the **Identifier** field in the Azure AD configuration for SAP Cloud Platform.
 
     d. To generate a **Signing Key** and a **Signing Certificate** key pair, click **Generate Key Pair**.
 
@@ -186,6 +174,16 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     f. As **Force Authentication**, select **Disabled**.
 
     g. Click **Save**.
+
+9. After saving the **Local Service Provider** settings, perform the following to obtain the Reply URL:
+   
+    ![Get Metadata](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/ic793930.png "Get Metadata")
+
+    a. Download the SAP Cloud Platform metadata file by clicking **Get Metadata**.
+
+    b. Open the downloaded SAP Cloud Platform metadata XML file, and then locate the **ns3:AssertionConsumerService** tag.
+ 
+    c. Copy the value of the **Location** attribute, and then paste it into the **Reply URL** field in the Azure AD configuration for SAP Cloud Platform.
 
 10. Click the **Trusted Identity Provider** tab, and then click **Add Trusted Identity Provider**.
    
