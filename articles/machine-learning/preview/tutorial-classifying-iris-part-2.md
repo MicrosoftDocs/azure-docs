@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 09/15/2017
+ms.date: 09/21/2017
 ---
 
 # Classifying Iris part 2: Build a model
@@ -361,4 +361,5 @@ This tutorial is part two of a three part series. In this tutorial, you have lea
 Now that we have created the Logistic Regression model, let's deploy it as a real-time web service.
 
 ## Next Steps
-- [Part 3: Model deployment](tutorial-classifying-iris-part-3.md)
+> [!div class="nextstepaction"]
+> [Part 3: Model deployment](tutorial-classifying-iris-part-3.md)
