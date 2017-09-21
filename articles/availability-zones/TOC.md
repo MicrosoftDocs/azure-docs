@@ -24,6 +24,9 @@
 ### [What are virtual machine scale sets in Azure?](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)
 ### [How to create a virtual machine scale set with Azure portal](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md)
 
+## Load balancer
+
+### [What is Load balancer?](../load-balancer/load-balancer-standard-overview.md)
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
