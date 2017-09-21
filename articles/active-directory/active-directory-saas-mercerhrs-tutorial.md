@@ -1,40 +1,40 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Mercer HRS | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Mercer HRS.
+title: 'Tutorial: Azure Active Directory integration with Mercer BenefitsCentral (MBC) | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and Mercer BenefitsCentral (MBC).
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
 ms.reviewer: joflore
 
-ms.assetid: 2470e28a-79d6-4f2c-a7bb-e2f7da5a54c8
+ms.assetid: 3788b28c-49aa-4208-9acd-630362008e89
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2017
+ms.date: 09/21/2017
 ms.author: jeedes
 
 ---
-# Tutorial: Azure Active Directory integration with Mercer HRS
+# Tutorial: Azure Active Directory integration with Mercer BenefitsCentral (MBC)
 
-In this tutorial, you learn how to integrate Mercer HRS with Azure Active Directory (Azure AD).
+In this tutorial, you learn how to integrate Mercer BenefitsCentral (MBC) with Azure Active Directory (Azure AD).
 
-Integrating Mercer HRS with Azure AD provides you with the following benefits:
+Integrating Mercer BenefitsCentral (MBC) with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to Mercer HRS.
-- You can enable your users to automatically get signed-on to Mercer HRS (Single Sign-On) with their Azure AD accounts.
+- You can control in Azure AD who has access to Mercer BenefitsCentral (MBC).
+- You can enable your users to automatically get signed-on to Mercer BenefitsCentral (MBC) (Single Sign-On) with their Azure AD accounts.
 - You can manage your accounts in one central location - the Azure portal.
 
 If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## Prerequisites
 
-To configure Azure AD integration with Mercer HRS, you need the following items:
+To configure Azure AD integration with Mercer BenefitsCentral (MBC), you need the following items:
 
 - An Azure AD subscription
-- A Mercer HRS single sign-on enabled subscription
+- A Mercer BenefitsCentral (MBC) single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -48,13 +48,13 @@ To test the steps in this tutorial, you should follow these recommendations:
 In this tutorial, you test Azure AD single sign-on in a test environment. 
 The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Mercer HRS from the gallery
+1. Adding Mercer BenefitsCentral (MBC) from the gallery
 2. Configuring and testing Azure AD single sign-on
 
-## Adding Mercer HRS from the gallery
-To configure the integration of Mercer HRS into Azure AD, you need to add Mercer HRS from the gallery to your list of managed SaaS apps.
+## Adding Mercer BenefitsCentral (MBC) from the gallery
+To configure the integration of Mercer BenefitsCentral (MBC) into Azure AD, you need to add Mercer BenefitsCentral (MBC) from the gallery to your list of managed SaaS apps.
 
-**To add Mercer HRS from the gallery, perform the following steps:**
+**To add Mercer BenefitsCentral (MBC) from the gallery, perform the following steps:**
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
@@ -68,33 +68,33 @@ To configure the integration of Mercer HRS into Azure AD, you need to add Mercer
 
 	![The New application button][3]
 
-4. In the search box, type **Mercer HRS**, select **Mercer HRS** from result panel then click **Add** button to add the application.
+4. In the search box, type **Mercer BenefitsCentral (MBC)**, select **Mercer BenefitsCentral (MBC)** from result panel then click **Add** button to add the application.
 
-	![Mercer HRS in the results list](./media/active-directory-saas-mercerhrs-tutorial/tutorial_mercerhrs_addfromgallery.png)
+	![Mercer BenefitsCentral (MBC) in the results list](./media/active-directory-saas-mercerhrs-tutorial/tutorial_mercerhrs_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with Mercer HRS based on a test user called "Britta Simon".
+In this section, you configure and test Azure AD single sign-on with Mercer BenefitsCentral (MBC) based on a test user called "Britta Simon".
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Mercer HRS is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Mercer HRS needs to be established.
+For single sign-on to work, Azure AD needs to know what the counterpart user in Mercer BenefitsCentral (MBC) is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Mercer BenefitsCentral (MBC) needs to be established.
 
-In Mercer HRS, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+In Mercer BenefitsCentral (MBC), assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
 
-To configure and test Azure AD single sign-on with Mercer HRS, you need to complete the following building blocks:
+To configure and test Azure AD single sign-on with Mercer BenefitsCentral (MBC), you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a Mercer HRS test user](#create-a-mercer-hrs-test-user)** - to have a counterpart of Britta Simon in Mercer HRS that is linked to the Azure AD representation of user.
+3. **[Create a Mercer BenefitsCentral (MBC) test user](#create-a-mercer-benefitscentral-mbc-test-user)** - to have a counterpart of Britta Simon in Mercer BenefitsCentral (MBC) that is linked to the Azure AD representation of user.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Mercer HRS application.
+In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Mercer BenefitsCentral (MBC) application.
 
-**To configure Azure AD single sign-on with Mercer HRS, perform the following steps:**
+**To configure Azure AD single sign-on with Mercer BenefitsCentral (MBC), perform the following steps:**
 
-1. In the Azure portal, on the **Mercer HRS** application integration page, click **Single sign-on**.
+1. In the Azure portal, on the **Mercer BenefitsCentral (MBC)** application integration page, click **Single sign-on**.
 
 	![Configure single sign-on link][4]
 
@@ -102,16 +102,16 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Single sign-on dialog box](./media/active-directory-saas-mercerhrs-tutorial/tutorial_mercerhrs_samlbase.png)
 
-3. On the **Mercer HRS Domain and URLs** section, perform the following steps:
+3. On the **Mercer BenefitsCentral (MBC) Domain and URLs** section, perform the following steps:
 
-	![Mercer HRS Domain and URLs single sign-on information](./media/active-directory-saas-mercerhrs-tutorial/tutorial_mercerhrs_url.png)
+	![Mercer BenefitsCentral (MBC) Domain and URLs single sign-on information](./media/active-directory-saas-mercerhrs-tutorial/tutorial_mercerhrs_url.png)
 
-    a. In the **Identifier** textbox, type the URL: `stg.mercerhrs.com/saml2.0`
+    a. In the **Identifier** textbox, type a URL using the following pattern: `stg.mercerhrs.com/saml2.0`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<companyname>.mercerhrs.com/SP2/Saml2AssertionConsumer.aspx`
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://ssous-stg.mercerhrs.com/SP2/Saml2AssertionConsumer.aspx`
 
 	> [!NOTE] 
-	> Reply URL value is not real. Update this value with the actual Reply URL. Contact [Mercer HRS support team](https://www.mercer.com/contact-us.html) to get this value.
+	> Reply URL value is not real. Update this value with the actual Reply URL. Contact [Mercer BenefitsCentral (MBC) support team](https://www.mercer.com/contact-us.html) to get this value.
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -121,11 +121,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-mercerhrs-tutorial/tutorial_general_400.png)
 
-6. On the **Mercer HRS Configuration** section, click **Configure Mercer HRS** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
+6. On the **Mercer BenefitsCentral (MBC) Configuration** section, click **Configure Mercer BenefitsCentral (MBC)** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![Mercer HRS Configuration](./media/active-directory-saas-mercerhrs-tutorial/tutorial_mercerhrs_configure.png) 
+	![Mercer BenefitsCentral (MBC) Configuration](./media/active-directory-saas-mercerhrs-tutorial/tutorial_mercerhrs_configure.png) 
 
-7. To configure single sign-on on **Mercer HRS** side, you need to send the downloaded **Metadata XML** and **SAML Single Sign-On Service URL** to [Mercer HRS support team](https://www.mercer.com/contact-us.html). They set this setting to have the SAML SSO connection set properly on both sides.
+7. To configure single sign-on on **Mercer BenefitsCentral (MBC)** side, you need to send the downloaded **Metadata XML** and **SAML Single Sign-On Service URL** to [Mercer BenefitsCentral (MBC) support team](https://www.mercer.com/contact-us.html). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -162,25 +162,25 @@ The objective of this section is to create a test user in the Azure portal calle
 
     d. Click **Create**.
   
-### Create a Mercer HRS test user
+### Create a Mercer BenefitsCentral (MBC) test user
 
-In this section, you create a user called Britta Simon in Mercer HRS. Work with [Mercer HRS support team](https://www.mercer.com/contact-us.html) to add the users in the Mercer HRS platform. Users must be created and activated before you use single sign-on. 
+In this section, you create a user called Britta Simon in Mercer HRS. Work with [Mercer BenefitsCentral (MBC) support team](https://www.mercer.com/contact-us.html) to add the users in the Mercer HRS platform. Users must be created and activated before you use single sign-on.
 
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Mercer HRS.
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to Mercer BenefitsCentral (MBC).
 
 ![Assign the user role][200] 
 
-**To assign Britta Simon to Mercer HRS, perform the following steps:**
+**To assign Britta Simon to Mercer BenefitsCentral (MBC), perform the following steps:**
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
 	![Assign User][201] 
 
-2. In the applications list, select **Mercer HRS**.
+2. In the applications list, select **Mercer BenefitsCentral (MBC)**.
 
-	![The Mercer HRS link in the Applications list](./media/active-directory-saas-mercerhrs-tutorial/tutorial_mercerhrs_app.png)  
+	![The Mercer BenefitsCentral (MBC) link in the Applications list](./media/active-directory-saas-mercerhrs-tutorial/tutorial_mercerhrs_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
@@ -200,15 +200,13 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Mercer HRS tile in the Access Panel, you should get automatically signed-on to your Mercer HRS application.
+When you click the Mercer BenefitsCentral (MBC) tile in the Access Panel, you should get automatically signed-on to your Mercer BenefitsCentral (MBC) application.
 For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 
