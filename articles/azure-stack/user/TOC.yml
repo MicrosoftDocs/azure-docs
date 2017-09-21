@@ -21,7 +21,7 @@
     href: azure-stack-quick-create-vm-linux-cli.md                   
 - name: Tutorials
   items:
-  - name: Deploy apps to Azure & Azure Stack
+  - name: 'Deploy apps to Azure & Azure Stack'
     href: azure-stack-solution-pipeline.md
 - name: How-to guides
   items:
