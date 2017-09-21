@@ -57,7 +57,7 @@ You use Logstash to flatten the JSON formatted flow logs to a flow tuple level.
     sudo touch /etc/logstash/conf.d/logstash.conf
     ```
 
-3. Add the following content to the file. Change the highlighted values to reflect your storage account details:
+3. Add the following content to the file. Change the storage account name and access key to reflect your storage account details:
 
     ```bash
     input {
