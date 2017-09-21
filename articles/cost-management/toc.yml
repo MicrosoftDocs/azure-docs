@@ -17,7 +17,4 @@
     href: tutorial-review-usage.md
   - name: 2 - Control access to data
     href: tutorial-user-access.md
-  - name: Manage costs
-    href: tutorial-manage-costs.md
-  - name: Forecast spending and optimize costs
-    href: tutorial-forecast-spending.md
+
