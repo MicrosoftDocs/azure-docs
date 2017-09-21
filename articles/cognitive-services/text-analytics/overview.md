@@ -50,28 +50,34 @@ Data is not stored in your account. Operations performed by Text Analytics API a
 
 ## Supported languages
 
-Text Analytics can detect language for up to 120 different languages. The list of supported languages is more selective for sentiment analysis and key phrase extraction, as we refine the analyzers to accommodate the linguistic rules of additional languages.
+Text Analytics can detect up to 120 different languages. Language Detection returns the "script" of a language. For instance, for the phrase "I have a dog" it will return  `en` instead of  `en-US`. The only special case is Chinese, where the language detection capability will return `zh_CHS` or `zh_CHT` if it can determine the script given the text provided. In situations where a specific script cannot be identified for a Chinese document, it will return simply `zh`.
+ 
+For sentiment analysis and key phrase extraction, the list of supported languages is more selective as we refine the analyzers to accommodate the linguistic rules of additional languages.
 
 Language support is initially rolled out in preview, graduating to generally available (GA) status, independently of each other and of the Text Analytics service overall. It's possible for languages to remain in preview, even while Text Analytics API transitions to generally available.
 
-| Language    | Language code | Sentiment | Key phrases |
-|:----------- |:----:|:----:|:----:|
-| Danish      | `da` | ✔ \* |  |
-| German       | `de` | ✔ \* | ✔ |
-| Greek       | `el` | ✔ \* |  |
-| English     | `en` | ✔ | ✔ | 
-| Spanish     | `es` | ✔ | ✔ | 
-| Finnish     | `fi` | ✔ \* |  | 
-| French      | `fr` | ✔ | ✔ \* | 
-| Japanese    | `ja` |  | ✔ |   |
-| Italian     | `it` | ✔ \* |  | 
-| Dutch       | `nl` | ✔ \* |  | 
-| Norwegian   | `no` | ✔ \* |  | 
-| Polish      | `pl` | ✔ \* |  | 
-| Portuguese  | `pt` | ✔ |  | 
-| Russian     | `ru` | ✔ \* |  | 
-| Swedish     | `sv` | ✔ \* |  | 
-| Turkish     | `tr` | ✔ \* |  | 
+
+| Language    | Language code | Sentiment | Key phrases | Notes       |
+|:----------- |:-------------:|:---------:|:-----------:|:-----------:|
+| Danish      | `da`          | ✔ \*     |             |             |
+| Dutch       | `nl`          | ✔ \*     |             |             |
+| English     | `en`          | ✔        | ✔           |             | 
+| Finnish     | `fi`          | ✔ \*     | ✔           |             |
+| French      | `fr`          | ✔        | ✔           |             |
+| German      | `de`          | ✔ \*     | ✔           |            |
+| Greek       | `el`          | ✔ \*     |             |            |
+| Italian     | `it`          | ✔ \*     | ✔           |             |
+| Japanese    | `ja`          |          | ✔           |            |
+| Norwegian   | `no`          | ✔ \*     |             |             |
+| Polish      | `pl`          | ✔ \*     |  ✔          |             |
+| Portuguese (Portugal) | `pt-PT`| ✔        |  ✔          |`pt` also accepted |
+| Portuguese (Brazil)   | `pt-BR`|          |  ✔   |         |
+| Russian     | `ru`          | ✔ \*     |             |             |
+| Spanish     | `es`          | ✔        | ✔           |             |
+| Swedish     | `sv`          | ✔ \*     | ✔           |             |
+| Turkish     | `tr`          | ✔ \*     |             |             |
+
+
 
 \* indicates language support in preview
 

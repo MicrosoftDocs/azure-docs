@@ -49,6 +49,12 @@ ms.author: renash
 * **Q. What replications are supported by Azure File storage?**  
    
     Azure File storage only supports LRS or GRS right now. We plan to support RA-GRS but there is no timeline to share yet.
+    
+## Scale Targets/Limits
+
+* **Q. How many clients can access the same file simultaneously?**
+
+    There is a 2000 open handles quota on a single file. Once you have 2000 open handles, you will get an error that quota is reached.
 
 ## Security, Authentication and Access Control
 

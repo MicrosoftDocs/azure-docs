@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 # Overview of Windows virtual machines in Azure
 
-Azure Virtual Machines (VM) is one of several types of [on-demand, scalable computing resources](../../app-service-web/choose-web-site-cloud-service-vm.md) that Azure offers. Typically, you choose a VM when you need more control over the computing environment than the other choices offer. This article gives you information about what you should consider before you create a VM, how you create it, and how you manage it.
+Azure Virtual Machines (VM) is one of several types of [on-demand, scalable computing resources](../../app-service/choose-web-site-cloud-service-vm.md) that Azure offers. Typically, you choose a VM when you need more control over the computing environment than the other choices offer. This article gives you information about what you should consider before you create a VM, how you create it, and how you manage it.
 
 An Azure VM gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it. However, you still need to maintain the VM by performing tasks, such as configuring, patching, and installing the software that runs on it.
 
