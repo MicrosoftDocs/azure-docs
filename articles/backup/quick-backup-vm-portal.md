@@ -1,102 +1,94 @@
 ---
-title: Quickstart - Back up virtual machines in Azure | Microsoft Docs
-description: This quickstart details how to back up Azure virtual machines to a Recovery Services vault.
-services: backup
-documentationcenter: ''
-author: markgalioto
-manager: carmonm
-editor: ''
-keywords: virtual machine backup; back up virtual machine; backup and disaster recovery; arm vm backup
+title: Azure Quick Start - Back up a VM with the Azure portal | Microsoft Docs
+description: Learn how to back up your virtual machines with the Azure portal
+services: virtual-machines-windows, azure-backup
+documentationcenter: virtual-machines
+author: iainfoulds
+manager: jeconnoc
+editor:
+tags: azure-resource-manager, virtual-machine-backup
 
 ms.assetid: 
-ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 9/16/2017
-ms.author: trinadhk;jimpark;markgal;
-
+ms.service: virtual-machines-windows, azure-backup
+ms.devlang: azurecli
+ms.topic: hero-article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure
+ms.date: 09/18/2017
+ms.author: iainfou
+ms.custom: mvc
 ---
-# Back up Azure virtual machines with the Azure portal
 
-Backing up your data is a good practice for business and data continuity. In Azure you back up data to a storage entity called a Recovery Services vault. It is easy to use the Azure portal to back up a virtual machine; the Backup service is integrated into the virtual machine service. This article details using the Azure portal to create the Recovery Services vault and then back up a virtual machine.
+# Back up a virtual machine in Azure
+Azure backups can be created through the Azure portal. This method provides a browser-based user interface to create and configure Azure backups and all related resources. You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that can be stored in geo-redundant recovery vaults. This article details how to back up a virtual machine (VM) with the Azure portal. You can also perform these steps with the [Azure CLI](quick-backup-vm-cli.md) or [Azure PowerShell](quick-backup-vm-powershell.md).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+This quick start enables backup on an existing Azure VM. If you need to create a VM, you can [create a VM with the Azure portal](../virtual-machines/windows/quick-create-portal.md).
 
-## Sign in to Azure
 
-Sign in to the Azure portal at http://portal.azure.com.
+## Select a VM to back up
+Create a simple scheduled daily backup to a Recovery Services Vault. 
 
-This quickstart assumes you already have a virtual machine running in Azure. If you don't have a virtual machine in Azure, create one using the quickstart for [creating a Windows virtual machine in Azure](../virtual-machines/windows/quick-create-portal.md).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. In the menu on the left, select **Virtual machines**. 
+3. From the list, choose a VM to back up. If you used the sample VM quick start commands, the VM is named *myVM* in the *myResourceGroup* resource group.
+4. In the **Settings** section, choose **Backup**. The **Enable backup** window opens.
 
-## Back up your virtual machine
 
-1. In the menu on the left, select **Virtual machines**. The Virtual machines menu opens.
+## Enable backup on a VM
+A Recovery Services vault is a logical container that stores the backup data for each protected resource, such as Azure VMs. When the backup job for a protected resource runs, it creates a recovery point inside the Recovery Services vault. You can then use one of these recovery points to restore data to a given point in time.
 
-2. From the Virtual machines menu, select **myVM**. The menu for **myVM** opens.
+1. Select **Create new** and provide a name for the new vault, such as **myRecoveryServicesVault**.
+2. If not already selected, choose **Use existing**, then select the resource group of your VM from the drop-down menu.
 
-3. In the **myVM** menu, in the *Settings* section, click **Backup** to open the **Enable backup** menu. It may be necessary to scroll down the menu to see Backup. </br>
+    ![Enable VM backup in the Azure portal](./media/quick-backup-vm-portal/enable-backup.png)
 
-  ![the icons you click to open the Enable backup menu](./media/quick-backup-vm-portal/first-screen.png)
+    By default, the vault is set for Geo-Redundant storage. To further protect your data, this storage redundancy level ensures that your backup data is replicated to a secondary Azure region that is hundreds of miles away from the primary region.
 
-4. In the **Enable backup** menu, make the following selections to create a new vault in the same resource group and location as the virtual machine:
-  - For Recovery Services vault select **Create new** and enter **myBackupVault** as the name of the vault. 
-  - For Resource group, select **Use existing** and choose **myResourceGroup** from the drop-down menu. The resource group, myResourceGroup, is the group containing the virtual machine, myVM. 
-  - For Backup policy use **(new) DailyPolicy**
-  - Click **Enable Backup** to create the vault and establish the policy.
+    You create and use policies to define when a backup job runs and how long the recovery points are stored. The default protection policy runs a backup job each day and retains recovery points for 30 days. You can use these default policy values to quickly protect your VM. 
 
-    ![make selections to Enable backup menu](./media/quick-backup-vm-portal/configure-recovery-services-vault.png)
+3. To accept the default backup policy values, select **Enable Backup**.
 
-## Create an initial backup
 
-Though you enabled the schedule for backup policy, which backs up the virtual machine once a day, the first backup has not occurred. It is a good practice to trigger an initial backup so your virtual machine is protected. Triggering the backup activity generates a restore point. Restore points are also called recovery points. Use the following steps to trigger the initial backup. 
+## Start a backup job
+You can start a backup now rather than wait for the default policy to run the job at the scheduled time. This first backup job creates a full recovery point. Each backup job after this initial backup creates incremental recovery points. Incremental recovery points are storage and time-efficient, as they only transfer changes made since the last backup.
 
-1. On the myVM menu, click **Backup** to open the Backup dashboard.  
+1. On the **Backup** window for your VM, select **Backup now**.
 
-  ![choose Backup option from menu](./media/quick-backup-vm-portal/choose-backup-from-menu.png)
+    ![Perform immediate VM backup in the Azure portal](./media/quick-backup-vm-portal/backup-now.png)
 
-2. On the **Backup** dashboard click **Backup now**.
+2. To accept the backup retention policy of 30 days, leave the default **Retain Backup Till** date. To start the job, select **Backup**.
 
-  ![select Backup Now in menu](./media/quick-backup-vm-portal/initial-backup.png)
 
-  The **Backup Now** menu opens. The backup job you are triggering isn't handled by the backup policy. For this reason, you must specify how long to retain the restore point.
+## Monitor the backup job
+In the **Backup** window for your VM, the status of the backup and number of completed restore points are shown. Once the VM backup job is complete, information on the **Last backup time**, **Latest restore point**, and **Oldest restore point** is shown on the right-hand side of the **Overview** window.
 
-3. On the **Backup Now** menu, enter the date of the last day to retain the recovery point, and click **Backup**.</br>
 
-  The initial backup takes a while to complete. It may take as long as 20 minutes or more to create the restore point. Once the restore point has been created, you see it in the Restore points tile on the Backup dashboard.
+## Clean up deployment
+When no longer needed, you can disable protection on the VM, remove the restore points and Recovery Services vault, then delete the resource group and associated VM resources
 
-  ![Recovery points](./media/quick-backup-vm-portal/backup-complete.png)
+If you are going to continue on to a Backup tutorial that explains how to restore data for your VM, skip the steps in this section and go to [Next steps](#next-steps).
 
-## Clean up resources
+1. Select the **Backup** option for your VM.
 
-If you are going to continue on to a Backup tutorial that explains how to restore data for your virtual machine, go to Next steps. If you are not going to use the backup data or the Recovery Services vault, then use the following steps to delete the restore points and your Recovery Services vault.
+2. Select **...More** to show additional options, then choose **Stop backup**.
 
-1. On the myVM menu, click **Backup** to open the Backup dashboard.  
+    ![Stop VM backup from the Azure portal](./media/quick-backup-vm-portal/stop-backup.png)
 
-  ![choose Backup option from menu](./media/quick-backup-vm-portal/choose-backup-from-menu.png)
+3. Select **Delete Backup Data** from the drop-down menu.
 
-2. In the Backup dashboard, click **...More** to show additional options, then click **Stop backup** to open the Stop Backup menu.  
+4. In the **Type the name of the Backup item** dialog, enter your VM name, such as *myVM*. Select **Stop Backup**
 
-  ![choose additional Backup options from menu](./media/quick-backup-vm-portal/stop-backup-menu-item-in-dashboard.png)
+    Once the VM backup has been stopped and recovery points removed, you can delete the resource group. If you used an existing VM, you may wish to leave the resource group and VM in place.
 
-3. In the Stop Backup menu, select the upper drop-down menu and choose **Delete Backup Data**. 
+5. In the menu on the left, select **Resource groups**. 
+6. From the list, choose your resource group. If you used the sample VM quick start commands, the resource group is named *myResourceGroup*.
+7. Select **Delete resource group**. To confirm, enter the resource group name, then select **Delete**.
 
-4. In the **Type the name of the Backup item** dialog, type *myVM*. 
+    ![Delete the resource group from the Azure portal](./media/quick-backup-vm-portal/delete-resource-group.png)
 
-5. Once the backup item is verified, the Stop backup button is enabled. Click **Stop Backup** to delete the restore point and the Recovery Services vault.</br>
-
-  ![click Stop backup to delete vault](./media/quick-backup-vm-portal/provide-reason-for-delete.png)
-
-In this quickstart you learned how to:
-
-  > [!div class="checklist"]
-> * Create a recovery services vault
-> * Schedule a daily backup
-> * Trigger the initial backup for a virtual machine
 
 ## Next steps
-To learn more, see the tutorial for backing up multiple virtual machines.
+In this quick start, you created a Recovery Services vault, enabled protection on a VM, and created the initial recovery point. To learn more about Azure Backup and Recovery Services, continue to the tutorials.
 
 > [!div class="nextstepaction"]
-> [Back up virtual machines at scale](tutorial-backup-azure-vm.md)
+> [Backup tutorials](./tutorial-backup-azure-vm.md)
