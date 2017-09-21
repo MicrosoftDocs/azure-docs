@@ -57,20 +57,33 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
 
 ```json
 {
-    "name": "HDInsightOnDemandLinkedService",
-    "properties": {
-        "type": "HDInsightOnDemand",
-        "typeProperties": {
-            "version": "3.6",
-            "clusterSize": 1,
-            "timeToLive": "00:15:00",
-            "osType": "Linux",
-            "linkedServiceName": {
-                "referenceName": "AzureStorageLinkedService",
-                "type": "LinkedServiceReference"
-            }
-        }
+  "name": "HDInsightOnDemandLinkedService",
+  "properties": {
+    "type": "HDInsightOnDemand",
+    "typeProperties": {
+      "clusterType": "hadoop",
+      "clusterSize": 1,
+      "timeToLive": "00:15:00",
+      "hostSubscriptionId": "<subscription ID>",
+      "servicePrincipalId": "<service principal ID>",
+      "servicePrincipalKey": {
+        "value": "<service principal key>",
+        "type": "SecureString"
+      },
+      "tenant": "<tenent id>",
+      "clusterResourceGroup": "<resource group name>",
+      "version": "3.6",
+      "osType": "Linux",
+      "linkedServiceName": {
+        "referenceName": "AzureStorageLinkedService",
+        "type": "LinkedServiceReference"
+      }
+    },
+    "connectVia": {
+      "referenceName": "<name of Integration Runtime>",
+      "type": "IntegrationRuntimeReference"
     }
+  }
 }
 ```
 
@@ -85,16 +98,18 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
 | Property                     | Description                              | Required |
 | ---------------------------- | ---------------------------------------- | -------- |
 | type                         | The type property should be set to **HDInsightOnDemand**. | Yes      |
-| clusterSize                  | Number of worker/data nodes in the cluster. The HDInsight cluster is created with 2 head nodes along with the number of worker nodes you specify for this property. The nodes are of size Standard_D3 that has 4 cores, so a 4 worker node cluster takes 24 cores (4\*4 = 16 cores for worker nodes, plus 2\*4 = 8 cores for head nodes). See [Create Linux-based Hadoop clusters in HDInsight](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) for details about the Standard_D3 tier. | Yes      |
-| timetolive                   | The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster stays alive after completion of an activity run if there are no other active jobs in the cluster.<br/><br/>For example, if an activity run takes 6 minutes and timetolive is set to 5 minutes, the cluster stays alive for 5 minutes after the 6 minutes of processing the activity run. If another activity run is executed with the 6-minutes window, it is processed by the same cluster.<br/><br/>Creating an on-demand HDInsight cluster is an expensive operation (could take a while), so use this setting as needed to improve performance of a data factory by reusing an on-demand HDInsight cluster.<br/><br/>If you set timetolive value to 0, the cluster is deleted as soon as the activity run completes. Whereas, if you set a high value, the cluster may stay idle for you to log on for some troubleshooting purpose but it could result in high costs. Therefore, it is important that you set the appropriate value based on your needs.<br/><br/>If the timetolive property value is appropriately set, multiple pipelines can share the instance of the on-demand HDInsight cluster. | Yes      |
+| clusterType                  | The type of the HDInsight cluster to be created. Allowed values are "hadoop" and "spark". If not specified, default value is hadoop. | No       |
+| clusterSize                  | Number of worker/data nodes in the cluster. The HDInsight cluster is created with 2 head nodes along with the number of worker nodes you specify for this property. The nodes are of size Standard_D3 that has 4 cores, so a 4 worker node cluster takes 24 cores (4\*4 = 16 cores for worker nodes, plus 2\*4 = 8 cores for head nodes). See [Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) for details. | Yes      |
+| timetolive                   | The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster stays alive after completion of an activity run if there are no other active jobs in the cluster. The minimal allowed value is 5 minutes (00:05:00).<br/><br/>For example, if an activity run takes 6 minutes and timetolive is set to 5 minutes, the cluster stays alive for 5 minutes after the 6 minutes of processing the activity run. If another activity run is executed with the 6-minutes window, it is processed by the same cluster.<br/><br/>Creating an on-demand HDInsight cluster is an expensive operation (could take a while), so use this setting as needed to improve performance of a data factory by reusing an on-demand HDInsight cluster.<br/><br/>If you set timetolive value to 0, the cluster is deleted as soon as the activity run completes. Whereas, if you set a high value, the cluster may stay idle for you to log on for some troubleshooting purpose but it could result in high costs. Therefore, it is important that you set the appropriate value based on your needs.<br/><br/>If the timetolive property value is appropriately set, multiple pipelines can share the instance of the on-demand HDInsight cluster. | Yes      |
 | version                      | Version of the HDInsight cluster. If not specified, it's using the current HDInsight defined default version. | No       |
-| linkedServiceName            | Azure Storage linked service to be used by the on-demand cluster for storing and processing data. The HDInsight cluster is created in the same region as this Azure Storage account.<p>Currently, you cannot create an on-demand HDInsight cluster that uses an Azure Data Lake Store as the storage. If you want to store the result data from HDInsight processing in an Azure Data Lake Store, use a Copy Activity to copy the data from the Azure Blob Storage to the Azure Data Lake Store. </p> | Yes      |
+| linkedServiceName            | Azure Storage linked service to be used by the on-demand cluster for storing and processing data. The HDInsight cluster is created in the same region as this Azure Storage account. Azure HDInsight has limitation on the total number of cores you can use in each Azure region it supports. Please make sure you have enough core quotas in that Azure region to meet the required clusterSize. For details, refer to [Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)<p>Currently, you cannot create an on-demand HDInsight cluster that uses an Azure Data Lake Store as the storage. If you want to store the result data from HDInsight processing in an Azure Data Lake Store, use a Copy Activity to copy the data from the Azure Blob Storage to the Azure Data Lake Store. </p> | Yes      |
 | hostSubscriptionId           | The Azure subscription ID used to create HDInsight cluster. If not specified, it uses the Subscription ID of your Azure login context. | No       |
-| clusterResourceGroup         | The HDInsight cluster is created in this resource group.  | Yes      |
+| clusterResourceGroup         | The HDInsight cluster is created in this resource group. | Yes      |
 | sparkVersion                 | The version of spark if the cluster type is "Spark" | No       |
 | additionalLinkedServiceNames | Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf. These storage accounts must be in the same region as the HDInsight cluster, which is created in the same region as the storage account specified by linkedServiceName. | No       |
 | osType                       | Type of operating system. Allowed values are: Linux and Windows (for HDInsight 3.3 only). Default is Linux. | No       |
 | hcatalogLinkedServiceName    | The name of Azure SQL linked service that point to the HCatalog database. The on-demand HDInsight cluster is created by using the Azure SQL database as the metastore. | No       |
+| connectVia                   | The Integration Runtime to be used to dispatch the activities to this HDInsight Linked Service. For On-Demand HDInsight Linked Service, it only supports Azure Integration Runtime. If not specified, it uses the default Azure Integration Runtime. | No       |
 
 > [!IMPORTANT]
 > HDInsight supports multiple Hadoop cluster versions that can be deployed. Each version choice creates a specific version of the Hortonworks Data Platform (HDP) distribution and a set of components that are contained within that distribution. The list of supported HDInsight versions keeps being updated to provide latest Hadoop ecosystem components and fixes. Make sure you always refer to latest information of [Supported HDInsight version and OS Type](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) to ensure you are using supported version of HDInsight. 
@@ -118,7 +133,7 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
 
 ### Service principal authentication
 
-The On-Demand HDInsight linked service requires a service principal authentication to create HDInsight clusters on your behalf. To use service principal authentication, register an application entity in Azure Active Directory (Azure AD) and grant it the **Owner** role of the subscription of the resource group in which the HDInsight cluster is created. For detailed steps, see [Use portal to create an Azure Active Directory application and service principal that can access resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal). Make note of the following values, which you use to define the linked service:
+The On-Demand HDInsight linked service requires a service principal authentication to create HDInsight clusters on your behalf. To use service principal authentication, register an application entity in Azure Active Directory (Azure AD) and grant it the **Contributor** role of the subscription or the resource group in which the HDInsight cluster is created. For detailed steps, see [Use portal to create an Azure Active Directory application and service principal that can access resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal). Make note of the following values, which you use to define the linked service:
 
 - Application ID
 - Application key 
@@ -151,44 +166,58 @@ You can also specify the following properties for the granular configuration of 
 
 ```json
 {
-    "name": " HDInsightOnDemandLinkedService",
-    "properties": {
-      "type": "HDInsightOnDemand",
-      "typeProperties": {
-          "clusterSize": 16,
-          "timeToLive": "01:30:00",
-          "linkedServiceName": {
-              "referenceName": "AzureStorageLinkedService",
-              "type": "LinkedServiceReference"
-            },
-            "coreConfiguration": {
-                "templeton.mapper.memory.mb": "5000"
-            },
-            "hiveConfiguration": {
-                "templeton.mapper.memory.mb": "5000"
-            },
-            "mapReduceConfiguration": {
-                "mapreduce.reduce.java.opts": "-Xmx4000m",
-                "mapreduce.map.java.opts": "-Xmx4000m",
-                "mapreduce.map.memory.mb": "5000",
-                "mapreduce.reduce.memory.mb": "5000",
-                "mapreduce.job.reduce.slowstart.completedmaps": "0.8"
-            },
-            "yarnConfiguration": {
-                "yarn.app.mapreduce.am.resource.mb": "5000",
-                "mapreduce.map.memory.mb": "5000"
-            },
-            "additionalLinkedServiceNames": [
-                "otherLinkedServiceName1": {
-                    "referenceName": "datafeeds1",
-                    "type": "LinkedServiceReference"
-                },
-                "otherLinkedServiceName2": {
-                    "referenceName": "datafeeds2",
-                    "type": "LinkedServiceReference"
-                }
-            ]}
-    }
+  "name": " HDInsightOnDemandLinkedService",
+  "properties": {
+    "type": "HDInsightOnDemand",
+    "typeProperties": {
+        "clusterSize": 16,
+        "timeToLive": "01:30:00",
+        "hostSubscriptionId": "<subscription ID>",
+        "servicePrincipalId": "<service principal ID>",
+        "servicePrincipalKey": {
+          "value": "<service principal key>",
+          "type": "SecureString"
+        },
+        "tenant": "<tenent id>",
+        "clusterResourceGroup": "<resource group name>",
+        "version": "3.6",
+        "osType": "Linux",
+        "linkedServiceName": {
+            "referenceName": "AzureStorageLinkedService",
+            "type": "LinkedServiceReference"
+          },
+          "coreConfiguration": {
+              "templeton.mapper.memory.mb": "5000"
+          },
+          "hiveConfiguration": {
+              "templeton.mapper.memory.mb": "5000"
+          },
+          "mapReduceConfiguration": {
+              "mapreduce.reduce.java.opts": "-Xmx4000m",
+              "mapreduce.map.java.opts": "-Xmx4000m",
+              "mapreduce.map.memory.mb": "5000",
+              "mapreduce.reduce.memory.mb": "5000",
+              "mapreduce.job.reduce.slowstart.completedmaps": "0.8"
+          },
+          "yarnConfiguration": {
+              "yarn.app.mapreduce.am.resource.mb": "5000",
+              "mapreduce.map.memory.mb": "5000"
+          },
+          "additionalLinkedServiceNames": [
+              "otherLinkedServiceName1": {
+                  "referenceName": "datafeeds1",
+                  "type": "LinkedServiceReference"
+              },
+              "otherLinkedServiceName2": {
+                  "referenceName": "datafeeds2",
+                  "type": "LinkedServiceReference"
+              }
+          ]}
+  },
+    "connectVia": {
+    "referenceName": "<name of Integration Runtime>",
+    "type": "IntegrationRuntimeReference"
+  }
 }
 ```
 
@@ -231,23 +260,27 @@ You can create an Azure HDInsight linked service to register your own HDInsight 
 
 ```json
 {
-  "name": "HDInsightLinkedService",
-  "properties": {
-    "type": "HDInsight",
-    "typeProperties": {
-      "clusterUri": " https://<hdinsightclustername>.azurehdinsight.net/",
-      "userName": "admin",
-      "password": {
-          "value": "passwordvalue",
-          "type": "SecureString"
-        },
-      "linkedServiceName": {
-            "referenceName": "AzureStorageLinkedService",
-            "type": "LinkedServiceReference"
+    "name": "HDInsightLinkedService",
+    "properties": {
+      "type": "HDInsight",
+      "typeProperties": {
+        "clusterUri": " https://<hdinsightclustername>.azurehdinsight.net/",
+        "userName": "username",
+        "password": {
+            "value": "passwordvalue",
+            "type": "SecureString"
+          },
+        "linkedServiceName": {
+              "referenceName": "AzureStorageLinkedService",
+              "type": "LinkedServiceReference"
+        }
+      },
+      "connectVia": {
+        "referenceName": "<name of Integration Runtime>",
+        "type": "IntegrationRuntimeReference"
       }
     }
   }
-}
 ```
 
 ### Properties
@@ -258,6 +291,7 @@ You can create an Azure HDInsight linked service to register your own HDInsight 
 | username          | Specify the name of the user to be used to connect to an existing HDInsight cluster. | Yes      |
 | password          | Specify password for the user account.   | Yes      |
 | linkedServiceName | Name of the Azure Storage linked service that refers to the Azure blob storage used by the HDInsight cluster. <p>Currently, you cannot specify an Azure Data Lake Store linked service for this property. If the HDInsight cluster has access to the Data Lake Store, you may access data in the Azure Data Lake Store from Hive/Pig scripts. </p> | Yes      |
+| connectVia        | The Integration Runtime to be used to dispatch the activities to this Linked Service. You can use Azure Integration Runtime or Self-hosted Integration Runtime. If not specified, it uses the default Azure Integration Runtime. | No       |
 
 > [!IMPORTANT]
 > HDInsight supports multiple Hadoop cluster versions that can be deployed. Each version choice creates a specific version of the Hortonworks Data Platform (HDP) distribution and a set of components that are contained within that distribution. The list of supported HDInsight versions keeps being updated to provide latest Hadoop ecosystem components and fixes. Make sure you always refer to latest information of [Supported HDInsight version and OS Type](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) to ensure you are using supported version of HDInsight. 
@@ -277,24 +311,28 @@ See following topics if you are new to Azure Batch service:
 
 ```json
 {
-  "name": "AzureBatchLinkedService",
-  "properties": {
-    "type": "AzureBatch",
-    "typeProperties": {
-      "accountName": "batchaccount",
-      "accessKey": {
-        "type": "SecureString",
-        "value": "access key"
+    "name": "AzureBatchLinkedService",
+    "properties": {
+      "type": "AzureBatch",
+      "typeProperties": {
+        "accountName": "batchaccount",
+        "accessKey": {
+          "type": "SecureString",
+          "value": "access key"
+        },
+        "batchUri": "https://batchaccount.region.batch.azure.com",
+        "poolName": "poolname",
+        "linkedServiceName": {
+          "referenceName": "StorageLinkedService",
+          "type": "LinkedServiceReference"
+        }
       },
-      "batchUri": "https://batchaccount.region.batch.azure.com",
-      "poolName": "poolname",
-      "linkedServiceName": {
-        "referenceName": "StorageLinkedService",
-        "type": "LinkedServiceReference"
+      "connectVia": {
+        "referenceName": "<name of Integration Runtime>",
+        "type": "IntegrationRuntimeReference"
       }
     }
   }
-}
 ```
 
 
@@ -307,6 +345,7 @@ See following topics if you are new to Azure Batch service:
 | batchUri          | URL to your Azure Batch account, in format of https://*batchaccountname.region*.batch.azure.com. | Yes      |
 | poolName          | Name of the pool of virtual machines.    | Yes      |
 | linkedServiceName | Name of the Azure Storage linked service associated with this Azure Batch linked service. This linked service is used for staging files required to run the activity. | Yes      |
+| connectVia        | The Integration Runtime to be used to dispatch the activities to this Linked Service. You can use Azure Integration Runtime or Self-hosted Integration Runtime. If not specified, it uses the default Azure Integration Runtime. | No       |
 
 ## Azure Machine Learning Linked Service
 You create an Azure Machine Learning linked service to register a Machine Learning batch scoring endpoint to a data factory.
@@ -324,7 +363,11 @@ You create an Azure Machine Learning linked service to register a Machine Learni
             "type": "SecureString",
             "value": "access key"
         }
-     }
+     },
+     "connectVia": {
+        "referenceName": "<name of Integration Runtime>",
+        "type": "IntegrationRuntimeReference"
+      }
     }
 }
 ```
@@ -339,24 +382,12 @@ You create an Azure Machine Learning linked service to register a Machine Learni
 | servicePrincipalId     | Specify the application's client ID.     | Required if updateResourceEndpoint is specified |
 | servicePrincipalKey    | Specify the application's key.           | Required if updateResourceEndpoint is specified |
 | tenant                 | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Required if updateResourceEndpoint is specified |
+| connectVia             | The Integration Runtime to be used to dispatch the activities to this Linked Service. You can use Azure Integration Runtime or Self-hosted Integration Runtime. If not specified, it uses the default Azure Integration Runtime. | No                                       |
 
 ## Azure Data Lake Analytics Linked Service
 You create an **Azure Data Lake Analytics** linked service to link an Azure Data Lake Analytics compute service to an Azure data factory. The Data Lake Analytics U-SQL activity in the pipeline refers to this linked service. 
 
-The following table provides descriptions for the generic properties used in the JSON definition. 
-
-| Property                 | Description                              | Required                                 |
-| ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| **type**                 | The type property should be set to: **AzureDataLakeAnalytics**. | Yes                                      |
-| **accountName**          | Azure Data Lake Analytics Account Name.  | Yes                                      |
-| **dataLakeAnalyticsUri** | Azure Data Lake Analytics URI.           | No                                       |
-| **subscriptionId**       | Azure subscription ID.                    | No (If not specified, subscription of the data factory is used). |
-| **resourceGroupName**    | Azure resource group name                | No (If not specified, resource group of the data factory is used). |
-| **servicePrincipalId**   | Specify the application's client ID.     | Yes                                      |
-| **servicePrincipalKey**  | Specify the application's key.           | Yes                                      |
-| **tenant**               | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Yes                                      |
-
-**Example: Service principal authentication**
+### Example
 
 ```json
 {
@@ -374,12 +405,30 @@ The following table provides descriptions for the generic properties used in the
             "tenant": "tenant ID",
             "subscriptionId": "<optional, subscription id of ADLA>",
             "resourceGroupName": "<optional, resource group name of ADLA>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
         }
     }
 }
 ```
 
-## 
+### Properties
+
+| Property             | Description                              | Required                                 |
+| -------------------- | ---------------------------------------- | ---------------------------------------- |
+| type                 | The type property should be set to: **AzureDataLakeAnalytics**. | Yes                                      |
+| accountName          | Azure Data Lake Analytics Account Name.  | Yes                                      |
+| dataLakeAnalyticsUri | Azure Data Lake Analytics URI.           | No                                       |
+| subscriptionId       | Azure subscription id                    | No (If not specified, subscription of the data factory is used). |
+| resourceGroupName    | Azure resource group name                | No (If not specified, resource group of the data factory is used). |
+| servicePrincipalId   | Specify the application's client ID.     | Yes                                      |
+| servicePrincipalKey  | Specify the application's key.           | Yes                                      |
+| tenant               | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Yes                                      |
+| connectVia           | The Integration Runtime to be used to dispatch the activities to this Linked Service. You can use Azure Integration Runtime or Self-hosted Integration Runtime. If not specified, it uses the default Azure Integration Runtime. | No                                       |
+
+
 
 ## Azure SQL Linked Service
 You create an Azure SQL linked service and use it with the [Stored Procedure Activity](transform-data-using-stored-procedure.md) to invoke a stored procedure from a Data Factory pipeline. See [Azure SQL Connector](connector-azure-sql-database.md#linked-service-properties) article for details about this linked service.
@@ -393,11 +442,11 @@ You create a SQL Server linked service and use it with the [Stored Procedure Act
 # Azure Data Factory - naming rules
 The following table provides naming rules for Data Factory artifacts.
 
-| Name | Name Uniqueness | Validation Checks |
-|:--- |:--- |:--- |
-| Data Factory |Unique across Microsoft Azure. Names are case-insensitive, that is, `MyDF` and `mydf` refer to the same data factory. |<ul><li>Each data factory is tied to exactly one Azure subscription.</li><li>Object names must start with a letter or a number, and can contain only letters, numbers, and the dash (-) character.</li><li>Every dash (-) character must be immediately preceded and followed by a letter or a number. Consecutive dashes are not permitted in container names.</li><li>Name can be 3-63 characters long.</li></ul> |
-| Linked Services/Tables/Pipelines |Unique with in a data factory. Names are case-insensitive. |<ul><li>Maximum number of characters in a table name: 260.</li><li>Object names must start with a letter, number, or an underscore (_).</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”, ”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |
-| Resource Group |Unique across Microsoft Azure. Names are case-insensitive. |<ul><li>Maximum number of characters: 1000.</li><li>Name can contain letters, digits, and the following characters: “-”, “_”, “,” and “.”</li></ul> |
+| Name                             | Name Uniqueness                          | Validation Checks                        |
+| :------------------------------- | :--------------------------------------- | :--------------------------------------- |
+| Data Factory                     | Unique across Microsoft Azure. Names are case-insensitive, that is, `MyDF` and `mydf` refer to the same data factory. | <ul><li>Each data factory is tied to exactly one Azure subscription.</li><li>Object names must start with a letter or a number, and can contain only letters, numbers, and the dash (-) character.</li><li>Every dash (-) character must be immediately preceded and followed by a letter or a number. Consecutive dashes are not permitted in container names.</li><li>Name can be 3-63 characters long.</li></ul> |
+| Linked Services/Tables/Pipelines | Unique with in a data factory. Names are case-insensitive. | <ul><li>Maximum number of characters in a table name: 260.</li><li>Object names must start with a letter, number, or an underscore (_).</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”, ”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |
+| Resource Group                   | Unique across Microsoft Azure. Names are case-insensitive. | <ul><li>Maximum number of characters: 1000.</li><li>Name can contain letters, digits, and the following characters: “-”, “_”, “,” and “.”</li></ul> |
 
 ## Next steps
 For a list of the transformation activities supported by Azure Data Factory, see [Transform data](transform-data.md).
