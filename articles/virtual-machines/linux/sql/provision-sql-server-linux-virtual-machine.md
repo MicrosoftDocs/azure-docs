@@ -132,7 +132,7 @@ The new virtual machine installs SQL Server with a random SA password. You must 
 1. Restart the SQL Server service.
 
    ```bash
-   sudo systemctl stop mssql-server
+   sudo systemctl start mssql-server
    ```
 
 ## Add the tools to your path (optional)
