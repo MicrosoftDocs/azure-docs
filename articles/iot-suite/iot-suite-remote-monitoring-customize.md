@@ -112,7 +112,7 @@ The default deployment uses the Contoso company name and logo in the UI. To chan
 
 1. Save the file.
 
-1. To test the changes, see the [Azure PCS Remote Monitoring WebUI](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/README.md) readme file.
+1. To test the changes, you can run the updated `webui` on your local machine. To learn how to build and run the `webui` solution locally, see [Build, run and test locally](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/README.md#build-run-and-test-locally) in the  `webui` GitHub repository readme file.
 
 1. To deploy your changes, see the [Developer Reference Guide](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide).
 
