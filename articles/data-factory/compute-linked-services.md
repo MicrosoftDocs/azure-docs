@@ -38,7 +38,7 @@ In this type of configuration, the computing environment is fully managed by the
 >
 > 
 
-## HDInsight on-demand linked service
+## Azure HDInsight on-demand linked service
 The Azure Data Factory service can automatically create an on-demand HDInsight cluster to process data. The cluster is created in the same region as the storage account (linkedServiceName property in the JSON) associated with the cluster. The storage account must be a general-purpose standard Azure storage account. 
 
 Note the following **important** points about on-demand HDInsight linked service:
