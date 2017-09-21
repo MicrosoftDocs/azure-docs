@@ -5,8 +5,8 @@ description: Explore a basic Java Swing app that uses the Computer Vision API in
 services: service-name-with-dashes-AZURE-ONLY 
 #keywords: Don’t add or edit keywords without consulting your SEO champ.
 author: v-royhar
-ms.author: v-royhar@microsoft.com
-ms.date: 09/20/2017
+ms.author: v-royhar
+ms.date: 09/21/2017
 ms.topic: tutorial
 # Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
 ms.service: cognitive-services
