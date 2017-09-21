@@ -49,7 +49,7 @@ sections:
       src: 
       text: VMware
       href: 
-    - type: list
+  - type: list
       style: ordered
       items:
       - html: <a href="tutorial-prepare-azure">Prepare Azure</a>
@@ -57,14 +57,14 @@ sections:
       - html: <a href="tutorial-vmware-to-azure">Set-up disaster recovery</a>
       - html: <a href="tutorial-dr-drill-azure">Run a disaster recovery drill</a>
       - html: <a href="tutorial-vmware-to-azure-failover-failback">Run a failover and failback</a>
-    - type: list
+  - type: list
       style: unordered
       items: 
       - image: 
         src: 
         text: Migrate to Azure
         href: 
-      - type: list
+  - type: list
         style: ordered
         items:
         - html: Prepare Azure
