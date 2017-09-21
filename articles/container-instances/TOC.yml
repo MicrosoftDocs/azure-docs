@@ -9,8 +9,6 @@
   items:
   - name: Create container - CLI
     href: container-instances-quickstart.md
-  - name: Create container - PowerShell
-    href: container-instances-quickstart-powershell.md
   - name: Create container - Portal
     href: container-instances-quickstart-portal.md
 - name: Tutorials
