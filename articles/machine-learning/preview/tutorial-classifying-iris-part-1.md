@@ -32,7 +32,12 @@ Follow the [Install and create Quickstart](quickstart-installation.md) to instal
 
    ![new workspace](media/tutorial-classifying-iris/new_ws.png)
 
-2. Fill in the **Create New Project** details. Fill in the **Project name** field with a name for the project. For example, use the value `myIris`. Choose the directory in which the project is created. For example, use the value `C:\Temp`. Enter the optional description. Choose a Workspace (this tutorial uses `IrisGarden`). And then select the **Classifying Iris** template from the project template list. 
+2. Fill in the **Create New Project** details. 
+   - Fill in the **Project name** field with a name for the project. For example, use the value **myIris**.
+   - Choose the **Project directory** in which the project is created. For example, use the value **C:\Temp**. 
+   - Enter the **Project description**. 
+   - Choose a **Workspace**, for example this tutorial uses **IrisGarden**. 
+   - Select the **Classifying Iris** template from the project template list. 
 
    ![New Project](media/tutorial-classifying-iris/new_project.png)
 
