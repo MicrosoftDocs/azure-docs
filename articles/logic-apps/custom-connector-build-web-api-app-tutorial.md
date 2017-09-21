@@ -26,7 +26,7 @@ and register as a connector with Logic Apps, Flow, or PowerApps.
 This tutorial shows you how to perform these tasks 
 by building an ASP.NET Web API app. For patterns that 
 show you can structure code for your connector's triggers and actions, 
-see [Create custom APIs that you can call from logic app workflows](../logic-apps/create-api-app.md).
+see [Create custom APIs that you can call from logic app workflows](../logic-apps/logic-apps-create-api-app.md).
 
 ## Prerequisites
 
