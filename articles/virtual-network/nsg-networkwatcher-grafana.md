@@ -26,7 +26,7 @@ You can have many NSGs in your network with flow logging enabled. This makes it 
 
 ## Scenario
 
-NSG flow logs are enabled using Network Watcher. These logs flow into Azure blob storage, A Logstash plugin is used to connect and process flow logs from blob storage and send them to ElasticSearch.  Once the flow logs are stored in ElasticSearch, they can be analyzed and visualized into customized dashboards in Grafana.
+NSG flow logs are enabled using Network Watcher and are stored in Azure blob storage. A Logstash plugin is used to connect and process flow logs from blob storage and send them to ElasticSearch.  Once the flow logs are stored in ElasticSearch, they can be analyzed and visualized into customized dashboards in Grafana.
 
 ![NSG Network Watcher Grafana](./media/nsg-networkwatcher-grafana/nsg-networkwatcher-grafana-fig1.png)
 
@@ -185,7 +185,7 @@ Next, you need to add the ElasticSearch index containing flow logs as a data sou
 
 #### Create a dashboard
 
-Now that you have successfully configured Grafana to read from the ElasticSearch index containing NSG flow logs, you can create and personalize dashboards. Do this by by selecting **Create your first dashboard**. The following sample graph configuration shows flows segmented by NSG rule.
+Now that you have successfully configured Grafana to read from the ElasticSearch index containing NSG flow logs, you can create and personalize dashboards. Do this by selecting **Create your first dashboard**. The following sample graph configuration shows flows segmented by NSG rule.
 
 ![Dashboard graph](./media/nsg-networkwatcher-grafana/nsg-networkwatcher-grafana-fig3.png)
 
