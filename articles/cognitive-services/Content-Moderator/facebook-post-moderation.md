@@ -138,6 +138,7 @@ The solution will send all images and text posted on your Facebook page to Conte
 
 ## 6. References
 
+1. [The Facebook sample on Github](https://github.com/MicrosoftContentModerator/samples-fbPageModeration)
 1. https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-github-webhook-triggered-function
 2. http://ukimiawz.github.io/facebook/2015/08/12/webhook-facebook-subscriptions/
 3. http://stackoverflow.com/questions/17197970/facebook-permanent-page-access-token
