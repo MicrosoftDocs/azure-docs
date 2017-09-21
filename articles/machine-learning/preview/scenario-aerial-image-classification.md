@@ -7,7 +7,7 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.topic: article
 ms.service: machine-learning
 services: machine-learning
-ms.date: 9/15/2017
+ms.date: 09/15/2017
 ---
 
 # Aerial Image Classification
