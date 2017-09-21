@@ -26,9 +26,9 @@ You use your Azure Enterprise Agreement to register with Azure Cost Management b
 
 1. In the Azure portal, click **Cost Management + Billing** in the list of services.
 2. Under **Overview**, click **Cost Management**  
-    ![Marketplace symbol](./media/quick-register-ea/cost-mgt-billing-service.png)
-3. On the **Cost Management** page, **Go to Cloudyn** to open the Cloudyn registration page in a new window.
-4. On the Cloudyn portal trial registration page, type your company name and then select **Enterprise Enrollment (EA)**.  
+    ![Cost Management page](./media/quick-register-ea/cost-mgt-billing-service.png)
+3. On the **Cost Management** page, **Go to Cost Management** to open the Cloudyn registration page in a new window.
+4. On the Cloudyn portal trial registration page, type your company name and then select **Azure Enterprise Enrollment Administrator**.  
     ![trial registration](./media/quick-register-ea/trial-reg.png)
 5. Enter your Enterprise Portal enrollment API key. If you don't have your key handy, click the [Enterprise Portal](https://ea.azure.com) link and do the following steps:
   1. Sign in to the Azure Enterprise website and click **Reports**, click **API Access Key** and then copy your primary key.  

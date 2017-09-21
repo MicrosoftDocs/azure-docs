@@ -26,11 +26,11 @@ You use your Azure subscription to register with Azure Cost Management by Cloudy
 
 1. In the Azure portal, click **Cost Management + Billing** in the list of services.
 2. Under **Overview**, click **Cost Management**  
-    ![Marketplace symbol](./media/quick-register-azure-sub/cost-mgt-billing-service.png)
-3. On the **Cost Management** page, **Go to Cloudyn** to open the Cloudyn registration page in a new window.
-4. On the Cloudyn portal trial registration page, type your company name and then select **Web Direct**. Your account name and Tenant ID is automatically added to the form.  
+    ![Cost Management page](./media/quick-register-azure-sub/cost-mgt-billing-service.png)
+3. On the **Cost Management** page, click **Go to Cost Management** to open the Cloudyn registration page in a new window.
+4. On the Cloudyn portal trial registration page, type your company name and then select **Azure Individual Subscription Owner** and then click **Next**. Your account name and Tenant ID is automatically added to the form.  
     ![trial registration](./media/quick-register-azure-sub/trial-reg-ind.png)
-5. Select your **Rate ID** associated with your subscription. If you're unsure of what your Rate ID is for your subscription, you can view your Azure bill and look for **Offer ID**. The Offer ID is the same as your **Rate ID**.
+5. Select your **Offer ID - Name** associated with your subscription. If you're unsure of what your Rate ID is for your subscription, you can view your Azure bill and look for **Offer ID**.
 6. Agree to the Terms of Use then validate your information and then click **Next**.
 7. In the **Gather additional data** page, click **Next** to authorize Cloudyn to collect Azure resource data. Data collected includes usage, performance, billing, and tag data from your subscriptions.  
     ![gather additional data](./media/quick-register-azure-sub/gather-additional.png)

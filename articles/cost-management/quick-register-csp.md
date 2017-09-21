@@ -28,13 +28,13 @@ To complete registration, you must be a partner program administrator with acces
 
 1. In the Azure portal, click **Cost Management + Billing** in the list of services.
 2. Under **Overview**, click **Cost Management**  
-    ![Marketplace symbol](./media/quick-register-csp/cost-mgt-billing-service.png)
-3. On the **Cost Management** page, **Go to Cloudyn** to open the Cloudyn registration page in a new window.
-4. On the Cloudyn portal trial registration page, type your company name and then select **Cloud Service Provider (CSP)**.  
-5. Enter your **Client ID**, **Tenant ID/Microsoft ID**, **Client Secret**, and select **Rate ID**. If you don't have the information handy, sign in to the Partner Center portal at  [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com) with your primary administrator account and do the following steps:
+    ![Cost Management page](./media/quick-register-csp/cost-mgt-billing-service.png)
+3. On the **Cost Management** page, click **Go to Cost Management** to open the Cloudyn registration page in a new window.
+4. On the Cloudyn portal trial registration page, type your company name, select **Microsoft CSP Partner Program Administrator**, and then click **Next**.  
+5. Enter a **Cloudyn account name**, **Commerce ID**, **Application Secret key**, and select the **Default Pricing Plan**. If you don't have the information handy, sign in to the Partner Center portal at  [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com) with your primary administrator account and do the following steps:
   1. Go to **Dashboard** > **Account Settings** > **App Management**.
   2. If you have previously created a Web App, skip this step. Otherwise, click **Add new web app** in the **Web App** section.
-  3. Copy the **Commerce ID** GUID from your web application, which is the Client ID.
+  3. Copy the **Commerce ID** GUID from your web application.
   4. Select the key validity duration as one or two years, as needed. Select **Add key** and then copy and save the secret key value.  
     ![CSP Partner Center](./media/quick-register-csp/csp-partner-center.png)
   5. Go back to the registration page and paste the information.  
