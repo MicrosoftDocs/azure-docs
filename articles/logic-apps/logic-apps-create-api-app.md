@@ -69,7 +69,8 @@ easy API hosting.
 > * [Python](../app-service/app-service-web-get-started-python.md)
 >
 > For API App samples built for logic apps, visit the 
-> [Azure Logic Apps GitHub repository](http://github.com/logicappsio) or [blog](http://aka.ms/logicappsblog).
+> [Azure Logic Apps GitHub repository](http://github.com/logicappsio) 
+> or [blog](http://aka.ms/logicappsblog).
 
 ## How do custom APIs differ from custom connectors?
 
@@ -315,22 +316,25 @@ Here are specific steps for a polling trigger, described from the API's perspect
 
 | Found new data or event?  | API response | 
 | ------------------------- | ------------ |
-| Found | Return an HTTP `200 OK` status with the response payload (input for next step). <br/>This response creates a logic app instance and starts the workflow. |
-| Not found | Return an HTTP `202 ACCEPTED` status with a `location` header and a `retry-after` header. <br/>For triggers, the `location` header should also contain a `triggerState` query parameter, which is usually a "timestamp." Your API can use this identifier to track the last time that the logic app was triggered. |
+| Found | Return an HTTP `200 OK` status with the response payload (input for next step). <br/>This response creates a logic app instance and starts the workflow. | 
+| Not found | Return an HTTP `202 ACCEPTED` status with a `location` header and a `retry-after` header. <br/>For triggers, the `location` header should also contain a `triggerState` query parameter, which is usually a "timestamp." Your API can use this identifier to track the last time that the logic app was triggered. | 
+||| 
 
 For example, to periodically check your service for new files, 
 you might build a polling trigger that has these behaviors:
 
-| Request includes `triggerState`? | API response |
-| -------------------------------- | -------------|
-| No | Return an HTTP `202 ACCEPTED` status plus a `location` header with `triggerState` set to the current time and the `retry-after` interval to 15 seconds. |
-| Yes | Check your service for files added after the `DateTime` for `triggerState`. |
+| Request includes `triggerState`? | API response | 
+| -------------------------------- | -------------| 
+| No | Return an HTTP `202 ACCEPTED` status plus a `location` header with `triggerState` set to the current time and the `retry-after` interval to 15 seconds. | 
+| Yes | Check your service for files added after the `DateTime` for `triggerState`. | 
+||| 
 
-| Number of files found | API response |
-| --------------------- | -------------|
-| Single file | Return an HTTP `200 OK` status and the content payload, update `triggerState` to the `DateTime` for the returned file, and set `retry-after` interval to 15 seconds. |
-| Multiple files | Return one file at a time and an HTTP `200 OK` status, update `triggerState`, and set the `retry-after` interval to 0 seconds. </br>These steps let the engine know that more data is available, and that the engine should immediately request the data from the URL in the `location` header. |
-| No files | Return an HTTP `202 ACCEPTED` status, don't change `triggerState`, and set the `retry-after` interval to 15 seconds. |
+| Number of files found | API response | 
+| --------------------- | -------------| 
+| Single file | Return an HTTP `200 OK` status and the content payload, update `triggerState` to the `DateTime` for the returned file, and set `retry-after` interval to 15 seconds. | 
+| Multiple files | Return one file at a time and an HTTP `200 OK` status, update `triggerState`, and set the `retry-after` interval to 0 seconds. </br>These steps let the engine know that more data is available, and that the engine should immediately request the data from the URL in the `location` header. | 
+| No files | Return an HTTP `202 ACCEPTED` status, don't change `triggerState`, and set the `retry-after` interval to 15 seconds. | 
+||| 
 
 > [!TIP]
 > For an example polling trigger pattern, review this 
@@ -378,36 +382,41 @@ Your API can then unregister the callback URL and stop any processes as necessar
 
 ## Secure calls to your APIs from logic apps
 
-After creating your custom APIs, set up authentication for your APIs 
+After creating your custom APIs, 
+set up authentication for your APIs 
 so that you can call them securely from logic apps. Learn 
 [how to secure calls to custom APIs from logic apps](../logic-apps/logic-apps-custom-api-authentication.md).
 
 ## Deploy and call your APIs
 
-After you add authentication, set up deployment for your APIs. 
-Learn [how to deploy and call custom APIs from logic apps](../logic-apps/logic-apps-custom-api-host-deploy-call.md)
+After you set up authentication, set up deployment for your APIs. 
+Learn [how to deploy and call custom APIs from logic apps](../logic-apps/logic-apps-custom-api-host-deploy-call.md).
 
 ## Publish custom APIs to Azure
 
-To make your custom APIs available for public use in Azure, 
-submit your nominations to the 
-[Microsoft Azure Certified program](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/).
+To make your custom APIs available for other Logic Apps users in Azure, 
+you must add security and register them as Logic App connectors. 
+For more information, see [Custom connectors overview](../logic-apps/custom-connector-overview.md). 
+
+To make your custom APIs available to all Logic Apps, 
+Microsoft Flow, and Microsoft PowerApps users, 
+you must add security, register your APIs as Logic App connectors, 
+and nominate your connectors for the 
+[Microsoft Azure Certified program](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/). 
 
 ## Get support
 
-For specific help with custom APIs, 
+* For specific help with custom APIs, 
 contact [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com).
 
-To ask questions, answer questions, and see what other Azure Logic Apps users are doing, visit the 
+* For questions, visit the 
 [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
-To help improve Logic Apps, vote on or submit ideas at the 
+* To help improve Logic Apps, vote on or submit ideas at the 
 [Logic Apps user feedback site](http://aka.ms/logicapps-wish). 
 
 ## Next steps
 
-* [Usage metering for actions and triggers](logic-apps-pricing.md)
-* [Handle content types](./logic-apps-content-type.md)
-* [Handle errors and exceptions](./logic-apps-exception-handling.md)
-* [Secure access to your logic apps](./logic-apps-securing-a-logic-app.md)
-* [Call, trigger, or nest logic apps with HTTP endpoints](./logic-apps-http-endpoint.md)
+* [Handle errors and exceptions](../logic-apps/logic-apps-exception-handling.md)
+* [Call, trigger, or nest logic apps with HTTP endpoints](../logic-apps/logic-apps-http-endpoint.md)
+* [Usage metering for actions and triggers](../logic-apps/logic-apps-pricing.md)
