@@ -153,25 +153,27 @@ Now that you have a search service, you can attach it to your blob storage. This
 
     A data source specifies which data to index, credentials needed to access the data, and policies to identify changes in the data (new, modified, or deleted blobs). A data source can be used multiple times in the same search service.
 
-4. Enter a name of your choosing and make sure **Data to extract** is set as **Content and Metadata** and that **Parsing Mode** is **Text**.
+1. Enter a name of your choosing and make sure **Data to extract** is set as **Content and Metadata** and that **Parsing Mode** is **Text**.
     
     a. In the future, for your own data, you can also select **Storage metadata only** if you wish to limit the data that is indexed to standard blob properties or user-defined properties.
     
     b. You can also choose **All metadata** to obtain both standard blob properties and *all* content-type specific metadata. 
 
-5. Click **Select an Account and Container** opening up **Storage accounts.**
+2. Click **Select an Account and Container** opening up **Storage accounts.**
 
   ![Unstructured search](media/storage-unstructured-structured-search/datasources.png)
 
-6. Click on the storage account. Doing so opens up **Containers.**
+3. Click on the storage account. Doing so opens up **Containers.**
 
   ![Unstructured search](media/storage-unstructured-structured-search/datacontainer.png)
 
-7. Click on the data container and then click **Select**. Doing so brings you back to **New data source.**
+4. Click on the data container and then click **Select**. Doing so brings you back to **New data source.**
 
-8. Fill in the **Blob folder** field with the name of the folder we created previously, **clinical-trials**, and leave the description blank.
+5. Fill in the **Blob folder** field with the name of the folder we created previously, **clinical-trials**, and leave the description blank.
 
-9. Click **OK**, which brings up **Index.**
+6. Click **OK**, which brings up **Index.**
+
+### Index
 
     The index allows you to specify the fields *documents*, attributes, and other constructs that shape the search experience. A document is treated like a single unit of searchable data in your index. If you were to think of this process in the context of a database, an index is like a table and documents are rows in the table.
 
@@ -187,21 +189,23 @@ Now that you have a search service, you can attach it to your blob storage. This
 | *Facetable* |Allows a field to be used in a faceted navigation structure for user self-directed filtering. Typically fields containing repetitive values that you can use to group multiple documents together (for example, multiple documents that fall under a single brand or service category) work best as facets. |
 | *Searchable* |Marks the field as full-text searchable. |
 
-10. Fill in the **Index name** and then make sure the **content** field name is both retrievable and searchable.
+1. Fill in the **Index name** and then make sure the **content** field name is both retrievable and searchable.
 
-11. Click the dropdown and change the **Key** to **metadata_storage_name**.
+2. Click the dropdown and change the **Key** to **metadata_storage_name**.
 
   ![Unstructured search](media/storage-unstructured-structured-search/valuestoselect.png)
 
-12. Click **OK**, which brings up **Create an Indexer.**
+3. Click **OK**, which brings up **Create an Indexer.**
 
+### Create an Indexer
+    
     An indexer connects a data source with a target search index, and provides a schedule to automate the data refresh.
 
-13. Fill in the **Name** field with a name of your choosing and then click **OK**.
+1. Fill in the **Name** field with a name of your choosing and then click **OK**.
 
   ![Unstructured search](media/storage-unstructured-structured-search/exindexer.png)
 
-14. Doing so brings you back to **Import Data** where you can click OK and complete the connection process.
+2. Doing so brings you back to **Import Data** where you can click OK and complete the connection process.
 
 You've now successfully connected your blob data container's **clinical-trials** folder to your search service. The search service begins indexing immediately and you can begin searching right away.
 

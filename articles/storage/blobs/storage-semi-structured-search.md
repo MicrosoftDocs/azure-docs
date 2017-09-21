@@ -39,15 +39,22 @@ To complete this tutorial:
 
 ## Setup
 
-In order to successfully complete this tutorial you will be required to have a REST client. If you do not already have one feel free to obtain one from the internet, there are numerous freely available ones. For the purposes of this tutorial we will be using [Postman]() and we will show you how to properly use it with Azure.
+In order to successfully complete this tutorial you will be required to have a REST client. If you do not already have one feel free to obtain one from the internet, there are numerous freely available ones. For the purposes of this tutorial we will be using [Postman](https://www.getpostman.com/) and we will show you how to properly use it with Azure.
 
 After installing postman, launch it.
+
+
+The search api-key is required, it can be found under **Keys** inside your search service. This api-key must be in the header of every API call this tutorial directs you to make. So note it down.
+
+  ![Semi-structured search](media/storage-unstructured-structured-search/keys.png)
+
+If this is your first time using a rest client, here's a brief rundown of the components important to this tutorial: "POST" is denoting what type of REST call you are telling your client to make, the content-type and api-key are header keys, application/json and your "admin key" (remember this is a placeholder for your search primary key) are the values for your header keys, and the rest of the call (including the brackets) is the body of your call. Depending on what client you're using there may be some variations on how you construct your query but that's the gist of it.
 
 ## Download the sample data
 
 For this tutorial, a sample data set has been prepared for you. **Download [clinical-trials-json.zip](https://github.com/roygara/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip)** and unzip it to its own folder.
 
-Contained in the sample is a set of example JSON files, which were originally text files obtained from [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). We have already converted them to JSON for convenience.
+Contained in the sample is a set of example JSON files, which were originally text files obtained from [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). We have already converted them to JSON for your convenience.
 
 ## Log in to Azure
 
@@ -55,21 +62,17 @@ Log in to the [Azure portal](http://portal.azure.com).
 
 ## Upload the sample data
 
-Navigate back to the storage account from the previous tutorial, open the **data** container, and click upload.
+Navigate back to the storage account from the previous tutorial, open the **data** container, and click **Upload**.
 
-Click **Advanced** and enter "clinical-trials-json", then choose to upload all of the JSON files you downloaded.
+Click **Advanced** and enter "clinical-trials-json", then upload all of the JSON files you downloaded.
 
-They are in their own subfolder inside the data container.
+After the upload completes they will now appear in their own subfolder inside the data container.
 
 ## Connect your search service to your blob storage
 
-In the last tutorial, we made the connection via the UI. In this tutorial, we make the connection via the API. We are using the REST API to perform the connection because the UI does not currently support JSON indexing.
+In the last tutorial, we connected our search service to our storage via the UI. In this tutorial, we make the connection via the API. We are using the REST API to perform the connection because the UI does not currently support JSON indexing.
 
 The URL (also known as an endpoint) for each call must end with **api-version=2016-09-01-Preview** and each call should return a **201 Created.** The generally available api-version does not yet have the capability to handle json as a jsonArray, currently only the preview api-version does.
-
-The search api-key is required, it can be found under **Keys** inside your search service. This api-key must be in the header of every API call this tutorial directs you to make. So note it down.
-
-  ![Semi-structured search](media/storage-unstructured-structured-search/keys.png)
 
  Additionally, the `[service name]` in every example URL is the name of the search service created in the last tutorial. So note the name of your search service down as well. An example would be: `https://mysearch.search.windows.net/datasources?api-version=2016-09-01-Preview`
 
@@ -80,8 +83,6 @@ You will also need the name of your storage account and your storage account key
 Execute the following three API calls.
 
 The first API call creates a data source, which is what you use to specify what data to index. 
-
-If this is your first time using an API client: Depending on what client you're using there will be some variations on how you construct your query but the general gist of it is: "POST" is denoting what type of API call you should have your client make,  the content-type and api-key are header keys, application/json and your "admin key" (remember this is a placeholder for your search primary key) are the values for your header keys, and the rest of the call (including the brackets) is the body of your call.
 
     POST https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview
     Content-Type: application/json
