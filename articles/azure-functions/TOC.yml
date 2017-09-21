@@ -36,7 +36,7 @@
 - name: Tutorials
   items:
   - name: 1 - Image resize with Event Grid
-    href: ../event-grid/.md
+    href: ../event-grid/resize-images-on-storage-blob-upload-event.md
   - name: 1 - Functions with Logic Apps
     href: functions-twitter-email.md
   - name: 2 - Create a serverless API
