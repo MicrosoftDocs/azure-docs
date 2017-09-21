@@ -119,4 +119,4 @@ You are ready to move on to the next part in the series, to build a machine lear
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Part 2: Model building](tutorial-classifying-iris-part-2.md)
+> [Part 2: Build a model](tutorial-classifying-iris-part-2.md)
