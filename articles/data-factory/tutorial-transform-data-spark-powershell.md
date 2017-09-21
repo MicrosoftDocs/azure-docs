@@ -245,13 +245,13 @@ You have authored linked service and pipeline definitions in JSON files. Now, le
 1. Start a pipeline run. It also captures the pipeline run ID for future monitoring.
 
     ```powershell
-    $runId = Invoke-AzureRmDataFactoryV2PipelineRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName  -Parameters @{ dummy = "b"}
+    $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName  -Parameters @{ dummy = "b"}
     ```
 2. Run the following script to continuously check the pipeline run status until it finishes.
 
     ```powershell
 	while ($True) {
-	    $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -PipelineName $pipelineName -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+	    $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
 	
 	    if(!$result) {
 	        Write-Host "Waiting for pipeline to start..." -foregroundcolor "Yellow"

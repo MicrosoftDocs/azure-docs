@@ -481,15 +481,15 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
  
 ## Run the pipeline
 
-1. Run the pipeline: **IncrementalCopyPipeline** by using **Invoke-AzureRmDataFactoryV2PipelineRun** cmdlet. Replace place-holders with your own resource group and data factory name.
+1. Run the pipeline: **IncrementalCopyPipeline** by using **Invoke-AzureRmDataFactoryV2Pipeline** cmdlet. Replace place-holders with your own resource group and data factory name.
 
 	```powershell
-	$RunId = Invoke-AzureRmDataFactoryV2PipelineRun -PipelineName "IncrementalCopyPipeline" -ResourceGroup "<your resource group>" -dataFactoryName "<your data factory name>"
+	$RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup "<your resource group>" -dataFactoryName "<your data factory name>"
 	``` 
 2. Check the status of pipeline by running the Get-AzureRmDataFactoryV2ActivityRun cmdlet until you see all the activities running successfully. Replace place-holders with your own appropriate time for parameter RunStartedAfter and RunStartedBefore.  In this tutorial, we use -RunStartedAfter "2017/09/14" -RunStartedBefore "2017/09/15"
 
 	```powershell
-	Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName "IncrementalCopyPipeline" -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
+	Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
 	```
 
 	Here is the sample output:
@@ -601,15 +601,15 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
 	6 | newdata | 2017-09-06 02:23:00.000
 	7 | newdata | 2017-09-07 09:01:00.000
     ```
-2. Run the pipeline: **IncrementalCopyPipeline** again using the **Invoke-AzureRmDataFactoryV2PipelineRun** cmdlet. Replace place-holders with your own resource group and data factory name.
+2. Run the pipeline: **IncrementalCopyPipeline** again using the **Invoke-AzureRmDataFactoryV2Pipeline** cmdlet. Replace place-holders with your own resource group and data factory name.
 
 	```powershell
-	$RunId = Invoke-AzureRmDataFactoryV2PipelineRun -PipelineName "IncrementalCopyPipeline" -ResourceGroup "<your resource group>" -dataFactoryName "<your data factory name>"
+	$RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup "<your resource group>" -dataFactoryName "<your data factory name>"
 	```
 3. Check the status of pipeline by running **Get-AzureRmDataFactoryV2ActivityRun** cmdlet until you see all the activities running successfully. Replace place-holders with your own appropriate time for parameter RunStartedAfter and RunStartedBefore.  In this tutorial, we use -RunStartedAfter "2017/09/14" -RunStartedBefore "2017/09/15"
 
 	```powershell
-	Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName "IncrementalCopyPipeline" -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
+	Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
 	```
 
 	Here is the sample output:
