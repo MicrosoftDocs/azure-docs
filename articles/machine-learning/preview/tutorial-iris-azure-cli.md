@@ -14,17 +14,21 @@ ms.date: 09/20/2017
 ---
 
 # Tutorial: Classifying Iris using the command-line interface
+Azure Machine Learning services (preview) is an integrated, end-to-end data science and advanced analytics solution for professional data scientists to prepare data, develop experiments and deploy models at cloud scale.
+
 In this tutorial, you learn to use the command-line interface (CLI) tools in Azure Machine Learning preview features to: 
 > [!div class="checklist"]
-> * Set up an experimentation account and create a workspace
+> * Set up an Experimentation account and create a workspace
 > * Create a project
 > * Submit an experiment to multiple compute targets
 > * Promote and register a trained model
 > * Deploy a web service to score new data
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 ## Prerequisites
-- You need access to an Azure subscription and permissions to create resources in that subscription. You can create a [free Azure subscription](https://azure.microsoft.com/free/) before you begin. 
-- You also need to install Azure Machine Learing workbench app by following the installation instructions in the [Install and create Quickstart](quickstart-installation.md) guide. 
+- You need access to an Azure subscription and permissions to create resources in that subscription. 
+- You need to install Azure Machine Learing Workbench application by following the [Install and create Quickstart](quickstart-installation.md). 
 
   >[!NOTE]
   >You only need to install the Azure Machine Learning Workbench locally. You only need to follow the steps in the sections entitled Install Azure Machine Learning Workbench, since the account creation, and create a new project steps will be done by command line in this article.
