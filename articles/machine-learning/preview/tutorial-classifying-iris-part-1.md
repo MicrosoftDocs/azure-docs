@@ -46,20 +46,20 @@ Follow the [Install and create Quickstart](quickstart-installation.md) to instal
 3. Click on the **Create** button to create the project. The project is now created and opened for you.
 
 ## Create a data preparation package
-Open the `iris.csv` file from the **File View**. The file is a simple table with 5 columns and 150 rows. It has four numerical feature columns and a string target column. It does not have column headers.
+1. Open the `iris.csv` file from the **File View**. The file is a simple table with 5 columns and 150 rows. It has four numerical feature columns and a string target column. It does not have column headers.
 
-![iris.csv](media/tutorial-classifying-iris/show_iris_csv.png)
+   ![iris.csv](media/tutorial-classifying-iris/show_iris_csv.png)
 
->[!NOTE]
->Note: it is not recommended to include data files in your project folder, particularly when the file size is large. We include `iris.csv` in this template for demonstration purposes because it is tiny. For more information, please reference the [How to read and write large data files](how-to-read-write-files.md) article.
+   >[!NOTE]
+   >Note: it is not recommended to include data files in your project folder, particularly when the file size is large. We include `iris.csv` in this template for demonstration purposes because it is tiny. For more information, please reference the [How to read and write large data files](how-to-read-write-files.md) article.
 
-In the **Data View**, click on the **+** icon to add a new data source. The **Add Data Source** wizard launches. 
+2. In the **Data View**, click on the **+** icon to add a new data source. The **Add Data Source** wizard launches. 
 
-![data view](media/tutorial-classifying-iris/data_view.png)
+   ![data view](media/tutorial-classifying-iris/data_view.png)
 
-Select the **File(s)/Directory** option, and choose the `iris.csv` local file. Accept the default settings for each screen and finally click on **Finish**. 
+3. Select the **File(s)/Directory** option, and choose the `iris.csv` local file. Accept the default settings for each screen and finally click on **Finish**. 
 
-![select iris](media/tutorial-classifying-iris/select_iris_csv.png)
+   ![select iris](media/tutorial-classifying-iris/select_iris_csv.png)
 
 >[!IMPORTANT]
 >Make sure you select the `iris.csv` file from within the current project directory for this exercise, otherwise latter steps may fail. 
