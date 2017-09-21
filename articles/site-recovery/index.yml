@@ -1,0 +1,52 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Site Recovery Documentation
+metadata:
+  title: Azure Site Recovery Documentation - Tutorials, API Reference | Microsoft Docs
+  meta.description: Learn how to set up cloud disaster recovery and business continuity for physical servers and virtual machines by deploying and managing replication.
+  services: site-recovery
+  author: czeumault
+  manager: carolz
+  ms.service: site-recovery
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/17/2017
+  ms.author: carolz
+abstract:
+  description: Azure Site Recovery orchestrates and manages disaster recovery for Azure VMs, and on-premises VMs and physical servers. Learn how to replicate, fail over, and fail back with our quickstarts and tutorials.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
+      text: Replicate on Azure VM - Portal
+      href: /azure/site-recovery/azure-to-azure-quickstart
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to set up disaster recovery for VMs and physical servers.'
+  - type: list
+    style: unordered
+    items:
+    - html: <p>Azure to Azure</p>
+      items:
+      - type: list
+        style: ordered
+         items:
+         - html: <a href="/azure/site-recovery/azure-to-azure-tutorial-enable-replication">Set up disaster recovery</a>
+         - html: <a href="/azure/site-recovery/azure-to-azure-tutorial-dr-drill">Run a disaster recovery drill</a>
+         - html: <a href="/azure/site-recovery/azure-to-azure-tutorial-failover-failback">Run failover and failback</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="/powershell/module/azurerm.siterecovery/?view=azurermps-4.3.1">Azure PowerShell</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/site-recovery/">REST API Reference</a></p>
