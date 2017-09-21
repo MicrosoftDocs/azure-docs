@@ -17,6 +17,8 @@ abstract:
   description: Azure Site Recovery orchestrates and manages disaster recovery for Azure VMs, and on-premises VMs and physical servers. Learn how to replicate, fail over, and fail back with our quickstarts and tutorials.
 sections:
 - title: 5-Minute Quickstarts
+  - type: paragraph
+    text: 'Quickly set up disaster recovery for an Azure VM'
   items:
   - type: list
     style: icon48
