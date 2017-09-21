@@ -23,21 +23,21 @@ Today Azure Active Directory (Azure AD) supports thousands of pre-integrated app
 
 Azure AD uses some of the default settings for the gallery applications. The default values are set up based on the application's requirements.
 
-Azure AD supports advanced certificate signing settings. To select these options, first select the **Show advanced certificate signing settings** checkbox, as shown:
+Azure AD supports advanced certificate signing settings. To select these options, first select the **Show advanced certificate signing settings** check box, as shown:
 
 ![Show advanced certificate signing settings][1]
 
-After you select this checkbox, you can set up **Certificate signing options** and the **Certificate signing algorithm**.
+After you select this check box, you can set up **Certificate signing options** and the **Certificate signing algorithm**.
 
 ## Certificate signing options
 
 Three certificate signing options are supported by Azure AD:
 
-* **Sign SAML assertion**. This default option is set for most of the gallery applications. If this option is selected, Azure AD as an IdP signs the SAML assertion and certificate with the X509 certificate of the application. Also, it uses the signing algorithm, which is selected in the **Signing Algorithm** drop-down.
+* **Sign SAML assertion**. This default option is set for most of the gallery applications. If this option is selected, Azure AD as an IdP signs the SAML assertion and certificate with the X509 certificate of the application. Also, it uses the signing algorithm, which is selected in the **Signing Algorithm** drop-down list.
 
-* **Sign SAML response**. If this option is selected, Azure AD as an IdP signs the SAML response with the X509 certificate of the application. Also, it uses the signing algorithm, which is selected in the **Signing Algorithm** drop-down.
+* **Sign SAML response**. If this option is selected, Azure AD as an IdP signs the SAML response with the X509 certificate of the application. Also, it uses the signing algorithm, which is selected in the **Signing Algorithm** drop-down list.
 
-* **Sign SAML response and assertion**. If this option is selected, Azure AD as an IdP signs the entire SAML token with the X509 certificate of the application. Also, it uses the signing algorithm, which is selected in the **Signing Algorithm** drop-down.
+* **Sign SAML response and assertion**. If this option is selected, Azure AD as an IdP signs the entire SAML token with the X509 certificate of the application. Also, it uses the signing algorithm, which is selected in the **Signing Algorithm** drop-down list.
 
     ![Certificate signing options][4]
 
@@ -49,7 +49,7 @@ Azure AD supports two signing algorithms to sign the SAML response:
 
     ![SHA-256 certificate signing algorithm][3]
 
-* **SHA-1**. This is the older algorithm, and it's not treated as secure as SH-256. If an application supports only this signing algorithm, you can select this option in the **Signing Algorithm** drop-down. Azure AD then signs the SAML response with the SHA-1 algorithm.
+* **SHA-1**. This is the older algorithm, and it's not treated as secure as SH-256. If an application supports only this signing algorithm, you can select this option in the **Signing Algorithm** drop-down list. Azure AD then signs the SAML response with the SHA-1 algorithm.
 
     ![SHA-1 certificate signing algorithm][2]
 
