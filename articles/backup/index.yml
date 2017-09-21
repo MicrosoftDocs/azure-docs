@@ -3,7 +3,7 @@ documentType: LandingData
 title: Azure Backup Documentation
 metadata:
   title: Azure Backup Documentation - Tutorials, API Reference | Microsoft Docs
-  description: Azure Backup allows you to back up the data for on-premises servers, virtual machines, virtualized workloads, SQL server, SharePoint server, and more. Learn how to back up and restore your data with our quickstarts, tutorials and samples
+  description: Azure Backup allows you to back up the data for on-premises servers, virtual machines, virtualized workloads, SQL server, SharePoint server, and more. Learn how to back up and restore your data with our quickstarts, tutorials and samples.
   services: backup
   author: czeumault
   manager: carolz
@@ -14,7 +14,7 @@ metadata:
   ms.date: 09/11/2017
   ms.author: carolz
 abstract:
-  description: Azure Backup allows you to back up the data for on-premises servers, virtual machines, virtualized workloads, SQL server, SharePoint server, and more. Learn how to back up and restore your data with our quickstarts, tutorials and samples
+  description: Azure Backup allows you to back up the data for on-premises servers, virtual machines, virtualized workloads, SQL server, SharePoint server, and more. Learn how to back up and restore your data with our quickstarts, tutorials and samples.
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -38,7 +38,7 @@ sections:
 - title: Step-by-step Tutorials
   items:
   - type: paragraph
-    text: Learn to back up and recover virtual machines at scale.
+    text: Learn to back up and recover virtual machines within Azure or from Windows Server.
   - type: list
     style: ordered
     items:
