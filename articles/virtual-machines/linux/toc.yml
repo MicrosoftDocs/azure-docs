@@ -140,7 +140,7 @@
     - name: Azure VM agent
       items:
       - name: Overview
-        href: agent-user-guide.md
+        href: ../extensions/agent-linux.md
       - name: Agent update
         href: update-agent.md
     - name: Planned maintenance

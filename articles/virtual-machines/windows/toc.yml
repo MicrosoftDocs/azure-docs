@@ -130,7 +130,7 @@
     - name: Download template
       href: download-template.md
     - name: Azure VM agent
-      href: agent-user-guide.md
+      href: ../extensions/agent-windows.md
     - name: Planned maintenance
       href: maintenance-notifications.md
     - name: Scheduled events

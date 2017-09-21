@@ -1,5 +1,5 @@
 - name: VM Extensions Documentation
-  href: ../index.yml
+  href: ../index.md
 - name: Overview
   items:
   - name: About Azure Extensions
@@ -19,9 +19,9 @@
   - name: Custom Script extension
     items:
     - name: Linux
-      href: customscript-linux.md
+      href: custom-script-linux.md
     - name: Windows
-      href: customscript-windows.md
+      href: custom-script-windows.md
   - name: OMS extension
     items:
     - name: Linux
@@ -41,7 +41,7 @@
     - name: Linux
       href: network-watcher-linux.md
     - name: Windows
-      href: network-watched-windows.md
+      href: network-watcher-windows.md
   - name: PowerShell DSC extension
     href: dsc-overview.md
     items:

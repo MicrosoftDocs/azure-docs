@@ -229,5 +229,5 @@ You can read more about using your Linux VM in the following articles:
 * [Configure LVM on a Linux VM in Azure](../configure-lvm.md)
 
 <!--Link references-->
-[Agent]:../agent-user-guide.md
+[Agent]:../../extensions/agent-linux.md
 [Logon]:../mac-create-ssh-keys.md

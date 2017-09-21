@@ -21,7 +21,7 @@ ms.author: danlep
 # Manage administrative users, SSH, and check or repair disks on Linux VMs using the VMAccess Extension with the Azure CLI 2.0
 The disk on your Linux VM is showing errors. You somehow reset the root password for your Linux VM or accidentally deleted your SSH private key. If that happened back in the days of the datacenter, you would need to drive there and then open the KVM to get at the server console. Think of the Azure VMAccess extension as that KVM switch that allows you to access the console to reset access to Linux or perform disk level maintenance.
 
-This article shows you how to use the Azure VMAccess Extension to check or repair a disk, reset user access, manage administrative user accounts, or reset the SSH configuration on Linux. You can also perform these steps with the [Azure CLI 1.0](using-vmaccess-extension-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+This article shows you how to use the Azure VMAccess Extension to check or repair a disk, reset user access, manage administrative user accounts, or reset the SSH configuration on Linux. You can also perform these steps with the [Azure CLI 1.0](../linux/using-vmaccess-extension-nodejs.md).
 
 
 ## Ways to use the VMAccess Extension
@@ -227,9 +227,9 @@ az vm extension set \
 ## Next steps
 Updating Linux using the Azure VMAccess Extension is one method to make changes on a running Linux VM. You can also use tools like cloud-init and Azure Resource Manager templates to modify your Linux VM on boot.
 
-[Virtual machine extensions and features for Linux](extensions-features.md)
+[Virtual machine extensions and features for Linux](features-linux.md)
 
-[Authoring Azure Resource Manager templates with Linux VM extensions](../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Authoring Azure Resource Manager templates with Linux VM extensions](../windows/template-description.md)
 
-[Using cloud-init to customize a Linux VM during creation](using-cloud-init.md)
+[Using cloud-init to customize a Linux VM during creation](../linux/using-cloud-init.md)
 
