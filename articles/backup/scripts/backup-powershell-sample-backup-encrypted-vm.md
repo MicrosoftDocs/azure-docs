@@ -21,7 +21,7 @@ ms.custom: mvc
 
 # Back up an encrypted Azure virtual machine with PowerShell
 
-This script creates a Recovery Services vault with Georedundant storage for an encrypted Azure virtual machine. The script also triggers the intitial recovery point for the virtual machine. After running the script, you'll have a first backup, and the backup will be retained for 365 days. The default protection policy is applied, which generates a daily backup for the virtual machine.
+This script creates a Recovery Services vault with Geo-redundant storage (GRS) for an encrypted Azure virtual machine. The default protection policy is applied to the vault. The policy generates a daily backup for the virtual machine, and retains each backup for 30 days. The script also triggers the initial recovery point for the virtual machine and retains that recovery point for 365 days. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
