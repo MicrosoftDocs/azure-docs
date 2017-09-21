@@ -112,6 +112,12 @@ Yes. Each ExpressRoute circuit has a redundant pair of cross connections configu
 
 You will not lose connectivity if one of the cross connections fails. A redundant connection is available to support the load of your network. You can additionally create multiple circuits in a different peering location to achieve failure resilience.
 
+## How do I ensure high availability on a virtual network connected to ExpressRoute?
+
+High availability on a virtual network connected to ExpressRoute can be achieved by utilizing multiple circuits in different peering locations. Each circuit must be connected to the ExpressRoute gateway on the virtual network. By default, traffic will be load shared unless using connecting weighting, which provides the ability to weight connections to local vs. remote prefixes. See [Optimizing ExpressRoute Routing](expressroute-optimize-routing.md) for additional details on connection weighting. If a peering location were to go down, this method would provide failover capabilties. 
+
+Note: There may be a short downtime as the primary is removed from the route table. 
+
 ### <a name="onep2plink"></a>If I'm not co-located at a cloud exchange and my service provider offers point-to-point connection, do I need to order two physical connections between my on-premises network and Microsoft?
 
 If your service provider can establish two Ethernet virtual circuits over the physical connection, you only need one physical connection. The physical connection (for example, an optical fiber) is terminated on a layer 1 (L1) device (see the image). The two Ethernet virtual circuits are tagged with different VLAN IDs, one for the primary circuit, and one for the secondary. Those VLAN IDs are in the outer 802.1Q Ethernet header. The inner 802.1Q Ethernet header (not shown) is mapped to a specific [ExpressRoute routing domain](expressroute-circuit-peerings.md).
