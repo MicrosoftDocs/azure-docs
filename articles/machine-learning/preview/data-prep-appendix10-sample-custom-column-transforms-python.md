@@ -14,7 +14,7 @@ ms.topic: article
 ms.date: 09/12/2017
 ---
 
-# Sample of Custom Column Transforms (Python) 
+# Sample of custom column transforms (Python) 
 The name of this transform in the menu is 'Add Column (Script)'
 
 Before reading this appendix read [Python Extensibility Overview](data-prep-python-extensibility-overview.md)

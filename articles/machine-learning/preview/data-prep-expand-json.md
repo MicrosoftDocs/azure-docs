@@ -13,10 +13,7 @@ ms.topic: article
 ms.date: 09/14/2017
 ---
 
-# Expand JSON Transformation
-
-## Overview
-
+# Expand JSON transformation
 The **Expand JSON** transform enables users to expand an existing column that contains valid JSON text into multiple columns.
 
 ## How to perform this transformation

@@ -6,12 +6,12 @@ ms.author: cforbe
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 9/7/2017
+ms.date: 09/07/2017
 ---
 
 # Data Source Wizard #
 
-The Data Source Wizard is a quick and easy way to bring a dataset into Azure Machine Learning Workbench without code. It is where you can also select a sample strategy for the dataset. 
+The Data Source Wizard is a quick and easy way to bring a dataset into Azure ML Workbench without code. It is where you can also select a sample strategy for the dataset. 
 
 ## Step 1: Trigger the Data Source Wizard ## 
 
@@ -20,12 +20,12 @@ To bring data into a project using the data source wizard. Select the **+** butt
 ![add data source](media/data-source-wizard/add-data-source.png)
 
 ## Step 2: Select where data is stored ##
-First, specify how your data is currently stored. It could be stored in a flat file or a directory, a parquet file, an Excel file, or a database. See [Supported Data Sources](data-prep-appendix2-supported-data-sources.md)  for more information.
+First, specify how your data is currently in. It could be stored in a flat file or a directory, a parquet file, an Excel file, or a database. See [Supported Data Sources](data-prep-appendix2-supported-data-sources.md)  for more information.
 
 ![step 1](media/data-source-wizard/step1.png)
 
 ## Step 3: Select data file ##
-For a file/directory, specify the file path. Choose from the dropdown the location of the data – it could be a local file path or Azure Blob Storage. 
+For a file/directory, specify the file path. Choose from the dropdown the location of the data – it could be a local file path, Azure Blob Storage, or Azure Data Lake. 
 
 Specify the path by typing it in or clicking on the **Browse…** button to browse for it. You can browse for a directory, or one or more files.
 
@@ -57,7 +57,7 @@ You can specify one or more sampling strategies for the dataset, and choose one 
 
 You can specify as many sampling strategies as you want, but there is only one that can be set to active when preparing your data. You can set any strategy to be the active by selecting the strategy and click Set as Active  in the toolbar.
 
-Depending on where the data comes from, some sample strategies may not be supported. For more information about sampling, see the sampling section in [this document](data-prep-user-guide.md)
+Depending on where the data comes from, some sample strategies may not be supported. For more information about sampling, the sampling section in [this document](data-prep-user-guide.md) 
 
 ![step 6](media/data-source-wizard/step5.png)
 

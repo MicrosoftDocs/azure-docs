@@ -13,7 +13,8 @@ ms.topic: article
 ms.date: 09/14/2017
 ---
 
-# Derive Column by Example Transformation
+
+# Derive column by example transformation
 
 The **Derive Column by Example** transform enables users to create a derivative of one or more existing columns using user provided examples of the derived result. The derivative can be any combination of the supported String, Date, and Number transformations. 
 
@@ -50,13 +51,13 @@ To perform this transform, follow these steps:
 3. Type an example of the *output* against a row, and press enter. At this point, the Workbench analyzes the input column as well as the provided output to synthesize a program that can transform the given inputs into output. The synthesized program is executed against all the rows in the data grid. For ambiguous and complicated cases, multiple examples may be needed. Depending on whether you are in Basic Mode or Advanced Mode, multiple examples can be provided in different ways.
 4. Review the output and Click **OK** to accept the transform.
 
-### Transform Editor: Basic Mode
+### Transform editor: basic mode
 
 Basic Mode provides an inline editing experience in the data grid. You can provide examples of the output by navigating to the cell of interest and typing the value. 
 
 The workbench analyses the data and tries to identify the edge cases that should be reviewed by the user. While the data is being analyzed, **Analyzing Data** is shown in the header of the Transform Editor. One the analysis is complete, either **No Suggestions** or, **Review next suggested row** is displayed in the header. You can navigate through the edge cases by clicking on **Review next suggested row**. In case the value is incorrect for a row, you should key in the correct value as additional example. 
 
-### Transform Editor: Advanced Mode
+### Transform editor: advanced mode
 
 Advanced Mode provides a richer experience for Deriving columns by example. All the examples are shown at one place. You can also review all the edge cases at one place by clicking on **Show suggested examples**. 
 
@@ -70,8 +71,10 @@ A user can edit an existing **Derive Column By Example** transform by selecting 
 
 ## Examples of string transformations by example
 
-> [!NOTE]
-> Values in **bold** represent the examples that were provided in order to complete the transformation in the shown dataset.
+
+>[!NOTE] 
+>Values in **bold** represent the examples that were provided in order to complete the transformation in the shown dataset.
+
 
 ### S1. Extracting file names from file paths
 
@@ -79,16 +82,16 @@ Number of Examples that were required for this case: 2
 
 |Input|Output|
 |:-----|:-----|
-|C:\Python27\Tools\pynche\TypeinViewer.py|**TypeinViewer.py**|
-|C:\Python27\Tools\pynche\webcolors.txt|webcolors.txt|
-|C:\Python27\Tools\pynche\websafe.txt|websafe.txt|
-|C:\Python27\Tools\pynche\X\rgb.txt|rgb.txt|
-|C:\Python27\Tools\pynche\X\xlicense.txt|xlicense.txt|
-|C:\Python27\Tools\Scripts\2to3.py|2to3.py|
-|C:\Python27\Tools\Scripts\analyze_dxp.py|**analyze_dxp.py**|
-|C:\Python27\Tools\Scripts\byext.py|byext.py|
-|C:\Python27\Tools\Scripts\byteyears.py|byteyears.py|
-|C:\Python27\Tools\Scripts\checkappend.py|checkappend.py|
+|C:\Python35\Tools\pynche\TypeinViewer.py|**TypeinViewer.py**|
+|C:\Python35\Tools\pynche\webcolors.txt|webcolors.txt|
+|C:\Python35\Tools\pynche\websafe.txt|websafe.txt|
+|C:\Python35\Tools\pynche\X\rgb.txt|rgb.txt|
+|C:\Python35\Tools\pynche\X\xlicense.txt|xlicense.txt|
+|C:\Python35\Tools\Scripts\2to3.py|2to3.py|
+|C:\Python35\Tools\Scripts\analyze_dxp.py|**analyze_dxp.py**|
+|C:\Python35\Tools\Scripts\byext.py|byext.py|
+|C:\Python35\Tools\Scripts\byteyears.py|byteyears.py|
+|C:\Python35\Tools\Scripts\checkappend.py|checkappend.py|
 
 ### S2. Case manipulation during string extraction
 
@@ -128,7 +131,8 @@ Number of Examples that were required for this case: 1
 
 Number of Examples that were required for this case: 1
 
-Note: In this example, special character · represents spaces in the Output column.
+>[!NOTE] 
+>In this example, special character · represents spaces in the Output column.
 
 |First Name|Middle Initial|Last Name|Output|
 |:-----|:-----|:-----|:-----|
@@ -189,8 +193,9 @@ Number of Examples that were required for this case: 3
 
 ## Examples of number transformations by example
 
-> [!NOTE]
-> Values in **bold** represent the examples that were provided in order to complete the transformation in the shown dataset.
+>[!NOTE] 
+>Values in **bold** represent the examples that were provided in order to complete the transformation in the shown dataset.
+
 
 ### N1. Rounding to nearest 10
 
@@ -270,8 +275,9 @@ Number of Examples that were required for this case: 1
 
 ## Examples of date transformations by example
 
-> [!NOTE]
-> Values in **bold** represent the examples that were provided in order to complete the transformation in the shown dataset.
+>[!NOTE] 
+>Values in **bold** represent the examples that were provided in order to complete the transformation in the shown dataset.
+
 
 ### D1. Extracting date parts
 
@@ -355,7 +361,7 @@ These Datetimes to period mappings were done using different by-example transfor
 |03-Mar-2024 10:17:49|40-60|15-30|9AM-11AM|10:00-10:30|
 |14-Apr-2010 00:23:13|0-20|15-30|11PM-1AM|0:00-0:30|
 
-## Examples of Composite Transformations By example
+## Examples of composite transformations by example
 
 |tripduration|starttime|start station id|start station latitude|start station longitude|usertype|Column|
 |-----:|-----:|-----:|-----:|-----:|-----:|-----:|
@@ -373,8 +379,8 @@ These Datetimes to period mappings were done using different by-example transfor
 
 ## Technical notes
 
-### Conditional Transformations
+### Conditional transformations
 In some cases, a single transformation cannot be found that satisfies the given examples. In such cases, Derive Column by Example Transform attempts to group the inputs based on some pattern and learn separate transformation for each group. We call this **Conditional Transformation**. **Conditional Transformation** is attempted only for transformations with a single input column. 
 
 ### Reference
-More information about the String Trasformation by Examlple technology can be found in [this publication](https://www.microsoft.com/en-us/research/publication/automating-string-processing-spreadsheets-using-input-output-examples/).
+More information about the String Transformation by Example technology can be found in [this publication](https://www.microsoft.com/en-us/research/publication/automating-string-processing-spreadsheets-using-input-output-examples/).

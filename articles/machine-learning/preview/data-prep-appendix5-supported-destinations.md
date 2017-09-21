@@ -28,12 +28,22 @@ Write a Comma-Separated Value file to storage
 - Separator
 
 
-### Parquet
-Write a Parquet file to storage
+### Parquet ###
+Write a dataset to storage as Parquet.
 
-#### Options
-- Replace Errors With
-- Rows Per Row Group
+Parquet as a format can take various forms in storage. For smaller datasets a single '.parquet' file is sometimes used, various python libraries support reading/writing to single '.parquet' files. For the moment AMLWB relies on the PyArrow python library for writing out Parquet during local 'interactive' use. This means that single file parquet is currently the only supported Parquet output format during local interactive use.
+
+During scale-out runs (on Spark) AMLWB relies on Spark's Parquet reading/writing capabilities. Spark's default output format for Parquet (currently the only one supported) is similar in structure to a HIVE dataset. This means a folder containing many '.parquet' files that are each a smaller partition of a larger dataset. 
+
+#### Caveats ####
+Parquet as a format is relatively young and has some implementation inconsistencies across different libraries. For instance, Spark places restrictions on what characters are valid to have in Column Names when writing out to Parquet which PyArrow does not. Any character in the set, " ,;{}()\\n\\t=", cannot be in a Column Name.
+
+>[!NOTE]
+>To ensure compatibility with Spark, anytime data is written to Parquet, occurrences of these characters in Column Names are replaced with '_' (underscore).**
+
+>[!NOTE]
+>To ensure consistency across local and scale-out any data written to Parquet, via the app, Python, or Spark, has its Column Names sanitized to ensure Spark compatibility. To ensure expected Column Names when writing to Parquet character’s in Sparks invalid set should be removed from columns before writing out.
+
 
 
 ## Locations 

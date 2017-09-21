@@ -19,18 +19,22 @@ ms.date: 09/11/2017
 Before reading this appendix read [Python Extensibility Overview](data-prep-python-extensibility-overview.md)
 
 
+### Write to Excel 
+
+
 Writing to Excel requires an additional library, adding new libraries is documented in the extensibility overview. `openpyxl` is the library that needs added.
 
 Before writing, some other changes might be needed. Some of the datatypes used in Data Prep are not supported in some destination formats. As an example if "Error" objects exist, these will not serialize correctly to Excel. Thus a "Replace Error Values" transform, that removes Errors from any columns, is needed before attempting to write to Excel.
 
 Assuming all of the above work has been completed, the following line writes the data table to a single sheet in an Excel document. Add a Write DataFlow (Script) transform and enter the following code in an expression section:
 
-## On Windows 
+
+#### On Windows 
 ```python
 df.to_excel('c:\dev\data\Output\Customer.xlsx', sheet_name='Sheet1')
 ```
 
-## On macOS/OS X 
+#### On macOS/OS X ###
 ```python
 df.to_excel('c:/dev/data/Output/Customer.xlsx', sheet_name='Sheet1')
 ```

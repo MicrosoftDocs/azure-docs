@@ -13,7 +13,8 @@ ms.devlang:
 ms.topic: article
 ms.date: 09/07/2017
 ---
-# Supported Transforms for this release 
+# Supported Transforms for this release
+The following list's and summaries the available Transforms for this release. 
 
 The supported transforms for this release are described below.
 

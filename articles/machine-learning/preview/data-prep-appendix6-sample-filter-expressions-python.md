@@ -17,18 +17,21 @@ ms.date: 09/11/2017
 # Sample of filter expressions (Python) 
 Before reading this appendix read [Python Extensibility Overview](data-prep-python-extensibility-overview.md)
 
-## Filter in only those rows the value of (numeric) Col2 is greater than 4 
+## Filter with equivalence test
+Filter in only those rows the value of (numeric) Col2 is greater than 4 
 
 ```python
     row["Col2"] > 4
 ```
 
-## Filter in only those rows where Col1 contains the value 'Good" and Col2 contains the (numeric) value 1 
+## Filter with multiple columns 
+Filter in only those rows where Col1 contains the value 'Good" and Col2 contains the (numeric) value 1 
 ```python
     row["Col1"] == 'Good' and row["Col2"] == 1
 ```
 
-## Filter in only those rows where Col1 has a null value 
+## Test filter against null
+Filter in only those rows where Col1 has a null value 
 ```python
     pd.isnull(row["Col1"])
 ```

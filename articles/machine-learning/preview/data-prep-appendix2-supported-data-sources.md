@@ -14,7 +14,8 @@ ms.topic: article
 ms.date: 09/12/2017
 ---
 
-# Supported Data Sources for this release 
+# Supported data sources for this release 
+The following document outlines the currently supported list of Data Sources in Data Prep.
 
 The supported data sources for this release are listed below.
 
@@ -61,6 +62,21 @@ Read a JSON file from storage, note the file is "flattened" on read
 
 #### Options
 - None
+
+### Parquet
+Read a Parquet dataset, either single file or folder.
+
+Parquet as a format can take various forms in storage. For smaller datasets a single '.parquet' file is sometimes used, various python libraries support reading/writing to single '.parquet' files. For the moment AMLWB relies on the PyArrow python library for reading Parquet during local 'interactive' use. It supports single '.parquet' files (as long as they were written as such, not a part of larger dataset) as well as Parquet Datasets. A Parquet Dataset is a collection of more than one '.parquet' file each of which represent a smaller partition of a larger dataset. Datasets are usually contained in a folder and are the default parquet output format for common platform's such as Spark and Hive.
+
+>[!NOTE]
+>When reading Parquet data that is in a folder with multiple '.parquet' files it is safest to select the directory for reading and to tick the 'Parquet Dataset' option. This will make PyArrow read the whole folder instead of the individual files, ensuring support for reading more complicated ways of storing Parquet on disk (such as folder partitioning.)**
+
+Scale-out execution relies on Spark's Parquet reading capabilities and supports single files as well as folders, similarly to local interactive.
+
+#### Options
+- Parquet Dataset
+  - This option determines whether AMLWB will expand a given directory and attempt to read each file in it individually (The unticked mode) or treat the directory as the whole data set and let PyArrow figure out the best way to interpret the files (The ticked mode).
+
 
 ## Locations
 ### Local
