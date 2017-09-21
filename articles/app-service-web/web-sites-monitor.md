@@ -179,7 +179,7 @@ You can learn more about metrics here: [Monitor service metrics](../monitoring-a
 Metrics for an App or App Service plan can be hooked up to alerts, to learn
 more about this, see [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
-App Service apps hosted in basic, standard or premium App Service Plans
+App Service apps hosted in standard or premium App Service Plans
 support **autoscale**. This allows you to configure rules that monitor the
 App Service plan metrics and can increase or decrease the instance count
 providing additional resources as needed, or saving money when the application
