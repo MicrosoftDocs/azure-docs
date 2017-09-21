@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 09/15/2017
+ms.date: 09/21/2017
 ---
 
 # Classifying Iris part 1: Prepare data
@@ -28,16 +28,16 @@ This tutorial uses the timeless [Iris flower dataset](https://en.wikipedia.org/w
 Follow the [Install and create Quickstart](quickstart-installation.md) to install the Azure Machine Learning Workbench application, which also includes the command-line interface (CLI). Launch the Azure Machine Learning Workbench app, and log in if needed.
 
 ## Create a new project
-Click on **File** --> **New Project** (or click on the **+** icon in the **PROJECTS** pane). You can also create a new Workspace first from this drop down menu.
+1. Click on **File** --> **New Project** (or click on the **+** icon in the **PROJECTS** pane). You can also create a new Workspace first from this drop down menu.
 
-![new workspace](media/tutorial-classifying-iris/new_ws.png)
+   ![new workspace](media/tutorial-classifying-iris/new_ws.png)
 
-Fill in the **Project name** field with a name for the project. For example, use the value `myIris`. Choose the directory in which the project is created. For example, use the value `C:\Temp`. Enter the optional description. Choose a Workspace (this tutorial uses `IrisGarden`). And then select the **Classifying Iris** template from the project template list. 
+2. Fill in the **Create New Project details**. Fill in the **Project name** field with a name for the project. For example, use the value `myIris`. Choose the directory in which the project is created. For example, use the value `C:\Temp`. Enter the optional description. Choose a Workspace (this tutorial uses `IrisGarden`). And then select the **Classifying Iris** template from the project template list. 
 
-![New Project](media/tutorial-classifying-iris/new_project.png)
+   ![New Project](media/tutorial-classifying-iris/new_project.png)
 
->[!TIP]
->Optionally, you can also fill in the Git repo field with an existing empty Git repo (a repo with no master branch) on VSTS. Doing so allows you to enable roaming and sharing scenarios later. For more information, please reference the [Using Git repo](using-git-ml-project.md) article. 
+   >[!TIP]
+   >Optionally, you can also fill in the Git repo field with an existing empty Git repo (a repo with no master branch) on VSTS. Doing so allows you to enable roaming and sharing scenarios later. For more information, please reference the [Using Git repo](using-git-ml-project.md) article. 
 
 Click on the **Create** button to create the project. The project is now created and opened for you.
 
