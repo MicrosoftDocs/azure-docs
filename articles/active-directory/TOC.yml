@@ -34,7 +34,7 @@
 - name: Managed Service Identity
   href: msi-overview.md
   items:
-    - name: Configure MSI for Windows VM
+    - name: Configure MSI for an Azure VM
       items:
       - name: With the Azure Portal
         href: msi-qs-configure-portal-windows-vm.md
