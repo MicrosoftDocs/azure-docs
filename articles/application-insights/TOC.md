@@ -1,12 +1,12 @@
 # Overview
 ## [What is Application Insights?](app-insights-overview.md)
-## [Performance monitoring overview for DevOps](app-insights-detect-triage-diagnose.md)
+## [Performance monitoring overview](app-insights-detect-triage-diagnose.md)
 
 # Quickstarts
 ## [.NET](quick-monitor-portal.md)
+## [.NET Core](app-insights-dotnetcore-quick-start.md)
 ## [Node.js](app-insights-nodejs-quick-start.md)
 ## [Java](app-insights-java-quick-start.md)
-## [ASP.NET Core](app-insights-dotnetcore-quick-start.md)
 
 # Tutorials
 ## [Find run-time exceptions](app-insights-tutorial-runtime-exceptions.md)
