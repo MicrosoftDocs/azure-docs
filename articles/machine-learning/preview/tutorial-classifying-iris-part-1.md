@@ -33,18 +33,17 @@ Follow the [Install and create Quickstart](quickstart-installation.md) to instal
    ![new workspace](media/tutorial-classifying-iris/new_ws.png)
 
 2. Fill in the **Create New Project** details. 
-   - Fill in the **Project name** field with a name for the project. For example, use the value **myIris**.
-   - Choose the **Project directory** in which the project is created. For example, use the value **C:\Temp**. 
-   - Enter the **Project description**. 
-   - Choose a **Workspace**, for example this tutorial uses **IrisGarden**. 
-   - Select the **Classifying Iris** template from the project template list. 
 
    ![New Project](media/tutorial-classifying-iris/new_project.png)
 
-   >[!TIP]
-   >Optionally, you can also fill in the Git repo field with an existing empty Git repo (a repo with no master branch) on VSTS. Doing so allows you to enable roaming and sharing scenarios later. For more information, please reference the [Using Git repo](using-git-ml-project.md) article. 
+   - Fill in the **Project name** field with a name for the project. For example, use the value **myIris**.
+   - Choose the **Project directory** in which the project is created. For example, use the value **C:\Temp**. 
+   - Enter the **Project description**. 
+   - The **Git repository** field is optional and can be left blank. You can provide an existing empty Git repo (a repo with no master branch) on VSTS. Doing so allows you to enable roaming and sharing scenarios later. For more information, please reference the [Using Git repo](using-git-ml-project.md) article. 
+   - Choose a **Workspace**, for example this tutorial uses **IrisGarden**. 
+   - Select the **Classifying Iris** template from the project template list. 
 
-Click on the **Create** button to create the project. The project is now created and opened for you.
+3. Click on the **Create** button to create the project. The project is now created and opened for you.
 
 ## Create a data preparation package
 Open the `iris.csv` file from the **File View**. The file is a simple table with 5 columns and 150 rows. It has four numerical feature columns and a string target column. It does not have column headers.
