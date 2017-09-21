@@ -199,7 +199,7 @@
       href: backup-azure-vms-troubleshoot.md
     - name: Azure VM backup problems in classic portal
       href: backup-azure-vms-troubleshoot-classic.md
-    - name: Azure VM Backup fails: Could not communicate with the VM agent for snapshot status - Snapshot VM sub task timed out
+    - name: 'Azure VM Backup fails: Could not communicate with the VM agent for snapshot status - Snapshot VM sub task timed out'
       href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
     - name: Slow backup of files and folders in Azure Backup
       href: backup-azure-troubleshoot-slow-backup-performance-issue.md
