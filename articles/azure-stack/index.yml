@@ -33,12 +33,23 @@ sections:
   - type: paragraph
     text: 'Learn how to add services to your Azure Stack deployment:'
   - type: list
-    style: unordered
+    style: ordered
     items:
     - html: <a href="/azure/azure-stack/azure-stack-tutorial-tenant-vm">Enable Virtual Machines on Azure Stack</a>
     - html: <a href="/azure/azure-stack/azure-stack-tutorial-sql-server">Enable SQL Databases on Azure Stack</a>
     - html: <a href="/azure/azure-stack/azure-stack-tutorial-app-service">Enable Web Apps on Azure Stack</a>
     - html: <a href="/azure/azure-stack/azure-stack-solution-pipeline">Deploy applications across both Azure &amp; Azure Stack</a>
+- title: Free PluralSight Video Training
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Learn the fundamentals of Azure Stack
+      href: https://www.pluralsight.com/courses/microsoft-azure-stack-big-picture?twoid=26658a98-62ff-48e5-aa5f-2741523aea54
+      image: 
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://www.pluralsight.com/courses/microsoft-azure-stack-big-picture?twoid=26658a98-62ff-48e5-aa5f-2741523aea54
 - title: Reference
   items:
   - type: list
