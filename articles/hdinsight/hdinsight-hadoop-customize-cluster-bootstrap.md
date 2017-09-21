@@ -77,7 +77,7 @@ New-AzureRmHDInsightCluster `
     -Config $config 
 ```
 
-A complete working PowerShell script can be found in [Appendix-A](#hdinsight-hadoop-customize-cluster-bootstrap.md/appx-a:-powershell-sample).
+A complete working PowerShell script can be found in [Appendix-A](#hdinsight-hadoop-customize-cluster-bootstrap.md/appendix:-powershell-sample).
 
 **To verify the change:**
 
@@ -146,7 +146,7 @@ You can use bootstrap in Resource Manager template:
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Stages during cluster creation"
 
-## Appx-A: PowerShell sample
+## Appendix: PowerShell sample
 This PowerShell script creates an HDInsight cluster and customizes a Hive setting:
 
 ```powershell
