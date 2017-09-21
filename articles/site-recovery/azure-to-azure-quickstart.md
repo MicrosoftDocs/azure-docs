@@ -67,7 +67,7 @@ Stop replication as follows:
 2. In **Disaster recovery (preview)**, click **More**.
 3. Click **Disable Replication**.
 
-   ![Disable replication](media/azure-to-azure-quickstart/disable-replication2.png)
+   ![Disable replication](media/azure-to-azure-quickstart/disable2-replication.png)
 
 ## Next steps
 
