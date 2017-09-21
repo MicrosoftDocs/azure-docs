@@ -44,7 +44,6 @@
 #### [Additional scenarios for group-based licensing](active-directory-licensing-group-advanced.md)
 #### [Provide terms of use for users and apps](active-directory-tou.md)
 #### [PowerShell examples for group-based licensing](active-directory-licensing-ps-examples.md)
-### [Add users from other directories (classic portal)](active-directory-create-users-external.md)
 ### [Manage user profiles](active-directory-users-profile-azure-portal.md)
 ### [Reset a password](active-directory-users-reset-password-azure-portal.md)
 ### [Manage user work information](active-directory-users-work-info-azure-portal.md)
@@ -149,7 +148,8 @@
 ### [Overview](active-directory-enable-sso-scenario.md)
 ### [Getting started](active-directory-integrating-applications-getting-started.md)
 ### [SaaS app integration tutorials](active-directory-saas-tutorial-list.md)
-### [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
+### [Cloud App Discovery enhancements preview](cloudappdiscovery-overview.md)
+#### [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
 #### [Update registry settings](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Understand security and privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
