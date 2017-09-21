@@ -23,6 +23,7 @@
 ### [Manage your devices](iot-suite-remote-monitoring-manage.md)
 ### [Troubleshoot device issues](iot-suite-remote-monitoring-maintain.md)
 ### [Use simulated devices](iot-suite-remote-monitoring-test.md)
+### [Customize a solution](iot-suite-remote-monitoring-customize.md)
 ### Connect a physical device
 #### [C on Windows](iot-suite-connecting-devices.md)
 #### [C on Linux](iot-suite-connecting-devices-linux.md)
@@ -31,7 +32,6 @@
 
 ### Concepts
 #### [Remote monitoring architecture](iot-suite-remote-monitoring-sample-walkthrough.md)
-#### [Customize a solution](iot-suite-remote-monitoring-customize.md)
 
 ## Connected factory
 ### [Deploy a gateway for connected factory](iot-suite-connected-factory-gateway-deployment.md)
