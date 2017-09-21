@@ -3,7 +3,7 @@ documentType: LandingData
 title: Application Insights Documentation
 metadata:
   title: Application Insights Documentation - Tutorials, API Reference | Microsoft Docs
-  description: Application Insights is an extensible Application Performance Management (APM) service for web developers building and managing apps on multiple platforms. Learn how to detect & diagnose issues and understand usage for your web apps and services using our quickstarts, tutorials, references, and other documentation.
+  description: Application Insights is an extensible Application Performance Management (APM) service for web developers building and managing apps on multiple platforms. Learn how to detect & diagnose issues and understand usage for your web apps and services using our quickstarts, tutorials, and reference documentation.
   services: application-insights
   author: czeumault
   manager: carolz
@@ -14,7 +14,7 @@ metadata:
   ms.date: 09/15/2017
   ms.author: carolz
 abstract:
-  description: Application Insights is an extensible Application Performance Management (APM) service for web developers building and managing apps on multiple platforms. Learn how to detect & diagnose issues and understand usage for your web apps and services using our quickstarts, tutorials, references, and other documentation.
+  description: Application Insights is an extensible Application Performance Management (APM) service for web developers building and managing apps on multiple platforms. Learn how to detect & diagnose issues and understand usage for your web apps and services using our quickstarts, tutorials, and reference documentation.
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -28,6 +28,10 @@ sections:
       text: .NET
       href: quick-monitor-portal
     - image: 
+        src: https://docs.microsoft.com/media/common/dotnet.svg
+      text: .NET Core
+      href: app-insights-dotnetcore-quick-start
+    - image: 
         src: https://docs.microsoft.com/media/common/nodejs.svg
       text: Node.js
       href: app-insights-nodejs-quick-start
@@ -35,14 +39,10 @@ sections:
         src: https://docs.microsoft.com/media/common/java.svg
       text: Java
       href: app-insights-java-quick-start
-    - image: 
-        src: https://docs.microsoft.com/media/common/dotnet.svg
-      text: ASP.NET
-      href: app-insights-dotnetcore-quick-start
 - title: Step-by-step Tutorials
   items:
   - type: paragraph
-    text: Learn how to continuously improve the performance & usage of your live web applications.
+    text: Learn how to continuously improve the performance & usage of your web applications.
   - type: list
     style: ordered
     items:
