@@ -3,7 +3,7 @@ documentType: LandingData
 title: Azure Backup Documentation
 metadata:
   title: Azure Backup Documentation - Tutorials, API Reference | Microsoft Docs
-  description: Use Azure Backup to back up and restore your data. With Azure Backup you can back up the data for on-premises servers, virtual machines, virtualized workloads, SQL server, SharePoint server, and more. Learn how to back up and restore your data with our quickstarts, tutorials and samples.
+  description: Azure Backup allows you to back up the data for on-premises servers, virtual machines, virtualized workloads, SQL server, SharePoint server, and more. Learn how to back up and restore your data with our quickstarts, tutorials and samples
   services: backup
   author: czeumault
   manager: carolz
@@ -14,7 +14,7 @@ metadata:
   ms.date: 09/11/2017
   ms.author: carolz
 abstract:
-  description: Use Azure Backup to back up and restore your data. With Azure Backup you can back up the data for on-premises servers, virtual machines, virtualized workloads, SQL server, SharePoint server, and more. Learn how to back up and restore your data with our quickstarts, tutorials and samples.
+  description: Azure Backup allows you to back up the data for on-premises servers, virtual machines, virtualized workloads, SQL server, SharePoint server, and more. Learn how to back up and restore your data with our quickstarts, tutorials and samples
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -26,11 +26,15 @@ sections:
     - image: 
         src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
       text: Back up VMs - Portal
-      href: /azure/backup/backup-azure-vms-first-look-arm
+      href: quick-backup-vm-portal
     - image: 
         src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/logo_powershell.svg
       text: Back up VMs - PowerShell
-      href: /azure/backup/quick-backup-vm-powershell
+      href: quick-backup-vm-powershell
+    - image: 
+        src: https://docs.microsoft.com/media/common/cli.svg
+      text: Back up VMs - CLI
+      href: quick-backup-vm-cli
 - title: Step-by-step Tutorials
   items:
   - type: paragraph
@@ -38,13 +42,11 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/backup/tutorial-backup-azure-vm">Back up Azure VMs at scale</a>
-    - html: <a href="/azure/backup/backup-azure-arm-restore-vms">Recover Azure VMs using VM templates</a>
-    - html: <a href="/azure/backup/backup-azure-restore-files-from-vm">Recover files from an Azure VM recovery point</a>
-    - html: <a href="/azure/backup/backup-try-azure-backup-in-10-mins">Back up on-premises Windows Server to Azure</a>
-    - html: <a href="/azure/backup/backup-azure-restore-windows-server">Recover files from Azure to an on-premises Windows Server</a>
-    - html: <a href="/azure/backup/backup-azure-backup-server-vmware">Back up on-premises VMware virtual machines to Azure</a>
-    - html: <a href="/azure/backup/backup-azure-alternate-dpm-server">Restore data from on-premises VMware virtual machines</a>
+    - html: <a href="tutorial-backup-vm-at-scale">Backup multiple Azure VMs</a>
+    - html: <a href="tutorial-restore-disk">Restore a disk and create a recovered VM</a>
+    - html: <a href="tutorial-restore-files">Restore files to a Virtual Machine in Azure</a>
+    - html: <a href="tutorial-backup-windows-server-to-azure">Back up a Windows Server to Azure</a>
+    - html: <a href="tutorial-backup-restore-files-windows-server">Recover files from Azure to a Windows Server</a>
 - title: Samples
   items:
   - type: paragraph
