@@ -27,9 +27,17 @@ This tutorial shows the features of the Microsoft Cognitive Services Computer Vi
 
 Explore a Java Swing application that uses the Computer Vision REST API to perform optical character recognition (OCR), create smart-cropped thumbnails, plus detect, categorize, tag, and describe visual features, including faces, in an image. This example lets you submit an image URL for analysis or processing. You can use this open source example as a template for building your own app in Java to use the Computer Vision REST API.
 
-The Java Swing form application has already been written, but has no functionality. In this tutorial, you add the code specific to the Computer Vision REST API to complete the application's functionality.
+This tutorial will cover how to use Computer Vision to:
 
-Green checkmark
+> [!div class="checklist"]
+> * Analyze an image
+> * Identify a natural or artificial landmark in an image
+> * Identify a celebrity in an image
+> * Create a quality thumbnail from an image
+> * Read printed text in an image
+> * Read handwritten text in an image
+
+The Java Swing form application has already been written, but has no functionality. In this tutorial, you add the code specific to the Computer Vision REST API to complete the application's functionality.
 
 ## Prerequisites
 
