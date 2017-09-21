@@ -77,7 +77,7 @@ New-AzureRmHDInsightCluster `
     -Config $config 
 ```
 
-A complete working PowerShell script can be found in [Appendix](#hdinsight-hadoop-customize-cluster-bootstrap.md/appendix-powershell-sample).
+A complete working PowerShell script can be found in [Appendix](#appendix-powershell-sample).
 
 **To verify the change:**
 
