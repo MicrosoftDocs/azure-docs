@@ -23,7 +23,7 @@ ms.custom: mvc I am an ITPro and application developer, and I want to protect (u
 
 Availability Zones help to protect you from datacenter-level failures. They are located inside an Azure region, and each one has its own independent power source, network, cooling. To ensure resiliency, there's a minimum of three separate zones in all enabled regions. The physical and logical separation of Availability Zones within a region, protects applications and data from zone-level failures. 
 
-![conceptual view of one zone going down in a region](./media/az-overview/availability-zones-and-region.png)
+![conceptual view of one zone going down in a region](./media/az-overview/az-graphic-two.png)
 
 [!INCLUDE [Availability Zones preview statement](../../includes/availability-zones-preview-statement.md)]
 
@@ -58,6 +58,7 @@ The Availability Zones preview is available in the East US 2 and West Europe reg
     - [Create a virtual machine](../virtual-machines/windows/create-portal-availability-zone.md)
     - [Create a zonal virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md)
     - [Add a Managed Disk using PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
+    - [Load balancer](../load-balancer/load-balancer-standard-overview.md)
 
 ## Next steps
 - [Quickstart templates](http://aka.ms/azqs)
