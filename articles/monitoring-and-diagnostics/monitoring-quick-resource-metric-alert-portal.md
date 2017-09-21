@@ -110,4 +110,4 @@ Other quick starts in this collection build upon this quickstart. If you plan to
 In this quickstart, you’ve learned how to create a metric alert for your resources. For more information on metric alerts, click through to our overview on alerts.
 
 > [!div class="nextstepaction"]
-> [Azure Monitor subscription action alerts](./monitor-quick-notify-action-in-subscription.md)
+> [Azure Monitor subscription action alerts](./monitor-quick-audit-notify-action-in-subscription.md )
