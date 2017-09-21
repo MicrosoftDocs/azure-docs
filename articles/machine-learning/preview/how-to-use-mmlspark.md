@@ -25,7 +25,7 @@ ms.date: 09/15/2017
 ## Prerequisites
 
 To step through this how-to guide, you need to:
-- [Install Azure Machine Learning Workbench](quick-start-installation.md)
+- [Install Azure Machine Learning Workbench](quickstart-installation.md)
 - [Set up Azure HDInsight Spark cluster](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql)
 
 ## Run Your Experiment in Docker Container
