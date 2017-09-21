@@ -41,7 +41,7 @@ Create a resource group with the [New-AzureRmResourceGroup](/powershell/module/a
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine. In this example, a resource group named *myResourceGroupVM* is created in the *EastUS* region. 
 
-```powershell-interactive
+```azurepowershell-interactive
 New-AzureRmResourceGroup -ResourceGroupName myResourceGroupVM -Location EastUS
 ```
 
@@ -55,7 +55,7 @@ A virtual machine must be connected to a virtual network. You communicate with t
 
 Create a subnet with [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig):
 
-```powershell-interactive
+```azurepowershell-interactive
 $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
     -Name mySubnet `
     -AddressPrefix 192.168.1.0/24
@@ -63,7 +63,7 @@ $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
 
 Create a virtual network with [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork):
 
-```powershell-interactive
+```azurepowershell-interactive
 $vnet = New-AzureRmVirtualNetwork `
   -ResourceGroupName myResourceGroupVM `
   -Location EastUS `
@@ -75,7 +75,7 @@ $vnet = New-AzureRmVirtualNetwork `
 
 Create a public IP address with [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress):
 
-```powershell-interactive
+```azurepowershell-interactive
 $pip = New-AzureRmPublicIpAddress `
   -ResourceGroupName myResourceGroupVM `
   -Location EastUS `
@@ -87,7 +87,7 @@ $pip = New-AzureRmPublicIpAddress `
 
 Create a network interface card with [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface):
 
-```powershell-interactive
+```azurepowershell-interactive
 $nic = New-AzureRmNetworkInterface `
   -ResourceGroupName myResourceGroupVM  `
   -Location EastUS `
@@ -102,7 +102,7 @@ An Azure [network security group](../../virtual-network/virtual-networks-nsg.md)
 
 To create an inbound NSG rule, use [Add-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/add-azurermnetworksecurityruleconfig). The following example creates an NSG rule named *myNSGRule* that opens port *3389* for the virtual machine:
 
-```powershell-interactive
+```azurepowershell-interactive
 $nsgRule = New-AzureRmNetworkSecurityRuleConfig `
   -Name myNSGRule `
   -Protocol Tcp `
@@ -117,7 +117,7 @@ $nsgRule = New-AzureRmNetworkSecurityRuleConfig `
 
 Create the NSG using *myNSGRule* with [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup):
 
-```powershell-interactive
+```azurepowershell-interactive
 $nsg = New-AzureRmNetworkSecurityGroup `
     -ResourceGroupName myResourceGroupVM `
     -Location EastUS `
@@ -127,7 +127,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
 
 Add the NSG to the subnet in the virtual network with [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig):
 
-```powershell-interactive
+```azurepowershell-interactive
 Set-AzureRmVirtualNetworkSubnetConfig `
     -Name mySubnet `
     -VirtualNetwork $vnet `
@@ -137,7 +137,7 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 
 Update the virtual network with [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork):
 
-```powershell-interactive
+```azurepowershell-interactive
 Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 ```
 
@@ -147,19 +147,19 @@ When creating a virtual machine, several options are available such as operating
 
 Set the username and password needed for the administrator account on the virtual machine with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
-```powershell-interactive
+```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
 Create the initial configuration for the virtual machine with [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig):
 
-```powershell-interactive
+```azurepowershell-interactive
 $vm = New-AzureRmVMConfig -VMName myVM -VMSize Standard_D1
 ```
 
 Add the operating system information to the virtual machine configuration with [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem):
 
-```powershell-interactive
+```azurepowershell-interactive
 $vm = Set-AzureRmVMOperatingSystem `
     -VM $vm `
     -Windows `
@@ -170,7 +170,7 @@ $vm = Set-AzureRmVMOperatingSystem `
 
 Add the image information to the virtual machine configuration with [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage):
 
-```powershell-interactive
+```azurepowershell-interactive
 $vm = Set-AzureRmVMSourceImage `
     -VM $vm `
     -PublisherName MicrosoftWindowsServer `
@@ -181,7 +181,7 @@ $vm = Set-AzureRmVMSourceImage `
 
 Add the operating system disk settings to the virtual machine configuration with [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk):
 
-```powershell-interactive
+```azurepowershell-interactive
 $vm = Set-AzureRmVMOSDisk `
     -VM $vm `
     -Name myOsDisk `
@@ -192,13 +192,13 @@ $vm = Set-AzureRmVMOSDisk `
 
 Add the network interface card that you previously created to the virtual machine configuration with [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface):
 
-```powershell-interactive
+```azurepowershell-interactive
 $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
 ```
 
 Create the virtual machine with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
 
-```powershell-interactive
+```azurepowershell-interactive
 New-AzureRmVM -ResourceGroupName myResourceGroupVM -Location EastUS -VM $vm
 ```
 
@@ -208,13 +208,13 @@ After the deployment has completed, create a remote desktop connection with the 
 
 Run the following commands to return the public IP address of the virtual machine. Take note of this IP Address so you can connect to it with your browser to test web connectivity in a future step.
 
-```powershell-interactive
+```azurepowershell-interactive
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroupVM  | Select IpAddress
 ```
 
 Use the following command to create a remote desktop session with the virtual machine. Replace the IP address with the *publicIPAddress* of your virtual machine. When prompted, enter the credentials used when creating the virtual machine.
 
-```powershell-interactive
+```azurepowershell-interactive
 mstsc /v:<publicIpAddress>
 ```
 
@@ -230,11 +230,11 @@ Get-AzureRmVMImagePublisher -Location "EastUS"
 
 Use the [Get-AzureRmVMImageOffer](/powershell/module/azurerm.compute/get-azurermvmimageoffer) to return a list of image offers. With this command, the returned list is filtered on the specified publisher. 
 
-```powershell-interactive
+```azurepowershell-interactive
 Get-AzureRmVMImageOffer -Location "EastUS" -PublisherName "MicrosoftWindowsServer"
 ```
 
-```powershell-interactive
+```azurepowershell-interactive
 Offer             PublisherName          Location
 -----             -------------          -------- 
 Windows-HUB       MicrosoftWindowsServer EastUS 
@@ -244,11 +244,11 @@ WindowsServer-HUB MicrosoftWindowsServer EastUS
 
 The [Get-AzureRmVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) command will then filter on the publisher and offer name to return a list of image names.
 
-```powershell-interactive
+```azurepowershell-interactive
 Get-AzureRmVMImageSku -Location "EastUS" -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer"
 ```
 
-```powershell-interactive
+```azurepowershell-interactive
 Skus                                      Offer         PublisherName          Location
 ----                                      -----         -------------          --------
 2008-R2-SP1                               WindowsServer MicrosoftWindowsServer EastUS  
@@ -269,7 +269,7 @@ Skus                                      Offer         PublisherName          L
 
 This information can be used to deploy a VM with a specific image. This example sets the image name on the VM object. Refer to the previous examples in this tutorial for complete deployment steps.
 
-```powershell-interactive
+```azurepowershell-interactive
 $vm = Set-AzureRmVMSourceImage `
     -VM $vm `
     -PublisherName MicrosoftWindowsServer `
@@ -300,7 +300,7 @@ The following table categorizes sizes into use cases.
 
 To see a list of VM sizes available in a particular region, use the [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize) command.
 
-```powershell-interactive
+```azurepowershell-interactive
 Get-AzureRmVMSize -Location EastUS
 ```
 
@@ -310,13 +310,13 @@ After a VM has been deployed, it can be resized to increase or decrease resource
 
 Before resizing a VM, check if the desired size is available on the current VM cluster. The [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize) command returns a list of sizes. 
 
-```powershell-interactive
+```azurepowershell-interactive
 Get-AzureRmVMSize -ResourceGroupName myResourceGroupVM -VMName myVM 
 ```
 
 If the desired size is available, the VM can be resized from a powered-on state, however it is rebooted during the operation.
 
-```powershell-interactive
+```azurepowershell-interactive
 $vm = Get-AzureRmVM -ResourceGroupName myResourceGroupVM  -VMName myVM 
 $vm.HardwareProfile.VmSize = "Standard_D4"
 Update-AzureRmVM -VM $vm -ResourceGroupName myResourceGroupVM 
@@ -324,7 +324,7 @@ Update-AzureRmVM -VM $vm -ResourceGroupName myResourceGroupVM
 
 If the desired size is not on the current cluster, the VM needs to be deallocated before the resize operation can occur. Note, when the VM is powered back on, any data on the temp disk are removed, and the public IP address change unless a static IP address is being used. 
 
-```powershell-interactive
+```azurepowershell-interactive
 Stop-AzureRmVM -ResourceGroupName myResourceGroupVM -Name "myVM" -Force
 $vm = Get-AzureRmVM -ResourceGroupName myResourceGroupVM  -VMName myVM
 $vm.HardwareProfile.VmSize = "Standard_F4s"
@@ -352,7 +352,7 @@ An Azure VM can have one of many power states. This state represents the current
 
 To retrieve the state of a particular VM, use the [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) command. Be sure to specify a valid name for a virtual machine and resource group. 
 
-```powershell-interactive
+```azurepowershell-interactive
 Get-AzureRmVM `
     -ResourceGroupName myResourceGroupVM `
     -Name myVM `
@@ -361,7 +361,7 @@ Get-AzureRmVM `
 
 Output:
 
-```powershell-interactive
+```azurepowershell-interactive
 Status
 ------
 PowerState/running
@@ -375,7 +375,7 @@ During the lifecycle of a virtual machine, you may want to run management tasks 
 
 Stop and deallocate a virtual machine with [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm):
 
-```powershell-interactive
+```azurepowershell-interactive
 Stop-AzureRmVM -ResourceGroupName myResourceGroupVM -Name "myVM" -Force
 ```
 
@@ -383,7 +383,7 @@ If you want to keep the virtual machine in a provisioned state, use the -StayPro
 
 ### Start virtual machine
 
-```powershell-interactive
+```azurepowershell-interactive
 Start-AzureRmVM -ResourceGroupName myResourceGroupVM -Name myVM
 ```
 
@@ -391,7 +391,7 @@ Start-AzureRmVM -ResourceGroupName myResourceGroupVM -Name myVM
 
 Deleting a resource group also deletes all resources contained within.
 
-```powershell-interactive
+```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroupVM -Force
 ```
 

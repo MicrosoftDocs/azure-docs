@@ -55,31 +55,31 @@ You need a storage account in Azure so you have a place to upload the .vhd file.
 
 1. Login
 
-    ```powershell-interactive
+    ```powershell
     Add-AzureAccount
     ```
 
 2. Set your Azure subscription.
 
-    ```powershell-interactive
+    ```powershell
     Select-AzureSubscription -SubscriptionName <SubscriptionName>
     ```
 
 3. Create a new storage account. The name of the storage account should be unique, 3-24 characters. The name can be any combination of letters and numbers. You also need to specify a location like "East US"
 
-    ```powershell-interactive
+    ```powershell
     New-AzureStorageAccount –StorageAccountName <StorageAccountName> -Location <Location>
     ```
 
 4. Set the new storage account as the default.
 
-    ```powershell-interactive
+    ```powershell
     Set-AzureSubscription -CurrentStorageAccountName <StorageAccountName> -SubscriptionName <SubscriptionName>
     ```
 
 5. Create a new container.
 
-    ```powershell-interactive
+    ```powershell
     New-AzureStorageContainer -Name <ContainerName> -Permission Off
     ```
 
@@ -88,14 +88,14 @@ Use the [Add-AzureVhd](https://docs.microsoft.com/en-us/powershell/module/azure/
 
 From the Azure PowerShell window you used in the previous step, type the following command and replace the variables in &lsaquo; brackets &rsaquo; with your own information.
 
-```powershell-interactive
+```powershell
 Add-AzureVhd -Destination "https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/<vhdName>.vhd" -LocalFilePath <LocalPathtoVHDFile>
 ```
 
 ## Step 4: Add the image to your list of custom images
 Use the [Add-AzureVMImage](https://docs.microsoft.com/en-us/powershell/module/azure/add-azurevmimage) cmdlet to add the image to the list of your custom images.
 
-```powershell-interactive
+```powershell
 Add-AzureVMImage -ImageName <ImageName> -MediaLocation "https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/<vhdName>.vhd" -OS "Windows"
 ```
 

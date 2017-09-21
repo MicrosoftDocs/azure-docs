@@ -72,7 +72,7 @@ Creating an image directly from the VM ensures that the image includes all of th
 
 Before you begin, make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it.
 
-```powershell-interactive
+```azurepowershell-interactive
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
 For more information, see [Azure PowerShell Versioning](/powershell/azure/overview).
@@ -80,7 +80,7 @@ For more information, see [Azure PowerShell Versioning](/powershell/azure/overvi
 
 1. Create some variables.
 
-    ```powershell-interactive
+    ```azurepowershell-interactive
 	$vmName = "myVM"
 	$rgName = "myResourceGroup"
 	$location = "EastUS"
@@ -88,30 +88,30 @@ For more information, see [Azure PowerShell Versioning](/powershell/azure/overvi
 	```
 2. Make sure the VM has been deallocated.
 
-    ```powershell-interactive
+    ```azurepowershell-interactive
 	Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
 	```
 	
 3. Set the status of the virtual machine to **Generalized**. 
    
-    ```powershell-interactive
+    ```azurepowershell-interactive
     Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized
 	```
 	
 4. Get the virtual machine. 
 
-    ```powershell-interactive
+    ```azurepowershell-interactive
 	$vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName
 	```
 
 5. Create the image configuration.
 
-    ```powershell-interactive
+    ```azurepowershell-interactive
 	$image = New-AzureRmImageConfig -Location $location -SourceVirtualMachineId $vm.ID 
 	```
 6. Create the image.
 
-    ```powershell-interactive
+    ```azurepowershell-interactive
     New-AzureRmImage -Image $image -ImageName $imageName -ResourceGroupName $rgName
     ```	
 
@@ -124,7 +124,7 @@ Create a managed image using your generalized OS VHD.
 
 1.  First, set the common parameters:
 
-    ```powershell-interactive
+    ```azurepowershell-interactive
 	$rgName = "myResourceGroupName"
 	$vmName = "myVM"
 	$location = "West Central US" 
@@ -133,18 +133,18 @@ Create a managed image using your generalized OS VHD.
     ```
 2. Step\deallocate the VM.
 
-    ```powershell-interactive
+    ```azurepowershell-interactive
 	Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
 	```
 	
 3. Mark the VM as generalized.
 
-    ```powershell-interactive
+    ```azurepowershell-interactive
 	Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized	
 	```
 4.  Create the image using your generalized OS VHD.
 
-    ```powershell-interactive
+    ```azurepowershell-interactive
 	$imageConfig = New-AzureRmImageConfig -Location $location
 	$imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $osVhdUri
 	$image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
@@ -158,7 +158,7 @@ You can also create a managed image from a snapshot of the VHD from a generalize
 	
 1. Create some variables. 
 
-    ```powershell-interactive
+    ```azurepowershell-interactive
 	$rgName = "myResourceGroup"
 	$location = "EastUS"
 	$snapshotName = "mySnapshot"
@@ -167,19 +167,19 @@ You can also create a managed image from a snapshot of the VHD from a generalize
 
 2. Get the snapshot.
 
-   ```powershell-interactive
+   ```azurepowershell-interactive
    $snapshot = Get-AzureRmSnapshot -ResourceGroupName $rgName -SnapshotName $snapshotName
    ```
    
 3. Create the image configuration.
 
-    ```powershell-interactive
+    ```azurepowershell-interactive
 	$imageConfig = New-AzureRmImageConfig -Location $location
 	$imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -SnapshotId $snapshot.Id
 	```
 4. Create the image.
 
-    ```powershell-interactive
+    ```azurepowershell-interactive
     New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ```	
 	

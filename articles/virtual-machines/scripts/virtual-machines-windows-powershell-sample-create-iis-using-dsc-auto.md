@@ -28,7 +28,7 @@ This script creates an Azure Virtual Machine running Windows Server 2016 using N
 
 ## Sample script
 
-```powershell-interactive
+```azurepowershell-interactive
 # Variables for common values
 $resourceGroup = "myResourceGroup"
 $location = "westeurope"

@@ -93,7 +93,7 @@ The portal needs input.
 ## Getting started
 The Azure DSC extension takes in DSC configuration documents and enacts them on Azure VMs. A simple example of a configuration follows. Save it locally as "IisInstall.ps1":
 
-```powershell-interactive
+```azurepowershell-interactive
 configuration IISInstall 
 { 
     node "localhost"
@@ -109,7 +109,7 @@ configuration IISInstall
 
 The following steps place the IisInstall.ps1 script on the specified VM, execute the configuration, and report back on status.
 ###Classic model
-```powershell-interactive
+```azurepowershell-interactive
 #Azure PowerShell cmdlets are required
 Import-Module Azure
 
@@ -130,7 +130,7 @@ Get-AzureVMDscExtensionStatus -VM $demovm -Verbose
 ```
 ###Azure Resource Manager model
 
-```powershell-interactive
+```azurepowershell-interactive
 $resourceGroup = "dscVmDemo"
 $location = "westus"
 $vmName = "myVM"

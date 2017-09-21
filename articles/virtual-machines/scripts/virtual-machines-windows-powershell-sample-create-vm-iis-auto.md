@@ -29,7 +29,7 @@ This script creates an Azure Virtual Machine running Windows Server 2016, and th
 
 ## Sample script
 
-```powershell-interactive
+```azurepowershell-interactive
 
 New-AzVM -ResourceGroupName myResourceGroup `
     -Name myVM `

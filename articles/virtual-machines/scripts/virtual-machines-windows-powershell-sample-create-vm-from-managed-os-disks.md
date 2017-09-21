@@ -40,7 +40,7 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```powershell-interactive
+```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
