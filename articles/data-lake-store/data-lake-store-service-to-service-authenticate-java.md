@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/31/2017
+ms.date: 09/30/2017
 ms.author: nitinme
 
 ---
@@ -25,30 +25,60 @@ ms.author: nitinme
 > 
 >  
 
-In this article, you learn about how to use the REST API to do service-to-service authentication with Azure Data Lake Store. End-user authentication with Data Lake Store using Java SDK is not supported.
+In this article, you learn about how to use the Java SDK to do service-to-service authentication with Azure Data Lake Store. End-user authentication with Data Lake Store using Java SDK is not supported.
 
 ## Prerequisites
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Create an Azure Active Directory "Web" Application**. You must have completed the steps in [Service-to-service authentication with Data Lake Store using Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
+* [Maven](https://maven.apache.org/install.html). This tutorial uses Maven for build and project dependencies. Although it is possible to build without using a build system like Maven or Gradle, these systems make is much easier to manage dependencies.
+
 * (Optional) And IDE like [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) or [Eclipse](https://www.eclipse.org/downloads/) or similar.
 
 ## Service-to-service authentication
-Use the snippet below in your Java application to obtain token for the Active Directory Web application you created earlier using one of the subclasses of `AccessTokenProvider` (the example below uses `ClientCredsTokenProvider`). The token provider caches the creds used to obtain the token in memory, and automatically renews the token if it is about to expire. It is possible to create your own subclasses of `AccessTokenProvider` so tokens are obtained by your customer code, but for now let's just use the one provided in the SDK.
+1. Create a Maven project using [mvn archetype](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) from the command line or using an IDE. For instructions on how to create a Java project using IntelliJ, see [here](https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-first-java-application.html). For instructions on how to create a project using Eclipse, see [here](http://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2FgettingStarted%2Fqs-3.htm).
 
-Replace **FILL-IN-HERE** with the actual values for the Azure Active Directory Web application.
+2. Add the following dependencies to your Maven **pom.xml** file. Add the following snippet before the **\</project>** tag:
+   
+        <dependencies>
+          <dependency>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>azure-data-lake-store-sdk</artifactId>
+            <version>2.1.5</version>
+          </dependency>
+          <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-nop</artifactId>
+            <version>1.7.21</version>
+          </dependency>
+        </dependencies>
+   
+    The first dependency is to use the Data Lake Store SDK (`azure-data-lake-store-sdk`) from the maven repository. The second dependency (`slf4j-nop`) is to specify which logging framework to use for this application. The Data Lake Store SDK uses [slf4j](http://www.slf4j.org/) logging façade, which lets you choose from a number of popular logging frameworks, like log4j, Java logging, logback, etc., or no logging. For this example, we disable logging, hence we use the **slf4j-nop** binding. To use other logging options in your app, see [here](http://www.slf4j.org/manual.html#projectDep).
 
-    private static String clientId = "FILL-IN-HERE";
-    private static String authTokenEndpoint = "FILL-IN-HERE";
-    private static String clientKey = "FILL-IN-HERE";
+3. Add the following import statements to your application.
 
-    AccessTokenProvider provider = new ClientCredsTokenProvider(authTokenEndpoint, clientId, clientKey);   
+        import com.microsoft.azure.datalake.store.ADLException;
+        import com.microsoft.azure.datalake.store.ADLStoreClient;
+        import com.microsoft.azure.datalake.store.DirectoryEntry;
+        import com.microsoft.azure.datalake.store.IfExists;
+        import com.microsoft.azure.datalake.store.oauth2.AccessTokenProvider;
+        import com.microsoft.azure.datalake.store.oauth2.ClientCredsTokenProvider;
+
+4. Use the following snippet in your Java application to obtain token for the Active Directory Web application you created earlier using one of the subclasses of `AccessTokenProvider` (the following example uses `ClientCredsTokenProvider`). The token provider caches the creds used to obtain the token in memory, and automatically renews the token if it is about to expire. It is possible to create your own subclasses of `AccessTokenProvider` so tokens are obtained by your customer code. For now, let's just use the one provided in the SDK.
+
+    Replace **FILL-IN-HERE** with the actual values for the Azure Active Directory Web application.
+
+        private static String clientId = "FILL-IN-HERE";
+        private static String authTokenEndpoint = "FILL-IN-HERE";
+        private static String clientKey = "FILL-IN-HERE";
+    
+        AccessTokenProvider provider = new ClientCredsTokenProvider(authTokenEndpoint, clientId, clientKey);   
 
 The Data Lake Store SDK provides convenient methods that let you manage the security tokens needed to talk to the Data Lake Store account. However, the SDK does not mandate that only these methods be used. You can use any other means of obtaining token as well, like using the [Azure Active Directory SDK](https://github.com/AzureAD/azure-activedirectory-library-for-java), or your own custom code.
 
 ## Next steps
-In this article you learned how to use service-to-service authentication to authenticate with Azure Data Lake Store using Java SDK. You can now look at the following articles that talk about how to use the Java SDK to work with Azure Data Lake Store.
+In this article, you learned how to use service-to-service authentication to authenticate with Azure Data Lake Store using Java SDK. You can now look at the following articles that talk about how to use the Java SDK to work with Azure Data Lake Store.
 
 * [Account management operations on Data Lake Store using REST API](data-lake-store-get-started-rest-api.md)
 * [Data operations on Data Lake Store using REST API](data-lake-store-data-operations-rest-api.md)

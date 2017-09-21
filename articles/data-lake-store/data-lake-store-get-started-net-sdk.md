@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/31/2017
+ms.date: 09/30/2017
 ms.author: nitinme
 
 ---
@@ -25,16 +25,14 @@ ms.author: nitinme
 >
 >
 
-In this article you learn how to perform account management operations on Data Lake Store using .NET SDK. Account management operations include listing the Data Lake Store account for an Azure subscription, etc.
+In this article,, you learn how to perform account management operations on Data Lake Store using .NET SDK. Account management operations include creating a Data Lake Store account, listing the accounts in an Azure subscription, deleting the accounts, etc.
 
 For instructions on how to perform data management operations on Data Lake Store using .NET SDK, see [Filesystem operations on Data Lake Store using .NET SDK](data-lake-store-data-operations-net-sdk.md).
 
 ## Prerequisites
-* **Visual Studio 2013, 2015, or 2017**. The instructions below use Visual Studio 2015 Update 2.
+* **Visual Studio 2013, 2015, or 2017**. The instructions below use Visual Studio 2017.
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-
-* **Azure Data Lake Store account**. For instructions on how to create an account, see [Get started with Azure Data Lake Store](data-lake-store-get-started-portal.md)
 
 ## Create a .NET application
 1. Open Visual Studio and create a console application.
@@ -47,17 +45,17 @@ For instructions on how to perform data management operations on Data Lake Store
    | Template |Console Application |
    | Name |CreateADLApplication |
 4. Click **OK** to create the project.
-5. Add the Nuget packages to your project.
+5. Add the NuGet packages to your project.
 
    1. Right-click the project name in the Solution Explorer and click **Manage NuGet Packages**.
-   2. In the **Nuget Package Manager** tab, make sure that **Package source** is set to **nuget.org** and that **Include prerelease** check box is selected.
+   2. In the **NuGet Package Manager** tab, make sure that **Package source** is set to **nuget.org** and that **Include prerelease** check box is selected.
    3. Search for and install the following NuGet packages:
 
       * `Microsoft.Azure.Management.DataLake.Store` - This tutorial uses v2.1.3-preview.
       * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - This tutorial uses v2.2.12.
 
-        ![Add a Nuget source](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Create a new Azure Data Lake account")
-   4. Close the **Nuget Package Manager**.
+        ![Add a NuGet source](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Create a new Azure Data Lake account")
+   4. Close the **NuGet Package Manager**.
 6. Open **Program.cs**, delete the existing code, and then include the following statements to add references to namespaces.
 
         using System;
@@ -70,15 +68,14 @@ For instructions on how to perform data management operations on Data Lake Store
 		using Microsoft.IdentityModel.Clients.ActiveDirectory;
 		using Microsoft.Rest.Azure.Authentication;
 
-7. Declare the variables as shown below, and provide the values for Data Lake Store name and the resource group name that already exist. Also, make sure the local path and file name you provide here must exist on the computer. Add the following code snippet after the namespace declarations.
+7. Declare the variables and provide the values for placeholders. Also, make sure the local path and file name you provide exist on the computer.
 
         namespace SdkSample
         {
             class Program
             {
                 private static DataLakeStoreAccountManagementClient _adlsClient;
-                private static DataLakeStoreFileSystemManagementClient _adlsFileSystemClient;
-
+                
                 private static string _adlsAccountName;
                 private static string _resourceGroupName;
                 private static string _location;
@@ -86,15 +83,10 @@ For instructions on how to perform data management operations on Data Lake Store
 
                 private static void Main(string[] args)
                 {
-                    _adlsAccountName = "<DATA-LAKE-STORE-NAME>"; // TODO: Replace this value with the name of your existing Data Lake Store account.
-                    _resourceGroupName = "<RESOURCE-GROUP-NAME>"; // TODO: Replace this value with the name of the resource group containing your Data Lake Store account.
+                    _adlsAccountName = "<DATA-LAKE-STORE-NAME>"; 
+                    _resourceGroupName = "<RESOURCE-GROUP-NAME>"; 
                     _location = "East US 2";
-                    _subId = "<SUBSCRIPTION-ID>";
-
-                    string localFolderPath = @"C:\local_path\"; // TODO: Make sure this exists and can be overwritten.
-                    string localFilePath = Path.Combine(localFolderPath, "file.txt"); // TODO: Make sure this exists and can be overwritten.
-                    string remoteFolderPath = "/data_lake_path/";
-                    string remoteFilePath = Path.Combine(remoteFolderPath, "file.txt");
+                    _subId = "<SUBSCRIPTION-ID>";                    
                 }
             }
         }
@@ -107,20 +99,26 @@ In the remaining sections of the article, you can see how to use the available .
 * For service-to-service authentication for your application, see [Service-to-service authentication with Data Lake Store using .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md).
 
 ## Create client objects
-The following snippet creates the Data Lake Store account and filesystem client objects, which are used to issue requests to the service.
+The following snippet creates the Data Lake Store account client object, which is used to issue account management requests to the service, such as create account, delete account, etc.
 
     // Create client objects and set the subscription ID
     _adlsClient = new DataLakeStoreAccountManagementClient(creds) { SubscriptionId = _subId };
-    _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(creds);
+    
+## Create a Data Lake Store account
+The following snippet creates a Data Lake Store account in the Azure subscription you provided while creating the Data Lake Store account client object.
+
+    // Create Data Lake Store account
+    var adlsParameters = new DataLakeStoreAccount(location: _location);
+    _adlsClient.Account.Create(_resourceGroupName, _adlsAccountName, adlsParameters);
 
 ## List all Data Lake Store accounts within a subscription
-The following snippet lists all Data Lake Store accounts within a given Azure subscription.
+Add the following method to your class definition. The following snippet lists all Data Lake Store accounts within a given Azure subscription.
 
-    // List all ADLS accounts within the subscription
-    public static async Task<List<DataLakeStoreAccount>> ListAdlStoreAccounts()
+    // List all Data Lake Store accounts within the subscription
+    public static List<DataLakeStoreAccountBasic> ListAdlStoreAccounts()
     {
-        var response = await _adlsClient.Account.ListAsync();
-        var accounts = new List<DataLakeStoreAccount>(response);
+        var response = _adlsClient.Account.List(_adlsAccountName);
+        var accounts = new List<DataLakeStoreAccountBasic>(response);
 
         while (response.NextPageLink != null)
         {
@@ -130,6 +128,12 @@ The following snippet lists all Data Lake Store accounts within a given Azure su
 
         return accounts;
     }
+
+## Delete a Data Lake Store account
+The following snippet deletes the Data Lake Store account you created earlier.
+
+    // Delete Data Lake Store account
+    _adlsClient.Account.Delete(_resourceGroupName, _adlsAccountName);
 
 ## See also
 * [Filesystem operations on Data Lake Store using .NET SDK](data-lake-store-data-operations-net-sdk.md)
