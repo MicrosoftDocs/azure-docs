@@ -1,10 +1,10 @@
 ---
-title: Use Azure Stream Analytics Tools for Visual Studio | Microsoft Docs
+title: Use Azure Stream Analytics tools for Visual Studio | Microsoft Docs
 description: Getting-started tutorial for the Azure Stream Analytics Tools for Visual Studio
 keywords: visual studio
 documentationcenter: ''
 services: stream-analytics
-author: jeffstokes72
+author: su-jie
 manager: jhubbard
 editor: cgronlun
 
@@ -18,8 +18,8 @@ ms.date: 03/28/2017
 ms.author: sujie
 
 ---
-# Use Azure Stream Analytics Tool for Visual Studio
-Azure Stream Analytics tools for Visual Studio are now generally available. These tools enable a richer experience for Stream Analytics user to troubleshoot as well as write complex queries and even write queries locally. You will also have the ability to export a Stream Analytics job into a Visual Studio project.
+# Use Azure Stream Analytics tools for Visual Studio
+Azure Stream Analytics tools for Visual Studio are now generally available. These tools enable a richer experience for Stream Analytics users to troubleshoot as well as write complex queries and even write queries locally. You will also have the ability to export a Stream Analytics job into a Visual Studio project.
 
 ## Introduction
 In this tutorial, you will learn how to use Azure Stream Analytics Tools for Visual Studio to create, author, test locally, manage and debug your Azure Stream Analytics jobs. 
@@ -37,7 +37,7 @@ You need the following prerequisites to complete this tutorial:
 * Install Visual Studio 2017, Visual Studio 2015, Visual Studio 2013 update 4. Enterprise (Ultimate/Premium), Professional, Community editions are supported; Express edition is not supported. 
 * Follow the [installation instructions](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install) to install Stream Analytics Tools for Visual Studio.
 
-## Create a Stream Analytics Project
+## Create a Stream Analytics project
 In Visual Studio, click the **File Menu** and choose **New Project**. Choose **Stream Analytics** from the templates list on the left and then click **Azure Stream Analytics Application**.
 Input the Project Name, Location and Solution name at the bottom as you do for other projects.
 
@@ -47,7 +47,7 @@ You will see a project **Toll** generated in **Solution Explorer**.
 
 ![Create an Azure Stream Analytics project](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-create-project-02.png)
 
-## Choose the correct Subscription
+## Choose the correct subscription
 1. Open **Server Explorer** in Visual Studio from **View** menu.
 2. Log in with your Azure Account. 
 
@@ -101,7 +101,7 @@ Now all inputs are defined.
 
 ![Define output](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-output-01.png)
  
-## Azure Stream Analytics Query
+## Azure Stream Analytics query
 This tutorial attempts to answer several business questions that are related to toll data and constructs Stream Analytics queries that can be used in Azure Stream Analytics to provide a relevant answer.
 Before you start your first Stream Analytics job, let’s explore a simple scenarios and the query syntax.
 
@@ -161,7 +161,7 @@ In the project, double-click Script.asaql to open the script in editor and paste
    
    
 ### Sample input
-You can also sample input data from input sources to local file. Right-click the input config file and select **Sample Data**. 
+You can also sample input data from input sources to local file. Right-click the input configuration file and select **Sample Data**. 
 
 ![Sample data](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-sample-data-01.png)
 
@@ -183,7 +183,7 @@ Choose Create a New Azure Stream Analytics Job. Input Job Name as below. Choose 
 ![Submit job](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-submit-job-02.png)
 
  
-### Start Job
+### Start the job
 Now your job has been created and job view is automatically opened. Click the **GREEN** button to start the job.
 
 ![Start job](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-start-job-01.png)
@@ -209,7 +209,7 @@ Some basic job statistics can be found in **Job Metrics**.
 ![Job metrics](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-job-metrics-01.png)
 
  
-## List job in Server Explorer
+## List the job in Server Explorer
 Click **Stream Analytics Jobs** in **Server Explorer** and click **Refresh**. You should be able to see your job appeared under **Stream Analytics Jobs**.
 
 ![List jobs](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-list-jobs-01.png)
@@ -235,7 +235,7 @@ There are two ways you can export an existing job to a project.
    
    ![Export job](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-03.png)
    
-## Known Issues and Limitations
+## Known issues and limitations
  
 1. Local testing does not work if your query has Geo-Spatial functions. 
 2. No editor support for adding or changing JavaScript UDF.

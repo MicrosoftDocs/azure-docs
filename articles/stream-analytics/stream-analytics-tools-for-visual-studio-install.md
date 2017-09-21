@@ -1,10 +1,10 @@
 ---
-title: Installation instructions for Azure Stream Analytics Tools for Visual Studio | Microsoft Docs
-description: Installation instructions for Azure Stream Analytics Tools for Visual Studio
+title: Installation instructions for Azure Stream Analytics tools for Visual Studio | Microsoft Docs
+description: Installation instructions for Azure Stream Analytics tools for Visual Studio
 keywords: visual studio
 documentationcenter: ''
 services: stream-analytics
-author: sujie
+author: su-jie
 manager: 
 editor: 
 
@@ -15,11 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 9/19/2017
-ms.author: 
+ms.author: sujie
 
 ---
-# Installation instructions for Stream Analytics Tools for Visual Studio
-Stream Analytics Tools now support Visual Studio 2017, 2015 and 2013. In this document, we introduce how to install and uninstall the tools.
+# Installation instructions for Stream Analytics tools for Visual Studio
+Stream Analytics tools now support Visual Studio 2017, 2015 and 2013. In this document, we introduce how to install and uninstall the tools.
 
 [Learn how to use Stream Analytics Tools for Visual Studio](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-tools-for-visual-studio)
 
@@ -35,7 +35,7 @@ Stream Analytics Tools now support Visual Studio 2017, 2015 and 2013. In this do
 ### Visual Studio 2013, 2015
 * Install Visual Studio 2015, Visual Studio 2013 update 4. Enterprise (Ultimate/Premium), Professional, Community editions are supported; Express edition is not supported. 
 * Install Microsoft Azure SDK for .NET version 2.7.1 or above using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
-* Install [Azure Stream Analytics Tools for Visual Studio](http://aka.ms/asatoolsvs).
+* Install [Azure Stream Analytics tools for Visual Studio](http://aka.ms/asatoolsvs).
 
 
 
@@ -45,16 +45,16 @@ Stream Analytics Tools now support Visual Studio 2017, 2015 and 2013. In this do
 The new version reminder shows up in the Visual Studio notification. 
 
 ### Visual Studio 2013, 2015
-The installed Stream Analytics Tools for Visual Studio check for new versions automatically and you can follow the instructions in the pop-up window to install the latest version. 
+The installed Stream Analytics tools for Visual Studio check for new versions automatically and you can follow the instructions in the pop-up window to install the latest version. 
 
 
 ## Uninstall
 
 ### Visual Studio 2017
-Double-click Visual Studio installer and select **Modify**. Uncheck **Azure Data Lake and Stream Analytics Tools** either from **Data Storage and Processing** or **Azure Development** workload.
+Double-click Visual Studio installer and select **Modify**. Uncheck **Azure Data Lake and Stream Analytics tools** either from **Data Storage and Processing** or **Azure Development** workload.
 
 ### Visual Studio 2013, 2015
-Go to control panel and uninstall 'Microsoft Azure Data Lake and Stream Analytics Tools for Visual Studio'.
+Go to control panel and uninstall 'Microsoft Azure Data Lake and Stream Analytics tools for Visual Studio'.
 
 
 

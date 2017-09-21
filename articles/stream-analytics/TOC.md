@@ -29,7 +29,7 @@
 ### [Output to Data Lake Store](stream-analytics-data-lake-output.md)
 ### [Output to DocumentDB](stream-analytics-documentdb-output.md)
 
-## Use Visual Studio Tools
+## Use Visual Studio tools
 ### [Install](stream-analytics-tools-for-visual-studio-install.md)
 ### [Get started](stream-analytics-tools-for-visual-studio.md)
 
