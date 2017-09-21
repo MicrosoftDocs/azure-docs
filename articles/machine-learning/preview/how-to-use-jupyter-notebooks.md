@@ -16,7 +16,7 @@ ms.date: 09/20/2017
 Azure Machine Learning Workbench supports interactive data science experimentation via its integration of Jupyter notebook. This article describes how to make effective use of this feature to increase the rate and the quality of your interactive data science experimentation.
 
 ## Prerequisites
-- [Install and create Azure Machine Learning](/machine-learning/preview/quick-start-installation.md).
+- [Install and create Azure Machine Learning](/machine-learning/preview/quickstart-installation.md).
 - Be familiar with [Jupyter notebook](http://jupyter.org/), since this article is not about teaching how to use Jupyter.
 
 ## Jupyter notebook architecture
