@@ -20,14 +20,50 @@ sections:
   items:
   - type: paragraph
     text: Create a unique namespace to store and access your Azure Storage data objects.
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/media/common/powershell.svg
+      text: Create a storage account - Powershell
+      href: /common/storage-quickstart-create-storage-account-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - image: 
+        src: https://docs.microsoft.com/media/common/cli.svg
+      text: Create a storage account - CLI
+      href: /common/storage-quickstart-create-storage-account-cli?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - image: 
+        src: https://docs.microsoft.com/media/common/powershell.svg
+      text: Work with blobs - Powershell
+      href: /blobs/storage-quickstart-blobs-powershell
+    - image: 
+        src: https://docs.microsoft.com/media/common/cli.svg
+      text: Work with blobs - CLI
+      href: /blobs/storage-quickstart-blobs-cli
+    - image: 
+        src: https://docs.microsoft.com/media/common/dotnet.svg
+      text: Work with blobs - .NET
+      href: /blobs/storage-quickstart-blobs-cli
 - title: Step-by-step Tutorials
   items:
   - type: paragraph
     text: Learn how to upload and process image data in the cloud.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/blobs/storage-upload-process-images">Upload and retrieve image data in the cloud</a>
+    - html: <a href="../event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">Trigger Azure Functions to process blobs</a>
+    - html: <a href="/blobs/storage-secure-access-application">Secure application data</a>
+    - html: <a href="/blobs/storage-monitor-troubleshoot-storage-application">Monitor and troubleshoot storage</a>
 - title: Samples
   items:
   - type: paragraph
     text: Find scripts for common management tasks.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/blobs/storage-samples-blobs-powershell">Azure PowerShell</a>
+    - html: <a href="/blobs/storage-samples-blobs-cli">Azure CLI</a>
 - title: Reference
   items:
   - type: list
