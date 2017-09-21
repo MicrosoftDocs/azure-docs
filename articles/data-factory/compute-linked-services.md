@@ -38,13 +38,13 @@ In this type of configuration, the computing environment is fully managed by the
 >
 > 
 
-## Azure HDInsight On-Demand Linked Service
+## HDInsight on-demand linked service
 The Azure Data Factory service can automatically create an on-demand HDInsight cluster to process data. The cluster is created in the same region as the storage account (linkedServiceName property in the JSON) associated with the cluster. The storage account must be a general-purpose standard Azure storage account. 
 
 Note the following **important** points about on-demand HDInsight linked service:
 
 * The on-demand HDInsight cluster is created under your Azure subscription. You are able to see the cluster in your Azure portal when the cluster is up and running. 
-* The logs for jobs that are run on an on-demand HDInsight cluster are copied to the storage account associated with the HDInsight cluster. The clusterUserName, clusterPassword, clusterSshUserName, clusterSshPassword defined in your Linked Serviced definition are used to log in to the cluster for in-depth troubleshooting during the lifecycle of the cluster. 
+* The logs for jobs that are run on an on-demand HDInsight cluster are copied to the storage account associated with the HDInsight cluster. The clusterUserName, clusterPassword, clusterSshUserName, clusterSshPassword defined in your linked service definition are used to log in to the cluster for in-depth troubleshooting during the lifecycle of the cluster. 
 * You are charged only for the time when the HDInsight cluster is up and running jobs.
 
 > [!IMPORTANT]
@@ -109,7 +109,7 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
 | additionalLinkedServiceNames | Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf. These storage accounts must be in the same region as the HDInsight cluster, which is created in the same region as the storage account specified by linkedServiceName. | No       |
 | osType                       | Type of operating system. Allowed values are: Linux and Windows (for HDInsight 3.3 only). Default is Linux. | No       |
 | hcatalogLinkedServiceName    | The name of Azure SQL linked service that point to the HCatalog database. The on-demand HDInsight cluster is created by using the Azure SQL database as the metastore. | No       |
-| connectVia                   | The Integration Runtime to be used to dispatch the activities to this HDInsight Linked Service. For On-Demand HDInsight Linked Service, it only supports Azure Integration Runtime. If not specified, it uses the default Azure Integration Runtime. | No       |
+| connectVia                   | The Integration Runtime to be used to dispatch the activities to this HDInsight linked service. For on-demand HDInsight linked service, it only supports Azure Integration Runtime. If not specified, it uses the default Azure Integration Runtime. | No       |
 
 > [!IMPORTANT]
 > HDInsight supports multiple Hadoop cluster versions that can be deployed. Each version choice creates a specific version of the Hortonworks Data Platform (HDP) distribution and a set of components that are contained within that distribution. The list of supported HDInsight versions keeps being updated to provide latest Hadoop ecosystem components and fixes. Make sure you always refer to latest information of [Supported HDInsight version and OS Type](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) to ensure you are using supported version of HDInsight. 
@@ -253,7 +253,7 @@ This type of configuration is supported for the following compute environments:
 * Azure Data Lake Analytics
 * Azure SQL DB, Azure SQL DW, SQL Server
 
-## Azure HDInsight Linked Service
+## Azure HDInsight linked service
 You can create an Azure HDInsight linked service to register your own HDInsight cluster with Data Factory.
 
 ### Example
@@ -291,15 +291,15 @@ You can create an Azure HDInsight linked service to register your own HDInsight 
 | username          | Specify the name of the user to be used to connect to an existing HDInsight cluster. | Yes      |
 | password          | Specify password for the user account.   | Yes      |
 | linkedServiceName | Name of the Azure Storage linked service that refers to the Azure blob storage used by the HDInsight cluster. <p>Currently, you cannot specify an Azure Data Lake Store linked service for this property. If the HDInsight cluster has access to the Data Lake Store, you may access data in the Azure Data Lake Store from Hive/Pig scripts. </p> | Yes      |
-| connectVia        | The Integration Runtime to be used to dispatch the activities to this Linked Service. You can use Azure Integration Runtime or Self-hosted Integration Runtime. If not specified, it uses the default Azure Integration Runtime. | No       |
+| connectVia        | The Integration Runtime to be used to dispatch the activities to this linked service. You can use Azure Integration Runtime or Self-hosted Integration Runtime. If not specified, it uses the default Azure Integration Runtime. | No       |
 
 > [!IMPORTANT]
 > HDInsight supports multiple Hadoop cluster versions that can be deployed. Each version choice creates a specific version of the Hortonworks Data Platform (HDP) distribution and a set of components that are contained within that distribution. The list of supported HDInsight versions keeps being updated to provide latest Hadoop ecosystem components and fixes. Make sure you always refer to latest information of [Supported HDInsight version and OS Type](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) to ensure you are using supported version of HDInsight. 
 >
 
-## Azure Batch Linked Service
+## Azure Batch linked service
 
-You can create an Azure Batch Linked Service to register a Batch pool of virtual machines (VMs) to a data factory. You can run Custom activity using Azure Batch.
+You can create an Azure Batch linked service to register a Batch pool of virtual machines (VMs) to a data factory. You can run Custom activity using Azure Batch.
 
 See following topics if you are new to Azure Batch service:
 
@@ -345,9 +345,9 @@ See following topics if you are new to Azure Batch service:
 | batchUri          | URL to your Azure Batch account, in format of https://*batchaccountname.region*.batch.azure.com. | Yes      |
 | poolName          | Name of the pool of virtual machines.    | Yes      |
 | linkedServiceName | Name of the Azure Storage linked service associated with this Azure Batch linked service. This linked service is used for staging files required to run the activity. | Yes      |
-| connectVia        | The Integration Runtime to be used to dispatch the activities to this Linked Service. You can use Azure Integration Runtime or Self-hosted Integration Runtime. If not specified, it uses the default Azure Integration Runtime. | No       |
+| connectVia        | The Integration Runtime to be used to dispatch the activities to this linked service. You can use Azure Integration Runtime or Self-hosted Integration Runtime. If not specified, it uses the default Azure Integration Runtime. | No       |
 
-## Azure Machine Learning Linked Service
+## Azure Machine Learning linked service
 You create an Azure Machine Learning linked service to register a Machine Learning batch scoring endpoint to a data factory.
 
 ### Example
@@ -382,9 +382,9 @@ You create an Azure Machine Learning linked service to register a Machine Learni
 | servicePrincipalId     | Specify the application's client ID.     | Required if updateResourceEndpoint is specified |
 | servicePrincipalKey    | Specify the application's key.           | Required if updateResourceEndpoint is specified |
 | tenant                 | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Required if updateResourceEndpoint is specified |
-| connectVia             | The Integration Runtime to be used to dispatch the activities to this Linked Service. You can use Azure Integration Runtime or Self-hosted Integration Runtime. If not specified, it uses the default Azure Integration Runtime. | No                                       |
+| connectVia             | The Integration Runtime to be used to dispatch the activities to this linked service. You can use Azure Integration Runtime or Self-hosted Integration Runtime. If not specified, it uses the default Azure Integration Runtime. | No                                       |
 
-## Azure Data Lake Analytics Linked Service
+## Azure Data Lake Analytics linked service
 You create an **Azure Data Lake Analytics** linked service to link an Azure Data Lake Analytics compute service to an Azure data factory. The Data Lake Analytics U-SQL activity in the pipeline refers to this linked service. 
 
 ### Example
@@ -426,26 +426,26 @@ You create an **Azure Data Lake Analytics** linked service to link an Azure Data
 | servicePrincipalId   | Specify the application's client ID.     | Yes                                      |
 | servicePrincipalKey  | Specify the application's key.           | Yes                                      |
 | tenant               | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Yes                                      |
-| connectVia           | The Integration Runtime to be used to dispatch the activities to this Linked Service. You can use Azure Integration Runtime or Self-hosted Integration Runtime. If not specified, it uses the default Azure Integration Runtime. | No                                       |
+| connectVia           | The Integration Runtime to be used to dispatch the activities to this linked service. You can use Azure Integration Runtime or Self-hosted Integration Runtime. If not specified, it uses the default Azure Integration Runtime. | No                                       |
 
 
 
-## Azure SQL Linked Service
+## Azure SQL Database linked service
 You create an Azure SQL linked service and use it with the [Stored Procedure Activity](transform-data-using-stored-procedure.md) to invoke a stored procedure from a Data Factory pipeline. See [Azure SQL Connector](connector-azure-sql-database.md#linked-service-properties) article for details about this linked service.
 
-## Azure SQL Data Warehouse Linked Service
+## Azure SQL Data Warehouse linked service
 You create an Azure SQL Data Warehouse linked service and use it with the [Stored Procedure Activity](transform-data-using-stored-procedure.md) to invoke a stored procedure from a Data Factory pipeline. See [Azure SQL Data Warehouse Connector](connector-azure-sql-data-warehouse.md#linked-service-properties) article for details about this linked service.
 
-## SQL Server Linked Service
+## SQL Server linked service
 You create a SQL Server linked service and use it with the [Stored Procedure Activity](transform-data-using-stored-procedure.md) to invoke a stored procedure from a Data Factory pipeline. See [SQL Server connector](connector-sql-server.md#linked-service-properties) article for details about this linked service.
 
-# Azure Data Factory - naming rules
+## Azure Data Factory - naming rules
 The following table provides naming rules for Data Factory artifacts.
 
 | Name                             | Name Uniqueness                          | Validation Checks                        |
 | :------------------------------- | :--------------------------------------- | :--------------------------------------- |
 | Data Factory                     | Unique across Microsoft Azure. Names are case-insensitive, that is, `MyDF` and `mydf` refer to the same data factory. | <ul><li>Each data factory is tied to exactly one Azure subscription.</li><li>Object names must start with a letter or a number, and can contain only letters, numbers, and the dash (-) character.</li><li>Every dash (-) character must be immediately preceded and followed by a letter or a number. Consecutive dashes are not permitted in container names.</li><li>Name can be 3-63 characters long.</li></ul> |
-| Linked Services/Tables/Pipelines | Unique with in a data factory. Names are case-insensitive. | <ul><li>Maximum number of characters in a table name: 260.</li><li>Object names must start with a letter, number, or an underscore (_).</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”, ”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |
+| Linked services/tables/pipelines | Unique with in a data factory. Names are case-insensitive. | <ul><li>Maximum number of characters in a table name: 260.</li><li>Object names must start with a letter, number, or an underscore (_).</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”, ”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |
 | Resource Group                   | Unique across Microsoft Azure. Names are case-insensitive. | <ul><li>Maximum number of characters: 1000.</li><li>Name can contain letters, digits, and the following characters: “-”, “_”, “,” and “.”</li></ul> |
 
 ## Next steps
