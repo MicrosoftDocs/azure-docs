@@ -1,12 +1,12 @@
 ---
-title: 'Azure Active Directory B2C: Self-service password change| Microsoft Docs'
+title: 'Azure Active Directory B2C: KMSI| Microsoft Docs'
 description: A topic demonstrating how to set up 'keep me signed in'
 services: active-directory-b2c
 documentationcenter: ''
 author: vigunase
 manager: ajalexander
 
-ms.assetid: 
+ms.assetid: 926e9711-71c0-49e8-b658-146ffb7386c0
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -16,10 +16,10 @@ ms.date: 09/05/2016
 ms.author: vigunase
 
 ---
-# Azure Active Directory B2C: Enable 'Keep Me Signed In'  
+# Azure Active Directory B2C: Enable 'Keep me signed in (KMSI)'  
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure AD B2C now allows your web and native applications to enable the 'keep me signed in' functionality. This feature grants access to returning users to application without prompting to reenter the username and password. This access is revoked when the user logs out. 
+Azure AD B2C now allows your web and native applications to enable the 'Keep me signed in (KMSI)' functionality. This feature grants access to returning users to application without prompting to reenter the username and password. This access is revoked when the user logs out. 
 
 We recommend against users checking this option on public computers. 
 
@@ -31,19 +31,19 @@ We recommend against users checking this option on public computers.
 
 ## Prerequisites
 
-An Azure AD B2C tenant configured to complete a local account sign-up/sign-in, as described in [Getting started](active-directory-b2c-get-started-custom.md).
+An Azure AD B2C tenant configured to allow local account sign-up/sign-in, as described in [Getting started](active-directory-b2c-get-started-custom.md).
 
-## How to enable keep me signed in
+## How to enable KMSI
 
 Make the following changes in your trust framework extensions policy.
 
-## Content definition 
+## Adding a content definition element 
 
-The `BuildingBlocks` node of your extention file must include a `ContentDefinitions`element. 
+The `BuildingBlocks` node of your extention file must include a `ContentDefinitions` element. 
 
 1. In the `ContentDefinitions` section, define a new `ContentDefinition` with ID `api.signuporsigninwithkmsi`.
-2. Your new `ContentDefinition` must include a `LoadUri`, `RecoveyUri` and `DataUri` as follows.
-3. Datauri`urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` is a machine understandable identifier that brings up a keep me signed in check box in the sign-in pages. Please make sure you don't change this value. 
+2. Your new `ContentDefinition` must include a `LoadUri`, `RecoveryUri` and `DataUri` as follows.
+3. Datauri`urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` is a machine understandable identifier that brings up a KMSI check box in the sign-in pages. Please make sure you don't change this value. 
 
 ```XML
   <BuildingBlocks>
@@ -106,16 +106,16 @@ Add the application IDs to the extensions file (`TrustFrameworkExtensions.xml`):
 
 4. Save your extensions file.
 
-## Create a keep me signed in enabled user journey
+## Create a KMSI in enabled user journey
 
-You now need to add Local Account SignIn cliams provider to your user journey. 
+You now need to add Local Account SignIn claims provider to your user journey. 
 
 1. Open the base file of your policy (for example, TrustFrameworkBase.xml).
 2. Find the `<UserJourneys>` element and copy the entire `<UserJourney>` node that includes `Id="SignUpOrSignIn"`.
 3. Open the extension file (for example, TrustFrameworkExtensions.xml) and find the `<UserJourneys>` element. If the element doesn't exist, add one.
 4. Paste the entire `<UserJourney>` node that you copied as a child of the `<UserJourneys>` element.
 5. Rename the ID of the new user journey (for example, rename as `SignUpOrSignInWithKmsi`).
-6. Finally, in `OrchestrationStep 1` change the `ContentDefinitionReferenceId` to `api.signuporsigninwithkmsi` , you definied in the earlier steps. This enables the keep me signed in checkbox in the user journey. 
+6. Finally, in `OrchestrationStep 1` change the `ContentDefinitionReferenceId` to `api.signuporsigninwithkmsi` , you definied in the earlier steps. This enables the  checkbox in the user journey. 
 7. You are done modifying the extension file. Save and upload this file. Ensure that all validations succeed.
 
 ```XML
@@ -164,13 +164,13 @@ Next, update the relying party (RP) file that initiates the user journey that yo
 
 3. Modify the `ReferenceId` attribute in `<DefaultUserJourney>` to match the `Id` of the new user journey that you created (for example, SignUpOrSignInWithKmsi).
 
-4. Keep me signed settings is configured in `UserJourneyBehaviors`. 
+4. KMSI is configured in `UserJourneyBehaviors`. 
 
-5. **`KeepAliveInDays`** controls how long the user remains signed in. In the following example, keep me signed in session automatically expires after 14 days regardless of how often the user performs silent authentication. 
+5. **`KeepAliveInDays`** controls how long the user remains signed in. In the following example, KMSI session automatically expires after 14 days regardless of how often the user performs silent authentication.
 
-   Setting `KeepAliveInDays`  value to 0 turns off keep me signed in functionality. By default, this value is 0.
+   Setting `KeepAliveInDays`  value to 0 turns off KMSI functionality. By default, this value is 0
 
-6. If **`SessionExpiryType`** is *Rolling*, then the keep me signed in session is extended by 14 days every time the user performs silent authentication.  If *Rolling* is selected, we recommend you to keep the number of days to minimum. 
+6. If **`SessionExpiryType`** is *Rolling*, then the KMSI session is extended by 14 days every time the user performs silent authentication.  If *Rolling* is selected, we recommend you to keep the number of days to minimum. 
 
        <RelyingParty>
        <DefaultUserJourney ReferenceId="SignUpOrSignInWithKmsi" />

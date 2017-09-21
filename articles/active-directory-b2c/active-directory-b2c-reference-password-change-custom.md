@@ -6,7 +6,7 @@ documentationcenter: ''
 author: vigunase
 manager: ajalexander
 
-ms.assetid: 
+ms.assetid: 712a7128-5788-4914-8a52-24e200aa4de1
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -162,7 +162,7 @@ Add the application IDs to the extensions file (`TrustFrameworkExtensions.xml`):
 
 4. Save your extensions file.
 
- 
+
 
 ## Create a password change user journey
 

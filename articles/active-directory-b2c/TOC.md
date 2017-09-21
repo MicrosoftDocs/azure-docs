@@ -67,14 +67,14 @@
 ### Integrate RESTful APIs
 #### [Validate user input](active-directory-b2c-rest-api-validation-custom.md)
 #### [Obtain additional claims](active-directory-b2c-rest-api-step-custom.md)
-### User Flows
+### User flows
 #### [Configure user input](active-directory-b2c-configure-signup-self-asserted-custom.md)
 #### [Custom attributes](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [Customize UI](active-directory-b2c-ui-customization-custom.md)
 #### [Customize tokens](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
-#### [Password Complexity](active-directory-b2c-reference-password-complexity-custom.md)
+#### [Password complexity](active-directory-b2c-reference-password-complexity-custom.md)
 
-#### [Password Change](active-directory-b2c-reference-password-change.md)
+#### [Password change](active-directory-b2c-reference-password-change.md)
 
 #### [Enable keep me signed in](active-directory-b2c-reference-kmsi.md)
 
