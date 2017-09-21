@@ -68,8 +68,8 @@ Select this trigger: **Batch – Batch messages**
 3. Provide a name for the batch, 
 and specify criteria for releasing the batch, for example:
 
-   * **Batch Name**: The name used to identify the batch, 
-   which is "TestBatch" in this example.
+   * **Batch Name**: The name used to identify the batch, which is "TestBatch" in this example.
+   
    * **Release Criteria**: The batch release criteria, which can be based on the message count, schedule, or both.
    
      ![Provide Batch trigger details](./media/logic-apps-batch-process-send-receive-messages/receive-batch-release-criteria.png)
@@ -174,12 +174,12 @@ Sender logic apps need to know where to send items, while receiver logic apps do
 ## Test your logic apps
 
 To test your batching solution, 
-post X12 messages to your sender logic app from **Postman** or similar tool. 
+post X12 messages to your sender logic app from [Postman](https://www.getpostman.com/postman) or similar tool. 
 Soon, you should start getting X12 messages, either as a batch of five items or every 10 minutes, in your request bin - 
 all with the same partition key.
 
 ## Next steps
 
-* [Build on logic app definitions by using JSON](../logic-apps/logic-apps-author-definitions.md)
+* [Process messages as batches](logic-apps-batch-process-send-receive-messages.md) 
 * [Build a serverless app in Visual Studio with Azure Logic Apps and Functions](../logic-apps/logic-apps-serverless-get-started-vs.md)
 * [Exception handling and error logging for logic apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
