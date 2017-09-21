@@ -77,7 +77,7 @@ This way you can allocate a new set of resources for your app and gain greater c
 
 > [!TIP]
 > If you have an App Service Environment, you can review the documentation specific to App Service Environments here: 
-[Create an App Service plan in an App Service Environment](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md#createplan)
+[Create an App Service plan in an App Service Environment](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md#createplan)
 
 You can create an empty App Service plan from the App Service plan browse experience or as part of app creation.
 
@@ -123,7 +123,7 @@ If you want to move the app to a different region, one alternative is app clonin
 You can find **Clone App** in the **Development Tools** section of the menu.
 
 > [!IMPORTANT]
-> Cloning has some limitations that you can read about at [Azure App Service App cloning using Azure portal](../app-service-web/app-service-web-app-cloning-portal.md).
+> Cloning has some limitations that you can read about at [Azure App Service App cloning](app-service-web-app-cloning.md).
 
 ## Scale an App Service plan
 

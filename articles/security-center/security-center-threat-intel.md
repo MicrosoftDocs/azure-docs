@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2017
+ms.date: 09/12/2017
 ms.author: yurid
 
 ---
@@ -67,7 +67,7 @@ To visualize the current threat intelligence for your environment, you must firs
 
 	d.  **Threat details**. Shows more details about the threat that you selected in the map.
 
-Regardless of which tile you select, the dashboard that appears is based on the [Log Search](https://docs.microsoft.com/azure/security-center/security-center-search) query. The only difference is the type of query and the result.
+Regardless of which option tile you select, the dashboard that appears is based on the Log Search query. The only difference is the type of query and the result.
 
 ### Threat types
 Select the **Threat types** tile to open the **Log Search** dashboard. Filter options appear on the left, and query results appear on the right.

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2017
+ms.date: 09/12/2017
 ms.author: yurid
 
 ---
@@ -55,7 +55,7 @@ To see current activities related to identity and access, you need to access the
 
 	c. **Logons over time**. Helps you to quickly identify the number of logons over time. It shows a list of the top computer account logon attempts.
 	
-Regardless of which tile you select, the dashboard that appears is based on the [Log Search](https://docs.microsoft.com/azure/security-center/security-center-search) query. The only difference is the type of query and the result. You can still select an item, for example, a computer, and see relevant data. 
+Regardless of which tile you select, the dashboard that appears is based on the Log Search query. The only difference is the type of query and the result. You can still select an item, for example, a computer, and see relevant data. 
 
 ## See also
 In this article, you learned how to monitor identity and access in Security Center. To learn more about Security Center, see the following articles:
