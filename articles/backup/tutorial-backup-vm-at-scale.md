@@ -45,11 +45,11 @@ The Recovery Services vault contains the backup data, and the backup policy appl
     - From the **Location** drop-down menu, choose *West Europe*.
     - Click **Create** to create your Recovery Services vault.
 
-    A Recovery Services vault must be in the same location as the virtual machines being protected. If you have virtual machines in multiple regions,create a Recovery Services vault in each region. This tutorial creates a Recovery Services vault in *West Europe* because that is where *myVM* (the virtual machine created with the quickstart) was created.
+A Recovery Services vault must be in the same location as the virtual machines being protected. If you have virtual machines in multiple regions,create a Recovery Services vault in each region. This tutorial creates a Recovery Services vault in *West Europe* because that is where *myVM* (the virtual machine created with the quickstart) was created.
 
-    It can take several minutes for the Recovery Services vault to be created. Monitor the status notifications in the upper right-hand area of the portal. Once your vault is created, it appears in the list of Recovery Services vaults.
+It can take several minutes for the Recovery Services vault to be created. Monitor the status notifications in the upper right-hand area of the portal. Once your vault is created, it appears in the list of Recovery Services vaults.
 
-    When you create a Recovery Services vault, by default the vault has geo-redundant storage. To provide data resiliency, geo-redundant storage replicates the data multiple times across two Azure regions.
+When you create a Recovery Services vault, by default the vault has geo-redundant storage. To provide data resiliency, geo-redundant storage replicates the data multiple times across two Azure regions.
 
 ## Select a backup goal, set policy and identify virtual machines to protect
 
