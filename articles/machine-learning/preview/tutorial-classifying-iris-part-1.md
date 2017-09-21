@@ -118,5 +118,5 @@ In this part one of the three part tutorial series, you have used the Azure Mach
 You are ready to move on to the next part in the series, to build a machine learning model.
 
 ## Next steps
-- [Part 2: Model building](tutorial-classifying-iris-part-2.md)
-- [Part 3: Model deployment](tutorial-classifying-iris-part-3.md)
+> [!div class="nextstepaction"]
+> [Part 2: Model building](tutorial-classifying-iris-part-2.md)
