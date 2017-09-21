@@ -152,7 +152,7 @@
       href: transform-data-using-stored-procedure.md
     - name: Data Lake U-SQL Activity
       href: transform-data-using-data-lake-analytics.md
-    - name: .NET custom activity
+    - name: Custom activity
       href: transform-data-using-dotnet-custom-activity.md
     - name: Compute linked services
       href: compute-linked-services.md
@@ -197,7 +197,7 @@
   - name: REST API
     href: /rest/api/datafactory
   - name: Python
-    href: /python/api/overview/azure/datafactory?view=azure-python
+    href: /python/api/overview/azure/data-factory?view=azure-python
 - name: Resources
   items:
   - name: Azure Roadmap
