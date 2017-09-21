@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial, azure
 ms.topic: article
-ms.date: 09/17/2017
+ms.date: 09/20/2017
 ---
 
 # Bike-share tutorial: Advanced data preparation with Azure Machine Learning Workbench
@@ -77,7 +77,7 @@ This tutorial uses the [Boston Hubway dataset](https://s3.amazonaws.com/hubway-d
    - Use the **Blank Project** template.
    - Name your project **BikeShare**. 
 
-## <a id="newdatasource"></a>Create a new Data Source
+## <a id="newdatasource"></a>Create a new data source
 
 1. Create a new data source. Click the **Data** button (cylinder icon) on the left toolbar. This displays the **Data View**.
 
@@ -168,7 +168,7 @@ Select the __Metrics__ button at the top left of the tab's grid view. This view 
 
 To return the __Data View__, select __Data__ from the upper left of the page.
 
-## Add Data Source to Data Preparation package
+## Add data source to data preparation package
 
 1. Select __Prepare__ to begin preparing the data. 
 
@@ -221,7 +221,7 @@ You no longer need the __REPORTTYPE__ column. Right-click on the column header a
 
 4. To eliminate the remaining error rows in the other columns, repeat this filter process for **HOURLYRelativeHumidity** and **HOURLYWindSpeed** columns.
 
-## Use _By example_ transformations
+## Use by example transformations
 
 To use the data in a prediction for two-hour time blocks, you must compute the average weather conditions for two-hour periods. To do this, you can use following actions:
 
@@ -231,7 +231,7 @@ To use the data in a prediction for two-hour time blocks, you must compute the a
 
 * Derive a **Date\_Hour\_Range** column from the **DATE** and **Hour_Range** columns. See the following section for the detailed steps.
 
-### Split Column by Example
+### Split column by example
 
 1. Split the **DATE** column into separate date and time columns. Right-click on the **DATE** column header and select **Split Column by Example**.
 
@@ -243,7 +243,7 @@ To use the data in a prediction for two-hour time blocks, you must compute the a
 
    ![Image of the split columns DATE_1 and DATE_2](media/tutorial-bikeshare-dataprep/weatherdatesplitted.png)
 
-### Derive Column by Example
+### Derive column by example
 
 1. To derive a two-hour range, right-click the __DATE\_2__ column header and select **Derive Column by Example**.
 
@@ -306,7 +306,7 @@ To use the data in a prediction for two-hour time blocks, you must compute the a
 
 11. Multi-select the **DATE**, **DATE\_1**, **DATE\_2**, and **Hour Range** columns. Right-click, and then select **Remove column**.
 
-## Summarize data (Mean)
+## Summarize data (mean)
 
 The next step is to summarize the weather conditions by taking the mean of the values, grouped by hour range.
 
@@ -322,7 +322,7 @@ The next step is to summarize the weather conditions by taking the mean of the v
 
    ![Image of summarized data screen](media/tutorial-bikeshare-dataprep/weathersummarize.png)
 
-## Transform Dataflow using script
+## Transform dataflow using script
 
 Changing the data in the numeric columns to a range of 0-1 allows some models to converge quickly. Currently there is no built-in transformation to generically do this transformation, but a Python script can be used to perform this operation.
 
@@ -381,7 +381,7 @@ You have finished preparing the weather data. Next, prepare the trip data.
 
     ![Image of the 201701-hubway-tripdata entry](media/tutorial-bikeshare-dataprep/twodfsindprep.png)
 
-## Use Map Inspector
+## Use map inspector
 
 For data preparation, there are a number of useful visualizations called **Inspectors** for String, Numeric, and Geographical data that help in understanding the data better and in identifying outliers. Use the following steps to use the Map inspector:
 
@@ -411,7 +411,7 @@ This process adds a new visualization titled __tripduration Statistics__ in the 
 > [!IMPORTANT]
 > The maximum value of the trip duration is **961,814 minutes**, which is about two years. It seems there are some outliers in the dataset.
 
-## Use Histogram Inspector
+## Use histogram inspector
 
 To attempt to identify the outliers, right-click the __tripduration__ column and select __Histogram__.
 
@@ -458,7 +458,7 @@ Select __OK__ to apply the filter.
 
 ![Updated histograms after filter is applied](media/tutorial-bikeshare-dataprep/loftripfilteredinspector.png)
 
-### The Halo Effect
+### The halo effect
 
 1. Maximize the **logtripduration** histogram. There is a blue histogram overlaid on a gray histogram. This display is called the **Halo Effect**:
 
@@ -523,7 +523,7 @@ To summarize bike demand for a 2-hour period, use derived columns.
 
 7. Select **OK** to accept the summary result.
 
-## Join Dataflows
+## Join dataflows
 
 To join the weather data with the trip data, use the following steps:
 
@@ -596,7 +596,7 @@ df.to_csv('Your Test Data File Path here')
 
 Select **Run** from the top of the screen. The script is submitted as a **Job** on the local machine. Once the job status changes to __Completed__, the file has been written to the specified location.
 
-## Substitute Data Sources
+## Substitute data sources
 
 In the previous steps, you used the `201701-hubway-tripdata.csv` and `BostonWeather.csv` data sources to prepare the Test data. To use the package with the other trip data files, use the following steps:
 
@@ -652,7 +652,7 @@ You have completed the Bike-share Data Preparation tutorial. In this tutorial, y
 > * Run the Data Preparation Package using Python
 > * Generate a training dataset by reusing the Data Preparation package for additional input files
 
-## Next Steps:
+## Next steps
 Follow the three part tutorial based on the Iris dataset to better understand Azure Machine Learning services (preview):
 - [Part 1: Prepare data](tutorial-classifying-iris-part-1.md)
 - [Part 2: Model building](tutorial-classifying-iris-part-2.md)
