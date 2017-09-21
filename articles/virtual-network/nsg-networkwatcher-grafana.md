@@ -20,9 +20,9 @@ ms.author: kumud
 ---
 # Manage and analyze Network Security Group Flow Logs in Azure using Network Watcher and Grafana
 
-[Network Security Group (NSG) flow logs](../network-watcher/network-watcher-nsg-flow-logging-overview.md) provide information that can be used to understand ingress and egress IP traffic on network interfaces. These flow logs show outbound and inbound flows on a per NSG rule basis, the NIC the flow applies to, 5 tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
+[Network Security Group (NSG) flow logs](../network-watcher/network-watcher-nsg-flow-logging-overview.md) provide information that can be used to understand ingress and egress IP traffic on network interfaces. These flow logs show outbound and inbound flows on a per NSG rule basis, the NIC the flow applies to, 5-tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
 
-You can have many NSGs in your network with flow logging enabled. This makes it cumbersome to parse and gain insights from your logs. This article provides a solution to centrally manage these NSG flow logs using Grafana, an open source graphing tool, ElasticSearch and Logstash, an open source server-side data processing pipeline. 
+You can have many NSGs in your network with flow logging enabled. This anount of logging data makes it cumbersome to parse and gain insights from your logs. This article provides a solution to centrally manage these NSG flow logs using an open source graphing tool called Grafana, ElasticSearch, and Logstash, which is an open source server-side data processing pipeline. 
 
 ## Scenario
 
@@ -38,13 +38,13 @@ For this scenario, you must have Network Security Group Flow Logging enabled on 
 
 ### Setup considerations
 
-In this example Grafana, ElasticSearch, and Logstash are configured on an Ubuntu 16.04 LTS Server deployed in Azure. This is minimal setup for running all three components – they are all running on the same VM. This setup should only be used for testing and non-critical workloads. Logstash, Elasticsearch, and Grafana can all be architected to scale independently across many instances. Refer to the documentation for each of these components for more information.
+In this example Grafana, ElasticSearch, and Logstash are configured on an Ubuntu 16.04 LTS Server deployed in Azure. This minimal setup is used for running all three components – they are all running on the same VM. This setup should only be used for testing and non-critical workloads. Logstash, Elasticsearch, and Grafana can all be architected to scale independently across many instances. For more information, see the documentation for each of these components.
 
 ### Install Logstash
 
 You use Logstash to flatten the JSON formatted flow logs to a flow tuple level.
 
-1. To install Logstash run the following commands:
+1. To install Logstash, run the following commands:
 
     ```bash
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
@@ -179,13 +179,13 @@ For additional installation information, see [Installing on Debian / Ubuntu](htt
 
 #### Add the ElasticSearch server as a data source
 
-Next, you need to add the ElasticSearch index containing flow logs as a data source. You can do this by selecting **Add data source** and completing the form with the relevant information. A sample of this configuration can be found in the following screenshot.
+Next, you need to add the ElasticSearch index containing flow logs as a data source. You can add a data source by selecting **Add data source** and completing the form with the relevant information. A sample of this configuration can be found in the following screenshot:
 
 ![Add data source](./media/nsg-networkwatcher-grafana/nsg-networkwatcher-grafana-fig2.png)
 
 #### Create a dashboard
 
-Now that you have successfully configured Grafana to read from the ElasticSearch index containing NSG flow logs, you can create and personalize dashboards. Do this by selecting **Create your first dashboard**. The following sample graph configuration shows flows segmented by NSG rule.
+Now that you have successfully configured Grafana to read from the ElasticSearch index containing NSG flow logs, you can create and personalize dashboards. To create a new dashboard, select **Create your first dashboard**. The following sample graph configuration shows flows segmented by NSG rule:
 
 ![Dashboard graph](./media/nsg-networkwatcher-grafana/nsg-networkwatcher-grafana-fig3.png)
 
