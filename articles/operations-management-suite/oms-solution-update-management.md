@@ -27,7 +27,7 @@ The Update Management solution in OMS allows you to manage operating system secu
 
 You can enable Update management for virtual machines directly from your [Azure Automation](../automation/automation-offering-get-started.md) account.
 To learn how to enable update management for virtual machines from your Automation account, see
-[Manage updates for multiple virtual machines](../automation/manage-update-multi-vm.md).
+[Manage updates for multiple virtual machines](../automation/manage-update-multi.md).
 
 
 ## Solution overview
