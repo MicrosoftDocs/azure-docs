@@ -234,10 +234,10 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
     }
     ```
 
-2. Run the **Invoke-AzureRmDataFactoryV2PipelineRun** cmdlet to create a pipeline run and pass in the parameter values. It also captures the pipeline run ID for future monitoring.
+2. Run the **Invoke-AzureRmDataFactoryV2Pipeline** cmdlet to create a pipeline run and pass in the parameter values. It also captures the pipeline run ID for future monitoring.
 
     ```powershell
-    $runId = Invoke-AzureRmDataFactoryV2PipelineRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName "Adfv2QuickStartPipeline" -ParameterFile .\PipelineParameters.json
+    $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName "Adfv2QuickStartPipeline" -ParameterFile .\PipelineParameters.json
     ```
 
 ## Monitor a pipeline run
@@ -285,7 +285,7 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
 2. Run the following script to retrieve copy activity run details, for example, size of the data read/written.
 
     ```powershell
-    $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -PipelineName 'Adfv2QuickStartPipeline' -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+    $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
     Write-Host "Activity run details:" -foregroundcolor "Yellow"
     $result
     
@@ -294,11 +294,10 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
     
     Write-Host "\nActivity 'Error' section:" -foregroundcolor "Yellow"
     $result.Error -join "`r`n
-        ```
-
-    Here is the sample output of activity run result, and the drilldown statistics in the result -> "Output" section:
-
     ```
+3. Confirm that you see the output similar to the following sample output of activity run result:
+
+    ```json
     Activity run details:
     ResourceGroupName : adf
     DataFactoryName   : <dataFactoryname>
@@ -314,7 +313,7 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
     Duration          : 36331
     Status            : Succeeded
     Error             : {errorCode, message, failureType, target}
-
+    
     Activity 'Output' section:
     "dataRead": 331452208
     "dataWritten": 331452208
