@@ -24,8 +24,6 @@ This quickstart describes how to use Python to create an Azure data factory. The
 
 * **Azure subscription**. If you don't have a subscription, you can create a [free trial](http://azure.microsoft.com/pricing/free-trial/) account.
 * **Azure Storage account**. You use the blob storage as **source** and **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one. 
-* **Visual Studio** 2013, 2015, or 2017. The walkthrough in this article uses Visual Studio 2017.
-* **Download and install [Azure .NET SDK](http://azure.microsoft.com/downloads/)**.
 * **Create an application in Azure Active Directory** following [this instruction](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Make note of the following values that you use in later steps: **application ID**, **authentication key**, and **tenant ID**. Assign application to "**Contributor**" role by following instructions in the same article. 
 
 ### Create and upload an input file
@@ -40,12 +38,13 @@ This quickstart describes how to use Python to create an Azure data factory. The
 
 ## Install the Python package
 
-1.	Download the Azure Data Factory Python file into a directory where you’ll run your project.
+1.	Download the [Azure Data Factory Python file](https://go.microsoft.com/fwlink/?linkid=859015) into a directory where you’ll run your project.
 2.	Open a terminal or command prompt with administrator privileges. 
-3.	To install the package, run the following command:
+3.	To install the package, run the following commands:
 
     ```
     pip install azure_mgmt_datafactory-0.1.0-py2.py3-none-any.whl
+    pip install azure.mgmt.resource
     ```
 4. You should see the following output if you successfully installed the file
 
@@ -93,10 +92,10 @@ This quickstart describes how to use Python to create an Azure data factory. The
     ```python   
     subscription_id = '<your subscription ID where the factory resides>'
     credentials = ServicePrincipalCredentials(
-            client_id=<yourClientId>',
+            client_id='<yourClientId>',
             secret='<YourPassword>',
             tenant='<YourTenandId>'
-    
+    )
     resource_client = ResourceManagementClient(credentials, subscription_id)
     adf_client = DataFactoryManagementClient(credentials, subscription_id)
     
@@ -135,7 +134,7 @@ You create linked services in a data factory to link your data stores and comput
 ls_name = 'storageLinkedService'
 
 #Replace Storage String with your credentials
-storage_string = SecureString('DefaultEndpointsProtocol=https;AccountName=<replace>;AccountKey=<replace>
+storage_string = SecureString('DefaultEndpointsProtocol=https;AccountName=<replace>;AccountKey=<replace>')
 
 ls_azure_storage = AzureStorageLinkedService(connection_string=storage_string)
 ls = adf_client.linked_services.create_or_update(rg_name, df_name, ls_name, ls_azure_storage)
@@ -153,7 +152,7 @@ You define a dataset that represents the source data in Azure Blob. This Blob da
 #Create Dataset Input
 ds_name = 'ds_in'
 ds_ls = LinkedServiceReference(ls_name)
-blob_path= 'adfv2branch/'
+blob_path= 'adfv2tutorial/'
 blob_filename = 'input.txt'
 ds_azure_blob= AzureBlobDataset(ds_ls, folder_path=blob_path, file_name = blob_filename)
 ds = adf_client.datasets.create_or_update(rg_name, df_name, ds_name, ds_azure_blob)
@@ -211,7 +210,7 @@ print(adf_client.pipelines.create_run(rg_name, df_name, p_name,
 ## Run the code
 Build and start the application, then verify the pipeline execution.
 
-The console prints the progress of creating data factory, linked service, datasets, pipeline, and pipeline run. It then checks the pipeline run status. Wait until you see the copy activity run details with data read/written size. Then, use tools such as [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/) to check the blob(s) is copied to "outputBlobPath" from "inputBlobPath" as you specified in variables.
+The console prints the progress of creating data factory, linked service, datasets, pipeline, and pipeline run. Wait until you see the copy activity run details with data read/written size. Then, use tools such as [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/) to check the blob(s) is copied to "outputBlobPath" from "inputBlobPath" as you specified in variables.
 
 
 ## Clean up resources
@@ -224,3 +223,6 @@ adf_client.data_factories.delete(rg_name, df_name)
 ## Next steps
 You used Python to create a data factory and a pipeline in this tutorial. The pipeline in this sample copies data from one location to another location in an Azure blob storage. To learn more, review other Quickstarts and tutorials.
 
+Tutorial | Description
+-------- | -----------
+[Tutorial: copy data from Azure Blob Storage to Azure SQL Database](tutorial-copy-data-dot-net.md) | Shows you how to copy data from a blob storage to a SQL database. For a list of data stores supported as sources and sinks in a copy operation by data factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats). 

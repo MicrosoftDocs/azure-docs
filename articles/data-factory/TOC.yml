@@ -17,21 +17,25 @@
       href: quickstart-create-data-factory-python.md      
     - name: REST   
       href: quickstart-create-data-factory-rest-api.md
-    - name: Azure Portal
-      href: quickstart-create-data-factory-portal.md     
+    - name: Portal   
+      href: quickstart-create-data-factory-portal.md      
 - name: Tutorials
   items:
-  - name: 1. Move SSIS packages to Azure
-    href: tutorial-deploy-ssis-packages.md    
+  - name: 1 - Deploy SSIS packages to Azure
+    href: tutorial-deploy-ssis-packages-azure.md    
   - name: 2 - Copy data in cloud
     href: tutorial-copy-data-dot-net.md
-  - name: 3 - Copy on-prem data to cloud
-    href: tutorial-copy-onprem-data-to-cloud-powershell.md
+  - name: 3 - Copy on-premises data to cloud
+    href: tutorial-hybrid-copy-powershell.md
   - name: 4 - Copy data in bulk
     href: tutorial-bulk-copy.md
-  - name: 5 - Transform data in cloud
-    href: tutorial-transform-data-using-spark-powershell.md
-  - name: 6 - Control flow
+  - name: 5 - Copy data incrementally
+    href: tutorial-incremental-copy-powershell.md
+  - name: 6 - Transform data in cloud
+    href: tutorial-transform-data-spark-powershell.md
+  - name: 7 - Transform data in virtual network
+    href: tutorial-transform-data-hive-virtual-network.md       
+  - name: 8 - Control flow
     href: tutorial-control-flow.md    
 - name: Samples
   items:
@@ -181,17 +185,19 @@
     - name: Azure integration runtime
       href: create-azure-integration-runtime.md   
     - name: Azure SSIS integration runtime
-      href: tutorial-deploy-ssis-packages.md    
+      href: create-azure-ssis-integration-runtime.md
     - name: Self hosted integration runtime
       href: create-self-hosted-integration-runtime.md
 - name: Reference
   items:
   - name: .NET
+    href: /dotnet/api/microsoft.azure.management.datafactory
   - name: PowerShell
-    href: /powershell/azure/data-factory
+    href: /powershell/module/azurerm.datafactory/
   - name: REST API
-    href: /rest/api/data-factory
+    href: /rest/api/datafactory
   - name: Python
+    href: /python/api/overview/azure/datafactory?view=azure-python
 - name: Resources
   items:
   - name: Azure Roadmap

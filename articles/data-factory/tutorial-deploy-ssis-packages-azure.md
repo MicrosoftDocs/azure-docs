@@ -1,24 +1,30 @@
 ---
-title: Create self-hosted integration runtime in Azure Data Factory | Microsoft Docs
-description: Learn how you can use the SQL Server Stored Procedure Activity to invoke a stored procedure in an Azure SQL Database or Azure SQL Data Warehouse from a Data Factory pipeline.
+title: Deploy SSIS packages to Azure | Microsoft Docs
+description: This article explains how to deploy SSIS packages to Azure-SSIS integration runtime provided by Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: spelluru
 manager: jhubbard
-editor: monicar
+editor: spelluru
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 08/10/2017
+ms.tgt_pltfrm: 
+ms.devlang: powershell
+ms.topic: hero-article
+ms.date: 09/06/2017
 ms.author: spelluru
 
 ---
+# Deploy SQL Server Integration Services packages to Azure
+This tutorial provides steps for provisioning an Azure-SSIS integration runtime in Azure Data Factory. Then, you can use SQL Server Data Tools (SSDT) or SQL Server Management Studio (SSMS) to deploy SQL Server Integration Services (SSIS) packages to this runtime on Azure. In this tutorial, you do the following steps:
 
-# Create an Azure-SSIS integration runtime in Azure Data Factory
-This tutorial article provides steps for provisioning an Azure-SSIS integration runtime in Azure Data Factory. Then, you can use SQL Server Data Tools (SSDT) or SQL Server Management Studio (SSMS) to deploy SQL Server Integration Services (SSIS) packages to this runtime on Azure. In this tutorial, you do the following steps:
+> [!div class="checklist"]
+> * Create a data factory.
+> * Create an Azure-SSIS integration runtime
+> * Start the Azure-SSIS integration runtime
+> * Deploy SSIS packages
+> * Review the complete script
 
 ## Prerequisites
 
@@ -290,3 +296,17 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 #Remove-AzureRmResourceGroup -Name $ResourceGroupName -Force
 
 ```
+## Next steps
+In this tutorial, you learned how to: 
+
+> [!div class="checklist"]
+> * Create a data factory.
+> * Create an Azure-SSIS integration runtime
+> * Start the Azure-SSIS integration runtime
+> * Deploy SSIS packages
+> * Review the complete script
+
+Advance to the following tutorial to learn about coping data from on-premises to cloud: 
+
+> [!div class="nextstepaction"]
+>[Copy data in cloud](tutorial-copy-data-dot-net.md)

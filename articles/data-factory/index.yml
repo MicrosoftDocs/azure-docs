@@ -14,7 +14,7 @@ metadata:
   ms.date: 09/08/2017
   ms.author: spelluru
 abstract:
-  description: Learn how to use Data Factory, a cloud data integration service, to compose data storage, movement, and processing services into automated data pipelines. Tutorials and other documentation show you how to set up and manage data pipelines, as well as move and transform data for analysis. <p>Currently, the version V2 of Data Factory is in preview. The version V1 is generally available (GA). If you are using V1 of the Data Factory service, see <a href=/azure/data-factory/v1/data-factory-introduction>V1 documentation.</a></p> 
+  description: Learn how to use Data Factory, a cloud data integration service, to compose data storage, movement, and processing services into automated data pipelines. Tutorials and other documentation show you how to set up and manage data pipelines, as well as move and transform data for analysis. <p>Currently, the version V2 of Data Factory is in preview. The version V1 is generally available. If you are using V1 of the Data Factory service, see <a href=/azure/data-factory/v1/data-factory-introduction>V1 documentation.</a></p> 
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -24,37 +24,36 @@ sections:
     style: icon48
     items: 
     - image: 
+        src: /azure/data-factory/media/index/logo_powershell.svg
+      text: PowerShell
+      href: /azure/data-factory/quickstart-create-data-factory-powershell   
+    - image: 
         src: /azure/data-factory/media/index/logo_net.svg
       text: .NET
       href: /azure/data-factory/quickstart-create-data-factory-dot-net
     - image: 
-        src: /azure/data-factory/media/index/logo_powershell.svg
-      text: PowerShell
-      href: /azure/data-factory/quickstart-create-data-factory-powershell
+        src: /azure/data-factory/media/index/logo_python.svg
+      text: Python
+      href: /azure/data-factory/quickstart-create-data-factory-python      
     - image: 
         src: /azure/data-factory/media/index/logo_rest.svg
       text: REST
       href: /azure/data-factory/quickstart-create-data-factory-rest-api  
-    - image: 
-        src: /azure/data-factory/media/index/logo_python.svg
-      text: Python
-      href: /azure/data-factory/quickstart-create-data-factory-portal
-    - image: 
-        src: /azure/data-factory/media/index/logo_portal.svg
-      text: Portal
-      href: /azure/data-factory/quickstart-create-data-factory-portal      
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: 'Learn how to create and montior data factory:'
+    text: 'Learn how to create and monitor a data factory:'
   - type: list
     style: ordered
     items:
-    - html: Copy data in cloud &#58; <a href="/azure/data-factory/tutorial-copy-data-dot-net.md">.NET</a>
-    - html: Copy on-prem data to cloud&#58; <a href="../data-factory/tutorial-copy-onprem-data-to-cloud-powershell.md">PowerShell</a>
-    - html: Transform data in cloud&#58; <a href="../data-factory/tutorial-transform-data-using-spark-powershell.md">PowerShell</a>    
-    - html: Control flow&#58; <a href="../data-factory/tutorial-control-flow.md">.NET</a>   
-    - html: Bulk and incremental copy&#58; <a href="../data-factory/tutorial-bulk-incremental-copy.md">.NET</a>            
+    - html: <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Deploy SSIS packages to Azure</a>    
+    - html: <a href="/azure/data-factory/tutorial-copy-data-dot-net">Copy data in cloud</a>
+    - html: <a href="../data-factory/tutorial-hybrid-copy-powershell">Copy on-premises data to cloud</a>
+    - html: <a href="../data-factory/tutorial-bulk-copy">Copy data in bulk</a>    
+    - html: <a href="../data-factory/tutorial-incremental-copy-powershell">Copy data incrementally</a>        
+    - html: <a href="../data-factory/tutorial-transform-data-spark-powershell">Transform data in cloud using Spark</a>    
+    - html: <a href="../data-factory/tutorial-transform-data-hive-virtual-network">Transform data in virtual network</a>        
+    - html: <a href="../data-factory/tutorial-control-flow">Control flow</a>   
 - title: Reference
   items:
   - type: list
@@ -64,6 +63,6 @@ sections:
     - title: Command-Line
       html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p>
     - title: Languages
-      html: <p><a href="/dotnet/api/microsoft.azure.management.datafactories">.NET</a></p><p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
+      html: <p><a href="/dotnet/api/microsoft.azure.management.datafactory">.NET</a></p><p><a href="/python/api/overview/azure/datafactory?view=azure-python">Python</a></p>
     - title: REST
-      html: <p><a href="/rest/api/data-factory">Data Factory REST API Reference</a></p>      
+      html: <p><a href="/rest/api/datafactory">REST API Reference</a></p>      

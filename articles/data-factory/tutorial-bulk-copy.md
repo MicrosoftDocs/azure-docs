@@ -18,7 +18,7 @@ ms.author: jingwang
 ---
 
 # Tutorial: Copy multiple tables in bulk by using Azure Data Factory
-One of the core use cases targeted with Azure Data Factory Resource Manager deployment model includes bulk copy. Azure Data Factory allows you to easily create and deploy pipelines that copy data from multiple tables/paths in source to sink. You can now use the newly supported control flow activities along with copy activity in Azure Data Factory.
+Azure Data Factory allows you to easily create and deploy pipelines that copy data from multiple tables/paths in source to sink. You can now use the newly supported control flow activities along with copy activity in Azure Data Factory.
 
 This tutorial demonstrates **copying a number of tables from Azure SQL Database to Azure SQL Data Warehouse**. You can apply the same pattern in other copy scenarios as well. For example, copying tables from SQL Server/Oracle to Azure SQL Database/Data Warehouse/Azure Blob, copying different paths from Blob to Azure SQL Database tables.
 
@@ -485,7 +485,7 @@ This pipeline performs two steps:
 1. Start a pipeline run for the main "GetTableListAndTriggerCopyData" pipeline and capture the pipeline run ID for future monitoring. Underneath, it triggers the run for pipeline "IterateAndCopySQLTables" as specified in ExecutePipeline activity.
 
     ```powershell
-    $runId = Invoke-AzureRmDataFactoryV2PipelineRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName 'GetTableListAndTriggerCopyData'
+    $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName 'GetTableListAndTriggerCopyData'
     ```
 
 2. 	Run the following script to continuously check the run status of pipeline **GetTableListAndTriggerCopyData**, and print out the final pipeline run and activity run result.
@@ -506,7 +506,7 @@ This pipeline performs two steps:
     Write-Host  "Pipeline is running...status: " $run.Status -foregroundcolor "Yellow"
     Start-Sleep -Seconds 15
 
-	$result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -PipelineName 'GetTableListAndTriggerCopyData' -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+	$result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
     Write-Host "Activity run details:" -foregroundcolor "Yellow"
     $result
     ```
@@ -573,7 +573,7 @@ This pipeline performs two steps:
     ```
 
     ```powershell
-    $result2 = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId <copy above run ID> -PipelineName 'IterateAndCopySQLTables' -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+    $result2 = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId <copy above run ID> -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
     $result2
     ```
 
@@ -590,3 +590,6 @@ You performed the following steps in this tutorial:
 > * Start a pipeline run.
 > * Monitor the pipeline and activity runs.
 
+Advance to the following tutorial to learn about copy data incrementally from a source to a destination:
+> [!div class="nextstepaction"]
+>[Copy data incrementally](tutorial-incremental-copy-powershell.md)

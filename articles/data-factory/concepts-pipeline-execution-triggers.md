@@ -91,7 +91,7 @@ See [Quickstart: create a data factory using REST API](quickstart-create-data-fa
 Here is a sample PowerShell command: 
 
 ```powershell
-Invoke-AzureRmDataFactoryV2PipelineRun -DataFactory $df -PipelineName "Adfv2QuickStartPipeline" -ParameterFile .\PipelineParameters.json
+Invoke-AzureRmDataFactoryV2Pipeline -DataFactory $df -PipelineName "Adfv2QuickStartPipeline" -ParameterFile .\PipelineParameters.json
 ```
 
 You pass parameters in the body in the request payload. In .NET, Powershell, and Python, you pass values in a dictionary passed as an argument to the call.

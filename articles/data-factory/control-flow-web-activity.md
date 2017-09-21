@@ -103,28 +103,23 @@ Specify base64-encoded contents of a PFX file and the password.
 When you use the POST/PUT method, the body property represents the payload that is sent to the endpoint. You can pass linked services and datasets as part of the payload. Here is the schema for the payload: 
 
 ```json
-{  
-   "body":{  
-      "message":"Sample"
-   },
-   "datasets":[  
-      {  
-         "name":"MyDataset1",
-         "properties":{  
-            ...
-         }
-      }
-   ],
-   "linkedServices":[  
-      {  
-         "name":"MyStorageLinkedService1",
-         "properties":{  
-            ...
-         }
-      }
-   ]
-}
-
+{
+    "body": {
+        "myMessage": "Sample",
+        "datasets": [{
+            "name": "MyDataset1",
+            "properties": {
+                ...
+            }
+        }],
+        "linkedServices": [{
+            "name": "MyStorageLinkedService1",
+            "properties": {
+                ...
+            }
+        }]
+    }
+} 
 ```
 
 ## Example
@@ -224,9 +219,7 @@ public HttpResponseMessage Execute(JObject payload)
 ## Next steps
 See other control flow activities supported by Data Factory: 
 
-- [Do Until Activity](control-flow-do-until-activity.md)
 - [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md)
 - [For Each Activity](control-flow-for-each-activity.md)
 - [Get Metadata Activity](control-flow-get-metadata-activity.md)
 - [Lookup Activity](control-flow-lookup-activity.md)
-- [If Condition](control-flow-if-condition.md)

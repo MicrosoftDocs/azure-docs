@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 09/19/2017
 ms.author: shengc
 
 ---
@@ -26,7 +26,7 @@ The HDInsight Pig activity in a Data Factory [pipeline](concepts-pipelines-activ
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Pig Activity in V1](v1/data-factory-pig-activity.md).
 
-If you are new to Azure Data Factory, read through [Introduction to Azure Data Factory](introduction.md) and do the tutorials before reading this article. 
+If you are new to Azure Data Factory, read through [Introduction to Azure Data Factory](introduction.md) and do the [Tutorial: transform data](tutorial-transform-data-spark-powershell.md) before reading this article. 
 
 ## Syntax
 
