@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: About Azure Extensions
-    href: extensions-overview.md
+    href: overview.md
   - name: Linux VM Agent
     href: agent-linux.md
   - name: Windows VM Agent

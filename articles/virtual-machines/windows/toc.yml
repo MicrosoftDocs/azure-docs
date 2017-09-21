@@ -243,32 +243,7 @@
     - name: DNS resolution
       href: ../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
   - name: Use VM extensions
-    items:
-    - name: VM extensions overview
-      href: extensions-features.md
-    - name: Custom Script extension
-      href: extensions-customscript.md
-    - name: OMS agent extension
-      href: extensions-oms.md
-    - name: PowerShell DSC extension
-      href: extensions-dsc-overview.md
-      items:
-      - name: PowerShell DSC extension Credential Handling
-        href: extensions-dsc-credentials.md
-      - name: DSC and VMSS with templates
-        href: extensions-dsc-template.md
-    - name: Azure Log Collector extension
-      href: log-collector-extension.md
-    - name: Azure diagnostics extension
-      href: ps-extensions-diagnostics.md
-    - name: Exporting VM extensions
-      href: extensions-export-templates.md
-    - name: Troubleshoot extensions
-      href: extensions-troubleshoot.md
-    - name: Monitoring and Diagnostics Extension
-      href: extensions-diagnostics-template.md
-    - name: Network Watcher Agent
-      href: extensions-nwa.md
+    href: ../extensions/overview.md
   - name: Migrate VMs
     items:
     - name: Migrate AWS and on-premises VMs
