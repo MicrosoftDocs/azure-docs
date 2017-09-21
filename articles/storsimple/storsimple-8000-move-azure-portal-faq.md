@@ -86,7 +86,7 @@ No. The StorSimple 5000/7000 series devices are not supported in the Azure porta
 
 ### I am planning to migrate data from StorSimple 5000/7000 series device to a StorSimple 8000 series device. How does moving a service to Azure portal impact my data migration? 
 
-You can migrate data from your StorSimple 5000/7000 series device to a StorSimple 8000 series device running in Azure portal. To enable you for data migration form 5000/7000 series to 8000 series, you must [Log a Support ticket with Microsoft Support](storsimple-8000-contact-microsoft-support.md).
+You can migrate data from your StorSimple 5000/7000 series device to a StorSimple 8000 series device running in Azure portal. To enable you for data migration from 5000/7000 series to 8000 series, you must [Log a Support ticket with Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 
 
 ## Moving storage accounts, resource groups
