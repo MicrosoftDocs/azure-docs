@@ -71,8 +71,8 @@
 ## Solutions
 ### [Change Tracking](../log-analytics/log-analytics-change-tracking.md)
 #### [Manage updates for multiple VMs](manage-update-multi.md)
-#### [Integrate SCCMr with OMS Update Management](oms-solution-updatemgmt-sccmintegration.md)
-### [Update Management](../operations-management-suite/oms-solution-update-management.md)
+#### [Integrate SCCM with OMS update management](oms-solution-updatemgmt-sccmintegration.md)
+### [Update management](../operations-management-suite/oms-solution-update-management.md)
 ### [Start/stop VMs during off-hours](automation-solution-vm-management.md)
 ## Monitor
 ### [Forward Azure Automation job data to Log Analytics](automation-manage-send-joblogs-log-analytics.md)
