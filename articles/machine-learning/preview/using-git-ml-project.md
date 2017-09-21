@@ -9,7 +9,7 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 09/20/2017
 ---
 # Using Git repository with an Azure Machine Learning Workbench project
 This document provides information on how Azure Machine Learning Workbench uses Git to ensure reproducibility in your data science experiment. Instructions on how to associate your project with a cloud Git repository are also provided.
@@ -34,7 +34,7 @@ To get started using a remote Git repo, follow these basic instructions.
 > Currently, Azure Machine Learning only supports Git repositories on VSTS Accounts. Support for General Git repos (such as GitHub and etc.) is planned in the future.
 
 ## Step 1. Create an Azure ML Experimentation Account
-If not already done, create an Azure ML Experimentation Account and install the Azure ML Workbench app. See more details in the [installation guide](quick-start-installation.md).
+If not already done, create an Azure ML Experimentation Account and install the Azure ML Workbench app. See more details in the [Install and create Quickstart](quickstart-installation.md).
 
 ## Step 2. Create a Team project or use an existing Team project
 From [Azure portal](https://portal.azure.com/), create a new **Team Project**.
