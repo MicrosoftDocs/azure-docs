@@ -9,7 +9,7 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: get-started-article
-ms.date: 09/20/2017
+ms.date: 09/21/2017
 ---
 
 # What is Azure Machine Learning?
@@ -38,7 +38,7 @@ Azure Machine Learning fully supports open source technologies. You can use tens
 
 You can execute your experiments in managed environments such as Docker containers and Spark clusters. You can also use advanced hardware such as [GPU-enabled virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu) to accelerate your execution.
 
-Azure Machine Learning built on top of the following open source technologies:
+Azure Machine Learning is built on top of the following open source technologies:
 
 - [Jupyter Notebook](http://jupyter.org/)
 - [Apache Spark](https://spark.apache.org/)
@@ -49,7 +49,7 @@ Azure Machine Learning built on top of the following open source technologies:
 
 It also includes Microsoft's own open source technologies, such as [Microsoft Machine Learning Library for Apache Spark](https://github.com/Azure/mmlspark) and Cognitive Toolkit.
 
-In addition, you also benefit from some of the most advanced, tried-and-true machine learning technologies developed by Microsoft that are designed to solve on large-scale problems. They are battle-tested in many Microsoft products, such as:
+In addition, you also benefit from some of the most advanced, tried-and-true machine learning technologies developed by Microsoft designed to solve on large-scale problems. They are battle-tested in many Microsoft products, such as:
 
 - Windows
 - Bing
@@ -114,7 +114,7 @@ Using simple CLI commands, you can containerize your model, scoring scripts and 
 - The cloud
 - IoT edge devices
 
-Kubernetes running in the Azure Container Service (ACS) are used for cloud scale-out deployment. Model execution telemetry is captured in AppInsights for visual analysis. 
+Kubernetes running in the Azure Container Service (ACS) is used for cloud scale-out deployment. Model execution telemetry is captured in AppInsights for visual analysis. 
 
 For more information on Model Management Service, reference [Model Management Overview](model-management-overview.md)
 
@@ -135,15 +135,15 @@ The [MMLSpark](https://github.com/Azure/mmlspark)(Microsoft Machine Learning Lib
 For more information, reference [Using MMLSpark in Azure Machine Learning](how-to-use-mmlspark.md).
 
 ## Visual Studio Code Tools for AI
-Visual Studio Code Tools for AI is an extension in VS Code to build, test, and deploy Deep Learning and AI solutions. It features many integration points with Azure Machine Learning, including:
+Visual Studio Code Tools for AI is an extension in Visual Studio Code to build, test, and deploy Deep Learning and AI solutions. It features many integration points with Azure Machine Learning, including:
 - A run history view displaying the performance of training runs and logged metrics.
 - A gallery view allowing users to browse and bootstrap new projects with the Microsoft Cognitive Toolkit, TensorFlow, and many other deep-learning frameworks. 
 - An explorer view for selecting compute targets for your scripts to execute.
  
 
 ## What are the machine learning options from Microsoft?
-Besides Azure Machine Learning, there are also a wide variety of options in Azure to build, deploy, and manage machine learning models. 
-* Microsoft Machine Learning Services in SQL
+Besides Azure Machine Learning, there are a wide variety of options in Azure to build, deploy, and manage machine learning models. 
+* Microsoft Machine Learning Services in SQL Server
 * Microsoft Machine Learning Server
 * Data Science Virtual Machine
 * Spark MLLib in HDInsight
@@ -152,7 +152,7 @@ Besides Azure Machine Learning, there are also a wide variety of options in Azur
 * Microsoft Cognitive Services
 
 
-### Microsoft Machine Learning Services in SQL 
+### Microsoft Machine Learning Services in SQL Server
 [Microsoft Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/r/r-services) enables you to run, train, and deploy machine learning models using R or Python. You can use data located on-premises and in SQL Server databases. 
 
 Use Microsoft Machine Learning Services when you need to train or deploy models on-premises, or inside of Microsoft SQL Server. Models built with Machine Learning Services can be deployed using Azure Machine Learning Model Management. 
