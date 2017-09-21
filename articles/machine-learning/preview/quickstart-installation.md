@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 09/19/2017
+ms.date: 09/20/2017
 ---
 
 # Create Azure Machine Learning preview accounts and install Azure Machine Learning Workbench
@@ -34,7 +34,7 @@ Use the Azure portal to provision Azure Machine Learning accounts.
 
    ![Azure Machine Learning Search](media/quickstart-installation/portal-more-services.png)
 
-3. Click **+ Add** to configure a new Machine Learning Experimentation account. The detailed form will open.
+3. Click **+ Add** to configure a new Machine Learning Experimentation account. The detailed form opens.
 
    ![Machine Learning Experimentation Account](media/quickstart-installation/portal-create-experimentation.png)
 
