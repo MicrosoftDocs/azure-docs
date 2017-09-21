@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 08/31/2017
+ms.date: 09/20/2017
 ---
 
 # Tutorial: Classifying Iris using the command-line interface
@@ -24,9 +24,10 @@ In this tutorial, you learn to use the command-line interface (CLI) tools in Azu
 
 ## Prerequisites
 - You need access to an Azure subscription and permissions to create resources in that subscription. You can create a [free Azure subscription](https://azure.microsoft.com/free/) before you begin. 
-- You also need to install Azure Machine Learing workbench app by following the installation instructions in the [Create Azure Machine Learning preview accounts and install Azure Machine Learning Workbench](quickstart-installation.md) guide. 
+- You also need to install Azure Machine Learing workbench app by following the installation instructions in the [Install and create Quickstart](quickstart-installation.md) guide. 
+
   >[!NOTE]
-  >You only need to install the Azure ML Workbench location. You can skip the resource provisioning part in the above guide since you can do that using CLI tools shown below.
+  >You only need to install the Azure Machine Learning Workbench locally. You only need to follow the steps in the sections entitled Install Azure Machine Learning Workbench, since the account creation, and create a new project steps will be done by command line in this article.
  
 ## Getting started
 Azure Machine Learning command-line interface (CLI) allows you to perform all tasks required for an end-to-end data science workflow. You can access the CLI tools in the following ways:
@@ -252,7 +253,6 @@ To do so, we simply delete the resource group holding all our resources.
 az group delete --name amlsample
 az group delete --name amlsamplesenvrg
 ```
-
 
 ## Next Steps
 In this tutorial, you have learned to use the Azure Machine Learning preview features to 
