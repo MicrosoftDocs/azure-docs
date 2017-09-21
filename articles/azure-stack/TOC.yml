@@ -1,4 +1,4 @@
-- name: Azure Stack documentation
+- name: Azure Stack operator documentation
   href: index.yml
 - name: Overview
   items:
@@ -11,11 +11,11 @@
     href: azure-stack-deploy-overview.md  
 - name: Tutorials
   items:
-  - name: Enable Virtual Machines
+  - name: Offer Virtual Machines
     href: azure-stack-tutorial-tenant-vm.md
-  - name: Enable SQL databases
+  - name: Offer SQL databases
     href: azure-stack-tutorial-sql-server.md
-  - name: Enable Web Apps
+  - name: Offer Web Apps
     href: azure-stack-tutorial-app-service.md
 - name: Concepts
   items:
