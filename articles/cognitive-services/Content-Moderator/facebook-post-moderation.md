@@ -14,15 +14,15 @@ ms.author: sajagtap
 
 # Moderate Facebook posts
 
-In this tutorial ([Github location](https://github.com/MicrosoftContentModerator/samples-fbPageModeration)), we will learn how to use Content Moderator with a sample Facebook page to either take down or allow publishing of images and text by users browsing the Facebook page.
+In this tutorial ([Github location](https://github.com/MicrosoftContentModerator/samples-fbPageModeration)), we learn how to use Content Moderator with a sample Facebook page. The solution either takes down or allow publishing of images and text by viewers of the Facebook page.
 
-The tutorial will guide you through these steps:
+The tutorial guides you through these steps:
 
 1. Create a Content Moderator team.
 2. Create Azure Functions that listen for HTTP events from Content Moderator and Facebook.
 3. Create a Facebook Page and App, and connect it to Content Moderator
 
-After we are done, Facebook will send the content posted by the visitors to Content Moderator. Based on the match thresholds, your Content Moderator workflows will either allow publishing the content or block and create reviews within the review tool for for human moderation.
+After we are done, Facebook will send the content posted by the visitors to Content Moderator. Based on the match thresholds, your Content Moderator workflows either publish the content or create reviews within the review tool.
 
 ## 1. Create a Content Moderator team
 
@@ -46,39 +46,39 @@ Test your workflow by using the "Execute Workflow" button.
 
 Sign in to the [Azure Management Portal](https://portal.azure.com/) to create your Azure Functions. follow these steps:
 
-1. Create a Azure Function App as shown on the [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal) page.
+1. Create an Azure Function App as shown on the [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal) page.
 2. Open the newly created Function App.
 3. Within the App, navigate to **Platform features -> Application Settings**
-4. Define the following [application settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings#settings).
+4. Define the following [application settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings#settings):
 
     | App Setting | Description   | 
     | -------------------- |-------------|
-    | cm:TeamId   | Your Content Moderator TeamId  | 
-    | cm:SubscriptionKey | Your Content Moderator subscription key - See [Credentials](/review-tool-user-guide/credentials) | 
-    | cm:Region | Your Content Moderator region |
-    | cm:ImageWorkflow | Name of the workflow to run on Images |
-    | cm:TextWorkflow | Name of the workflow to run on Text |
-    | cm:CallbackEndpoint | Url for the CMListener Function App that you create later in this guide |
-    | fb:VerificationToken | The secret token, also used to subscribe to the Facebook feed events |
-    | fb:PageAccessToken | This is a facebook graph api access token that does not expire and allows the function Hide/Delete posts on your behalf. |
+    | cm: TeamId   | Your Content Moderator TeamId  | 
+    | cm: SubscriptionKey | Your Content Moderator subscription key - See [Credentials](/review-tool-user-guide/credentials) | 
+    | cm: Region | Your Content Moderator region |
+    | cm: ImageWorkflow | Name of the workflow to run on Images |
+    | cm: TextWorkflow | Name of the workflow to run on Text |
+    | cm: CallbackEndpoint | Url for the CMListener Function App that you create later in this guide |
+    | fb: VerificationToken | The secret token, also used to subscribe to the Facebook feed events |
+    | fb: PageAccessToken | The Facebook graph api access token does not expire and allows the function Hide/Delete posts on your behalf. |
 
-5. Create a new **HttpTrigger-CSharp** function named **FBListener**. This function receives events from Facebook. Follow these steps to create this function.
+5. Create a new **HttpTrigger-CSharp** function named **FBListener**. This function receives events from Facebook. Create this function by follwoing these steps:
 
     1. Keep the [Azure Functions Creation](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal) page open for reference.
-    2. Click the **"+"** add to create new function.
-    3. Instead of the built-in templates, choose the **"Get started on your own/custom function"** option.
-    4. Click on the tile that says **"HttpTrigger-CSharp"**
-    5. Enter the name "FBListener". The **Authorization Level** field should be set to **"Function"**.
+    2. Click the **+** add to create new function.
+    3. Instead of the built-in templates, choose the **Get started on your own/custom function** option.
+    4. Click on the tile that says **HttpTrigger-CSharp**.
+    5. Enter the name **FBListener**. The **Authorization Level** field should be set to **Function**.
     6. Click **Create**.
     7. Replace the contents of the **run.csx** with the contents from [**FbListener/run.csx**](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/FbListener/run.csx).
 
 6. Create a new **HttpTrigger-CSharp** function named **CMListener**. This function receives events from Facebook. Follow these steps to create this function.
 
     1. Keep the [Azure Functions Creation](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal) page open for reference.
-    2. Click the **"+"** add to create new function.
-    3. Instead of the built-in templates, choose the **"Get started on your own/custom function"** option.
-    4. Click on the tile that says **"HttpTrigger-CSharp"**
-    5. Enter the name "CMListener". The **Authorization Level** field should be set to **"Function"**.
+    2. Click the **+** add to create new function.
+    3. Instead of the built-in templates, choose the **Get started on your own/custom function** option.
+    4. Click on the tile that says **HttpTrigger-CSharp**
+    5. Enter the name **CMListener**. The **Authorization Level** field should be set to **Function**.
     6. Click **Create**.
     7. Replace the contents of the **run.csx** with the contents from [**CMListener/run.csx**](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/CmListener/run.csx).
 
@@ -101,9 +101,9 @@ Sign in to the [Azure Management Portal](https://portal.azure.com/) to create yo
         1. Navigate to the **Graph API Explorer**.
         2. Select **Application**.
         3. Select **Page Access Token**, Send a **Get** request.
-        4. Click the ID in the response (this is the **Page ID**).
-        5. Now append the **"/subscribed_apps"** to the URL and Send a **Get** (empty response) request.
-        6. Submit a **Post** request. You will get the response as **"success": true**.
+        4. Click the **Page ID** in the response.
+        5. Now append the **/subscribed_apps** to the URL and Send a **Get** (empty response) request.
+        6. Submit a **Post** request. You get the response as **success: true**.
 
 3. Create a non-expiring Graph API access token.
 
@@ -113,11 +113,11 @@ Sign in to the [Azure Management Portal](https://portal.azure.com/) to create yo
     4. Under the **Select Permissions**, select **manage_pages** and **publish_pages** options.
     5. We will use the **access token** (Short Lived Token) in the next step.
 
-4. We will use Postman for the next few steps.
+4. We use Postman for the next few steps.
 
     1. Open the [**Postman**](https://www.getpostman.com/) tool. (or get it [here](https://www.getpostman.com/))
     2. Import these two files:
-        1. [Postman Collection](samples-fbPageModeration/Facebook Permanant Page Access Token.postman_collection.json)
+        1. [Postman Collection](samples-fbPageModeration/Facebook Permanent Page Access Token.postman_collection.json)
         2. [Postman Environment](samples-fbPageModeration/FB Page Access Token Environment.postman_environment.json)       
     3. Update these environment variables:
     
@@ -134,7 +134,7 @@ Sign in to the [Azure Management Portal](https://portal.azure.com/) to create yo
 
 That's it!
 
-The solution will send all images and text posted on your Facebook page to Content Moderator. The workflows that you configured earlier will be invoked. The content that does not pass your criteria defined in the workflows will result in reviews within the review tool. The rest of the content will get published.
+The solution sends all images and text posted on your Facebook page to Content Moderator. The workflows that you configured earlier are invoked. The content that does not pass your criteria defined in the workflows results in reviews within the review tool. The rest of the content gets published.
 
 ## 6. References
 
