@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 09/20/2017
 ms.author: marsma
 ms.custom:
 ---
@@ -36,18 +36,11 @@ Select **New** > **Containers** > **Azure Container Registry**.
 
 ![Creating a container registry in the Azure portal][qs-portal-01]
 
-Enter values for **Registry name** and **Resource group**. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. Create a new resource group named `myResourceGroup`, and for **SKU**, select "Classic." Select **Create** to deploy the ACR instance.
+Enter values for **Registry name** and **Resource group**. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. Create a new resource group named `myResourceGroup`, and for **SKU**, select 'Classic'. Select **Create** to deploy the ACR instance.
 
 ![Creating a container registry in the Azure portal][qs-portal-03]
 
-Azure Container Registry is available in several different SKUs. When deploying an ACR instance, choose a SKU that matches your image management needs. In this quickstart, we select Classic due to its availability in all regions.
-
-| SKU | Description | Notes |
-|---|---|---|
-| Classic | Limited capability and images stored in an Azure Storage account. | Available in all regions. |
-| Basic | Advanced capabilities such as managed storage and Webhooks. | Preview in limited regions. |
-| Standard | Advanced capabilities such as managed storage and Webhooks. | Preview in limited regions. |
-| Premium | Advanced capabilities such as managed storage and Webhooks. | Preview in limited regions. |
+Azure Container Registry is available in several SKUs: `Classic`, `Basic`, `Standard`, and `Premium`. Although `Basic`, `Standard`, and `Premium` provide advanced capabilities like managed storage and Webhooks, they're currently in preview, and are unavailable in some Azure regions. We select the `Classic` SKU in this quickstart due to its availability in all regions.
 
 When the **Deployment succeeded** message appears, select the container registry in the portal, then select **Access keys**.
 
