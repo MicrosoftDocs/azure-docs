@@ -34,7 +34,7 @@ For sample templates, see:
 
 A function app requires these resources:
 
-* An [Azure Storage](../storage/) account
+* An [Azure Storage](../storage/index.yml) account
 * A hosting plan (Consumption plan or App Service plan)
 * A function app 
 
