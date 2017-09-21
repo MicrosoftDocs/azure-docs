@@ -43,7 +43,7 @@ sections:
     items:
     - html: <a href="azure-to-azure-tutorial-enable-replication">Set up disaster recovery</a>
     - html: <a href="azure-to-azure-tutorial-dr-drill">Run a disaster recovery drill</a>
-    - html: <a href="azure-to-azure-tutorial-failover-failback">failover and failback</a>
+    - html: <a href="azure-to-azure-tutorial-failover-failback">Run failover and failback</a>
   - type: list
     style: unordered
     items: 
