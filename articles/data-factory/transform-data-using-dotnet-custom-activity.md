@@ -200,7 +200,7 @@ namespace SampleApp
 You can start a pipeline run of the sample pipeline and monitor the execution result using the following PowerShell commands: 
 
 ```powershell
-$runId = Invoke-AzureRmDataFactoryV2Pipeline -dataFactoryName "factoryName" -PipelineName "pipelineName" -Parameters @{ dummy = "b" }
+$runId = Invoke-AzureRmDataFactoryV2Pipeline -dataFactoryName "factoryName" -PipelineName "pipelineName" 
 $result = Get-AzureRmDataFactoryV2ActivityRun -dataFactoryName "factoryName" -PipelineRunId $runId -RunStartedAfter "2017-09-06" -RunStartedBefore "2017-12-31"
 $result.output -join "`r`n" 
 $result.Error -join "`r`n" 
