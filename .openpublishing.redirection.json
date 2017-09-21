@@ -11936,6 +11936,111 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-machines/linux/extensions-features.md",
+            "redirect_url": "/azure/virtual-machines/extensions/features-linux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/extensions-customscript.md",
+            "redirect_url": "/azure/virtual-machines/extensions/custom-script-linux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/extensions-oms.md",
+            "redirect_url": "/azure/virtual-machines/extensions/oms-linux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/diagnostic-extension.md",
+            "redirect_url": "/azure/virtual-machines/extensions/diagnostics-linux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/extensions-nwa.md",
+            "redirect_url": "/azure/virtual-machines/extensions/network-watcher-linux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/using-vmaccess-extension.md",
+            "redirect_url": "/azure/virtual-machines/extensions/vmaccess",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/extensions-features.md",
+            "redirect_url": "/azure/virtual-machines/extensions/features-windows",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/extensions-customscript.md",
+            "redirect_url": "/azure/virtual-machines/extensions/custom-script-windows",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/extensions-oms.md",
+            "redirect_url": "/azure/virtual-machines/extensions/oms-windows",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/extensions-dsc-overview.md",
+            "redirect_url": "/azure/virtual-machines/extensions/dsc-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/extensions-dsc-credentials.md",
+            "redirect_url": "/azure/virtual-machines/extensions/dsc-credentials",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/extensions-dsc-template.md",
+            "redirect_url": "/azure/virtual-machines/extensions/dsc-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/log-collector-extension.md",
+            "redirect_url": "/azure/virtual-machines/extensions/log-collector",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/ps-extensions-diagnostics.md",
+            "redirect_url": "/azure/virtual-machines/extensions/diagnostics-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/extensions-export-templates.md",
+            "redirect_url": "/azure/virtual-machines/extensions/export-templates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/extensions-troubleshoot.md",
+            "redirect_url": "/azure/virtual-machines/extensions/troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/extensions-diagnostics-template.md",
+            "redirect_url": "/azure/virtual-machines/extensions/diagnostics-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/extensions-nwa.md",
+            "redirect_url": "/azure/virtual-machines/extensions/network-watcher-windows",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/classic/install-symantec.md",
+            "redirect_url": "/azure/virtual-machines/extensions/symantec",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/classic/install-trend.md",
+            "redirect_url": "/azure/virtual-machines/extensions/trend",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/update-agent.md",
+            "redirect_url": "/azure/virtual-machines/extensions/update-linux-agent",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm.md",
             "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal",
             "redirect_document_id": false
