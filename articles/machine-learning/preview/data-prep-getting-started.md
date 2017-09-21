@@ -117,3 +117,7 @@ When finished with your data preparation, you can write the Dataflow to an outpu
 [Appendix 8 - Sample Data Sources in Python](data-prep-appendix8-sample-source-connections-python.md)  
 [Appendix 9 - Sample Destination Connections in Python](data-prep-appendix9-sample-destination-connections-python.md)  
 [Appendix 10 - Sample Column Transforms in Python](data-prep-appendix10-sample-custom-column-transforms-python.md)  
+
+## See Also
+
+[Advanced data preparation tutorial](tutorial-bikeshare-dataprep,md)
