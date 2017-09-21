@@ -243,23 +243,18 @@ Load Balancer Standard continues to provide multiple frontends where it is desir
 
  More details can be found [here](load-balancer-multivip-overview.md).
 
-## <a name = "sku"></a>SKUs
+## <a name = "sku"></a>About SKUs
 
-SKUs are only available in Azure Resource Manager deployment model.  This preview introduces two SKUs (Basic and Standard) for Load Balancer and Public IP resources.  The SKUs differ in abilities, performance characteristics, limitations, and some intrinsic behaviors.
+SKUs are only available in Azure Resource Manager deployment model.  This preview introduces two SKUs (Basic and Standard) for Load Balancer and Public IP resources.  The SKUs differ in abilities, performance characteristics, limitations, and some intrinsic behaviors. Virtual Machines can be used with either SKU. For both Load Balancer and Public IP resources, SKUs remain optional attributes and when omitted default to Basic.
 
-Virtual Machines can be used with either SKU. 
-
-For both Load Balancer and Public IP resources, SKUs remain optional attributes and when omitted default to Basic.
-
-The SKU of a resource is not mutable.  You may not change the SKU of an existing resource.  
+>[!IMPORTANT]
+>The SKU of a resource is not mutable.  You may not change the SKU of an existing resource.  
 
 ### Load Balancer
 
 The [existing Load Balancer resource](load-balancer-overview.md) becomes the Basic SKU and remains Generally Available and unchanged.
 
-Load Balancer Standard SKU is a new offer and currently in Preview.
-
-The 2017-08-01 API version for Microsoft.Network/loadBalancers introduces SKUs to the resource.
+Load Balancer Standard SKU is a new offer and currently in Preview. The 2017-08-01 API version for Microsoft.Network/loadBalancers introduces SKUs to the resource.
 
 ```json
             "apiVersion": "2017-08-01",
@@ -277,9 +272,7 @@ When used in a region that also offers Availability Zones, Load Balancer Standar
 
 The [existing Public IP resource](../virtual-network/virtual-network-ip-addresses-overview-arm.md) becomes the Basic SKU and remains Generally Available with all its abilities, performance characteristics, and limitations.
 
-Public IP Standard SKU is a new offer and currently in Preview.
-
-The 2017-08-01 API version for Microsoft.Network/publicIPAddresses resources introduces SKUs.
+Public IP Standard SKU is a new offer and currently in Preview. The 2017-08-01 API version for Microsoft.Network/publicIPAddresses resources introduces SKUs.
 
 ```json
             "apiVersion": "2017-08-01",
@@ -296,45 +289,42 @@ Unlike Public IP Basic that offers multiple allocation methods, Public IP Standa
 
 When used in a region that also offers Availability Zones, Public IP Standard is automatically zone resilient unless it has been declared to be zonal.
 
-## Migration
+## Migration between SKUs
 
 If you wish to move from one resource SKU to the other, follow these steps:
 
-### Migration Basic to Standard SKU
+### Migrating from Basic to Standard SKU
 
 1. Create a new Standard resource (Load Balancer and Public IPs as needed), and recreate your rules and probe definitions.
 2. Remove Basic SKU resources (Public IP and LB) from all VM instances (this includes all instances of an availability set).
 3. Attach all VM instances to the new Standard SKU resources.
 
-### Migration Standard to Basic SKU:
+### Migrating from Standard to Basic SKU:
 
 1. Create a new Basic resource (Load Balancer and Public IPs as needed), and recreate your rules and probe definitions. 
 2. Remove Standard SKU resources (Public IP and LB) from all VM instances (this includes all instances of an availability set).
 3. Attach all VM instances to the new Basic SKU resources.
 
->[!NOTE]
->HA Ports, Diagnostics of the Standard SKU is only available in Standard SKU. You cannot migrate from Standard to Basic and retain this functionality.
+  >[!NOTE]
+  >HA Ports, Diagnostics of the Standard SKU is only available in Standard SKU. You cannot migrate from Standard to Basic and retain this functionality.
 
 Matching SKUs must be used for Load Balancer and Public IP resources.  It is not possible to mix Basic & Standard SKU resources or attach a VM, VMs in an Availability Set, or virtual machine scale set to both simultaneously.
 
 ## Region availability
 
 Load Balancer Standard is currently available in these regions:
-
-| Region |
-| --- |
- East US 2 |
-| Central US |
-| North Europe |
-| West Central US |
-| West Europe |
-| Southeast Asia |
+- East US 2
+- Central US
+- North Europe
+- West Central US
+- West Europe
+- Southeast Asia
 
 ## Service limits & abilities comparison
 
 Azure [Service Limits for Networking](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#networking-limits) apply per region per subscription. 
 
-Comparison of Load Balancer limits / abilities:
+The following tables provides a comparison of limits and abilities between the Basic and Standard SKUs for Load Balancer:
 
 | Load Balancer | Basic | Standard |
 | --- | --- | --- |
@@ -350,7 +340,7 @@ Comparison of Load Balancer limits / abilities:
 | Outbound SNAT Frontend Selection | Not configurable, multiple Candidates | Optional configuration to reduce candidates |
 | Network Security Group | Optional on NIC/subnet | Required |
 
-Comparison of Public IP limits / abilities:
+The following tables provides a comparison of limits and abilities between the Basic and Standard SKUs for Public IP:
 
 | Public IP | Basic | Standard |
 | --- | --- | --- |
@@ -365,19 +355,20 @@ Comparison of Public IP limits / abilities:
 
 To participate in the Preview for Load Balancer Standard SKU and its companion Public IP Standard SKU, register your subscription to gain access.
 
-- PowerShell
+- Sign up using PowerShell
 
-```powershell
-Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-```
+    ```powershell
+    Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
+    ```
 
-- Azure CLI 2.0
+- Sign up using Azure CLI 2.0
 
-```cli
-az feature register --name AllowLBPreview --namespace Microsoft.Network
-```
+    ```cli
+    az feature register --name AllowLBPreview --namespace Microsoft.Network
+    ```
 
-Note: If you wish to use Availability Zones with Load Balancer and Public IP, you need to register your subscription for the Availability Zones Preview as well.
+>[!NOTE]
+>If you wish to use Availability Zones with Load Balancer and Public IP, you need to register your subscription for the Availability Zones Preview as well.
 
 ## Pricing
 
@@ -387,10 +378,10 @@ Customers continue to enjoy Load Balancer Basic SKU at no charge.
 
 ## Limitations
 
-These limitations apply at the time of Preview and are subject to change.
+The following limitations apply at the time of Preview and are subject to change:
 
-- Load Balancer backend instances cannot be located in peered VNets at this time.  All backend instances must be in the same region.
-- SKUs are not mutable.  You may not change the SKU of an existing resource.
+- Load Balancer backend instances cannot be located in peered VNets at this time. All backend instances must be in the same region.
+- SKUs are not mutable. You may not change the SKU of an existing resource.
 - You can use either Basic SKU or Standard SKU with a standalone VM, all VM instances in an Availability Set or virtual machine scale set. A standalone VM, all VM instances in an Availability Set or virtual machine scale set may not be used with both simultaneously. Mixing of SKUs is not permitted.
 - Using an internal Standard Load Balancer with a VM instance (or any part of an Availability Set) disables [default SNAT outbound connections](load-balancer-outbound-connections.md).  You may restore this ability to a standalone VM or VM instances Availability Set or virtual machine scale set and make outbound connections by simultaneously assigning a public Standard Load Balancer or Standard Public IP as Instance-Level Public IP to the same VM instance. Once completed, port masquerading SNAT to a Public IP address is provided again.
 - VM instances may need to be grouped into availability sets to achieve full backend pool scale. Up to 150 availability sets and standalone VMs can be placed into a single backend pool.
