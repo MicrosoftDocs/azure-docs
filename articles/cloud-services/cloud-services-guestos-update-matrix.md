@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/14/2017
+ms.date: 9/20/2017
 ms.author: raiye
 
 ---
@@ -26,8 +26,8 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 >
 
 
-> [!NOTE]
-> The RSS Feed was recently deprecated. Watch for updates on a new feed coming soon!
+> [!TIP]
+>  Subscribe to the [Guest OS Update RSS Feed] to receive the most timely notification on all Guest OS changes.
 >
 >
 
@@ -224,6 +224,7 @@ If you manually update your Guest OS, see the [Guest OS retirement policy][retir
 ## Guest OS Supportability and Retirement Policy
 The Guest OS supportability and retirement policy is explained [here][retirepolicy].
 
+[Guest OS Update RSS Feed]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
 [Install .NET on a Cloud Service Role]: https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure.md
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
