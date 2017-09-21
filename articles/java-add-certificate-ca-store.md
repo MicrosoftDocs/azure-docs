@@ -51,5 +51,5 @@ If you need to add the Baltimore CyberTrust Root, it has serial number 02:00:00:
 ## Next steps
 For more information about the root certificates used by Azure, see [Azure Root Certificate Migration](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx).
 
-For more information about Java, see the [Java Developer Center](/develop/java/).
+For more information about Java, see [Azure for Java developers](/java/azure).
 

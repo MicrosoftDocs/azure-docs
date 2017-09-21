@@ -10,12 +10,12 @@ editor: cgronlun
 
 ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
 ms.service: sql-database
-ms.custom: overview
+ms.custom: overview, mvc
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 06/30/2017
+ms.date: 09/19/2017
 ms.author: carlrab
 ---
 # What is the Azure SQL Database service? 
@@ -86,10 +86,10 @@ SQL Database provides detailed insight into the queries that you need to monitor
 
 Today, many of our partners running [SaaS multi-tenant apps](sql-database-design-patterns-multi-tenancy-saas-applications.md) on top of SQL Database are relying on automatic performance tuning to make sure their applications always have stable and predictable performance. For them, this feature tremendously reduces the risk of having a performance incident in the middle of the night. In addition, since part of their customer base also uses SQL Server, they are using the same indexing recommendations provided by SQL Database to help their SQL Server customers.
 
-There are two automatic tuning aspects that are available in SQL Database:
+There are two automatic tuning aspects that are [available in SQL Database](sql-database-automatic-tuning.md):
 
-- **[Automatic index management](sql-database-automatic-tuning.md#automatic-index-management)**: Identifies indexes that should be added in your database, and indexes that should be removed.
-- **[Automatic plan correction](sql-database-automatic-tuning.md#automatic-plan-choice-correction)**: Identifies problematic plans and fixes SQL plan performance problems (coming soon, already available in SQL Server 2017).
+- **Automatic index management**: Identifies indexes that should be added in your database, and indexes that should be removed.
+- **Automatic plan correction**: Identifies problematic plans and fixes SQL plan performance problems (coming soon, already available in SQL Server 2017).
 
 ### Adaptive query processing
 
@@ -141,6 +141,14 @@ SQL Database makes building and maintaining applications easier and more product
 - **[Visual Studio Code](https://code.visualstudio.com/docs)**: a free, downloadable, open source, code editor for Windows, macOS, and Linux that supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and SQL Data Warehouse.
 
 SQL Database supports building applications with Python, Java, Node.js, PHP, Ruby, and .NET on the MacOS, Linux, and Windows. SQL Database supports the same [connection libraries](sql-database-libraries.md) as SQL Server.
+
+## Engage with the SQL Server engineering team
+
+- [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): Ask database administration questions
+- [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): Ask development questions
+- [MSDN Forums](https://social.msdn.microsoft.com/Forums/en-US/home?category=sqlserver): Ask technical questions
+- [Microsoft Connect](https://connect.microsoft.com/SQLServer/Feedback): Report bugs and request feature
+- [Reddit](https://www.reddit.com/r/SQLServer/): Discuss SQL Server
 
 ## Next steps
 

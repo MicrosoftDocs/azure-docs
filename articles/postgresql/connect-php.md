@@ -6,10 +6,10 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
+ms.service: postgresql
 ms.custom: mvc
 ms.devlang: php
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 06/29/2017
 ---
 
@@ -22,7 +22,7 @@ This quickstart uses the resources created in either of these guides as a starti
 - [Create DB - Azure CLI](quickstart-create-server-database-azure-cli.md)
 
 ## Install PHP
-Install PHP on your own server, or create an Azure [web app](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) that includes PHP.
+Install PHP on your own server, or create an Azure [web app](../app-service/app-service-web-overview.md) that includes PHP.
 
 ### Windows
 - Download [PHP 7.1.4 non-thread safe (x64) version](http://windows.php.net/download#php-7.1)

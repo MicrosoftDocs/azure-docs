@@ -6,7 +6,7 @@ metadata:
   title: Azure SQL Database Documentation - Tutorials, API Reference
   meta.description: Learn how to use Azure SQL databases.
   services: sql-database
-  author: carolz
+  author: czeumault
   manager: carolz
   ms.service: sql-database
   ms.tgt_pltfrm: na

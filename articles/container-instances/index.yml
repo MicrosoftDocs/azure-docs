@@ -5,7 +5,7 @@ metadata:
   title: Azure Container Instances Documentation - Tutorials | Microsoft Docs
   description: Azure Container Instances offers the fastest and simplest way to run a container in Azure, without having to provision any virtual machines and without having to adopt a higher-level service.
   services: container-instances
-  author: carolz
+  author: czeumault
   manager: carolz
   ms.service: container-instances
   ms.tgt_pltfrm: na
@@ -22,9 +22,9 @@ sections:
     text: 'Learn how to deploy container images with Azure Container Instances.'
   - type: list
     style: icon48
-    items:     
-    - image: 
-        src: /azure/container-instances/media/container-instances.png
+    items:
+    - image:
+        src: /azure/container-instances/media/container-instances.svg
       text: Create container instance
       href: /azure/container-instances/container-instances-quickstart
 - title: Step-by-Step Tutorials
@@ -43,5 +43,7 @@ sections:
     style: cards
     className: cardsD
     items:
-    - title: Azure CLI
+    - title: Command-Line
       html: <p><a href="/cli/azure/container">Azure CLI 2.0</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/container-instances">REST API Reference</a></p>

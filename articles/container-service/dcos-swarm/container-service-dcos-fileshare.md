@@ -12,11 +12,12 @@ keywords: Docker, Containers, Micro-services, Mesos, Azure, FileShare, cifs
 ms.assetid:
 ms.service: container-service
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/07/2017
 ms.author: juliens
+ms.custom: mvc
 
 ---
 # Create and mount a file share to a DC/OS cluster

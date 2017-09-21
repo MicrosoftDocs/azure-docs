@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/12/2017
+ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
 
 ---
@@ -160,26 +160,18 @@ To view the operation while it is processing, or to view when it completed, open
 Once [restore disks operation is completed](#Track-the-restore-operation), you can use the template that is generated as part of restore operation to create a new VM with a configuration different from backup configuration or to customize names of resources created as create a new vm from restore point. 
 
 > [!NOTE]
-> Templates will be added as part of Restore Disks for recovery points taken after 1st March, 2017. They are applicable for non-encrypted and non-managed disk VMs. Support for encrypted VMs and Managed Disk VMs is coming in upcoming releases. 
+> Templates will be added as part of Restore Disks for recovery points taken after 1st March, 2017. They are applicable for non-managed disk VMs. Support for Managed Disk VMs is coming in upcoming releases. 
 >
 >
 
 To get the template generated as part of restore disks option,
 
 1. Go to restore job details corresponding to the job. 
-2. This will list the template uri from which you can download the template. Please note the container name from values. 
+2. On the restore job details screen, click on *Deploy Template* button to initiate template deployment. 
 
      ![restore job drill-down](./media/backup-azure-arm-restore-vms/restore-job-drill-down.png)
-     
-3. Note down the target storage account name, container name, template blob uri from values. Go to *target storage account > select Blobs > Containers* and go to file and download the file that starts with name *azuredeploy*.
-
-    ![download-template-storage-account](./media/backup-azure-arm-restore-vms/download-template.png)
-    
-   Alternatively, you can use [Azure Storage explorer](http://storageexplorer.com/) to go to corresponding subscription > target storage account > Blob Containers and select the container name noted in above step. On the right side pane that shows files inside the container, download the file that starts with name *azuredeploy*. 
    
-   ![download-template-storage-explorer](./media/backup-azure-arm-restore-vms/template-storage-explorer-download.png)
-     
-Once template is downloaded, use template deployment to [edit and deploy the template](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template) or append more customizations by [authoring a template](../azure-resource-manager/resource-group-authoring-templates.md) before you deploy. You can use Load file option to deploy the template downloaded above. 
+On the Deploy template blade for custom deployment, use template deployment to [edit and deploy the template](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template) or append more customizations by [authoring a template](../azure-resource-manager/resource-group-authoring-templates.md) before you deploy. 
 
    ![loading template deployment](./media/backup-azure-arm-restore-vms/loading-template.png)
    

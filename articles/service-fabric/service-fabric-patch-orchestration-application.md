@@ -20,7 +20,7 @@ ms.author: nachandr
 
 # Patch the Windows operating system in your Service Fabric cluster
 
-The patch orchestration application is a Azure Service Fabric application that automates operating system patching on a Service Fabric cluster on Azure without downtime.
+The patch orchestration application is an Azure Service Fabric application that automates operating system patching on a Service Fabric cluster on Azure without downtime.
 
 The patch orchestration app provides the following:
 
@@ -55,7 +55,7 @@ The patch orchestration app is composed of the following subcomponents:
 #### Azure clusters
 The patch orchestration app must be run on Azure clusters that have Service Fabric runtime version v5.5 or later.
 
-#### Standalone on-premises Clusters
+#### Standalone on-premises clusters
 The patch orchestration app must be run on Standalone clusters that have Service Fabric runtime version v5.6 or later.
 
 ### Enable the repair manager service (if it's not running already)
@@ -67,7 +67,7 @@ The patch orchestration app requires the repair manager system service to be ena
 Azure clusters in the silver durability tier have the repair manager service enabled by default. Azure clusters in the gold durability tier might or might not have the repair manager service enabled, depending on when those clusters were created. Azure clusters in the bronze durability tier, by default, do not have the repair manager service enabled. If the service is already enabled, you can see it running in the system services section in the Service Fabric Explorer.
 
 ##### Azure portal
-You can enable repair manager from Azure portal at the time of setting up of cluster. Select `Include Repair Manager` option under `Add on features` at the time of Cluster configuration.
+You can enable repair manager from Azure portal at the time of setting up of cluster. Select `Include Repair Manager` option under `Add on features` at the time of cluster configuration.
 ![Image of Enabling Repair Manager from Azure portal](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
 ##### Azure Resource Manager template
@@ -270,6 +270,17 @@ The patch orchestration app exposes REST APIs to display the historical results 
   ...
 ]
 ```
+
+Fields of the JSON are described below.
+
+Field | Values | Details
+-- | -- | --
+OperationResult | 0 - Succeeded<br> 1 - Succeeded With Errors<br> 2 - Failed<br> 3 - Aborted<br> 4 - Aborted With Timeout | Indicates the result of overall operation (typically involving installation of one or more updates).
+ResultCode | Same as OperationResult | This field indicates result of installation operation for an individual update.
+OperationType | 1 - Installation<br> 0 - Search and Download.| Installation is the only OperationType which would be shown in the results by default.
+WindowsUpdateQuery | Default is "IsInstalled=0" |Windows update query which was used to search for updates. For more information, see [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
+RebootRequired | true - reboot was required<br> false - reboot was not required | Indicates if reboot was required to complete installation of updates.
+
 If no update is scheduled yet, the result JSON is empty.
 
 Log in to the cluster to query Windows Update results. Then find out the replica address for the primary of the Coordinator Service, and hit the URL from the browser:
@@ -361,9 +372,9 @@ A. The time needed by the patch orchestration app is mostly dependent on the fol
 - The average time needed to download and install an update, which should not exceed a couple of hours.
 - The performance of the VM and network bandwidth.
 
-Q. **Why do I see some updates in Windows Update results obtained via REST api's, but not under the Windows Update history on machine?**
+Q. **Why do I see some updates in Windows Update results obtained via REST API's, but not under the Windows Update history on the machine?**
 
-A. Some product updates need to be checked in their respective update/patch history. Eg: Windows Defender updates do not show up in Windows Update history on Windows Server 2016.
+A. Some product updates need to be checked in their respective update/patch history. For example, Windows Defender updates do not show up in Windows Update history on Windows Server 2016.
 
 ## Disclaimers
 
@@ -403,7 +414,7 @@ A faulty Windows update can bring down the health of an application or cluster o
 
 An administrator must intervene and determine why the application or cluster became unhealthy due to Windows Update.
 
-## Release Notes :
+## Release Notes
 
 ### Version 1.1.0
 - Public release

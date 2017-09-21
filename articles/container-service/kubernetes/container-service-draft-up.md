@@ -12,11 +12,12 @@ keywords: Docker, Containers, microservices, Kubernetes, Draft, Azure
 
 ms.service: container-service
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2017
 ms.author: rasquill
+ms.custom: mvc
 
 
 ---

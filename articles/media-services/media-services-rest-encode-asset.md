@@ -4,7 +4,7 @@ description: Learn how to use Media Encoder Standard to encode media content on 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 2a7273c6-8a22-4f82-9bfe-4509ff32d4a4

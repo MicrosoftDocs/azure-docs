@@ -28,6 +28,7 @@
 ### [Set policies and schedules ](devtest-lab-set-lab-policy.md)
 ### [Configure cost management](devtest-lab-configure-cost-management.md)
 ### [Configure marketplace images](devtest-lab-configure-marketplace-images.md)
+### [Add tags to a lab](devtest-lab-add-tag.md)
 
 ## [Select custom image or formula](devtest-lab-comparing-vm-base-image-types.md)
 
@@ -42,8 +43,11 @@
 ## Manage reusable templates
 ### [Add a Git repository for artifacts and templates](devtest-lab-add-artifact-repo.md)
 ### [Use a resource manager template](devtest-lab-use-resource-manager-template.md)
-### [Create custom artifacts](devtest-lab-artifact-author.md)
 ### [Manage formulas](devtest-lab-manage-formulas.md)
+
+## Manage artifacts
+### [Create custom artifacts](devtest-lab-artifact-author.md)
+### [Diagnose artifact failures](devtest-lab-troubleshoot-artifact-failure.md)
 
 ## Manage virtual networks
 ### [Configure virtual networks](devtest-lab-configure-vnet.md)

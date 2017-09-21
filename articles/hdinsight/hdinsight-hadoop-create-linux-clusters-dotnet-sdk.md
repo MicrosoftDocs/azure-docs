@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/27/2017
+ms.date: 08/17/2017
 ms.author: jgao
 
 ---
@@ -23,10 +23,11 @@ ms.author: jgao
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-The HDInsight .NET SDK provides .NET client libraries that make it easier to work with HDInsight from a .NET Framework application. This article demonstrates how to create a Linux-based HDInsight cluster using the .NET SDK.
+
+Learn how to create a Hadoop cluster in Azure HDInsight cluster using the .NET SDK.
 
 > [!IMPORTANT]
-> The steps in this document create a cluster with one worker node. If you plan on more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, then you must select a head node size with at least 8 cores and 14GB ram.
+> The steps in this document create a cluster with one worker node. If you plan on more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, you need to select a head node size with at least 8 cores and 14GB ram.
 >
 > For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -35,14 +36,14 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **An Azure storage account**. See [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account).
+* **An Azure storage account**. See [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).
 * **Visual Studio 2013, Visual Studio 2015 or Visual Studio 2017**.
 
 ## Create clusters
 
 1. Open Visual Studio 2017.
 2. Create a new Visual C# console application.
-3. From the **Tools** menu, click **Nuget Package Manager**, and then click **Package Manager Console**.
+3. From the **Tools** menu, click **NuGet Package Manager**, and then click **Package Manager Console**.
 4. Run the following command in the console to install the packages:
 
     ```powershell
@@ -188,7 +189,7 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
     ```
 
 6. Replace the class member values.
-7. Press **F5** to run the application. A console window should open and display the status of the application. You will also be prompted to enter your Azure account credentials. It can take several minutes to create an HDInsight cluster, normally around 15.
+7. Press **F5** to run the application. A console window should open and display the status of the application. You are prompted to enter your Azure account credentials. It can take several minutes to create an HDInsight cluster, normally around 15.
 
 ## Use bootstrap
 
@@ -321,7 +322,7 @@ static void Main(string[] args)
 
 ## Use Script Action
 
-Using Script Action, you can configure additional settings during cluster creations.  For more inforamtion, see [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
+Using Script Action, you can configure additional settings during cluster creations.  For more information, see [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
 
 Modify the sample in [Create clusters](#create-clusters) to call a Script Action to install R:
 

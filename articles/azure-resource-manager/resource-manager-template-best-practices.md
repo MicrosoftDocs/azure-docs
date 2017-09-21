@@ -390,6 +390,6 @@ It's also a good idea to format your JSON for better readability. You can use a 
 
 ## Next steps
 * For guidance on architecting your solution for virtual machines, see [Run a Windows VM in Azure](../guidance/guidance-compute-single-vm.md) and [Run a Linux VM in Azure](../guidance/guidance-compute-single-vm-linux.md).
-* For guidance on setting up a storage account, see [Azure Storage performance and scalability checklist](../storage/storage-performance-checklist.md).
+* For guidance on setting up a storage account, see [Azure Storage performance and scalability checklist](../storage/common/storage-performance-checklist.md).
 * To learn about how an enterprise can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold: Prescriptive subscription governance](resource-manager-subscription-governance.md).
 

@@ -29,7 +29,7 @@ You require a log search to retrieve any data from Log Analytics.  Whether you'r
 
 The different ways that you will use log searches in Log Analytics include the following:
 
-- **Portals.** You can perform interactive analysis of data in the repository with the [Log Search portal](log-analytics-log-search-log-search-portal.md) or the [Advanced Analytics portal](https://docs.loganalytics.io/learn/tutorial_getting_started_with_analytics_portal.html).  This allows you to edit your query and analyze the results in a variety of formats and visualizations.  Most queries that you create will start in one of the portals and then copied once you verify that it works as expected.
+- **Portals.** You can perform interactive analysis of data in the repository with the [Log Search portal](log-analytics-log-search-log-search-portal.md) or the [Advanced Analytics portal](https://go.microsoft.com/fwlink/?linkid=856587).  This allows you to edit your query and analyze the results in a variety of formats and visualizations.  Most queries that you create will start in one of the portals and then copied once you verify that it works as expected.
 - **Alert rules.** [Alert rules](log-analytics-alerts.md) proactively identify issues from data in your workspace.  Each alert rule is based on a log search that is automatically run at regular intervals.  The results are inspected to determine if an alert should be created.
 - **Views.**  You can create visualizations of data to be included in user dashboards with [View Designer](log-analytics-view-designer.md).  Log searches provide the data used by [tiles](log-analytics-view-designer-tiles.md) and [visualization parts](log-analytics-view-designer-parts.md) in each view.  You can drill down from visualization parts into the Log Search portal to perform further analysis on the data.
 - **Export.**  When you export data from the Log Analytics workspace to Excel or [Power BI](log-analytics-powerbi.md), you create a log search to define the data to export.
@@ -79,4 +79,4 @@ For complete documentation on the Azure Log Analytics query language including t
 ## Next steps
 
 - Learn about the [portals that you use to create and edit log searches](log-analytics-log-search-portals.md).
-- Check out a [tutorial on writing queries](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html) using the new query language.
+- Check out a [tutorial on writing queries](https://go.microsoft.com/fwlink/?linkid=856078) using the new query language.

@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Application Insights Telemetry Data Model | Microsoft Docs
 description: Application Insights data model overview
 services: application-insights
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
-ms.author: sewhee
+ms.author: bwren
 
 ---
 # Application Insights telemetry data model
@@ -27,7 +27,7 @@ The following types of telemetry are used to monitor the execution of your app. 
 
 * [**Request**](application-insights-data-model-request-telemetry.md) - Generated to log a request received by your app. For example, the Application Insights web SDK automatically generates a Request telemetry item for each HTTP request that your web app receives. 
 
-    An **Operation** is the threads of execution that processes a request. You can also [write code](app-insights-api-custom-events-metrics.md#trackrequest) to monitor other types of operation, such as a "wake up" in a web job or function that periodically processes data.  Each operation has an ID. This ID that can be used to [group]((application-insights-correlation.md) all telemetry generated while your app is processing the request. Each operation either succeeds or fails, and has a duration of time.
+    An **Operation** is the threads of execution that processes a request. You can also [write code](app-insights-api-custom-events-metrics.md#trackrequest) to monitor other types of operation, such as a "wake up" in a web job or function that periodically processes data.  Each operation has an ID. This ID that can be used to [group](application-insights-correlation.md) all telemetry generated while your app is processing the request. Each operation either succeeds or fails, and has a duration of time.
 * [**Exception**](application-insights-data-model-exception-telemetry.md) - Typically represents an exception that causes an operation to fail.
 * [**Dependency**](application-insights-data-model-dependency-telemetry.md) - Represents a call from your app to an external service or storage such as a REST API or SQL. In ASP.NET, dependency calls to SQL are defined by `System.Data`. Calls to HTTP endpoints are defined by `System.Net`. 
 

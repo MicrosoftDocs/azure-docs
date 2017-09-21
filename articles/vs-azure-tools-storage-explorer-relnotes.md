@@ -10,7 +10,7 @@ editor: ''
 ms.assetid:
 ms.service: storage
 ms.devlang: multiple
-ms.topic: release-notes
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
@@ -19,40 +19,54 @@ ms.author: cawa
 ---
 # Microsoft Azure Storage Explorer (Preview) release notes
 
-This article contains the release notes for Azure Storage Explorer 0.8.15 (Preview) release, as well as release notes for previous versions.
+This article contains the release notes for Azure Storage Explorer 0.8.16 (Preview) release, as well as release notes for previous versions.
 
 [Microsoft Azure Storage Explorer (Preview)](./vs-azure-tools-storage-manage-with-storage-explorer.md) is a standalone app that enables you to easily work with Azure Storage data on Windows, macOS, and Linux.
 
-## Version 0.8.15 (Preview)
-7/13/2017
+## Version 0.8.16 (Preview)
+8/21/2017
 
-### Download Azure Storage Explorer 0.8.15 (Preview)
-- [Azure Storage Explorer 0.8.15 (Preview) for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 0.8.15 (Preview) for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 0.8.15 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### Download Azure Storage Explorer 0.8.16 (Preview)
+- [Azure Storage Explorer 0.8.16 (Preview) for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 0.8.16 (Preview) for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 0.8.16 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### New
+* When you open a blob, Storage Explorer will prompt you to upload the downloaded file if a change is detected
+* Enhanced Azure Stack sign-in experience
+* Improved the performance of uploading/downloading many small files at the same time
 
-* Improved the performance of blob upload and blob download.
-* Improved the conflicting files experience for blob upload and blob download.
-* Improved displaying of errors in the Activity Log during blob upload and blob download.
-* Increased the maximum size of blob uploads and downloads to 8TB for Page Blobs and ~4.7TB for Block Blobs.
 
-### Known Issues
+### Fixes
+* For some blob types, choosing to "replace" during an upload conflict would sometimes result in the upload being restarted. 
+* In version 0.8.15, uploads would sometimes stall at 99%.
+* When uploading files to a file share, if you chose to upload to a directory which did not yet exist, your upload would fail.
+* Storage Explorer was incorrectly generating time stamps for shared access signatures and table queries.
 
-* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is a [limitation of the Azure Storage Node library](https://github.com/Azure/azure-storage-node/issues/317).
-* After completing a blob upload, the tab which initiated the upload is refreshed. This is a change from previous behavior, and will also cause you to be taken back to the root of the container you are in. 
-* If you choose the wrong PIN/Smartcard certificate then you will need to restart Storage Explorer in order to have it forget that decision.
-* The account settings panel may show that you need to reenter credentials in order to filter subscriptions.
+
+Known Issues
+* Using a name and key connection string does not currently work. It will be fixed in the next release. Until then you can use attach with name and key.
+* If you try to open a file with an invalid Windows file name, the download will result in a file not found error.
+* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is a limitation of the Azure Storage Node library.
+* After completing a blob upload, the tab which initiated the upload is refreshed. This is a change from previous behavior, and will also cause you to be taken back to the root of the container you are in.
+* If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
+* The account settings panel may show that you need to reenter credentials to filter subscriptions.
 * Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files and entities are preserved during a rename.
 * Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account.
-* Ubuntu 14.04 install needs gcc version updated or upgraded – steps to upgrade are below: 
-    * sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-    * sudo apt-get update
-    * sudo apt-get upgrade
-    * sudo apt-get dist-upgrade
-* For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine: 
-    * sudo apt-get install libgconf-2-4
+* For users on Ubuntu 14.04, you will need to ensure GCC is up to date - this can be done by running the following commands, and then restarting your machine:
+
+	```
+	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+	sudo apt-get update
+	sudo apt-get upgrade
+	sudo apt-get dist-upgrade
+	```
+
+* For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
+
+	```
+	sudo apt-get install libgconf-2-4
+	```
 
 ## Version 0.8.14 (Preview)
 06/22/2017
@@ -78,10 +92,16 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 (Previ
 * Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files and entities are preserved during a rename.
 * Although Azure Stack doesn't currently support File Shares, a File Shares node still appears under an attached Azure Stack storage account. 
 * Ubuntu 14.04 install needs gcc version updated or upgraded – steps to upgrade are below:
-    * sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-    * sudo apt-get update
-    * sudo apt-get upgrade
-    * sudo apt-get dist-upgrade
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+
+
 
 ## Previous releases
 
@@ -100,6 +120,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 (Previ
 * [Version 0.7.20160129.1](#version-07201601291)
 * [Version 0.7.20160105.0](#version-07201601050)
 * [Version 0.7.20151116.0](#version-07201511160)
+
 
 ### Version 0.8.13
 05/12/2017
@@ -127,10 +148,14 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 (Previ
 * Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files and entities are preserved during a rename.
 * Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account. 
 * Ubuntu 14.04 install needs gcc version updated or upgraded – steps to upgrade are below:
-    * sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-    * sudo apt-get update
-    * sudo apt-get upgrade
-    * sudo apt-get dist-upgrade
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
 
 ### Version 0.8.12 / 0.8.11 / 0.8.10
 04/07/2017
@@ -166,10 +191,14 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 (Previ
 * Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files and entities are preserved during a rename.
 * Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account. 
 * Ubuntu 14.04 install needs gcc version updated or upgraded – steps to upgrade are below:
-    * sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-    * sudo apt-get update
-    * sudo apt-get upgrade
-    * sudo apt-get dist-upgrade
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
 
 ### Version 0.8.9 / 0.8.8
 02/23/2017

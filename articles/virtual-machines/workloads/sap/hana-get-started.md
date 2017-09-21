@@ -197,7 +197,7 @@ For more information on attaching disks to Azure VMs running Linux as a guest OS
 
 Azure Premium Storage allows you to define disk caching modes. For the striped set holding /hana/data and /hana/log, disk caching should be disabled. For the other volumes (disks), the caching mode should be set to **ReadOnly**.
 
-For more information, see [Premium Storage: High-performance storage for Azure Virtual Machine workloads](../../../storage/storage-premium-storage.md).
+For more information, see [Premium Storage: High-performance storage for Azure Virtual Machine workloads](../../../storage/common/storage-premium-storage.md).
 
 To find sample JSON templates for creating VMs, go to [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates).
 The vm-simple-sles template is a basic template. It includes a storage section, with an additional 100-GB data disk. This template can be used as a base. You can adapt the template to your specific configuration.

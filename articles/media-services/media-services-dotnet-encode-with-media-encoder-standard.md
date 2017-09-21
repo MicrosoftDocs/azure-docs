@@ -4,7 +4,7 @@ description: This topic shows how to use .NET to encode an asset using Media Enc
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 03431b64-5518-478a-a1c2-1de345999274
