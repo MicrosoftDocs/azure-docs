@@ -21,7 +21,7 @@ ms.custom: ''
 
 # Call a function from Microsoft Flow
 
-[Microsoft Flow](https://flow.microsoft.com/) makes it easy to automate workflows and business processes between your favorite apps and services. Professional developers can use Azure Functions to extend the capabilities of Microsoft FLow, while shielding flow builders from the technical details.
+[Microsoft Flow](https://flow.microsoft.com/) makes it easy to automate workflows and business processes between your favorite apps and services. Professional developers can use Azure Functions to extend the capabilities of Microsoft Flow, while shielding flow builders from the technical details.
 
 You build a flow in this topic based on a maintenance scenario for wind turbines. This topic shows you how to call the function that you defined in [Create an OpenAPI definition for a function](functions-openapi-definition.md). The function determines if an emergency repair on a wind turbine is cost-effective. If it is cost-effective, the flow sends an email to recommend the repair.
 
@@ -43,7 +43,7 @@ In this topic, you learn how to:
 + Complete the tutorial [Create an OpenAPI definition for a function](functions-openapi-definition.md).
 
 ## Create a SharePoint list
-You start off by creating a list that you as a data source for the flow. The list has the following columns.
+You start off by creating a list that you use as a data source for the flow. The list has the following columns.
 
 | List Column     | Data Type           | Notes                                    |
 |-----------------|---------------------|------------------------------------------|
@@ -51,7 +51,7 @@ You start off by creating a list that you as a data source for the flow. The lis
 | **LastServiceDate** | Date                |                                          |
 | **MaxOutput**       | Number              | Output of the turbine, in KwH            |
 | **ServiceRequired** | Yes/No              |                                          |
-| **EstimatedEffort** | Number              | Estimated time, in hours, for the repair |
+| **EstimatedEffort** | Number              | Estimated time for the repair, in hours |
 
 1. In your SharePoint site, click or tap **New**, then **List**.
 
@@ -112,7 +112,7 @@ Now you're ready to create a flow that uses the custom connector and the SharePo
 
 ### Add a trigger and specify a condition
 
-You first create a flow from blank (without a template), then add a *trigger* that fires when an item is added to the SharePoint list. You then add a *condition* to determine what happens next.
+You first create a flow from blank (without a template), and add a *trigger* that fires when an item is created in the SharePoint list. You then add a *condition* to determine what happens next.
 
 1. In [flow.microsoft.com](https://flow.microsoft.com), click **My Flows**, then **Create from blank**.
 
@@ -122,7 +122,7 @@ You first create a flow from blank (without a template), then add a *trigger* th
 
     ![Choose a trigger](media/functions-flow-scenario/choose-trigger.png)
 
-    **Note:** If you're not already signed into SharePoint, you will be prompted to do so.
+    If you're not already signed into SharePoint, you will be prompted to do so.
 
 3. For **Site Address**, enter your SharePoint site name, and for **List Name**, enter the list that contains the turbine data.
 
@@ -144,11 +144,11 @@ You first create a flow from blank (without a template), then add a *trigger* th
 
     ![Enter true for condition](media/functions-flow-scenario/condition1-yes.png)
 
-    **Note:** The value is displayed as `Yes` or `No` in the list, but it is stored as a *boolean*, either `True` or `False`. 
+    The value is displayed as `Yes` or `No` in the SharePoint list, but it is stored as a *boolean*, either `True` or `False`. 
 
 7. Click **Create flow** at the top of the page. Be sure to click **Update Flow** periodically.
 
-For any items added to the list, the flow checks if the **ServiceRequired** field is set to `Yes`, then goes to the **If yes** branch or the **If no** branch as appropriate. To save time, in this topic you only specify actions for the **If yes** branch.
+For any items created in the list, the flow checks if the **ServiceRequired** field is set to `Yes`, then goes to the **If yes** branch or the **If no** branch as appropriate. To save time, in this topic you only specify actions for the **If yes** branch.
 
 ### Add the custom connector
 
@@ -252,7 +252,7 @@ Now that the flow is completed, you add a row to the SharePoint list and see how
 
     ![Calculates costs inputs and outputs](media/functions-flow-scenario/calculates-costs-outputs.png)
 
-7. Check the email account for the person you specified in the **To** field if the **Send an email** card. The email sent from the flow should look like the following image.
+7. Check the email account for the person you specified in the **To** field of the **Send an email** card. The email sent from the flow should look like the following image.
 
     ![Flow email](media/functions-flow-scenario/flow-email.png)
 
