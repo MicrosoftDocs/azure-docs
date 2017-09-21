@@ -50,25 +50,25 @@ sections:
       text: VMware
       href: 
   - type: list
-      style: ordered
-      items:
-      - html: <a href="tutorial-prepare-azure">Prepare Azure</a>
-      - html: <a href="tutorial-prepare-on-premises-vmware">Prepare on-premises VMware</a>
-      - html: <a href="tutorial-vmware-to-azure">Set-up disaster recovery</a>
-      - html: <a href="tutorial-dr-drill-azure">Run a disaster recovery drill</a>
-      - html: <a href="tutorial-vmware-to-azure-failover-failback">Run a failover and failback</a>
+    style: ordered
+    items:
+    - html: <a href="tutorial-prepare-azure">Prepare Azure</a>
+    - html: <a href="tutorial-prepare-on-premises-vmware">Prepare on-premises VMware</a>
+    - html: <a href="tutorial-vmware-to-azure">Set-up disaster recovery</a>
+    - html: <a href="tutorial-dr-drill-azure">Run a disaster recovery drill</a>
+    - html: <a href="tutorial-vmware-to-azure-failover-failback">Run a failover and failback</a>
   - type: list
-      style: unordered
-      items: 
-      - image: 
+    style: unordered
+    items: 
+    - image: 
         src: 
         text: Migrate to Azure
         href: 
   - type: list
-        style: ordered
-        items:
-        - html: Prepare Azure
-        - html: <a href="tutorial-migrate-on-premises-to-azure">Migrate on-premises machines</a> or <a href="tutorial-migrate-aws-to-azure">AWS Instances to Azure</a>
+    style: ordered
+    items:
+    - html: Prepare Azure
+    - html: <a href="tutorial-migrate-on-premises-to-azure">Migrate on-premises machines</a> or <a href="tutorial-migrate-aws-to-azure">AWS Instances to Azure</a>
 - title: Reference
   items:
   - type: list
