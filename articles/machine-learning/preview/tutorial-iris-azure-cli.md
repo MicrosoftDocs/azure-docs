@@ -24,7 +24,7 @@ In this tutorial, you learn to use the command-line interface (CLI) tools in Azu
 
 ## Prerequisites
 - You need access to an Azure subscription and permissions to create resources in that subscription. You can create a [free Azure subscription](https://azure.microsoft.com/free/) before you begin. 
-- You also need to install Azure Machine Learing workbench app by following the installation instructions in the [Create Azure Machine Learning preview accounts and install Azure Machine Learning Workbench](quick-start-installation.md) guide. 
+- You also need to install Azure Machine Learing workbench app by following the installation instructions in the [Create Azure Machine Learning preview accounts and install Azure Machine Learning Workbench](quickstart-installation.md) guide. 
   >[!NOTE]
   >You only need to install the Azure ML Workbench location. You can skip the resource provisioning part in the above guide since you can do that using CLI tools shown below.
  
@@ -56,7 +56,7 @@ PATH=$HOME/Library/Caches/AmlWorkbench/Python/bin:$PATH
 ```
 To make the change permanent, you can use `SETX` on Windows. For macOS, you can use `setenv`.
 
->![TIP]
+>[!TIP]
 >You can enable Azure CLI in your favorite terminal window by setting the above environment variables.
 
 ## Step 1. Log in to Azure
@@ -88,7 +88,7 @@ az ml account experimentation create --name amlsampleexp --resource-group amlsam
 az ml workspace create --name amlsamplew --account amlsampleexp --resource-group amlsample
 ```
 
-## Step 2.a (optional) Share a workspace with co-worker. 
+## Step 2.a (optional) Share a workspace with co-worker
 Here we explore how to share access to a workspace with a co-worker. The steps to share access to an experimentation account or to a project would be the same. Only the way of getting the Azure Resource ID would need to be updated.
 
 ```bash
@@ -108,7 +108,7 @@ Our next step is to create a new project. There are several ways to get started 
 az ml project create --name 9_25_1 --workspace amlsamplew --account amlsampleexp --resource-group amlsample --path c:\Users\ahgyger\Documents\AMLworkbench_Demo\9_25\
 ```
 
-### Create a new project with template files.
+### Create a new project with template files
 Template files are not samples but they give a frame to your new project. The project is prepopulated with two files: `train.py` and `score.py`.
 
 ```bash
@@ -162,7 +162,7 @@ pip install matplotlib
 az ml experiment submit --run-configuration local iris_sklearn.py
 ```
 
-### Iterate on your experiment with descending regularization rates. 
+### Iterate on your experiment with descending regularization rates
 With some creativity, it's simple to put together a python script that submits experiments with different regularization rates. 
 (You might have to edit the file to point to the right project path.)
 

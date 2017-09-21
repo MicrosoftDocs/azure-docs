@@ -14,7 +14,7 @@ ms.date: 09/17/2017
 ---
 
 # Bike-share tutorial: Advanced data preparation with Azure Machine Learning Workbench
-Azure Machine Learning services (preview) is an integrated, end-to-end data science and advanced analytics solution for professional data scientists to prepare data, develop experiments and deploy models at cloud scale.
+Azure Machine Learning services (preview) is an integrated, end-to-end data science, and advanced analytics solution for professional data scientists to prepare data, develop experiments and deploy models at cloud scale.
 
 In this tutorial, you use Azure Machine Learning services (preview) to learn how to:
 > [!div class="checklist"]
@@ -30,9 +30,8 @@ In this tutorial, you use Azure Machine Learning services (preview) to learn how
 > You can use the prepared data to train your own prediction models. For example, you might create a model to predict bike demand during a 2-hour window.
 
 ## Prerequisites
-1. Azure Machine Learning Workbench needs to be installed locally. For more information, follow the [installation Quickstart](quickstart-installation.md).
-2. Familiarity with creating a new project in the Workbench.
-
+* Azure Machine Learning Workbench needs to be installed locally. For more information, follow the [installation Quickstart](quickstart-installation.md).
+* Familiarity with creating a new project in the Workbench.
 
 ## Data acquisition
 This tutorial uses the [Boston Hubway dataset](https://s3.amazonaws.com/hubway-data/index.html) and Boston weather data from [NOAA](http://www.noaa.gov/).
@@ -98,18 +97,19 @@ This tutorial uses the [Boston Hubway dataset](https://s3.amazonaws.com/hubway-d
 
    ![Image of the file selection with BostonWeater.csv selected](media/tutorial-bikeshare-dataprep/pickweatherdatafile.png)
 
-3. **File Details**: Verify the file schema that is detected. Azure Machine Learning Workbench analyzes the data in the file and infers the schema to use. 
+3. **File Details**: Verify the file schema that is detected. Azure Machine Learning Workbench analyzes the data in the file and infers the schema to use.
 
    ![Image of the File Details](media/tutorial-bikeshare-dataprep/fileparameters.png)
 
-   Verify that the parameters are set to the following values:
-
-   * __File Type__: Delimited File (csv, tsv, txt, etc.)
-   * __Separator__: Comma [,]
-   * __Comment Line Character__: No value is set.
-   * __Skip Lines Mode__: Don't skip
-   * __File Encoding__: utf-8
-   * __Promote Headers Mode__: Use Headers From First File
+   > [!IMPORTANT]
+   > The Workbench may not detect the correct schema in some cases. You should always verify that the parameters are correct for your data set. For the weather data, verify that they are set to the following values:
+   >
+   > * __File Type__: Delimited File (csv, tsv, txt, etc.)
+   > * __Separator__: Comma [,]
+   > * __Comment Line Character__: No value is set.
+   > * __Skip Lines Mode__: Don't skip
+   > * __File Encoding__: utf-8
+   > * __Promote Headers Mode__: Use Headers From First File
 
    The preview of the data should display the following columns:
    * **Path**
@@ -223,7 +223,7 @@ You no longer need the __REPORTTYPE__ column. Right-click on the column header a
 
 ## Use _By example_ transformations
 
-To use the data in a prediction for two-hour time blocks, you must compute the average weather conditions for two-hour periods. To do this, you must perform the following actions:
+To use the data in a prediction for two-hour time blocks, you must compute the average weather conditions for two-hour periods. To do this, you can use following actions:
 
 * Split the **DATE** column into separate **Date** and **Time** columns. See the next section for the detailed steps.
 
@@ -258,7 +258,7 @@ To use the data in a prediction for two-hour time blocks, you must compute the a
    > [!NOTE]
    > Azure ML Workbench synthesizes a program based on the examples provided by you and applies the same program on remaining rows. All other rows are automatically populated based on the example you provided. Workbench also analyzes your data and tries to identify edge cases. 
 
-3. The text **Analyzing Data** above the grid indicates that Workbench is working on the analysis. When done, the status changes to **Review next suggested row** or **No suggestions**. In this example, **Review next suggested row** is returned.
+3. The text **Analyzing Data** above the grid indicates that Workbench is trying to detect edge cases. When done, the status changes to **Review next suggested row** or **No suggestions**. In this example, **Review next suggested row** is returned.
 
 4. To review the suggested changes, select **Review next suggested row**. The cell that you should review and correct (if needed) is highlighted on the display.
 
@@ -283,7 +283,7 @@ To use the data in a prediction for two-hour time blocks, you must compute the a
 
    Type `Jan 01, 2015 12AM-2AM` as the example against the first row and press **Enter**.
 
-   The Workbench performs two transformations based on this example. First, it converts the date format, then it concatenates the date with the two-hour window.
+   The Workbench determines the transformation based on the example you provide. In this example, the result is that the date is format is changed and concatenated with the two-hour window.
 
    ![Image of the example `Jan 01, 2015 12AM-2AM](media/tutorial-bikeshare-dataprep/wetherdatehourrangeexample.png)
 
@@ -324,7 +324,7 @@ The next step is to summarize the weather conditions by taking the mean of the v
 
 ## Transform Dataflow using script
 
-Changing the data in the numeric columns to a range of 0-1 allows a model to converge quickly. This is known as *normalization*. Currently there is no built-in transformation for normalization, but a Python script can be used to perform this operation.
+Changing the data in the numeric columns to a range of 0-1 allows some models to converge quickly. Currently there is no built-in transformation to generically do this transformation, but a Python script can be used to perform this operation.
 
 1. From the **Transform** menu, select **Transform Dataflow**.
 
@@ -362,7 +362,7 @@ Changing the data in the numeric columns to a range of 0-1 allows a model to con
 
     ![Grid containing values between 0 and 1](media/tutorial-bikeshare-dataprep/datagridwithdecimals.png)
 
-You have finished preparing the weather data. Next, prepare the Hubway data.
+You have finished preparing the weather data. Next, prepare the trip data.
 
 ## Load trip data
 
@@ -391,11 +391,6 @@ For data preparation, there are a number of useful visualizations called **Inspe
     > To enable multi-select, hold down __Ctrl__ and select the header for each column.
 
     ![Image of the map visualization](media/tutorial-bikeshare-dataprep/launchMapInspector.png)
-
-    > [!TIP]
-    > Notice the icons in the upper right corner of the map visualization. These icons are used in the next step to zoom in on the map.
-    >
-    > ![Map inspector visualization controls](media/tutorial-bikeshare-dataprep/MapInspectorInWell.png)
 
 2. To maximize the map visualization, select the **Maximize** icon. To fit the map to the window, select the **E** icon on the left-top side of the visualization.
 
@@ -463,9 +458,9 @@ Select __OK__ to apply the filter.
 
 ![Updated histograms after filter is applied](media/tutorial-bikeshare-dataprep/loftripfilteredinspector.png)
 
-### Review the Halo Effect
+### The Halo Effect
 
-1. Maximize the **logtripduration** histogram. There is a blue histogram overlaid on a gray histogram. This graphic style is the **Halo effect**:
+1. Maximize the **logtripduration** histogram. There is a blue histogram overlaid on a gray histogram. This display is called the **Halo Effect**:
 
     * The **gray histogram** represents the distribution before the operation (in this case, the filtering operation).
     * The **blue histogram** represents the histogram after the operation. 
@@ -473,6 +468,9 @@ Select __OK__ to apply the filter.
    The halo effect helps with visualizing the effect of an operation on the data.
 
    ![Image of the halo effect](media/tutorial-bikeshare-dataprep/loftripfilteredinspectormaximized.png)
+
+    > [!NOTE]
+    > Notice that the blue histogram appears shorter compared to the previous one. This is due to automatic re-bucketing of data in the new range.
 
 2. To remove the halo, select __Edit__ and uncheck __Show halo__.
 
@@ -482,7 +480,7 @@ Select __OK__ to apply the filter.
 
 ### Remove columns
 
-in the Hubway data, each row represents a bike pickup event. For this tutorial, you only need the **starttime** and **start station** columns. Remove the other columns by multi-selecting these two columns, right-click the column header, and then select **Keep Column**. Other columns are removed.
+In the trip data, each row represents a bike pickup event. For this tutorial, you only need the **starttime** and **start station** columns. Remove the other columns by multi-selecting these two columns, right-click the column header, and then select **Keep Column**. Other columns are removed.
 
 ![Image of the keep column option](media/tutorial-bikeshare-dataprep/tripdatakeepcolumn.png)
 
@@ -495,6 +493,9 @@ To summarize bike demand for a 2-hour period, use derived columns.
     ![Image of derive by example option](media/tutorial-bikeshare-dataprep/tripdataderivebyexample.png)
 
 2. For the example, enter a value of `Jan 01, 2017 12AM-2AM` for the first row.
+
+    > [!IMPORTANT]
+    > In the previous example of deriving columns, you used multiple steps to derive a column that contained the date and time period. In this example, you can see that this operation can be performed as a single step by providing an example of the final output.
 
     > [!NOTE]
     > You can give an example against any of the rows. For this example, the value of `Jan 01, 2017 12AM-2AM` is valid for the first row of data.
@@ -524,7 +525,7 @@ To summarize bike demand for a 2-hour period, use derived columns.
 
 ## Join Dataflows
 
-To join the weather data with the Hubway trip data, use the following steps:
+To join the weather data with the trip data, use the following steps:
 
 1. Select __Join__ from the __Transforms__ menu.
 
@@ -581,11 +582,12 @@ For this tutorial, the name of the file is `BikeShare Data Prep.py`. This file i
 
 ## Save test data as a CSV file
 
-Update the following Python code to save the *Join Result* **Dataflow** to a csv file. Save the file.
+To save the **Join Result** Dataflow to a .CSV file, you must change the `BikeShare Data Prep.py` script. Update the Python script using the following code:
 
 ```python
 from azureml.dataprep.package import run
 
+# dataflow_idx=2 sets the dataflow to the 3rd dataflow (the index starts at 0), the Join Result.
 df = run('BikeShare Data Prep.dprep', dataflow_idx=2)
 
 # Example file path: C:\\Users\\Jayaram\\BikeDataOut\\BikeShareTest.csv
@@ -596,16 +598,16 @@ Select **Run** from the top of the screen. The script is submitted as a **Job** 
 
 ## Substitute Data Sources
 
-In the previous steps, you used the `201701-hubway-tripdata.csv` and `BostonWeather.csv` data sources to prepare the Test data. To use the package with the other Hubway data files, use the following steps:
+In the previous steps, you used the `201701-hubway-tripdata.csv` and `BostonWeather.csv` data sources to prepare the Test data. To use the package with the other trip data files, use the following steps:
 
 1. Create a new **Data Source** using the steps given earlier, with the following changes to the process:
 
-    * __File Selection__: When selecting a file, multi-select the six remaining Hubway tripdata .CSV files.
+    * __File Selection__: When selecting a file, multi-select the six remaining trip tripdata .CSV files.
 
-        ![Load the 6 remaining files](media/tutorial-bikeshare-dataprep/selectsixfiles.png)
+        ![Load the six remaining files](media/tutorial-bikeshare-dataprep/selectsixfiles.png)
 
         > [!NOTE]
-        > The __+5__ entry indicates that there are 5 additional files beyond the one that is listed.
+        > The __+5__ entry indicates that there are five additional files beyond the one that is listed.
 
     * __File Details__: Set __Promote Headers Mode__ to **All Files Have The Same Headers**. This value indicates that each of the files contains the same header.
 
@@ -620,12 +622,11 @@ In the previous steps, you used the `201701-hubway-tripdata.csv` and `BostonWeat
 3. Add the following lines at the end of the `local.runconfig` file and then select the disk icon to save the file.
 
     ```yaml
-    UseSampling: true
     DataSourceSubstitutions:
       201701-hubway-tripdata.dsource: 201501-hubway-tripdata.dsource
     ```
 
-    This change replaces the original data source with the one that contains the 6 Hubway files.
+    This change replaces the original data source with the one that contains the six trip data files.
 
 ## Save training data as a CSV file
 
@@ -633,7 +634,7 @@ Navigate to the Python file `BikeShare Data Prep.py` that you edited earlier and
 
 ```python
 from azureml.dataprep.package import run
-
+# dataflow_idx=2 sets the dataflow to the 3rd dataflow (the index starts at 0), the Join Result.
 df = run('BikeShare Data Prep.dprep', dataflow_idx=2)
 
 # Example file path: C:\\Users\\Jayaram\\BikeDataOut\\BikeShareTrain.csv

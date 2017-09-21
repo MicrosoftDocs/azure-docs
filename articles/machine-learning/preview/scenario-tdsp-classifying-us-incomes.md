@@ -1,5 +1,5 @@
 ---
-title: Income Classification With Team Data Science Process Project | Microsoft Docs
+title: Income classification - Team Data Science Process - Azure Machine Learning | Microsoft Docs
 description: How to use the Team Data Science Process template to create a project in Azure Machine Learning that classifies US incomes.
 services: machine-learning
 documentationcenter: ''
@@ -58,7 +58,7 @@ The dataset for this sample is from the UCI ML Repository [[link]](https://archi
 If you would like to save and version your project and its contents, you need to have a version control repository where this can be done. You can enter the Git repository location while creating the new project using the TDSP template in Azure Machine Learning. See [how to use Git in Azure Machine Learning](using-git-ml-project.md) for further details.
 
 ### Informational: about Azure Machine Learning
-* [FAQ - How to get started](faq.md)
+* [FAQ - How to get started](frequently-asked-questions.md)
 * [Overview](overview-what-is-azure-ml.md)
 * [Installation](quickstart-installation.md)
 * [Execution](experiment-execution-configuration.md)

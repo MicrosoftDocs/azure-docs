@@ -38,10 +38,10 @@
     href: walkthroughs-aml-with-tdsp.md
     items:
     - name: US income classification
-      href: ../preview/tutorial-classifying-uci-incomes.md
+      href: ../preview/scenario-tdsp-classifying-us-incomes.md
       maintainContext: true
     - name: Biomedical entity recognition
-      href: ../preview/sample-tdsp-nlp.md
+      href: ../preview/scenario-tdsp-biomedical-recognition.md
       maintainContext: true
   - name: Spark with PySpark and Scala
     href: walkthroughs-spark.md

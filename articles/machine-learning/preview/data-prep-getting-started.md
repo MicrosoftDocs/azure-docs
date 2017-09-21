@@ -26,6 +26,7 @@ Navigate to the Data section of the project by selecting the Data icon ![data so
 
 ## Building blocks of data preparation ##
 ### The Package ###
+
 A Package is the primary container for your work. A Package is the artifact that is saved to and loaded from disk. While working inside the client, the Package is constantly AutoSaved in the background. 
 
 The output/results of a Package can be explored in Python or via a Jupyter Notebook.
@@ -50,6 +51,7 @@ A source is where the data comes from, and the format it is in. A Data Prep Pack
 Transforms consume data in a given format, perform some operation on the data (such as changing the data type) and then produce data in the new format. Each Transform has its own UI and behavior(s). Chaining several Transforms together via Steps in the Dataflow is the core of Data Preparation functionality. [Appendix 3 provides the current list of supported Transforms](data-prep-appendix3-supported-transforms.md).
 
 ### The inspector ###
+
 Inspectors are visualizations of the data and are available to improve understanding of the data.  Understanding the data and data quality issues helps you decide which actions (Transforms) should be taken. Some Inspectors support actions that generate Transforms. For example, the Value Count Inspector allows you to select a Value and then apply a filter to include that Value or to Exclude that Value. Inspectors can also provide context for Transforms. For example, selecting one or more columns changes the possible Transforms that can be applied.
 
 A column may have multiple Inspectors at any point in time (for example, Column Statistics and a Histogram). There can also be instances of an Inspector across multiple columns. For example, all numeric columns could have Histograms at the same time.
@@ -68,6 +70,7 @@ Data Preparation assumes a basic five-step methodology/approach to data preparat
 Import data for Data Preparation by using the **Add Data Source** option within the project view.  All initial ingestion of data is handled through the Data Source Wizard.
 
 #### Step 2: Understand/profile the data ####
+
 First, look at the Data Quality Bar at the top of each column. Green represents the rows that have values. Gray represents rows with a missing value, null, etc. Red indicates error values. Hover over the bar to get a tool tip with the exact numbers of rows in each of the three buckets. The Data Quality Bar uses a logarithmic scale so always check the actual numbers to get a rough feel for the volume of missing data.
 
 ![columns](media/data-prep-getting-started/columns.png)
@@ -76,7 +79,7 @@ Next, use a combination of other Inspectors plus the grid to better understand d
 
 It’s likely that several Inspectors across several columns are needed to understand the data. You can scroll through various Inspectors in the Profiling Well. Within the well, you can also move Inspectors to the head of the list in order to see them in the immediately viewable area.
 
-![inspectors](media/data-prep-getting-started/inspectors.png)
+![inspectors](media/data-prep-getting-started/inspectors.PNG)
 
 Different Inspectors are provided for continuous vs categorical variables/columns. The Inspector menu enables and disables options depending on the type of variables/columns you have.
 
@@ -88,23 +91,23 @@ Transforms change the data and allow the execution of the data to support the cu
 
 A green icon to the left of a given Step indicates that it has run and the data reflects the execution of the Transform. A vertical bar to the left of the Step indicates the current state of the data in the Inspectors.
 
-![steps](media/data-prep-getting-started/steps.png)
+![steps](media/data-prep-getting-started/steps.PNG)
 
 Try to make small frequent changes to the data and to validate (Step 4) after each change as the hypothesis evolves.
 
-#### Step 4: Verify the impact of the transformation. ####
+#### Step 4: Verify the impact of the transformation. 
 Decide if the hypothesis was correct. If correct, then develop the next hypothesis and repeat steps 2-3 for the new one. If incorrect, then undo the last transformation and develop a new hypothesis and repeat steps 2-3.
 
 The primary way to determine if the Transform had the right impact is to use the Inspectors. Use existing. Use Inspectors with the Halo effect enabled or launch multiple Inspectors to view the data at given points in time.
 
-![halo inspector](media/data-prep-getting-started/halo1.png) ![halo inspector](media/data-prep-getting-started/halo2.png)
+![halo inspector](media/data-prep-getting-started/halo1.PNG) ![halo inspector](media/data-prep-getting-started/halo2.PNG)
 
 To undo a Transformation, go the Steps List on the right-hand side of the UI. (The Steps List panel may need to be popped back out. To open it, click the double chevron pointing left). In the panel, select the Transform that was executed that you wish to undo. Select the drop-down on the right-hand side of the UI block. Select either **Edit** to make changes or **Delete** to remove the Transform from the Steps List and the Dataflow.
 
-#### Step 5: Output ####
+#### Step 5: Output 
 When finished with your data preparation, you can write the Dataflow to an output. A Dataflow can have many outputs. From the Transforms menu, you can select which output you want the dataset to be written as. You can also select the output's destination. 
 
-## List of Appendices ##
+## List of Appendices 
 [Appendix 2 - Supported Data Sources](data-prep-appendix2-supported-data-sources.md)  
 [Appendix 3 - Supported Transforms](data-prep-appendix3-supported-transforms.md)  
 [Appendix 4 - Supported Inspectors](data-prep-appendix4-supported-inspectors.md)  
@@ -114,4 +117,3 @@ When finished with your data preparation, you can write the Dataflow to an outpu
 [Appendix 8 - Sample Data Sources in Python](data-prep-appendix8-sample-source-connections-python.md)  
 [Appendix 9 - Sample Destination Connections in Python](data-prep-appendix9-sample-destination-connections-python.md)  
 [Appendix 10 - Sample Column Transforms in Python](data-prep-appendix10-sample-custom-column-transforms-python.md)  
-

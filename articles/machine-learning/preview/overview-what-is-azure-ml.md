@@ -2,23 +2,17 @@
 title: What is Azure Machine Learning? | Microsoft Docs
 description: Overview of Azure Machine Learning Experimentation and Model Management, an integrated, end-to-end data science solution for professional data scientists to develop, experiment and deploy advanced analytics applications at cloud scale.
 services: machine-learning
-documentationcenter: ''
 author: haining
-manager: mwinkle
-editor: garyericson
-
-ms.service: machine-learning
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 09/15/2017
 ms.author: haining
-
+manager: mwinkle
+ms.reviewer: garyericson, jasonwhowell, mldocsms.service: machine-learning
+ms.workload: data-services
+ms.topic: get-started-article
+ms.date: 09/20/2017
 ---
-# What is Azure Machine Learning
+# What is Azure Machine Learning?
 
-Azure Machine Learning is an integrated, end-to-end data science and advanced analytics solution. It enables data scientists to prepare data, develop experiments and deploy models at cloud scale.
+Azure Machine Learning is an integrated, end-to-end data science and advanced analytics solution. It enables data scientists to prepare data, develop experiments, and deploy models at cloud scale.
 
 The main components of Azure Machine Learning are:
 - Azure Machine Learning Workbench
@@ -37,7 +31,7 @@ Azure Machine Learning fully supports open source technologies. You can use tens
 
 - [scikit-learn](http://scikit-learn.org/)
 - [TensorFlow](https://www.tensorflow.org/)
-- [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/)
+- [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/)
 - [Spark ML](https://spark.apache.org/docs/2.1.1/ml-pipeline.html)
 
 You can execute your experiments in managed environments such as Docker containers and Spark clusters. You can also use advanced hardware such as [GPU-enabled virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu) to accelerate your execution.
@@ -101,7 +95,7 @@ Through easy configuration, you can execute your experiments across a range of c
 - Local native
 - Local Docker container
 - Docker container on a remote VM
-- scale out Spark cluster in Azure
+- Scale out Spark cluster in Azure
 
 The Experimentation Service constructs virtual environments to ensure that your script can be executed in isolation with reproducible results. It records run history information and presents the history to you visually. You can easily select the best model out of your experiment runs. 
 
@@ -125,7 +119,7 @@ For more information on Model Management Service, reference [Model Management Ov
 
 ## Microsoft Machine Learning Library for Apache Spark
 
-The [MMLSpark](https://github.com/Azure/mmlspark)(Microsoft Machine Learning Library for Apache Spark) is an open-source Spark package that provides deep learning and data science tools for Apache Spark. It integrates [Spark Machine Learning Pipelines](https://spark.apache.org/docs/2.1.1/ml-pipeline.html) with the [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/) and [OpenCV](http://opencv.org/) library. It enables you to quickly create powerful, highly scalable predictive, and analytical models for large image and text datasets. Some highlights include:
+The [MMLSpark](https://github.com/Azure/mmlspark)(Microsoft Machine Learning Library for Apache Spark) is an open-source Spark package that provides deep learning and data science tools for Apache Spark. It integrates [Spark Machine Learning Pipelines](https://spark.apache.org/docs/2.1.1/ml-pipeline.html) with the [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/) and [OpenCV](http://opencv.org/) library. It enables you to quickly create powerful, highly scalable predictive, and analytical models for large image and text datasets. Some highlights include:
 
 - Easily ingest images from HDFS into Spark DataFrame
 - Pre-process image data using transforms from OpenCV
@@ -136,8 +130,7 @@ The [MMLSpark](https://github.com/Azure/mmlspark)(Microsoft Machine Learning Lib
 - Train classification and regression models easily via implicit featurization of data
 - Compute a rich set of evaluation metrics including per-instance metrics
 
- For more information, reference [Using MMLSpark in Azure Machine Learning](how-to-use-mmlspark.md).
-
+For more information, reference [Using MMLSpark in Azure Machine Learning](how-to-use-mmlspark.md).
 
 ## Visual Studio Code Tools for AI
 Visual Studio Code Tools for AI is an extension in VS Code to build, test, and deploy Deep Learning and AI solutions. It features many integration points with Azure Machine Learning, including:
@@ -148,7 +141,6 @@ Visual Studio Code Tools for AI is an extension in VS Code to build, test, and d
 
 ## What are the machine learning options from Microsoft?
 Besides Azure Machine Learning, there are also a wide variety of options in Azure to build, deploy, and manage machine learning models. 
-<!--* Azure Machine Learning-->
 * Microsoft Machine Learning Services in SQL
 * Microsoft Machine Learning Server
 * Data Science Virtual Machine
@@ -201,22 +193,21 @@ Batch AI Training enables you to scale out deep learning jobs across clustered G
 Azure Machine Learning Model Management can be used to take models from Batch AI Training to deploy, manage, and monitor them.  Batch AI Training will be integrated with Azure Machine Learning Experimentation in the future. 
 
 ### Microsoft Cognitive Toolkit
-The [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/) is a unified deep-learning toolkit that describes neural networks as computational steps in a directed graph. In this directed graph, leaf nodes represent input values or network parameters, while other nodes represent matrix operations upon their inputs. The Cognitive Toolkit allows you to easily realize and combine popular model types such as feed-forward DNNs, convolutional nets (CNNs), and recurrent networks (RNNs/LSTMs). It implements stochastic gradient descent (SGD, error backpropagation) learning with automatic differentiation and parallelization across multiple GPUs and servers.
+The [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/) is a unified deep-learning toolkit that describes neural networks as computational steps in a directed graph. In this directed graph, leaf nodes represent input values or network parameters, while other nodes represent matrix operations upon their inputs. The Cognitive Toolkit allows you to easily realize and combine popular model types such as feed-forward DNNs, convolutional nets (CNNs), and recurrent networks (RNNs/LSTMs). It implements stochastic gradient descent (SGD, error backpropagation) learning with automatic differentiation and parallelization across multiple GPUs and servers.
 
 Use the Cognitive Toolkit when you want to build a model using deep learning.  The Cognitive Toolkit can be used in any of the preceding services.
 
 ### Microsoft Cognitive Services
-[Microsoft Cognitive Services is a set of 30 APIs that enable you build apps that use natural methods of communication. These APIs allow your apps to see, hear, speak, understand, and interpret our needs with just a few lines of code. Easily add intelligent features to your apps, such as: 
+Microsoft Cognitive Services is a set of 30 APIs that enable you build apps that use natural methods of communication. These APIs allow your apps to see, hear, speak, understand, and interpret our needs with just a few lines of code. Easily add intelligent features to your apps, such as: 
 
 - Emotion and sentiment detection
 - Vision and speech recognition
 - Language understanding
 - Knowledge and search
 
-Microsoft Cognitive Services can be to develop apps across devices and platforms. The APIs keep improving, and are easy to set up. 
+Microsoft Cognitive Services can be used to develop apps across devices and platforms. The APIs keep improving, and are easy to set up. 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## Next Steps
-- [Provision and install Azure Machine Learning](quick-start-installation.md)
-- [Take a quick tour around Azure Machine Learning](quick-start-iris.md)
+* [Install and create Azure Machine Learning](quickstart-installation.md)

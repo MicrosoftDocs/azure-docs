@@ -16,12 +16,12 @@ ms.date: 09/19/2017
 # Create Azure Machine Learning preview accounts and install Azure Machine Learning Workbench
 Azure Machine Learning is an integrated, end-to-end data science and advanced analytics solution for professional data scientists to prepare data, develop experiments and deploy models at cloud scale.
 
-This Quickstart shows you how to create experimentation and model management accounts in Azure Machine Learning services preview. It also shows you how to install the Azure Machine Learning Workbench desktop application and CLI tools.
+This Quickstart shows you how to create experimentation and model management accounts in Azure Machine Learning services preview. It also shows you how to install the Azure Machine Learning Workbench desktop application and CLI tools. Next, you take a quick tour of Azure Machine Learning preview features using the timeless [Iris flower dataset](https://en.wikipedia.org/wiki/iris_flower_data_set) to build a model to predict the type of iris based on some of its physical characteristics.  
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
-Currently the Azure Machine Learning Workbench can be installed on the following operating systems only: Windows 10, Windows Server 2016, macOS Sierra (or newer).
+Currently the Azure Machine Learning Workbench can be installed on the following operating systems only: Windows 10, Windows Server 2016, and macOS Sierra.
 
 ## Log in to the Azure portal
 Log in to the [Azure portal](https://portal.azure.com/).
@@ -30,13 +30,13 @@ Log in to the [Azure portal](https://portal.azure.com/).
 Use the Azure portal to provision Azure Machine Learning accounts. 
 1. Select the **New** button (+) in the upper-left corner of the portal.
 
-2. Type in "Machine Learning" into the search bar. Select the search result named **Machine Learning Experimentation (preview)**. 
+2. Type in "Machine Learning" into the search bar. Select the search result named **Machine Learning Experimentation (preview)**.  Click the star icon to make this selection a favorite in your Azure portal.
 
-   ![Azure Machine Learning Search](media/quick-start-installation/ibiza-search-ml.png)
+   ![Azure Machine Learning Search](media/quickstart-installation/portal-more-services.png)
 
-3. Click **Create** to open the form to configure a new Machine Learning Experimentation account. 
+3. Click **+ Add** to configure a new Machine Learning Experimentation account. The detailed form will open.
 
-   ![Machine Learning Experimentation Account](media/quick-start-installation/ibiza-experimentation-account-screen.png)
+   ![Machine Learning Experimentation Account](media/quickstart-installation/portal-create-experimentation.png)
 
 4. Fill out the Machine Learning Experimentation form with the following information:
 
@@ -60,6 +60,8 @@ Use the Azure portal to provision Azure Machine Learning accounts.
 6. On the upper right of the Azure portal toolbar, click **Notifications** (bell icon) to monitor the deployment process. 
 
    The notification shows "Deployment in progress...". The status changes to "Deployment succeeded" once it is done. Your Machine Learning Experimentation account page opens upon success.
+   
+   ![Azure portal notifications](media/quickstart-installation/portal-notification.png)
 
 Now, depending on which operating system you use on your local computer, follow one of the next two sections to install Azure Machine Learning Workbench on your computer. 
 
@@ -83,7 +85,7 @@ Install the Azure Machine Learning Workbench on your computer running Windows 10
    `C:\Users\<user>\AppData\Local\AmlWorkbench`
 
 ## Install Azure Machine Learning Workbench on macOS
-Install the Azure Machine Learning Workbench on your computer running macOS Sierra or newer.
+Install the Azure Machine Learning Workbench on your computer running macOS Sierra.
 
 1. Install openssl library using [Homebrew](http://brew.sh). See [Prerequisite for .NET Core on Mac](https://docs.microsoft.com/dotnet/core/macos-prerequisites) for more details.
    ```
@@ -126,8 +128,53 @@ Install the Azure Machine Learning Workbench on your computer running macOS Sier
 
 See [Deployment Environment Setup](deployment-setup-configuration.md) for creating an environment for deploying your web services.
 
+## Create a new project
+1. Launch the Azure ML Workbench app and log in. 
+
+2. Click on **File** --> **New Project** (or click on the **+** sign in the **PROJECTS** pane). 
+
+3. Fill in the **Project name** and the **Project directory** fields. The **Project description** is optional but helpful. Leave the **Visualstudio.com GIT Repository URL** field blank for now. Choose a workspace, and select **Classifying Iris** as the project template.
+
+   >[!TIP]
+   >Optionally, you can fill in the Git repo text field with the URL of a Git repo that is hosted in a [VSTS (Visual Studio Team Service)](https://www.visualstudio.com) project. This Git repo must already exist, and it must be empty with no master branch. And you must have write access to it. Adding a Git repo now lets you enable roaming and sharing scenarios later. [Read more](using-git-ml-project.md).
+
+4. Click on the **Create** button to create the project. A new project is created and opened for you. At this point, you can explore the project home page, data sources, notebooks, source code files. 
+
+    >[!TIP]
+    >You can also open the project in VS Code or other editors simply by configuring an IDE (Integrated Development Environment) link, and then open the project directory in it. [Read more](how-to-configure-your-IDE.md). 
+
+## Run a Python script
+Let's execute a script on your local computer. 
+
+1. Each project opens to its own **Project Dashboard** page. Select `local` as the execution target from the command bar near the top of the application to the left of the run button, and `iris_sklearn.py` as the script to run.  There are a number of other files included in the sample you can check out later. 
+
+   ![img](media/quickstart-installation/run_control.png)
+
+2. In the **Arguments** text field, enter `0.01`. This number is used in the code to set the regularization rate, a value used to configure how the linear regression model is trained. 
+
+3. Click the **Run** button to begin executing `iris_sklearn.py` on your computer. 
+
+   This code uses the [logistic regression](https://en.wikipedia.org/wiki/logistic_regression) algorithm from the popular Python [scikit-learn](http://scikit-learn.org/stable/index.html) library to build the model.
+
+4. The **Jobs** panel slides out from the right if it is not already visible, and an `iris_sklearn` job is added in the panel. Its status transitions from **Submitting** to **Running** as the job begins to run, and then to **Completed** in a few seconds. 
+
+5. Congratulations. You have successfully executed a Python script in Azure ML Workbench.
+
+6. Repeat steps 2-4 several times. Each time, use different argument values ranging from `10` to `0.001`.
+
+## View run history
+1. Navigate to the **Runs** view, and click on **iris_sklearn.py** in the run list. The run history dashboard for `iris_sklearn.py` opens. It shows every run that was executed on `iris_sklearn.py`. 
+
+   ![img](media/quickstart-installation/run_view.png)
+
+2. The run history dashboard also displays the top metrics, a set of default graphs, and a list of metrics for each run. You can customize this view by sorting, filtering, and adjusting the configurations by clicking on the configuration icon or the filter icon.
+
+   ![img](media/quickstart-installation/run_dashboard.png)
+
+3. Click on a completed run and you can see a detailed view for that specific execution, including additional metrics, the files it produced, and other potentially useful logs.
+
 ## Next steps
-You have now successfully created an Azure Machine Learning Experimentation account and an Azure Machine Learning Model Management account. You have installed the Azure Machine Learning Workbench desktop app and command-line interface.
+You have now successfully created an Azure Machine Learning Experimentation account and an Azure Machine Learning Model Management account. You have installed the Azure Machine Learning Workbench desktop app and command-line interface. You have created a new project, create a model by executing a script, and explored the run history of the script.
 
 For a more in-depth experience of this workflow, including how to deploy your Iris model as a web service, follow the full-length Classifying Iris Tutorial which contains detailed steps for [data preparation](tutorial-classifying-iris-part-1.md), [experimentation](tutorial-classifying-iris-part-2.md), and [model management](tutorial-classifying-iris-part-3.md). 
 
