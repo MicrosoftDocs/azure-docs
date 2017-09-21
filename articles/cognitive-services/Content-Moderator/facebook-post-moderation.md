@@ -136,7 +136,7 @@ That's it!
 
 The solution sends all images and text posted on your Facebook page to Content Moderator. The workflows that you configured earlier are invoked. The content that does not pass your criteria defined in the workflows results in reviews within the review tool. The rest of the content gets published.
 
-## 6. References
+## 6. Next steps
 
 1. [The Facebook sample on Github](https://github.com/MicrosoftContentModerator/samples-fbPageModeration)
 1. https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-github-webhook-triggered-function
