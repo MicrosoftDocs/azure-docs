@@ -11,7 +11,6 @@
 
 # Tutorials
 
-
 ## [Back up Azure VMs at scale](tutorial-backup-vm-at-scale.md)
 ## [Restore a disk](tutorial-restore-disk.md)
 ## [Restore individual files](tutorial-restore-files.md)

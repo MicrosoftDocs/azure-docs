@@ -51,7 +51,7 @@ It can take several minutes for the Recovery Services vault to be created. Monit
 
 When you create a Recovery Services vault, by default the vault has geo-redundant storage. To provide data resiliency, geo-redundant storage replicates the data multiple times across two Azure regions.
 
-## Select a backup goal, set policy and identify virtual machines to protect
+## Set backup policy to protect VMs
 
 After creating the Recovery Services vault, the next step is to configure the vault for the type of data, and to set the backup policy. Backup policy is the schedule for how often and when recovery points are taken. Policy also includes the retention range for the recovery points. For this tutorial let's assume your business is a sports complex with a hotel, stadium, and restaurants and concessions, and you are protecting the data on the virtual machines. The following steps create a backup policy for the financial data.
 
@@ -178,7 +178,7 @@ In this tutorial you used the Azure portal to:
 > * Assign the policy to protect multiple virtual machines
 > * Trigger an on-demand back up for virtual machines
 
-Continue to the next tutorial to recover Azure virtual machines using virtual machine templates. 
+Continue to the next tutorial to restore an Azure virtual machine from disk. 
 
 > [!div class="nextstepaction"]
-> [Restore VMs using CLI](./tutorial-backup-azure-vm.md)
+> [Restore VMs using CLI](./tutorial-restore-disk.md)
