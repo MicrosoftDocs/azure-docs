@@ -30,11 +30,11 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a Web App and App Service Plan
 1. Click the **New** option from the left-hand navigation pane
-2. Search for and select the 'Web App' item and click **Create**
-3. Select an app name like 'MyTestScaleWebApp' and place it into the resource group of your choosing.
+2. Search for and select the *Web App* item and click **Create**
+3. Select an app name like *MyTestScaleWebApp*. Create a new resource group *myResourceGroup' and place it into the resource group of your choosing.
 4. Within a few minutes your resources should be provisioned. We will reference the Web App, and corresponding App Service Plan that were just created through the remainder of this tutorial.
 
-    ![Create a new app service in the portal](./media/monitor-tutorial-autoscale-performance-schedule/Web-App-Create.jpg)
+    ![Create a new app service in the portal](./media/monitor-tutorial-autoscale-performance-schedule/Web-App-Create.png)
 
 ## Navigate to Autoscale settings
 1. From the left-hand navigation pane select the **Monitor** option. Once the page loads select the **Autoscale** tab.
@@ -42,7 +42,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 3. On the autoscale setting click the **Enable Autoscale** button
 4. Provide a **Name** for the autoscale setting
 
-    ![Navigate to autoscale settings](./media/monitor-tutorial-autoscale-performance-schedule/Monitor-Blade.png)
+    ![Navigate to autoscale settings](./media/monitor-tutorial-autoscale-performance-schedule/monitor-blade-autoscale.png)
 
 ## Configure default profile
 1. In the default profile ensure the **Scale mode** is set to 'Scale to a specific instance count'

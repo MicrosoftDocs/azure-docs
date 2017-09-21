@@ -69,32 +69,20 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 5. You should now see a chart plotting the total number of runs your logic app has started over the past hour.
 
-    ![Plot a metric chart for the logic app resource](./media/monitoring-quick-resource-metrics-portal/logic-app-metric-chart2.png)
+    ![Plot a metric chart for the logic app resource](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
 
 
 ## Create a metric alert for your logic app
 
-1. Click the **Monitor** option in the left-hand navigation pane.
+1.  In the top right portion of the metrics panel click the **Add metric alert** button.
 
-2. Select the **Metrics** tab, fill in the **Subscription**, **Resource Group**, **Resource Type**, and **Resource** information for your logic app.
+2. Name your metric alert 'myLogicAppAlert', and provide a brief description for the alert.
 
-3. From the list of metrics, choose **Runs Failed**.
+3. Set the **Condition** for the metric alert as 'Greater than', set the **Threshold** as '10', and set the **Period** as 'Over the last 5 minutes'.
 
-4. Modify the **Time range** of the chart to display data for the past hour.
+4. Finally, under **Additional administrator email(s)** enter your email address. This alert ensures that you receive an email in the event your logic app has more than 10 failed runs within a period of 5 minutes.
 
-5. You should now see a chart plotting the total number of runs that have failed for your logic app over the past hour.
-
-    ![Plot a metric chart for the logic app resource](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metric-chart.jpg)
-
-6. In the top right portion of the metrics panel click the **Add metric alert** button.
-
-7. Name your metric alert 'myLogicAppAlert', and provide a brief description for the alert.
-
-8. Set the **Condition** for the metric alert as 'Greater than', set the **Threshold** as '10', and set the **Period** as 'Over the last 5 minutes'.
-
-9. Finally, under **Additional administrator email(s)** enter your email address. This alert ensures that you receive an email in the event your logic app has more than 10 failed runs within a period of 5 minutes.
-
-    ![Configure the logic app alert in the portal panel](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metrics-alert-portal.JPG)
+    ![Configure the logic app alert in the portal panel](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metrics-alert-portal.png)
 
 ## Receive metric alert notifications for your logic app
 1. Within a few moments, you should receive an email from 'Microsoft Azure Alerts' to inform you the alert has been 'activated'.
@@ -107,11 +95,11 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 Other quick starts in this collection build upon this quickstart. If you plan to continue on to work with subsequent quick starts or with the tutorials, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart in the Azure portal.
 
-1. From the left-hand menu in the Azure portal, click on **Monitor**
+1. From the left-hand menu in the Azure portal, click on **Monitor**.
 
-2. Select the **Alerts** tab, find the alert you created in this quickstart guide and click on it
+2. Select the **Alerts** tab, find the alert you created in this quickstart guide and click on it.
 
-3. In the metric alert panel, click **Delete**
+3. In the metric alert panel, click **Delete**.
 
 4. From the left-hand menu in the Azure portal, search for **Logic App** and then click **Logic apps**.
 
