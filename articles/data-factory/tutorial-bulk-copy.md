@@ -18,7 +18,7 @@ ms.author: jingwang
 ---
 
 # Tutorial: Copy multiple tables in bulk by using Azure Data Factory
-One of the core use cases targeted with Azure Data Factory Resource Manager deployment model includes bulk copy. Azure Data Factory allows you to easily create and deploy pipelines that copy data from multiple tables/paths in source to sink. You can now use the newly supported control flow activities along with copy activity in Azure Data Factory.
+Azure Data Factory allows you to easily create and deploy pipelines that copy data from multiple tables/paths in source to sink. You can now use the newly supported control flow activities along with copy activity in Azure Data Factory.
 
 This tutorial demonstrates **copying a number of tables from Azure SQL Database to Azure SQL Data Warehouse**. You can apply the same pattern in other copy scenarios as well. For example, copying tables from SQL Server/Oracle to Azure SQL Database/Data Warehouse/Azure Blob, copying different paths from Blob to Azure SQL Database tables.
 
