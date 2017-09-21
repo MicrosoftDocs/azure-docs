@@ -15,7 +15,7 @@ ms.date: 09/14/2017
 Graphical Processing Unit (GPU) is widely used to process computationally intensive tasks that can typically happen when training certain deep neural network models. By using GPUs, you can reduce the training time of the models significantly. In this document, you learn how to configure Azure ML Workbench to use  [DSVM (Data Science Virtual Machine)](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) equipped with GPUs as execution target. 
 
 ## Prerequisites
-- To step through this how-to guide, you need to first [install Azure ML Workbench](quick-start-installation.md).
+- To step through this how-to guide, you need to first [install Azure ML Workbench](quickstart-installation.md).
 - You need to have access to computers equipped with NVidia GPUs.
     - You can run your scripts directly on local machine (Windows or macOS) with GPUs.
     - You can also run scripts in a Docker container on a machine with GPUs.
