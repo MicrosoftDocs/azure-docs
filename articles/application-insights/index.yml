@@ -20,10 +20,37 @@ sections:
   items:
   - type: paragraph
     text: Learn how to start monitoring your application with Azure Application Insights.
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/media/common/dotnet.svg
+      text: .NET
+      href: quick-monitor-portal
+    - image: 
+        src: https://docs.microsoft.com/media/common/nodejs.svg
+      text: Node.js
+      href: app-insights-nodejs-quick-start
+    - image: 
+        src: https://docs.microsoft.com/media/common/java.svg
+      text: Java
+      href: app-insights-java-quick-start
+    - image: 
+        src: https://docs.microsoft.com/media/common/dotnet.svg
+      text: ASP.NET
+      href: app-insights-dotnetcore-quick-start
 - title: Step-by-step Tutorials
   items:
   - type: paragraph
     text: Learn how to continuously improve the performance & usage of your live web applications.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="app-insights-tutorial-runtime-exceptions">Find and diagnose run-time exceptions</a>
+    - html: <a href="app-insights-tutorial-performance">Find and diagnose performance issues</a>
+    - html: <a href="app-insights-tutorial-alert">Monitor and alert on application health</a>
+    - html: <a href="app-insights-tutorial-users">Analyze customer usage and information</a>
+    - html: <a href="app-insights-tutorial-dashboards">Create custom KPI dashboards</a>
 - title: Reference
   items:
   - type: list
