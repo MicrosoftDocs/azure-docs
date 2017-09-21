@@ -61,20 +61,20 @@ Follow the [Install and create Quickstart](quickstart-installation.md) to instal
 
    ![select iris](media/tutorial-classifying-iris/select_iris_csv.png)
 
->[!IMPORTANT]
->Make sure you select the `iris.csv` file from within the current project directory for this exercise, otherwise latter steps may fail. 
+   >[!IMPORTANT]
+   >Make sure you select the `iris.csv` file from within the current project directory for this exercise, otherwise latter steps may fail. 
 
-A new file `iris-1.dsource` is created. The file is named uniquely with a dash-one since the sample project already comes with an unnumbered `iris.dsource` file.  The file opens and the data is shown. A series of column headers, from `Column1` to `Column5`, are automatically added to this dataset. Scroll to the bottom and notice the last row of the dataset is empty. It is because of an extra line break in the csv file.
+4. A new file `iris-1.dsource` is created. The file is named uniquely with a dash-one since the sample project already comes with an unnumbered `iris.dsource` file.  The file opens and the data is shown. A series of column headers, from `Column1` to `Column5`, are automatically added to this dataset. Scroll to the bottom and notice the last row of the dataset is empty. It is because of an extra line break in the csv file.
 
-![iris data view](media/tutorial-classifying-iris/iris_data_view.png)
+   ![iris data view](media/tutorial-classifying-iris/iris_data_view.png)
 
-Now click on the **Metrics** button. Observe the histograms and a complete set of statistics that are calculated for you for each column. You can also click the **Data** button to see the data again. 
+5. Now click on the **Metrics** button. Observe the histograms and a complete set of statistics that are calculated for you for each column. You can also click the **Data** button to see the data again. 
 
-![iris data view](media/tutorial-classifying-iris/iris_metrics_view.png)
+   ![iris data view](media/tutorial-classifying-iris/iris_metrics_view.png)
 
-Click on the **Prepare** button next to the **Metrics** button (or the **Data** button if you are on the metrics view). The **Prepare** dialog pops up. The sample project already comes with a `iris.dprep` file, so by default it asks you to create a new data flow in that existing **iris.dprep** data prep package. Change the dropdown value to **+New Data Preparation Package**, and enter a new value "iris-1", then click on **OK**.
+6. Click on the **Prepare** button next to the **Metrics** button (or the **Data** button if you are on the metrics view). The **Prepare** dialog pops up. The sample project already comes with a `iris.dprep` file, so by default it asks you to create a new data flow in that existing **iris.dprep** data prep package. Change the dropdown value to **+New Data Preparation Package**, and enter a new value "iris-1", then click on **OK**.
 
-![iris data view](media/tutorial-classifying-iris/new_dprep.png)
+   ![iris data view](media/tutorial-classifying-iris/new_dprep.png)
 
 A new data prep package named `iris-1.dprep` is created and opened in data preparation editor.
 
