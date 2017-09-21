@@ -26,9 +26,9 @@ The following are questions and answers that you may have when you move your Sto
 Questions and answers are arranged in the following categories:
 
 * Moving StorSimple Device Manager service
-* Using Azure Resource Manager based cmdlets
 * Moving storage accounts
-* Moving StorSimple Data Manager service 
+* Using Azure Resource Manager based cmdlets
+* Moving StorSimple Data Manager service
 * Miscellaneous
 
 ## Moving StorSimple Device Manager service
@@ -52,7 +52,7 @@ No. Moving StorSimple Device Manager service from one subscription to another is
 
 ### I initiated the migration of my service to the new Azure portal. I then deleted the StorSimple Manager from the Azure classic portal. I now see this error. What should I do?
 
-From the error message, it seems that you deleted the service while the migration was in progress. At this point, you should contact Microsoft Support and file a service request. For more information, go to [Log a support ticket with Microsoft Support](storsimple-8000-contact-microsoft-support.md).
+If you got this error message: XXXXXX, it seems that you deleted the service while the migration was in progress. Please contact Microsoft Support and file a service request. For more information, go to [Log a support ticket with Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 
 ### I tried to rename my StorSimple Device Manager service. I got an error. Can I not rename the service?
 
