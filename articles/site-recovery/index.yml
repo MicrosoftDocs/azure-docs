@@ -61,9 +61,9 @@ sections:
     style: unordered
     items: 
     - image: 
-        src: 
-        text: Migrate to Azure
-        href: 
+      src: 
+      text: Migrate to Azure
+      href: 
   - type: list
     style: ordered
     items:
