@@ -2,8 +2,6 @@
 ## [Virtual networks](virtual-networks-overview.md)
 ## [User-defined routes and IP forwarding](virtual-networks-udr-overview.md)
 ## [Virtual network peering](virtual-network-peering-overview.md)
-## [Virtual network service endpoints](virtual-network-service-endpoints-overview.md)
-## [Virtual network for Azure services](virtual-network-for-azure-services.md)
 ## [Security](security-overview.md)
 ## [Business continuity](virtual-network-disaster-recovery-guidance.md)
 ## [FAQ](virtual-networks-faq.md)
@@ -50,9 +48,6 @@
 #### [Same deployment model - different subscriptions](create-peering-different-subscriptions.md)
 #### [Different deployment models - same subscription](create-peering-different-deployment-models.md)
 #### [Different deployment models - different subscriptions](create-peering-different-deployment-models-subscriptions.md)
-
-### [Virtual network service endpoints](virtual-network-service-endpoints-configure.md)
-### [Public IP address in an availability zone](create-public-ip-availability-zone-portal.md)
 
 ### Virtual machines
 #### Create a VM with a static public IP address
