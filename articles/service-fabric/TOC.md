@@ -131,6 +131,8 @@
 ### [Linux](service-fabric-get-started-linux.md)
 ### [Mac OS](service-fabric-get-started-mac.md)
 
+## [Set up the Service Fabric CLI](service-fabric-cli.md)
+
 ## Build an application
 ### [Create your first C# app in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 ### Build a guest executable service
@@ -280,8 +282,6 @@
 
 ### [Visualize a cluster](service-fabric-visualizing-your-cluster.md)
 ### [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md)
-
-### [Getting started with Service Fabric CLI](service-fabric-cli.md)
 ### [Patch cluster nodes](service-fabric-patch-orchestration-application.md)
 
 ### Manage and orchestrate cluster resources
