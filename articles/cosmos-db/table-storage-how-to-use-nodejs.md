@@ -26,8 +26,7 @@ This topic shows how to perform common scenarios using the Azure Table service i
 
 The code examples in this topic assume you already have a Node.js application. For information about how to create a Node.js application in Azure, see any of these topics:
 
-* [Create a Node.js web app in Azure App Service](../app-service-web/app-service-web-get-started-nodejs.md)
-* [Build and deploy a Node.js web app to Azure using WebMatrix](../app-service-web/web-sites-nodejs-use-webmatrix.md)
+* [Create a Node.js web app in Azure App Service](../app-service/app-service-web-get-started-nodejs.md)
 * [Build and deploy a Node.js application to an Azure Cloud Service](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (using Windows PowerShell)
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
@@ -63,8 +62,6 @@ var azure = require('azure-storage');
 
 ## Set up an Azure Storage connection
 The azure module will read the environment variables AZURE\_STORAGE\_ACCOUNT and AZURE\_STORAGE\_ACCESS\_KEY, or AZURE\_STORAGE\_CONNECTION\_STRING for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **TableService**.
-
-For an example of setting the environment variables in the [Azure portal](https://portal.azure.com) for an Azure Website, see [Node.js web app using the Azure Table Service](../app-service-web/storage-nodejs-use-table-storage-web-site.md).
 
 ## Create a table
 The following code creates a **TableService** object and uses it to create a new table. Add the following near the top of **server.js**.
@@ -451,4 +448,4 @@ For more information, see the following resources.
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 * [Azure Storage SDK for Node](https://github.com/Azure/azure-storage-node) repository on GitHub.
 * [Node.js Developer Center](/develop/nodejs/)
-* [Create and deploy a Node.js application to an Azure website](../app-service-web/app-service-web-get-started-nodejs.md)
+* [Create and deploy a Node.js application to an Azure website](../app-service/app-service-web-get-started-nodejs.md)

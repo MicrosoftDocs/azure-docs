@@ -6,9 +6,9 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.custom: mvc
-ms.topic: hero-article
+ms.topic: quickstart
 ms.devlang: java
 ms.date: 06/20/2017
 ---

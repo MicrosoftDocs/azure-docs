@@ -11,7 +11,7 @@ tags:
 ms.assetid: 3e12c488-9c8c-4d0d-9b07-e018dec42fc6
 ms.service: azure-portal
 ms.devlang: na
-ms.topic: article
+ms.topic: landing-page
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2017
