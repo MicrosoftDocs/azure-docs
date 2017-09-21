@@ -47,7 +47,7 @@ You can use Load Balancer Standard either in a public or internal configuration 
 - port forward inbound traffic to a single backend instance.
 - translate outbound traffic from a private IP address within the VNet to a public IP address.
 
-### <a href="enterprisescale"></a>Enterprise scale
+### <a name = "enterprisescale"></a>Enterprise scale
 
  Use Load Balancer Standard in designing your high-performance virtual data center. You can use standalone VM instances or up to 1000 instance virtual machine scale sets in a backend pool, and support any TCP or UDP application. With Load Balancer Standard, your application can still take advantage of the low forwarding latency, high throughput performance, and scale to millions of flows on a fully managed Azure service.
  
@@ -202,7 +202,7 @@ Associate an NSG with subnets or with NICs of VM instances in the backend pool. 
 
 To learn more about network security groups and how to apply them for your scenario, see [Network Security Groups](../virtual-network/virtual-networks-nsg.md).
 
-### <a href="outbound connections"></a>Outbound connections
+### <a name ="outboundconnections"></a>Outbound connections
 
  Load Balancer Standard provides outbound connections for VMs inside the VNet when associated with a Load Balance using port masquerading Source Network Address Translation (SNAT).
 
