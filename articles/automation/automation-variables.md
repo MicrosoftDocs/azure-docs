@@ -69,13 +69,15 @@ The workflow activities in the following table are used to access Automation var
 > [!NOTE] 
 > You should avoid using variables in the –Name parameter of **Get-AutomationVariable**  in a runbook or DSC configuration since this can complicate discovering dependencies between runbooks or DSC configuration, and Automation variables at design time.
 
+The functions in the following table are used to access and retrieve variables in a Python2 runbook. 
+
 |Python2 Functions|Description|
 |:---|:---|
-|automationassets.get_automation_credential|Retrieves the value of an existing variable. |
-|automationassets.set_automation_credential|Sets the value for an existing variable. |
+|automationassets.get_automation_variable|Retrieves the value of an existing variable. |
+|automationassets.set_automation_variable|Sets the value for an existing variable. |
 
 > [!NOTE] 
-> You must import the "automationassets" module at the top of your python runbook in order to access the asset functions.
+> You must import the "automationassets" module at the top of your Python runbook in order to access the asset functions.
 
 ## Creating a new Automation variable
 
@@ -138,7 +140,6 @@ The following sample code shows how to update a variable with a complex value in
     $vm = Get-AzureVM -ServiceName "MyVM" -Name "MyVM"
     Set-AutomationVariable -Name "MyComplexVariable" -Value $vm
 
-
 In the following code, the value is retrieved from the variable and used to start the virtual machine.
 
     $vmObject = Get-AutomationVariable -Name "MyComplexVariable"
@@ -164,8 +165,8 @@ In the following code, the collection is retrieved from the variable and used to
        }
     }
     
-#### Setting and retrieving a variable in python2
-The following sample code shows how to use a variable, set a variable, and handle an exception for a non-existent variable in a python2 runbook.
+#### Setting and retrieving a variable in Python2
+The following sample code shows how to use a variable, set a variable, and handle an exception for a non-existent variable in a Python2 runbook.
 
 	import automationassets
 	from automationassets import AutomationAssetNotFound

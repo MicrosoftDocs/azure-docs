@@ -89,7 +89,7 @@ The **typeProperties** section is different for each type of dataset and provide
 | **tableName** |The name of the table in the DB2 database instance that the linked service refers to. This property is case-sensitive. |No (if the **query** property of a copy activity of type **RelationalSource** is specified) |
 
 ## Copy Activity properties
-For a list of the sections and properties that are available for defining copy activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Copy Activity properties, such as **name**, **description**, **inputs** table, **outputs** table, and **policy**, are available for all types of activities. The properties that are available in the **typeProperties** section of the activity for each activity type. For Copy Activity, the properties vary depending on the types of data sources and sinks.
+For a list of the sections and properties that are available for defining copy activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Copy Activity properties, such as **name**, **description**, **inputs** table, **outputs** table, and **policy**, are available for all types of activities. The properties that are available in the **typeProperties** section of the activity vary for each activity type. For Copy Activity, the properties vary depending on the types of data sources and sinks.
 
 For Copy Activity, when the source is of type **RelationalSource** (which includes DB2), the following properties are available in the **typeProperties** section:
 

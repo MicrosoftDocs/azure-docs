@@ -1,3 +1,4 @@
+   
 ---
 title: Azure Government Security + Identity | Microsoft Docs
 description: This provides a comparision of features and guidance on developing applications for Azure Government
@@ -31,7 +32,26 @@ The following information identifies the Azure Government boundary for Azure Key
 Key Vault is generally available in Azure Government. There is no extension, so Key Vault is available through PowerShell and CLI only.
 
 
-## Next steps
+## Azure Active Directory Premium
+Azure Active Directory Premium is in Limited Preview in Azure Government.
+
+For details about this service and how to use it, see the [Azure Active Directory Documentation](../active-directory/index.md). For details about how to sign up for Preview, see the [announcement blog](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/07/azure-active-directory-premium-is-now-in-limited-preview-in-us-government-cloud/).
+
+### Variations
+
+The following Azure Active Directory Premium features are currently not available in Azure Government:
+
+  * B2B collaboration [Vote for this feature](https://feedback.azure.com/forums/558487-azure-government/suggestions/20588554-azure-ad-b2b-in-azure-government)
+
+  * Group-based licensing
+
+  * Azure Active Directory app gallery
+
+  * Azure Active Directory domain services
+
+  * Intune-enabled conditional access scenarios
+
+## Next Steps
 For supplemental information and updates, subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government blog. </a>
 

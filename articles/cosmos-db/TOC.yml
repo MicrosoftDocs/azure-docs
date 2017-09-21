@@ -93,6 +93,10 @@
       href: local-emulator.md
     - name: Export certificates
       href: local-emulator-export-ssl-certificates.md
+  - name: 6 - Integrate with Functions
+    items:
+    - name: HTTP trigger
+      href: tutorial-functions-http-trigger.md
 - name: Samples
   items:
   - name: Azure CLI 2.0
@@ -358,6 +362,8 @@
   items:
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
+  - name: Try Azure Cosmos DB for free
+    href: https://azure.microsoft.com/try/cosmosdb/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cosmos-db/
   - name: FAQ

@@ -1,6 +1,6 @@
 ---
-title: Continuous Deployment with Azure Web Apps for Containers | Microsoft Docs
-description: How to setup continuous deployment in Azure Web Apps for Containers.
+title: Continuous Deployment with Azure Web App for Containers | Microsoft Docs
+description: How to setup continuous deployment in Azure Web App for Containers.
 keywords: azure app service, linux, oss, acr
 services: app-service
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.date: 05/10/2017
 ms.author: aelnably;wesmc
 
 ---
-# Continuous deployment with Azure Web Apps for Containers
+# Continuous deployment with Azure Web App for Containers
 
 In this tutorial, you configure continuous deployment for a custom container image from Managed [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/) repositories or [Docker Hub](https://hub.docker.com).
 
@@ -83,10 +83,10 @@ When the image gets updated, the web app get updated automatically with the new 
 
 ## Next steps
 
-* [What is Azure Web Apps for Containers?](./app-service-linux-intro.md)
+* [What is Azure Web App for Containers?](./app-service-linux-intro.md)
 * [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/)
-* [Using .NET Core in Azure Web Apps for Containers](quickstart-dotnetcore.md)
-* [Using Ruby in Azure Web Apps for Containers](quickstart-ruby.md)
-* [How to use a custom Docker image for Azure Web Apps for Containers](quickstart-custom-docker-image.md)
-* [Azure App Service Web Apps for Containers FAQ](./app-service-linux-faq.md) 
-* [Manage Web Apps for Containers using Azure CLI 2.0](./app-service-linux-cli.md)
+* [Using .NET Core in Azure Web App for Containers](quickstart-dotnetcore.md)
+* [Using Ruby in Azure Web App for Containers](quickstart-ruby.md)
+* [How to use a custom Docker image for Azure Web App for Containers](quickstart-custom-docker-image.md)
+* [Azure App Service Web App for Containers FAQ](./app-service-linux-faq.md) 
+* [Manage Web App for Containers using Azure CLI 2.0](./app-service-linux-cli.md)
