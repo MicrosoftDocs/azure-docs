@@ -15,30 +15,52 @@ metadata:
   ms.date: 04/28/2017
   ms.author: carolz
 abstract:
-  description: Microsoft Azure Stack is a hybrid cloud platform that lets you provide Azure services from your datacenter. Learn how to deploy Azure Stack and offer services with our quickstart and tutorials.
+  description: Azure Stack is a hybrid cloud platform that lets you use Azure services from your company's or service provider's datacenter. As a developer, you can build apps on Azure Stack. You can then deploy them to Azure Stack, to Azure, or you can build truly hybrid apps that leverage the connectivity between an Azure Stack cloud and Azure.  Learn how to create resources and deploy apps with our quickstarts and tutorials.
 sections:
 - title: Quickstart
   items:
   - type: paragraph
-    text: 'Set up your hardware and deploy Azure Stack:'
+    text: 'Learn how to deploy a Windows virtual machine on Azure Stack:'
   - type: list
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/media/common/i_deploy.svg
-      text: Deploy Azure Stack
-      href: azure-stack-deploy-overview.md
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: Create Windows VM - Portal
+      href: azure-stack-quick-windows-portal.md 
+    - image: 
+        src: https://docs.microsoft.com/media/logos/logo_powershell.svg
+      text: Create Windows VM - PowerShell
+      href: azure-stack-quick-create-vm-windows-powershell.md 
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg
+      text: Create Windows VM - CLI
+      href: azure-stack-quick-create-vm-windows-cli.md
+  - type: paragraph
+    text: 'Learn how to deploy a Linux virtual machine on Azure Stack:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: Create Linux VM - Portal
+      href: azure-stack-quick-linux-portal.md 
+    - image: 
+        src: https://docs.microsoft.com/media/logos/logo_powershell.svg
+      text: Create a Linux VM - PowerShell
+      href: azure-stack-quick-create-vm-linux-powershell.md 
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg
+      text: Create a LInux VM - CLI
+      href: azure-stack-quick-create-vm-linux-cli.md
 - title: Step-by-step tutorials
   items:
   - type: paragraph
-    text: 'Learn how to add services to your Azure Stack deployment:'
+    text: 'Deploy applications across both Azure and Azure Stack:'
   - type: list
-    style: unordered
+    style: ordered
     items:
-    - html: <a href="/azure/azure-stack/azure-stack-tutorial-tenant-vm">Enable Virtual Machines on Azure Stack</a>
-    - html: <a href="/azure/azure-stack/azure-stack-tutorial-sql-server">Enable SQL Databases on Azure Stack</a>
-    - html: <a href="/azure/azure-stack/azure-stack-tutorial-app-service">Enable Web Apps on Azure Stack</a>
-    - html: <a href="/azure/azure-stack/azure-stack-solution-pipeline">Deploy applications across both Azure &amp; Azure Stack</a>
+    - html: <a href="/azure/azure-stack/azure-stack-solution-pipeline">Deploy apps to Azure Stack and Azure</a>
 - title: Reference
   items:
   - type: list
