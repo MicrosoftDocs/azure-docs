@@ -49,7 +49,7 @@ You can use Load Balancer Standard either in a public or internal configuration 
 
 ### <a href="enterprisescale"></a>Enterprise scale
 
- Use Load Balancer Standard in designing your high-performance virtual data center. You can use standalone VM instances or up to 1000 instance virtual machine scale sets in a backend pool, and support any TCP or UDP application. In addition, you can also mix standalone VM instances, availability sets, and virtual machine scale sets in the same backend pool. With Load Balancer Standard, your application can still take advantage of the low forwarding latency, high throughput performance, and scale to millions of flows on a fully managed Azure service.
+ Use Load Balancer Standard in designing your high-performance virtual data center. You can use standalone VM instances or up to 1000 instance virtual machine scale sets in a backend pool, and support any TCP or UDP application. With Load Balancer Standard, your application can still take advantage of the low forwarding latency, high throughput performance, and scale to millions of flows on a fully managed Azure service.
  
 Load Balancer Standard can forward traffic to any VM instance in a VNet in a region. Backend pool sizes can be up to 1000 instances with any combination of:
 
