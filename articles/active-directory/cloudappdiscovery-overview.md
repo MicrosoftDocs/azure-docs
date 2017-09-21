@@ -1,5 +1,5 @@
 ---
-title: Cloud App Discovery enhancements in Azure Active Directory | Microsoft Docs
+title: Cloud App Discovery imporovements in Azure Active Directory | Microsoft Docs
 description: Provides information about finding and managing applications with Cloud App Discovery, what are the benefits and how it works.
 services: active-directory
 keywords: cloud app discovery, managing applications

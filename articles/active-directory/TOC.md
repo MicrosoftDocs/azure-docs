@@ -148,7 +148,7 @@
 ### [Overview](active-directory-enable-sso-scenario.md)
 ### [Getting started](active-directory-integrating-applications-getting-started.md)
 ### [SaaS app integration tutorials](active-directory-saas-tutorial-list.md)
-### [Cloud App Discovery enhancements preview](cloudappdiscovery-overview.md)
+### [Cloud App Discovery capabilities in Azure AD](cloudappdiscovery-overview.md)
 #### [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
 #### [Update registry settings](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Understand security and privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
