@@ -113,9 +113,9 @@ In all of these use cases, because the function has decoupled the app itself, yo
 Native integration between Azure Cosmos DB and Azure Functions is available in the Azure portal.
 * In the Azure Functions portal, you can create an Azure Cosmos DB trigger. For quickstart instructions, see [Create an Azure Cosmos DB trigger in the Azure portal](https://aka.ms/cosmosdbtriggerportalfunc)
     ![Create an Azure Cosmos DB trigger in the Azure Functions portal](./media/serverless-computing-database/azure-function-cosmos-db-trigger.png) 
-* In the Azure Functions portal, you can also add Azure Cosmos DB input bindings and output bindings to other types of triggers.
+* In the Azure Functions portal, you can also add Azure Cosmos DB input bindings and output bindings to other types of triggers. For quickstart instructions, see [Store unstructured data using Azure Functions and Cosmos DB](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md).
     ![Create an Azure Cosmos DB trigger in the Azure Functions portal](./media/serverless-computing-database/function-portal-input-binding.png)
-*   In the Azure Cosmos DB portal, you can add an Azure Cosmos DB trigger and Azure Function to an existing Azure Function app.
+*   In the Azure Cosmos DB portal, you can add an Azure Cosmos DB trigger to an existing Azure Function app in the same resource group.
     ![Create an Azure Cosmos DB trigger in the Azure Functions portal](./media/serverless-computing-database/cosmos-db-portal.png)
 
 ## Why choose Azure Functions integration for serverless computing?
