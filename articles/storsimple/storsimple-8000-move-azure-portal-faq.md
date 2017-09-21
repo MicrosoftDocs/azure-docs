@@ -28,6 +28,7 @@ Questions and answers are arranged in the following categories:
 * Moving StorSimple Device Manager service
 * Using Azure Resource Manager based cmdlets
 * Moving storage accounts
+* Moving StorSimple Data Manager service 
 * Miscellaneous
 
 
@@ -57,13 +58,6 @@ From the error message, it seems that you deleted the service while the migratio
 ### I tried to rename my StorSimple Device Manager service. I got an error. Can I not rename the service?
 
 No. The service name cannot be changed after the service is created. The same behavior is also true for other entities such as devices, volumes, volume containers, and backup policies.
-
-### I am using StorSimple Data Manager service. How should I proceed with this move?
-
-If you are using StorSimple Data Manager service, you must move your StorSimple Device Managers first to the new Azure portal. Once the move is complete, create new StorSimple Data Managers in the Azure portal. StorSimple Data Managers created prior to the move do not work.
-
-For more information on StorSimple Device Manager service migration, go to [Move your service to Azure portal](storsimple-8000-manage-service.md#move-a-service-to-azure-portal). For more information on StorSimple Data Manager creation, go to [Create a StorSimple Data Manager service](storsimple-data-manager-ui.md).
-
 
 ### Can I create the 8010/8020 VMs with Azure Resource Manager deployment model?
 
@@ -117,7 +111,13 @@ The existing Azure Service Management (ASM) PowerShell cmdlets are not supported
 
 No. With your service moving to new Azure portal, there should be no impact on the Windows PowerShell for StorSimple cmdlets associated with the on-premises StorSimple device. You can continue to use these cmdlets to create a Support package without any issues even in the new Azure portal. Only the Azure PowerShell cmdlets are impacted by this move.
 
+## Moving StorSimple Data Manager service
 
+### I am using StorSimple Data Manager service. How should I proceed with this move?
+
+If you are using StorSimple Data Manager service, you must move your StorSimple Device Managers first to the new Azure portal. Once the move is complete, create new StorSimple Data Managers in the Azure portal. StorSimple Data Managers created prior to the move do not work.
+
+For more information on StorSimple Device Manager service migration, go to [Move your service to Azure portal](storsimple-8000-manage-service.md#move-a-service-to-azure-portal). For more information on StorSimple Data Manager creation, go to [Create a StorSimple Data Manager service](storsimple-data-manager-ui.md).
 
 ## Miscellaneous
 
