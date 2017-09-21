@@ -80,6 +80,7 @@ Create a new project using this example as a template:
     ```
 
     You are asked to visit a URL and type in a provided temporary code; the website requests your Azure account credentials.
+    
 1. When login is complete, return to the CLI and run the following command to determine which Azure subscriptions are available to your Azure account:
 
     ```
