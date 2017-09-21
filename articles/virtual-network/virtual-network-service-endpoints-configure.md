@@ -26,7 +26,7 @@ This article provides steps to enable and disable service endpoints. Once endpoi
 Service endpoints can be configured using [Azure portal](#Azure%20portal), [Azure PowerShell](#Azure%20Powershell), [Azure command-line interface](#cli), or an Azure Resource Manager [template](#template).
 
 >[!NOTE]
-During preview, Vnet service endpoints feature is supported for specific regions. For the list of supported regions, refer to  the [Azure Virtual Network updates](https://azure.microsoft.com/en-us/updates/?product=virtual-network) page.
+During preview, Vnet service endpoints feature is supported for specific regions. For the list of supported regions, refer to  the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
 
 ## Service endpoint configuration overview
 
