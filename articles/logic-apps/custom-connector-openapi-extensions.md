@@ -177,9 +177,9 @@ Here's an example that shows the properties in `x-ms-dynamic-values`:
   "value-title": "properties/displayName",
   "value-collection": "value",
   "parameters": {
-     "staticParameter": "{value}",
+     "staticParameter": "<value>",
      "dynamicParameter": {
-        "parameter": "{value-to-pass-to-dynamicParameter}"
+        "parameter": "<value-to-pass-to-dynamicParameter>"
      }
   }
 }

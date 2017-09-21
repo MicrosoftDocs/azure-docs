@@ -40,10 +40,9 @@ This tutorial uses Visual Studio 2015.
 you can start with a [free Azure account](https://azure.microsoft.com/free/). 
 Otherwise, sign up for a [Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
 
-## Create and deploy an ASP.NET Web App to Azure
+## Create and deploy an ASP.NET web app to Azure
 
-For this tutorial, create a Visual C# ASP.NET Web Application. 
-For general information about how to create 
+For this tutorial, create a Visual C# ASP.NET web application. 
 
 1. Open Visual Studio, then choose **File** > **New Project**.
 
@@ -55,7 +54,7 @@ For general information about how to create
 
    For example:
 
-   ![Create a Visual C# ASP.NET Web Application](./media/custom-connector-build-web-api-app-tutorial/visual-studio-new-project-aspnet-web-app.png)
+   ![Create a Visual C# ASP.NET web application](./media/custom-connector-build-web-api-app-tutorial/visual-studio-new-project-aspnet-web-app.png)
 
 2. In the **New ASP.NET Web Application** box, 
 select the **Web API** template. If not already selected, 

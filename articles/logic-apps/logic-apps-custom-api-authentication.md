@@ -45,7 +45,7 @@ or [Azure AD authentication](#azure-ad-code) through code.
 
 ### Authenticate calls to your API without changing code
 
-Here's the general steps for this method:
+Here are the general steps for this method:
 
 1. Create two Azure Active Directory (Azure AD) application identities: 
 one for your logic app and one for your web app (or API app).
