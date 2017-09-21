@@ -20,7 +20,7 @@ ms.author: genli
 ---
 # Add or change Azure administrator roles that manage the subscription or services
 
-You can change the Azure administrator that manages your Azure subscription or manages the Azure services used in your subscription. To view Azure billing information and manage subscriptions, you must sign in to the [Account Center](https://account.windowsazure.com/Home/Index) as the Account Administrator. 
+You can change the Azure administrator that manages your Azure subscription or manages the Azure services used in your subscription. To view Azure billing information and manage subscriptions, you must sign in to the Account Center as the Account Administrator. 
 
 <a name="add-an-admin-for-a-subscription"></a>
 
@@ -97,7 +97,7 @@ To change the Account Administrator of a subscription, see [Transfer ownership o
 
 | Administrative role | Limit | Description |
 | --- | --- | --- |
-| Account Administrator (AA) |1 per Azure account |This is the person who signed up for or bought Azure subscriptions, and is authorized to access the [Account Center](https://account.windowsazure.com/Home/Index) and perform various management tasks. These include being able to create subscriptions, cancel subscriptions, change the billing for a subscription, and change the Service Administrator. |
+| Account Administrator (AA) |1 per Azure account |This is the person who signed up for or bought Azure subscriptions, and is authorized to access the [Account Center](https://account.azure.com/Subscriptions) and perform various management tasks. These include being able to create subscriptions, cancel subscriptions, change the billing for a subscription, and change the Service Administrator. |
 | Service Administrator (SA) |1 per Azure subscription |This role is authorized to manage services in the [Azure portal](https://portal.azure.com). By default, for a new subscription, the Account Administrator is also the Service Administrator. |
 | Co-administrator (CA) in the [Azure classic portal](https://manage.windowsazure.com) |200 per subscription |This role has the same access privileges as the Service Administrator, but can’t change the association of subscriptions to Azure directories. |
 
