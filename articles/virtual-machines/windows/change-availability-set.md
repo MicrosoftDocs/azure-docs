@@ -27,26 +27,26 @@ The following steps describe how to change the availability set of a VM using Az
    
     Name of the VM
    
-    ```azurepowershell-interactive
+    ```powershell
     $vm = Get-AzureRmVM -ResourceGroupName <Name-of-resource-group> -Name <name-of-VM>
     $vm.Name
     ```
    
     VM Size
    
-    ```azurepowershell-interactive
+    ```powershell
     $vm.HardwareProfile.VmSize
     ```
    
     Network primary network interface and optional network interfaces if they exist on the VM
    
-    ```azurepowershell-interactive
+    ```powershell
     $vm.NetworkProfile.NetworkInterfaces[0].Id
     ```
    
     OS Disk Profile
    
-    ```azurepowershell-interactive
+    ```powershell
     $vm.StorageProfile.OsDisk.OsType
     $vm.StorageProfile.OsDisk.Name
     $vm.StorageProfile.OsDisk.Vhd.Uri
@@ -54,29 +54,29 @@ The following steps describe how to change the availability set of a VM using Az
    
     Disk profiles for each data disk 
    
-    ```azurepowershell-interactive
+    ```powershell
     $vm.StorageProfile.DataDisks[<index>].Lun
     $vm.StorageProfile.DataDisks[<index>].Vhd.Uri
     ```
    
     VM extensions installed 
    
-    ```azurepowershell-interactive
+    ```powershell
     $vm.Extensions
     ```
 2. Delete the VM without deleting any of the disks or the network interfaces.
    
-    ```azurepowershell-interactive
+    ```powershell
     Remove-AzureRmVM -ResourceGroupName <resourceGroupName> -Name <vmName> 
     ```
 3. Create the availability set if it does not already exist
    
-    ```azurepowershell-interactive
+    ```powershell
     New-AzureRmAvailabilitySet -ResourceGroupName <resourceGroupName> -Name <availabilitySetName> -Location "<location>" 
     ```
 4. Recreate the VM using the new availability set
    
-    ```azurepowershell-interactive
+    ```powershell
     $vm2 = New-AzureRmVMConfig -VMName <VM-name> -VMSize <vm-size> -AvailabilitySetId <availability-set-id>
    
     Set-AzureRmVMOSDisk -CreateOption "Attach" -VM <vmConfig> -VhdUri <osDiskURI> -Name <osDiskName> [-Windows | -Linux]
@@ -90,7 +90,7 @@ The following steps describe how to change the availability set of a VM using Az
 ## Example Script
 The following script provides an example of gathering the required information, deleting the original VM and then recreating it in a new availability set.
 
-```azurepowershell-interactive
+```powershell
     #set variables
     $rg = "demo-resource-group"
     $vmName = "demo-vm"

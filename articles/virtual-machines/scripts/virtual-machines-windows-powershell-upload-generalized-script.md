@@ -29,7 +29,7 @@ This script takes a local .vhd file from a generalized VM and uploads it to Azur
 
 ## Sample script
 
-```azurepowershell-interactive
+```powershell
 # Provide values for the variables
 $resourceGroup = 'myResourceGroup'
 $location = 'EastUS'
@@ -117,7 +117,7 @@ $vmList.Name
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```azurepowershell-interactive
+```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 

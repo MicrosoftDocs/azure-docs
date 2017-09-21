@@ -131,19 +131,19 @@ The following were issues discovered in many of the larger migrations. This is n
 
     **Compute** *(Cores, Availability Sets)*
 
-    ```azurepowershell-interactive
+    ```powershell
     Get-AzureRmVMUsage -Location <azure-region>
     ```
 
     **Network** *(Virtual Networks, Static Public IPs, Public IPs, Network Security Groups, Network Interfaces, Load Balancers, Route Tables)*
 
-    ```azurepowershell-interactive
+    ```powershell
     Get-AzureRmUsage /subscriptions/<subscription-id>/providers/Microsoft.Network/locations/<azure-region> -ApiVersion 2016-03-30 | Format-Table
     ```
 
     **Storage** *(Storage Account)*
 
-    ```azurepowershell-interactive
+    ```powershell
     Get-AzureRmStorageUsage
     ```
 

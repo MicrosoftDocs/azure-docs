@@ -23,11 +23,9 @@ ms.custom: mvc
 
 This script creates a virtual machine from a snapshot of an OS disk. 
 
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
-
-If you choose to install and use the PowerShell locally, this tutorial requires that you are Azure PowerShell module version 4.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure. 
 
 ## Sample script
 
@@ -37,7 +35,7 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```azurepowershell-interactive
+```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
