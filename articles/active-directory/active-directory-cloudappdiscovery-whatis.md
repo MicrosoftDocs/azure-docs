@@ -1,5 +1,5 @@
 ---
-title: Finding unmanaged cloud applications with Cloud App Discovery | Microsoft Docs
+title: Find unmanaged cloud applications with Cloud App Discovery in Azure Active Directory | Microsoft Docs
 description: Provides information about finding and managing applications with Cloud App Discovery, what are the benefits and how it works.
 services: active-directory
 keywords: cloud app discovery, managing applications
@@ -13,14 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 09/19/2017
 ms.author: markvi
 ms.reviewer: nigu
 
 ---
-# Finding unmanaged cloud applications with Cloud App Discovery
+# Find unmanaged cloud applications with Cloud App Discovery
 ## Overview
 In modern enterprises, IT departments are often not aware of all the cloud applications that members of their organization use to do their work. It is easy to see why administrators would have concerns about unauthorized access to corporate data, possible data leakage and other security risks. This lack of awareness can make creating a plan for dealing with these security risks seem daunting.
+
+> [!TIP] 
+> Check out the public preview of Azure AD Cloud App Discovery that is enhanced by integration with Microsoft Cloud App Security.
+> 
+> [!div class="nextstepaction"]
+> [Cloud App Security](https://portal.cloudappsecurity.com) 
+
 
 Cloud App Discovery is a feature of Azure Active Directory (AD) Premium that enables you to discover cloud applications being used by the people in your organization.
 
@@ -29,7 +36,7 @@ Cloud App Discovery is a feature of Azure Active Directory (AD) Premium that ena
 * Find the cloud applications being used and measure that usage by number of users, volume of traffic or number of web requests to the application.
 * Identify the users that are using an application.
 * Export data for offline analysis.
-* Bring these applications under IT control and enable single sign on for user management.
+* Bring these applications under IT control and enable single sign-on for user management.
 
 ## How it works
 1. Application usage agents are installed on user's computers.
