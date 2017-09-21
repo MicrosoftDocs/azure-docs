@@ -2,9 +2,9 @@
 ## [Azure Monitor](monitoring-overview-azure-monitor.md)
 
 # Quickstarts
-## [Alert on metric](monitor-quick-resource-metric-alert-portal.md)
-## [Alert subscription activity](monitor-quick-notify-action-in-subscription.md)
-	
+## [Alert on metric condition](monitor-quick-resource-metric-alert-portal.md)
+## [Alert on subscription activity](monitor-quick-audit-notify-action-in-subscription.md)
+
 # Tutorials
 ## [Autoscale on performance and schedule](monitor-tutorial-autoscale-performance-schedule.md)
 ## [Archive monitoring data](monitor-tutorial-archive-monitoring-data.md)
@@ -13,8 +13,6 @@
 ## [Sources of monitoring data](monitoring-data-sources.md)
 ## [Roles permissions and security](monitoring-roles-permissions-security.md)
 ## [Partner integrations](monitoring-partners.md)
-
-
 ## Additional overviews
 ### [Monitoring tools across Azure](monitoring-overview.md)
 ### [Metrics](monitoring-overview-metrics.md)
@@ -24,8 +22,6 @@
 ### [Action groups](monitoring-action-groups.md)
 ### [Diagnostic logs](monitoring-overview-of-diagnostic-logs.md)
 ### [Azure Diagnostics Extension](azure-diagnostics.md)
-
-
 ## Schemas
 ### [Azure Diagnostics extension schema](azure-diagnostics-schema.md)
 #### [1.0](azure-diagnostics-schema-1dot0.md)
@@ -47,7 +43,6 @@
 ### [Configure alerts with PowerShell](insights-alerts-powershell.md)
 ### [Have a metric alert call a webhook](insights-webhooks-alerts.md)
 ### [Create a metric alert with a Resource Manager template](monitoring-enable-alerts-using-template.md)
-### [Alert off of the Activity Log](monitor-quick-audit-notify-action-in-subscription.md)
 
 ## Use autoscale
 ### [Best practices](insights-autoscale-best-practices.md)
