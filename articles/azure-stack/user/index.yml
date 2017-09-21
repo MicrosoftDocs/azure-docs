@@ -58,7 +58,7 @@ sections:
   - type: paragraph
     text: 'Deploy applications across both Azure and Azure Stack:'
   - type: list
-    style: unordered
+    style: ordered
     items:
     - html: <a href="/azure/azure-stack/azure-stack-solution-pipeline">Deploy apps to Azure Stack and Azure</a>
 - title: Reference
