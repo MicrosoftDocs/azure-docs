@@ -2,8 +2,8 @@
 ## [What is Cost Management?](overview.md)
 
 # Quickstarts
-## [View cost data - Azure subscription](quick-register-azure-sub.md)
-## [View cost data - Enterprise Agreement](quick-register-ea.md)
+## [View cost data](quick-register-azure-sub.md)
+## [View cost data - EA](quick-register-ea.md)
 ## [View cost data - CSP](quick-register-csp.md)
 
 # Tutorials
