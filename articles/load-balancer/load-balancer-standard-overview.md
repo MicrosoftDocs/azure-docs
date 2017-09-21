@@ -1,6 +1,6 @@
 ---
-title: Azure Standard Load Balancer overview | Microsoft Docs
-description: Overview of Azure Standard Load Balancer features
+title: Azure Load Balancer Standard overview | Microsoft Docs
+description: Overview of Azure Load Balancer Standard features
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -17,7 +17,7 @@ ms.date: 09/21/2017
 ms.author: kumud
 ---
 
-# Azure Load Balancer Standard overview
+# Azure Load Balancer Standard overview (Preview)
 
 The Azure Load Balancer Standard SKU and Public IP Standard SKU together enable you to build highly scalable and reliable architectures.  Applications using Load Balancer Standard can take advantage of new capabilities in addition to low latency, high throughput, and scale for millions of flows for all TCP and UDP applications.
 
@@ -71,8 +71,8 @@ Load Balancer Standard provides new multi-dimensional diagnostic capabilities fo
 | DIP Availability | Load Balancer Standard uses a distributed health probing service that monitors your application endpoint's health according to what you have configured.  This metric provides an aggregate or per endpoint filtered view of each individual instance endpoint in the Load Balancer pool.  You can see how Load Balancer views the health of your application as indicated by your health probe configuration.
 | SYN packets | Load Balancer Standard does not terminate TCP connections or interact with TCP or UDP packet flows; flows and their handshakes are always between the source and the VM instance. To better troubleshoot all your TCP protocol scenarios, you can make use of this metric to understand how many TCP connection attempts are made. This metric reports the number of TCP SYN packets, which were received and may reflect clients attempting to establish connections to your service.|
 | SNAT connections | Load Balancer Standard reports the number of outbound connections masqueraded to the public IP address frontend.  SNAT ports are an exhaustible resource and this metric can give an indication of how heavily your application is relying on SNAT for outbound originated connections.|
-| Byte counters | Azure Load Balancer reports the data processed per frontend.|
-| Packet counters | Azure Load Balancer reports the packets processed per frontend.|
+| Byte counters | Load Balancer Standard reports the data processed per frontend.|
+| Packet counters | Load Balancer Standard reports the packets processed per frontend.|
 
 ### <a name = "highreliability"></a>High reliability
 
