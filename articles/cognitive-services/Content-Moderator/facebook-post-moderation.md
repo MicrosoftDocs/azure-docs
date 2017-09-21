@@ -30,11 +30,11 @@ Refer to the [Quickstart](quick-start.md) page to sign up for Content Moderator 
 
 ## 2. Configure image moderation workflow (threshold)
 
-Refer to the [Workflows](review-tool-user-guide/workflows) page to configure a custom image workflow (threshold). Note the workflow **name**.
+Refer to the [Workflows](review-tool-user-guide/workflows.md) page to configure a custom image workflow (threshold). Note the workflow **name**.
 
 ## 3. Configure text moderation workflow (threshold)
 
-Use steps similar to the [Workflows](review-tool-user-guide/workflows) page to configure a custom text threshold and workflow. Note the workflow **name**.
+Use steps similar to the [Workflows](review-tool-user-guide/workflows.md) page to configure a custom text threshold and workflow. Note the workflow **name**.
 
 ![Configure Text Workflow](images/text-workflow-configure.PNG)
 
@@ -54,7 +54,7 @@ Sign in to the [Azure Management Portal](https://portal.azure.com/) to create yo
     | App Setting | Description   | 
     | -------------------- |-------------|
     | cm: TeamId   | Your Content Moderator TeamId  | 
-    | cm: SubscriptionKey | Your Content Moderator subscription key - See [Credentials](/review-tool-user-guide/credentials) | 
+    | cm: SubscriptionKey | Your Content Moderator subscription key - See [Credentials](/review-tool-user-guide/credentials.md) | 
     | cm: Region | Your Content Moderator region |
     | cm: ImageWorkflow | Name of the workflow to run on Images |
     | cm: TextWorkflow | Name of the workflow to run on Text |
