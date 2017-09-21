@@ -238,7 +238,7 @@ Run the test failover as follows:
       recovery point. The time stamp is shown.
     - **Custom**: Select any recovery point.
 3. In **Test Failover**, select the target Azure network to which Azure VMs will be connected after
-   failover occurs.
+   failover occurs. This should be the network you created in the [Prepare Azure resources](#prepare-azure-resources) section.
 4. Click **OK** to begin the failover. You can track progress by clicking on the VM to open its
    properties. Or you can click the **Test Failover** job in vault name > **Settings** > **Jobs** >
    **Site Recovery jobs**.
@@ -250,15 +250,12 @@ Run the test failover as follows:
    recovery plan. In **Notes**, record and save any observations associated with the test failover.
 
 In some scenarios, failover requires additional processing that takes around eight to ten minutes
-to complete. You might notice longer test failover times for VMware Linux machines, VMware VMs that
-don't have the DHCP service enables, and VMware VMs that don't have the following boot drivers:
-storvsc, vmbus, storflt, intelide, atapi.
-
+to complete. 
 
 
 ## Migrate to Azure
 
-Run a fail over for EC2 instances. 
+Run an actual fail over for the EC2 instances to migrate them to Azure VMs. 
 
 1. In **Settings** > **Replicated items** click the AWS instances > **Failover**.
 2. In **Failover** select a **Recovery Point** to fail over to. Select the latest recovery point.
