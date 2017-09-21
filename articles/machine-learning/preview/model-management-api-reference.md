@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2017
+ms.date: 09/20/2017
 ---
 # Azure Machine Learning Model Management Account API reference
 
@@ -26,7 +26,7 @@ The Azure Machine Learning Model Management API implements the following operati
 You can use this image to create a web service either locally or on a remote ACS cluster or another Docker supported environment of your choice.
 
 ## Prerequisites
-Make sure you have gone through the installation steps in the [Installation quickstart](quick-start-installation.md) document.
+Make sure you have gone through the installation steps in the [Install and create Quickstart](quickstart-installation.md) document.
 
 The following are required before you proceed:
 1. Model Management Account provisioning
