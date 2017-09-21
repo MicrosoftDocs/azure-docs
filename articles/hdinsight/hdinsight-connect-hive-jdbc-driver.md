@@ -193,6 +193,7 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 Now that you have learned how to use JDBC to work with Hive, use the following links to explore other ways to work with Azure HDInsight.
 
+* [Visualize Hive data with Microsoft Power BI in Azure HDInsight](hdinsight-connect-hive-power-bi.md).
 * [Upload data to HDInsight](hdinsight-upload-data.md)
 * [Use Hive with HDInsight](hdinsight-use-hive.md)
 * [Use Pig with HDInsight](hdinsight-use-pig.md)
