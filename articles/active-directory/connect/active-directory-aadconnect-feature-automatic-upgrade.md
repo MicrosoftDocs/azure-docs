@@ -42,6 +42,7 @@ You can change between **Enabled** and **Disabled** with `Set-ADSyncAutoUpgrade`
 
 Automatic upgrade is using Azure AD Connect Health for the upgrade infrastructure. For automatic upgrade to work, make sure you have opened the URLs in your proxy server for **Azure AD Connect Health** as documented in [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
+
 If the **Synchronization Service Manager** UI is running on the server, then the upgrade is suspended until the UI is closed.
 
 ## Troubleshooting
@@ -91,6 +92,7 @@ Here is a list of the most common messages you find. It does not list all, but t
 | UpgradeNotSupportedMultiForestSetup |You are connecting to more than one forest. Express setup only connects to one forest. |
 | UpgradeNotSupportedNonLocalDbInstall |You are not using a SQL Server Express LocalDB database. |
 | UpgradeNotSupportedNonMsolAccount |The [AD Connector account](active-directory-aadconnect-accounts-permissions.md#active-directory-account) is not the default MSOL_ account anymore. |
+| UpgradeNotSupportedNotConfiguredSignInMethod | When setting up AAD Connect, you chose "Do not configure" when selecting the sign-on method. | 
 | UpgradeNotSupportedStagingModeEnabled |The server is set to be in [staging mode](active-directory-aadconnectsync-operations.md#staging-mode). |
 | UpgradeNotSupportedUserWritebackEnabled |You have enabled the [user writeback](active-directory-aadconnect-feature-preview.md#user-writeback) feature. |
 
