@@ -94,7 +94,7 @@ You can choose whether Load Balancer should provide a zone-redundant or zonal fr
 
 This zone-redundancy is available for public or internal frontends. Your Public IP address as well as your internal Load Balancer frontend's private IP can be zone-redundant.
 
-Create a zone-redundant Public IP address in Availability Zone 1 with the following (add "sku" to any existing Resource Manager template):
+Create a zone-redundant Public IP address with the following (add "sku" to any existing Resource Manager template):
 
 ```json
             "apiVersion": "2017-08-01",
@@ -107,7 +107,7 @@ Create a zone-redundant Public IP address in Availability Zone 1 with the follow
             },
 ```
 
-Create an internal Load Balancer frontend IP configuration in Availability Zone 1 with the following (add "sku" to any existing Resource Manager template):
+Create an internal Load Balancer zone-redundant frontend IP configuration with the following (add "sku" to any existing Resource Manager template):
 
 ```json
             "apiVersion": "2017-08-01",
@@ -130,8 +130,7 @@ Create an internal Load Balancer frontend IP configuration in Availability Zone 
                             "privateIPAllocationMethod": "Static"
                         }
                     },
-                }
-            ],
+                ],
 ```
 
 If your Public IP frontend is zone-redundant, any outbound connections made from VM instances automatically become zone-redundant and are protected from zone failure.  Your SNAT port allocation survives zone failure.
@@ -186,8 +185,7 @@ Create an internal Load Balancer frontend into Availability Zone 1 with the foll
                             "privateIPAllocationMethod": "Static"
                         }
                     },
-                }
-            ],
+                ],
 ```
 
 In addition, you can use cross-zone load balancing for your backend by placing your VM instances in a VNet into a backend pool.
@@ -383,10 +381,11 @@ The following limitations apply at the time of Preview and are subject to change
 - Load Balancer backend instances cannot be located in peered VNets at this time. All backend instances must be in the same region.
 - SKUs are not mutable. You may not change the SKU of an existing resource.
 - you can use either Basic SKU or Standard SKU with a standalone VM, all VM instances in an Availability Set or virtual machine scale set. A standalone VM, all VM instances in an Availability Set or virtual machine scale set may not be used with both simultaneously. Mixing of SKUs is not permitted.
-- using an internal Standard Load Balancer with a VM instance (or any part of an Availability Set) disables [default SNAT outbound connections](load-balancer-outbound-connections.md).  You may restore this ability to a standalone VM or VM instances Availability Set or virtual machine scale set and make outbound connections by simultaneously assigning a public Standard Load Balancer or Standard Public IP as Instance-Level Public IP to the same VM instance. Once completed, port masquerading SNAT to a Public IP address is provided again.
+- using an internal Load Balancer Standard with a VM instance (or any part of an Availability Set) disables [default SNAT outbound connections](load-balancer-outbound-connections.md).  You may restore this ability to a standalone VM or VM instances Availability Set or virtual machine scale set and make outbound connections by simultaneously assigning a public Load Balancer Standard or Public IP Standard as Instance-Level Public IP to the same VM instance. Once completed, port masquerading SNAT to a Public IP address is provided again.
 - VM instances may need to be grouped into availability sets to achieve full backend pool scale. Up to 150 availability sets and standalone VMs can be placed into a single backend pool.
 - IPv6 is not supported.
 - in the context of Availability Zones, a frontend is not mutable from zonal to zone-redundant or vice versa. Once created as zone-redundant, it is always zone-redundant. Once created as zonal, it is always zonal.
+- in the context of Availability Zones, a zonal Public IP address may not be moved from one zone to another.
 
 
 ## Next steps
