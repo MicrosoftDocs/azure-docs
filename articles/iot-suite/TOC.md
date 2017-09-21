@@ -4,7 +4,7 @@
 ## [Preconfigured solutions overview](iot-suite-what-are-preconfigured-solutions.md)
 
 # Get Started
-## Remote monitoring V2
+## Remote monitoring
 ### [Deploy the preconfigured solution](iot-suite-remote-monitoring-deploy.md)
 ### [Operate the preconfigured solution](iot-suite-remote-monitoring-explore.md)
 
@@ -17,7 +17,7 @@
 ### [Connected factory solution walkthrough](iot-suite-connected-factory-sample-walkthrough.md)
 
 # How To
-## Remote monitoring V2
+## Remote monitoring
 ### [Perform advanced monitoring](iot-suite-remote-monitoring-monitor.md)
 ### [Use rules to detect issues](iot-suite-remote-monitoring-automate.md)
 ### [Manage your devices](iot-suite-remote-monitoring-manage.md)
