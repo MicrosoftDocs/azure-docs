@@ -74,22 +74,45 @@ If a network security group is not associated to a subnet or network interface, 
 
 ### Inbound
 
-| Name | Priority | Source | Source ports | Destination | Destination ports | Protocol | Access |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| AllowVNetInBound |65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | All | Allow |
-| AllowAzureLoadBalancerInBound | 65001 | AzureLoadBalancer | 0-65535 | 0.0.0.0/0 | 0-65535 | All | Allow |
-| DenyAllInBound |65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | All | Deny |
+#### AllowVNetInBound
+
+|Priority|Source|Source ports|Destination|Destination ports|Protocol|Access|
+|---|---|---|---|---|---|---|
+|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|All|Allow|
+
+#### AllowAzureLoadBalancerInBound
+
+|Priority|Source|Source ports|Destination|Destination ports|Protocol|Access|
+|---|---|---|---|---|---|---|
+|65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|All|Allow|
+
+#### DenyAllInbound
+
+|Priority|Source|Source ports|Destination|Destination ports|Protocol|Access|
+|---|---|---|---|---|---|---|
+|65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|All|Deny|
 
 ### Outbound
 
-| Name | Priority | Source | Source ports | Destination | Destination ports | Protocol | Access |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| AllowVnetOutBound | 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | All | Allow |
-| AllowInternetOutBound | 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | All | Allow |
-| DenyAllOutBound | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | All | Deny |
+#### AllowVnetOutBound
 
+|Priority|Source|Source ports| Destination | Destination ports | Protocol | Access |
+|---|---|---|---|---|---|---|
+| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | All | Allow |
 
-In the **Source** and **Destination** columns, *VirtualNetwork*, *AzureLoadBalancer*, and *Internet* are [service tags](#tags), rather than IP addresses. In the protocol column, **All** encompasses TCP, UDP, and ICMP. When creating a rule, you can specify TCP, UDP, or All, but you cannot specify ICMP alone. Therefore, if your rule requires ICMP, you must select All for protocol. *0.0.0.0/0* in the **Source** and **Destination** columns represents all addresses.
+#### AllowInternetOutBound
+
+|Priority|Source|Source ports| Destination | Destination ports | Protocol | Access |
+|---|---|---|---|---|---|---|
+| 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | All | Allow |
+
+#### DenyAllOutBound
+
+|Priority|Source|Source ports| Destination | Destination ports | Protocol | Access |
+|---|---|---|---|---|---|---|
+| 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | All | Deny |
+
+In the **Source** and **Destination** columns, *VirtualNetwork*, *AzureLoadBalancer*, and *Internet* are [service tags](#tags), rather than IP addresses. In the protocol column, **All** encompasses TCP, UDP, and ICMP. When creating a rule, you can specify TCP, UDP, or All, but you cannot specify ICMP alone. Therefore, if your rule requires ICMP, you must select *All* for protocol. *0.0.0.0/0* in the **Source** and **Destination** columns represents all addresses.
  
 You cannot remove the default rules, but you can override them by creating rules with higher priorities.
 
