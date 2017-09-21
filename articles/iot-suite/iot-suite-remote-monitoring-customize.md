@@ -194,9 +194,6 @@ To further modify the infrastructure in the remote monitoring solution, you can 
 
 In this article, you learned about the resources available to help you customize the preconfigured solution.
 
-For more conceptual information about the remote monitoring preconfigured solution, see:
-
-* [Modify the preconfigured solution from the CLI](iot-suite-remote-monitoring-cli.md)
-* [Remote monitoring architecture](iot-suite-remote-monitoring-sample-walkthrough.md)
+For more conceptual information about the remote monitoring preconfigured solution, see [Remote monitoring architecture](iot-suite-remote-monitoring-sample-walkthrough.md)
 
 <!-- Next tutorials in the sequence -->
