@@ -32,25 +32,26 @@ Log in to the [Azure portal](https://portal.azure.com/).
 1. Click the **New** option from the left-hand navigation pane
 2. Search for and select the *Web App* item and click **Create**
 3. Select an app name like *MyTestScaleWebApp*. Create a new resource group *myResourceGroup' and place it into the resource group of your choosing.
-4. Within a few minutes your resources should be provisioned. We will reference the Web App, and corresponding App Service Plan that were just created through the remainder of this tutorial.
+4. Within a few minutes, your resources should be provisioned. We reference the Web App, and corresponding App Service Plan that were just created through the remainder of this tutorial.
 
     ![Create a new app service in the portal](./media/monitor-tutorial-autoscale-performance-schedule/Web-App-Create.png)
 
 ## Navigate to Autoscale settings
-1. From the left-hand navigation pane select the **Monitor** option. Once the page loads select the **Autoscale** tab.
+1. From the left-hand navigation pane, select the **Monitor** option. Once the page loads select the **Autoscale** tab.
 2. A list of the resources under your subscription that support autoscale are listed here. Identify the App Service Plan that was created earlier in the tutorial, and click on it.
 
     ![Navigate to autoscale settings](./media/monitor-tutorial-autoscale-performance-schedule/monitor-blade-autoscale.png)
 
 3. On the autoscale setting click the **Enable Autoscale** button
-4. The rest of this procedure is to get the screen to look like the following picture.
+
+The next few steps help you filled the autoscale screen to look like following picture:
 
    ![Save autoscale setting](./media/monitor-tutorial-autoscale-performance-schedule/Autoscale-Setting-Save.png)
 
  ## Configure default profile
 1. Provide a **Name** for the autoscale setting
-2. In the default profile ensure the **Scale mode** is set to 'Scale to a specific instance count'
-3. Set the instance count to 1. This will ensure that when no other profile is active, or in effect, the default profile will return the instance count to 1.
+2. In the default profile, ensure the **Scale mode** is set to 'Scale to a specific instance count'
+3. Set the instance count to 1. This setting ensures that when no other profile is active, or in effect, the default profile returns the instance count to 1.
 
   ![Navigate to autoscale settings](./media/monitor-tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
@@ -63,11 +64,11 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 3. Ensure the **Scale mode** is set to 'Scale based on a metric'
 
-4. For **Instance limits** set the **Minimum** as '1', the **Maximum** as '2' and the **Default** as '1'. This ensures that this profile will not autoscale the service plan to have less than 1 instance, or more than 2 instances. And in the case the profile does not have sufficient data to make a decision, it will use the default number of instances (in this case 1).
+4. For **Instance limits** set the **Minimum** as '1', the **Maximum** as '2' and the **Default** as '1'. This ensures that this profile does not autoscale the service plan to have less than 1 instance, or more than 2 instances. If the profile does not have sufficient data to make a decision, it uses the default number of instances (in this case 1).
 
 5. For **Schedule** select 'Repeat specific days'
 
-6. Set the profile to repeat Monday through Friday, from 09:00 PST to 18:00 PST. This will ensure that this profile is only active and applicable 9AM to 6PM, Monday through Friday. During all other times the 'Default' profile is the profile the autoscale setting will use
+6. Set the profile to repeat Monday through Friday, from 09:00 PST to 18:00 PST. This ensures that this profile is only active and applicable 9AM to 6PM, Monday through Friday. During all other times, the 'Default' profile is the profile the autoscale setting uses.
 
 ## Create a scale-out rule
 
@@ -85,12 +86,13 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 7. Click the **Add** button
 
-This rule ensures that if your Web App receives more than 10 requests within a period of 5 minutes or less, that one additional instance is added to your App Service Plan to manage load.
+This rule ensures that if your Web App receives more than 10 requests within 5 minutes or less, one additional instance is added to your App Service Plan to manage load.
 
    ![Create a scale-out rule](./media/monitor-tutorial-autoscale-performance-schedule/Scale-Out-Rule.png)
 
 ## Create a scale-in rule
-It is always recommended to have a scale-in rule to accompany a scale-out rule. This ensures that your resources are not over provisioned.
+We recommended you always to have a scale-in rule to accompany a scale-out rule. Having both ensures that your resources are not over provisioned. Over provisioning means you have more instances running than needed to handle the current load. 
+
 1. In the 'Monday to Friday profile'
 
 2. Click the **Add a rule** link
@@ -122,30 +124,30 @@ To trigger the scale-out condition in the autoscale setting just created, the We
 
 4. From the list select the App Service Plan used throughout this tutorial
 
-5. On the autoscale setting click the **Run history** tab
+5. On the autoscale setting, click the **Run history** tab
 
-6. Here you will see a chart reflecting the instance count of the App Service Plan over time
+6. You see a chart reflecting the instance count of the App Service Plan over time
 
-7. In a few minutes the instance count should rise from 1, to 2.
+7. In a few minutes, the instance count should rise from 1, to 2.
 
-8. Under the chart, are the corresponding set of activity log entries for each scale action taken by this autoscale setting
+8. Under the chart, you see the activity log entries for each scale action taken by this autoscale setting.
 
 ## Trigger scale-in action
-The scale-in condition in the autoscale setting will trigger if there are less than 5 requests to the Web App over a period of 10 minutes.
+The scale-in condition in the autoscale setting triggers if there are fewer than 5 requests to the Web App over a period of 10 minutes. 
 
 1. Ensure no requests are being sent to your Web App
 
 2. Load the Azure Portal
 
-3. From the left-hand navigation pane select the **Monitor** option. Once the page loads select the **Autoscale** tab.
+3. From the left-hand navigation pane, select the **Monitor** option. Once the page loads select the **Autoscale** tab.
 
-4. From the list select the App Service Plan used throughout this tutorial
+4. From the list, select the App Service Plan used throughout this tutorial
 
-5. On the autoscale setting click the **Run history** tab
+5. On the autoscale setting, click the **Run history** tab
 
-6. Here you will see a chart reflecting the instance count of the App Service Plan over time
+6. You see a chart reflecting the instance count of the App Service Plan over time.
 
-7. In a few minutes the instance count should drop from 2, to 1.
+7. In a few minutes the instance count should drop from 2, to 1. The process takes at least ten minutes.  
 
 8. Under the chart, are the corresponding set of activity log entries for each scale action taken by this autoscale setting
 
