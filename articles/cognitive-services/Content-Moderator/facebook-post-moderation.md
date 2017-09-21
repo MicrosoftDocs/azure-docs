@@ -14,7 +14,7 @@ ms.author: sajagtap
 
 # Moderate Facebook posts
 
-In this tutorial, we will learn how to use Content Moderator with a sample Facebook page to either take down or allow publishing of images and text by users browsing the Facebook page.
+In this tutorial ([Github location](https://github.com/MicrosoftContentModerator/samples-fbPageModeration)), we will learn how to use Content Moderator with a sample Facebook page to either take down or allow publishing of images and text by users browsing the Facebook page.
 
 The tutorial will guide you through these steps:
 
