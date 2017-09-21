@@ -13,7 +13,7 @@ ms.workload: logic-apps
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 09/22/2017
 ms.author: LADocs; estfan
 ---
 
@@ -24,7 +24,9 @@ Microsoft Flow, or Microsoft PowerApps, first create a Web API that
 you can host with Azure Web Apps, authenticate with Azure Active Directory, 
 and register as a connector with Logic Apps, Flow, or PowerApps. 
 This tutorial shows you how to perform these tasks 
-by building an ASP.NET Web API app.
+by building an ASP.NET Web API app. For patterns that 
+show you can structure code for your connector's triggers and actions, 
+see [Create custom APIs that you can call from logic app workflows](../logic-apps/create-api-app.md).
 
 ## Prerequisites
 

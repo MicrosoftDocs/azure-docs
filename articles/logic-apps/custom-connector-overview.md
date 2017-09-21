@@ -13,7 +13,7 @@ ms.workload: logic-apps
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 09/22/2017
 ms.author: LADocs; estfan
 ---
 
@@ -54,7 +54,10 @@ To build your connector from start to finish, you need these items:
 you can start with a [free Azure account](https://azure.microsoft.com/free/). 
 Otherwise, sign up for a [Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
 
-* A RESTful API with some type of authenticated access 
+* A RESTful API with some type of authenticated access. 
+For more information, see [Create custom connectors from Web APIs](../logic-apps/custom-connector-build-web-api-app-tutorial.md). 
+For patterns that you can use for your connector's triggers and actions, see 
+[Create custom APIs that you can call from logic app workflows](../logic-apps/logic-apps-create-api-app.md).
 
 * Any item here:
 
@@ -84,7 +87,8 @@ we recommend one of these platforms:
 * [Azure API Apps](https://azure.microsoft.com/services/app-service/api/)
 
 For example, this tutorial shows 
-[how to build a custom connector from a Web API](../logic-apps/custom-connector-build-web-api-app-tutorial.md). 
+[how to build a custom connector from a Web API](../logic-apps/custom-connector-build-web-api-app-tutorial.md). For patterns that you can use for your connector's triggers and actions, 
+see [Create custom APIs that you can call from logic app workflows](../logic-apps/logic-apps-create-api-app.md).
 
 ## 2. Secure your API
 
