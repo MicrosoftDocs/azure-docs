@@ -212,9 +212,9 @@ Run the following commands to return the public IP address of the virtual machin
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroupVM  | Select IpAddress
 ```
 
-Use the following command to create a remote desktop session with the virtual machine. Replace the IP address with the *publicIPAddress* of your virtual machine. When prompted, enter the credentials used when creating the virtual machine.
+Use the following command, on your local machine, to create a remote desktop session with the virtual machine. Replace the IP address with the *publicIPAddress* of your virtual machine. When prompted, enter the credentials used when creating the virtual machine.
 
-```azurepowershell-interactive
+```powershell
 mstsc /v:<publicIpAddress>
 ```
 

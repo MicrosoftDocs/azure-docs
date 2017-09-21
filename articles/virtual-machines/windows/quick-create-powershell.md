@@ -120,7 +120,7 @@ Use the [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azur
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-Use the following command to create a remote desktop session with the virtual machine. Replace the IP address with the *publicIPAddress* of your virtual machine. When prompted, enter the credentials used when creating the virtual machine.
+Use the following command, on your local machine, to create a remote desktop session with the virtual machine. Replace the IP address with the *publicIPAddress* of your virtual machine. When prompted, enter the credentials used when creating the virtual machine.
 
 ```bash 
 mstsc /v:<publicIpAddress>
@@ -130,7 +130,7 @@ mstsc /v:<publicIpAddress>
 
 Now that you have logged in to the Azure VM, you can use a single line of PowerShell to install IIS and enable the local firewall rule to allow web traffic. Open a PowerShell prompt and run the following command:
 
-```azurepowershell-interactive
+```azurepowershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
