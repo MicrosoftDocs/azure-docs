@@ -5,6 +5,7 @@
   - name: Performance monitoring overview
     href: app-insights-detect-triage-diagnose.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: .NET
     href: quick-monitor-portal.md
