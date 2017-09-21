@@ -1,0 +1,65 @@
+- name: VM Extensions Documentation
+  href: ../index.yml
+- name: Overview
+  items:
+  - name: About Azure Extensions
+    href: extensions-overview.md
+  - name: Linux VM Agent
+    href: agent-linux.md
+  - name: Windows VM Agent
+    href: agent-windows.md
+- name: Concepts
+  items:
+  - name: Linux
+    href: features-linux.md
+  - name: Windows
+    href: features-windows.md
+- name: How-to guides
+  items:
+  - name: Custom Script extension
+    items:
+    - name: Linux
+      href: customscript-linux.md
+    - name: Windows
+      href: customscript-windows.md
+  - name: OMS extension
+    items:
+    - name: Linux
+      href: oms-linux.md
+    - name: Windows
+      href: oms-windows.md
+  - name: Diagnostics extension
+    items:
+    - name: Linux
+      href: diagnostics-linux.md
+    - name: Windows
+      href: diagnostics-windows.md
+    - name: Use templates
+      href: diagnostics-template.md
+  - name: Network Watcher Agent
+    items:
+    - name: Linux
+      href: network-watcher-linux.md
+    - name: Windows
+      href: network-watched-windows.md
+  - name: PowerShell DSC extension
+    href: dsc-overview.md
+    items:
+    - name: Handle credentials
+      href: dsc-credentials.md
+    - name: Use templates
+      href: dsc-template.md
+  - name: Log Collector extension
+    href: log-collector.md
+  - name: Third-party extensions
+    items:
+    - name: Symantec
+      href: symantec.md
+    - name: Trend
+      href: trend.md
+  - name: Update Linux agent
+    href: update-linux-agent.md
+  - name: Export extensions
+    href: export-templates.md
+  - name: Troubleshoot
+    href: troubleshoot.md
