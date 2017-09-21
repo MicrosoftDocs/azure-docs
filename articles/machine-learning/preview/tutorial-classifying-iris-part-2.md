@@ -362,4 +362,4 @@ Now that we have created the Logistic Regression model, let's deploy it as a rea
 
 ## Next Steps
 > [!div class="nextstepaction"]
-> [Part 3: Model deployment](tutorial-classifying-iris-part-3.md)
+> [Part 3: Deploy a model](tutorial-classifying-iris-part-3.md)
