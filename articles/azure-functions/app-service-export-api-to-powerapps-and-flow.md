@@ -75,7 +75,7 @@ To complete the export in **Express** mode, follow these steps:
 
 3. Click **OK**. The custom connector is now built and added to the environment you specified.
 
-For an example of using **Express** mode with Azure Functions, see [Call a function from PowerApps](https://docs.microsoft.com/azure/azure-functions/functions-powerapps-scenario).
+For examples of using **Express** mode with Azure Functions, see [Call a function from PowerApps](functions-powerapps-scenario.md) and [Call a function from Microsoft Flow](functions-flow-scenario.md).
 
 <a name="manual"></a>
 ## Use manual export
@@ -122,7 +122,7 @@ To import the API definition into PowerApps and Microsoft Flow, follow these ste
 
 7. Click **Create connector** at the top of the page.
 
-You can now connect to the custom connector in PowerApps and Microsoft Flow. For more information on creating connectors in the PowerApps and Microsoft Flow portals, see [Register your custom connector (PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/#register-your-custom-connector) and [Register your custom connector (Microsoft  Flow)](https://us.flow.microsoft.com/documentation/register-custom-api/#register-your-custom-connector).
+You can now connect to the custom connector in PowerApps and Microsoft Flow. For more information on creating connectors in the PowerApps and Microsoft Flow portals, see [Register your custom connector (PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/#register-your-custom-connector) and [Register your custom connector (Microsoft  Flow)](https://flow.microsoft.com/documentation/register-custom-api/#register-your-custom-connector).
 
 <a name="auth"></a>
 ## Specify authentication type
@@ -149,7 +149,7 @@ When using an API key, the users of your connector are prompted to provide the k
 ### Azure Active Directory (AAD)
 When using AAD, you need two AAD application registrations: one for the API itself, and one for the custom connector:
 
-- To configure registration for the API, use the [App Service Authentication/Authorization](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication) feature.
+- To configure registration for the API, use the [App Service Authentication/Authorization](../app-service/app-service-mobile-how-to-configure-active-directory-authentication) feature.
 
 - To configure registration for the connector, follow the steps in [Adding an AAD application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#adding-an-application). The registration must have delegated access to your API and a reply URL of `https://msmanaged-na.consent.azure-apim.net/redirect`. 
 
