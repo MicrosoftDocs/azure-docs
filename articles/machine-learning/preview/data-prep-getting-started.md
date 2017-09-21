@@ -120,4 +120,4 @@ When finished with your data preparation, you can write the Dataflow to an outpu
 
 ## See Also
 
-[Advanced data preparation tutorial](tutorial-bikeshare-dataprep,md)
+[Advanced data preparation tutorial](tutorial-bikeshare-dataprep.md)
