@@ -151,7 +151,7 @@ The SNI binding can be configured using the PowerShell cmdlet **New-WebBinding**
     
     New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddress -HostHeader $HostHeader -SslFlags $sslFlags 
     
-As described [here](https://technet.microsoft.com/en-us/library/ee790567.aspx), the $sslFlags could be one of the values as the following:
+As described [here](https://technet.microsoft.com/library/ee790567.aspx), the $sslFlags could be one of the values as the following:
 
 |Value|Meaning|
 ------|------
