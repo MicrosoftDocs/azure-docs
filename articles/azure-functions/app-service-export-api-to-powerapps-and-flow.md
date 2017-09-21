@@ -27,7 +27,7 @@ Similarly, developers that want to expose their APIs more broadly within an orga
 Before exporting an API, you must describe the API using an OpenAPI definition (formerly known as a [Swagger](http://swagger.io/) file). This definition contains information about what operations are available in an API and how the request and response data for the API should be structured. PowerApps and Microsoft Flow can create custom connectors for any OpenAPI 2.0 definition. Azure Functions and Azure App Service have built-in support for creating, hosting, and managing OpenAPI definitions. For more information, see [Create a RESTful API in Azure Web Apps](../app-service/app-service-web-tutorial-rest-api.md).
 
 > [!NOTE]
-> You can also build custom connectors in the PowerApps and Microsoft Flow UI, without using an OpenAPI definition. For more information, see [Register and use a custom connector (PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/) and [Register and use a custom connector (Microsoft  Flow)](https://us.flow.microsoft.com/documentation/register-custom-api/).
+> You can also build custom connectors in the PowerApps and Microsoft Flow UI, without using an OpenAPI definition. For more information, see [Register and use a custom connector (PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/) and [Register and use a custom connector (Microsoft  Flow)](https://flow.microsoft.com/documentation/register-custom-api/).
 
 To export the API definition, follow these steps:
 
@@ -149,7 +149,7 @@ When using an API key, the users of your connector are prompted to provide the k
 ### Azure Active Directory (AAD)
 When using AAD, you need two AAD application registrations: one for the API itself, and one for the custom connector:
 
-- To configure registration for the API, use the [App Service Authentication/Authorization](../app-service/app-service-mobile-how-to-configure-active-directory-authentication) feature.
+- To configure registration for the API, use the [App Service Authentication/Authorization](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md) feature.
 
 - To configure registration for the connector, follow the steps in [Adding an AAD application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#adding-an-application). The registration must have delegated access to your API and a reply URL of `https://msmanaged-na.consent.azure-apim.net/redirect`. 
 
