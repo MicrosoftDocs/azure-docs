@@ -264,7 +264,7 @@ The following sections provide details about how to connect your Provance produc
 Ensure you have the following prerequisites met:
 
 - IT Service Management Connector installed. More information: [Configuration](log-analytics-itsmc-overview.md#configuration).
-- Provance App should be registered with Azure AD - and client ID is made available. For detailed information, see [how to configure active directory authentication](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md).
+- Provance App should be registered with Azure AD - and client ID is made available. For detailed information, see [how to configure active directory authentication](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
 - User role:  Administrator.
 
 ### Connection Procedure
@@ -287,7 +287,7 @@ Use the following procedure to create a Provance connection:
 | **Username**   | Type the user name that can connect to the IT Service Management Connector.    |
 | **Password**   | Type the password associated with this user name. **Note:** User name and password are used for generating authentication tokens only, and are not stored anywhere within the OMS service._|
 | **Server URL**   | Type the URL of your Provance instance that you want to connect to IT Service Management Connector. |
-| **Client ID**   | Type the client ID for authenticating this connection, which you generated in your Provance instance.  More information on client ID, see [how to configure active directory authentication](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md). |
+| **Client ID**   | Type the client ID for authenticating this connection, which you generated in your Provance instance.  More information on client ID, see [how to configure active directory authentication](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md). |
 | **Data Sync Scope**   | Select the Provance work items that you want to sync to OMS, through the IT Service Management Connector.  These work items are imported into log analytics.   **Options:**   Incidents, Change Requests.|
 | **Sync Data** | Type the number of past days that you want the data from. **Maximum limit**: 120 days. |
 | **Create new configuration item in ITSM solution** | Select this option if you want to create the configuration items in the ITSM product. When selected, OMS creates the affected CIs as configuration items (in case of non-existing CIs) in the supported ITSM system. **Default**: disabled.|

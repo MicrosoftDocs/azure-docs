@@ -3,7 +3,7 @@ title: Configure SSL policy on Azure Application Gateway - PowerShell | Microsof
 description: This page provides instructions to configure SSL Policy on Azure Application Gateway
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
-ms.author: gwallace
+ms.author: davidmu
 
 ---
 
@@ -128,6 +128,12 @@ $gw = Get-AzureRmApplicationGateway -Name AdatumAppGateway -ResourceGroup Adatum
 
 # set the SSL policy on the application gateway
 Set-AzureRmApplicationGatewaySslPolicy -ApplicationGateway $gw -PolicyType Custom -MinProtocolVersion TLSv1_1 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256"
+
+# validate the SSL policy locally
+Get-AzureRmApplicationGatewaySslPolicy -ApplicationGateway $gw
+
+# update the gateway with validated SSL policy
+Set-AzureRmApplicationGateway -ApplicationGateway $gw
 ```
 
 ## Create an application gateway with a pre-defined SSL policy

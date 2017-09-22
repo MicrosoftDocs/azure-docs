@@ -33,8 +33,7 @@ When you scale up a scale set, a new instance is created. The new scale set inst
 If you deployed your cluster in the Azure portal or used the sample Azure Resource Manager template, all resources under a resource group are listed. You can see the load balancers for each scale set or node type. The load balancer name uses the following format: **LB-&lt;node type name&gt;**. An example is LB-sfcluster4doc-0, as shown in the following figure:
 
 ![Resources][Resources]
-<a name="remote-connect-to-a-vm-scale-set"></a>
-## Remotely connect to a scale set instance or cluster node
+## Remote connect to a virtual machine scale set instance or a cluster node
 Set up a separate scale set for each node type that you defined in a cluster. You can independently scale the node types up or down. You also can use different VM SKUs. Unlike single-instance VMs, scale set instances don't have their own virtual IP addresses. This can be challenging when you are looking for an IP address and port that you can use to remotely connect to a specific instance.
 
 To find an IP address and port that you can use to remotely connect to a specific instance, complete the following steps.

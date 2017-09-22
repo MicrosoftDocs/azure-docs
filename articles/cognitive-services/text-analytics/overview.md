@@ -39,7 +39,7 @@ Text analysis can mean different things, but in Cognitive Services, APIs provide
 
 4. Post the request to the endpoint established during sign-up, appending the desired resource: sentiment analysis, key phrase extraction, or language detection.
 
-5. Stream or store the response locally. Depending on the request, results are either a sentiment score, a collection of extracted keywords, or a language code.
+5. Stream or store the response locally. Depending on the request, results are either a sentiment score, a collection of extracted key phrases, or a language code.
 
 Output is returned as a single JSON document, with results for each text document you posted, based on ID. You can subsequently analyze, visualize, or categorize the results into actionable insights.
 
@@ -50,28 +50,34 @@ Data is not stored in your account. Operations performed by Text Analytics API a
 
 ## Supported languages
 
-Text Analytics can detect language for up to 120 different languages. The list of supported languages is more selective for sentiment analysis and key phrase extraction, as we refine the analyzers to accommodate the linguistic rules of additional languages.
+Text Analytics can detect up to 120 different languages. Language Detection returns the "script" of a language. For instance, for the phrase "I have a dog" it will return  `en` instead of  `en-US`. The only special case is Chinese, where the language detection capability will return `zh_CHS` or `zh_CHT` if it can determine the script given the text provided. In situations where a specific script cannot be identified for a Chinese document, it will return simply `zh`.
+ 
+For sentiment analysis and key phrase extraction, the list of supported languages is more selective as we refine the analyzers to accommodate the linguistic rules of additional languages.
 
 Language support is initially rolled out in preview, graduating to generally available (GA) status, independently of each other and of the Text Analytics service overall. It's possible for languages to remain in preview, even while Text Analytics API transitions to generally available.
 
-| Language    | Language code | Sentiment | Key phrases |
-|:----------- |:----:|:----:|:----:|
-| Danish      | `da` | ✔ \* |  |
-| German       | `de` | ✔ \* | ✔ |
-| Greek       | `el` | ✔ \* |  |
-| English     | `en` | ✔ | ✔ | 
-| Spanish     | `es` | ✔ | ✔ | 
-| Finnish     | `fi` | ✔ \* |  | 
-| French      | `fr` | ✔ | ✔ \* | 
-| Japanese    | `ja` |  | ✔ |   |
-| Italian     | `it` | ✔ \* |  | 
-| Dutch       | `nl` | ✔ \* |  | 
-| Norwegian   | `no` | ✔ \* |  | 
-| Polish      | `pl` | ✔ \* |  | 
-| Portuguese  | `pt` | ✔ |  | 
-| Russian     | `ru` | ✔ \* |  | 
-| Swedish     | `sv` | ✔ \* |  | 
-| Turkish     | `tr` | ✔ \* |  | 
+
+| Language    | Language code | Sentiment | Key phrases | Notes       |
+|:----------- |:-------------:|:---------:|:-----------:|:-----------:|
+| Danish      | `da`          | ✔ \*     |             |             |
+| Dutch       | `nl`          | ✔ \*     |             |             |
+| English     | `en`          | ✔        | ✔           |             | 
+| Finnish     | `fi`          | ✔ \*     | ✔           |             |
+| French      | `fr`          | ✔        | ✔           |             |
+| German      | `de`          | ✔ \*     | ✔           |            |
+| Greek       | `el`          | ✔ \*     |             |            |
+| Italian     | `it`          | ✔ \*     | ✔           |             |
+| Japanese    | `ja`          |          | ✔           |            |
+| Norwegian   | `no`          | ✔ \*     |             |             |
+| Polish      | `pl`          | ✔ \*     |  ✔          |             |
+| Portuguese (Portugal) | `pt-PT`| ✔        |  ✔          |`pt` also accepted |
+| Portuguese (Brazil)   | `pt-BR`|          |  ✔   |         |
+| Russian     | `ru`          | ✔ \*     |             |             |
+| Spanish     | `es`          | ✔        | ✔           |             |
+| Swedish     | `sv`          | ✔ \*     | ✔           |             |
+| Turkish     | `tr`          | ✔ \*     |             |             |
+
+
 
 \* indicates language support in preview
 
@@ -79,25 +85,29 @@ Language support is initially rolled out in preview, graduating to generally ava
 
 ## Data limits
 
-All three Text Analytics APIs accept raw text data. The current limit is 10 KB for each document; if you need to analyze larger documents, you can break them up into 10 KB chunks. If you still require a higher limit, [contact us](https://azure.microsoft.com/overview/sales-number/) so that we can discuss your requirements.
+All three Text Analytics APIs accept raw text data. The current limit is 5,000 characters for each document; if you need to analyze larger documents, you can break them up into smaller chunks. If you still require a higher limit, [contact us](https://azure.microsoft.com/overview/sales-number/) so that we can discuss your requirements.
 
 |Limits | |
 |------------------------|---------------|
-| Maximum size of a single document | 10 KB |
+| Maximum size of a single document | 5,000 characters as measured by `String.Length`. |
 | Maximum size of entire request | 1 MB |
 | Maximum number of documents in a request | 1,000 documents |
 
-The rate limit is 100 calls per minute. Note that you can submit a large quantities of documents in a single call (up to 1000 documents). 
+The rate limit is 100 calls per minute. Note that you can submit a large quantity of documents in a single call (up to 1000 documents). 
+
+## Unicode encoding
+
+Text Analytics API uses Unicode encoding for text representation and character count calculations. Requests can be submitted in both UTF-8 and UTF-16 with no measurable differences in the character count. Unicode codepoints are used as the heuristic for character length and are considered equivalent for the purposes of text analytics data limits. If you use `String.Length(strlen`) to get the character count, you are using the same methods we use to measure data size
 
 ## Next steps
 
-First, try the [interactive demo](https://azure.microsoft.com/services/cognitive-services/text-analytics/). You can paste a text input (5K character maximum) to detect the language (up to 120), calculate a sentiment score, or extract key phrases. No sign up necessary.
+First, try the [interactive demo](https://azure.microsoft.com/services/cognitive-services/text-analytics/). You can paste a text input (5K character maximum) to detect the language (up to 120), calculate a sentiment score, or extract key phrases. No sign-up necessary.
 
 When you are ready to call the API directly:
 
 + [Sign up](how-tos/text-analytics-how-to-signup.md) for an access key and review the steps for [calling the API](how-tos/text-analytics-how-to-call-api.md).
 
-+ [Quickstart](quickstarts/csharp.md) is a walk through of the REST API calls written in C#. Learn how to submit text, choose an analysis, and view results with minimal code.
++ [Quickstart](quickstarts/csharp.md) is a walkthrough of the REST API calls written in C#. Learn how to submit text, choose an analysis, and view results with minimal code.
 
 + [API reference documentation](//go.microsoft.com/fwlink/?LinkID=759346) provides the technical documentation for the APIs. The documentation supports embedded calls so that you can call the API from each documentation page.
 

@@ -73,7 +73,7 @@ Before you set up the job in Jenkins, you need an Azure App Service plan and a w
     ```azurecli-interactive	
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
     ```
-
+    
 3. Set up the Java runtime configuration that your app needs. The following Azure CLI command configures the web app to run on a recent JDK 8 and [Apache Tomcat](http://tomcat.apache.org/) version 8.0:
     ```azurecli-interactive
     az webapp config set \
@@ -85,7 +85,6 @@ Before you set up the job in Jenkins, you need an Azure App Service plan and a w
     ```
 
 ### Set up the Jenkins job
-
 
 1. Create a new **freestyle** project on the Jenkins Dashboard.
 2. Configure the **Source Code Management** field to use your local fork of the [simple Java web app for Azure](https://github.com/azure-devops/javawebappsample). Provide the **Repository URL** value. For example: http://github.com/&lt;your_ID>/javawebappsample.

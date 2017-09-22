@@ -10,21 +10,33 @@
 ## [About cryptographic requirements](vpn-gateway-about-compliance-crypto.md)
 ## [About BGP and VPN Gateway](vpn-gateway-bgp-overview.md)
 ## [About highly available connections](vpn-gateway-highlyavailable.md)
+## [About Point-to-Site connections](point-to-site-about.md)
 
 # How To
-## Configure a Site-to-Site connection
+## Configure Site-to-Site connections
 ### [Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 ### [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Azure portal (classic)](vpn-gateway-howto-site-to-site-classic-portal.md)
-## Configure a Point-to-Site connection
-### [Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
-### [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-### [Azure portal (classic)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
-### Generate self-signed certificates for Point-to-Site
+### [Classic portal (classic)](vpn-gateway-site-to-site-create.md)
+
+## Configure Point-to-Site connections - native Azure certificate authentication
+### Configure a P2S VPN
+#### [Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+#### [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
+#### [Azure portal (classic)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+### Generate self-signed certificates
 #### [PowerShell](vpn-gateway-certificates-point-to-site.md)
 #### [Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
-## Configure a VNet-to-VNet connection
+### [Create and install VPN client configuration files](point-to-site-vpn-client-configuration-azure-cert.md)
+### [Install client certificates](point-to-site-how-to-vpn-client-install-azure-cert.md)
+
+## Configure Point-to-Site connections - RADIUS authentication
+### Configure a P2S VPN
+#### [PowerShell](point-to-site-how-to-radius-ps.md)
+### [Create and install VPN client configuration files](point-to-site-vpn-client-configuration-radius.md)
+
+## Configure VNet-to-VNet connections
 ### [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 ### [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
@@ -58,6 +70,7 @@
 ### [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (classic)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+## [Configure a VPN gateway (classic)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## [Gateway SKUs (legacy)](vpn-gateway-about-skus-legacy.md)
 ## Configure 3rd party VPN devices
 ### [Overview & Azure configuration](vpn-gateway-3rdparty-device-config-overview.md)

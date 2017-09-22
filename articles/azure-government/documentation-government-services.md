@@ -119,6 +119,7 @@ In the following tables, services that are specified as Azure Resource Manager e
 | Service | Resource Manager enabled | Portal |
 | --- | --- | --- |
 | Azure Active Directory | Yes | Yes |
+| [Azure Active Directory Premium](documentation-government-services-securityandidentity.md#azure-active-directory-premium) | Yes | Yes |
 | [Key Vault](documentation-government-services-securityandidentity.md#key-vault) | Yes | Yes |
 | Multi-Factory Authentication | Yes | Yes |
 

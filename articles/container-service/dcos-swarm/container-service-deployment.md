@@ -53,7 +53,10 @@ For background, see [Azure Container Service introduction](../container-service-
 
 3. On the **Basics** blade, enter the following information:
 
-    * **Name**: Select one of the container orchestrators to deploy on the cluster.
+    * **Orchestrator**: Select one of the container orchestrators to deploy on the cluster.
+        * **DC/OS**: Deploys a DC/OS cluster.
+        * **Swarm**: Deploys a Docker Swarm cluster.
+        * **Kubernetes**: Deploys a Kubernetes cluster.
     * **Subscription**: Select an Azure subscription.
     * **Resource group**: Enter the name of a new resource group for the deployment.
     * **Location**: Select an Azure region for the Azure Container Service deployment. For availability, check [Products available by region](https://azure.microsoft.com/regions/services/).
