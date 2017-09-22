@@ -47,7 +47,7 @@ Elastic query allows for remote query execution on a SQL data warehouse instance
 
 
 
-## Elastic Query Overview
+## Elastic Query overview
 
 An elastic query can be used to make data located within a SQL data warehouse available to SQL database instances. Elastic query allows queries from a SQL database refer to tables in a remote SQL data warehouse instance. 
 
@@ -63,7 +63,7 @@ For more information on Elastic Query with SQL database, see the [Azure SQL Data
 
 
 
-## Best Practices
+## Best practices
 
 ### General
 

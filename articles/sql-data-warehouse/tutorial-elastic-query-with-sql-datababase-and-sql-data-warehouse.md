@@ -32,7 +32,7 @@ Before you begin the tutorial, you must have the following prerequisites:
 2. Created an Azure SQL server with a  database and data warehouse within this server.
 3. Setup firewall rules for accessing the Azure SQL Server.
 
-## Setup connection between SQL Data Warehouse and SQL Database instances 
+## Set up connection between SQL Data Warehouse and SQL Database instances 
 
 1. Using SSMS or another query client, open a new query for database **master** on your logical server.
 
