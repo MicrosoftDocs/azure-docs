@@ -40,12 +40,13 @@ The Azure services that support Availability Zones are:
 - Windows Virtual Machines
 - Zonal Virtual Machine Scale Sets
 - Managed Disks
+- Load Balancer
 
-## Supported virtual machines SKUs
+## Supported virtual machine size families
 
-- A2_v2
-- D2_v2
-- DS2_v2
+- Av2
+- Dv2
+- DSv2
 
 ## Get started with the Availability Zones preview
 
