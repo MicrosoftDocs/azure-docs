@@ -40,14 +40,14 @@ You can generate two types of reports:
 
 It can take anywhere from a few minutes to several hours to generate reports depending on the amount of data. Here's what is analyzed:
 
-* **Upload**</b>
+* **Upload**
   Web traffic logs from your network are uploaded to the portal.
-* **Parse**</b>
+* **Parse**
   Cloud App Security parses and extracts traffic data from the traffic logs with a dedicated parser for each data source.
-* **Analyze**</b>
+* **Analyze**
   Traffic data is analyzed against the Cloud App Security catalog to identify more than 15,000 cloud apps. Active users and IP addresses are also identified as part of the analysis.
-* **Generate report**</b>
-  A report of the data extracted from log files is generated.
+* **Generate report**
+  Cloud App Security generates a report of the data extracted from log files and makes it available to Cloud App Discovery.
 
 > [!NOTE]
 > * Continuous report data is analyzed twice a day.
