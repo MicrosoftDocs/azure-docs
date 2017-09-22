@@ -58,7 +58,9 @@ Prerequisites for integrating with Azure AD Domain Services:
 
 ### HDInsight integrated with Windows Server AD running on Azure IaaS
 
-This is the simplest architecture for integrating HDInsight with Active Directory. You can deploy the Windows Server Active Directory Domain Services role on one (or multiple) virtual machines (VMs) in Azure and promote them to be domain controllers. These VMs are deployed in a virtual network. You set up another virtual network for the HDInsight cluster. For HDInsight to have a line of sight to Active Directory, you need to peer these virtual networks by using [VNet-to-VNet peering](../virtual-network/virtual-network-create-peering.md). If you create the Active Directory virtual machines using the Resource Manager deployment model, then you can create the Active Directory and HDInsight in the same VNet and you don't need to do peering. 
+You can deploy the Windows Server Active Directory Domain Services role on one (or multiple) virtual machines (VMs) in Azure and promote them to be domain controllers. These domain controller VMs can be deployed using the resource manager deployment model into the same virtual network as the HDInsight cluster. If the domain controllers are deployed into a different virtual network, you need to peer these virtual networks by using [VNet-to-VNet peering](../virtual-network/virtual-network-create-peering.md). 
+
+[More information - deploying Windows Server Active Directory on Azure VMs](../active-directory/virtual-networks-windows-server-active-directory-virtual-machines.md)
 
 ![Domain-join HDInsight cluster topology](./media/hdinsight-domain-joined-architecture/hdinsight-domain-joined-architecture_1.png)
 
@@ -66,7 +68,7 @@ This is the simplest architecture for integrating HDInsight with Active Director
 > In this architecture, you cannot use Azure Data Lake Store with the HDInsight cluster.
 
 
-Prerequisites for Active Directory:
+Prerequisites for integrating with Windows Server Active Directory on Azure VMs:
 
 * An [organizational unit](../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md) must be created, within which you place the HDInsight cluster VMs and the service principals used by the cluster.
 * [Lightweight Directory Access Protocols](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md) (LDAPs) must be set up for communicating with AD. The certificate used to set up LDAPS must be a real certificate (not a self-signed certificate).
