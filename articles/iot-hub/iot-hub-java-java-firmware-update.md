@@ -25,14 +25,14 @@ In the [Get started with device management][lnk-dm-getstarted] tutorial, you saw
 
 This tutorial shows you how to:
 
-* Create a Java console app that calls the firmwareUpdate direct method in the simulated device app through your IoT hub.
-* Create a Java console simulated device app that implements a **firmwareUpdate** direct method. This method initiates a multi-stage process that waits to download the firmware image, downloads the firmware image, and finally applies the firmware image. During each stage of the update, the device uses the reported properties to report on progress.
+* Create a Java console app that calls the **firmwareUpdate** direct method on the simulated device app through your IoT hub.
+* Create a Java console app that simualtes the device and implements the **firmwareUpdate** direct method. This method initiates a multi-stage process that waits to download the firmware image, downloads the firmware image, and finally applies the firmware image. During each stage of the update, the device uses the reported properties to report on progress.
 
-At the end of this tutorial, you have a Java console service app and a Java console device app:
+At the end of this tutorial, you have two Java console apps:
 
-**firmware-update**, which calls a direct method in the simulated device app, displays the response, and periodically displays the updated reported properties.
+**firmware-update**, calls a direct method on the simulated device, displays the response, and periodically displays reported property updates
 
-**simulated-device**, which connects to your IoT hub with the device identity created earlier, receives a firmwareUpdate direct method, runs through a multi-state process to simulate a firmware update including: waiting for the image download, downloading the new image, and finally applying the image.
+**simulated-device**, connects to your IoT hub with the previously created device identity, receives the firmwareUpdate direct method call, and runs through a firmware update simulation
 
 To complete this tutorial, you need the following:
 
@@ -40,11 +40,9 @@ To complete this tutorial, you need the following:
 * [Maven 3](https://maven.apache.org/install.html) 
 * An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
-Follow the [Get started with device management](iot-hub-csharp-node-device-management-get-started.md) article to create your IoT hub and get your IoT Hub connection string.
-
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-[!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
+[!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
 ## Trigger a remote firmware update on the device using a direct method
 In this section, you create a Java console app that initiates a remote firmware update on a device. The app uses a direct method to initiate the update and uses device twin queries to periodically get the status of the active firmware update.
@@ -69,7 +67,7 @@ In this section, you create a Java console app that initiates a remote firmware 
     ```
 
     > [!NOTE]
-    > You can check for the latest version of **iot-service-client** using [Maven search][lnk-maven-service-search].
+    > You can check for the latest version of **iot-service-client** using [Maven search](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
 1. Add the following **build** node after the **dependencies** node. This configuration instructs Maven to use Java 1.8 to build the app:
 
@@ -179,7 +177,6 @@ In this section, you create a Java console app that initiates a remote firmware 
 1. To invoke the reboot direct method on the simulated device, add the following code to the **main** method:
 
     ```java
-    System.out.println("Starting sample...");
     DeviceMethod methodClient = DeviceMethod.createFromConnectionString(iotHubConnectionString);
 
     try
@@ -226,7 +223,7 @@ In this section, you create a Java console app that initiates a remote firmware 
     `mvn clean package -DskipTests`
 
 ## Simulate a device to handle direct method calls
-In this section, you create a Java console simulated device app that can receive a firmwareUpdate direct method. The app then runs through a multi-state process to simulate the firmware update using reportedProperties to communicate status.
+In this section, you create a Java console simulated device app that can receive the firmwareUpdate direct method. The app then runs through a multi-state process to simulate the firmware update using reportedProperties to communicate status.
 
 1. In the fw-get-started folder, create a Maven project called **simulated-device** using the following command at your command prompt. Note this is a single, long command:
 
@@ -246,7 +243,7 @@ In this section, you create a Java console simulated device app that can receive
     ```
 
     > [!NOTE]
-    > You can check for the latest version of **iot-service-client** using [Maven search][lnk-maven-service-search].
+    > You can check for the latest version of **iot-device-client** using [Maven search](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
 1. Add the following **build** node after the **dependencies** node. This configuration instructs Maven to use Java 1.8 to build the app:
 
@@ -288,7 +285,6 @@ In this section, you create a Java console simulated device app that can receive
 1. Add the following class-level variables to the **App** class. Replace **{yourdeviceconnectionstring}** with your device connection string you noted in the *Create a Device Identity* section:
 
     ```java
-    public static final String iotHubConnectionString = "{youriothubconnectionstring}";
     private static final int METHOD_SUCCESS = 200;
     private static final int METHOD_NOT_DEFINED = 404;
 
@@ -299,7 +295,7 @@ In this section, you create a Java console simulated device app that can receive
     private static String downloadURL = "unknown";
     ```
 
-1. To implement direct method functionality, add the nested classes to the **App** class:
+1. To implement direct method functionality, provide callbacks by adding the following nested classes to the **App** class:
 
     ```java
     protected static class DirectMethodStatusCallback implements IotHubEventCallback
@@ -342,7 +338,7 @@ In this section, you create a Java console simulated device app that can receive
     }
     ```
 
-1. To implement device twin functionality, add the following nested classes to the **App** class:
+1. To implement device twin functionality, provide callbacks by adding the following nested classes to the **App** class:
 
     ```java
     protected static class DeviceTwinStatusCallback implements IotHubEventCallback
@@ -425,7 +421,7 @@ In this section, you create a Java console simulated device app that can receive
     public static void main(String[] args) throws IOException, URISyntaxException
     ```
 
-1. To initiate simulated device callbacks for direct methods and device twins, add the following code to the **main** method:
+1. To initiate the direct methods and device twins routine, add the following code to the **main** method:
 
     ```java
     client = new DeviceClient(connString, protocol);
@@ -487,7 +483,7 @@ To learn how to extend your IoT solution and schedule method calls on multiple d
 
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md
-[lnk-dm-getstarted]: iot-hub-java-java-device-management-get-started.md
+[lnk-dm-getstarted]: iot-hub-java-java-device-management-getstarted.md
 [lnk-tutorial-jobs]: iot-hub-java-java-schedule-jobs.md
 
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
