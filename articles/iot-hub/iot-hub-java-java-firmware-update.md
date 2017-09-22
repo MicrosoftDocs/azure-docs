@@ -26,7 +26,7 @@ In the [Get started with device management][lnk-dm-getstarted] tutorial, you saw
 This tutorial shows you how to:
 
 * Create a Java console app that calls the **firmwareUpdate** direct method on the simulated device app through your IoT hub.
-* Create a Java console app that simualtes the device and implements the **firmwareUpdate** direct method. This method initiates a multi-stage process that waits to download the firmware image, downloads the firmware image, and finally applies the firmware image. During each stage of the update, the device uses the reported properties to report on progress.
+* Create a Java console app that simulates the device and implements the **firmwareUpdate** direct method. This method initiates a multi-stage process that waits to download the firmware image, downloads the firmware image, and finally applies the firmware image. During each stage of the update, the device uses the reported properties to report on progress.
 
 At the end of this tutorial, you have two Java console apps:
 
@@ -174,7 +174,7 @@ In this section, you create a Java console app that initiates a remote firmware 
     public static void main( String[] args ) throws IOException
     ```
 
-1. To invoke the reboot direct method on the simulated device, add the following code to the **main** method:
+1. To invoke the firmwareUpdate direct method on the simulated device, add the following code to the **main** method:
 
     ```java
     DeviceMethod methodClient = DeviceMethod.createFromConnectionString(iotHubConnectionString);
@@ -302,7 +302,7 @@ In this section, you create a Java console simulated device app that can receive
     {
       public void execute(IotHubStatusCode status, Object context)
       {
-        //System.out.println("IoT Hub responded to device method operation with status " + status.name());
+        System.out.println("IoT Hub responded to device method operation with status " + status.name());
       }
     }
     protected static class DirectMethodCallback implements com.microsoft.azure.sdk.iot.device.DeviceTwin.DeviceMethodCallback
@@ -345,15 +345,15 @@ In this section, you create a Java console simulated device app that can receive
     {
       public void execute(IotHubStatusCode status, Object context)
       {
-        //System.out.println("IoT Hub responded to device twin operation with status " + status.name());
+        System.out.println("IoT Hub responded to device twin operation with status " + status.name());
       }
     }
     protected static class PropertyCallback implements PropertyCallBack<String, String>
     {
       public void PropertyCall(String propertyKey, String propertyValue, Object context)
       {
-        //System.out.println("PropertyKey:     " + propertyKey);
-        //System.out.println("PropertyKvalue:  " + propertyKey);
+        System.out.println("PropertyKey:     " + propertyKey);
+        System.out.println("PropertyKvalue:  " + propertyKey);
       }
     }
     ```
