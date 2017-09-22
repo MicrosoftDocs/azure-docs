@@ -14,13 +14,13 @@ ms.author: sajagtap
 
 # Moderate Facebook posts
 
-In this tutorial, we learn how to use Content Moderator with a sample Facebook page. The solution either takes down or allow publishing of images and text by viewers of the Facebook page.
+In this tutorial, we learn how to use Content Moderator with a sample Facebook page. The solution either takes down or allows publishing of images and text by viewers of the Facebook page.
 
 The tutorial guides you through these steps:
 
 1. Create a Content Moderator team.
 2. Create Azure Functions that listen for HTTP events from Content Moderator and Facebook.
-3. Create a Facebook Page and App, and connect it to Content Moderator
+3. Create a Facebook Page and App, and connect it to Content Moderator.
 
 After we are done, Facebook will send the content posted by the visitors to Content Moderator. Based on the match thresholds, your Content Moderator workflows either publish the content or create reviews within the review tool.
 
@@ -44,7 +44,7 @@ Test your workflow by using the "Execute Workflow" button.
 
 ## 4. Create Azure Functions
 
-Sign in to the [Azure Management Portal](https://portal.azure.com/) to create your Azure Functions. follow these steps:
+Sign in to the [Azure Management Portal](https://portal.azure.com/) to create your Azure Functions. Follow these steps:
 
 1. Create an Azure Function App as shown on the [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal) page.
 2. Open the newly created Function App.
@@ -62,7 +62,7 @@ Sign in to the [Azure Management Portal](https://portal.azure.com/) to create yo
     | fb: VerificationToken | The secret token, also used to subscribe to the Facebook feed events |
     | fb: PageAccessToken | The Facebook graph api access token does not expire and allows the function Hide/Delete posts on your behalf. |
 
-5. Create a new **HttpTrigger-CSharp** function named **FBListener**. This function receives events from Facebook. Create this function by follwoing these steps:
+5. Create a new **HttpTrigger-CSharp** function named **FBListener**. This function receives events from Facebook. Create this function by following these steps:
 
     1. Keep the [Azure Functions Creation](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal) page open for reference.
     2. Click the **+** add to create new function.
