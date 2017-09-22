@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/15/2017
+ms.date: 09/22/2017
 ms.author: kumud
 
 ---
@@ -68,6 +68,10 @@ Leveraging the Azure Monitor alert configuration, you can select any of the avai
 4. To be emailed when under attack, set the metric for **Under DDoS attack or not** and **Condition to Greater than zero (0) over the last 5 minutes**. Similar alerts can be set up for other metrics.
 
     ![Configure metrics](./media/ddos-protection-manage-portal/ddos-metrics.png)
+
+    Within a few minutes of attack detection, you are notified using Azure Monitor metrics.
+
+    ![Attack alert](./media/ddos-protection-manage-portal/ddos-alert.png) 
 
 You can also learn more about [configuring webhooks](../monitoring-and-diagnostics/insights-webhooks-alerts.md) and [logic apps](../logic-apps/logic-apps-what-are-logic-apps.md) for creating alerts.
 
