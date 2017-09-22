@@ -48,13 +48,13 @@ The search api-key is required, it can be found under **Keys** inside your searc
 
   ![Semi-structured search](media/storage-unstructured-structured-search/keys.png)
 
-If this is your first time making REST calls to Azure, here's a brief introduction of the components that are important for this tutorial: The request method, which denotes what type of call you are telling your client to make. For every call in this tutorial the request method should be "POST." The header keys, which should be "Content-type" and "api-key", application/json and your "admin key" (this is a placeholder for your search primary key) are the values for your header keys, and the rest of the call (including the brackets) is the body of your call. Depending on the client you're using, there may be some variations on how you construct your query but that's the gist of it.
+If this is your first time making REST calls to Azure, here's a brief introduction of the components that are important for this tutorial: The request method for every call in this tutorial is "POST." The header keys, which are "Content-type" and "api-key", application/json and your "admin key" (this is a placeholder for your search primary key). The rest of the call (including the brackets) is the body of your call. Depending on the client you're using, there may be some variations on how you construct your query but that's the gist of it.
 
 ## Download the sample data
 
 For this tutorial, a sample data set has been prepared for you. **Download [clinical-trials-json.zip](https://github.com/roygara/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip)** and unzip it to its own folder.
 
-Contained in the sample are     example JSON files, which were originally text files obtained from [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). We have already converted them to JSON for your convenience.
+Contained in the sample are example JSON files, which were originally text files obtained from [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). We have already converted them to JSON for your convenience.
 
 ## Log in to Azure
 
@@ -66,7 +66,7 @@ Navigate back to the storage account from the previous tutorial, open the **data
 
 Click **Advanced** and enter "clinical-trials-json", then upload all of the JSON files you downloaded.
 
-After the upload completes, the sample data should appear in their own subfolder inside the data container.
+After the upload completes, the files should appear in their own subfolder inside the data container.
 
 ## Connect your search service to your blob storage
 
@@ -74,7 +74,7 @@ In the last tutorial, we connected our search service to our storage via the UI.
 
 The URL (also known as an endpoint) for each call must end with **api-version=2016-09-01-Preview** and each call should return a **201 Created.** The generally available api-version does not yet have the capability to handle json as a jsonArray, currently only the preview api-version does.
 
- Additionally, the `[service name]` in the example URLs is the name of the search service created in the last tutorial. So note the name of your search service down as well. An example would be: `https://mysearch.search.windows.net/datasources?api-version=2016-09-01-Preview`
+ Additionally, the `[service name]` in the example URLs is the name of the search service created in the last tutorial. So note the name of your search service down as well. An example of a properly constructed URL would be: `https://mysearch.search.windows.net/datasources?api-version=2016-09-01-Preview`
 
 You also need the name of your storage account and your storage account key, the storage account key can be found in your storage account under **Access Keys**. As pictured below:
 
@@ -164,6 +164,10 @@ A basic query would be `$select=Gender,metadata_storage_size`, which limits the 
   ![Semi-structured search](media/storage-unstructured-structured-search/lastquery.png)
 
 A more complex query would be `$filter=MinimumAge ge 20 and MaximumAge lt 75`, which returns only results in which the parameters MinimumAge is greater than or equal to 20 and MaximumAge is less than 75.
+
+If you'd like to experiment and try a few more queries yourself, feel free to do so. Know that Logical operators (and, or, not) work as well as comparison operators (eq, ne, gt, lt, ge, le). String comparisons are case-sensitive. 
+
+Keep in mind that $filter will only worked with metadata with the filterable parameter.
 
 ## Clean-up
 
