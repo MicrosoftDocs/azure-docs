@@ -15,9 +15,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 09/22/2017
 ms.author: jgao
-ROBOTS: NOINDEX
 
 ---
 # Use Sqoop with Hadoop in HDInsight
@@ -79,11 +78,13 @@ This section shows you how to create a cluster, a SQL Database, and the SQL data
 
 If you prefer to use Azure PowerShell to create the cluster and the SQL Database, see [Appendix A](#appendix-a---a-powershell-sample).
 
+> [!NOTE]
+> Import using a template or the Azure portal only supports importing a BACPAC file from Azure blob storage.
+
 1. Click the following image to open a Resource Manager template in the Azure portal.         
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-sql-database%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-use-sqoop/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
-
 2. Enter the following properties:
 
     - **Subscription**: Enter your Azure subscription.
@@ -99,20 +100,12 @@ If you prefer to use Azure PowerShell to create the cluster and the SQL Database
      
      The following values are hardcoded in the variables section:
      
-     | Default storage account name | <CluterName>store |
-     | --- | --- |
-     | Azure SQL database server name |<ClusterName>dbserver |
-     | Azure SQL database name |<ClusterName>db |
+     | Default storage account name | &lt;CluterName>store |
+     | Azure SQL database server name | &lt;ClusterName>dbserver |
+     | Azure SQL database name | &lt;ClusterName>db |
      
-     Please write down these values.  You need them later in the tutorial.
-
-3.Click **OK** to save the parameters.
-
-4.From the **Custom deployment** blade, click **Resource group** dropdown box, and then click **New** to create a new resource group. The resource group is a container that groups the cluster, the dependent storage account and other linked resource.
-
-5.Click **Legal terms**, and then click **Create**.
-
-6.Click **Create**. You see a new tile titled Submitting deployment for Template deployment. It takes about around 20 minutes to create the cluster and SQL database.
+3. Select **I agree to the terms and conditions stated above**.
+6. Click **Purchase**. You see a new tile titled Submitting deployment for Template deployment. It takes about around 20 minutes to create the cluster and SQL database.
 
 If you choose to use existing Azure SQL database or Microsoft SQL Server
 
