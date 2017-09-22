@@ -31,28 +31,29 @@ sections:
   items:
   - type: paragraph
     text: 'Learn how to set up disaster recovery for VMs and physical servers.'
-  - title: Azure to Azure
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="azure-to-azure-tutorial-enable-replication">Set up disaster recovery</a>
-    - html: <a href="azure-to-azure-tutorial-dr-drill">Run a disaster recovery drill</a>
-    - html: <a href="azure-to-azure-tutorial-failover-failback">Run failover and failback</a>
-  - title: VMware
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="tutorial-prepare-azure">Prepare Azure</a>
-    - html: <a href="tutorial-prepare-on-premises-vmware">Prepare on-premises VMware</a>
-    - html: <a href="tutorial-vmware-to-azure">Set-up disaster recovery</a>
-    - html: <a href="tutorial-dr-drill-azure">Run a disaster recovery drill</a>
-    - html: <a href="tutorial-vmware-to-azure-failover-failback">Run a failover and failback</a>
-  - title: Migrate to Azure
-  - type: list
-    style: ordered
-    items:
-    - html: Prepare Azure
-    - html: <a href="tutorial-migrate-on-premises-to-azure">Migrate on-premises machines</a> or <a href="tutorial-migrate-aws-to-azure">AWS Instances to Azure</a>
+    items:  
+    - title: Azure to Azure
+    - type: list
+      style: ordered
+      items:
+      - html: <a href="azure-to-azure-tutorial-enable-replication">Set up disaster recovery</a>
+      - html: <a href="azure-to-azure-tutorial-dr-drill">Run a disaster recovery drill</a>
+      - html: <a href="azure-to-azure-tutorial-failover-failback">Run failover and failback</a>
+    - title: VMware
+    - type: list
+      style: ordered
+      items:
+      - html: <a href="tutorial-prepare-azure">Prepare Azure</a>
+      - html: <a href="tutorial-prepare-on-premises-vmware">Prepare on-premises VMware</a>
+      - html: <a href="tutorial-vmware-to-azure">Set-up disaster recovery</a>
+      - html: <a href="tutorial-dr-drill-azure">Run a disaster recovery drill</a>
+      - html: <a href="tutorial-vmware-to-azure-failover-failback">Run a failover and failback</a>
+    - title: Migrate to Azure
+    - type: list
+      style: ordered
+      items:
+      - html: Prepare Azure
+      - html: <a href="tutorial-migrate-on-premises-to-azure">Migrate on-premises machines</a> or <a href="tutorial-migrate-aws-to-azure">AWS Instances to Azure</a>
 - title: Reference
   items:
   - type: list
