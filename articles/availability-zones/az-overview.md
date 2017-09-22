@@ -48,6 +48,7 @@ The Azure services that support Availability Zones are:
 - Dv2
 - DSv2
 
+
 ## Get started with the Availability Zones preview
 
 The Availability Zones preview is available in the East US 2 and West Europe regions for specific Azure services. 

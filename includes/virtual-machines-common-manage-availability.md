@@ -72,8 +72,8 @@ If the load balancer is not configured to balance traffic across multiple virtua
 
 [!INCLUDE [availability-zones-preview-statement.md](availability-zones-preview-statement.md)]
 
-Learn more about how to deploy a [Windows VM in the Azure portal](../articles/virtual-machines/windows/create-portal-availability-zone.md)
 
+Learn more about how to deploy a [Windows VM in the Azure portal](../articles/virtual-machines/windows/create-portal-availability-zone.md)
 
 <!-- Link references -->
 [Configure multiple virtual machines in an availability set for redundancy]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy

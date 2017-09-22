@@ -28,7 +28,9 @@ Azure Managed Disks simplifies disk management for Azure VMs by managing the sto
 
 
 ### Attach a new disk to a VM
+
 If you just need a new disk on your VM, use the [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) command with the `--new` parameter. The following example creates a disk named *myDataDisk* that is *50*Gb in size:
+
 
 ```azurecli
 az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk \

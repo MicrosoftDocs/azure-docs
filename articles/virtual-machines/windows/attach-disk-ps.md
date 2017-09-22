@@ -58,6 +58,7 @@ $vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -Ma
 Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 ```
 
+
 ### Using unmanaged disks in a storage account
 
 ```powershell
