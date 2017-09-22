@@ -67,7 +67,9 @@ DDoS Protection Standard features include: 
 
 ## DDoS Protection Standard mitigation
 
-During mitigation, traffic towards the protected resource is redirected through one or more Azure regional DDoS SDNs that exist across the globe. As traffic passes through the DDoS SDN, several checks are performed. These checks generally perform the following function:
+Microsoft’s DDoS Protection service monitors actual traffic utilization and constantly compares it against the thresholds defined in the DDoS Policy. When that traffic threshold is exceeded, then DDoS mitigation is initiated automatically. When traffic returns below the threshold, the mitigation is removed.
+
+During mitigation, traffic towards the protected resource is redirected by the DDoS Protection service and several checks are performed. These checks generally perform the following function:
 
 - Ensure packets conform to Internet specifications and are not malformed.
 - Interact with the client to determine if it is potentially a spoofed packet (e.g: SYN Auth or SYN Cookie or by dropping a packet for the source to retransmit it).
