@@ -1,5 +1,6 @@
 # Overview
 ## [What is Load Balancer?](load-balancer-overview.md)
+## [What is Load Balancer Standard?](load-balancer-standard-overview.md)
 ## [Internet Load Balancer](load-balancer-internet-overview.md)
 ## [Internal Load Balancer](load-balancer-internal-overview.md)
 ## [Understand load balancer probes](load-balancer-custom-probe-overview.md)
