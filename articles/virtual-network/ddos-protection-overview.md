@@ -75,11 +75,9 @@ During mitigation, traffic towards the protected resource is redirected by the D
 - Interact with the client to determine if it is potentially a spoofed packet (e.g: SYN Auth or SYN Cookie or by dropping a packet for the source to retransmit it).
 - Rate-limit packets if no other enforcement method can be performed.
 
-The DDoS SDN blocks attack traffic and forward remaining traffic to intended destination. Within a few minutes of attack detection, you are notified using Azure Monitor metrics. By configuring logging on DDoS Protection Standard telemetry, you can write the logs to available options for future analysis. Metric data in Azure Monitor for DDoS Protection Standard is currently retained for 30 days.
+The DDoS Protection blocks attack traffic and forward remaining traffic to intended destination. Within a few minutes of attack detection, you are notified using Azure Monitor metrics. By configuring logging on DDoS Protection Standard telemetry, you can write the logs to available options for future analysis. Metric data in Azure Monitor for DDoS Protection Standard is currently retained for 30 days.
 
 We do not advise customers to simulate their own DDoS attacks during preview. Instead, customers can use the support channel to request a DDoS attack simulation executed by Azure Networking. An Engineer will contact you to arrange the details of the DDoS attack (ports, protocols, target IPs) and arrange a time to schedule the test.
-
-When DDoS Protection Standard is enabled on a virtual network, as you deploy new protected resource types on the virtual network, they are added to DDoS Protection Standard. Traffic pattern baselines are developed for the protected resources attached to the virtual network. The traffic baseline learns normal traffic bandwidth for each protected resource for every hour and day of the week. This baseline is used as the source of a DDoS policy that is installed for a protected resource.
 
 ## Next steps
 
