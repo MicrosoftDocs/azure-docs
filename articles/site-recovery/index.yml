@@ -24,7 +24,7 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
+        src: /azure/site-recovery/media/index/portal.svg
       text: Replicate on Azure VM - Portal
       href: /azure/site-recovery/azure-to-azure-quickstart
 - title: Step-by-step Tutorials
@@ -32,25 +32,14 @@ sections:
   - type: paragraph
     text: 'Learn how to set up disaster recovery for VMs and physical servers.'
   - type: list
-    style: unordered
-    className: spaced noBullet
-    items: 
     title: Azure to Azure
+    style: ordered
     items:
-    - type: list
-      style: ordered
-      items:
-      - html: <a href="azure-to-azure-tutorial-enable-replication">Set up disaster recovery</a>
-      - html: <a href="azure-to-azure-tutorial-dr-drill">Run a disaster recovery drill</a>
-      - html: <a href="azure-to-azure-tutorial-failover-failback">failover and failback</a>
+    - html: <a href="azure-to-azure-tutorial-enable-replication">Set up disaster recovery</a>
+    - html: <a href="azure-to-azure-tutorial-dr-drill">Run a disaster recovery drill</a>
+    - html: <a href="azure-to-azure-tutorial-failover-failback">Run failover and failback</a>
   - type: list
-    style: unordered
-    items: 
-    - image: 
-      src: 
-      text: VMware
-      href: 
-  - type: list
+    title: VMware  
     style: ordered
     items:
     - html: <a href="tutorial-prepare-azure">Prepare Azure</a>
@@ -59,13 +48,7 @@ sections:
     - html: <a href="tutorial-dr-drill-azure">Run a disaster recovery drill</a>
     - html: <a href="tutorial-vmware-to-azure-failover-failback">Run a failover and failback</a>
   - type: list
-    style: unordered
-    items: 
-    - image: 
-      src: 
-      text: Migrate to Azure
-      href: 
-  - type: list
+    title: Migrate to Azure  
     style: ordered
     items:
     - html: Prepare Azure
