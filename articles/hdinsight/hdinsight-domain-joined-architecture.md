@@ -27,14 +27,33 @@ Instead of building its own multiuser authentication and authorization, HDInsigh
 
 ## Integrate HDInsight with Active Directory
 
-By integrating HDInsight with Active Directory, the HDInsight cluster nodes are domain-joined to a domain. HDInsight creates service principals for the Hadoop services running on the cluster and places them within a specified organizational unit (OU) in the domain. HDInsight also creates reverse DNS mappings in the domain for the IP addresses of the nodes that are joined to the domain.
+When you integrate HDInsight with Active Directory, the HDInsight cluster nodes are domain-joined to an AD domain. HDInsight creates service principals for the Hadoop services running on the cluster and places them within a specified organizational unit (OU) in the domain. HDInsight also creates reverse DNS mappings in the domain for the IP addresses of the nodes that are joined to the domain.
 
 There are two deployment options for Active Directory:
-* **Azure Active Directory Domain Services:** This service provides a managed Active Directory domain which is fully compatible with Windows Server Active Directory. Microsoft takes care of managing, patching and monitoring the domain and you can deploy your cluster without worrying about maintaining domain controllers. Users, groups and passwords are synchronized from your Azure Active Directory, enabling users to sign in to the cluster using their corporate credentials.
+* **[Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-overview.md):** This service provides a managed Active Directory domain which is fully compatible with Windows Server Active Directory. Microsoft takes care of managing, patching, and monitoring the AD domain. You can deploy your cluster without worrying about maintaining domain controllers. Users, groups and passwords are synchronized from your Azure Active Directory, enabling users to sign in to the cluster using their corporate credentials.
 
-* **Windows Server Active Directory domain on Azure IaaS VMs:** In this deployment option, you can deploy your own Active Directory domain on Azure IaaS VMs. 
+* **Windows Server Active Directory domain on Azure IaaS VMs:** In this option, you deploy and manage your own Windows Server Active Directory domain on Azure IaaS VMs. 
 
 You can achieve this setup by using multiple architectures. You can choose from the following architectures.
+
+
+### HDInsight integrated with an Azure AD Domain Services managed AD domain
+You can deploy an [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-overview.md) (Azure AD DS) managed domain. Azure AD DS provides a managed AD domain in Azure, which is managed, updated and monitored by Microsoft. It creates two domain controllers for high availability and includes DNS services. You can then integrate the HDInsight cluster with this managed domain. With this deployment option, you do not need to worry about managing, patching, updating and monitoring domain controllers.
+
+![Domain-join HDInsight cluster topology](./media/hdinsight-domain-joined-architecture/hdinsight-domain-joined-architecture_2.png)
+
+Prerequisites for integrating with Azure AD Domain Services:
+
+* [Provision an Azure AD Domain Services managed domain](../active-directory-domain-services/active-directory-ds-getting-started.md).
+* Create an [organizational unit](../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md), within which you place the HDInsight cluster VMs and the service principals used by the cluster.
+* Setup [LDAPS](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md), when you configure Azure AD DS. The certificate used to set up LDAPS must be issued by a public certificate authority (not a self-signed certificate).
+* Create reverse DNS zones on the managed domain for the IP address range of the HDInsight subnet (for example, 10.2.0.0/24 in the previous picture).
+* Configure [synchronization of password hashes required for NTLM and Kerberos authentication](../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md) from Azure AD to the Azure AD DS managed domain.
+* A service account or a user account is needed. Use this account to create the HDInsight cluster. This account must have the following permissions:
+
+    - Permissions to create service principal objects and machine objects within the organizational unit
+    - Permissions to create reverse DNS proxy rules
+    - Permissions to join machines to the Azure AD domain
 
 
 ### HDInsight integrated with Windows Server AD running on Azure IaaS
@@ -58,24 +77,6 @@ Prerequisites for Active Directory:
     - Permissions to create reverse DNS proxy rules
     - Permissions to join machines to the Active Directory domain
 
-
-### HDInsight integrated with cloud-only Azure AD
-
-For cloud-only Azure AD, configure a domain controller so that HDInsight can be integrated with Azure AD. This is achieved by using [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-overview.md) (Azure AD DS). Azure AD DS provides a managed AD domain in Azure, which is managed, updated and monitored by Microsoft. It creates two domain controllers for high availability and includes DNS services.
-
-![Domain-join HDInsight cluster topology](./media/hdinsight-domain-joined-architecture/hdinsight-domain-joined-architecture_2.png)
-
-Prerequisites for integrating with Azure AD Domain Services:
-
-* An [organizational unit](../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md) must be created within which you place the HDInsight cluster VMs and the service principals used by the cluster.
-* [LDAPS](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md) must be set up when you configure Azure AD DS. The certificate used to set up LDAPS must be a real certificate (not a self-signed certificate).
-* Reverse DNS zones must be created on the domain for the IP address range of the HDInsight subnet (for example, 10.2.0.0/24 in the previous picture).
-* [Password hashes required for NTLM and Kerberos authentication](../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md) must be synced from Azure AD to the Azure AD DS managed domain.
-* A service account or a user account is needed. Use this account to create the HDInsight cluster. This account must have the following permissions:
-
-    - Permissions to create service principal objects and machine objects within the organizational unit
-    - Permissions to create reverse DNS proxy rules
-    - Permissions to join machines to the Azure AD domain
 
 ## Next steps
 * To configure a domain-joined HDInsight cluster, see [Configure domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md).
