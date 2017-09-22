@@ -39,7 +39,7 @@ Once the app has been successfully deployed to Azure Government, the url should 
 
 ### References
 * [Deploy an ASP.NET web app to Azure App Service, using Visual Studio] (../app-service/app-service-web-get-started-dotnet.md)
-* For general App Service documentation, see [App Service - API Apps Documentation] (../app-service/index.md)
+* For general App Service documentation, see [App Service - API Apps Documentation] (../app-service/index.yml)
 
 ## Next steps
 For supplemental information and updates, subscribe to the [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/).
