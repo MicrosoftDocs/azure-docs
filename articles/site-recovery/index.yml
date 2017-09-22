@@ -35,13 +35,14 @@ sections:
     style: unordered
     className: spaced noBullet
     items: 
-    - html:<h3>Azure to Azure<h3>
-  - type: list
-    style: ordered
+    title: Azure to Azure
     items:
-    - html: <a href="azure-to-azure-tutorial-enable-replication">Set up disaster recovery</a>
-    - html: <a href="azure-to-azure-tutorial-dr-drill">Run a disaster recovery drill</a>
-    - html: <a href="azure-to-azure-tutorial-failover-failback">failover and failback</a>
+    - type: list
+      style: ordered
+      items:
+      - html: <a href="azure-to-azure-tutorial-enable-replication">Set up disaster recovery</a>
+      - html: <a href="azure-to-azure-tutorial-dr-drill">Run a disaster recovery drill</a>
+      - html: <a href="azure-to-azure-tutorial-failover-failback">failover and failback</a>
   - type: list
     style: unordered
     items: 
