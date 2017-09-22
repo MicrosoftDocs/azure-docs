@@ -21,7 +21,7 @@ ms.custom: mvc
 
 # Search unstructured data in cloud Storage
 
-This tutorial is part one of a two-part series. In these tutorials, you learn how to search semi-structured and unstructured data. In this tutorial, you search unstructured data. Unstructured data is data that either is not organized in a pre-defined manner or does not have a data model. An example of this would be a .txt file.
+This tutorial is part one of a two-part series. In these tutorials, you learn how to search semi-structured and unstructured data. In this tutorial, you search unstructured data. Unstructured data is data that either is not organized in a pre-defined manner or does not have a data model. An example would be a .txt file.
 
 In this part you learn how to:
 
@@ -35,7 +35,7 @@ In this part you learn how to:
 
 ## Download the sample
 
-For this tutorial, a sample data set has been prepared for you. **Please download [clinical-trials.zip](https://github.com/roygara/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials.zip)** and unzip it to its own folder.
+For this tutorial, a sample data set has been prepared for you. **Download [clinical-trials.zip](https://github.com/roygara/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials.zip)** and unzip it to its own folder.
 
 Contained in the sample is a set of example text files obtained from [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). We are using them as the example text files to search in Azure.
 
@@ -61,7 +61,7 @@ If you do not yet have a General-purpose storage account, here's how to create o
 4. Select **Locally-redundant storage (LRS)** for Replication.
 
 5. Select to create a new resource group, give it a unique name, and select a location appropriate for you.
-    We recommend creating a separate resource group for these sequence of tutorials so that you may easily clean up all associated resources after completing both tutorials.
+    We recommend creating a separate resource group for these sequences of tutorials so that you may easily clean up all associated resources after completing both tutorials.
 
 6. Leave the remaining values as their defaults but be sure to select an appropriate subscription.
 
@@ -182,7 +182,7 @@ Now that you have a search service, you can attach it to your blob storage. This
 ### Field attributes
 | Attribute | Description |
 | --- | --- |
-| *Key* |A string that provides the unique ID of each document, used for document look up. Every index must have one key. Only one field can be the key, and its type must be set to Edm.String. |
+| *Key* |A string that provides the unique ID of each document, used for document lookup. Every index must have one key. Only one field can be the key, and its type must be set to Edm.String. |
 | *Retrievable* |Specifies whether a field can be returned in a search result. |
 | *Filterable* |Allows the field to be used in filter queries. |
 | *Sortable* |Allows a query to sort search results using this field. |
@@ -251,7 +251,7 @@ The following steps show you where to find it and provide you some example queri
 
 You have now completed part one of this tutorial and have a searchable set of unstructured data.
 
-Make sure **not** to delete any resources created in this tutorial, as most of them will be re-used in the subsequent tutorial.
+Make sure **not** to delete any resources created in this tutorial, as most of them will be reused in the subsequent tutorial.
 
 ## Next steps
 
@@ -262,7 +262,7 @@ In this tutorial, you learned about searching unstructured data such as how to:
 > * Create a storage account
 > * Create a container
 > * Uploading data to your container
-> * Create an Search Service
+> * Create a Search Service
 > * Using the Search Service to search your container
 
 Advance to the next tutorial to learn about semi-structured search.  
