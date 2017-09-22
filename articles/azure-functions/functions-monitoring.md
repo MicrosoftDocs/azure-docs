@@ -72,7 +72,7 @@ In [Metrics Explorer](../application-insights/app-insights-metrics-explorer.md),
 
 ![Metrics Explorer](media/functions-monitoring/metrics-explorer.png)
 
-On the [Failures](../application-insights/app-insights-asp-net-exceptions.md) tab, you can create charts and alerts based on function failures and server exceptions. The **Operation Name** is the function name. Failures in dependencies are not shown unless you implement [custom telemetry](#create-custom-telemetry-data-in-c-function-code) for dependencies.
+On the [Failures](../application-insights/app-insights-asp-net-exceptions.md) tab, you can create charts and alerts based on function failures and server exceptions. The **Operation Name** is the function name. Failures in dependencies are not shown unless you implement [custom telemetry](#custom-telemetry-in-c-functions) for dependencies.
 
 ![Failures](media/functions-monitoring/failures.png)
 
@@ -211,7 +211,7 @@ All of these logs are written at `Information` level, so if you filter at `Warni
 
 ### Category Host.Aggregator
 
-These logs provide counts and averages of function invocations over a [configurable](#configure-aggregator) period of time. The default period is 30 seconds or 1,000 results, whichever comes first. 
+These logs provide counts and averages of function invocations over a [configurable](#configure-the-aggregator) period of time. The default period is 30 seconds or 1,000 results, whichever comes first. 
 
 The logs show as "customMetrics" in Application Insights. Examples are number of runs, success rate, and duration.
 
