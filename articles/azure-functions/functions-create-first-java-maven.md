@@ -129,10 +129,10 @@ When the deploy is complete, you see the URL you can use to access your Azure fu
 [INFO] ------------------------------------------------------------------------
 ```
 
-Test the function running on Azure using curl:
+Test the function app running on Azure using curl:
 
 ```bash
-curl https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
+curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
 ```
 
 ```Output
