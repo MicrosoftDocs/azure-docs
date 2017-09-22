@@ -41,7 +41,7 @@ You can use two approaches to authenticate using Azure Active Directory.
 * For service-to-service authentication for your application (non-interactive), see [Service-to-service authentication with Data Lake Store using .NET SDK](data-lake-store-service-to-service-authenticate-rest-api.md).
 
 
-## Create folders in a Data Lake Store account
+## Create folders
 This operation is based on the WebHDFS REST API call defined [here](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Make_a_Directory).
 
 Use the following cURL command. Replace **\<yourstorename>** with your Data Lake Store name.
@@ -54,7 +54,7 @@ If the operation completes successfully, you should see a response like the foll
 
     {"boolean":true}
 
-## List folders in a Data Lake Store account
+## List folders
 This operation is based on the WebHDFS REST API call defined [here](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#List_a_Directory).
 
 Use the following cURL command. Replace **\<yourstorename>** with your Data Lake Store name.
@@ -82,7 +82,7 @@ If the operation completes successfully, you should see a response like the foll
     }
     }
 
-## Upload data into a Data Lake Store account
+## Upload data
 This operation is based on the WebHDFS REST API call defined [here](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Create_and_Write_to_a_File).
 
 Use the following cURL command. Replace **\<yourstorename>** with your Data Lake Store name.
@@ -104,7 +104,7 @@ The output is similar to the following snippet:
 	HTTP/1.1 201 Created
 	...
 
-## Read data from a Data Lake Store account
+## Read data
 This operation is based on the WebHDFS REST API call defined [here](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Open_and_Read_a_File).
 
 Reading data from a Data Lake Store account is a two-step process.
@@ -128,7 +128,7 @@ You should see an output similar to the following snippet:
 
     Hello, Data Lake Store user!
 
-## Rename a file in a Data Lake Store account
+## Rename a file
 This operation is based on the WebHDFS REST API call defined [here](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Rename_a_FileDirectory).
 
 Use the following cURL command to rename a file. Replace **\<yourstorename>** with your Data Lake Store name.
@@ -142,7 +142,7 @@ You should see an output similar to the  following snippet:
 
     {"boolean":true}
 
-## Delete a file from a Data Lake Store account
+## Delete a file
 This operation is based on the WebHDFS REST API call defined [here](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Delete_a_FileDirectory).
 
 Use the following cURL command to delete a file. Replace **\<yourstorename>** with your Data Lake Store name.
