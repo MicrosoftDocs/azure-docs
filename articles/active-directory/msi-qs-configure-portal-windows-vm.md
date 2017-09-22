@@ -28,6 +28,8 @@ In this article, you will learn how to enable and remove MSI for an Azure VM, us
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/msi-qs-configure-prereqs.md)]
 
+To enable/remove MSI on an existing VM, you’ll also need to ensure your account belongs to a role that gives you write permissions on the VM, such as “Contributor” or “User Access Administrator".
+
 ## Enable MSI during creation of an Azure VM
 
 As of the time of this writing, enabling MSI during creation of a VM in the Azure portal is not supported. Instead, please refer to one of the following VM creation Quickstart articles to first create a VM:

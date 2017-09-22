@@ -28,6 +28,8 @@ In this article, you learn how to enable and remove MSI for an Azure VM, using a
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/msi-qs-configure-prereqs.md)]
 
+To enable/remove MSI on an existing VM, you’ll also need to ensure your account belongs to a role that gives you write permissions on the VM, such as “Contributor” or “User Access Administrator".
+
 ## Enable MSI during creation of an Azure VM, or on an existing VM
 
 As with the Azure portal and scripting, Azure Resource Manager templates provide the ability to deploy new/modified resources defined by an Azure resource group. Several options are available for template editing and deployment, including both locally and portal/web based. A few of which include:
