@@ -18,7 +18,7 @@ ms.manager: tihazen
 
 ---
 
-##  Q & A Matching using Azure Machine Learning workbench
+#  Q & A Matching using Azure Machine Learning workbench
 Answering open ended questions is difficult and often requires manual effort from subject matter experts (SMEs). To help reduce the demands on internal SMEs, companies often create lists of Frequently Asked Questions (FAQs) as a means of assisting users. This example showcases various effective machine learning methods to match open ended queries to pre-existing FAQ question/answers pairs. This example demonstrates an easy development process for building such a solution using the Azure Machine Learning Workbench. 
 
 ## Link to the gallery GitHub repository

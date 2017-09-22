@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 09/16/2017
+ms.date: 09/21/2017
 ---
 
 # Classifying Iris part 3: Deploy a model
@@ -295,4 +295,7 @@ In this tutorial, you have learned how to:
 You have successfully run a training script in various compute environments, created a model, serialized the model, and operationalized the model through a Docker-based web service. 
 
 ## Next Steps
-- Perform advanced data preparation with Azure Machine Learning Workbench by following the [Bike-share tutorial](tutorial-bikeshare-dataprep.md)
+Learn to perform advanced data preparation with Azure Machine Learning Workbench:
+> [!div class="nextstepaction"]
+> [Advanced data preparation](tutorial-bikeshare-dataprep.md)
+

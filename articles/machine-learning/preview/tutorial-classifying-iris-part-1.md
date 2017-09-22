@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 09/15/2017
+ms.date: 09/21/2017
 ---
 
 # Classifying Iris part 1: Prepare data
@@ -28,49 +28,53 @@ This tutorial uses the timeless [Iris flower dataset](https://en.wikipedia.org/w
 Follow the [Install and create Quickstart](quickstart-installation.md) to install the Azure Machine Learning Workbench application, which also includes the command-line interface (CLI). Launch the Azure Machine Learning Workbench app, and log in if needed.
 
 ## Create a new project
-Click on **File** --> **New Project** (or click on the **+** icon in the **PROJECTS** pane). You can also create a new Workspace first from this drop down menu.
+1. In the **PROJECTS** pane, click on the **+** icon to create a **New Project**.
 
-![new workspace](media/tutorial-classifying-iris/new_ws.png)
+   ![new workspace](media/tutorial-classifying-iris/new_ws.png)
 
-Fill in the **Project name** field with a name for the project. For example, use the value `myIris`. Choose the directory in which the project is created. For example, use the value `C:\Temp`. Enter the optional description. Choose a Workspace (this tutorial uses `IrisGarden`). And then select the **Classifying Iris** template from the project template list. 
+2. Fill in the **Create New Project** details. 
 
-![New Project](media/tutorial-classifying-iris/new_project.png)
+   ![New Project](media/tutorial-classifying-iris/new_project.png)
 
->[!TIP]
->Optionally, you can also fill in the Git repo field with an existing empty Git repo (a repo with no master branch) on VSTS. Doing so allows you to enable roaming and sharing scenarios later. For more information, please reference the [Using Git repo](using-git-ml-project.md) article. 
+   - Fill in the **Project name** field with a name for the project. For example, use the value **myIris**.
+   - Choose the **Project directory** in which the project is created. For example, use the value **C:\Temp**. 
+   - Enter the **Project description**. 
+   - The **Git repository** field is optional and can be left blank. You can provide an existing empty Git repo (a repo with no master branch) on VSTS. Doing so allows you to enable roaming and sharing scenarios later. For more information, please reference the [Using Git repo](using-git-ml-project.md) article. 
+   - Choose a **Workspace**, for example this tutorial uses **IrisGarden**. 
+   - Select the **Classifying Iris** template from the project template list. 
 
-Click on the **Create** button to create the project. The project is now created and opened for you.
+3. Click on the **Create** button to create the project. The project is now created and opened for you.
 
 ## Create a data preparation package
-Open the `iris.csv` file from the **File View**. The file is a simple table with 5 columns and 150 rows. It has four numerical feature columns and a string target column. It does not have column headers.
+1. Open the `iris.csv` file from the **File View**. The file is a simple table with 5 columns and 150 rows. It has four numerical feature columns and a string target column. It does not have column headers.
 
-![iris.csv](media/tutorial-classifying-iris/show_iris_csv.png)
+   ![iris.csv](media/tutorial-classifying-iris/show_iris_csv.png)
 
->[!NOTE]
->Note: it is not recommended to include data files in your project folder, particularly when the file size is large. We include `iris.csv` in this template for demonstration purposes because it is tiny. For more information, please reference the [How to read and write large data files](how-to-read-write-files.md) article.
+   >[!NOTE]
+   >Note: it is not recommended to include data files in your project folder, particularly when the file size is large. We include `iris.csv` in this template for demonstration purposes because it is tiny. For more information, please reference the [How to read and write large data files](how-to-read-write-files.md) article.
 
-In the **Data View**, click on the **+** icon to add a new data source. The **Add Data Source** wizard launches. 
+2. In the **Data View**, click on the **+** icon to add a new data source. The **Add Data Source** wizard launches. 
 
-![data view](media/tutorial-classifying-iris/data_view.png)
+   ![data view](media/tutorial-classifying-iris/data_view.png)
 
-Select the **File(s)/Directory** option, and choose the `iris.csv` local file. Accept the default settings for each screen and finally click on **Finish**. 
+3. Select the **File(s)/Directory** option, and choose the `iris.csv` local file. Accept the default settings for each screen and finally click on **Finish**. 
 
-![select iris](media/tutorial-classifying-iris/select_iris_csv.png)
+   ![select iris](media/tutorial-classifying-iris/select_iris_csv.png)
 
->[!IMPORTANT]
->Make sure you select the `iris.csv` file from within the current project directory for this exercise, otherwise latter steps may fail. 
+   >[!IMPORTANT]
+   >Make sure you select the `iris.csv` file from within the current project directory for this exercise, otherwise latter steps may fail. 
 
-A new file `iris-1.dsource` is created. The file is named uniquely with a dash-one since the sample project already comes with an unnumbered `iris.dsource` file.  The file opens and the data is shown. A series of column headers, from `Column1` to `Column5`, are automatically added to this dataset. Scroll to the bottom and notice the last row of the dataset is empty. It is because of an extra line break in the csv file.
+4. A new file `iris-1.dsource` is created. The file is named uniquely with a dash-one since the sample project already comes with an unnumbered `iris.dsource` file.  The file opens and the data is shown. A series of column headers, from `Column1` to `Column5`, are automatically added to this dataset. Scroll to the bottom and notice the last row of the dataset is empty. It is because of an extra line break in the csv file.
 
-![iris data view](media/tutorial-classifying-iris/iris_data_view.png)
+   ![iris data view](media/tutorial-classifying-iris/iris_data_view.png)
 
-Now click on the **Metrics** button. Observe the histograms and a complete set of statistics that are calculated for you for each column. You can also click the **Data** button to see the data again. 
+5. Now click on the **Metrics** button. Observe the histograms and a complete set of statistics that are calculated for you for each column. You can also click the **Data** button to see the data again. 
 
-![iris data view](media/tutorial-classifying-iris/iris_metrics_view.png)
+   ![iris data view](media/tutorial-classifying-iris/iris_metrics_view.png)
 
-Click on the **Prepare** button next to the **Metrics** button (or the **Data** button if you are on the metrics view). The **Prepare** dialog pops up. The sample project already comes with a `iris.dprep` file, so by default it asks you to create a new data flow in that existing **iris.dprep** data prep package. Change the dropdown value to **+New Data Preparation Package**, and enter a new value "iris-1", then click on **OK**.
+6. Click on the **Prepare** button next to the **Metrics** button (or the **Data** button if you are on the metrics view). The **Prepare** dialog pops up. The sample project already comes with a `iris.dprep` file, so by default it asks you to create a new data flow in that existing **iris.dprep** data prep package. Change the dropdown value to **+New Data Preparation Package**, and enter a new value "iris-1", then click on **OK**.
 
-![iris data view](media/tutorial-classifying-iris/new_dprep.png)
+   ![iris data view](media/tutorial-classifying-iris/new_dprep.png)
 
 A new data prep package named `iris-1.dprep` is created and opened in data preparation editor.
 
@@ -118,5 +122,5 @@ In this part one of the three part tutorial series, you have used the Azure Mach
 You are ready to move on to the next part in the series, to build a machine learning model.
 
 ## Next steps
-- [Part 2: Model building](tutorial-classifying-iris-part-2.md)
-- [Part 3: Model deployment](tutorial-classifying-iris-part-3.md)
+> [!div class="nextstepaction"]
+> [Part 2: Build a model](tutorial-classifying-iris-part-2.md)
