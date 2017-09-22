@@ -39,7 +39,7 @@ sections:
     - html: <a href="/azure/azure-stack/azure-stack-tutorial-sql-server">Enable SQL Databases on Azure Stack</a>
     - html: <a href="/azure/azure-stack/azure-stack-tutorial-app-service">Enable Web Apps on Azure Stack</a>
     - html: <a href="/azure/azure-stack/azure-stack-solution-pipeline">Deploy applications across both Azure &amp; Azure Stack</a>
-- title: Free PluralSight Video Training
+- title: Free Pluralsight Video Training
   items:
   - type: list
     style: cards
