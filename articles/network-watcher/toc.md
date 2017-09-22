@@ -68,7 +68,7 @@
 ## [Read NSG flow logs](network-watcher-read-nsg-flow-logs.md)
 ## [Perform intrusion detection using open source tools](network-watcher-intrusion-detection-open-source-tools.md)
 ## [Analyze Application gateway logs in Azure Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
-## [Analyze flow Logs using Network Watcher and Grafana](network-watcher-nsg-grafana.md)
+## [Analyze flow logs using Network Watcher and Grafana](network-watcher-nsg-grafana.md)
 # Reference
 ## [PowerShell](/powershell/azure/overview)
 ## [.NET](/dotnet/api)
