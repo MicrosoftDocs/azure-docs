@@ -98,6 +98,7 @@ For VMs using [Azure Managed Disks](../articles/virtual-machines/windows/faq-for
 
 Learn more about how to deploy a [Windows VM in the Azure portal](../articles/virtual-machines/windows/create-portal-availability-zone.md)
 
+
 ## Next steps
 You can now start to use these availability and redundancy features to build your Azure environment. For best practices information, see [Azure availability best practices](../articles/best-practices-availability-checklist.md).
 
