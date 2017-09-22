@@ -51,6 +51,8 @@ Before you deploy the preconfigured solution to your Azure subscription, you mus
 
 1. Click **Create Solution** to begin the provisioning process. This process typically takes several minutes to run.
 
+For troubleshooting information, see [What to do when a deployment fails](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide#what-to-do-when-a-deployment-fails) in the GitHub repository.
+
 ## Sign in to the preconfigured solution
 
 When the provisioning process is complete, you can sign in to your remote monitoring preconfigured solution.
