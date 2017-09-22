@@ -4,7 +4,7 @@ description: Learn how to create a function in Azure that runs based on a schedu
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: ''
 tags: ''
 

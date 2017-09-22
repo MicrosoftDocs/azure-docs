@@ -35,7 +35,7 @@ You can configure ADFS for claims-aware apps in one of two ways. The first is by
 
 ### Option 1: Custom domains
 
-If all the internal URLs for your applications are fully qualified domain names (FQDNs), then you can configure [custom domains](active-directory-application-proxy-custom-domains.md) for your applications. Use the custom domains to create external URLs that are the same as the internal URLs. With this configuration, the redirects that the STS creates work the same whether your users are on-premises or remote. 
+If all the internal URLs for your applications are fully qualified domain names (FQDNs), then you can configure [custom domains](active-directory-application-proxy-custom-domains.md) for your applications. Use the custom domains to create external URLs that are the same as the internal URLs. When your external URLs match your internal URLs, then the STS redirections work whether your users are on-premises or remote. 
 
 ### Option 2: WS-Federation
 

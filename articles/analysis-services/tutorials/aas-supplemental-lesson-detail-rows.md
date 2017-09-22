@@ -3,7 +3,7 @@ title: "Azure Analysis Services tutorial supplemental lesson: Detail Rows | Micr
 description: Describes how to create a Detail Rows Expression in the Azure Analysis Services tutorial.
 services: analysis-services
 documentationcenter: ''
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: ''
 tags: ''

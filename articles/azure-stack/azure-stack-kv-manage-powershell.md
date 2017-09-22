@@ -24,7 +24,7 @@ This article helps you get started to create and manage Key Vault in Azure Stack
 
 ## Prerequisites
 * [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md)  
-* Azure Stack cloud administrators must have [created an offer](azure-stack-create-offer.md) that includes the Key Vault service.  
+* Azure Stack operators must have [created an offer](azure-stack-create-offer.md) that includes the Key Vault service.  
 * Users must [subscribe to an offer](azure-stack-subscribe-plan-provision-vm.md) that includes the Key Vault service. 
 * [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md)
 

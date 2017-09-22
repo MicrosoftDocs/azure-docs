@@ -4,7 +4,7 @@ description: This topic gives an overview of live streaming using Azure Media Se
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: fb63502e-914d-4c1f-853c-4a7831bb08e8

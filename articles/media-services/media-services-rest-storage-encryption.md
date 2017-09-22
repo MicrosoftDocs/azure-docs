@@ -4,7 +4,7 @@ description: Learn how to encrypt your content with storage encryption using AMS
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: a0a79f3d-76a1-4994-9202-59b91a2230e0

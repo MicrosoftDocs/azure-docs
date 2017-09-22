@@ -19,7 +19,7 @@ ms.author: sngun
 ---
 # Make a custom virtual machine image available in Azure Stack
 
-Azure Stack enables cloud administrators to make custom virtual machine images available to their users. These images can be referenced by Azure Resource Manager templates or added to the
+Azure Stack enables operators to make custom virtual machine images available to their users. These images can be referenced by Azure Resource Manager templates or added to the
 Azure Marketplace UI with the creation of a Marketplace item. 
 
 ## Add a VM image to marketplace with PowerShell
@@ -55,7 +55,7 @@ Now run the following steps to add the image to the Azure Stack marketplace:
    a. **Azure Active Directory**, use the following cmdlet:
 
    ```PowerShell
-   # Create the Azure Stack cloud administrator's AzureRM environment by using the following cmdlet:
+   # Create the Azure Stack operator's AzureRM environment by using the following cmdlet:
    Add-AzureRMEnvironment `
      -Name "AzureStackAdmin" `
      -ArmEndpoint "https://adminmanagement.local.azurestack.external" 
@@ -76,7 +76,7 @@ Now run the following steps to add the image to the Azure Stack marketplace:
    b. **Active Directory Federation Services**, use the following cmdlet:
     
    ```PowerShell
-   # Create the Azure Stack cloud administrator's AzureRM environment by using the following cmdlet:
+   # Create the Azure Stack operator's AzureRM environment by using the following cmdlet:
    Add-AzureRMEnvironment `
      -Name "AzureStackAdmin" `
      -ArmEndpoint "https://adminmanagement.local.azurestack.external"
@@ -170,7 +170,7 @@ One requirement of images is that they can be referenced by a Blob storage URI. 
 
    ![Set blob access to public](./media/azure-stack-add-vm-image/image2.png)
 
-2. Sign in to Azure Stack as a cloud administrator > From the menu, click **More services** > **Resource Providers** > select  **Compute** > **VM images** > **Add**
+2. Sign in to Azure Stack as operator > From the menu, click **More services** > **Resource Providers** > select  **Compute** > **VM images** > **Add**
 
 3. On the **Add a VM Image** blade, enter the publisher, offer, SKU, and version
    of the virtual machine image. These name segments refer to the VM

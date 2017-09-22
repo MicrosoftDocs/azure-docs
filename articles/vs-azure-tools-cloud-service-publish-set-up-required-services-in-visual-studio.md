@@ -3,8 +3,8 @@ title: Prepare to publish or deploy an Azure application from Visual Studio | Mi
 description: Learn the procedures to set up cloud and storage account services and configure your Azure application.
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: ''
 
 ms.assetid: 92ee2f9e-ec49-4c7a-900d-620abe5e9d8a
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
-ms.author: tarcher
+ms.author: kraigb
 
 ---
 # Prepare to Publish or Deploy an Azure Application from Visual Studio

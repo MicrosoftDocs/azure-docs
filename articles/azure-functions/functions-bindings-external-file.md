@@ -4,7 +4,7 @@ description: Using External File bindings in Azure Functions
 services: functions
 documentationcenter: ''
 author: alexkarcher-msft
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid:
@@ -30,7 +30,7 @@ This binding creates API connections to SaaS providers, or uses existing API con
 |:-----|:---:|:---:|:---:|
 |[Box](https://www.box.com)|x|x|x
 |[Dropbox](https://www.dropbox.com)|x|x|x
-|[FTP](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-ftp)|x|x|x
+|[FTP](https://docs.microsoft.com/azure/app-service/app-service-deploy-ftp)|x|x|x
 |[OneDrive](https://onedrive.live.com)|x|x|x
 |[OneDrive for Business](https://onedrive.live.com/about/business/)|x|x|x
 |[SFTP](https://docs.microsoft.com/azure/connectors/connectors-create-api-sftp)|x|x|x

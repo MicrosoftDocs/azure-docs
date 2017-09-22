@@ -144,7 +144,7 @@ These settings become visible to the user in the portal once they are enabled an
 
 ![User portal settings](./media/multi-factor-authentication-get-started-portal/portalsettings.png)
 
-### Self-Service User Enrollment
+### Self-service user enrollment
 
 If you want your users to sign in and enroll, you must select the **Allow users to log in** and **Allow user enrollment** options under the Settings tab. Remember that the settings you select affect the user sign-in experience.
 
@@ -175,6 +175,6 @@ If the administrators have configured the Azure Multi-Factor Authentication Serv
 
 The user self-enrollment is now complete and the user is signed in to the user portal. Users can sign back in to the user portal at any time in the future to change their phone numbers, PINs, authentication methods, and security questions if changing their methods is allowed by their administrators.
 
-## Next Steps
+## Next steps
 
 - [Deploy the Azure Multi-Factor Authentication Server Mobile App Web Service](multi-factor-authentication-get-started-server-webservice.md)

@@ -3,8 +3,8 @@ title: Get started with blob storage and Visual Studio connected services (cloud
 description: How to get started using Azure Blob storage in a cloud service project in Visual Studio after connecting to a storage account using Visual Studio connected services
 services: storage
 documentationcenter: ''
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: ''
 
 ms.assetid: 1144a958-f75a-4466-bb21-320b7ae8f304
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
-ms.author: tarcher
+ms.author: kraigb
 
 ---
 # Get started with Azure Blob Storage and Visual Studio connected services (cloud services projects)

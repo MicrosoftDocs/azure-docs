@@ -98,8 +98,8 @@ If you wish to use an identity system other than the ones provided here, you can
 [Add authentication to your Xamarin.Android app]: app-service-mobile-xamarin-android-get-started-users.md
 [Add Authentication to your Windows app]: app-service-mobile-windows-store-dotnet-get-started-users.md
 
-[How to configure your app to use Azure Active Directory login]: app-service-mobile-how-to-configure-active-directory-authentication.md
-[How to configure your app to use Facebook login]: app-service-mobile-how-to-configure-facebook-authentication.md
-[How to configure your app to use Google login]: app-service-mobile-how-to-configure-google-authentication.md
-[How to configure your app to use Microsoft Account login]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[How to configure your app to use Twitter login]: app-service-mobile-how-to-configure-twitter-authentication.md
+[How to configure your app to use Azure Active Directory login]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
+[How to configure your app to use Facebook login]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
+[How to configure your app to use Google login]: ../app-service/app-service-mobile-how-to-configure-google-authentication.md
+[How to configure your app to use Microsoft Account login]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
+[How to configure your app to use Twitter login]: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md
