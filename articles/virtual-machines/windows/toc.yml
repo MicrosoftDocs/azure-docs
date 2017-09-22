@@ -131,6 +131,8 @@
       href: download-template.md
     - name: Azure VM agent
       href: agent-user-guide.md
+    - name: Planned maintenance
+      href: maintenance-notifications.md
     - name: Scheduled events
       href: scheduled-events.md
     - name: Monitor metadata
@@ -161,6 +163,8 @@
       href: manage-availability.md
     - name: Vertically scale
       href: vertical-scaling-automation.md
+    - name: Create VM in availability zone
+      href: create-portal-availability-zone.md
   - name: Use automation tools
     items:
     - name: Chef

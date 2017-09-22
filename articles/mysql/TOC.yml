@@ -44,7 +44,7 @@
     - name: Wordpress - Portal
       href: https://portal.azure.com/#create/WordPress.WordPress
     - name: PHP - Azure CLI
-      href: ../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json
+      href: ../app-service/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json
 - name: Samples
   items:
   - name: Azure CLI

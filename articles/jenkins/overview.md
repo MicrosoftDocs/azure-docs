@@ -15,7 +15,7 @@ ms.custom: mvc
 
 # Azure and Jenkins
 
-[Jenkins](https://jenkins.io/) is a popular open-source automation server used to set up continuous integration and delivery (CI/CD) for your software projects. You can host your Jenkins deployment Azure or extend your existing Jenkins configuration using Azure resources. Jenkins plugins are also available to simplify CI/CD of your applications to Azure.
+[Jenkins](https://jenkins.io/) is a popular open-source automation server used to set up continuous integration and delivery (CI/CD) for your software projects. You can host your Jenkins deployment in Azure or extend your existing Jenkins configuration using Azure resources. Jenkins plugins are also available to simplify CI/CD of your applications to Azure.
 
 This article is an introduction to using Azure with Jenkins, detailing the core Azure features available to Jenkins users. To get started with your own Jenkins server in Azure, see our [quickstart](install-jenkins-solution-template.md).
 
@@ -45,5 +45,5 @@ Use Jenkins plugins to deploy your applications to Azure as part of your Jenkins
  Plug-ins are available to deploy to the following services and environments:
 
 - [Azure Web App on Linux](/azure/app-service-web/app-service-linux-intro). See the [tutorial](java-deploy-webapp-tutorial.md) to get started.
-- [Azure Web App](/azure/app-service-web/app-service-web-overview). See the [how-to](deploy-Jenkins-app-service-plugin.md) to get started.
+- [Azure Web App](/azure/app-service/app-service-web-overview). See the [how-to](deploy-Jenkins-app-service-plugin.md) to get started.
 
