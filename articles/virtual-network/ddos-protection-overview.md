@@ -23,14 +23,14 @@ ms.author: kumud
 >[!IMPORTANT]
 >Azure DDoS Protection Standard is currently in preview. A limited number of Azure resources support DDoS Protection Standard, and in a select number of regions. You need to [register for the service](http://aka.ms/ddosprotection) during the limited preview to get DDoS Protection Standard enabled for your subscription. You are contacted by the Azure DDoS team upon registration to guide you through the enablement process. DDoS Protection Standard is available in US East, US West, and US Central regions. During preview, you are not charged for using the service.
 
+Distributed Denial of Service (DDoS), is a type of attack where an attacker sends more requests to an application than the application is capable of handling. The resulting effect is depletion of resources, affecting the application’s availability and ability to service its customers.
+
 Azure DDoS Protection combined with application design best practices together provide defense against these attacks. These two service tiers are provided: 
 
-- **Azure DDoS Protection Basic** - is already automatically enabled as part of the Azure platform at no additional charge. Always on traffic monitoring and real time mitigation of common network level attacks provides the same defenses utilized by Microsoft’s online services.  The entire scale of Azure’s global network can be used to distribute and mitigate attack traffic across regions. 
-- **Azure DDoS Protection Standard** - provides additional mitigation capabilities tuned specifically to Virtual Network resources. It is simple to enable and requires no application changes. Protection policies are tuned through dedicated traffic monitoring and machine learning algorithms and applied to public IPs associated with Virtual Network resources such as Load Balancer, Application Gateway, and Service Fabric instances.  Real time telemetry is available through Azure Monitor views during an attack and for history. Application layer protections can be added through Application Gateway Web Application Firewall. 
+- **Azure DDoS Protection Basic** - is already automatically enabled as part of the Azure platform at no additional charge. Always-on traffic monitoring and real-time mitigation of common network level attacks provides the same defenses utilized by Microsoft’s online services.  The entire scale of Azure’s global network can be used to distribute and mitigate attack traffic across regions. 
+- **Azure DDoS Protection Standard** - provides additional mitigation capabilities tuned specifically to Virtual Network resources. It is simple to enable and requires no application changes. Protection policies are tuned through dedicated traffic monitoring and machine learning algorithms and applied to public IPs associated with Virtual Network resources such as Load Balancer, Application Gateway, and Service Fabric instances.  Real time telemetry is available through Azure Monitor views during an attack and for history. Application layer protections can be added through [Application Gateway Web Application Firewall](https://azure.microsoft.com/services/application-gateway/). 
 
 ![Azure DDoS Protection Standard](./media/ddos-protection-overview/ddos-protection-overview-fig2.png)
-
-Distributed Denial of Service (DDoS), is a type of attack where an attacker sends more requests to an application than the application is capable of handling. The resulting effect is depletion of resources, affecting the application’s availability and ability to service its customers. 
 
 Over the past few years, attacks have increased sharply, with attacks becoming more sophisticated and larger in magnitude. DDoS attacks are one of the largest availability threats that face cloud services today. The intent of a DDoS attack is to exhaust the application's resources rendering the application unavailable to its customers. DDoS attacks can be targeted at any endpoint that is publicly reachable through the Internet.
 
@@ -58,7 +58,7 @@ DDoS Protection Standard can mitigate these types of attacks:
 
 - **Volumetric attacks** -  flood the network layer with substantial amount of seemingly legitimate traffic, and include, but are not limited to, ICMP floods, UDP floods, amplification flood and more. 
 - **Protocol attacks** - also known as state exhaustion attacks target the connection state tables in firewalls, web application servers, and other infrastructure components. Includes but not limited to, SYN flood attacks, reflection attacks, and other protocol attacks. 
-- **Application layer attacks** - can be mitigated by using DDoS Protection Standard in combination with [Application Gateway](https://azure.microsoft.com/services/application-gateway/) WAF SKU to achieve complete protection both at the network layer and application layer.
+- **Application layer attacks** - can be mitigated by using DDoS Protection Standard in combination with Application Gateway WAF SKU to achieve complete protection both at the network layer and application layer.
 
 DDoS Protection Standard protects resources in a virtual network including Public IPs associated with VMs, internal load balancers, and application gateways. When coupled with the Application Gateway WAF SKU, DDoS Protection Standard can provide full L3 to L7 mitigation capability.
 
