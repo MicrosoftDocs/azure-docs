@@ -37,9 +37,19 @@ The following Linux distributions support MSI:
 
 Other Linux distributions are currently not supported and extension might fail on unsupported distributions.
 
-The extension works on CentOS 6.9. However, due to lack of system support in 6.9, the extension will not auto restart if crashed or stopped. It restarts when the VM restarts. To restart the extension manually, see  “How to restart MSI extension?”
+The extension works on CentOS 6.9. However, due to lack of system support in 6.9, the extension will not auto restart if crashed or stopped. It restarts when the VM restarts. To restart the extension manually, see [How do you restart the MSI extension?](#how-do-you-restart-the-msi-extension)
 
 ### How do you restart the MSI extension?
+On Windows and certain versions of Linux, if the extension stops, the following cmdlet may be used to manually restart it:
+
+```powershell
+Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location <location> -Publisher Microsoft.ManagedIdentity -VMName <vm name> -ResourceGroupName <resource group name> -ForceRerun <Any string different from any last value used>
+```
+
+Where: 
+- Extension name and type for Windows is: ManagedIdentityExtensionForWindows
+- Extension name and type for Linux is: ManagedIdentityExtensionForLinux
+
 ## Known issues
 
 ### Configuration blade does not appear in the Azure portal
