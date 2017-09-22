@@ -63,7 +63,7 @@ Get the connection information needed to connect to the Azure Database for MySQL
 5. If you forget your server login information, navigate to the **Overview** page to view the Server admin login name and, if necessary, reset the password.
    
 
-## Run Python Code
+## Run Python code
 - Paste the code into a text file, and then save the file into a project folder with file extension .py (such as C:\pythonmysql\createtable.py or /home/username/pythonmysql/createtable.py).
 - To run the code, launch the command prompt or Bash shell. Change directory into your project folder `cd pythonmysql`. Then type the python command followed by the file name `python createtable.py` to run the application. On the Windows OS, if python.exe is not found, you may need to provide the full path to the executable or add the Python path into the path environment variable. `C:\python27\python.exe createtable.py`
 

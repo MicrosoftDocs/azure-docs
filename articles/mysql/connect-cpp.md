@@ -31,9 +31,9 @@ You also need to:
 The steps in this section assume that you are familiar with developing using .NET.
 
 ### **Windows**
-1. Install Visual Studio 2017 Community, which is a full featured, extensible, free IDE for creating modern applications for Android, iOS, Windows, as well as web and database applications, and cloud services. You can install either the full .NET Framework or just .NET Core: the code snippets in the Quickstart work with either. If you already have Visual Studio installed on your computer, skip the next two steps.
-   - Download the [Visual Studio 2017 installer](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15). 
-   - Run the installer and follow the installation prompts to complete the installation.
+- Install Visual Studio 2017 Community, which is a full featured, extensible, free IDE for creating modern applications for Android, iOS, Windows, as well as web and database applications, and cloud services. You can install either the full .NET Framework or just .NET Core: the code snippets in the Quickstart work with either. If you already have Visual Studio installed on your computer, skip the next two steps.
+   1. Download the [Visual Studio 2017 installer](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15). 
+   2. Run the installer and follow the installation prompts to complete the installation.
 
 ### **Configure Visual Studio**
 1. From Visual Studio, project property > configuration properties > C/C++ > linker > general > additional library directories, add the lib\opt directory (i.e.: C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\lib\opt) of the c++ connector.
