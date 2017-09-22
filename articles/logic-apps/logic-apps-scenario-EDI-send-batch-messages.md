@@ -23,16 +23,16 @@ ms.author: LADocs; estfan; divswa
 In business to business (B2B) scenarios, partners often exchange messages in groups or batches. To send messages in groups or batches to trading partners, you can create a batch with multiple items and then use the X12 batch action to process those items as a batch.
 
 
-Batching for X12 messages, like other messages, uses a batch trigger and action. Also for X12, the batch goes through an X12 Encode step before going to the partner or any other destination. For more information about the batch batch trigger and action, see [Batch process messages](logic-apps-batch-process-send-receive-messages.md).
+Batching for X12 messages, like other messages, uses a batch trigger and action. Also for X12, the batch goes through an X12 Encode step before going to the partner or any other destination. For more information about the batch trigger and action, see [Batch process messages](logic-apps-batch-process-send-receive-messages.md).
 
 This topic shows you how you can process X12 messages as a batch by performing these tasks:
 * [Create a logic app that receives items and creates a batch](#receiver). This "receiver" logic app performs these actions:
  
    * Specifies the batch name and release criteria to meet before releasing the items as a batch.
 
-   * Processes or encodes the items in the batch using the specified X12 agreeement or partner identities.
+   * Processes or encodes the items in the batch using the specified X12 agreement or partner identities.
 
-* [Create a logic app that sends items to a batch](#sender). This "sender" logic app specifies where to send items for batching, which must be an existing receiver logic app
+* [Create a logic app that sends items to a batch](#sender). This "sender" logic app specifies where to send items for batching, which must be an existing receiver logic app.
 
 
 ## Prerequisites
@@ -69,7 +69,7 @@ Select this trigger: **Batch – Batch messages**
 and specify criteria for releasing the batch, for example:
 
    * **Batch Name**: The name used to identify the batch, which is "TestBatch" in this example.
-   
+
    * **Release Criteria**: The batch release criteria, which can be based on the message count, schedule, or both.
    
      ![Provide Batch trigger details](./media/logic-apps-batch-process-send-receive-messages/receive-batch-release-criteria.png)
@@ -86,9 +86,9 @@ and specify criteria for releasing the batch, for example:
 
 4. Add another action that encodes the grouped or batches messages, and creates an X12 batched message. 
 
-   a. Choose **+ New Step** > **Add an action**.
+   a. Choose **+ New step** > **Add an action**.
 
-   b. In the search box, enter "X12 batch" as your filter and select an action for X12 - Batch Encode. Like the X12 Encode connector, there's multiple variations for batch encoding action. You can select either of them.
+   b. In the search box, enter "X12 batch" as your filter and select an action for **X12 - Batch Encode**. Like the X12 Encode connector, there's multiple variations for batch encoding action. You can select either of them.
 
    ![Select X12 Batch Encode action](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-encode-action.png)
    
@@ -138,11 +138,11 @@ Sender logic apps need to know where to send items, while receiver logic apps do
 
 2. Add a new step for sending messages to a batch.
 
-   1. Choose **+ New Step** > **Add an action**.
+   1. Choose **+ New step** > **Add an action**.
 
    2. In the search box, enter "batch" as your filter. 
 
-3. Select this action:**Send messages to batch – Choose a Logic Apps workflow with batch trigger**
+3. Select this action: **Send messages to batch – Choose a Logic Apps workflow with batch trigger**
 
    ![Select "Send messages to batch"](./media/logic-apps-scenario-EDI-send-batch-messages/send-messages-batch-action.png)
 
