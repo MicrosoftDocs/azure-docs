@@ -262,6 +262,8 @@ Azure Functions supports a SendGrid output binding for sending email programmati
 
 The attribute `[SendGrid]` is defined in the NuGet package [Microsoft.Azure.WebJobs.Extensions.SendGrid].
 
+To set SendGrid ApiKey, you may code `[SendGrid(ApiKey = "MySendGridKey")]` and add an app setting `"MySendGridKey": "SG..."`. Default `ApiKey` value is `"AzureWebJobsSendGridApiKey"`. So, with that app setting, the simple `[SendGrid]` works fine.
+
 The following is an example of using a Service Bus queue trigger and a SendGrid output binding using `SendGridMessage`:
 
 ```csharp
