@@ -28,7 +28,7 @@ To create a policy for Azure portal, you select **Microsoft Azure Management** u
 
 The policy you create applies to all Azure management endpoints (classic Azure portal, Azure portal, Azure Resource Manager provider, classic Service Management APIs, as well as PowerShell).
 
-> ![CAUTION]
+> [!CAUTION]
 > Make sure you understand how conditional access works before setting up a policy to manage access to Azure management. Make sure you don't create conditions that could block your own access to the portal.
 
 For more information on how to set up and use conditional access, see [Conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md).
