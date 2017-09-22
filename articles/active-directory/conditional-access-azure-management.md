@@ -18,11 +18,11 @@ ms.author: skwan
 
 # Manage access to Azure management with conditional access
 
-Conditional access in Azure Active Directory (Azure AD) contorls access to cloud apps based on specific conditions that you specify. To allow access you create conditional access policies that specify requirements that allow or block access based on whether or not the requirements in the policy are met. 
+Conditional access in Azure Active Directory (Azure AD) controls access to cloud apps based on specific conditions that you specify. To allow access you create conditional access policies that allow or block access based on whether or not the requirements in the policy are met. 
 
-Typically, you use conditional access to control access to your cloud apps. You can also set up policies to control access to Azure portal based on certain conditions (such as sign-in risk, location, or device) or from trusted devices.
+Typically, you use conditional access to control access to your cloud apps. You can also set up policies to control access to Azure management based on certain conditions (such as sign-in risk, location, or device) and to enforce requirements like multi-factor authentication.
 
-To create a policy for Azure portal, you select **Microsoft Azure Management** under **Cloud apps** when choosing the app to which to apply the policy.
+To create a policy for Azure management, you select **Microsoft Azure Management** under **Cloud apps** when choosing the app to which to apply the policy.
 
 ![Conditional access for Azure management](./media/conditional-access-azure-mgmt.png)
 
