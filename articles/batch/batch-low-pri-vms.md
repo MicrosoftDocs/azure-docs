@@ -1,5 +1,5 @@
 ---
-title: Run Azure Batch workloads on cost-effective low-priority VMs (Preview) | Microsoft Docs
+title: Run Azure Batch workloads on cost-effective low-priority VMs | Microsoft Docs
 description: Learn how to provision low-priority VMs to reduce the cost of Azure Batch workloads.
 services: batch
 author: mscurrell
@@ -10,12 +10,12 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 07/21/2017
+ms.date: 09/26/2017
 ms.author: markscu
 
 ---
 
-# Use low-priority VMs with Batch (Preview)
+# Use low-priority VMs with Batch
 
 Azure Batch offers low-priorty virtual machines (VMs) to reduce the cost of
 Batch workloads. Low-priority VMs make new types of Batch workloads possible by
@@ -34,10 +34,10 @@ the work is distributed across many VMs.
 Low-priority VMs are significantly less expensive than dedicated VMs. For pricing
 details, see [Batch Pricing](https://azure.microsoft.com/pricing/details/batch/).
 
-For an additional discussion of low-priority VMs, see the blog post announcement: [Batch computing at a fraction of the price](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-batch-low-priority-vms/).
+For additional background, see the blog post announcement: [Batch computing at a fraction of the price](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-batch-low-priority-vms/).
 
 > [!IMPORTANT]
-> Low-priority VMs are currently in preview, and are available only for workloads running in Batch. 
+> Low-priority VMs are currently available only for workloads running in Batch. 
 >
 >
 
@@ -124,11 +124,6 @@ benefit from low-priority VMs:
     The quote for low-priority VMs is higher than that of dedicated VMs, because 
     low-priority VMs cost less. See [Batch service quotas and limits](batch-quota-limit.md#resource-quotas) for more information.    
 
-> [!NOTE]
-> Low-priority VMs are not currently supported for Batch accounts where the pool
-allocation mode is set to [User
-subscription](batch-account-create-portal.md#user-subscription-mode).
->
 >
 
 ## Create and update pools
