@@ -100,15 +100,17 @@ You also need a separate EC2 instance that you can use as the Site Recovery conf
 
 On the portal page for your vault, select **Site Recovery** from the **Getting Started** section and then click **Prepare Infrastructure**.
 
-### 1 Protection goal: Select the following values on the **Protection Goal** page:
-   
-     |   |  | 
-     |---------|-----------|
-     | Where are your machines located? | **On-premises**|
-     | Where do you want to replicate your machines? |**To Azure**|
-     | Are your machines virtualized? | **Not virtualized / Other**|
+### 1 Protection goal: 
 
-    When you are done, click **OK** to move to the next section.
+Select the following values on the **Protection Goal** page:
+   
+|    |  | 
+|---------|-----------|
+| Where are your machines located? | **On-premises**|
+| Where do you want to replicate your machines? |**To Azure**|
+| Are your machines virtualized? | **Not virtualized / Other**|
+
+When you are done, click **OK** to move to the next section.
 
 ### 2 Source Prepare 
 
