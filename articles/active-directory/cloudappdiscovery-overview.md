@@ -34,7 +34,5 @@ More than 80% of employees admit using non-approved SaaS apps for work purposes.
 If you don't have Activity Directory Premium, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/) for more details.
 
 ## Next steps
-Use the following link to explore the new Cloud App Discovery experience in Azure AD.
 
-> [!div class="nextstepaction"]
-> [Cloud App Security](https://portal.cloudappsecurity.com) 
+Use this link to explore the [new Cloud App Discovery experience in Azure AD](https://portal.cloudappsecurity.com).
