@@ -23,18 +23,17 @@ This quickstart will walk you through creating a serverless function in Java, te
 
 ## Prerequisites
 
--  [.NET Core 2.0](https://www.microsoft.com/net/core)  
+-  [.NET Core](https://www.microsoft.com/net/core) , latest version.
+-  [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 1.8.
 -  [Azure CLI](https://docs.microsoft.com/cli/azure)
--  [Apache Maven](https://maven.apache.org)
--  [Azure Functions Core Tools](/azure/azure-functions/functions-run-local#install-the-azure-functions-core-tools)
+-  [Apache Maven](https://maven.apache.org) , version 3.0 or above.
+-  [Azure Functions Core Tools](/azure/azure-functions/functions-run-local#install-the-azure-functions-core-tools) 2.0 or higher.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-[!INCLUDE [quickstarts-cloud-shell](../../includes/cloud-shell-try-it.md)]
-
+   
 ## Configure Maven
 
-To create a new Functions project with Maven, you first need to configure Maven to generate the project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html). Update your Maven [settings](https://maven.apache.org/settings.html) (stored by default in `~\.m2\settings.xml`) to add the archetype repository:
+To create a new Functions project with Maven, you first need to configure Maven to generate the project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html). Update your Maven [settings](https://maven.apache.org/settings.html) (stored by default in `~\.m2\settings.xml`) to add the Azure Functions archetype repository:
 
 ```XML
 <profile>
@@ -59,7 +58,7 @@ To create a new Functions project with Maven, you first need to configure Maven 
 
 ## Generate a new Functions project
 
-In an empty folder, run the following command to generate the project:
+In an empty folder, run the following command to generate the Functions project:
 
 ```bash
 mvn archetype:generate \
@@ -101,24 +100,25 @@ You'll see this output when the function is running:
 Trigger the function from the command line using curl in a new terminal:
 
 ```bash
-curl -w '\n' -d LocalFunctions http://localhost:7071/api/hello
+curl -w '\n' -d LocalFunction http://localhost:7071/api/hello
 ```
 
 ```Output
-Hello LocalFunctions!
+Hello LocalFunction!
 ```
 
 Use `Ctrl+C` in the terminal to stop the function code.
 
-## Deploy the function Azure
+## Deploy the function to Azure
 
-The Maven deploy step uses account credentials from the Azure CLI. [Log in with the Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) and then deploy your code into a new Azure Function using the `azure-functions:deploy` Maven target configured in your project. 
+The Maven deploy step uses account credentials from the Azure CLI. [Log in with the Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) and then deploy your code into a new Function app using the `azure-functions:deploy` Maven target.
 
 ```bash
 az login
 mvn azure-fuctions:deploy
 ```
-When the deploy is complete, you'll see the a URL you can use to access your function running on Azure:
+
+When the deploy is complete, you'll see the URL you can use to access your function running on Azure:
 
 ```output
 [INFO] Successfully deployed Function App with package.
@@ -140,11 +140,13 @@ Hello AzureFunctions!
 
 ## Next steps
 
-You have created a Java function app with a simple HTTP trigger. Add additional functions with different triggers to your project using the `azure-functions:add` Maven target.
+You have created a Java function app with a simple HTTP trigger. 
 
-![Console screencap of the Hello function started](media/functions-create-java-maven/add-new-functions.png)
 
-- [Debug your functions with Visual Studio Code](/azure/azure-functions/functions-run-local#create-a-function)
+- Add additional functions with different triggers to your project using the `azure-functions:add` Maven target.
+
+   ![Console screencap of the Hello function started](media/functions-create-java-maven/add-new-functions.png)
+
 - [Java Functions developer guide](functions-reference-java.md)
 - [Java Functions annotation reference](https://github.com/Azure/azure-functions-java-worker/tree/documentation/azure-functions-java-core)
 
