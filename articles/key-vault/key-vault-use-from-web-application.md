@@ -32,11 +32,12 @@ To complete this tutorial, you must have the following:
 * A Client ID and a Client Secret for a web application registered with Azure Active Directory that has access to your Key Vault
 * A web application. We will be showing the steps for an ASP.NET MVC application deployed in Azure as a Web App.
 
+>[!IMPORTANT]
+>* This sample depends on an older way of manually provisioning AAD Identities. Currently, there is a new feature in preview called [Managed Service Identity (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), which can automatically provision AAD Identities. Please refer to the following sample on [github](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) for further details.
+
 > [!NOTE]
->* This sample depends on an older way of manually provisioning AAD Identities. Currently, there is a new feature in preview called Managed Service Identity (MSI), which can automatically provision AAD Identities. Please refer to the following [link](https://docs.microsoft.com/azure/active-directory/msi-overview) for further details. 
 >* It is essential that you have completed the steps listed in [Get Started with Azure Key Vault](key-vault-get-started.md) for this tutorial so that you have the URI to a secret and the Client ID and Client Secret for a web application.
-> 
-> 
+
 
 The web application that will be accessing the Key Vault is the one that is registered in Azure Active Directory and has been given access to your Key Vault. If this is not the case, go back to Register an Application in the Get Started tutorial and repeat the steps listed.
 
