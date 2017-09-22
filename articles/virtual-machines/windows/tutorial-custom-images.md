@@ -59,13 +59,13 @@ To create an image, the VM needs to be deallocated and marked as generalized in 
 
 Deallocated the VM using [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm).
 
-```azurepowershell-interactive
+```powershell
 Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM -Force
 ```
 
 Set the status of the virtual machine to `-Generalized` using [Set-AzureRmVm](/powershell/module/azurerm.compute/set-azurermvm). 
    
-```azurepowershell-interactive
+```powershell
 Set-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM -Generalized
 ```
 
@@ -76,19 +76,19 @@ Now you can create an image of the VM by using [New-AzureRmImageConfig](/powersh
 
 Get the virtual machine. 
 
-```azurepowershell-interactive
+```powershell
 $vm = Get-AzureRmVM -Name myVM -ResourceGroupName myResourceGroup
 ```
 
 Create the image configuration.
 
-```azurepowershell-interactive
+```powershell
 $image = New-AzureRmImageConfig -Location EastUS -SourceVirtualMachineId $vm.ID 
 ```
 
 Create the image.
 
-```azurepowershell-interactive
+```powershell
 New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceGroup
 ```	
 
@@ -102,7 +102,7 @@ In the following script, we create a variable *$image* to store information abou
 The script creates a VM named *myVMfromImage* from our custom image in a new resource group named *myResourceGroupFromImage* in the *West US* location.
 
 
-```azurepowershell-interactive
+```powershell
 $cred = Get-Credential -Message "Enter a username and password for the virtual machine."
 
 New-AzureRmResourceGroup -Name myResourceGroupFromImage -Location EastUS
@@ -178,14 +178,14 @@ Here are some examples of common management image tasks and how to complete them
 
 List all images by name.
 
-```azurepowershell-interactive
+```powershell
 $images = Find-AzureRMResource -ResourceType Microsoft.Compute/images 
 $images.name
 ```
 
 Delete an image. This example deletes the image named *myOldImage* from the *myResourceGroup*.
 
-```azurepowershell-interactive
+```powershell
 Remove-AzureRmImage `
     -ImageName myOldImage `
 	-ResourceGroupName myResourceGroup
