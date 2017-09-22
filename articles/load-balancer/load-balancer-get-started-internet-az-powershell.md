@@ -20,7 +20,7 @@ ms.author: kumud
 
 #  Create a Load Balancer Standard in an Availability Zone with the PowerShell
 
-You can deploy a Load Balancer Standard in an Azure availability zone (preview). An availability zone is a physically separate zone in an Azure region.
+You can deploy a Load Balancer Standard in an Azure availability zone (preview). An [availability zone] (https://docs.microsoft.com/azure/availability-zones/az-overview) is a physically separate zone in an Azure region.
 
 >[!NOTE]
 Load Balancer Standard SKU is currently in Preview. During preview, the feature may not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use the Generally Available [Load Balancer Basic SKU](load-balancer-overview.md) for your production services.

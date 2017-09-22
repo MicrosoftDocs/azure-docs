@@ -34,6 +34,10 @@
 ### [Create an Internet facing load balancer with IPv6 (CLI)](load-balancer-ipv6-internet-cli.md)
 ### [Create an Internet facing load balancer with IPv6 (Template)](load-balancer-ipv6-internet-template.md)
 
+## [Create a zone redundant Public Load Balancer Standard](load-balancer-get-started-internet-az-portal.md)
+### [Create a zone redundant Public Load Balancer Standard (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
+### [Create a zone redundant Public Load Balancer Standard (CLI)](load-balancer-get-started-internet-az-cli.md)
+
 # How to
 ## [Configure TCP idle timeout for Load Balancer](load-balancer-tcp-idle-timeout.md)
 ## [Configure Distribution mode for Load Balancer](load-balancer-distribution-mode.md)
@@ -46,7 +50,9 @@
 ## [Log analytics for Azure Load Balancer](load-balancer-monitor-log.md)
 ## [Configuring DHCPv6 for Linux VMs](load-balancer-ipv6-for-linux.md)
 ## [Configure High Availability Ports for Internal Load Balancer](load-balancer-configure-ha-ports.md)
-
+## [Create a public IP address in an availability zone](../virtual-network/create-public-ip-availability-zone-portal.md)
+## [Create a public IP address in an availability zone (PowerShell)](../virtual-network/create-public-ip-availability-zone-powershell.md)
+## [Create a public IP address in an availability zone (CLI)](../virtual-network/create-public-ip-availability-zone-cli.md)
 ## Troubleshoot
 ### [Troubleshoot Azure Load Balancer](load-balancer-troubleshoot.md)
 
