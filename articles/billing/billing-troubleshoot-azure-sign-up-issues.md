@@ -25,8 +25,8 @@ If you can't sign up for Azure, use the tips in this article to troubleshoot com
 
 To resolve the issue, follow these steps:
 
-1. Log in to [Azure account center](https://account.azure.com) by using the account administrator credential. 
-2. Click **profile**, and then click **Edit details**.
+1. Log in to [Azure account center](https://account.azure.com/Profile) by using the account administrator credential. 
+2. Click **Edit details**.
 3. Make sure that all address fields are completed and valid. 
 4. When you sign up the Azure subscription, make sure that the billing address entered during the credit card registration matches your bank's records.
 
