@@ -30,8 +30,8 @@ Curl is used to demonstrate how you can interact with HDInsight by using raw HTT
 To complete the steps in this article, you will need the following:
 
 * Complete [Use Sqoop with Hadoop in HDInsight](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) to configure an environment with a HDInsight cluster and a Azure SQL database.
-* [Curl](http://curl.haxx.se/). 
-* [jq](http://stedolan.github.io/jq/)
+* [Curl](http://curl.haxx.se/). Curl is a tool to transfer data from or to a HDInsight cluster.
+* [jq](http://stedolan.github.io/jq/). The jq utility is used to process the JSON data returned from REST requests.
 
 ## Submit Sqoop jobs by using Curl
 > [!NOTE]
@@ -51,9 +51,9 @@ To complete the steps in this article, you will need the following:
 
     You should receive a response similar to the following:
 
-        ```json   
-        {"status":"ok","version":"v1"}
-        ```
+    ```json   
+    {"status":"ok","version":"v1"}
+    ```
    
     The parameters used in this command are as follows:
    

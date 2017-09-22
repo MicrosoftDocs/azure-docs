@@ -69,8 +69,10 @@ In this tutorial, you use these two datasets to test Sqoop import and export.
 ## Create cluster and SQL database
 This section shows you how to create a cluster, a SQL Database, and the SQL database schemas for running the tutorial using the Azure portal and an Azure Resource Manager template. The template can be found in [Azure QuickStart Templates](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/). The Resource Manager template calls a bacpac package to deploy the table schemas to SQL database.  The bacpac package is located in a public blob container, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. If you want to use a private container for the bacpac files, use the following values in the template:
    
-        "storageKeyType": "Primary",
-        "storageKey": "<TheAzureStorageAccountKey>",
+```json
+"storageKeyType": "Primary",
+"storageKey": "<TheAzureStorageAccountKey>",
+```
 
 If you prefer to use Azure PowerShell to create the cluster and the SQL Database, see [Appendix A](#appendix-a---a-powershell-sample).
 
@@ -95,11 +97,13 @@ If you prefer to use Azure PowerShell to create the cluster and the SQL Database
     - **_artifacts Location Sas Token**: Leave it blank.
     - **Bacpac File Name**: Use the default value unless you want to use your own backpac file.
      
-     The following values are hardcoded in the variables section:
-     
-     | Default storage account name | &lt;CluterName>store |
-     | Azure SQL database server name | &lt;ClusterName>dbserver |
-     | Azure SQL database name | &lt;ClusterName>db |
+        The following values are hardcoded in the variables section:
+        
+        |Name|Value|
+        |----|-----|
+        | Default storage account name | &lt;CluterName>store |
+        | Azure SQL database server name | &lt;ClusterName>dbserver |
+        | Azure SQL database name | &lt;ClusterName>db |
      
 3. Select **I agree to the terms and conditions stated above**.
 4. Click **Purchase**. You see a new tile titled Submitting deployment for Template deployment. It takes about around 20 minutes to create the cluster and SQL database.
