@@ -148,6 +148,18 @@ ProxyPassword="Password"
     net stop obengine
     net start obengine
     ```
+## Updating a Configuration Server
+
+> [!WARNING]
+> Updates are supported only up to the N-4th version. For example, if the latest version in the market is 9.11, then you can update from version 9.10, 9.9, 9.8, or 9.7 directly to 9.11. But if you are on any version less than or equal to 9.6 then you need to update to at least 9.7 before you can apply the latest updates on to your configuration server. Download links for previous version can be found under [Azure Site Recovery service updaes](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)
+
+1. Download the update installer on your configuration server.
+2. Launch the installer by double clicking the installer.
+3. The installer will detect the version of the Site Recovery components present on the machine & prompt for a confirmation. 
+4. Click on the OK button to provide the confirmation & continue with the upgrade.
+
+
+
 
 ## Decommissioning a Configuration Server
 Ensure the following before you start decommissioning your Configuration Server.
