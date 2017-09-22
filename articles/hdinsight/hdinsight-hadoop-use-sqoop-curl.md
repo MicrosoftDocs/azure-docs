@@ -29,7 +29,7 @@ Curl is used to demonstrate how you can interact with HDInsight by using raw HTT
 ## Prerequisites
 To complete the steps in this article, you will need the following:
 
-* Complete [Use Sqoop with Hadoop in HDInsight](./hdinsight-use-sqoop.md/#create-cluster-and-sql-database) to configure an environment with a HDInsight cluster and a Azure SQL database.
+* Complete [Use Sqoop with Hadoop in HDInsight](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) to configure an environment with a HDInsight cluster and a Azure SQL database.
 * [Curl](http://curl.haxx.se/). 
 * [jq](http://stedolan.github.io/jq/)
 
