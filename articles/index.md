@@ -100,11 +100,11 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <div class="cardText">
                                                 <h3>Manage Resources</h3>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/en-us/azure/monitoring-and-diagnostics/" data-linktype="absolute-path">Azure Monitor</a></li>
-                                                    <li><a class="barLink" href="/en-us/azure/application-insights/" data-linktype="absolute-path">Azure Application Insights</a></li>
-                                                    <li><a class="barLink" href="/en-us/azure/cost-management/" data-linktype="absolute-path">Azure Cost Management</a></li>
-                                                    <li><a class="barLink" href="/en-us/azure/backup/" data-linktype="absolute-path">Azure Backup</a></li>
-                                                    <li><a class="barLink" href="/en-us/azure/site-recovery/" data-linktype="absolute-path">Azure Site Recovery</a></li>
+                                                    <li><a class="barLink" href="/azure/monitoring-and-diagnostics/" data-linktype="absolute-path">Azure Monitor</a></li>
+                                                    <li><a class="barLink" href="/azure/application-insights/" data-linktype="absolute-path">Azure Application Insights</a></li>
+                                                    <li><a class="barLink" href="/azure/cloudyn/" data-linktype="absolute-path">Azure Cost Management</a></li>
+                                                    <li><a class="barLink" href="/azure/backup/" data-linktype="absolute-path">Azure Backup</a></li>
+                                                    <li><a class="barLink" href="/azure/site-recovery/" data-linktype="absolute-path">Azure Site Recovery</a></li>
                                                 </ul>
                                             </div>
                                         </div>
