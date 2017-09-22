@@ -148,6 +148,7 @@ ProxyPassword="Password"
     net stop obengine
     net start obengine
     ```
+
 ## Updating a Configuration Server
 
 > [!WARNING]
@@ -157,8 +158,6 @@ ProxyPassword="Password"
 2. Launch the installer by double clicking the installer.
 3. The installer will detect the version of the Site Recovery components present on the machine & prompt for a confirmation. 
 4. Click on the OK button to provide the confirmation & continue with the upgrade.
-
-
 
 
 ## Decommissioning a Configuration Server
