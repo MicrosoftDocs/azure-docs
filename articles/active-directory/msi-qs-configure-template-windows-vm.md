@@ -37,7 +37,7 @@ As with the Azure portal and scripting, Azure Resource Manager templates provide
    - Using a local [JSON editor (such as VS Code)](../azure-resource-manager/resource-manager-create-first-template.md), then upload/deploy using PowerShell or CLI.
    - Using Visual Studio's [Azure Resource Group project](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) to both create and deploy template.  
 
-Regardless of the path you take, template syntax is the same during initial deployment and redeployment, so enabling MSI on a new or existing VM is done in the same manner. Also, by default Azure Resource Manager does an [incremental update](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) to deployments:
+Regardless of the path you take, template syntax is the same during initial deployment and redeployment, so enabling MSI on a new or existing VM is done in the same manner. You'll also need to make sure your Azure sign-in account belongs to a role that gives you write permissions on the VM, such as “Virtual Machine Contributor”. Also, by default Azure Resource Manager does an [incremental update](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) to deployments:
 
 1. After loading the template into an editor, locate the `Microsoft.Compute/virtualMachines` resource of interest within the `resources` section. Yours may look slightly different from this screen shot, depending on the editor you're using and whether you are editing a template for a new deployment or existing one:
 
