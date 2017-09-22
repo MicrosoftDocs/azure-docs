@@ -5,8 +5,6 @@ services: functions
 documentationcenter: na
 author: rloutlaw
 manager: justhe
-editor: ''
-tags: ''
 keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
 ms.service: functions
 ms.devlang: java
@@ -24,27 +22,58 @@ ms.author: routlaw
 > * [Java](functions-reference-java.md)
 > 
 
-## Programming Model
+## Programming model 
 
-Your Azure function should be a stateless method to process input and produce output. Although you are allowed to write instance methods, your function must not depend on any instance fields of the class. You need to make sure all the function methods are `public` accessible.
+Your Azure function should be a stateless class method that processes input and produces output. Although you are allowed to write instance methods, your function must not depend on any instance fields of the class. All  function methods must have a `public` access modifier.
 
-Typically an Azure function is invoked because of one trigger. Your function needs to process that trigger (sometimes with additional inputs) and gives one or more output values.
+### Triggers and annotations
 
-All the input and output bindings can be defined in `function.json`, or in the Java method by using annotations. All the types and annotations used in this document are included in the `azure-functions-java-core` package.
+Typically an Azure function is invoked because of an external trigger. Your function needs to process that trigger and its associated inputs and produce one or more outputs.
 
-Here is an example for a simple Azure function written in Java:
+Java annotations are included in the `azure-functions-java-core` package to bind input and outputs to your methods. The supported input triggers and output binding annotations are included in the following table:
+
+Binding | Annotation
+---|---
+CosmosDB | N/A
+Event Hubs | <ul><li>`EventHubTrigger`</li><li>`EventHubOutput`</li></ul> 
+HTTP | <ul><li>`HttpTrigger`</li><li>`HttpOutput`</li></ul>
+Mobile Apps | N/A
+Notification Hubs | N/A
+Service Bus | <ul><li>`ServiceBusQueueTrigger`</li><li>`ServiceBusQueueOutput`</li><li>`ServiceBusTopicTrigger`</li><li>`ServiceBusTopicOutput`</li></ul>
+Storage Blob | <ul><li>`BlobTrigger`</li><li>`BlobOutput`</li><li>`StorageAccount`</li></ul>
+Storage Queue | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li><li>`StorageAccount`</li></ul>
+Storage Table | <ul><li>`TableInput`</li><li>`TableOutput`</li><li>`StorageAccount`</li></ul>
+Timer | <ul><li>`TimerTrigger`</li></ul>
+Twilio | N/A
+
+Trigger inputs and outputs can also be defined in the [function.json](/azure/azure-functions/functions-reference#function-code) for your application.
+
+Example using annotations:
+
+```java
+import com.microsoft.azure.serverless.functions.annotation.HttpTrigger;
+import com.microsoft.azure.serverless.functions.ExecutionContext;
+
+public class Function {
+    public String echo(@HttpTrigger(name = "req", methods = {"get"}, authLevel = AuthorizationLevel.ANONYMOUS) String req, ExecutionContext context) {
+        return String.format(req);
+    }
+}
+```
+
+The same function written without annotations:
 
 ```java
 package com.example;
 
 public class MyClass {
     public static String echo(String in) {
-        return "Hello, " + in + ".";
+        return in;
     }
 }
 ```
 
-and the corresponding `function.json` would be:
+with the corresponding `function.json`:
 
 ```json
 {
@@ -70,9 +99,17 @@ and the corresponding `function.json` would be:
 
 ## Data Types
 
-You are free to use all the data types in Java for the input and output data, including native types; customized POJO types and specialized Azure types defined in `azure-functions-java-core` package. The Azure Functions runtime will try to convert the actual input value to the type you need (for example, a `String` input will be treated as a JSON string and be parsed to a POJO type defined in your code).
+You are free to use all the data types in Java for the input and output data, including native types; customized Java types and specialized Azure types defined in `azure-functions-java-core` package. The Azure Functions runtime will try to convert the input received into the type requested by your code.
 
-The POJO types you defined have the same accessible requirements as the function methods, it needs to be `public` accessible. While the POJO class fields are not; for example a JSON string `{ "x": 3 }` is able to be converted to the following POJO type:
+### Strings
+
+Strings passed into function methods will be interpreted directly as Strings by the function method if the input parameter type for the function is of type `String`. 
+
+### Plain old Java objects (POJOs)
+
+Strings formatted with JSON will be convered to Java types if the input of the function method expects that Java type. This allows you to pass deserialized JSON objects into your functions and then work with the Java types in your function code.
+
+POJO types used as inputs to functions must the same `public` access modififer as the function methods they are being used in. The POJO class fields do not have to be declared `public`; for example a JSON string `{ "x": 3 }` is able to be converted to the following POJO type:
 
 ```Java
 public class MyData {
@@ -80,7 +117,11 @@ public class MyData {
 }
 ```
 
-You are also allowed to overload methods with the same name but with different types. For example, you can have both `String echo(String s)` and `String echo(MyType s)` in one class, and Azure Functions runtime will decide which one to invoke by examine the actual input type (for HTTP input, MIME type `text/plain` leads to `String` while `application/json` represents `MyType`).
+### Byte arrays
+
+## Function method overloading
+
+You are  allowed to overload function methods with the same name but with different types. For example, you can have both `String echo(String s)` and `String echo(MyType s)` in one class, and Azure Functions runtime will decide which one to invoke by examine the actual input type (for HTTP input, MIME type `text/plain` leads to `String` while `application/json` represents `MyType`).
 
 ## Inputs
 
@@ -191,21 +232,28 @@ and define the output binding in `function.json`:
 }
 ```
 
-## Context
+## Functions execution context
 
-You interact with Azure Functions execution environment via the `ExecutionContext` object defined in the `azure-functions-java-core` package. You are able to get the invocation ID and a built-in logger (which is integrated prefectly with Azure Function Portal experience as well as App Insights) from the context object.
+You interact with Azure Functions execution environment via the `ExecutionContext` object defined in the `azure-functions-java-core` package. Use the `ExecutionContext` object to use invocation information and functions runtime information in your code.
 
-What you need to do is just add one more `ExecutionContext` typed parameter to your function method (leave all other stuffs unchanged including `function.json`). Let's take a timer triggered function as an example:
+<insert sample>
+
+### Logging
+
+Access to the Functions runtime logger is available through the `ExecutionContext` object. This logger is tied to the Azure monitor and allows you to flag warnings and errors encountered during function execution.
+
+The following example code logs a warning message if the request body received is empty.
 
 ```java
-package com.example;
-
+import com.microsoft.azure.serverless.functions.annotation.HttpTrigger;
 import com.microsoft.azure.serverless.functions.ExecutionContext;
 
-public class MyClass {
-    public static String heartbeat(String timerInfo, ExecutionContext context) {
-        context.getLogger().info("Heartbeat triggered by " + context.getInvocationId());
-        return "Processed " + timerInfo;
+public class Function {
+    public String echo(@HttpTrigger(name = "req", methods = {"get"}, authLevel = AuthorizationLevel.ANONYMOUS) String req, ExecutionContext context) {
+        if (req.isEmpty()) {
+            context.getLogger().warning("Empty request body received in " + context.getInvocationId());
+        }
+        return String.format(req);
     }
 }
 ```
