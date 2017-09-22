@@ -68,7 +68,7 @@ To perform the steps described in this article, you must have:
     
     > [!IMPORTANT]
     > When deploying an Azure API Management instance to a Resource Manager VNET, the service must be in a dedicated subnet that contains no other resources except for Azure API Management instances. If an attempt is made to deploy an Azure API Management instance to a Resource Manager VNET subnet that contains other resources, the deployment will fail.
-    >`
+    >
 
     ![Select VPN][api-management-setup-vpn-select]
 
