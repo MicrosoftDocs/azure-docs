@@ -98,11 +98,11 @@ When you create a container instance, you can set its environment variables, as 
 
 Set environment variables in your container to provide dynamic configuration of the script or application run by the container. This is similar to the `--env` command-line argument to `docker run`.
 
-For example, you can modify the behavior of the script run by the container in the earlier example by specifying the following environment variables when you create the container instance.
+For example, you can modify the behavior of the script run by the container in the earlier example by specifying the following environment variables when you create the container instance:
 
-**NumWords** - The number of words sent to STDOUT.
+*NumWords*: The number of words sent to STDOUT.
 
-**MinLength** - The minimum number of characters in a word for it to be counted. A higher number ignores common words like "an" and "the."
+*MinLength*: The minimum number of characters in a word for it to be counted. A higher number ignores common words like "an" and "the."
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -132,7 +132,7 @@ New-AzureRmContainerGroup `
 
 Specify a command line to override the command line baked into the container image. This is similar to the `--entrypoint` command-line argument to `docker run`.
 
-For instance, you can have the example container analyze text other than *Hamlet* by specifying a different command line for the instance. The Python script run by the container, "wordcount.py," accepts a URL as an argument, and will process that page's content instead of the default.
+For instance, you can have the example container analyze text other than *Hamlet* by specifying a different command line. The Python script run by the container, "wordcount.py," accepts a URL as an argument, and will process that page's content instead of the default.
 
 For example, to analyze *Romeo and Juliet*:
 
