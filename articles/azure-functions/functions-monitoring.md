@@ -313,6 +313,8 @@ In C# script functions, you can use the `LogMetric` extension method on `ILogger
 logger.LogMetric("TestMetric", 1234); 
 ```
 
+This code is an alternative to calling `TrackMetric` using [the Application Insights API for .NET](#custom-telemetry-in-c-functions).
+
 ## Write logs in JavaScript functions
 
 In Node.js functions, you can use the `context.log.metric` method to create custom metrics in Application Insights. Here's a sample method call:
@@ -333,12 +335,13 @@ context.log.metric("TestMetric", 1234, {
     MyCustomMetricProperty: 100 
 }); 
 ```
+This code is an alternative to calling `trackMetric` using [the Node.js SDK for Application Insights](#custom-telemetry-in-javascript-functions).
 
 ## Custom telemetry in C# functions
 
 You can use the [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) NuGet package to send custom telemetry data to Application Insights.
 
-Here's an example that sends data to the customEvents, dependencies, and customMetrics tables in Application Insights Analytics.
+Here's an example of C# code that uses the [custom telemetry API](../application-insights/app-insights-api-custom-events-metrics.md). The example is for a .NET class library, but the Application Insights code is the same for C# script.
 
 ```cs
 using System;
@@ -405,38 +408,48 @@ namespace functionapp0915
 
 Don't call `TrackRequest` or `StartOperation<RequestTelemetry>`, because you'll see duplicate requests for a function invocation.  The Functions runtime automatically tracks requests.
 
-If you want to correlate telemetry items for a given function invocation, set the `telemetry.Context.Operation.*` properties each time your function is started. Use the `ExecutionContext.InvocationId` value as the operation id, as in the example code:
+Set `telemetry.Context.Operation.Id` to the invocation ID each time your function is started. This makes it possible to correlate all telemetry items for a given function invocation.
 
 ```cs
 telemetry.Context.Operation.Id = context.InvocationId.ToString();
-telemetry.Context.Operation.Name = "cs-http";
 ```
 
 ## Custom telemetry in JavaScript functions
 
-The Application Insights Node.js SDK works with Functions but is currently in beta. Here's an example that creates a customEvent item:
+The [Application Insights Node.js SDK](https://www.npmjs.com/package/applicationinsights) is currently in beta. Here's some sample code that sends custom telemetry to Application Insights:
 
 ```javascript
-var appInsights = require("applicationinsights");
-var client = appInsights.getClient();
+const appInsights = require("applicationinsights");
+appInsights.setup();
+const client = appInsights.defaultClient;
 
-var items = require('../lib/items.js');
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
 
-module.exports = function (context, item) {
-    context.log('Node.js queue trigger function processed work item', item.operation);
+    client.trackEvent({name: "my custom event", tagOverrides:{"ai.operation.id": context.invocationId}, properties: {customProperty2: "custom property value"}});
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:{"ai.operation.id": context.invocationId}});
+    client.trackMetric({name: "custom metric", value: 3, tagOverrides:{"ai.operation.id": context.invocationId}});
+    client.trackTrace({message: "trace message", tagOverrides:{"ai.operation.id": context.invocationId}});
+    client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:{"ai.operation.id": context.invocationId}});
+    client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:{"ai.operation.id": context.invocationId}});
 
-    client.trackEvent("function.process-item.execution", 
-        {
-            operation: item.operation, 
-            query: JSON.stringify(item.item),
-            tagOverrides:{'ai.operation.id': context.invocationId}   
-        });
-
-    items.add(item.item, () => {
-        context.done();
-    });
+    if (req.query.name || (req.body && req.body.name)) {
+        context.res = {
+            // status: 200, /* Defaults to 200 */
+            body: "Hello " + (req.query.name || req.body.name)
+        };
+    }
+    else {
+        context.res = {
+            status: 400,
+            body: "Please pass a name on the query string or in the request body"
+        };
+    }
+    context.done();
 };
 ```
+
+The `tagOverrides` parameter sets `operation_Id` to the function's invocation ID. This setting enables you to correlate all of the automatically-generated and custom telemetry for a given function invocation.
 
 ## Known issues
 
