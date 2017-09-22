@@ -32,8 +32,8 @@ In this article, you will learn how to enable and remove MSI for an Azure VM, us
 
 As of the time of this writing, enabling MSI during creation of a VM in the Azure portal is not supported. Instead, please refer to one of the following VM creation Quickstart articles to first create a VM:
 
-- [Create a Windows virtual machine with the Azure portal](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine) QuickStart for details on creating a Windows VM.
-- [Create a Linux virtual machine with the Azure portal](../virtual-machines/linux/quick-create-portal.md#create-virtual-machine) QuickStart for details on creating a Windows VM. 
+- [Create a Windows virtual machine with the Azure portal](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
+- [Create a Linux virtual machine with the Azure portal](../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)  
 
 Then proceed to the next section for details on enabling MSI on the VM.
 

@@ -22,7 +22,7 @@ ms.author: bryanla
 
 Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
-In this article, you will learn how to enable and remove MSI for an Azure Windows VM, using an Azure Resource Manager deployment template.
+In this article, you learn how to enable and remove MSI for an Azure VM, using an Azure Resource Manager deployment template.
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ Regardless of the path you take, template syntax is the same during initial depl
 1. After loading the template into an editor, locate the `Microsoft.Compute/virtualMachines` resource of interest within the `resources` section. Yours may look slightly different from this screen shot, depending on the editor you're using and whether you are editing a template for a new deployment or existing one:
 
    >[!NOTE] 
-   > Step 2 also assumes the variables `vmName`, `storageAccountName`, and `nicName` are defined in your template.
+   > This example assumes variables such as `vmName`, `storageAccountName`, and `nicName` have been defined in the template.
    >
 
    ![Template before screen shot - locate VM](./media/msi-qs-configure-template-windows-vm/template-file-before.png) 
@@ -58,7 +58,7 @@ Regardless of the path you take, template syntax is the same during initial depl
 3. Then add the VM MSI extension as a `resources` element using the following syntax:
 
    >[!NOTE] 
-   > The following example assumes a Windows VM extension (`ManagedIdentityExtensionForWindows`) in being deployed. You may also configure for Linux using `ManagedIdentityExtensionForLinux` instead.
+   > The following example assumes a Windows VM extension (`ManagedIdentityExtensionForWindows`) in being deployed. You may also configure for Linux by using `ManagedIdentityExtensionForLinux` instead, for the `"name"` and `"type"` elements.
    >
 
    ```JSON
