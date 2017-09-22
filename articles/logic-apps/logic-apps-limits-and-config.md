@@ -46,8 +46,8 @@ These limits apply to a single HTTP request or a connector call.
 
 |Name|Limit|Notes|
 |----|-----|-----|
-|Retry attempts|10| The default is 4. You can configure with the [retry policy parameter](../logic-apps/logic-apps-workflow-actions-triggers.md).|
-|Retry max delay|1 hour|You can configure with the [retry policy parameter](../logic-apps/logic-apps-workflow-actions-triggers.md).|
+|Retry attempts|90| The default is 4. You can configure with the [retry policy parameter](../logic-apps/logic-apps-workflow-actions-triggers.md).|
+|Retry max delay|1 day|You can configure with the [retry policy parameter](../logic-apps/logic-apps-workflow-actions-triggers.md).|
 |Retry min delay|5 sec|You can configure with the [retry policy parameter](../logic-apps/logic-apps-workflow-actions-triggers.md).|
 ||||
 
