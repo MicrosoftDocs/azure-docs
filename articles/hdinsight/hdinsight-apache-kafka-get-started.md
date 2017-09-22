@@ -371,7 +371,7 @@ If you run into issues with creating HDInsight clusters, see [access control req
 
 In this document, you have learned the basics of working with Apache Kafka on HDInsight. Use the following to learn more about working with Kafka:
 
-* [Apache Kafka documentation](http://kafka.apache.org/documentation.html) at kafka.apache.org.
+* [Analyze Kafka logs](apache-kafka-log-analytics-operations-management.md)
 * [Replicate data between Kafka clusters](hdinsight-apache-kafka-mirroring.md)
 * [Use Apache Spark streaming (DStream) with Kafka on HDInsight](hdinsight-apache-spark-with-kafka.md)
 * [Use Apache Spark Structured Streaming with Kafka on HDInsight](hdinsight-apache-kafka-spark-structured-streaming.md)
