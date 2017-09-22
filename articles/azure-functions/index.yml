@@ -75,7 +75,7 @@ sections:
     items:
     - html: <a href="/azure/azure-functions/functions-twitter-email">Create a function that integrates with Azure Logic Apps</a>
     - html: <a href="/azure/azure-functions/functions-create-serverless-api">Create a serverless API using Azure Functions</a>
-    - html: <a hreaf="/azure/event-grid/resize-images-on-storage-blob-upload-event">Automate resizing uploaded images using Event Grid</a>
+    - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Automate resizing uploaded images using Event Grid</a>
 - title: Samples
   items:
   - type: list
