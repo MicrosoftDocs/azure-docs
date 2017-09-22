@@ -21,7 +21,7 @@ ms.custom: mvc
 
 # Search semi-structured data in cloud Storage
 
-This tutorial is part two of a two-part series. In these tutorials, you learn how to search semi-structured and unstructured data. Semi-structured data is data that is not formally structured such as data models commonly associated with relational databases but contains tags or markings which separate content within the data. An example of this would be JSON.
+This tutorial is part two of a two-part series. In these tutorials, you learn how to search semi-structured and unstructured data. Semi-structured data, such as JSON, contains tags or markings which separate content within the data. It differs from structured data in that it is data that is not formally structured such as data models for relational databases.
 
 In this part you learn how to:
 
