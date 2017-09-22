@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/31/2017
+ms.date: 09/30/2017
 ms.author: nitinme
 
 ---
@@ -25,14 +25,12 @@ ms.author: nitinme
 >
 > 
 
-In this article, you will learn how to use WebHDFS REST APIs and Data Lake Store REST APIs to perform filesystem operations on Azure Data Lake Store. 
-
-For instructions on how to perform account management operations on Data Lake Store using REST API, see [Account management operations on Data Lake Store using REST API](data-lake-store-get-started-rest-api.md).
+In this article, you learn how to use WebHDFS REST APIs and Data Lake Store REST APIs to perform filesystem operations on Azure Data Lake Store. For instructions on how to perform account management operations on Data Lake Store using REST API, see [Account management operations on Data Lake Store using REST API](data-lake-store-get-started-rest-api.md).
 
 ## Prerequisites
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Azure Data Lake Store account**. Follow the instructions at [Get started with Azure Data Lake Store using the Azure Portal](data-lake-store-get-started-portal.md).
+* **Azure Data Lake Store account**. Follow the instructions at [Get started with Azure Data Lake Store using the Azure portal](data-lake-store-get-started-portal.md).
 
 * **[cURL](http://curl.haxx.se/)**. This article uses cURL to demonstrate how to make REST API calls against a Data Lake Store account.
 
@@ -50,9 +48,9 @@ Use the following cURL command. Replace **\<yourstorename>** with your Data Lake
 
     curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/?op=MKDIRS'
 
-In the above command, replace \<`REDACTED`\> with the authorization token you retrieved earlier. This command creates a directory called **mytempdir** under the root folder of your Data Lake Store account.
+In the preceding command, replace \<`REDACTED`\> with the authorization token you retrieved earlier. This command creates a directory called **mytempdir** under the root folder of your Data Lake Store account.
 
-You should see a response like this if the operation completes successfully:
+If the operation completes successfully, you should see a response like the following snippet:
 
     {"boolean":true}
 
@@ -63,9 +61,9 @@ Use the following cURL command. Replace **\<yourstorename>** with your Data Lake
 
     curl -i -X GET -H "Authorization: Bearer <REDACTED>" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/?op=LISTSTATUS'
 
-In the above command, replace \<`REDACTED`\> with the authorization token you retrieved earlier.
+In the preceding command, replace \<`REDACTED`\> with the authorization token you retrieved earlier.
 
-You should see a response like this if the operation completes successfully:
+If the operation completes successfully, you should see a response like the following snippet:
 
     {
     "FileStatuses": {
@@ -78,8 +76,8 @@ You should see a response like this if the operation completes successfully:
             "modificationTime": 1458324719512,
             "replication": 0,
             "permission": "777",
-            "owner": "NotSupportYet",
-            "group": "NotSupportYet"
+            "owner": "<GUID>",
+            "group": "<GUID>"
         }]
     }
     }
@@ -91,9 +89,9 @@ Use the following cURL command. Replace **\<yourstorename>** with your Data Lake
 
 	curl -i -X PUT -L -T 'C:\temp\list.txt' -H "Authorization: Bearer <REDACTED>" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/list.txt?op=CREATE'
 
-In the above syntax **-T** parameter is the location of the file you are uploading.
+In the preceding syntax **-T** parameter is the location of the file you are uploading.
 
-The output is similar to the following:
+The output is similar to the following snippet:
    
 	HTTP/1.1 307 Temporary Redirect
 	...
@@ -111,14 +109,14 @@ This operation is based on the WebHDFS REST API call defined [here](http://hadoo
 
 Reading data from a Data Lake Store account is a two-step process.
 
-* You first submit a GET request against the endpoint `https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN`. This will return a location to submit the next GET request to.
-* You then submit the GET request against the endpoint `https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN&read=true`. This will display the contents of the file.
+* You first submit a GET request against the endpoint `https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN`. This call returns a location to submit the next GET request to.
+* You then submit the GET request against the endpoint `https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN&read=true`. This call displays the contents of the file.
 
-However, because there is no difference in the input parameters between the first and the second step, you can use the `-L` parameter to submit the first request. `-L` option essentially combines two requests into one and will make cURL redo the request on the new location. Finally, the output from all the request calls is displayed, like shown below. Replace **\<yourstorename>** with your Data Lake Store name.
+However, because there is no difference in the input parameters between the first and the second step, you can use the `-L` parameter to submit the first request. `-L` option essentially combines two requests into one and makes cURL redo the request on the new location. Finally, the output from all the request calls is displayed, like shown in the following snippet. Replace **\<yourstorename>** with your Data Lake Store name.
 
     curl -i -L GET -H "Authorization: Bearer <REDACTED>" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN'
 
-You should see an output similar to the following:
+You should see an output similar to the following snippet:
 
     HTTP/1.1 307 Temporary Redirect
     ...
@@ -137,7 +135,7 @@ Use the following cURL command to rename a file. Replace **\<yourstorename>** wi
 
     curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=RENAME&destination=/mytempdir/myinputfile1.txt'
 
-You should see an output similar to the following:
+You should see an output similar to the  following snippet:
 
     HTTP/1.1 200 OK
     ...
@@ -157,19 +155,6 @@ You should see an output like the following:
     ...
 
     {"boolean":true}
-
-## Delete a Data Lake Store account
-This operation is based on the REST API call defined [here](https://msdn.microsoft.com/library/mt694075.aspx).
-
-Use the following cURL command to delete a Data Lake Store account. Replace **\<yourstorename>** with your Data Lake Store name.
-
-    curl -i -X DELETE -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstorename>?api-version=2015-10-01-preview
-
-You should see an output like the following:
-
-    HTTP/1.1 200 OK
-    ...
-    ...
 
 ## Next steps
 * [Account management operations on Data Lake Store using REST API](data-lake-store-get-started-rest-api.md).

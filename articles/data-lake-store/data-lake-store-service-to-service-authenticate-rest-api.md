@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/31/2017
+ms.date: 09/30/2017
 ms.author: nitinme
 
 ---
@@ -32,8 +32,8 @@ In this article, you learn about how to use the REST API to do service-to-servic
 
 * **Create an Azure Active Directory "Web" Application**. You must have completed the steps in [Service-to-service authentication with Data Lake Store using Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
-## Service-to-service authentication (non-interactive)
-In this scenario, the the application provides its own credentials to perform the operations. For this, you must issue a POST request like the one shown below. 
+## Service-to-service authentication
+In this scenario, the application provides its own credentials to perform the operations. For this, you must issue a POST request like the one shown in the following snippet: 
 
     curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
       -F grant_type=client_credentials \
@@ -41,14 +41,14 @@ In this scenario, the the application provides its own credentials to perform th
       -F client_id=<CLIENT-ID> \
       -F client_secret=<AUTH-KEY>
 
-The output of this request will include an authorization token (denoted by `access-token` in the output below) that you will subsequently pass with your REST API calls. Save this authentication token in a text file; you will need this later in this article.
+The output of the request includes an authorization token (denoted by `access-token` in the output below) that you subsequently pass with your REST API calls. Save the authentication token in a text file; you will need it when making REST calls to the Data Lake Store.
 
     {"token_type":"Bearer","expires_in":"3599","expires_on":"1458245447","not_before":"1458241547","resource":"https://management.core.windows.net/","access_token":"<REDACTED>"}
 
 This article uses the **non-interactive** approach. For more information on non-interactive (service-to-service calls), see [Service to service calls using credentials](https://msdn.microsoft.com/library/azure/dn645543.aspx). 
 
 ## Next steps
-In this article you learned how to use service-to-service authentication to authenticate with Azure Data Lake Store using REST API. You can now look at the following articles that talk about how to use the REST API to work with Azure Data Lake Store.
+In this article, you learned how to use service-to-service authentication to authenticate with Azure Data Lake Store using REST API. You can now look at the following articles that talk about how to use the REST API to work with Azure Data Lake Store.
 
 * [Account management operations on Data Lake Store using REST API](data-lake-store-get-started-rest-api.md)
 * [Data operations on Data Lake Store using REST API](data-lake-store-data-operations-rest-api.md)
