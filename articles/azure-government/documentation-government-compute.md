@@ -111,7 +111,7 @@ The following Functions features are not currently available in Azure Government
 
 - Functions access through the Azure Government Portal
 - Consumption Plan
-    -   The [App-Service plan](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale#app-service-plan) is available in Azure Government. To learn more about the two hosting plans, click [here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale).
+    -   The [App Service plan](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale#app-service-plan) is available in Azure Government. To learn more about the two hosting plans, click [here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale).
 	
 	
 ### Quickstarts
