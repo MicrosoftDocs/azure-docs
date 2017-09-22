@@ -67,6 +67,19 @@ docker login myregistry.azurecr.io -u myAdminName -p myPassword1
 > The admin account is designed for a single user to access the registry, mainly for test purposes. It is not recommended to share the admin account credentials among other users. All users appear as a single user to the registry. Changing or disabling this account disables registry access for all users who use the credentials.
 >
 
+## Azure AD Users
+
+With Managed Resgistries, customers can now leverage the existing AD Users to authenticate with the container registry and perform docker pull and push operations.
+
+```
+az acr login -n <registry name>
+```
+
+```
+az acr login -n myRegistry
+```
+
+This will exchange a token with Docker and allows users to perform docker operations.
 
 ### Next steps
 * [Push your first image using the Docker CLI](container-registry-get-started-docker-cli.md).
