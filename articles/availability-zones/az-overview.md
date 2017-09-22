@@ -21,11 +21,11 @@ ms.custom: mvc I am an ITPro and application developer, and I want to protect (u
 
 # Overview of Availability Zones in Azure (Preview)
 
-Availability Zones help to protect you from datacenter-level failures. They are located inside an Azure region, and each one has its own independent power source, network, cooling. To ensure resiliency, there's a minimum of three separate zones in all enabled regions. The physical and logical separation of Availability Zones within a region, protects applications and data from zone-level failures. 
-
-![conceptual view of one zone going down in a region](./media/az-overview/az-graphic-two.png)
+Availability Zones help to protect you from datacenter-level failures. They are located inside an Azure region, and each one has its own independent power source, network, and cooling. To ensure resiliency, there's a minimum of three separate zones in all enabled regions. The physical and logical separation of Availability Zones within a region protects applications and data from zone-level failures. 
 
 [!INCLUDE [Availability Zones preview statement](../../includes/availability-zones-preview-statement.md)]
+
+![conceptual view of one zone going down in a region](./media/az-overview/az-graphic-two.png)
 
 ## Regions that support Availability Zones
 
@@ -40,12 +40,14 @@ The Azure services that support Availability Zones are:
 - Windows Virtual Machines
 - Zonal Virtual Machine Scale Sets
 - Managed Disks
+- Load Balancer
 
-## Supported virtual machines SKUs
+## Supported virtual machine size families
 
-- A2_v2
-- D2_v2
-- DS2_v2
+- Av2
+- Dv2
+- DSv2
+
 
 ## Get started with the Availability Zones preview
 
