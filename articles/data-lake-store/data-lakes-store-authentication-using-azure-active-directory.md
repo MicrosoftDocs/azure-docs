@@ -26,8 +26,8 @@ Azure Data Lake Store uses Azure Active Directory for authentication. Before aut
 
 The following table illustrates how end-user and service-to-service authentication mechanisms are supported for Data Lake Store. Here's how you read the table.
 
-* The [✔*] symbol denotes that authentication option is supported and links to an article that demonstrates how to use the authentication option. 
-* The [✔] denotes that the authentication option is supported. 
+* The ✔* symbol denotes that authentication option is supported and links to an article that demonstrates how to use the authentication option. 
+* The ✔ symbol denotes that the authentication option is supported. 
 * The empty cells denote that the authentication option is not supported.
 
 
@@ -38,7 +38,7 @@ The following table illustrates how end-user and service-to-service authenticati
 |Service-to-service (using client key)         |    **[✔*](data-lake-store-service-to-service-authenticate-net-sdk.md)** |    **[✔*](data-lake-store-service-to-service-authenticate-java.md)**    |    ✔      |       ✔      |    **[✔*](data-lake-store-service-to-service-authenticate-python.md)**     |    **[✔*](data-lake-store-service-to-service-authenticate-rest-api.md)**    |
 |Service-to-service (using client certificate) |    ✔        |    ✔    |    ✔      |       ✔      |    ✔     |    ✔    |
 
-\* *Click the ✔ \* symbol. It's a link.*
+\* *Click the ✔ \** *symbol. It's a link.*
 
 \** *MFA stands for multi-factor authentication*
 
