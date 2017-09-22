@@ -73,7 +73,7 @@ If you do not yet have a General-purpose storage account, here's how to create o
 
 Containers are blob-specific, they exist to store blobs and are similar to folders.
 
-Blobs are basically files, like those that you store on your computer (or tablet, mobile device, and so on). They can be pictures, Microsoft Excel files, HTML files, virtual hard disks (VHDs), big data such as logs, database backups.  
+Blobs are basically files, like those that you store on your computer (or tablet, mobile device, and so on). They can be pictures, Microsoft Excel files, HTML files, virtual hard disks (VHDs), database backups, and big data such as logs.  
 
 For this tutorial, we are using a single container to store the text obtained from clinicaltrials.gov in a blob.
 
@@ -97,15 +97,13 @@ Now that you have a container, you can upload your example data to it.
 
   ![Unstructured search](media/storage-unstructured-structured-search/upload.png)
 
-2. Inside **Upload blob**, click **Advanced** and **fill the Upload to folder box in with "clinical-trials."**
-
 3. Click the blue folder icon pictured next to the files field and navigate to the folder where you extracted the sample data. 
 
 4. Open the folder and select all of its contents, then when you've finished click **Upload** to begin the upload process.
 
 The upload process may take a moment.
 
-After it completes, if you navigate back into your data container, you see a new folder **clinical-trials**, which contains all the text files.
+After it completes, if you navigate back into your data container, you should see all the text files.
 
   ![Unstructured search](media/storage-unstructured-structured-search/clinicalfolder.png)
 
@@ -125,9 +123,9 @@ If you do not yet have a Search Service, here's how to create one:
 
   **New Search Service** opens up. 
 
-5. Fill in the URL field, be aware that you are only constructing the beginning of the URL. E.G. "yourInputHere".search.windows.net
+5. Fill in the URL field, be aware that you are only constructing the beginning of the URL. An example URL would be: "yourInputHere".search.windows.net
 
-6. Choose the appropriate subscription, resource group, location, and pricing tier. For the purpose of this tutorial, we recommend the **Free** tier.
+6. Choose the resource group you created earlier, the appropriate subscription, location, and pricing tier. For the purpose of this tutorial, we recommend the **Free** tier.
 
 7. Click **Create** to create the search service.
 
@@ -145,9 +143,9 @@ Now that you have a search service, you can attach it to your blob storage. This
 
 3. Select **Search Service** inside **Import Data** and then click the search service you created.
 
-    You can now proceed to the next part, **Data Source.** Click that if it doesn't automatically pop up.
+    You can now proceed to the next part, **Data Source.** Click that if it doesn't automatically appears.
 
- **New data source** pops up.
+ **New data source** appears.
 
 ### New Data Source
 
@@ -163,15 +161,15 @@ Now that you have a search service, you can attach it to your blob storage. This
 
   ![Unstructured search](media/storage-unstructured-structured-search/datasources.png)
 
-3. Click on the storage account. Doing so opens up **Containers.**
+3. Click on the storage account you created earlier. Causing **Containers** to appear.
 
   ![Unstructured search](media/storage-unstructured-structured-search/datacontainer.png)
 
-4. Click on the data container and then click **Select**. Doing so brings you back to **New data source.**
+4. Click on the **data** container and then click **Select**. Doing so brings you back to **New data source.**
 
-5. Fill in the **Blob folder** field with the name of the folder we created previously, **clinical-trials**, and leave the description blank.
+5. Leave the remaining fields blank.
 
-6. Click **OK**, which brings up **Index.**
+6. Click **OK**, which brings up **Index**, after a slight delay.
 
 ### Index
 
@@ -205,9 +203,9 @@ Now that you have a search service, you can attach it to your blob storage. This
 
   ![Unstructured search](media/storage-unstructured-structured-search/exindexer.png)
 
-2. Doing so brings you back to **Import Data** where you can click OK and complete the connection process.
+2. Doing so brings you back to **Import Data** where you can click **OK** and complete the connection process.
 
-You've now successfully connected your blob data container's **clinical-trials** folder to your search service. The search service begins indexing immediately and you can begin searching right away.
+You've now successfully connected your blob to your search service. The search service begins indexing immediately and you can begin searching right away.
 
 ## Search your text files
 
@@ -231,7 +229,7 @@ The following steps show you where to find it and provide you some example queri
 
 5. Click **Search** while the query string is empty.
 
-    Leaving the query string empty is the equivalent to an "*" query and returns all data in the clinical-trials container.
+    Leaving the query string empty is the equivalent to an "*" query and returns all data in the data container.
 
   ![Unstructured search](media/storage-unstructured-structured-search/emptySearch.png)
 
@@ -243,7 +241,7 @@ The following steps show you where to find it and provide you some example queri
 
 8. Enter `$select=metadata_storage_name` into the query string and press enter, returning only that particular field.
     
-    a. The querystring is directly modifying the URL, so spaces are not permitted, to search multiple fields use a comma like this example: `$select=metadata_storage_name,metadata_storage_size`
+    a. The query string is directly modifying the URL, so spaces are not permitted. To search multiple fields use a comma, like this example: `$select=metadata_storage_name,metadata_storage_size`
     
     b. The `$select` parameter can only be used with fields that are marked retrievable.
 
