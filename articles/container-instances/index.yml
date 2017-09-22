@@ -24,7 +24,7 @@ sections:
     style: icon48
     items:
     - image:
-        src: https://docs.microsoft.com/media/common/cli.svg
+        src: /azure/virtual-machines/linux/media/index/cli.svg
       text: Azure CLI
       href: /azure/container-instances/container-instances-quickstart
     - image:
