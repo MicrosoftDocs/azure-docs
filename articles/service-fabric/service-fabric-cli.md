@@ -197,6 +197,12 @@ The Service Fabric CLI supports client-side certificates as PEM (.pem extension)
 openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 ```
 
+Similarly, to convert from a PEM file to a PFX file, you can use the following command (no password is being provided here):
+
+```bash
+openssl  pkcs12 -export -out Certificates.pfx -inkey Certificates.pem -in Certificates.pem -passout pass:'' 
+```
+
 For more information, see the [OpenSSL documentation](https://www.openssl.org/docs/).
 
 ### Connection problems
