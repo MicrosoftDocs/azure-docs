@@ -211,11 +211,7 @@ Next, update the relying party (RP) file that initiates the user journey that yo
 
 ## Link to password change sample policy
 
-You can find the sample policy here: 
-
-```
-https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change
-```
+You can find the sample policy [here](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change). 
 
 
 

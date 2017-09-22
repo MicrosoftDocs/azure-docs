@@ -25,9 +25,6 @@ We recommend against users checking this option on public computers.
 
 ![img](images/kmsi.PNG)
 
-------
-
-##### 	                                        ***'keep me signed in' enabled sign-in experience*** 
 
 ## Prerequisites
 
@@ -200,13 +197,7 @@ Next, update the relying party (RP) file that initiates the user journey that yo
 
 ## Link to sample policy
 
-You can find the sample policy here: 
-
-```
-https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/keep%20me%20signed%20in
-```
-
-
+You can find the sample policy [here](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/keep%20me%20signed%20in).
 
 
 
