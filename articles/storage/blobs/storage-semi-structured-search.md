@@ -76,7 +76,7 @@ The URL (also known as an endpoint) for each call must end with **api-version=20
 
  Additionally, the `[service name]` in the example URLs is the name of the search service created in the last tutorial. So note the name of your search service down as well. An example would be: `https://mysearch.search.windows.net/datasources?api-version=2016-09-01-Preview`
 
-You will also need the name of your storage account and your storage account key, the storage account key can be found in your storage account under **Access Keys**. As pictured below:
+You also need the name of your storage account and your storage account key, the storage account key can be found in your storage account under **Access Keys**. As pictured below:
 
   ![Semi-structured search](media/storage-unstructured-structured-search/storagekeys.png)
 
@@ -155,7 +155,7 @@ api-key: [admin key]
 
 Now that the search service has been connected to your data container you can begin searching your files.
 
-Open up the portal and navigate back to your search service. Open up the search explorer, as shown in the [previous tutorial](./storage-unstructured-search.md#Search your text files).
+Open up the portal and navigate back to your search service. Open up the search explorer, as shown in the [previous tutorial](storage-unstructured-search.md#Search-your-text-files).
 
 As before, the data can be queried in a number of ways: particular terms (such as Myopia), the full data set, system properties, or user-defined metadata. Both system properties and user-defined metadata may only be searched with the select parameter if they were marked as retrievable during creation of the target index. Once parameters are created in the target index they may not be altered, though additional parameters may be added.
 
