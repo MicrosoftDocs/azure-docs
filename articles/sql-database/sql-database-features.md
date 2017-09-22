@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 08/25/2017
+ms.date: 09/22/2017
 ms.author: carlrab
 
 ---
@@ -116,7 +116,6 @@ The following table lists the major features of SQL Server and provides informat
 | [Table partitioning](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes) | Yes - primary filegroup only |
 | [Temporary tables](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql#temporary-tables) | Local and database-scoped global temporary tables only |
 | [Temporal tables](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | Yes |
-| [Transactions](https://docs.microsoft.com/sql/t-sql/language-elements/transactions-transact-sql) | No |
 | [Variables](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | Yes | 
 | [Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | Yes |
 | [Windows Server Failover Clustering](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | No - see [Failover groups and active geo-replication](sql-database-geo-replication-overview.md) |
