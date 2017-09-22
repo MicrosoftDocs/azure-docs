@@ -20,16 +20,11 @@ ms.reviewer: nigu
 ---
 # Find unmanaged cloud applications with Cloud App Discovery
 ## Summary
-In modern enterprises, IT departments are often not aware of all the cloud applications that members of their organization use to do their work. It is easy to see why administrators would have concerns about unauthorized access to corporate data, possible data leakage and other security risks. This lack of awareness can make creating a plan for dealing with these security risks seem daunting.
+
+Cloud App Discovery is a feature of Azure Active Directory Premium that enables you to discover unmanaged cloud applications being used by the people in your organization. In modern enterprises, IT departments are often not aware of all the cloud applications that members of their organization use to do their work. It is easy to see why administrators would have concerns about unauthorized access to corporate data, possible data leakage and other security risks. This lack of awareness can make creating a plan for dealing with these security risks seem daunting.
 
 > [!TIP] 
-> Check out the improvements to Cloud App Discovery in Azure Active Directory (Azure AD), which are enhanced by [integration with Microsoft Cloud App Security](cloudappdiscovery-overview.md):
-> 
-> [!div class="nextstepaction"]
-> [Cloud App Security](https://portal.cloudappsecurity.com) 
-
-
-Cloud App Discovery is a feature of Azure Active Directory Premium that enables you to discover unmanaged cloud applications being used by the people in your organization.
+> Check out the improvements to Cloud App Discovery in Azure Active Directory (Azure AD), which are enhanced by [integration with Microsoft Cloud App Security](https://portal.cloudappsecurity.com).
 
 **With Cloud App Discovery, you can:**
 

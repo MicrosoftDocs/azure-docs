@@ -21,10 +21,7 @@ ms.reviewer: nigu
 This topic explains how data is collected, processed, and secured within Azure Active Directory Cloud App Discovery. Microsoft is committed to protecting your privacy and securing your data, while delivering software and services that help you manage the security of your organization. We recognize that when you entrust your data to others, that trust requires rigorous security engineering investments and expertise to back it. Microsoft adheres to strict compliance and security guidelines from secure software development lifecycle practices to operating a service. Securing and protecting data is a top priority at Microsoft.
 
 > [!TIP] 
-> Check out the improvements to the now agentless Cloud App Discovery in Azure Active Directory (Azure AD), which are enhanced by [integration with Microsoft Cloud App Security](cloudappdiscovery-overview.md):
-> 
-> [!div class="nextstepaction"]
-> [Cloud App Security](https://portal.cloudappsecurity.com) 
+> Check out the improvements to the now agentless Cloud App Discovery in Azure Active Directory (Azure AD), which are enhanced by [integration with Microsoft Cloud App Security](https://portal.cloudappsecurity.com). 
 
 ## Overview
 Cloud App Discovery is a feature of Azure AD and is hosted in Microsoft Azure.  

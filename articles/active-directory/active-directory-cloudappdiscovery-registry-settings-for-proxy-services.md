@@ -21,10 +21,7 @@ ms.reviewer: nigu
 The objective of this topic is to provide you with the steps you need to perform to set the required port on the computers running the Cloud App Discovery agent. By default, the Cloud App Discovery agent is configured to use only the ports 80 or 443. If you are planning on installing Cloud App Discovery in an environment with a proxy server that is using a custom port (neither 80 nor 443), you need to configure your agents to use this port. The configuration is based on a registry key.
 
 > [!TIP] 
-> Check out the improvements to the now agentless Cloud App Discovery in Azure Active Directory (Azure AD), which are enhanced by [integration with Microsoft Cloud App Security](cloudappdiscovery-overview.md):
-> 
-> [!div class="nextstepaction"]
-> [Cloud App Security](https://portal.cloudappsecurity.com) 
+> Check out the improvements to the now agentless Cloud App Discovery in Azure Active Directory (Azure AD), which are enhanced by [integration with Microsoft Cloud App Security](https://portal.cloudappsecurity.com).
 
 **To modify the port used by the computer running the Cloud App Discovery agent, perform the following steps:**
 
