@@ -48,7 +48,7 @@ The search api-key is required, it can be found under **Keys** inside your searc
 
   ![Semi-structured search](media/storage-unstructured-structured-search/keys.png)
 
-If this is your first time making REST calls to Azure, here's a brief introduction of the components that are important for this tutorial: The request method, which denotes what type of call you are telling your client to make. For every call in this tutorial the request method should be "POST." The header keys, which should be "Content-type" and "api-key", application/json and your "admin key" (this is a placeholder for your search primarAy key) are the values for your header keys, and the rest of the call (including the brackets) is the body of your call. Depending on the client you're using, there may be some variations on how you construct your query but that's the gist of it.
+If this is your first time making REST calls to Azure, here's a brief introduction of the components that are important for this tutorial: The request method, which denotes what type of call you are telling your client to make. For every call in this tutorial the request method should be "POST." The header keys, which should be "Content-type" and "api-key", application/json and your "admin key" (this is a placeholder for your search primary key) are the values for your header keys, and the rest of the call (including the brackets) is the body of your call. Depending on the client you're using, there may be some variations on how you construct your query but that's the gist of it.
 
 ## Download the sample data
 
@@ -155,7 +155,7 @@ api-key: [admin key]
 
 Now that the search service has been connected to your data container you can begin searching your files.
 
-Open up the portal and navigate back to your search service. Open up the search explorer, as shown in the [previous tutorial](./storage-unstructured-search.md#Search-your-text-files).
+Open up the portal and navigate back to your search service. Open up the search explorer, as shown in the [previous tutorial](./storage-unstructured-search.md#Search your text files).
 
 As before, the data can be queried in a number of ways: particular terms (such as Myopia), the full data set, system properties, or user-defined metadata. Both system properties and user-defined metadata may only be searched with the select parameter if they were marked as retrievable during creation of the target index. Once parameters are created in the target index they may not be altered, though additional parameters may be added.
 
