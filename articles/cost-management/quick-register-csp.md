@@ -34,7 +34,7 @@ To complete registration, you must be a partner program administrator with acces
 5. Enter an **Application ID**, **Commerce ID**, **Application Secret key**, and select the **Default Pricing Plan**. If you don't have the information handy, sign in to the Partner Center portal at  [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com) with your primary administrator account and do the following steps:
   1. Go to **Dashboard** > **Account Settings** > **App Management**.
   2. If you have previously created a Web App, skip this step. Otherwise, click **Add new web app** in the **Web App** section.
-  3. Copy the **Application ID** GUID from your web application.
+  3. Copy the **App ID** GUID from your web application.
   4. Select the key validity duration as one or two years, as needed. Select **Add key** and then copy and save the secret key value.  
     ![CSP Partner Center](./media/quick-register-csp/csp-partner-center.png)
   5. Go back to the registration page and paste the information.  
