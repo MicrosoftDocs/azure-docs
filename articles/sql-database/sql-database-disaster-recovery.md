@@ -60,7 +60,7 @@ Use one of the following guides to fail over to a geo-replicated secondary datab
 
 * [Fail over to a geo-replicated secondary using Azure Portal](sql-database-geo-replication-portal.md)
 * [Fail over to a geo-replicated secondary using PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-* [Fail over to a geo-replicated secondary using T-SQL](sql-database-geo-replication-transact-sql.md)
+* [Fail over to a geo-replicated secondary using T-SQL](/sql/t-sql/statements/alter-database-azure-sql-database.md)
 
 ## Recover using geo-restore
 If your application’s downtime does not result in business liability you can use [geo-restore](sql-database-recovery-using-backups.md) as a method to recover your application database(s). It creates a copy of the database from its latest geo-redundant backup.

@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -57,13 +57,13 @@ Change directories so that you are working from the cloned directory.
 cd azure-voting-app-redis
 ```
 
-Inside the cloned directory is the application source code, a pre-created Docker compose file, and a Kubernetes manifest file. These files are used to create assets throughout the tutorial set. 
+Inside the directory is the application source code, a pre-created Docker compose file, and a Kubernetes manifest file. These files are used throughout the tutorial set. 
 
 ## Create container images
 
 [Docker Compose](https://docs.docker.com/compose/) can be used to automate the build out of container images and the deployment of multi-container applications.
 
-Run the docker-compose.yml file to create the container image, download the Redis image, and start the application.
+Run the `docker-compose.yml` file to create the container image, download the Redis image, and start the application.
 
 ```bash
 docker-compose up -d
@@ -75,7 +75,7 @@ When completed, use the [docker images](https://docs.docker.com/engine/reference
 docker images
 ```
 
-Notice that three images have been downloaded or created. The *azure-vote-front* image contains the application. It was derived from the *nginx-flask* image. The Redis image was downloaded from Docker Hub.
+Notice that three images have been downloaded or created. The `azure-vote-front` image contains the application and uses the `nginx-flask` image as a base. The `redis` image is used to start a Redis instance.
 
 ```bash
 REPOSITORY                   TAG        IMAGE ID            CREATED             SIZE
@@ -106,7 +106,7 @@ Browse to http://localhost:8080 to see the running application.
 
 ## Clean up resources
 
-Now that application functionality has been validated, the running containers can be stopped and removed. Do not delete the container images. The *azure-vote-front* image is uploaded to an Azure Container Registry instance in the next tutorial.
+Now that application functionality has been validated, the running containers can be stopped and removed. Do not delete the container images. The `azure-vote-front` image is uploaded to an Azure Container Registry instance in the next tutorial.
 
 Run the following to stop the running containers.
 
