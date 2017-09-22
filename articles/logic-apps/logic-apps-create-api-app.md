@@ -349,10 +349,10 @@ Your API can then unregister the callback URL and stop any processes as necessar
 > For an example webhook pattern, review this 
 > [webhook trigger controller sample in GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
 
-## Deploy and call your APIs
+## Secure, deploy, and call your APIs
 
-After you set up authentication, set up deployment for your APIs. 
-Learn [how to deploy and call custom APIs from logic apps](../logic-apps/logic-apps-custom-api-host-deploy-call.md).
+Before you call your API, set up authentication and deployment for your API. 
+Learn [how to secure, deploy, and call custom APIs from logic apps](../logic-apps/logic-apps-custom-hosted-api.md).
 
 ## Publish custom APIs to Azure
 
