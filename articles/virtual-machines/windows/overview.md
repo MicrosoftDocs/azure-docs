@@ -33,7 +33,7 @@ Azure virtual machines can be used in various ways. Some examples are:
 The number of VMs that your application uses can scale up and out to whatever is required to meet your needs.
 
 ## What do I need to think about before creating a VM?
-There are always a multitude of [design considerations](/architecture/reference-architectures/virtual-machines-linux?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) when you build out an application infrastructure in Azure. These aspects of a VM are important to think about before you start:
+There are always a multitude of [design considerations](/azure/architecture/reference-architectures/virtual-machines-windows?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) when you build out an application infrastructure in Azure. These aspects of a VM are important to think about before you start:
 
 * The names of your application resources
 * The location where the resources are stored
@@ -44,7 +44,7 @@ There are always a multitude of [design considerations](/architecture/reference-
 * The related resources that the VM needs
 
 ### Naming
-A virtual machine has a [name](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) assigned to it and it has a computer name configured as part of the operating system. The name of a VM can be up to 15 characters.
+A virtual machine has a [name](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) assigned to it and it has a computer name configured as part of the operating system. The name of a VM can be up to 15 characters.
 
 If you use Azure to create the operating system disk, the computer name and the virtual machine name are the same. If you [upload and use your own image](upload-generalized-managed.md) that contains a previously configured operating system and use it to create a virtual machine, the names can be different. We recommend that when you upload your own image file, you make the computer name in the operating system and the virtual machine name the same.
 
