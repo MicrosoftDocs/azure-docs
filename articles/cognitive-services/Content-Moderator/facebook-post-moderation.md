@@ -115,10 +115,10 @@ Sign in to the [Azure Management Portal](https://portal.azure.com/) to create yo
 
 4. We use Postman for the next few steps.
 
-    1. Open the [**Postman**](https://www.getpostman.com/) tool. (or get it [here](https://www.getpostman.com/))
+    1. Open **Postman**(or get it [here](https://www.getpostman.com/)).
     2. Import these two files:
-        1. [Postman Collection](samples-fbPageModeration/Facebook Permanent Page Access Token.postman_collection.json)
-        2. [Postman Environment](samples-fbPageModeration/FB Page Access Token Environment.postman_environment.json)       
+        1. [Postman Collection](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/Facebook%20Permanant%20Page%20Access%20Token.postman_collection.json)
+        2. [Postman Environment](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/FB%20Page%20Access%20Token%20Environment.postman_environment.json)       
     3. Update these environment variables:
     
     | Key | Value   | 
