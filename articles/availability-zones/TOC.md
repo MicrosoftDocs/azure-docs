@@ -7,8 +7,6 @@
 
 ## Virtual machines
 ### [Create a Windows VM in an Availability Zone with Azure portal](../virtual-machines/windows/create-portal-availability-zone.md)
-### [Regions and availability for VMs](../virtual-machines/windows/regions-and-availability.md)
-### [Manage the availability of VMs](../virtual-machines/windows/manage-availability.md)
 
 ## Virtual machine scale sets
 ### [How to create a virtual machine scale set with Azure portal](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md)
