@@ -125,21 +125,24 @@ On the **Prepare source** page, click **+ Configuration Server**.
 5. On the VM, right-click installer you downloaded for the **Microsoft Azure Site Recovery Unified Setup** and select **Run as administrator**. 
 
 	1. In **Before You Begin**, select **Install the configuration server and process server** and then click **Next**.
-	2. In **Third Party Software Licesnse**, select **I accept the third party license agreement.** and then click **Next**.
-	3. In **Registration**, click browse and navigate to where you put the **Backup Credentials** file and then click **Next**.
+	2. In **Third Party Software License**, select **I accept the third party license agreement.** and then click **Next**.
+	3. In **Registration**, click browse and navigate to where you put the vault registration key file and then click **Next**.
 	4. In **Internet Settings**, select **Connect to Azure Site Recovery without a proxy server.** and then click **Next**.
 	5. In the **Prerequisites Check** page, it will run checks for several items. When it is complete, click **Next**. 
 	6. In **MySQL Configuration**, provide the required passwords and then click **Next**.
-	7. In **Environment Details**, select **No** and then click **Next**.
+	7. In **Environment Details**, select **No**, you don't need to protect VMware machines and then click **Next**.
 	8. In **Install Location**, click **Next** to accept the default.
 	9. In **Network Selection**, click **Next** to accept the default.
 	10. In **Summary** click **Install**.
-	11. **Installation Progress** will show you information about where you are in the installation process. When it is complete, click **Finish**. You may need to OK a reboot for the installation to complete. You might also get a pop-up about a passphrase, copy it to your clipbloard and save it somewhere safe.
+	11. **Installation Progress** will show you information about where you are in the installation process. When it is complete, click **Finish**. You get a pop-up about needing a possible reboot, click **OK**. You also get a pop-up about the Configuration Server Connection Passphrase,  copy the passphrase to your clipbloard and save it somewhere safe.
     
 6. On the VM, run **cspsconfigtool.exe** to create one or more management accounts on the configuration server. Make sure the management accounts have administrator permissions on the EC2 instances that you want to migrate. 
- 
 
-- 3 Target Prepare: In this section you will be entering in information about the resources you created when you went through the [Prepare Azure resources](#prepare-azure-resources) section, earlier in this tutorial.
+When you are done setting up the configuration server, go back to the portal and select the server you just created for **Configuration Server** and click *OK** to move on to step 3 Target Prepare.
+
+### 3 Target Prepare 
+
+In this section you will be entering in information about the resources you created when you went through the [Prepare Azure resources](#prepare-azure-resources) section, earlier in this tutorial.
 
      1. In **Subscription**, select the Azure subscription that you used for the [Prepare Azure](tutorial-prepare-azure.md) tutorial.
      2. Select **Resource Manager** as the deployment model.
@@ -147,14 +150,17 @@ On the **Prepare source** page, click **+ Configuration Server**.
      4. When you are done, click **OK**.
 
 
+### 4 Replication settings Prepare 
 
-- 4 Replication settings Prepare: You need to create a replication policy, before you can enable replication
+You need to create a replication policy, before you can enable replication
 
      1. Click **+ Replicate and Associate**.
      2. In **Name**, type **myReplicationPolicy**.
      3. Leave the rest of the default settings and click **OK** to create the policy. The new policy is automatically associated with the configuration server. 
 
-- 5 Deployment planning Select: In **Have you completed deployment planning?**, select **I will do it later** from the drop-down and then click **OK**.
+### 5 Deployment planning Select 
+
+In **Have you completed deployment planning?**, select **I will do it later** from the drop-down and then click **OK**.
 
 When you are all done with all 5 sections of **Prepare infrastructure**, click **OK**.
 
