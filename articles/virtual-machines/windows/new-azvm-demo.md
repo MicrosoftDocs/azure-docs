@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 09/19/2017
+ms.date: 09/21/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 
@@ -35,7 +35,7 @@ You can use the **New-AzVM** cmdlet to create a VM with smart defaults that incl
 
 Make sure that **PowerShell** is selected in Cloud Shell and type:
 
-```powershell-interactive
+```azurepowershell-interactive
 New-AzVm -Name myVM
 ```
 
@@ -43,8 +43,9 @@ You are asked to create a username and password for the VM, which will be used w
 
 It takes a minute to create the VM and the associated resources. When finished, you can see all of the resources that were created using the [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) cmdlet.
 
-```powershell-interactive
-Find-AzureRmResource -ResourceGroupNameEquals myVMResourceGroup | Format-Table Name
+```azurepowershell-interactive
+Find-AzureRmResource `
+	-ResourceGroupNameEquals myVMResourceGroup | Format-Table Name
 ```
 
 ## Connect to the VM
@@ -53,8 +54,9 @@ After the deployment has completed, create a remote desktop connection with the 
 
 Use the [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) command to return the public IP address of the virtual machine. Take note of this IP Address.
 
-```powershell-interactive
-Get-AzureRmPublicIpAddress -ResourceGroupName myVMResourceGroup | Select IpAddress
+```azurepowershell-interactive
+Get-AzureRmPublicIpAddress `
+	-ResourceGroupName myVMResourceGroup | Select IpAddress
 ```
 
 On your local machine, open a cmd prompt and use the **mstsc** command to start an remote desktop session with your new VM. Replace the &lt;publicIPAddress&gt; with the IP address of your virtual machine. When prompted, enter the username and password you gave your VM when it was created.
@@ -67,7 +69,7 @@ mstsc /v:<publicIpAddress>
 
 When no longer needed, you can use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) command to remove the resource group, VM, and all related resources.
 
-```powershell-interactive
+```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name myVMResourceGroup
 ```
 
