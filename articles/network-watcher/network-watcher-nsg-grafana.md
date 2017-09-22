@@ -20,7 +20,7 @@ ms.author: kumud
 ---
 # Manage and analyze Network Security Group Flow Logs in Azure using Network Watcher and Grafana
 
-[Network Security Group (NSG) flow logs](../network-watcher/network-watcher-nsg-flow-logging-overview.md) provide information that can be used to understand ingress and egress IP traffic on network interfaces. These flow logs show outbound and inbound flows on a per NSG rule basis, the NIC the flow applies to, 5-tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
+[Network Security Group (NSG) flow logs](network-watcher-nsg-flow-logging-overview.md) provide information that can be used to understand ingress and egress IP traffic on network interfaces. These flow logs show outbound and inbound flows on a per NSG rule basis, the NIC the flow applies to, 5-tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
 
 You can have many NSGs in your network with flow logging enabled. This anount of logging data makes it cumbersome to parse and gain insights from your logs. This article provides a solution to centrally manage these NSG flow logs using an open source graphing tool called Grafana, ElasticSearch, and Logstash, which is an open source server-side data processing pipeline. 
 
@@ -28,13 +28,13 @@ You can have many NSGs in your network with flow logging enabled. This anount of
 
 NSG flow logs are enabled using Network Watcher and are stored in Azure blob storage. A Logstash plugin is used to connect and process flow logs from blob storage and send them to ElasticSearch.  Once the flow logs are stored in ElasticSearch, they can be analyzed and visualized into customized dashboards in Grafana.
 
-![NSG Network Watcher Grafana](./media/nsg-networkwatcher-grafana/nsg-networkwatcher-grafana-fig1.png)
+![NSG Network Watcher Grafana](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig1.png)
 
 ## Installation Steps
 
 ### Enable Network Security Group flow logging
 
-For this scenario, you must have Network Security Group Flow Logging enabled on at least one Network Security Group in your account. For instructions on enabling Network Security Flow Logs, refer to the following article [Introduction to flow logging for Network Security Groups](../network-watcher/network-watcher-nsg-flow-logging-overview.md).
+For this scenario, you must have Network Security Group Flow Logging enabled on at least one Network Security Group in your account. For instructions on enabling Network Security Flow Logs, refer to the following article [Introduction to flow logging for Network Security Groups](network-watcher-nsg-flow-logging-overview.md).
 
 ### Setup considerations
 
@@ -181,17 +181,17 @@ For additional installation information, see [Installing on Debian / Ubuntu](htt
 
 Next, you need to add the ElasticSearch index containing flow logs as a data source. You can add a data source by selecting **Add data source** and completing the form with the relevant information. A sample of this configuration can be found in the following screenshot:
 
-![Add data source](./media/nsg-networkwatcher-grafana/nsg-networkwatcher-grafana-fig2.png)
+![Add data source](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig2.png)
 
 #### Create a dashboard
 
 Now that you have successfully configured Grafana to read from the ElasticSearch index containing NSG flow logs, you can create and personalize dashboards. To create a new dashboard, select **Create your first dashboard**. The following sample graph configuration shows flows segmented by NSG rule:
 
-![Dashboard graph](./media/nsg-networkwatcher-grafana/nsg-networkwatcher-grafana-fig3.png)
+![Dashboard graph](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig3.png)
 
-The following screenshot depicts a graph and chart showing the top flows and their frequency. Flows are also shown by NSG rule and flows by decision. Grafana is highly customizable so it's advisable that you create dashboards to suit your specific monitoring needs.
+The following screenshot depicts a graph and chart showing the top flows and their frequency. Flows are also shown by NSG rule and flows by decision. Grafana is highly customizable so it's advisable that you create dashboards to suit your specific monitoring needs. The following example shows a typical dashboasrd:
 
-![Dashboard graph](./media/nsg-networkwatcher-grafana/nsg-networkwatcher-grafana-fig4.png)
+![Dashboard graph](./media/networkwatcher-nsg-grafana/network-watcher-nsg-grafana-fig4.png)
 
 ## Conclusion
 
@@ -199,5 +199,5 @@ By integrating Network Watcher with ElasticSearch and Grafana, you now have a co
 
 ## Next steps
 
-- Learn more about using [Network Watcher](../network-watcher/network-watcher-monitoring-overview.md).
+- Learn more about using [Network Watcher](network-watcher-monitoring-overview.md).
 
