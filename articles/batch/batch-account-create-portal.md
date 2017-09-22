@@ -37,10 +37,10 @@ For background about Batch accounts and scenarios, see the [feature overview](ba
 
 
 1. Sign in to the [Azure portal][azure_portal].
-2. Click **New**, search the Marketplace, and select **Batch Service**.
+2. Click **New**, and search the Marketplace for **Batch Service**.
 
     ![Batch in the Marketplace][marketplace_portal]
-3. Click **Create** and enter **New Batch Account** settings. See the following details.
+3. Select **Batch Service**, click **Create**, and enter **New Batch Account** settings. See the following details.
 
     ![Create a Batch account][account_portal]
 
@@ -73,7 +73,7 @@ Once the account has been created,  click the account to access its settings and
 
 * **Access keys**: To authenticate access to your Batch account from your application, you can use an account access key. (Batch also supports Azure Active Directory authentication.)
 
-    To view or regenerate the access keys, select the account **Keys**.
+    To view or regenerate the access keys, select **Keys**.
 
     ![Batch account keys in Azure portal][account_keys]
 
@@ -100,7 +100,7 @@ We recommend that you create a new Storage account exclusively for use by your B
 ![Regenerating storage account keys][4]
 
 ## Batch service quotas and limits
-As with your Azure subscription and other Azure services, certain [quotas and limits](batch-quota-limit.md) apply to Batch accounts. Current quotas for a Batch account appear in the portal in the account **Properties**.
+As with your Azure subscription and other Azure services, certain [quotas and limits](batch-quota-limit.md) apply to Batch accounts. Current quotas for a Batch account appear in  **Quotas**.
 
 ![Batch account quotas in Azure portal][quotas]
 
