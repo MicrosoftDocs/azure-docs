@@ -141,14 +141,14 @@ Hello AzureFunctions!
 
 ## Next steps
 
-You have created a Java function app with a simple HTTP trigger. 
+You have created a Java function app with a simple HTTP trigger.
 
 
 - Add additional functions with different triggers to your project using the `azure-functions:add` Maven target.
 
    ![Different templates you can use to add new Functions to your project](media/functions-create-java-maven/add-new-functions.png)
 
-- [Java Functions developer guide](functions-reference-java.md)
-- [Java Functions annotation reference](https://github.com/Azure/azure-functions-java-worker/tree/documentation/azure-functions-java-core)
+- Review the  [Java Functions developer guide](functions-reference-java.md) for more information on developing Java functions.
+- The [Java Functions annotation reference](https://github.com/Azure/azure-functions-java-worker/tree/documentation/azure-functions-java-core) summarizes the available function triggers and their Java annotations syntax.
 
 
