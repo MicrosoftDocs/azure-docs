@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/21/2017
+ms.date: 09/22/2017
 ms.author: jonatul
 ---
 
@@ -72,11 +72,9 @@ This is a feature we are tracking on our backlog. You can use our feedback site 
 
 ### Does Azure DNS support 'private' domains?
 
-No. Azure DNS currently only supports Internet-facing domains.
+Support for 'private' domains is implemented using private DNS zones, which are currently in preview.  These are the same as internet-facing DNS zones but they only respond to requests from within your specified virtual networks.  See the [overview](private-dns-overview.md) for details.
 
-This is a feature we are tracking on our backlog. You can use our feedback site to [register your support for this feature](https://feedback.azure.com/forums/217313-networking/suggestions/10737696-enable-split-dns-for-providing-both-public-and-int).
-
-For information on internal DNS options in Azure, see [Name Resolution for VMs and Role Instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+For information on other internal DNS options in Azure, see [Name Resolution for VMs and Role Instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ### Does Azure DNS support DNSSEC?
 
@@ -149,6 +147,8 @@ You can configure International Domain Names (IDNs) in Azure DNS by first conver
 ## Next steps
 
 [Learn more about Azure DNS](dns-overview.md)
+<br>
+[Learn more about using Azure DNS for private domains](private-dns-overview.md)
 <br>
 [Learn more about DNS zones and records](dns-zones-records.md)
 <br>
