@@ -3,7 +3,7 @@ title: Microsoft Azure Usage and RateCard APIs Enable Cloudyn to Provide ITFM fo
 description: Provides a unique perspective from Microsoft Azure Billing partner Cloudyn, on their experiences integrating the Azure Billing APIs into their product.  This is especially useful for Azure and Cloudyn customers that are interested in using/trying Cloudyn for Azure Services.
 services: ''
 documentationcenter: ''
-author: BryanLa
+author: tonguyen10
 manager: tonguyen
 editor: ''
 tags: billing
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 02/03/2017
-ms.author: mobandyo;bryanla
+ms.author: tonguyen
 
 ---
 # Microsoft Azure Usage and RateCard APIs Enable Cloudyn to Provide ITFM for Customers
