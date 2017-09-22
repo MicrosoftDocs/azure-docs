@@ -33,10 +33,11 @@ Also, install [Azure PowerShell version 4.3.1](https://www.powershellgallery.com
 ## Enable MSI during creation of an Azure VM
 
 To create an MSI-enabled VM:
+
 1. Refer to one of the following Azure VM Quickstarts, completing only the necessary sections ("Log in to Azure", "Create resource group", "Create networking group", "Create the VM"). 
 
    > [!IMPORTANT] 
-   > When you get to the "Create the VM" section, make a slight modification to the [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvm) cmdlet syntax. Be sure to add a `-IdentityType "SystemAssigned"` parameter to provision the VM with an MSI, such as:
+   > When you get to the "Create the VM" section, make a slight modification to the [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvm) cmdlet syntax. Be sure to add a `-IdentityType "SystemAssigned"` parameter to provision the VM with an MSI, for example:
    >  
    > `$vmConfig = New-AzureRmVMConfig -VMName myVM -IdentityType "SystemAssigned" ...`
 
@@ -45,7 +46,7 @@ To create an MSI-enabled VM:
 
 
 
-2. Add the MSI VM extension using the `-Type` parameter on the [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet. You can pass either "ManagedIdentityExtensionForWindows" or "ManagedIdentityExtensionForLinux", and name it using the `-Name` parameter. The `-Settings` parameter specifies the port used by the OAuth token endpoint for token acquisition:
+2. Add the MSI VM extension using the `-Type` parameter on the [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet. You can pass either "ManagedIdentityExtensionForWindows" or "ManagedIdentityExtensionForLinux", depending on the type of VM, and name it using the `-Name` parameter. The `-Settings` parameter specifies the port used by the OAuth token endpoint for token acquisition:
 
    ```powershell
    $settings = @{ "port" = 50342 }
@@ -69,7 +70,7 @@ If you need to enable MSI on an existing Virtual Machine:
    Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm -IdentityType "SystemAssigned"
    ```
 
-3. Add the MSI VM extension using the `-Type` parameter on the [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet. You can pass either "ManagedIdentityExtensionForWindows" or "ManagedIdentityExtensionForLinux", and name it using the `-Name` parameter. The `-Settings` parameter specifies the port used by the OAuth token endpoint for token acquisition. Be sure to specify the correct `-Location` parameter, matching the location of the existing VM:
+3. Add the MSI VM extension using the `-Type` parameter on the [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet. You can pass either "ManagedIdentityExtensionForWindows" or "ManagedIdentityExtensionForLinux", depending on the type of VM, and name it using the `-Name` parameter. The `-Settings` parameter specifies the port used by the OAuth token endpoint for token acquisition. Be sure to specify the correct `-Location` parameter, matching the location of the existing VM:
 
    ```powershell
    $settings = @{ "port" = 50342 }
@@ -89,7 +90,7 @@ If you have a Virtual Machine that no longer needs an MSI, you can use the `Remo
 ## Related content
 
 - [Managed Service Identity overview](msi-overview.md)
-- This article is adapted from the following articles, modified to include MSI-specific instructions:
+- For the full Azure VM creation Quickstarts, see:
   
   - [Create a Windows virtual machine with PowerShell](../virtual-machines/windows/quick-create-powershell.md) 
   - [Create a Linux virtual machine with PowerShell](../virtual-machines/linux/quick-create-powershell.md) 
