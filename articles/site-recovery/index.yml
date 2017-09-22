@@ -31,15 +31,17 @@ sections:
   items:
   - type: paragraph
     text: 'Learn how to set up disaster recovery for VMs and physical servers.'
-  - type: list
-    title: Azure to Azure
+  - type: text
+    html: <h3>Azure to Azure</h3>
+  - type: list    
     style: ordered
     items:
     - html: <a href="azure-to-azure-tutorial-enable-replication">Set up disaster recovery</a>
     - html: <a href="azure-to-azure-tutorial-dr-drill">Run a disaster recovery drill</a>
     - html: <a href="azure-to-azure-tutorial-failover-failback">Run failover and failback</a>
-  - type: list
-    title: VMware  
+  - type: text
+    html: <h3>VMware</h3> 
+  - type: list    
     style: ordered
     items:
     - html: <a href="tutorial-prepare-azure">Prepare Azure</a>
@@ -47,8 +49,9 @@ sections:
     - html: <a href="tutorial-vmware-to-azure">Set-up disaster recovery</a>
     - html: <a href="tutorial-dr-drill-azure">Run a disaster recovery drill</a>
     - html: <a href="tutorial-vmware-to-azure-failover-failback">Run a failover and failback</a>
-  - type: list
-    title: Migrate to Azure  
+  - type: text
+    html: <h3>Migrate to Azure</h3>  
+  - type: list        
     style: ordered
     items:
     - html: Prepare Azure
