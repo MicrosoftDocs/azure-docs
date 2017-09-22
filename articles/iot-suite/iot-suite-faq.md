@@ -48,8 +48,8 @@ Yes. Any solution that exists today will continue to work in your Azure subscrip
 
 ### What's the difference between deleting a resource group in the Azure portal and clicking delete on a preconfigured solution in azureiotsuite.com?
 
-* If you delete the preconfigured solution in [azureiotsuite.com](https://www.azureiotsuite.com/), you delete all the resources that were provisioned when you created the preconfigured solution. If you added additional resources to the resource group, these resources are also deleted. 
-* If you delete the resource group in the [Azure portal](https://portal.azure.com), you only delete the resources in that resource group. You also need to delete the Azure Active Directory application associated with the preconfigured solution in the [Azure classic portal](https://manage.windowsazure.com).
+* If you delete the preconfigured solution in [azureiotsuite.com](https://www.azureiotsuite.com/), you delete all the resources that were provisioned when you created the preconfigured solution. If you added additional resources to the resource group, these resources are also deleted.
+* If you delete the resource group in the [Azure portal](https://portal.azure.com), you only delete the resources in that resource group. You also need to delete the Azure Active Directory application associated with the preconfigured solution.
 
 ### How many IoT Hub instances can I provision in a subscription?
 
