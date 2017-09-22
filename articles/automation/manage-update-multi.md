@@ -31,7 +31,7 @@ To complete the steps in this guide, you will need:
 * An Azure Resource Manager virtual machine (not Classic). For instructions on creating a VM, see 
   [Create your first Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
-## Enable Update management for Azure virtual machines
+## Enable update management for Azure virtual machines
 
 1. In the Azure portal, open the Automation account.
 2. On the left-hand side of the screen, select **Update management**.
@@ -39,6 +39,7 @@ To complete the steps in this guide, you will need:
     ![Onboard VMs](./media/manage-update-multi/update-onboard-vm.png)
 4. Select a virtual machine to oboard. The **Enable Update Management** screen appears.
 5. Click **Enable**.
+
    ![Enable update management](./media/manage-update-multi/update-enable.png)
 
 Update management is enabled for your virtual machine.
