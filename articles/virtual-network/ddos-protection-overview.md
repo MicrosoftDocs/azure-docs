@@ -39,21 +39,17 @@ For development and test scenarios, you are welcome to try DDoS Protection Stand
 
 For support issues, you can [open an Azure support ticket](../azure-supportability/how-to-create-azure-support-request.md).
 
-## Types of DDoS attacks
-
-Services running on Azure are inherently protected by the defense that is in place to protect Azure’s infrastructure. However, the protection that safeguards the infrastructure has a much higher threshold than most applications have the capacity to handle, and does not provide telemetry or alerting, so while a traffic volume may be perceived as harmless by the platform, it can be devastating to the application receiving it. 
-
-By enabling DDoS Protection Standard, the application gets dedicated monitoring to detect attacks and application-specific thresholds. A service is protected with a profile that is tuned to its expected traffic volume, providing a much tighter defense against DDoS attacks.
+## Types of DDoS attacks that DDoS Protection Standard mitigates
 
 DDoS Protection Standard can mitigate these types of attacks:
 
-- **Volumetric attacks** -  flood the network layer with substantial amount of seemingly legitimate traffic, and include, but are not limited to, ICMP floods, UDP floods, amplification flood and more. 
-- **Protocol attacks** - also known as state exhaustion attacks target the connection state tables in firewalls, web application servers, and other infrastructure components. Includes but not limited to, SYN flood attacks, reflection attacks, and other protocol attacks. 
-- **Application layer attacks** - can be mitigated by using DDoS Protection Standard in combination with Application Gateway WAF SKU to achieve complete protection both at the network layer and application layer.
+- **Volumetric attacks** - The attack's goal is to flood the network layer with substantial amount of seemingly legitimate traffic. It includes UDP floods, amplification floods and other spoofed-packet floods. DDoS Protection Standard mitigates these potential multi-gigabyte attacks by absorbing & scrubbing them leveraging Azure’s global network scale automatically. 
+- **Protocol attacks** - These attacks render a target inaccessible by exploiting a weakness in the Layer 3 and Layer 4 protocol stack. It includes, SYN flood attacks, reflection attacks, and other protocol attacks. DDoS Protection Standard mitigates these attacks differentiating between malicious and legitimate traffic by interacting with the client and blocking malicious traffic. 
+- **Application layer attacks** - These attacks target web application packets to disrupt the transmission of data between hosts. It includes HTTP Protocol Violations, SQL injection, cross-site scripting and other layer 7 attacks. Using Application Gateway WAF with DDoS Protection Standard to provide defense against these attacks. 
 
 DDoS Protection Standard protects resources in a virtual network including Public IPs associated with VMs, internal load balancers, and application gateways. When coupled with the Application Gateway WAF SKU, DDoS Protection Standard can provide full L3 to L7 mitigation capability.
 
-## How DDoS Protection Standard works
+## DDoS Protection Standard features
 
 ![DDoS functionality](./media/ddos-protection-overview/ddos-overview-fig1.png)
 
@@ -81,17 +77,7 @@ The DDoS SDN blocks attack traffic and forward remaining traffic to intended des
 
 We do not advise customers to simulate their own DDoS attacks during preview. Instead, customers can use the support channel to request a DDoS attack simulation executed by Azure Networking. An Engineer will contact you to arrange the details of the DDoS attack (ports, protocols, target IPs) and arrange a time to schedule the test.
 
-## Protected resources
-
-A protected resource is a public IP attached to other resources. Public IPs are currently the only type of protected resource. Known public IP attachments are VMs, NVAs, application gateways, and Service Fabric. For the public IP scenarios, DDoS Protection supports any application regardless of where the associated domain is registered or hosted as long as the associated public IP is hosted on Azure.
-
-Public IPs attached to multi-tenant, single VIP PaaS services are not supported during preview. Examples of unsupported resources include Storage VIPs, Event Hub VIPs, and Cloud Services applications.
-
-## Traffic baselines, monitoring, and DDoS SDN
-
 When DDoS Protection Standard is enabled on a virtual network, as you deploy new protected resource types on the virtual network, they are added to DDoS Protection Standard. Traffic pattern baselines are developed for the protected resources attached to the virtual network. The traffic baseline learns normal traffic bandwidth for each protected resource for every hour and day of the week. This baseline is used as the source of a DDoS policy that is installed for a protected resource.
-
-Microsoft’s DDoS SDN monitors actual traffic utilization and constantly compares it against the thresholds defined in the DDoS Policy. When that traffic threshold is exceeded, then DDoS mitigation is initiated. When traffic goes below the threshold, the mitigation is removed.
 
 ## Next steps
 
