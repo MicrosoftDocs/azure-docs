@@ -100,11 +100,11 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <div class="cardText">
                                                 <h3>Manage Resources</h3>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/monitoring-and-diagnostics/" data-linktype="absolute-path">Azure Monitor</a></li>
-                                                    <li><a class="barLink" href="/azure/application-insights/" data-linktype="absolute-path">Azure Application Insights</a></li>
-                                                    <li><a class="barLink" href="/azure/cloudyn/" data-linktype="absolute-path">Azure Cost Management</a></li>
-                                                    <li><a class="barLink" href="/azure/backup/" data-linktype="absolute-path">Azure Backup</a></li>
-                                                    <li><a class="barLink" href="/azure/site-recovery/" data-linktype="absolute-path">Azure Site Recovery</a></li>
+                                                    <li><a class="barLink" href="/azure/monitoring-and-diagnostics/">Azure Monitor</a></li>
+                                                    <li><a class="barLink" href="/azure/application-insights/">Azure Application Insights</a></li>
+                                                    <li><a class="barLink" href="/azure/cost-management/">Azure Cost Management</a></li>
+                                                    <li><a class="barLink" href="/azure/backup/">Azure Backup</a></li>
+                                                    <li><a class="barLink" href="/azure/site-recovery/">Azure Site Recovery</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -184,6 +184,9 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <h4>NoSQL</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/cosmos-db/">Azure Cosmos DB</a></li>
+                                                <h4>Storage</h4>
+                                                <ul class="noBullet">
+                                                    <li><a class="barLink" href="/azure/storage/blobs/storage-blobs-introduction/">Blob Storage</a></li>
                                                 </ul>
                                                 <h4>AI and Cognitive Services</h4>
                                                 <ul class="noBullet">
