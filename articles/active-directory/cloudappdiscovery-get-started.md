@@ -24,6 +24,7 @@ ms.reviewer: nigu
 The public preview version of Cloud App Discovery enhancements in Azure AD is now available with an Azure Active Directory Premium P1 license. These enhancements are based on integration with Microsoft Cloud App Security. Cloud App Discovery compares your traffic logs to the Cloud App Security catalog of over 15,000 cloud apps to provide you with ongoing information on cloud use and shadow IT. 
 
 ## Prerequisites
+
 Your organization must have an Azure AD Premium P1 license to use the product. For more information, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/).
 
 To set up Cloud App Discovery, you must be a Global Administrator or a Security Reader in Azure Active Directory. A user who is assigned an admin role has the same permissions across all of the cloud apps to which your organization has subscribed.
@@ -32,9 +33,9 @@ To set up Cloud App Discovery, you must be a Global Administrator or a Security 
 
 You can generate two types of reports:
 
--   **Snapshot reports** that provide ad-hoc visibility into traffic logs you manually upload from your firewalls and proxy servers. You can use them to make sure your logs provide usable information to Cloud App Discovery.
+* **Snapshot reports** provide ad-hoc visibility into traffic logs you manually upload from your firewalls and proxy servers. You can use them to make sure your logs provide usable information to Cloud App Discovery.
 
--   **Continuous reports** that analyze all logs that are forwarded from your network using the Cloud App Security log collector. You can automatically identify anomalous use using the machine learning anomaly detection engine or using custom policies that you define.
+* **Continuous reports** analyze all logs that are forwarded from your network using the [Cloud App Security log collector](https://docs.microsoft.com/cloud-app-security/discovery-docker). You can automatically identify anomalous usage using the machine learning anomaly detection engine or by setting up your own custom policies.
 
 ## Log processing flow
 
