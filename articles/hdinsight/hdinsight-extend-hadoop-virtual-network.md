@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/23/2017
+ms.date: 09/21/2017
 ms.author: larryfr
 
 ---
@@ -30,6 +30,9 @@ Learn how to use HDInsight with an [Azure Virtual Network](../virtual-network/vi
 
 > [!WARNING]
 > The information in this document requires an understanding of TCP/IP networking. If you are not familiar with TCP/IP networking, you should partner with someone who is before making modifications to production networks.
+
+> [!IMPORTANT]
+> If you are looking for step by step guidance on connecting HDInsight to your on-premises network using an Azure Virtual Network, see the [Connect HDInsight to your on-premise network](connect-on-premises-network.md) document.
 
 ## Planning
 
