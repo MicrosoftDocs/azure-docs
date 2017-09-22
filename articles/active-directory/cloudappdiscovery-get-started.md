@@ -30,22 +30,22 @@ To set up Cloud App Discovery, you must be a Global Administrator or a Security 
 
 ## Snapshot and continuous reports
 
-There are two types of reports you can generate:
+You can generate two types of reports:
 
--   **Snapshot reports** provide ad-hoc visibility into a set of traffic logs you manually upload from your firewalls and proxy servers. Use them to make sure your logs provide usable information to Cloud App Discovery.
+-   **Snapshot reports** that provide ad-hoc visibility into traffic logs you manually upload from your firewalls and proxy servers. You can use them to make sure your logs provide usable information to Cloud App Discovery.
 
--   **Continuous reports** analyze all logs that are forwarded from your network using the Cloud App Security log collector. They provide improved visibility over all data, and automatically identify anomalous use using either the machine learning anomaly detection engine or by using custom policies that you define.
+-   **Continuous reports** that analyze all logs that are forwarded from your network using the Cloud App Security log collector. You can automatically identify anomalous use using the machine learning anomaly detection engine or using custom policies that you define.
 
-## Log process flow
+## Log processing flow
 
-It can take anywhere from a few minutes to several hours to generate reports depending on the amount of data. 
+It can take anywhere from a few minutes to several hours to generate reports depending on the amount of data. Here's what is analyzed:
 
 * **Upload**</b>
   Web traffic logs from your network are uploaded to the portal.
 * **Parse**</b>
   Cloud App Security parses and extracts traffic data from the traffic logs with a dedicated parser for each data source.
 * **Analyze**</b>
-  Traffic data is analyzed against the Cloud App Security catalog, which can identify more than 15,000 cloud apps. Active users and IP addresses are also identified as part of the analysis.
+  Traffic data is analyzed against the Cloud App Security catalog to identify more than 15,000 cloud apps. Active users and IP addresses are also identified as part of the analysis.
 * **Generate report**</b>
   A report of the data extracted from log files is generated.
 
@@ -59,7 +59,7 @@ Cloud App Discovery uses the data in your traffic logs. The more detail you can 
 log, the better visibility you get. Cloud App Discovery requires web-traffic data with the following attributes:
 
 * Date of the transaction
-* Source IP
+* Source IP address
 * Source user **recommended**
 * Destination IP address
 * Destination URL **recommended** (URLs provide more accuracy for cloud app detection than IP addresses)
@@ -67,12 +67,12 @@ log, the better visibility you get. Cloud App Discovery requires web-traffic dat
 * Amount of uploaded or downloaded data, for insights about patterns of cloud app usage
 * Action taken (allowed/blocked)
 
-Cloud App Discovery cannot show or analyze attributes that are not included in your logs. For example, **Cisco ASA Firewall** standard log format does not contain the **Amount of uploaded bytes per transaction**, **Username**, or **Target URL** but only the destination IP address. Thus, you might have less visibility into the cloud apps from this data source. For Cisco ASA firewalls, it is necessary to set the information level to 6.1
+Cloud App Discovery cannot show or analyze attributes that are not included in your logs. For example, **Cisco ASA Firewall** standard log format does not contain the **Amount of uploaded bytes per transaction**, **Username**, or **Target URL** but only the destination IP address. Thus, you might have less visibility into the cloud apps from this data source. For Cisco ASA firewalls, set the information level to 6.1.
 
 In order to successfully generate a Cloud App Discovery report, your traffic logs must meet the following conditions:
 
 1.  Data source is [a supported firewall or proxy server](#supported-firewalls-and-proxies).
-2.  Log format matches the expected standard format (checked at upload time).
+2.  Log format matches the expected standard format. This is checked at upload time. To optimize uour log format, see [Create snapshot Cloud App Discovery reports](cloudappdiscovery-set-up-snapshots.md).
 3.  Events are not more than 90 days old.
 4.  The log file is valid and includes outbound traffic information.
 
@@ -104,11 +104,13 @@ In order to successfully generate a Cloud App Discovery report, your traffic log
 > [!NOTE]
 > Cloud App Discovery supports both IPv4 and IPv6 addresses.
 
-If your log is not supported, select **Other** as the **Data source** and specify the appliance and log you are trying to upload. Your log is reviewed by the Cloud App Security cloud analyst team. When support for your log type is added, you are notified. Alternatively, you can define a custom parser that matches your format. For more information, see [Use a custom log parser](https://docs.microsoft.com/cloud-app-security/custom-log-parser).
+If your log is not supported, select **Other** as the **Data source** and specify the device and log you are trying to upload. Your log is reviewed by the Cloud App Security cloud analyst team. 
+* When support for your log type is added, we notify you. 
+* Alternatively, you can define a custom parser that matches your log format. For more information, see [Use a custom log parser](https://docs.microsoft.com/cloud-app-security/custom-log-parser).
 
-Data attributes (according to vendor documentation):
+## Data attributes (according to vendor documentation)
 
-| Data source                             | Target App URL | Target App IP | Username | Origin IP | Total traffic | Uploaded bytes |
+| Data source         | Targeted App URL | Targeted App IP address | Username | Origin IP Address | Total traffic | Uploaded bytes |
 |-----------------------------------------|----------------|---------------|----------|-----------|---------------|----------------|
 | Barracuda                               | **Yes**        | **Yes**       | **Yes**  | **Yes**   | No            | No             |
 | Blue Coat                               | **Yes**        | No            | **Yes**  | **Yes**   | **Yes**       | **Yes**        |
