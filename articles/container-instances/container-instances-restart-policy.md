@@ -22,7 +22,7 @@ ms.custom: mvc
 
 # Run to completion containers in Azure Container Instances
 
-The ease and speed of deploying containers in Azure Container Instances provides a compelling platform for executing tasks like build jobs and image rendering in a container instance. With a configurable restart policy, you can specify that your containers are stopped when their processes have completed. Because Azure Container instances are billed by the second, you're charged only for the compute resources used while the container executing your task is running.
+The ease and speed of deploying containers in Azure Container Instances provides a compelling platform for executing build, test, and image rendering jobs in a container instance. With a configurable restart policy, you can specify that your containers are stopped when their processes have completed. Because Azure Container instances are billed by the second, you're charged only for the compute resources used while the container executing your task is running.
 
 ## Container restart policy
 
@@ -54,11 +54,7 @@ The method by which you specify a restart policy depends on how you create your 
   New-AzureRmContainer -ResourceGroupName myResourceGroup -Name mycontainer -Image mmacy/aci-helloworld -RestartPolicy OnFailure
   ```
 
-## When to use a restart policy
-
-Typical scenarios...
-
-## Run a sample container
+## Run to completion example
 
 To see the restart policy in action, create a container instance from the [mmacy/aci-wordcount](https://hub.docker.com/r/mmacy/aci-wordcount/) image, and specify an `OnFailure` restart policy.
 
@@ -66,11 +62,15 @@ To see the restart policy in action, create a container instance from the [mmacy
 az container create --name mycontainer --image mmacy/aci-wordcount:v2 --resource-group myResourceGroup --restart-policy OnFailure
 ```
 
-This the container runs a Python script that, by default, analyzes the text of Shakespeare's *Hamlet*, writes the ten most common words to STDOUT, and then exits. You can configure the text to analyze and the number and minimum length of words by using additional arguments when you create the container.
+This container runs a Python script that, by default, analyzes the text of Shakespeare's *Hamlet*, writes the ten most common words to STDOUT, and then exits. You can configure the text to analyze and the number and minimum length of words by using additional arguments when you create the container.
+
+## Configure containers at runtime
+
+When you create a container instance, you can set its environment variables, as well as specify a custom command line to execute when the container is started. Your job can use these settings for task-specific configuration when creating a container for each of its tasks.
 
 ### Environment variables
 
-You can configure the behavior of the script by specifying the following environment variables when you create the container instance.
+You can modify the behavior of the script run by the example container by specifying the following environment variables when you create the container instance.
 
 `NumWords` - The number of words sent to STDOUT.
 
