@@ -71,36 +71,6 @@ easy API hosting.
 > For API App samples built for logic apps, visit the 
 > [Azure Logic Apps GitHub repository](http://github.com/logicappsio) or [blog](http://aka.ms/logicappsblog).
 
-## How do custom APIs differ from custom connectors?
-
-Custom APIs and [custom connectors](../logic-apps/custom-connector-overview.md) 
-are web APIs that use REST for pluggable interfaces, 
-[Swagger metadata format](http://swagger.io/specification/) for documentation, 
-and JSON as their data exchange format. And because these APIs and connectors 
-are REST APIs that communicate through HTTP endpoints, you can use any language, 
-like .NET, Java, or Node.js, for building custom APIs and connectors.
-
-Custom APIs let you call APIs that aren't connectors, 
-and provide endpoints that you can call with HTTP + Swagger, 
-Azure API Management, or App Services. Custom connectors work 
-like custom APIs but also have these attributes:
-
-* Registered as Logic Apps Connector resources in Azure.
-* Appear with icons alongside Microsoft-managed connectors in the Logic Apps Designer.
-* Available only to the connectors' authors and logic app users who have the same 
-Azure Active Directory tenant and Azure subscription in the region where the 
-logic apps are deployed.
-
-You can also nominate registered connectors for Microsoft certification. 
-This process verifies that registered connectors meet the criteria for public use 
-and makes those connectors available for users in Microsoft Flow and Microsoft PowerApps.
-
-For more information about custom connectors, see 
-
-* [Custom connectors overview](../logic-apps/custom-connector-overview.md)
-* [Create custom connectors from Web APIs](../logic-apps/custom-connector-build-web-api-app-tutorial.md)
-* [Register custom connectors in Azure Logic Apps](../logic-apps/logic-apps-custom-connector-register.md)
-
 ## Helpful tools
 
 A custom API works best with logic apps when the API also has a 
