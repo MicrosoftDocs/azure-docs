@@ -1,27 +1,18 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Computer Vision API Java tutorial | Microsoft Docs
 description: Explore a basic Java Swing app that uses the Computer Vision API in Microsoft Cognitive Services. Perform OCR, create thumbnails, and work with visual features in an image.
 services: service-name-with-dashes-AZURE-ONLY 
-#keywords: Don’t add or edit keywords without consulting your SEO champ.
 author: v-royhar
 ms.author: v-royhar
 ms.date: 09/21/2017
 ms.topic: tutorial
-# Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
 ms.service: cognitive-services
-# ms.technology: computer-vision
 
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
 ms.devlang: java
-# ms.suite: 
-# ms.tgt_pltfrm:
-# ms.reviewer:
 manager: julianik
 ---
 
-# Computer Vision API Java Tutorial
+# Computer Vision API Java tutorial
 
 This tutorial shows the features of the Microsoft Cognitive Services Computer Vision REST API.
 
