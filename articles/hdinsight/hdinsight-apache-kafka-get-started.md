@@ -340,24 +340,24 @@ The streaming API was added to Kafka in version 0.10.0; earlier versions rely on
 
 ## Data high availability
 
-Kafka is not aware of the underlying hardware rack configuration in Azure data centers. When creating partition replicas for topics, it may not distribute replicas properly for high availability. To ensure high availability, use the [Kafka partition rebalance tool](https://github.com/hdinsight/hdinsight-kafka-tools). This tool must be ran from an SSH session to the head node of your Kafka cluster.
+Each Azure region (location) provides _fault domains_. A fault domain is a logical grouping of underlying hardware in an Azure data center. Each fault domain shares a common power source and network switch. The virtual machines and managed disks that implement the nodes within an HDInsight cluster are distributed across these fault domains. This architecture limits the potential impact of physical hardware failures.
+
+For information on the number of fault domains in a region, see the [Availability of Linux virtual machines](../virtual-machines/linux/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) document.
+
+> [!IMPORTANT]
+> We recommend using an Azure region that contains three fault domains, and using a replication factor of 3.
+
+If you must use a region that contains only two fault domains, use a replication factor of 4 to spread the replicas evenly across the two fault domains.
+
+### Kafka and fault domains
+
+Kafka is not aware of fault domains. When creating partition replicas for topics, it may not distribute replicas properly for high availability. To ensure high availability, use the [Kafka partition rebalance tool](https://github.com/hdinsight/hdinsight-kafka-tools). This tool must be ran from an SSH session to the head node of your Kafka cluster.
 
 To ensure the highest availability of your Kafka data, you should rebalance the partition replicas for your topic at the following times:
 
 * When a new topic or partition is created
 
 * When you scale up a cluster
-
-### Fault domains and replication factors
-
-Before using the partition rebalance tool, you must identify the number of fault domains in the location (region) that contains your cluster. A fault domain is a logical grouping of underlying hardware in an Azure data center. Each fault domain shares a common power source and network switch. The virtual machines and managed disks that implement the nodes within an HDInsight cluster are distributed across these fault domains. This architecture limits the potential impact of physical hardware failures.
-
-Each Azure region has a specific number of fault domains. For information on the number of fault domains in a region, see the [Availability of Linux virtual machines](../virtual-machines/linux/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) document.
-
-> [!IMPORTANT]
-> We recommend using an Azure region that contains three fault domains, and using a replication factor of 3.
-
-If you must use a region that contains only two fault domains, use a replication factor of 4 to spread the replicas evenly across the two fault domains.
 
 ## Delete the cluster
 
