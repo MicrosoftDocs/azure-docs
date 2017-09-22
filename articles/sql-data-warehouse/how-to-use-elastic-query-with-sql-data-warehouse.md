@@ -1,6 +1,6 @@
 ---
-title: Elastic Query Concepts with SQL Data Warehouse | Microsoft Docs
-description: 'Elastic Query concepts with SQL Data Warehouse'
+title: Elastic Query Concepts with Azure SQL Data Warehouse | Microsoft Docs
+description: 'Elastic Query concepts with Azure SQL Data Warehouse'
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -53,7 +53,7 @@ An elastic query can be used to make data located within a SQL data warehouse av
 
 The first step is to create an external data source definition that refers to the SQL data warehouse instance, which uses existing user credentials within the SQL data warehouse. No changes are necessary on the remote SQL data warehouse instance. 
 
-[!IMPORTANT] You must possess ALTER ANY EXTERNAL DATA SOURCE permission. This permission is included with the ALTER DATABASE permission. ALTER ANY EXTERNAL DATA SOURCE permissions are needed to refer to remote data sources.
+> [!IMPORTANT] You must possess ALTER ANY EXTERNAL DATA SOURCE permission. This permission is included with the ALTER DATABASE permission. ALTER ANY EXTERNAL DATA SOURCE permissions are needed to refer to remote data sources.
 
 Next we create a remote external table definition in a SQL database instance which points to a remote table in the SQL data warehouse. When you use a query that uses an external table, the portion of the query referring to the external table is sent to the SQL data warehouse instance to be processed. Once the query has completed, the result set is sent back to the calling SQL database instance. For a brief tutorial of setting up an Elastic Query between SQL database and SQL data warehouse, see the [Configure Elastic Query with SQL Data Warehouse][Configure Elastic Query with SQL Data Warehouse].
 

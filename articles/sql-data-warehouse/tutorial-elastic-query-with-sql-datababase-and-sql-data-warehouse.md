@@ -1,6 +1,6 @@
 ---
-title: Elastic Query Tutorial with SQL Data Warehouse | Microsoft Docs
-description: 'Learn how to use Elastic Query with SQL Data Warehouse '
+title: Elastic Query Tutorial with Azure SQL Data Warehouse | Microsoft Docs
+description: 'Learn how to use Elastic Query with Azure SQL Data Warehouse '
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
