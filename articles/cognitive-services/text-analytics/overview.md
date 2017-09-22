@@ -50,7 +50,7 @@ Data is not stored in your account. Operations performed by Text Analytics API a
 
 ## Supported languages
 
-We moved this section to a separate article for better discoverability. Refer to [Supported languages in Text Analytics API](text-analytics-supported-languages.md) for details.
+We moved this section to a separate article for better discoverability. Refer to [Supported languages in Text Analytics API](text-analytics-supported-languages.md) for this content.
 
 <a name="data-limits"></a>
 
