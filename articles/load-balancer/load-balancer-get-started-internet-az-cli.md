@@ -38,8 +38,48 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 > Availability zones are in preview and are ready for your development and test scenarios. Support is available for select Azure resources and regions, and VM size families. For more information on how to get started, and which Azure resources, regions, and VM size families you can try availability zones with, see [Overview of Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview). For support, you can reach out on [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) or [open an Azure support ticket](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 
+# Create a resource group
 
+Create a resource group using the following command:
 
+```azurecli-interactive
+az group create --name myResourceGroup --location westeurope
+```
+
+# Create a public IP address Standard
+
+Create a Public IP Standard using the following command:
+
+```azurecli-interactive
+az network public-ip create --resource-group myResourceGroup --name myPublicIP --sku Standard
+```
+
+# Create a load balancer
+
+Create a Public Load Balancer Standard with the Standard Public IP that you created in the preceding step using the following command:
+
+```azurecli-interactive
+az network lb create --resource-group myResourceGroup --name myLoadBalancer --public-ip-address myPublicIP --frontend-ip-name myFrontEndPool --backend-pool-name myBackEndPool --sku Standard
+```
+
+# Create an LB probe on port 80
+
+Create a load balancer health probe using the following command:
+
+```azurecli-interactive
+az network lb probe create --resource-group myResourceGroup --lb-name myLoadBalancer \
+  --name myHealthProbe --protocol tcp --port 80
+```
+
+# Creates an LB rule for port 80
+
+Create a load balancer rule using the following command:
+
+```azurecli-interactive
+az network lb rule create --resource-group myResourceGroup --lb-name myLoadBalancer --name myLoadBalancerRuleWeb \
+  --protocol tcp --frontend-port 80 --backend-port 80 --frontend-ip-name myFrontEndPool \
+  --backend-pool-name myBackEndPool --probe-name myHealthProbe
+```
 
 
 ## Next steps
