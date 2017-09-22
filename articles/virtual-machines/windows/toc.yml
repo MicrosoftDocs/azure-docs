@@ -172,7 +172,7 @@
   - name: Run applications
     items:
     - name: SQL Server
-      href: /sql/virtual-machines-windows-sql-server-iaas-overview
+      href: /sql/virtual-machines-windows-sql-server-iaas-overview.md
     - name: MongoDB
       href: install-mongodb.md
     - name: SAP on Azure
