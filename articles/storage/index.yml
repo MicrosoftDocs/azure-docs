@@ -28,21 +28,9 @@ sections:
       text: Create a storage account - Powershell
       href: /azure/storage/common/storage-quickstart-create-storage-account-powershell
     - image: 
-        src: https://docs.microsoft.com/media/common/cli.svg
+        src: /azure/virtual-machines/linux/media/index/cli.svg 
       text: Create a storage account - CLI
       href: /azure/storage/common/storage-quickstart-create-storage-account-cli
-    - image: 
-        src: https://docs.microsoft.com/media/common/powershell.svg
-      text: Work with blobs - Powershell
-      href: /azure/storage/blobs/storage-quickstart-blobs-powershell
-    - image: 
-        src: https://docs.microsoft.com/media/common/cli.svg
-      text: Work with blobs - CLI
-      href: /azure/storage/blobs/storage-quickstart-blobs-cli
-    - image: 
-        src: https://docs.microsoft.com/media/common/dotnet.svg
-      text: Work with blobs - .NET
-      href: /azure/storage/blobs/storage-quickstart-blobs-dotnet
 - title: Step-by-step Tutorials
   items:
   - type: paragraph
