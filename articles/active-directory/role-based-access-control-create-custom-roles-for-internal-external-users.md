@@ -75,7 +75,7 @@ After selecting the subscription, the admin user must click **Access Control (IA
 ![add new user in access control IAM feature in Azure portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/2.png)
 
 The next step is to select the role to be assigned and the user whom the RBAC role will be assigned to. In the **Role** dropdown menu the admin user sees only the built-in RBAC roles which are available in Azure. For more detailed explanations of each role and their assignable scopes, see [Built-in roles for Azure Role-Based Access Control](/active-directory/role-based-access-built-in-roles.md).
-<!---Loc Comment: Link [Built-in roles for Azure Role-Based Access Control] is broken with an error message "404 - Content Not Found--->
+<!---Loc Comment: Link [Built-in roles for Azure Role-Based Access Control] is broken with an error message "404 - Content Not Found---->
 
 The admin user then needs to add the email address of the external user. The expected behavior is for the external user to not show up in the existing tenant. After the external user has been invited, he will be visible under **Subscriptions > Access Control (IAM)** with all the current users which are currently assigned an RBAC role at the Subscription scope.
 
