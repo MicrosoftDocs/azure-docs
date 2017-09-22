@@ -37,6 +37,11 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 > [!NOTE]
 > Availability zones are in preview and are ready for your development and test scenarios. Support is available for select Azure resources and regions, and VM size families. For more information on how to get started, and which Azure resources, regions, and VM size families you can try availability zones with, see [Overview of Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview). For support, you can reach out on [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) or [open an Azure support ticket](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
+
+
+
+
+
 ## Next steps
 - Learn how [create a Public IP in an availability zone](../virtual-network/create-public-ip-availability-zone-cli.md)
 

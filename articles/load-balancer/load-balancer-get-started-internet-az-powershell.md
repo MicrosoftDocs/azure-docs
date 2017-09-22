@@ -45,21 +45,46 @@ Create a Resource Group using the following command:
 New-AzureRmResourceGroup -Name myResourceGroup -Location westeurope
 ```
 
-## Create a zonal Standard public IP address 
+## Create a Standard public IP address 
 Create a Standard Public IP using the following command:
 
 ```powershell
-$publicIp = New-AzureRmPublicIpAddress -ResourceGroupName $rgName -Name 'myPublicIP' `
-  -Location $location -AllocationMethod Static -Zone 1 -Sku Standard 
+$publicIp = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Name 'myPublicIP' `
+  -Location westeurope -AllocationMethod Static -Sku Standard 
+```
+
+# Create a front-end IP configuration for the website
+
+Create a frontend IP configuration using the following command:
+
+```powershell
+$feip = New-AzureRmLoadBalancerFrontendIpConfig -Name 'myFrontEndPool' -PublicIpAddress $publicIp
+```
+
+# Create the back-end address pool
+
+Create a backend address pool using the following command:
+
+```powershell
+$bepool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name 'myBackEndPool'
+```
+
+# Create a load balancer probe on port 80
+
+Create a health probe on port 80 for the load balancer using the following command:
+
+```powershell
+$probe = New-AzureRmLoadBalancerProbeConfig -Name 'myHealthProbe' -Protocol Http -Port 80 `
+  -RequestPath / -IntervalInSeconds 360 -ProbeCount 5
 ```
 
 ## Create a load balancer
 Create a Load Balancer Standard using the following command:
 
 ```powershell
-$lb = New-AzureRmLoadBalancer -ResourceGroupName $rgName -Name 'MyLoadBalancer' -Location $location `
+$lb = New-AzureRmLoadBalancer -ResourceGroupName myResourceGroup -Name 'MyLoadBalancer' -Location westeurope `
   -FrontendIpConfiguration $feip -BackendAddressPool $bepool `
-  -Probe $probe -LoadBalancingRule $rule -InboundNatRule $natrule1,$natrule2,$natrule3 -Sku Standard
+  -Probe $probe -LoadBalancingRule $rule -Sku Standard
 ```
 
 ## Next steps
