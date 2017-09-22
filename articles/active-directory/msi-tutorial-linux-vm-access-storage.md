@@ -17,7 +17,7 @@ ms.author: elkuzmen
 ---
 
 
-# Use a Windows VM Managed Service Identity to access Azure storage
+# Use a Linux VM Managed Service Identity to access Azure storage
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 

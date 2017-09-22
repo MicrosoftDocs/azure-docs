@@ -16,7 +16,7 @@ ms.date: 08/02/2017
 ms.author: jdial
 ---
 
-# Check connectivity with Azure Network Watcher using the Azure REST API
+# Check connectivity with Azure Network Watcher using the Azure portal
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-connectivity-portal.md)

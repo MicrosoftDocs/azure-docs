@@ -34,18 +34,18 @@
     tocHref: /azure/app-service/
     topicHref: /azure/app-service/
     items:
-    - name: Web Apps for Containers
+    - name: Web App for Containers
       tocHref: /azure/app-service/containers/
       topicHref: /azure/app-service/containers/
+    - name: App Service Environments
+      tocHref: /azure/app-service/environment/
+      topicHref: /azure/app-service/environment/
     - name: Web Apps
-      tocHref: /azure/app-service-web/
-      topicHref: /azure/app-service-web/
+      tocHref: /azure/app-service/
+      topicHref: /azure/app-service/
     - name: Mobile Apps
       tocHref: /azure/app-service-mobile/
       topicHref: /azure/app-service-mobile/
-    - name: API Apps
-      tocHref: /azure/app-service-api/
-      topicHref: /azure/app-service-api/
   - name: Advisor
     tocHref: /azure/advisor/
     topicHref: /azure/advisor/

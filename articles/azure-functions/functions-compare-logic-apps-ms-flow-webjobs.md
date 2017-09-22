@@ -66,9 +66,9 @@ and designed for developers. They enable you to run a script or a piece of code 
 as [new Storage Blobs](functions-bindings-storage.md) or [a WebHook request](functions-bindings-http-webhook.md). Here are 
 their similarities: 
 
-* Both are built on [Azure App Service](../app-service/app-service-value-prop-what-is.md) and enjoy features such as 
-  [source control](../app-service-web/app-service-continuous-deployment.md), 
-  [authentication](../app-service/app-service-authentication-overview.md), and [monitoring](../app-service-web/web-sites-monitor.md).
+* Both are built on [Azure App Service](../app-service/app-service-web-overview.md) and enjoy features such as 
+  [source control](../app-service/app-service-continuous-deployment.md), 
+  [authentication](../app-service/app-service-authentication-overview.md), and [monitoring](../app-service/web-sites-monitor.md).
 * Both are developer-focused services.
 * Both support standard scripting and programming languages.
 * Both have NuGet and NPM support.
@@ -90,7 +90,7 @@ The following table summarizes the differences between Functions and WebJobs:
 | Scaling |Configurationless scaling |scale with App Service plan |
 | Pricing |Pay-per-use or part of App Service plan |Part of App Service plan |
 | Run-type |triggered, scheduled (by timer trigger) |triggered, continuous, scheduled |
-| Trigger events |[timer](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Notification Hubs](functions-bindings-notification-hubs.md), [Azure Service Bus](functions-bindings-service-bus.md), [Azure Storage](functions-bindings-storage.md) |[Azure Storage](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), [Azure Service Bus](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md) |
+| Trigger events |[timer](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Notification Hubs](functions-bindings-notification-hubs.md), [Azure Service Bus](functions-bindings-service-bus.md), [Azure Storage](functions-bindings-storage-blob.md) |[Azure Storage](functions-bindings-storage-blob.md), [Azure Service Bus](functions-bindings-service-bus.md) |
 | In-browser development |supported | not supported |
 | Windows scripting (.cmd, .bat) |experimental |supported |
 | PowerShell |experimental |supported |
@@ -129,7 +129,7 @@ Get started with each of the services by creating your first flow, logic app, fu
 * [Get started with Microsoft Flow](https://flow.microsoft.com/en-us/documentation/getting-started/)
 * [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)
 * [Create your first Azure Function](functions-create-first-azure-function.md)
-* [Deploy WebJobs using Visual Studio](../app-service-web/websites-dotnet-deploy-webjobs.md)
+* [Deploy WebJobs using Visual Studio](../app-service/websites-dotnet-deploy-webjobs.md)
 
 Or, get more information on these integration services with the following links:
 
@@ -137,5 +137,4 @@ Or, get more information on these integration services with the following links:
 * [Integrations Made Simple by Charles Lamanna](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
 * [Logic Apps Live Webcast](http://aka.ms/logicappslive)
 * [Microsoft Flow Frequently asked questions](https://flow.microsoft.com/documentation/frequently-asked-questions/)
-* [Azure WebJobs documentation resources](../app-service-web/websites-webjobs-resources.md)
 
