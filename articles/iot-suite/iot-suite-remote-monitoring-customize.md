@@ -199,4 +199,9 @@ For more conceptual information about the remote monitoring preconfigured soluti
 * [Modify the preconfigured solution from the CLI](iot-suite-remote-monitoring-cli.md)
 * [Remote monitoring architecture](iot-suite-remote-monitoring-sample-walkthrough.md)
 
+For more information about customizing the remote monitoring solution, see:
+
+* [Developer Reference Guide](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
+* [Developer Troubleshooting Guide](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
+
 <!-- Next tutorials in the sequence -->
