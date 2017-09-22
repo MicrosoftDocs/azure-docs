@@ -28,7 +28,7 @@ sections:
       text: .NET
       href: quick-monitor-portal
     - image: 
-        src: https://docs.microsoft.com/media/common/dotnet.svg
+        src: https://docs.microsoft.com/media/logos/logo_NETcore.svg
       text: .NET Core
       href: app-insights-dotnetcore-quick-start
     - image: 
