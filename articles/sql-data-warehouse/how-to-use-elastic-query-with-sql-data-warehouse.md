@@ -59,7 +59,7 @@ The first step is to create an external data source definition that refers to th
 
 Next we create a remote external table definition in a SQL database instance which points to a remote table in the SQL data warehouse. When you use a query that uses an external table, the portion of the query referring to the external table is sent to the SQL data warehouse instance to be processed. Once the query has completed, the result set is sent back to the calling SQL database instance. For a brief tutorial of setting up an Elastic Query between SQL database and SQL data warehouse, see the [Configure Elastic Query with SQL Data Warehouse][Configure Elastic Query with SQL Data Warehouse].
 
-For more information on Elastic Query with SQL database, see the [Azure SQL Database elastic query overview][Azure SQL Database elastic query overview ].
+For more information on Elastic Query with SQL database, see the [Azure SQL Database elastic query overview][Azure SQL Database elastic query overview].
 
 
 
