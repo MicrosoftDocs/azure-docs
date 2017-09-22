@@ -23,7 +23,7 @@ ms.author: kumud
 >[!IMPORTANT]
 >Azure DDoS Protection Standard is currently in preview. A limited number of Azure resources support DDoS Protection Standard, and in a select number of regions. You need to [register for the service](http://aka.ms/ddosprotection) during the limited preview to get DDoS Protection Standard enabled for your subscription. You are contacted by the Azure DDoS team upon registration to guide you through the enablement process. DDoS Protection Standard is available in US East, US West, and US Central regions. During preview, you are not charged for using the service.
 
-Distributed Denial of Service (DDoS), is a type of attack where an attacker sends more requests to an application than the application is capable of handling. The resulting effect is depletion of resources, affecting the application’s availability and ability to service its customers.
+Distributed Denial of Service (DDoS) attacks are one of the largest availability and security concerns facing customers moving their applications to the cloud. A DDoS attack attempts to exhaust an application’s resources making the application unavailable to legitimate users. DDoS attacks can be targeted at any endpoint that is publicly reachable through the Internet.
 
 Azure DDoS Protection combined with application design best practices together provide defense against these attacks. These two service tiers are provided: 
 
@@ -31,15 +31,6 @@ Azure DDoS Protection combined with application design best practices together p
 - **Azure DDoS Protection Standard** - provides additional mitigation capabilities tuned specifically to Virtual Network resources. It is simple to enable and requires no application changes. Protection policies are tuned through dedicated traffic monitoring and machine learning algorithms and applied to public IPs associated with Virtual Network resources such as Load Balancer, Application Gateway, and Service Fabric instances.  Real time telemetry is available through Azure Monitor views during an attack and for history. Application layer protections can be added through [Application Gateway Web Application Firewall](https://azure.microsoft.com/services/application-gateway/). 
 
 ![Azure DDoS Protection Standard](./media/ddos-protection-overview/ddos-protection-overview-fig2.png)
-
-Over the past few years, attacks have increased sharply, with attacks becoming more sophisticated and larger in magnitude. DDoS attacks are one of the largest availability threats that face cloud services today. The intent of a DDoS attack is to exhaust the application's resources rendering the application unavailable to its customers. DDoS attacks can be targeted at any endpoint that is publicly reachable through the Internet.
-
-DDoS Protection Standard provides always-on network flow monitoring of the protected endpoints, and when a DDoS attack is detected, automatically applies mitigation to ensure only legitimate traffic reaches the service. DDoS Protection Standard provides customers with the peace of mind that their services are protected from the impacts of DDoS attacks.
-
-DDoS Protection Standard on the virtual network has two main benefits:
-
-- It simplifies the provisioning of protected resources in a single bulk operation and automatically protects additional resource types as they are supported.
-- Protecting all the public IP resources on a virtual network ensures that an attack against one public IP in a virtual network cannot impact another public IP in a virtual network since all public IPs are protected.
 
 For development and test scenarios, you are welcome to try DDoS Protection Standard and use these resources to provide feedback on your experiences:
 - [Azure DDoS Protection on the Microsoft Azure Forum](https://feedback.azure.com/forums/905032-azure-ddos-protection). 
