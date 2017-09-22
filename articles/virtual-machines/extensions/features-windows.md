@@ -116,7 +116,7 @@ A VM extension can be applied to an existing virtual machine through the Azure p
 
 The following image shows the installation of the Microsoft Antimalware extension from the Azure portal.
 
-![Install antimalware extension](./media/extensions-features/installantimalwareextension.png)
+![Install antimalware extension](./media/features-windows/installantimalwareextension.png)
 
 ### Azure Resource Manager templates
 
