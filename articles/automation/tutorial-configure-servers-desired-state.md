@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/25/2017
 ms.author: eslesar
-ms.custom: mvc
+ms.custom: 
 ---
 
 # Configure servers to a desired state and manage drift
