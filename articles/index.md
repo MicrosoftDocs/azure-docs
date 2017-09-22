@@ -184,6 +184,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <h4>NoSQL</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/cosmos-db/">Azure Cosmos DB</a></li>
+                                                </ul>
                                                 <h4>Storage</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/storage/blobs/storage-blobs-introduction/">Blob Storage</a></li>
