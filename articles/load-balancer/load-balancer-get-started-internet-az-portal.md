@@ -46,7 +46,7 @@ Log in to the Azure portal at https://portal.azure.com.
 
     ![create zone-redundant Load Balancer Standard with the Azure portal](./media/load-balancer-get-started-internet-az-portal/create-zone-redundant-load-balancer-standard.png)
 ## Next steps
-- Learn how to [create a Windows VM in an Availability Zone with Azure portal](../virtual-machines/windows/create-portal-availability-zone.md)
+- Learn how [create a Public IP in an availability zone](create-public-ip-availability-zone-portal.md)
 
 
 
