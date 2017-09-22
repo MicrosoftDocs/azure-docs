@@ -44,7 +44,8 @@ You are asked to create a username and password for the VM, which will be used w
 It takes a minute to create the VM and the associated resources. When finished, you can see all of the resources that were created using the [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) cmdlet.
 
 ```azurepowershell-interactive
-Find-AzureRmResource -ResourceGroupNameEquals myVMResourceGroup | Format-Table Name
+Find-AzureRmResource `
+	-ResourceGroupNameEquals myVMResourceGroup | Format-Table Name
 ```
 
 ## Connect to the VM
@@ -54,7 +55,8 @@ After the deployment has completed, create a remote desktop connection with the 
 Use the [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) command to return the public IP address of the virtual machine. Take note of this IP Address.
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress -ResourceGroupName myVMResourceGroup | Select IpAddress
+Get-AzureRmPublicIpAddress `
+	-ResourceGroupName myVMResourceGroup | Select IpAddress
 ```
 
 On your local machine, open a cmd prompt and use the **mstsc** command to start an remote desktop session with your new VM. Replace the &lt;publicIPAddress&gt; with the IP address of your virtual machine. When prompted, enter the username and password you gave your VM when it was created.
