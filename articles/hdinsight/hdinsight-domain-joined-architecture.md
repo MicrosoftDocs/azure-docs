@@ -25,15 +25,21 @@ The traditional Hadoop is a single-user cluster. It is suitable for most compani
 
 Instead of building its own multiuser authentication and authorization, HDInsight relies on the most popular identity provider--Active Directory (AD). The powerful security functionality in AD can be used to manage multiuser authorization in HDInsight. By integrating HDInsight with AD, you can communicate with the clusters by using your AD credentials. HDInsight maps an AD user to a local Hadoop user, so all the services running on HDInsight (Ambari, Hive server, Ranger, Spark thrift server, and others) work seamlessly for the authenticated user.
 
-## Integrate HDInsight with AD and AD on IaaS VM
+## Integrate HDInsight with Active Directory
 
-By integrating HDInsight with Azure AD Domain Services or Windows Server AD on Iaas VM, the HDInsight cluster nodes are domain-joined to a domain. HDInsight creates service principals for the Hadoop services running on the cluster and places them within a specified organizational unit (OU) in Azure AD Domain Services or AD on IaaS VM. HDInsight also creates reverse DNS mappings in the domain for the IP addresses of the nodes that are joined to the domain.
+By integrating HDInsight with Active Directory, the HDInsight cluster nodes are domain-joined to a domain. HDInsight creates service principals for the Hadoop services running on the cluster and places them within a specified organizational unit (OU) in the domain. HDInsight also creates reverse DNS mappings in the domain for the IP addresses of the nodes that are joined to the domain.
+
+There are two deployment options for Active Directory:
+* **Azure Active Directory Domain Services:** This service provides a managed Active Directory domain which is fully compatible with Windows Server Active Directory. Microsoft takes care of managing, patching and monitoring the domain and you can deploy your cluster without worrying about maintaining domain controllers. Users, groups and passwords are synchronized from your Azure Active Directory, enabling users to sign in to the cluster using their corporate credentials.
+
+* **Windows Server Active Directory domain on Azure IaaS VMs:** In this deployment option, you can deploy your own Active Directory domain on Azure IaaS VMs. 
 
 You can achieve this setup by using multiple architectures. You can choose from the following architectures.
 
-**HDInsight integrated with Windows Server AD running on Azure IaaS**
 
-This is the simplest architecture for integrating HDInsight with Active Directory. The AD domain controller runs on one (or multiple) virtual machines (VMs) in Azure. These VMs are usually in a virtual network. You set up another virtual network for the HDInsight cluster. For HDInsight to have a line of sight to Active Directory, you need to peer these virtual networks by using [VNet-to-VNet peering](../virtual-network/virtual-network-create-peering.md). If you create the Active Directory in ARM, then you can create the Active Directory and HDInsight in the same VNet and you don't need to do peering. 
+### HDInsight integrated with Windows Server AD running on Azure IaaS
+
+This is the simplest architecture for integrating HDInsight with Active Directory. You can deploy the Windows Server Active Directory Domain Services role on one (or multiple) virtual machines (VMs) in Azure and promote them to be domain controllers. These VMs are deployed in a virtual network. You set up another virtual network for the HDInsight cluster. For HDInsight to have a line of sight to Active Directory, you need to peer these virtual networks by using [VNet-to-VNet peering](../virtual-network/virtual-network-create-peering.md). If you create the Active Directory virtual machines using the Resource Manager deployment model, then you can create the Active Directory and HDInsight in the same VNet and you don't need to do peering. 
 
 ![Domain-join HDInsight cluster topology](./media/hdinsight-domain-joined-architecture/hdinsight-domain-joined-architecture_1.png)
 
@@ -52,7 +58,8 @@ Prerequisites for Active Directory:
     - Permissions to create reverse DNS proxy rules
     - Permissions to join machines to the Active Directory domain
 
-**HDInsight integrated with cloud-only Azure AD**
+
+### HDInsight integrated with cloud-only Azure AD
 
 For cloud-only Azure AD, configure a domain controller so that HDInsight can be integrated with Azure AD. This is achieved by using [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-overview.md) (Azure AD DS). Azure AD DS provides a managed AD domain in Azure, which is managed, updated and monitored by Microsoft. It creates two domain controllers for high availability and includes DNS services.
 
