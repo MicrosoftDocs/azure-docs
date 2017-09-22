@@ -32,6 +32,7 @@
 ## Use Visual Studio tools
 ### [Install](stream-analytics-tools-for-visual-studio-install.md)
 ### [Get started](stream-analytics-tools-for-visual-studio.md)
+### [Setup CI/CD pipelines](stream-analytics-tools-for-visual-studio-cicd.md)
 
 ## Monitor & optimize
 ### [Add alerts](stream-analytics-set-up-alerts.md)
