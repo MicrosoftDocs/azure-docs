@@ -20,7 +20,7 @@ ms.reviewer: nigu
 
 ---
 # Cloud App Discovery enhancements in Azure Active Directory 
-More than 80% of employees admit using non-approved SaaS apps for work purposes. We now integrate Cloud App Discovery in Azure AD with Microsoft Cloud App Security data and analysis features to enable you to identify more unmanaged cloud apps more easily. This new integration requires different setup steps than previously required.
+More than 80% of employees admit using non-approved SaaS apps for work purposes. We now integrate Cloud App Discovery in Azure AD with Microsoft Cloud App Security data and analysis features to enable you to identify more unmanaged cloud apps more easily. This new integration requires different setup steps than were previously required.
 
 ## What can I do now with the improvements to Cloud App Discovery in Azure AD?
 
