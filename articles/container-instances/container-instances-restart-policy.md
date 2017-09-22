@@ -15,44 +15,52 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/16/2017
+ms.date: 09/27/2017
 ms.author: marsma
-ms.custom: mvc
+ms.custom:
 ---
 
 # Run to completion containers in Azure Container Instances
 
-The ease and speed of deploying containers in Azure Container Instances provides a compelling platform for executing build, test, and image rendering jobs in a container instance. With a configurable restart policy, you can specify that your containers are stopped when their processes have completed. Because Azure Container instances are billed by the second, you're charged only for the compute resources used while the container executing your task is running.
+The ease and speed of deploying containers in Azure Container Instances provides a compelling platform for executing run-once tasks like build, test, and image rendering in a container instance.
+
+With a configurable restart policy, you can specify that your containers are stopped when their processes have completed. Because Azure Container Instances are billed by the second, you're charged only for the compute resources used while the container executing your task is running.
 
 ## Container restart policy
 
-When you create a container in Azure Container Instances, you can specify one of three restart policy settings:
+When you create a container in Azure Container Instances, you can specify one of three restart policy settings.
 
 | Restart policy   | Description |
 | ---------------- | :---------- |
-| `Always` | Default. Containers in the container group are always restarted. This is the default setting applied when no restart policy is specified at container creation. |
+| `Always` | Containers in the container group are always restarted. This is the **default** setting applied when no restart policy is specified at container creation. |
 | `Never` | Containers in the container group are never restarted. The containers run at most once. |
-| `OnFailure` | Containers in the container group are restarted only when a failure is detected in the container or the process running in the container. The containers are run at least once. |
+| `OnFailure` | Containers in the container group are restarted only when a failure is detected in the container, or the process running in the container. The containers are run at least once. |
 
 ## Specify a restart policy
 
-The method by which you specify a restart policy depends on how you create your containers, such as with the Azure CLI, PowerShell, or the Azure portal. Azure CLI and PowerShell examples are shown below.
+The method by which you specify a restart policy depends on how you create your containers, such as with the Azure CLI, PowerShell, or the Azure portal. Azure CLI and PowerShell examples are shown here.
 
-* Azure CLI
+[Azure CLI](#tab/azure-cli)
 
-  ```azurecli-interactive
-  az container create \
-      --name mycontainer \
-      --image mmacy/aci-wordcount \
-      --resource-group myResourceGroup \
-      --restart-policy OnFailure
-  ```
+```azurecli
+az container create \
+    --resource-group myResourceGroup \
+    --name mycontainer \
+    --image mmacy/aci-wordcount \
+    --restart-policy OnFailure
+```
 
-* PowerShell
+[PowerShell](#tab/azure-powershell)
 
-  ```powershell
-  New-AzureRmContainer -ResourceGroupName myResourceGroup -Name mycontainer -Image mmacy/aci-helloworld -RestartPolicy OnFailure
-  ```
+```powershell
+New-AzureRmContainer `
+    -ResourceGroupName myResourceGroup `
+    -Name mycontainer `
+    -Image mmacy/aci-helloworld `
+    -RestartPolicy OnFailure
+```
+
+---
 
 ## Run to completion example
 
@@ -62,7 +70,7 @@ To see the restart policy in action, create a container instance from the [mmacy
 az container create --name mycontainer --image mmacy/aci-wordcount:v2 --resource-group myResourceGroup --restart-policy OnFailure
 ```
 
-This container runs a Python script that, by default, analyzes the text of Shakespeare's *Hamlet*, writes the ten most common words to STDOUT, and then exits. You can configure the text to analyze and the number and minimum length of words by using additional arguments when you create the container.
+This container runs a Python script that, by default, analyzes the text of Shakespeare's *Hamlet*, writes the 10 most common words to STDOUT, and then exits. You can configure the text to analyze and the number and minimum length of words by using additional arguments when you create the container.
 
 ## Configure containers at runtime
 
