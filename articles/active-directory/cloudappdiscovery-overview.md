@@ -20,14 +20,12 @@ ms.reviewer: nigu
 
 ---
 # Cloud App Discovery enhancements in Azure Active Directory 
-More than 80% of employees admit using non-approved SaaS apps for work purposes. Even though you may not be in the cloud, your employees are. Visibility is the first key step for data protection. If you cannot see it, you cannot prevent it. 
+More than 80% of employees admit using non-approved SaaS apps for work purposes. We now integrate Cloud App Discovery in Azure AD with Microsoft Cloud App Security data and analysis features to enable you to identify more unmanaged cloud apps more easily. This new integration requires different setup steps than previously required.
 
-Today, we’re excited to inform you that through integration with Microsoft Cloud App Security, Azure AD Cloud App Discovery capabilities are now enhanced to provide deeper visibility into cloud app usage in your organization with a more intuitive deployment model. 
-
-## What can I do now with enhanced Cloud App Discovery in Azure AD?
+## What can I do now with the improvements to Cloud App Discovery in Azure AD?
 
 * **Deeper visibility into cloud app usage**
-  Cloud App Discovery in Azure AD now discovers more than 15,000 apps from all organization network traffic and from any device. 
+  Cloud App Discovery in Azure AD now discovers **more than 15,000 apps** from all organization network traffic and from any device. 
 * **No agents required**
   This new version of Cloud App Discovery does not require agents to be installed on user devices. Instead, discovery is performed based on log files imported from your firewalls and proxies. You can discover apps across all organization network traffic, regardless of the device or operating system.
 * **Ongoing analysis and alerts**
