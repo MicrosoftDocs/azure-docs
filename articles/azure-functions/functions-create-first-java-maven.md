@@ -21,6 +21,10 @@ ms.custom: mvc, devcenter
 
 This quickstart guides through creating a serverless function project with Maven, testing it locally, and deploying it to Azure Functions. When you're done, you have a HTTP-triggered function running in Azure.
 
+
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## Prerequisites
 
 -  [.NET Core](https://www.microsoft.com/net/core) , latest version.
@@ -28,8 +32,6 @@ This quickstart guides through creating a serverless function project with Maven
 -  [Azure CLI](https://docs.microsoft.com/cli/azure)
 -  [Apache Maven](https://maven.apache.org) , version 3.0 or above.
 -  [Azure Functions Core Tools](/azure/azure-functions/functions-run-local#install-the-azure-functions-core-tools) 2.0 or higher.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
    
 ## Configure Maven
 
@@ -89,8 +91,7 @@ Change directory to the newly created project folder and build and run the funct
 
 ```bash
 cd fabrikam-function
-mvn clean package
-mvn azure-functions:run
+mvn clean package azure-functions:run
 ```
 
 You see this output when the function is running:
