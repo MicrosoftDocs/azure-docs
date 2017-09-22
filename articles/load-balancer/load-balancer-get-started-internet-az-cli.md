@@ -22,6 +22,9 @@ ms.author: kumud
 
 This article steps through creating a Public Load Balancer Standard with a zone-redundant frontend Public IP Standard address. An availability zone (../availability-zones/az-overview.md) is a physically separate zone in an Azure region.
 
+>[!NOTE]
+Load Balancer Standard SKU is currently in Preview. During preview, the feature may not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use the Generally Available [Load Balancer Basic SKU](load-balancer-overview.md) for your production services.
+
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Register for Availability Zones, Load Balancer Standard, and Public IP Standard Preview

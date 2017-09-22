@@ -3,7 +3,7 @@ title: Configure Load balancer for SQL always on | Microsoft Docs
 description: Configure Load balancer to work with SQL always on and how to leverage powershell to create load balancer for the SQL implementation
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 
 ms.assetid: d7bc3790-47d3-4e95-887c-c533011e4afd

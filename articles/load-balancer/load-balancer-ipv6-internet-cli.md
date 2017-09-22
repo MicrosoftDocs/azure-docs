@@ -3,7 +3,7 @@ title: Create an Internet-facing load balancer with IPv6 - Azure CLI | Microsoft
 description: Learn how to create an Internet facing load balancer with IPv6 in Azure Resource Manager using the Azure CLI
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-resource-manager
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot

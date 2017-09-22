@@ -3,7 +3,7 @@ title: Create an Internet-facing load balancer - Azure template | Microsoft Docs
 description: Learn how to create an Internet facing load balancer in Resource Manager using a template
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-resource-manager
 

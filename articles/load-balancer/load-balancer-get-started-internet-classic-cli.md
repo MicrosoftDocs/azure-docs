@@ -3,7 +3,7 @@ title: Create an Internet-facing load balancer - Azure CLI classic | Microsoft D
 description: Learn how to create an Internet facing load balancer in classic deployment model using the Azure CLI
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-service-management
 

@@ -3,7 +3,7 @@ title: Create an Internal load balancer - Azure CLI | Microsoft Docs
 description: Learn how to create an internal load balancer by using the Azure CLI in Resource Manager
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-resource-manager
 
