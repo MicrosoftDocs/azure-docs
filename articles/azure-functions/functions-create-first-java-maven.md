@@ -19,7 +19,7 @@ ms.custom: mvc, devcenter
 
 # Create your first function with Java and Maven (Preview)
 
-This quickstart will walk you through creating a serverless function in Java, testing it locally, and deploying it to Azure Functions. When you're done, you'll have a HTTP-triggered function running in Azure.
+This quickstart guides through creating a serverless function project with Maven, testing it locally, and deploying it to Azure Functions. When you're done, you have a HTTP-triggered function running in Azure.
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ This quickstart will walk you through creating a serverless function in Java, te
    
 ## Configure Maven
 
-To create a new Functions project with Maven, you first need to configure Maven to generate the project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html). Update your Maven [settings](https://maven.apache.org/settings.html) (stored by default in `~\.m2\settings.xml`) to add the Azure Functions archetype repository:
+To create a new Functions project with Maven, you first need to configure Maven to generate the project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html). Update your Maven [settings](https://maven.apache.org/settings.html) to add the Azure Functions archetype repository:
 
 ```XML
 <profile>
@@ -67,11 +67,11 @@ mvn archetype:generate \
     -DarchetypeVersion=1.0-SNAPSHOT
 ```
 
-Maven will then prompt you for values needed to finish generating the project. For _groupId_, _artifactId_, and _version_ values, see the [Maven naming conventions](https://maven.apache.org/guides/mini/guide-naming-conventions.html) reference. The _appName_ value must be unique across Azure, so a name based on the previously entered _artifactId_ will be generated for you. The _packageName_ value will determine what Java package the generated code in the project uses.
+Maven prompts you for values needed to finish generating the project. For _groupId_, _artifactId_, and _version_ values, see the [Maven naming conventions](https://maven.apache.org/guides/mini/guide-naming-conventions.html) reference. The _appName_ value must be unique across Azure, so it generated an app name based on the previously entered _artifactId_  as a default. The _packageName_ value determines what Java package the generated code in the project uses.
 
-![Screencap of console showing the inputs](media/functions-create-java-maven/archetype.png)
+![Terminal output showing the Maven archetype inputs](media/functions-create-java-maven/archetype.png)
 
-Maven generates the project files in a new folder under the current one named after the _appName_ value used when configuring the project. The generated code in the project is a simple [HTTP triggered](/azure/azure-functions/functions-bindings-http-webhook) function that echoes back the body of the the request:
+Maven generates the project files in a new folder under the current one named after the _appName_ value used when configuring the project. The generated code in the project is a simple [HTTP triggered](/azure/azure-functions/functions-bindings-http-webhook) function that echoes back the body of the request:
 
 ```java
 public class Function {
@@ -93,9 +93,9 @@ mvn clean package
 mvn azure-functions:run
 ```
 
-You'll see this output when the function is running:
+You see this output when the function is running:
 
-![Console screencap of the Hello function started](media/functions-create-java-maven/local-hello.png)
+![Terminal output after the Hello function started](media/functions-create-java-maven/local-hello.png)
 
 Trigger the function from the command line using curl in a new terminal:
 
@@ -111,14 +111,14 @@ Use `Ctrl+C` in the terminal to stop the function code.
 
 ## Deploy the function to Azure
 
-The Maven deploy step uses account credentials from the Azure CLI. [Log in with the Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) and then deploy your code into a new Function app using the `azure-functions:deploy` Maven target.
+The deploy process to Azure Functions uses account credentials from the Azure CLI. [Log in with the Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) and then deploy your code into a new Function app using the `azure-functions:deploy` Maven target.
 
 ```bash
 az login
 mvn azure-fuctions:deploy
 ```
 
-When the deploy is complete, you'll see the URL you can use to access your function running on Azure:
+When the deploy is complete, you see the URL you can use to access your Azure function app:
 
 ```output
 [INFO] Successfully deployed Function App with package.
@@ -145,7 +145,7 @@ You have created a Java function app with a simple HTTP trigger.
 
 - Add additional functions with different triggers to your project using the `azure-functions:add` Maven target.
 
-   ![Console screencap of the Hello function started](media/functions-create-java-maven/add-new-functions.png)
+   ![Different templates you can use to add new Functions to your project](media/functions-create-java-maven/add-new-functions.png)
 
 - [Java Functions developer guide](functions-reference-java.md)
 - [Java Functions annotation reference](https://github.com/Azure/azure-functions-java-worker/tree/documentation/azure-functions-java-core)
