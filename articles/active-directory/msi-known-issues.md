@@ -37,7 +37,7 @@ The following Linux distributions support MSI:
 
 Other Linux distributions are currently not supported and extension might fail on unsupported distributions.
 
-The extension will also work on CentOS 6.9. However, due to lack of systemd support in 6.9, the extension will not auto re-start if crashed or stopped. It will restart when the VM restarts. To re-start the extension manually see  “How to restart MSI extension?”
+The extension works on CentOS 6.9. However, due to lack of system support in 6.9, the extension will not auto restart if crashed or stopped. It restarts when the VM restarts. To restart the extension manually, see  “How to restart MSI extension?”
 
 ### How do you restart the MSI extension?
 ## Known issues
