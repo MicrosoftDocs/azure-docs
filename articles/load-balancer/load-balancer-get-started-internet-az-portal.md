@@ -26,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Register for Availability Zones, Load Balancer Standard, and Public IP Standard Preview
 
-Availability zones are currently in preview release. Before selecting a zone or zone-redundant option for the frontend Public IP Address for the Load Balancer, you must first complete the steps in [register for the availability zones preview](https://review.docs.microsoft.com/en-us/azure/availability-zones/az-overview?toc=%2fazure%2fvirtual-network%2ftoc.json&branch=release-ignite-az#get-started-with-the-availability-zones-preview).
+Availability zones are currently in preview release. Before selecting a zone or zone-redundant option for the frontend Public IP Address for the Load Balancer, you must first complete the steps in [register for the availability zones preview](https://docs.microsoft.com/azure/availability-zones/az-overview).
  
 The Standard SKU is in preview release. Before creating a Standard SKU public IP address, you must first complete the steps in [register for the standard SKU preview](https://review.docs.microsoft.com/en-us/azure/virtual-network/virtual-network-public-ip-address?branch=pr-en-us-23006#register-for-the-standard-sku-preview) and create the public IP address in a supported location (region). For a list of supported locations, see [Region availability](https://review.docs.microsoft.com/en-us/azure/load-balancer/load-balancer-standard-overview?toc=%2fazure%2fvirtual-network%2ftoc.json) and monitor the [Azure Virtual Network](https://azure.microsoft.com/en-us/updates/?product=virtual-network) updates page for additional region support 
 
