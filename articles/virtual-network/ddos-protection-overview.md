@@ -77,7 +77,7 @@ During mitigation, traffic towards the protected resource is redirected by the D
 
 The DDoS Protection blocks attack traffic and forward remaining traffic to intended destination. Within a few minutes of attack detection, you are notified using Azure Monitor metrics. By configuring logging on DDoS Protection Standard telemetry, you can write the logs to available options for future analysis. Metric data in Azure Monitor for DDoS Protection Standard is currently retained for 30 days.
 
-We do not advise customers to simulate their own DDoS attacks during preview. Instead, customers can use the support channel to request a DDoS attack simulation executed by Azure Networking. An Engineer will contact you to arrange the details of the DDoS attack (ports, protocols, target IPs) and arrange a time to schedule the test.
+We do not advise customers to simulate their own DDoS attacks. Instead, customers can use the support channel to request a DDoS attack simulation executed by Azure Networking. An Engineer will contact you to arrange the details of the DDoS attack (ports, protocols, target IPs) and arrange a time to schedule the test.
 
 ## Next steps
 
