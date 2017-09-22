@@ -19,13 +19,13 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to deploy container images with Azure CLI.'
+    text: 'Learn how to deploy container images with Azure Container Instances.'
   - type: list
     style: icon48
     items:
     - image:
         src: https://docs.microsoft.com/media/common/cli.svg
-      text: Create container instance
+      text: Azure CLI
       href: /azure/container-instances/container-instances-quickstart
     - image:
         src: https://docs.microsoft.com/media/common/i_portal.svg
