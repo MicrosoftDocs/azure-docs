@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/22/2017
 ms.author: skwan
 ---
 
@@ -35,6 +35,11 @@ The following Linux distributions support MSI:
 - RedHat 7.2
 - Ubuntu 15.04
 
+Other Linux distributions are currently not supported and extension might fail on unsupported distributions.
+
+The extension works on CentOS 6.9. However, due to lack of system support in 6.9, the extension will not auto restart if crashed or stopped. It restarts when the VM restarts. To restart the extension manually, see  “How to restart MSI extension?”
+
+### How do you restart the MSI extension?
 ## Known issues
 
 ### Configuration blade does not appear in the Azure portal

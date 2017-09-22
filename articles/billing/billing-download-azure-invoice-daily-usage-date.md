@@ -21,7 +21,7 @@ ms.custom: H1Hack27Feb2017
 
 ---
 # Download or view your Azure billing invoice and daily usage data
-You can download your invoice from the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) or have it sent in email. To download your daily usage, go to the [Azure Account Center](https://account.windowsazure.com). Only certain roles have permission to get billing invoice and usage information, like the Account Administrator. To learn more about getting access to billing information, see [Manage access to Azure billing using roles](billing-manage-access.md).
+You can download your invoice from the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) or have it sent in email. To download your daily usage, go to the [Azure Account Center](https://account.azure.com/Subscriptions). Only certain roles have permission to get billing invoice and usage information, like the Account Administrator. To learn more about getting access to billing information, see [Manage access to Azure billing using roles](billing-manage-access.md).
 
 >[!NOTE]
 >This article does not apply to Enterprise Agreement (EA) customers. If you’re an EA customer, your invoices are sent directly to the Enrollment Administrators.
