@@ -33,6 +33,8 @@
     href: role-based-access-control-resource-provider-operations.md
 - name: Privileged Identity Management (PIM) for Azure RBAC
   href: pim-azure-resource.md
+- name: Conditional access for Azure management
+  href: conditional-access-azure-management.md
 - name: Managed Service Identity
   href: msi-overview.md
   items:
