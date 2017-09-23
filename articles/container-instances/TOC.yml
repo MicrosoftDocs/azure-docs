@@ -7,8 +7,10 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create container instance
+  - name: Create container - CLI
     href: container-instances-quickstart.md
+  - name: Create container - Portal
+    href: container-instances-quickstart-portal.md
 - name: Tutorials
   items:
   - name: Build and deploy a container
@@ -41,6 +43,8 @@
   items:
   - name: Azure CLI 2.0
     href: /cli/azure/container
+  - name: REST
+    href: /rest/api/container-instances
 - name: Resources
   items:
   - name: Azure Roadmap

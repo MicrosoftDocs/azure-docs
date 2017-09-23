@@ -93,6 +93,10 @@
       href: local-emulator.md
     - name: Export certificates
       href: local-emulator-export-ssl-certificates.md
+  - name: 6 - Integrate with Functions
+    items:
+    - name: HTTP trigger
+      href: tutorial-functions-http-trigger.md
 - name: Samples
   items:
   - name: Azure CLI 2.0
@@ -101,6 +105,8 @@
     href: powershell-samples.md
 - name: Concepts
   items:
+  - name: Serverless database
+    href: serverless-computing-database.md
   - name: Global distribution
     href: distribute-data-globally.md
   - name: Partitioning
@@ -268,6 +274,8 @@
       href: geospatial.md
     - name: Indexing
       href: indexing-policies.md
+    - name: Connected Service in Visual Studio
+      href: connected-service.md
   - name: Manage
     items:
     - name: Cost-effective reads and writes
@@ -282,8 +290,14 @@
       href: set-throughput.md
     - name: Monitor SLAs
       href: monitor-accounts.md
+    - name: Use metrics
+      href: use-metrics.md
+    - name: Diagnostic logging
+      href: logging.md
     - name: Manage keys and consistency
       href: manage-account.md
+    - name: Azure Storage Explorer
+      href: tutorial-documentdb-and-mongodb-in-storage-explorer.md
     - name: Security
       items:
       - name: Encryption at rest
@@ -309,7 +323,7 @@
     - name: Integrate with Azure Search
       href: ../search/search-howto-index-documentdb.md
     - name: Move data with Azure Data Factory
-      href: ../data-factory/data-factory-azure-documentdb-connector.md
+      href: ../data-factory/connector-azure-cosmos-db.md
     - name: Analyze real-time data with Azure Stream Analytics
       href: ../stream-analytics/stream-analytics-define-outputs.md#documentdb
     - name: Get changed HL7 FHIR record using Logic Apps

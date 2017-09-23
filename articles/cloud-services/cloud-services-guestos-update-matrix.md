@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/24/2017
+ms.date: 9/20/2017
 ms.author: raiye
 
 ---
@@ -26,14 +26,16 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 >
 
 
-> [!NOTE]
-> The RSS Feed was recently deprecated. Watch for updates on a new feed coming soon!
+> [!TIP]
+>  Subscribe to the [Guest OS Update RSS Feed] to receive the most timely notification on all Guest OS changes.
 >
 >
 
 Unsure about what the Guest OS is or how the Guest OS releases work? Read [this](#how-it-works) section.
 
 ## News updates
+###### **September 14, 2017**
+September Guest OS rollout is starting September 14 and has a projected release of October 9.
 
 ###### **August 24, 2017**
 August Guest OS has released.
@@ -61,12 +63,6 @@ May Guest OS rollout is starting May 12 and has a projected release of June 13.
 
 ###### **April 18, 2017**
 April Guest OS rollout is starting April 18 and has a projected release of May 9.
-
-###### **April 10, 2017**
-March Guest OS rollout started March 14, 2017, and released on April 10, 2017.
-
-###### **January 10, 2017**
-The January Guest OS contains patches that only impact OS family 2 (Windows 2008 Server R2). We have therefore released only the OS Family 2 image (WA-GUEST-OS-2.59_201701-01) for this month. For all other OS families, the December OS (201612-01) remains the latest.
 
 
 ## Releases
@@ -228,6 +224,7 @@ If you manually update your Guest OS, see the [Guest OS retirement policy][retir
 ## Guest OS Supportability and Retirement Policy
 The Guest OS supportability and retirement policy is explained [here][retirepolicy].
 
+[Guest OS Update RSS Feed]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
 [Install .NET on a Cloud Service Role]: https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure.md
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/

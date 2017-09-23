@@ -12,13 +12,25 @@
 ### [1- Build a .NET application](service-fabric-tutorial-create-dotnet-app.md)
 ### [2- Deploy the application](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 ### [3- Configure CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+### [4- Monitor and Diagnose](service-fabric-tutorial-monitoring-aspnet.md)
 
-## Lift and shift an app
+## Containerize an existing .NET app
 ### [1- Create a secure cluster on Azure](service-fabric-tutorial-create-cluster-azure-ps.md)
 ### [2- Deploy a .NET app using Docker Compose](service-fabric-host-app-in-a-container.md)
 
+## Create a Linux container app
+### [1- Create container images](service-fabric-tutorial-create-container-images.md)
+### [2- Package and deploy containers](service-fabric-tutorial-package-containers.md)
+### [3- Fail over and scale](service-fabric-tutorial-containers-failover.md)
+
+## Create and manage a cluster
+### 1- Create a cluster on Azure
+#### [1a- Create a secure Windows cluster on Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+#### [1b- Create a secure Linux cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+### [2- Deploy API Management with Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+
 # Samples
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=service-fabric)
 ## [PowerShell](service-fabric-powershell-samples.md)
 ## [Service Fabric CLI](samples-cli.md)
 # Concepts
@@ -66,6 +78,8 @@
 #### [Service state](service-fabric-concepts-state.md)
 #### [Service partitioning](service-fabric-concepts-partitioning.md)
 #### [Availability of services](service-fabric-availability-services.md)
+#### [Replicas and instances](service-fabric-concepts-replica-lifecycle.md)
+#### [Reconfiguration](service-fabric-concepts-reconfiguration.md)
 #### Service communication
 ##### [Overview](service-fabric-connect-and-communicate-with-services.md)
 ##### [DNS service](service-fabric-dnsservice.md)
@@ -90,7 +104,6 @@
 
 ## Create and manage clusters
 ### [Overview](service-fabric-deploy-anywhere.md)
-### [Service Fabric on Linux](service-fabric-linux-overview.md)
 ### Plan and prepare
 #### [Capacity planning](service-fabric-cluster-capacity.md)
 #### [Disaster recovery](service-fabric-disaster-recovery.md)
@@ -129,6 +142,8 @@
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)
 ### [Mac OS](service-fabric-get-started-mac.md)
+
+## [Set up the Service Fabric CLI](service-fabric-cli.md)
 
 ## Build an application
 ### [Create your first C# app in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
@@ -279,8 +294,6 @@
 
 ### [Visualize a cluster](service-fabric-visualizing-your-cluster.md)
 ### [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md)
-
-### [Getting started with Service Fabric CLI](service-fabric-cli.md)
 ### [Patch cluster nodes](service-fabric-patch-orchestration-application.md)
 
 ### Manage and orchestrate cluster resources
