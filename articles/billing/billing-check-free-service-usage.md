@@ -17,11 +17,11 @@ ms.date: 09/25/2017
 ms.author: amberb
 
 ---
-# Check usage of free services included with Azure free account 
+# Check usage of free services included with your Azure free account 
 
 You are not charged for services included for free with Azure free account, unless you exceed the limits of these services. To remain with the limits, you can either use the Azure portal or your usage file to monitor and track the usage of free services. 
 
-## Check usage on Azure portal
+## Check usage on the Azure portal
 
 1.	Log in to the [Azure portal]( http://portal.azure.com).
 
