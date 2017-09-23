@@ -77,4 +77,4 @@ The Microsoft Azure Backup snap-in (which is installed with the MARS agent) work
 This completes the tutorials on backing up and restoring Windows Server data to Azure. To learn more about Azure Backup, see the PowerShell sample for backing up encrypted virtual machines.
 
 > [!div class="nextstepaction"]
-> [Back up encrypted VM](tutorial-backup-azure-vm.md)
+> [Back up encrypted VM](./scripts/backup-powershell-sample-backup-encrypted-vm.md)
