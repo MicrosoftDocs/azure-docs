@@ -21,7 +21,7 @@ ms.author: garbrad
 # Using Azure DNS for private domains
 The Domain Name System, or DNS, is responsible for translating (or resolving) a service name to its IP address. Azure DNS is a hosting service for DNS domains, providing name resolution using the Microsoft Azure infrastructure.  In addition to internet-facing DNS domains, Azure DNS now also supports private DNS domains as a preview feature.  
  
-This provides a reliable, secure DNS service to manage and resolve domain names in a virtual network without the need to add a custom DNS solution. This new capability allows you to use your own custom domain name rather than the Azure-provided names available today.  This enables you to tailor your virtual network architecture to best suit your organization’s needs. It provides name resolution for VM’s within a virtual network and between virtual networks. Additionally, you can configure zones names with a split-horizon view – allowing a private and a public DNS zone to share the same name. 
+Azure DNS provides a reliable, secure DNS service to manage and resolve domain names in a virtual network without the need to add a custom DNS solution. This new capability allows you to use your own custom domain name rather than the Azure-provided names available today.  This enables you to tailor your virtual network architecture to best suit your organization's needs. It provides name resolution for VMs within a virtual network and between virtual networks. Additionally, you can configure zones names with a split-horizon view - allowing a private and a public DNS zone to share the same name.
 
 ![DNS overview](./media/private-dns-overview/scenario.png)
 
@@ -33,13 +33,13 @@ This provides a reliable, secure DNS service to manage and resolve domain names 
 
 * **Use all common DNS records types.**  Azure DNS supports A, AAAA, CNAME, MX, NS, PTR, SOA, SRV and TXT records.
 
-* **Automatic hostname record management.** Along with hosting your custom DNS records, Azure will automatically maintain hostname records for the VMs in the specified virtual network.  This allows you to optimize the domain names you use without needing to create custom DNS solutions or change applicaitons use the Azure-provided hostnames provided today.
+* **Automatic hostname record management.** Along with hosting your custom DNS records, Azure will automatically maintain hostname records for the VMs in the specified virtual networks.  This allows you to optimize the domain names you use without needing to create custom DNS solutions or change applications to use the Azure-provided hostnames provided today.
 
 * **Hostname resolution between virtual networks.** Unlike Azure-provided hostnames, private DNS zones can be shared between virtual networks simplifying cross-network scenarios such as virtual network peering.
 
 * **Familiar tools and user experience.** To minimize the learning curve, this new offering leverages the already well-established Azure DNS tools (PowerShell, ARM Templates, REST API) and support will be added to the CLI and portal as soon as possible.
 
-* **Split-brain DNS support.** This enables you to have the same zone name that can resolve to different answers from within a virtual network and from Public Internet. 
+* **Split-brain DNS support.** This enables you to have the same zone name that can resolve to different answers from within a virtual network and from the Public Internet.
 
 
 ## Pricing

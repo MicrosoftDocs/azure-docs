@@ -4,7 +4,7 @@
 ## [DNS zones and records](dns-zones-records.md)
 ## [DNS delegation with Azure DNS](dns-domain-delegation.md)
 ## [DNS FAQ](dns-faq.md)
-## [Using Azure DNS for private domains](private-dns-overview.md)
+## [Using private DNS zones](private-dns-overview.md)
 
 # Get Started
 

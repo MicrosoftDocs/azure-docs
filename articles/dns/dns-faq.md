@@ -71,8 +71,7 @@ No. Azure DNS does not currently support purchasing of domain names. If you want
 This is a feature we are tracking on our backlog. You can use our feedback site to [register your support for this feature](https://feedback.azure.com/forums/217313-networking/suggestions/4996615-azure-should-be-its-own-domain-registrar).
 
 ### Does Azure DNS support 'private' domains?
-
-Support for 'private' domains is implemented using private DNS zones, which are currently in preview.  These are the same as internet-facing DNS zones but they only respond to requests from within your specified virtual networks.  See the [overview](private-dns-overview.md) for details.
+Support for 'private' domains is implemented using private DNS zones.  This feature is currently available as a preview.  Private DNS zones are managed using the same tools as public Azure DNS zones but they are only resolvable from within your specified virtual networks.  See the [overview](private-dns-overview.md) for details.
 
 For information on other internal DNS options in Azure, see [Name Resolution for VMs and Role Instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
