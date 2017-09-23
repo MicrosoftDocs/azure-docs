@@ -89,12 +89,12 @@ az storage account show --resource-group "myresourcegroup" --name "mystorageacco
 
 3. Set the default rule to deny network access by default.  
 ```azurecli
-az storage account update --name "mystorageaccount" --resource-group "myresourcegroup" --default-action Allow
+az storage account update --name "mystorageaccount" --resource-group "myresourcegroup" --default-action Deny
 ```
 
 4. Set the default rule to allow network access by default.
 ```azurecli
-az storage account update --name "mystorageaccount" --resource-group "myresourcegroup" --default-action Deny
+az storage account update --name "mystorageaccount" --resource-group "myresourcegroup" --default-action Allow
 ```
 
 ## Grant access from a virtual network
