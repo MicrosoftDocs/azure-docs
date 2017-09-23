@@ -66,7 +66,7 @@ description: Learn how to build and manage powerful applications using Microsoft
         </ul>             
     </div>
     <div class="container">
-        <h1 class="screenReader">Microsoft Azure Documentation</h1>   
+        <h1 class="screenReader">Microsoft Azure Documentation</h1>
         <ul class="pivots">
             <li>
                 <a href="#get-started">Get Started</a>
@@ -129,6 +129,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>Develop apps</h3>
+                                                <table cellpadding="0" cellspacing="0" border="0"><tr><td style="border-top-color:transparent!important;">
 												<ul class="noBullet">
                                                     <li>
 														<a class="barLink" href="/dotnet/azure/?view=azure-dotnet">
@@ -144,7 +145,7 @@ description: Learn how to build and manage powerful applications using Microsoft
 														<a class="barLink" href="/java/azure/">
 															<img src="media/index/logo_java.svg" alt="">
 															Java</a>
-													</li>
+													</li></td><td style="border-top-color:transparent!important;"><ul class="noBullet">
 													<li>
 														<a class="barLink" href="/azure/app-service-web/app-service-web-get-started-php">
 															<img src="media/index/logo_PHP.svg" alt="">
@@ -155,7 +156,7 @@ description: Learn how to build and manage powerful applications using Microsoft
 															<img src="media/index/logo_nodejs.svg" alt="">
 															Node.js</a>
 													</li>
-												</ul>
+												</ul></td></tr></table>
                                                 <h4>App Models</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
@@ -198,7 +199,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         </div>
                                     </div>
                                 </div>
-                            </li>                            
+                            </li>
                             <li>
                                 <div class="cardSize">
                                     <div class="cardPadding">
