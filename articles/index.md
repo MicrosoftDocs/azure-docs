@@ -1664,7 +1664,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Site Recovery</h3>
-                                                    <p>Orchestrate protection and recovery of private clouds</p>
+                                                    <p>Orchestrate disaster recovery of Azure VMs, and on-premises VMs and physical servers</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3121,7 +3121,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Site Recovery</h3>
-                                                    <p>Orchestrate protection and recovery of private clouds</p>
+                                                    <p>Orchestrate disaster recovery of Azure VMs, and on-premises VMs and physical servers</p>
                                                 </div>
                                             </div>
                                         </div>
