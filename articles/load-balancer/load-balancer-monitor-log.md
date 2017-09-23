@@ -3,7 +3,7 @@ title: Monitor operations, events, and counters for Load Balancer | Microsoft Do
 description: Learn how to enable alert events, and probe health status logging for Azure Load Balancer
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-resource-manager
 

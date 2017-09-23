@@ -3,7 +3,7 @@ title: Deploy an Internet-facing load-balancer with IPv6 - Azure template | Micr
 description: How to deploy IPv6 support for Azure Load Balancer and load-balanced VMs.
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: ''
 tags: azure-resource-manager
