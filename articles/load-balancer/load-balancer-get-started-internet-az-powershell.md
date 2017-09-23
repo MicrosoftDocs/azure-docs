@@ -52,15 +52,15 @@ Create a Resource Group using the following command:
 New-AzureRmResourceGroup -Name myResourceGroup -Location westeurope
 ```
 
-## Create a Standard public IP address 
-Create a Standard Public IP using the following command:
+## Create a public IP Standard 
+Create a Public IP Standard using the following command:
 
 ```powershell
 $publicIp = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Name 'myPublicIP' `
   -Location westeurope -AllocationMethod Static -Sku Standard 
 ```
 
-# Create a front-end IP configuration for the website
+## Create a front-end IP configuration for the website
 
 Create a frontend IP configuration using the following command:
 
@@ -68,7 +68,7 @@ Create a frontend IP configuration using the following command:
 $feip = New-AzureRmLoadBalancerFrontendIpConfig -Name 'myFrontEndPool' -PublicIpAddress $publicIp
 ```
 
-# Create the back-end address pool
+## Create the back-end address pool
 
 Create a backend address pool using the following command:
 
@@ -76,7 +76,7 @@ Create a backend address pool using the following command:
 $bepool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name 'myBackEndPool'
 ```
 
-# Create a load balancer probe on port 80
+## Create a load balancer probe on port 80
 
 Create a health probe on port 80 for the load balancer using the following command:
 

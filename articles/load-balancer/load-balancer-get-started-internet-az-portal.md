@@ -49,6 +49,8 @@ Log in to the Azure portal at https://portal.azure.com.
 7. Under **Location**, select **East US2**, and then click **OK**. The load balancer then starts to deploy and takes a few minutes to successfully complete deployment.
 
     ![create zone-redundant Load Balancer Standard with the Azure portal](./media/load-balancer-get-started-internet-az-portal/create-zone-redundant-load-balancer-standard.png)
+
+
 ## Next steps
 - Learn how [create a Public IP in an availability zone](../virtual-network/create-public-ip-availability-zone-portal.md)
 

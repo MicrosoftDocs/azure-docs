@@ -38,9 +38,9 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 Before selecting a zone or zone-redundant option for the frontend Public IP Address for the Load Balancer, you must first complete the steps in [register for the availability zones preview](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
-Make sure that you have installed the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)and logged in to an Azure account with [az login](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest#login).
+Make sure that you have installed the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)and are logged in to an Azure account with [az login](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest#login).
 
-# Create a resource group
+## Create a resource group
 
 Create a resource group using the following command:
 
@@ -48,7 +48,7 @@ Create a resource group using the following command:
 az group create --name myResourceGroup --location westeurope
 ```
 
-# Create a public IP address Standard
+## Create a public IP Standard
 
 Create a Public IP Standard using the following command:
 
@@ -56,7 +56,7 @@ Create a Public IP Standard using the following command:
 az network public-ip create --resource-group myResourceGroup --name myPublicIP --sku Standard
 ```
 
-# Create a load balancer
+## Create a load balancer
 
 Create a Public Load Balancer Standard with the Standard Public IP that you created in the preceding step using the following command:
 
@@ -64,7 +64,7 @@ Create a Public Load Balancer Standard with the Standard Public IP that you crea
 az network lb create --resource-group myResourceGroup --name myLoadBalancer --public-ip-address myPublicIP --frontend-ip-name myFrontEndPool --backend-pool-name myBackEndPool --sku Standard
 ```
 
-# Create an LB probe on port 80
+## Create an LB probe on port 80
 
 Create a load balancer health probe using the following command:
 
@@ -73,7 +73,7 @@ az network lb probe create --resource-group myResourceGroup --lb-name myLoadBala
   --name myHealthProbe --protocol tcp --port 80
 ```
 
-# Creates an LB rule for port 80
+## Create an LB rule for port 80
 
 Create a load balancer rule using the following command:
 
