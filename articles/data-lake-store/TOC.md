@@ -64,7 +64,7 @@
 ### [Access from VMs in Azure VNET](data-lake-store-connectivity-from-vnets.md)
 ### [Use with Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 ### [Use with Azure Event Hubs](data-lake-store-archive-eventhub-capture.md)
-### [Use with Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
+### [Use with Data Factory](../data-factory/connector-azure-data-lake-store.md)
 ### [Use with Stream Analytics](data-lake-store-stream-analytics.md)
 ### [Use with Power BI](data-lake-store-power-bi.md)
 ### [Use with Data Catalog](data-lake-store-with-data-catalog.md)
