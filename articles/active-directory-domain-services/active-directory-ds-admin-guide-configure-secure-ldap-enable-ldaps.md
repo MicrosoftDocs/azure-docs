@@ -28,7 +28,7 @@ To enable secure LDAP, perform the following configuration steps:
 
 1. Navigate to the **[Azure portal](https://portal.azure.com)**.
 
-2. Search for 'domain services' in the **Search resources** search box. Select **Azure AD Domain Services** from the search result. The **Azure AD Domain Services** blade lists your managed domain.
+2. Search for 'domain services' in the **Search resources** search box. Select **Azure AD Domain Services** from the search result. The **Azure AD Domain Services** page lists your managed domain.
 
     ![Find managed domain being provisioned](./media/getting-started/domain-services-provisioning-state-find-resource.png)
 
@@ -38,7 +38,7 @@ To enable secure LDAP, perform the following configuration steps:
 
 3. Click **Secure LDAP** on the navigation pane.
 
-    ![Domain Services - Secure LDAP blade](./media/active-directory-domain-services-admin-guide/secure-ldap-blade.png)
+    ![Domain Services - Secure LDAP page](./media/active-directory-domain-services-admin-guide/secure-ldap-blade.png)
 
 4. By default, secure LDAP access to your managed domain is disabled. Toggle **Secure LDAP** to **Enable**.
 
@@ -74,7 +74,7 @@ To enable secure LDAP, perform the following configuration steps:
 
 Before you begin this task, ensure you have completed the steps outlined in [Task 3](#task-3---enable-secure-ldap-for-the-managed-domain-using-the-azure-portal-preview).
 
-Once you have enabled secure LDAP access over the internet for your managed domain, you need to update DNS so that client computers can find this managed domain. At the end of task 3, an external IP address is displayed on the **Properties** blade in **EXTERNAL IP ADDRESS FOR LDAPS ACCESS**.
+Once you have enabled secure LDAP access over the internet for your managed domain, you need to update DNS so that client computers can find this managed domain. At the end of task 3, an external IP address is displayed on the **Properties** tab in **EXTERNAL IP ADDRESS FOR LDAPS ACCESS**.
 
 Configure your external DNS provider so that the DNS name of the managed domain (for example, 'ldaps.contoso100.com') points to this external IP address. In our example, we need to create the following DNS entry:
 
