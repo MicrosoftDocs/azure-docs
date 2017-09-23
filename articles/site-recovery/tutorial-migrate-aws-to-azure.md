@@ -146,19 +146,19 @@ When you are done setting up the configuration server, go back to the portal and
 
 In this section you will be entering in information about the resources you created when you went through the [Prepare Azure resources](#prepare-azure-resources) section, earlier in this tutorial.
 
-     1. In **Subscription**, select the Azure subscription that you used for the [Prepare Azure](tutorial-prepare-azure.md) tutorial.
-     2. Select **Resource Manager** as the deployment model.
-     3. Site Recovery checks that you have one or more compatible Azure storage accounts and networks. These should be the resources you created when you went through the [Prepare Azure resources](#prepare-azure-resources) section, earlier in this tutorial
-     4. When you are done, click **OK**.
+1. In **Subscription**, select the Azure subscription that you used for the [Prepare Azure](tutorial-prepare-azure.md) tutorial.
+2. Select **Resource Manager** as the deployment model.
+3. Site Recovery checks that you have one or more compatible Azure storage accounts and networks. These should be the resources you created when you went through the [Prepare Azure resources](#prepare-azure-resources) section, earlier in this tutorial
+4. When you are done, click **OK**.
 
 
 ### 4 Replication settings Prepare 
 
 You need to create a replication policy, before you can enable replication
 
-     1. Click **+ Replicate and Associate**.
-     2. In **Name**, type **myReplicationPolicy**.
-     3. Leave the rest of the default settings and click **OK** to create the policy. The new policy is automatically associated with the configuration server. 
+1. Click **+ Replicate and Associate**.
+2. In **Name**, type **myReplicationPolicy**.
+3. Leave the rest of the default settings and click **OK** to create the policy. The new policy is automatically associated with the configuration server. 
 
 ### 5 Deployment planning Select 
 
@@ -171,6 +171,7 @@ When you are all done with all 5 sections of **Prepare infrastructure**, click *
 
 Enable replication for each VM you want to migrate. When replication is enabled, Site Recovery will install the Mobility service automatically. 
 
+1. Open the [Azure portal](htts://portal.azure.com).
 1. On the page for your vault, under **Getting Started**, click **Site Recovery**.
 2. Under **For on-premises machines and Azure VMs**, click **Step 1:Replicate application**. Complete the wizerd pages with the following information and click **OK** on each page when finished:
 	- 1 Source Configure:
@@ -178,26 +179,26 @@ Enable replication for each VM you want to migrate. When replication is enabled,
     |  |  |
     |-----|-----|
     | Source: | **On Premises**|
-		| Source location:| The name of your configuration server Ec2 instance.|
-		|Machine type: | **Physical machines**|
-		| Process server: | Select the configuration server from the drop-down list.|
+	| Source location:| The name of your configuration server EC2 instance.|
+	|Machine type: | **Physical machines**|
+	| Process server: | Select the configuration server from the drop-down list.|
 	
 	- 2 Target Configure
 		
     |  |  |
     |-----|-----|
     | Target: | Leave the default.|
-		| Subscription: | Select the subscription you have been using.|
-		| Post-failover resource group:| Use the resource group you created in the [Prepare Azure resources](#prepare-azure-resources) section.|
-		| Post-failover deployment model: | Choose **Resource manager**|
-		| Storage account: | Choose the storage account you created in the [Prepare Azure resources](#prepare-azure-resources) section.|
-		| Azure network: | Choose **Configure now for selected machines**|
-		| Post-failover Azure network: | Choose the network you created in the [Prepare Azure resources](#prepare-azure-resources) section.|
-		| Subnet: | Select the **default** from the drop-down.|
+	| Subscription: | Select the subscription you have been using.|
+	| Post-failover resource group:| Use the resource group you created in the [Prepare Azure resources](#prepare-azure-resources) section.|
+	| Post-failover deployment model: | Choose **Resource manager**|
+	| Storage account: | Choose the storage account you created in the [Prepare Azure resources](#prepare-azure-resources) section.|
+	| Azure network: | Choose **Configure now for selected machines**|
+	| Post-failover Azure network: | Choose the network you created in the [Prepare Azure resources](#prepare-azure-resources) section.|
+	| Subnet: | Select the **default** from the drop-down.|
 	
 	- 3 Physical Machines Select
 		
-		Click **+ Physical machine** and then enter the **Name**, the **IP Address** and **OS Type** of the Ec2 instance that you want to migrate and then click **OK**.
+		Click **+ Physical machine** and then enter the **Name**, the **IP Address** and **OS Type** of the EC2 instance that you want to migrate and then click **OK**.
 		
 	- 4 Properties Configure Properties
 		
@@ -210,7 +211,7 @@ Enable replication for each VM you want to migrate. When replication is enabled,
 3. When the wizard is complete, click **Enable replication**.
 		
 
-You can track progress of the **Enable Protection** job in **Settings** > **Jobs** > **Site Recovery Jobs**. After the **Finalize Protection** job runs the machine is ready for failover.		
+You can track progress of the **Enable Protection** job in **Monitoring and reports** > **Jobs** > **Site Recovery Jobs**. After the **Finalize Protection** job runs the machine is ready for failover.		
 		
 When you enable replication for a VM, it can take 15 minutes or longer for changes to take effect and appear in the portal.
 
