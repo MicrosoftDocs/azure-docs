@@ -4,7 +4,7 @@
   items:
   - name: About Functions
     href: functions-overview.md
-  - name: Choose between Flow, Logic Apps, Functions, and WebJobs
+  - name: Serverless comparison
     href: functions-compare-logic-apps-ms-flow-webjobs.md
 - name: Quickstarts
   expanded: true
@@ -17,29 +17,33 @@
     href: functions-create-your-first-function-visual-studio.md
   - name: Triggers
     items:
+    - name: Blob storage
+      href: functions-create-storage-blob-triggered-function.md
+    - name: Azure Cosmos DB
+      href: functions-create-cosmos-db-triggered-function.md
     - name: Timer
       href: functions-create-scheduled-function.md
     - name: Generic webhook
       href: functions-create-generic-webhook-triggered-function.md
     - name: GitHub webhook
       href: functions-create-github-webhook-triggered-function.md
-    - name: Blob storage
-      href: functions-create-storage-blob-triggered-function.md
     - name: Queue storage
       href: functions-create-storage-queue-triggered-function.md
   - name: Integrate
     items:
     - name: Storage
       href: functions-integrate-storage-queue-output-binding.md
-    - name: Cosmos DB
+    - name: Azure Cosmos DB
       href: functions-integrate-store-unstructured-data-cosmosdb.md
 - name: Tutorials
   items:
-  - name: 1 - Functions with Logic Apps
+  - name: 1 - Image resize with Event Grid
+    href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
+  - name: 2 - Functions with Logic Apps
     href: functions-twitter-email.md
-  - name: 2 - Create a serverless API
+  - name: 3 - Create a serverless API
     href: functions-create-serverless-api.md
-  - name: 3 - Create an OpenAPI definition
+  - name: 4 - Create an OpenAPI definition
     href: functions-openapi-definition.md
 - name: Samples
   items:
@@ -111,7 +115,7 @@
     items:
     - name: Blob storage
       href: functions-bindings-storage-blob.md
-    - name: Cosmos DB
+    - name: Azure Cosmos DB
       href: functions-bindings-documentdb.md
     - name: Event Hubs
       href: functions-bindings-event-hubs.md
@@ -121,6 +125,8 @@
       href: functions-bindings-external-table.md
     - name: HTTP and webhooks
       href: functions-bindings-http-webhook.md
+    - name: Microsoft Graph
+      href: functions-bindings-microsoft-graph.md
     - name: Mobile Apps
       href: functions-bindings-mobile-apps.md
     - name: Notification Hubs
