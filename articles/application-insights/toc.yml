@@ -1,3 +1,5 @@
+- name: Application Insights Documentation
+  href: index.yml
 - name: Overview
   items:
   - name: What is Application Insights?
