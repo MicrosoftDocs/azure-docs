@@ -46,6 +46,10 @@ sections:
       text: GitHub webhook
       href: /azure/azure-functions/functions-create-github-webhook-triggered-function
     - image: 
+        src: media/index/cosmosdb.svg
+      text: Azure Cosmos DB
+      href: /azure/azure-functions/functions-create-cosmos-db-triggered-function
+    - image: 
         src: media/index/blob.svg
       text: Blob
       href: /azure/azure-functions/functions-create-storage-blob-triggered-function
@@ -59,7 +63,7 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: /media/logos/logo_visual-studio.svg
+        src: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
       text:  Visual Studio
       href: /azure/azure-functions/functions-create-your-first-function-visual-studio
 - title: Step-by-Step Tutorials
@@ -72,6 +76,7 @@ sections:
     - html: <a href="/azure/azure-functions/functions-twitter-email">Create a function that integrates with Azure Logic Apps</a>
     - html: <a href="/azure/azure-functions/functions-create-serverless-api">Create a serverless API using Azure Functions</a>
     - html: <a href="/azure/azure-functions/functions-openapi-definition">Create an OpenAPI definition for a function</a>
+    - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Automate resizing uploaded images using Event Grid</a>
 - title: Samples
   items:
   - type: list

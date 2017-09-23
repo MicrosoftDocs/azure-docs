@@ -3,7 +3,7 @@ title: Azure Service Fabric on Linux | Microsoft Docs
 description: Service Fabric clusters support Linux and Java, which means you'll be able to deploy and host Service Fabric applications written in Java and C# on Linux.
 services: service-fabric
 documentationcenter: .net
-author: mani-ramaswamy
+author: rwike77
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
-ms.author: SubramaR
+ms.author: ryanwi
 
 ---
 # Service Fabric on Linux
