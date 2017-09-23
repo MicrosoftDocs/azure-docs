@@ -71,6 +71,7 @@ sections:
     items:
     - html: <a href="/azure/azure-functions/functions-twitter-email">Create a function that integrates with Azure Logic Apps</a>
     - html: <a href="/azure/azure-functions/functions-create-serverless-api">Create a serverless API using Azure Functions</a>
+    - html: <a href="/azure/azure-functions/functions-openapi-definition">Create an OpenAPI definition for a function</a>
 - title: Samples
   items:
   - type: list
