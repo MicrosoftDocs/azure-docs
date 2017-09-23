@@ -1,5 +1,7 @@
 # Get started
 ## [Prevent unexpected costs](billing-getting-started.md)
+## [Create services included with free account](billing-create-free-services-included-free-account.md)
+## [Avoid charges for free account](billing-avoid-charges-free-account.md)
 ## [Grant access to billing](billing-manage-access.md)
 ## [Sign up with Office 365 account](billing-use-existing-office-365-account-azure-subscription.md)
 ## [Sign up for Office 365 with Azure account](billing-use-existing-azure-account-for-office-365-subscription.md)
@@ -9,10 +11,12 @@
 # How to
 ## Monitor usage and costs
 ### [Get invoice and usage](billing-download-azure-invoice-daily-usage-date.md)
+### [Check usage of free services](billing-check-free-service-usage.md)
 ### [Understand your bill](billing-understand-your-bill.md)
 ### [Understand terms on your invoice](billing-understand-your-invoice.md)
 ### [Understand terms on your usage](billing-understand-your-usage.md)
 ### [Understand external service charges](billing-understand-your-azure-marketplace-charges.md)
+### [Understand free service meter mapping](billing-understand-free-service-meter-mapping.md)
 ### [Understand spending limit](billing-spending-limit.md)
 ### [Set up billing alerts](billing-set-up-alerts.md)
 ### [Resolve past due balance](billing-azure-subscription-past-due-balance.md)
