@@ -1,6 +1,6 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Stack documentation
+title: Azure Stack User Documentation
 metadata:
   document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
   title: Azure Stack Documentation - Tutorials, API Reference
@@ -12,7 +12,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/28/2017
+  ms.date: 09/23/2017
   ms.author: carolz
 abstract:
   description: Azure Stack is a hybrid cloud platform that lets you use Azure services from your company's or service provider's datacenter. As a developer, you can build apps on Azure Stack. You can then deploy them to Azure Stack, to Azure, or you can build truly hybrid apps that leverage the connectivity between an Azure Stack cloud and Azure.  Learn how to create resources and deploy apps with our quickstarts and tutorials.
@@ -26,15 +26,15 @@ sections:
     items: 
     - image: 
         src: https://docs.microsoft.com/media/common/i_portal.svg
-      text: Create Windows VM - Portal
+      text: Portal
       href: azure-stack-quick-windows-portal.md 
     - image: 
         src: https://docs.microsoft.com/media/logos/logo_powershell.svg
-      text: Create Windows VM - PowerShell
+      text: PowerShell
       href: azure-stack-quick-create-vm-windows-powershell.md 
     - image: 
         src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg
-      text: Create Windows VM - CLI
+      text: CLI
       href: azure-stack-quick-create-vm-windows-cli.md
   - type: paragraph
     text: 'Learn how to deploy a Linux virtual machine on Azure Stack:'
@@ -43,15 +43,15 @@ sections:
     items: 
     - image: 
         src: https://docs.microsoft.com/media/common/i_portal.svg
-      text: Create Linux VM - Portal
+      text: Portal
       href: azure-stack-quick-linux-portal.md 
     - image: 
         src: https://docs.microsoft.com/media/logos/logo_powershell.svg
-      text: Create a Linux VM - PowerShell
+      text: PowerShell
       href: azure-stack-quick-create-vm-linux-powershell.md 
     - image: 
         src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg
-      text: Create a LInux VM - CLI
+      text: CLI
       href: azure-stack-quick-create-vm-linux-cli.md
 - title: Step-by-step tutorials
   items:
