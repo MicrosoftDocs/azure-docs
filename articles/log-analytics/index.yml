@@ -24,7 +24,7 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
+        src: https://review.docs.microsoft.com/en-us/azure/media/index/virtualmachine.svg
       text: Collect - Azure VMs
       href: /azure/log-analytics/log-analytics-quick-collect-azurevm
 - title: Step-by-step Tutorials
@@ -41,7 +41,7 @@ sections:
   items:
   - type: list
     style: cards
-    className: cardsW
+    className: spaced noBullet
     items:
     - html: <p><a href="https://app.pluralsight.com/library/courses/managing-infrastructure-microsoft-azure-getting-started">Managing Infrastructure on Microsoft Azure - Getting Started</a></p>      
 - title: Samples
