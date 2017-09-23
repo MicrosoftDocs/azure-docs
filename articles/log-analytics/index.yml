@@ -40,7 +40,7 @@ sections:
 - title: Free PluralSight Training
   items:
   - type: list
-    style: cards
+    style: unordered
     className: spaced noBullet
     items:
     - html: <p><a href="https://app.pluralsight.com/library/courses/managing-infrastructure-microsoft-azure-getting-started">Managing Infrastructure on Microsoft Azure - Getting Started</a></p>      
