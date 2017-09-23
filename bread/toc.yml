@@ -208,7 +208,7 @@
     tocHref: /azure/machine-learning/
     topicHref: /azure/machine-learning/
     items:
-      - name: Preview features
+      - name: Services (preview)
         tocHref: /azure/machine-learning/preview
         topicHref: /azure/machine-learning/preview/
       - name: Studio
