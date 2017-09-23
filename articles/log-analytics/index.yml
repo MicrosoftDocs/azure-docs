@@ -37,11 +37,11 @@ sections:
     - html: <a href="/azure/log-analytics/log-analytics-tutorial-viewdata">View or analyze data collected</a>
     - html: <a href="/azure/log-analytics/log-analytics-tutorial-dashboards">Create and share dashboards</a>
     - html: <a href="/azure/log-analytics/log-analytics-tutorial-response">Respond to events with Log Analytics alerts</a>
-- title: Free PluralSight Video Training
+- title: Free PluralSight Training
   items:
   - type: list
-    style: unordered
-    className: spaced noBullet
+    style: cards
+    className: cardsW
     items:
     - html: <p><a href="https://app.pluralsight.com/library/courses/managing-infrastructure-microsoft-azure-getting-started">Managing Infrastructure on Microsoft Azure - Getting Started</a></p>      
 - title: Samples
