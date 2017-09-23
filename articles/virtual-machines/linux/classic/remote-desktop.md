@@ -93,7 +93,7 @@ Edit the config file `/etc/xrdp/startwm.sh`:
 
     #sudo vi /etc/xrdp/startwm.sh   
 
-Add the line `xfce4-session` before the line `/etc/X11/Xsession`.
+Add the line `. xfce4-session` before the line `. /etc/X11/Xsession`.
 
 To restart the xrdp service, use this:
 
