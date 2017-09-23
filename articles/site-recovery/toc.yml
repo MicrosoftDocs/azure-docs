@@ -1,3 +1,5 @@
+- name: Site Recovery Documentation
+  href: index.yml
 - name: Overview
   items:
   - name: What is Site Recovery?
