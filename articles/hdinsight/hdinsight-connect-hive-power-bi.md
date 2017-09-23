@@ -62,8 +62,9 @@ Continue from the last procedure.
 ## Next steps
 In this article, you learned how to visualize data from HDInsight using Power BI.  To learn more, see the following articles:
 
-* [Use Zeppelin to run Hive queries in Azure HDInsight ](./hdinsight-connect-hive-zeppelin.md)
-* [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver](./hdinsight-connect-excel-hive-odbc-driver.md)
-* [Connect Excel to Hadoop by using Power Query](./hdinsight-connect-excel-power-query.md)
-* [Connect to Azure HDInsight and run Hive queries using Data Lake Tools for Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md)
-* [Upload Data to HDInsight](./hdinsight-upload-data.md)
+* [Use Zeppelin to run Hive queries in Azure HDInsight ](./hdinsight-connect-hive-zeppelin.md).
+* [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver](./hdinsight-connect-excel-hive-odbc-driver.md).
+* [Connect Excel to Hadoop by using Power Query](./hdinsight-connect-excel-power-query.md).
+* [Connect to Azure HDInsight and run Hive queries using Data Lake Tools for Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md).
+* [Use Visual Studio Code for Hive, LLAP or pySpark](hdinsight-for-vscode.md).
+* [Upload Data to HDInsight](./hdinsight-upload-data.md).
