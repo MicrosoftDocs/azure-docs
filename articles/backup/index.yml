@@ -25,15 +25,15 @@ sections:
     items: 
     - image: 
         src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
-      text: Back up VMs - Portal
+      text: Portal
       href: quick-backup-vm-portal
     - image: 
         src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/logo_powershell.svg
-      text: Back up VMs - PowerShell
+      text: PowerShell
       href: quick-backup-vm-powershell
     - image: 
         src: https://docs.microsoft.com/media/common/cli.svg
-      text: Back up VMs - CLI
+      text: CLI
       href: quick-backup-vm-cli
 - title: Step-by-step Tutorials
   items:
