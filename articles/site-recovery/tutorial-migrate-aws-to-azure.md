@@ -23,6 +23,7 @@ This tutorial teaches you how to migrate Amazon Web Services (AWS) virtual machi
 
 > [!div class="checklist"]
 > * Prepare Azure resources
+> * Prepare the AWS Ec2 instances for migration
 > * Deploy a configuration server
 > * Enable replication for VMs
 > * Test the failover to make sure everything's working
@@ -225,9 +226,9 @@ When you run a test failover, the following happens:
    point, a recovery point is created from the data.
 3. An Azure VM is created using the data processed in the previous step.
 
-Run the test failover as follows:
+In the portal, run the test failover as follows:
 
-1. In **Settings** > **Replicated Items**, click the VM > **+Test Failover**.
+1. On the page for your vault, go to **Protected items** > **Replicated Items**> click the VM > **+ Test Failover**.
 
 2. Select a recovery point to use for the failover:
     - **Latest processed** : Fails the VM over to the latest recovery point that was processed by
@@ -239,7 +240,7 @@ Run the test failover as follows:
 3. In **Test Failover**, select the target Azure network to which Azure VMs will be connected after
    failover occurs. This should be the network you created in the [Prepare Azure resources](#prepare-azure-resources) section.
 4. Click **OK** to begin the failover. You can track progress by clicking on the VM to open its
-   properties. Or you can click the **Test Failover** job in vault name > **Settings** > **Jobs** >
+   properties. Or you can click the **Test Failover** job on the page for your vault in **Monitoring and reports** > **Jobs** >
    **Site Recovery jobs**.
 5. After the failover finishes, the replica Azure VM appears in the Azure portal > **Virtual
    Machines**. Check that the VM is the appropriate size, that it's connected to the right network,
@@ -248,15 +249,14 @@ Run the test failover as follows:
 7. To delete Azure VMs created during the test failover, click **Cleanup test failover** on the
    recovery plan. In **Notes**, record and save any observations associated with the test failover.
 
-In some scenarios, failover requires additional processing that takes around eight to ten minutes
-to complete. 
+In some scenarios, failover requires additional processing that takes around eight to ten minutes to complete. 
 
 
 ## Migrate to Azure
 
 Run an actual fail over for the EC2 instances to migrate them to Azure VMs. 
 
-1. In **Settings** > **Replicated items** click the AWS instances > **Failover**.
+1. In **Protected items** > **Replicated items** click the AWS instances > **Failover**.
 2. In **Failover** select a **Recovery Point** to fail over to. Select the latest recovery point.
 3. Select **Shut down machine before beginning failover** if you want Site Recovery to attempt to do a shutdown of source virtual machines before triggering the failover. Failover continues even if shutdown fails. You can follow the failover progress on the **Jobs** page.
 4. Check that the VM appears in **Replicated items**. 
@@ -272,4 +272,7 @@ Run an actual fail over for the EC2 instances to migrate them to Azure VMs.
 
 ## Next steps
 
-[Learn about](site-recovery-azure-to-azure-after-migration.md) replicating Azure VMs to another region after migration to Azure.
+In this topic, you’ve learned how to migrate AWS Ec2 instances to Azure VMs. To learn more about Azure VMs, continue to the tutorials for Windows VMs.
+
+> [!div class="nextstepaction"]
+> [Azure Windows virtual machine tutorials](../virtual-machines/windows/tutorial-manage-vm.md)
