@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/31/2017
+ms.date: 09/30/2017
 ms.author: nitinme
 
 ---
@@ -62,9 +62,6 @@ pip install azure-datalake-store
 2. Add the following lines to import the required modules
 
 	```
-	## Use this only for Azure AD service-to-service authentication
-	from azure.common.credentials import ServicePrincipalCredentials
-
 	## Use this only for Azure AD end-user authentication
 	from azure.common.credentials import UserPassCredentials
 
