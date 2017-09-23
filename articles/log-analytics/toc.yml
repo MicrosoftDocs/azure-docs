@@ -1,5 +1,6 @@
-- name: Overview
+- name: Azure Log Analytics Documentation
   href: index.yml
+- name: Overview 
   items:
   - name: What is Log Analytics?
     href: log-analytics-overview.md
