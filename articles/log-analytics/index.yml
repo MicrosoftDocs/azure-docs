@@ -43,7 +43,7 @@ sections:
     style: cards
     className: cardsFTitle
     items:
-    - title: Developing with .NET
+    - title: Managing Infrastructure on Microsoft Azure - Getting Started
       href: https://app.pluralsight.com/library/courses/managing-infrastructure-microsoft-azure-getting-started
       image: 
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
