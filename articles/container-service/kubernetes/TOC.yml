@@ -74,7 +74,7 @@
   - name: Azure CLI 2.0
     href: /cli/azure/acs
   - name: REST
-    href: /rest/api/compute/containerservices
+    href: /rest/api/container-services
 - name: Resources
   items:
   - name: Azure Roadmap

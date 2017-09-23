@@ -74,7 +74,7 @@ The SAS token is a string you generate on the *client* side (see the [SAS exampl
 When a client provides a SAS URI to Azure Storage as part of a request, the service checks the SAS parameters and signature to verify that it is valid for authenticating the request. If the service verifies that the signature is valid, then the request is authenticated. Otherwise, the request is declined with error code 403 (Forbidden).
 
 ## Shared access signature parameters
-The account SAS and service SAS tokens include some common parameters, and also take a few parameters that that are different.
+The account SAS and service SAS tokens include some common parameters, and also take a few parameters that are different.
 
 ### Parameters common to account SAS and service SAS tokens
 * **Api version** An optional parameter that specifies the storage service version to use to execute the request.

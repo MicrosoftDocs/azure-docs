@@ -36,6 +36,7 @@
 #### [Manage jobs](storsimple-virtual-array-manage-jobs.md)
 #### [Change device password](storsimple-virtual-array-change-device-admin-password.md)
 #### [Configure MPIO on Windows Server host](storsimple-virtual-array-configure-mpio-windows-server.md)
+#### [Monitor using alerts](storsimple-virtual-array-manage-alerts.md)
 #### [Diagnose and troubleshoot](storsimple-virtual-array-diagnose-problems.md)
 #### [Log Support request](storsimple-virtual-array-log-support-ticket.md)
 
@@ -162,6 +163,7 @@
 ##### [Create Support package](storsimple-8000-create-manage-support-package.md)
 
 ### Migrate
+#### [Subscriptions and storage accounts](storsimple-8000-migrate-classic-azure-portal.md)
 #### [From other storage devices](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Update

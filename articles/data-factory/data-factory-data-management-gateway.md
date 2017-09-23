@@ -136,6 +136,7 @@ At corporate firewall level, you need configure the following domains and outbou
 | *.servicebus.windows.net |443, 80 |Used for communication with Data Movement Service backend |
 | *.core.windows.net |443 |Used for Staged copy using Azure Blob (if configured)|
 | *.frontend.clouddatahub.net |443 |Used for communication with Data Movement Service backend |
+| *.servicebus.windows.net |9350-9354, 5671 |Optional service bus relay over TCP used by the Copy Wizard |
 
 
 At Windows firewall level, these outbound ports are normally enabled. If not, you can configure the domains and ports accordingly on gateway machine.
@@ -292,7 +293,7 @@ You can disable/enable the auto-update feature by doing the following steps:
 
 	```PowerShell
 	.\GatewayAutoUpdateToggle.ps1  -on -AuthKey <your auth key> 
-
+	```
 
 ## Configuration Manager
 Once you install the gateway, you can launch Data Management Gateway Configuration Manager in one of the following ways:

@@ -219,7 +219,7 @@ The following example shows how to list all blobs in a container. When performin
 
 * **continuationToken** - The continuation token represents where the listing operation should start. If no token is provided, it will list blobs from the beginning. Any number of blobs can be listed, from zero up to a set maximum. Even if this method returns zero results, if `results.continuationToken` is not nil, there may be more blobs on the service that have not been listed.
 * **prefix** - You can specify the prefix to use for blob listing. Only blobs that begin with this prefix will be listed.
-* **useFlatBlobListing** - As mentioned in the [Naming and referencing containers and blobs](#naming-and-referencing-containers-and-blobs) section, although the Blob service is a flat storage scheme, you can create a virtual hierarchy by naming blobs with path information. However, non-flat listing is currently not supported. This feature is coming soon. For now, this value should be **YES**.
+* **useFlatBlobListing** - As mentioned in the [Naming and referencing containers and blobs](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) section, although the Blob service is a flat storage scheme, you can create a virtual hierarchy by naming blobs with path information. However, non-flat listing is currently not supported. This feature is coming soon. For now, this value should be **YES**.
 * **blobListingDetails** - You can specify which items to include when listing blobs
   * _AZSBlobListingDetailsNone_: List only committed blobs, and do not return blob metadata.
   * _AZSBlobListingDetailsSnapshots_: List committed blobs and blob snapshots.

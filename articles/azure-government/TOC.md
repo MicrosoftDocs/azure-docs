@@ -11,6 +11,7 @@
 ## [Provision a web app](documentation-government-howto-deploy-webandmobile.md)
 ## [Connect with PowerShell](documentation-government-get-started-connect-with-ps.md)
 ## [Connect with CLI](documentation-government-get-started-connect-with-cli.md)
+## [Connect to Azure Storage](documentation-government-get-started-connect-to-storage.md)
 ## [Set up Visual Studio for Azure Government](documentation-government-get-started-connect-with-vs.md)
 ## [Connect to Azure Government from Visual Studio Team Services](documentation-government-get-started-connect-with-vsts.md)
 ## [Available services](documentation-government-services.md)
@@ -19,6 +20,7 @@
 ## Plan
 ### [Security](documentation-government-plan-security.md)
 ### [Compliance](documentation-government-plan-compliance.md)
+### [Identity](documentation-government-plan-identity.md)
 ## Manage
 ### [Operations Management Suite](documentation-government-manage-oms.md)
 ### [Subscription](documentation-government-manage-subscriptions.md)
@@ -29,7 +31,7 @@
 ## [Marketplace](documentation-government-manage-marketplace.md)
 ## [Marketplace for partners](documentation-government-manage-marketplace-partners.md)
 
-## [Services](documentation-government-services.md)
+## Services
 ### [Compute](documentation-government-compute.md)
 ### [Networking](documentation-government-networking.md)
 ### [Storage](documentation-government-services-storage.md)
