@@ -11926,6 +11926,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/service-fabric/service-fabric-linux-overview.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-deploy-anywhere",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/app-service-web/index.md",
             "redirect_url": "/azure/app-service",
             "redirect_document_id": false

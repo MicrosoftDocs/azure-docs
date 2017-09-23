@@ -4,7 +4,7 @@
   items:
   - name: About Functions
     href: functions-overview.md
-  - name: Choose between Flow, Logic Apps, Functions, and WebJobs
+  - name: Serverless comparison
     href: functions-compare-logic-apps-ms-flow-webjobs.md
 - name: Quickstarts
   expanded: true
@@ -17,21 +17,23 @@
     href: functions-create-your-first-function-visual-studio.md
   - name: Triggers
     items:
+    - name: Blob storage
+      href: functions-create-storage-blob-triggered-function.md
+    - name: Azure Cosmos DB
+      href: functions-create-cosmos-db-triggered-function.md
     - name: Timer
       href: functions-create-scheduled-function.md
     - name: Generic webhook
       href: functions-create-generic-webhook-triggered-function.md
     - name: GitHub webhook
       href: functions-create-github-webhook-triggered-function.md
-    - name: Blob storage
-      href: functions-create-storage-blob-triggered-function.md
     - name: Queue storage
       href: functions-create-storage-queue-triggered-function.md
   - name: Integrate
     items:
     - name: Storage
       href: functions-integrate-storage-queue-output-binding.md
-    - name: Cosmos DB
+    - name: Azure Cosmos DB
       href: functions-integrate-store-unstructured-data-cosmosdb.md
 - name: Tutorials
   items:
@@ -111,7 +113,7 @@
     items:
     - name: Blob storage
       href: functions-bindings-storage-blob.md
-    - name: Cosmos DB
+    - name: Azure Cosmos DB
       href: functions-bindings-documentdb.md
     - name: Event Hubs
       href: functions-bindings-event-hubs.md
@@ -121,6 +123,8 @@
       href: functions-bindings-external-table.md
     - name: HTTP and webhooks
       href: functions-bindings-http-webhook.md
+    - name: Microsoft Graph
+      href: functions-bindings-microsoft-graph.md
     - name: Mobile Apps
       href: functions-bindings-mobile-apps.md
     - name: Notification Hubs

@@ -3,6 +3,7 @@
 ## [Grant access to billing](billing-manage-access.md)
 ## [Sign up with Office 365 account](billing-use-existing-office-365-account-azure-subscription.md)
 ## [Sign up for Office 365 with Azure account](billing-use-existing-azure-account-for-office-365-subscription.md)
+## [Organize resources with management groups](billing-enterprise-mgmt-group-overview.md)
 ## [Limits and quotas](../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json)
 
 # How to
@@ -23,6 +24,7 @@
 ### [Upgrade from free subscription](billing-upgrade-azure-subscription.md)
 ### [Switch subscription offer](billing-how-to-switch-azure-offer.md)
 ### [Cancel subscription](billing-how-to-cancel-azure-subscription.md)
+### [Find subscription or management group](billing-enterprise-mgmt-grp-find.md)
 ## Manage account
 ### [Edit profile](billing-how-to-change-azure-account-profile.md)
 ### [Update payment information](billing-how-to-change-credit-card.md)
@@ -33,6 +35,7 @@
 ### [Declined card](billing-credit-card-fails-during-azure-sign-up.md)
 ### [Sign-in issues](billing-cannot-login-subscription.md)
 ### [No subscriptions found](billing-no-subscriptions-found.md)
+### [Enterprise cost view disabled](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md)
 
 # Reference
 ## [API Overview](billing-usage-rate-card-overview.md)
