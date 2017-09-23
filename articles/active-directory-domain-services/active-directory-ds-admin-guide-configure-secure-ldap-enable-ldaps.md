@@ -46,7 +46,7 @@ To enable secure LDAP, perform the following configuration steps:
 5. By default, secure LDAP access to your managed domain over the internet is disabled. Toggle **Allow secure LDAP access over the internet** to **Enable**, if desired. 
 
     > [!TIP]
-    > If you enable secure LDAP access over the internet, we recommend setting up an NSG to lock down access to required source IP address ranges. See the instructions to [lock down LDAPS access to your managed domain over the internet](#lock-down-ldaps-access-to-your-managed-domain-over-the-internet).
+    > If you enable secure LDAP access over the internet, we recommend setting up an NSG to lock down access to required source IP address ranges. See the instructions to [lock down LDAPS access to your managed domain over the internet](#task-5---lock-down-ldaps-access-to-your-managed-domain-over-the-internet).
     >
 
 6. Click the folder icon following **.PFX file with secure LDAP certificate**. Specify the path to the PFX file with the certificate for secure LDAP access to the managed domain.
