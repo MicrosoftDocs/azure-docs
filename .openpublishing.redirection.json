@@ -11949,6 +11949,11 @@
             "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm.md",
             "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps-classic-vm.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps",
+            "redirect_document_id": false
         }
     ]
 }
