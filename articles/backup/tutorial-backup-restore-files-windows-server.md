@@ -21,7 +21,7 @@ ms.custom:
 ---
 # Recover files from Azure to a Windows Server
 
-Azure Backup enables the recovery of individual items from backups of your Windows Server, so that you can quickly retrieve files that are deleted accidentally. This tutorial covers how you can use the Microsoft Azure Recovery Services Agent (MARS) agent to recover items from backups in Azure. The MARS agent is already configured to use the Recovery Services vault in Azure that holds the recovery points for the server. In this tutorial you learn how to:
+Azure Backup enables the recovery of individual items from backups of your Windows Server. Recovering individual files is helpful if you must quickly restore files that are accidentally deleted. This tutorial covers how you can use the Microsoft Azure Recovery Services Agent (MARS) agent to recover items from backups in Azure. The MARS agent is already configured to use the Recovery Services vault in Azure that holds the recovery points for the server. In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * Initiate recovery of individual items 
@@ -32,7 +32,7 @@ This tutorial assumes you have already performed the steps to [Back up a Windows
 
 ## Initiate recovery of individual items
 
-The Microsoft Azure Backup snap-in (which is installed with the MARS agent) works with the Microsoft Azure Recovery Services (MARS) agent to retrieve backup data from recovery points. Use the Microsoft Azure Backup snap-in to identify the files or folders you want to restore to Windows Server. 
+A helpful user interface wizard named Microsoft Azure Backup is installed with the Microsoft Azure Recovery Services (MARS) agent. The Microsoft Azure Backup wizard works with the Microsoft Azure Recovery Services (MARS) agent to retrieve backup data from recovery points stored in Azure. Use the Microsoft Azure Backup wizard to identify the files or folders you want to restore to Windows Server. 
 
 1. Open the **Microsoft Azure Backup** snap-in. You can find it by searching your machine for **Microsoft Azure Backup**.
 
@@ -46,11 +46,11 @@ The Microsoft Azure Backup snap-in (which is installed with the MARS agent) work
 
 4. On the **Select Recovery Mode** page, select **Individual files and folders** and then click **Next** to begin the recovery point selection process.
  
-5. On the **Select Volume and Date** page, select the volume that contains the files and/or folders you want to restore, and click **Mount**. Select a date, and select a time from the drop-down menu that corresponds to a recovery point. Dates in **bold** indicate the availability of at least one recovery point on that day.
+5. On the **Select Volume and Date** page, select the volume that contains the files or folders you want to restore, and click **Mount**. Select a date, and select a time from the drop-down menu that corresponds to a recovery point. Dates in **bold** indicate the availability of at least one recovery point on that day.
 
     ![Backup pending](./media/tutorial-backup-restore-files-windows-server/mars-select-date.png)
  
-    When you click **Mount**, Azure Backup provides a snapshot of the recovery point, and makes it available as a disk to browse and recover files.
+    When you click **Mount**, Azure Backup makes the recovery point available as a disk. Browse and recover files from the disk.
 
 ## Restore items from a recovery point
 
