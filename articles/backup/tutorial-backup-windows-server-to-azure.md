@@ -14,7 +14,7 @@ ms.workload: storage-back up-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 09/23/2017
 ms.author: saurabhsensharma;markgal;
 ms.custom:
 
@@ -156,6 +156,5 @@ In this tutorial you used the Azure portal to:
 Continue to the next tutorial to recover files from Azure to Windows Server
 
 > [!div class="nextstepaction"] 
-> [Restore files from Azure to Windows Server](./tutorial-backup-azure-vm.md) 
+> [Restore files from Azure to Windows Server](./tutorial-backup-restore-files-windows-server.md) 
 
-Now that you've backed up your Windows Server, learn how you can [Recover Files from Azure to your Windows Server.](backup-azure-restore-windows-server.md)
