@@ -41,7 +41,6 @@ The first task is to provision a Windows Server virtual machine that is joined t
 ## Task 2 - Install DNS Server tools on the virtual machine
 Perform the following steps to install the DNS Administration tools on the domain joined virtual machine. For more information on [installing and using Remote Server Administration Tools](https://technet.microsoft.com/library/hh831501.aspx), see Technet.
 
-Perform the following steps to connect to the virtual machine.
 1. Navigate to the Azure portal. Click **All resources** on the left-hand panel. Locate and click the virtual machine you created in Task 1.
 2. Click the **Connect** button on the Overview tab. A Remote Desktop Protocol (.rdp) file is created and downloaded.
 
