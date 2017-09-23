@@ -11959,6 +11959,11 @@
             "source_path": "articles/billing/billing-usage-rate-card-partner-solution-cloudyn.md", 
              "redirect_url": "/azure/cost-management/overview.md", 
              "redirect_document_id": false 
-         } 
+        },
+        {
+            "source_path": "articles/azure-policy/index.md",
+            "redirect_url": "/azure/azure-policy/azure-policy-introduction",
+            "redirect_document_id": false
+        }
     ]
 }
