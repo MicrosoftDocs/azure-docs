@@ -56,12 +56,14 @@ If you don’t yet have a subscription to a Microsoft cloud service, you can use
 
 ### How to change the default directory for a subscription
 
-1. Sign in to the [Azure Account Center](https://account.windowsazure.com/Home/Index) with an account that is the Account Administrator of the subscription to transfer subscription ownership.
+1. Sign in to the [Azure Account Center](https://account.azure.com/Subscriptions) with an account that is the Account Administrator of the subscription to transfer subscription ownership.
 2. Ensure that the user who you want to be the subscription owner is in the targeted directory.
 3. Click **Transfer subscription**.
 4. Specify the recipient. The recipient automatically gets an email with an acceptance link.
 5. The recipient clicks the link and follows the instructions, including entering their payment information. When the recipient succeeds, the subscription is transferred. 
 6. The default directory of the subscription is changed to the directory that the user is in if the subscription ownership transfer is successful.
+
+To learn more, see [Transfer Azure subscription ownership to another account](../billing/billing-subscription-transfer.md)
 
 ### Manage the default directory in Azure
 When you sign up for Azure, a default Azure AD directory is associated with your subscription. There are no costs for using Azure AD and your directories are a free resource. There are paid Azure AD services that are licensed separately and provide additional functionality such as company branding at sign-in, and self-service password reset. You can also create a custom domain using a DNS name that you own instead of the default *.onmicrosoft.com domain.

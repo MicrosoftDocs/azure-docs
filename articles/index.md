@@ -63,10 +63,10 @@ description: Learn how to build and manage powerful applications using Microsoft
                     </div>
                 </a>
             </li>
-        </ul>
+        </ul>             
     </div>
     <div class="container">
-        <h1 class="screenReader">Microsoft Azure Documentation</h1>
+        <h1 class="screenReader">Microsoft Azure Documentation</h1>   
         <ul class="pivots">
             <li>
                 <a href="#get-started">Get Started</a>
@@ -101,8 +101,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>Develop apps</h3>
-                                                <ul class="noBullet">
-													<li>
+												<ul class="noBullet">
+                                                    <li>
 														<a class="barLink" href="/dotnet/azure/?view=azure-dotnet">
 															<img src="media/index/logo_NET.svg" alt="">
 															.NET</a>
@@ -130,9 +130,9 @@ description: Learn how to build and manage powerful applications using Microsoft
 												</ul>
                                                 <h4>App Models</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/app-service-web/">Web apps</a></li>
-                                                    <li><a class="barLink" href="/azure/azure-functions/">Serverless functions</a></li>
-                                                    <li><a class="barLink" href="/azure/container-instances/">Container instances</a></li>
+                                                    <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
+                                                    <li><a class="barLink" href="/azure/azure-functions/">Serverless Functions</a></li>
+                                                    <li><a class="barLink" href="/azure/container-instances/">Container Instances</a></li>
                                                     <li><a class="barLink" href="/azure/container-service/kubernetes/">Containers with Kubernetes</a></li>
                                                     <li><a class="barLink" href="/azure/service-fabric/">Microservices with Service Fabric</a></li>
                                                 </ul>
@@ -1625,7 +1625,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Site Recovery</h3>
-                                                    <p>Orchestrate protection and recovery of private clouds</p>
+                                                    <p>Orchestrate disaster recovery of Azure VMs, and on-premises VMs and physical servers</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3082,7 +3082,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Site Recovery</h3>
-                                                    <p>Orchestrate protection and recovery of private clouds</p>
+                                                    <p>Orchestrate disaster recovery of Azure VMs, and on-premises VMs and physical servers</p>
                                                 </div>
                                             </div>
                                         </div>
