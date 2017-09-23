@@ -106,8 +106,6 @@
   items:
   - name: Create a storage account
     href: ../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: Create a free storage account
-    href: ../common/storage-create-free-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Develop
     items:
     - name: .NET

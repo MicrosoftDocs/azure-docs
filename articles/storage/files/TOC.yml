@@ -10,8 +10,6 @@
   items:
   - name: Create a storage account
     href: ../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-  - name: Create a free storage account
-    href: ../common/storage-create-free-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Create a file share
     href: storage-how-to-create-file-share.md
   - name: Mount on Windows
