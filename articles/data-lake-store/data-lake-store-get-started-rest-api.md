@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/31/2017
+ms.date: 09/30/2017
 ms.author: nitinme
 
 ---
@@ -25,9 +25,7 @@ ms.author: nitinme
 >
 >
 
-In this article you learn how to perform account management operations on Data Lake Store using the REST API. Account management operations include creating a Data Lake Store account, deleting a Data Lake Store account, etc.
-
-For instructions on how to perform filesystem operations on Data Lake Store using REST API, see [Filesystem operations on Data Lake Store using REST API](data-lake-store-data-operations-rest-api.md).
+In this article, you learn how to perform account management operations on Data Lake Store using the REST API. Account management operations include creating a Data Lake Store account, deleting a Data Lake Store account, etc. For instructions on how to perform filesystem operations on Data Lake Store using REST API, see [Filesystem operations on Data Lake Store using REST API](data-lake-store-data-operations-rest-api.md).
 
 ## Prerequisites
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
@@ -48,7 +46,7 @@ Use the following cURL command. Replace **\<yourstorename>** with your Data Lake
 
     curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -H "Content-Type: application/json" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstorename>?api-version=2015-10-01-preview -d@"C:\temp\input.json"
 
-In the above command, replace \<`REDACTED`\> with the authorization token you retrieved earlier. The request payload for this command is contained in the **input.json** file that is provided for the `-d` parameter above. The contents of the input.json file resemble the following:
+In the above command, replace \<`REDACTED`\> with the authorization token you retrieved earlier. The request payload for this command is contained in the **input.json** file that is provided for the `-d` parameter above. The contents of the input.json file resemble the following snippet:
 
     {
     "location": "eastus2",
@@ -65,7 +63,7 @@ Use the following cURL command to delete a Data Lake Store account. Replace **\<
 
     curl -i -X DELETE -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstorename>?api-version=2015-10-01-preview
 
-You should see an output like the following:
+You should see an output like the following snippet:
 
     HTTP/1.1 200 OK
     ...
