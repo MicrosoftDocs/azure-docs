@@ -19,43 +19,33 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to set up the Azure Machine Learning environment to create and deploy models:'
+    text: 'Create your first Machine Learning project'
   - type: list
-    style: unordered
+    style: icon48
     items:
-    - html: <a href="quick-start-installation">Installation</a>
-    - html: <a href="quick-start-iris">Iris quickstart</a>
+	- image:
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
+      text: Install and create
+      href: /azure/machine-learning/quick-installation
 
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: 'Learn how to prepare your data, set up an experiment, and operationalize your models:'
+    text: 'Learn how to prepare your data, set up an experiment, and operationalize your models'
   - type: list
     style: ordered
     items:
-    - html: <a href="tutorial-classifying-iris-part-1">Prepare data</a>
-    - html: <a href="tutorial-classifying-iris-part-2">Build a model</a>
-    - html: <a href="tutorial-classifying-iris-part-3">Deploy a model</a>
-    - html: <a href="tutorial-bikeshare-dataprep">Extended data prep tutorial</a>
-
-- title: Samples
-  items:
-  - type: list
-    style: unordered
-    className: spaced noBullet
-    items:
-    - html: <a href="sample-scripts-azure-cli">Azure CLI 2.0</a>
-    - html: <a href="sample-scripts-python">Python</a>
+    - html: <a href="tutorial-classifying-iris-part-1">Walk through the basics of  Machine Learning services (preview)</a>
+    - html: <a href="tutorial-classifying-iris-part-2">Use the Machine Learning Workbench to build a model with the Iris flower dataset</a>
+    - html: <a href="tutorial-classifying-iris-part-3">Learn how to deploy a Machine Learning model</a>
+    
 - title: Reference
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: Command-Line
-      html: <p>AZ ML CLI</p>
     - title: Languages
       html: <p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
     - title: REST
-      html: <p><a href="model-management-api-reference">Model Management REST API</a></p>
-      
+      html: <p><a href="model-management-api-reference">Model Management REST API</a></p>     
