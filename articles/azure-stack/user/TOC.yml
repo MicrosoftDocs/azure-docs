@@ -85,7 +85,7 @@
       href: azure-stack-developer.md
     - name: Set up development environment
       items:
-      - name: Install PowerShell
+      - name: Install Azure Stack PowerShell
         href: azure-stack-powershell-install.md
       - name: Download tools
         href: azure-stack-powershell-download.md
@@ -115,7 +115,7 @@
         href: azure-stack-deploy-template-visual-studio.md
 - name: Reference
   items:
-  - name: PowerShell
+  - name: Azure Stack PowerShell
     href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
 - name: Resources
   items:
