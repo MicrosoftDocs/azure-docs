@@ -17,9 +17,7 @@ ms.author: jingwang
 # Create a data factory using the Azure portal
 In this quickstart, you use Azure portal to create a data factory. Currently, you cannot create pipelines in a data factory by using Azure portal. After you create the data factory, use the code or PowerShell commands from other quickstarts to create a data pipeline. 
 
-## Prerequisites
-
-* **Azure subscription**. If you don't have a subscription, you can create a [free trial](http://azure.microsoft.com/pricing/free-trial/) account.
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Log in to the Azure portal
 Log in to the [Azure portal](https://portal.azure.com/).

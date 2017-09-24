@@ -26,9 +26,9 @@ This tutorial provides steps for provisioning an Azure-SSIS integration runtime 
 > * Deploy SSIS packages
 > * Review the complete script
 
-## Prerequisites
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-- **Azure subscription**. If you don't have a subscription, you can create a [free trial](http://azure.microsoft.com/pricing/free-trial/) account.
+## Prerequisites
 - **Azure SQL Database server** or **SQL Server Managed Instance (private preview) (Extended Private Preview)**. If you don't already have a database server, create one in the Azure portal before you get started. This server hosts the SSIS Catalog database (SSISDB). We recommend that you create the database server in the same Azure region as the integration runtime. This configuration lets the integration runtime write execution logs to SSISDB without crossing Azure regions. 
 - **Classic Virtual Network(VNet) (optional)**. You must have an Azure Virtual Network (VNet) if at least one of the following conditions is true:
     - You are hosting the SSIS Catalog database on a SQL Server Managed Instance (private preview) that is part of a VNet.

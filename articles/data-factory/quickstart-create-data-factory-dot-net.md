@@ -20,9 +20,9 @@ ms.author: jingwang
 # Create a data factory and pipeline using .NET SDK
 This quickstart describes how to use .NET SDK to create an Azure data factory. The pipeline in this data factory copies data from one folder to another folder in an Azure blob storage.
 
-## Prerequisites
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-* **Azure subscription**. If you don't have a subscription, you can create a [free trial](http://azure.microsoft.com/pricing/free-trial/) account.
+## Prerequisites
 * **Azure Storage account**. You use the blob storage as both the **source** and **sink** data stores. If you don't have an Azure storage account, see the [Create a storage account] on creating one. (../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one. 
 * Create a **blob container** in Blob Storage, create an input **folder** in the container, and upload some files to the folder. 
 * **Visual Studio** 2013, 2015, or 2017. The walkthrough in this article uses Visual Studio 2017.

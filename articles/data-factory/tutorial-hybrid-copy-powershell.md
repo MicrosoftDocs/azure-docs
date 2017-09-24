@@ -32,9 +32,10 @@ You perform the following steps in this tutorial:
 > * Start a pipeline run.
 > * Monitor the pipeline and activity run.
 
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+
 ## Prerequisites
 
-* **Azure subscription**. If you don't have a subscription, you can create a [free trial](http://azure.microsoft.com/pricing/free-trial/) account.
 * **SQL Server**. You use an on-premises SQL Server database as a **source** data store in this tutorial. 
 * **Azure Storage account**. You use Azure blob storage as a **destination/sink** data store in this tutorial. if you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one.
 * **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
