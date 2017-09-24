@@ -182,10 +182,10 @@ For more development tips, see [development overview][development overview].
 <!--Image references-->
 
 <!--Article references-->
-[AZCopy]:../storage/common/storage-use-azcopy.md
-[ADF Copy]: ../data-factory/data-factory-data-movement-activities.md 
-[ADF samples]: ../data-factory/data-factory-samples.md
-[ADF Copy examples]: ../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md
+[AZCopy]: ../storage/common/storage-use-azcopy.md
+[ADF Copy]: ../data-factory/v1/data-factory-data-movement-activities.md 
+[ADF samples]: ../data-factory/v1/data-factory-samples.md
+[ADF Copy examples]: ../data-factory/v1/data-factory-copy-activity-tutorial-using-visual-studio.md
 [development overview]: sql-data-warehouse-overview-develop.md
 [Migrate your solution to SQL Data Warehouse]: sql-data-warehouse-overview-migrate.md
 [SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md

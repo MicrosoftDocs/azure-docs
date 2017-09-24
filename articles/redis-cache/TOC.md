@@ -50,7 +50,7 @@
 # Reference
 ## [Code samples](https://azure.microsoft.com/resources/samples/?service=redis-cache)
 ## [PowerShell](/powershell/module/azurerm.rediscache)
-## [Azure CLI 2.0 Preview](/cli/azure/redis)
+## [Azure CLI Preview](/cli/azure/redis)
 ## [.NET](/dotnet/api/microsoft.azure.management.redis)
 ## [Java](/java/api/com.microsoft.azure.management.redis._redis_cache)
 ## [Redis clients](http://redis.io/clients)

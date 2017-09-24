@@ -31,9 +31,9 @@ As an Azure Stack cloud administrator, you can create offers that let your users
 
 The deployment process is described in detail in the [Use SQL databases on Azure Stack article](azure-stack-sql-resource-provider-deploy.md), and is comprised of the following primary steps:
 
-1.	[Deploy the SQL resource provider]( azure-stack-sql-resource-provider-deploy.md#deploy-the-resource-provider).
-2.	[Verify the deployment]( azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal).
-3.	[Provide capacity by connecting to a hosting SQL server]( azure-stack-sql-resource-provider-deploy.md#provide-capacity-by-connecting-to-a-hosting-sql-server).
+1. [Deploy the SQL resource provider]( azure-stack-sql-resource-provider-deploy.md#deploy-the-resource-provider).
+2. [Verify the deployment]( azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal).
+3. Provide capacity by connecting to a hosting SQL server.
 
 ## Create an offer
 
@@ -69,6 +69,8 @@ Now that you've deployed the SQL Server resource provider and created an offer, 
 3. Click **Login Settings**, enter credentials for the database, and then click **OK**.
 4. Click **SKU** > select the SQL SKU that you created for the SQL Hosting Server > **OK**.
 5. Click **Create**.
+
+## Next steps
 
 In this tutorial, you learned how to:
 
