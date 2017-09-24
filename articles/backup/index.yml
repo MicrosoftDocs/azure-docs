@@ -55,7 +55,7 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="/azure/backup/powershell-backup-samples">PowerShell</a>
+    - html: <a href="/azure/backup/powershell-backup-samples">Azure PowerShell</a>
 - title: Reference
   items:
   - type: list
