@@ -188,7 +188,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </ul>
                                                 <h4>Storage</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/storage/blobs/storage-blobs-introduction/">Blob Storage</a></li>
+                                                    <li><a class="barLink" href="/azure/storage/">Blob Storage</a></li>
                                                 </ul>
                                                 <h4>AI and Cognitive Services</h4>
                                                 <ul class="noBullet">
