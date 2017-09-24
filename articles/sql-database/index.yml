@@ -35,7 +35,7 @@ sections:
     items: 
     - image: 
         src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
-      text: Azure Portal
+      text: Azure portal
       href: https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-portal
     - image: 
         src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/cli.svg
