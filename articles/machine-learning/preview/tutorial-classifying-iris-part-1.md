@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 09/21/2017
+ms.date: 09/25/2017
 ---
 
 # Classifying Iris part 1: Prepare data
