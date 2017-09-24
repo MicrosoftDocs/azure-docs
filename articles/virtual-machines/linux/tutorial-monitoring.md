@@ -168,7 +168,7 @@ and review deployment results to verify updates were applied successfully to the
 
 For pricing information, see [Automation pricing for Update management](https://azure.microsoft.com/pricing/details/automation/)
 
-### Enable Update management
+### Enable Update management (Preview)
 
 Enable Update management for your virtual machine
 
@@ -176,8 +176,8 @@ Enable Update management for your virtual machine
 1. From the list, select a virtual machine.
 1. On the virtual machine screen, in the **Operations** section, click **Update management**. The **Enable Update management** screen opens.
 
-Validation is performed to determine if the Update management solution is enabled for this virtual machine.
-The validation includes checks for Log Analytics workspace and linked Automation account and if the virtual machine is provisioned with the Microsoft Monitoring Agent (MMA) and hybrid worker. If these prerequisites are not met, a banner appears that gives you the option to enable the solution.
+Validation is performed to determine if Update management enabled for this virtual machine.
+This validation includes checks for a Log Analytics workspace a linked Automation account, and if the virtual machine is provisioned with the Microsoft Monitoring Agent (MMA) and hybrid worker. If these prerequisites are not met, a banner appears that gives you the option to enable the solution.
 
 ![Update Management onboard configuration banner](./media/tutorial-monitoring/manage-updates-onboard-solution-banner.png)
 
