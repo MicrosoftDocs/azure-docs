@@ -61,8 +61,4 @@ Here are the steps you perform as part of this quickstart:
 
 
 ## Next steps
-See the following quickstarts for step-by-step instructions for creating pipelines and datasets by using one of these tools or SDKs. 
-
-- [Quickstart: Create a data factory using .NET](quickstart-create-data-factory-dot-net.md)
-- [Quickstart: Create a data factory using PowerShell](quickstart-create-data-factory-powershell.md)
-- [Quickstart: Create a data factory using REST API](quickstart-create-data-factory-rest-api.md)
+The pipeline in this sample copies data from one location to another location in an Azure blob storage. Go through the [tutorials](tutorial-copy-data-dot-net.md) to learn about using Data Factory in more scenarios. 
