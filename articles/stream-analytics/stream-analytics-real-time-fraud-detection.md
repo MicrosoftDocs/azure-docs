@@ -152,7 +152,11 @@ Now that you have a stream of call events, you can set up a Stream Analytics job
 
 3. Click **Create**.
 
+    telcodatagen.exe 1000 2 2
+    
     The job is created and the portal displays job details. Nothing is running yet, though—you have to configure the job before it can be started.
+    
+
 
 ### Configure job input
 
