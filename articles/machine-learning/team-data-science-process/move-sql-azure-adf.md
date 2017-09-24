@@ -41,7 +41,7 @@ We set up an ADF pipeline that composes two data migration activities. Together 
 * copy data from the Azure Blob Storage account to an Azure SQL Database.
 
 > [!NOTE]
-> The steps shown here have been adapted from the more detailed tutorial provided by the ADF team: [Move data between on-premises sources and cloud with Data Management Gateway](../..data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md) References to the relevant sections of that topic are provided when appropriate.
+> The steps shown here have been adapted from the more detailed tutorial provided by the ADF team: [Move data between on-premises sources and cloud with Data Management Gateway](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md) References to the relevant sections of that topic are provided when appropriate.
 >
 >
 
@@ -64,7 +64,7 @@ We use the [NYC Taxi dataset](http://chriswhong.com/open-data/foil_nyc_taxi/) to
 You can either adapt the procedure provided here to a set of your own data or follow the steps as described by using the NYC Taxi dataset. To upload the NYC Taxi dataset into your on-premises SQL Server database, follow the procedure outlined in [Bulk Import Data into SQL Server Database](sql-walkthrough.md#dbload). These instructions are for a SQL Server on an Azure Virtual Machine, but the procedure for uploading to the on-premises SQL Server is the same.
 
 ## <a name="create-adf"></a> Create an Azure Data Factory
-The instructions for creating a new Azure Data Factory and a resource group in the [Azure portal](https://portal.azure.com/) are provided [Create an Azure Data Factory](../..data-factory/v1/data-factory-build-your-first-pipeline-using-editor.md#create-data-factory). Name the new ADF instance *adfdsp* and name the resource group created *adfdsprg*.
+The instructions for creating a new Azure Data Factory and a resource group in the [Azure portal](https://portal.azure.com/) are provided [Create an Azure Data Factory](../../data-factory/v1/data-factory-build-your-first-pipeline-using-editor.md#create-data-factory). Name the new ADF instance *adfdsp* and name the resource group created *adfdsprg*.
 
 ## Install and configure up the Data Management Gateway
 To enable your pipelines in an Azure data factory to work with an on-premises SQL Server, you need to add it as a Linked Service to the data factory. To create a Linked Service for an on-premises SQL Server, you must:
@@ -74,10 +74,10 @@ To enable your pipelines in an Azure data factory to work with an on-premises SQ
 
 The Data Management Gateway serializes and deserializes the source and sink data on the computer where it is hosted.
 
-For set-up instructions and details on Data Management Gateway, see [Move data between on-premises sources and cloud with Data Management Gateway](../..data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md)
+For set-up instructions and details on Data Management Gateway, see [Move data between on-premises sources and cloud with Data Management Gateway](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md)
 
 ## <a name="adflinkedservices"></a>Create linked services to connect to the data resources
-A linked service defines the information needed for Azure Data Factory to connect to a data resource. The step-by-step procedure for creating linked services is provided in [Create linked services](../..data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-linked-services).
+A linked service defines the information needed for Azure Data Factory to connect to a data resource. The step-by-step procedure for creating linked services is provided in [Create linked services](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-linked-services).
 
 We have three resources in this scenario for which linked services are needed.
 
@@ -105,7 +105,7 @@ To create the linked service for the Azure SQL Database:
 * select **Azure SQL** and enter the *username* and *password* credentials for the Azure SQL Database. The *username* must be specified as *user@servername*.   
 
 ## <a name="adf-tables"></a>Define and create tables to specify how to access the datasets
-Create tables that specify the structure, location, and availability of the datasets with the following script-based procedures. JSON files are used to define the tables. For more information on the structure of these files, see [Datasets](../..data-factory/v1/data-factory-create-datasets.md).
+Create tables that specify the structure, location, and availability of the datasets with the following script-based procedures. JSON files are used to define the tables. For more information on the structure of these files, see [Datasets](../../data-factory/v1/data-factory-create-datasets.md).
 
 > [!NOTE]
 > You should execute the `Add-AzureAccount` cmdlet before executing the [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) cmdlet to confirm that the right Azure subscription is selected for the command execution. For documentation of this cmdlet, see [Add-AzureAccount](/powershell/module/azure/add-azureaccount?view=azuresmps-3.7.0).
@@ -124,7 +124,7 @@ Three table definitions are needed for this ADF pipeline:
 3. [SQL Azure Table](#adf-table-azure-sql)
 
 > [!NOTE]
-> These procedures use Azure PowerShell to define and create the ADF activities. But these tasks can also be accomplished using the Azure portal. For details, see [Create datasets](../..data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-datasets).
+> These procedures use Azure PowerShell to define and create the ADF activities. But these tasks can also be accomplished using the Azure portal. For details, see [Create datasets](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-datasets).
 >
 >
 
@@ -156,7 +156,7 @@ The table definition for the on-premises SQL Server is specified in the followin
             }
         }
 
-The column names were not included here. You can sub-select on the column names by including them here (for details check the [ADF documentation](../..data-factory/v1/data-factory-data-movement-activities.md) topic.
+The column names were not included here. You can sub-select on the column names by including them here (for details check the [ADF documentation](../../data-factory/v1/data-factory-data-movement-activities.md) topic.
 
 Copy the JSON definition of the table into a file called *onpremtabledef.json* file and save it to a known location (here assumed to be *C:\temp\onpremtabledef.json*). Create the table in ADF with the following Azure PowerShell cmdlet:
 
@@ -232,7 +232,7 @@ Specify the activities that belong to the pipeline and create the pipeline with 
 
 > [!NOTE]
 > The following procedures use Azure PowerShell to define and create the ADF pipeline. But this task can also be accomplished using the
-> Azure portal. For details, see [Create pipeline](../..data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-pipeline).
+> Azure portal. For details, see [Create pipeline](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-pipeline).
 >
 >
 
