@@ -21,7 +21,7 @@ ms.custom:
 ---
 # Recover files from Azure to a Windows Server
 
-Azure Backup enables the recovery of individual items from backups of your Windows Server. Recovering individual files is helpful if you must quickly restore files that are accidentally deleted. This tutorial covers how you can use the Microsoft Azure Recovery Services Agent (MARS) agent to recover items from backups in Azure. The MARS agent is already configured to use the Recovery Services vault in Azure that holds the recovery points for the server. In this tutorial you learn how to:
+Azure Backup enables the recovery of individual items from backups of your Windows Server. Recovering individual files is helpful if you must quickly restore files that are accidentally deleted. This tutorial covers how you can use the Microsoft Azure Recovery Services Agent (MARS) agent to recover items from backups you have already performed in Azure. In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * Initiate recovery of individual items 
