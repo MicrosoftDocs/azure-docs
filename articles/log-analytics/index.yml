@@ -37,7 +37,7 @@ sections:
     - html: <a href="/azure/log-analytics/log-analytics-tutorial-viewdata">View or analyze data collected</a>
     - html: <a href="/azure/log-analytics/log-analytics-tutorial-dashboards">Create and share dashboards</a>
     - html: <a href="/azure/log-analytics/log-analytics-tutorial-response">Respond to events with Log Analytics alerts</a>
-- title: Free PluralSight Video Training
+- title: Free Pluralsight Video Training
   items:
   - type: list
     style: cards

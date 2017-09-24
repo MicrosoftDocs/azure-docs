@@ -48,7 +48,7 @@ sections:
     - html: <a href="service-fabric-tutorial-create-cluster-azure-ps">Lift and shift an existing .NET application</a>
     - html: <a href="service-fabric-tutorial-create-container-images">Create a Linux container app</a>
     - html: Create and manage a <a href="service-fabric-tutorial-create-vnet-and-windows-cluster">Windows</a> or <a href="service-fabric-tutorial-create-vnet-and-linux-cluster">Linux</a> cluster
-- title: Free PluralSight Video Training
+- title: Free Pluralsight Video Training
   items:
   - type: list
     style: cards
