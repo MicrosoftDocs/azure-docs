@@ -18,6 +18,8 @@ ms.author: shlo
 ---
 
 # Branching and chaining activities in a Data Factory pipeline
+Azure Data Factory is a cloud-based data integration service that allows you to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Uing Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores, process/transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning, and publish output data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications to consume. 
+
 In this tutorial, you create a Data Factory pipeline that showcases some of the control flow features. This pipeline does a simple copy from a container in Azure Blob Storage to another container in the same storage account. If the copy activity succeeds, you want to send details of the successful copy operation (such as the amount of data written) in a success email. If the copy activity fails, you want to send details of copy failure (such as the error message) in a failure email. Throughout the tutorial, you see how to pass parameters.
 
 A high-level overview of the scenario:

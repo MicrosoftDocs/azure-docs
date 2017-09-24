@@ -18,7 +18,7 @@ ms.author: shengc
 ---
 
 # Transform data in the cloud by using Spark activity in Azure Data Factory
-Using Azure Data Factory, you can easily operationalize your data transformation or advanced analytics tasks using Spark, Hive, Pig, or MapReduce, etc. on your HDInsight cluster. In addition to that, Data Factory can help you dynamically create HDInsight clusters only when you have tasks to execute and stop and delete the cluster when tasks are done, so you can more effectively manage the powerful and valuable HDInsight computing resource. 
+Azure Data Factory is a cloud-based data integration service that allows you to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Uing Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores, process/transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning, and publish output data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications to consume. 
 
 In this tutorial, you use Azure PowerShell to create a Data Factory pipeline that transforms data using Spark Activity and an on-demand HDInsight linked service. You perform the following steps in this tutorial:
 
