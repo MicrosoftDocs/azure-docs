@@ -14,7 +14,7 @@ metadata:
   ms.date: 09/18/2017
   ms.author: carolz
 abstract:
-  description: Azure Monitor helps you track performance, maintain security, and identify trends. Learn how to audit, create alerts, and archive data with our quickstarts and tutorials.
+  description: Azure Monitor is part of Microsoft Azure's overall monitoring solution. Azure Monitor helps you track performance, maintain security, and identify trends. Learn how to audit, create alerts, and archive data with our quickstarts and tutorials.
 sections:
 - title: 5-Minute Quickstarts
   items:
