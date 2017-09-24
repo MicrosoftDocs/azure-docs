@@ -3,7 +3,7 @@ documentType: LandingData
 title: Log Analytics Documentation
 metadata:
   title: Azure Log Analytics Documentation - Tutorials, API Reference | Microsoft Docs
-  description: Log Analytics monitors cloud and on-premises environments to maintain availability and performance. Get insight across workloads and systems to maintain availability and performance. Learn how to collect, analyze, and act on data with our quickstarts, tutorials and samples.
+  description:  Log Analytics is part of Microsoft Azure's overall monitoring solution.  Log Analytics monitors cloud and on-premises environments to maintain availability and performance. Get insight across workloads and systems to maintain availability and performance. Learn how to collect, analyze, and act on data with our quickstarts, tutorials and samples.
   services: log-analytics
   author: czeumault
   manager: carolz
@@ -14,7 +14,7 @@ metadata:
   ms.date: 09/41/2017
   ms.author: carolz
 abstract:
-  description: Log Analytics monitors cloud and on-premises environments to maintain availability and performance. Get insight across workloads and systems to maintain availability and performance. Learn how to collect, analyze, and act on data with our quickstarts, tutorials and samples.
+  description:  Log Analytics is part of Microsoft Azure's overall monitoring solution. Log Analytics monitors cloud and on-premises environments to maintain availability and performance. Get insight across workloads and systems to maintain availability and performance. Learn how to collect, analyze, and act on data with our quickstarts, tutorials and samples.
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -25,7 +25,7 @@ sections:
     items: 
     - image: 
         src: https://docs.microsoft.com/en-us/azure/media/index/virtualmachine.svg
-      text: Collect - Azure VMs
+      text: Azure VMs
       href: /azure/log-analytics/log-analytics-quick-collect-azurevm
 - title: Step-by-step Tutorials
   items:
@@ -43,11 +43,11 @@ sections:
     style: cards
     className: cardsFTitle
     items:
-    - title: Managing Infrastructure on Microsoft Azure - Getting Started
-      href: https://app.pluralsight.com/library/courses/managing-infrastructure-microsoft-azure-getting-started
+    - title: Get Started with IaaS Monitoring
+      href: https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents
       image: 
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://app.pluralsight.com/library/courses/managing-infrastructure-microsoft-azure-getting-started
+        href: https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents
 - title: Samples
   items:
   - type: paragraph
@@ -56,7 +56,7 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="/azure/log-analytics/powershell-samples">PowerShell</a>
+    - html: <a href="/azure/log-analytics/powershell-samples">Azure PowerShell</a>
 - title: Reference
   items:
   - type: list

@@ -14,7 +14,7 @@ metadata:
   ms.date: 09/18/2017
   ms.author: carolz
 abstract:
-  description: Azure Cost Management by Cloudyn is a multi-cloud cost management solution that helps you best use and manage Azure and other cloud resources. Learn how to review usage and costs, actively manage costs, forecast spending, and optimize costs with our quickstarts and tutorials.
+  description: Azure Cost Management by Cloudyn is a multi-cloud cost management solution that helps you best utilize and manage Azure and other cloud resources. Learn how to review usage and costs, actively manage costs, forecast spending, and optimize costs with our quickstarts and tutorials.
 sections:
 - title: 5-Minute Quickstarts
   items:
