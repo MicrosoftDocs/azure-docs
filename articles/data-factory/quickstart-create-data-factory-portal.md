@@ -21,9 +21,12 @@ In this quickstart, you use Azure portal to create a data factory. Currently, yo
 
 * **Azure subscription**. If you don't have a subscription, you can create a [free trial](http://azure.microsoft.com/pricing/free-trial/) account.
 
+## Log in to the Azure portal
+Log in to the [Azure portal](https://portal.azure.com/).
+
 ## Create a data factory
 Here are the steps you perform as part of this quickstart:
-1. After logging in to the [Azure portal](https://portal.azure.com/), click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
+1. Click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
    
    ![New->DataFactory](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 2. In the **New data factory** blade, enter **ADFTutorialDataFactory** for the **name**. 
