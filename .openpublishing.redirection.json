@@ -12886,7 +12886,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/machine-learning/services",
+            "source_path": "articles/machine-learning/services.md",
             "redirect_url": "/azure/machine-learning/preview/index.yml",
             "redirect_document_id": false
         }
