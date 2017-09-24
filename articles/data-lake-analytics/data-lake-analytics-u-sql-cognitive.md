@@ -40,7 +40,7 @@ The overall process is simple:
 
 ### Detecting objects in images
 
-The following example shows an end-to-end use of the imaging capabilities to detect objects in images.
+The following example shows how to use the cognitive capabilities to detect objects in images.
 
 ```
 REFERENCE ASSEMBLY ImageCommon;
@@ -78,7 +78,7 @@ OUTPUT @tags_serialized
     TO "/tags.csv"
     USING Outputers.Csv();
 ```
-For more examples, look at the **U-SQL/Cognitive Samples** in the **Next steps** section below.
+For more examples, look at the **U-SQL/Cognitive Samples** in the **Next steps** section.
 
 ## Next steps
 * [U-SQL/Cognitive Samples](https://github.com/Azure-Samples?utf8=✓&q=usql%20cognitive)
