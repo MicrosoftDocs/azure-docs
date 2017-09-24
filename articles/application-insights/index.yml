@@ -57,12 +57,12 @@ sections:
     style: cards
     className: cardsFTitle
     items:
-    - title: .NET on Microsoft Azure - Getting Started 
+    - title: Developing with .NET on Azure 
       href: https://app.pluralsight.com/library/courses/developing-dotnet-microsoft-azure-getting-started/table-of-contents
       image: 
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
         href: https://app.pluralsight.com/library/courses/developing-dotnet-microsoft-azure-getting-started/table-of-contents
-    - title: Developing with Node.js on Microsoft Azure - Getting Started
+    - title: Developing with Node.js on Azure
       href: https://app.pluralsight.com/library/courses/developing-nodejs-microsoft-azure-getting-started/table-of-contents
       image: 
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg

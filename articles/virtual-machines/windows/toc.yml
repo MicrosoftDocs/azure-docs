@@ -164,7 +164,11 @@
     - name: Vertically scale
       href: vertical-scaling-automation.md
     - name: Create VM in availability zone
-      href: create-portal-availability-zone.md
+      items:
+      - name: PowerShell
+        href: create-powershell-availability-zone.md
+      - name: Portal
+        href: create-portal-availability-zone.md    
   - name: Use automation tools
     items:
     - name: Chef
@@ -344,7 +348,7 @@
   items:
   - name: Azure CLI
     href: /cli/azure/vm
-  - name: PowerShell
+  - name: Azure PowerShell
     href: /powershell/azureps-cmdlets-docs
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.compute

@@ -26,7 +26,7 @@
   items:
   - name: Azure CLI
     href: ../app-service-cli-samples.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
-  - name: PowerShell
+  - name: Azure PowerShell
     href: ../app-service-powershell-samples.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
 - name: Concepts
   items:
@@ -78,9 +78,9 @@
       href: app-service-high-density-hosting.md
 - name: Reference
   items:
-  - name: CLI 2.0
+  - name: Azure CLI
     href: /cli/azure/appservice
-  - name: PowerShell
+  - name: Azure PowerShell
     href: /powershell
   - name: REST API
     href: /rest/api/appservice/
