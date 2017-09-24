@@ -52,7 +52,7 @@ sections:
     items:
     - html: <a href="/azure/storage/blobs/storage-samples-blobs-powershell">Azure PowerShell</a>
     - html: <a href="/azure/storage/blobs/storage-samples-blobs-cli">Azure CLI</a>
-- title: Free PluralSight Video Training
+- title: Free Pluralsight Video Training
   items:
   - type: list
     style: cards

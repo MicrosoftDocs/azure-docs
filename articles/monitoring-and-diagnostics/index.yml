@@ -40,7 +40,7 @@ sections:
     items:
     - html: <a href="monitor-tutorial-autoscale-performance-schedule">Autoscale based on schedule or application performance</a>
     - html: <a href="monitor-tutorial-archive-monitoring-data">Archive monitoring data</a>
-- title: Free PluralSight Video Training
+- title: Free Pluralsight Video Training
   items:
   - type: list
     style: cards

@@ -56,7 +56,7 @@ sections:
     - html: <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Migrate an existing SQL Server Database to use Azure SQL Database</a>
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">Secure your SQL Database</a>
     - html: <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">Implement a geo-distributed database</a>
-- title: Free PluralSight Video Training
+- title: Free Pluralsight Video Training
   items:
   - type: list
     style: cards

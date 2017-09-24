@@ -68,17 +68,19 @@ sections:
     - html: <a href="/en-us/azure/app-service/app-service-web-tutorial-custom-domain">Map an existing custom domain to your application </a>
     - html: <a href="/en-us/azure/app-service/app-service-web-tutorial-custom-SSL">Bind an existing SSL certificate to your application</a>
     - html: <a href="/en-us/azure/app-service/app-service-web-tutorial-content-delivery-network">Add a CDN to your application</a>
-- title: Free PluralSight Video Training
+- title: Free Pluralsight Video Training
   items:
   - type: list
     style: cards
-    className: cardsW
+    className: cardsFTitle
     items:
-    - html: <p><a href="https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Developing with .NET</a></p>
+    - title: Developing with .NET
+      href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
       image: 
         src: https://docs.microsoft.com/en-us/azure/app-service/media/index/video-training-dotnet.png
         href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-    - html: <p><a href="https://www.pluralsight.com/courses/developing-nodejs-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Developing with Node.js</a></p>
+    - title: Developing with Node.js
+      href: https://www.pluralsight.com/courses/developing-nodejs-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
       image: 
         src: https://docs.microsoft.com/en-us/azure/app-service/media/index/video-training-nodejs.png
         href: https://www.pluralsight.com/courses/developing-nodejs-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
