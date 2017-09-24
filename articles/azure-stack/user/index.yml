@@ -68,4 +68,4 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/Azure Stack powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">Azure PowerShell</a></p>
+      html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">Azure Stack PowerShell</a></p>
