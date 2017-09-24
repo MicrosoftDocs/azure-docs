@@ -18,8 +18,19 @@
 ### [1- Create a secure cluster on Azure](service-fabric-tutorial-create-cluster-azure-ps.md)
 ### [2- Deploy a .NET app using Docker Compose](service-fabric-host-app-in-a-container.md)
 
+## Create a Linux container app
+### [1- Create container images](service-fabric-tutorial-create-container-images.md)
+### [2- Package and deploy containers](service-fabric-tutorial-package-containers.md)
+### [3- Fail over and scale](service-fabric-tutorial-containers-failover.md)
+
+## Create and manage a cluster
+### 1- Create a cluster on Azure
+#### [1a- Create a secure Windows cluster on Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+#### [1b- Create a secure Linux cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+### [2- Deploy API Management with Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+
 # Samples
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=service-fabric)
 ## [PowerShell](service-fabric-powershell-samples.md)
 ## [Service Fabric CLI](samples-cli.md)
 # Concepts
@@ -67,6 +78,8 @@
 #### [Service state](service-fabric-concepts-state.md)
 #### [Service partitioning](service-fabric-concepts-partitioning.md)
 #### [Availability of services](service-fabric-availability-services.md)
+#### [Replicas and instances](service-fabric-concepts-replica-lifecycle.md)
+#### [Reconfiguration](service-fabric-concepts-reconfiguration.md)
 #### Service communication
 ##### [Overview](service-fabric-connect-and-communicate-with-services.md)
 ##### [DNS service](service-fabric-dnsservice.md)
@@ -91,7 +104,6 @@
 
 ## Create and manage clusters
 ### [Overview](service-fabric-deploy-anywhere.md)
-### [Service Fabric on Linux](service-fabric-linux-overview.md)
 ### Plan and prepare
 #### [Capacity planning](service-fabric-cluster-capacity.md)
 #### [Disaster recovery](service-fabric-disaster-recovery.md)
