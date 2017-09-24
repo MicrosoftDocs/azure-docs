@@ -3,7 +3,7 @@ title: Integrating Applications with Azure Active Directory | Microsoft Docs
 description: Details on how to add, update, or remove an application in Azure Active Directory (Azure AD).
 services: active-directory
 documentationcenter: ''
-author: bryanla
+author: lnalepa
 manager: mbaldwin
 editor: mbaldwin
 
@@ -13,9 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2017
-ms.author: mbaldwin;bryanla
-
+ms.date: 07/20/2017
+ms.author: lenalepa
+ms.custom: aaddev
+ms.reviewer: luleon
 ---
 # Integrating applications with Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -54,11 +55,11 @@ For more information on the way authentication works in Azure AD, see [Authentic
 ### Overview of the consent framework
 Azure AD’s consent framework makes it easy to develop multi-tenant web and native client applications that need to access web APIs secured by an Azure AD tenant, different from the one where the client application is registered. These web APIs include the Microsoft Graph API (to access Azure Active Directory, Intune, and services in Office 365) and other Microsoft services APIs, in addition to your own web APIs. The framework is based on a user or an administrator giving consent to an application that asks to be registered in their directory, which may involve accessing directory data.
 
-For example, if a web client application needs to read calendar information about the user from Office 365, that user will be required to consent to the client application. After consent is given, the client application will be able to call the Microsoft Graph API on behalf of the user, and use the calendar information as needed. The [Microsoft Graph API](https://graph.microsoft.io) provides access to data in Office 365 (like calendars and messages from Exchange, sites and lists from SharePoint, documents from OneDrive, notebooks from OneNote, tasks from Planner, workbooks from Excel, etc.), as well as users and groupos from Azure AD and other data objects from more Microsoft cloud services. 
+For example, if a web client application needs to read calendar information about the user from Office 365, that user will be required to consent to the client application. After consent is given, the client application will be able to call the Microsoft Graph API on behalf of the user, and use the calendar information as needed. The [Microsoft Graph API](https://graph.microsoft.io) provides access to data in Office 365 (like calendars and messages from Exchange, sites and lists from SharePoint, documents from OneDrive, notebooks from OneNote, tasks from Planner, workbooks from Excel, etc.), as well as users and groups from Azure AD and other data objects from more Microsoft cloud services. 
 
 The consent framework is built on OAuth 2.0 and its various flows, such as authorization code grant and client credentials grant, using public or confidential clients. By using OAuth 2.0, Azure AD makes it possible to build many different types of client applications, such as on a phone, tablet, server, or a web application, and gain access to the required resources.
 
-For more detailed information about the consent framework, see [OAuth 2.0 in Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx), [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md), and for infomation about getting authorized access to Office 365 via Microsoft Graph, see [App authentication with Microsoft Graph](https://graph.microsoft.io/docs/authorization/auth_overview).
+For more detailed information about the consent framework, see [OAuth 2.0 in Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx), [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md), and for information about getting authorized access to Office 365 via Microsoft Graph, see [App authentication with Microsoft Graph](https://graph.microsoft.io/docs/authorization/auth_overview).
 
 #### Example of the consent experience
 The following steps will show you how the consent experience works for both the application developer and user.

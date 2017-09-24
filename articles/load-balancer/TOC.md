@@ -1,5 +1,6 @@
 # Overview
 ## [What is Load Balancer?](load-balancer-overview.md)
+## [What is Load Balancer Standard?](load-balancer-standard-overview.md)
 ## [Internet Load Balancer](load-balancer-internet-overview.md)
 ## [Internal Load Balancer](load-balancer-internal-overview.md)
 ## [Understand load balancer probes](load-balancer-custom-probe-overview.md)
@@ -41,11 +42,15 @@
 ## [Combining load balancing services](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fload-balancer%2ftoc.json)
 ## [Using multiple IP configurations](load-balancer-multiple-ip.md)
 ### [Using multiple IP configurations (CLI)](load-balancer-multiple-ip-cli.md)
+### [Using multiple IP configurations (PowerShell)](load-balancer-multiple-ip-powershell.md)
 ## [Log analytics for Azure Load Balancer](load-balancer-monitor-log.md)
 ## [Configuring DHCPv6 for Linux VMs](load-balancer-ipv6-for-linux.md)
+## Troubleshoot
+### [Troubleshoot Azure Load Balancer](load-balancer-troubleshoot.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network)
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=load-balancer)
+## [PowerShell](/powershell/module/azurerm.network)
 ## [Azure CLI 2.0](/cli/azure/network/lb)
 ## [.NET](/dotnet/api/microsoft.azure.management.network.models)
 ## [Java](/java/api/com.microsoft.azure.management.network)
@@ -64,5 +69,7 @@
 ## [DNS](/azure/dns/)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Pricing](https://azure.microsoft.com/pricing/details/load-balancer/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=load-balancer)

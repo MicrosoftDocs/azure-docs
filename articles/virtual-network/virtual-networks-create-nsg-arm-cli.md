@@ -10,7 +10,7 @@ tags: azure-resource-manager
 
 ms.assetid: 9ea82c09-f4a6-4268-88bc-fc439db40c48
 ms.service: virtual-network
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -70,7 +70,7 @@ To create an NSG named *NSG-FrontEnd* based on the scenario preceding, follow th
    Output:
 
         Access    Desc                                                    DestPortRange    Direction      Priority
-        --------  ------------------------------------------------------  ---------------  -----------  ----------
+        
         Allow     Allow inbound traffic from all VMs in VNET              *                Inbound           65000
         Allow     Allow inbound traffic from azure load balancer          *                Inbound           65001
         Deny      Deny all inbound traffic                                *                Inbound           65500
@@ -179,10 +179,10 @@ To create an NSG named *NSG-FrontEnd* based on the scenario preceding, follow th
         
     ```azurecli
     az network vnet subnet update \
-    > --vnet-name TestVNET \
-    > --name FrontEnd \
-    > --resource-group testrg \
-    > --network-security-group NSG-FrontEnd
+    --vnet-name TestVNET \
+    --name FrontEnd \
+    --resource-group testrg \
+    --network-security-group NSG-FrontEnd
     ```
    
     Expected output:

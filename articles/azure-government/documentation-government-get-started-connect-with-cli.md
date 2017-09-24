@@ -13,42 +13,45 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 02/13/2017
+ms.date: 09/1/2017
 ms.author: zakramer
 
 ---
 
 
-# Connect to Azure Government with Azure CLI
+# Connect to Azure Government with Azure Command Line Interface (CLI)
+To use Azure CLI, you need to connect to Azure Government instead of Azure public. The Azure CLI can be used to manage a large subscription through script or to access features that are not currently available in the Azure portal. If you have used Azure CLI in Azure Public, it is mostly the same.  
 
-To use Azure CLI, you need to connect to Azure Government instead of Azure public. The Azure CLI can be used to manage a large subscription through script or to access features that are not currently available in the Azure portal. If you have used Azure CLI in Azure Public, it is mostly the same.  The differences in Azure Government are:
+## Azure CLI 2.0
+There are multiple ways to [install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2).  
 
-There are multiple ways to [install the Azure CLI](https://docs.microsoft.com/en-us/azure/xplat-cli-install). If you already have Node installed, the easiest way is to install the npm package:
+To connect to Azure Government, you set the cloud:
 
-To install the CLI from an npm package, make sure you have downloaded and installed the [latest Node.js and npm](https://nodejs.org/en/download/package-manager/). Then, run **npm install** to install the azure-cli package:
-
-```bash
-npm install -g azure-cli
+```
+az cloud set --name AzureUSGovernment
 ```
 
-On Linux distributions, you might need to use **sudo** to successfully run the **npm** command, as follows:
+After the cloud has been set, you can continue logging in:
 
-```bash
-sudo npm install -g azure-cli
+```
+az login
 ```
 
 > [!NOTE]
-> If you need to install or update Node.js and npm on your Linux distribution or OS, we recommend that you install the most recent Node.js LTS version (4.x). If you use an older version, you might get installation errors.
+> The above login command is recommended, but for simple Azure AD setups/scenarios you can use the `az login --username your-user-name@your-gov-tenant.onmicrosoft.com` and optionally the `--password` parameter. 
+> However, if you have configured Azure AD for federation you need to use `az login` and go through the device login flow. 
+>
 
-
-Once you have the Azure CLI installed, you need to log in to Azure Government:
-
-```
-azure login --username your-user-name@your-gov-tenant.onmicrosoft.com  --environment AzureUSGovernment
-```
-
-Once you are logged in, you can run Azure CLI commands as you normally would:
+To confirm the cloud has correctly been set to AzureUSGovernment, run this command:
 
 ```
-azure webapp list my-resource-group
+az cloud list
 ```
+
+or
+
+```
+az cloud list --output table
+```
+
+and verify that the `isActive` flag is set to `true` for the AzureUSGovernment item.

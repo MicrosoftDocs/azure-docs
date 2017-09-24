@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/23/2017
 ms.author: garye
 
 ---
@@ -45,5 +45,5 @@ For more information on using the web app templates, see [Consume an Azure Machi
 
 You can also develop a custom application to access the web service using starter code provided for you in R, C#, and Python programming languages.
 
-You can find complete details in [How to consume an Azure Machine Learning Web service that has been published from a Machine Learning experiment](machine-learning-consume-web-services.md).
+You can find complete details in [How to consume an Azure Machine Learning Web service](machine-learning-consume-web-services.md).
 

@@ -2,7 +2,7 @@
 title: Azure SQL Data Warehouse Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to use SQL Data Warehouse, combining SQL Server with massively parallel processing. Documentation shows how to load, analyze, manage, and export data.
 services: sql-data-warehouse
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -56,7 +56,7 @@ Learn how to use SQL Data Warehouse, which combines the SQL Server relational da
         </a>
     </li>
      <li>
-        <a href="/azure/sql-data-WArehouse/sql-data-warehouse-get-started-provision">
+        <a href="/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

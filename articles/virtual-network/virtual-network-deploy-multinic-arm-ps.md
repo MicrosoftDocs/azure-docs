@@ -22,11 +22,11 @@ ms.custom: H1Hack27Feb2017
 # Create a VM with multiple NICs using PowerShell
 
 > [!div class="op_single_selector"]
-- [PowerShell](virtual-network-deploy-multinic-arm-ps.md)
-- [Azure CLI](virtual-network-deploy-multinic-arm-cli.md)
-- [Template](virtual-network-deploy-multinic-arm-template.md)
-- [PowerShell (Classic)](virtual-network-deploy-multinic-classic-ps.md)
-- [Azure CLI (Classic)](virtual-network-deploy-multinic-classic-cli.md)
+> * [PowerShell](virtual-network-deploy-multinic-arm-ps.md)
+> * [Azure CLI](virtual-network-deploy-multinic-arm-cli.md)
+> * [Template](virtual-network-deploy-multinic-arm-template.md)
+> * [PowerShell (Classic)](virtual-network-deploy-multinic-classic-ps.md)
+> * [Azure CLI (Classic)](virtual-network-deploy-multinic-classic-cli.md)
 
 [!INCLUDE [virtual-network-deploy-multinic-intro-include.md](../../includes/virtual-network-deploy-multinic-intro-include.md)]
 

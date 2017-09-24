@@ -3,7 +3,7 @@ title: Azure SQL Data Warehouse backups - snapshots, geo-redundant | Microsoft D
 description: Learn about SQL Data Warehouse built-in database backups that enable you to restore an Azure SQL Data Warehouse to a restore point or a different geographical region.
 services: sql-data-warehouse
 documentationcenter: ''
-author: lakshmi1812
+author: Lakshmi1812
 manager: jhubbard
 editor: ''
 
@@ -13,6 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
+ms.custom: backup-restore
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
 
@@ -30,15 +31,15 @@ SQL Data Warehouse protects your data by storing your data in locally redundant 
 
 To learn more about:
 
-* Azure Premium storage, see [Introduction to Azure Premium Storage](../storage/storage-premium-storage.md).
-* Locally Redundant storage, see [Azure Storage replication](../storage/storage-redundancy.md#locally-redundant-storage).
+* Azure Premium storage, see [Introduction to Azure Premium Storage](../storage/common/storage-premium-storage.md).
+* Locally Redundant storage, see [Azure Storage replication](../storage/common/storage-redundancy.md#locally-redundant-storage).
 
 ## Azure Storage Blob snapshots
 As a benefit of using Azure Premium Storage, SQL Data Warehouse uses Azure Storage Blob snapshots to backup the data warehouse locally. You can restore a data warehouse to a snapshot restore point. Snapshots start a minimum of every eight hours and are available for seven days.  
 
 To learn more about:
 
-* Azure blob snapshots, see [Create a blob snapshot](../storage/storage-blob-snapshots.md).
+* Azure blob snapshots, see [Create a blob snapshot](../storage/blobs/storage-blob-snapshots.md).
 
 ## Geo-redundant backups
 Every 24 hours, SQL Data Warehouse stores the full data warehouse in Standard storage. The full data warehouse is created to match the time of the last snapshot. The standard storage belongs to a geo-redundant storage account with read access (RA-GRS). The Azure Storage RA-GRS feature replicates the backup files to a [paired data center](../best-practices-availability-paired-regions.md). This geo-replication ensures you can restore data warehouse in case you cannot access the snapshots in your primary region. 
@@ -50,10 +51,15 @@ This feature is on by default. If you don't want to use geo-redundant backups, y
 > 
 > 
 
+> [!NOTE]
+> You cannot opt out of geo-redundant backups with DWU 9000 and DWU 18000. 
+>
+> 
+
 To learn more about:
 
-* Geo-redundant storage, see [Azure Storage replication](../storage/storage-redundancy.md).
-* RA-GRS storage, see [Read-access geo-redundant storage](../storage/storage-redundancy.md#read-access-geo-redundant-storage).
+* Geo-redundant storage, see [Azure Storage replication](../storage/common/storage-redundancy.md).
+* RA-GRS storage, see [Read-access geo-redundant storage](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage).
 
 ## Data warehouse backup schedule and retention period
 SQL Data Warehouse creates snapshots on your online data warehouses every four to eight hours and keeps each snapshot for seven days. You can restore your online database to one of the restore points in the past seven days. 

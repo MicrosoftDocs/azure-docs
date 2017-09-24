@@ -6,13 +6,13 @@ documentationCenter: na
 author: jeevansd
 manager: femila
 
-ms.assetid: d92e3edb-31aa-4d21-9bf8-6e5917d7bf5f
+ms.assetid: 15ba026e-96fc-4ae8-b135-0169da810e99 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2017
+ms.date: 04/13/2017
 ms.author: jeedes
 
 ---
@@ -24,9 +24,9 @@ Integrating MaxxPoint with Azure AD provides you with the following benefits:
 
 - You can control in Azure AD who has access to MaxxPoint
 - You can enable your users to automatically get signed-on to MaxxPoint (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure Management portal
+- You can manage your accounts in one central location - the Azure portal
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## Prerequisites
 
@@ -35,16 +35,13 @@ To configure Azure AD integration with MaxxPoint, you need the following items:
 - An Azure AD subscription
 - A MaxxPoint single-sign on enabled subscription
 
-
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
-
 
 To test the steps in this tutorial, you should follow these recommendations:
 
 - You should not use your production environment, unless this is necessary.
-- If you don't have an Azure AD trial environment, you can get an one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
-
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 
@@ -59,7 +56,7 @@ To configure the integration of MaxxPoint into Azure AD, you need to add MaxxPoi
 
 **To add MaxxPoint from the gallery, perform the following steps:**
 
-1. In the **[Azure Management Portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
 	![Active Directory][1]
 
@@ -67,7 +64,7 @@ To configure the integration of MaxxPoint into Azure AD, you need to add MaxxPoi
 
 	![Applications][2]
 	
-3. Click **Add** button on the top of the dialog.
+3. Click **New application** button on the top of dialog to add new application.
 
 	![Applications][3]
 
@@ -78,7 +75,6 @@ To configure the integration of MaxxPoint into Azure AD, you need to add MaxxPoi
 5. In the results panel, select **MaxxPoint**, and then click **Add** button to add the application.
 
 	![Creating an Azure AD test user](./media/active-directory-saas-maxxpoint-tutorial/tutorial_maxxpoint_0001.png)
-
 
 ##  Configuring and testing Azure AD single sign-on
 In this section, you configure and test Azure AD single sign-on with MaxxPoint based on a test user called "Britta Simon".
@@ -97,15 +93,15 @@ To configure and test Azure AD single sign-on with MaxxPoint, you need to comple
 
 ### Configuring Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure Management portal and configure single sign-on in your MaxxPoint application.
+In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your MaxxPoint application.
 
 **To configure Azure AD single sign-on with MaxxPoint, perform the following steps:**
 
-1. In the Azure Management portal, on the **MaxxPoint** application integration page, click **Single sign-on**.
+1. In the Azure portal, on the **MaxxPoint** application integration page, click **Single sign-on**.
 
 	![Configure Single Sign-On][4]
 
-2. On the **Single sign-on** dialog, as **Mode** select **SAML-based Sign-on** to enable single sign on.
+2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
  
 	![Configure Single Sign-On](./media/active-directory-saas-maxxpoint-tutorial/tutorial_general_300.png)
 
@@ -117,44 +113,34 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 	
 	![Configure Single Sign-On](./media/active-directory-saas-maxxpoint-tutorial/tutorial_maxxpoint_03.png)
 
-	a. Click on the **Show advanced URL settings** option
+	a. Click **Show advanced URL settings** option
 
 	b. In the **Sign On URL** textbox, type a URL using the following pattern: `https://maxxpoint.westipc.com/default/sso/login/entity/<customer-id>-azure`
 
 	> [!NOTE] 
-	> Please note that this is not the real value. You have to update this value with the actual Sign On URL. Contact [MaxxPoint support team](mailto:iumsupport@intercall.com) to get these values.
+	> Please note that this is not the real value. You have to update this value with the actual Sign On URL. Call MaxxPoint team on **888-728-0950** to get this value.
 
-5. On the **SAML Signing Certificate** section, click **Create new certificate**.
-
-	![Configure Single Sign-On](./media/active-directory-saas-maxxpoint-tutorial/tutorial_general_400.png) 	
-
-6. On the **Create New Certificate** dialog, click the calendar icon and select an **expiry date**. Then click **Save** button.
-
-	![Configure Single Sign-On](./media/active-directory-saas-maxxpoint-tutorial/tutorial_general_500.png)
-
-7. On the **SAML Signing Certificate** section, select **Make new certificate active** and click **Save** button.
-
-	![Configure Single Sign-On](./media/active-directory-saas-maxxpoint-tutorial/tutorial_maxxpoint_05.png)
-
-8. On the pop-up **Rollover certificate** window, click **OK**.
-
-	![Configure Single Sign-On](./media/active-directory-saas-maxxpoint-tutorial/tutorial_general_600.png)
-
-9. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-maxxpoint-tutorial/tutorial_maxxpoint_06.png) 
 
-10. To get SSO configured for your application, contact [MaxxPoint support team](mailto:iumsupport@intercall.com) and provide them with downloaded **metadata**. 
+6. Click **Save** button.
 
+	![Configure Single Sign-On](./media/active-directory-saas-maxxpoint-tutorial/tutorial_general_400.png)
+
+7. To get SSO configured for your application, call MaxxPoint support team on **888-728-0950** and they'll assist you further on how to provide them the downloaded **Metadata XML** file. 
+
+> [!TIP]
+> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure Management portal called Britta Simon.
+The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
 ![Create Azure AD User][100]
 
 **To create a test user in Azure AD, perform the following steps:**
 
-1. In the **Azure Management portal**, on the left navigation pane, click **Azure Active Directory** icon.
+1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
 
 	![Creating an Azure AD test user](./media/active-directory-saas-maxxpoint-tutorial/create_aaduser_01.png) 
 
@@ -178,12 +164,9 @@ The objective of this section is to create a test user in the Azure Management p
 
     d. Click **Create**. 
 
-
-
 ### Creating a MaxxPoint test user
 
-In this section, you create a user called Britta Simon in MaxxPoint. Please work with [MaxxPoint support team](mailto:iumsupport@intercall.com) to add the users in the MaxxPoint platform.
-
+In this section, you create a user called Britta Simon in MaxxPoint. Please call MaxxPoint support team on **888-728-0950** to add the users in the MaxxPoint application.
 
 ### Assigning the Azure AD test user
 
@@ -193,7 +176,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 **To assign Britta Simon to MaxxPoint, perform the following steps:**
 
-1. In the Azure Management portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
 	![Assign User][201] 
 
@@ -215,8 +198,6 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 7. Click **Assign** button on **Add Assignment** dialog.
 	
-
-
 ### Testing single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.

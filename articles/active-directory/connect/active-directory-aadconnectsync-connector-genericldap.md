@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/12/2017
 ms.author: billmath
 
 ---
@@ -225,10 +225,18 @@ For each namespace, it is also possible to configure connectivity settings that 
 
 It is also possible to select which containers and OUs the Connector should import from and export to.
 
+When performing a search this is done across all containers in the partition. In cases where there are large numbers of containers this behavior leads to performance degradation.
+
+>[!NOTE]
+Starting in the March 2017 update to the Generic LDAP connector searches can be limited in scope to only the selected containers. This can be done by selecting the checkbox 'Search only in selected containers' as shown in the image below.
+
+![Search only selected containers](./media/active-directory-aadconnectsync-connector-genericldap/partitions-only-selected-containers.png)
+
 ### Configure Anchors
 This page does always have a preconfigured value and cannot be changed. If the server vendor has been identified, then the anchor might be populated with an immutable attribute, for example the GUID for an object. If it has not been detected or is known to not have an immutable attribute, then the connector uses dn (distinguished name) as the anchor.
 
 ![anchors](./media/active-directory-aadconnectsync-connector-genericldap/anchors.png)
+
 
 The following is a list of LDAP servers and the anchor being used:
 

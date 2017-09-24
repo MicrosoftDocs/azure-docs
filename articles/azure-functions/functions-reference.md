@@ -4,7 +4,7 @@ description: Learn the Azure Functions concepts and techniques that you need to 
 services: functions
 documentationcenter: na
 author: christopheranderson
-manager: erikre
+manager: cfowler
 editor: ''
 tags: ''
 keywords: developer guide, azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
@@ -15,14 +15,14 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/23/2017
+ms.date: 05/30/2017
 ms.author: chrande
 
 ---
 # Azure Functions developers guide
 In Azure Functions, specific functions share a few core technical concepts and components, regardless of the language or binding you use. Before you jump into learning details specific to a given language or binding, be sure to read through this overview that applies to all of them.
 
-This article assumes that you've already read the [Azure Functions overview](functions-overview.md) and are familiar with [WebJobs SDK concepts such as triggers, bindings, and the JobHost runtime](../app-service-web/websites-dotnet-webjobs-sdk.md). Azure Functions is based on the WebJobs SDK. 
+This article assumes that you've already read the [Azure Functions overview](functions-overview.md) and are familiar with [WebJobs SDK concepts such as triggers, bindings, and the JobHost runtime](https://github.com/Azure/azure-webjobs-sdk/wiki). Azure Functions is based on the WebJobs SDK. 
 
 ## Function code
 A *function* is the primary concept in Azure Functions. You write code for a function in a language of your choice and save the code and configuration files in the same folder. The configuration is named `function.json`, which contains JSON configuration data. Various languages are supported, and each one has a slightly different experience optimized to work best for that language. 
@@ -75,7 +75,7 @@ When setting-up a project for deploying functions to a function app in Azure App
 ## <a id="fileupdate"></a> How to update function app files
 The function editor built into the Azure portal lets you update the *function.json* file and the code file for a function. To upload or update other files such as *package.json* or *project.json* or dependencies, you have to use other deployment methods.
 
-Function apps are built on App Service, so all the [deployment options available to standard web apps](../app-service-web/web-sites-deploy.md) are also available for function apps. Here are some methods you can use to upload or update function app files. 
+Function apps are built on App Service, so all the [deployment options available to standard web apps](../app-service/app-service-deploy-local-git.md) are also available for function apps. Here are some methods you can use to upload or update function app files. 
 
 #### To use App Service Editor
 1. In the Azure Functions portal, click **Function app settings**.
@@ -92,9 +92,7 @@ Function apps are built on App Service, so all the [deployment options available
 3. Navigate to `D:\home\site\wwwroot\` to update *host.json* or `D:\home\site\wwwroot\<function_name>` to update a function's files.
 4. Drag-and-drop a file you want to upload into the appropriate folder in the file grid. There are two areas in the file grid where you can drop a file. For *.zip* files, a box appears with the label "Drag here to upload and unzip." For other file types, drop in the file grid but outside the "unzip" box.
 
-#### To use FTP
-1. Follow the instructions [here](../app-service-web/web-sites-deploy.md#ftp) to get FTP configured.
-2. When you're connected to the function app site, copy an updated *host.json* file to `/site/wwwroot` or copy function files to `/site/wwwroot/<function_name>`.
+<!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --DonnaM -->
 
 #### To use continuous deployment
 Follow the instructions in the topic [Continuous deployment for Azure Functions](functions-continuous-deployment.md).
@@ -102,8 +100,9 @@ Follow the instructions in the topic [Continuous deployment for Azure Functions]
 ## Parallel execution
 When multiple triggering events occur faster than a single-threaded function runtime can process them, the runtime may invoke the function multiple times in parallel.  If a function app is using the [Consumption hosting plan](functions-scale.md#how-the-consumption-plan-works), the function app could scale out automatically.  Each instance of the function app, whether the app runs on the Consumption hosting plan or a regular [App Service hosting plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), might process concurrent function invocations in parallel using multiple threads.  The maximum number of concurrent function invocations in each function app instance varies based on the type of trigger being used as well as the resources used by other functions within the function app.
 
-## Azure Functions Pulse
-Pulse is a live event stream that shows how often your function runs, as well as successes and failures. You can also monitor your average execution time. We’ll be adding more features and customization to it over time. You can access the **Pulse** page from the **Monitoring** tab.
+## Functions runtime versioning
+
+You can configure the version of the Functions runtime using the `FUNCTIONS_EXTENSION_VERSION` app setting. For example, the value "~1" indicates that your Function App will use 1 as its major version. Function Apps are upgraded to each new minor version as they are released. You can view the exact version of your Function App in the **Settings** tab in the Azure Portal.
 
 ## Repositories
 The code for Azure Functions is open source and stored in GitHub repositories:

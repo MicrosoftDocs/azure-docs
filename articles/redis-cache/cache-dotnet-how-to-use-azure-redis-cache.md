@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 02/14/2017
+ms.date: 07/27/2017
 ms.author: sdanie
 
 ---
@@ -33,7 +33,7 @@ Microsoft Azure Redis Cache is available in the following tiers:
 
 * **Basic** – Single node. Multiple sizes up to 53 GB.
 * **Standard** – Two-node Primary/Replica. Multiple sizes up to 53 GB. 99.9% SLA.
-* **Premium** – Two-node Primary/Replica with up to 10 shards. Multiple sizes from 6 GB to 530 GB (contact us for more). All Standard tier features and more including support for [Redis cluster](cache-how-to-premium-clustering.md), [Redis persistence](cache-how-to-premium-persistence.md), and [Azure Virtual Network](cache-how-to-premium-vnet.md). 99.9% SLA.
+* **Premium** – Two-node Primary/Replica with up to 10 shards. Multiple sizes from 6 GB to 530 GB. All Standard tier features and more including support for [Redis cluster](cache-how-to-premium-clustering.md), [Redis persistence](cache-how-to-premium-persistence.md), and [Azure Virtual Network](cache-how-to-premium-vnet.md). 99.9% SLA.
 
 Each tier differs in terms of features and pricing. For information on pricing, see [Cache Pricing Details][Cache Pricing Details].
 
@@ -137,6 +137,8 @@ Once the connection is established, return a reference to the redis cache databa
     string key1 = cache.StringGet("key1");
     int key2 = (int)cache.StringGet("key2");
 
+Azure Redis caches have a configurable number of databases (default of 16) that can be used to logically separate the data within a Redis cache. For more information, see [What are Redis databases?](cache-faq.md#what-are-redis-databases) and [Default Redis server configuration](cache-configure.md#default-redis-server-configuration).
+
 Now that you know how to connect to an Azure Redis Cache instance and return a reference to the cache database, let's look at working with the cache.
 
 <a name="add-object"></a>
@@ -162,6 +164,17 @@ When calling `StringGet`, if the object exists, it is returned, and if it does n
 
         cache.StringSet("key1", value);
     }
+
+You can also use `RedisValue`, as shown in the following example. `RedisValue` has implicit operators for working with integral data types, and can be useful if `null` is an expected value for a cached item.
+
+
+	RedisValue value = cache.StringGet("key1");
+	if (!value.HasValue)
+	{
+	    value = GetValueFromDataSource();
+	    cache.StringSet("key1", value);
+	}
+
 
 To specify the expiration of an item in the cache, use the `TimeSpan` parameter of `StringSet`.
 
@@ -267,7 +280,7 @@ Now that you've learned the basics, follow these links to learn more about Azure
 [How to: Set a Page's Cacheability Programmatically]: http://msdn.microsoft.com/library/z852zf6b.aspx
 [Configure a cache in Azure Redis Cache]: http://msdn.microsoft.com/library/azure/dn793612.aspx
 
-[StackExchange.Redis configuration model]: http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md
+[StackExchange.Redis configuration model]: https://stackexchange.github.io/StackExchange.Redis/Configuration
 
 [Work with .NET objects in the cache]: http://msdn.microsoft.com/library/dn690521.aspx#Objects
 

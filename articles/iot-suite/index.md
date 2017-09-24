@@ -2,7 +2,7 @@
 title: Azure IoT Suite Documentation - Tutorials, API Reference | Microsoft Docs
 description: 
 services: iot-suite
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid:	
@@ -56,7 +56,7 @@ Get started quickly with Microsoft Azure IoT Suite. Use preconfigured solutions,
         </a>
     </li>
     <li>
-        <a href="/azure/iot-suite/iot-solution-get-started">
+        <a href="/azure/iot-suite/iot-suite-getstarted-preconfigured-solutions">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/31/2017
-ms.author: vakarand
+ms.date: 07/17/2017
+ms.author: billmath
 
 ---
 # Troubleshooting Errors during synchronization
@@ -179,9 +179,9 @@ a. Ensure that the userPrincipalName attribute has supported characters and requ
 #### Related Articles
 * [Prepare to provision users through directory synchronization to Office 365](https://support.office.com/en-us/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
 
-### DataValidationFailed
+### FederatedDomainChangeError
 #### Description
-This is a specific case that results in a **"DataValidationFailed"** sync error when the suffix of a user's UserPrincipalName is changed from one federated domain to another federated domain.
+This is a specific case that results in a **"FederatedDomainChangeError"** sync error when the suffix of a user's UserPrincipalName is changed from one federated domain to another federated domain.
 
 #### Scenarios
 For a synchronized user, the UserPrincipalName suffix was changed from one federated domain to another federated domain on premises. For example, *UserPrincipalName = bob@contoso.com* was changed to *UserPrincipalName = bob@fabrikam.com*.
@@ -190,7 +190,7 @@ For a synchronized user, the UserPrincipalName suffix was changed from one feder
 1. Bob Smith, an account for Contoso.com, gets added as a new user in Active Directory with the UserPrincipalName bob@contoso.com
 2. Bob moves to a different division of Contoso.com called Fabrikam.com and his UserPrincipalName is changed to bob@fabrikam.com
 3. Both contoso.com and fabrikam.com domains are federated domains with Azure Active Directory.
-4. Bob's userPrincipalName does not get updated and results in a "DataValidationFailed" sync error.
+4. Bob's userPrincipalName does not get updated and results in a "FederatedDomainChangeError" sync error.
 
 #### How to fix
 If a user's UserPrincipalName suffix was updated from bob@**contoso.com** to bob@**fabrikam.com**, where both **contoso.com** and **fabrikam.com** are **federated domains**, then follow these steps to fix the sync error
@@ -207,13 +207,15 @@ If a user's UserPrincipalName suffix was updated from bob@**contoso.com** to bob
 When an attribute exceeds the allowed size limit, length limit or count limit set by Azure Active Directory schema, the synchronization operation results in the **LargeObject** or **ExceededAllowedLength** sync error. Typically this error occurs for the following attributes
 
 * userCertificate
+* userSMIMECertificate
 * thumbnailPhoto
 * proxyAddresses
 
 ### Possible Scenarios
-1. Bob's userCertificate attribute is storing too many certificates assigned to Bob. These may include older, expired certificates. The hard limit is 50 certificates, but the recommendation is to have less than 25 certificates.
-2. Bob's thumbnailPhoto set in Active Directory is too large to be synced in Azure AD.
-3. During automatic population of the ProxyAddresses attribute in Active Directory, an object got assigned >500 ProxyAddresses.
+1. Bob's userCertificate attribute is storing too many certificates assigned to Bob. These may include older, expired certificates. The hard limit is 15 certificates. For more information on how to handle LargeObject errors with userCertificate attribute, please refer to article [Handling LargeObject errors caused by userCertificate attribute](active-directory-aadconnectsync-largeobjecterror-usercertificate.md).
+2. Bob's userSMIMECertificate attribute is storing too many certificates assigned to Bob. These may include older, expired certificates. The hard limit is 15 certificates.
+3. Bob's thumbnailPhoto set in Active Directory is too large to be synced in Azure AD.
+4. During automatic population of the ProxyAddresses attribute in Active Directory, an object has too many ProxyAddresses assigned.
 
 ### How to fix
 1. Ensure that the attribute causing the error is within the allowed limitation.

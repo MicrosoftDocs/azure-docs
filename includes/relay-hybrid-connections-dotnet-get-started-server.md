@@ -1,12 +1,15 @@
 ### Create a console application
-* Launch Visual Studio and create a new Console application.
+
+First, launch Visual Studio and create a new **Console App (.NET Framework)** project.
 
 ### Add the Relay NuGet package
-1. Right-click the newly created project and select **Manage NuGet Packages**.
+
+1. Right-click the newly created project and then click **Manage NuGet Packages**.
 2. Click the **Browse** tab, then search for "Microsoft.Azure.Relay" and select the **Microsoft Azure Relay** item. Click **Install** to complete the installation, then close this dialog box.
 
 ### Write some code to receive messages
-1. Replace the existing `using` statements at the top of the Program.cs file with the following statements:
+
+1. Replace the existing `using` statements at the top of the Program.cs file with the following `using` statements:
    
     ```csharp
     using System;
@@ -15,15 +18,15 @@
     using System.Threading.Tasks;
     using Microsoft.Azure.Relay;
     ```
-2. Add constants to the `Program` class for the Hybrid Connection connection details. Replace the placeholders in brackets with the proper values that were obtained when creating the Hybrid Connection.
+2. Add constants to the `Program` class for the hybrid connection details. Replace the placeholders in brackets with the values you obtained when creating the hybrid connection. Be sure to use the fully qualified namespace name:
    
     ```csharp
-    private const string RelayNamespace = "{RelayNamespace}";
+    private const string RelayNamespace = "{RelayNamespace}.servicebus.windows.net";
     private const string ConnectionName = "{HybridConnectionName}";
     private const string KeyName = "{SASKeyName}";
     private const string Key = "{SASKey}";
     ```
-3. Add the following new method called `ProcessMessagesOnConnection` to the `Program` class:
+3. Add the following method called `ProcessMessagesOnConnection` to the `Program` class:
    
     ```csharp
     // Method is used to initiate connection
@@ -74,7 +77,7 @@
         await relayConnection.CloseAsync(cts.Token);
     }
     ```
-4. Add another new method called `RunAsync` to the `Program` class, as follows:
+4. Add another method called `RunAsync` to the `Program` class, as follows:
    
     ```csharp
     private static async Task RunAsync()
@@ -119,13 +122,13 @@
         await listener.CloseAsync(cts.Token);
     }
     ```
-5. Add the following line of code to the `Main` method in the `Program` class.
+5. Add the following line of code to the `Main` method in the `Program` class:
    
     ```csharp
     RunAsync().GetAwaiter().GetResult();
     ```
    
-    Here is what your Program.cs should look like:
+    Here is what your completed Program.cs file should look like:
    
     ```csharp
     namespace Server
@@ -138,7 +141,7 @@
    
         public class Program
         {
-            private const string RelayNamespace = "{RelayNamespace}";
+            private const string RelayNamespace = "{RelayNamespace}.servicebus.windows.net";
             private const string ConnectionName = "{HybridConnectionName}";
             private const string KeyName = "{SASKeyName}";
             private const string Key = "{SASKey}";

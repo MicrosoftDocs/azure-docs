@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/07/2017
+ms.date: 07/13/2017
 ms.author: billmath
 
 ---
@@ -83,6 +83,7 @@ Here is a list of the most common messages you find. It does not list all, but t
 | UpgradeAbortedSyncExeInUse |The [synchronization service manager UI](active-directory-aadconnectsync-service-manager-ui.md) is open on the server. |
 | UpgradeAbortedSyncOrConfigurationInProgress |The installation wizard is running or a sync was scheduled outside the scheduler. |
 | **UpgradeNotSupported** | |
+| UpgradeNotSupportedAdfsSignInMethod | You have selected Adfs as the sign-in method. | 
 | UpgradeNotSupportedCustomizedSyncRules |You have added your own custom rules to the configuration. |
 | UpgradeNotSupportedDeviceWritebackEnabled |You have enabled the [device writeback](active-directory-aadconnect-feature-device-writeback.md) feature. |
 | UpgradeNotSupportedGroupWritebackEnabled |You have enabled the [group writeback](active-directory-aadconnect-feature-preview.md#group-writeback) feature. |
@@ -91,6 +92,8 @@ Here is a list of the most common messages you find. It does not list all, but t
 | UpgradeNotSupportedMultiForestSetup |You are connecting to more than one forest. Express setup only connects to one forest. |
 | UpgradeNotSupportedNonLocalDbInstall |You are not using a SQL Server Express LocalDB database. |
 | UpgradeNotSupportedNonMsolAccount |The [AD Connector account](active-directory-aadconnect-accounts-permissions.md#active-directory-account) is not the default MSOL_ account anymore. |
+| UpgradeNotSupportedNotConfiguredSignInMethod | You have selected *Do Not Configure* as the sign-in method. | 
+| UpgradeNotSupportedPtaSignInMethod | You have selected Pass-through Authentication as the sign-in method. |
 | UpgradeNotSupportedStagingModeEnabled |The server is set to be in [staging mode](active-directory-aadconnectsync-operations.md#staging-mode). |
 | UpgradeNotSupportedUserWritebackEnabled |You have enabled the [user writeback](active-directory-aadconnect-feature-preview.md#user-writeback) feature. |
 

@@ -9,11 +9,11 @@ editor: ''
 
 ms.assetid: 9d526a1f-0d8e-46ec-83eb-7ea762271db5
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 02/06/2017
+ms.date: 06/23/2017
 ms.author: raynew
 
 ---
@@ -47,7 +47,7 @@ Here's what you'll need in Azure.
 | **Prerequisite** | **Details** |
 | --- | --- |
 | **Azure account** |You'll need a [Microsoft Azure](https://azure.microsoft.com/) account. You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/). [Learn more](https://azure.microsoft.com/pricing/details/site-recovery/) about Site Recovery pricing. |
-| **Azure storage** |You'll need an Azure storage account to store replicated data. Replicated data is stored in Azure storage and Azure VMs are spun up when failover occurs. <br/><br/>You need a [standard geo-redundant storage account](../storage/storage-redundancy.md#geo-redundant-storage). The account must be in the same region as the Site Recovery service, and be associated with the same subscription. Note that replication to premium storage accounts isn't currently supported and shouldn't be used.<br/><br/>[Read about](../storage/storage-introduction.md) Azure storage. |
+| **Azure storage** |You'll need an Azure storage account to store replicated data. Replicated data is stored in Azure storage and Azure VMs are spun up when failover occurs. <br/><br/>You need a [standard geo-redundant storage account](../storage/common/storage-redundancy.md#geo-redundant-storage). The account must be in the same region as the Site Recovery service, and be associated with the same subscription. Note that replication to premium storage accounts isn't currently supported and shouldn't be used.<br/><br/>[Read about](../storage/common/storage-introduction.md) Azure storage. |
 | **Azure network** |You'll need an Azure virtual network that Azure VMs will connect to when failover occurs. The Azure virtual network must be in the same region as the Site Recovery vault. |
 
 ## On-premises prerequisites
@@ -270,7 +270,7 @@ After servers, clouds, and networks are configured correctly, you can enable pro
     ![Verify virtual machines](./media/site-recovery-vmm-to-azure-classic/vm-properties.png)
 2. On the **Configure** tab of the virtual machine properties following network properties can be modified.
 
-* **Number of network adapters on the target virtual machine** - The number of network adapters is dictated by the size you specify for the target virtual machine. Check [virtual machine size specs](../virtual-machines/virtual-machines-linux-sizes.md#size-tables) for the number of adapters supported by the virtual machine size. When you modify the size for a virtual machine and save the settings, the number of network adapters will change the next time you open the **Configure** page. The number of network adapters of target virtual machines is the minimum number of network adapters on source virtual machine and the maximum number of network adapters supported by the size of the virtual machine chosen, as follows:
+* **Number of network adapters on the target virtual machine** - The number of network adapters is dictated by the size you specify for the target virtual machine. Check [virtual machine size specs](../virtual-machines/linux/sizes.md) for the number of adapters supported by the virtual machine size. When you modify the size for a virtual machine and save the settings, the number of network adapters will change the next time you open the **Configure** page. The number of network adapters of target virtual machines is the minimum number of network adapters on source virtual machine and the maximum number of network adapters supported by the size of the virtual machine chosen, as follows:
 
   * If the number of network adapters on the source machine is less than or equal to the number of adapters allowed for the target machine size, then the target will have the same number of adapters as the source.
   * If the number of adapters for the source virtual machine exceeds the number allowed for the target size then the target size maximum will be used.

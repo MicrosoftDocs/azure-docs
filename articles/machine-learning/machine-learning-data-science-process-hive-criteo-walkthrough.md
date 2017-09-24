@@ -59,7 +59,7 @@ Two sample prediction problems are addressed in this walkthrough:
 
 Set up your Azure Data Science environment for building predictive analytics solutions with HDInsight clusters in three steps:
 
-1. [Create a storage account](../storage/storage-create-storage-account.md): This storage account is used to store data in Azure Blob Storage. The data used in HDInsight clusters is stored here.
+1. [Create a storage account](../storage/common/storage-create-storage-account.md): This storage account is used to store data in Azure Blob Storage. The data used in HDInsight clusters is stored here.
 2. [Customize Azure HDInsight Hadoop Clusters for Data Science](machine-learning-data-science-customize-hadoop-cluster.md): This step creates an Azure HDInsight Hadoop cluster with 64-bit Anaconda Python 2.7 installed on all nodes. There are two important steps (described in this topic) to complete when customizing the HDInsight cluster.
    
    * You must link the storage account created in step 1 with your HDInsight cluster when it is created. This storage account is used for accessing data that can be processed within the cluster.
@@ -73,7 +73,7 @@ The [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) dat
 
 Click **Continue to Download** to read more about the dataset and its availability.
 
-The data resides in a public [Azure blob storage](../storage/storage-dotnet-how-to-use-blobs.md) location: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. The "wasb" refers to Azure Blob Storage location. 
+The data resides in a public [Azure blob storage](../storage/blobs/storage-dotnet-how-to-use-blobs.md) location: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. The "wasb" refers to Azure Blob Storage location. 
 
 1. The data in this public blob storage consists of three subfolders of unzipped data.
    
@@ -320,8 +320,9 @@ This yields:
 
 Again we see that except for Col20, all the other columns have many unique values.
 
-### Co-occurence counts of pairs of categorical variables in the train dataset
-The co-occurence counts of pairs of categorical variables is also of interest. This can be determined using the code in [sample&#95;hive&#95;criteo&#95;paired&#95;categorical&#95;counts.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_paired_categorical_counts.hql):
+### Co-occurrence counts of pairs of categorical variables in the train dataset
+
+The co-occurrence counts of pairs of categorical variables is also of interest. This can be determined using the code in [sample&#95;hive&#95;criteo&#95;paired&#95;categorical&#95;counts.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_paired_categorical_counts.hql):
 
         SELECT Col15, Col16, COUNT(*) AS paired_count FROM criteo.criteo_train GROUP BY Col15, Col16 ORDER BY paired_count DESC LIMIT 15;
 

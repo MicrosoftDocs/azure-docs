@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 08/10/2017
 ms.author: jingwang
 
 ---
@@ -29,28 +29,25 @@ Azure provides a set of enterprise-grade data storage and data warehouse solutio
 This article describes:
 
 * [Performance reference numbers](#performance-reference) for supported source and sink data stores to help you plan your project;
-* Features that can boost the copy throughput in different scenarios, including [parallel copy](#parallel-copy), [cloud data movement units](#cloud-data-movement-units), and [staged Copy](#staged-copy);
+* Features that can boost the copy throughput in different scenarios, including [cloud data movement units](#cloud-data-movement-units), [parallel copy](#parallel-copy), and [staged Copy](#staged-copy);
 * [Performance tuning guidance](#performance-tuning-steps) on how to tune the performance and the key factors that can impact copy performance.
 
 > [!NOTE]
 > If you are not familiar with Copy Activity in general, see [Move data by using Copy Activity](data-factory-data-movement-activities.md) before reading this article.
 >
->
 
 ## Performance reference
+
+As a reference, below table shows the copy throughput number in MBps for the given source and sink pairs based on in-house testing. For comparison, it also demonstrates how different settings of [cloud data movement units](#cloud-data-movement-units) or [Data Management Gateway scalability](data-factory-data-management-gateway-high-availability-scalability.md) (multiple gateway nodes) can help on copy performance.
+
 ![Performance matrix](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
-> [!NOTE]
-> You can achieve higher throughput by leveraging more data movement units (DMUs) than the default maximum DMUs, which is 8 for a cloud-to-cloud copy activity run. For example, with 100 DMUs, you can achieve copying data from Azure Blob into Azure Data Lake Store at **1.0GBps**. See the [Cloud data movement units](#cloud-data-movement-units) section for details about this feature and the supported scenario. Contact [Azure support](https://azure.microsoft.com/support/) to request more DMUs.
->
->
 
 **Points to note:**
 * Throughput is calculated by using the following formula: [size of data read from source]/[Copy Activity run duration].
 * The performance reference numbers in the table were measured using [TPC-H](http://www.tpc.org/tpch/) data set in a single copy activity run.
-* To copy between cloud data stores, set **cloudDataMovementUnits** to 1 and 4 (or 8) for comparison. **parallelCopies** is not specified. See the [Parallel copy](#parallel-copy) section for details about these features.
 * In Azure data stores, the source and sink are in the same Azure region.
-* For hybrid (on-premises to cloud, or cloud to on-premises) data movement, a single instance of gateway was running on a machine that was separate from the on-premises data store. The configuration is listed in the next table. When a single activity was running on gateway, the copy operation consumed only a small portion of the test machine's CPU, memory, or network bandwidth.
+* For hybrid copy between on-premises and cloud data stores, each gateway node was running on a machine that was separate from the on-premises data store with below specification. When a single activity was running on gateway, the copy operation consumed only a small portion of the test machine's CPU, memory, or network bandwidth. Learn more from [consideration for Data Management Gateway](#considerations-for-data-management-gateway).
     <table>
     <tr>
         <td>CPU</td>
@@ -66,6 +63,10 @@ This article describes:
     </tr>
     </table>
 
+
+> [!TIP]
+> You can achieve higher throughput by leveraging more data movement units (DMUs) than the default maximum DMUs, which is 32 for a cloud-to-cloud copy activity run. For example, with 100 DMUs, you can achieve copying data from Azure Blob into Azure Data Lake Store at **1.0GBps**. See the [Cloud data movement units](#cloud-data-movement-units) section for details about this feature and the supported scenario. Contact [Azure support](https://azure.microsoft.com/support/) to request more DMUs.
+
 ## Parallel copy
 You can read data from the source or write data to the destination **in parallel within a Copy Activity run**. This feature enhances the throughput of a copy operation and reduces the time it takes to move data.
 
@@ -80,6 +81,37 @@ Let's look at a sample scenario. In the following example, multiple slices from 
 And so on.
 
 In this example, when the **concurrency** value is set to 2, **Activity run 1** and **Activity run 2** copy data from two activity windows **concurrently** to improve data movement performance. However, if multiple files are associated with Activity run 1, the data movement service copies files from the source to the destination one file at a time.
+
+### Cloud data movement units
+A **cloud data movement unit (DMU)** is a measure that represents the power (a combination of CPU, memory, and network resource allocation) of a single unit in Data Factory. A DMU might be used in a cloud-to-cloud copy operation, but not in a hybrid copy.
+
+By default, Data Factory uses a single cloud DMU to perform a single Copy Activity run. To override this default, specify a value for the **cloudDataMovementUnits** property as follows. For information about the level of performance gain you might get when you configure more units for a specific copy source and sink, see the [performance reference](#performance-reference).
+
+```json
+"activities":[  
+    {
+        "name": "Sample copy activity",
+        "description": "",
+        "type": "Copy",
+        "inputs": [{ "name": "InputDataset" }],
+        "outputs": [{ "name": "OutputDataset" }],
+        "typeProperties": {
+            "source": {
+                "type": "BlobSource",
+            },
+            "sink": {
+                "type": "AzureDataLakeStoreSink"
+            },
+            "cloudDataMovementUnits": 32
+        }
+    }
+]
+```
+The **allowed values** for the **cloudDataMovementUnits** property are 1 (default), 2, 4, 8, 16, 32. The **actual number of cloud DMUs** that the copy operation uses at run time is equal to or less than the configured value, depending on your data pattern.
+
+> [!NOTE]
+> If you need more cloud DMUs for a higher throughput, contact [Azure support](https://azure.microsoft.com/support/). Setting of 8 and above currently works only when you **copy multiple files from Blob storage/Data Lake Store/Amazon S3/cloud FTP/cloud SFTP to Blob storage/Data Lake Store/Azure SQL Database**.
+>
 
 ### parallelCopies
 You can use the **parallelCopies** property to indicate the parallelism that you want Copy Activity to use. You can think of this property as the maximum number of threads within Copy Activity that can read from your source or write to your sink data stores in parallel.
@@ -122,38 +154,6 @@ Points to note:
 
 > [!NOTE]
 > You must use Data Management Gateway version 1.11 or later to use the **parallelCopies** feature when you do a hybrid copy.
->
->
-
-### Cloud data movement units
-A **cloud data movement unit (DMU)** is a measure that represents the power (a combination of CPU, memory, and network resource allocation) of a single unit in Data Factory. A DMU might be used in a cloud-to-cloud copy operation, but not in a hybrid copy.
-
-By default, Data Factory uses a single cloud DMU to perform a single Copy Activity run. To override this default, specify a value for the **cloudDataMovementUnits** property as follows. For information about the level of performance gain you might get when you configure more units for a specific copy source and sink, see the [performance reference](#performance-reference).
-
-```json
-"activities":[  
-    {
-        "name": "Sample copy activity",
-        "description": "",
-        "type": "Copy",
-        "inputs": [{ "name": "InputDataset" }],
-        "outputs": [{ "name": "OutputDataset" }],
-        "typeProperties": {
-            "source": {
-                "type": "BlobSource",
-            },
-            "sink": {
-                "type": "AzureDataLakeStoreSink"
-            },
-            "cloudDataMovementUnits": 4
-        }
-    }
-]
-```
-The **allowed values** for the **cloudDataMovementUnits** property are 1 (default), 2, 4, and 8. The **actual number of cloud DMUs** that the copy operation uses at run time is equal to or less than the configured value, depending on your data pattern.
-
-> [!NOTE]
-> If you need more cloud DMUs for a higher throughput, contact [Azure support](https://azure.microsoft.com/support/). Setting of 8 and above currently works only when you **copy multiple files from Blob storage/Data Lake Store/Amazon S3/cloud FTP to Blob storage/Data Lake Store/Azure SQL Database**, and the file size is greater than or equal to 16 MB individually.
 >
 >
 
@@ -230,7 +230,7 @@ You are charged based on two steps: copy duration and copy type.
 ## Performance tuning steps
 We suggest that you take these steps to tune the performance of your Data Factory service with Copy Activity:
 
-1. **Establish a baseline**. During the development phase, test your pipeline by using Copy Activity against a representative data sample. You can use the Data Factory [slicing model](data-factory-scheduling-and-execution.md#time-series-datasets-and-data-slices) to limit the amount of data you work with.
+1. **Establish a baseline**. During the development phase, test your pipeline by using Copy Activity against a representative data sample. You can use the Data Factory [slicing model](data-factory-scheduling-and-execution.md) to limit the amount of data you work with.
 
    Collect execution time and performance characteristics by using the **Monitoring and Management App**. Choose **Monitor & Manage** on your Data Factory home page. In the tree view, choose the **output dataset**. In the **Activity Windows** list, choose the Copy Activity run. **Activity Windows** lists the Copy Activity duration and the size of the data that's copied. The throughput is listed in **Activity Window Explorer**. To learn more about the app, see [Monitor and manage Azure Data Factory pipelines by using the Monitoring and Management App](data-factory-monitor-manage-app.md).
 
@@ -242,15 +242,21 @@ We suggest that you take these steps to tune the performance of your Data Factor
    * Performance features:
      * [Parallel copy](#parallel-copy)
      * [Cloud data movement units](#cloud-data-movement-units)
-     * [Staged copy](#staged-copy)   
+     * [Staged copy](#staged-copy)
+     * [Data Management Gateway scalability](data-factory-data-management-gateway-high-availability-scalability.md)
+   * [Data Management Gateway](#considerations-for-data-management-gateway)
    * [Source](#considerations-for-the-source)
    * [Sink](#considerations-for-the-sink)
    * [Serialization and deserialization](#considerations-for-serialization-and-deserialization)
    * [Compression](#considerations-for-compression)
    * [Column mapping](#considerations-for-column-mapping)
-   * [Data Management Gateway](#considerations-for-data-management-gateway)
    * [Other considerations](#other-considerations)
 3. **Expand the configuration to your entire data set**. When you're satisfied with the execution results and performance, you can expand the definition and pipeline active period to cover your entire data set.
+
+## Considerations for Data Management Gateway
+**Gateway setup**: We recommend that you use a dedicated machine to host Data Management Gateway. See [Considerations for using Data Management Gateway](data-factory-data-management-gateway.md#considerations-for-using-gateway).  
+
+**Gateway monitoring and scale-up/out**: A single logical gateway with one or more gateway nodes can serve multiple Copy Activity runs at the same time concurrently. You can view near-real time snapshot of resource utilization (CPU, memory, network(in/out), etc.) on a gateway machine as well as the number of concurrent jobs running versus limit in the Azure portal, see [Monitor gateway in the portal](data-factory-data-management-gateway.md#monitor-gateway-in-the-portal). If you have heavy need on hybrid data movement either with large number of concurrent copy activity runs or with large volume of data to copy, consider to [scale up or scale out gateway](data-factory-data-management-gateway-high-availability-scalability.md#scale-considerations) so as to better utilize your resource or to provision more resource to empower copy. 
 
 ## Considerations for the source
 ### General
@@ -303,15 +309,15 @@ If you are copying data from **Blob storage** to **SQL Data Warehouse**, conside
 * For **on-premises relational databases** like SQL Server and Oracle, which require the use of **Data Management Gateway**, see the [Considerations for Data Management Gateway](#considerations-for-data-management-gateway) section.
 
 ### NoSQL stores
-*(Includes Table storage and Azure DocumentDB)*
+*(Includes Table storage and Azure Cosmos DB )*
 
 * For **Table storage**:
   * **Partition**: Writing data to interleaved partitions dramatically degrades performance. Sort your source data by partition key so that the data is inserted efficiently into one partition after another, or adjust the logic to write the data to a single partition.
-* For **DocumentDB**:
-  * **Batch size**: The **writeBatchSize** property sets the number of parallel requests to the DocumentDB service to create documents. You can expect better performance when you increase **writeBatchSize** because more parallel requests are sent to DocumentDB. However, watch for throttling when you write to DocumentDB (the error message is "Request rate is large"). Various factors can cause throttling, including document size, the number of terms in the documents, and the target collection's indexing policy. To achieve higher copy throughput, consider using a better collection, for example, S3.
+* For **Azure Cosmos DB**:
+  * **Batch size**: The **writeBatchSize** property sets the number of parallel requests to the Azure Cosmos DB service to create documents. You can expect better performance when you increase **writeBatchSize** because more parallel requests are sent to Azure Cosmos DB. However, watch for throttling when you write to Azure Cosmos DB (the error message is "Request rate is large"). Various factors can cause throttling, including document size, the number of terms in the documents, and the target collection's indexing policy. To achieve higher copy throughput, consider using a better collection, for example, S3.
 
 ## Considerations for serialization and deserialization
-Serialization and deserialization can occur when your input data set or output data set is a file. Currently, Copy Activity supports Avro and Text (for example, CSV and TSV) data formats.
+Serialization and deserialization can occur when your input data set or output data set is a file. See [Supported file and compression formats](data-factory-supported-file-and-compression-formats.md) with details on supported file formats by Copy Activity.
 
 **Copy behavior**:
 
@@ -335,14 +341,7 @@ When your input or output data set is a file, you can set Copy Activity to perfo
 ## Considerations for column mapping
 You can set the **columnMappings** property in Copy Activity to map all or a subset of the input columns to the output columns. After the data movement service reads the data from the source, it needs to perform column mapping on the data before it writes the data to the sink. This extra processing reduces copy throughput.
 
-If your source data store is queryable, for example, if it's a relational store like SQL Database or SQL Server, or if it's a NoSQL store like Table storage or DocumentDB, consider pushing the column filtering and reordering logic to the **query** property instead of using column mapping. This way, the projection occurs while the data movement service reads data from the source data store, where it is much more efficient.
-
-## Considerations for Data Management Gateway
-For Gateway setup recommendations, see [Considerations for using Data Management Gateway](data-factory-data-management-gateway.md#considerations-for-using-gateway).
-
-**Gateway machine environment**: We recommend that you use a dedicated machine to host Data Management Gateway. Use tools like PerfMon to examine CPU, memory, and bandwidth use during a copy operation on your Gateway machine. Switch to a more powerful machine if CPU, memory, or network bandwidth becomes a bottleneck.
-
-**Concurrent Copy Activity runs**: A single instance of Data Management Gateway can serve multiple Copy Activity runs at the same time, or concurrently. The maximum number of concurrent jobs is calculated based on the Gateway machine’s hardware configuration. Additional copy jobs are queued until they are picked up by Gateway or until another job times out. To avoid resource contention on the Gateway machine, you can stage your Copy Activity schedule to reduce the number of copy jobs in the queue at a time, or consider splitting the load onto multiple Gateway machines.
+If your source data store is queryable, for example, if it's a relational store like SQL Database or SQL Server, or if it's a NoSQL store like Table storage or Azure Cosmos DB, consider pushing the column filtering and reordering logic to the **query** property instead of using column mapping. This way, the projection occurs while the data movement service reads data from the source data store, where it is much more efficient.
 
 ## Other considerations
 If the size of data you want to copy is large, you can adjust your business logic to further partition the data using the slicing mechanism in Data Factory. Then, schedule Copy Activity to run more frequently to reduce the data size for each Copy Activity run.
@@ -400,9 +399,9 @@ In this case, bzip2 data compression might be slowing down the entire pipeline. 
 ## Reference
 Here are performance monitoring and tuning references for some of the supported data stores:
 
-* Azure Storage (including Blob storage and Table storage): [Azure Storage scalability targets](../storage/storage-scalability-targets.md) and [Azure Storage performance and scalability checklist](../storage/storage-performance-checklist.md)
+* Azure Storage (including Blob storage and Table storage): [Azure Storage scalability targets](../storage/common/storage-scalability-targets.md) and [Azure Storage performance and scalability checklist](../storage/common/storage-performance-checklist.md)
 * Azure SQL Database: You can [monitor the performance](../sql-database/sql-database-single-database-monitor.md) and check the database transaction unit (DTU) percentage
 * Azure SQL Data Warehouse: Its capability is measured in data warehouse units (DWUs); see [Manage compute power in Azure SQL Data Warehouse (Overview)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
-* Azure DocumentDB: [Performance levels in DocumentDB](../documentdb/documentdb-performance-levels.md)
+* Azure Cosmos DB: [Performance levels in Azure Cosmos DB](../documentdb/documentdb-performance-levels.md)
 * On-premises SQL Server: [Monitor and tune for performance](https://msdn.microsoft.com/library/ms189081.aspx)
 * On-premises file server: [Performance tuning for file servers](https://msdn.microsoft.com/library/dn567661.aspx)

@@ -2,7 +2,7 @@
 title: Create your first reliable Azure microservice in Java | Microsoft Docs
 description: Introduction to creating a Microsoft Azure Service Fabric application with stateless and stateful services.
 services: service-fabric
-documentationcenter: .net
+documentationcenter: java
 author: vturecek
 manager: timlt
 editor: ''
@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2017
+ms.date: 06/29/2017
 ms.author: vturecek
 
 ---
@@ -155,14 +155,25 @@ public static void main(String[] args) throws Exception {
 ```
 
 ## Run the application
-The Yeoman scaffolding includes a gradle script to build the application and bash scripts to deploy and undeploy the application. To run the application, first build the application with gradle:
+
+The Yeoman scaffolding includes a gradle script to build the application and bash scripts to deploy and remove the
+application. To run the application, first build the application with gradle:
 
 ```bash
 $ gradle
 ```
 
-This produces a Service Fabric application package that can be deployed using Service Fabric Azure CLI. The install.sh script contains the necessary Azure CLI commands to deploy the application package. Run the install.sh script to deploy:
+This produces a Service Fabric application package that can be deployed using Service Fabric CLI.
+
+### Deploy with Service Fabric CLI
+
+The install.sh script contains the necessary Service Fabric CLI commands to deploy the application package. Run the
+install.sh script to deploy the application.
 
 ```bash
 $ ./install.sh
 ```
+
+## Next steps
+
+* [Getting started with Service Fabric CLI](service-fabric-cli.md)

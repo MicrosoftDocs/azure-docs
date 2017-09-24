@@ -1,10 +1,10 @@
----
+﻿---
 title: Java web app analytics with Azure Application Insights | Microsoft Docs
 description: 'Application Performance Monitoring for Java web apps with Application Insights. '
 services: application-insights
 documentationcenter: java
 author: harelbr
-manager: douge
+manager: carmonm
 
 ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
 ms.service: application-insights
@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/02/2016
-ms.author: awills
+ms.date: 03/14/2017
+ms.author: bwren
 
 ---
 # Get started with Application Insights in a Java web project
@@ -140,7 +140,7 @@ Substitute the instrumentation key that you got from the Azure portal.
       <!-- These initializers add context data to each event -->
 
       <TelemetryInitializers>
-        <Add   type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
+        <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
         <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
         <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebSessionTelemetryInitializer"/>
         <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserTelemetryInitializer"/>
@@ -372,6 +372,10 @@ You'll get charts of response times, plus email notifications if your site goes 
 ## Questions? Problems?
 [Troubleshooting Java](app-insights-java-troubleshoot.md)
 
+## Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
 ## Next steps
 * [Monitor dependency calls](app-insights-java-agent.md)
 * [Monitor Unix performance counters](app-insights-java-collectd.md)
@@ -379,7 +383,7 @@ You'll get charts of response times, plus email notifications if your site goes 
 * Write [custom telemetry](app-insights-api-custom-events-metrics.md) to track usage in the browser or at the server.
 * Create [dashboards](app-insights-dashboards.md) to bring together the key charts for monitoring your system.
 * Use  [Analytics](app-insights-analytics.md) for powerful queries over telemetry from your app
-* For more information, see the [Java Developer Center](/develop/java/).
+* For more information, visit [Azure for Java developers](/java/azure).
 
 <!--Link references-->
 
@@ -390,4 +394,4 @@ You'll get charts of response times, plus email notifications if your site goes 
 [eclipse]: app-insights-java-eclipse.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[usage]: app-insights-web-track-usage.md
+[usage]: app-insights-javascript.md

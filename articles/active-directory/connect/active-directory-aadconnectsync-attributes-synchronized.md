@@ -12,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: markvi;andkjell
+ms.date: 07/17/2017
+ms.author: billmath
 
 ---
 # Azure AD Connect sync: Attributes synchronized to Azure Active Directory
@@ -28,8 +28,8 @@ In this case, start with the list of attributes in this topic and identify those
 
 > [!WARNING]
 > When deselecting attributes, you should be cautious and only deselect those attributes absolutely not possible to synchronize. Unselecting other attributes might have a negative impact on features.
-> 
-> 
+>
+>
 
 ## Office 365 ProPlus
 | Attribute Name | User | Comment |
@@ -48,6 +48,7 @@ In this case, start with the list of attributes in this topic and identify those
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Defines if an account is enabled. |
 | assistant |X |X | | |
+| altRecipient |X | | |Requires Azure AD Connect build 1.1.552.0 or after. |
 | authOrig |X |X |X | |
 | c |X |X | | |
 | cn |X | |X | |
@@ -97,6 +98,7 @@ In this case, start with the list of attributes in this topic and identify those
 | msExchAuditOwner |X | | | |
 | msExchBlockedSendersHash |X |X | | |
 | msExchBypassAudit |X | | | |
+| msExchBypassModerationLink | | |X |Available in Azure AD Connect version 1.1.524.0 |
 | msExchCoManagedByLink | | |X | |
 | msExchDelegateListLink |X | | | |
 | msExchELCExpirySuspensionEnd |X | | | |
@@ -225,7 +227,7 @@ In this case, start with the list of attributes in this topic and identify those
 | pager |X |X | | |
 | physicalDeliveryOfficeName |X |X | | |
 | postalCode |X |X | | |
-| postOfficeBox |X |X | | |
+| postOfficeBox |X |X | |This attribute is currently not consumed by SharePoint Online. |
 | preferredLanguage |X | | | |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password sync and federation. |
@@ -247,7 +249,7 @@ In this case, start with the list of attributes in this topic and identify those
 | userPrincipalName |X | | |UPN is the login ID for the user. Most often the same as [mail] value. |
 | wWWHomePage |X |X | | |
 
-## Lync Online
+## Lync Online (subsequently known as Skype for Business)
 | Attribute Name | User | Contact | Group | Comment |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Defines if an account is enabled. |
@@ -417,7 +419,7 @@ These attributes are written back from Azure AD to on-premises Active Directory 
 
 | Attribute Name | User | Contact | Group | Comment |
 | --- |:---:|:---:|:---:| --- |
-| msDS-ExternalDirectoryObjectID |X | | |Derived from cloudAnchor in Azure AD. This attribute is new in Exchange 2016. |
+| msDS-ExternalDirectoryObjectID |X | | |Derived from cloudAnchor in Azure AD. This attribute is new in Exchange 2016 and Windows Server 2016 AD. |
 | msExchArchiveStatus |X | | |Online Archive: Enables customers to archive mail. |
 | msExchBlockedSendersHash |X | | |Filtering: Writes back on-premises filtering and online safe and blocked sender data from clients. |
 | msExchSafeRecipientsHash |X | | |Filtering: Writes back on-premises filtering and online safe and blocked sender data from clients. |
@@ -425,6 +427,19 @@ These attributes are written back from Azure AD to on-premises Active Directory 
 | msExchUCVoiceMailSettings |X | | |Enable Unified Messaging (UM) - Online voice mail: Used by Microsoft Lync Server integration to indicate to Lync Server on-premises that the user has voice mail in online services. |
 | msExchUserHoldPolicies |X | | |Litigation Hold: Enables cloud services to determine which users are under Litigation Hold. |
 | proxyAddresses |X |X |X |Only the x500 address from Exchange Online is inserted. |
+| publicDelegates |X | | |Allows an Exchange Online mailbox to be granted SendOnBehalfTo rights to users with on-premises Exchange mailbox. Requires Azure AD Connect build 1.1.552.0 or after. |
+
+## Exchange Mail Public Folder
+These attributes are synchronized from on-premises Active Directory to Azure AD when you select to enable **Exchange Mail Public Folder**.
+
+| Attribute Name | PublicFolder | Comment |
+| --- | :---:| --- |
+| displayName | X |  |
+| mail | X |  |
+| msExchRecipientTypeDetails | X |  |
+| objectGUID | X |  |
+| proxyAddresses | X |  |
+| targetAddress | X |  |
 
 ## Device writeback
 Device objects are created in Active Directory. These objects can be devices joined to Azure AD or domain-joined Windows 10 computers.
@@ -454,4 +469,3 @@ Device objects are created in Active Directory. These objects can be devices joi
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
-

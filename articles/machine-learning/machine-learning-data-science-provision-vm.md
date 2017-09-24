@@ -1,6 +1,6 @@
 ---
 title: Provision the Microsoft Data Science Virtual Machine | Microsoft Docs
-description: Configure and create a Data Science Virtual Machine on Azure to do analytics and machine learning.
+description: Configure and create a Data Science Virtual Machine on Azure for analytics and machine learning.
 services: machine-learning
 documentationcenter: ''
 author: bradsev
@@ -10,15 +10,14 @@ editor: cgronlun
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 07/21/2017
 ms.author: bradsev
 
 ---
 # Provision the Microsoft Data Science Virtual Machine
-The Microsoft Data Science Virtual Machine is an Azure virtual machine (VM) image pre-installed and configured with several popular tools that are commonly used for data analytics and machine learning. The tools included are:
+The Microsoft Data Science Virtual Machine is a Windows Azure virtual machine (VM) image pre-installed and configured with several popular tools that are commonly used for data analytics and machine learning. The tools included are:
 
 * Microsoft R Server Developer Edition
 * Anaconda Python distribution
@@ -38,17 +37,26 @@ The Microsoft Data Science Virtual Machine is an Azure virtual machine (VM) imag
 * Git including Git Bash to work with source code repositories including GitHub, Visual Studio Team Services
 * Windows ports of several popular Linux command-line utilities (including awk, sed, perl, grep, find, wget, curl etc) accessible through command prompt. 
 
-Doing data science involves iterating on a sequence of tasks: finding, loading, and pre-processing data, building and testing models, and deploying the models for consumption in intelligent applications. Data scientists use a variety of tools to complete these tasks. It can be quite time consuming to find the appropriate versions of the software, and then download and install them. The Microsoft Data Science Virtual Machine can ease this burden by providing a ready-to-use image that can be provisioned on Azure with all several popular tools pre-installed and configured. 
+Doing data science involves iterating on a sequence of tasks:
+
+1. Finding, loading, and pre-processing data
+2. Building and testing models
+3. Deploying the models for consumption in intelligent applications
+
+Data scientists use a variety of tools to complete these tasks. It can be quite time consuming to find the appropriate versions of the software, and then download and install them. The Microsoft Data Science Virtual Machine can ease this burden by providing a ready-to-use image that can be provisioned on Azure with all several popular tools pre-installed and configured. 
 
 The Microsoft Data Science Virtual Machine jump-starts your analytics project. It enables you to work on tasks in various languages including R, Python, SQL, and C#. Visual Studio provides an IDE to develop and test your code that is easy to use. The Azure SDK included in the VM allows you to build your applications using various services on Microsoft’s cloud platform. 
 
 There are no software charges for this data science VM image. You only pay for the Azure usage fees which dependent on the size of the virtual machine you provision. More details on the compute fees can be found in the Pricing details section on the [Data Science Virtual Machine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) page. 
 
+## Other Versions of the Data Science Virtual Machine
+A [CentOS](machine-learning-data-science-linux-dsvm-intro.md) image is also available, with many of the same tools as the Windows image. An [Ubuntu](machine-learning-data-science-dsvm-ubuntu-intro.md) image is available as well, with many similar tools plus deep learning frameworks.
+
 ## Prerequisites
 Before you can create a Microsoft Data Science Virtual Machine, you must have the following:
 
 * **An Azure subscription**: To obtain one, see [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **An Azure storage account**: To create one, see [Create an Azure storage account](../storage/storage-create-storage-account.md#create-a-storage-account). Alternatively, the storage account can be created as part of the process of creating the VM if you do not want to use an existing account.
+* **An Azure storage account**: To create one, see [Create an Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account). Alternatively, the storage account can be created as part of the process of creating the VM if you do not want to use an existing account.
 
 ## Create your Microsoft Data Science Virtual Machine
 Here are the steps to create an instance of the Microsoft Data Science Virtual Machine:
@@ -85,18 +93,19 @@ Once the VM is created, you can remote desktop into it using the Admin account c
 Once your VM is created and provisioned, you are ready to start using the tools that are installed and configured on it. There are start menu tiles and desktop icons for many of the tools. 
 
 ## How to create a strong password for Jupyter and start the notebook server
-By default, the Jupyter notebook server is pre-configured but disabled on the VM until you set a Jupyter password. To create a strong password for the Jupyter notebook server installed on the machine, run the following command from a command-prompt on the Data Science Virtual Machine OR double click the desktop shortcut we have provided called **Jupyter Set Password & Start** from a local VM administrator account.
+By default, the Jupyter notebook server is pre-configured but disabled on the VM until you set a Jupyter password. To create a strong password for the Jupyter notebook server installed on the machine, run the following command from a command-prompt on the Data Science Virtual Machine OR double-click the desktop shortcut we have provided called **Jupyter Set Password & Start** from a local VM administrator account.
 
     C:\dsvm\tools\setup\JupyterSetPasswordAndStart.cmd
 
 Follow the messages and choose a strong password when prompted.
 
-The above script will create a password hash and store it in the Jupyter configuration file located at: **C:\ProgramData\jupyter\jupyter_notebook_config.py** under the parameter name ***c.NotebookApp.password***.
+The preceding script creates a password hash and store it in the Jupyter configuration file located at: **C:\ProgramData\jupyter\jupyter_notebook_config.py** under the parameter name ***c.NotebookApp.password***.
 
-The script will also enable and run the Jupyter server in the background. Jupyter server is created as a windows task in the WIndows Task Scheduler called **Start_IPython_Notebook**.  You may have to wait for a few seconds after setting the password before opening the notebook on your browser. See the section below titled **Jupyter Notebook** on how to access the Jupyter notebook server. 
+The script also enables and run the Jupyter server in the background. Jupyter server is created as a windows task in the WIndows Task Scheduler called **Start_IPython_Notebook**.  You may have to wait for a few seconds after setting the password before opening the notebook on your browser. See the section below titled **Jupyter Notebook** on how to access the Jupyter notebook server. 
 
 
 ## Tools installed on the Microsoft Data Science Virtual Machine
+
 ### Microsoft R Server Developer Edition
 If you wish to use R for your analytics, the VM has Microsoft R Server Developer edition installed. Microsoft R Server is a broadly deployable enterprise-class analytics platform based on R that is supported, scalable, and secure. Supporting a variety of big data statistics, predictive modeling and machine learning capabilities, R Server supports the full range of analytics – exploration, analysis, visualization, and modeling. By using and extending open source R, Microsoft R Server is fully compatible with R scripts, functions and CRAN packages, to analyze data at enterprise scale. It also addresses the in-memory limitations of Open Source R by adding parallel and chunked processing of data. This enables you to run analytics on data much bigger than what fits in main memory.  Visual Studio Community Edition included on the VM contains the R Tools for Visual Studio extension that provides a full IDE for working with R. You can also download and use other IDEs as well such as [RStudio](http://www.rstudio.com). 
 
@@ -152,7 +161,7 @@ Several Azure tools are installed on the VM:
 * **AzCopy**: used to move data in and out of your Microsoft Azure Storage Account. To see usage, type **Azcopy** at a command prompt to see the usage. 
 * **Microsoft Azure Storage Explorer**: used to browse through the objects that you have stored within your Azure Storage Account and transfer data to and from Azure storage. You can type **Storage Explorer** in search or find it on the Windows Start menu to access this tool. 
 * **Adlcopy**: used to move data to Azure Data Lake. To see usage, type **adlcopy** in a command prompt. 
-* **dtui**: used to move data to and from Azure DocumentDB, a NoSQL database on the cloud. Type **dtui** on command prompt. 
+* **dtui**: used to move data to and from Azure Cosmos DB, a NoSQL database on the cloud. Type **dtui** on command prompt. 
 * **Microsoft Data Management Gateway**:  enables data movement between on-premises data sources and cloud. It is used within tools like Azure Data Factory. 
 * **Microsoft Azure Powershell**:  a tool used to administer your Azure resources in the Powershell scripting language is also installed on your VM. 
 

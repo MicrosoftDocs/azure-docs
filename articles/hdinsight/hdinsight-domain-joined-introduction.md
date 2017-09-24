@@ -10,8 +10,9 @@ tags: azure-portal
 
 ms.assetid: 7dc6847d-10d4-4b5c-9c83-cc513cf91965
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/31/2016
@@ -24,8 +25,9 @@ Azure HDInsight until today supported only a single user local admin. This worke
 
 > [!NOTE]
 > The new features described in this preview are available only on Linux-based HDInsight clusters for Hive workload. The other workloads, such as HBase, Spark, Storm and Kafka, will be enabled in future releases.
->
->
+
+> [!IMPORTANT]
+> Oozie is not enabled on domain-joined HDInsight.
 
 ## Benefits
 Enterprise Security contains four big pillars – Perimeter Security, Authentication, Authorization, and Encryption.
@@ -45,10 +47,10 @@ A best practice followed by most enterprises is that not every employee has acce
 Along with protecting the HDInsight cluster resources from unauthorized users, and securing the data, auditing of all access to the cluster resources, and the data is necessary to track unauthorized or unintentional access of the resources. With this preview, the admin can view and report all access to the HDInsight cluster resources and data. The admin can also view and report all changes to the access control policies done in Apache Ranger supported endpoints. A Domain-joined HDInsight cluster uses the familiar Apache Ranger UI to search audit logs. On the backend, Ranger uses [Apache Solr](http://hortonworks.com/apache/solr/) for storing and searching the logs.
 
 ### Encryption
-Protecting data is important for meeting organizational security and compliance requirements, and along with restricting access to data from unauthorized employees, it should also be secured by encrypting it. Both the data stores for HDInsight clusters, Azure Storage Blob, and Azure Data Lake Storage support transparent server-side [encryption of data](../storage/storage-service-encryption.md) at rest. Secure HDInsight clusters will seamlessly work with this server side encryption of data at rest capability.
+Protecting data is important for meeting organizational security and compliance requirements, and along with restricting access to data from unauthorized employees, it should also be secured by encrypting it. Both the data stores for HDInsight clusters, Azure Storage Blob, and Azure Data Lake Storage support transparent server-side [encryption of data](../storage/common/storage-service-encryption.md) at rest. Secure HDInsight clusters will seamlessly work with this server side encryption of data at rest capability.
 
 ## Next steps
 * For configuring a Domain-joined HDInsight cluster, see [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md).
 * For managing a Domain-joined HDInsight clusters, see [Manage Domain-joined HDInsight clusters](hdinsight-domain-joined-manage.md).
 * For configuring Hive policies and run Hive queries, see [Configure Hive policies for Domain-joined HDInsight clusters](hdinsight-domain-joined-run-hive.md).
-* For running Hive queries using SSH on Domain-joined HDInsight clusters, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* For running Hive queries using SSH on Domain-joined HDInsight clusters, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

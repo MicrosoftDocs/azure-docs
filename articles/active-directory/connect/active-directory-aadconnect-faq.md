@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 08/12/2017
 ms.author: billmath
 
 ---
@@ -28,7 +28,7 @@ It is only supported to install Azure AD Connect using the installation wizard. 
 With the builds from February 2016, this is supported.
 
 **Q: Does the AD DS health agent work on server core?**  
-Yes. After installing the agent, you can complete the registration process using the following PowerShell commandlet: 
+Yes. After installing the agent, you can complete the registration process using the following PowerShell cmdlet: 
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
 
@@ -68,15 +68,7 @@ No, this is currently not supported.
 **Q: Is it supported to manually set ImmutableId attribute on existing Azure AD Group/Contact objects to hard match it to on-premises AD Group/Contact objects?**  
 No, this is currently not supported.
 
-## Security
-**Q: Are accounts locked after a specific number of failed attempts or is there a more sophisticated strategy used?**</br>
-We use a more sophisticated strategy to lock accounts.  This is based on the IP of the request and the passwords entered. The duration of the lockout also increases based on the likelihood that it is an attack.  
 
-**Q:  Certain (common) passwords get rejected with the messages ‘this password has been used to many times’, does this refer to passwords used in the current active directory?**</br>
-This refers to passwords that are globally common, such as any variants of “Password” and “123456”.
-
-**Q: Will a sign-in request from dubious sources (botnets, tor endpoint) be blocked in a B2C tenant or does this require a Basic or Premium edition tenant?**</br>
-We do have a gateway that filters requests and provides some protection from botnets, and is applied for all B2C tenants. 
 
 ## Custom configuration
 **Q: Where are the PowerShell cmdlets for Azure AD Connect documented?**  
@@ -107,7 +99,7 @@ No.
 
 * You can search and browse for technical questions and answers from the community or ask your own question by clicking [here](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 
-[Azure AD Connect customer support](https://manage.windowsazure.com/?getsupport=true)
+[How to get support for Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
 
 * Use this link to get support through the Azure portal.
 

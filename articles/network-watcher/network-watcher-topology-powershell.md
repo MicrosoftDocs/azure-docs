@@ -3,7 +3,7 @@ title: View Azure Network Watcher topology - PowerShell | Microsoft Docs
 description: This article will describe how to use PowerShell to query your network topology.
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 
@@ -14,14 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 ---
 
 # View Network Watcher topology with PowerShell
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-topology-powershell.md)
-> - [CLI](network-watcher-topology-cli.md)
+> - [CLI 1.0](network-watcher-topology-cli-nodejs.md)
+> - [CLI 2.0](network-watcher-topology-cli.md)
 > - [REST API](network-watcher-topology-rest.md)
 
 The Topology feature of Network Watcher provides a visual representation of the network resources in a subscription. In the portal, this visualization is presented to you automatically. The information behind the topology view in the portal can be retrieved through PowerShell.
@@ -54,7 +55,7 @@ The scenario covered in this article retrieves the topology response for a given
 
 ## Retrieve Network Watcher
 
-The first step is to retrieve the Network Watcher instance. Th `$networkWatcher` variable is passed to the `Get-AzureRmNetworkWatcherTopology` cmdlet.
+The first step is to retrieve the Network Watcher instance. The `$networkWatcher` variable is passed to the `Get-AzureRmNetworkWatcherTopology` cmdlet.
 
 ```powershell
 $nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }

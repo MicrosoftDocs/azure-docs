@@ -3,7 +3,7 @@ title: Restrictions and known issues in Azure API Management API import | Micros
 description: Details of known issues and restrictions on import into Azure API Management using the Open API, WSDL or WADL formats.
 services: api-management
 documentationcenter: ''
-author: mattfarm
+author: vladvino
 manager: vlvinogr
 editor: ''
 
@@ -26,15 +26,16 @@ In general, if you are receiving errors importing your Open API document, please
 
 * **Host Name** we require a host name attribute.
 * **Base Path** we require a base path attribute.
-* **Schemes** we require a scheme array.
+* **Schemes** we require a scheme array. 
 
 ## <a name="wsdl"> </a>WSDL
 WSDL files are used to generate SOAP Pass-through APIs, or serve as the backend of a SOAP-to-REST API.
 
 * **WSDL:Import** we do not currently support APIs using this attribute. Customers should merge the imported elements into one document.
 * **Messages with multiple parts** are currently not supported.
-* **WCF wsHttpBinding** SOAP services created with Windows Communication Foundation should use basicHttpBinding - wsHttpBinding.
+* **WCF wsHttpBinding** SOAP services created with Windows Communication Foundation should use basicHttpBinding - wsHttpBinding is not supported.
 * **MTOM** Services using MTOM <em>may</em> work. Official support is not offered at this time.
+* **Recursion** types that are defined recursively (e.g. refer to an array of themselves) are not supported.
 
 ## <a name="wadl"> </a>WADL
 There are no known WADL import issues currently.

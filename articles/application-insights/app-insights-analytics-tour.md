@@ -1,9 +1,9 @@
----
+﻿---
 title: A tour through Analytics in Azure Application Insights | Microsoft Docs
 description: Short samples of all the main queries in Analytics, the powerful search tool of Application Insights.
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.assetid: bddf4a6d-ea8d-4607-8531-1fe197cc57ad
@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
-ms.author: awills
+ms.date: 05/06/2017
+ms.author: bwren
 
 ---
 # A tour of Analytics in Application Insights
 [Analytics](app-insights-analytics.md) is the powerful search feature of
 [Application Insights](app-insights-overview.md). These pages describe the
- Analytics query language.
+ Log Analytics query language.
 
 * **[Watch the introductory video](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
 * **[Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo)** if your app isn't sending data to Application Insights yet.
@@ -32,7 +32,7 @@ Open Analytics from your app's [overview blade](app-insights-dashboards.md) in A
 
 ![Open portal.azure.com, open your Application Insights resource, and click Analytics.](./media/app-insights-analytics-tour/001.png)
 
-## [Take](app-insights-analytics-reference.md#take-operator): show me n rows
+## [Take](https://docs.loganalytics.io/queryLanguage/query_language_takeoperator.html): show me n rows
 Data points that log user operations (typically HTTP requests received by your web app) are stored in a table called `requests`. Each row is a telemetry data point received from the Application Insights SDK in your app.
 
 Let's start by examining a few sample rows of the table:
@@ -57,7 +57,7 @@ Expand any item to see the detail:
 >
 >
 
-## [Top](app-insights-analytics-reference.md#top-operator) and [sort](app-insights-analytics-reference.md#sort-operator)
+## [Top](https://docs.loganalytics.io/queryLanguage/query_language_topoperator.html) and [sort](https://docs.loganalytics.io/queryLanguage/query_language_sortoperator.html)
 `take` is useful to get a quick sample of a result, but it shows rows from the table in no particular order. To get an ordered view, use `top` (for a sample) or `sort` (over the whole table).
 
 Show me the first n rows, ordered by a particular column:
@@ -83,7 +83,7 @@ The result would be the same, but it would run a bit more slowly. (You could als
 
 The column headers in the table view can also be used to sort the results on the screen. But of course, if you've used `take` or `top` to retrieve just part of a table, you'll only re-order the records you've retrieved.
 
-## [Where](app-insights-analytics-reference.md#where-operator): filtering on a condition
+## [Where](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html): filtering on a condition
 
 Let's see just requests that returned a particular result code:
 
@@ -99,10 +99,10 @@ Let's see just requests that returned a particular result code:
 The `where` operator takes a Boolean expression. Here are some key points about them:
 
 * `and`, `or`: Boolean operators
-* `==`, `<>` : equal and not equal
-* `=~`, `!=` : case-insensitive string equal and not equal. There are lots more string comparison operators.
+* `==`, `<>`, `!=` : equal and not equal
+* `=~`, `!~` : case-insensitive string equal and not equal. There are lots more string comparison operators.
 
-Read all about [scalar expressions](app-insights-analytics-reference.md#scalars).
+<!---Read all about [scalar expressions]().--->
 
 ### Getting the right type
 Find unsuccessful requests:
@@ -112,10 +112,11 @@ Find unsuccessful requests:
     requests
     | where isnotempty(resultCode) and toint(resultCode) >= 400
 ```
+<!---
+`resultCode` has type string, so we must cast it app-insights-analytics-reference.md#casts for a numeric comparison.
+--->
 
-`resultCode` has type string, so we must [cast it](app-insights-analytics-reference.md#casts) for a numeric comparison.
-
-## Time range
+## Time
 
 By default, your queries are restricted to the last 24 hours. But you can change this range:
 
@@ -157,11 +158,11 @@ Other examples:
 
 ```
 
-[Dates and times reference](app-insights-analytics-reference.md#date-and-time).
+[Dates and times reference](https://docs.loganalytics.io/concepts/concepts_datatypes_datetime.html).
 
 
-## [Project](app-insights-analytics-reference.md#project-operator): select, rename, and compute columns
-Use [`project`](app-insights-analytics-reference.md#project-operator) to pick out just the columns you want:
+## [Project](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html): select, rename, and compute columns
+Use [`project`](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html) to pick out just the columns you want:
 
 ```AIQL
 
@@ -186,15 +187,15 @@ You can also rename columns and define new ones:
 
 ![result](./media/app-insights-analytics-tour/270.png)
 
-* [Column names](app-insights-analytics-reference.md#names) can include spaces or symbols if they are bracketed like this: `['...']` or `["..."]`
+* Column names can include spaces or symbols if they are bracketed like this: `['...']` or `["..."]`
 * `%` is the usual modulo operator.
 * `1d` (that's a digit one, then a 'd') is a timespan literal meaning one day. Here are some more timespan literals: `12h`, `30m`, `10s`, `0.01s`.
 * `floor` (alias `bin`) rounds a value down to the nearest multiple of the base value you provide. So `floor(aTime, 1s)` rounds a time down to the nearest second.
 
-[Expressions](app-insights-analytics-reference.md#scalars) can include all the usual operators (`+`, `-`, ...), and there's a range of useful functions.
+Expressions can include all the usual operators (`+`, `-`, ...), and there's a range of useful functions.
 
-## [Extend](app-insights-analytics-reference.md#extend-operator): compute columns
-If you just want to add columns to the existing ones, use [`extend`](app-insights-analytics-reference.md#extend-operator):
+## Extend
+If you just want to add columns to the existing ones, use [`extend`](https://docs.loganalytics.io/queryLanguage/query_language_extendoperator.html):
 
 ```AIQL
 
@@ -203,7 +204,7 @@ If you just want to add columns to the existing ones, use [`extend`](app-insight
     | extend timeOfDay = floor(timestamp % 1d, 1s)
 ```
 
-Using [`extend`](app-insights-analytics-reference.md#extend-operator) is less verbose than [`project`](app-insights-analytics-reference.md#project-operator) if you want to keep all the existing columns.
+Using [`extend`](https://docs.loganalytics.io/queryLanguage/query_language_extendoperator.html) is less verbose than [`project`](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html) if you want to keep all the existing columns.
 
 ### Convert to local time
 
@@ -217,7 +218,7 @@ Timestamps are always in UTC. So if you're on the US Pacific coast and it's wint
 ```
 
 
-## [Summarize](app-insights-analytics-reference.md#summarize-operator): aggregate groups of rows
+## [Summarize](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html): aggregate groups of rows
 `Summarize` applies a specified *aggregation function* over groups of rows.
 
 For example, the time your web app takes to respond to a request is reported in the field `duration`. Let's see the average response time to all requests:
@@ -255,7 +256,7 @@ Summing up itemCount therefore gives a good estimate of the original number of e
 
 There's also a `count()` aggregation (and a count operation), for cases where you really do want to count the number of rows in a group.
 
-There's a range of [aggregation functions](app-insights-analytics-reference.md#aggregations).
+There's a range of [aggregation functions](https://docs.loganalytics.io/learn/tutorials/aggregations.html).
 
 ## Charting the results
 ```AIQL
@@ -396,7 +397,7 @@ The `where` clause excludes one-shot sessions (sessionDuration==0) and sets the 
 
 ![](./media/app-insights-analytics-tour/290.png)
 
-## [Percentiles](app-insights-analytics-reference.md#percentiles)
+## [Percentiles](https://docs.loganalytics.io/queryLanguage/query_language_percentiles_aggfunction.html)
 What ranges of durations cover different percentages of sessions?
 
 Use the above query, but replace the last line:
@@ -457,7 +458,7 @@ To find the exceptions related to a request that returned a failure response, we
 It's good practice to use `project` to select just the columns we need before performing the join.
 In the same clauses, we rename the timestamp column.
 
-## [Let](app-insights-analytics-reference.md#let-clause): Assign a result to a variable
+## [Let](https://docs.loganalytics.io/queryLanguage/query_language_letstatement.html): Assign a result to a variable
 
 Use `let` to separate out the parts of the previous expression. The results are unchanged:
 
@@ -517,7 +518,7 @@ You can flatten it by choosing the properties you're interested in:
     | extend method1 = tostring(details[0].parsedStack[1].method)
 ```
 
-Note that you need to use a [cast](app-insights-analytics-reference.md#casts) to the appropriate type.
+Note that you need to cast the result to the appropriate type.
 
 
 ## Custom properties and measurements
@@ -687,6 +688,13 @@ Server-side dependency results always show `success==False` if the Application I
 ### Traces table
 Contains the telemetry sent by your app using TrackTrace(), or [other logging frameworks](app-insights-asp-net-trace-logs.md).
 
+## Video 
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
+
+Advanced queries:
+
+> [!VIDEO https://channel9.msdn.com/Events/Build/2016/P591/player]
 
 
 ## Next steps

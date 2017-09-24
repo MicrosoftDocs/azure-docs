@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 08/29/2017
 ms.author: elioda
 
 ---
@@ -35,13 +35,13 @@ In addition to intra-region HA, IoT Hub implements failover mechanisms for disas
 ## Regional failover with IoT Hub
 A complete treatment of deployment topologies in IoT solutions is outside the scope of this article. The article discusses the *regional failover* deployment model for the purpose of high availability and disaster recovery.
 
-In a regional failover model, the solution back end runs primarily in one datacenter location, and a secondary IoT hub and back end are deployed in another datacenter location. If the IoT hub in the primary datacenter suffers an outage or the network connectivity from the device to the primary datacenter is interrupted. Devices use a secondary service endpoint whenever the primary gateway cannot be reached. With a cross-region failover capability, the solution availability can be improved beyond the high availability of a single region.
+In a regional failover model, the solution back end runs primarily in one datacenter location, and a secondary IoT hub and back end are deployed in another datacenter location. If the IoT hub in the primary datacenter suffers an outage or the network connectivity from the device to the primary datacenter is interrupted, devices use a secondary service endpoint whenever the primary gateway cannot be reached. With a cross-region failover capability, the solution availability can be improved beyond the high availability of a single region.
 
 At a high level, to implement a regional failover model with IoT Hub, you need the following:
 
 * **A secondary IoT hub and device routing logic**: In the case of a service disruption in your primary region, devices must start connecting to your secondary region. Given the state-aware nature of most services involved, it is common for solution administrators to trigger the inter-region failover process. The best way to communicate the new endpoint to devices, while maintaining control of the process, is to have them regularly check a *concierge* service for the current active endpoint. The concierge service can be a web application that is replicated and kept reachable using DNS-redirection techniques (for example, using [Azure Traffic Manager][Azure Traffic Manager]).
 * **Identity registry replication** - To be usable, the secondary IoT hub must contain all device identities that can connect to the solution. The solution should keep geo-replicated backups of device identities, and upload them to the secondary IoT hub before switching the active endpoint for the devices. The device identity export functionality of IoT Hub is useful in this context. For more information, see [IoT Hub developer guide - identity registry][IoT Hub developer guide - identity registry].
-* **Merging logic** - When the primary region becomes available again, all the state and data that have been created in the secondary site must be migrated back to the primary region. This state and data mostly relates to device identities and application metadata, which must be merged with the primary IoT hub and any other application-specific stores in the primary region. To simplify this step, you should use idempotent operations. Idempotent operations minimize the side-effects from the eventual consistent distribution of events, and from duplicates or out-of-order delivery of events. In addition, the application logic should be designed to tolerate potential inconsistencies or "slightly" out of date-state. This situation can occur due to the additional time it takes for the system to "heal" based on recovery point objectives (RPO).
+* **Merging logic** - When the primary region becomes available again, all the state and data that have been created in the secondary site must be migrated back to the primary region. This state and data mostly relates to device identities and application metadata, which must be merged with the primary IoT hub and any other application-specific stores in the primary region. To simplify this step, you should use idempotent operations. Idempotent operations minimize the side-effects from the eventual consistent distribution of events, and from duplicates or out-of-order delivery of events. In addition, the application logic should be designed to tolerate potential inconsistencies or "slightly" out-of-date state. This situation can occur due to the additional time it takes for the system to "heal" based on recovery point objectives (RPO).
 
 ## Next steps
 Follow these links to learn more about Azure IoT Hub:

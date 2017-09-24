@@ -4,7 +4,7 @@ description: This topic shows step by step instructions on how to run a full red
 services: media-services
 documentationcenter: ''
 author: Lichard
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: d6fa21b8-d80a-41b7-80c1-ff1761bc68f2
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 09/03/2017
 ms.author: rli; juliako;
 
 ---
@@ -26,8 +26,6 @@ ms.author: rli; juliako;
 For details about  **Azure Media Redactor**, see the [Face redaction overview](media-services-face-redaction.md) topic.
 
 This topic shows step by step instructions on how to run a full redaction workflow using Azure Media Services Explorer (AMSE) and Azure Media Redactor Visualizer (open source tool).
-
-The **Azure Media Redactor** MP is currently in Preview. It is available in all public Azure regions as well as US Government and China data centers. This preview is currently free of charge. In the current release, there is a 10 minute limit on processed video length.
 
 For more information, see [this](https://azure.microsoft.com/en-us/blog/redaction-preview-available-globally) blog.
 
@@ -111,6 +109,10 @@ If you are a developer trying to parse the JSON annotation data, look inside Mod
 	![Face redaction](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough012.png)
 
 5.	The bottom text field will update with the face IDs. Create a file called "idlist.txt" with these IDs as a newline delimited list. 
+
+	>[!NOTE]
+	> The idlist.txt should be saved in ANSI. You can use notepad to save in ANSI.
+	
 6.	Upload this file to the output asset from step 1. Upload the original video to this asset as well and set as primary asset. 
 7.	Run Redaction job on this asset with "Redact" mode to get the final redacted video. 
 
@@ -126,3 +128,4 @@ If you are a developer trying to parse the JSON annotation data, look inside Mod
 
 [Azure Media Analytics demos](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
+[Announcing Face Redaction for Azure Media Analytics](https://azure.microsoft.com/blog/azure-media-redactor/)

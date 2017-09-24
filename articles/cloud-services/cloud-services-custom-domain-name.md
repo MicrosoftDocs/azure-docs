@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 07/05/2017
 ms.author: adegeo
 
 ---
@@ -38,7 +38,7 @@ Do you already understand what CNAME and A records are? [Jump past the explanati
 <p/>
 
 > [!NOTE]
-> The procedures in this task apply to Azure Cloud Services. For App Services, see [this](../app-service-web/web-sites-custom-domain-name.md). For storage accounts, see [this](../storage/storage-custom-domain-name.md).
+> The procedures in this task apply to Azure Cloud Services. For App Services, see [this](../app-service-web/web-sites-custom-domain-name.md). For storage accounts, see [this](../storage/blobs/storage-custom-domain-name.md).
 > 
 > 
 
@@ -73,7 +73,7 @@ To create a CNAME record, you must add a new entry in the DNS table for your cus
        ![quick glance section showing the site URL][csurl]
      
        **OR**  
-   * Install and configure [Azure Powershell](/powershell/azureps-cmdlets-docs), and then use the following command:
+   * Install and configure [Azure Powershell](/powershell/azure/overview), and then use the following command:
      
        ```powershell
        Get-AzureDeployment -ServiceName yourservicename | Select Url
@@ -110,7 +110,7 @@ To create an A record, you must first find the virtual IP address of your cloud 
        ![quick glance section showing the VIP][vip]
      
        **OR**  
-   * Install and configure [Azure Powershell](/powershell/azureps-cmdlets-docs), and then use the following command:
+   * Install and configure [Azure Powershell](/powershell/azure/overview), and then use the following command:
      
        ```powershell
        get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip

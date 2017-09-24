@@ -35,16 +35,17 @@
 ## [Application patterns](../sql/virtual-machines-windows-sql-server-app-patterns-dev-strategies.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 
 # Reference
-## [PowerShell classic](/powershell/servicemanagement)
+## [PowerShell classic](/powershell/azure/overview?view=azuresmps-3.7.0)
 ## [Azure CLI](/cli/azure/)
-## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
-## [SQL Server Drivers](https://msdn.microsoft.com/library/mt654049.aspx)
+## [T-SQL](https://docs.microsoft.com/sql/t-sql/language-reference)
+## [SQL Server Drivers](https://docs.microsoft.com/sql/connect/sql-server-drivers)
 ## [REST](/rest/api/)
 
 # Resources
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows&filter=alltypes&brandIgnore=True&sort=relevancedesc&searchTerm=SQL+Server)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
+## [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
+## [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
+## [SQL Server Tools](https://docs.microsoft.com/sql/tools/overview-sql-tools)
 ## [Stack Overflow](http://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server)
-## [SQL Server Tools](https://msdn.microsoft.com/library/mt238365.aspx)
-## [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
-## [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)
 

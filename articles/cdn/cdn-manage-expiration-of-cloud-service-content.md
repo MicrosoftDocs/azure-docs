@@ -36,7 +36,7 @@ Files from any publicly accessible origin web server can be cached in Azure CDN 
 ## Setting Cache-Control Headers in configuration
 For static content, such as images and style sheets, you can control the update frequency by modifying the **applicationHost.config** or **web.config** files for your web application.  The **system.webServer\staticContent\clientCache** element in the configuration file will set the `Cache-Control` header for your content. For **web.config**, the configuration settings will affect everything in the folder and all subfolders, unless overridden at the subfolder level.  For example, you can set a default time-to-live at the root to have all static content cached for 3 days, but have a subfolder that has more variable content with a cache setting of 6 hours.  For **applicationHost.config**, all applications on the site will be affected, but can be overridden in **web.config** files in the applications.
 
-The following XML shows and example of setting **clientCache** to specify a maximum age of 3 days:  
+The following XML shows an example of setting **clientCache** to specify a maximum age of 3 days:  
 
 ```xml
 <configuration>

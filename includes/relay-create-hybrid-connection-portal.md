@@ -1,4 +1,4 @@
-Please ensure that you have already created a Relay namespace, as shown [here][namespace-how-to].
+Ensure that you have already created a Relay namespace, as shown [here][namespace-how-to].
 
 1. Log on to the [Azure portal](https://portal.azure.com).
 2. In the left navigation pane of the portal, click **Relay**.

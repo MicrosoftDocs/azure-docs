@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 03/24/2017
 ms.author: bradsev;garye
 
 ---
@@ -40,6 +40,7 @@ By using the [Import Data][import-data] module, you can access data from one of 
 * Azure SQL database or SQL Server on Azure VM
 * On-premises SQL Server database
 * A data feed provider, OData currently
+* Azure CosmosDB (previously called DocumentDB)
 
 To access online data sources in your Studio experiment, add the [Import Data][import-data] module to your, select the **Data source**, and then provide the parameters needed to access the data. The online data sources that are supported are itemized in the table below. This table also summarizes the file formats that are supported and parameters that are used to access the data.
 
@@ -51,7 +52,7 @@ Note that because this training data is accessed while your experiment is runnin
 > Generally, any Azure storage accounts that you might have created before this service option became available should not be affected. 
 > If you need to create a new account, select **Classic** for the Deployment model, or use Resource manager and select **General purpose** rather than **Blob storage** for **Account kind**. 
 > 
-> For more information, see [Azure Blob Storage: Hot and Cool Storage Tiers](../storage/storage-blob-storage-tiers.md).
+> For more information, see [Azure Blob Storage: Hot and Cool Storage Tiers](../storage/blobs/storage-blob-storage-tiers.md).
 > 
 > 
 

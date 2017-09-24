@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/12/2017
 ms.author: billmath
 
 ---
@@ -143,6 +143,11 @@ On the Global Parameters page, you configure the time zone and the import and ex
 The **Domino Server Time Zone** parameter defines the location of your Domino Server.
 
 This configuration option is required to support **delta import** operations because it enables the synchronization service determine changes between the last two imports.
+
+>[!Note]
+Starting in the March 2017 update the Global parameters screen includes the option to delete the user's mail database during the user's deletion.
+
+![Delete user's mailbox](./media/active-directory-aadconnectsync-connector-domino/AdminP.png)
 
 #### Import settings, method
 The **Perform Full Import By** has these options:

@@ -4,7 +4,7 @@ description: The Azure Security Center Power BI content pack makes it easy to fi
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: ''
 
 ms.assetid: 0ded6bc7-52e8-43b4-8940-0bee137526e3
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 05/09/2017
 ms.author: yurid
 
 ---
@@ -25,12 +25,12 @@ You can also mash up Security Center recommendations and security alerts with ot
 ## Using Azure Security Center dashboard to access Power BI
 You can also use the Azure Security Center dashboard to access Power BI reports. Follow the steps to perform this task:
 
-1. In the **Azure Security Center** dashboard, click **Explore in Power BI** button.
+1. In the **Azure Security Center** dashboard, click **Power BI** button.
 
-    ![Connect to Azure Security Center using Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new10.png)
-2. The **Explore in Power BI** blade opens on the right side as shown in the following screen:
+    ![Connect to Azure Security Center using Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-1-newUI-2017.png)
+2. The **Power BI** blade opens on the right side as shown in the following screen:
 
-    ![Connect to Azure Security Center using Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new2.png)
+    ![Connect to Azure Security Center using Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new11-2017.png)
 3. If you are creating the Power BI dashboard for the first time, you can choose one of the following options in the **Explore in Power BI** blade:
 
    * **Security insights dashboard**: choose this option if you want to create a dashboard that includes security status, threads, and detections. This option is a more common for DevOps role that is responsible for analyzing their protection status and detected alerts across subscriptions.

@@ -18,7 +18,9 @@ ms.author: tomfitz
 
 ---
 # Throttling Resource Manager requests
-For each subscription and tenant, Resource Manager limits read requests to 15,000 per hour and write requests to 1,200 per hour. If your application or script reaches these limits, you need to throttle your requests. This topic shows you how to determine the remaining requests you have before reaching the limit, and how to respond when you have reached the limit.
+For each subscription and tenant, Resource Manager limits read requests to 15,000 per hour and write requests to 1,200 per hour. These limits apply to each Azure Resource Manager instance; there are multiple instances in every Azure region, and Azure Resource Manager is deployed to all Azure regions.  So, in practice, limits are effectively much higher than those listed above, as user requests are generally serviced by many different instances.
+
+If your application or script reaches these limits, you need to throttle your requests. This topic shows you how to determine the remaining requests you have before reaching the limit, and how to respond when you have reached the limit.
 
 When you reach the limit, you receive the HTTP status code **429 Too many requests**.
 

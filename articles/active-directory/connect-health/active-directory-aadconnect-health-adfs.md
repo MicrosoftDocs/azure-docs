@@ -4,17 +4,16 @@ description: This is the Azure AD Connect Health page how to monitor your on-pre
 services: active-directory
 documentationcenter: ''
 author: karavar
-manager: samueld
+manager: femila
 editor: curtand
-
 ms.assetid: dc0e53d8-403e-462a-9543-164eaa7dd8b3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/27/2017
-ms.author: vakarand
+ms.date: 07/18/2017
+ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ---
 # Monitor AD FS using Azure AD Connect Health

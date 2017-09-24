@@ -3,7 +3,7 @@ title: Health monitoring overview for Azure Application Gateway | Microsoft Docs
 description: Learn about the monitoring capabilities in Azure Application Gateway
 services: application-gateway
 documentationcenter: na
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2016
-ms.author: gwallace
+ms.author: davidmu
 
 ---
 
@@ -26,6 +26,9 @@ Azure Application Gateway by default monitors the health of all resources in its
 ![application gateway probe example][1]
 
 In addition to using default health probe monitoring, you can also customize the health probe to suit your application's requirements. In this article, both default and custom health probes are covered.
+
+> [!NOTE]
+> If there is an NSG on Application Gateway subnet, port ranges 65503-65534 should be opened on the Application Gateway subnet for Inbound traffic. These ports are required for the backend health API to work.
 
 ## Default health probe
 

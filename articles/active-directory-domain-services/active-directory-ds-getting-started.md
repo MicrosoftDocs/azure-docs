@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Domain Services: Create the AAD DC Administrators group | Microsoft Docs'
-description: Getting started with Azure Active Directory Domain Services
+title: 'Azure Active Directory Domain Services: Getting Started | Microsoft Docs'
+description: Enable Azure Active Directory Domain Services using the Azure portal (Preview)
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
@@ -13,50 +13,66 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 09/15/2017
 ms.author: maheshu
 
 ---
-# Get started with Azure AD Domain Services
-This article walks through the configuration tasks required to enable Azure AD Domain Services for your Azure AD tenant.
+# Enable Azure Active Directory Domain Services using the Azure portal (Preview)
+This article shows how to enable Azure Active Directory Domain Services (Azure AD DS) using the Azure portal.
 
-## Task 1: Create the 'AAD DC Administrators' group
-The first task is to create an administrative group in your Azure Active Directory tenant. This special administrative group is called **AAD DC Administrators**. Members of this group are granted administrative privileges on machines that are domain-joined to the Azure AD Domain Services managed domain. On domain-joined machines, this group is added to the ‘Administrators’ group. Additionally, members of this group can use Remote Desktop to connect remotely to domain-joined machines.  
+To launch the **Enable Azure AD Domain Services** wizard, complete the following steps:
 
-> [!NOTE]
-> You do not have Domain Administrator or Enterprise Administrator privileges on the managed domain created using Azure AD Domain Services. On managed domains, these privileges are reserved by the service and are not made available to users within the tenant. However, you can use the special administrator group created in this configuration task, to perform some privileged operations. These operations include joining computers to the domain, belonging to the Administrators group on domain-joined machines, configuring Group Policy etc.
-> 
-> 
+1. Go to the [Azure portal](https://portal.azure.com).
+2. In the left pane, click on **New**.
+3. In the **New** page, type **Domain Services** into the search bar.
 
-In this configuration task, you create the administrative group and add one or more users in your directory to the group. Perform the following steps to create the administrative group for Azure AD Domain Services:
+    ![Search for domain services](./media/getting-started/search-domain-services.png)
 
-1. Navigate to the **Azure classic portal** ([https://manage.windowsazure.com](https://manage.windowsazure.com))
-2. Select the **Active Directory** node on the left pane.
-3. Select the Azure AD tenant (directory) for which you would like to enable Azure AD Domain Services. You can only create one domain for each Azure AD directory.
-   
-    ![Select Azure AD Directory](./media/active-directory-domain-services-getting-started/select-aad-directory.png)
-4. Click the **Groups** tab.
-5. To add a group to your Azure AD tenant, click **Add Group** from the task pane at the bottom of the page.
-   
-    ![Add group button](./media/active-directory-domain-services-getting-started/add-group-button.png)
-6. Create a group named **AAD DC Administrators**. Set **GROUP TYPE** to **Security**.
-   
-   > [!WARNING]
-   > To enable access within your Azure AD Domain Services managed domain, create a group with this exact name.
-   > 
-   > 
-   
-    ![Create administrator group](./media/active-directory-domain-services-getting-started/create-admin-group.png)
-7. Add a description for this group so others understand that this group is used to grant administrative privileges within Azure AD Domain Services.
-8. After the group has been created, click the name of the group to see the properties of this group. To add users as members of this group, click the **Add members** button on the bottom panel.
-   
-    ![Add group members button](./media/active-directory-domain-services-getting-started/add-group-members-button.png)
-9. In the **Add members** dialog, select the users who should be members of this group and select the checkbox when you are done.
-   
-    ![Add users to administrator group](./media/active-directory-domain-services-getting-started/add-group-members.png)
+4. Click to select **Azure AD Domain Services** from the list of search suggestions. On the **Azure AD Domain Services** page, click the **Create** button.
 
-<br>
+    ![Domain services view](./media/getting-started/domain-services-blade.png)
 
-## Task 2: Create or select an Azure virtual network
-The next configuration task is to [create or select an Azure virtual network](active-directory-ds-getting-started-vnet.md).
+5. The **Enable Azure AD Domain Services** wizard is launched.
 
+
+## Task 1: configure basic settings
+In the **Basics** page of the wizard, you can specify the DNS domain name for the managed domain. You can also choose the resource group and Azure location to which the managed domain should be deployed.
+
+![Configure basics](./media/getting-started/domain-services-blade-basics.png)
+
+1. Choose the **DNS domain name** for your managed domain.
+
+   * The default domain name of the directory (with a **.onmicrosoft.com** suffix) is specified by default.
+
+   * You can also type in a custom domain name. In this example, the custom domain name is *contoso100.com*.
+
+     > [!WARNING]
+     > The prefix of your specified domain name (for example, *contoso100* in the *contoso100.com* domain name) must contain 15 or fewer characters. You cannot create a managed domain with a prefix longer than 15 characters.
+     >
+     >
+
+2. Ensure that the DNS domain name you have chosen for the managed domain does not already exist in the virtual network. Specifically, check whether:
+
+   * You already have a domain with the same DNS domain name on the virtual network.
+
+   * The virtual network where you plan to enable the managed domain has a VPN connection with your on-premises network. In this scenario, ensure you don't have a domain with the same DNS domain name on your on-premises network.
+
+   * You have an existing cloud service with that name on the virtual network.
+
+3. Choose the **type of virtual network**. By default, the **Resource Manager** virtual network type is selected. We recommend using this type of virtual network for all newly created managed domains.
+
+    > [!TIP]
+    > **Classic virtual network support is scheduled for deprecation.** Select the Resource Manager virtual network type for all new deployments. Classic virtual networks will soon no longer be supported for new deployments. Existing managed domains deployed in classic virtual networks will continue to be supported.
+    >
+
+4. Select the Azure **Subscription** in which you would like to create the managed domain.
+
+5. Select the **Resource group** to which the managed domain should belong. You can choose either the **Create new** or **Use existing** options to select the resource group.
+
+6. Choose the Azure **Location** in which the managed domain should be created. On the **Network** page of the wizard, you see only virtual networks that belong to the location you have selected.
+
+7. When you are done, click **OK** to move on to the **Network** page of the wizard.
+
+
+## Next step
+[Task 2: configure network settings](active-directory-ds-getting-started-network.md)

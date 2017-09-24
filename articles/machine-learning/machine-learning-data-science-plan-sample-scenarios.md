@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 
 ---
@@ -32,7 +32,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 > **For all of the following scenarios, you need to:**
 > <br/>
 > 
-> * [Create a storage account](../storage/storage-create-storage-account.md)
+> * [Create a storage account](../storage/common/storage-create-storage-account.md)
 >   <br/>
 > * [Create an Azure Machine Learning workspace](machine-learning-create-workspace.md)
 > 

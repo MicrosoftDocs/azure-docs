@@ -1,5 +1,5 @@
 ---
-title: Copy others' data science examples – machine learning - Azure | Microsoft Docs
+title: Copy others' data science examples – Azure Machine Learning  | Microsoft Docs
 description: 'Trade secret of data science: Get others to do your work for you. Get machine learning examples from the Cortana Analytics Gallery.'
 keywords: data science examples,machine learning example,clustering algorithm,clustering algorithm example
 services: machine-learning
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
-ms.author: cgronlun;garye
+ms.date: 07/13/2017
+ms.author: cgronlun
 
 ---
 # Copy other people's work to do data science
@@ -23,6 +23,7 @@ ms.author: cgronlun;garye
 One of the trade secrets of data science is getting other people to do your work for you. Find a clustering algorithm example in Cortana Analytics Gallery to use for your own machine learning experiment.
 
 To get the most out of the series, watch them all. [Go to the list of videos](#other-videos-in-this-series)
+<br>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science/player]
 >
@@ -38,7 +39,7 @@ To get the most out of the series, watch them all. [Go to the list of videos](#o
 * Video 5: Copy other people's work to do data science
 
 ## Transcript: Copy other people's work to do data science
-Welcome to the fifth video in the series “Data Science for Beginners.”
+Welcome to the fifth video in the series "Data Science for Beginners."
 
 In this one, you’ll discover a place to find examples that you can borrow from as a starting point for your own work. You might get the most out of this video if you first watch the earlier videos in this series.
 
@@ -47,7 +48,7 @@ One of the trade secrets of data science is getting other people to do your work
 ## Find examples in the Cortana Intelligence Gallery
 Microsoft has a cloud-based service called [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) that you're welcome to try for free. It provides you with a workspace where you can experiment with different machine learning algorithms, and, when you've got your solution worked out, you can launch it as a web service.
 
-Part of this service is something called the **[Cortana Intelligence Gallery](http://aka.ms/CortanaIntelligenceGallery)**. It contains a variety of resources, one of which is a collection of Azure Machine Learning experiments, or models, that people have built and contributed for others to use. These experiments are a great way to leverage the thought and hard work of others to get you started on your own solutions.
+Part of this service is something called the **[Cortana Intelligence Gallery](http://aka.ms/CortanaIntelligenceGallery)**. It contains resources, including a collection of Azure Machine Learning experiments, or models, that people have built and contributed for others to use. These experiments are a great way to leverage the thought and hard work of others to get you started on your own solutions.
 
 You can find the gallery at [aka.ms/CortanaIntelligenceGallery](http://aka.ms/CortanaIntelligenceGallery). Everyone is welcome to browse through it.
 
@@ -56,7 +57,7 @@ You can find the gallery at [aka.ms/CortanaIntelligenceGallery](http://aka.ms/Co
 If you click **Experiments** at the top, you'll see a number of the most recent and popular experiments in the gallery. You can search through the rest of experiments by clicking **Browse All** at the top of the screen, and there you can enter search terms and choose search filters.
 
 ## Find and use a clustering algorithm example
-So, for instance, let's say you want to see an example of how clustering works, so you search for **"clustering"** experiments.
+So, for instance, let's say you want to see an example of how clustering works, so you search for **"clustering sweep"** experiments.
 
 ![Search for clustering experiments](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/search-for-clustering-experiments.png)
 

@@ -7,7 +7,7 @@ author: mgoedtel
 manager: jwhit
 editor: ''
 
-ms.assetid: 
+ms.assetid:
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -32,7 +32,7 @@ There are two options to call a runbook when configuring the alert.  Specificall
 
 ## Calling a runbook using a webhook
 
-A webhook allows you to start a particular runbook in Azure Automation through a single HTTP request.  Before configuring the [Log Analytics alert](../log-analytics/log-analytics-alerts.md#creating-an-alert-rule) to call the runbook using a webhook as an alert action, you will need to first create a webhook for the runbook that will be called using this method.  Review and follow the steps in the [create a webhook](automation-webhooks.md#creating-a-webhook) article and remember to record the webhook URL so that you can reference it while configuring the alert rule.   
+A webhook allows you to start a particular runbook in Azure Automation through a single HTTP request.  Before configuring the [Log Analytics alert](../log-analytics/log-analytics-alerts.md#alert-rules) to call the runbook using a webhook as an alert action, you will need to first create a webhook for the runbook that will be called using this method.  Review and follow the steps in the [create a webhook](automation-webhooks.md#creating-a-webhook) article and remember to record the webhook URL so that you can reference it while configuring the alert rule.   
 
 ## Calling a runbook directly
 
@@ -49,14 +49,14 @@ Both methods for calling the runbook from the Log Analytics alert have different
 	      [Parameter (Mandatory=$true)]  
 	      [object] $WebhookData  
          )
-  
+
 *  You must have code to convert the WebhookData to a PowerShell object.
 
 	`$SearchResults = (ConvertFrom-Json $WebhookData.RequestBody).SearchResults.value`
 
 	*$SearchResults* will be an array of objects; each object contains the fields with values from one search result
 
-### WebhookData inconsistencies between the webhook option and runbook option 
+### WebhookData inconsistencies between the webhook option and runbook option
 
 * When configuring an alert to call a Webhook, enter a webhook URL you created for a runbook, and click the **Test Webhook** button.  The resulting WebhookData sent to the runbook does not contain either *.SearchResult* or *.SearchResults*.
 
@@ -65,7 +65,7 @@ Both methods for calling the runbook from the Log Analytics alert have different
 
 Thus in the code example above, you will need to get *.SearchResult* if the alert calls a webhook, and will need to get *.SearchResults* if the alert calls a runbook directly.
 
-## Example walkthrough 
+## Example walkthrough
 
 We will demonstrate how this works by using the following example graphical runbook, which starts a Windows service.<br><br> ![Start Windows Service Graphical Runbook](media/automation-invoke-runbook-from-omsla-alert/automation-runbook-restartservice.png)<br>
 

@@ -3,7 +3,7 @@ title: Introduction to Azure Network Watcher | Microsoft Docs
 description: This page provides an overview of the Network Watcher service for monitoring and visualizing network connected resources in Azure
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
-ms.author: gwallace
+ms.date: 07/11/2017
+ms.author: jdial
 ---
 
 # Azure network monitoring overview
@@ -32,8 +32,6 @@ This article covers scenario and resource level monitoring. Network monitoring i
 
 Network Watcher is a regional service that enables you to monitor and diagnose conditions at a network scenario level in, to, and from Azure. Network diagnostic and visualization tools available with Network Watcher help you understand, diagnose, and gain insights to your network in Azure.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 Network Watcher currently has the following capabilities:
 
 * **[Topology](network-watcher-topology-overview.md)** - Provides a network level view showing the various interconnections and associations between network resources in a resource group.
@@ -45,15 +43,16 @@ Network Watcher currently has the following capabilities:
 * **[Virtual Network Gateway and Connection troubleshooting](network-watcher-troubleshoot-manage-rest.md)** - Provides the ability to troubleshoot Virtual Network Gateways and Connections.
 * **[Network subscription limits](#network-subscription-limits)** - Enables you to view network resource usage against limits.
 * **[Configuring Diagnostics Log](#diagnostic-logs)** – Provides a single pane to enable or disable Diagnostics logs for network resources in a resource group.
+* **[Connectivity (Preview)](network-watcher-connectivity-overview.md)** - Verifies the possibility of establishing a direct TCP connection from a virtual machine to a given endpoint.
 
 ### Role-based Access Control (RBAC) in Network Watcher
 
-Network watcher uses the [Azure Role-Based Access Control (RBAC) model](../active-directory/role-based-access-control-what-is.md). The following permissions are required by the Network Watcher in preview. It is important to make sure that the role used for initiating Network Watcher APIs or using Network Watcher from the portal has the required access.
+Network watcher uses the [Azure Role-Based Access Control (RBAC) model](../active-directory/role-based-access-control-what-is.md). The following permissions are required by the Network Watcher. It is important to make sure that the role used for initiating Network Watcher APIs or using Network Watcher from the portal has the required access.
 
 |Resource| Permission|
-|---|---|
+|---|---| 
 |Microsoft.Storage/ |Read|
-|Microsoft.Authorization/| Read|
+|Microsoft.Authorization/| Read| 
 |Microsoft.Resources/subscriptions/resourceGroups/| Read|
 |Microsoft.Storage/storageAccounts/listServiceSas/ | Action|
 |Microsoft.Storage/storageAccounts/listAccountSas/ |Action|
@@ -62,13 +61,13 @@ Network watcher uses the [Azure Role-Based Access Control (RBAC) model](../activ
 |Microsoft.Compute/virtualMachines/ |Write|
 |Microsoft.Compute/virtualMachineScaleSets/ |Read|
 |Microsoft.Compute/virtualMachineScaleSets/ |Write|
-|Microsoft.Network/networkWatchers/packetCaptures/| Read|
+|Microsoft.Network/networkWatchers/packetCaptures/ |Read|
 |Microsoft.Network/networkWatchers/packetCaptures/| Write|
 |Microsoft.Network/networkWatchers/packetCaptures/| Delete|
-|Microsoft.Network/networkWatchers/ |Write|
-|Microsoft.Network/networkWatchers/| Read|
+|Microsoft.Network/networkWatchers/ |Write |
+|Microsoft.Network/networkWatchers/| Read |
 |Microsoft.Insights/alertRules/ |*|
-|Microsoft.Support/| *|
+|Microsoft.Support/ | *|
 
 ### Network subscription limits
 
@@ -121,6 +120,8 @@ Do a packet capture on your VM by visiting [Variable packet capture in the Azure
 Perform proactive monitoring and diagnostics using [alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md).
 
 Detect security vulnerabilities with [Analyzing packet capture with Wireshark](network-watcher-deep-packet-inspection.md), using open source tools.
+
+Learn about some of the other key [networking capabilities](../networking/networking-overview.md) of Azure.
 
 <!--Image references-->
 [TS]: ./media/network-watcher-monitoring-overview/troubleshooting.png

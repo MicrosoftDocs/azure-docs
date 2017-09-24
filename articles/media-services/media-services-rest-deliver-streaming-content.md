@@ -2,7 +2,7 @@
 title: Publish Azure Media Services content using REST
 description: Learn how to create a locator that is used to build a streaming URL. The code uses REST API.
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 08/09/2017
 ms.author: juliako
 
 ---
@@ -34,6 +34,17 @@ This topic shows how to create an OnDemand streaming locator in order to publish
 
 The [following](#types) section shows the enum types whose values are used in the REST calls.   
 
+> [!NOTE]
+> When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
+> 
+
+## Connect to Media Services
+
+For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
+
+>[!NOTE]
+>After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI.
+
 ## Create an OnDemand streaming locator
 To create the OnDemand streaming locator and get URLs you need to do the following:
 
@@ -46,6 +57,10 @@ To create the OnDemand streaming locator and get URLs you need to do the followi
 5. Note that you cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.
 
 ### Create an access policy
+
+>[!NOTE]
+>There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
+
 Request:
 
     POST https://media.windows.net/api/AccessPolicies HTTP/1.1
@@ -176,5 +191,7 @@ example:
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## See also
+[Media Services operations REST API overview](media-services-rest-how-to-use.md)
+
 [Configure asset delivery policy](media-services-rest-configure-asset-delivery-policy.md)
 

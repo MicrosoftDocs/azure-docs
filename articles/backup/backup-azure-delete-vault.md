@@ -1,6 +1,6 @@
 ---
-title: Delete an Azure Backup vault | Microsoft Docs
-description: 'How to delete an Azure Backup vault. Troubleshooting why you can''t delete a backup vault. '
+title: ' Delete a Recovery Services vault in Azure | Microsoft Docs '
+description: How to delete an Azure Backup and Recovery Services vault. A backup vault can be called an Azure cloud vault, or Azure recovery vault. Troubleshooting problems when you can't delete a backup vault in the classic portal or Azure portal.
 services: service-name
 documentationcenter: dev-center-name
 author: markgalioto
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2016
+ms.date: 08/11/2017
 ms.author: markgal;trinadhk
 
 ---
-# Delete an Azure Backup vault
-The Azure Backup service has two types of vaults - the Backup vault and the Recovery Services vault. The Backup vault came first. Then the Recovery Services vault came along to support the expanded Resource Manager deployments. Because of the expanded capabilities and the information dependencies that must be stored in the vault, deleting a Recovery Services vault can seem harder than it has to be.
+# Delete a Recovery Services vault
+The Azure Backup service has two types of vaults - the Backup vault and the Recovery Services vault. The Backup vault came first. Then the Recovery Services vault came along to support the expanded Resource Manager deployments. Because of the expanded capabilities and the information dependencies that must be stored in the vault, deleting a Backup or Recovery Services vault can be confusing. This article explains how to delete the vaults in the classic portal and the Azure portal.  
 
 | **Deployment Type** | **Portal** | **Vault name** |
 | --- | --- | --- |
@@ -28,16 +28,21 @@ The Azure Backup service has two types of vaults - the Backup vault and the Reco
 > [!NOTE]
 > Backup vaults cannot protect Resource Manager-deployed solutions. However, you can use a Recovery Services vault to protect classically deployed servers and VMs.  
 >
+
+> [!IMPORTANT]
+> You can now upgrade your Backup vaults to Recovery Services vaults. For details, see the article [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft encourages you to upgrade your Backup vaults to Recovery Services vaults.<br/> **October 15, 2017**, you will no longer be able to use PowerShell to create Backup vaults. <br/> **Starting November 1, 2017**:
+>- Any remaining Backup vaults will be automatically upgraded to Recovery Services vaults.
+>- You won't be able to access your backup data in the classic portal. Instead, use the Azure portal to access your backup data in Recovery Services vaults.
 >
 
 In this article, we use the term, vault, to refer to the generic form of the Backup vault or Recovery Services vault. We use the formal name, Backup vault, or Recovery Services vault, when it is necessary to distinguish between the vaults.
 
 ## Deleting a Recovery Services vault
-Deleting a Recovery Services vault is a one-step process - *provided the vault doesn't contain any resources*. Before you can delete a Recovery Services vault, you must remove or delete all resources in the vault. If you attempt to delete a vault that contains resources, you get an error like the following image.
+Deleting a Recovery Services vault is a one-step process - *provided the vault doesn't contain any resources*. Before you can delete a Recovery Services vault, you must remove or delete all resources in the vault. If you attempt to delete a vault that contains resources, you get an error like the following image:
 
 ![Vault deletion error](./media/backup-azure-delete-vault/vault-deletion-error.png) <br/>
 
-Until you have cleared the resources from the vault, clicking **Retry** produces the same error. If you're stuck on this error message, click **Cancel** and follow the steps below to delete the resources in the Recovery Services vault.
+Until you have cleared the resources from the vault, clicking **Retry** produces the same error. If you're stuck on this error message, click **Cancel** and use the following steps to delete the resources in the vault.
 
 ### Removing the items from a vault protecting a VM
 If you already have the Recovery Services vault open, skip to the second step.
@@ -71,22 +76,22 @@ If you already have the Recovery Services vault open, skip to the second step.
 
     b. On the **Stop Backup** blade, from the **Choose an option** menu, select **Delete Backup Data** > type the name of the item > and click **Stop backup**.
 
-      Type the name of the item to verify you want to delete it. The **Stop Backup** button will not activate until you verify the item to stop. If you do not see the dialog box to type the name of the backup item, you have chosen the **Retain Backup Data** option.
+    Type the name of the item, to verify you want to delete it. The **Stop Backup** button activates once you verify the item. If you do not see the dialog box to type the name of the backup item, you chose the **Retain Backup Data** option.
 
     ![delete backup data](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
-      Optionally, you can provide a reason why you are deleting the data, and add comments. After you click **Stop Backup**, allow the delete job to complete before attempting to delete the vault. To verify that the job has completed, check the Azure Messages ![delete backup data](./media/backup-azure-delete-vault/messages.png). <br/>
-      Once the job is complete, you'll receive a message stating the backup process was stopped and the backup data was deleted for that item.
+    Optionally, you can provide a reason why you are deleting the data, and add comments. After you click **Stop Backup**, allow the delete job to complete before attempting to delete the vault. To verify that the job has completed, check the Azure Messages ![delete backup data](./media/backup-azure-delete-vault/messages.png). <br/>
+    Once the job is complete, you receive a message stating the backup process was stopped and the backup data, for that item, was deleted.
 
     c. After deleting an item in the list, on the **Backup Items** menu, click **Refresh** to see the remaining items in the vault.
 
       ![delete backup data](./media/backup-azure-delete-vault/empty-items-list.png)
 
-      When there are no items in the list, scroll to the **Essentials** pane in the Backup vault blade. There shouldn't be any **Backup items**, **Backup management servers**, or **Replicated items** listed. If items still appear in the vault, return to step three above and choose a different item type list.  
+      When there are no items in the list, scroll to the **Essentials** pane in the Backup vault blade. There shouldn't be any **Backup items**, **Backup management servers**, or **Replicated items** listed. If items still appear in the vault, return to step three and choose a different item type list.  
 5. When there are no more items in the vault toolbar, click **Delete**.
 
     ![delete backup data](./media/backup-azure-delete-vault/delete-vault.png)
-6. When asked to verify that you want to delete the vault, click **Yes**.
+6. To verify that you want to delete the vault, click **Yes**.
 
     The vault is deleted and the portal returns to the **New** service menu.
 
@@ -102,14 +107,16 @@ If you stopped the backup process but accidentally *retained* the data, you must
 
     ![delete backup data](./media/backup-azure-delete-vault/delete-retained-vault.png)
 
-    Once you have deleted the data, go to step 4c, above, and continue with the process.
+    Once you have deleted the data, return to step 4c and continue with the process.
 
 ## Delete a vault used to protect a DPM server
 Before you can delete a vault used to protect a DPM server, you must clear any recovery points that have been created, and then unregister the server from the vault.
 
 To delete the data associated with a protection group:
 
-1. In the DPM Administrator Console, click **Protection**, select a protection group, select the Protection Group Member, and in the tool ribbon click **Remove**. You must select the member for the **Remove** button to appear in the tool ribbon. In the example, the member is **dummyvm9**. If there are multiple members in the protection group, hold down the Ctrl key to select multiple members.
+1. In the DPM Administrator Console, click **Protection** > select a protection group > select the Protection Group Member > and in the tool ribbon, click **Remove**.
+
+  Select the Protection Group Member to activate the **Remove** button in the tool ribbon. In the example, the member is **dummyvm9**. To select multiple members in the protection group, hold down the Ctrl key while clicking on the members.
 
     ![delete backup data](./media/backup-azure-delete-vault/az-portal-delete-protection-group.png)
 
@@ -118,18 +125,18 @@ To delete the data associated with a protection group:
 
     ![delete backup data](./media/backup-azure-delete-vault/delete-dpm-protection-group.png)
 
-    You don't want to retain protected data because you need to clear the vault in order to delete it. Depending on how many recovery points and how much data is in the protection group, it may take anywhere from a few seconds to a few minutes to delete the data. The **Stop Protection** dialog shows the status when the job has completed.
+    To delete a vault, you must clear, or delete, the vault of protected data. Depending on the number of recovery points and data in the protection group, it may take anywhere from a few seconds to several minutes to delete the data. The **Stop Protection** dialog shows the status when the job has completed.
 
     ![delete backup data](./media/backup-azure-delete-vault/success-deleting-protection-group.png)
 3. Continue this process for all members in all protection groups.
 
-    You must remove all protected data, and the protection group(s).
+    Remove all protected data and protection groups.
 4. After deleting all members from the protection group, switch to the Azure portal. Open the vault dashboard, and make sure there are no **Backup Items**, **Backup management servers**, or **Replicated items**. On the vault toolbar, click **Delete**.
 
     ![delete backup data](./media/backup-azure-delete-vault/delete-vault.png)
 
-    If there are Backup management servers registered to the vault, you won't be able to delete the vault even if there is no data in the vault. If you thought you'd deleted the Backup management servers associated with the vault, but there are still servers showing in the **Essentials** pane, see [Find the Backup management servers registered to the vault](backup-azure-delete-vault.md#find-the-backup-management-servers-registered-to-the-vault).
-5. When asked to verify that you want to delete the vault, click **Yes**.
+    If there are Backup management servers registered to the vault, you can't delete the vault even if there is no data in the vault. If you deleted the Backup management servers associated with the vault, but there are servers listed in the **Essentials** pane, see [Find the Backup management servers registered to the vault](backup-azure-delete-vault.md#find-the-backup-management-servers-registered-to-the-vault).
+5. To verify that you want to delete the vault, click **Yes**.
 
     The vault is deleted and the portal returns to the **New** service menu.
 
@@ -152,23 +159,25 @@ To delete the Production server associated with the vault:
     The **Delete** blade opens.
 
     ![delete production server ](./media/backup-azure-delete-vault/delete-blade.png)
-3. On the **Delete** blade, confirm the name of the server to delete and click **Delete**. You must correctly enter the name of the server to activate the **Delete** button.
+3. On the **Delete** blade, confirm the server name, and click **Delete**. You must correctly name the server, to activate the **Delete** button.
 
-    Once the vault has been deleted, you'll receive a message stating the vault has been deleted. After deleting all servers in the vault, scroll back to the Essentials pane in the vault dashboard.
+    Once the vault is deleted, you receive a message stating the vault has been deleted. After deleting all servers in the vault, scroll back to the Essentials pane in the vault dashboard.
 4. In the vault dashboard, make sure there are no **Backup Items**, **Backup management servers**, or **Replicated items**. On the vault toolbar, click **Delete**.
-5. When asked to verify that you want to delete the vault, click **Yes**.
+5. To verify that you want to delete the vault, click **Yes**.
 
     The vault is deleted and the portal returns to the **New** service menu.
 
-## Delete a Backup vault
-The following instructions are for deleting a Backup vault in the classic portal. A Backup vault and Recovery Services vault are the same: before you can delete the vault, delete the items and the retained data.
+## Delete a backup vault in classic portal
+The following instructions are for deleting a Backup vault in the classic portal. Before you can delete the Backup vault, you must delete the recovery points, or backed up items, and remove the registered servers. The registered servers are the Windows Server, workstation, or virtual machines that were registered to the vault.
 
-1. Open the Classic portal.
+1. Open the [Classic portal](https://manage.windowsazure.com).
+
 2. From the list of backup vaults, select the vault you want to delete.
 
     ![delete backup data](./media/backup-azure-delete-vault/classic-portal-delete-vault-open-vault.png)
 
-    The vault dashboard opens. Look at the number of Windows Servers and/or Azure virtual machines associated with the vault. Also, look at the total storage consumed in Azure. You'll need to stop any backup jobs and delete existing data before deleting the vault.
+    The vault dashboard opens. Look at the number of Windows Servers and/or Azure virtual machines associated with the vault. Also, look at the total storage consumed in Azure. Stop all backup jobs and delete all data before deleting the vault.
+
 3. Click the **Protected Items** tab, and then click **Stop Protection**
 
     ![delete backup data](./media/backup-azure-delete-vault/classic-portal-delete-vault-stop-protect.png)
@@ -182,9 +191,14 @@ The following instructions are for deleting a Backup vault in the classic portal
     After deleting the items in the vault, the vault will be empty.
 
     ![delete backup data](./media/backup-azure-delete-vault/classic-portal-delete-vault-post-delete-data.png)
-5. In the list of tabs, click **Registered Items**. For each item registered in the vault, select the item, and click **Unregister**.
+5. In the list of tabs, click **Registered Items**. The **Type** drop-down menu, enables you to choose the type of server registered to the vault. The type can be Windows Server or Azure Virtual Machine. In the following example, select the virtual machine registered to the vault, and click **Unregister**.
 
     ![delete backup data](./media/backup-azure-delete-vault/classic-portal-unregister.png)
+
+  If you want to delete the registration for a Windows Server, from the **Type** drop-down menu, select **Windows Server**, click ![checkmark](./media/backup-azure-delete-vault/checkmark.png) to refresh the screen, and then click **Delete**. <br/>
+
+  ![select Windows Server](./media/backup-azure-delete-vault/select-windows-server.png)
+
 6. In the list of tabs, click **Dashboard** to open that tab. Verify there are no registered servers or Azure virtual machines protected in the cloud. Also, verify there is no data in storage. Click **Delete** to delete the vault.
 
     ![delete backup data](./media/backup-azure-delete-vault/classic-portal-list-of-tabs-dashboard.png)

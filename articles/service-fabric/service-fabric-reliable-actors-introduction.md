@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/10/2017
+ms.date: 06/29/2017
 ms.author: vturecek
 
 ---
@@ -83,9 +83,21 @@ IMyActor myActor = ActorProxy.Create<IMyActor>(actorId, new Uri("fabric:/MyApp/M
 await myActor.DoWorkAsync();
 ```
 
+```java
+// Create actor ID with some name
+ActorId actorId = new ActorId("Actor1");
+
+// This only creates a proxy object, it does not activate an actor or invoke any methods yet.
+MyActor myActor = ActorProxyBase.create(actorId, new URI("fabric:/MyApp/MyActorService"), MyActor.class);
+
+// This will invoke a method on the actor. If an actor with the given ID does not exist, it will be activated by this method call.
+myActor.DoWorkAsync().get();
+```
+
+
 Note that the two pieces of information used to create the actor proxy object are the actor ID and the application name. The actor ID uniquely identifies the actor, while the application name identifies the [Service Fabric application](service-fabric-reliable-actors-platform.md#application-model) where the actor is deployed.
 
-The `ActorProxy` class on the client side performs the necessary resolution to locate the actor by ID and open a communication channel with it. The `ActorProxy` also retries to locate the actor in the cases of communication failures and failovers. As a result, message delivery has the following characteristics:
+The `ActorProxy`(C#) / `ActorProxyBase`(Java) class on the client side performs the necessary resolution to locate the actor by ID and open a communication channel with it. It also retries to locate the actor in the cases of communication failures and failovers. As a result, message delivery has the following characteristics:
 
 * Message delivery is best effort.
 * Actors may receive duplicate messages from the same client.
@@ -119,7 +131,7 @@ Some important points to consider:
 * While *Method1* is executing on behalf of *ActorId2* in response to client request *xyz789*, another client request (*abc123*) arrives that also requires *Method1* to be executed by *ActorId2*. However, the second execution of *Method1* does not begin until the prior execution has finished. Similarly, a reminder registered by *ActorId2* fires while *Method1* is being executed in response to client request *xyz789*. The reminder callback is executed only after both executions of *Method1* are complete. All of this is due to turn-based concurrency being enforced for *ActorId2*.
 * Similarly, turn-based concurrency is also enforced for *ActorId1*, as demonstrated by the execution of *Method1*, *Method2*, and the timer callback on behalf of *ActorId1* happening in a serial fashion.
 * Execution of *Method1* on behalf of *ActorId1* overlaps with its execution on behalf of *ActorId2*. This is because turn-based concurrency is enforced only within an actor and not across actors.
-* In some of the method/callback executions, the `Task` returned by the method/callback finishes after the method returns. In some others, the `Task` has already finished by the time the method/callback returns. In both cases, the per-actor lock is released only after both the method/callback returns and the `Task` finishes.
+* In some of the method/callback executions, the `Task`(C#) / `CompletableFuture`(Java) returned by the method/callback finishes after the method returns. In some others, the asynchronous operation has already finished by the time the method/callback returns. In both cases, the per-actor lock is released only after both the method/callback returns and the asynchronous operation finishes.
 
 #### Reentrancy
 The Actors runtime allows reentrancy by default. This means that if an actor method of *Actor A* calls a method on *Actor B*, which in turn calls another method on *Actor A*, that method is allowed to run. This is because it is part of the same logical call-chain context. All timer and reminder calls start with the new logical call context. See the [Reliable Actors reentrancy](service-fabric-reliable-actors-reentrancy.md) for more details.
@@ -128,15 +140,9 @@ The Actors runtime allows reentrancy by default. This means that if an actor met
 The Actors runtime provides these concurrency guarantees in situations where it controls the invocation of these methods. For example, it provides these guarantees for the method invocations that are done in response to a client request, as well as for timer and reminder callbacks. However, if the actor code directly invokes these methods outside of the mechanisms provided by the Actors runtime, then the runtime cannot provide any concurrency guarantees. For example, if the method is invoked in the context of some task that is not associated with the task returned by the actor methods, then the runtime cannot provide concurrency guarantees. If the method is invoked from a thread that the actor creates on its own, then the runtime also cannot provide concurrency guarantees. Therefore, to perform background operations, actors should use [actor timers and actor reminders](service-fabric-reliable-actors-timers-reminders.md) that respect turn-based concurrency.
 
 ## Next steps
-* [Getting started with Reliable Actors](service-fabric-reliable-actors-get-started.md)
-* [How Reliable Actors use the Service Fabric platform](service-fabric-reliable-actors-platform.md)
-* [Actor state management](service-fabric-reliable-actors-state-management.md)
-* [Actor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
-* [Actor timers and reminders](service-fabric-reliable-actors-timers-reminders.md)
-* [Actor events](service-fabric-reliable-actors-events.md)
-* [Actor reentrancy](service-fabric-reliable-actors-reentrancy.md)
-* [Actor polymorphism and object-oriented design patterns](service-fabric-reliable-actors-polymorphism.md)
-* [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
+* Get started by building your first Reliable Actors service:
+   * [Getting started with Reliable Actors on .NET](service-fabric-reliable-actors-get-started.md)
+   * [Getting started with Reliable Actors on Java](service-fabric-reliable-actors-get-started-java.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png

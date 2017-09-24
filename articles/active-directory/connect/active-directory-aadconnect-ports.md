@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 08/02/2017
 ms.author: billmath
 
 ---
@@ -28,10 +28,11 @@ This table describes the ports and protocols that are required for communication
 | --- | --- | --- |
 | DNS |53 (TCP/UDP) |DNS lookups on the destination forest. |
 | Kerberos |88 (TCP/UDP) |Kerberos authentication to the AD forest. |
-| MS-RPC |135 (TCP/UDP) |Used during the initial configuration of the Azure AD Connect wizard when it binds to the AD forest. |
+| MS-RPC |135 (TCP/UDP) |Used during the initial configuration of the Azure AD Connect wizard when it binds to the AD forest, and also during Password synchronization. |
 | LDAP |389 (TCP/UDP) |Used for data import from AD. Data is encrypted with Kerberos Sign & Seal. |
+| RPC | 445 (TCP/UDP) |Used by Seamless SSO to create a computer account in the AD forest. |
 | LDAP/SSL |636 (TCP/UDP) |Used for data import from AD. The data transfer is signed and encrypted. Only used if you are using SSL. |
-| RPC |49152- 65535 (Random high RPC Port)(TCP/UDP) |Used during the initial configuration of Azure AD Connect when it binds to the AD forests. See [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017), and [KB224196](https://support.microsoft.com/kb/224196) for more information. |
+| RPC |49152- 65535 (Random high RPC Port)(TCP/UDP) |Used during the initial configuration of Azure AD Connect when it binds to the AD forests, and during Password synchronization. See [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017), and [KB224196](https://support.microsoft.com/kb/224196) for more information. |
 
 ## Table 2 - Azure AD Connect and Azure AD
 This table describes the ports and protocols that are required for communication between the Azure AD Connect server and Azure AD.
@@ -73,20 +74,18 @@ The following tables describes the ports and protocols that are required for com
 ### Table 6a - Pass-through Authentication with SSO
 |Protocol|Port Number|Description
 | --- | --- | ---
-|HTTP|80|Enable outbound HTTP traffic for security validation such as SSL.
-|HTTPS|443|	Enable user authentication against Azure AD
-|HTTPS|10100–10120|	Enable responses from the connector back to the Azure AD 
-|Azure service bus|9352, 5671|	Enable communication between the Connector toward the Azure service for incoming requests.
-|HTTPS|9350|	Optional, to enables better performance for incoming requests
-|HTTPS|8080/443|	Enable the Connector bootstrap sequence and Connector automatic update
-|HTTPS|9090|	Enable Connector registration (required only for the Connector registration process)
-|HTTPS|9091|	Enable Connector trust certificate automatic renewal
+|HTTP|80|Enable outbound HTTP traffic for security validation such as SSL. Also needed for the connector auto-update capability to function properly.
+|HTTPS|443|	Enable outbound HTTPS traffic for operations such as enabling and disabling of the feature, registering connectors, downloading connector updates, and handling all user sign-in requests.
+
+In addition, Azure AD Connect needs to be able to make direct IP connections to the [Azure data center IP ranges](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
 
 ### Table 6b - Password Hash Sync with SSO
 
 |Protocol|Port Number|Description
 | --- | --- | ---
-|HTTPS|9090|	Enable SSO registration (required only for the SSO registration process).
+|HTTPS|443|	Enable SSO registration (required only for the SSO registration process).
+
+In addition, Azure AD Connect needs to be able to make direct IP connections to the [Azure data center IP ranges](https://www.microsoft.com/en-us/download/details.aspx?id=41653). Again, this is only required for the SSO registration process.
 
 ## Table 7a & 7b - Azure AD Connect Health agent for (AD FS/Sync) and Azure AD
 The following tables describe the endpoints, ports, and protocols that are required for communication between Azure AD Connect Health agents and Azure AD

@@ -1,4 +1,4 @@
----
+﻿---
 title: StorSimple 8000 series as backup target with NetBackup | Microsoft Docs
 description: Describes the StorSimple backup target configuration with Veritas NetBackup.
 services: storsimple
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/05/2016
+ms.date: 06/15/2017
 ms.author: hkanna
 ---
 
@@ -224,7 +224,7 @@ Set up your solution according to the guidelines in the following few sections.
 
 -   The NetBackup database should be local to the server and not reside on a StorSimple volume.
 -   For disaster recovery, back up the NetBackup database on a StorSimple volume.
--   We support NetBackup full and incremental backups for this solution. We recommend that you do not use synthetic and differential backups.
+-   We support NetBackup full and incremental backups (also referred to as differential incremental backups in NetBackup) for this solution. We recommend that you do not use synthetic and cumulative incremental backups.
 -   Backup data files should contain only the data for a specific job. For example, no media appends across different jobs are allowed.
 
 For the latest NetBackup settings and best practices for implementing these requirements, see the NetBackup documentation at [www.veritas.com](https://www.veritas.com).
@@ -499,49 +499,13 @@ The following section describes how to create a short script to start and delete
 
 ### To start or delete a cloud snapshot
 
-1.  [Install Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/#install-and-configure).
-2.  [Download and import publish settings and subscription information](https://msdn.microsoft.com/library/dn385850.aspx).
-3.  In the Azure classic portal, get the resource name and [registration key for your StorSimple Manager service](storsimple-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
-4.  On the server that runs the script, run PowerShell as an administrator. Type this command:
-
-    `Get-AzureStorSimpleDeviceBackupPolicy –DeviceName <device name>`
-
-    Note the backup policy ID.
-5.  In Notepad, create a new PowerShell script by using the following code.
-
-    Copy and paste this code snippet:
-    ```powershell
-    Import-AzurePublishSettingsFile "c:\\CloudSnapshot Snapshot\\myAzureSettings.publishsettings"
-    Disable-AzureDataCollection
-    $ApplianceName = <myStorSimpleApplianceName>
-    $RetentionInDays = 20
-    $RetentionInDays = -$RetentionInDays
-    $Today = Get-Date
-    $ExpirationDate = $Today.AddDays($RetentionInDays)
-    Select-AzureStorSimpleResource -ResourceName "myResource" –RegistrationKey
-    Start-AzureStorSimpleDeviceBackupJob –DeviceName $ApplianceName -BackupType CloudSnapshot -BackupPolicyId <BackupId> -Verbose
-    $CompletedSnapshots =@()
-    $CompletedSnapshots = Get-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName
-    Write-Host "The Expiration date is " $ExpirationDate
-    Write-Host
-
-    ForEach ($SnapShot in $CompletedSnapshots)
-    {
-        $SnapshotStartTimeStamp = $Snapshot.CreatedOn
-        if ($SnapshotStartTimeStamp -lt $ExpirationDate)
-
-        {
-            $SnapShotInstanceID = $SnapShot.InstanceId
-            Write-Host "This snpashotdate was created on " $SnapshotStartTimeStamp.Date.ToShortDateString()
-            Write-Host "Instance ID " $SnapShotInstanceID
-            Write-Host "This snpashotdate is older and needs to be deleted"
-            Write-host "\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#"
-            Remove-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName -BackupId $SnapShotInstanceID -Force -Verbose
-        }
-    }
-    ```
-      Save the PowerShell script to the same location where you saved your Azure publish settings. For example, save as C:\CloudSnapshot\StorSimpleCloudSnapshot.ps1.
-6.  Add the script to your backup job in NetBackup. To do this, edit your NetBackup job options' pre-processing and post-processing commands.
+1.  [Install Azure PowerShell](/powershell/azure/overview).
+2. Download and setup [Manage-CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) PowerShell script.
+3. On the server that runs the script, run PowerShell as an administrator. Ensure that you run the script with `-WhatIf $true` to see what changes the script will make. Once the validation is complete, pass `-WhatIf $false`. Run the below command:
+```powershell
+.\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
+```
+4.  Add the script to your backup job in NetBackup. To do this, edit your NetBackup job options' pre-processing and post-processing commands.
 
 > [!NOTE]
 > We recommend that you run your StorSimple cloud snapshot backup policy as a post-processing script at the end of your daily backup job. For more information about how to back up and restore your backup application environment to help you meet your RPO and RTO, please consult with your backup architect.

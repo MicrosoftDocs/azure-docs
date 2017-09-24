@@ -1,2 +1,0 @@
-> [!WARNING]
-> This feature is currently in preview release and may not have the same level of availability and reliability as features that are in general availability release. The feature is not supported, may have constrained capabilities, and may not be available in all [Azure locations](https://azure.microsoft.com/regions/). For the most up-to-date notifications on availability and status of this feature, check the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
