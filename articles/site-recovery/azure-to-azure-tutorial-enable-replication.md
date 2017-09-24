@@ -1,5 +1,5 @@
 ---
-title: Set up disaster recovery for Azure VMs to a secondary Azure region with Azure Site Recovery (preview)  | Microsoft Docs
+title: Set up disaster recovery for Azure VMs to a secondary Azure region with Azure Site Recovery (Preview)
 description: Learn how to set up disaster recovery for Azure VMs to a different Azure region, using the Azure Site Recovery service.
 services: site-recovery
 author: rajani-janaki-ram
@@ -14,7 +14,7 @@ ms.date: 09/18/2017
 ms.author: rajanaki
 ms.custom: mvc
 ---
-# Set up disaster recovery for Azure VMs to a secondary Azure region
+# Set up disaster recovery for Azure VMs to a secondary Azure region (Preview)
 
 The [Azure Site Recovery](site-recovery-overview.md) service contributes to your disaster recovery strategy by managing and orchestrating replication, failover, and failback of on-premises machines, and Azure virtual machines (VMs).
 
@@ -26,10 +26,6 @@ This tutorial shows you how to set up disaster recovery to a secondary Azure reg
 > * Set up outbound access for VMs
 > * Enable replication for a VM
 
->[!NOTE]
->
-> Azure VM replication to a secondary region is currently in preview.
-
 ## Prerequisites
 
 To complete this tutorial:
@@ -39,7 +35,7 @@ To complete this tutorial:
 
 ## Create a vault
 
-Create the vault in any region, except the source region. 
+Create the vault in any region, except the source region.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) > **Recovery Services**.
 2. Click **New** > **Monitoring & Management** > **Backup and Site Recovery**.
@@ -187,7 +183,7 @@ your requirements.
   can configure a value between 1 and 72 hours.
 
 - **App-consistent snapshot frequency**: By default, Site Recovery takes an app-consistent snapshot
-  every 4 hours. You can configure any value between 1 and 12 hours. A app-consistent snapshot is a point-in-time snapshot of the application data inside the VM. Volume Shadow Copy Service (VSS) ensures that app on the VM are in a consistent state when the snapshot is taken. 
+  every 4 hours. You can configure any value between 1 and 12 hours. A app-consistent snapshot is a point-in-time snapshot of the application data inside the VM. Volume Shadow Copy Service (VSS) ensures that app on the VM are in a consistent state when the snapshot is taken.
 
 ### Track replication status
 
@@ -201,5 +197,7 @@ your requirements.
 
 ## Next steps
 
-Run a [disaster recovery drill](azure-to-azure-tutorial-dr-drill.md) to test your configuration.
+In this tutorial you configured disaster recovery for an Azure VM. Next step is to test your configuration.
 
+> [!div class="nextstepaction"]
+> [Run a disaster recovery drill](azure-to-azure-tutorial-dr-drill.md)

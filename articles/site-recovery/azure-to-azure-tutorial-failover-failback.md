@@ -1,6 +1,6 @@
 ---
-title: Fail over and fail back Azure VMs replicated to a secondary Azure region with Azure Site Recovery | Microsoft Docs
-description: Learn how to fail over and fail back Azure VMs replication to a secondary Azure region with Azure Site Recovery 
+title: Fail over and fail back Azure VMs replicated to a secondary Azure region with Azure Site Recovery (Preview)
+description: Learn how to fail over and fail back Azure VMs replication to a secondary Azure region with Azure Site Recovery
 services: site-recovery
 author: rajani-janaki-ram
 manager: carmonm
@@ -14,7 +14,7 @@ ms.date: 09/18/2017
 ms.author: rajanaki
 ms.custom: mvc
 ---
-# Fail over and fail back Azure VMs between Azure region
+# Fail over and fail back Azure VMs between Azure regions (Preview)
 
 The [Azure Site Recovery](site-recovery-overview.md) service contributes to your disaster recovery strategy by managing and orchestrating replication, failover, and failback of on-premises machines, and Azure virtual machines (VMs).
 
@@ -31,8 +31,6 @@ This tutorial describes how to fail over a single Azure VM to a secondary Azure 
 - Make that you've completed a [disaster recovery drill](azure-to-azure-tutorial-dr-drill.md) to check everything is working as
 expected.
 - Verify the VM properties before you run the test failover. The VM must comply with [Azure requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
-
-
 
 ## Run a failover to the secondary region
 
@@ -68,7 +66,7 @@ expected.
 After failover of the VM, you need to reprotect it so that it replicates back to the primary region.
 
 1. Make sure that the VM is in the **Failover committed** state, and check that the primary region is available, and you're able to create and access new resources in it.
-2. In **Vault** > **Replicated items**, right-click the VM that's been failed over, and then select **Re-Protect**. 
+2. In **Vault** > **Replicated items**, right-click the VM that's been failed over, and then select **Re-Protect**.
 
    ![Right-click to reprotect](./media/azure-to-azure-tutorial-failover-failback/reprotect.png)
 
@@ -77,6 +75,6 @@ After failover of the VM, you need to reprotect it so that it replicates back to
    resources marked (new) are created as part of the reprotect operation.
 4. Click **OK** to trigger a reprotect job. This job seeds the target site with the latest data. Then, it replicates the deltas to the primary region. The VM is now in a protected state.
 
-## Fail back to the primary region 
+## Fail back to the primary region
 
-After VMs are reprotected,  you can fail back to the primary region as you need to. To do this, follow the [failover](#run-a-failover) instructions. 
+After VMs are reprotected,  you can fail back to the primary region as you need to. To do this, follow the [failover](#run-a-failover) instructions.
