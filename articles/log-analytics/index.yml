@@ -64,6 +64,6 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/powershell/module/azurerm.operationalinsights">PowerShell</a></p>
+      html: <p><a href="/powershell/module/azurerm.operationalinsights">Azure PowerShell</a></p>
     - title: REST
       html: <p><a href="/rest/api/loganalytics">REST API Reference</a></p>

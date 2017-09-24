@@ -156,9 +156,9 @@
       href: monitoring-metric-charts.md
 - name: Reference
   items:
-  - name: CLI 2.0
+  - name: Azure CLI
     href: /cli/azure/monitor?view=azure-cli-latest
-  - name: PowerShell
+  - name: Azure PowerShell
     href: /powershell/module/azurerm.insights
   - name: REST
     href: /rest/api/monitor/

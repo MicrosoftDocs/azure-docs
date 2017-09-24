@@ -30,7 +30,7 @@ sections:
       href: azure-stack-quick-windows-portal.md 
     - image: 
         src: https://docs.microsoft.com/media/logos/logo_powershell.svg
-      text: PowerShell
+      text: Azure PowerShell
       href: azure-stack-quick-create-vm-windows-powershell.md 
     - image: 
         src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg
@@ -43,15 +43,15 @@ sections:
     items: 
     - image: 
         src: https://docs.microsoft.com/media/common/i_portal.svg
-      text: Portal
+      text: Azure portal
       href: azure-stack-quick-linux-portal.md 
     - image: 
         src: https://docs.microsoft.com/media/logos/logo_powershell.svg
-      text: PowerShell
+      text: Azure PowerShell
       href: azure-stack-quick-create-vm-linux-powershell.md 
     - image: 
         src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg
-      text: CLI
+      text: Azure CLI
       href: azure-stack-quick-create-vm-linux-cli.md
 - title: Step-by-step tutorials
   items:
@@ -68,4 +68,4 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">PowerShell</a></p>
+      html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">Azure PowerShell</a></p>
