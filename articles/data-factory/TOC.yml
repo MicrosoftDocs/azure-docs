@@ -197,7 +197,7 @@
   - name: REST API
     href: /rest/api/datafactory
   - name: Python
-    href: /python/api/overview/azure/data-factory?view=azure-python
+    href: /python/api/overview/azure/datafactory?view=azure-python
 - name: Resources
   items:
   - name: Azure Roadmap
