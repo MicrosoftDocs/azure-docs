@@ -14,7 +14,7 @@ metadata:
   ms.date: 09/20/2017
   ms.author: carolz
 abstract:
-  description: Microsoft Azure Storage is a Microsoft-managed cloud service that provides storage that is highly available, secure, durable, scalable, and redundant. Azure Storage consists of Blob storage, File Storage, and Queue storage.
+  description: Microsoft Azure Storage is a Microsoft-managed cloud service that provides storage that is highly available, secure, durable, scalable, and redundant. Azure Storage consists of Blob storage, File Storage, and Queue storage.  Learn how to leverage Azure Storage in your applications with our quickstarts and tutorials.
 sections:
 - title: 5-Minute Quickstarts
   items:
