@@ -76,7 +76,7 @@
   - name: Resource Manager
     tocHref: /azure/azure-resource-manager/
     topicHref: /azure/azure-resource-manager/
-  - name: Azure Stack Operator
+  - name: Azure Stack
     tocHref: /azure/azure-stack/
     topicHref: /azure/azure-stack/
   - name: Azure Stack User

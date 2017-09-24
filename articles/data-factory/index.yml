@@ -38,7 +38,11 @@ sections:
     - image: 
         src: /azure/data-factory/media/index/logo_rest.svg
       text: REST
-      href: /azure/data-factory/quickstart-create-data-factory-rest-api  
+      href: /azure/data-factory/quickstart-create-data-factory-rest-api 
+    - image: 
+        src: /azure/data-factory/media/index/portal.svg
+      text: Portal
+      href: /azure/data-factory/quickstart-create-data-factory-portal
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
@@ -54,6 +58,15 @@ sections:
     - html: <a href="../data-factory/tutorial-transform-data-spark-powershell">Transform data in cloud using Spark</a>    
     - html: <a href="../data-factory/tutorial-transform-data-hive-virtual-network">Transform data in virtual network</a>        
     - html: <a href="../data-factory/tutorial-control-flow">Control flow</a>   
+- title: Samples
+  items:
+  - type: paragraph
+    text: Use the following samples to work with Data Factory
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/data-factory/samples-powershell">PowerShell</a>
 - title: Reference
   items:
   - type: list
