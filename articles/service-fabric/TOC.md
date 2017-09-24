@@ -4,8 +4,8 @@
 
 # Quickstarts
 ## [Create .NET application](service-fabric-quickstart-dotnet.md)
-## [Deploy a Windows container application](service-fabric-quickstart-containers.md)
 ## [Deploy a Linux container application](service-fabric-quickstart-containers-linux.md)
+## [Deploy a Windows container application](service-fabric-quickstart-containers.md)
 
 # Tutorials
 ## Deploy a .NET app
