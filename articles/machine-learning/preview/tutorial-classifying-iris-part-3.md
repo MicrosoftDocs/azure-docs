@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 09/21/2017
+ms.date: 09/25/2017
 ---
 
 # Classifying Iris part 3: Deploy a model
@@ -282,8 +282,8 @@ Test the running `irisapp` web service by feeding it with a JSON encoded record 
       ```
    - [Hive](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started): load csv data into a hive table and perform SQL queries directly against blob.
 
-## Summary
-In this tutorial, you have learned how to:
+## Next Steps
+In this third part of the three part tutorial series, you have learned how to use Azure Machine Learning services to:
 > [!div class="checklist"]
 > * Locate the model file
 > * Generate a scoring script and schema file
@@ -294,8 +294,7 @@ In this tutorial, you have learned how to:
 
 You have successfully run a training script in various compute environments, created a model, serialized the model, and operationalized the model through a Docker-based web service. 
 
-## Next Steps
-Learn to perform advanced data preparation with Azure Machine Learning Workbench:
+You are ready to do advanced data preparation:
 > [!div class="nextstepaction"]
 > [Advanced data preparation](tutorial-bikeshare-dataprep.md)
 
