@@ -686,7 +686,16 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
 
      
 ## Next steps
-See list of data stores that are supported by copy activity as sources and sinks in the [Copy activity overview](copy-activity-overview.md) article. 
+You performed the following steps in this tutorial: 
+
+> [!div class="checklist"]
+> * Define a **watermark** column and store it in Azure SQL Database.  
+> * Create a data factory.
+> * Create linked services for SQL Database and Blob Storage. 
+> * Create source and sink datasets.
+> * Create a pipeline.
+> * Run the pipeline.
+> * Monitor the pipeline run. 
 
 Advance to the following tutorial to learn about transforming data by using a Spark cluster on Azure:
 

@@ -376,3 +376,22 @@ Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGrou
    246 en-US SCH-i500 District Of Columbia
    ```
 
+## Next steps
+You performed the following steps in this tutorial: 
+
+> [!div class="checklist"]
+> * Create a data factory. 
+> * Author and setup self-hosted integration runtime
+> * Author and deploy linked services.
+> * Author and deploy a pipeline that contains a Hive activity.
+> * Start a pipeline run.
+> * Monitor the pipeline run 
+> * verify the output. 
+
+Advance to the following tutorial to learn about transforming data by using a Spark cluster on Azure:
+
+> [!div class="nextstepaction"]
+>[Branching and chaining Data Factory control flow](tutorial-control-flow.md)
+
+
+

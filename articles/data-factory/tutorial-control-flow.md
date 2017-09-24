@@ -727,16 +727,3 @@ Checking copy activity run details...
 Press any key to exit...
 ```
 
-## Next steps
-The pipeline in this sample copies data from one location to another location in an Azure blob storage while using branching and parameters. You learned how to: 
-
-> [!div class="checklist"]
-> * Create a data factory.
-> * Create an Azure Storage linked service.
-> * Create an Azure Blob dataset
-> * Create a pipeline that contains a copy activity and web activity
-> * Send outputs of activities to subsequent activities
-> * Utilize parameter passing and system variables
-> * Start a pipeline run.
-> * Monitor the pipeline and activity runs.
-
