@@ -2515,7 +2515,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="bot-framework/azure-bot-service-overview/">
+                                <a href="/bot-framework/azure-bot-service-overview/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
