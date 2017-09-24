@@ -15,7 +15,7 @@ ms.author: jingwang
 
 ---
 # Create a data factory using the Azure portal
-In this quickstart, you use Azure portal to create a data factory. Currently, you cannot create pipelines in a data factory by using Azure portal. After you create the data factory, use the code or PowerShell commands from other quickstarts to create a data pipeline. 
+Azure Data Factory allows you to easily create and deploy pipelines that copy data from a source data store to a sink (destination) data store. In this quick start, you use Azure portal to create a data factory. After you create the data factory, you need to use PowerShell, .NET SDK, Python SDK, or REST API as in other quick starts a data pipeline that copies data from a source data store to a destination data store. Currently, you cannot create pipelines in a data factory by using Azure portal.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 

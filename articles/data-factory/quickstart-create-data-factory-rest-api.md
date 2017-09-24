@@ -17,7 +17,7 @@ ms.author: jingwang
 
 ---
 # Create an Azure data factory and pipeline by using the REST API
-This quickstart describes how to use REST API to create an Azure data factory. The pipeline in this data factory copies data from one location to another location in an Azure blob storage.
+Azure Data Factory allows you to easily create and deploy pipelines that copy data from a source data store to a sink (destination) data store. This quickstart describes how to use REST API to create an Azure data factory. The pipeline in this data factory copies data from one location to another location in an Azure blob storage.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 

@@ -18,7 +18,7 @@ ms.author: jingwang
 ---
 
 # Create a data factory and pipeline using Python
-This quickstart describes how to use Python to create an Azure data factory. The pipeline in this data factory copies data from one folder to another folder in an Azure blob storage.
+Azure Data Factory allows you to easily create and deploy pipelines that copy data from a source data store to a sink (destination) data store. This quickstart describes how to use Python to create an Azure data factory. The pipeline in this data factory copies data from one folder to another folder in an Azure blob storage.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
