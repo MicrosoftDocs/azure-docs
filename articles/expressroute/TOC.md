@@ -18,23 +18,23 @@
 # How To
 ## Create and modify a circuit
 ### [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-circuit-arm.md)
+### [Azure PowerShell](expressroute-howto-circuit-arm.md)
 ### [Azure CLI](howto-circuit-cli.md)
 ## Create and modify peering configuration
 ### [Azure portal](expressroute-howto-routing-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-routing-arm.md)
+### [Azure PowerShell](expressroute-howto-routing-arm.md)
 ### [Azure CLI](howto-routing-cli.md)
 ## Link a virtual network to an ExpressRoute circuit
 ### [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-linkvnet-arm.md)
+### [Azure PowerShell](expressroute-howto-linkvnet-arm.md)
 ### [Azure CLI](howto-linkvnet-cli.md)
 ## Configure a virtual network gateway for ExpressRoute
 ### [Azure portal](expressroute-howto-add-gateway-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
+### [Azure PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [Configure ExpressRoute and Site-to-Site coexisting connections](expressroute-howto-coexist-resource-manager.md)
 ## Configure route filters for Microsoft peering
 ### [Azure portal](how-to-routefilter-portal.md)
-### [PowerShell](how-to-routefilter-powershell.md)
+### [Azure PowerShell](how-to-routefilter-powershell.md)
 ## [Move a circuit from classic to Resource Manager](expressroute-howto-move-arm.md)
 ## [Migrate associated virtual networks from classic to Resource Manager](expressroute-migration-classic-resource-manager.md)
 ## Configure a router for ExpressRoute
@@ -53,7 +53,7 @@
 ### [Getting ARP tables (Classic)](expressroute-troubleshooting-arp-classic.md)
 
 # Reference
-## [PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#expressroute)
+## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#expressroute)
 ## [Azure CLI](/cli/azure/network/express-route)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (classic)](https://msdn.microsoft.com/library/azure/dn606310)
