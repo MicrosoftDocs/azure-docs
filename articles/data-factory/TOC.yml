@@ -193,7 +193,7 @@
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.datafactory
   - name: PowerShell
-    href: /powershell/module/azurerm.datafactory/
+    href: /powershell/module/azurerm.datafactoryv2/
   - name: REST API
     href: /rest/api/datafactory
   - name: Python
