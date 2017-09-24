@@ -11,7 +11,7 @@
     href: quick-create-cli.md
   - name: Create VM - Portal
     href: quick-create-portal.md
-  - name: Create VM - PowerShell
+  - name: Create VM - Azure PowerShell
     href: quick-create-powershell.md
 - name: Tutorials
   items:
@@ -53,7 +53,7 @@
   items:
   - name: Azure CLI
     href: cli-samples.md
-  - name: PowerShell
+  - name: Azure PowerShell
     href: powershell-samples.md
 - name: Concepts
   items:

@@ -220,9 +220,9 @@
       href: site-recovery-monitoring-and-troubleshooting.md
 - name: Reference
   items:
-  - name: PowerShell
+  - name: Azure PowerShell
     href: /powershell/module/azurerm.siterecovery
-  - name: PowerShell classic
+  - name: Azure PowerShell classic
     href: /powershell/module/azure/?view=azuresmps-3.7.0
   - name: REST
     href: https://msdn.microsoft.com/en-us/library/mt750497

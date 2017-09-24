@@ -344,7 +344,7 @@
   items:
   - name: Azure CLI
     href: /cli/azure/vm
-  - name: PowerShell
+  - name: Azure PowerShell
     href: /powershell/azureps-cmdlets-docs
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.compute

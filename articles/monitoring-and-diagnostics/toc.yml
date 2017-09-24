@@ -66,7 +66,7 @@
       href: monitoring-metric-charts.md
     - name: Azure CLI 1.0 samples
       href: insights-cli-samples.md
-    - name: PowerShell samples
+    - name: Azure PowerShell samples
       href: insights-powershell-samples.md
   - name: Use alerts
     items:
@@ -76,7 +76,7 @@
       href: insights-alerts-portal.md
     - name: Configure alerts with CLI
       href: insights-alerts-command-line-interface.md
-    - name: Configure alerts with PowerShell
+    - name: Configure alerts with Azure PowerShell
       href: insights-alerts-powershell.md
     - name: Have a metric alert call a webhook
       href: insights-webhooks-alerts.md
