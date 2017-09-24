@@ -71,7 +71,7 @@ sections:
   items:
   - type: list
     style: cards
-    className: cardsW
+    className: cardsFTitle
     items:
     - html: <p><a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Managing Infrastructure</a></p>
       image: 
