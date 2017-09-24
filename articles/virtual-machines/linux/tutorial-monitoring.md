@@ -270,7 +270,7 @@ On the Log Search blade of the OMS portal, you should see *myVM* such as what is
 
 ## Next steps
 
-In this tutorial, you configured and reviewed VMs with Azure Security Center. You learned how to:
+In this tutorial, you configured, reviewed, and managed updates for a VM. You learned how to:
 
 > [!div class="checklist"]
 > * Enable boot diagnostics on the VM
@@ -282,7 +282,7 @@ In this tutorial, you configured and reviewed VMs with Azure Security Center. Yo
 > * Manage package updates
 > * Set up advanced monitoring
 
-Advance to the next tutorial to learn about Azure security center.
+Advance to the next tutorial to learn about Azure Security Center.
 
 > [!div class="nextstepaction"]
 > [Manage VM security](./tutorial-azure-security.md)
