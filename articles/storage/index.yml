@@ -25,11 +25,11 @@ sections:
     items: 
     - image: 
         src: https://docs.microsoft.com/media/common/powershell.svg
-      text: Create a storage account - Powershell
+      text: Azure Powershell
       href: /azure/storage/common/storage-quickstart-create-storage-account-powershell
     - image: 
         src: /azure/virtual-machines/linux/media/index/cli.svg 
-      text: Create a storage account - CLI
+      text: Azure CLI
       href: /azure/storage/common/storage-quickstart-create-storage-account-cli
 - title: Step-by-step Tutorials
   items:
@@ -58,12 +58,12 @@ sections:
     style: cards
     className: cardsFTitle
     items:
-    - title: Developing with .NET on Microsoft Azure - Getting Started 
+    - title: Developing with .NET on Azure 
       href: https://app.pluralsight.com/library/courses/developing-dotnet-microsoft-azure-getting-started/table-of-contents
       image: 
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
         href: https://app.pluralsight.com/library/courses/developing-dotnet-microsoft-azure-getting-started/table-of-contents
-    - title: Developing with Node.js on Microsoft Azure - Getting Started
+    - title: Developing with Node.js on Azure
       href: https://app.pluralsight.com/library/courses/developing-nodejs-microsoft-azure-getting-started/table-of-contents
       image: 
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
