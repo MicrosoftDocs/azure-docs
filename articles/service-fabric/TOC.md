@@ -339,7 +339,7 @@
 
 # Reference
 ## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)
-## [Azure PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
+## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
 ## [Azure CLI](/cli/azure/sf)
 ## [Java API](/java/api/overview/azure/servicefabric)
 ## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
