@@ -77,12 +77,12 @@ sections:
     - title: Developing with .NET
       href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
       image: 
-        src: https://docs.microsoft.com/en-us/azure/app-service/media/index/video-training-dotnet.png
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
         href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
     - title: Developing with Node.js
       href: https://www.pluralsight.com/courses/developing-nodejs-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
       image: 
-        src: https://docs.microsoft.com/en-us/azure/app-service/media/index/video-training-nodejs.png
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
         href: https://www.pluralsight.com/courses/developing-nodejs-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
 - title: Samples
   items:
