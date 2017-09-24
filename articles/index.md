@@ -192,6 +192,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </ul>
                                                 <h4>AI and Cognitive Services</h4>
                                                 <ul class="noBullet">
+                                                    <li><a class="barLink" href="/azure/machine-learning/preview">Machine Learning services</a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/computer-vision/">Computer Vision API</a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/face/">Face API</a></li>
                                                 </ul>
