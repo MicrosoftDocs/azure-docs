@@ -25,15 +25,15 @@ sections:
     items: 
     - image: 
         src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
-      text: Portal
+      text: Azure Portal
       href: quick-backup-vm-portal
     - image: 
         src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/logo_powershell.svg
-      text: PowerShell
+      text: Azure PowerShell
       href: quick-backup-vm-powershell
     - image: 
         src: https://docs.microsoft.com/media/common/cli.svg
-      text: CLI
+      text: Azure CLI
       href: quick-backup-vm-cli
 - title: Step-by-step Tutorials
   items:
@@ -63,6 +63,6 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/powershell/resourcemanager/azurerm.backup/v2.3.0/azurerm.backup">PowerShell</a></p>
+      html: <p><a href="/powershell/resourcemanager/azurerm.backup/v2.3.0/azurerm.backup">Azure PowerShell</a></p>
     - title: Languages
       html: <p><a href="/dotnet/api/microsoft.azure.management.backupservices">.NET</a></p>
