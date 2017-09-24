@@ -3,7 +3,7 @@ documentType: LandingData
 title: Azure Monitor Documentation
 metadata:
   title: Azure Monitor Documentation - Tutorials, API Reference | Microsoft Docs
-  description: Azure Monitor helps you track performance, maintain security, and identify trends. Learn how to audit, create alerts, and archive data with our quickstarts and tutorials.
+  description: Azure Monitor is part of Microsoft Azure's overall monitoring solution. Azure Monitor helps you track performance, maintain security, and identify trends. Learn how to audit, create alerts, and archive data with our quickstarts and tutorials.
   services: monitoring-and-diagnostics
   author: czeumault
   manager: carolz
@@ -14,7 +14,7 @@ metadata:
   ms.date: 09/18/2017
   ms.author: carolz
 abstract:
-  description: Azure Monitor helps you track performance, maintain security, and identify trends. Learn how to audit, create alerts, and archive data with our quickstarts and tutorials.
+  description: Azure Monitor is part of Microsoft Azure's overall monitoring solution. Azure Monitor helps you track performance, maintain security, and identify trends. Learn how to audit, create alerts, and archive data with our quickstarts and tutorials.
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -46,12 +46,12 @@ sections:
     style: cards
     className: cardsFTitle
     items:
-    - title: Getting Started with Microsoft Azure IaaS Monitoring and Management
+    - title: Get Started with IaaS Monitoring
       href: https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents
       image: 
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
         href: https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents
-    - title: Managing Infrastructure on Microsoft Azure - Getting Started
+    - title: Managing Infrastructure on Microsoft Azure
       href: https://app.pluralsight.com/library/courses/managing-infrastructure-microsoft-azure-getting-started
       image: 
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg

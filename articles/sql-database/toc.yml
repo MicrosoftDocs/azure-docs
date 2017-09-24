@@ -11,7 +11,7 @@
     href: sql-database-get-started-portal.md
   - name: Create DB - Azure CLI
     href: sql-database-get-started-cli.md
-  - name: Create DB - PowerShell
+  - name: Create DB - Azure PowerShell
     href: sql-database-get-started-powershell.md
   - name: Connect & query
     items:
@@ -51,7 +51,7 @@
     href: https://azure.microsoft.com/resources/samples/?service=sql-database
   - name: Azure CLI
     href: sql-database-cli-samples.md
-  - name: PowerShell
+  - name: Azure PowerShell
     href: sql-database-powershell-samples.md 
 - name: Concepts
   items:
@@ -235,7 +235,7 @@
       href: sql-database-elastic-jobs-service-installation.md
     - name: Create job - Portal
       href: sql-database-elastic-jobs-create-and-manage.md
-    - name: Create job - PowerShell
+    - name: Create job - Azure PowerShell
       href: sql-database-elastic-jobs-powershell.md
     - name: Create job - Sample app
       href: sql-database-elastic-jobs-getting-started.md
@@ -351,7 +351,7 @@
       href: sql-database-connect-excel.md
 - name: Reference
   items:
-  - name: PowerShell
+  - name: Azure PowerShell
     href: /powershell/module/azurerm.sql/#sql
   - name: PowerShell (Elastic DB)
     href: /powershell/module/elasticdatabasejobs/#elasticdatabasejobs
