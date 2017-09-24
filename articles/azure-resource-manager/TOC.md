@@ -43,7 +43,7 @@
 #### [Deploy template](resource-group-template-deploy-cli.md)
 #### [Deploy private template with SAS token](resource-manager-cli-sas-token.md)
 #### [Export template and redeploy](resource-manager-export-template-cli.md)
-### Portal
+### Azure portal
 #### [Deploy resources](resource-group-template-deploy-portal.md)
 #### [Export template](resource-manager-export-template.md)
 ### [REST API](resource-group-template-deploy-rest.md)
@@ -71,7 +71,7 @@
 
 ## Set resource policies
 ### [What are resource policies?](resource-manager-policy.md)
-### [Use portal to assign policy](resource-manager-policy-portal.md)
+### [Use Azure portal to assign policy](resource-manager-policy-portal.md)
 ### [Use scripts to assign policy](resource-manager-policy-create-assign.md)
 ### Examples
 #### [Tags](resource-manager-policy-tags.md)

@@ -115,7 +115,7 @@
 #### [Java](iot-hub-java-java-schedule-jobs.md)
 ## Manage
 ### Create an IoT hub 
-#### [Use the portal](iot-hub-create-through-portal.md)
+#### [Use Azure portal](iot-hub-create-through-portal.md)
 #### [Use Azure PowerShell](iot-hub-create-using-powershell.md)
 #### [Use Azure CLI](iot-hub-create-using-cli.md)
 #### [Use CLI](iot-hub-create-using-cli-nodejs.md)
