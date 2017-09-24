@@ -103,7 +103,7 @@ Tutorials, videos, and example models show you how to use Studio to build and de
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="powershell/module/azurerm.machinelearning/?view=azurermps-4.3.1">PowerShell (New)</a></p>
+                        <p><a href="/powershell/module/azurerm.machinelearning/?view=azurermps-4.3.1">PowerShell (New)</a></p>
                         <p><a href="powershell-module.md">PowerShell (Classic)</a></p>
                     </div>
                 </div>
