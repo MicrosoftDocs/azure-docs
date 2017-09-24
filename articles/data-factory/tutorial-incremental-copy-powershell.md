@@ -55,20 +55,40 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 * **Azure Storage account**. You use the blob storage as the **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one. Create a container named **adftutorial**. 
 * **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
-### Define a watermark column
-Defining the watermark column in data source store is very critical for incremental data loading. You normally use the LastModifytime, CreationTime, ID, etc. to slice the new or updated records. In this tutorial, you use LastModifytime as the watermark column.  The data in data source store is shown in the following table:
+### Create a data source table in your Azure SQL database
+1. Open **SQL Server Management Studio**, in **Server Explorer**, right-click the database and choose the **New Query**.
+2. Run the following SQL command against your Azure SQL database to create a table named `data_source_table` as data source store.  
+    
+    ```sql
+	create table data_source_table
+	(
+		PersonID int,
+		Name varchar(255),
+		LastModifytime datetime
+	);
 
-```
-PersonID | Name | LastModifytime
--------- | ---- | --------------
-1 | aaaa | 2017-09-01 00:56:00.000
-2 | bbbb | 2017-09-02 05:23:00.000
-3 | cccc | 2017-09-03 02:36:00.000
-4 | dddd | 2017-09-04 03:21:00.000
-5 | eeee | 2017-09-05 08:06:00.000
-```
+	INSERT INTO data_source_table
+	(PersonID, Name, LastModifytime)
+	VALUES
+	(1, 'aaaa','9/1/2017 12:56:00 AM'),
+	(2, 'bbbb','9/2/2017 5:23:00 AM'),
+	(3, 'cccc','9/3/2017 2:36:00 AM'),
+	(4, 'dddd','9/4/2017 3:21:00 AM'),
+	(5, 'eeee','9/5/2017 8:06:00 AM');
+    ```
+	In this tutorial, you use **LastModifytime** as the **watermark** column.  The data in data source store is shown in the following table:
 
-### Create a table in SQL database to store the high watermark value
+	```
+	PersonID | Name | LastModifytime
+	-------- | ---- | --------------
+	1 | aaaa | 2017-09-01 00:56:00.000
+	2 | bbbb | 2017-09-02 05:23:00.000
+	3 | cccc | 2017-09-03 02:36:00.000
+	4 | dddd | 2017-09-04 03:21:00.000
+	5 | eeee | 2017-09-05 08:06:00.000
+	```
+
+### Create another table in SQL database to store the high watermark value
 1. Open **SQL Server Management Studio**, in **Server Explorer**, right-click the **database** of data source store and choose the **New Query**.
 2. Run the following SQL command against your Azure SQL database to create a table named `watermarktable` to store the watermark value.  
     
