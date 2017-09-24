@@ -168,7 +168,7 @@ and review deployment results to verify updates were applied successfully to the
 
 For pricing information, see [Automation pricing for Update management](https://azure.microsoft.com/pricing/details/automation/)
 
-### Enable Update management
+### Enable Update management (Preview)
 
 Enable Update management for your virtual machine
 
@@ -176,8 +176,8 @@ Enable Update management for your virtual machine
 1. From the list, select a virtual machine.
 1. On the virtual machine screen, in the **Operations** section, click **Update management**. The **Enable Update management** screen opens.
 
-Validation is performed to determine if the Update management solution is enabled for this virtual machine.
-The validation includes checks for Log Analytics workspace and linked Automation account and if the virtual machine is provisioned with the Microsoft Monitoring Agent (MMA) and hybrid worker. If these prerequisites are not met, a banner appears that gives you the option to enable the solution.
+Validation is performed to determine if Update management enabled for this virtual machine.
+This validation includes checks for a Log Analytics workspace a linked Automation account, and if the virtual machine is provisioned with the Microsoft Monitoring Agent (MMA) and hybrid worker. If these prerequisites are not met, a banner appears that gives you the option to enable the solution.
 
 ![Update Management onboard configuration banner](./media/tutorial-monitoring/manage-updates-onboard-solution-banner.png)
 
@@ -270,7 +270,7 @@ On the Log Search blade of the OMS portal, you should see *myVM* such as what is
 
 ## Next steps
 
-In this tutorial, you configured and reviewed VMs with Azure Security Center. You learned how to:
+In this tutorial, you configured, reviewed, and managed updates for a VM. You learned how to:
 
 > [!div class="checklist"]
 > * Enable boot diagnostics on the VM
@@ -282,7 +282,7 @@ In this tutorial, you configured and reviewed VMs with Azure Security Center. Yo
 > * Manage package updates
 > * Set up advanced monitoring
 
-Advance to the next tutorial to learn about Azure security center.
+Advance to the next tutorial to learn about Azure Security Center.
 
 > [!div class="nextstepaction"]
 > [Manage VM security](./tutorial-azure-security.md)
