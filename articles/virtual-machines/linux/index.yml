@@ -73,15 +73,15 @@ sections:
     style: cards
     className: cardsFTitle
     items:
-    - html: <p><a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Managing Infrastructure</a></p>
+    - title:  Managing Infrastructure on Azure
       image: 
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
         href: https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-    - html: <p><a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Getting Started with Virtual Machines</a></p>
+    - title:  Get Started with Azure Virtual Machines
       image: 
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
         href: https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-    - html: <p><a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Getting Started with IaaS Monitoring</a></p>
+    - title:  Get Started with IaaS Monitoring
       image: 
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
         href: https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
