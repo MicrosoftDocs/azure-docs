@@ -12,7 +12,7 @@
 
 # Samples
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
-## PowerShell
+## Azure PowerShell
 ### [Deploy template](resource-manager-samples-powershell-deploy.md)
 
 ## Azure CLI
@@ -35,7 +35,7 @@
 
 
 ## Deploy
-### PowerShell
+### Azure PowerShell
 #### [Deploy template](resource-group-template-deploy.md)
 #### [Deploy private template with SAS token](resource-manager-powershell-sas-token.md)
 #### [Export template and redeploy](resource-manager-export-template-powershell.md)
@@ -52,9 +52,9 @@
 ### [Pass secure values during deployment](resource-manager-keyvault-parameter.md)
 
 ## Manage
-### [PowerShell](powershell-azure-resource-manager.md)
+### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
-### [Portal](resource-group-portal.md)
+### [Azure portal](resource-group-portal.md)
 ### [REST API](resource-manager-rest-api.md)
 ### [Use tags to organize resources](resource-group-using-tags.md)
 ### [Move resources to new group or subscription](resource-group-move-resources.md)
@@ -62,10 +62,10 @@
 
 ## Control Access
 ### Create service principal
-#### [PowerShell](resource-group-authenticate-service-principal.md)
-#### [Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+#### [Azure PowerShell](resource-group-authenticate-service-principal.md)
+#### [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [Azure CLI 1.0](resource-group-authenticate-service-principal-cli.md)
-#### [Portal](resource-group-create-service-principal-portal.md)
+#### [Azure portal](resource-group-create-service-principal-portal.md)
 ### [Authentication API to access subscriptions](resource-manager-api-authentication.md)
 ### [Lock resources](resource-group-lock-resources.md)
 

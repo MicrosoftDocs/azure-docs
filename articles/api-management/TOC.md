@@ -51,7 +51,7 @@
 #### [Quick start](../service-fabric/service-fabric-api-management-quick-start.md)
 
 # Reference
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [REST](/rest/api/apimanagement/)
 ## [REST (original)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
 ## [Policies](api-management-policies.md)

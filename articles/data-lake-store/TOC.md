@@ -5,12 +5,12 @@
 ## [Open source applications that work with Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
 
 # Get started
-## [Using Portal](data-lake-store-get-started-portal.md)
-## [Using PowerShell](data-lake-store-get-started-powershell.md)
+## [Using Azure portal](data-lake-store-get-started-portal.md)
+## [Using Azure PowerShell](data-lake-store-get-started-powershell.md)
 ## [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
 ## [Using Java SDK](data-lake-store-get-started-java-sdk.md)
 ## [Using REST API](data-lake-store-get-started-rest-api.md)
-## [Using Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
+## [Using Azure CLI](data-lake-store-get-started-cli-2.0.md)
 ## [Using Node.js](data-lake-store-manage-use-nodejs.md)
 ## [Using Python](data-lake-store-get-started-python.md)
 
@@ -40,9 +40,9 @@
 
 ## Integrate with Azure Services
 ### With HDInsight
-#### [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
-#### [Using PowerShell (default storage)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-#### [Using PowerShell (additonal storage)](data-lake-store-hdinsight-hadoop-use-powershell.md)
+#### [Using Azure portal](data-lake-store-hdinsight-hadoop-use-portal.md)
+#### [Using Azure PowerShell (default storage)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+#### [Using Azure PowerShell (additonal storage)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 #### [Using Azure template](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 ### [Access from VMs in Azure VNET](data-lake-store-connectivity-from-vnets.md)
 ### [Use with Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
@@ -61,14 +61,14 @@
 
 # Reference
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-store)
-## [PowerShell](/powershell/module/azurerm.datalakestore)
+## [Azure PowerShell](/powershell/module/azurerm.datalakestore)
 ## [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 ## [Java](/java/api/com.microsoft.azure.datalake.store)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)
 ## [Python (Account Mgmt.)](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
 ## [Python (Filesystem Mgmt.)](http://azure-datalake-store.readthedocs.io/en/latest)
 ## [REST](/rest/api/datalakestore)
-## [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/dls)
+## [Azure CLI](https://docs.microsoft.com/cli/azure/dls)
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
