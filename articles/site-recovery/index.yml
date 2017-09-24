@@ -25,7 +25,7 @@ sections:
     items: 
     - image: 
         src: /azure/site-recovery/media/index/portal.svg
-      text: Portal
+      text: Azure portal
       href: /azure/site-recovery/azure-to-azure-quickstart
 - title: Step-by-step Tutorials
   items:
