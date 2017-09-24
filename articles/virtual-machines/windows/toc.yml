@@ -33,7 +33,7 @@
     href: tutorial-virtual-network.md
   - name: 9 - Backup virtual machines
     href: tutorial-backup-vms.md
-  - name: 10 - Monitor and update VMs
+  - name: 10 - Monitor virtual machines
     href: tutorial-monitoring.md
   - name: 11 - Manage VM security
     href: tutorial-azure-security.md
@@ -164,7 +164,11 @@
     - name: Vertically scale
       href: vertical-scaling-automation.md
     - name: Create VM in availability zone
-      href: create-portal-availability-zone.md
+      items:
+      - name: PowerShell
+        href: create-powershell-availability-zone.md
+      - name: Portal
+        href: create-portal-availability-zone.md    
   - name: Use automation tools
     items:
     - name: Chef
