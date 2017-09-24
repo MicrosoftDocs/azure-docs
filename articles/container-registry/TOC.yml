@@ -33,7 +33,7 @@
     href: ./container-registry-webhook.md
 - name: Reference
   items:
-  - name: Azure CLI 2.0
+  - name: Azure CLI
     href: /cli/azure/acr
   - name: REST
     href: /rest/api/containerregistry

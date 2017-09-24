@@ -91,7 +91,7 @@ sections:
     className: spaced noBullet
     items:
     - html: <a href="/en-us/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
-    - html: <a href="/cli/azure/appservice">Azure CLI 2.0</a>
+    - html: <a href="/cli/azure/appservice">Azure CLI</a>
 - title: Reference
   items:
   - type: list
@@ -99,8 +99,8 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/en-us/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Azure CLI 2.0</a></p>
+      html: <p><a href="/en-us/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Azure CLI</a></p>
     - title: Languages
       html: <p><a href="/en-us/dotnet/api">.NET</a></p><p><a href="/en-us/java/api/">Java</a></p>
     - title: REST
-      html: <p><a href="/en-us/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Azure CLI 2.0</a></p>
+      html: <p><a href="/en-us/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Azure CLI</a></p>
