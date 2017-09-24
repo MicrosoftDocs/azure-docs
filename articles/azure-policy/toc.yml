@@ -19,7 +19,7 @@
   items:
   - name: Azure CLI
     href: https://docs.microsoft.com/cli/azure/policy?view=azure-cli-latest
-  - name: PowerShell
+  - name: Azure PowerShell
     href: https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-4.3.1
 - name: Resources
   items:

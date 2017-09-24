@@ -50,7 +50,7 @@
   items:
   - name: Azure CLI
     href: app-service-cli-samples.md
-  - name: PowerShell
+  - name: Azure PowerShell
     href: app-service-powershell-samples.md
 - name: Concepts
   items:
@@ -156,9 +156,9 @@
       href: websites-dotnet-deploy-webjobs.md
 - name: Reference
   items:
-  - name: CLI 2.0
+  - name: Azure CLI
     href: /cli/azure/appservice
-  - name: PowerShell
+  - name: Azure PowerShell
     href: /powershell
   - name: REST API
     href: /rest/api/appservice/
