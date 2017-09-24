@@ -126,7 +126,7 @@ You can use _local mode_ for development and testing. The Docker engine must be 
 
    The command-line prompt opens in your current project folder location `c:\temp\myIris>`.
 
-2. Create the environment. This step is required to be run once per environment, for example, dev or prod. Use _local mode_ for this first environment. (You can try the `-c` or `--cluster` switch in the below command to set up an environment in _cluster mode_ later.)
+2. Create the environment. This step is required to be run once per environment, for example, dev or prod. Use _local mode_ for this first environment. (You can try the `-c` or `--cluster` switch in the following command to set up an environment in _cluster mode_ later.)
 
    ```azurecli
    az ml env setup -n <new deployment environment name> --location <e.g. eastus2>
@@ -185,7 +185,7 @@ Use the following command to create a real-time web service:
    docker ps
    ```
 ### Alternative route
-As an alternate to `az ml service create realtime` command shown above, you can also perform the model registration, manifest generation, Docker image build, and web service creation steps individually. This gives your more flexibility at each step, and you can reuse entities generated from the previous step, and rebuild entities only when needed. Follow the below instructions to see how this can be achieved:
+As an alternate to `az ml service create realtime` command shown above, you can also perform the model registration, manifest generation, Docker image build, and web service creation steps individually. This gives your more flexibility at each step, and you can reuse entities generated from the previous step, and rebuild entities only when needed. Follow the following instructions to see how this can be achieved:
 
 1. Register the model by providing the pickle file name.
 
