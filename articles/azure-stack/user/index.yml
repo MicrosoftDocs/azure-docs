@@ -30,11 +30,11 @@ sections:
       href: azure-stack-quick-windows-portal.md 
     - image: 
         src: https://docs.microsoft.com/media/logos/logo_powershell.svg
-      text: Azure Stack PowerShell
+      text: PowerShell
       href: azure-stack-quick-create-vm-windows-powershell.md 
     - image: 
         src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg
-      text: Azure Stack CLI
+      text: CLI
       href: azure-stack-quick-create-vm-windows-cli.md
   - type: paragraph
     text: 'Learn how to deploy a Linux virtual machine on Azure Stack:'
@@ -47,11 +47,11 @@ sections:
       href: azure-stack-quick-linux-portal.md 
     - image: 
         src: https://docs.microsoft.com/media/logos/logo_powershell.svg
-      text: Azure Stack PowerShell
+      text: PowerShell
       href: azure-stack-quick-create-vm-linux-powershell.md 
     - image: 
         src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg
-      text: Azure Stack CLI
+      text: CLI
       href: azure-stack-quick-create-vm-linux-cli.md
 - title: Step-by-step tutorials
   items:
