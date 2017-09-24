@@ -23,8 +23,8 @@ sections:
   - type: list
     style: icon48
     items:
-	- image:
-        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
+    - image:
+       src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
       text: Install and create
       href: /azure/machine-learning/quick-installation
 
