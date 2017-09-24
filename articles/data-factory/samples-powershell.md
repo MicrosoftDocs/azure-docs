@@ -19,7 +19,6 @@ ms.author: spelluru
 
 The following table includes links to sample Azure PowerShell scripts for Azure Data Factory.
 
-## Sample PowerShell scripts
 | |  |
 |---|---|
 |**Copy data**||

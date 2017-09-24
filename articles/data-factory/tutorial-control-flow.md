@@ -730,3 +730,19 @@ Checking copy activity run details...
 Press any key to exit...
 ```
 
+## Next steps
+You performed the following steps in this tutorial: 
+
+> [!div class="checklist"]
+> * Create a data factory.
+> * Create an Azure Storage linked service.
+> * Create an Azure Blob dataset
+> * Create a pipeline that contains a copy activity and a web activity
+> * Send outputs of activities to subsequent activities
+> * Utilize parameter passing and system variables
+> * Start a pipeline run
+> * Monitor the pipeline and activity runs
+
+You can now proceed to the Concepts section for more information about Azure Data Factory.
+> [!div class="nextstepaction"]
+>[Pipelines and activities](concepts-pipelines-activities.md)
