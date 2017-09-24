@@ -76,7 +76,7 @@
   - name: Resource Manager
     tocHref: /azure/azure-resource-manager/
     topicHref: /azure/azure-resource-manager/
-  - name: Azure Stack Operator
+  - name: Azure Stack
     tocHref: /azure/azure-stack/
     topicHref: /azure/azure-stack/
   - name: Azure Stack User
@@ -360,3 +360,6 @@
   - name: VPN Gateway
     tocHref: /azure/vpn-gateway/
     topicHref: /azure/vpn-gateway/
+  - name: Azure Policy
+    tocHref: /azure/azure-policy/
+    topicHref: /azure/azure-policy/

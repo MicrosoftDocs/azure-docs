@@ -1,3 +1,5 @@
+- name: Azure Backup Documentation
+  href: index.yml
 - name: Overview
   items:
   - name: What is Azure Backup?

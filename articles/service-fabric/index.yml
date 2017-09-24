@@ -30,13 +30,13 @@ sections:
       text: .NET
       href: service-fabric-quickstart-dotnet
     - image: 
-        src: https://docs.microsoft.com/media/logos/logo_linux.svg
-      text: Linux containers
-      href: service-fabric-quickstart-containers-linux
-    - image: 
         src: https://docs.microsoft.com/media/logos/logo_Windows.svg
       text: Windows containers
       href: service-fabric-quickstart-containers
+    - image: 
+        src: https://docs.microsoft.com/media/logos/logo_linux.svg
+      text: Linux containers
+      href: service-fabric-quickstart-containers-linux
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph

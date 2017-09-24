@@ -99,9 +99,9 @@
       href: tutorial-functions-http-trigger.md
 - name: Samples
   items:
-  - name: Azure CLI 2.0
+  - name: Azure CLI
     href: cli-samples.md
-  - name: Azure PowerShell
+  - name: PowerShell
     href: powershell-samples.md
 - name: Concepts
   items:
