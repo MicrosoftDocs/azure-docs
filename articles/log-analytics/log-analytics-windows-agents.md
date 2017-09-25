@@ -71,7 +71,7 @@ The following table shows resources needed for communication.
 
 
 ## Download the agent setup file from OMS
-1. In the OMS portal, on the **Overview** page, click the **Settings** tile.  Click the **Connected Sources** tab at the top.  
+1. In the [OMS portal](https://www.mms.microsoft.com), on the **Overview** page, click the **Settings** tile.  Click the **Connected Sources** tab at the top.  
     ![Connected Sources tab](./media/log-analytics-windows-agents/oms-direct-agent-connected-sources.png)
 2. Click **Windows Servers** and then click **Download Windows Agent** applicable to your computer processor type to download the setup file.
 3. On the right of **Workspace ID**, click the copy icon and paste the ID into Notepad.
