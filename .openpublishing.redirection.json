@@ -12879,6 +12879,21 @@
             "source_path": "articles/machine-learning/services.md",
             "redirect_url": "/azure/machine-learning/preview/index.yml",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-app-service-capacity-planning.md",
+            "redirect_url": "/azure-stack/azure-stack-app-service-overview",
+            "redirect_document_id": false
+        },
+                {
+            "source_path": "articles/azure-stack/azure-stack-sql-resource-provider-databases.md",
+            "redirect_url": "/azure-stack/azure-stack-sql-resource-provider-deploy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-sql-resource-provider-hosting-servers.md",
+            "redirect_url": "/azure-stack/azure-stack-sql-resource-provider-deploy",
+            "redirect_document_id": false
         }
     ]
 }
