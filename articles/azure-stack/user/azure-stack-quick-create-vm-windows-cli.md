@@ -12,9 +12,10 @@ ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: sngun
+ms.custom: mvc
 ---
 
 # Create a Windows virtual machine on Azure Stack using Azure CLI

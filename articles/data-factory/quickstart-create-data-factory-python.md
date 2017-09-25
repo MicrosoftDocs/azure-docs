@@ -40,22 +40,14 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 2.	Use tools such as [Azure Storage Explorer](http://storageexplorer.com/) to create the **adfv2tutorial** container, and to upload the input.txt file to the container. 
 
 ## Install the Python package
-
-1.	Download the [Azure Data Factory Python file](https://go.microsoft.com/fwlink/?linkid=859015) into a directory where you’ll run your project.
-2.	Open a terminal or command prompt with administrator privileges. 
-3.	To install the package, run the following commands:
+1. Open a terminal or command prompt with administrator privileges.  
+2. To install the Python package for Data Factory, run the following command:
 
     ```
-    pip install azure_mgmt_datafactory-0.1.0-py2.py3-none-any.whl
-    pip install azure.mgmt.resource
-    ```
-4. You should see the following output if you successfully installed the file
-
-    ```
-    Installing collected packages: certifi, msrest, msrestazure, azure-nspkg, azure-common, azure-mgmt-nspkg, azure-mgmt-datafactory, idna
-    Successfully installed azure-common-1.1.8 azure-mgmt-datafactory-0.1.0 azure-mgmt-nspkg-2.0.0 azure-nspkg-2.0.0 certifi-2017.7.27.1 idna-2.6 msrest-0.4.14 msrestazure-0.4.14
+    pip install azure-mgmt-datafactory
     ```
 
+    The [Python SDK for Data Factory](https://github.com/Azure/azure-sdk-for-python) supports Python 2.7, 3.3, 3.4, 3.5 and 3.6.
 ## Create a data factory client
 
 1. Create a file named **datafactory.py**. Add the following statements to add references to namespaces.
