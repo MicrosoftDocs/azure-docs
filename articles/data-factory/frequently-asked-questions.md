@@ -84,7 +84,7 @@ You can deploy one or many instances of Integration Runtime as required to move 
 
 For more information, see [Integration Runtime in Azure Data Factory](concepts-integration-runtime.md).
 
-## What is the limit on the number of Integration Runtime instances?
+## What is the limit on the number of integration runtimes?
 There are no hard limits on how many Integration Runtimes instances you can have in a data factory. There is however a limit on the number of virtual machine (VM) cores the Integration Runtime can use per subscription for SSIS package execution. For more information, see [Data Factory limits](../azure-subscription-service-limits.md#data-factory-limits).
 
 ## When to use version 2 vs. vs version 1? 
@@ -151,7 +151,7 @@ Use the following sites to stay up to date with information about Azure Data Fac
 
 ## Technical deep dive 
 
-### Can I have version 1 and version 2 pipelines run side by side in a data factory?
+### Can I have version 1 and version 2 pipelines run side by side?
 No. Version 2 or version 1 data factories cannot have entities (linked services, datasets, pipelines, etc.) of other version.   
 
 ### Do I still need to define datasets in version 2?
@@ -166,22 +166,22 @@ Yes, all the version 1 activities are supported
 ### How can I schedule a version 2 pipeline? 
 You can use the scheduler trigger to schedule a version 2 pipeline. It uses a wall-clock calendar schedule and enables users to schedule pipelines either periodically or using calendar-based recurrent patterns (for example, weekly Mondays @ 6 PM and Thursdays @ 9 PM). For more information, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md).
 
-### Can I pass parameters while executing a pipeline run in version 2?
+### Can I pass parameters to a pipeline run in version 2?
 Yes, parameters are first class top-level concept in version 2. You can define parameters at the pipeline level and pass arguments while executing the pipeline run on-demand or by using a trigger.  
 
-### Can I define default values for the parameters in the pipeline? 
+### Can I define default values for the pipeline parameters? 
 Yes. You can define default values for the parameters in the pipelines. 
 
-### Can an activity within the pipeline consume the parameter value passed to the pipeline run? 
+### Can an activity in a pipeline consume arguments passed to a pipeline run? 
 Yes. Each activity within the pipeline can consume the parameter value passed to the pipeline run with the `@parameter` construct. 
 
-### Can an activity output property be consumed in another activity within the pipeline? 
+### Can an activity output property be consumed in another activity? 
 Yes. An activity output can be consumed in a subsequent activity with the @activity construct.
  
-### How do I handle null values gracefully while consuming an activity output? 
+### How do I gracefully handle null values in an activity output? 
 You can use the `@coalesce` construct in the expressions to handle null values gracefully. 
 
-### Can I use all the orchestration knobs like retries, timeouts at the activity level in version 2?
+### Can I use retries, timeouts at the activity level in version 2?
 Yes. You can configure retry and timeout at the activity level to govern the execution of activities in version 2 like in version 1. 
 
 
