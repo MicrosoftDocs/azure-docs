@@ -25,8 +25,8 @@ Commands for managing Service Fabric clusters and entities. Commands follow the 
 
 |Subgroup|Description|
 | --- | --- |
-| [application](service-fabric-sfctl-.md)| Create, delete, and manage applications and application types.|
-| [chaos](service-fabric-sfctl-choas.md)   | Start, stop and report on the chaos test service.|
+| [application](service-fabric-sfctl-application.md)| Create, delete, and manage applications and application types.|
+| [chaos](service-fabric-sfctl-chaos.md)   | Start, stop and report on the chaos test service.|
 | [cluster](service-fabric-sfctl-cluster.md) | Select, manage and operate Service Fabric clusters.|
 | [compose](service-fabric-sfctl-compose.md) | Create, delete and manage Docker Compose applications.|
 | [is](service-fabric-sfctl-is.md)      | Query and send commands to the infrastructure service.|
