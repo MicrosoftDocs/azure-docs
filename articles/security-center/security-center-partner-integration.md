@@ -88,7 +88,7 @@ The **Discovered solutions** section shows all the solutions that were added via
 
 ![Discovered solutions](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
 
-Security Center can integrate with built-in Azure solutions, such as [Azure Active Directory (AD) Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection). If you have a license for Azure AD Identity Protection but it's not connected to Security Center, Azure AD Identity Protection is listed under **Discovered solutions**. To integrate this solution with Security Center, on the **Azure AD Identity Protection** tile, select **CONNECT**, and the following page appears:
+Security Center can integrate with built-in Azure solutions, such as [Azure Active Directory (Azure AD) Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection). If you have a license for Azure AD Identity Protection but it's not connected to Security Center, Azure AD Identity Protection is listed under **Discovered solutions**. To integrate this solution with Security Center, on the **Azure AD Identity Protection** tile, select **CONNECT**, and the following page appears:
 
 ![Azure AD Identity Protection](./media/security-center-partner-integration/security-center-partner-integration-fig6.png)
 
@@ -96,7 +96,7 @@ To finish connecting Azure AD Identity Protection, select a workspace where the 
 
 To connect to Security Center, you must be a global admin or a security admin. If you don't have permissions, the **Connect** button is disabled. A message appears explaining why the button is disabled.
 
-Azure AD Identity Protection alerts go through Security Center's detection pipe. This way you get alerts from both Security Center and Azure AD Identity Protection. Security Center merges all alerts that seem relevant to create a [security incident](https://docs.microsoft.com/azure/security-center/security-center-incident). The security incident description gives you more intelligence about suspicious activity.
+Azure AD Identity Protection alerts go through the Security Center detection pipe. This way you get alerts from both Security Center and Azure AD Identity Protection. Security Center merges all alerts that seem relevant to create a [security incident](https://docs.microsoft.com/azure/security-center/security-center-incident). The security incident description gives you more intelligence about suspicious activity.
 
 ### Add data sources
 
