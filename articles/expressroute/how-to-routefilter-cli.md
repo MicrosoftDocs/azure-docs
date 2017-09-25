@@ -26,9 +26,9 @@ Dynamics 365 services, and Office 365 services such as Exchange Online, SharePoi
 
 If you require connectivity to all services, a large number of prefixes are advertised through BGP. This significantly increases the size of the route tables maintained by routers within your network. If you plan to consume only a subset of services offered through Microsoft peering, you can reduce the size of your route tables in two ways. You can:
 
-- Filter out unwanted prefixes by applying route filters on BGP communities. This is a standard networking practice and is used commonly within many networks.
+* Filter out unwanted prefixes by applying route filters on BGP communities. This is a standard networking practice and is used commonly within many networks.
 
-- Define route filters and apply them to your ExpressRoute circuit. A route filter is a new resource that lets you select the list of services you plan to consume through Microsoft peering. ExpressRoute routers only send the list of prefixes that belong to the services identified in the route filter.
+* Define route filters and apply them to your ExpressRoute circuit. A route filter is a new resource that lets you select the list of services you plan to consume through Microsoft peering. ExpressRoute routers only send the list of prefixes that belong to the services identified in the route filter.
 
 ### <a name="about"></a>About route filters
 
@@ -47,26 +47,26 @@ To be able to attach route filters with Office 365 services on them, you must ha
 
 To be able to successfully connect to services through Microsoft peering, you must complete the following configuration steps:
 
-- You must have an active ExpressRoute circuit that has Microsoft peering provisioned. You can use the following instructions to accomplish these tasks:
-  - [Create an ExpressRoute circuit](howto-circuit-cli.md) and have the circuit enabled by your connectivity provider before you proceed. The ExpressRoute circuit must be in a provisioned and enabled state.
-  - [Create Microsoft peering](howto-routing-cli.md) if you manage the BGP session directly. Or, have your connectivity provider provision Microsoft peering for your circuit.
+* You must have an active ExpressRoute circuit that has Microsoft peering provisioned. You can use the following instructions to accomplish these tasks:
+  * [Create an ExpressRoute circuit](howto-circuit-cli.md) and have the circuit enabled by your connectivity provider before you proceed. The ExpressRoute circuit must be in a provisioned and enabled state.
+  * [Create Microsoft peering](howto-routing-cli.md) if you manage the BGP session directly. Or, have your connectivity provider provision Microsoft peering for your circuit.
 
--  You must create and configure a route filter.
-    - Identify the services you with to consume through Microsoft peering
-    - Identify the list of BGP community values associated with the services
-    - Create a rule to allow the prefix list matching the BGP community values
+* You must create and configure a route filter.
+  * Identify the services you with to consume through Microsoft peering
+  * Identify the list of BGP community values associated with the services
+  * Create a rule to allow the prefix list matching the BGP community values
 
--  You must attach the route filter to the ExpressRoute circuit.
+* You must attach the route filter to the ExpressRoute circuit.
 
-## Before you begin
+## Before beginning
 
-* Before beginning, install the latest version of the CLI commands (2.0 or later). For information about installing the CLI commands, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli) and [Get Started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli).
+Before beginning, install the latest version of the CLI commands (2.0 or later). For information about installing the CLI commands, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli) and [Get Started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli).
 
- - Review the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
+* Review the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
 
- - You must have an active ExpressRoute circuit. Follow the instructions to [Create an ExpressRoute circuit](howto-circuit-cli.md) and have the circuit enabled by your connectivity provider before you proceed. The ExpressRoute circuit must be in a provisioned and enabled state.
+* You must have an active ExpressRoute circuit. Follow the instructions to [Create an ExpressRoute circuit](howto-circuit-cli.md) and have the circuit enabled by your connectivity provider before you proceed. The ExpressRoute circuit must be in a provisioned and enabled state.
 
- - You must have an active Microsoft peering. Follow instructions at [Create and modifying peering configuration](howto-routing-cli.md)
+* You must have an active Microsoft peering. Follow instructions at [Create and modifying peering configuration](howto-routing-cli.md)
 
 ### 1. Sign in to your Azure account and select your subscription
 
@@ -94,7 +94,8 @@ az account set --subscription "<subscription ID>"
 
 Use the following cmdlet to get the list of BGP community values associated with services accessible through Microsoft peering, and the list of prefixes associated with them:
 
-```az network route-filter rule list-service-communities
+```azurecli
+az network route-filter rule list-service-communities
 ```
 ### 2. Make a list of the values that you want to use
 
@@ -132,9 +133,9 @@ az network express-route peering update --circuit-name MyCircuit -g ExpressRoute
 
 To get the properties of a route filter, use the following command:
 
-  ```azurecli
+```azurecli
 az network route-filter show -g ExpressRouteResourceGroupName --name MyRouteFilter 
-  ```
+```
 
 ## <a name="updateproperties"></a>To update the properties of a route filter
 
