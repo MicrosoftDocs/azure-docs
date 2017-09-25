@@ -36,6 +36,11 @@ sections:
         src: https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_java.svg
       text: Java
       href: https://docs.microsoft.com/en-us/azure/azure-toolkit-for-intellij-hello-world-web-app-linux?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+  - type: paragraph
+    text: 'Learn how to deploy continuously:'
+  - type: list
+    style: icon48
+    items: 
     - image:
         src: https://docs.microsoft.com/en-us/azure/media/index/logo_vs-team-services.svg
       text: VSTS

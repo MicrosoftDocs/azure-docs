@@ -45,6 +45,11 @@ sections:
         src: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/cli.svg
       text: Azure CLI
       href: https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-quick-create-cli?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+  - type: paragraph
+    text: 'Learn how to deploy continuously:'
+  - type: list
+    style: icon48
+    items: 
     - image:
         src: https://docs.microsoft.com/en-us/azure/media/index/logo_vs-team-services.svg
       text: VSTS
