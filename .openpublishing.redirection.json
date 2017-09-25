@@ -4161,13 +4161,13 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/machine-learning/machine-learning-apps-anomaly-detection.md",
-            "redirect_url": "machine-learning-apps-anomaly-detection-api",
+            "source_path": "articles/machine-learning/machine-learning-apps-text-analytics.md",
+            "redirect_url": "../cognitive-services/cognitive-services-text-analytics-quick-start",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/machine-learning/machine-learning-apps-text-analytics.md",
-            "redirect_url": "../cognitive-services/cognitive-services-text-analytics-quick-start",
+            "source_path": "articles/machine-learning/machine-learning-apps-anomaly-detection.md",
+            "redirect_url": "machine-learning-apps-anomaly-detection-api",
             "redirect_document_id": false
         },
         {
@@ -4283,6 +4283,16 @@
         {
             "source_path": "articles/machine-learning/machine-learning-webservice-deploy-a-web-service.md",
             "redirect_url": "machine-learning-publish-a-machine-learning-web-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/index.md",
+            "redirect_url": "/azure/machine-learning/preview/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/preview/quick-start-installation.md",
+            "redirect_url": "/azure/machine-learning/preview/quickstart-installation",
             "redirect_document_id": false
         },
         {
