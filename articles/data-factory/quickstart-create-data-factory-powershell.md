@@ -296,7 +296,7 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
     $result.Output -join "`r`n"
     
     Write-Host "\nActivity 'Error' section:" -foregroundcolor "Yellow"
-    $result.Error -join "`r`n
+    $result.Error -join "`r`n"
     ```
 3. Confirm that you see the output similar to the following sample output of activity run result:
 
