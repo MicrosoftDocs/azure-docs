@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 09/18/2017
+ms.date: 09/25/2017
 ms.author: yuaxu
 
 ---
@@ -51,7 +51,7 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 ## Configure your notification hub
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-<ol start="7">
+<ol start="5">
 
 <li><p>Choose the <b>Configure</b> tab at the top, enter the <b>API Key</b> value you obtained in the previous section, and then select <b>Save</b>.</p>
 </li>
