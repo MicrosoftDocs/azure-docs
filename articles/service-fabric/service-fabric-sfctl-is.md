@@ -44,8 +44,8 @@ Arguments
 |Argument|Description|
 | --- | --- |
 | --command [Required]| The text of the command to be invoked. The content of the command is      infrastructure-specific.  Default: is command.|
-| --callback       | When specified, will be called with each chunk of data that is streamed.      The callback should take two arguments, the bytes of the current chunk of      data and the response object. If the data is uploading, response will be      None.|
-| --service-id     | The identity of the infrastructure service. This is  the full name of the      infrastructure service without the 'fabric:' URI scheme. This parameter      required only for the cluster that have more than one instance of      infrastructure service running.|
+| --callback       | When specified, called with each chunk of data that is streamed.      The callback should take two arguments, the bytes of the current chunk of      data and the response object. If the data is uploading, response is      None.|
+| --service-id     | The identity of the infrastructure service. This is  the full name of the      infrastructure service without the 'fabric:' URI scheme. This parameter      required only for clusters that have more than one instance of      infrastructure service running.|
 | --timeout -t     | Server timeout in seconds.  Default: 60.|
 
 Global Arguments
@@ -65,15 +65,15 @@ For clusters that have one or more instances of the Infrastructure Service confi
         API provides a way to send infrastructure-specific queries to a particular instance of the
         Infrastructure Service. Available commands and their corresponding response formats vary
         depending upon the infrastructure on which the cluster is running. This API supports the
-        Service Fabric platform; it is not meant to be used directly from your code. .
+        Service Fabric platform; it is not meant to be used directly from your code.
 
 Arguments
 
 |Argument|Description|
 | --- | --- |
 | --command [Required]| The text of the command to be invoked. The content of the command is      infrastructure-specific.  Default: is query.|
-| --callback       | When specified, will be called with each chunk of data that is streamed.      The callback should take two arguments, the bytes of the current chunk of      data and the response object. If the data is uploading, response will be      None.|
-| --service-id     | The identity of the infrastructure service. This is  the full name of the      infrastructure service without the 'fabric:' URI scheme. This parameter      required only for the cluster that have more than one instance of      infrastructure service running.|
+| --callback       | When specified, called with each chunk of data that is streamed.      The callback should take two arguments, the bytes of the current chunk of      data and the response object. If the data is uploading, response is      None.|
+| --service-id     | The identity of the infrastructure service. This is  the full name of the      infrastructure service without the 'fabric:' URI scheme. This parameter is     required only for clusters that have more than one instance of      infrastructure service running.|
 | --timeout -t     | Server timeout in seconds.  Default: 60.|
 
 Global Arguments
@@ -83,5 +83,5 @@ Global Arguments
 | --debug          | Increase logging verbosity to show all debug logs.|
 | --help -h        | Show this help message and exit.|
 | --output -o      | Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.|
-| --query          | JMESPath query string. See http://jmespath.org/ for more information and      examples.|
+| --query          | JMESPath query string. For more information, see http://jmespath.org/ for more information and      examples.|
 | --verbose        | Increase logging verbosity. Use --debug for full debug logs.|

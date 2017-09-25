@@ -48,7 +48,7 @@ Deletes existing image store content being found within the given image store re
 | --debug               | Increase logging verbosity to show all debug logs.|
 | --help -h             | Show this help message and exit.|
 | --output -o           | Output format.  Allowed values: json, jsonc, table, tsv.  Default:           json.|
-| --query               | JMESPath query string. See http://jmespath.org/ for more information           and examples.|
+| --query               | JMESPath query string. For more information and examples, see http://jmespath.org/.|
 | --verbose             | Increase logging verbosity. Use --debug for full debug logs.|
 
 ## sfctl store stat

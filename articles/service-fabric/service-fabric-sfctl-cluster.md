@@ -18,7 +18,7 @@ ms.author: ryanwi
 
 ---
 # sfctl cluster
-Select, manage and operate Service Fabric clusters.
+Select, manage, and operate Service Fabric clusters.
 
 ## Commands
 
@@ -41,15 +41,15 @@ Gets the health of a Service Fabric cluster.
 Gets the health of a Service Fabric cluster. Use EventsHealthStateFilter to filter the
         collection of health events reported on the cluster based on the health state. Similarly,
         use NodesHealthStateFilter and ApplicationsHealthStateFilter to filter the collection of
-        nodes and applications returned based on their aggregated health state. .
+        nodes and applications returned based on their aggregated health state. 
 
 ### Arguments
 
 |Argument|Description|
 | --- | --- |
-| --applications-health-state-filter| Allows filtering of the application health state objects                    returned in the result of cluster health query based on                    their health state. The possible values for this parameter                    include integer value obtained from members or bitwise                    operations on members of HealthStateFilter enumeration. Only                    applications that match the filter are returned. All                    applications are used to evaluate the aggregated health                    state. If not specified, all entries are returned. The state                    values are flag based enumeration, so the value could be a                    combination of these values obtained using bitwise 'OR'                    operator. For example, if the provided value is 6 then                    health state of applications with HealthState value of OK                    (2) and Warning (4) are returned. - Default - Default value.                    Matches any HealthState. The value is zero. - None - Filter                    that doesn’t match any HealthState value. Used in order to                    return no results on a given collection of states. The value                    is 1. - Ok - Filter that matches input with HealthState                    value Ok. The value is 2. - Warning - Filter that matches                    input with HealthState value Warning. The value is 4. -                    Error - Filter that matches input with HealthState value                    Error. The value is 8. - All - Filter that matches input                    with any HealthState value. The value is 65535.|
-| --events-health-state-filter   | Allows filtering the collection of HealthEvent objects                    returned based on health state. The possible values for this                    parameter include integer value of one of the following                    health states. Only events that match the filter are                    returned. All events are used to evaluate the aggregated                    health state. If not specified, all entries are returned.                    The state values are flag based enumeration, so the value                    could be a combination of these value obtained using bitwise                    'OR' operator. For example, If the provided value is 6 then                    all of the events with HealthState value of OK (2) and                    Warning (4) are returned. - Default - Default value. Matches                    any HealthState. The value is zero. - None - Filter that                    doesn’t match any HealthState value. Used in order to return                    no results on a given collection of states. The value is 1.                    - Ok - Filter that matches input with HealthState value Ok.                    The value is 2. - Warning - Filter that matches input with                    HealthState value Warning. The value is 4. - Error - Filter                    that matches input with HealthState value Error. The value                    is 8. - All - Filter that matches input with any HealthState                    value. The value is 65535.|
-| --nodes-health-state-filter    | Allows filtering of the node health state objects returned                    in the result of cluster health query based on their health                    state. The possible values for this parameter include                    integer value of one of the following health states. Only                    nodes that match the filter are returned. All nodes are used                    to evaluate the aggregated health state. If not specified,                    all entries are returned. The state values are flag based                    enumeration, so the value could be a combination of these                    values obtained using bitwise 'OR' operator. For example, if                    the provided value is 6 then health state of nodes with                    HealthState value of OK (2) and Warning (4) are returned. -                    Default - Default value. Matches any HealthState. The value                    is zero. - None - Filter that doesn’t match any HealthState                    value. Used in order to return no results on a given                    collection of states. The value is 1. - Ok - Filter that                    matches input with HealthState value Ok. The value is 2. -                    Warning - Filter that matches input with HealthState value                    Warning. The value is 4. - Error - Filter that matches input                    with HealthState value Error. The value is 8. - All - Filter                    that matches input with any HealthState value. The value is                    65535.|
+| --applications-health-state-filter| Allows filtering of the application health state objects                    returned in the result of cluster health query based on                    their health state. The possible values for this parameter                    include integer value obtained from members or bitwise                    operations on members of HealthStateFilter enumeration. Only                    applications that match the filter are returned. All                    applications are used to evaluate the aggregated health                    state. If not specified, all entries are returned. The state                    values are flag-based enumeration, so the value could be a                    combination of these values obtained using bitwise 'OR'                    operator. For example, if the provided value is 6 then                    health state of applications with HealthState value of OK                    (2) and Warning (4) are returned. - Default - Default value.                    Matches any HealthState. The value is zero. - None - Filter                    that doesn’t match any HealthState value. Used in order to                    return no results on a given collection of states. The value                    is 1. - Ok - Filter that matches input with HealthState                    value Ok. The value is 2. - Warning - Filter that matches                    input with HealthState value Warning. The value is 4. -                    Error - Filter that matches input with HealthState value                    Error. The value is 8. - All - Filter that matches input                    with any HealthState value. The value is 65535.|
+| --events-health-state-filter   | Allows filtering the collection of HealthEvent objects                    returned based on health state. The possible values for this                    parameter include integer value of one of the following                    health states. Only events that match the filter are                    returned. All events are used to evaluate the aggregated                    health state. If not specified, all entries are returned.                    The state values are flag-based enumeration, so the value                    could be a combination of these values obtained using bitwise                    'OR' operator. For example, If the provided value is 6 then                    all of the events with HealthState value of OK (2) and                    Warning (4) are returned. - Default - Default value. Matches                    any HealthState. The value is zero. - None - Filter that                    doesn’t match any HealthState value. Used in order to return                    no results on a given collection of states. The value is 1.                    - Ok - Filter that matches input with HealthState value Ok.                    The value is 2. - Warning - Filter that matches input with                    HealthState value Warning. The value is 4. - Error - Filter                    that matches input with HealthState value Error. The value                    is 8. - All - Filter that matches input with any HealthState                    value. The value is 65535.|
+| --nodes-health-state-filter    | Allows filtering of the node health state objects returned                    in the result of cluster health query based on their health                    state. The possible values for this parameter include                    integer value of one of the following health states. Only                    nodes that match the filter are returned. All nodes are used                    to evaluate the aggregated health state. If not specified,                    all entries are returned. The state values are flag-based                    enumeration, so the value could be a combination of these                    values obtained using bitwise 'OR' operator. For example, if                    the provided value is 6 then health state of nodes with                    HealthState value of OK (2) and Warning (4) are returned. -                    Default - Default value. Matches any HealthState. The value                    is zero. - None - Filter that doesn’t match any HealthState                    value. Used in order to return no results on a given                    collection of states. The value is 1. - Ok - Filter that                    matches input with HealthState value Ok. The value is 2. -                    Warning - Filter that matches input with HealthState value                    Warning. The value is 4. - Error - Filter that matches input                    with HealthState value Error. The value is 8. - All - Filter                    that matches input with any HealthState value. The value is                    65535.|
 | --timeout -t                   | Server timeout in seconds.  Default: 60.|
 
 ### Global Arguments
@@ -66,13 +66,13 @@ Gets the health of a Service Fabric cluster. Use EventsHealthStateFilter to filt
 Get the Service Fabric cluster manifest.
 
 Get the Service Fabric cluster manifest. The cluster manifest contains properties of the
-        cluster that include different node types on the cluster, security configurations, fault and
+        cluster that include different node types on the cluster, security configurations, fault, and
         upgrade domain topologies etc. These properties are specified as part of the
         ClusterConfig.JSON file while deploying a stand alone cluster. However, most of the
         information in the cluster manifest is generated internally by service fabric during cluster
-        deployment in other deployment scenarios (for e.g when using azuer portal). The contents of
+        deployment in other deployment scenarios (for example when using the [Azure portal](https://portal.azure.com)). The contents of
         the cluster manifest are for informational purposes only and users are not expected to take
-        a dependency on the format of the file contents or its interpretation. .
+        a dependency on the format of the file contents or its interpretation. 
 
 ### Arguments
 
@@ -94,7 +94,7 @@ Get the Service Fabric cluster manifest. The cluster manifest contains propertie
 Gets a list of user-induced fault operations filtered by provided
     input.
 
-Gets the a list of user-induced fault operations filtered by provided input.
+Gets a list of user-induced fault operations filtered by provided input.
 
 ### Arguments
 
@@ -114,7 +114,7 @@ Gets the a list of user-induced fault operations filtered by provided input.
 ## sfctl cluster select
 Connects to a Service Fabric cluster endpoint.
 
-If connecting to secure cluster specify a cert (.crt) and key file (.key) or a single file
+If connecting to secure cluster, specify a cert (.crt) and key file (.key) or a single file
         with both (.pem). Do not specify both. Optionally, if connecting to a secure cluster,
         specify also a path to a CA bundle file or directory of trusted CA certs.
 
