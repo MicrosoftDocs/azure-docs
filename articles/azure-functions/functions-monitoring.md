@@ -239,7 +239,6 @@ As noted in the previous section, the runtime aggregates data about function exe
       "batchSize": 1000,
       "flushTimeout": "00:00:30"
     }
-  }
 }
 ```
 
