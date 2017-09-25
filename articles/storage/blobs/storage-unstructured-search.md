@@ -21,9 +21,9 @@ ms.custom: mvc
 
 # Search unstructured data in cloud Storage
 
-This tutorial is part one of a two-part series. In these tutorials, you learn how to search semi-structured and unstructured data. In this tutorial, you search unstructured data. Unstructured data is data that either is not organized in a pre-defined manner or does not have a data model. An example would be a .txt file.
+In these tutorials, we cover how to search semi-structured and unstructured data. In this tutorial, which is part one of a two-part series, we cover searching unstructured data. Unstructured data is data that either is not organized in a pre-defined manner or does not have a data model. An example would be a .txt file.
 
-In this part you learn how to:
+In this part we cover how to:
 
 > [!div class="checklist"]
 > * Create a resource group
@@ -37,7 +37,7 @@ In this part you learn how to:
 
 For this tutorial, a sample data set has been prepared for you. **Download [clinical-trials.zip](https://github.com/roygara/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials.zip)** and unzip it to its own folder.
 
-Contained in the sample is a set of example text files obtained from [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). We are using them as the example text files to search in Azure.
+Contained in the sample is a set of text files obtained from [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). We are using them as the example text files to search in Azure.
 
 
 ## Log in to Azure
@@ -48,9 +48,9 @@ Log in to the [Azure portal](http://portal.azure.com).
 
 A storage account provides a unique location to store and access your Azure Storage data objects. All objects in a storage account are billed together as a group. By default, the data in your account is available only to you, the account owner.
 
-Currently there are two types of storage accounts but, for the purposes of this tutorial, we are only using the "General-purpose storage account.
+Currently, there are two types of storage accounts, Blob and General-purpose. For this tutorial, you must create a **General-purpose** storage account.
 
-If you do not yet have a General-purpose storage account, here's how to create one:
+If you are not familiar with the process of creating a General-purpose storage account, here's how to create one:
 
 1. On the left, click **Storage Accounts**, then click **Add.**
 
@@ -61,7 +61,8 @@ If you do not yet have a General-purpose storage account, here's how to create o
 4. Select **Locally-redundant storage (LRS)** for Replication.
 
 5. Select to create a new resource group, give it a unique name, and select a location appropriate for you.
-    We recommend creating a separate resource group for these sequences of tutorials so that you may easily clean up all associated resources after completing both tutorials.
+    
+   We recommend creating a separate resource group for these sequences of tutorials so that you may easily clean up all associated resources after completing both tutorials.
 
 6. Leave the remaining values as their defaults but be sure to select an appropriate subscription.
 
@@ -95,11 +96,11 @@ Now that you have a container, you can upload your example data to it.
 
 2. Click **Upload**.
 
-  ![Unstructured search](media/storage-unstructured-structured-search/upload.png)
-
 3. Click the blue folder icon pictured next to the files field and navigate to the folder where you extracted the sample data. 
 
 4. Open the folder and select all of its contents, then when you've finished click **Upload** to begin the upload process.
+
+  ![Unstructured search](media/storage-unstructured-structured-search/upload.png)
 
 The upload process may take a moment.
 
@@ -143,13 +144,13 @@ Now that you have a search service, you can attach it to your blob storage. This
 
 3. Select **Search Service** inside **Import Data** and then click the search service you created.
 
-    You can now proceed to the next part, **Data Source.** Click that if it doesn't automatically appears.
+    You can now proceed to the next part, **Data Source.** Click that if it doesn't automatically open.
 
- **New data source** appears.
+ **New data source** opens.
 
 ### New Data Source
 
-  A data source specifies which data to index, credentials needed to access the data, and policies to identify changes in the data (new, modified, or deleted blobs). A data source can be used multiple times in the same search service.
+  A data source specifies which data to index, credentials needed to access the data (if necessary), and (potentially) policies to identify changes in the data (new, modified, or deleted blobs). A data source can be used multiple times in the same search service.
 
 1. Enter a name of your choosing and make sure **Data to extract** is set as **Content and Metadata** and that **Parsing Mode** is **Text**.
     
@@ -161,7 +162,7 @@ Now that you have a search service, you can attach it to your blob storage. This
 
   ![Unstructured search](media/storage-unstructured-structured-search/datasources.png)
 
-3. Click on the storage account you created earlier. Causing **Containers** to appear.
+3. Click on the storage account you created earlier. Causing **Containers** to open.
 
   ![Unstructured search](media/storage-unstructured-structured-search/datacontainer.png)
 
@@ -173,9 +174,9 @@ Now that you have a search service, you can attach it to your blob storage. This
 
 ### Index
 
-  The index allows you to specify the fields *documents*, attributes, and other constructs that shape the search experience. A document is treated like a single unit of searchable data in your index. If you were to think of this process in the context of a database, an index is like a table and documents are rows in the table.
+  The index allows you to specify the fields documents, attributes, and other constructs that shape the search experience. A document is treated like a single unit of searchable data in your index. If you were to think of this process in the context of a database, an index is like a table and documents are rows in the table.
 
-  The parameters of your target index and what attributes you give those parameters are important. The parameters specify *what* data to store, the attributes specify *how* to store that data.
+  The parameters of your index and what attributes you give those parameters are important. The parameters specify *what* data to store, the attributes specify *how* to store that data.
     
 ### Field attributes
 | Attribute | Description |
@@ -197,7 +198,7 @@ Now that you have a search service, you can attach it to your blob storage. This
 
 ### Create an Indexer
     
-  An indexer connects a data source with a target search index, and provides a schedule to automate the data refresh.
+  An indexer connects a data source with a search index, and provides a schedule to automate the data refresh.
 
 1. Fill in the **Name** field with a name of your choosing and then click **OK**.
 
@@ -227,27 +228,30 @@ The following steps show you where to find it and provide you some example queri
 
   ![Unstructured search](media/storage-unstructured-structured-search/indexespane.png)
 
-5. Click **Search** while the query string is empty.
+5. Click **Search** while the query string field is empty.
 
     Leaving the query string empty is the equivalent to an "*" query and returns all data in the data container.
 
   ![Unstructured search](media/storage-unstructured-structured-search/emptySearch.png)
 
-7. Enter a query, such as "Myopia", initiating a search of the contents of the files and the results now contain a much smaller response.
+### Full-text search 
 
-  ![Unstructured search](media/storage-unstructured-structured-search/myopiaSearch.png) 
+Enter a query, such as "Myopia", initiating a search of the contents of the files and the results now contain a much smaller response.
+
+  ![Unstructured search](media/storage-unstructured-structured-search/secondMyopia.png) 
 
     You may also create queries that search by system properties using the `$select` parameter.
+### System properties search
 
-8. Enter `$select=metadata_storage_name` into the query string and press enter, returning only that particular field.
+Enter `$select=metadata_storage_name` into the query string and press enter, returning only that particular field.
     
-    a. The query string is directly modifying the URL, so spaces are not permitted. To search multiple fields use a comma, like this example: `$select=metadata_storage_name,metadata_storage_size`
+The query string is directly modifying the URL, so spaces are not permitted. To search multiple fields use a comma, like this example: `$select=metadata_storage_name,metadata_storage_size`
     
-    b. The `$select` parameter can only be used with fields that are marked retrievable.
+The `$select` parameter can only be used with fields that are marked retrievable.
 
   ![Unstructured search](media/storage-unstructured-structured-search/metadatasearchunstructured.png) 
 
-You have now completed part one of this tutorial and have a searchable set of unstructured data.
+You have now completed part one of these tutorials and have a searchable set of unstructured data.
 
 Make sure **not** to delete any resources created in this tutorial, as most of them will be reused in the subsequent tutorial.
 
