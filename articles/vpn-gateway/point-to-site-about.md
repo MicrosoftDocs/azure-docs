@@ -79,11 +79,11 @@ The zip file also provides the values of some of the important settings on the A
 * Pricing information can be found on the Pricing page 
 * SLA (Service Level Agreement) information can be found on the SLA page.
 
-## <a name="faqcert"></a>P2S FAQ for Azure certificate authentication
+## <a name="faqcert"></a>FAQ for Azure native certificate authentication
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
-## <a name="faqradius"></a>P2S FAQ for RADIUS authentication
+## <a name="faqradius"></a>FAQ for RADIUS authentication
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 
