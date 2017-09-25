@@ -17,7 +17,7 @@ ms.author: sethm
 
 ---
 
-# Messages, Payloads, and Serialization
+# Messages, payloads, and serialization
 
 Microsoft Azure Service Bus handles messages. Messages carry a payload as well as metadata, in the form of key-value pair properties, describing the payload and giving handling instructions to Service Bus and applications. Occasionally, that metadata alone is sufficient to carry the information that the sender wants to communicate to receivers, and the payload remains empty.
 
