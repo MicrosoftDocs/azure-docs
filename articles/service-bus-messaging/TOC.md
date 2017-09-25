@@ -37,6 +37,7 @@
 ### [Apps that use queues](service-bus-create-queues.md)
 ### [Apps that use topics/subscriptions](service-bus-create-topics-subscriptions.md)
 ### [Authentication and authorization](service-bus-authentication-and-authorization.md)
+#### [Migrate from ACS to SAS](service-bus-migrate-acs-sas.md)
 #### [Authentication with Shared Access Signatures](service-bus-sas.md)
 ### [Partitioned queues and topics](service-bus-partitioning.md)
 ### [Dead-letter queues](service-bus-dead-letter-queues.md)
@@ -59,13 +60,14 @@
 #### [Create an authorization rule for namespace and queue](service-bus-resource-manager-namespace-auth-rule.md)
 #### [Create a namespace with topic, subscription, and rule](service-bus-resource-manager-namespace-topic-with-rule.md)
 #### 
-### [Using PowerShell to provision entities](service-bus-manage-with-ps.md)
+### [Using Azure PowerShell to provision entities](service-bus-manage-with-ps.md)
 
 # Reference
 ## .NET
 ### [Microsoft.ServiceBus.Messaging (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.ServiceBus (.NET Standard)](/dotnet/api/microsoft.azure.servicebus)
-## [PowerShell](/powershell/module/azurerm.servicebus)
+## [Java](/java/api/overview/azure/servicebus)
+## [Azure PowerShell](/powershell/module/azurerm.servicebus)
 ## [REST](/rest/api/servicebus)
 ## [Exceptions](service-bus-messaging-exceptions.md)
 ## [Quotas](service-bus-quotas.md)

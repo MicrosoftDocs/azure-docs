@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/27/2017
+ms.date: 09/06/2017
 ms.author: bwren
 
 ---
@@ -64,7 +64,7 @@ Prior to upgrade, when you selected a value in a chart, it would return a detail
 ## Log Search API
 
 ### Question: Does the Log Search API get updated after I upgrade?
-The [Log Search API](log-analytics-log-search-api.md) has not yet been upgraded to the new search language.  Continue to use the legacy query language with this API, even after you upgrade your workspace.  Updated documentation will become available for the Log Search API when it's updated.
+The legacy [Log Search API](log-analytics-log-search-api.md) will no longer work when you upgraded your workspace.  See [Azure Log Analytics REST API](https://dev.loganalytics.io/) for details on the new API.
 
 
 ## Portals
@@ -126,6 +126,9 @@ The [Device Health solution](https://docs.microsoft.com/windows/deployment/updat
 
 ### Known issue: Application Insights connector
 Perspectives in [Application Insights Connector solution](log-analytics-app-insights-connector.md) are currently not supported in an upgraded workspace.  A fix to this issue is currently under analysis.
+
+### Known issue: Backup solution
+The Backup Solution will not collect data in an upgraded workspace. A new Backup solution that works with the upgraded workspace will be announced shortly.
 
 ## Upgrade process
 

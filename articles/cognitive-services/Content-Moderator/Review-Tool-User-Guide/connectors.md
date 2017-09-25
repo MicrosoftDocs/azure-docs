@@ -34,7 +34,7 @@ Before you start defining a workflow, make sure you have valid credentials for t
 
 3.	The subscription key displays. If you make any edits, click Save when you are done.
 
-  ![Content Moderation Connectors](images/connectors-4.png)
+  ![Content Moderation Connectors](images/connectors-4-1.png)
  
 ## Adding a Connector ##
 
