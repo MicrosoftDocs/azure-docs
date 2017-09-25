@@ -10,7 +10,7 @@ ms.topic: article
 ms.workload: web
 ms.date: 08/02/2017
 ms.author: routlaw
-ms.custom: Jenkins
+ms.custom: Jenkins, devcenter
 ---
 
 # Set up continuous integration and deployment to Azure App Service with Jenkins
