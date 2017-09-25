@@ -174,7 +174,7 @@ Now that you have a search service, you can attach it to your blob storage. This
 
 ### Index
 
-  The index allows you to specify the fields documents, attributes, and other constructs that shape the search experience. A document is treated like a single unit of searchable data in your index. If you were to think of this process in the context of a database, an index is like a table and documents are rows in the table.
+  The index allows you to specify the fields documents, attributes, and other constructs that shape the search experience. A document is treated like a single unit of searchable data in your index. If you thought of this process in the context of a database, an index is like a table and documents are rows in the table.
 
   The parameters of your index and what attributes you give those parameters are important. The parameters specify *what* data to store, the attributes specify *how* to store that data.
     
@@ -236,11 +236,12 @@ The following steps show you where to find it and provide you some example queri
 
 ### Full-text search 
 
-Enter a query, such as "Myopia", initiating a search of the contents of the files and the results now contain a much smaller response.
+Enter a query, such as "Myopia", initiating a search of the contents of the files and the results are much smaller. That's because you've now limited the response to only files that contain the word "Myopia."
 
   ![Unstructured search](media/storage-unstructured-structured-search/secondMyopia.png) 
 
-    You may also create queries that search by system properties using the `$select` parameter.
+You may also create queries that search by system properties using the `$select` parameter.
+
 ### System properties search
 
 Enter `$select=metadata_storage_name` into the query string and press enter, returning only that particular field.
@@ -253,7 +254,7 @@ The `$select` parameter can only be used with fields that are marked retrievable
 
 You have now completed part one of these tutorials and have a searchable set of unstructured data.
 
-Make sure **not** to delete any resources created in this tutorial, as most of them will be reused in the subsequent tutorial.
+Make sure **not** to delete any resources created in this tutorial, as most of them are going to be reused in the subsequent tutorial.
 
 ## Next steps
 
