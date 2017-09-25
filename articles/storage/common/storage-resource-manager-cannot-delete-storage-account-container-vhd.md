@@ -27,7 +27,7 @@ This article provides troubleshooting guidance when one of the following errors 
 
 >_Failed to delete # out of # blobs:<br>BlobName.vhd: There is currently a lease on the blob and no lease ID was specified in the request._
 
-The Virtual Hard Disks used in Azure VMs are .vhd files stored as page blobs in a standard or premium storage account in Azure.  More information about Azure disks can be found [here](../../virtual-machines/windows/about-disks-and-vhds.md). Azure prevents deletion of a disk that is attached to a VM to prevent corruption. It also prevents deletion of containers and storage accounts which have a page blob that is attached to a VM. 
+The Virtual Hard Disks used in Azure VMs are _.vhd_ files stored as page blobs in a standard or premium storage account in Azure.  More information about Azure disks can be found [here](../../virtual-machines/windows/about-disks-and-vhds.md). Azure prevents deletion of a disk that is attached to a VM to prevent corruption. It also prevents deletion of containers and storage accounts which have a page blob that is attached to a VM. 
 
 ## Solution
 The process to delete a Storage account, container, or blob when receiving one of the above errors is: 
@@ -57,7 +57,7 @@ The process to delete a Storage account, container, or blob when receiving one o
 #### Scenario 2: Deleting a container - identify all blob(s) within container that are attached to VMs
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the _Hub_ menu, select **_All resources_**. Go to the Storage account, under **_Blob Service_** select **_Containers_** and find the container to be deleted.
-3. Click to open the container and the list of blobs inside it will appear. Identify all the blobs with Blob Type = **_Page blob_** and Lease State = **_Leased_** from this list. These are the blobs with attached VMs. Follow [Scenario 1](#step-1-identify-blobs-attached-to-a-vm) to identify the VM associated with each of these blobs.
+3. Click to open the container and the list of blobs inside it will appear. Identify all the blobs with _Blob Type_ = **_Page blob_** and _Lease State_ = **_Leased_** from this list. Follow [Scenario 1](#step-1-identify-blobs-attached-to-a-vm) to identify the VM associated with each of these blobs.
 
     ![Screenshot of the portal, with the Storage account blobs and the "Lease State" with "Leased" highlighted](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/utd_disks_sm.PNG)
 
