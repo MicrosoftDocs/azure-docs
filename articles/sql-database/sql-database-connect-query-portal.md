@@ -38,6 +38,8 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 
 ## Connect to your database using SQL Authentication
+> [!NOTE]
+> Make sure that the "Allow access to Azure Services" option is set to "ON" in your SQL Server firewall settings. This option gives the SQL Query Editor access to your databases and datawarehouses.
 
 1. Click **SQL databases** from the left-hand menu and click the database you would like to query.
 
@@ -149,13 +151,17 @@ Use the following code to delete the new product that you previously added using
 
 There are a few things to know when working with the Query Editor while it remains in preview state:
 
-1. Azure Active Directory Administrator login does not work with accounts that have 2-factor authenticated enabled. 
+1. Make sure that you have set the "Allow access to Azure Services" option in your Azure SQL Server firewall settings to "ON". This option gives the SQL Query Editor access to your SQL databases and datawarehouses.
 
-2. Spatial data types queries are not yet supported in the Query editor. Querying spatial columns will result in a 'System.IO.FileNotFoundException' error.
+2. Azure Active Directory Administrator login does not work with accounts that have 2-factor authenticated enabled. 
 
-3. There is no support for IntelliSense for database tables and views. However, the editor does support auto-complete on names that have already been typed. 
+3. Email accounts (for example outlook.com, hotmail.com, live.com, gmail.com, yahoo.com) are not yet supported as Active Directory administrators. Make sure to choose a user that was either created natively in the Azure Active Directory, or federated into the Azure Active directory
 
-4. Pressing the F5 key will refresh the query editor page and lose the query that is being worked on. Use the Run button on the toolbar to execute queries.
+4. Spatial data types queries are not yet supported in the Query editor. Querying spatial columns will result in a 'System.IO.FileNotFoundException' error.
+
+5. There is no support for IntelliSense for database tables and views. However, the editor does support auto-complete on names that have already been typed. 
+
+6. Pressing the F5 key will refresh the query editor page and lose the query that is being worked on. Use the Run button on the toolbar to execute queries.
 
 
 ## Next steps
