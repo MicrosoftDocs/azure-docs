@@ -6,7 +6,7 @@ keywords:
 author: bandersmsft
 ms.author: banders
 ms.date: 09/19/2017
-ms.topic: article
+ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
