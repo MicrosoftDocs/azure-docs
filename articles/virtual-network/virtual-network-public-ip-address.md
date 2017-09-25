@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create, change, or delete an Azure public IP address | Microsoft Docs
 description: Learn how to create, change, or delete a public IP address.
 services: virtual-network
