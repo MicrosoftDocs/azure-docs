@@ -40,8 +40,8 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 2.	Use tools such as [Azure Storage Explorer](http://storageexplorer.com/) to create the **adfv2tutorial** container, and to upload the input.txt file to the container. 
 
 ## Install the Python package
-
-1.	To install the Python package for Data Factory, run the following command:
+1. Open a terminal or command prompt with administrator privileges.  
+2. To install the Python package for Data Factory, run the following command:
 
     ```
     pip install azure-mgmt-datafactory
