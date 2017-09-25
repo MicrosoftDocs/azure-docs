@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
-ms.date: 09/17/2017
+ms.date: 09/25/2017
 ms.author: jdial
 ms.custom: 
 ---
@@ -61,6 +61,9 @@ Create a public IP address in an availability zone using the following command:
         -AllocationMethod Static `
         -Zone 2
 ```
+
+> [!NOTE]
+> When you assign a standard SKU public IP address to a virtual machine’s network interface, you must explicitly allow the intended traffic with a [network security group](security-overview.md#network-security-groups). Communication with the resource fails until you create and associate a network security group and explicitly allow the desired traffic.
 
 ## Get zone information about a public IP address
 
