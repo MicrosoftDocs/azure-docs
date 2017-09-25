@@ -17,7 +17,7 @@ ms.author: spelluru
 
 ---
 # Deploy SQL Server Integration Services packages to Azure
-Azure Data Factory is a cloud-based data integration service that allows you to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Uing Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores, process/transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning, and publish output data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications to consume. 
+Azure Data Factory is a cloud-based data integration service that allows you to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Using Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores, process/transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning, and publish output data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications to consume. 
 
 This tutorial provides steps for provisioning an Azure-SSIS integration runtime in Azure Data Factory. Then, you can use SQL Server Data Tools (SSDT) or SQL Server Management Studio (SSMS) to deploy SQL Server Integration Services (SSIS) packages to this runtime on Azure. In this tutorial, you do the following steps:
 
@@ -65,7 +65,7 @@ $SSISDBPricingTier = "[your Azure SQL Database pricing tier, e.g. S3, or leave i
 ```
 
 ## Validate the connection to database
-Add the following script to validate your Azure SQL Datbabase server server.database.windows.net or your Azure SQL Managed Instance (private preview) server endpont. 
+Add the following script to validate your Azure SQL Database server server.database.windows.net or your Azure SQL Managed Instance (private preview) server endpoint. 
 
 ```powershell
 $SSISDBConnectionString = "Data Source=" + $SSISDBServerEndpoint + ";User ID="+ $SSISDBServerAdminUserName +";Password="+ $SSISDBServerAdminPassword
@@ -86,7 +86,7 @@ Catch [System.Data.SqlClient.SqlException]
 }
 ```
 
-## Login and select subscription
+## Log in and select subscription
 Add the following code the script to login and select your Azure subscription: 
 
 ```powershell
@@ -235,7 +235,7 @@ Catch [System.Data.SqlClient.SqlException]
     } 
 }
 
-##### Login and and select your Azure subscription #####
+##### Log in and and select your Azure subscription #####
 Login-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 
