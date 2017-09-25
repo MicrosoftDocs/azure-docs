@@ -80,7 +80,7 @@ Add the Parson JSON library to the **RMDevice** project and add the required `#i
 
 1. In the **Add Existing Item** dialog, select the `parson.h` and `parson.c` files in the **RMDevice** project folder. To add these two files to your project, choose **Add**.
 
-    ![PSolution Explorer shows parson.h and parson.c files](media/iot-suite-connecting-devices/visualstudio06.png)
+    ![Solution Explorer shows parson.h and parson.c files](media/iot-suite-connecting-devices/visualstudio06.png)
 
 1. In Visual Studio, open the `RMDevice.c` file. Replace the existing `#include` statements with the following code:
 
