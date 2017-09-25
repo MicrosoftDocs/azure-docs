@@ -2,7 +2,7 @@ The following table lists quotas and limits specific to Azure Event Hubs. For in
 
 | Limit | Scope | Type | Behavior when exceeded | Value |
 | --- | --- | --- | --- | --- |
-| Number of Event Hubs per namespace |Namespace |Static |Subsequent requests for creation of a new namespace will be rejected. |10 |
+| Number of Event Hubs per namespace |Namespace |Static |Subsequent requests for creation of a new event hub will be rejected. |10 |
 | Number of partitions per Event Hub |Entity |Static |- |32 |
 | Number of consumer groups per Event Hub |Entity |Static |- |20 |
 | Number of AMQP connections per namespace |Namespace |Static |Subsequent requests for additional connections will be rejected and an exception is received by the calling code. |5,000 |
