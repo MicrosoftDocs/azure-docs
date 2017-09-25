@@ -83,7 +83,7 @@ The messaging service provides dependable information delivery as a brokered or 
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/module/azurerm.servicebus">PowerShell</a></p>
+                        <p><a href="/powershell/module/azurerm.servicebus">Azure PowerShell</a></p>
                     </div>
                 </div>
             </div>
