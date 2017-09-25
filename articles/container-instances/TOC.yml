@@ -11,6 +11,8 @@
     href: container-instances-quickstart.md
   - name: Create container - Portal
     href: container-instances-quickstart-portal.md
+  - name: Create container - PowerShell
+    href: container-instances-quickstart-powershell.md
 - name: Tutorials
   items:
   - name: Build and deploy a container
