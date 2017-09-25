@@ -58,7 +58,7 @@ A column may have multiple Inspectors at any point in time (for example, Column 
 
 Inspectors appear in the Profiling Well at the bottom of the screen.  Maximize inspectors to see them larger within the main content area. Think of the data grid as the default inspector. Any Inspector can be expanded into the main content area. Inspectors within the main content area minimize to the Profiling Well. Customize an Inspector by clicking on the pencil icon within the Inspector. Reorder Inspectors within the Well using drag and drop.
 
-Some Inspectors support a “Halo” mode. This mode shows the value or state before the last Transform was applied. The old value is displayed in gray with the current value in the foreground and shows the impact of a Transform. Appendix 4 provides the current list of supported Inspectors](data-prep-appendix4-supported-inspectors.md).
+Some Inspectors support a “Halo” mode. This mode shows the value or state before the last Transform was applied. The old value is displayed in gray with the current value in the foreground and shows the impact of a Transform. Appendix 4 provides the current list of supported [Inspectors](data-prep-appendix4-supported-inspectors.md).
 
 ### The destination
  A Destination is where you write/export the data to after you have prepared it in a Dataflow. A given Dataflow can have multiple Destinations. Each Destination has a different user experience to allow it to be configured. The Destination consumes data in a “rectangular”/tabular format and writes it out to some location in a given format. [Appendix 5 provides the current list of supported Destinations](data-prep-appendix5-supported-destinations.md).
