@@ -24,9 +24,9 @@
 | Target throughput for single queue (1 KB messages) |Up to 2000 messages per second |
 | Target throughput for single table partition (1 KB entities) |Up to 2000 entities per second |
 | Target throughput for single file share |Up to 60 MB per second |
-| Max ingress<sup>3</sup> per storage account (US Regions) |10 Gbps if GRS/ZRS<sup>4</sup> enabled, 20 Gbps for LRS<sup>2</sup> |
+| Max ingress<sup>3</sup> per storage account (US Regions) |10 Gbps if RA-GRS/GRS/ZRS<sup>4</sup> enabled, 20 Gbps for LRS<sup>2</sup> |
 | Max egress<sup>3</sup> per storage account (US Regions) |20 Gbps if RA-GRS/GRS/ZRS<sup>4</sup> enabled, 30 Gbps for LRS<sup>2</sup> |
-| Max ingress<sup>3</sup> per storage account (Non-US regions) |5 Gbps if GRS/ZRS<sup>4</sup> enabled, 10 Gbps for LRS<sup>2</sup> |
+| Max ingress<sup>3</sup> per storage account (Non-US regions) |5 Gbps if RA-GRS/GRS/ZRS<sup>4</sup> enabled, 10 Gbps for LRS<sup>2</sup> |
 | Max egress<sup>3</sup> per storage account (Non-US regions) |10 Gbps if RA-GRS/GRS/ZRS<sup>4</sup> enabled, 15 Gbps for LRS<sup>2</sup> |
 
 <sup>1</sup>This includes both Standard and Premium storage accounts. If you require more than 200 storage accounts, make a request through [Azure Support](https://azure.microsoft.com/support/faq/). The Azure Storage team will review your business case and may approve up to 250 storage accounts. 
