@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 09/25/2017
 ms.author: glenga
 
 ---
@@ -25,13 +25,47 @@ If you are a Visual Studio C# developer, Azure Functions also [integrates with V
 
 ## Install the Azure Functions Core Tools
 
-Azure Functions Core Tools is a local version of the Azure Functions runtime that you can run on your local Windows computer. It's not an emulator or simulator. It's the same runtime that powers Functions in Azure.
+[Azure Functions Core Tools] is a local version of the Azure Functions runtime that you can run on your local Windows computer. It's not an emulator or simulator. It's the same runtime that powers Functions in Azure. There are currently two versions of Azure Functions Core Tools, where each supports a different version of the Azure Functions runtime. Both are provided as an npm package.
 
-The [Azure Functions Core Tools] is provided as an npm package. You must first [install NodeJS](https://docs.npmjs.com/getting-started/installing-node), which includes npm.  
+You must first [install NodeJS](https://docs.npmjs.com/getting-started/installing-node), which includes npm.  
 
->[!NOTE]
->The Azure Functions Core Tools package is currently in preview when running on MacOS X. 
+### Version 1.0 runtime
 
+The original version of the tools uses the Functions 1.0 runtime. This version is only supported on Windows computers. Use the following command to to install the version 1.0 tools:
+
+```bash
+npm install -g azure-functions-core-tools
+```
+
+### Version 2.0 runtime
+
+Version 2.0 of the tools uses the Azure Function runtime 2.0 that is built on .NET Core 2.0. This version is supported on all computers that run .NET Core 2.0. Use this version for cross-platform development and when the Functions runtime 2.0 is required. 
+
+>[!IMPORTANT]   
+> Before installing Azure Functions Core Tools, you must [install .NET Core 2.0](https://www.microsoft.com/net/core).  
+>
+> Azure Functions runtime 2.0 is currently in preview and not all features of Azure Functions are supported. For more information, see [Azure Functions runtime 2.0 known issues](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues) 
+
+ Use the following command to to install the version 2.0 tools:
+
+```bash
+npm install -g azure-functions-core-tools@core
+```
+
+When installing on Ubuntu use `sudo`, as follows:
+
+```bash
+sudo npm install -g azure-functions-core-tools@core
+```
+
+When installing on macOS, you may need to include the unsafe-perm flag, as follows:
+
+```bash
+sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
+```
+
+## Run Azure Functions Core Tools
+ 
 [Azure Functions Core Tools] adds the following command aliases:
 * **func**
 * **azfun**
