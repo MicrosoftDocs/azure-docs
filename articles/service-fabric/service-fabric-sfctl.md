@@ -25,16 +25,16 @@ Commands for managing Service Fabric clusters and entities. Commands follow the 
 |Subgroup|Description|
 | --- | --- |
 | [application](service-fabric-sfctl-application.md)| Create, delete, and manage applications and application types.|
-| [chaos](service-fabric-sfctl-chaos.md)   | Start, stop and report on the chaos test service.|
-| [cluster](service-fabric-sfctl-cluster.md) | Select, manage and operate Service Fabric clusters.|
-| [compose](service-fabric-sfctl-compose.md) | Create, delete and manage Docker Compose applications.|
+| [chaos](service-fabric-sfctl-chaos.md)   | Start, stop, and report on the chaos test service.|
+| [cluster](service-fabric-sfctl-cluster.md) | Select, manage, and operate Service Fabric clusters.|
+| [compose](service-fabric-sfctl-compose.md) | Create, delete, and manage Docker Compose applications.|
 | [is](service-fabric-sfctl-is.md)      | Query and send commands to the infrastructure service.|
 | [node](service-fabric-sfctl-node.md)    | Manage the nodes that form a cluster.|
 | [partition](service-fabric-sfctl-partition.md)  | Query and manage partitions for any service.|
 | [replica](service-fabric-sfctl-replica.md) | Manage the replicas that belong to service partitions.|
-| [service](service-fabric-sfctl-service.md) | Create, delete and manage service, service types and service packages.|
+| [service](service-fabric-sfctl-service.md) | Create, delete, and manage service, service types and service packages.|
 | [store](service-fabric-sfctl-store.md)   | Perform basic file level operations on the cluster image store.|
 
 ## Next Steps
-- [Setup](service-fabric-cli.md) the Service Fabric CLI.
+- [Set up](service-fabric-cli.md) the Service Fabric CLI.
 - Learn how to use the Service Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
