@@ -18,11 +18,11 @@ ms.date: 9/21/2017
 ms.author: sujie
 
 ---
-In this tutorial, you learn how to use the Stream Analytics Visual Studio tools to set up the continuous integration and continuous delivery process.
+In this tutorial, you learn how to use the Stream Analytics Visual Studio tools to set up the continuous integration and deployment process.
 
 The latest version (2.3.0000.0 or above) of [Stream Analytics tools for Visual Studio](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-tools-for-visual-studio) add the support for **MSBuild**. 
 
-There is also a newly released NuGet package [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). It provides the MSBuild, local run, and deployment tools that support the CI/CD process of Stream Analytics Visual Studio projects. 
+There is also a newly released NuGet package [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). It provides the MSBuild, local run, and deployment tools that support the continuous integration and deployment process of Stream Analytics Visual Studio projects. 
 > [!NOTE] 
 The NuGet package can only be used with the 2.3.0000.0 or above version of Stream Analytics Tools for Visual Studio. If you have projects created in previous versions of Visual Studio tools, just open it with the 2.3.0000.0 or above version and save. Then you have the new capabilities enabled. 
 
