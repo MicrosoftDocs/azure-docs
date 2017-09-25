@@ -25,7 +25,7 @@ Integrating Azure services to an Azure virtual network allows private access fro
 
 You can integrate Azure services with your virtual network with the following options:
 - Directly deploying dedicated instances of the service into a virtual network. The dedicated instances of these services can be privately accessed within the virtual network and from on-premises networks.
-- By extending a virtual network to the service, through service endpoints. This allows the individual service resources to be secured to the virtual network.
+- By extending a virtual network to the service, through service endpoints. Service endpoints allow individual service resources to be secured to the virtual network.
  
 ## Deploy Azure services into virtual networks
 
@@ -43,7 +43,7 @@ Deploying services within a virtual network provides the following capabilities:
 
 ### Services that can be deployed into a virtual network
 
-Each service directly deployed into virtual network has specific requirements for routing and the types of traffic that must be allowed into and out of subnets. Refer to the following links for more details: 
+Each service directly deployed into virtual network has specific requirements for routing and the types of traffic that must be allowed into and out of subnets. For more information, see: 
  
 - Virtual machines: [Linux](../virtual-machines/linux/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](../virtual-machines/windows/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Service fabric](../service-fabric/service-fabric-patterns-networking.md?toc=%2fazure%2fvirtual-network%2ftoc.json#existingvnet)
