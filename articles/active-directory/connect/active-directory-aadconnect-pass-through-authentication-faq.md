@@ -12,16 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ---
 
 # Azure Active Directory Pass-through Authentication: Frequently asked questions
 
 In this article, we address frequently asked questions about Azure Active Directory (Azure AD) Pass-through Authentication. Keep checking back for new content.
-
->[!IMPORTANT]
->The Pass-through Authentication feature is currently in preview.
 
 ## Which of the Azure AD sign-in methods - Pass-through Authentication, Password Hash Synchronization and Active Directory Federation Services (AD FS) - should I choose?
 
@@ -126,7 +123,7 @@ Rerun the Azure AD Connect wizard and change the user sign-in method from Pass-t
 Uninstalling a Pass-through Authentication Agent from a server causes it to stop accepting sign-in requests. Ensure that you have another Authentication Agent running before doing this operation, to avoid breaking user sign-in on your tenant.
 
 ## Next steps
-- [**Current limitations**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - This feature is currently in preview. Learn which scenarios are supported and which ones are not.
+- [**Current limitations**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - Learn which scenarios are supported and which ones are not.
 - [**Quick Start**](active-directory-aadconnect-pass-through-authentication-quick-start.md) - Get up and running Azure AD Pass-through Authentication.
 - [**Technical Deep Dive**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) - Understand how this feature works.
 - [**Troubleshoot**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) - Learn how to resolve common issues with the feature.

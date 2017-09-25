@@ -1,5 +1,5 @@
 ---
-title: Logic App limits and configuration | Microsoft Docs
+title: Limits and configuration - Azure Logic Apps | Microsoft Docs
 description: Service limits and configuration values for Azure Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
@@ -13,11 +13,11 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 09/25/2017
 ms.author: LADocs; jehollan
 ---
 
-# Logic App limits and configuration
+# Logic Apps limits and configuration
 
 This topic describes the current limits and configuration details for Azure Logic Apps.
 
@@ -29,40 +29,39 @@ These limits apply to a single HTTP request or a connector call.
 
 #### Timeout
 
-|Name|Limit|Notes|
-|----|-----|-----|
-|Request Timeout|120 seconds|An [async pattern](../logic-apps/logic-apps-create-api-app.md) or [until loop](logic-apps-loops-and-scopes.md) can compensate as needed|
-||||
+| Name | Limit | Notes | 
+| ---- | ----- | ----- | 
+| Request timeout | 120 seconds | An [async pattern](../logic-apps/logic-apps-create-api-app.md) or [until loop](logic-apps-loops-and-scopes.md) can compensate as needed |
+|||| 
 
 #### Message size
 
-|Name|Limit|Notes|
-|----|-----|-----|
-|Message size|100 MB|Some connectors and APIs might not support 100 MB.|
-|Expression evaluation limit|131,072 characters|`@concat()`, `@base64()`, `string` can't be longer than this limit.|
-||||
+| Name | Limit | Notes | 
+| ---- | ----- | ----- | 
+| Message size | 100 MB | Some connectors and APIs might not support 100 MB. | 
+| Expression evaluation limit | 131,072 characters | `@concat()`, `@base64()`, `string` can't be longer than this limit. | 
+|||| 
 
 #### Retry policy
 
-|Name|Limit|Notes|
-|----|-----|-----|
-|Retry attempts|90| The default is 4. You can configure with the [retry policy parameter](../logic-apps/logic-apps-workflow-actions-triggers.md).|
-|Retry max delay|1 day|You can configure with the [retry policy parameter](../logic-apps/logic-apps-workflow-actions-triggers.md).|
-|Retry min delay|5 sec|You can configure with the [retry policy parameter](../logic-apps/logic-apps-workflow-actions-triggers.md).|
-||||
+| Name | Limit | Notes | 
+| ---- | ----- | ----- | 
+| Retry attempts | 90 | The default is 4. You can configure with the [retry policy parameter](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
+| Retry max delay | 1 day | You can configure with the [retry policy parameter](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
+| Retry min delay | 5 sec | You can configure with the [retry policy parameter](../logic-apps/logic-apps-workflow-actions-triggers.md). |
+|||| 
 
 ### Run duration and retention
 
 These limits apply to a single logic app run.
 
-|Name|Limit|Notes|
-|----|----|----|
-|----|-----|-----|
-|Run duration|90 days||
-|Storage retention|90 days from the run's start time ||
-|Min recurrence interval|1 second </br>For logic apps with an App Service Plan: 15 seconds ||
-|Max recurrence interval|500 days||
-||||
+| Name | Limit | 
+| ---- | ----- | 
+| Run duration | 90 days | 
+| Storage retention | 90 days from the run's start time | 
+| Min recurrence interval | 1 second </br>For logic apps with an App Service Plan: 15 seconds | 
+| Max recurrence interval | 500 days | 
+||| 
 
 To exceed the limits for run duration or 
 storage retention in your normal processing flow, 
@@ -73,26 +72,26 @@ so that we can help with your requirements.
 
 These limits apply to a single logic app run.
 
-|Name|Limit|Notes|
-|----|-----|-----|
-|ForEach items|100,000|You can use the [query action](../connectors/connectors-native-query.md) to filter larger arrays as needed|
-|Until iterations|5,000||
-|SplitOn items|100,000||
-|ForEach Parallelism|50| The default is 20. <p>To set a specific level of parallelism in a ForEach loop, set the `runtimeConfiguration` property in the `foreach` action. <p>To sequentially run a ForEach loop, set the `operationOptions` property to "Sequential" in the `foreach` action.|
-||||
+| Name | Limit | Notes | 
+| ---- | ----- | ----- | 
+| ForEach items | 100,000 | You can use the [query action](../connectors/connectors-native-query.md) to filter larger arrays as needed. | 
+| Until iterations | 5,000 | | 
+| SplitOn items | 100,000 | | 
+| ForEach Parallelism | 50 | The default is 20. <p>To set a specific level of parallelism in a ForEach loop, set the `runtimeConfiguration` property in the `foreach` action. <p>To sequentially run a ForEach loop, set the `operationOptions` property to "Sequential" in the `foreach` action. | 
+|||| 
 
 ### Throughput limits
 
 These limits apply to a single logic app instance.
 
-|Name|Limit|Notes|
-|----|-----|-----|
-|Actions executions per 5 minutes |100,000|Can distribute workload across multiple apps as needed.|
-|Actions concurrent outgoing calls |~2,500|Decrease number of concurrent requests or reduce the duration as needed.|
-|Runtime endpoint: Concurrent incoming calls |~1,000|Decrease number of concurrent requests or reduce the duration as needed.|
-|Runtime endpoint: Read calls per 5 minutes |60,000|Can distribute workload across multiple apps as needed.|
-|Runtime endpoint: Invoke calls per 5 minutes |45,000|Can distribute workload across multiple apps as needed.|
-||||
+| Name | Limit | Notes | 
+| ---- | ----- | ----- | 
+| Actions executions per 5 minutes | 100,000 | Can distribute workload across multiple apps as needed. | 
+| Actions concurrent outgoing calls | ~2,500 | Decrease number of concurrent requests or reduce the duration as needed. | 
+| Runtime endpoint: Concurrent incoming calls | ~1,000 | Decrease number of concurrent requests or reduce the duration as needed. | 
+| Runtime endpoint: Read calls per 5 minutes | 60,000 | Can distribute workload across multiple apps as needed. | 
+| Runtime endpoint: Invoke calls per 5 minutes | 45,000 | Can distribute workload across multiple apps as needed. | 
+|||| 
 
 To exceed these limits in normal processing, 
 or run load testing that might exceed these limits, 
@@ -103,62 +102,75 @@ so that we can help with your requirements.
 
 These limits apply to a single logic app definition.
 
-|Name|Limit|Notes|
-|----|-----|-----|
-|Actions per workflow|500|To extend this limit, you can add nested workflows as needed.|
-|Allowed action nesting depth|8|To extend this limit, you can add nested workflows as needed.|
-|Workflows per region per subscription|1000||
-|Triggers per workflow|10||
-|Switch scope cases limit|25||
-|Number of variables per workflow|250||
-|Max characters per expression|8,192||
-|Max `trackedProperties` size in characters|16,000|
-|`action`/`trigger` name limit|80||
-|`description` length limit|256||
-|`parameters` limit|50||
-|`outputs` limit|10||
-||||
+| Name | Limit | Notes | 
+| ---- | ----- | ----- | 
+| Actions per workflow | 500 | To extend this limit, you can add nested workflows as needed. |
+| Allowed action nesting depth | 8 | To extend this limit, you can add nested workflows as needed. | 
+| Workflows per region per subscription | 1000 | | 
+| Triggers per workflow | 10 | | 
+| Switch scope cases limit | 25 | | 
+| Number of variables per workflow | 250 | | 
+| Max characters per expression | 8,192 | | 
+| Max `trackedProperties` size in characters | 16,000 | 
+| `action`/`trigger` name limit | 80 | | 
+| `description` length limit | 256 | | 
+| `parameters` limit | 50 | | 
+| `outputs` limit | 10 | | 
+|||| 
+
+<a name="custom-connector-limits"></a>
+
+### Custom connector limits
+
+These limits apply to custom connectors that you can create from web APIs.
+
+| Name | Limit | 
+| ---- | ----- | 
+| Number of custom connectors that you can create | 1,000 per Azure subscription | 
+| Number of requests per minute for each connection created by a custom connector | 500 requests for each connection created by the connector |
+||| 
 
 ### Integration account limits
 
 These limits apply to artifacts that you can add to an integration account.
 
-|Name|Limit|Notes|
-|----|-----|-----|
-|Schema|8 MB|You can use [blob URI](logic-apps-enterprise-integration-schemas.md) to upload files larger than 2 MB. |
-|Map (XSLT file)|2 MB| |
-|Runtime endpoint: Read calls per 5 minutes |60,000|Can distribute the workload across multiple accounts as needed.|
-|Runtime endpoint: Invoke calls per 5 minutes |45,000|Can distribute the workload across multiple accounts as needed.|
-|Runtime endpoint: Tracking calls per 5 minutes |45,000|Can distribute the workload across multiple accounts as needed.|
-|Runtime endpoint: Blocking concurrent calls |~1,000|Decrease the number of concurrent requests or reduce the duration as needed.|
-||||
+| Name | Limit | Notes | 
+| ---- | ----- | ----- | 
+| Schema | 8 MB | You can use [blob URI](../logic-apps/logic-apps-enterprise-integration-schemas.md) to upload files larger than 2 MB. | 
+| Map (XSLT file) | 2 MB | | 
+| Runtime endpoint: Read calls per 5 minutes | 60,000 | Can distribute the workload across multiple accounts as needed. | 
+| Runtime endpoint: Invoke calls per 5 minutes | 45,000 | Can distribute the workload across multiple accounts as needed. | 
+| Runtime endpoint: Tracking calls per 5 minutes | 45,000 | Can distribute the workload across multiple accounts as needed. | 
+| Runtime endpoint: Blocking concurrent calls | ~1,000 | Decrease the number of concurrent requests or reduce the duration as needed. | 
+|||| 
 
 These limits apply to the number of artifacts that you can add to an integration account.
 
-Free pricing tier
+#### Free pricing tier
 
-|Name|Limit|Notes|
-|----|-----|-----|
-|Agreements|10||
-|Other artifact types|25|Artifact types include partners, schemas, certificates, and maps. Each type can have up to the maximum number of artifacts.|
-||||
+| Name | Limit | Notes | 
+| ---- | ----- | ----- | 
+| Agreements | 10 | | 
+| Other artifact types | 25 |Artifact types include partners, schemas, certificates, and maps. Each type can have up to the maximum number of artifacts. | 
+|||| 
 
-Standard pricing tier
+#### Standard pricing tier
 
-|Name|Limit|Notes|
-|----|-----|-----|
-|Any type of artifact|500|Artifact types include agreements, partners, schemas, certificates, and maps. Each type can have up to the maximum number of artifacts.|
+| Name | Limit | Notes | 
+| ---- | ----- | ----- | 
+| Any type of artifact | 500 | Artifact types include agreements, partners, schemas, certificates, and maps. Each type can have up to the maximum number of artifacts. | 
+|||| 
 
 ### B2B protocols (AS2, X12, EDIFACT) message size
 
 These limits apply to B2B protocols.
 
-|Name|Limit|Notes|
-|----|-----|-----|
-|AS2|50 MB|Applies to decode and encode|
-|X12|50 MB|Applies to decode and encode|
-|EDIFACT|50 MB|Applies to decode and encode|
-||||
+| Name | Limit | Notes | 
+| ---- | ----- | ----- | 
+| AS2 | 50 MB | Applies to decode and encode | 
+| X12 | 50 MB | Applies to decode and encode | 
+| EDIFACT | 50 MB | Applies to decode and encode | 
+|||| 
 
 <a name="configuration"></a>
 

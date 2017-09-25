@@ -1,7 +1,7 @@
 ---
 title: Create web APIs & REST APIs for Azure Logic Apps | Microsoft Docs
-description: Create web APIs & REST APIs to call your APIs, services, or systems in workflows for system integrations
-keywords: web APIs, REST APIs, connectors, workflows, system integrations
+description: Create web APIs & REST APIs to  call your APIs, services, or systems from logic app workflows for system integrations
+keywords: web APIs, REST APIs, workflows, system integrations
 services: logic-apps
 author: jeffhollan
 manager: anneta
@@ -21,9 +21,9 @@ ms.author: LADocs; jehollan
 # Create custom APIs that you can call from logic app workflows
 
 Although Azure Logic Apps offers [100+ built-in connectors](../connectors/apis-list.md) 
-that you can use in logic app workflows, you might want to call APIs, systems, 
-and services that aren't available as connectors. You can create your own 
-APIs that provide actions and triggers to use in logic apps. 
+that you can use in logic app workflows, you might want to call APIs, 
+systems, and services that aren't available as connectors. 
+You can create your own APIs that provide actions and triggers to use in logic apps. 
 Here are other reasons why you might want to create your own APIs 
 that you can call from logic app workflows:
 
@@ -60,7 +60,7 @@ easy API hosting.
 > which can make your job easier when you build, host, and consume APIs 
 > in the cloud and on premises. You don't have to change any code in your 
 > APIs -- just deploy your code to an API app. For example, learn how to 
-> build API apps created with these languages:
+> build API apps created with these languages: 
 > 
 > * [ASP.NET](../app-service/app-service-web-get-started-dotnet.md). 
 > * [Java](../app-service/app-service-web-get-started-java.md)
@@ -69,7 +69,38 @@ easy API hosting.
 > * [Python](../app-service/app-service-web-get-started-python.md)
 >
 > For API App samples built for logic apps, visit the 
-> [Azure Logic Apps GitHub repository](http://github.com/logicappsio) or [blog](http://aka.ms/logicappsblog).
+> [Azure Logic Apps GitHub repository](http://github.com/logicappsio) 
+> or [blog](http://aka.ms/logicappsblog).
+
+## How do custom APIs differ from custom connectors?
+
+Custom APIs and [custom connectors](../logic-apps/custom-connector-overview.md) 
+are web APIs that use REST for pluggable interfaces, 
+[Swagger metadata format](http://swagger.io/specification/) for documentation, 
+and JSON as their data exchange format. And because these APIs and connectors 
+are REST APIs that communicate through HTTP endpoints, you can use any language, 
+like .NET, Java, or Node.js, for building custom APIs and connectors.
+
+Custom APIs let you call APIs that aren't connectors, 
+and provide endpoints that you can call with HTTP + Swagger, 
+Azure API Management, or App Services. Custom connectors work 
+like custom APIs but also have these attributes:
+
+* Registered as Logic Apps Connector resources in Azure.
+* Appear with icons alongside Microsoft-managed connectors in the Logic Apps Designer.
+* Available only to the connectors' authors and logic app users who have the same 
+Azure Active Directory tenant and Azure subscription in the region where the 
+logic apps are deployed.
+
+You can also nominate registered connectors for Microsoft certification. 
+This process verifies that registered connectors meet the criteria for public use 
+and makes those connectors available for users in Microsoft Flow and Microsoft PowerApps.
+
+For more information about custom connectors, see 
+
+* [Custom connectors overview](../logic-apps/custom-connector-overview.md)
+* [Create custom connectors from Web APIs](../logic-apps/custom-connector-build-web-api-app-tutorial.md)
+* [Register custom connectors in Azure Logic Apps](../logic-apps/logic-apps-custom-connector-register.md)
 
 ## Helpful tools
 
@@ -349,16 +380,28 @@ Your API can then unregister the callback URL and stop any processes as necessar
 > For an example webhook pattern, review this 
 > [webhook trigger controller sample in GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
 
-## Secure, deploy, and call your APIs
+## Secure calls to your APIs from logic apps
 
-Before you call your API, set up authentication and deployment for your API. 
-Learn [how to secure, deploy, and call custom APIs from logic apps](../logic-apps/logic-apps-custom-hosted-api.md).
+After creating your custom APIs, 
+set up authentication for your APIs 
+so that you can call them securely from logic apps. Learn 
+[how to secure calls to custom APIs from logic apps](../logic-apps/logic-apps-custom-api-authentication.md).
+
+## Deploy and call your APIs
+
+After you set up authentication, set up deployment for your APIs. 
+Learn [how to deploy and call custom APIs from logic apps](../logic-apps/logic-apps-custom-api-host-deploy-call.md).
 
 ## Publish custom APIs to Azure
 
 To make your custom APIs available for other Logic Apps users in Azure, 
-nominate and submit your custom API to the 
-[Microsoft Azure Certified program](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/).
+you must add security and register them as Logic App connectors. 
+For more information, see [Custom connectors overview](../logic-apps/custom-connector-overview.md). 
+
+To make your custom APIs available to all users in Logic Apps, 
+Microsoft Flow, and Microsoft PowerApps, you must add security, 
+register your APIs as Logic App connectors, and nominate your connectors for the 
+[Microsoft Azure Certified program](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/). 
 
 ## Get support
 
@@ -369,7 +412,7 @@ contact [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com).
 [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
 * To help improve Logic Apps, vote on or submit ideas at the 
-[Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+[Logic Apps user feedback site](http://aka.ms/logicapps-wish). 
 
 ## Next steps
 

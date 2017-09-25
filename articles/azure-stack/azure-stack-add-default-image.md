@@ -62,19 +62,25 @@ Now run the following steps to add the image to the Azure Stack marketplace:
 
    ```
 
-2. Sign in to your Azure Stack environment. Run the following script depending on if your Azure Stack environment is deployed by using AAD or AD FS (Make sure to replace the AAD tenant name):  
+2. Sign in to your Azure Stack environment. Run the following script depending on if your Azure Stack environment is deployed by using AAD or AD FS (Make sure to replace the AAD tenantName, GraphAudience endpoint and ArmEndpoint values as per your environment configuration):  
 
    a. **Azure Active Directory**, use the following cmdlet:
 
    ```PowerShell
+   # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
+
+   # For Azure Stack development kit, this value is set to https://graph.windows.net/. To get this value for Azure Stack integrated systems, contact your service provider.
+   $GraphAudience = "<GraphAuidence endpoint for your environment>"
+   
    # Create the Azure Stack operator's AzureRM environment by using the following cmdlet:
    Add-AzureRMEnvironment `
      -Name "AzureStackAdmin" `
-     -ArmEndpoint "https://adminmanagement.local.azurestack.external" 
+     -ArmEndpoint $ArmEndpoint
 
    Set-AzureRmEnvironment `
     -Name "AzureStackAdmin" `
-    -GraphAudience "https://graph.windows.net/"
+    -GraphAudience $GraphAudience
 
    $TenantID = Get-AzsDirectoryTenantId `
      -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
@@ -88,14 +94,20 @@ Now run the following steps to add the image to the Azure Stack marketplace:
    b. **Active Directory Federation Services**, use the following cmdlet:
     
    ```PowerShell
+   # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
+
+   # For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
+   $GraphAudience = "<GraphAuidence endpoint for your environment>"
+
    # Create the Azure Stack operator's AzureRM environment by using the following cmdlet:
    Add-AzureRMEnvironment `
      -Name "AzureStackAdmin" `
-     -ArmEndpoint "https://adminmanagement.local.azurestack.external"
+     -ArmEndpoint $ArmEndpoint
 
    Set-AzureRmEnvironment `
      -Name "AzureStackAdmin" `
-     -GraphAudience "https://graph.local.azurestack.external/" `
+     -GraphAudience $GraphAudience `
      -EnableAdfsAuthentication:$true
 
    $TenantID = Get-AzsDirectoryTenantId `
