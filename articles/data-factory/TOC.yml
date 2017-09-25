@@ -180,6 +180,8 @@
       href: quickstart-create-data-factory-dot-net.md#monitor-pipeline-run
     - name: Use Azure Monitor
       href: monitor-using-azure-monitor.md
+    - name: Monitor integration runtime
+      href: monitor-integration-runtime.md  
   - name: Create integration runtime
     items:
     - name: Azure integration runtime
