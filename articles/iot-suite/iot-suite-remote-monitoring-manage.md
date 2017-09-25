@@ -16,7 +16,7 @@ ms.workload: NA
 
 # Manage and configure your devices
 
-This tutorial shows the device management capabilities of the remote monitoring solution. To introduce these capabilities, the tutorial uses a scenario in the Contoso IoT application:
+This tutorial shows the device management capabilities of the remote monitoring solution. To introduce these capabilities, the tutorial uses a scenario in the Contoso IoT application.
 
 Contoso has ordered new machinery to expand one of their facilities to increase output. While you wait for the new machinery to be delivered, you want to run a simulation to verify the behavior of your solution. As an operator, you want to manage and configure the devices in the remote monitoring solution.
 

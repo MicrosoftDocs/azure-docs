@@ -34,6 +34,8 @@ Create a starter project in Visual Studio 2017 and add the IoT Hub device client
 
 1. In Visual Studio, create a C console application using the Visual C++ **Windows Console Application** template. Name the project **RMDevice**.
 
+<!-- Add screenshots -->
+
 1. In **Solution Explorer**, delete the files `stdafx.h`, `targetver.h`, and `stdafx.cpp`.
 
 1. In **Solution Explorer**, rename the file `RMDevice.cpp` to `RMDevice.c`.

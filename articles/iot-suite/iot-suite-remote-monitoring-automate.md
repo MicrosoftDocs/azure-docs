@@ -78,19 +78,25 @@ You can view when the rule is triggered on the **Rules & Actions** page or on th
 
 ## Edit an existing rule
 
-To make a change to an existing rule, select it in the list of rules. Then, in the **Rule DetaiL** panel choose **Edit mode**.
+To make a change to an existing rule, select it in the list of rules. Then, in the **Rule Detail** panel choose **Edit mode**.
 
 <!-- TODO choose an existing rule to update -->
 
-## Delete a rule
+## Disable a rule
 
 To temporarily switch off a rule, you can disable it in the list of rules. Choose the rule to disable, and then choose **Disable**. The **Status** of the rule in the list changes to indicate the rule is now disabled. You can re-enable a rule that you previously disabled using the same procedure.
 
 <!-- TODO insert screenshot -->
 
+You can enable and disable multiple rules at the same time if you select multiple rules in the list.
+
+## Delete a rule
+
 To permanently delete a rule, choose the rule in the list of rules and then choose **Delete**.
 
-You can enable, disable, and delete multiple rules at the same time if you select multiple rules in the list.
+<!-- TODO insert screenshot -->
+
+You can delete multiple rules at the same time if you select multiple rules in the list.
 
 ## Next steps
 
