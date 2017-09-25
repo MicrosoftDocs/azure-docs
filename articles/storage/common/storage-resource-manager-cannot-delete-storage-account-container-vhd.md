@@ -31,9 +31,9 @@ The Virtual Hard Disks used in Azure VMs are .vhd files stored as page blobs in 
 
 ## Solution
 The process to delete a Storage account, container, or blob when receiving one of the above errors is: 
-1. [Identify blobs attached to a VM](#Step-1:-Identify-blob(s)-attached-to-a-VM)
-2. [Delete VMs with attached **OS disk**](#Step-2:-Delete-VM-to-detach-OS-disk)
-3. [Detach all **data disk(s)** from remaining VM(s)](#Step-3:-Detach-data-disk-from-the-VM)
+1. [Identify blobs attached to a VM](#step-1-identify-blobs-attached-to-a-vm)
+2. [Delete VMs with attached **OS disk**](#step-2-delete-vm-to-detach-os-disk)
+3. [Detach all **data disk(s)** from remaining VM(s)](#step-3-detach-data-disk-from-the-vm)
 4. Retry deleting Storage account, container, or blob.
 
 ### Step 1: Identify blob(s) attached to a VM
@@ -50,18 +50,18 @@ The process to delete a Storage account, container, or blob when receiving one o
 
      ![Screenshot of the portal, with the storage "Blob Metadata" pane open](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/utd_blobMetadata_sm.PNG)
 
-6. If the blob disk type is **_OSDisk_** follow [Step 2: Delete VM to detach OS disk](#Step-2:-Delete-VM-to-detach-OS-disk). Otherwise, if the blob disk type is **_DataDisk_** follow the steps in [Step 3: Detach data disk from the VM](#Step-3:-Detach-data-disk-from-the-VM). 
+6. If the blob disk type is **_OSDisk_** follow [Step 2: Delete VM to detach OS disk](#step-2-delete-vm-to-detach-os-disk). Otherwise, if the blob disk type is **_DataDisk_** follow the steps in [Step 3: Detach data disk from the VM](#step-3-detach-data-disk-from-the-vm). 
 
-> _**Note:** If **MicrosoftAzureCompute_VMName** and **MicrosoftAzureCompute_DiskType** do not appear in the blob metadata, it indicates that the blob is explicitly leased and is not attached to a VM. Leased blobs cannot be deleted without breaking the lease first. To break lease, right click on the blob and select **Break lease**. Leased blobs which are not attached to a VM prevent deletion of the blob but do not prevent deletion of Container or Storage account. _
+> _**Note:** If **MicrosoftAzureCompute_VMName** and **MicrosoftAzureCompute_DiskType** do not appear in the blob metadata, it indicates that the blob is explicitly leased and is not attached to a VM. Leased blobs cannot be deleted without breaking the lease first. To break lease, right click on the blob and select **Break lease**. Leased blobs which are not attached to a VM prevent deletion of the blob but do not prevent deletion of Container or Storage account._
 
 #### Scenario 2: Deleting a container - identify all blob(s) within container that are attached to VMs
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the _Hub_ menu, select **_All resources_**. Go to the Storage account, under **_Blob Service_** select **_Containers_** and find the container to be deleted.
-3. Click to open the container and the list of blobs inside it will appear. Identify all the blobs with Blob Type = **_Page blob_** and Lease State = **_Leased_** from this list. These are the blobs with attached VMs. Follow [Scenario 1](#Scenario-1:-Deleting-a-blob-–- identify-attached-VM) to identify the VM associated with each of these blobs.
+3. Click to open the container and the list of blobs inside it will appear. Identify all the blobs with Blob Type = **_Page blob_** and Lease State = **_Leased_** from this list. These are the blobs with attached VMs. Follow [Scenario 1](#scenario-1-deleting-a-blob---identify-attached-vm) to identify the VM associated with each of these blobs.
 
     ![Screenshot of the portal, with the Storage account blobs and the "Lease State" with "Leased" highlighted](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/utd_disks_sm.PNG)
 
-4. Follow [Step 2](#Step-2:-Delete-VM-to-detach-OS-disk) and [Step 3](#Step-3:-Detach-data-disk-from-the-VM) to delete VM(s) with **_OSDisk_** and detach **_DataDisk_**. 
+4. Follow [Step 2](#step-2-delete-vm-to-detach-os-disk) and [Step 3](#step-3-detach-data-disk-from-the-vm) to delete VM(s) with **_OSDisk_** and detach **_DataDisk_**. 
 
 #### Scenario 3: Deleting storage account - identify all blob(s) within storage account that are attached to VMs
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -69,8 +69,8 @@ The process to delete a Storage account, container, or blob when receiving one o
 
     ![Screenshot of the portal, with the storage account containers and the "Lease State" with "Leased" highlighted](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/utd_containers_sm.PNG)
 
-3. In **_Containers_** blade, identify all containers where **_Lease State_** is **_Leased_** and follow [Scenario 2](#Scenario-2:-Deleting-a-container---identify-all-blob(s)-within-container-that-are-attached-to-VMs) for each **_Leased_** container.
-4. Follow [Step 2](#Step-2:-Delete-VM-to-detach-OS-disk) and [Step 3](#Step-3:-Detach-data-disk-from-the-VM) to delete VM(s) with **_OSDisk_** and detach **_DataDisk_**. 
+3. In **_Containers_** blade, identify all containers where **_Lease State_** is **_Leased_** and follow [Scenario 2](#scenario-2-deleting-a-container---identify-all-blobs-within-container-that-are-attached-to-vms) for each **_Leased_** container.
+4. Follow [Step 2](#step-2-delete-vm-to-detach-os-disk) and [Step 3](#step-3-detach-data-disk-from-the-vm) to delete VM(s) with **_OSDisk_** and detach **_DataDisk_**. 
 
 ### Step 2: Delete VM to detach OS disk
 If the VHD is an OS disk, you must delete the VM before the attached VHD can be deleted. No additional action will be required for data disks attached to the same VM once these steps are completed:
