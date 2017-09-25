@@ -46,7 +46,7 @@ In this article, we review security considerations in the following two data mov
    Azure Data Factory protects your data store credentials by **encrypting** them by using **certificates managed by Microsoft**. These certificates are rotated every **two years** (which includes renewal of certificate and migration of credentials). These encrypted credentials are securely stored in an **Azure Storage managed by Azure Data Factory management services**. For more information about Azure Storage security, refer [Azure Storage Security Overview](../security/security-storage-overview.md).
 - Store credentials in Azure Key Vault 
 
-   You can now choose to store data store's credential in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), then let Azure Data Factory to retrieve it during execution of an activity. For more information, see [Store credential in Azure Key Vault](store-credential-in-azure-key-vault.md).
+   You can now choose to store data store's credential in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), then let Azure Data Factory to retrieve it during execution of an activity. For more information, see [Store credential in Azure Key Vault](store-credentials-in-key-vault.md).
 
    > [!NOTE]
    > Currently, only [Dynamics connector](connector-dynamics-crm-office-365.md) supports this feature. 
