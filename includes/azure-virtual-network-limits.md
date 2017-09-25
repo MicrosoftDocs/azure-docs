@@ -32,6 +32,11 @@ The following limits apply only for networking resources managed through Azure R
 | Network Interfaces (NIC) |350 |20000 |
 | Network Security Groups (NSG) |100 |5000 |
 | NSG rules per NSG |200 |500 |
+| IP addresses and ranges specified for source or destination in a security rule |2000 |4000 |
+| Application security groups |200 |500 |
+| Application security groups per IP configuration, per NIC |10 |20 |
+| IP configurations per application security group |1000 |4000 |
+| Application security groups that can be specified within all security rules of a network security group |50 |100 |
 | User defined route tables |100 |200 |
 | User defined routes per route table |100 |400 |
 | Public IP addresses - dynamic |(Basic) |60 |contact support |
