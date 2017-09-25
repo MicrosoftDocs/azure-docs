@@ -53,7 +53,7 @@
 
 ### [Virtual network service endpoints](virtual-network-service-endpoints-configure.md)
 
-### Create a public IP address - availability zone
+### Public IP address - availability zone
 #### [Azure portal](create-public-ip-availability-zone-portal.md)
 #### [Azure CLI](create-public-ip-availability-zone-cli.md)
 #### [PowerShell](create-public-ip-availability-zone-powershell.md)
