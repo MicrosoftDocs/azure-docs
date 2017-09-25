@@ -4,9 +4,9 @@ description: Use PowerShell to create an Azure Policy assignment to identify non
 services: azure-policy 
 keywords: 
 author: niniikhena
-ms.author: nini; jimpark
+ms.author: jimpark
 ms.date: 09/20/2017
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
 ---

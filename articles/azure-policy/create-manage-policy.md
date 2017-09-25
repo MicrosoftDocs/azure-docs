@@ -4,10 +4,11 @@ description: Use Azure Policy to enforce standards, meet regulatory compliance a
 services: azure-policy 
 keywords: 
 author: niniikhena
-ms.author: nini; jimpark
+ms.author: jimpark
 ms.date: 09/20/2017
 ms.topic: tutorial
 ms.service: azure-policy
+ms.custom: mvc
 ---
 
 # Create and manage policies to enforce compliance
