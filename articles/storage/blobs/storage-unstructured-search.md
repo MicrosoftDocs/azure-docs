@@ -21,7 +21,7 @@ ms.custom: mvc
 
 # Search unstructured data in cloud Storage
 
-In these tutorials, we cover how to search semi-structured and unstructured data. In this tutorial, which is part one of a two-part series, we cover searching unstructured data. Unstructured data is data that either is not organized in a pre-defined manner or does not have a data model. An example would be a .txt file.
+In these tutorials, we cover how to search semi-structured and unstructured data. This tutorial, which is part one of a two-part series, covers searching unstructured data. Unstructured data is data that either is not organized in a pre-defined manner or does not have a data model. An example would be a .txt file.
 
 In this part we cover how to:
 
@@ -35,9 +35,9 @@ In this part we cover how to:
 
 ## Download the sample
 
-For this tutorial, a sample data set has been prepared for you. **Download [clinical-trials.zip](https://github.com/roygara/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials.zip)** and unzip it to its own folder.
+A sample data set has been prepared for you. **Download [clinical-trials.zip](https://github.com/roygara/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials.zip)** and unzip it to its own folder.
 
-Contained in the sample is a set of text files obtained from [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). We are using them as the example text files to search in Azure.
+Contained in the sample is a set of text files obtained from [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). We are using them as the example text files which we are going to search using Azure.
 
 
 ## Log in to Azure
@@ -60,7 +60,7 @@ If you are not familiar with the process of creating a General-purpose storage a
 
 4. Select **Locally-redundant storage (LRS)** for Replication.
 
-5. Select to create a new resource group, give it a unique name, and select a location appropriate for you.
+5. Select **create new** for your resource group, give it a unique name, and select a Location appropriate for you.
     
    We recommend creating a separate resource group for these sequences of tutorials so that you may easily clean up all associated resources after completing both tutorials.
 
@@ -112,7 +112,7 @@ After it completes, if you navigate back into your data container, you should se
 
 Azure Search is a search-as-a-service cloud solution that gives developers APIs and tools for adding a rich search experience over your data in web, mobile, and enterprise applications.
 
-If you do not yet have a Search Service, here's how to create one:
+If you are not familiar with the process of creating a search service, here's how to create one:
 
 1. Navigate to and open your storage account if it is not yet open.
 
