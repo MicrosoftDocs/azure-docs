@@ -182,6 +182,8 @@
       href: monitor-using-azure-monitor.md
     - name: Manage Azure-SSIS integration runtime
       href: manage-azure-ssis-integration-runtime.md
+    - name: Monitor integration runtime
+      href: monitor-integration-runtime.md  
   - name: Create integration runtime
     items:
     - name: Azure integration runtime
