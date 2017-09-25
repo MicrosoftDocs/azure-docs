@@ -21,18 +21,20 @@ Open the [Azure portal](https://portal.azure.com/).
 
 1. In the **New** window, click **Compute**.
 
-1. Click **See All** next to the **Featured Apps** heading.
+1. Click **See all** next to the **Featured** heading.
 
    ![See all VM images](./media/provision-sql-server-linux-virtual-machine/azure-compute-blade.png)
 
 1. In the search box, type **SQL Server 2017**, and press **Enter** to start the search.
 
+1. Click the **Filter** icon, limit the search to **Linux based**, **Microsoft** images, and then click **Done**.
+
     ![Search filter for SQL Server 2017 VM images](./media/provision-sql-server-linux-virtual-machine/searchfilter.png)
 
-    > [!TIP]
-    > This filter shows the available Linux virtual machine image(s) for SQL Server 2017. Over time, SQL Server 2017 images for other supported Linux distributions will be listed. You can also click this [link](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/GalleryFeaturedMenuItemBlade/selectedMenuItemId/home/searchQuery/sql%20server%202017) to go directly to the search results for SQL Server 2017. 
+1. Select a SQL Server 2017 Linux image from the search results. This tutorial uses **Free SQL Server License: SQL Server 2017 Developer on Red Hat Enterprise Linux 7**.
 
-1. Select a SQL Server 2017 image from the search results.
+   > [!TIP]
+   > Selecting the Developer edition enables you to test or develop against all of the features of the Enterprise edition with no SQL Server licensing costs. You only pay for the cost of running the Linux VM.
 
 1. Click **Create**.
 
@@ -41,15 +43,16 @@ Open the [Azure portal](https://portal.azure.com/).
     ![Basics window](./media/provision-sql-server-linux-virtual-machine/basics.png)
 
     > [!Note]
-    > You have the choice of using an SSH public key or a Password for authentication. SSH is more secure. For instructions on how to generate an SSH key, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys). 
+    > You have the choice of using an SSH public key or a Password for authentication. SSH is more secure. For instructions on how to generate an SSH key, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
 
 1. Click **OK**.
 
-1. In the **Size** window, choose a machine size. For development and functional testing, we recommend a VM size of **DS2** or higher. For performance testing, use **DS13** or higher.
+1. In the **Size** window, choose a machine size. To see other sizes, select **View all**. For more information about VM machine sizes, see [Linux VM sizes](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
 
     ![Choose a VM size](./media/provision-sql-server-linux-virtual-machine/vmsizes.png)
 
-    To see other sizes, select **View all**. For more information about VM machine sizes, see [Linux VM sizes](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
+   > [!TIP]
+   > For development and functional testing, we recommend a VM size of **DS2** or higher. For performance testing, use **DS13** or higher.
 
 1. Click **Select**.
 
