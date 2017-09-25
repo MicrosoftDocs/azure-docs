@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
-ms.date: 09/21/2017
+ms.date: 09/25/2017
 ms.author: jdial
 ms.custom: 
 ---
