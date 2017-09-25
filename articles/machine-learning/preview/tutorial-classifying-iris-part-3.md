@@ -126,25 +126,50 @@ You can use _local mode_ for development and testing. The Docker engine must be 
 
    The command-line prompt opens in your current project folder location `c:\temp\myIris>`.
 
-2. Create the environment. This step is required to be run once per environment, for example, dev or prod. Use _local mode_ for this first environment. (You can try the `-c` or `--cluster` switch in the following command to set up an environment in _cluster mode_ later.)
+2. Make sure the Azure resource provider `Microsoft.ContainerRegistry` is registered in your subscription. You will need this before you can create an environment in Step 3. You can check to see if it is already registered using the following command: 
+ ``` 
+ az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table 
+ ``` 
+You should see a output similar to: 
+``` 
+Provider                                  Status 
+----------------------------------------  ------------- 
+Microsoft.Authorization                   Registered 
+Microsoft.ContainerRegistry               Registered 
+microsoft.insights                        Registered 
+Microsoft.MachineLearningExperimentation  Registered 
+... 
+``` 
+If `Microsoft.ContainerRegistry` is not registered, you can register it using the following command: 
+``` 
+az provider register --namespace Microsoft.ContainerRegistry 
+``` 
+Registration can take a few minutes and you can check on its status using the above `az provider list` command, or the following: 
+``` 
+az provider show -n Microsoft.ContainerRegistry 
+``` 
+
+3. Create the environment. This step is required to be run once per environment, for example, dev or prod. Use _local mode_ for this first environment. (You can try the `-c` or `--cluster` switch in the following command to set up an environment in _cluster mode_ later.)
 
    ```azurecli
    az ml env setup -n <new deployment environment name> --location <e.g. eastus2>
    ```
    
    Follow the on-screen instructions to provision a storage account for storing Docker images, an ACR (Azure Container Registry) for listing Docker images, an AppInsight account for gathering telemetry. If you used the `-c` switch, it creates an ACS (Azure Container Service) cluster too.
+   
+   The cluster name is a way for you to identify the environment, and the location should be the same as the location of the Model management account you created from Azure portal.
 
-3. Create a Model Management account (this is a one time setup)  
+4. Create a Model Management account (this is a one time setup)  
    ```azurecli
    az ml account modelmanagement create --location <e.g. eastus2> -n <new model management account name> -g <existing resource group name> --sku-name S1
    ```
    
-4. Set the Model Management account  
+5. Set the Model Management account  
    ```azurecli
    az ml account modelmanagement set -n <youracctname> -g <yourresourcegroupname>
    ```
 
-5. Set the environment.
+6. Set the environment.
 After the setup is complete, set the environment variables required to operationalize using the following command. The environment name is the name used in step 1 above. The resource group name was the output of the same process and would be in the command window when the setup process is completed.
    ```azurecli
    az ml env set -n <deployment environment name> -g <existing resource group name>
