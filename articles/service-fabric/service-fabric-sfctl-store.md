@@ -32,7 +32,7 @@ Perform basic file level operations on the cluster image store.
 ## sfctl store delete
 Deletes existing image store content.
 
-Deletes existing image store content being found within the given image store relative path. This can be used to delete uploaded application packages once they are provisioned.
+Deletes existing image store content being found within the given image store relative path. This command can be used to delete uploaded application packages once they are provisioned.
 
 ### Arguments
 

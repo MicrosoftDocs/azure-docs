@@ -63,7 +63,7 @@ Creates the specified Service Fabric service from the description.
 | --dns-name            | The DNS name of the service to be created. The Service Fabric DNS           system service must be enabled for this setting.|
 | --instance-count      | The instance count. This applies to stateless services only.|
 | --int-scheme          | Indicates the service should be uniformly partitioned across a range           of unsigned integers.|
-| --int-scheme-count    | The number of partitions inside the integer key range to create, if           using a uniform integer partition scheme.|
+| --int-scheme-count    | The number of partitions inside the integer key range (for a uniform integer partition scheme) to create.|
 | --int-scheme-high     | The end of the key integer range, if using a uniform integer           partition scheme.|
 | --int-scheme-low      | The start of the key integer range, if using a uniform integer           partition scheme.|
 | --load-metrics        | JSON encoded list of metrics used when load balancing services across           nodes.|
