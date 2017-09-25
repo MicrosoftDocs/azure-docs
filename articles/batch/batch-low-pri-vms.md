@@ -124,13 +124,6 @@ benefit from low-priority VMs:
     The quote for low-priority VMs is higher than that of dedicated VMs, because 
     low-priority VMs cost less. See [Batch service quotas and limits](batch-quota-limit.md#resource-quotas) for more information.    
 
-> [!NOTE]
-> Low-priority VMs are not currently supported for Batch accounts where the pool
-allocation mode is set to [User
-subscription](batch-account-create-portal.md#user-subscription-mode).
->
->
-
 ## Create and update pools
 
 A Batch pool can contain both dedicated and low-priority VMs (also referred to as compute nodes). You can set the target number of compute nodes for both dedicated and low-priority VMs. The target number of nodes specifies the number of VMs you want to have in the pool.
