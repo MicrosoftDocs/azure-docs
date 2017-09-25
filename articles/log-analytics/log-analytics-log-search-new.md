@@ -74,6 +74,13 @@ How about a line chart with the processor utilization for each computer from las
 
 You can see from these quick samples that regardless of the kind of data that you're working with, the structure of the query is similar.  You can break it down into distinct steps where the resulting data from one command is sent through the pipeline to the next command.
 
+You can also query data across Log Analytics workspaces within your subscription.
+
+	union Update, workspace("contoso-workspace").Update
+	| where TimeGenerated >= ago(1h)
+	| summarize dcount(Computer) by Classification 
+
+
 For complete documentation on the Azure Log Analytics query language including tutorials and language reference, see the [Azure Log Analytics query language documentation](https://docs.loganalytics.io/).
 
 ## Next steps

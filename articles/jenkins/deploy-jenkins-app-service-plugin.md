@@ -71,7 +71,7 @@ Before setting up the job in Jenkins, you need an Azure App Service plan and a W
 
 
 1. Create an Azure App Service plan with the **FREE** pricing tier using the  [az appservice plan create](/cli/azure/appservice/plan#create) CLI command. The appservice plan defines the physical resources used to host your apps. All applications assigned to an appservice plan share these resources, allowing you to save cost when hosting multiple apps.
-2. Create a Web App. You can either use the [Azure portal](/azure/app-service-web/web-sites-configure) or use the following Az CLI command:
+2. Create a Web App. You can either use the [Azure portal](/azure/app-service/web-sites-configure) or use the following Az CLI command:
 ```azurecli-interactive	
 az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
 ```
