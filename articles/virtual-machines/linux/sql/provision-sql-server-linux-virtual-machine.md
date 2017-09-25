@@ -21,18 +21,20 @@ Open the [Azure portal](https://portal.azure.com/).
 
 1. In the **New** window, click **Compute**.
 
-1. Click **See All** next to the **Featured Apps** heading.
+1. Click **See all** next to the **Featured** heading.
 
    ![See all VM images](./media/provision-sql-server-linux-virtual-machine/azure-compute-blade.png)
 
 1. In the search box, type **SQL Server 2017**, and press **Enter** to start the search.
 
+1. Click the **Filter** icon, limit the search to **Linux based**, **Microsoft** images, and then click **Done**.
+
     ![Search filter for SQL Server 2017 VM images](./media/provision-sql-server-linux-virtual-machine/searchfilter.png)
 
-    > [!TIP]
-    > This filter shows the available Linux virtual machine image(s) for SQL Server 2017. Over time, SQL Server 2017 images for other supported Linux distributions will be listed. You can also click this [link](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/GalleryFeaturedMenuItemBlade/selectedMenuItemId/home/searchQuery/sql%20server%202017) to go directly to the search results for SQL Server 2017. 
+1. Select a SQL Server 2017 Linux image from the search results. This tutorial uses **Free SQL Server License: SQL Server 2017 Developer on Red Hat Enterprise Linux 7**.
 
-1. Select a SQL Server 2017 image from the search results.
+   > [!TIP]
+   > The Developer edition enables you to test or develop with the features of the Enterprise edition but no SQL Server licensing costs. You only pay for the cost of running the Linux VM.
 
 1. Click **Create**.
 
@@ -41,15 +43,16 @@ Open the [Azure portal](https://portal.azure.com/).
     ![Basics window](./media/provision-sql-server-linux-virtual-machine/basics.png)
 
     > [!Note]
-    > You have the choice of using an SSH public key or a Password for authentication. SSH is more secure. For instructions on how to generate an SSH key, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys). 
+    > You have the choice of using an SSH public key or a Password for authentication. SSH is more secure. For instructions on how to generate an SSH key, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
 
 1. Click **OK**.
 
-1. In the **Size** window, choose a machine size. For development and functional testing, we recommend a VM size of **DS2** or higher. For performance testing, use **DS13** or higher.
+1. In the **Size** window, choose a machine size. To see other sizes, select **View all**. For more information about VM machine sizes, see [Linux VM sizes](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
 
     ![Choose a VM size](./media/provision-sql-server-linux-virtual-machine/vmsizes.png)
 
-    To see other sizes, select **View all**. For more information about VM machine sizes, see [Linux VM sizes](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
+   > [!TIP]
+   > For development and functional testing, we recommend a VM size of **DS2** or higher. For performance testing, use **DS13** or higher.
 
 1. Click **Select**.
 
@@ -82,7 +85,7 @@ To be able to remotely connect to SQL Server on an Azure VM, you must configure 
 
 1. Click the **+Add** button.
 
-1. Provide a Name of "SQLServerRemoteConnections".
+1. Provide a Name of `SQLServerRemoteConnections`.
 
 1. In the **Service** list, select **MS SQL**.
 
@@ -120,7 +123,7 @@ The new virtual machine installs SQL Server with a random SA password. You must 
 
 1. After connecting to your Linux VM, open a new command terminal.
 
-1. Change the SA password with the following commands.
+1. Change the SA password with the following commands:
 
    ```bash
    sudo systemctl stop mssql-server
@@ -137,7 +140,7 @@ The new virtual machine installs SQL Server with a random SA password. You must 
 
 ## Add the tools to your path (optional)
 
-Several SQL Server [packages](sql-server-linux-virtual-machines-overview.md#packages) are installed by default, including the SQL Server command-line Tools package. This contains the **sqlcmd** and **bcp** tools. For convenience, you can optionally add the tools path, `/opt/mssql-tools/bin/`, to your **PATH** environment variable.
+Several SQL Server [packages](sql-server-linux-virtual-machines-overview.md#packages) are installed by default, including the SQL Server command-line Tools package. The tools package contains the **sqlcmd** and **bcp** tools. For convenience, you can optionally add the tools path, `/opt/mssql-tools/bin/`, to your **PATH** environment variable.
 
 1. Run the following commands to modify the **PATH** for both login sessions and interactive/non-login sessions:
 
@@ -151,6 +154,6 @@ Several SQL Server [packages](sql-server-linux-virtual-machines-overview.md#pack
 
 Now that you have a SQL Server 2017 virtual machine in Azure, you can connect locally with **sqlcmd** to run Transact-SQL queries.
 
-If you configured the Azure VM for remote SQL Server connections, you should also be able to connect remotely. For an example of connecting to SQL Server on Linux from a remote Windows machine, see [Use SSMS on Windows to connect to SQL Server on Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-ssms).
+If you configured the Azure VM for remote SQL Server connections, you should also be able to connect remotely. For an example of how to connect remotely to SQL Server on Linux from Windows, see [Use SSMS on Windows to connect to SQL Server on Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-ssms).
 
 For more general information about SQL Server on Linux, see the [Overview of SQL Server 2017 on Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview). For more information about using SQL Server 2017 Linux virtual machines, see [Overview of SQL Server 2017 virtual machines on Azure](sql-server-linux-virtual-machines-overview.md).
