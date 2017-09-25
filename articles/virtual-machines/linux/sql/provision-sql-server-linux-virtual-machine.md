@@ -34,7 +34,7 @@ Open the [Azure portal](https://portal.azure.com/).
 1. Select a SQL Server 2017 Linux image from the search results. This tutorial uses **Free SQL Server License: SQL Server 2017 Developer on Red Hat Enterprise Linux 7**.
 
    > [!TIP]
-   > Selecting the Developer edition enables you to test or develop against all of the features of the Enterprise edition with no SQL Server licensing costs. You only pay for the cost of running the Linux VM.
+   > The Developer edition enables you to test or develop with the features of the Enterprise edition but no SQL Server licensing costs. You only pay for the cost of running the Linux VM.
 
 1. Click **Create**.
 
@@ -85,7 +85,7 @@ To be able to remotely connect to SQL Server on an Azure VM, you must configure 
 
 1. Click the **+Add** button.
 
-1. Provide a Name of "SQLServerRemoteConnections".
+1. Provide a Name of `SQLServerRemoteConnections`.
 
 1. In the **Service** list, select **MS SQL**.
 
@@ -123,7 +123,7 @@ The new virtual machine installs SQL Server with a random SA password. You must 
 
 1. After connecting to your Linux VM, open a new command terminal.
 
-1. Change the SA password with the following commands.
+1. Change the SA password with the following commands:
 
    ```bash
    sudo systemctl stop mssql-server
@@ -140,7 +140,7 @@ The new virtual machine installs SQL Server with a random SA password. You must 
 
 ## Add the tools to your path (optional)
 
-Several SQL Server [packages](sql-server-linux-virtual-machines-overview.md#packages) are installed by default, including the SQL Server command-line Tools package. This contains the **sqlcmd** and **bcp** tools. For convenience, you can optionally add the tools path, `/opt/mssql-tools/bin/`, to your **PATH** environment variable.
+Several SQL Server [packages](sql-server-linux-virtual-machines-overview.md#packages) are installed by default, including the SQL Server command-line Tools package. The tools package contains the **sqlcmd** and **bcp** tools. For convenience, you can optionally add the tools path, `/opt/mssql-tools/bin/`, to your **PATH** environment variable.
 
 1. Run the following commands to modify the **PATH** for both login sessions and interactive/non-login sessions:
 
@@ -154,6 +154,6 @@ Several SQL Server [packages](sql-server-linux-virtual-machines-overview.md#pack
 
 Now that you have a SQL Server 2017 virtual machine in Azure, you can connect locally with **sqlcmd** to run Transact-SQL queries.
 
-If you configured the Azure VM for remote SQL Server connections, you should also be able to connect remotely. For an example of connecting to SQL Server on Linux from a remote Windows machine, see [Use SSMS on Windows to connect to SQL Server on Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-ssms).
+If you configured the Azure VM for remote SQL Server connections, you should also be able to connect remotely. For an example of how to connect remotely to SQL Server on Linux from Windows, see [Use SSMS on Windows to connect to SQL Server on Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-ssms).
 
 For more general information about SQL Server on Linux, see the [Overview of SQL Server 2017 on Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview). For more information about using SQL Server 2017 Linux virtual machines, see [Overview of SQL Server 2017 virtual machines on Azure](sql-server-linux-virtual-machines-overview.md).
