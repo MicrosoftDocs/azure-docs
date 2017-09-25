@@ -149,7 +149,7 @@ Now that you have a search service, you can attach it to your blob storage. This
 
 ### New Data Source
 
-    A data source specifies which data to index, credentials needed to access the data, and policies to identify changes in the data (new, modified, or deleted blobs). A data source can be used multiple times in the same search service.
+  A data source specifies which data to index, credentials needed to access the data, and policies to identify changes in the data (new, modified, or deleted blobs). A data source can be used multiple times in the same search service.
 
 1. Enter a name of your choosing and make sure **Data to extract** is set as **Content and Metadata** and that **Parsing Mode** is **Text**.
     
