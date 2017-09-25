@@ -20,18 +20,20 @@ ms.custom: mvc
 ---
 
 # Back up a virtual machine in Azure
-Azure backups can be created through the Azure portal. This method provides a browser-based user interface to create and configure Azure backups and all related resources. You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that can be stored in geo-redundant recovery vaults. This article details how to back up a virtual machine (VM) with the Azure portal. You can also perform these steps with the [Azure CLI](quick-backup-vm-cli.md) or [Azure PowerShell](quick-backup-vm-powershell.md).
+Azure backups can be created through the Azure portal. This method provides a browser-based user interface to create and configure Azure backups and all related resources. You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that can be stored in geo-redundant recovery vaults. This article details how to back up a virtual machine (VM) with the Azure portal. 
 
 This quick start enables backup on an existing Azure VM. If you need to create a VM, you can [create a VM with the Azure portal](../virtual-machines/windows/quick-create-portal.md).
 
+## Log in to Azure
+
+Log in to the Azure portal at http://portal.azure.com.
 
 ## Select a VM to back up
 Create a simple scheduled daily backup to a Recovery Services Vault. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. In the menu on the left, select **Virtual machines**. 
-3. From the list, choose a VM to back up. If you used the sample VM quick start commands, the VM is named *myVM* in the *myResourceGroup* resource group.
-4. In the **Settings** section, choose **Backup**. The **Enable backup** window opens.
+1. In the menu on the left, select **Virtual machines**. 
+2. From the list, choose a VM to back up. If you used the sample VM quick start commands, the VM is named *myVM* in the *myResourceGroup* resource group.
+3. In the **Settings** section, choose **Backup**. The **Enable backup** window opens.
 
 
 ## Enable backup on a VM
@@ -91,4 +93,4 @@ If you are going to continue on to a Backup tutorial that explains how to restor
 In this quick start, you created a Recovery Services vault, enabled protection on a VM, and created the initial recovery point. To learn more about Azure Backup and Recovery Services, continue to the tutorials.
 
 > [!div class="nextstepaction"]
-> [Backup tutorials](./tutorial-backup-azure-vm.md)
+> [Back up multiple Azure VMs](./tutorial-backup-azure-vm.md)

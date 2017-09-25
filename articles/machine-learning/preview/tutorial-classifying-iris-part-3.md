@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 09/21/2017
+ms.date: 09/25/2017
 ---
 
 # Classifying Iris part 3: Deploy a model
@@ -126,7 +126,7 @@ You can use _local mode_ for development and testing. The Docker engine must be 
 
    The command-line prompt opens in your current project folder location `c:\temp\myIris>`.
 
-2. Create the environment. This step is required to be run once per environment, for example, dev or prod. Use _local mode_ for this first environment. (You can try the `-c` or `--cluster` switch in the below command to set up an environment in _cluster mode_ later.)
+2. Create the environment. This step is required to be run once per environment, for example, dev or prod. Use _local mode_ for this first environment. (You can try the `-c` or `--cluster` switch in the following command to set up an environment in _cluster mode_ later.)
 
    ```azurecli
    az ml env setup -n <new deployment environment name> --location <e.g. eastus2>
@@ -185,7 +185,7 @@ Use the following command to create a real-time web service:
    docker ps
    ```
 ### Alternative route
-As an alternate to `az ml service create realtime` command shown above, you can also perform the model registration, manifest generation, Docker image build, and web service creation steps individually. This gives your more flexibility at each step, and you can reuse entities generated from the previous step, and rebuild entities only when needed. Follow the below instructions to see how this can be achieved:
+As an alternate to `az ml service create realtime` command shown above, you can also perform the model registration, manifest generation, Docker image build, and web service creation steps individually. This gives your more flexibility at each step, and you can reuse entities generated from the previous step, and rebuild entities only when needed. Follow the following instructions to see how this can be achieved:
 
 1. Register the model by providing the pickle file name.
 
@@ -282,8 +282,8 @@ Test the running `irisapp` web service by feeding it with a JSON encoded record 
       ```
    - [Hive](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started): load csv data into a hive table and perform SQL queries directly against blob.
 
-## Summary
-In this tutorial, you have learned how to:
+## Next Steps
+In this third part of the three part tutorial series, you have learned how to use Azure Machine Learning services to:
 > [!div class="checklist"]
 > * Locate the model file
 > * Generate a scoring script and schema file
@@ -294,8 +294,7 @@ In this tutorial, you have learned how to:
 
 You have successfully run a training script in various compute environments, created a model, serialized the model, and operationalized the model through a Docker-based web service. 
 
-## Next Steps
-Learn to perform advanced data preparation with Azure Machine Learning Workbench:
+You are ready to do advanced data preparation:
 > [!div class="nextstepaction"]
 > [Advanced data preparation](tutorial-bikeshare-dataprep.md)
 

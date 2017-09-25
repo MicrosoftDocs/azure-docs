@@ -20,7 +20,7 @@
 ### [Backup Overview](sql-data-warehouse-backups.md)
 ### [Restore Overview](sql-data-warehouse-restore-database-overview.md)
 #### [Azure portal](sql-data-warehouse-restore-database-portal.md)
-#### [PowerShell](sql-data-warehouse-restore-database-powershell.md)
+#### [Azure PowerShell](sql-data-warehouse-restore-database-powershell.md)
 #### [REST](sql-data-warehouse-restore-database-rest-api.md)
 
 ## Connect
@@ -34,7 +34,7 @@
 
 ## Create
 ### [Azure portal](sql-data-warehouse-get-started-provision.md)
-### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+### [Azure PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 ### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 
 ## Develop

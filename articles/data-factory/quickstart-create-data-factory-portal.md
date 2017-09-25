@@ -15,15 +15,18 @@ ms.author: jingwang
 
 ---
 # Create a data factory using the Azure portal
-In this quickstart, you use Azure portal to create a data factory. Currently, you cannot create pipelines in a data factory by using Azure portal. After you create the data factory, use the code or PowerShell commands from other quickstarts to create a data pipeline. 
+Azure Data Factory is a cloud-based data integration service that allows you to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Uing Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores, process/transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning, and publish output data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications to consume. 
 
-## Prerequisites
+In this quick start, you use Azure portal to create a data factory. After you create the data factory, you need to use PowerShell, .NET SDK, Python SDK, or REST API as in other quick starts a data pipeline that copies data from a source data store to a destination data store. Currently, you cannot create pipelines in a data factory by using Azure portal.
 
-* **Azure subscription**. If you don't have a subscription, you can create a [free trial](http://azure.microsoft.com/pricing/free-trial/) account.
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+
+## Log in to the Azure portal
+Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a data factory
 Here are the steps you perform as part of this quickstart:
-1. After logging in to the [Azure portal](https://portal.azure.com/), click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
+1. Click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
    
    ![New->DataFactory](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 2. In the **New data factory** blade, enter **ADFTutorialDataFactory** for the **name**. 
@@ -58,8 +61,4 @@ Here are the steps you perform as part of this quickstart:
 
 
 ## Next steps
-See the following quickstarts for step-by-step instructions for creating pipelines and datasets by using one of these tools or SDKs. 
-
-- [Quickstart: Create a data factory using .NET](quickstart-create-data-factory-dot-net.md)
-- [Quickstart: Create a data factory using PowerShell](quickstart-create-data-factory-powershell.md)
-- [Quickstart: Create a data factory using REST API](quickstart-create-data-factory-rest-api.md)
+The pipeline in this sample copies data from one location to another location in an Azure blob storage. Go through the [tutorials](tutorial-copy-data-dot-net.md) to learn about using Data Factory in more scenarios. 

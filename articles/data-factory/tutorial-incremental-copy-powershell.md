@@ -18,6 +18,8 @@ ms.author: shlo
 ---
 
 # Incrementally load data from Azure SQL Database to Azure Blob Storage
+Azure Data Factory is a cloud-based data integration service that allows you to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Uing Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores, process/transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning, and publish output data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications to consume. 
+
 During the data integration journey, one of the widely used scenarios is to incrementally load data periodically to refresh updated analysis result after initial data loads and analysis. In this tutorial, you focus on loading only new or updated records from the data sources into data sinks. It runs more efficiently when compared to full loads, particularly for large data sets.    
 
 You can use Data Factory to create high-watermark solutions to achieve incremental data loading by using Lookup, Copy, and Stored Procedure activities in a pipeline.  
@@ -48,28 +50,47 @@ The concrete working flow:
 7. Use a stored procedure activity to update the watermark for next run.
 8. Create a pipeline with all the activities chained and run periodically. 
 
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Prerequisites
-
-* **Azure subscription**. If you don't have a subscription, you can create a [free trial](http://azure.microsoft.com/pricing/free-trial/) account.
 * **Azure SQL Database**. You use the database as the **source** data store. If you don't have an Azure SQL Database, see the [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) article for steps to create one.
 * **Azure Storage account**. You use the blob storage as the **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one. Create a container named **adftutorial**. 
 * **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
-### Define a watermark column
-Defining the watermark column in data source store is very critical for incremental data loading. You normally use the LastModifytime, CreationTime, ID, etc. to slice the new or updated records. In this tutorial, you use LastModifytime as the watermark column.  The data in data source store is shown in the following table:
+### Create a data source table in your Azure SQL database
+1. Open **SQL Server Management Studio**, in **Server Explorer**, right-click the database and choose the **New Query**.
+2. Run the following SQL command against your Azure SQL database to create a table named `data_source_table` as data source store.  
+    
+    ```sql
+	create table data_source_table
+	(
+		PersonID int,
+		Name varchar(255),
+		LastModifytime datetime
+	);
 
-```
-PersonID | Name | LastModifytime
--------- | ---- | --------------
-1 | aaaa | 2017-09-01 00:56:00.000
-2 | bbbb | 2017-09-02 05:23:00.000
-3 | cccc | 2017-09-03 02:36:00.000
-4 | dddd | 2017-09-04 03:21:00.000
-5 | eeee | 2017-09-05 08:06:00.000
-```
+	INSERT INTO data_source_table
+	(PersonID, Name, LastModifytime)
+	VALUES
+	(1, 'aaaa','9/1/2017 12:56:00 AM'),
+	(2, 'bbbb','9/2/2017 5:23:00 AM'),
+	(3, 'cccc','9/3/2017 2:36:00 AM'),
+	(4, 'dddd','9/4/2017 3:21:00 AM'),
+	(5, 'eeee','9/5/2017 8:06:00 AM');
+    ```
+	In this tutorial, you use **LastModifytime** as the **watermark** column.  The data in data source store is shown in the following table:
 
-### Create a table in SQL database to store the high watermark value
+	```
+	PersonID | Name | LastModifytime
+	-------- | ---- | --------------
+	1 | aaaa | 2017-09-01 00:56:00.000
+	2 | bbbb | 2017-09-02 05:23:00.000
+	3 | cccc | 2017-09-03 02:36:00.000
+	4 | dddd | 2017-09-04 03:21:00.000
+	5 | eeee | 2017-09-05 08:06:00.000
+	```
+
+### Create another table in SQL database to store the high watermark value
 1. Open **SQL Server Management Studio**, in **Server Explorer**, right-click the **database** of data source store and choose the **New Query**.
 2. Run the following SQL command against your Azure SQL database to create a table named `watermarktable` to store the watermark value.  
     
@@ -686,7 +707,16 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
 
      
 ## Next steps
-See list of data stores that are supported by copy activity as sources and sinks in the [Copy activity overview](copy-activity-overview.md) article. 
+You performed the following steps in this tutorial: 
+
+> [!div class="checklist"]
+> * Define a **watermark** column and store it in Azure SQL Database.  
+> * Create a data factory.
+> * Create linked services for SQL Database and Blob Storage. 
+> * Create source and sink datasets.
+> * Create a pipeline.
+> * Run the pipeline.
+> * Monitor the pipeline run. 
 
 Advance to the following tutorial to learn about transforming data by using a Spark cluster on Azure:
 

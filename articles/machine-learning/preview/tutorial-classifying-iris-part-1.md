@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 09/21/2017
+ms.date: 09/25/2017
 ---
 
 # Classifying Iris part 1: Prepare data
@@ -112,15 +112,13 @@ df = run('iris.dprep', dataflow_idx=0)
 ```
 This code snippet invokes the logic you created as a data preparation package. Depending on the context in which this code is run, `df` can be a [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html) if executed in Python runtime, or a [Spark DataFrame](https://spark.apache.org/docs/latest/sql-programming-guide.html) if executed in a Spark context. For more information on how to prepare data in Azure Machine Learning Workbench, reference the [Getting Started with Data Preparation](data-prep-getting-started.md) guide.
 
-## Summary
-In this part one of the three part tutorial series, you have used the Azure Machine Learning Workbench to:
+## Next steps
+In this first part of the three part tutorial series, you have used the Azure Machine Learning Workbench to:
 > [!div class="checklist"]
 > * Create a new project 
 > * Create a data preparation package
 > * Generate Python/PySpark code to invoke data prep package
 
 You are ready to move on to the next part in the series, to build a machine learning model.
-
-## Next steps
 > [!div class="nextstepaction"]
-> [Part 2: Build a model](tutorial-classifying-iris-part-2.md)
+> [Build a model](tutorial-classifying-iris-part-2.md)

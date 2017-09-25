@@ -31,9 +31,9 @@ You can use Azure Backup to protect your Windows Server from corruptions, attack
 > * Perform an ad-hoc back up
 
 
-# Sign in to the Azure portal
+## Log in to Azure
 
-Use your Azure subscription to sign in to the [Azure portal](https://portal.azure.com).
+Log in to the Azure portal at http://portal.azure.com.
 
 ## Create a Recovery Services vault
 
@@ -57,7 +57,7 @@ Before you can back up Windows Server, you must create a place for the backups, 
  
 Once your vault is created, it appears in the list of Recovery Services vaults.
 
-## Download MARS agent
+## Download Recovery Services agent
 
 The Microsoft Azure Recovery Services (MARS) agent creates an association between Windows Server and your Recovery Services vault. The following procedure explains how to download the agent to your server.
 
@@ -85,7 +85,7 @@ The Microsoft Azure Recovery Services (MARS) agent creates an association betwee
 
     ![prepare infrastructure](./media/tutorial-backup-windows-server-to-azure/download-vault-credentials.png)
  
-## Install and register MARS agent
+## Install and register the agent
 
 1. Locate and double-click the downloaded **MARSagentinstaller.exe**.
 2. The **Microsoft Azure Recovery Services Agent Setup Wizard** appears. As you go through the wizard, provide the following information when prompted and click **Register**.

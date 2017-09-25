@@ -18,11 +18,14 @@ ms.author: jingwang
 ---
 
 # Create a data factory and pipeline using Python
+Azure Data Factory is a cloud-based data integration service that allows you to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Uing Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores, process/transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning, and publish output data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications to consume. 
+
 This quickstart describes how to use Python to create an Azure data factory. The pipeline in this data factory copies data from one folder to another folder in an Azure blob storage.
+
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Prerequisites
 
-* **Azure subscription**. If you don't have a subscription, you can create a [free trial](http://azure.microsoft.com/pricing/free-trial/) account.
 * **Azure Storage account**. You use the blob storage as **source** and **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one. 
 * **Create an application in Azure Active Directory** following [this instruction](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Make note of the following values that you use in later steps: **application ID**, **authentication key**, and **tenant ID**. Assign application to "**Contributor**" role by following instructions in the same article. 
 
@@ -37,22 +40,14 @@ This quickstart describes how to use Python to create an Azure data factory. The
 2.	Use tools such as [Azure Storage Explorer](http://storageexplorer.com/) to create the **adfv2tutorial** container, and to upload the input.txt file to the container. 
 
 ## Install the Python package
-
-1.	Download the [Azure Data Factory Python file](https://go.microsoft.com/fwlink/?linkid=859015) into a directory where you’ll run your project.
-2.	Open a terminal or command prompt with administrator privileges. 
-3.	To install the package, run the following commands:
+1. Open a terminal or command prompt with administrator privileges.  
+2. To install the Python package for Data Factory, run the following command:
 
     ```
-    pip install azure_mgmt_datafactory-0.1.0-py2.py3-none-any.whl
-    pip install azure.mgmt.resource
-    ```
-4. You should see the following output if you successfully installed the file
-
-    ```
-    Installing collected packages: certifi, msrest, msrestazure, azure-nspkg, azure-common, azure-mgmt-nspkg, azure-mgmt-datafactory, idna
-    Successfully installed azure-common-1.1.8 azure-mgmt-datafactory-0.1.0 azure-mgmt-nspkg-2.0.0 azure-nspkg-2.0.0 certifi-2017.7.27.1 idna-2.6 msrest-0.4.14 msrestazure-0.4.14
+    pip install azure-mgmt-datafactory
     ```
 
+    The [Python SDK for Data Factory](https://github.com/Azure/azure-sdk-for-python) supports Python 2.7, 3.3, 3.4, 3.5 and 3.6.
 ## Create a data factory client
 
 1. Create a file named **datafactory.py**. Add the following statements to add references to namespaces.
@@ -221,8 +216,4 @@ adf_client.data_factories.delete(rg_name, df_name)
 ```
 
 ## Next steps
-You used Python to create a data factory and a pipeline in this tutorial. The pipeline in this sample copies data from one location to another location in an Azure blob storage. To learn more, review other Quickstarts and tutorials.
-
-Tutorial | Description
--------- | -----------
-[Tutorial: copy data from Azure Blob Storage to Azure SQL Database](tutorial-copy-data-dot-net.md) | Shows you how to copy data from a blob storage to a SQL database. For a list of data stores supported as sources and sinks in a copy operation by data factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats). 
+The pipeline in this sample copies data from one location to another location in an Azure blob storage. Go through the [tutorials](tutorial-copy-data-dot-net.md) to learn about using Data Factory in more scenarios. 

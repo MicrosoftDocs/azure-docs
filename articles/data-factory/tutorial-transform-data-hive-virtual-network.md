@@ -18,7 +18,7 @@ ms.author: shengc
 ---
 
 # Transform data in Azure Virtual Network using Hive activity in Azure Data Factory
-Using Azure Data Factory, you can create and schedule pipelines that transform data on your own or an on-demand HDInsight cluster. The self-hosted integration runtime in version 2 of Data Factory allows you to run tasks on your HDInsight cluster in an Azure Virtual Network. 
+Azure Data Factory is a cloud-based data integration service that allows you to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Uing Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores, process/transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning, and publish output data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications to consume. 
 
 In this tutorial, you use Azure PowerShell to create a Data Factory pipeline that transforms data using Hive Activity on a HDInsight cluster that is in an Azure Virtual Network. You perform the following steps in this tutorial:
 
@@ -31,8 +31,10 @@ In this tutorial, you use Azure PowerShell to create a Data Factory pipeline tha
 > * Monitor the pipeline run 
 > * verify the output. 
 
+
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+
 ## Prerequisites
-- **Azure subscription**. If you don't have a subscription, you can create a [free trial](http://azure.microsoft.com/pricing/free-trial/) account.
 - **Azure Storage account**. You create a hive script, and upload it to the Azure storage. The output from the Hive script is stored in this storage account. In this sample, HDInsight cluster uses this Azure Storage account as the primary storage. 
 - **Azure Virtual Network.** If you don't have an Azure virtual network, create it by following [these instructions](../virtual-network/virtual-network-get-started-vnet-subnet.md). In this sample, the HDInsight is in an Azure Virtual Network. Here is a sample configuration of Azure Virtual Network. 
 
@@ -375,4 +377,23 @@ Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGrou
    246 en-US SCH-i500 District Of Columbia
    246 en-US SCH-i500 District Of Columbia
    ```
+
+## Next steps
+You performed the following steps in this tutorial: 
+
+> [!div class="checklist"]
+> * Create a data factory. 
+> * Author and setup self-hosted integration runtime
+> * Author and deploy linked services.
+> * Author and deploy a pipeline that contains a Hive activity.
+> * Start a pipeline run.
+> * Monitor the pipeline run 
+> * verify the output. 
+
+Advance to the following tutorial to learn about transforming data by using a Spark cluster on Azure:
+
+> [!div class="nextstepaction"]
+>[Branching and chaining Data Factory control flow](tutorial-control-flow.md)
+
+
 
