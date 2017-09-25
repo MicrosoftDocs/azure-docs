@@ -39,7 +39,7 @@ sections:
     style: ordered
     items:
     - html: <a href="/azure/storage/blobs/storage-upload-process-images">Upload and retrieve image data in the cloud</a>
-    - html: <a href="/azure/storage/blobs/storage-blob-event-quickstart">Trigger Azure Functions to process blobs</a>
+    - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Trigger Azure Functions to process blobs</a>
     - html: <a href="/azure/storage/blobs/storage-secure-access-application">Secure application data</a>
     - html: <a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">Monitor and troubleshoot storage</a>
 - title: Samples
