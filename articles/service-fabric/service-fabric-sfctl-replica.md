@@ -38,9 +38,9 @@ Manage the replicas that belong to service partitions.
 ## sfctl replica deployed
 Gets the details of replica deployed on a Service Fabric node.
 
-Gets the details of the replica deployed on a Service Fabric node. The information include
+Gets the details of the replica deployed on a Service Fabric node. The information includes
         service kind, service name, current service operation, current service operation start date
-        time, partition id, replica/instance id, reported load and other information.
+        time, partition ID, replica/instance ID, reported load and other information.
 
 ### Arguments
 
@@ -90,7 +90,7 @@ Gets the health of a Service Fabric replica. Use EventsHealthStateFilter to filt
 ## sfctl replica info
 Gets the information about a replica of a Service Fabric partition.
 
-The respons include the id, role, status, health, node name, uptime, and other details about
+The respons include the ID, role, status, health, node name, uptime, and other details about
         the replica.
 
 ### Arguments
@@ -116,7 +116,7 @@ The respons include the id, role, status, health, node name, uptime, and other d
 Gets the information about replicas of a Service Fabric service partition.
 
 The GetReplicas endpoint returns information about the replicas of the specified partition.
-        The respons include the id, role, status, health, node name, uptime, and other details about
+        The respons include the ID, role, status, health, node name, uptime, and other details about
         the replica.
 
 ### Arguments
