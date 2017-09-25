@@ -151,37 +151,37 @@ Use the following sites to stay up to date with information about Azure Data Fac
 
 ## Technical deep dive 
 
-### Can I have version 1 and version 2 pipelines run side by side?
+## Can I have version 1 and version 2 pipelines run side by side?
 No. Version 2 or version 1 data factories cannot have entities (linked services, datasets, pipelines, etc.) of other version.   
 
-### Do I still need to define datasets in version 2?
+## Do I still need to define datasets in version 2?
 Dataset is no longer a mandatory entity for most activities. It is required for Copy, Machine Learning, Lookup, Validation, and custom activities that use the schema and other metadata information in the Dataset for transformation. The rest of the activities do not require datasets any more.
 
-### Can I chain two activities without a dataset in version 2?
+## Can I chain two activities without a dataset in version 2?
 Yes. You can chain together activities in version 2 without requiring Datasets. You chain activities by using the **dependsOn** property in the JSON definition of your pipeline. 
 
-### Are all the version 1 activities supported in version 2? 
+## Are all the version 1 activities supported in version 2? 
 Yes, all the version 1 activities are supported
 
-### How can I schedule a version 2 pipeline? 
+## How can I schedule a version 2 pipeline? 
 You can use the scheduler trigger to schedule a version 2 pipeline. It uses a wall-clock calendar schedule and enables users to schedule pipelines either periodically or using calendar-based recurrent patterns (for example, weekly Mondays @ 6 PM and Thursdays @ 9 PM). For more information, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md).
 
-### Can I pass parameters to a pipeline run in version 2?
+## Can I pass parameters to a pipeline run in version 2?
 Yes, parameters are first class top-level concept in version 2. You can define parameters at the pipeline level and pass arguments while executing the pipeline run on-demand or by using a trigger.  
 
-### Can I define default values for the pipeline parameters? 
+## Can I define default values for the pipeline parameters? 
 Yes. You can define default values for the parameters in the pipelines. 
 
-### Can an activity in a pipeline consume arguments passed to a pipeline run? 
+## Can an activity in a pipeline consume arguments passed to a pipeline run? 
 Yes. Each activity within the pipeline can consume the parameter value passed to the pipeline run with the `@parameter` construct. 
 
-### Can an activity output property be consumed in another activity? 
+## Can an activity output property be consumed in another activity? 
 Yes. An activity output can be consumed in a subsequent activity with the @activity construct.
  
-### How do I gracefully handle null values in an activity output? 
+## How do I gracefully handle null values in an activity output? 
 You can use the `@coalesce` construct in the expressions to handle null values gracefully. 
 
-### Can I use retries, timeouts at the activity level in version 2?
+## Can I use retries, timeouts at the activity level in version 2?
 Yes. You can configure retry and timeout at the activity level to govern the execution of activities in version 2 like in version 1. 
 
 
