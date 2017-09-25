@@ -57,7 +57,11 @@ Follow the [Install and create Quickstart](quickstart-installation.md) to instal
 
    ![data view](media/tutorial-classifying-iris/data_view.png)
 
-3. Select the **File(s)/Directory** option, and choose the **iris.csv** local file. Accept the default settings for each screen and finally click on **Finish**. 
+3. Complete the Data Preparation Wizard. 
+   - On the first screen, select the **File(s)/Directory** option, then click Next.
+   - On the second screen, choose the **iris.csv** local file, for example C:\Temp\myIris\iris.csv.
+   - On the third through sixth screens, accept the default settings for each screen.
+   - Click the **Finish** button.
 
    ![select iris](media/tutorial-classifying-iris/select_iris_csv.png)
 
@@ -74,7 +78,7 @@ Follow the [Install and create Quickstart](quickstart-installation.md) to instal
 
    ![iris data view](media/tutorial-classifying-iris/iris_metrics_view.png)
 
-6. Click on the **Prepare** button next to the **Metrics** button (or the **Data** button if you are on the metrics view). The **Prepare** dialog pops up. 
+6. Click on the **Prepare** button. The **Prepare** dialog pops up. 
 
    The sample project comes with a **iris.dprep** file, so by default it asks you to create a new data flow in that existing **iris.dprep** data prep package. 
 
@@ -94,7 +98,7 @@ Follow the [Install and create Quickstart](quickstart-installation.md) to instal
 
    ![Click Value Counts](media/tutorial-classifying-iris/value_count.png)
 
-   This action creates a histogram with four bars. Notice the target column has three distinct values: **Iris_virginica**, **Iris_versicolor**, **Iris-setosa**. 
+   This action opens the **Inspectors** pane, and displays   a histogram with four bars. Notice the target column has three distinct values: **Iris_virginica**, **Iris_versicolor**, **Iris-setosa**, and a **(null)** value.
 
 9. Filter out nulls by selecting the bar from the graph representing the null value. There is one row with a **(null)** value. To get rid of this row, click on the **-** filter button.
 
@@ -104,7 +108,7 @@ Follow the [Install and create Quickstart](quickstart-installation.md) to instal
 
    ![Steps](media/tutorial-classifying-iris/steps.png)
 
-11. Now close the DataPrep editor. Your work is automatically saved in Workbench.
+11. Now close the data prep editor by clicking the **X** on the tab named **iris-1** with the graph icon. Your work is automatically saved into the **iris-1.dprep** file shown under **Data Preparations** heading.
 
 ## Generate Python/PySpark code to invoke data prep package
 
