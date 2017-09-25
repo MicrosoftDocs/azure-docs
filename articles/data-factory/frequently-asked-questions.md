@@ -23,7 +23,7 @@ This article applies to version 2 of the Azure Data Factory service. It provides
 Data Factory is a fully managed cloud-based data integration service that automates the movement and transformation of data. Just like a factory that runs equipment to take raw materials and transform them into finished goods, Azure Data Factory orchestrates existing services that collect raw data and transform it into ready-to-use information. Azure Data Factory allows you to create data-driven workflows to move data between both on-premises and cloud data stores as well as process/transform data using compute services such as Azure HDInsight, Azure Data Lake Analytics and SQL Server Integration Services (SSIS) Integration Runtime. Data Factory gives you an option of executing your data processing either on an Azure-based cloud service or utilize your own self-hosted compute environment such as SSIS, SQL Server, and Oracle. After you create a pipeline that performs the action that you need, you can schedule it to run periodically (hourly, daily, weekly etc.) or trigger the pipeline from on an event occurrence. For more information, see [Introduction to Azure Data Factory](introduction.md).
 
 ## What’s different in version 2?
-Azure Data Factory version 2 builds upon the original Azure Data Factory data movement and transformation service, extending to a broader set of cloud-first data integration scenarios. Azure Data Factory V2 brings the following capabilities:
+Azure Data Factory version 2 builds upon the original Azure Data Factory data movement and transformation service, extending to a broader set of cloud-first data integration scenarios. Azure Data Factory Version 2 brings the following capabilities:
 
 - Control Flow and Scale
 - Deploy and run SSIS packages in Azure
@@ -65,7 +65,7 @@ If you are an advanced user and looking for a programmatic interface, version 2 
 
 - .NET SDK - The .NET SDK is updated for version 2. 
 - PowerShell - The PowerShell cmdlets are updated for version 2. The version 2 cmdlets have **DataFactoryV2** in the name. For example: Get-AzureRmDataFactoryV2. 
-- Python SDK - This is new to version 2.
+- Python SDK - This SDK is new to version 2.
 - REST API - The REST API is updated for version 2.  
 
 The SDKs that are updated for version 2 are not backward compatible with version 1 clients. 
@@ -77,8 +77,8 @@ Currently, version 2 supports monitoring of data factories by using only SDKs. T
 The Integration Runtime (IR) is the compute infrastructure used by Azure Data Factory to provide the following data integration capabilities across different network environments:
 
 - **Data movement**: Move data between data stores in public network and data stores in private network (on-premise or virtual private network). It provides support for built-in connectors, format conversion, column mapping, and performant and scalable data transfer.
-- **Activity dispatch**:  Dispatch and monitor transformation activities running on a variety of compute services such as Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server, and more.
-- **SSIS package execution**: Natively executes SQL Server Integration Services (SSIS) packages in a managed Azure compute environment.
+- **Dispatch activities**:  Dispatch and monitor transformation activities running on a variety of compute services such as Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server, and more.
+- **Execute SSIS packages**: Natively executes SQL Server Integration Services (SSIS) packages in a managed Azure compute environment.
 
 You can deploy one or many instances of Integration Runtime as required to move and transform data.  The Integration Runtime can run in Azure public network or in a private network (on premises, Azure Virtual Network, or Amazon Web Services virtual private cloud(VPC)). 
 
@@ -93,7 +93,7 @@ If you are new to Azure Data Factory, start directly with version 2. If you are 
 > [!WARNING]
 > Version 2 of Data Factory is in preview, not generally available (GA). Therefore, it does not fall under the same Azure service level agreement (SLA) commitments as version 1 of Data Factory, which is in GA. 
 
-## What are the top-level concepts of version 2 ?
+## What are the top-level concepts of version 2?
 An Azure subscription may have one or more Azure Data Factory instances (or data factories). Azure Data Factory is composed of four key components that work together to provide the platform on which you can compose data-driven workflows with steps to move and transform data.
 
 ### Pipeline
@@ -155,16 +155,16 @@ Use the following sites to stay up to date with information about Azure Data Fac
 No. Version 2 or version 1 data factories cannot have entities (linked services, datasets, pipelines, etc.) of other version.   
 
 ### Do I still need to define datasets in version 2?
-Dataset is no longer a mandatory entity for most activities. It is required for Copy, Machine Learning, Lookup, Validation, and custom activities that leverage the schema and other metadata information in the Dataset for transformation. The rest of the activities do not require datasets any more.
+Dataset is no longer a mandatory entity for most activities. It is required for Copy, Machine Learning, Lookup, Validation, and custom activities that use the schema and other metadata information in the Dataset for transformation. The rest of the activities do not require datasets any more.
 
 ### Can I chain two activities without a dataset in version 2?
-Yes. You can chain together activities in version 2 without requiring Datasets. You can achieve this by using the **dependsOn** property in the JSON definition of your pipeline. 
+Yes. You can chain together activities in version 2 without requiring Datasets. You chain activities by using the **dependsOn** property in the JSON definition of your pipeline. 
 
 ### Are all the version 1 activities supported in version 2? 
 Yes, all the version 1 activities are supported
 
 ### How can I schedule a version 2 pipeline? 
-You can use the scheduler trigger to schedule a version 2 pipeline. This is a wall-clock calendar schedule and enables users to schedule pipelines either periodically or using calendar-based recurrent patterns (for example, weekly Mondays @ 6 PM and Thursdays @ 9 PM). For more information, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md).
+You can use the scheduler trigger to schedule a version 2 pipeline. It uses a wall-clock calendar schedule and enables users to schedule pipelines either periodically or using calendar-based recurrent patterns (for example, weekly Mondays @ 6 PM and Thursdays @ 9 PM). For more information, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md).
 
 ### Can I pass parameters while executing a pipeline run in version 2?
 Yes, parameters are first class top-level concept in version 2. You can define parameters at the pipeline level and pass arguments while executing the pipeline run on-demand or by using a trigger.  
