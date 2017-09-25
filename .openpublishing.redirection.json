@@ -4286,6 +4286,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/machine-learning/index.md",
+            "redirect_url": "/azure/machine-learning/preview/",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/machine-learning/preview/quick-start-installation.md",
             "redirect_url": "/azure/machine-learning/preview/quickstart-installation",
             "redirect_document_id": false
