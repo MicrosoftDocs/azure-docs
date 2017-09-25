@@ -502,7 +502,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Soverign Clouds</h3>
+                                    <h3>Sovereign Clouds</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/azure-government/">
@@ -597,7 +597,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/azure-bot-service/">
+                                            <a href="/bot-framework/azure-bot-service-overview">
                                                 <img src="media/index/bot-service.svg" alt="" />
                                                 <p>Azure Bot Service</p>
                                             </a>
@@ -2515,7 +2515,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/azure-bot-service/">
+                                <a href="/bot-framework/azure-bot-service-overview/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -3381,7 +3381,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                         <a href="#mgmt">Monitoring + Management</a>
                         <ul id="mgmt" class="cardsA">
                             <li>
-                                <a href="/azure/policy/">
+                                <a href="/azure/azure-policy/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
