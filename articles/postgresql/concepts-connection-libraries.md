@@ -8,7 +8,7 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 09/26/2017
 ---
 # Connection libraries for Azure Database for PostgreSQL
 This topic lists libraries and drivers that developers can use to program applications to connect to and query Azure Database for PostgreSQL.
