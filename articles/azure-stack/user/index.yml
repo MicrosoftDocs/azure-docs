@@ -60,7 +60,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/azure-stack/azure-stack-solution-pipeline">Deploy apps to Azure Stack and Azure</a>
+    - html: <a href="/azure/azure-stack/user/azure-stack-solution-pipeline">Deploy apps to Azure Stack and Azure</a>
 - title: Reference
   items:
   - type: list
