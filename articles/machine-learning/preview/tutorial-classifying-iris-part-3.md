@@ -126,10 +126,10 @@ You can use _local mode_ for development and testing. The Docker engine must be 
 
    The command-line prompt opens in your current project folder location `c:\temp\myIris>`.
 
-2. Make sure the Azure resource provider `Microsoft.ContainerRegistry` is registered in your subscription. You will need this before you can create an environment in Step 3. You can check to see if it is already registered using the following command: 
- ``` 
- az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table 
- ``` 
+2. Make sure the Azure resource provider `Microsoft.ContainerRegistry` is registered in your subscription. You need to register this resource provider before you can create an environment in Step 3. You can check to see if it is already registered using the following command:
+``` 
+az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table 
+``` 
 You should see a output similar to: 
 ``` 
 Provider                                  Status 
@@ -144,7 +144,7 @@ If `Microsoft.ContainerRegistry` is not registered, you can register it using th
 ``` 
 az provider register --namespace Microsoft.ContainerRegistry 
 ``` 
-Registration can take a few minutes and you can check on its status using the above `az provider list` command, or the following: 
+Registration can take a few minutes and you can check on its status using the above `az provider list` command, or the following command: 
 ``` 
 az provider show -n Microsoft.ContainerRegistry 
 ``` 
@@ -244,7 +244,7 @@ As an alternate to `az ml service create realtime` command shown above, you can 
    ```azurecli
    az ml service create realtime --image-id <image ID> -n irisapp --collect-model-data true
    ```
-   This genereates a web service ID.
+   This generates a web service ID.
 
 You are now ready to run the web service.
 
