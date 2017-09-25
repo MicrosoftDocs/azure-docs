@@ -97,6 +97,8 @@
       href: sql-database-elastic-transactions-overview.md
     - name: Elastic jobs
       href: sql-database-elastic-jobs-overview.md
+    - name: SQL Vulnerability Assessment
+      href: sql-vulnerability-assessment.md
     - name: SQL Server common features
       href: sql-database-features.md
   - name: Security
