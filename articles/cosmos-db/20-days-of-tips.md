@@ -128,6 +128,14 @@ Article: [Common Azure Cosmos DB use cases](https://aka.ms/Ihpf00)
 
 [![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/911270472481992704)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6317036550945333248)
 
+## Tip 15: VS Code integration
+
+Tip 15: Create new Azure #CosmosDB account without ever leaving @code. Install extension from [https://aka.ms/Wy547u](https://aka.ms/Wy547u) 
+
+> [!VIDEO https://www.youtube.com/embed/w8HyW8AHHZQ]
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/912384598486679557)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318150514613850112)
+
 ## Next steps
 
 Learn more about Azure Cosmos DB by reading [Welcome to Azure Cosmos DB](introduction.md) and [A technical overview of Azure Cosmos DB](https://azure.microsoft.com/blog/a-technical-overview-of-azure-cosmos-db/).
