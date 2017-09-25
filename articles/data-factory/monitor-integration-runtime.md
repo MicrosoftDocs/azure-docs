@@ -18,13 +18,13 @@ ms.author: spelluru
 ---
 
 # Monitor an integration runtime in Azure Data Factory  
-**Integration Runtime** is the compute infrastructure used by Azure Data Factory to provide various data integration capabilities across different network environments. There are three types of Integration Runtime offered by Data Factory:
+**Integration runtime** is the compute infrastructure used by Azure Data Factory to provide various data integration capabilities across different network environments. There are three types of integration runtimes offered by Data Factory:
 
-- Azure Integration Runtime
-- Self-hosted Integration Runtime
-- Azure-SSIS Integration Runtime
+- Azure integration runtime
+- Self-hosted integration runtime
+- Azure-SSIS integration iuntime
 
-To get the status of an instance of Integration Runtime (integration runtime), run the following PowerShell command: 
+To get the status of an instance of integration runtime (IR), run the following PowerShell command: 
 
 ```powershell
 Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName MyDataFactory -ResourceGroupName MyResourceGroup -Name MyAzureIR -Status
@@ -32,7 +32,7 @@ Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName MyDataFactory -Resou
 
 The cmdlet returns different information for different types of integration runtime. This article explains the properties and statuses for each type of integration runtime.  
 
-## Azure Integration Runtime
+## Azure integration runtime
 The compute resource for an Azure integration runtime is fully managed elastically in Azure. The following table provides descriptions for properties returned by the **Get-AzureRmDataFactoryV2IntegrationRuntime** command:
 
 ### Properties
@@ -42,7 +42,7 @@ The following table provides descriptions of properties returned by the cmdlet f
 -------- | ------------- | 
 | Name | Name of the Azure integration runtime. |  
 | State | Status of the Azure integration runtime. | 
-| Location | Location of the Azure integration runtime. For details about location of an Azure integration runtime, see [Introduction to Integration Runtime](concepts-integration-runtime.md). |
+| Location | Location of the Azure integration runtime. For details about location of an Azure integration runtime, see [Introduction to integration runtime](concepts-integration-runtime.md). |
 | DataFactoryName | Name of the data factory that the Azure integration runtime belongs to. | 
 | ResourceGroupName | Name of the resource group that the data factory belongs to.  |
 | Description | Description of the integration runtime.  |
@@ -55,7 +55,7 @@ The following table provides possible statuses of an Azure integration runtime:
 | Online | The Azure integration runtime is online and ready to be used. | 
 | Offline | The Azure integration runtime is offline due to an internal error. |
 
-## Self-hosted Integration Runtime
+## Self-hosted integration runtime
 This section provides descriptions for properties returned by the Get-AzureRmDataFactoryV2IntegrationRuntime cmdlet. 
 
 > [!NOTE] 
@@ -111,7 +111,7 @@ Sample output (assumes that there are two nodes associated with this self-hosted
 
 ```json
 {
-	"IntegrationRuntimeName":  "<Integration Runtime Name>",
+	"IntegrationRuntimeName":  "<Name of your integration runtime>",
     "ResourceGroupName":  "<Resource Group Name>",
     "DataFactoryName":  "<Data Factory Name>",
     "Nodes":  [
@@ -141,8 +141,8 @@ Sample output (assumes that there are two nodes associated with this self-hosted
 ```
 
 
-## Azure-SSIS Integration Runtime
-Azure-SSIS Integration Runtime is a fully managed cluster of Azure virtual machines (or nodes) dedicated to run your SSIS packages. It does not run any other activities of Azure Data Factory. Once provisioned, you can query its properties and monitor its overall/node-specific statuses.
+## Azure-SSIS integration runtime
+Azure-SSIS integration runtime is a fully managed cluster of Azure virtual machines (or nodes) dedicated to run your SSIS packages. It does not run any other activities of Azure Data Factory. Once provisioned, you can query its properties and monitor its overall/node-specific statuses.
 
 ### Properties
 
