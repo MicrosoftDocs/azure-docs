@@ -442,7 +442,7 @@ You can update any part of the configuration. The advertised prefixes of the cir
 az network express-route peering update --circuit-name MyCircuit -g ExpressRouteResourceGroup --peering-type MicrosoftPeering --advertised-public-prefixes 124.1.0.0/24
 ```
 
-### Add IPv6 Microsoft Peering settings to existing IPv4 configuration
+### To add IPv6 Microsoft Peering settings to existing IPv4 configuration
 
 ```azurecli
 az network express-route peering update -g ExpressRouteResourceGroup --circuit-name MyCircuit --peering-type MicrosoftPeering --ip-version ipv6 --primary-peer-subnet 2002:db00::/126 --secondary-peer-subnet 2003:db00::/126 --advertised-public-prefixes 2002:db00::/126
