@@ -90,7 +90,7 @@ For more information about Azure-SSIS runtime, see the following topics:
 
 - [Azure-SSIS Integration Runtime](concepts-integration-runtime#azure-ssis-integration-runtime)
 - [Manage Azure-SSIS Integration Runtime](manage-azure-ssis-integration-runtime.md)
-- [Provision a Azure-SSIS integration runtime](tutorial-deploy-ssis-packages-azure.md).
+- [Provision an Azure-SSIS integration runtime](tutorial-deploy-ssis-packages-azure.md).
 
 
 
