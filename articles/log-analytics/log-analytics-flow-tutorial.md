@@ -51,7 +51,7 @@ The tutorial in this article shows you how to create a flow that automatically s
 	| where EventLevelName == "Error" 
 	| where TimeGenerated > ago(1day)
 	| summarize count() by Computer
-	| sort by Computer. 
+	| sort by Computer
 ```
 
 2. Select **HTML Table** for the **Chart Type**.<br><br>![Log Analytics action](media/log-analytics-flow-tutorial/flow03.png)
