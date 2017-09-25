@@ -60,26 +60,26 @@ Running the script is the easiest way to configure VNet. If you do not have acce
 5. Click the copy button for the **RESOURCE ID** to copy the resource ID for the classic network to the clipboard. Save the ID from the clipboard in OneNote or a file.
 6. Click **Subnets** on the left menu, and ensure that the number of **available addresses** is greater than the nodes in your Azure-SSIS integration runtime.
 
-	![Number of available addresses in VNet](media/join-azure-ssis-integration-runtime-virtual-networknumber-of-available-addresses.png)
+	![Number of available addresses in VNet](media/join-azure-ssis-integration-runtime-virtual-network/number-of-available-addresses.png)
 7. Join **MicrosoftAzureBatch** to **Classic Virtual Machine Contributor** role for the VNet. 
 	1. Click Access control (IAM) on the left menu, and click **Add** in the toolbar.
 	
-		![Access control -> Add](media/join-azure-ssis-integration-runtime-virtual-networkaccess-control-add.png) 
+		![Access control -> Add](media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png) 
 	2. In **Add permissions** page, select **Classic Virtual Machine Contributor** for **Role**. Type **MicrosoftAzureBatch** in the **Select** text box, and then select **MicrosoftAzureBatch** from the list of search results. 
 	
-		![Add permissions - search](media/join-azure-ssis-integration-runtime-virtual-networkazure-batch-to-vm-contributor.png)
+		![Add permissions - search](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
 	3. Click Save to save the settings and to close the page.
 	
-		![Save access settings](media/join-azure-ssis-integration-runtime-virtual-networksave-access-settings.png)
+		![Save access settings](media/join-azure-ssis-integration-runtime-virtual-network/save-access-settings.png)
 	4. Confirm that you see **MicrosoftAzureBatch** in the list of contributors.
 	
-		![Confirm AzureBatch access](media/join-azure-ssis-integration-runtime-virtual-networkazure-batch-in-list.png)
+		![Confirm AzureBatch access](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-in-list.png)
 5. Verify that Azure Batch provider is registered in the Azure subscription that has the VNet or register the Azure Batch provider. If you already have an Azure Batch account in your subscription, then your subscription is registered for Azure Batch.
 	1. In Azure portal, click **Subscriptions** on the left menu. 
 	2. Select your **subscription**. 
 	3. Click **Resource providers** on the left, and confirm that `Microsoft.Batch` is a registered provider. 
 	
-		![confirmation-batch-registered](media/join-azure-ssis-integration-runtime-virtual-networkbatch-registered-confirmation.png)
+		![confirmation-batch-registered](media/join-azure-ssis-integration-runtime-virtual-network/batch-registered-confirmation.png)
 
 	If you don't see `Microsoft.Batch` is in the list, to register it, [create an empty Azure Batch account](../batch/batch-account-create-portal.md) in your subscription. You can delete it later. 
 	     
@@ -88,7 +88,7 @@ Running the script is the easiest way to configure VNet. If you do not have acce
 ## Next steps
 For more information about Azure-SSIS runtime, see the following topics: 
 
-- [Azure-SSIS Integration Runtime](concepts-integration-runtime#azure-ssis-integration-runtime)
+- [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime)
 - [Manage Azure-SSIS Integration Runtime](manage-azure-ssis-integration-runtime.md)
 - [Provision an Azure-SSIS integration runtime](tutorial-deploy-ssis-packages-azure.md).
 
