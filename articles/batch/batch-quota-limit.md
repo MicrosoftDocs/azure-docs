@@ -3,7 +3,7 @@ title: Service quotas and limits for Azure Batch | Microsoft Docs
 description: Learn about default Azure Batch quotas, limits, and constraints, and how to request quota increases
 services: batch
 documentationcenter: ''
-author: vdotren
+author: v-dotren
 manager: timlt
 editor: ''
 
