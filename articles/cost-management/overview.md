@@ -6,9 +6,10 @@ keywords:
 author: bandersmsft
 ms.author: banders
 ms.date: 09/18/2017
-ms.topic: article
+ms.topic: overview
 ms.service: Cost Management
 manager: carmonm
+ms.custom: mvc
 ---
 
 # What is Azure Cost Management?

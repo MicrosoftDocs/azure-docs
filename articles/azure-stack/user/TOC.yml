@@ -25,7 +25,7 @@
     href: azure-stack-solution-pipeline.md
 - name: How-to guides
   items:
-  - name: Use the portal
+  - name: Use the Azure Stack Portal
     href: azure-stack-use-portal.md
   - name: Security & compliance
     items:
@@ -69,7 +69,7 @@
       items:
       - name: Overview
         href: azure-stack-kv-intro.md
-      - name: Manage with portal
+      - name: Manage with the Portal
         href: azure-stack-kv-manage-portal.md
       - name: Manage with PowerShell
         href: azure-stack-kv-manage-powershell.md
@@ -85,13 +85,13 @@
       href: azure-stack-developer.md
     - name: Set up development environment
       items:
-      - name: Install PowerShell
+      - name: Install Azure Stack PowerShell
         href: azure-stack-powershell-install.md
       - name: Download tools
         href: azure-stack-powershell-download.md
       - name: Configure PowerShell - User
         href: azure-stack-powershell-configure-user.md
-      - name: Install and configure CLI
+      - name: Install and configure the Azure Stack CLI
         href: azure-stack-connect-cli.md
       - name: Install Visual Studio
         href: azure-stack-install-visual-studio.md
@@ -107,7 +107,7 @@
         href: azure-stack-develop-templates.md
       - name: Check templates
         href: azure-stack-validate-templates.md
-      - name: Deploy with the portal
+      - name: Deploy with the Portal
         href: azure-stack-deploy-template-portal.md
       - name: Deploy with PowerShell
         href: azure-stack-deploy-template-powershell.md
@@ -115,7 +115,7 @@
         href: azure-stack-deploy-template-visual-studio.md
 - name: Reference
   items:
-  - name: PowerShell
+  - name: Azure Stack PowerShell
     href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
 - name: Resources
   items:

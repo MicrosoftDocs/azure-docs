@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 09/25/2017
 ms.author: mimig
 ms.custom: cda
 ---
@@ -111,6 +111,30 @@ Tip 12: Go serverless with Azure #CosmosDB and @AzureFunctions! Full docs at [ht
 > [!VIDEO https://www.youtube.com/embed/U--3mfisNCs]
 
 [![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910534418716069889)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6316301619252248576)
+
+## Tip 13: MEAN app from scratch
+
+Tip 13: From zero to hero with @John_Papa and Azure Cosmos DB. Learn how to build  a MEAN app from scratch
+
+Article: [Create a MongoDB app with Angular and Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-develop-mongodb-nodejs?WT.mc_id=sicotint&utm_content=buffer2495b&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910881618855907329)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6316647045599944704)
+
+## Tip 14: Use cases
+
+Tip 14: Curious about common Azure #CosmosDB use cases? Have a look at [https://aka.ms/Ihpf00](https://aka.ms/Ihpf00) to learn about IoT, gaming and social apps
+
+Article: [Common Azure Cosmos DB use cases](https://aka.ms/Ihpf00)
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/911270472481992704)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6317036550945333248)
+
+## Tip 15: VS Code integration
+
+Tip 15: Create new Azure #CosmosDB account without ever leaving @code. Install extension from [https://aka.ms/Wy547u](https://aka.ms/Wy547u) 
+
+> [!VIDEO https://www.youtube.com/embed/w8HyW8AHHZQ]
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/912384598486679557)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318150514613850112)
 
 ## Next steps
 

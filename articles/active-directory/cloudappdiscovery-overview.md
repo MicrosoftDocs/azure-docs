@@ -33,6 +33,11 @@ More than 80% of employees admit using non-approved SaaS apps for work purposes.
 
 If you don't have Activity Directory Premium, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/) for more details.
 
-## Next steps
-
 Use this link to explore the [new Cloud App Discovery experience in Azure AD](https://portal.cloudappsecurity.com).
+
+## Next steps
+Use the following links to set up Cloud App Discovery in Azure AD.
+
+* [Create snapshot reports](cloudappdiscovery-set-up-snapshots.md)
+* [Configure continuous reporting](https://docs.microsoft.com/cloud-app-security/discovery-docker)
+* [Use a custom log parser](https://docs.microsoft.comcommit/cloud-app-security/custom-log-parser)

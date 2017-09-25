@@ -3,7 +3,7 @@ documentType: LandingData
 title: Azure Monitor Documentation
 metadata:
   title: Azure Monitor Documentation - Tutorials, API Reference | Microsoft Docs
-  description: Azure Monitor helps you track performance, maintain security, and identify trends. Learn how to audit, create alerts, and archive data with our quickstarts and tutorials.
+  description: Azure Monitor is part of Microsoft Azure's overall monitoring solution. Azure Monitor helps you track performance, maintain security, and identify trends. Learn how to audit, create alerts, and archive data with our quickstarts and tutorials.
   services: monitoring-and-diagnostics
   author: czeumault
   manager: carolz
@@ -14,7 +14,7 @@ metadata:
   ms.date: 09/18/2017
   ms.author: carolz
 abstract:
-  description: Azure Monitor helps you track performance, maintain security, and identify trends. Learn how to audit, create alerts, and archive data with our quickstarts and tutorials.
+  description: Azure Monitor is part of Microsoft Azure's overall monitoring solution. Azure Monitor helps you track performance, maintain security, and identify trends. Learn how to audit, create alerts, and archive data with our quickstarts and tutorials.
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -26,11 +26,11 @@ sections:
     - image: 
         src: https://docs.microsoft.com/media/common/Chart.svg
       text: Monitor metrics
-      href: monitor-quick-audit-subscription-portal
+      href: monitor-quick-resource-metric-alert-portal
     - image: 
         src: https://docs.microsoft.com/media/common/i_alert.svg
       text: Subscription Audit and Alerts
-      href: monitor-quick-notify-action-in-subscription
+      href: monitor-quick-audit-notify-action-in-subscription
 - title: Step-by-step Tutorials
   items:
   - type: paragraph
@@ -40,18 +40,18 @@ sections:
     items:
     - html: <a href="monitor-tutorial-autoscale-performance-schedule">Autoscale based on schedule or application performance</a>
     - html: <a href="monitor-tutorial-archive-monitoring-data">Archive monitoring data</a>
-- title: Free PluralSight Video Training
+- title: Free Pluralsight Video Training
   items:
   - type: list
     style: cards
     className: cardsFTitle
     items:
-    - title: Getting Started with Microsoft Azure IaaS Monitoring and Management
+    - title: Get Started with IaaS Monitoring
       href: https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents
       image: 
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
         href: https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents
-    - title: Managing Infrastructure on Microsoft Azure - Getting Started
+    - title: Managing Infrastructure on Microsoft Azure
       href: https://app.pluralsight.com/library/courses/managing-infrastructure-microsoft-azure-getting-started
       image: 
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
@@ -63,7 +63,7 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/cli/azure/monitor?view=azure-cli-latest">CLI 2.0</a></p><p><a href="/powershell/module/azurem.insights">PowerShell</a></p>
+      html: <p><a href="/cli/azure/monitor?view=azure-cli-latest">CLI 2.0</a></p><p><a href="/powershell/module/azurem.insights">Azure PowerShell</a></p>
     - title: REST
       html: <p><a href="/rest/api/monitor/">REST</a></p>
     - title: Monitoring

@@ -63,7 +63,7 @@
       href: azure-stack-cli-admin.md
     - name: Set up management environment
       items:
-      - name: Install PowerShell
+      - name: Install Azure Stack PowerShell
         href: azure-stack-powershell-install.md
       - name: Download tools
         href: azure-stack-powershell-download.md
@@ -133,16 +133,10 @@
         href: azure-stack-mysql-resource-provider-deploy.md
       - name: Deploy SQL resource provider
         href: azure-stack-sql-resource-provider-deploy.md
-      - name: Add hosting servers
-        href: azure-stack-sql-resource-provider-hosting-servers.md
-      - name: Create SQL databases
-        href: azure-stack-sql-resource-provider-databases.md
     - name: Offer App Service as PaaS
       items:
       - name: App Service on Azure Stack overview
         href: azure-stack-app-service-overview.md
-      - name: Capacity planning
-        href: azure-stack-app-service-capacity-planning.md
       - name: Before you get started
         href: azure-stack-app-service-before-you-get-started.md
       - name: Deploy App Service resource provider
@@ -199,7 +193,7 @@
       href: azure-stack-redeploy.md
 - name: Reference
   items:
-  - name: PowerShell
+  - name: Azure Stack PowerShell
     href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
 - name: Resources
   items:

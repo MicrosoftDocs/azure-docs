@@ -45,7 +45,7 @@ To create the local VM containing a 5-node Service Fabric cluster, perform the f
     ```bash
     git clone https://github.com/azure/service-fabric-linux-vagrant-onebox.git
     ```
-    This steps bring downs the file `Vagrantfile` containing the VM configuration along with the location the VM is downloaded from.
+    This steps bring downs the file `Vagrantfile` containing the VM configuration along with the location the VM is downloaded from.  The file points to a stock Ubuntu image. 
 
 2. Navigate to the local clone of the repo
 
@@ -66,9 +66,24 @@ To create the local VM containing a 5-node Service Fabric cluster, perform the f
     vagrant up
     ```
 
-   This step downloads the preconfigured VM image, boot it locally, and then set up a local Service Fabric cluster in it. You should expect it to take a few minutes. If setup completes successfully, you see a message in the output indicating that the cluster is starting up.
 
-    ![Cluster setup starting following VM provisioning][cluster-setup-script]
+5. Log into the VM and install the Service Fabric SDK
+
+    ```bash
+    vagrant ssh
+    ```
+   
+   Install the SDK as described in [SDK installation](service-fabric-get-started-linux.md).  The script below is provided for convenience for installing the Service Fabric runtime and the Service Fabric common SDK along with sfctl CLI. Running the script assumes you have read and agreed to the licenses for all the software that is being installed.
+
+    ```bash
+    sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-templates/master/scripts/SetupServiceFabric/SetupServiceFabric.sh | sudo bash
+    ```
+
+5.  Start the Service Fabric cluster
+
+    ```bash
+    sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
+    ```
 
     >[!TIP]
     > If the VM download is taking a long time, you can download it using wget or curl or through a browser by navigating to the link specified by **config.vm.box_url** in the file `Vagrantfile`. After downloading it locally, edit `Vagrantfile` to point to the local path where you downloaded the image. For example if you downloaded the image to /home/users/test/azureservicefabric.tp8.box, then set **config.vm.box_url** to that path.

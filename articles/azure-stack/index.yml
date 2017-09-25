@@ -17,7 +17,7 @@ metadata:
 abstract:
   description: Microsoft Azure Stack is a hybrid cloud platform that lets you provide Azure services from your datacenter. Learn how to deploy Azure Stack and offer services with our quickstart and tutorials.
 sections:
-- title: Quickstart
+- title: 5-Minute Quickstarts
   items:
   - type: paragraph
     text: 'Set up your hardware and deploy Azure Stack:'
@@ -28,7 +28,7 @@ sections:
         src: https://docs.microsoft.com/media/common/i_deploy.svg
       text: Deploy Azure Stack
       href: azure-stack-deploy-overview.md
-- title: Step-by-step tutorials
+- title: Step-by-step Tutorials
   items:
   - type: paragraph
     text: 'Learn how to add services to your Azure Stack deployment:'
@@ -38,7 +38,6 @@ sections:
     - html: <a href="/azure/azure-stack/azure-stack-tutorial-tenant-vm">Enable Virtual Machines on Azure Stack</a>
     - html: <a href="/azure/azure-stack/azure-stack-tutorial-sql-server">Enable SQL Databases on Azure Stack</a>
     - html: <a href="/azure/azure-stack/azure-stack-tutorial-app-service">Enable Web Apps on Azure Stack</a>
-    - html: <a href="/azure/azure-stack/azure-stack-solution-pipeline">Deploy applications across both Azure &amp; Azure Stack</a>
 - title: Free Pluralsight Video Training
   items:
   - type: list
@@ -57,4 +56,4 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">PowerShell</a></p>
+      html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">Azure Stack PowerShell</a></p>

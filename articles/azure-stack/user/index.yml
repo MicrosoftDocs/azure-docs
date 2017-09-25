@@ -60,7 +60,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/azure-stack/azure-stack-solution-pipeline">Deploy apps to Azure Stack and Azure</a>
+    - html: <a href="/azure/azure-stack/user/azure-stack-solution-pipeline">Deploy apps to Azure Stack and Azure</a>
 - title: Reference
   items:
   - type: list
@@ -68,4 +68,4 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">PowerShell</a></p>
+      html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">Azure Stack PowerShell</a></p>

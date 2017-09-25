@@ -1,3 +1,5 @@
+- name: Azure Backup Documentation
+  href: index.yml
 - name: Overview
   items:
   - name: What is Azure Backup?
@@ -25,7 +27,7 @@
     href: tutorial-backup-restore-files-windows-server.md
 - name: Samples
   items:
-  - name: PowerShell
+  - name: Azure PowerShell
     href: powershell-backup-samples.md
 - name: Concepts
   items:
@@ -141,7 +143,7 @@
       href: backup-azure-backup-sql.md
     - name: Use DPM to back up a SharePoint farm
       href: backup-azure-backup-sharepoint.md
-  - name: Use PowerShell
+  - name: Use Azure PowerShell
     items:
     - name: Azure VMs in Azure portal
       href: backup-azure-vms-automation.md
@@ -207,7 +209,7 @@
       href: backup-azure-mabs-troubleshoot.md
 - name: Reference
   items:
-  - name: PowerShell
+  - name: Azure PowerShell
     href: /powershell/module/azurerm.recoveryservices.backup
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.recoveryservices.backup

@@ -18,6 +18,8 @@ ms.author: shlo
 ---
 
 # Branching and chaining activities in a Data Factory pipeline
+Azure Data Factory is a cloud-based data integration service that allows you to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Uing Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores, process/transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning, and publish output data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications to consume. 
+
 In this tutorial, you create a Data Factory pipeline that showcases some of the control flow features. This pipeline does a simple copy from a container in Azure Blob Storage to another container in the same storage account. If the copy activity succeeds, you want to send details of the successful copy operation (such as the amount of data written) in a success email. If the copy activity fails, you want to send details of copy failure (such as the error message) in a failure email. Throughout the tutorial, you see how to pass parameters.
 
 A high-level overview of the scenario:
@@ -37,9 +39,10 @@ You perform the following steps in this tutorial:
 
 This tutorial uses .NET SDK. You can use other mechanisms to interact with Azure Data Factory, refer to "Quickstarts" in the table of contents.
 
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+
 ## Prerequisites
 
-* **Azure subscription**. If you don't have a subscription, you can create a [free trial](http://azure.microsoft.com/pricing/free-trial/) account.
 * **Azure Storage account**. You use the blob storage as **source** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one.
 * **Azure SQL Database**. You use the database as **sink** data store. If you don't have an Azure SQL Database, see the [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) article for steps to create one.
 * **Visual Studio** 2013, 2015, or 2017. The walkthrough in this article uses Visual Studio 2017.
@@ -728,15 +731,18 @@ Press any key to exit...
 ```
 
 ## Next steps
-The pipeline in this sample copies data from one location to another location in an Azure blob storage while using branching and parameters. You learned how to: 
+You performed the following steps in this tutorial: 
 
 > [!div class="checklist"]
 > * Create a data factory.
 > * Create an Azure Storage linked service.
 > * Create an Azure Blob dataset
-> * Create a pipeline that contains a copy activity and web activity
+> * Create a pipeline that contains a copy activity and a web activity
 > * Send outputs of activities to subsequent activities
 > * Utilize parameter passing and system variables
-> * Start a pipeline run.
-> * Monitor the pipeline and activity runs.
+> * Start a pipeline run
+> * Monitor the pipeline and activity runs
 
+You can now proceed to the Concepts section for more information about Azure Data Factory.
+> [!div class="nextstepaction"]
+>[Pipelines and activities](concepts-pipelines-activities.md)

@@ -17,7 +17,9 @@ ms.author: jingwang
 
 ---
 
-# Tutorial: Copy data between on-premises and cloud
+# Copy data between on-premises and cloud
+Azure Data Factory is a cloud-based data integration service that allows you to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Uing Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores, process/transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning, and publish output data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications to consume. 
+
 In this tutorial, you use Azure PowerShell to create a Data Factory pipeline that copies data from an on-premises SQL Server database to an Azure Blob storage. You create and use a self-hosted integration runtime (IR) of Azure Data Factory, which allows integration of on-premises data stores and cloud data stores.  To learn about using other tools/SDKs to create data factory, see [Quickstarts](quickstart-create-data-factory-dot-net.md). 
 
 You perform the following steps in this tutorial:
@@ -32,9 +34,10 @@ You perform the following steps in this tutorial:
 > * Start a pipeline run.
 > * Monitor the pipeline and activity run.
 
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+
 ## Prerequisites
 
-* **Azure subscription**. If you don't have a subscription, you can create a [free trial](http://azure.microsoft.com/pricing/free-trial/) account.
 * **SQL Server**. You use an on-premises SQL Server database as a **source** data store in this tutorial. 
 * **Azure Storage account**. You use Azure blob storage as a **destination/sink** data store in this tutorial. if you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one.
 * **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).

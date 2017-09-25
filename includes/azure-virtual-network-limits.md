@@ -22,32 +22,35 @@ The following limits apply only for networking resources managed through Azure R
 
 | Resource | Default limit | Maximum Limit |
 | --- | --- | --- |
-| Virtual networks |50 |500 |
-| Subnets per virtual network |1,000 |contact support |
-| DNS servers per virtual network |9 |25 |
-| Private IP addresses per virtual network |4096 |8192 |
-| Private IP addresses per network interface |50 |contact support |
-| Concurrent TCP or UDP flows per network interface of a virtual machine or role instance |500K |500K |
-| Network interfaces |300 |10000 |
-| Network security groups |100 |400 |
-| Security rules per network security group |200 |500 |
+| Virtual networks |50 |1000 |
+| Subnets per virtual network |1000 |10000 |
+| Virtual network peerings per Virtual Network |10 |50 |
+| DNS Servers per virtual network |9 |25 |
+| Private IP Addresses per virtual network |4096 |8192 |
+| Private IP Addresses per network interface |256 |1024 |
+| Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500K |500K |
+| Network Interfaces (NIC) |350 |20000 |
+| Network Security Groups (NSG) |100 |5000 |
+| NSG rules per NSG |200 |500 |
 | IP addresses and ranges specified for source or destination in a security rule |2000 |4000 |
 | Application security groups |200 |500 |
 | Application security groups per IP configuration, per NIC |10 |20 |
 | IP configurations per application security group |1000 |4000 |
 | Application security groups that can be specified within all security rules of a network security group |50 |100 |
-| User-defined route tables |100 |200 |
-| User-defined routes per route table |100 |400 |
-| Public IP addresses (dynamic) |60 |contact support |
-| Public IP addresses (static) |20 |contact support |
-| Load balancers (internal and internet facing) |100 |contact support |
-| Load balancer rules per load balancer |150 |150 |
-| Load balancer rules per IP configuration |299 |299 |
-| Public front-end IP per load balancer |10 |30 |
-| Private front-end IP per load balancer |10 |contact support |
-| Virtual network peerings per virtual network |10 |50 |
-| Point-to-Site root certificates per VPN Gateway |20 |20 |
-| Secondary IP configurations per virtual network |1000 |contact support |
+| User defined route tables |100 |200 |
+| User defined routes per route table |100 |400 |
+| Public IP addresses - dynamic |(Basic) |60 |contact support |
+| Public IP addresses - static |(Basic) 20 |contact support |
+| Public IP addresses - static |(Standard) 20 |contact support |
+| Load Balancers (internal and internet facing, Basic and Standard) |100 |1000 |
+| Load Balancer (Basic) rules per load balancer |150 |250 |
+| Load Balancer (Standard) rules per load balancer | 1250 | 1500|
+| Load Balancer (Basic) rules per IP configuration |250 |250 |
+| Public front end IP per Load Balancer (Basic) |10 |30 |
+| Public front end IP per Load Balancer (Standard) | 10 | 600 |
+| Private front end IP per Load Balancer (Basic) |10 |contact support |
+| Private front end IP per Load Balancer (Standard) | 10 | 600 |
+| Point-to-Site Root Certificates per VPN Gateway |20 |20 |
 
 
 [Contact support](../articles/azure-supportability/resource-manager-core-quotas-request.md ) in case you need to increase limits from default.

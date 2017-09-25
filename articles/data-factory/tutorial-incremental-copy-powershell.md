@@ -18,6 +18,8 @@ ms.author: shlo
 ---
 
 # Incrementally load data from Azure SQL Database to Azure Blob Storage
+Azure Data Factory is a cloud-based data integration service that allows you to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Using Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores, process/transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning, and publish output data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications to consume. 
+
 During the data integration journey, one of the widely used scenarios is to incrementally load data periodically to refresh updated analysis result after initial data loads and analysis. In this tutorial, you focus on loading only new or updated records from the data sources into data sinks. It runs more efficiently when compared to full loads, particularly for large data sets.    
 
 You can use Data Factory to create high-watermark solutions to achieve incremental data loading by using Lookup, Copy, and Stored Procedure activities in a pipeline.  
@@ -25,10 +27,10 @@ You can use Data Factory to create high-watermark solutions to achieve increment
 You perform the following steps in this tutorial:
 
 > [!div class="checklist"]
-> * Define a **watermark** column and store it in Azure SQL Database.  
+> * Prepare the data store to store the watermark value.   
 > * Create a data factory.
-> * Create linked services for SQL Database and Blob Storage. 
-> * Create source and sink datasets.
+> * Create linked services. 
+> * Create source, sink, watermark datasets.
 > * Create a pipeline.
 > * Run the pipeline.
 > * Monitor the pipeline run. 
@@ -38,40 +40,63 @@ The high-level solution diagram is:
 
 ![Incrementally load data](media\tutorial-Incrementally-load-data-from-azure-sql-to-blob\incrementally-load.png)
 
-The concrete working flow:
+Here are the important steps in creating this solution: 
 
-1. Define a watermark column in the source data store that can be used to slice the new or updated records for every run. For example, LastModifiedDate Column or ID Column.  Normally, the data in this selected column keeps increasing or decreasing when rows created or updated.  
-2. Find a place to store the watermark value. In this tutorial, you create a table in an Azure SQL database to store that value.
-3. Create a stored procedure.  This stored procedure keeps the value of watermark being updated every time after the delta data loading. 
-5. Create two lookup activities to get watermark value that the copy activity can query against. The first Lookup Activity is used to get the last watermark value.The second Lookup Activity is used to get the new watermark value. 
-6. Create a copy activity to copy rows in which the data is greater than the old watermark value and less than the new watermark value.
-7. Use a stored procedure activity to update the watermark for next run.
-8. Create a pipeline with all the activities chained and run periodically. 
+1. **Select the watermark column**.
+	Select one column in the source data store, which can be used to slice the new or updated records for every run. Normally, the data in this selected column (for example, last_modify_time or ID) keeps increasing when rows are created or updated. The maximum value in this column is used as a watermark.
+2. **Prepare a data store to store the watermark value**.   
+	In this tutorial, you store the watermark value in an Azure SQL database.
+3. **Create a pipeline with the following workflow:** 
+	
+	The pipeline in this solution has the following activities:
+  
+	1. Create two **lookup** activities. Use the first lookup activity to retrieve the last watermark value. Use the second lookup activity to retrieve the new watermark value. These watermark values are passed to the copy activity. 
+	2. Create a **copy activity** that copies rows from the source data store with the value of watermark column greater than the old watermark value and less than the new watermark value. Then, it copies the delta data from the source data store to a blob storage as a new file. 
+	3. Create a **stored procedure activity** that updates the watermark value for the pipeline running next time. 
 
+
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Prerequisites
-
-* **Azure subscription**. If you don't have a subscription, you can create a [free trial](http://azure.microsoft.com/pricing/free-trial/) account.
 * **Azure SQL Database**. You use the database as the **source** data store. If you don't have an Azure SQL Database, see the [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) article for steps to create one.
 * **Azure Storage account**. You use the blob storage as the **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one. Create a container named **adftutorial**. 
 * **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
-### Define a watermark column
-Defining the watermark column in data source store is very critical for incremental data loading. You normally use the LastModifytime, CreationTime, ID, etc. to slice the new or updated records. In this tutorial, you use LastModifytime as the watermark column.  The data in data source store is shown in the following table:
+### Create a data source table in your Azure SQL database
+1. Open **SQL Server Management Studio**, in **Server Explorer**, right-click the database and choose the **New Query**.
+2. Run the following SQL command against your Azure SQL database to create a table named `data_source_table` as data source store.  
+    
+    ```sql
+	create table data_source_table
+	(
+		PersonID int,
+		Name varchar(255),
+		LastModifytime datetime
+	);
 
-```
-PersonID | Name | LastModifytime
--------- | ---- | --------------
-1 | aaaa | 2017-09-01 00:56:00.000
-2 | bbbb | 2017-09-02 05:23:00.000
-3 | cccc | 2017-09-03 02:36:00.000
-4 | dddd | 2017-09-04 03:21:00.000
-5 | eeee | 2017-09-05 08:06:00.000
-```
+	INSERT INTO data_source_table
+	(PersonID, Name, LastModifytime)
+	VALUES
+	(1, 'aaaa','9/1/2017 12:56:00 AM'),
+	(2, 'bbbb','9/2/2017 5:23:00 AM'),
+	(3, 'cccc','9/3/2017 2:36:00 AM'),
+	(4, 'dddd','9/4/2017 3:21:00 AM'),
+	(5, 'eeee','9/5/2017 8:06:00 AM');
+    ```
+	In this tutorial, you use **LastModifytime** as the **watermark** column.  The data in data source store is shown in the following table:
 
-### Create a table in SQL database to store the high watermark value
-1. Open **SQL Server Management Studio**, in **Server Explorer**, right-click the **database** of data source store and choose the **New Query**.
-2. Run the following SQL command against your Azure SQL database to create a table named `watermarktable` to store the watermark value.  
+	```
+	PersonID | Name | LastModifytime
+	-------- | ---- | --------------
+	1 | aaaa | 2017-09-01 00:56:00.000
+	2 | bbbb | 2017-09-02 05:23:00.000
+	3 | cccc | 2017-09-03 02:36:00.000
+	4 | dddd | 2017-09-04 03:21:00.000
+	5 | eeee | 2017-09-05 08:06:00.000
+	```
+
+### Create another table in SQL database to store the high watermark value
+1. Run the following SQL command against your Azure SQL database to create a table named `watermarktable` to store the watermark value.  
     
     ```sql
     create table watermarktable
@@ -81,11 +106,11 @@ PersonID | Name | LastModifytime
     WatermarkValue datetime,
     );
     ```
-3. Set the default **value** of high watermark with the table name of source data store.  (In this tutorial, the table name is: **datasource**)
+3. Set the default **value** of high watermark with the table name of source data store.  (In this tutorial, the table name is: **data_source_table**)
 
     ```sql
     INSERT INTO watermarktable
-    VALUES ('datasource','1/1/2010 12:00:00 AM')    
+    VALUES ('data_source_table','1/1/2010 12:00:00 AM')    
     ```
 4. Review the data in table: `watermarktable`.
     
@@ -97,7 +122,7 @@ PersonID | Name | LastModifytime
     ```
     TableName  | WatermarkValue
     ----------  | --------------
-    datasource | 2010-01-01 00:00:00.000
+    data_source_table | 2010-01-01 00:00:00.000
     ```
 
 ### Create a stored procedure in Azure SQL database 
@@ -158,10 +183,7 @@ END
 You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your Azure Storage account and Azure SQL database. 
 
 ### Create Azure Storage linked service.
-1. Create a JSON file named **AzureStorageLinkedService.json** in **C:\ADF** folder with the following content: (Create the folder ADF if it does not already exist.)
-
-	> [!IMPORTANT]
-	> Replace &lt;accountName&gt; and &lt;accountKey&gt; with name and key of your Azure storage account before saving the file.
+1. Create a JSON file named **AzureStorageLinkedService.json** in **C:\ADF** folder with the following content: (Create the folder ADF if it does not already exist.). Replace `<accountName>`,  `<accountKey>` with name and key of your Azure storage account before saving the file.
 
     ```json
     {
@@ -240,7 +262,7 @@ In this step, you create datasets to represent source and sink data.
     	"properties": {
     		"type": "AzureSqlTable",
     		"typeProperties": {
-    			"tableName": "datasource"
+    			"tableName": "data_source_table"
     		},
     		"linkedServiceName": {
     			"referenceName": "AzureSQLDatabaseLinkedService",
@@ -250,7 +272,7 @@ In this step, you create datasets to represent source and sink data.
     }
    
     ```
-    In this tutorial, we use the table name: **datasource**. Replace it if you are using a table with a different name. 
+    In this tutorial, we use the table name: **data_source_table**. Replace it if you are using a table with a different name. 
 2.  Run the Set-AzureRmDataFactoryV2Dataset cmdlet to create the dataset: SourceDataset
     
     ```powershell
@@ -278,7 +300,7 @@ In this step, you create datasets to represent source and sink data.
     		"type": "AzureBlob",
     		"typeProperties": {
     			"folderPath": "adftutorial/incrementalcopy",
-    			"fileName": "<your file name>.txt",
+    			"fileName": "@CONCAT('Incremental-', pipeline().RunId, '.txt')", 
     			"format": {
     				"type": "TextFormat"
     			}
@@ -357,7 +379,7 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
         "properties": {
     		"activities": [
     			{
-    				"name": "LookupWaterMarkActivity",
+    				"name": "LookupOldWaterMarkActivity",
     				"type": "Lookup",
     				"typeProperties": {
     					"source": {
@@ -372,12 +394,12 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
     				}
     			},
     			{
-    				"name": "LookupMaxValuefromSourceActivity",
+    				"name": "LookupNewWaterMarkActivity",
     				"type": "Lookup",
     				"typeProperties": {
     					"source": {
     						"type": "SqlSource",
-    						"sqlReaderQuery": "select MAX(LastModifytime) as NewWatermarkvalue from datasource"
+    						"sqlReaderQuery": "select MAX(LastModifytime) as NewWatermarkvalue from data_source_table"
     					},
     
     					"dataset": {
@@ -393,7 +415,7 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
     				"typeProperties": {
     					"source": {
     						"type": "SqlSource",
-    						"sqlReaderQuery": "select * from datasource where LastModifytime > '@{activity('LookupWaterMarkActivity').output.firstRow.WatermarkValue}' and LastModifytime <= '@{activity('LookupMaxValuefromSourceActivity').output.firstRow.NewWatermarkvalue}'"
+    						"sqlReaderQuery": "select * from data_source_table where LastModifytime > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and LastModifytime <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'"
     					},
     					"sink": {
     						"type": "BlobSink"
@@ -401,13 +423,13 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
     				},
     				"dependsOn": [
     					{
-    						"activity": "LookupMaxValuefromSourceActivity",
+    						"activity": "LookupNewWaterMarkActivity",
     						"dependencyConditions": [
     							"Succeeded"
     						]
     					},
     					{
-    						"activity": "LookupWaterMarkActivity",
+    						"activity": "LookupOldWaterMarkActivity",
     						"dependencyConditions": [
     							"Succeeded"
     						]
@@ -435,8 +457,8 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
     
     					"storedProcedureName": "sp_write_watermark",
     					"storedProcedureParameters": {
-    						"LastModifiedtime": {"value": "@{activity('LookupMaxValuefromSourceActivity').output.firstRow.NewWatermarkvalue}", "type": "datetime" },
-    						"TableName":  { "value":"@{activity('LookupWaterMarkActivity').output.firstRow.TableName}", "type":"String"}
+    						"LastModifiedtime": {"value": "@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}", "type": "datetime" },
+    						"TableName":  { "value":"@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}", "type":"String"}
     					}
     				},
     
@@ -460,7 +482,7 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
     }
     ```json
 
-	If you are using a source table with a name different from the one used in the tutorial (**datasource**), replace **datasource** in the sqlReaderQuery with the name of your source table. 
+	If you are using a source table with a name different from the one used in the tutorial (**data_source_table**), replace **data_source_table** in the sqlReaderQuery with the name of your source table. 
 	
 
 2. Run the Set-AzureRmDataFactoryV2Pipeline cmdlet to create the pipeline: IncrementalCopyPipeline.
@@ -475,7 +497,7 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
     PipelineName      : IncrementalCopyPipeline
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
-    Activities        : {LookupWaterMarkActivity, LookupMaxValuefromSourceActivity, IncrementalCopyActivity, StoredProceduretoWriteWatermarkActivity}
+    Activities        : {LookupOldWaterMarkActivity, LookupNewWaterMarkActivity, IncrementalCopyActivity, StoredProceduretoWriteWatermarkActivity}
     Parameters        :
    ```
  
@@ -497,7 +519,7 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
 	```json
 	ResourceGroupName : ADF
 	DataFactoryName   : incrementalloadingADF
-	ActivityName      : LookupMaxValuefromSourceActivity
+	ActivityName      : LookupNewWaterMarkActivity
 	PipelineRunId     : d4bf3ce2-5d60-43f3-9318-923155f61037
 	PipelineName      : IncrementalCopyPipeline
 	Input             : {source, dataset}
@@ -511,7 +533,7 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
 	
 	ResourceGroupName : ADF
 	DataFactoryName   : incrementalloadingADF
-	ActivityName      : LookupWaterMarkActivity
+	ActivityName      : LookupOldWaterMarkActivity
 	PipelineRunId     : d4bf3ce2-5d60-43f3-9318-923155f61037
 	PipelineName      : IncrementalCopyPipeline
 	Input             : {source, dataset}
@@ -574,17 +596,17 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
  
 	TableName | WatermarkValue
 	--------- | --------------
-	datasource	2017-09-05	8:06:00.000
+	data_source_table	2017-09-05	8:06:00.000
 
 ### Insert data into data source store to verify delta data loading
 
 1. Insert new data into Azure SQL database (data source store):
 
 	```sql
-	INSERT INTO datasource
+	INSERT INTO data_source_table
 	VALUES (6, 'newdata','9/6/2017 2:23:00 AM')
 	
-	INSERT INTO datasource
+	INSERT INTO data_source_table
 	VALUES (7, 'newdata','9/7/2017 9:01:00 AM')
 	```	
 
@@ -617,7 +639,7 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
 	```json
 	ResourceGroupName : ADF
 	DataFactoryName   : incrementalloadingADF
-	ActivityName      : LookupMaxValuefromSourceActivity
+	ActivityName      : LookupNewWaterMarkActivity
 	PipelineRunId     : 2fc90ab8-d42c-4583-aa64-755dba9925d7
 	PipelineName      : IncrementalCopyPipeline
 	Input             : {source, dataset}
@@ -631,7 +653,7 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
 	
 	ResourceGroupName : ADF
 	DataFactoryName   : incrementalloadingADF
-	ActivityName      : LookupWaterMarkActivity
+	ActivityName      : LookupOldWaterMarkActivity
 	PipelineRunId     : 2fc90ab8-d42c-4583-aa64-755dba9925d7
 	PipelineName      : IncrementalCopyPipeline
 	Input             : {source, dataset}
@@ -682,11 +704,20 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
 	
 	TableName | WatermarkValue
 	--------- | ---------------
-	datasource | 2017-09-07 09:01:00.000
+	data_source_table | 2017-09-07 09:01:00.000
 
      
 ## Next steps
-See list of data stores that are supported by copy activity as sources and sinks in the [Copy activity overview](copy-activity-overview.md) article. 
+You performed the following steps in this tutorial: 
+
+> [!div class="checklist"]
+> * Define a **watermark** column and store it in Azure SQL Database.  
+> * Create a data factory.
+> * Create linked services for SQL Database and Blob Storage. 
+> * Create source and sink datasets.
+> * Create a pipeline.
+> * Run the pipeline.
+> * Monitor the pipeline run. 
 
 Advance to the following tutorial to learn about transforming data by using a Spark cluster on Azure:
 

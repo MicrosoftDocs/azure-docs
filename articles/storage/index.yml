@@ -14,7 +14,7 @@ metadata:
   ms.date: 09/20/2017
   ms.author: carolz
 abstract:
-  description: Microsoft Azure Storage is a Microsoft-managed cloud service that provides storage that is highly available, secure, durable, scalable, and redundant. Azure Storage consists of Blob storage, File Storage, and Queue storage.
+  description: Microsoft Azure Storage is a Microsoft-managed cloud service that provides storage that is highly available, secure, durable, scalable, and redundant. Azure Storage consists of Blob storage, File Storage, and Queue storage.  Learn how to leverage Azure Storage in your applications with our quickstarts and tutorials.
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -25,11 +25,11 @@ sections:
     items: 
     - image: 
         src: https://docs.microsoft.com/media/common/powershell.svg
-      text: Create a storage account - Powershell
+      text: Azure Powershell
       href: /azure/storage/common/storage-quickstart-create-storage-account-powershell
     - image: 
         src: /azure/virtual-machines/linux/media/index/cli.svg 
-      text: Create a storage account - CLI
+      text: Azure CLI
       href: /azure/storage/common/storage-quickstart-create-storage-account-cli
 - title: Step-by-step Tutorials
   items:
@@ -39,7 +39,7 @@ sections:
     style: ordered
     items:
     - html: <a href="/azure/storage/blobs/storage-upload-process-images">Upload and retrieve image data in the cloud</a>
-    - html: <a href="/azure/storage/blobs/storage-blob-event-quickstart">Trigger Azure Functions to process blobs</a>
+    - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Trigger Azure Functions to process blobs</a>
     - html: <a href="/azure/storage/blobs/storage-secure-access-application">Secure application data</a>
     - html: <a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">Monitor and troubleshoot storage</a>
 - title: Samples
@@ -52,18 +52,18 @@ sections:
     items:
     - html: <a href="/azure/storage/blobs/storage-samples-blobs-powershell">Azure PowerShell</a>
     - html: <a href="/azure/storage/blobs/storage-samples-blobs-cli">Azure CLI</a>
-- title: Free PluralSight Video Training
+- title: Free Pluralsight Video Training
   items:
   - type: list
     style: cards
     className: cardsFTitle
     items:
-    - title: Developing with .NET on Microsoft Azure - Getting Started 
+    - title: Developing with .NET on Azure 
       href: https://app.pluralsight.com/library/courses/developing-dotnet-microsoft-azure-getting-started/table-of-contents
       image: 
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
         href: https://app.pluralsight.com/library/courses/developing-dotnet-microsoft-azure-getting-started/table-of-contents
-    - title: Developing with Node.js on Microsoft Azure - Getting Started
+    - title: Developing with Node.js on Azure
       href: https://app.pluralsight.com/library/courses/developing-nodejs-microsoft-azure-getting-started/table-of-contents
       image: 
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg

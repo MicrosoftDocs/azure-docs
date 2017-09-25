@@ -24,7 +24,7 @@
       href: data-factory-copy-activity-tutorial-using-azure-portal.md
     - name: Visual Studio
       href: data-factory-copy-activity-tutorial-using-visual-studio.md
-    - name: PowerShell
+    - name: Azure PowerShell
       href: data-factory-copy-activity-tutorial-using-powershell.md      
     - name: REST API
       href: data-factory-copy-activity-tutorial-using-rest-api.md
@@ -37,7 +37,7 @@
       href: data-factory-build-your-first-pipeline-using-editor.md
     - name: Visual Studio
       href: data-factory-build-your-first-pipeline-using-vs.md
-    - name: PowerShell
+    - name: Azure PowerShell
       href: data-factory-build-your-first-pipeline-using-powershell.md
     - name: Azure Resource Manager template
       href: data-factory-build-your-first-pipeline-using-arm.md
@@ -183,7 +183,7 @@
   items: 
   - name: Code samples
     href: https://azure.microsoft.com/en-us/resources/samples/?service=data-factory
-  - name: PowerShell
+  - name: Azure PowerShell
     href: /powershell/module/azurerm.datafactories
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.datafactories.models

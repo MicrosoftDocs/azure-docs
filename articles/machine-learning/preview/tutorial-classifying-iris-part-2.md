@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 09/21/2017
+ms.date: 09/25/2017
 ---
 
 # Classifying Iris part 2: Build a model
@@ -346,8 +346,8 @@ You can also run this script in an actual Spark cluster.
    >When you execute against a remote HDI cluster, you can also view the YARN job execution details at `https://<cluster_name>.azurehdinsight.net/yarnui` using the `admin` user account.
 
 
-## Summary
-This tutorial is part two of a three part series. In this tutorial, you have learned how to use Azure Machine Learning Workbench and the command-line interface to:
+## Next Steps
+In this second part of the three part tutorial series, you have learned how to use Azure Machine Learning services to:
 > [!div class="checklist"]
 > * Work in Azure Machine Learning Workbench
 > * Open scripts and review code
@@ -358,8 +358,7 @@ This tutorial is part two of a three part series. In this tutorial, you have lea
 > * Execute scripts in a remote Docker environment
 > * Execute scripts in a cloud HDInsight environment
 
-Now that we have created the Logistic Regression model, let's deploy it as a real-time web service.
+You are ready to move on to the third part in the series. Now that we have created the Logistic Regression model, let's deploy it as a real-time web service.
 
-## Next Steps
 > [!div class="nextstepaction"]
-> [Part 3: Deploy a model](tutorial-classifying-iris-part-3.md)
+> [Deploy a model](tutorial-classifying-iris-part-3.md)

@@ -25,7 +25,7 @@ This tutorial shows you how to migrate on-premises VMs and physical servers to A
 
 > [!div class="checklist"]
 > * Set up prerequisites for the deployment
-> * Create a Recovery Services vault for Site Recovery 
+> * Create a Recovery Services vault for Site Recovery
 > * Deploy on-premises management servers
 > * Set up a replication policy and enable replication
 > * Run a disaster recovery drill to make sure everything's working
@@ -33,7 +33,7 @@ This tutorial shows you how to migrate on-premises VMs and physical servers to A
 
 ## Overview
 
-You migrate a machine by enabling replication for it, and failing it over to Azure. 
+You migrate a machine by enabling replication for it, and failing it over to Azure.
 
 
 ## Prerequisites
@@ -95,20 +95,21 @@ Run a failover for the machines you want to migrate.
 
 1. In **Settings** > **Replicated items** click the machine > **Failover**.
 2. In **Failover** select a **Recovery Point** to fail over to. Select the latest recovery point.
-3. The encryption key setting isn't relevant for this scenario. 
+3. The encryption key setting isn't relevant for this scenario.
 4. Select **Shut down machine before beginning failover** if you want Site Recovery to attempt to do a shutdown of source virtual machines before triggering the failover. Failover continues even if shutdown fails. You can follow the failover progress on the **Jobs** page.
-5. Check that the Azure VM appears in Azure as expected. 
+5. Check that the Azure VM appears in Azure as expected.
 6. In **Replicated items**, right-click the VM > **Complete Migration**. This finishes the migration process, stops replication for the VM, and stops Site Recovery billing for the VM.
 
     ![Complete migration](./media/tutorial-migrate-on-premises-to-azure/complete-migration.png)
 
 
 > [!WARNING]
-> **Don't cancel a failover in progress**: Before failover is started, VM replication is stopped. If you cancel a failover in progress, failover stops, but the VM won't replicate again.  
+> **Don't cancel a failover in progress**: Before failover is started, VM replication is stopped. If you cancel a failover in progress, failover stops, but the VM won't replicate again.
 
 In some scenarios, failover requires additional processing that takes around eight to ten minutes to complete. You might notice longer test failover times for physical servers, VMware Linux machines, VMware VMs that don't have the DHCP service enables, and VMware VMs that don't have the following boot drivers: storvsc, vmbus, storflt, intelide, atapi.
-  
+
 
 ## Next steps
 
-[Learn about](site-recovery-azure-to-azure-after-migration.md) replicating Azure VMs to another region after migration to Azure.
+> [!div class="nextstepaction"]
+> [Replicating Azure VMs to another region after migration to Azure](site-recovery-azure-to-azure-after-migration.md)

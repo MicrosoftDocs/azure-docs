@@ -25,7 +25,7 @@ sections:
     items: 
     - image: 
         src: /azure/site-recovery/media/index/portal.svg
-      text: Portal
+      text: Azure portal
       href: /azure/site-recovery/azure-to-azure-quickstart
 - title: Step-by-step Tutorials
   items:
@@ -54,7 +54,7 @@ sections:
   - type: list        
     style: ordered
     items:
-    - html: Prepare Azure
+    - html: <a href="tutorial-prepare-azure">Prepare Azure</a>
     - html: <a href="tutorial-migrate-on-premises-to-azure">Migrate on-premises machines</a> or <a href="tutorial-migrate-aws-to-azure">AWS Instances to Azure</a>
 - title: Reference
   items:

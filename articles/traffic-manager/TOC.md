@@ -26,14 +26,14 @@
 ## [Verify Traffic Manager settings](traffic-manager-testing-settings.md)
 ## [Combine load balancing services](traffic-manager-load-balancing-azure.md)
 ## [Measure Traffic Manager performance](traffic-manager-performance-considerations.md)
-## [Use PowerShell to manage Traffic Manager](traffic-manager-powershell-arm.md)
+## [Use Azure PowerShell to manage Traffic Manager](traffic-manager-powershell-arm.md)
 ## [Point your Internet domain to Traffic Manager](traffic-manager-point-internet-domain.md)
 ## Troubleshoot
 ### [Troubleshoot degraded state on Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md)
 
 # Reference
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=traffic-manager)
-## [PowerShell](/powershell/module/azurerm.trafficmanager)
+## [Azure PowerShell](/powershell/module/azurerm.trafficmanager)
 ## [Azure CLI](/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)
