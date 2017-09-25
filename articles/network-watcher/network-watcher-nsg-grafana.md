@@ -1,7 +1,7 @@
 ---
 title: Manage Network Security Group Flow Logs using Network Watcher and Grafana | Microsoft Docs
 description: Manage and analyze Network Security Group Flow Logs in Azure using Network Watcher and Grafana.
-services: virtual-network
+services: network-watcher
 documentationcenter: na
 author: kumudD
 manager: timlt
@@ -9,7 +9,7 @@ editor: ''
 tags: azure-resource-manager
 
 ms.assetid: 
-ms.service: virtual-network
+ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -22,7 +22,7 @@ ms.author: kumud
 
 [Network Security Group (NSG) flow logs](network-watcher-nsg-flow-logging-overview.md) provide information that can be used to understand ingress and egress IP traffic on network interfaces. These flow logs show outbound and inbound flows on a per NSG rule basis, the NIC the flow applies to, 5-tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
 
-You can have many NSGs in your network with flow logging enabled. This anount of logging data makes it cumbersome to parse and gain insights from your logs. This article provides a solution to centrally manage these NSG flow logs using an open source graphing tool called Grafana, ElasticSearch, and Logstash, which is an open source server-side data processing pipeline. 
+You can have many NSGs in your network with flow logging enabled. This amount of logging data makes it cumbersome to parse and gain insights from your logs. This article provides a solution to centrally manage these NSG flow logs using Grafana, an open source graphing tool, ElasticSearch, a distributed search and analytics engine, and Logstash, which is an open source server-side data processing pipeline.  
 
 ## Scenario
 
@@ -69,8 +69,8 @@ You use Logstash to flatten the JSON formatted flow logs to a flow tuple level.
         codec => "json"
         # Refer https://docs.microsoft.com/azure/network-watcher/network-watcher-read-nsg-flow-logs
         # Typical numbers could be 21/9 or 12/2 depends on the nsg log file types
-        file_head_bytes => 21
-        file_tail_bytes => 9
+        file_head_bytes => 12
+        file_tail_bytes => 2
         # Enable / tweak these settings when event is too big for codec to handle.
         # break_json_down_policy => "with_head_tail"
         # break_json_batch_count => 2
@@ -189,7 +189,7 @@ Now that you have successfully configured Grafana to read from the ElasticSearch
 
 ![Dashboard graph](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig3.png)
 
-The following screenshot depicts a graph and chart showing the top flows and their frequency. Flows are also shown by NSG rule and flows by decision. Grafana is highly customizable so it's advisable that you create dashboards to suit your specific monitoring needs. The following example shows a typical dashboasrd:
+The following screenshot depicts a graph and chart showing the top flows and their frequency. Flows are also shown by NSG rule and flows by decision. Grafana is highly customizable so it's advisable that you create dashboards to suit your specific monitoring needs. The following example shows a typical dashboard:
 
 ![Dashboard graph](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig4.png)
 
