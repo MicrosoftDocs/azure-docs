@@ -316,24 +316,20 @@ This code is an alternative to calling `TrackMetric` using [the Application Insi
 
 ## Write logs in JavaScript functions
 
+In Node.js functions, use `context.log` to write logs. Structured logging is not enabled.
+
+```
+context.log('JavaScript HTTP trigger function processed a request.' + context.invocationId);
+```
+
+### Logging custom metrics  
+
 In Node.js functions, you can use the `context.log.metric` method to create custom metrics in Application Insights. Here's a sample method call:
 
 ```javascript
 context.log.metric("TestMetric", 1234); 
 ```
 
-### Logging custom metrics  
-
-In Node.js functions, you can use `context.log` to create custom metrics in Application Insights. Here's a sample method call:
-
-```javascript
-context.log.metric("TestMetric", 1234, { 
-    count: 50, 
-    min: 10.4, 
-    max: 23, 
-    MyCustomMetricProperty: 100 
-}); 
-```
 This code is an alternative to calling `trackMetric` using [the Node.js SDK for Application Insights](#custom-telemetry-in-javascript-functions).
 
 ## Custom telemetry in C# functions
