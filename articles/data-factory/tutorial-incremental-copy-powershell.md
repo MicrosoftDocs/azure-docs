@@ -96,8 +96,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 	```
 
 ### Create another table in SQL database to store the high watermark value
-1. Open **SQL Server Management Studio**, in **Server Explorer**, right-click the **database** of data source store and choose the **New Query**.
-2. Run the following SQL command against your Azure SQL database to create a table named `watermarktable` to store the watermark value.  
+1. Run the following SQL command against your Azure SQL database to create a table named `watermarktable` to store the watermark value.  
     
     ```sql
     create table watermarktable
@@ -184,10 +183,7 @@ END
 You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your Azure Storage account and Azure SQL database. 
 
 ### Create Azure Storage linked service.
-1. Create a JSON file named **AzureStorageLinkedService.json** in **C:\ADF** folder with the following content: (Create the folder ADF if it does not already exist.)
-
-	> [!IMPORTANT]
-	> Replace &lt;accountName&gt; and &lt;accountKey&gt; with name and key of your Azure storage account before saving the file.
+1. Create a JSON file named **AzureStorageLinkedService.json** in **C:\ADF** folder with the following content: (Create the folder ADF if it does not already exist.). Replace `<accountName>`,  `<accountKey>` with name and key of your Azure storage account before saving the file.
 
     ```json
     {
@@ -304,7 +300,7 @@ In this step, you create datasets to represent source and sink data.
     		"type": "AzureBlob",
     		"typeProperties": {
     			"folderPath": "adftutorial/incrementalcopy",
-    			"fileName": "<your file name>.txt",
+    			"fileName": "@CONCAT('Incremental-', pipeline().RunId, '.txt')", 
     			"format": {
     				"type": "TextFormat"
     			}
