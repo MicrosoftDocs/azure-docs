@@ -1,6 +1,6 @@
 ---
-title: How to use Stream Analytics Visual Studio tools to setup CI/CD process  | Microsoft Docs
-description:  Tutorial for using Stream Analytics Visual Studio tools to setup CI/CD process
+title: How to use Stream Analytics Visual Studio tools to set up the continuous integration and deployment process  | Microsoft Docs
+description:  Tutorial for using Stream Analytics Visual Studio tools to set up the continuous integration and deployment process
 keywords: visual studio, NuGet, DevOps, CI/CD
 documentationcenter: ''
 services: stream-analytics
@@ -18,8 +18,7 @@ ms.date: 9/21/2017
 ms.author: sujie
 
 ---
-# Introduction
-In this tutorial, you learn how to use the Stream Analytics Visual Studio tools to accomplish CI/CD process.
+In this tutorial, you learn how to use the Stream Analytics Visual Studio tools to set up the continuous integration and continuous delivery process.
 
 The latest version (2.3.0000.0 or above) of [Stream Analytics tools for Visual Studio](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-tools-for-visual-studio) add the support for **MSBuild**. 
 
@@ -27,7 +26,7 @@ There is also a newly released NuGet package [Microsoft.Azure.Stream Analytics.C
 > [!NOTE] 
 The NuGet package can only be used with the 2.3.0000.0 or above version of Stream Analytics Tools for Visual Studio. If you have projects created in previous versions of Visual Studio tools, just open it with the 2.3.0000.0 or above version and save. Then you have the new capabilities enabled. 
 
-[Learn how to use Stream Analytics tools for Visual Studio]
+[Learn how to use Stream Analytics Tools for Visual Studio](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-tools-for-visual-studio)
 
 ## MSBuild
 Like the standard Visual Studio MSBuild experience, to build a project you can either right-click on the project then choose **Build**, 
@@ -37,12 +36,12 @@ or use **MSBuild** in the NuGet package from command line.
 
 ```
 
-When a Stream Analytics Visual Studio project builds successfully, it generates the following two ARM (Azure Resource Manager) template files under **bin/[Debug/Retail]/Deploy** folder: 
+When a Stream Analytics Visual Studio project builds successfully, it generates the following two Azure Resource Manager template files under **bin/[Debug/Retail]/Deploy** folder: 
 
-ARM template file.
+Azure Resource Manager template file.
 *       [ProjectName].JobTemplate.json 
 
-ARM parameters file.
+Azure Resource Manager parameters file.
 *       [ProjectName].JobTemplate.parameters.json   
 
 The default parameters in the parameters.json file are from the settings in your Visual Studio project. If you want to deploy to other environment, just replace the parameters accordingly. 
@@ -53,7 +52,7 @@ For all the credentials, the default values are all set to null. They are **REQU
       "value": null
     },
 ```
-Learn more on [How to deploy with ARM template file and Azure PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy) and [How to use an object as a parameter in an Azure Resource Manager template](https://docs.microsoft.com/en-us/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
+Learn more on [How to deploy with Azure Resource Manager template file and Azure PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy) and [How to use an object as a parameter in an Azure Resource Manager template](https://docs.microsoft.com/en-us/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
 
 
 ## Command-line tool
