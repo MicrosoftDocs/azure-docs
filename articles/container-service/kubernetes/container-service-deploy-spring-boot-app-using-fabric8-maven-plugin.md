@@ -21,9 +21,9 @@ ms.custom:
 
 # Deploy a Spring Boot app using the Fabric8 Maven Plugin
 
-**[fabric8]** is an open-source solution that is built on **[Kubernetes]**, which helps developers create applications in Linux containers.
+**[Fabric8]** is an open-source solution that is built on **[Kubernetes]**, which helps developers create applications in Linux containers.
 
-This tutorial walks you through using the fabric8 plugin for Maven to develop to deploy an application to a Linux host in the [Azure Container Service (ACS)].
+This tutorial walks you through using the Fabric8 plugin for Maven to develop to deploy an application to a Linux host in the [Azure Container Service (ACS)].
 
 ## Prerequisites
 
@@ -359,7 +359,7 @@ The `id` and `username` are the name of the registry. Use the `password` value f
 
 1. Navigate to the completed project directory for your Spring Boot application, (for example: "*C:\SpringBoot\gs-spring-boot-docker\complete*" or "*/home/GenaSoto/SpringBoot/gs-spring-boot-docker/complete*"), and open the *pom.xml* file with a text editor.
 
-1. Update the `<plugins>` collection in the *pom.xml* file to add the fabric8 Maven plugin:
+1. Update the `<plugins>` collection in the *pom.xml* file to add the Fabric8 Maven plugin:
 
    ```xml
    <plugin>
@@ -527,7 +527,7 @@ For additional examples for how to use custom Docker images with Azure, see [Usi
 [Create a private Docker container registry using the Azure portal]: /azure/container-registry/container-registry-get-started-portal
 [Using a custom Docker image for Azure Web App on Linux]: /azure/app-service-web/app-service-linux-using-custom-docker-image
 [Docker]: https://www.docker.com/
-[fabric8]: https://fabric8.io/
+[Fabric8]: https://fabric8.io/
 [free Azure account]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: https://github.com/
 [Java Developer Kit (JDK)]: http://www.oracle.com/technetwork/java/javase/downloads/
