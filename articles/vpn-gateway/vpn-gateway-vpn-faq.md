@@ -159,7 +159,7 @@ Other software VPN solutions should work with our gateway as long as they confor
 
 [!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
-## Point-to-Site - RADIUS authentication
+## <a name="P2SRADIUS"></a>Point-to-Site - RADIUS authentication
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 

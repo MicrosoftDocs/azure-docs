@@ -223,4 +223,4 @@ Advance to part four of the series to learn how to monitor and troubleshoot a cl
 > [!div class="nextstepaction"]
 > [Monitor and troubleshoot application cloud application storage](storage-monitor-troubleshoot-storage-application.md)
 
-[previous-tutorial]: ../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+[previous-tutorial]: ../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
