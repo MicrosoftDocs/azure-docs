@@ -142,7 +142,7 @@ This problem can be caused by:
     - openSUSE 13.2+ 
     - SUSE Linux Enterprise Server 12
 
--  Common Internet File System (CIFS) utils are not installed.
+- CIFS-utils are not installed.
 - The minimum SMB/CIFS version 2.1 is not installed.
 - SMB 3.0 Encryption is not supported. SMB 3.0 Encryption is available Ubuntu 16.4 and later version, SUSE 12.3 and later version. Other distributions require kernel 4.11 and later version.
 - You are trying to connect to a storage account over TCP port 445 that is not supported.
