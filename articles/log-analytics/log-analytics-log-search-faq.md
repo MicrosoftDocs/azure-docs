@@ -127,6 +127,9 @@ The [Device Health solution](https://docs.microsoft.com/windows/deployment/updat
 ### Known issue: Application Insights connector
 Perspectives in [Application Insights Connector solution](log-analytics-app-insights-connector.md) are currently not supported in an upgraded workspace.  A fix to this issue is currently under analysis.
 
+### Known issue: Backup solution
+The Backup Solution will not collect data in an upgraded workspace. A new Backup solution that works with the upgraded workspace will be announced shortly.
+
 ## Upgrade process
 
 ### Question: I have several workspaces. Can I upgrade all workspaces at the same time?  
