@@ -45,12 +45,12 @@ The following procedure creates a SQL Server linked service based on a JSON defi
 	}
    ```
 
-2. To encrypt the sensitive data from the JSON payload on an on-premises self-hosted integration runtime, run **Set-AzureRmDataFactoryV2LinkedServiceEncryptCredential**, and pass on the JSON payload. This ensures the credentials are encrypted using DPAPI and stored on the self-hosted integration runtime node locally. The output payload can be redirected to another JSON file (in this case 'encryptedLinkedService.json'), which contains encrypted credentials.
+2. To encrypt the sensitive data from the JSON payload on an on-premises self-hosted integration runtime, run **Set-AzureRmDataFactoryV2LinkedServiceEncryptCredential**, and pass on the JSON payload. This cmdlet ensures the credentials are encrypted using DPAPI and stored on the self-hosted integration runtime node locally. The output payload can be redirected to another JSON file (in this case 'encryptedLinkedService.json'), which contains encrypted credentials.
 
 	```powershell
 	Set-AzureRmDataFactoryV2LinkedServiceEncryptCredential -DataFactory $df -ResourceGroupName $ResourceGroupName -Name "SqlServerLinkedService" -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
 	```
-3. Now, use the output JSON file from the previous command containing the encrypted credential to setup the **SqlServerLinkedService**.
+3. Now, use the output JSON file from the previous command containing the encrypted credential to set up the **SqlServerLinkedService**.
 
 	```powershell
 	Set-AzureRmDataFactoryV2LinkedService -DataFactory $df -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -File ".\encryptedSqlServerLinkedService.json" 
