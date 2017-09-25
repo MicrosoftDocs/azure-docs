@@ -41,6 +41,8 @@ Create a public IP address in an availability zone using the following command:
 ```azurecli-interactive
 az network public-ip create --resource-group myResourceGroup --name myPublicIp --zone 2 --location westeurope
 ```
+> [!NOTE]
+> Whatever resource you associate a standard SKU public IP address to must also have a network security group assigned to it. The network security group can contain any, or zero security rules, there just must be a [network security group](security-overview.md#network-security-groups) assigned to the resource the standard SKU public IP address is assigned to. If no NSG is assigned, communication to the resource fails.
 
 ## Get zone information about a public IP address
 

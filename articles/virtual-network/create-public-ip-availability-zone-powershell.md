@@ -62,6 +62,9 @@ Create a public IP address in an availability zone using the following command:
         -Zone 2
 ```
 
+> [!NOTE]
+> Whatever resource you associate a standard SKU public IP address to must also have a network security group assigned to it. The network security group can contain any, or zero security rules, there just must be a [network security group](security-overview.md#network-security-groups) assigned to the resource the standard SKU public IP address is assigned to. If no NSG is assigned, communication to the resource fails.
+
 ## Get zone information about a public IP address
 
 Get the zone information of a public IP address using the following command:

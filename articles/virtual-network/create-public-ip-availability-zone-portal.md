@@ -53,6 +53,9 @@ Log in to the Azure portal at https://portal.azure.com.
 
     ![Create zonal public IP address](./media/create-public-ip-availability-zone-portal/public-ip-address.png) 
 
+> [!NOTE]
+> Whatever resource you associate a standard SKU public IP address to must also have a network security group assigned to it. The network security group can contain any, or zero security rules, there just must be a [network security group](security-overview.md#network-security-groups) assigned to the resource the standard SKU public IP address is assigned to. If no NSG is assigned, communication to the resource fails.
+
 ## Next steps
 
 - Learn more about [availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview)
