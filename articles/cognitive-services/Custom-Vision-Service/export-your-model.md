@@ -1,3 +1,19 @@
+---
+title: Export your model to mobile  | Microsoft Docs
+description: Export your model to mobile 
+services: cognitive-services
+author: overbrimming
+manager: anroth
+
+ms.service: cognitive-services
+ms.technology: custom vision service
+ms.topic: article
+ms.date: 09/25/2017
+ms.author: anroth
+---
+ 
+ 
+
 # Export your model to mobile 
 
 Custom Vision Service allows classifiers to be exported to run offline. You can embed your exported classifier into an application and run it locally on a device for real-time classification. The first format supported for export is the CoreML format for iOS11, with more formats and devices coming soon. 
