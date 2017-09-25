@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2017
+ms.date: 09/25/2017
 ms.author: curtand
 ms.reviewer: nigu
 
@@ -35,7 +35,7 @@ You can generate two types of reports:
 
 * **Snapshot reports** provide ad-hoc visibility into traffic logs you manually upload from your firewalls and proxy servers. You can use them to make sure your logs provide usable information to Cloud App Discovery.
 
-* **Continuous reports** analyze all logs that are forwarded from your network using the [Cloud App Security log collector](https://docs.microsoft.com/cloud-app-security/discovery-docker). You can automatically identify anomalous usage using the machine learning anomaly detection engine or by setting up your own custom policies.
+* **Continuous reports** analyze all logs that are forwarded from your network using the [Cloud App Security log collector](https://docs.microsoft.com/cloud-app-security/discovery-docker). You can use them to identify new apps and usage trends.
 
 ## Log processing flow
 
@@ -105,9 +105,7 @@ In order to successfully generate a Cloud App Discovery report, your traffic log
 > [!NOTE]
 > Cloud App Discovery supports both IPv4 and IPv6 addresses.
 
-If your log is not supported, select **Other** as the **Data source** and specify the device and log you are trying to upload. Your log is reviewed by the Cloud App Security cloud analyst team. 
-* When support for your log type is added, we notify you. 
-* Alternatively, you can define a custom parser that matches your log format. For more information, see [Use a custom log parser](https://docs.microsoft.com/cloud-app-security/custom-log-parser).
+If your log is not supported, select **Other** as the **Data source** and specify the device and log you are trying to upload. Your log is reviewed by the Cloud App Security cloud analyst team. When support for your log type is added we notify you, but instead, you can define a custom parser that matches your log format. For more information, see [Use a custom log parser](https://docs.microsoft.com/cloud-app-security/custom-log-parser).
 
 ## Data attributes (according to vendor documentation)
 

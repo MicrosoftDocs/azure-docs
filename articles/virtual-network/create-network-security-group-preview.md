@@ -313,7 +313,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
     $vNet = New-AzureRmVirtualNetwork `
       -Name myVnet `
       -AddressPrefix '10.0.0.0/16' `
-      -Subnet $subnet
+      -Subnet $subnet `
       -ResourceGroupName myResourceGroup `
       -Location westcentralus
     ```

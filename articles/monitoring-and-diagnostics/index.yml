@@ -26,11 +26,11 @@ sections:
     - image: 
         src: https://docs.microsoft.com/media/common/Chart.svg
       text: Monitor metrics
-      href: monitor-quick-audit-subscription-portal
+      href: monitor-quick-resource-metric-alert-portal
     - image: 
         src: https://docs.microsoft.com/media/common/i_alert.svg
       text: Subscription Audit and Alerts
-      href: monitor-quick-notify-action-in-subscription
+      href: monitor-quick-audit-notify-action-in-subscription
 - title: Step-by-step Tutorials
   items:
   - type: paragraph
