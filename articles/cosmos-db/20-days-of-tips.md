@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 09/25/2017
 ms.author: mimig
 ms.custom: cda
 ---
@@ -103,6 +103,30 @@ Tip 11: Build a hero tracking app using React, Node.js and Azure Cosmos DB.
 Article: [Create a MongoDB app with React and Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-develop-mongodb-react?WT.mc_id=sicotint)
 
 [![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910156604875649025)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6315922463670751233)
+
+## Tip 12: Go serverless
+
+Tip 12: Go serverless with Azure #CosmosDB and @AzureFunctions! Full docs at [https://aka.ms/Pmic1j](https://aka.ms/Pmic1j)
+
+> [!VIDEO https://www.youtube.com/embed/U--3mfisNCs]
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910534418716069889)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6316301619252248576)
+
+## Tip 13: MEAN app from scratch
+
+Tip 13: From zero to hero with @John_Papa and Azure Cosmos DB. Learn how to build  a MEAN app from scratch
+
+Article: [Create a MongoDB app with Angular and Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-develop-mongodb-nodejs?WT.mc_id=sicotint&utm_content=buffer2495b&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910881618855907329)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6316647045599944704)
+
+## Tip 14: Use cases
+
+Tip 14: Curious about common Azure #CosmosDB use cases? Have a look at [https://aka.ms/Ihpf00](https://aka.ms/Ihpf00) to learn about IoT, gaming and social apps
+
+Article: [Common Azure Cosmos DB use cases](https://aka.ms/Ihpf00)
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/911270472481992704)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6317036550945333248)
 
 ## Next steps
 

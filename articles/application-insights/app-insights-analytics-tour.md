@@ -1,4 +1,4 @@
-﻿---
+---
 title: A tour through Analytics in Azure Application Insights | Microsoft Docs
 description: Short samples of all the main queries in Analytics, the powerful search tool of Application Insights.
 services: application-insights
@@ -56,6 +56,16 @@ Expand any item to see the detail:
 > Click the head of a column to re-order the results available in the web browser. But be aware that for a large result set, the number of rows downloaded to the browser is limited. Sorting this way doesn't always show you the actual highest or lowest items. To sort items reliably, use the `top` or `sort` operator.
 >
 >
+
+## Query across applications
+If you want to combine data from multiple Application Insights applications, use the **app** keyword to specify the application along with the table name.  This query combines the requests from two different applications using the **union** command.
+
+
+```AIQL
+
+	union app('fabrikamstage').requests, app('fabrikamprod').requests
+	
+```
 
 ## [Top](https://docs.loganalytics.io/queryLanguage/query_language_topoperator.html) and [sort](https://docs.loganalytics.io/queryLanguage/query_language_sortoperator.html)
 `take` is useful to get a quick sample of a result, but it shows rows from the table in no particular order. To get an ordered view, use `top` (for a sample) or `sort` (over the whole table).
