@@ -19,7 +19,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: Lean how to register your Azure agreement or subscription information with Cost Management and start viewing cost data.
+    text: Learn how to register your Azure agreement or subscription information with Cost Management and start viewing cost data.
   - type: list
     style: icon48
     items: 

@@ -51,7 +51,7 @@ sections:
     - html: <a href="app-insights-tutorial-alert">Monitor and alert on application health</a>
     - html: <a href="app-insights-tutorial-users">Analyze customer usage and information</a>
     - html: <a href="app-insights-tutorial-dashboards">Create custom KPI dashboards</a>
-- title: Free PluralSight Video Training
+- title: Free Pluralsight Video Training
   items:
   - type: list
     style: cards

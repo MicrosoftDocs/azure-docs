@@ -25,7 +25,7 @@ sections:
     items: 
     - image: 
         src: /azure/data-factory/media/index/logo_powershell.svg
-      text: PowerShell
+      text: Azure PowerShell
       href: /azure/data-factory/quickstart-create-data-factory-powershell   
     - image: 
         src: /azure/data-factory/media/index/logo_net.svg
@@ -41,7 +41,7 @@ sections:
       href: /azure/data-factory/quickstart-create-data-factory-rest-api 
     - image: 
         src: /azure/data-factory/media/index/portal.svg
-      text: Portal
+      text: Azure portal
       href: /azure/data-factory/quickstart-create-data-factory-portal
 - title: Step-by-Step Tutorials
   items:
@@ -74,7 +74,7 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/powershell/module/azurerm.datafactory/">PowerShell</a></p>
+      html: <p><a href="/powershell/module/azurerm.datafactoryv2/">Azure PowerShell</a></p>
     - title: Languages
       html: <p><a href="/dotnet/api/microsoft.azure.management.datafactory">.NET</a></p><p><a href="/python/api/overview/azure/datafactory?view=azure-python">Python</a></p>
     - title: REST

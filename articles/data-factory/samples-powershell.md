@@ -19,7 +19,6 @@ ms.author: spelluru
 
 The following table includes links to sample Azure PowerShell scripts for Azure Data Factory.
 
-## Sample PowerShell scripts
 | |  |
 |---|---|
 |**Copy data**||
@@ -30,12 +29,4 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 |[Create Azure-SSIS integration runtime](scripts/deploy-azure-ssis-integration-runtime-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell scripts provisions an Azure-SSIS integration runtime that runs SQL Server Integration Services (SSIS) packages in Azure. |
 
 
-
-## Next steps
-Go through the following tutorials to learn about using Data Factory in more scenarios. 
-
-Tutorial | Description
--------- | -----------
-[Tutorial: copy data from an on-premises SQL Server to an Azure blob storage](tutorial-hybrid-copy-powershell.md) | Shows you how to copy data from an on-premises SQL Server database to an Azure blob storage. 
-[Tutorial: Bulk copy](tutorial-bulk-copy.md) | Shows you how to copy data in bulk form a source data store to a destination data store. 
 

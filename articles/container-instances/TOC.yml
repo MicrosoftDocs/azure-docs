@@ -41,7 +41,7 @@
     href: container-instances-troubleshooting.md
 - name: Reference
   items:
-  - name: Azure CLI 2.0
+  - name: Azure CLI
     href: /cli/azure/container
   - name: REST
     href: /rest/api/container-instances

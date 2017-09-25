@@ -40,7 +40,7 @@ sections:
     items:
     - html: <a href="monitor-tutorial-autoscale-performance-schedule">Autoscale based on schedule or application performance</a>
     - html: <a href="monitor-tutorial-archive-monitoring-data">Archive monitoring data</a>
-- title: Free PluralSight Video Training
+- title: Free Pluralsight Video Training
   items:
   - type: list
     style: cards
@@ -63,7 +63,7 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/cli/azure/monitor?view=azure-cli-latest">CLI 2.0</a></p><p><a href="/powershell/module/azurem.insights">PowerShell</a></p>
+      html: <p><a href="/cli/azure/monitor?view=azure-cli-latest">CLI 2.0</a></p><p><a href="/powershell/module/azurem.insights">Azure PowerShell</a></p>
     - title: REST
       html: <p><a href="/rest/api/monitor/">REST</a></p>
     - title: Monitoring

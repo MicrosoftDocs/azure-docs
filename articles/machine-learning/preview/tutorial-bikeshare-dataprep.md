@@ -643,7 +643,7 @@ df.to_csv('Your Training Data File Path here')
 
 To submit a new job, use the **Run** icon at the top of the page. A **Job** is submitted with the new configuration. The output of this job is the Training Data. This data is created using the same Data Preparation steps that you created earlier. It may take few minutes to complete the job.
 
-## Summary
+## Next steps
 You have completed the Bike-share Data Preparation tutorial. In this tutorial, you used Azure Machine Learning services (preview) to learn how to:
 > [!div class="checklist"]
 > * Prepare data interactively with the Azure Machine Learning Data Preparation tool
@@ -652,7 +652,6 @@ You have completed the Bike-share Data Preparation tutorial. In this tutorial, y
 > * Run the Data Preparation Package using Python
 > * Generate a training dataset by reusing the Data Preparation package for additional input files
 
-## Next steps
-Learn more about data preparation:
+Next, learn more about data preparation:
 > [!div class="nextstepaction"]
 > [Data preparation user guide](data-prep-user-guide.md)
