@@ -1,6 +1,6 @@
 ---
-title: Set up a development environment for Azure microservices | Microsoft Docs
-description: Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you will be ready to build applications.
+title: Set up a Windows development environment for Azure microservices | Microsoft Docs
+description: Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you will be ready to build applications on Windows.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -13,11 +13,11 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/10/2017
+ms.date: 09/20/2017
 ms.author: ryanwi, mikhegn
 
 ---
-# Prepare your development environment
+# Prepare your development environment on Windows
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started.md) 
 > * [Linux](service-fabric-get-started-linux.md)
@@ -25,7 +25,7 @@ ms.author: ryanwi, mikhegn
 > 
 > 
 
- To build and run [Azure Service Fabric applications][1] on your development machine, install the runtime, SDK, and tools. You also need to enable execution of the Windows PowerShell scripts included in the SDK.
+ To build and run [Azure Service Fabric applications][1] on your Windows development machine, install the runtime, SDK, and tools. You also need to enable execution of the Windows PowerShell scripts included in the SDK.
 
 ## Prerequisites
 ### Supported operating system versions

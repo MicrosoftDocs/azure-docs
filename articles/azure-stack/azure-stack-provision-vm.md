@@ -13,12 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 7/21/2017
+ms.date: 9/25/2017
 ms.author: erikje
 
 ---
 # Create a test virtual machine in Azure Stack
-As a cloud operator, you can create a test virtual machine to validate your Azure Stack deployment.
+
+*Applies to: Azure Stack Development Kit*
+
+As a cloud operator, you can create a test virtual machine to validate your [Azure Stack](azure-stack-poc.md) deployment.
 
 > [!NOTE]
 > Before you can provision virtual machines, you must [add the Windows Server 2016 Evaluation image to the Azure Stack marketplace](azure-stack-add-default-image.md).
