@@ -35,7 +35,7 @@ Start the Azure-SSIS integration runtime. This command allocates all of its node
 #Start-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName
 ```
 
-# Reconfigure
+## Reconfigure
 After you provision and start an instance of Azure-SSIS integration runtime, you can reconfigure it by running a sequence of `Stop` - `Set` - `Start` PowerShell cmdlets consecutively. For example, the following PowerShell script changes the number of nodes allocated for the Azure-SSIS integration runtime instance to 5.
 
 1. First, stop the Azure-SSIS integration runtime by running the following command:
