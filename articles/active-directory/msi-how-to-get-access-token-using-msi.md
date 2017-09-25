@@ -18,10 +18,10 @@ ms.author: bryanla
 
 # How to use an Azure Managed Service Identity for sign-in and token acquisition 
 
-After you've enabled MSI on an Azure resource, [such as an Azure VM](msi-qs-configure-powershell-windows-vm.md), you can use the identity for sign-in and to request an access token. This article shows you how to use an MSI [service principal](active-directory-dev-glossary.md#service-principal-object) for sign in, and various ways to acquire an access token to access other resources.
+After you've enabled MSI on an Azure resource, [such as an Azure VM](msi-qs-configure-powershell-windows-vm.md), you can use the identity for sign-in and to request an access token. This article shows you how to use an MSI [service principal](develop/active-directory-dev-glossary.md#service-principal-object) for sign in, and various ways to acquire an access token to access other resources.
 
 > [!IMPORTANT]
-> All of the sample code/script in this article assumes it is being run from an MSI-enabled Virtual Machine. For details in enabling MSI on a VM, see [Configure a VM Managed Service Identity (MSI) using PowerShell](Configure a VM Managed Service Identity (MSI) using PowerShell.md), or one of the variant articles (using the Azure Portal, CLI, or a template).
+> All sample code/script in this article assumes the client is running on an MSI-enabled Virtual Machine. For details on enabling MSI on a VM, see [Configure a VM Managed Service Identity (MSI) using PowerShell](msi-qs-configure-powershell-windows-vm.md), or one of the variant articles (using the Azure Portal, CLI, or a template).
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ Also, install [Azure PowerShell version 4.3.1](https://www.powershellgallery.com
 
 ## How to sign in using an MSI identity
 
-In cases where a secure application needs to access an Azure resource under its own identity, you can use the identity of the MSI instead of an application identity. In the examples below, we show how to use a VM's MSI service principal for sign-in.
+In cases where a secure application needs to access an Azure resource under its own identity, you can use the identity of the MSI. Previously, you would been required to register the application with Azure AD, and authenticate with the client application's identity. In the examples below, we show how to use a VM's MSI service principal for sign-in.
 
 ### PowerShell
 
@@ -96,7 +96,8 @@ Instead of acquiring the access token from Azure Active Directory (AD), an MSI e
 
 ### Get a token using REST
 
-https://docs.microsoft.com/en-us/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol
+NOTES:
+- look at https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol
 
 ## How to use MSI with Azure SDK libaries
 
