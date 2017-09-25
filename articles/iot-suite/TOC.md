@@ -28,7 +28,6 @@
 #### [C on Windows](iot-suite-connecting-devices.md)
 #### [C on Linux](iot-suite-connecting-devices-linux.md)
 #### [Node.js](iot-suite-connecting-devices-node.md)
-### [Modify the deployment](iot-suite-remote-monitoring-cli.md)
 
 ### Concepts
 #### [Remote monitoring architecture](iot-suite-remote-monitoring-sample-walkthrough.md)

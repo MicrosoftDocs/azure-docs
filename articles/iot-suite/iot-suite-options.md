@@ -25,9 +25,9 @@ The article [Azure and the Internet of Things](iot-suite-what-is-azure-iot.md) d
 
 To implement this architecture, Azure IoT offers several options, each appropriate for different sets of customer requirements:
 
-* **Microsoft IoT Central** is a SaaS solution that uses a model-based approach to enable you to build enterprise-grade IoT solutions without requiring cloud solution development expertise.
+* [Microsoft IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions) is a SaaS solution that uses a model-based approach to enable you to build enterprise-grade IoT solutions without requiring cloud solution development expertise.
 
-* **Azure IoT Suite** is an enterprise-grade collection of [preconfigured solutions] (iot-suite-what-are-preconfigured-solutions.md) built on Azure Platform-as-a-Service that enable you to accelerate the development of custom IoT solutions.
+* [Azure IoT Suite](index.md) is an enterprise-grade collection of [preconfigured solutions] (iot-suite-what-are-preconfigured-solutions.md) built on Azure Platform-as-a-Service that enable you to accelerate the development of custom IoT solutions.
 
 ## Azure IoT Hub
 

@@ -16,7 +16,7 @@ ms.workload: NA
 
 # Perform advanced monitoring using the remote monitoring solution
 
-This tutorial shows the capabilities of the remote monitoring dashboard. To introduce these capabilities, the tutorial uses a scenario in the Contoso IoT application:
+This tutorial shows the capabilities of the remote monitoring dashboard. To introduce these capabilities, the tutorial uses a scenario in the Contoso IoT application.
 
 In this tutorial, you use two simulated Contoso truck devices to learn how to monitor your devices from the preconfigured solution dashboard. As a Contoso operator, you need to monitor the location and behavior of your trucks in the field.
 

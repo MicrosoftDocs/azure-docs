@@ -16,7 +16,7 @@ ms.workload: NA
 
 # Test your solution with simulated devices
 
-This tutorial shows you how to use customize the device simulator microservice with the remote monitoring preconfigured solution. To show the capabilities of the device simulator, this tutorial uses a scenario in the Contoso IoT application:
+This tutorial shows you how to use customize the device simulator microservice with the remote monitoring preconfigured solution. To show the capabilities of the device simulator, this tutorial uses a scenario in the Contoso IoT application.
 
 Contoso wants to test a new smart lightbulb device. To perform the tests, you create a new simulated device with the following characteristics:
 
@@ -85,10 +85,10 @@ The easiest way to create a new device type in the simulation microservice is to
 1. Use the following command to clone the **device-simulation** GitHub repository to your local machine:
 
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
+    git clone https://github.com/Azure/device-simulation-dotnet.git
     ```
 
-1. Each device type has a JSON model file and associated scripts in the `data/devicemodels` folder. Copy the **Chiller** files to create the **Lightbulb** files as shown in the following table:
+1. Each device type has a JSON model file and associated scripts in the `Services/data/devicemodels` folder. Copy the **Chiller** files to create the **Lightbulb** files as shown in the following table:
 
     | Source                      | Destination                   |
     | --------------------------- | ----------------------------- |
