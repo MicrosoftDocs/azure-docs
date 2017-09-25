@@ -56,6 +56,6 @@ After you provision and start an instance of Azure-SSIS integration runtime, you
 ## Next steps
 For more information about Azure-SSIS runtime, see the following topics: 
 
-- [Azure-SSIS Integration Runtime](concepts-integration-runtime#azure-ssis-integration-runtime)
+- [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime)
 - [Join Azure-SSIS Integration Runtime to VNET](join-azure-ssis-integration-runtime-virtual-network.md)
 - [Provision an Azure-SSIS integration runtime](tutorial-deploy-ssis-packages-azure.md).
