@@ -100,7 +100,7 @@ az storage account update --name "mystorageaccount" --resource-group "myresource
 ## Grant access from a virtual network
 Storage accounts can be configured to allow access only from specific Azure Virtual Networks. 
 
-By enabling a [Service Endpoint](/azure/virtual-network/virtual-networks-service-endpoints-overview) for Azure Storage within the Virtual Network, traffic is ensured an optimal route to the Azure Storage service. The identities of the virtual network and the subnet are also transmitted with each request.  Administrators can subsequently configure network rules for the Storage account that allow requests to be received from specific subnets in the Virtual Network.  Clients granted access via these network rules must continue to meet the authorization requirements of the Storage account to access the data.
+By enabling a [Service Endpoint](/azure/virtual-network/virtual-network-service-endpoints-overview) for Azure Storage within the Virtual Network, traffic is ensured an optimal route to the Azure Storage service. The identities of the virtual network and the subnet are also transmitted with each request.  Administrators can subsequently configure network rules for the Storage account that allow requests to be received from specific subnets in the Virtual Network.  Clients granted access via these network rules must continue to meet the authorization requirements of the Storage account to access the data.
 
 Each storage account can support up to 100 Virtual Network rules which may be combined with [IP network rules](#grant-access-from-an-internet-ip-range).
 
@@ -360,6 +360,6 @@ az storage account update --resource-group "myresourcegroup" --name "mystorageac
 >
 
 ## Next steps
-Learn more about Azure Network Service Endpoints in [Service Endpoints](/azure/virtual-network/virtual-networks-service-endpoints-overview).
+Learn more about Azure Network Service Endpoints in [Service Endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview).
 
 Dig deeper into Azure Storage security in [Azure Storage Security Guide](storage-security-guide.md).
