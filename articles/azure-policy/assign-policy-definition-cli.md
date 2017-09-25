@@ -27,7 +27,7 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 Azure Policy is now available in Limited Preview, so you need to register to request access.
 
-1. Log in to Azure Policy at https://aka.ms/getpolicy and select **Sign Up** in the left pane.
+1. Go to Azure Policy at https://aka.ms/getpolicy and select **Sign Up** in the left pane.
 
    ![Search for policy](media/assign-policy-definition/sign-up.png)
 
