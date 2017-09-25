@@ -103,7 +103,7 @@ To further modify the presentation and visualizations layer in the remote monito
 
 ## Device connectivity and streaming
 
-The following sections describe options to customize the device connectivity and streaming layer in the remote monitoring solution. [Device models](https://github.com/Azure/device-simulation-dotnet/blob/master/wiki/Device-Models) describe the device types and telemetry in the solution. You use device models for both simulated and [physical devices].
+The following sections describe options to customize the device connectivity and streaming layer in the remote monitoring solution. [Device models](https://github.com/Azure/device-simulation-dotnet/wiki/Device-Models) describe the device types and telemetry in the solution. You use device models for both simulated and physical devices.
 
 For an example of a physical device implementation, see [Connect your device to the remote monitoring preconfigured solution](iot-suite-connecting-devices-node.md).
 
