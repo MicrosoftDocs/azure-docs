@@ -18,7 +18,7 @@ ms.author: fryu
 ---
 # Require secure transfer in Azure Storage
 
-The "Secure transfer required" option enhances the security of your Azure Storage account by only allowing requests to the account from secure connections. For example, when calling REST APIs to access your storage account, you must connect using HTTPS. Any requests using HTTP are rejected when "Secure transfer required" is enabled.
+The "Secure transfer required" option enhances the security of your Azure Storage account by only allowing requests to the account from secure connections. For example, when calling REST APIs to access your storage account, you must connect by using HTTPS. "Secure transfer required" rejects requests using HTTP.
 
 When you use the Azure Files service, any connection without encryption fails when "Secure transfer required" is enabled. This includes scenarios using SMB 2.1, SMB 3.0 without encryption, and some versions of the Linux SMB client. 
 
@@ -29,11 +29,11 @@ By default, the "Secure transfer required" option is disabled.
 
 ## Enable "Secure transfer required" in the Azure portal
 
-You enable the "Secure transfer required" setting when you create a storage account in the [Azure portal](https://portal.azure.com), and also for existing storage accounts.
+You can turn on the "Secure transfer required" setting when you create a storage account in the [Azure portal](https://portal.azure.com). You can also enable it for existing storage accounts.
 
-### Require secure transfer when you create a storage account
+### Require secure transfer for a new storage account
 
-1. Open the **Create storage account** blade in the Azure portal.
+1. Open the **Create storage account** pane in the Azure portal.
 1. Under **Secure transfer required**, select **Enabled**.
 
   ![Create storage account blade](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_1.png)
@@ -41,14 +41,14 @@ You enable the "Secure transfer required" setting when you create a storage acco
 ### Require secure transfer for an existing storage account
 
 1. Select an existing storage account in the Azure portal.
-1. Select **Configuration** under **SETTINGS** in the storage account menu pane.
+1. In the storage account menu pane, under **SETTINGS**, select **Configuration**.
 1. Under **Secure transfer required**, select **Enabled**.
 
   ![Storage account menu pane](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
 
 ## Enable "Secure transfer required" programmatically
 
-The setting name is _supportsHttpsTrafficOnly_ in storage account properties. You enable it with REST API, tools, or libraries:
+To require secure transfer programmatically, use the setting _supportsHttpsTrafficOnly_ in storage account properties with REST API, tools, or libraries:
 
 * [REST API](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts) (Version: 2016-12-01)
 * [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.storage/set-azurermstorageaccount?view=azurermps-4.1.0) (Version: 4.1.0)
@@ -71,7 +71,7 @@ To simplify testing with REST API, use [ArmClient](https://github.com/projectkud
 > armclient GET  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}?api-version=2016-12-01
 ```
 
-In the response, find the _supportsHttpsTrafficOnly_ setting. Example:
+In the response, find the _supportsHttpsTrafficOnly_ setting. For example:
 
 ```Json
 
@@ -99,7 +99,7 @@ Use the following command line to enable the setting with the REST API:
 
 ```
 
-Sample of Input.json:
+The following is an Input.json example:
 ```Json
 
 {
