@@ -25,6 +25,7 @@ ms.reviewer: calebb
 With [Azure Active Directory (Azure AD) conditional access](active-directory-conditional-access-azure-portal.md), you can control how authorized users access your cloud apps. In a conditional access policy, you define the response ("do this") to a specific condition ("when this happens"). In the context of conditional access, 
 
 - "**When this happens**" is called **condition statement**
+
 - "**Then do this**" is called **controls**
 
 ![Control](./media/active-directory-conditional-access-controls/11.png)
@@ -50,7 +51,7 @@ With grant controls, you can either block access altogether or allow access with
 - All selected controls to be fulfilled (*AND*) 
 - One selected control to be fulfilled (*OR*)
 
-![Control](./media/active-directory-conditional-access-controls/111.png)
+![Control](./media/active-directory-conditional-access-controls/17.png)
 
 
 
