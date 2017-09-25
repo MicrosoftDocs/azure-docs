@@ -129,4 +129,4 @@ Returns the status of compose application that was created or in the process of 
 
 ## Next Steps
 - [Setup](service-fabric-cli.md) the Service Fabric CLI.
-- Learn how to use the Servcie Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Learn how to use the Service Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

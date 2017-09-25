@@ -198,4 +198,4 @@ This API is useful for testing failover. If used to target a stateless service p
 
 ## Next Steps
 - [Setup](service-fabric-cli.md) the Service Fabric CLI.
-- Learn how to use the Servcie Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Learn how to use the Service Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

@@ -107,4 +107,4 @@ Stops Chaos from scheduling further faults; but, the in-flight faults are not af
 
 ## Next Steps
 - [Setup](service-fabric-cli.md) the Service Fabric CLI.
-- Learn how to use the Servcie Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Learn how to use the Service Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

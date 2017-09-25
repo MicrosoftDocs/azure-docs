@@ -196,4 +196,4 @@ Restarts a service replica of a persisted service running on a node. Warning - T
 
 ## Next Steps
 - [Setup](service-fabric-cli.md) the Service Fabric CLI.
-- Learn how to use the Servcie Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Learn how to use the Service Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

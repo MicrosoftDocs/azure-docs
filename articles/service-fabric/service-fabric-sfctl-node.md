@@ -290,4 +290,4 @@ Starts or stops a cluster node.  A cluster node is a process, not the OS instanc
 
 ## Next Steps
 - [Setup](service-fabric-cli.md) the Service Fabric CLI.
-- Learn how to use the Servcie Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Learn how to use the Service Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
