@@ -2,7 +2,7 @@
   href: manage-access-to-azure-resources.md
 - name: Resource access in Azure
   href: active-directory-understanding-resource-access.md
-- name: Role-Based Access Control
+- name: Role-Based Access Control (RBAC)
   href: role-based-access-control-what-is.md
   items:
   - name: Manage access assignments
@@ -33,10 +33,14 @@
     href: role-based-access-control-troubleshooting.md
   - name: Resource Provider operations
     href: role-based-access-control-resource-provider-operations.md
+- name: Privileged Identity Management (PIM) for RBAC
+  href: pim-azure-resource.md
+- name: Conditional access for Azure management
+  href: conditional-access-azure-management.md
 - name: Managed Service Identity
   href: msi-overview.md
   items:
-    - name: Configure MSI for Windows VM
+    - name: Configure MSI for an Azure VM
       items:
       - name: With the Azure Portal
         href: msi-qs-configure-portal-windows-vm.md
@@ -46,6 +50,14 @@
         href: msi-qs-configure-cli-windows-vm.md
       - name: With Azure Resource Manager template
         href: msi-qs-configure-template-windows-vm.md  
+    - name: Assign an MSI access to an Azure resource
+      items:
+      - name: With the Azure portal
+        href: msi-howto-assign-access-portal.md
+      - name: With PowerShell
+        href: msi-howto-assign-access-powershell.md
+      - name: With Azure CLI
+        href: msi-howto-assign-access-cli.md 
     - name: Use MSI to access Azure Resource Manager
       items:
       - name: With a Windows VM
@@ -64,13 +76,5 @@
         href: msi-tutorial-windows-vm-access-nonaad.md
       - name: With a Linux VM
         href: msi-tutorial-linux-vm-access-nonaad.md
-    - name: Assign an MSI access to an Azure resource
-      items:
-      - name: With the Azure portal
-        href: msi-howto-assign-access-portal.md
-      - name: With PowerShell
-        href: msi-howto-assign-access-powershell.md
-      - name: With Azure CLI
-        href: msi-howto-assign-access-cli.md 
-    - name: Known issues
+    - name: FAQs and known issues
       href: msi-known-issues.md
