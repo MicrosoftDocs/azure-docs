@@ -57,7 +57,7 @@ The process to delete a Storage account, container, or blob when receiving one o
 #### Scenario 2: Deleting a container - identify all blob(s) within container that are attached to VMs
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the _Hub_ menu, select **_All resources_**. Go to the Storage account, under **_Blob Service_** select **_Containers_** and find the container to be deleted.
-3. Click to open the container and the list of blobs inside it will appear. Identify all the blobs with Blob Type = **_Page blob_** and Lease State = **_Leased_** from this list. These are the blobs with attached VMs. Follow [Scenario 1](#scenario-1-deleting-a-blob---identify-attached-vm) to identify the VM associated with each of these blobs.
+3. Click to open the container and the list of blobs inside it will appear. Identify all the blobs with Blob Type = **_Page blob_** and Lease State = **_Leased_** from this list. These are the blobs with attached VMs. Follow [Scenario 1](#step-1-identify-blobs-attached-to-a-vm) to identify the VM associated with each of these blobs.
 
     ![Screenshot of the portal, with the Storage account blobs and the "Lease State" with "Leased" highlighted](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/utd_disks_sm.PNG)
 
