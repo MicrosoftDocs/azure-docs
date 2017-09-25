@@ -130,7 +130,6 @@ You can use _local mode_ for development and testing. The Docker engine must be 
 ``` 
 az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table 
 ``` 
-
 You should see output similar to: 
 ```
 Provider                                  Status 
@@ -141,7 +140,6 @@ microsoft.insights                        Registered
 Microsoft.MachineLearningExperimentation  Registered 
 ... 
 ```
-
 If `Microsoft.ContainerRegistry` is not registered, you can register it using the following command: 
 ``` 
 az provider register --namespace Microsoft.ContainerRegistry 
