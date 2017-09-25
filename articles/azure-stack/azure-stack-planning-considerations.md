@@ -133,7 +133,7 @@ If you want to deploy additional resource providers post-deployment, such as SQL
 
 | Used For | Endpoint 
 | -------- | ------------- | 
-| SQL/MySQL | &#42;.adapter.[region].[external_domain] |
+| SQL/MySQL | &#42;.dbadapter.[region].[external_domain] |
 | App Service | &#42;.appservice.[region].[external_domain]<br>&#42;.scm.appservice. [region].[external_domain]<br>api.appservice.[region].[external_domain]<br>sso.appservice.[region].[external_domain]
 | | |
 
@@ -287,10 +287,10 @@ Azure Stack does not back up tenant applications and data. You must plan for bac
 
 To back up Linux or Windows IaaS virtual machines, you must use backup products with access to the guest operating system to protect file, folder, operating system state, and application data. You can use Azure Backup, System Center Data Center Protection Manager, or supported third-party products.
 
-To replicate data to a secondary location and orchestrate application failover if a disaster occurs, you can use Azure Site Recovery, or supported third-party products. (At the general release (GA) of integrated systems, Azure Site Recovery won’t support failback. However, you can achieve failback through a manual process.) Also, applications that support native replication (like Microsoft SQL Server) can replicate data to another location where the application is running.
+To replicate data to a secondary location and orchestrate application failover if a disaster occurs, you can use Azure Site Recovery, or supported third-party products. (At the initial release of integrated systems, Azure Site Recovery won’t support failback. However, you can achieve failback through a manual process.) Also, applications that support native replication (like Microsoft SQL Server) can replicate data to another location where the application is running.
 
 > [!IMPORTANT]
-> At the GA release of integrated systems, we’ll support protection technologies that work at the guest level of an IaaS virtual machine. You can’t install agents on underlying infrastructure servers.
+> At the initial release of integrated systems, we’ll support protection technologies that work at the guest level of an IaaS virtual machine. You can’t install agents on underlying infrastructure servers.
 
 ## Next steps
 
