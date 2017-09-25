@@ -200,6 +200,8 @@
     href: /python/api/overview/azure/datafactory?view=azure-python
 - name: Resources
   items:
+  - name: FAQ
+    href: frequently-asked-questions.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=analytics
   - name: Pricing
