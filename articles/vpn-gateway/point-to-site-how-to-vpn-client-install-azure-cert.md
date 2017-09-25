@@ -32,8 +32,10 @@ You can generate a client certificate from either a root certificate that was ge
 
 ## <a name="installmac"></a>Install a certificate on Mac clients
 
+Mac VPN clients are supported for the Resource Manager deployment model only. They are not supported for the classic deployment model.
+
 > [!NOTE]
-> Mac VPN clients are supported for the Resource Manager deployment model only. They are not supported for the classic deployment model. IKEv2 currently in Preview.
+>  IKEv2 is currently in Preview.
 >
 
 [!INCLUDE [Install on Mac](../../includes/vpn-gateway-certificates-install-mac-client-cert-include.md)]
