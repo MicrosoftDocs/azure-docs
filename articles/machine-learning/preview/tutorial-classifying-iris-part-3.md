@@ -127,27 +127,29 @@ You can use _local mode_ for development and testing. The Docker engine must be 
    The command-line prompt opens in your current project folder location `c:\temp\myIris>`.
 
 2. Make sure the Azure resource provider `Microsoft.ContainerRegistry` is registered in your subscription. You need to register this resource provider before you can create an environment in Step 3. You can check to see if it is already registered using the following command:
-``` 
-az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table 
-``` 
-You should see output similar to: 
-```
-Provider                                  Status 
- 
-Microsoft.Authorization                   Registered 
-Microsoft.ContainerRegistry               Registered 
-microsoft.insights                        Registered 
-Microsoft.MachineLearningExperimentation  Registered 
-... 
-```
-If `Microsoft.ContainerRegistry` is not registered, you can register it using the following command: 
-``` 
-az provider register --namespace Microsoft.ContainerRegistry 
-``` 
-Registration can take a few minutes and you can check on its status using the above `az provider list` command, or the following command: 
-``` 
-az provider show -n Microsoft.ContainerRegistry 
-``` 
+   ``` 
+   az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table 
+   ``` 
+
+   You should see output similar to: 
+   ```
+   Provider                                  Status 
+   --------                                  ------
+   Microsoft.Authorization                   Registered 
+   Microsoft.ContainerRegistry               Registered 
+   microsoft.insights                        Registered 
+   Microsoft.MachineLearningExperimentation  Registered 
+   ... 
+   ```
+   
+   If `Microsoft.ContainerRegistry` is not registered, you can register it using the following command:
+   ``` 
+   az provider register --namespace Microsoft.ContainerRegistry 
+   ```
+   Registration can take a few minutes and you can check on its status using the above `az provider list` command, or the following command:
+   ``` 
+   az provider show -n Microsoft.ContainerRegistry 
+   ``` 
 
 3. Create the environment. This step is required to be run once per environment, for example, dev or prod. Use _local mode_ for this first environment. (You can try the `-c` or `--cluster` switch in the following command to set up an environment in _cluster mode_ later.)
 
