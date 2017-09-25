@@ -73,13 +73,13 @@ If you do not yet have a General-purpose storage account, here's how to create o
 
 Containers are blob-specific, they exist to store blobs and are similar to folders.
 
-Blobs are basically files, like those that you store on your computer (or tablet, mobile device, and so on). They can be pictures, Microsoft Excel files, HTML files, virtual hard disks (VHDs), database backups, and big data such as logs.  
+Blobs are basically files, like those that you store on your computer (or tablet, mobile device, and so on). They can be pictures, Microsoft Excel files, HTML files, virtual hard disks (VHDs), database backups, and big data such as logs.
 
 For this tutorial, we are using a single container to store the text obtained from clinicaltrials.gov in a blob.
 
 1. Navigate to and open your storage account.
 
-2. Scroll down and click **Containers** under **Blob Storage.**
+2. Scroll down and click **Browse blobs** under **Blob Service.**
 
 3. Click **+Container** to create a new container.
 
@@ -173,9 +173,9 @@ Now that you have a search service, you can attach it to your blob storage. This
 
 ### Index
 
-    The index allows you to specify the fields *documents*, attributes, and other constructs that shape the search experience. A document is treated like a single unit of searchable data in your index. If you were to think of this process in the context of a database, an index is like a table and documents are rows in the table.
+  The index allows you to specify the fields *documents*, attributes, and other constructs that shape the search experience. A document is treated like a single unit of searchable data in your index. If you were to think of this process in the context of a database, an index is like a table and documents are rows in the table.
 
-    The parameters of your target index and what attributes you give those parameters are important. The parameters specify *what* data to store, the attributes specify *how* to store that data.
+  The parameters of your target index and what attributes you give those parameters are important. The parameters specify *what* data to store, the attributes specify *how* to store that data.
     
 ### Field attributes
 | Attribute | Description |
@@ -197,7 +197,7 @@ Now that you have a search service, you can attach it to your blob storage. This
 
 ### Create an Indexer
     
-    An indexer connects a data source with a target search index, and provides a schedule to automate the data refresh.
+  An indexer connects a data source with a target search index, and provides a schedule to automate the data refresh.
 
 1. Fill in the **Name** field with a name of your choosing and then click **OK**.
 

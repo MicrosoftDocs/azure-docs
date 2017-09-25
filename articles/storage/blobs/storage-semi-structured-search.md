@@ -43,12 +43,11 @@ To complete this tutorial you need to have a REST client. For the purposes of th
 
 After installing postman, launch it.
 
+If this is your first time making REST calls to Azure, here's a brief introduction of the components that are important for this tutorial: The request method for every call in this tutorial is "POST." The header keys, which are "Content-type" and "api-key", application/json and your "admin key" (this is a placeholder for your search primary key). The rest of the call (including the brackets) is the body of your call. Depending on the client you're using, there may be some variations on how you construct your query but that's the gist of it.
 
 The search api-key is required, it can be found under **Keys** inside your search service. This api-key must be in the header of every API call this tutorial directs you to make. So note it down.
 
   ![Semi-structured search](media/storage-unstructured-structured-search/keys.png)
-
-If this is your first time making REST calls to Azure, here's a brief introduction of the components that are important for this tutorial: The request method for every call in this tutorial is "POST." The header keys, which are "Content-type" and "api-key", application/json and your "admin key" (this is a placeholder for your search primary key). The rest of the call (including the brackets) is the body of your call. Depending on the client you're using, there may be some variations on how you construct your query but that's the gist of it.
 
 ## Download the sample data
 
@@ -178,5 +177,5 @@ The quickest way to accomplish this is to delete the resource group you created 
 In this tutorial, you learned about searching semi-structured data such as how to:
 
 > [!div class="checklist"]
-> * Create an Azure Search Service using the REST API
+> * Create an Azure Search Service using the REST API7
 > * Use the Azure Search Service to search your container
