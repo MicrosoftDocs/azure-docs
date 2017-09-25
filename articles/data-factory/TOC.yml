@@ -178,7 +178,7 @@
       href: data-movement-security-considerations.md
     - name: Store credentials in key vault
       href: store-credentials-in-key-vault.md    
-    - name: Encrypt credentials for self-hosted IR
+    - name: Encrypt credentials for self-hosted integration runtime
       href: encrypt-credentials-self-hosted-integration-runtime.md
   - name: Monitor and manage
     items: 
