@@ -60,10 +60,15 @@ The following script demonstrates how to:
    
 ### Azure CLI
 
-To sign in to Azure AD using an MSI service principal, use the following script:
+The following script demonstrates how to:
+
+- sign in to Azure AD under the corresponding MSI service principal
+- use the MSI service principal to make an Azure Resource Manager call
 
    ```azurecli-interactive
-   az login -u <AZURE-SUBSCRIPTION-ID>@50342
+   az login --msi
+
+   $spID=$(az resource list -n <VM-NAME> --query [*].identity.principalId --out tsv)
    ```
 
 ## How to acquire an access token from MSI
@@ -82,6 +87,14 @@ Instead of acquiring the access token from Azure Active Directory (AD), an MSI e
    $access_token = $content.access_token
    ```
 
+## Get a token using CLI
+
+Stuart?? This wasn't on the list.
+
+   ```azurecli-interactive
+   az login --msi
+
+   ```
 
 ### Get a token using CURL
 
