@@ -19,7 +19,7 @@ ms.topic: hero-article
 ms.date: 08/01/2017
 ms.author: ayolubek
 ---
-# Azure SQL Database: Use the SQL Query Editor to connect and query data
+# Azure Portal: Use the SQL Query Editor to connect and query data
 
 The SQL Query Editor is a browser query tool that provides an efficient and lightweight way to execute SQL queries on your Azure SQL Database or Azure SQL Data Warehouse without leaving the Azure portal. This quick start demonstrates how to use the Query Editor to connect to a SQL database, and then use Transact-SQL statements to query, insert, update, and delete data in the database. 
 
