@@ -42,10 +42,16 @@ A DNS zone is created by using the `New-AzureRmDnsZone` cmdlet. The following ex
 
 ```powershell
 $vnet = Get-AzureRmVirtualNetwork -Name MyAzureVnet -ResourceGroupName VnetResourceGroup
-New-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyResourceGroup -ZoneType Private -ResolutionVirtualNetworkId $vnet.Id
+New-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyResourceGroup -ZoneType Private -ResolutionVirtualNetworkId @($vnet.Id)
 ```
 
-If you need Azure to automatically create hostname records in the zone use the *RegistrationVirtualNetworkId* parameter instead of *ResolutionVirtualNetworkId*.
+If you need Azure to automatically create hostname records in the zone use the *RegistrationVirtualNetworkId* parameter instead of *ResolutionVirtualNetworkId*.  Registration virtual networks are automatically enabled for resolution.
+
+```powershell
+$vnet = Get-AzureRmVirtualNetwork -Name MyAzureVnet -ResourceGroupName VnetResourceGroup
+New-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyResourceGroup -ZoneType Private -RegistrationVirtualNetworkId @($vnet.Id)
+```
+
 
 ## Create a DNS record
 
