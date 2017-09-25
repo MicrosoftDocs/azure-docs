@@ -144,13 +144,7 @@ This problem can be caused by:
 
 -  Common Internet File System (CIFS) utils are not installed.
 - The minimum SMB/CIFS version 2.1 is not installed.
-- SMB 3.0 Encryption is not supported.  SMB 3.0 Encryption is available in:
-
-    - Ubuntu 16.4 and later version
-    - SUSE 12.3 and later version 
-
-    Other distributions require kernel 4.11 and later
-
+- SMB 3.0 Encryption is not supported. SMB 3.0 Encryption is available Ubuntu 16.4 and later version, SUSE 12.3 and later version. Other distributions require kernel 4.11 and later version.
 - You are trying to connect to a storage account over TCP port 445 that is not supported.
 -  You may try to connect to Azure file share from an Azure VM, and the VM is not located in the same region as Storage account.
 
