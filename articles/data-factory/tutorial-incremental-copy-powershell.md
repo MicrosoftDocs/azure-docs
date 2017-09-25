@@ -27,10 +27,10 @@ You can use Data Factory to create high-watermark solutions to achieve increment
 You perform the following steps in this tutorial:
 
 > [!div class="checklist"]
-> * Define a **watermark** column and store it in Azure SQL Database.  
+> * Prepare the data store to store the watermark value.   
 > * Create a data factory.
-> * Create linked services for SQL Database and Blob Storage. 
-> * Create source and sink datasets.
+> * Create linked services. 
+> * Create source, sink, watermark datasets.
 > * Create a pipeline.
 > * Run the pipeline.
 > * Monitor the pipeline run. 
@@ -40,15 +40,20 @@ The high-level solution diagram is:
 
 ![Incrementally load data](media\tutorial-Incrementally-load-data-from-azure-sql-to-blob\incrementally-load.png)
 
-The concrete working flow:
+Here are the important steps in creating this solution: 
 
-1. Define a watermark column in the source data store that can be used to slice the new or updated records for every run. For example, LastModifiedDate Column or ID Column.  Normally, the data in this selected column keeps increasing or decreasing when rows created or updated.  
-2. Find a place to store the watermark value. In this tutorial, you create a table in an Azure SQL database to store that value.
-3. Create a stored procedure.  This stored procedure keeps the value of watermark being updated every time after the delta data loading. 
-5. Create two lookup activities to get watermark value that the copy activity can query against. The first Lookup Activity is used to get the last watermark value.The second Lookup Activity is used to get the new watermark value. 
-6. Create a copy activity to copy rows in which the data is greater than the old watermark value and less than the new watermark value.
-7. Use a stored procedure activity to update the watermark for next run.
-8. Create a pipeline with all the activities chained and run periodically. 
+1. **Select the watermark column**.
+	Select one column in the source data store, which can be used to slice the new or updated records for every run. Normally, the data in this selected column (for example, last_modify_time or ID) keeps increasing when rows are created or updated. The maximum value in this column is used as a watermark.
+2. **Prepare a data store to store the watermark value**.   
+	In this tutorial, you store the watermark value in an Azure SQL database.
+3. **Create a pipeline with the following workflow:** 
+	
+	The pipeline in this solution has the following activities:
+  
+	1. Create two **lookup** activities. Use the first lookup activity to retrieve the last watermark value. Use the second lookup activity to retrieve the new watermark value. These watermark values are passed to the copy activity. 
+	2. Create a **copy activity** that copies rows from the source data store with the value of watermark column greater than the old watermark value and less than the new watermark value. Then, it copies the delta data from the source data store to a blob storage as a new file. 
+	3. Create a **stored procedure activity** that updates the watermark value for the pipeline running next time. 
+
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
