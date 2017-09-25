@@ -23,17 +23,13 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
  
-## Log in to Azure
-
-Log in to the Azure portal at http://portal.azure.com.
-
 ## Opt in to Azure Policy
 
 Azure Policy is now available in Limited Preview, so you need to register to request access.
 
-1. Launch the Azure Policy service in the Azure portal by searching for and selecting  **Policy** in the left pane.
+1. Log in to Azure Policy at https://aka.ms/getpolicy and select **Sign Up** in the left pane.
 
-   ![Search for policy](media/assign-policy-definition/search-policy.png)
+   ![Search for policy](media/assign-policy-definition/sign-up.png)
 
 2. Opt in to Azure Policy by selecting the subscriptions in the **Subscription** list you would like to work with. Then select **Register**.
 
