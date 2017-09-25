@@ -16,7 +16,7 @@
 # How to
 ## Join a managed domain
 ### [Join a Windows Server VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [Join a Windows Server VM using PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [Join a Windows Server VM using Azure PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
 ### [Join a Linux VM](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 ## Administer a managed domain
 ### [Administer a managed domain](active-directory-ds-admin-guide-administer-domain.md)
