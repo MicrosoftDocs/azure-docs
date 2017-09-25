@@ -41,6 +41,8 @@
 
 
 # Reference
+## [Developer Reference Guide](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
+## [Developer Troubleshooting Guide](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
 ## [Security architecture](iot-security-architecture.md)
 ## [Security best practices](iot-security-best-practices.md)
 ## [Secure your IoT deployment](iot-suite-security-deployment.md)

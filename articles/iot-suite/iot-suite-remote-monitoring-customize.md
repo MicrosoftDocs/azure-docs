@@ -129,8 +129,7 @@ The following steps describe how to add a new KPI to display on the **Dashboard*
 
 ### Customize the map
 
-See the [Customize map](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub for details of the map components in the solution.
-<!-- Update the previous link -->
+See the [Customize map](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map) page in GitHub for details of the map components in the solution.
 
 ### Customize the telemetry chart
 
@@ -248,5 +247,10 @@ To further modify the infrastructure in the remote monitoring solution, you can 
 In this article, you learned about the resources available to help you customize the preconfigured solution.
 
 For more conceptual information about the remote monitoring preconfigured solution, see [Remote monitoring architecture](iot-suite-remote-monitoring-sample-walkthrough.md)
+
+For more information about customizing the remote monitoring solution, see:
+
+* [Developer Reference Guide](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
+* [Developer Troubleshooting Guide](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
 
 <!-- Next tutorials in the sequence -->
