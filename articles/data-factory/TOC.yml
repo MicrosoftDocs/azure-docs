@@ -180,14 +180,18 @@
       href: quickstart-create-data-factory-dot-net.md#monitor-pipeline-run
     - name: Use Azure Monitor
       href: monitor-using-azure-monitor.md
+    - name: Manage Azure-SSIS integration runtime
+      href: manage-azure-ssis-integration-runtime.md
   - name: Create integration runtime
     items:
     - name: Azure integration runtime
       href: create-azure-integration-runtime.md   
-    - name: Azure SSIS integration runtime
-      href: create-azure-ssis-integration-runtime.md
     - name: Self hosted integration runtime
-      href: create-self-hosted-integration-runtime.md
+      href: create-self-hosted-integration-runtime.md     
+    - name: Azure-SSIS integration runtime
+      href: create-azure-ssis-integration-runtime.md     
+    - name: Join Azure-SSIS integration runtime to a VNET
+      href: join-azure-ssis-integration-runtime-virtual-network.md
 - name: Reference
   items:
   - name: .NET
