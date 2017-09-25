@@ -312,6 +312,21 @@ The below list details the property names and their description for creating an 
 * **Partition Key** – Optional. This is only needed if you are using a {parition} token in your collection name pattern. The name of the field in output events used to specify the key for partitioning output across collections. For single collection output, any arbitrary output column can be used e.g. PartitionId.  
 * **Document ID** – Optional. The name of the field in output events used to specify the primary key on which insert or update operations are based.  
 
+## Azure Functions
+Azure Functions is a serverless compute service that enables you to run code on-demand without having to explicitly provision or manage infrastructure. It lets you implement code that is triggered by events occurring in Azure or third-party services.  This ability of Azure Functions to respond to triggers makes it a natural output for a Azure Stream Analytics. This output adapter allows users to connect Stream Analytics to Azure Functions, and run a script or piece of code in response to a variety of events.
+
+Azure Stream Analytics invokes Azure Functions via HTTP triggers. The new Azure Function Output adapter is available with the following configurable properties:
+
+| Property Name | Description |
+| --- | --- |
+| Function App |Name of your Azure Functions App |
+| Function |Name of the function in your Azure Functions App |
+| Max Batch Size |This property can be used to set the maximum size for each output batch that will be sent to your Azure Function. By default, this value is 256 KB |
+| Max Batch Count  |As the name indicates, this property lets you specify the maximum number of events in each batch that gets sent to Azure Functions. The default max batch count value is 100 |
+| Key |If you want to use an Azure Function from another subscription, you can do so by providing the key to access your function |
+
+Note that when Azure Stream Analytics receives 413 (http Request Entity Too Large) exception from Azure function, it reduces the size of the batches it sends to Azure Functions. In your Azure function code, use this exception to make sure that Azure Stream Analytics doesn’t send oversized batches. Also, please make sure that the max batch count and size values used in the function are consistent with the values entered in the Stream Analytics portal.
+
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
