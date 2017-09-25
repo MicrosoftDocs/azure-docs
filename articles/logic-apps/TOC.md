@@ -84,8 +84,7 @@
 #### [X12 tracking schema](logic-apps-track-integration-account-x12-tracking-schema.md)
 #### [Custom tracking schema](logic-apps-track-integration-account-custom-tracking-schema.md)
 
-## Examples, scenarios, and walkthroughs
-### [Overview](logic-apps-examples-and-scenarios.md)
+## [Examples, scenarios, and walkthroughs](logic-apps-examples-and-scenarios.md)
 ### [Create a serverless social dashboard](logic-apps-scenario-social-serverless.md)
 ### [Call logic apps with Azure Functions](logic-apps-scenario-function-sb-trigger.md)
 ### [Add error and exception handling](logic-apps-scenario-error-and-exception-handling.md)

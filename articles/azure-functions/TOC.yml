@@ -107,6 +107,8 @@
       href: app-service-export-api-to-powerapps-and-flow.md
     - name: Call a function from PowerApps
       href: functions-powerapps-scenario.md
+    - name: Call a function from Microsoft Flow 
+      href: functions-flow-scenario.md
     - name: Use Managed Service Identity
       href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
 - name: Reference

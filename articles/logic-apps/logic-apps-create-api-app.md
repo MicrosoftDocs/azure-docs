@@ -271,7 +271,7 @@ Your API can then unregister the callback URL and stop any processes as necessar
 > So for this pattern, you have to add a 
 > [**Webhook** action](../connectors/connectors-native-webhook.md)
 > and specify the URL, headers, and body for your request. 
-> See also [Workflow actions and triggers](logic-apps-workflow-actions-triggers.md#api-connection-webhook-action). 
+> See also [Workflow actions and triggers](logic-apps-workflow-actions-triggers.md#apiconnection-webhook-action). 
 > To pass in the callback URL, you can use the `@listCallbackUrl()` 
 > workflow function in any of the previous fields as necessary.
 
@@ -398,10 +398,9 @@ To make your custom APIs available for other Logic Apps users in Azure,
 you must add security and register them as Logic App connectors. 
 For more information, see [Custom connectors overview](../logic-apps/custom-connector-overview.md). 
 
-To make your custom APIs available to all Logic Apps, 
-Microsoft Flow, and Microsoft PowerApps users, 
-you must add security, register your APIs as Logic App connectors, 
-and nominate your connectors for the 
+To make your custom APIs available to all users in Logic Apps, 
+Microsoft Flow, and Microsoft PowerApps, you must add security, 
+register your APIs as Logic App connectors, and nominate your connectors for the 
 [Microsoft Azure Certified program](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/). 
 
 ## Get support
