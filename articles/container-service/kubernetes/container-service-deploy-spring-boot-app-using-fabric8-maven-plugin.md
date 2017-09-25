@@ -1,6 +1,6 @@
 ---
-title: Deploy a Spring Boot app using the fabric8 Maven plugin
-description: This tutorial walks you though the steps to deploy a Spring Boot application on Microsoft Azure using the fabric8 plugin for Apache Maven.
+title: Deploy a Spring Boot app using the Fabric8 Maven Plugin
+description: This tutorial walks you though the steps to deploy a Spring Boot application on Microsoft Azure using the Fabric8 Plugin for Apache Maven.
 services: container-service
 documentationcenter: java
 author: rmcmurray
@@ -19,7 +19,7 @@ ms.custom:
 
 ---
 
-# Deploy a Spring Boot app using the fabric8 Maven plugin
+# Deploy a Spring Boot app using the Fabric8 Maven Plugin
 
 **[fabric8]** is an open-source solution that is built on **[Kubernetes]**, which helps developers create applications in Linux containers.
 
@@ -46,37 +46,44 @@ In order to complete the steps in this tutorial, you need to have the following 
 The following steps walk you through building a Spring Boot web application and testing it locally.
 
 1. Open a command-prompt and create a local directory to hold your application, and change to that directory; for example:
+   ```shell
+   md /home/GenaSoto/SpringBoot
+   cd /home/GenaSoto/SpringBoot
    ```
+   -- or --
+   ```shell
    md C:\SpringBoot
    cd C:\SpringBoot
    ```
-   -- or --
-   ```
-   md /users/robert/SpringBoot
-   cd /users/robert/SpringBoot
-   ```
 
 1. Clone the [Spring Boot on Docker Getting Started] sample project into the directory.
-   ```
+   ```shell
    git clone https://github.com/spring-guides/gs-spring-boot-docker.git
    ```
 
-1. Change directory to the completed project.
+1. Change directory to the completed project; for example:
+   ```shell
+   cd gs-spring-boot-docker/complete
    ```
-   cd gs-spring-boot-docker
-   cd complete
+   -- or --
+   ```shell
+   cd gs-spring-boot-docker\complete
    ```
 
 1. Use Maven to build and run the sample app.
-   ```
-   mvn package spring-boot:run
+   ```shell
+   mvn clean package spring-boot:run
    ```
 
 1. Test the web app by browsing to http://localhost:8080, or with the following `curl` command:
-   ```
+   ```shell
    curl http://localhost:8080
    ```
+
    You should see a **Hello Docker World** message displayed.
+
+   ![Browse sample application locally][SB01]
+
 
 ## Install the Kubernetes command-line interface and create an Azure resource group using the Azure CLI
 
@@ -100,8 +107,9 @@ The following steps walk you through building a Spring Boot web application and 
        "state": "Enabled",
        "tenantId": "00000000-0000-0000-0000-000000000000",
        "user": {
-       "name": "Gena.Soto@wingtiptoys.com",
-       "type": "user"
+         "name": "Gena.Soto@wingtiptoys.com",
+         "type": "user"
+       }
      }
    ]
    ```
@@ -115,27 +123,33 @@ The following steps walk you through building a Spring Boot web application and 
    >
    > Linux users may have to prefix this command with `sudo` since it deploys the Kubernetes CLI to `/usr/local/bin`.
    >
-   > If you already have `kubectl`) installed, you may see an error message similar to the following example if your version of `kubectl` is too old:
+   > If you already have `kubectl`) installed and your version of `kubectl` is too old, you may see an error message similar to the following example when you attempt to complete the steps listed later in this article:
+   >
    > ```
-   > error: group map[autoscaling:0x0000000000 batch:0x0000000000 certificates.k8s.io:0x0000000000 extensions:0x0000000000 storage.k8s.io:0x0000000000 :0x0000000000 apps:0x0000000000 authentication.k8s.io:0x0000000000 policy:0x0000000000 rbac.authorization.k8s.io:0x0000000000 federation:0x0000000000 authorization.k8s.io:0x0000000000 componentconfig:0x0000000000] is already registered
+   > error: group map[autoscaling:0x0000000000 batch:0x0000000000 certificates.k8s.io
+   > :0x0000000000 extensions:0x0000000000 storage.k8s.io:0x0000000000 apps:0x0000000
+   > 000 authentication.k8s.io:0x0000000000 policy:0x0000000000 rbac.authorization.k8
+   > s.io:0x0000000000 federation:0x0000000000 authorization.k8s.io:0x0000000000 comp
+   > onentconfig:0x0000000000] is already registered
    > ```
-   > If this happens, you will need to reinstall `kubectl`.
+   >
+   > If this happens, you will need to reinstall `kubectl` to update your version.
    >
 
 1. Create a resource group for the Azure resources that you will use in this tutorial; for example:
    ```azurecli
-   az group create --name=wingtiptoys-kubernetes --location=eastus
+   az group create --name=wingtiptoys-kubernetes --location=westeurope
    ```
    Where:  
       * *wingtiptoys-kubernetes* is a unique name for your resource group  
-      * *eastus* is an appropriate geographic location for your application  
+      * *westeurope* is an appropriate geographic location for your application  
 
    The Azure CLI will display the results of your resource group creation; for example:  
 
    ```json
    {
      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/wingtiptoys-kubernetes",
-     "location": "eastus",
+     "location": "westeurope",
      "managedBy": null,
      "name": "wingtiptoys-kubernetes",
      "properties": {
@@ -145,15 +159,103 @@ The following steps walk you through building a Spring Boot web application and 
    }
    ```
 
+
+## Create a Kubernetes cluster using the Azure CLI
+
+1. Create a Kubernetes cluster in your new resource group; for example:  
+   ```azurecli 
+   az acs create --orchestrator-type kubernetes --resource-group wingtiptoys-kubernetes --name wingtiptoys-cluster --generate-ssh-keys --dns-prefix=wingtiptoys
+   ```
+   Where:  
+      * *wingtiptoys-kubernetes* is the name of your resource group from earlier in this article  
+      * *wingtiptoys-cluster* is a unique name for your Kubernetes cluster
+      * *wingtiptoys* is a unique name DNS name for your application
+
+   The Azure CLI will display the results of your cluster creation; for example:  
+
+   ```json
+   {
+     "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/wingtiptoys-kubernetes/providers/Microsoft.Resources/deployments/azurecli0000000000.00000000000",
+     "name": "azurecli0000000000.00000000000",
+     "properties": {
+       "correlationId": "00000000-0000-0000-0000-000000000000",
+       "debugSetting": null,
+       "dependencies": [],
+       "mode": "Incremental",
+       "outputs": {
+         "masterFQDN": {
+           "type": "String",
+           "value": "wingtiptoysmgmt.westeurope.cloudapp.azure.com"
+         },
+         "sshMaster0": {
+           "type": "String",
+           "value": "ssh azureuser@wingtiptoysmgmt.westeurope.cloudapp.azure.com -A -p 22"
+         }
+       },
+       "parameters": {
+         "clientSecret": {
+           "type": "SecureString"
+         }
+       },
+       "parametersLink": null,
+       "providers": [
+         {
+           "id": null,
+           "namespace": "Microsoft.ContainerService",
+           "registrationState": null,
+           "resourceTypes": [
+             {
+               "aliases": null,
+               "apiVersions": null,
+               "locations": [
+                 "westeurope"
+               ],
+               "properties": null,
+               "resourceType": "containerServices"
+             }
+           ]
+         }
+       ],
+       "provisioningState": "Succeeded",
+       "template": null,
+       "templateLink": null,
+       "timestamp": "2017-09-15T01:00:00.000000+00:00"
+     },
+     "resourceGroup": "wingtiptoys-kubernetes"
+   }
+   ```
+
+1. Download your credentials for your new Kubernetes cluster; for example:  
+   ```azurecli 
+   az acs kubernetes get-credentials --resource-group=wingtiptoys-kubernetes --name wingtiptoys-cluster
+   ```
+
+1. Verify your connection with the following command:
+   ```shell 
+   kubectl get nodes
+   ```
+
+   You should see a list of nodes and statuses like the following example:
+
+   ```shell
+   NAME                    STATUS                     AGE       VERSION
+   k8s-agent-00000000-0    Ready                      5h        v1.6.6
+   k8s-agent-00000000-1    Ready                      5h        v1.6.6
+   k8s-agent-00000000-2    Ready                      5h        v1.6.6
+   k8s-master-00000000-0   Ready,SchedulingDisabled   5h        v1.6.6
+   ```
+
+
 ## Create a private Azure container registry using the Azure CLI
 
 1. Create a private Azure container registry in your resource group to host your Docker image; for example:
    ```azurecli
-   az acr create --admin-enabled --resource-group wingtiptoys-kubernetes --location eastus --name wingtiptoysregistry --sku Basic
+   az acr create --admin-enabled --resource-group wingtiptoys-kubernetes --location westeurope --name wingtiptoysregistry --sku Basic
    ```
    Where:  
       * *wingtiptoys-kubernetes* is the name of your resource group from earlier in this article  
       * *wingtiptoysregistry* is a unique name for your private registry
+      * *westeurope* is an appropriate geographic location for your application  
 
    The Azure CLI will display the results of your registry creation; for example:  
 
@@ -162,7 +264,7 @@ The following steps walk you through building a Spring Boot web application and 
      "adminUserEnabled": true,
      "creationDate": "2017-09-15T01:00:00.000000+00:00",
      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/wingtiptoys-kubernetes/providers/Microsoft.ContainerRegistry/registries/wingtiptoysregistry",
-     "location": "eastus",
+     "location": "westeurope",
      "loginServer": "wingtiptoysregistry.azurecr.io",
      "name": "wingtiptoysregistry",
      "provisioningState": "Succeeded",
@@ -195,20 +297,20 @@ The following steps walk you through building a Spring Boot web application and 
 
 1. Navigate to the configuration directory for your Maven installation (default ~/.m2/ or C:\Users\username\.m2) and open the *settings.xml* file with a text editor.
 
-1. Add your Azure Container Registry id and password to a new `<server>` collection in the *settings.xml* file.
+1. Add your Azure Container Registry URL, username and password to a new `<server>` collection in the *settings.xml* file.
 The `id` and `username` are the name of the registry. Use the `password` value from the previous command (without quotes).
 
    ```xml
    <servers>
       <server>
-         <id>wingtiptoysregistry</id>
+         <id>wingtiptoysregistry.azurecr.io</id>
          <username>wingtiptoysregistry</username>
          <password>AbCdEfGhIjKlMnOpQrStUvWxYz</password>
       </server>
    </servers>
    ```
 
-1. Navigate to the completed project directory for your Spring Boot application (for example, "*C:\SpringBoot\gs-spring-boot-docker\complete*" or "*/users/robert/SpringBoot/gs-spring-boot-docker/complete*"), and open the *pom.xml* file with a text editor.
+1. Navigate to the completed project directory for your Spring Boot application (for example, "*C:\SpringBoot\gs-spring-boot-docker\complete*" or "*/home/GenaSoto/SpringBoot/gs-spring-boot-docker/complete*"), and open the *pom.xml* file with a text editor.
 
 1. Update the `<properties>` collection in the *pom.xml* file with the login server value for your Azure Container Registry.
 
@@ -228,28 +330,21 @@ The `id` and `username` are the name of the registry. Use the `password` value f
      <version>1.3.4</version>
      <configuration>
        <repository>${docker.image.prefix}/${project.artifactId}</repository>
-         <resources>
-           <resource>
-             <targetPath>/</targetPath>
-             <directory>${project.build.directory}</directory>
-             <include>${project.build.finalName}.jar</include>
-           </resource>
-         </resources>
-       <serverId>wingtiptoysregistry2</serverId>
-       <registryUrl>https://wingtiptoysregistry2.azurecr.io</registryUrl>
+       <serverId>${docker.image.prefix}</serverId>
+       <registryUrl>https://${docker.image.prefix}</registryUrl>
      </configuration>
    </plugin>
    ```
 
 1. Navigate to the completed project directory for your Spring Boot application, and run the following Maven command to build the Docker container and push the image to your registry:
 
-   ```
+   ```shell
    mvn package dockerfile:build -DpushImage
    ```
 
    Maven will display the results of your build; for example:  
 
-   ```
+   ```shell
    [INFO] ----------------------------------------------------
    [INFO] BUILD SUCCESS
    [INFO] ----------------------------------------------------
@@ -259,75 +354,10 @@ The `id` and `username` are the name of the registry. Use the `password` value f
    [INFO] ----------------------------------------------------
    ```
 
-## Create a Kubernetes cluster using the Azure CLI
 
-1. Create a Kubernetes cluster in your new resource group; for example:  
-   ```azurecli 
-   az acs create --orchestrator-type kubernetes --resource-group wingtiptoys-kubernetes --name wingtiptoys-cluster --generate-ssh-keys
-   ```
-   Where:  
-      * *wingtiptoys-kubernetes* is the name of your resource group from earlier in this article  
-      * *wingtiptoys-cluster* is a unique name for your Kubernetes cluster
+## Configure your Spring Boot app to use the Fabric8 Maven plugin
 
-   The Azure CLI will display the results of your cluster creation; for example:  
-
-   ```json
-   {
-     "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/wingtiptoys-kubernetes/providers/Microsoft.Resources/deployments/azurecli0000000000.00000000000",
-     "name": "azurecli0000000000.00000000000",
-     "properties": {
-       "correlationId": "00000000-0000-0000-0000-000000000000",
-       "mode": "Incremental",
-       "parameters": {
-         "clientSecret": {
-           "type": "SecureString"
-         }
-       },
-       "providers": [
-         {
-           "namespace": "Microsoft.ContainerService",
-           "resourceTypes": [
-             {
-               "locations": [
-                 "eastus"
-               ],
-               "resourceType": "containerServices"
-             }
-           ]
-         }
-       ],
-       "provisioningState": "Succeeded",
-       "timestamp": "2017-09-15T01:00:00.000000+00:00"
-     },
-     "resourceGroup": "wingtiptoys-kubernetes"
-   }
-   ```
-
-1. Download your credentials for your new Kubernetes cluster; for example:  
-   ```azurecli 
-   az acs kubernetes get-credentials --resource-group=wingtiptoys-kubernetes --name wingtiptoys-cluster
-   ```
-
-1. Verify your connection with the following command:
-   ```azurecli 
-   kubectl get nodes
-   ```
-
-   You should see a list of nodes and statuses like the following example:
-
-   ```
-   NAME                    STATUS                     AGE       VERSION
-   k8s-agent-00000000-0    Ready                      5h        v1.6.6
-   k8s-agent-00000000-1    Ready                      5h        v1.6.6
-   k8s-agent-00000000-2    Ready                      5h        v1.6.6
-   k8s-master-00000000-0   Ready,SchedulingDisabled   5h        v1.6.6
-   k8s-master-00000000-1   Ready,SchedulingDisabled   5h        v1.6.6
-   k8s-master-00000000-2   Ready,SchedulingDisabled   5h        v1.6.6
-   ```
-
-## Configure your Spring Boot app to use the fabric8 Maven plugin
-
-1. Navigate to the completed project directory for your Spring Boot application, (for example: "*C:\SpringBoot\gs-spring-boot-docker\complete*" or "*/users/robert/SpringBoot/gs-spring-boot-docker/complete*"), and open the *pom.xml* file with a text editor.
+1. Navigate to the completed project directory for your Spring Boot application, (for example: "*C:\SpringBoot\gs-spring-boot-docker\complete*" or "*/home/GenaSoto/SpringBoot/gs-spring-boot-docker/complete*"), and open the *pom.xml* file with a text editor.
 
 1. Update the `<plugins>` collection in the *pom.xml* file to add the fabric8 Maven plugin:
 
@@ -336,62 +366,14 @@ The `id` and `username` are the name of the registry. Use the `password` value f
      <groupId>io.fabric8</groupId>
      <artifactId>fabric8-maven-plugin</artifactId>
      <version>3.5.30</version>
-     <executions>
-       <execution>
-       <goals>
-         <goal>resource</goal>
-         <goal>build</goal>
-         <goal>push</goal>
-         <goal>apply</goal>
-       </goals>
-       </execution>
-     </executions>
      <configuration>
-       <ignoreServices>true</ignoreServices>
-       <registry>${docker.registry}</registry>
+       <ignoreServices>false</ignoreServices>
+       <registry>${docker.image.prefix}</registry>
      </configuration>
    </plugin>
    ```
 
-1. Run the following Maven command to build the Kubernetes resource list file:
-
-   ```azurecli
-   mvn fabric8:resource
-   ```
-
-   This command merges all Kubernetes resource yaml files under the *project/src/fabric8* folder to a YAML file that contains a Kubernetes resource list, which can be applied to Kubernetes cluster directly or export to a helm chart.
-
-   Maven will display the results of your build; for example:  
-
-   ```
-   [INFO] ----------------------------------------------------
-   [INFO] BUILD SUCCESS
-   [INFO] ----------------------------------------------------
-   [INFO] Total time: 16.744 s
-   [INFO] Finished at: 2017-09-15T02:35:00-07:00
-   [INFO] Final Memory: 30M/290M
-   [INFO] ----------------------------------------------------
-   ```
-
-1. Run the following Maven command to apply the resource list file to your Kubernetes cluster:
-
-   ```azurecli
-   mvn fabric8:apply
-   ```
-
-   Maven will display the results of your build; for example:  
-
-   ```
-   [INFO] ----------------------------------------------------
-   [INFO] BUILD SUCCESS
-   [INFO] ----------------------------------------------------
-   [INFO] Total time: 14.814 s
-   [INFO] Finished at: 2017-09-15T02:41:00-07:00
-   [INFO] Final Memory: 35M/288M
-   [INFO] ----------------------------------------------------
-   ```
-
-1. Navigate to the main source directory for your Spring Boot application, (for example: "*C:\SpringBoot\gs-spring-boot-docker\complete\src\main*" or "*/users/robert/SpringBoot/gs-spring-boot-docker/complete/src/main*"), and create a new folder named "*fabric8*".
+1. Navigate to the main source directory for your Spring Boot application, (for example: "*C:\SpringBoot\gs-spring-boot-docker\complete\src\main*" or "*/home/GenaSoto/SpringBoot/gs-spring-boot-docker/complete/src/main*"), and create a new folder named "*fabric8*".
 
 1. Create three YAML fragment files in the new *fabric8* folder:
 
@@ -419,13 +401,13 @@ The `id` and `username` are the name of the registry. Use the `password` value f
               run: gs-spring-boot-docker
           spec:
             containers:
-            - image: ${docker.registry}/fabric8/${project.artifactId}:latest
+            - image: ${docker.image.prefix}/${project.artifactId}:latest
               name: gs-spring-boot-docker
               imagePullPolicy: Always
               ports:
               - containerPort: 8080
             imagePullSecrets:
-              - name: ${dockerKeyName}
+              - name: mysecrets
       ```
 
    b. Create a file named **secrets.yml** with the following contents:
@@ -433,10 +415,10 @@ The `id` and `username` are the name of the registry. Use the `password` value f
       apiVersion: v1
       kind: Secret
       metadata:
-        name: ${dockerKeyName}
+        name: mysecrets
         namespace: default
         annotations:
-          maven.fabric8.io/dockerServerId: ${docker.registry}
+          maven.fabric8.io/dockerServerId:  ${docker.image.prefix}
       type: kubernetes.io/dockercfg
       ```
 
@@ -455,44 +437,67 @@ The `id` and `username` are the name of the registry. Use the `password` value f
         type: LoadBalancer
       ```
 
-## Build and deploy your Spring Boot app using the fabric8 Maven plugin
+1. Run the following Maven command to build the Kubernetes resource list file:
 
-1. Compile your application by using the following Maven command:
-
-   ```azurecli
-   mvn compile
+   ```shell
+   mvn fabric8:resource
    ```
 
-   This command will invoke the `fabric8:resource` goal to create a Kubernetes resource list file.
+   This command merges all Kubernetes resource yaml files under the *src/main/fabric8* folder to a YAML file that contains a Kubernetes resource list, which can be applied to Kubernetes cluster directly or export to a helm chart.
 
-   Maven will display the results of your compliation; for example:  
-   ```
+   Maven will display the results of your build; for example:  
+
+   ```shell
    [INFO] ----------------------------------------------------
    [INFO] BUILD SUCCESS
    [INFO] ----------------------------------------------------
-   [INFO] Total time: 12.974 s
-   [INFO] Finished at: 2017-09-15T02:49:00-07:00
-   [INFO] Final Memory: 30M/183M
+   [INFO] Total time: 16.744 s
+   [INFO] Finished at: 2017-09-15T02:35:00-07:00
+   [INFO] Final Memory: 30M/290M
    [INFO] ----------------------------------------------------
    ```
 
-1. Deploy you application to your Kubernetes cluster by using the following Maven command:
+1. Run the following Maven command to apply the resource list file to your Kubernetes cluster:
 
-   ```azurecli
-   mvn install
+   ```shell
+   mvn fabric8:apply
    ```
 
-   This command will invoke the `fabric8:apply` goal to apply Kubernetes the resource list file to your cluster.
+   Maven will display the results of your build; for example:  
 
-   Maven will display the results of your deployment; for example:  
-   ```
+   ```shell
    [INFO] ----------------------------------------------------
    [INFO] BUILD SUCCESS
    [INFO] ----------------------------------------------------
-   [INFO] Total time: 01:41 min
-   [INFO] Finished at: 2017-09-15T02:54:00-07:00
-   [INFO] Final Memory: 40M/317M
+   [INFO] Total time: 14.814 s
+   [INFO] Finished at: 2017-09-15T02:41:00-07:00
+   [INFO] Final Memory: 35M/288M
    [INFO] ----------------------------------------------------
+   ```
+
+1. Once the app is deployed to the cluster, query the external IP address using the `kubectl` application; for example:
+   ```shell
+   kubectl get svc -w
+   ```
+
+   `kubectl` will display your internal and external IP addresses; for example:
+   
+   ```shell
+   NAME                    CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
+   kubernetes              10.0.0.1     <none>        443/TCP        19h
+   gs-spring-boot-docker   10.0.242.8   13.65.196.3   80:31215/TCP   3m
+   ```
+   
+   You can use the external IP address to open your application in a web browser.
+
+   ![Browse sample application externally][SB02]
+
+## Delete your Kubernetes cluster
+
+When your Kubernetes cluster is no longer needed, you can use the `az group delete` command to remove the resource group, which will remove all of its related resources; for example:
+
+   ```azurecli
+   az group delete --name wingtiptoys-kubernetes --yes --no-wait
    ```
 
 ## Next steps
@@ -507,9 +512,9 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 
 For further details about the Spring Boot on Docker sample project, see [Spring Boot on Docker Getting Started].
 
-For help with getting started with your own Spring Boot applications, see the **Spring Initializr** at https://start.spring.io/.
+For help with getting started with your own Spring Boot applications, see the **Spring Initializr** at <https://start.spring.io/>.
 
-For more information about getting started with creating a simple Spring Boot application, see the Spring Initializr at https://start.spring.io/.
+For more information about getting started with creating a simple Spring Boot application, see the Spring Initializr at <https://start.spring.io/>.
 
 For additional examples for how to use custom Docker images with Azure, see [Using a custom Docker image for Azure Web App on Linux].
 
@@ -536,3 +541,5 @@ For additional examples for how to use custom Docker images with Azure, see [Usi
 
 <!-- IMG List -->
 
+[SB01]: ./media/container-service-deploy-spring-boot-app-using-fabric8-maven-plugin/SB01.png
+[SB02]: ./media/container-service-deploy-spring-boot-app-using-fabric8-maven-plugin/SB02.png
