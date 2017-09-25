@@ -126,6 +126,38 @@ Use the storage account user for copying the files:
 - `Su [storage account name]`
 - `Cp -p filename.txt /share`
 
+## Cannot connect or mount an Azure File share
+
+### Cause
+
+This problem can be caused by:
+
+
+- You are using an incompatible Linux distribution. We recommend use the following Linux Distributions to connect to Azure file share:
+
+    - Ubuntu Server 14.04+ 
+    - RHEL 7+ 
+    - CentOS 7+ 
+    - Debian 8 
+    - openSUSE 13.2+ 
+    - SUSE Linux Enterprise Server 12
+
+-  Common Internet File System (CIFS) utils is not installed.
+- The minimum SMB/CIFS version 2.1 is not installed.
+- SMB 3.0 Encryption is not supported.  SMB 3.0 Encryption is available in:
+
+    - Ubuntu 16.4 and later version
+    - SUSE 12.3 and later version 
+
+    Other distributions require kernel 4.11 and later
+
+- You are trying to connect to a storage account over TCP port 445 that is not supported.
+-  You may try to connect to Azure file share from an Azure VM, and the VM is not located in the same region as Storage account.
+
+## Resolution
+
+To resolve the issue, use [Troubleshooting tool for Azure Files mounting errors on Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). This tool helps you to validate the client running environment, detect the incompatible client configuration which would cause access failure for Azure Files, gives prescriptive guidance on self-fix and, collect the diagnostics traces.
+
 ## Need help? Contact support.
 
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.
