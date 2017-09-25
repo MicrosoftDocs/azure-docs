@@ -43,7 +43,7 @@
 #### [Migrate individual licensed users to group-based licensing](active-directory-licensing-group-migration-azure-portal.md)
 #### [Additional scenarios for group-based licensing](active-directory-licensing-group-advanced.md)
 #### [Provide terms of use for users and apps](active-directory-tou.md)
-#### [PowerShell examples for group-based licensing](active-directory-licensing-ps-examples.md)
+#### [Azure PowerShell examples for group-based licensing](active-directory-licensing-ps-examples.md)
 ### [Manage user profiles](active-directory-users-profile-azure-portal.md)
 ### [Reset a password](active-directory-users-reset-password-azure-portal.md)
 ### [Manage user work information](active-directory-users-work-info-azure-portal.md)
@@ -55,7 +55,7 @@
 ### Manage groups
 #### [Azure portal](active-directory-groups-create-azure-portal.md)
 #### [Classic portal](active-directory-accessmanagement-manage-groups.md)
-#### [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [Manage group members](active-directory-groups-members-azure-portal.md)
 ### [Manage group owners](active-directory-accessmanagement-managing-group-owners.md)
 ### [Manage group membership](active-directory-groups-membership-azure-portal.md)
@@ -64,7 +64,7 @@
 #### [Identify and resolve license problems in a group](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Migrate individual licensed users to group-based licensing](active-directory-licensing-group-migration-azure-portal.md)
 #### [Additional scenarios for group-based licensing](active-directory-licensing-group-advanced.md)
-#### [PowerShell examples for group-based licensing](active-directory-licensing-ps-examples.md)
+#### [Azure PowerShell examples for group-based licensing](active-directory-licensing-ps-examples.md)
 ### [Set up Office 365 groups expiration](active-directory-groups-lifecycle-azure-portal.md)
 ### [View all groups](active-directory-groups-view-azure-portal.md)
 ### [Enable dedicated groups](active-directory-accessmanagement-dedicated-groups.md)
@@ -150,6 +150,10 @@
 ### [SaaS app integration tutorials](active-directory-saas-tutorial-list.md)
 ### [Cloud App Discovery](cloudappdiscovery-overview.md)
 #### [What is Cloud App Discovery?](active-directory-cloudappdiscovery-whatis.md)
+#### [Set up steps](cloudappdiscovery-get-started.md)
+#### [Create snapshot reports](cloudappdiscovery-set-up-snapshots.md)
+#### [Configure continuous reporting](https://docs.microsoft.com/cloud-app-security/discovery-docker)
+#### [Use a custom log parser](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
 #### [Update registry settings](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Understand security and privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
@@ -244,7 +248,7 @@
 #### [Admins adding B2B users](active-directory-b2b-admin-add-users.md)
 #### [Information workers adding B2B users](active-directory-b2b-iw-add-users.md)
 #### [API and customization](active-directory-b2b-api.md)
-#### [Code and PowerShell samples](active-directory-b2b-code-samples.md)
+#### [Code and Azure PowerShell samples](active-directory-b2b-code-samples.md)
 #### [Self-service sign-up portal sample](active-directory-b2b-self-service-portal.md)
 #### [Invitation email](active-directory-b2b-invitation-email.md)
 #### [Invitation redemption](active-directory-b2b-redemption-experience.md)
@@ -325,6 +329,9 @@
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
+## [Integrate other services with Azure AD]()
+### [Enable LinkedIn integration](linkedin-integration.md)
+
 ## [Deploy AD DS on Azure VMs](virtual-networks-windows-server-active-directory-virtual-machines.md)
 ### [Windows Server Active Directory on Azure VMs](active-directory-deploying-ws-ad-guidelines.md)
 ### [Replica domain controller in an Azure virtual network](active-directory-install-replica-active-directory-domain-controller.md)
@@ -348,7 +355,7 @@
 
 # Reference
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
-## [PowerShell cmdlets](/powershell/azure/overview)
+## [Azure PowerShell cmdlets](/powershell/azure/overview)
 ## [Java API Reference](/java/api)
 ## [.NET API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 ## [Service limits and restrictions](active-directory-service-limits-restrictions.md)

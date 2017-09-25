@@ -70,6 +70,8 @@
 ### [Deploy an Azure Resource Manager template in an Azure Automation PowerShell runbook](automation-deploy-template-runbook.md)
 ## Solutions
 ### [Update Management](../operations-management-suite/oms-solution-update-management.md)
+#### [Manage updates for multiple VMs](manage-update-multi.md)
+#### [Integrate SCCMr with OMS Update Management](oms-solution-updatemgmt-sccmintegration.md)
 ### [Change tracking](../log-analytics/log-analytics-change-tracking.md)
 ### [Track changes in your VMs](automation-vm-change-tracking.md)
 ### [Manage a VM with inventory collection](automation-vm-inventory.md)
@@ -84,8 +86,8 @@
 ### [Troubleshoot common errors](automation-troubleshooting-automation-errors.md)
 ### [Troubleshoot Hybrid Runbook Worker](automation-troubleshooting-hybrid-runbook-worker.md)
 # Reference
-## [PowerShell](/powershell/module/azurerm.automation)
-## [PowerShell (Classic)](/powershell/module/azure/?view=azuresmps-3.7.0)
+## [Azure PowerShell](/powershell/module/azurerm.automation)
+## [Azure PowerShell (Classic)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.azure.management.automation)
 ## [REST](/rest/api/automation)
 ## [REST (Classic)](https://msdn.microsoft.com/library/azure/mt163781)

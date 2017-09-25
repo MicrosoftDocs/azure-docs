@@ -54,7 +54,7 @@ Service endpoints provide following benefits:
 ## Limitations
 
 - The feature is available only to VNets deployed using Azure Resource Manager deployment model.
-- Endpoints are enabled on subnets configured in Azure VNets. Endpoints cannot be used for traffic from your on-premises to Azure services. For more details, see ["Securing Azure service access from on-premises"](#Securing%20Azure%20services%20to%20Virtual%20Networks)
+- Endpoints are enabled on subnets configured in Azure VNets. Endpoints cannot be used for traffic from your on-premises to Azure services. For more details, see ["Securing Azure service access from on-premises"](#securing-azure-services-to-virtual-networks)
 - Service endpoint applies only to Azure service traffic within VNet’s region. For Azure Storage, to support RA-GRS and GRS traffic, this also extends to include paired region where the VNet is deployed to. Learn more about [Azure paired regions.](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#what-are-paired-regions)
 
 ## Securing Azure services to Virtual Networks
@@ -91,7 +91,6 @@ Service endpoints provide following benefits:
   - If you want to deny all outbound Internet traffic and allow only traffic to specific Azure services,  you can do so using __“Azure service tags”__ in your NSGs. You can specify supported Azure services as destination in your NSG rules and the maintenance of IP addresses underlying each tag is provided by Azure. For more information, see [Azure Service tags for NSGs.](https://aka.ms/servicetags)
 
 ### Scenarios
-
 - Peered, connected or multiple VNets:
 
 To secure Azure services to multiple subnets within a VNet or across multiple VNets, you can enable service endpoints on each of these subnets independently and secure Azure service resources to all of these subnets.
@@ -115,7 +114,7 @@ Once service endpoints are configured to a specific service, validate that the s
 >[!NOTE]
 Service endpoint route overrides BGP or UDR routes for the address prefix match, as the Azure service. Learn more about [troubleshooting with effective routes](https://docs.microsoft.com/azure/virtual-network/virtual-network-routes-troubleshoot-portal#using-effective-routes-to-troubleshoot-vm-traffic-flow)
 
-### Provisioning
+## Provisioning
 
 Service endpoints can be configured on virtual networks independently, by a user with write access to virtual network.
 

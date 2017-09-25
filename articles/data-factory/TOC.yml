@@ -39,10 +39,10 @@
     href: tutorial-control-flow.md    
 - name: Samples
   items:
-  - name: PowerShell
-    href: samples-powershell.md
   - name: Code samples
     href: https://azure.microsoft.com/en-us/resources/samples/?service=data-factory
+  - name: PowerShell
+    href: samples-powershell.md
 - name: Concepts
   items:
   - name: Pipelines and activities
@@ -180,6 +180,8 @@
       href: quickstart-create-data-factory-dot-net.md#monitor-pipeline-run
     - name: Use Azure Monitor
       href: monitor-using-azure-monitor.md
+    - name: Monitor integration runtime
+      href: monitor-integration-runtime.md  
   - name: Create integration runtime
     items:
     - name: Azure integration runtime
@@ -193,11 +195,11 @@
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.datafactory
   - name: PowerShell
-    href: /powershell/module/azurerm.datafactory/
+    href: /powershell/module/azurerm.datafactoryv2/
   - name: REST API
     href: /rest/api/datafactory
   - name: Python
-    href: /python/api/overview/azure/data-factory?view=azure-python
+    href: /python/api/overview/azure/datafactory?view=azure-python
 - name: Resources
   items:
   - name: Azure Roadmap

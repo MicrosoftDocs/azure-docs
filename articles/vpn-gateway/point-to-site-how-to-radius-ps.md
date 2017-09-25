@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2017
+ms.date: 09/25/2017
 ms.author: cherylmc
 
 ---
-# Configure a Point-to-Site connection to a VNet using RADIUS authentication: PowerShell
+# Configure a Point-to-Site connection to a VNet using RADIUS authentication: PowerShell (Preview)
 
 This article shows you how to create a VNet with a Point-to-Site connection that uses RADIUS authentication. This configuration is only available for the Resource Manager deployment model.
+
+>[!NOTE]
+>P2S RADIUS authentication is currently in Preview.
+>
 
 A Point-to-Site (P2S) VPN gateway lets you create a secure connection to your virtual network from an individual client computer. Point-to-Site VPN connections are useful when you want to connect to your VNet from a remote location, such when you are telecommuting from home or a conference. A P2S VPN is also a useful solution to use instead of a Site-to-Site VPN when you have only a few clients that need to connect to a VNet.
 
@@ -37,7 +41,7 @@ Point-to-Site connections do not require a VPN device or a public-facing IP addr
 
 * SSTP is an SSL-based VPN tunnel that is supported only on Windows client platforms. It can penetrate firewalls, which makes it an ideal option to connect to Azure from anywhere. On the server side, we support SSTP versions 1.0, 1.1, and 1.2. The client decides which version to use. For Windows 8.1 and above, SSTP uses 1.2 by default.
 
-* IKEv2 P2S tunnels are supported for the Mac platform and use the native IKEv2 VPN client.
+* IKEv2 VPN, a standards-based IPsec VPN solution. IKEv2 VPN can be used to connect from Mac devices (OSX versions 10.11 and above).
 
 P2S connections require the following:
 

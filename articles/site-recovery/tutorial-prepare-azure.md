@@ -35,6 +35,10 @@ and physical servers to Azure. In this tutorial, you learn how to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
+## Log in to Azure
+
+Log in to the Azure portal at http://portal.azure.com.
+
 ## Verify account permissions
 
 If you have just created your free Azure account then you are the administrator of your

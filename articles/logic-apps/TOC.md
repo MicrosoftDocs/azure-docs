@@ -19,8 +19,19 @@
 ### [Batch process messages](logic-apps-batch-process-send-receive-messages.md)
 ### [Author logic app definitions](logic-apps-author-definitions.md)
 ### [Call, trigger, or nest logic apps](logic-apps-http-endpoint.md)
-### [Create custom APIs for logic apps](logic-apps-create-api-app.md)
-### [Call custom APIs for logic apps](logic-apps-custom-hosted-api.md)
+### Develop custom connectors
+#### [Custom connectors overview](custom-connector-overview.md)
+#### [Create connectors from Web APIs](custom-connector-build-web-api-app-tutorial.md)
+#### [Secure connectors with Azure AD](custom-connector-azure-active-directory-authentication.md)
+#### [Describe APIs with Postman](custom-connector-api-postman-collection.md)
+#### [Extend OpenAPI for custom connectors](custom-connector-openapi-extensions.md)
+#### [Register your connector](logic-apps-custom-connector-register.md)
+#### [Certify your connector](custom-connector-submit-certification.md)
+#### [FAQ for custom connectors](custom-connector-faq.md)
+### Develop custom APIs
+#### [Create custom APIs for logic apps](logic-apps-create-api-app.md)
+#### [Secure calls to custom APIs](logic-apps-custom-api-authentication.md)
+#### [Deploy and call custom APIs](logic-apps-custom-api-host-deploy-call.md)
 ### [Handle errors and exceptions](logic-apps-exception-handling.md)
 ### [Handle content types](logic-apps-content-type.md)
 ### [Secure your logic apps](logic-apps-securing-a-logic-app.md)
@@ -73,8 +84,7 @@
 #### [X12 tracking schema](logic-apps-track-integration-account-x12-tracking-schema.md)
 #### [Custom tracking schema](logic-apps-track-integration-account-custom-tracking-schema.md)
 
-## Examples, scenarios, and walkthroughs
-### [Overview](logic-apps-examples-and-scenarios.md)
+## [Examples, scenarios, and walkthroughs](logic-apps-examples-and-scenarios.md)
 ### [Create a serverless social dashboard](logic-apps-scenario-social-serverless.md)
 ### [Call logic apps with Azure Functions](logic-apps-scenario-function-sb-trigger.md)
 ### [Add error and exception handling](logic-apps-scenario-error-and-exception-handling.md)
@@ -98,7 +108,7 @@
 ## [Workflow definition language](logic-apps-workflow-definition-language.md)
 ## [Workflow actions and triggers](logic-apps-workflow-actions-triggers.md)
 ## [REST API](/rest/api/logic/)
-## [PowerShell](/powershell/module/azurerm.logicapp)
+## [Azure PowerShell](/powershell/module/azurerm.logicapp)
 ## Connectors: In-depth topics
 ### [AS2](logic-apps-enterprise-integration-as2.md)
 ### [Azure Blob Storage](../connectors/connectors-create-api-azureblobstorage.md)

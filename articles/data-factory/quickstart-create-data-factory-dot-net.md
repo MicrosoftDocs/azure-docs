@@ -18,11 +18,13 @@ ms.author: jingwang
 ---
 
 # Create a data factory and pipeline using .NET SDK
+Azure Data Factory is a cloud-based data integration service that allows you to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Uing Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores, process/transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning, and publish output data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications to consume. 
+
 This quickstart describes how to use .NET SDK to create an Azure data factory. The pipeline in this data factory copies data from one folder to another folder in an Azure blob storage.
 
-## Prerequisites
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-* **Azure subscription**. If you don't have a subscription, you can create a [free trial](http://azure.microsoft.com/pricing/free-trial/) account.
+## Prerequisites
 * **Azure Storage account**. You use the blob storage as both the **source** and **sink** data stores. If you don't have an Azure storage account, see the [Create a storage account] on creating one. (../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one. 
 * Create a **blob container** in Blob Storage, create an input **folder** in the container, and upload some files to the folder. 
 * **Visual Studio** 2013, 2015, or 2017. The walkthrough in this article uses Visual Studio 2017.
@@ -402,10 +404,4 @@ To programmatically, delete the data factory, add the following lines of code to
 ```
 
 ## Next steps
-The pipeline in this sample copies data from one location to another location in an Azure blob storage. Go through the following tutorials to learn about using Data Factory in slightly complex scenarios. 
-
-Tutorial | Description
--------- | -----------
-[Tutorial: copy data from Azure Blob Storage to Azure SQL Database](tutorial-copy-data-dot-net.md) | Shows you how to copy data from a blob storage to a SQL database. For a list of data stores supported as sources and sinks in a copy operation by data factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats). 
-[Tutorial: copy data from an on-premises SQL Server to an Azure blob storage](tutorial-hybrid-copy-powershell.md) | Shows you how to copy data from an on-premises SQL Server database to an Azure blob storage. 
-[Tutorial: transform data using Spark](tutorial-transform-data-spark-powershell.md) | Shows you how to transform data in the cloud by using a Spark cluster on Azure
+The pipeline in this sample copies data from one location to another location in an Azure blob storage. Go through the [tutorials](tutorial-copy-data-dot-net.md) to learn about using Data Factory in more scenarios. 

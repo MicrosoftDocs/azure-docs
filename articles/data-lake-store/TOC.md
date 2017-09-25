@@ -57,9 +57,9 @@
 
 ## Integrate with Azure Services
 ### With HDInsight
-#### [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
-#### [Using PowerShell (default storage)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-#### [Using PowerShell (additonal storage)](data-lake-store-hdinsight-hadoop-use-powershell.md)
+#### [Using Azure portal](data-lake-store-hdinsight-hadoop-use-portal.md)
+#### [Using Azure PowerShell (default storage)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+#### [Using Azure PowerShell (additonal storage)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 #### [Using Azure template](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 ### [Access from VMs in Azure VNET](data-lake-store-connectivity-from-vnets.md)
 ### [Use with Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
@@ -78,14 +78,14 @@
 
 # Reference
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-store)
-## [PowerShell](/powershell/module/azurerm.datalakestore)
+## [Azure PowerShell](/powershell/module/azurerm.datalakestore)
 ## [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 ## [Java](/java/api/com.microsoft.azure.datalake.store)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)
 ## [Python (Account Mgmt.)](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
 ## [Python (Filesystem Mgmt.)](http://azure-datalake-store.readthedocs.io/en/latest)
 ## [REST](/rest/api/datalakestore)
-## [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/dls)
+## [Azure CLI](https://docs.microsoft.com/cli/azure/dls)
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)

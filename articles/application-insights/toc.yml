@@ -194,7 +194,7 @@
         href: app-insights-analytics-diagnostics.md
   - name: Automate
     items:
-    - name: PowerShell configuration
+    - name: Azure PowerShell configuration
       href: app-insights-powershell.md
     - name: Create resources
       href: app-insights-powershell-script-create-resource.md

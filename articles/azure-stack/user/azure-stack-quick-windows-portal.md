@@ -5,9 +5,10 @@ services: azure-stack
 author: ErikjeMS
 manager: byronr
 
-ms.topic: hero-article
+ms.topic: azure-stack
 ms.date: 09/15/2017
 ms.author: erikje
+ms.custom: mvc
 ---
 
 # Create a Windows virtual machine with the Azure Stack portal

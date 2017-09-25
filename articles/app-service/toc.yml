@@ -44,13 +44,11 @@
     href: app-service-web-tutorial-custom-ssl.md
   - name: 4 - Add CDN
     href: app-service-web-tutorial-content-delivery-network.md
-  - name: 5 - Connect to on-prem resources
-    href: web-sites-integrate-with-vnet.md
 - name: Samples
   items:
   - name: Azure CLI
     href: app-service-cli-samples.md
-  - name: PowerShell
+  - name: Azure PowerShell
     href: app-service-powershell-samples.md
 - name: Concepts
   items:
@@ -78,6 +76,8 @@
       href: web-sites-php-configure.md
     - name: Python
       href: web-sites-python-configure.md
+    - name: Connect to on-prem resources
+      href: web-sites-integrate-with-vnet.md
   - name: Deploy to Azure
     items:
     - name: Deploy the app
@@ -156,9 +156,9 @@
       href: websites-dotnet-deploy-webjobs.md
 - name: Reference
   items:
-  - name: CLI 2.0
+  - name: Azure CLI
     href: /cli/azure/appservice
-  - name: PowerShell
+  - name: Azure PowerShell
     href: /powershell
   - name: REST API
     href: /rest/api/appservice/

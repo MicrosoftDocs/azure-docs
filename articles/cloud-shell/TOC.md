@@ -18,7 +18,7 @@
 # [Pricing](pricing.md)
 
 # Reference
-## [Azure CLI 2.0](/cli/azure)
+## [Azure CLI](/cli/azure)
 ## [Azure PowerShell](/powershell/azure)
 
 # Resources

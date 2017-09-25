@@ -23,7 +23,7 @@ ms.author: nitinme
 > * [PowerShell](data-lake-store-get-started-powershell.md)
 > * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 >
->
+> 
 
 Learn how to use Azure CLI 2.0 to create an Azure Data Lake Store account and perform basic operations such as create folders, upload and download data files, delete your account, etc. For more information about Data Lake Store, see [Overview of Data Lake Store](data-lake-store-overview.md).
 

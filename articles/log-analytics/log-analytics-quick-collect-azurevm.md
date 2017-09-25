@@ -20,7 +20,7 @@ ms.author: magoedte
 # Collect data about Azure Virtual Machines
 [Azure Log Analytics](log-analytics-overview.md) can collect data directly from your Azure virtual machines and other resources in your environment into a single repository for detailed analysis and correlation.  This quickstart shows you how to configure and collect data from your Azure Linux or Windows VMs with a few easy steps.  
  
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+This quickstart assumes you have an existing Azure virtual machine. If not you can [create a Windows VM](../virtual-machines/windows/quick-create-portal.md) or [create a Linux VM](../virtual-machines/linux/quick-create-cli.md) following our VM quickstarts.
 
 ## Log in to Azure portal
 Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
@@ -43,10 +43,9 @@ While the information is verified and the workspace is created, you can track it
 ## Enable the Log Analytics VM Extension
 For Windows and Linux virtual machines already deployed in Azure, you install the Log Analytics agent with the Log Analytics VM Extension.  Using the extension simplifies the installation process and automatically configures the agent to send data to the Log Analytics workspace that you specify. The agent is also upgraded automatically, ensuring that you have the latest features and fixes.
 
-You may notice the banner across the top of your Log Analytics resource page in the portal inviting you to upgrade.<br> ![Log Analytics upgrade notice in the Azure portal](media/log-analytics-quick-collect-azurevm/log-analytics-portal-upgradebanner.png)
+You may notice the banner across the top of your Log Analytics resource page in the portal inviting you to upgrade.  The upgrade is not needed for the purposes of this quickstart.<br>
 
-In the next tutorial you will perform the upgrade, so for now you can safely ignore it. 
-
+![Log Analytics upgrade notice in the Azure portal](media/log-analytics-quick-collect-azurevm/log-analytics-portal-upgradebanner.png).    
 1. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
 2. In your list of Log Analytics workspaces, select *DefaultLAWorkspace* created earlier.
 3. On the left-hand menu, under Workspace Data Sources, click **Virtual machines**.  
