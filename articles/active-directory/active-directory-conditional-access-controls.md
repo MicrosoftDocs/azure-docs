@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/07/2017
+ms.date: 09/20/2017
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -50,7 +50,7 @@ With grant controls, you can either block access altogether or allow access with
 - All selected controls to be fulfilled (*AND*) 
 - One selected control to be fulfilled (*OR*)
 
-![Control](./media/active-directory-conditional-access-controls/51.png)
+![Control](./media/active-directory-conditional-access-controls/73.png)
 
 
 
@@ -86,6 +86,10 @@ You can use [Intune app protection policies](https://docs.microsoft.com/intune/a
 
 With approved client apps, you can require a client app that attempts to access your cloud apps to support [Intune app protection policies](https://docs.microsoft.com/intune/app-protection-policy). For example, you can restrict access to Exchange Online to the Outlook app. A conditional access policy that requires approved client apps is  also known as [app-based conditional access policy](active-directory-conditional-access-mam.md). For a list of supported approved client apps, see [approved client app requirement](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement).
 
+
+### Terms of Use
+
+You can require a user in your tenant to consent to a terms of use before being granted access to a resource. As an administrator, you can configure and customize a terms of use by uploading a PDF document. If a user falls in scope of this control they will only be given access to the application if they agree or have previously agreed to the terms presented. For more information, see how to create a terms of use.
 
 
 ## Session controls
