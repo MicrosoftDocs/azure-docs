@@ -84,9 +84,9 @@ This scenario shows you how to identify and respond to an alarm that's triggered
 
 As an operator, you see in the dashboard that there's an alarm related to the pressure of a chiller.
 
-1. On the **Dashboard** page, in the **Alarm Status** grid, you can see the **Chiller pressure too high** alarm. The chiller is also highlighted on the map:
+1. On the **Dashboard** page, in the **System Alarms** grid, you can see the **Chiller pressure too high** alarm. The chiller is also highlighted on the map:
 
-    <!-- Insert screenshot -->
+    ![Dashboard shows pressure alarm and device on map](media/iot-suite-remote-monitoring-explore/dashboardalarm.png)
 
 1. To view the device details and telemetry, click the highlighted chiller on the map. The telemetry shows a pressure spike:
 
@@ -98,23 +98,23 @@ On the **Maintenance** page, you can view the details of the rule that triggered
 
 1. You can see the number of times the alarm has triggered, acknowledgments, and open and closed alarms:
 
-    <!-- Insert screenshot -->
+    ![Maintenace page shows list of alarms that have triggered](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
 
-1. The first alarm in the list is the most recent one. Click this alarm to view the associated devices and telemetry. The telemetry shows a pressure spike for the chiller:
+1. The first alarm in the list is the most recent one. Click the **Chiller Pressure** alarm to view the associated devices and telemetry. The telemetry shows a pressure spike for the chiller:
 
-    <!-- Insert screenshot -->
+    ![Maintenace page shows telemetry for selected alarm](media/iot-suite-remote-monitoring-explore/maintenancetelemetry.png)
 
 You have now identified the issue that triggered the alarm and the associated device. As an operator, the next steps are to acknowledge the alarm and mitigate the issue.
 
-1. To indicate that you are now working on the alarm, change the **Alarm status** to **Acknowledge**. Then select the affected chiller:
+1. To indicate that you are now working on the alarm, change the **Alarm status** to **Acknowledge**:
 
-    <!-- Insert screenshot -->
+    ![Select and acknowledge the alarm](media/iot-suite-remote-monitoring-explore/maintenanceacknowledge.png)
 
-1. To act on the chiller, select **Schedule** in the upper-right panel. Select **Valve pressure release**, add a job name **Chiller pressure release**, do not add a time range. These settings create a job that executes immediately:
+1. To act on the chiller, select it and then choose **Schedule**. Select **EmergencyValveRelease**, add a job name **Chiller pressure release**, and choose **Apply**. These settings create a job that executes immediately:
 
-    <!-- Insert screenshot -->
+    ![Select the device and schedule an action](media/iot-suite-remote-monitoring-explore/maintenanceschedule.png)
 
-1. To view the job status, return to the **Maintenance** page and view the list of events. You can see the job has run to release the valve pressure on the chiller:
+1. To view the job status, return to the **Maintenance** page and view the list of jobs in the **System Status** view. You can see the job has run to release the valve pressure on the chiller:
 
     <!-- Insert screenshot -->
 
@@ -134,24 +134,20 @@ Contoso is testing a new type of device in the field. As part of the testing cyc
 
 To perform the necessary device management tasks, use the **Devices** page. Start by filtering for all prototyping devices:
 
-1. Navigate to the **Devices** page. Choose the **Prototyping** filter in the **Filters** drop-down:
+1. Navigate to the **Devices** page. Choose the **Prototyping devices** filter in the **Filters** drop-down:
 
-    <!-- Insert screenshot -->
+    ![Use a filter on the devices page](media/iot-suite-remote-monitoring-explore/devicesprototypingfilter.png)
 
     > [!TIP]
     > Click **Manage** to manage the available filters.
 
 1. Select one of the prototyping devices:
 
-    <!-- Insert screenshot -->
+    ![Select a device on the devices page](media/iot-suite-remote-monitoring-explore/devicesselect.png)
 
-1. Click the **Schedule** button and then choose **Firmware update**:
+1. Click the **Schedule** button and then choose **Firmware update**. Enter values for **Job name** and **Firmware URI**. Choose **Apply** to schedule the job to run now:
 
-    <!-- Insert screenshot -->
-
-1. Enter values for **Job name** and **Firmware URL**. Schedule the job to run now:
-
-    <!-- Insert screenshot -->
+    ![Schedule firmware update on device](media/iot-suite-remote-monitoring-explore/devicesschedulefirmware.png)
 
 1. Click **Apply** and note how many devices the job affects:
 
