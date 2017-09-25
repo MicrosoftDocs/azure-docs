@@ -7,6 +7,7 @@ ms.author: bruceper
 manager: mbaldwin
 ms.date: 09/25/2017
 ---
+
 # Azure Key Vault soft-delete overview
 
 Key Vault's soft delete feature allows recovery of the deleted vaults and vault objects, known as soft-delete. Specifically, we address the following scenarios:
@@ -33,8 +34,6 @@ Azure Key Vaults are tracked resources, managed by Azure Resource Manager. Azure
 With this feature, the DELETE operation on a key vault or key vault object is a soft-delete, effectively holding the resources for a given retention period, while giving the appearance that the object is deleted. The service further provides a mechanism for recovering the deleted object, essentially undoing the deletion. 
 
 Soft-delete is an optional Key Vault behavior and is **not enabled by default** in this release. 
-
-See the following how-to guides for specifics on working with soft-delete; [How to use Key Vault soft-delete with PowerShell](key-vault-soft-delete-powershell.md) or [How to use Key Vault soft-delete with CLI](key-vault-soft-delete-cli.md).
 
 ### Key vault recovery
 
@@ -70,5 +69,5 @@ An exception to this is the case when the Azure subscription has been marked as 
 The following two guides offer the primary usage scenarios for using soft-delete.
 
 - [How to use Key Vault soft-delete with PowerShell](key-vault-soft-delete-powershell.md) 
-- [How to use Key Vault soft-delete with CLI](key-vault-soft-delete-cli.md).
+- [How to use Key Vault soft-delete with CLI](key-vault-soft-delete-cli.md)
 
