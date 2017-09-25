@@ -912,7 +912,7 @@
         },
         {
             "source_path": "articles/app-service-logic/app-service-logic-custom-hosted-api.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-custom-hosted-api",
+            "redirect_url": "/azure/logic-apps/logic-apps-custom-api-host-deploy-call",
             "redirect_document_id": false
         },
         {
@@ -6120,6 +6120,11 @@
             "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-create-integration-account",
             "redirect_document_id": false
         },
+        {
+            "source_path": "articles/logic-apps/logic-apps-custom-hosted-api.md",
+            "redirect_url": "/azure/logic-apps/logic-apps-custom-api-host-deploy-call",
+            "redirect_document_id": false
+        },        
         {
             "source_path": "articles/backup/backup-azure-backup-ibiza-faq.md",
             "redirect_url": "/azure/backup/backup-azure-backup-faq",

@@ -1,89 +1,29 @@
 ---
-title: Deploy, call, and authenticate web APIs & REST APIs for Azure Logic Apps | Microsoft Docs
-description: Deploy, authenticate, and call web APIs & REST APIs in workflows for system integrations with Azure Logic Apps
-keywords: web APIs, REST APIs, connectors, workflows, system integrations, authenticate
-services: logic-apps
-author: stepsic-microsoft-com
+title: Add authentication to custom APIs - Azure Logic Apps | Microsoft Docs
+description: Set up authentication for calls to your custom APIs from logic apps
+author: ecfan
 manager: anneta
-editor: ''
-documentationcenter: ''
+editor: 
+services: logic-apps
+documentationcenter: 
 
-ms.assetid: f113005d-0ba6-496b-8230-c1eadbd6dbb9
+ms.assetid: 
 ms.service: logic-apps
-ms.workload: integration
+ms.workload: logic-apps
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/26/2017
-ms.author: LADocs; stepsic
+ms.date: 09/22/2017
+ms.author: LADocs; estfan
 ---
 
-# Deploy, call, and authenticate custom APIs as connectors for logic apps
+# Secure calls to your custom APIs from logic apps
 
-After you [create custom APIs](./logic-apps-create-api-app.md) 
-that provide actions or triggers to use in logic apps workflows, 
-you must deploy your APIs before you can call them. 
-And although you can call any API from a logic app, 
-for the best experience, add [Swagger metadata](http://swagger.io/specification/) 
-that describes your API's operations and parameters. 
-This Swagger file helps your API work better and integrate more easily with logic apps.
+To secure calls to your APIs, you can set up Azure Active Directory (Azure AD) 
+authentication through the Azure portal so you don't have to update your code. 
+Or, you can require and enforce authentication through your API's code.
 
-You can deploy your APIs on [Azure Web Apps](../app-service/app-service-web-overview.md)
-a platform-as-a-service (PaaS) offering that provides one of the best, easiest, 
-and most scalable ways for API hosting.
-
-To authenticate calls from logic apps to your APIs, 
-you can set up Azure Active Directory in the Azure portal 
-so you don't have to update your code. Or, 
-you can require and enforce authentication through your API's code.
-
-## Deploy your API as a web app or API app
-
-Before you can call your custom API from a logic app, 
-deploy your API as a web app or API app to Azure App Service. 
-Also, to make your Swagger document readable by the Logic App Designer, 
-set the API definition properties and turn on CORS 
-for your web app or API app.
-
-1. In the Azure portal, select your web app or API app.
-
-2. In the blade that opens, 
-under **API**, choose **API definition**. 
-Set the **API definition location** 
-to the URL for your swagger.json file.
-
-   Usually, the URL appears in this format: 
-   `https://{name}.azurewebsites.net/swagger/docs/v1)`
-
-   ![Link to Swagger file for your custom API](media/logic-apps-custom-hosted-api/custom-api-swagger-url.png)
-
-3. Under **API**, choose **CORS**. 
-Set the CORS policy for **Allowed origins** to **'*'** (allow all).
-
-   This setting permits requests from Logic App Designer.
-
-   ![Permit requests from Logic App Designer to your custom API](media/logic-apps-custom-hosted-api/custom-api-cors.png)
-
-For more information, see these articles:
-
-* [Deploy ASP.NET web APIs to Azure App Service](../app-service/app-service-web-tutorial-rest-api.md)
-
-## Call your custom API from logic app workflows
-
-After you set up the API definition properties and CORS, 
-your custom API's triggers and actions should become available 
-for you to include in your logic app workflow. 
-
-*  To view the websites that have Swagger URLs, 
-you can browse your subscription websites in the Logic Apps Designer.
-
-*  To view available actions and inputs by pointing at a Swagger document, 
-use the [HTTP + Swagger action](../connectors/connectors-native-http-swagger.md).
-
-*  To call any API, including APIs that don't have or expose a Swagger document, 
-you can always create a request with the [HTTP action](../connectors/connectors-native-http.md).
-
-## Authenticate calls to your custom API
+## Authentication options for your API
 
 You can secure calls to your custom API in these ways:
 
@@ -105,7 +45,7 @@ or [Azure AD authentication](#azure-ad-code) through code.
 
 ### Authenticate calls to your API without changing code
 
-Here's the general steps for this method:
+Here are the general steps for this method:
 
 1. Create two Azure Active Directory (Azure AD) application identities: 
 one for your logic app and one for your web app (or API app).
@@ -132,7 +72,7 @@ choose **Azure Active Directory**.
 2. Confirm that you're in the same directory as your web app or API app.
 
    > [!TIP]
-   > To switch directories, click your profile and select another directory. 
+   > To switch directories, choose your profile and select another directory. 
    > Or, choose **Overview** > **Switch directory**.
 
 3. On the directory menu, under **Manage**, 
@@ -144,25 +84,25 @@ choose **App registrations** > **New application registration**.
    > To view only your app registrations, next to the search box, 
    > select **My apps**. 
 
-   ![Create new app registration](./media/logic-apps-custom-hosted-api/new-app-registration-azure-portal.png)
+   ![Create new app registration](./media/logic-apps-custom-api-authentication/new-app-registration-azure-portal.png)
 
 4. Give your application identity a name, 
 leave **Application type** set to **Web app / API**, 
 provide a unique string formatted as a domain 
 for **Sign-on URL**, and choose **Create**.
 
-   ![Provide name and sign-on URL for application identity](./media/logic-apps-custom-hosted-api/logic-app-identity-azure-portal.png)
+   ![Provide name and sign-on URL for application identity](./media/logic-apps-custom-api-authentication/logic-app-identity-azure-portal.png)
 
    The application identity that you created for your logic app 
    now appears in the app registrations list.
 
-   ![Application identity for your logic app](./media/logic-apps-custom-hosted-api/logic-app-identity-created.png)
+   ![Application identity for your logic app](./media/logic-apps-custom-api-authentication/logic-app-identity-created.png)
 
 5. In the app registrations list, select your new application identity. 
 Copy and save the **Application ID** to use as the "client ID" 
 for your logic app in Part 3.
 
-   ![Copy and save application ID for logic app](./media/logic-apps-custom-hosted-api/logic-app-application-id.png)
+   ![Copy and save application ID for logic app](./media/logic-apps-custom-api-authentication/logic-app-application-id.png)
 
 6. If your application identity settings aren't visible, choose **Settings** or **All settings**.
 
@@ -172,16 +112,16 @@ provide a name for your key. Under **Expires**, select a duration for your key.
    The key that you're creating acts as the application identity's 
    "secret" or password for your logic app.
 
-   ![Create key for logic app identity](./media/logic-apps-custom-hosted-api/create-logic-app-identity-key-secret-password.png)
+   ![Create key for logic app identity](./media/logic-apps-custom-api-authentication/create-logic-app-identity-key-secret-password.png)
 
 8. On the toolbar, choose **Save**. Under **Value**, your key now appears. 
 **Make sure to copy and save your key** for later use because the key is hidden 
-when you leave the key blade.
+when you leave the **Keys** page.
 
    When you configure your logic app in Part 3, 
    you specify this key as the "secret" or password.
 
-   ![Copy and save key for later](./media/logic-apps-custom-hosted-api/logic-app-copy-key-secret-password.png)
+   ![Copy and save key for later](./media/logic-apps-custom-api-authentication/logic-app-copy-key-secret-password.png)
 
 <a name="app-identity-logic-classic"></a>
 
@@ -251,16 +191,16 @@ find and select your web app or API app.
 Under **App Service Authentication**, turn authentication **On**. 
 Under **Authentication Providers**, choose **Azure Active Directory**.
 
-   ![Turn on authentication](./media/logic-apps-custom-hosted-api/custom-web-api-app-authentication.png)
+   ![Turn on authentication](./media/logic-apps-custom-api-authentication/custom-web-api-app-authentication.png)
 
 3. Now create an application identity for your web app or API app as shown here. 
-On the **Azure Active Directory Settings** blade, 
+On the **Azure Active Directory Settings** page, 
 set **Management mode** to **Express**. Choose **Create New AD App**. 
 Give your application identity a name, and choose **OK**. 
 
-   ![Create application identity for your web app or API app](./media/logic-apps-custom-hosted-api/custom-api-application-identity.png)
+   ![Create application identity for your web app or API app](./media/logic-apps-custom-api-authentication/custom-api-application-identity.png)
 
-4. On the **Authentication / Authorization blade**, choose **Save**.
+4. On the **Authentication / Authorization** page, choose **Save**.
 
 Now you must find the client ID and tenant ID for the application identity 
 that's associated with your web app or API app. You use these IDs in Part 3. 
@@ -270,9 +210,9 @@ So continue with these steps for the Azure portal or [Azure classic portal](#fin
 
 1. Under **Authentication Providers**, choose **Azure Active Directory**. 
 
-   ![Choose "Azure Active Directory"](./media/logic-apps-custom-hosted-api/custom-api-app-identity-client-id-tenant-id.png)
+   ![Choose "Azure Active Directory"](./media/logic-apps-custom-api-authentication/custom-api-app-identity-client-id-tenant-id.png)
 
-2. On the **Azure Active Directory Settings** blade, set **Management mode** to **Advanced**.
+2. On the **Azure Active Directory Settings** page, set **Management mode** to **Advanced**.
 
 3. Copy the **Client ID**, and save that GUID for use in Part 3.
 
@@ -286,7 +226,7 @@ You can also use this GUID in your web app or API app's deployment template, if 
    This GUID is your specific tenant's GUID ("tenant ID") and 
    should appear in this URL: `https://sts.windows.net/{GUID}`
 
-5. Without saving your changes, close the **Azure Active Directory Settings** blade.
+5. Without saving your changes, close the **Azure Active Directory Settings** page.
 
 <a name="find-id-classic"></a>
 
@@ -308,7 +248,7 @@ You can also use this GUID in your web app or API app's deployment template, if 
 7. In the metadata document that opens, find the root **EntityDescriptor ID** element, 
 which has an **entityID** attribute in this form: `https://sts.windows.net/{GUID}` 
 
-      The GUID in this attribute is your specific tenant's GUID (tenant ID).
+   The GUID in this attribute is your specific tenant's GUID (tenant ID).
 
 8. Copy the tenant ID and save that ID for use in Part 3, 
 and also to use in your web app or API app's deployment template, if necessary.
@@ -324,10 +264,11 @@ For more information, see these topics:
 You must still create an Azure AD application identity for your web app or API app 
 that differs from the app identity for your logic app. To create the application identity, 
 follow the previous steps in Part 2 for the Azure portal. 
-You can also follow the steps in Part 1, but make sure to use your web app or API app's 
-actual `https://{URL}` for **Sign-on URL** and **App ID URI**. From these steps, 
-you have to save both the client ID and tenant ID for use in your app's 
-deployment template and also for Part 3.
+
+You can also follow the steps in Part 1, but make sure to use your web app 
+or API app's actual `https://{URL}` for **Sign-on URL** and **App ID URI**. 
+From these steps, you have to save both the client ID and tenant ID for use 
+in your app's deployment template and also for Part 3.
 
 > [!NOTE]
 > When you create the Azure AD application identity for your web app or API app, 
@@ -337,29 +278,27 @@ deployment template and also for Part 3.
 After you get the client ID and tenant ID, include these IDs 
 as a subresource of your web app or API app in your deployment template:
 
-   ```
-   "resources": [
-       {
-           "apiVersion": "2015-08-01",
-           "name": "web",
-           "type": "config",
-           "dependsOn": ["[concat('Microsoft.Web/sites/','parameters('webAppName'))]"],
-           "properties": {
-               "siteAuthEnabled": true,
-               "siteAuthSettings": {
-                 "clientId": "{client-ID}",
-                 "issuer": "https://sts.windows.net/{tenant-ID}/",
-               }
-           }
-       }
-   ]
-   ```
+``` json
+"resources": [ {
+    "apiVersion": "2015-08-01",
+    "name": "web",
+    "type": "config",
+    "dependsOn": ["[concat('Microsoft.Web/sites/','parameters('webAppName'))]"],
+    "properties": {
+        "siteAuthEnabled": true,
+        "siteAuthSettings": {
+            "clientId": "{client-ID}",
+            "issuer": "https://sts.windows.net/{tenant-ID}/",
+        }
+    }
+} ]
+```
 
 To automatically deploy a blank web app and a logic app together with 
 Azure Active Directory authentication, [view the complete template here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-custom-api/azuredeploy.json), 
 or click **Deploy to Azure** here:
 
-[![Deploy to Azure](media/logic-apps-custom-hosted-api/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
+[![Deploy to Azure](media/logic-apps-custom-api-authentication/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
 
 #### Part 3: Populate the Authorization section in your logic app
 
@@ -371,19 +310,19 @@ find the **Authorization** section, and include this line:
 
 `{"tenant": "{tenant-ID}", "audience": "{client-ID-from-Part-2-web-app-or-API app}", "clientId": "{client-ID-from-Part-1-logic-app}", "secret": "{key-from-Part-1-logic-app}", "type": "ActiveDirectoryOAuth" }`
 
-| Element | Description |
-| ------- | ----------- |
-| tenant |The GUID for the Azure AD tenant |
-| audience |Required. The GUID for the target resource that you want to access - the client ID from the application identity for your web app or API app |
-| clientId |The GUID for the client requesting access - the client ID from the application identity for your logic app |
-| secret |Required. The key or password from the application identity for the client that's requesting the access token |
-| type |The authentication type. For ActiveDirectoryOAuth authentication, the value is `ActiveDirectoryOAuth`. |
+| Element | Required | Description | 
+| ------- | -------- | ----------- | 
+| tenant | Yes | The GUID for the Azure AD tenant | 
+| audience | Yes | The GUID for the target resource that you want to access, which is the client ID from the application identity for your web app or API app | 
+| clientId | Yes | The GUID for the client requesting access, which is the client ID from the application identity for your logic app | 
+| secret | Yes | The key or password from the application identity for the client that's requesting the access token | 
+| type | Yes | The authentication type. For ActiveDirectoryOAuth authentication, the value is `ActiveDirectoryOAuth`. | 
+|||| 
 
 For example:
 
-```
+``` json
 {
-   ...
    "actions": {
       "some-action": {
          "conditions": [],
@@ -419,11 +358,12 @@ In the **Authorization** section, include this line:
 
 `{"type": "clientcertificate", "password": "password", "pfx": "long-pfx-key"}`
 
-| Element | Description |
-| ------- | ----------- |
-| type |Required. The authentication type. For SSL client certificates, the value must be `ClientCertificate`. |
-| password |Required. The password for accessing the client certificate (PFX file) |
-| pfx |Required. Base64-encoded contents of the client certificate (PFX file) |
+| Element | Required | Description | 
+| ------- | -------- | ----------- | 
+| type | Yes | The authentication type. For SSL client certificates, the value must be `ClientCertificate`. | 
+| password | Yes | The password for accessing the client certificate (PFX file) | 
+| pfx | Yes | The base64-encoded contents of the client certificate (PFX file) | 
+|||| 
 
 <a name="basic"></a>
 
@@ -438,11 +378,12 @@ In the **Authorization** section, include this line:
 
 `{"type": "basic", "username": "username", "password": "password"}`.
 
-| Element | Description |
-| --- | --- |
-| type |Required. The authentication type. For basic authentication, the value must be `Basic`. |
-| username |Required. The username for authentication |
-| password |Required. The password for authentication |
+| Element | Required | Description | 
+| ------- | -------- | ----------- | 
+| type | Yes | The authentication type that you want to use. For basic authentication, the value must be `Basic`. | 
+| username | Yes | The username that you want to use for authentication | 
+| password | Yes | The password that you want to use for authentication | 
+|||| 
 
 <a name="azure-ad-code"></a>
 
@@ -459,11 +400,11 @@ Check the caller's identity, and reject requests that don't match.
 
 <!-- Going further, to implement this authentication entirely in your own code, 
 and not use the Azure portal, learn how to 
-[authenticate with on-premises Active Directory in your Azure app](../app-service-web/web-sites-authentication-authorization.md).
+[authenticate with on-premises Active Directory in your Azure app](../app-service/app-service-authentication-overview.md).
 
 To create an application identity for your logic app and use that identity to call your API, 
 you must follow the previous steps. -->
 
 ## Next steps
 
-* [Check logic app performance with diagnostic logs and alerts](logic-apps-monitor-your-logic-apps.md)
+* [Deploy and call custom APIs from logic app workflows](../logic-apps/logic-apps-custom-api-host-deploy-call.md)
