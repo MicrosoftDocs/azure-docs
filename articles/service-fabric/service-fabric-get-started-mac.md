@@ -73,7 +73,7 @@ To create the local VM containing a 5-node Service Fabric cluster, perform the f
     vagrant ssh
     ```
    
-   Install the SDK as described in [SDK installation](service-fabric-get-started-linux.md#runtime-and-common-sdk-installation-methods).  The script below is provided for convenience for installing the Service Fabric runtime and the Service Fabric common SDK along with sfctl CLI. Running the script assumes you have read and agreed to the licenses for all the software that is being installed.
+   Install the SDK as described in [SDK installation](service-fabric-get-started-linux.md).  The script below is provided for convenience for installing the Service Fabric runtime and the Service Fabric common SDK along with sfctl CLI. Running the script assumes you have read and agreed to the licenses for all the software that is being installed.
 
     ```bash
     sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-templates/master/scripts/SetupServiceFabric/SetupServiceFabric.sh | sudo bash
