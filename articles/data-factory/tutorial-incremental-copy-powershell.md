@@ -102,11 +102,11 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     WatermarkValue datetime,
     );
     ```
-3. Set the default **value** of high watermark with the table name of source data store.  (In this tutorial, the table name is: **datasource**)
+3. Set the default **value** of high watermark with the table name of source data store.  (In this tutorial, the table name is: **data_source_table**)
 
     ```sql
     INSERT INTO watermarktable
-    VALUES ('datasource','1/1/2010 12:00:00 AM')    
+    VALUES ('data_source_table','1/1/2010 12:00:00 AM')    
     ```
 4. Review the data in table: `watermarktable`.
     
@@ -118,7 +118,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     ```
     TableName  | WatermarkValue
     ----------  | --------------
-    datasource | 2010-01-01 00:00:00.000
+    data_source_table | 2010-01-01 00:00:00.000
     ```
 
 ### Create a stored procedure in Azure SQL database 
@@ -261,7 +261,7 @@ In this step, you create datasets to represent source and sink data.
     	"properties": {
     		"type": "AzureSqlTable",
     		"typeProperties": {
-    			"tableName": "datasource"
+    			"tableName": "data_source_table"
     		},
     		"linkedServiceName": {
     			"referenceName": "AzureSQLDatabaseLinkedService",
@@ -271,7 +271,7 @@ In this step, you create datasets to represent source and sink data.
     }
    
     ```
-    In this tutorial, we use the table name: **datasource**. Replace it if you are using a table with a different name. 
+    In this tutorial, we use the table name: **data_source_table**. Replace it if you are using a table with a different name. 
 2.  Run the Set-AzureRmDataFactoryV2Dataset cmdlet to create the dataset: SourceDataset
     
     ```powershell
@@ -398,7 +398,7 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
     				"typeProperties": {
     					"source": {
     						"type": "SqlSource",
-    						"sqlReaderQuery": "select MAX(LastModifytime) as NewWatermarkvalue from datasource"
+    						"sqlReaderQuery": "select MAX(LastModifytime) as NewWatermarkvalue from data_source_table"
     					},
     
     					"dataset": {
@@ -414,7 +414,7 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
     				"typeProperties": {
     					"source": {
     						"type": "SqlSource",
-    						"sqlReaderQuery": "select * from datasource where LastModifytime > '@{activity('LookupWaterMarkActivity').output.firstRow.WatermarkValue}' and LastModifytime <= '@{activity('LookupMaxValuefromSourceActivity').output.firstRow.NewWatermarkvalue}'"
+    						"sqlReaderQuery": "select * from data_source_table where LastModifytime > '@{activity('LookupWaterMarkActivity').output.firstRow.WatermarkValue}' and LastModifytime <= '@{activity('LookupMaxValuefromSourceActivity').output.firstRow.NewWatermarkvalue}'"
     					},
     					"sink": {
     						"type": "BlobSink"
@@ -481,7 +481,7 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
     }
     ```json
 
-	If you are using a source table with a name different from the one used in the tutorial (**datasource**), replace **datasource** in the sqlReaderQuery with the name of your source table. 
+	If you are using a source table with a name different from the one used in the tutorial (**data_source_table**), replace **data_source_table** in the sqlReaderQuery with the name of your source table. 
 	
 
 2. Run the Set-AzureRmDataFactoryV2Pipeline cmdlet to create the pipeline: IncrementalCopyPipeline.
@@ -595,17 +595,17 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
  
 	TableName | WatermarkValue
 	--------- | --------------
-	datasource	2017-09-05	8:06:00.000
+	data_source_table	2017-09-05	8:06:00.000
 
 ### Insert data into data source store to verify delta data loading
 
 1. Insert new data into Azure SQL database (data source store):
 
 	```sql
-	INSERT INTO datasource
+	INSERT INTO data_source_table
 	VALUES (6, 'newdata','9/6/2017 2:23:00 AM')
 	
-	INSERT INTO datasource
+	INSERT INTO data_source_table
 	VALUES (7, 'newdata','9/7/2017 9:01:00 AM')
 	```	
 
@@ -703,7 +703,7 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
 	
 	TableName | WatermarkValue
 	--------- | ---------------
-	datasource | 2017-09-07 09:01:00.000
+	data_source_table | 2017-09-07 09:01:00.000
 
      
 ## Next steps
