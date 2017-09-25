@@ -4,8 +4,8 @@
 
 # Quickstarts
 ## [Create .NET application](service-fabric-quickstart-dotnet.md)
-## [Deploy a Windows container application](service-fabric-quickstart-containers.md)
 ## [Deploy a Linux container application](service-fabric-quickstart-containers-linux.md)
+## [Deploy a Windows container application](service-fabric-quickstart-containers.md)
 
 # Tutorials
 ## Deploy a .NET app
@@ -18,9 +18,20 @@
 ### [1- Create a secure cluster on Azure](service-fabric-tutorial-create-cluster-azure-ps.md)
 ### [2- Deploy a .NET app using Docker Compose](service-fabric-host-app-in-a-container.md)
 
+## Create a Linux container app
+### [1- Create container images](service-fabric-tutorial-create-container-images.md)
+### [2- Package and deploy containers](service-fabric-tutorial-package-containers.md)
+### [3- Fail over and scale](service-fabric-tutorial-containers-failover.md)
+
+## Create and manage a cluster
+### 1- Create a cluster on Azure
+#### [1a- Create a secure Windows cluster on Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+#### [1b- Create a secure Linux cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+### [2- Deploy API Management with Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+
 # Samples
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
-## [PowerShell](service-fabric-powershell-samples.md)
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=service-fabric)
+## [Azure PowerShell](service-fabric-powershell-samples.md)
 ## [Service Fabric CLI](samples-cli.md)
 # Concepts
 ## [Understand microservices](service-fabric-overview-microservices.md)
@@ -67,6 +78,8 @@
 #### [Service state](service-fabric-concepts-state.md)
 #### [Service partitioning](service-fabric-concepts-partitioning.md)
 #### [Availability of services](service-fabric-availability-services.md)
+#### [Replicas and instances](service-fabric-concepts-replica-lifecycle.md)
+#### [Reconfiguration](service-fabric-concepts-reconfiguration.md)
 #### Service communication
 ##### [Overview](service-fabric-connect-and-communicate-with-services.md)
 ##### [DNS service](service-fabric-dnsservice.md)
@@ -91,7 +104,6 @@
 
 ## Create and manage clusters
 ### [Overview](service-fabric-deploy-anywhere.md)
-### [Service Fabric on Linux](service-fabric-linux-overview.md)
 ### Plan and prepare
 #### [Capacity planning](service-fabric-cluster-capacity.md)
 #### [Disaster recovery](service-fabric-disaster-recovery.md)
@@ -227,13 +239,13 @@
 
 ### Deploy or remove applications
 #### [Deploy applications on a local cluster](service-fabric-get-started-with-a-local-cluster.md)
-#### [PowerShell](service-fabric-deploy-remove-applications.md)
+#### [Azure PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [FabricClient APIs](service-fabric-deploy-remove-applications-fabricclient.md)
 
 ### Upgrade applications
-#### [Upgrade using PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
+#### [Upgrade using Azure PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
 #### [Upgrade using Visual Studio](service-fabric-application-upgrade-tutorial.md)
 #### [Troubleshoot application upgrades](service-fabric-application-upgrade-troubleshooting.md)
 
@@ -326,7 +338,7 @@
 ### [Troubleshoot your local cluster](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # Reference
-## [PowerShell (Azure)](/powershell/module/azurerm.servicefabric/)
+## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
 ## [Azure CLI](/cli/azure/sf)
 ## [Java API](/java/api/overview/azure/servicefabric)
