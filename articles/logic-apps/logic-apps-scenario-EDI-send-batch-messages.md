@@ -121,7 +121,7 @@ and specify criteria for releasing the batch, for example:
 
 <a name="sender"></a>
 
-## Create logic apps that sends X12 messages to a batch
+## Create a logic app that sends X12 messages to a batch
 
 Now create one or more logic apps that send items to the 
 batch defined by the receiver logic app. For the sender, 

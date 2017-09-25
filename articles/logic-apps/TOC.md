@@ -32,7 +32,7 @@
 ### [Partners](logic-apps-enterprise-integration-partners.md)
 ### [Agreements](logic-apps-enterprise-integration-agreements.md)
 ### [B2B processing](logic-apps-enterprise-integration-b2b.md)
-### [Send EDI messages as batch](logic-apps-scenario-EDI-send-batch-messages.md)
+### [Send EDI messages as batch](logic-apps-scenario-edi-send-batch-messages.md)
 ### [XML processing](logic-apps-enterprise-integration-xml.md)
 ### [Flat file processing](logic-apps-enterprise-integration-flatfile.md)
 ### [Validate XML](logic-apps-enterprise-integration-xml-validation.md)
