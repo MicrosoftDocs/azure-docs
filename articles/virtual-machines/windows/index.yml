@@ -46,7 +46,7 @@ sections:
       text: Azure CLI
       href: https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-quick-create-cli?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - image:
-      src: https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_vs-team-services.svg
+        src: https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_vs-team-services.svg
       text: VSTS
       href: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups
 - title: Step-by-Step Tutorials
