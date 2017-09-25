@@ -1661,6 +1661,46 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/app-service/app-service-environment/create-external-ase.md",
+            "redirect_url": "/azure/app-service/environment/create-external-ase",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-environment/create-from-template.md",
+            "redirect_url": "/azure/app-service/environment/create-from-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-environment/create-ilb-ase.md",
+            "redirect_url": "/azure/app-service/environment/create-ilb-ase",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-environment/intro.md",
+            "redirect_url": "/azure/app-service/environment/intro",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-environment/management-addresses.md",
+            "redirect_url": "/azure/app-service/environment/management-addresses",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-environment/network-info.md",
+            "redirect_url": "/azure/app-service/environment/network-info",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-environment/readme.md",
+            "redirect_url": "/azure/app-service/environment/intro",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-environment/using-an-ase.md",
+            "redirect_url": "/azure/app-service/environment/using-an-ase",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/app-service/app-service-environment-auto-scale.md",
             "redirect_url": "/azure/app-service/environment/app-service-environment-auto-scale",
             "redirect_document_id": false
@@ -2293,11 +2333,6 @@
         {
             "source_path": "articles/app-service/app-service-powershell-backup.md",
             "redirect_url": "/azure/app-service/web-sites-backup",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/app-service/app-service-environment/readme.md",
-            "redirect_url": "/azure/app-service/environment/intro",
             "redirect_document_id": false
         },
         {
@@ -4251,6 +4286,776 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/machine-learning/machine-learning-data-science-dsvm-ubuntu-intro.md",
+            "redirect_url": "/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-linux-dsvm-intro.md",
+            "redirect_url": "/azure/machine-learning/data-science-virtual-machine/linux-dsvm-intro.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-linux-dsvm-walkthrough.md",
+            "redirect_url": "/azure/machine-learning/data-science-virtual-machine/linux-dsvm-walkthrough.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-provision-vm.md",
+            "redirect_url": "/azure/machine-learning/data-science-virtual-machine/provision-vm.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-setup-sql-server-virtual-machine.md",
+            "redirect_url": "/azure/machine-learning/data-science-virtual-machine/setup-sql-server-virtual-machine.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-setup-virtual-machine.md",
+            "redirect_url": "/azure/machine-learning/data-science-virtual-machine/setup-virtual-machine.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-virtual-machine-overview.md",
+            "redirect_url": "/azure/machine-learning/data-science-virtual-machine/virtual-machine-overview.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-vm-do-ten-things.md",
+            "redirect_url": "/azure/machine-learning/data-science-virtual-machine/vm-do-ten-things.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-faq.md",
+            "redirect_url": "/azure/machine-learning/preview/faq.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-algorithm-cheat-sheet.md",
+            "redirect_url": "/azure/machine-learning/studio/algorithm-cheat-sheet.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-algorithm-choice.md",
+            "redirect_url": "/azure/machine-learning/studio/algorithm-choice.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-algorithm-parameters-optimize.md",
+            "redirect_url": "/azure/machine-learning/studio/algorithm-parameters-optimize.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-azure-ml-customer-churn-scenario.md",
+            "redirect_url": "/azure/machine-learning/studio/azure-ml-customer-churn-scenario.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-azure-ml-netsharp-reference-guide.md",
+            "redirect_url": "/azure/machine-learning/studio/azure-ml-netsharp-reference-guide.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-basics-infographic-with-algorithm-examples.md",
+            "redirect_url": "/azure/machine-learning/studio/basics-infographic-with-algorithm-examples.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-competition-faq.md",
+            "redirect_url": "/azure/machine-learning/studio/competition-faq.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-consume-web-services.md",
+            "redirect_url": "/azure/machine-learning/studio/consume-web-services.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-consume-web-service-with-web-app-template.md",
+            "redirect_url": "/azure/machine-learning/studio/consume-web-service-with-web-app-template.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-consuming-from-excel.md",
+            "redirect_url": "/azure/machine-learning/studio/consuming-from-excel.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-convert-training-experiment-to-scoring-experiment.md",
+            "redirect_url": "/azure/machine-learning/studio/convert-training-experiment-to-scoring-experiment.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-create-endpoint.md",
+            "redirect_url": "/azure/machine-learning/studio/create-endpoint.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-create-experiment.md",
+            "redirect_url": "/azure/machine-learning/studio/create-experiment.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-create-models-and-endpoints-with-powershell.md",
+            "redirect_url": "/azure/machine-learning/studio/create-models-and-endpoints-with-powershell.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-create-workspace.md",
+            "redirect_url": "/azure/machine-learning/studio/create-workspace.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-custom-r-modules.md",
+            "redirect_url": "/azure/machine-learning/studio/custom-r-modules.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-datamarket-deprecation.md",
+            "redirect_url": "/azure/machine-learning/studio/datamarket-deprecation.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md",
+            "redirect_url": "/azure/machine-learning/studio/data-science-for-beginners-ask-a-question-you-can-answer-with-data.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md",
+            "redirect_url": "/azure/machine-learning/studio/data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md",
+            "redirect_url": "/azure/machine-learning/studio/data-science-for-beginners-is-your-data-ready-for-data-science.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md",
+            "redirect_url": "/azure/machine-learning/studio/data-science-for-beginners-predict-an-answer-with-a-simple-model.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md",
+            "redirect_url": "/azure/machine-learning/studio/data-science-for-beginners-the-5-questions-data-science-answers.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-debug-models.md",
+            "redirect_url": "/azure/machine-learning/studio/debug-models.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-dedicated-capacity-for-bes-jobs.md",
+            "redirect_url": "/azure/machine-learning/studio/dedicated-capacity-for-bes-jobs.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-deploy-consume-web-service-guide.md",
+            "redirect_url": "/azure/machine-learning/studio/deploy-consume-web-service-guide.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-deploy-with-resource-manager-template.md",
+            "redirect_url": "/azure/machine-learning/studio/deploy-with-resource-manager-template.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-evaluate-model-performance.md",
+            "redirect_url": "/azure/machine-learning/studio/evaluate-model-performance.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-excel-add-in-for-web-services.md",
+            "redirect_url": "/azure/machine-learning/studio/excel-add-in-for-web-services.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-execute-python-scripts.md",
+            "redirect_url": "/azure/machine-learning/studio/execute-python-scripts.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-extend-your-experiment-with-r.md",
+            "redirect_url": "/azure/machine-learning/studio/extend-your-experiment-with-r.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-gallery-collections.md",
+            "redirect_url": "/azure/machine-learning/studio/gallery-collections.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-gallery-competitions.md",
+            "redirect_url": "/azure/machine-learning/studio/gallery-competitions.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-gallery-custom-modules.md",
+            "redirect_url": "/azure/machine-learning/studio/gallery-custom-modules.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-gallery-experiments.md",
+            "redirect_url": "/azure/machine-learning/studio/gallery-experiments.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-gallery-how-to-use-contribute-publish.md",
+            "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-gallery-industries.md",
+            "redirect_url": "/azure/machine-learning/studio/gallery-industries.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-gallery-jupyter-notebooks.md",
+            "redirect_url": "/azure/machine-learning/studio/gallery-jupyter-notebooks.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-gallery-solutions.md",
+            "redirect_url": "/azure/machine-learning/studio/gallery-solutions.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-gallery-tutorials.md",
+            "redirect_url": "/azure/machine-learning/studio/gallery-tutorials.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-how-to-deploy-to-multiple-regions.md",
+            "redirect_url": "/azure/machine-learning/studio/how-to-deploy-to-multiple-regions.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-import-data.md",
+            "redirect_url": "/azure/machine-learning/studio/import-data.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-import-data-from-an-experiment.md",
+            "redirect_url": "/azure/machine-learning/studio/import-data-from-an-experiment.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-import-data-from-local-file.md",
+            "redirect_url": "/azure/machine-learning/studio/import-data-from-local-file.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-import-data-from-online-sources.md",
+            "redirect_url": "/azure/machine-learning/studio/import-data-from-online-sources.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-interpret-model-results.md",
+            "redirect_url": "/azure/machine-learning/studio/interpret-model-results.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-linear-regression-in-azure.md",
+            "redirect_url": "/azure/machine-learning/studio/linear-regression-in-azure.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-live-chat.md",
+            "redirect_url": "/azure/machine-learning/studio/live-chat.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-manage-experiment-iterations.md",
+            "redirect_url": "/azure/machine-learning/studio/manage-experiment-iterations.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-manage-new-webservice.md",
+            "redirect_url": "/azure/machine-learning/studio/manage-new-webservice.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-manage-web-service-endpoints-using-api-management.md",
+            "redirect_url": "/azure/machine-learning/studio/manage-web-service-endpoints-using-api-management.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-manage-workspace.md",
+            "redirect_url": "/azure/machine-learning/studio/manage-workspace.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-model-progression-experiment-to-web-service.md",
+            "redirect_url": "/azure/machine-learning/studio/model-progression-experiment-to-web-service.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-multi-geo.md",
+            "redirect_url": "/azure/machine-learning/studio/multi-geo.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-powershell-module.md",
+            "redirect_url": "/azure/machine-learning/studio/powershell-module.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-publish-a-machine-learning-web-service.md",
+            "redirect_url": "/azure/machine-learning/studio/publish-a-machine-learning-web-service.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-retrain-a-classic-web-service.md",
+            "redirect_url": "/azure/machine-learning/studio/retrain-a-classic-web-service.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-retrain-existing-resource-manager-based-web-service.md",
+            "redirect_url": "/azure/machine-learning/studio/retrain-existing-resource-manager-based-web-service.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-retrain-machine-learning-model.md",
+            "redirect_url": "/azure/machine-learning/studio/retrain-machine-learning-model.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-retrain-models-programmatically.md",
+            "redirect_url": "/azure/machine-learning/studio/retrain-models-programmatically.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-retrain-new-web-service-using-powershell.md",
+            "redirect_url": "/azure/machine-learning/studio/retrain-new-web-service-using-powershell.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-r-quickstart.md",
+            "redirect_url": "/azure/machine-learning/studio/r-quickstart.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-sample-experiments.md",
+            "redirect_url": "/azure/machine-learning/studio/sample-experiments.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-scaling-webservice.md",
+            "redirect_url": "/azure/machine-learning/studio/scaling-webservice.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-studio-overview-diagram.md",
+            "redirect_url": "/azure/machine-learning/studio/studio-overview-diagram.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-text-analytics-module-tutorial.md",
+            "redirect_url": "/azure/machine-learning/studio/text-analytics-module-tutorial.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-troubleshooting-creating-ml-workspace.md",
+            "redirect_url": "/azure/machine-learning/studio/troubleshooting-creating-ml-workspace.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-troubleshooting-retraining-models.md",
+            "redirect_url": "/azure/machine-learning/studio/troubleshooting-retraining-models.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-use-data-from-an-on-premises-sql-server.md",
+            "redirect_url": "/azure/machine-learning/studio/use-data-from-an-on-premises-sql-server.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-use-sample-datasets.md",
+            "redirect_url": "/azure/machine-learning/studio/use-sample-datasets.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-version-control.md",
+            "redirect_url": "/azure/machine-learning/studio/version-control.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-walkthrough-1-create-ml-workspace.md",
+            "redirect_url": "/azure/machine-learning/studio/walkthrough-1-create-ml-workspace.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-walkthrough-2-upload-data.md",
+            "redirect_url": "/azure/machine-learning/studio/walkthrough-2-upload-data.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-walkthrough-3-create-new-experiment.md",
+            "redirect_url": "/azure/machine-learning/studio/walkthrough-3-create-new-experiment.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-walkthrough-4-train-and-evaluate-models.md",
+            "redirect_url": "/azure/machine-learning/studio/walkthrough-4-train-and-evaluate-models.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-walkthrough-5-publish-web-service.md",
+            "redirect_url": "/azure/machine-learning/studio/walkthrough-5-publish-web-service.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-walkthrough-6-access-web-service.md",
+            "redirect_url": "/azure/machine-learning/studio/walkthrough-6-access-web-service.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-walkthrough-develop-predictive-solution.md",
+            "redirect_url": "/azure/machine-learning/studio/walkthrough-develop-predictive-solution.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-web-service-error-codes.md",
+            "redirect_url": "/azure/machine-learning/studio/web-service-error-codes.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-web-service-parameters.md",
+            "redirect_url": "/azure/machine-learning/studio/web-service-parameters.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-web-services-logging.md",
+            "redirect_url": "/azure/machine-learning/studio/web-services-logging.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-web-services-that-use-import-export-modules.md",
+            "redirect_url": "/azure/machine-learning/studio/web-services-that-use-import-export-modules.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-what-is-machine-learning.md",
+            "redirect_url": "/azure/machine-learning/studio/what-is-machine-learning.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-what-is-ml-studio.md",
+            "redirect_url": "/azure/machine-learning/studio/what-is-ml-studio.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-whats-new.md",
+            "redirect_url": "/azure/machine-learning/studio/whats-new.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-apps-anomaly-detection-api.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/apps-anomaly-detection-api.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-automated-data-pipeline-cheat-sheet.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/automated-data-pipeline-cheat-sheet.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/cortana-analytics-architecture-predictive-maintenance.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/cortana-analytics-architecture-predictive-maintenance.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/cortana-analytics-playbook-predictive-maintenance.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/cortana-analytics-playbook-vehicle-telemetry.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-vehicle-telemetry.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/cortana-analytics-playbook-vehicle-telemetry-deep-dive.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-vehicle-telemetry-deep-dive.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/cortana-analytics-playbook-vehicle-telemetry-powerbi.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-vehicle-telemetry-powerbi.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/cortana-analytics-technical-guide-predictive-maintenance.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/cortana-analytics-technical-guide-predictive-maintenance.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/cortana-intelligence-appsource-evaluation-tool.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-evaluation-tool.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/cortana-intelligence-appsource-publishing-guide.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-create-features.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/create-features.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-create-features-blob.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/create-features-blob.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-create-features-hive.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/create-features-hive.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-create-features-sql-server.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/create-features-sql-server.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-customize-hadoop-cluster.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/customize-hadoop-cluster.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-process-data-blob.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/data-blob.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-process-data-lake-walkthrough.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/data-lake-walkthrough.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-environment-setup.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/environment-setup.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-explore-data.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/explore-data.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-explore-data-blob.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/explore-data-blob.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-explore-data-hive-tables.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/explore-data-hive-tables.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-explore-data-sql-server.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/explore-data-sql-server.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-process-hive-criteo-walkthrough.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/hive-criteo-walkthrough.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-process-hive-walkthrough.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/hive-walkthrough.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-ingest-data.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/ingest-data.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/data-science-process-lifecycle.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/lifecycle.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-move-azure-blob.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/move-azure-blob.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-move-data-to-azure-blob-using-azcopy.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azcopy.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azure-storage-explorer.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-move-data-to-azure-blob-using-python.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-python.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-move-data-to-azure-blob-using-ssis.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-ssis.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-move-hive-tables.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/move-hive-tables.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-move-sql-azure.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/move-sql-azure.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-move-sql-azure-adf.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/move-sql-azure-adf.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-move-sql-server-virtual-machine.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/move-sql-server-virtual-machine.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/data-science-process-overview.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/overview.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/parallel-load-sql-partitioned-tables.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-plan-sample-scenarios.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/plan-sample-scenarios.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-plan-your-environment.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/plan-your-environment.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-prepare-data.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/prepare-data.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-python-data-access.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/python-data-access.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-sample-data.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/sample-data.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-sample-data-blob.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/sample-data-blob.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-sample-data-hive.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/sample-data-hive.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-sample-data-sql-server.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/sample-data-sql-server.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-process-scala-walkthrough.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/scala-walkthrough.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-select-features.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/select-features.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-spark-advanced-data-exploration-modeling.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/spark-advanced-data-exploration-modeling.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-spark-data-exploration-modeling.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/spark-data-exploration-modeling.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-spark-model-consumption.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/spark-model-consumption.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-spark-overview.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/spark-overview.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-process-sqldw-walkthrough.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/sqldw-walkthrough.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-process-sql-server-virtual-machine.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/sql-server-virtual-machine.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-process-sql-walkthrough.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/sql-walkthrough.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/machine-learning-data-science-virtual-machines.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/virtual-machines.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/data-science-process-walkthroughs.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/walkthroughs.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/data-science-process-walkthroughs-azure-data-lake.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/walkthroughs-azure-data-lake.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/data-science-process-walkthroughs-hdinsight-hadoop.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/walkthroughs-hdinsight-hadoop.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/data-science-process-walkthroughs-spark.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/walkthroughs-spark.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/data-science-process-walkthroughs-sql-data-warehouse.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/walkthroughs-sql-data-warehouse.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/data-science-process-walkthroughs-sql-server.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/walkthroughs-sql-server.md",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/monitoring-and-diagnostics/azure-diagnostics-versioning-history.md",
             "redirect_url": "/azure/monitoring-and-diagnostics/azure-diagnostics-schema",
             "redirect_document_id": false
@@ -5170,6 +5975,36 @@
             "redirect_url": "/azure/storsimple/storsimple-virtual-array-service-summary",
             "redirect_document_id": false
         },
+         {
+             "source_path": "articles/storsimple/storsimple-install-update-1.md",
+             "redirect_url": "/azure/storsimple/storsimple-install-update-5",
+             "redirect_document_id": false
+         },
+         {
+             "source_path": "articles/storsimple/storsimple-install-update-2.md",
+             "redirect_url": "/azure/storsimple/storsimple-install-update-5",
+             "redirect_document_id": false
+         },
+         {
+             "source_path": "articles/storsimple/storsimple-install-update-21.md",
+             "redirect_url": "/azure/storsimple/storsimple-install-update-5",
+             "redirect_document_id": false
+         },
+         {
+             "source_path": "articles/storsimple/storsimple-ova-install-update-01.md",
+             "redirect_url": "/azure/storsimple/storsimple-virtual-array-install-update-06",
+             "redirect_document_id": false
+         },
+         {
+             "source_path": "articles/storsimple/storsimple-ova-pp-release-notes.md",
+             "redirect_url": "/azure/storsimple/storsimple-virtual-array-update-06-release-notes",
+             "redirect_document_id": false
+         },
+         {
+             "source_path": "articles/storsimple/storsimple-security.md",
+             "redirect_url": "/azure/storsimple/storsimple-8000-security",
+             "redirect_document_id": false
+         },
         {
             "source_path": "articles/traffic-manager/disable-enable-or-delete-a-profile.md",
             "redirect_url": "/azure/traffic-manager/traffic-manager-manage-profiles",
@@ -8028,6 +8863,146 @@
         {
             "source_path": "articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md",
             "redirect_url": "/azure/virtual-machines/windows/a8-a9-a10-a11-specs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-acs-differences.md",
+            "redirect_url": "azure/azure-stack/user/azure-stack-acs-differences",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-arm-templates.md",
+            "redirect_url": "azure/azure-stack/user/azure-stack-arm-templates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-connect-cli.md",
+            "redirect_url": "azure/azure-stack/user/azure-stack-connect-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-considerations.md",
+            "redirect_url": "azure/azure-stack/user/azure-stack-considerations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-deploy-template-command-line.md",
+            "redirect_url": "azure/azure-stack/user/azure-stack-deploy-template-command-line",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-deploy-template-portal.md",
+            "redirect_url": "azure/azure-stack/user/azure-stack-deploy-template-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-deploy-template-powershell.md",
+            "redirect_url": "azure/azure-stack/user/azure-stack-deploy-template-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-deploy-template-visual-studio.md",
+            "redirect_url": "azure/azure-stack/user/azure-stack-deploy-template-visual-studio",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-developer.md",
+            "redirect_url": "azure/azure-stack/user/azure-stack-developer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-develop-templates.md",
+            "redirect_url": "azure/azure-stack/user/azure-stack-develop-templates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-dns.md",
+            "redirect_url": "azure/azure-stack/user/azure-stack-dns",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-kv-deploy-vm-with-secret.md",
+            "redirect_url": "azure/azure-stack/user/azure-stack-kv-deploy-vm-with-secret",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-kv-intro.md",
+            "redirect_url": "azure/azure-stack/user/azure-stack-kv-intro",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-kv-manage-portal.md",
+            "redirect_url": "azure/azure-stack/user/azure-stack-kv-manage-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-kv-manage-powershell.md",
+            "redirect_url": "azure/azure-stack/user/azure-stack-kv-manage-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-kv-push-secret-into-vm.md",
+            "redirect_url": "azure/azure-stack/user/azure-stack-kv-push-secret-into-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-kv-sample-app.md",
+            "redirect_url": "azure/azure-stack/user/azure-stack-kv-sample-app",
+            "redirect_document_id": false
+        }, 
+        {
+            "source_path": "articles/azure-stack/azure-stack-network-differences.md",
+            "redirect_url": "azure/azure-stack/user/azure-stack-network-differences",
+            "redirect_document_id": false
+        }, 
+        {
+            "source_path": "articles/azure-stack/azure-stack-policy-module.md",
+            "redirect_url": "azure/azure-stack/user/azure-stack-policy-module",
+            "redirect_document_id": false
+        }, 
+        {
+            "source_path": "articles/azure-stack/azure-stack-powershell-configure-user.md",
+            "redirect_url": "azure/azure-stack/user/azure-stack-powershell-configure-user",
+            "redirect_document_id": false
+        }, 
+        {
+            "source_path": "articles/azure-stack/azure-stack-solution-pipeline.md",
+            "redirect_url": "azure/azure-stack/user/azure-stack-solution-pipeline",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-storage-connect-se.md",
+            "redirect_url": "azure/azure-stack/user/azure-stack-storage-connect-se",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-storage-dev.md",
+            "redirect_url": "azure/azure-stack/user/azure-stack-storage-dev",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-storage-overview.md",
+            "redirect_url": "azure/azure-stack/user/azure-stack-storage-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-storage-transfer.md",
+            "redirect_url": "azure/azure-stack/user/azure-stack-storage-transfer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-understanding-dns.md",
+            "redirect_url": "azure/azure-stack/user/azure-stack-understanding-dns",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-validate-templates.md",
+            "redirect_url": "azure/azure-stack/user/azure-stack-validate-templates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-vm-considerations.md",
+            "redirect_url": "azure/azure-stack/user/azure-stack-vm-considerations",
             "redirect_document_id": false
         },
         {
@@ -11696,6 +12671,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/container-registry/container-registry-managed-get-started-portal.md",
+            "redirect_url": "/azure/container-registry/container-registry-get-started-portal",
+            "redirect_document_id": false
+        },      
+        {
+            "source_path": "articles/container-registry/container-registry-managed-get-started-azure-cli.md",
+            "redirect_url": "/azure/container-registry/container-registry-get-started-azure-cli",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/event-grid/resize-images-on-storage-blob-upload-event.md",
             "redirect_url": "/azure/storage/blobs/storage-blob-event-quickstart",
             "redirect_document_id": false
@@ -11861,18 +12846,38 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/service-fabric/service-fabric-linux-overview.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-deploy-anywhere",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/app-service-web/index.md",
             "redirect_url": "/azure/app-service",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-api/index.md",
-            "redirect_url": "azure/app-service",
+            "redirect_url": "/azure/app-service",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm.md",
             "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/billing/billing-usage-rate-card-partner-solution-cloudyn.md", 
+             "redirect_url": "/azure/cost-management/overview.md", 
+             "redirect_document_id": false 
+        },
+        {
+            "source_path": "articles/azure-policy/index.md",
+            "redirect_url": "/azure/azure-policy/azure-policy-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/services.md",
+            "redirect_url": "/azure/machine-learning/preview/index.yml",
             "redirect_document_id": false
         }
     ]
