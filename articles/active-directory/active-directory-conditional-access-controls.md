@@ -72,7 +72,7 @@ You can configure conditional access policies that are device-based. The objecti
 
 ### Domain-joined device
 
-Requiring a domain-joined device is another option you have to configure a device-based conditional access policies. This requirement refers to Windows desktops, laptops, and enterprise tablets that are joined to an on-premises Active Directory. For more information, see [set up Azure Active Directory device-based conditional access policies](active-directory-conditional-access-policy-connected-applications.md).
+Requiring a domain-joined device is another option you have to configure device-based conditional access policies. This requirement refers to Windows desktops, laptops, and enterprise tablets that are joined to an on-premises Active Directory. For more information, see [set up Azure Active Directory device-based conditional access policies](active-directory-conditional-access-policy-connected-applications.md).
 
 
 
@@ -89,7 +89,7 @@ With approved client apps, you can require a client app that attempts to access 
 
 ### Terms of Use
 
-You can require a user in your tenant to consent to a terms of use before being granted access to a resource. As an administrator, you can configure and customize a terms of use by uploading a PDF document. If a user falls in scope of this control they will only be given access to the application if they agree or have previously agreed to the terms presented. For more information, see how to create a terms of use.
+You can require a user in your tenant to consent to the terms of use before being granted access to a resource. As an administrator, you can configure and customize terms of use by uploading a PDF document. If a user falls in scope of this control access to an application is only granted if the terms of use have been agreed. 
 
 
 ### Custom controls 
@@ -110,13 +110,13 @@ Providers currently offering a compatible service include:
 
 - Trusona
 
-For more information on those services, please contact the providers directly.
+For more information on those services, contact the providers directly.
 
 ### Creating custom controls
 
 To create a custom control, you should first contact the provider that you wish to utilize. Each non-Microsoft provider has its own process and requirements to sign up, subscribe, or otherwise become a part of the service, and to indicate that you wish to integrate with conditional access. At that point, the provider will provide you with a block of data in JSON format. This data allows the provider and conditional access to work together for your tenant, creates the new control and defines how conditional access can tell if your users have successfully performed verification with the provider.
 
-You copy this JSON data and then paste it into the Azure interface described below. Do not make any changes to the JSON unless you explicitly understand the change you’re making. Making any change could break the connection between the provider and Microsoft and potentially lock you and your users out of your accounts.
+Copy the JSON data and then paste it into the related textbox. Do not make any changes to the JSON unless you explicitly understand the change you’re making. Making any change could break the connection between the provider and Microsoft and potentially lock you and your users out of your accounts.
 
 The option to create a custom control is in the **Manage** section of the **Conditional access** page.
 
