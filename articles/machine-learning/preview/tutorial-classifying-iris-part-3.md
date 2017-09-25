@@ -134,7 +134,7 @@ az provider list --query "[].{Provider:namespace, Status:registrationState}" --o
 You should see output similar to: 
 ```
 Provider                                  Status 
-----------------------------------------  ------------- 
+ 
 Microsoft.Authorization                   Registered 
 Microsoft.ContainerRegistry               Registered 
 microsoft.insights                        Registered 
