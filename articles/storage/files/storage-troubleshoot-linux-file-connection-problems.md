@@ -133,7 +133,7 @@ Use the storage account user for copying the files:
 This problem can be caused by:
 
 
-- You are using an incompatible Linux distribution. We recommend use the following Linux Distributions to connect to Azure file share:
+- You are using an incompatible Linux distribution. We recommend you use the following Linux Distributions to connect to Azure file share:
 
     - Ubuntu Server 14.04+ 
     - RHEL 7+ 
@@ -142,7 +142,7 @@ This problem can be caused by:
     - openSUSE 13.2+ 
     - SUSE Linux Enterprise Server 12
 
--  Common Internet File System (CIFS) utils is not installed.
+-  Common Internet File System (CIFS) utils are not installed.
 - The minimum SMB/CIFS version 2.1 is not installed.
 - SMB 3.0 Encryption is not supported.  SMB 3.0 Encryption is available in:
 
