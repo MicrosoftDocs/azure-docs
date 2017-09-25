@@ -1,5 +1,5 @@
 ---
-title: sfctl cluster | Microsoft Docs
+title: Servie Fabric CLI- sfctl cluster | Microsoft Docs
 description: Describes the Service Fabric CLI sfctl cluster commands.
 services: service-fabric
 documentationcenter: na
@@ -139,3 +139,7 @@ If connecting to secure cluster, specify a cert (.crt) and key file (.key) or a 
 | --output -o       | Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.|
 | --query           | JMESPath query string. See http://jmespath.org/ for more information and       examples.|
 | --verbose         | Increase logging verbosity. Use --debug for full debug logs.|
+
+## Next Steps
+- [Setup](service-fabric-cli.md) the Service Fabric CLI.
+- Learn how to use the Servcie Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

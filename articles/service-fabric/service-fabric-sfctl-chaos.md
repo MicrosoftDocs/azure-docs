@@ -1,5 +1,5 @@
 ---
-title: sfctl choas| Microsoft Docs
+title: Servie Fabric CLI- sfctl choas| Microsoft Docs
 description: Describes the Service Fabric CLI sfctl chaos commands.
 services: service-fabric
 documentationcenter: na
@@ -104,3 +104,7 @@ Stops Chaos from scheduling further faults; but, the in-flight faults are not af
 | --output -o | Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.|
 | --query  | JMESPath query string. See http://jmespath.org/ for more information and examples.|
 | --verbose| Increase logging verbosity. Use --debug for full debug logs.|
+
+## Next Steps
+- [Setup](service-fabric-cli.md) the Service Fabric CLI.
+- Learn how to use the Servcie Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

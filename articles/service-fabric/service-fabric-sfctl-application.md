@@ -1,5 +1,5 @@
 ---
-title: sfctl application| Microsoft Docs
+title: Servie Fabric CLI- sfctl application| Microsoft Docs
 description: Describes the Service Fabric CLI sfctl application commands.
 services: service-fabric
 documentationcenter: na
@@ -345,3 +345,7 @@ Optionally display upload progress for each file in the package. Upload progress
 | --query       | JMESPath query string. See http://jmespath.org/ for more information and
                        examples.|
 | --verbose     | Increase logging verbosity. Use --debug for full debug logs.|
+
+## Next Steps
+- [Setup](service-fabric-cli.md) the Service Fabric CLI.
+- Learn how to use the Servcie Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

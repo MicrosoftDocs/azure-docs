@@ -1,5 +1,5 @@
 ---
-title: sfctl store | Microsoft Docs
+title: Servie Fabric CLI- sfctl store | Microsoft Docs
 description: Describes the Service Fabric CLI sfctl store commands.
 services: service-fabric
 documentationcenter: na
@@ -73,3 +73,7 @@ Returns the information about the image store content at the specified contentPa
 | --output -o           | Output format.  Allowed values: json, jsonc, table, tsv.  Default:           json.|
 | --query               | JMESPath query string. See http://jmespath.org/ for more information           and examples.|
 | --verbose             | Increase logging verbosity. Use --debug for full debug logs.|
+
+## Next Steps
+- [Setup](service-fabric-cli.md) the Service Fabric CLI.
+- Learn how to use the Servcie Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

@@ -1,5 +1,5 @@
 ---
-title: sfctl node | Microsoft Docs
+title: Servie Fabric CLI- sfctl node | Microsoft Docs
 description: Describes the Service Fabric CLI sfctl node commands.
 services: service-fabric
 documentationcenter: na
@@ -51,7 +51,7 @@ Deactivate a Service Fabric cluster node with the specified deactivation intent.
         complete this cancels the deactivation. A node that goes down and comes back up while
         deactivated still needs to be reactivated before services can be placed on that node.
 
-## Arguments
+### Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -76,7 +76,7 @@ Activates a Service Fabric cluster node which is currently deactivated. Once act
         node again becomes a viable target for placing new replicas, and any deactivated
         replicas remaining on the node are reactivated.
 
-## Arguments
+### Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -287,3 +287,7 @@ Starts or stops a cluster node.  A cluster node is a process, not the OS instanc
 | --output -o                       | Output format.  Allowed values: json, jsonc, table, tsv.                       Default: json.|
 | --query                           | JMESPath query string. See http://jmespath.org/ for more                       information and examples.|
 | --verbose                         | Increase logging verbosity. Use --debug for full debug                       logs.|
+
+## Next Steps
+- [Setup](service-fabric-cli.md) the Service Fabric CLI.
+- Learn how to use the Servcie Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

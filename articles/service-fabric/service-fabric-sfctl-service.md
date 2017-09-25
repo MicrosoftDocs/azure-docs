@@ -1,5 +1,5 @@
 ---
-title: sfctl service | Microsoft Docs
+title: Servie Fabric CLI- sfctl service | Microsoft Docs
 description: Describes the Service Fabric CLI sfctl service commands.
 services: service-fabric
 documentationcenter: na
@@ -328,3 +328,7 @@ Updates the specified service using the given update description.
 | --output -o           | Output format.  Allowed values: json, jsonc, table, tsv.  Default:           json.|
 | --query               | JMESPath query string. For more information           and examples, see http://jmespath.org/.|
 | --verbose             | Increase logging verbosity. Use --debug for full debug logs.|
+
+## Next Steps
+- [Setup](service-fabric-cli.md) the Service Fabric CLI.
+- Learn how to use the Servcie Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

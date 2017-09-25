@@ -1,5 +1,5 @@
 ---
-title: sfctl partition| Microsoft Docs
+title: Servie Fabric CLI- sfctl partition| Microsoft Docs
 description: Describes the Service Fabric CLI sfctl partition commands.
 services: service-fabric
 documentationcenter: na
@@ -195,3 +195,7 @@ This API is useful for testing failover. If used to target a stateless service p
 | --output -o                     | Output format.  Allowed values: json, jsonc, table, tsv.                     Default: json.|
 | --query                         | JMESPath query string. For more information and examples, see http://jmespath.org/.|
 | --verbose                       | Increase logging verbosity. Use --debug for full debug                     logs.|
+
+## Next Steps
+- [Setup](service-fabric-cli.md) the Service Fabric CLI.
+- Learn how to use the Servcie Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

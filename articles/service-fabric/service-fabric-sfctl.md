@@ -1,5 +1,5 @@
 ---
-title: sfctl | Microsoft Docs
+title: Servie Fabric CLI- sfctl | Microsoft Docs
 description: Describes the Service Fabric CLI sfctl commands.
 services: service-fabric
 documentationcenter: na
@@ -19,10 +19,9 @@ ms.author: ryanwi
 ---
 
 # sfctl 
-Commands for managing Service Fabric clusters and entities. Commands follow the noun-verb pattern. See subgroups for more information.
+Commands for managing Service Fabric clusters and entities. Commands follow the noun-verb pattern, see the following subgroups for more information.
 
 ## Subgroups
-
 |Subgroup|Description|
 | --- | --- |
 | [application](service-fabric-sfctl-application.md)| Create, delete, and manage applications and application types.|
@@ -35,3 +34,7 @@ Commands for managing Service Fabric clusters and entities. Commands follow the 
 | [replica](service-fabric-sfctl-replica.md) | Manage the replicas that belong to service partitions.|
 | [service](service-fabric-sfctl-service.md) | Create, delete and manage service, service types and service packages.|
 | [store](service-fabric-sfctl-store.md)   | Perform basic file level operations on the cluster image store.|
+
+## Next Steps
+- [Setup](service-fabric-cli.md) the Service Fabric CLI.
+- Learn how to use the Servcie Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

@@ -1,5 +1,5 @@
 ---
-title: sfctl compose| Microsoft Docs
+title: Servie Fabric CLI- sfctl compose| Microsoft Docs
 description: Describes the Service Fabric CLI sfctl compose commands.
 services: service-fabric
 documentationcenter: na
@@ -126,3 +126,7 @@ Returns the status of compose application that was created or in the process of 
 | --output -o             | Output format.  Allowed values: json, jsonc, table, tsv.  Default:             json.|
 | --query                 | JMESPath query string. For more information and examples, see http://jmespath.org/.|
 | --verbose               | Increase logging verbosity. Use --debug for full debug logs.|
+
+## Next Steps
+- [Setup](service-fabric-cli.md) the Service Fabric CLI.
+- Learn how to use the Servcie Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
