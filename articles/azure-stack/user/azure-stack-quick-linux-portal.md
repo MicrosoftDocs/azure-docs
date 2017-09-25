@@ -7,7 +7,7 @@ author: vhorne
 manager: byronr
 
 ms.service: azure-stack
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: victorh
 ---
