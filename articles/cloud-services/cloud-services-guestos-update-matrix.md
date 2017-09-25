@@ -32,7 +32,7 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 >
 
 > [!IMPORTANT]
-> Starting from the November rollout, only the latest 2 versions of the Guest OS will be supported.
+> Starting from the November rollout, only the latest 2 versions of the Guest OS will be supported and available in the Azure portal.
 >
 >
 
