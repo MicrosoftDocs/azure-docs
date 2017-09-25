@@ -5,9 +5,11 @@ services: azure-stack
 author: vhorne
 manager: byronr
 
-ms.topic: hero-article
+ms.service: azure-stack
+ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: victorh
+ms.custom: mvc
 ---
 
 # Create a Linux virtual machine with the Azure Stack portal
