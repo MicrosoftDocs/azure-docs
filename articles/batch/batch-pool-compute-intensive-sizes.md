@@ -121,7 +121,7 @@ To run CUDA applications on a pool of Linux NC nodes, you need to install CUDA T
 
 1. Deploy an Azure NC6 VM running Ubuntu 16.04 LTS. For example, create the VM in the US South Central region. Make sure that you create the VM with standard storage, and *without* managed disks.
 2. Follow the steps to connect to the VM and [install CUDA drivers](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms).
-3. Deprovision the Linux agent, and then [capture Linux VM image](../articles/virtual-machines/linux/capture-image.md).
+3. Deprovision the Linux agent, and then [capture Linux VM image](../virtual-machines/linux/capture-image.md).
 4. Create a Batch account in a region that supports NC VMs.
 5. Using the Batch APIs or Azure portal, create a pool [using the custom image](batch-custom-images.md) and with the desired number of nodes and scale. The following table shows sample pool settings for the image:
 
