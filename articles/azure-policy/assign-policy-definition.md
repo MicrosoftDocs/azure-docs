@@ -4,9 +4,9 @@ description: This article walks you through the steps to create a policy definit
 services: azure-policy 
 keywords: 
 author: niniikhena
-ms.author: nini; jimpark
+ms.author: jimpark
 ms.date: 09/18/2017
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
 ---
