@@ -19,7 +19,7 @@ ms.author: shlo
 # Azure Data Factory - Frequently Asked Questions
 This article applies to version 2 of the Azure Data Factory service. It provides a list of frequently asked questions (FAQ), and their answers.  
 
-## Q: What is Azure Data Factory? 
+## What is Azure Data Factory? 
 Data Factory is a fully managed cloud-based data integration service that automates the movement and transformation of data. Just like a factory that runs equipment to take raw materials and transform them into finished goods, Azure Data Factory orchestrates existing services that collect raw data and transform it into ready-to-use information. Azure Data Factory allows you to create data-driven workflows to move data between both on-premises and cloud data stores as well as process/transform data using compute services such as Azure HDInsight, Azure Data Lake Analytics and SQL Server Integration Services (SSIS) Integration Runtime. Data Factory gives you an option of executing your data processing either on an Azure-based cloud service or utilize your own self-hosted compute environment such as SSIS, SQL Server, and Oracle. After you create a pipeline that performs the action that you need, you can schedule it to run periodically (hourly, daily, weekly etc.) or trigger the pipeline from on an event occurrence. For more information, see [Introduction to Azure Data Factory](introduction.md).
 
 ## What’s different in version 2?
@@ -73,7 +73,7 @@ The SDKs that are updated for version 2 are not backward compatible with version
 ### Monitoring
 Currently, version 2 supports monitoring of data factories by using only SDKs. The portal does not have the support for monitoring version 2 data factories yet. 
 
-## Q: What is Integration Runtime?
+## What is Integration Runtime?
 The Integration Runtime (IR) is the compute infrastructure used by Azure Data Factory to provide the following data integration capabilities across different network environments:
 
 - **Data movement**: Move data between data stores in public network and data stores in private network (on-premise or virtual private network). It provides support for built-in connectors, format conversion, column mapping, and performant and scalable data transfer.
@@ -84,16 +84,16 @@ You can deploy one or many instances of Integration Runtime as required to move 
 
 For more information, see [Integration Runtime in Azure Data Factory](concepts-integration-runtime.md).
 
-## Q: What is the limit on the number of Integration Runtime instances?
+## What is the limit on the number of Integration Runtime instances?
 There are no hard limits on how many Integration Runtimes instances you can have in a data factory. There is however a limit on the number of virtual machine (VM) cores the Integration Runtime can use per subscription for SSIS package execution. For more information, see [Data Factory limits](../azure-subscription-service-limits.md#data-factory-limits).
 
-## Q: When to use version 2 vs. vs version 1? 
+## When to use version 2 vs. vs version 1? 
 If you are new to Azure Data Factory, start directly with version 2. If you are already using version 1, rebuild your data factories on version 2.
 
 > [!WARNING]
 > Version 2 of Data Factory is in preview, not generally available (GA). Therefore, it does not fall under the same Azure service level agreement (SLA) commitments as version 1 of Data Factory, which is in GA. 
 
-## Q: What are the top-level concepts of version 2 ?
+## What are the top-level concepts of version 2 ?
 An Azure subscription may have one or more Azure Data Factory instances (or data factories). Azure Data Factory is composed of four key components that work together to provide the platform on which you can compose data-driven workflows with steps to move and transform data.
 
 ### Pipeline
@@ -136,13 +136,13 @@ For more information about Data Factory concepts, see the following articles:
 - [Pipelines and activities](concepts-pipelines-activities.md)
 - [Integration runtime](concepts-integration-runtime.md)
 
-## Q: What is the pricing model for Data Factory?
+## What is the pricing model for Data Factory?
 See [Data Factory Pricing Details](https://azure.microsoft.com/pricing/details/data-factory/) page for the pricing details for the Azure Data Factory.
 
-## Q: What regions Azure Data Factory version is available?
-Currently, you can create data factories of version 2 in East US and East US 2 regions. However, a data factory can use Integration Runtime in another region to move data between data stores, dispatch activities against compute services, or dispatch SSIS packages.  For more information, see [Data Factory locations](concept-integration-runtime.md#integration-runtime-location).
+## What regions Azure Data Factory version is available?
+Currently, you can create data factories of version 2 in East US and East US 2 regions. However, a data factory can use Integration Runtime in another region to move data between data stores, dispatch activities against compute services, or dispatch SSIS packages.  For more information, see [Data Factory locations](concepts-integration-runtime.md#integration-runtime-location).
 
-## Q: How can I stay up to date with information about Data Factory?
+## How can I stay up to date with information about Data Factory?
 Use the following sites to stay up to date with information about Azure Data Factory:
 
 - [Blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
@@ -151,37 +151,37 @@ Use the following sites to stay up to date with information about Azure Data Fac
 
 ## Technical deep dive 
 
-# ## Q: Can I have version 1 and version 2 pipelines run side by side in a data factory?
+### Can I have version 1 and version 2 pipelines run side by side in a data factory?
 No. Version 2 or version 1 data factories cannot have entities (linked services, datasets, pipelines, etc.) of other version.   
 
-### Q: Do I still need to define datasets in version 2?
+### Do I still need to define datasets in version 2?
 Dataset is no longer a mandatory entity for most activities. It is required for Copy, Machine Learning, Lookup, Validation, and custom activities that leverage the schema and other metadata information in the Dataset for transformation. The rest of the activities do not require datasets any more.
 
-### Q: Can I chain two activities without a dataset in version 2?
+### Can I chain two activities without a dataset in version 2?
 Yes. You can chain together activities in version 2 without requiring Datasets. You can achieve this by using the **dependsOn** property in the JSON definition of your pipeline. 
 
-### Q: Are all the version 1 activities supported in version 2? 
+### Are all the version 1 activities supported in version 2? 
 Yes, all the version 1 activities are supported
 
-### Q: How can I schedule a version 2 pipeline? 
+### How can I schedule a version 2 pipeline? 
 You can use the scheduler trigger to schedule a version 2 pipeline. This is a wall-clock calendar schedule and enables users to schedule pipelines either periodically or using calendar-based recurrent patterns (for example, weekly Mondays @ 6 PM and Thursdays @ 9 PM). For more information, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md).
 
-### Q: Can I pass parameters while executing a pipeline run in version 2?
+### Can I pass parameters while executing a pipeline run in version 2?
 Yes, parameters are first class top-level concept in version 2. You can define parameters at the pipeline level and pass arguments while executing the pipeline run on-demand or by using a trigger.  
 
-### Q: Can I define default values for the parameters in the pipeline? 
+### Can I define default values for the parameters in the pipeline? 
 Yes. You can define default values for the parameters in the pipelines. 
 
-### Q: Can an activity within the pipeline consume the parameter value passed to the pipeline run? 
+### Can an activity within the pipeline consume the parameter value passed to the pipeline run? 
 Yes. Each activity within the pipeline can consume the parameter value passed to the pipeline run with the `@parameter` construct. 
 
-### Q: Can an activity output property be consumed in another activity within the pipeline? 
+### Can an activity output property be consumed in another activity within the pipeline? 
 Yes. An activity output can be consumed in a subsequent activity with the @activity construct.
  
-### Q: How do I handle null values gracefully while consuming an activity output? 
+### How do I handle null values gracefully while consuming an activity output? 
 You can use the `@coalesce` construct in the expressions to handle null values gracefully. 
 
-### Q: Can I use all the orchestration knobs like retries, timeouts at the activity level in version 2?
+### Can I use all the orchestration knobs like retries, timeouts at the activity level in version 2?
 Yes. You can configure retry and timeout at the activity level to govern the execution of activities in version 2 like in version 1. 
 
 
