@@ -27,8 +27,9 @@ After you've enabled MSI on an Azure resource, [such as an Azure VM](msi-qs-conf
 Install [Azure PowerShell version 4.3.1](https://www.powershellgallery.com/packages/AzureRM/4.3.1) or greater, if you haven't already.
 
 > [!IMPORTANT]
-> All sample code/script in this article assumes the client is running on an MSI-enabled Virtual Machine. For details on enabling MSI on a VM, see [Configure a VM Managed Service Identity (MSI) using PowerShell](msi-qs-configure-powershell-windows-vm.md), or one of the variant articles (using the Azure portal, CLI, or a template). 
-> Before proceeding to one of the following sections, use the VM "Connect" feature in the Azure portal, to remotely connect to your MSI-enabled VM.
+> - All sample code/script in this article assumes the client is running on an MSI-enabled Virtual Machine. For details on enabling MSI on a VM, see [Configure a VM Managed Service Identity (MSI) using PowerShell](msi-qs-configure-powershell-windows-vm.md), or one of the variant articles (using the Azure portal, CLI, or a template). 
+> - To prevent authorization errors (403/AuthorizationFailed) in the code/script, the VM's identity must be given "Reader" access to the VM instance to perform some of the operations. See [Assign a Managed Service Identity (MSI) access to a resource using the Azure portal](msi-howto-assign-access-portal.md) for details.
+> - Before proceeding to one of the following sections, use the VM "Connect" feature in the Azure portal, to remotely connect to your MSI-enabled VM.
 
 ## How to sign in using an MSI identity
 
@@ -53,8 +54,6 @@ The following script demonstrates how to:
 
    # The MSI service principal is now signed in for this session.
    # Next, a call to Azure Resource Manager is made to get the service principal ID for the VM's MSI. 
-   # In order to prevent a 403/AuthorizationFailed error, the VM's identity must be given "Reader" access to the VM instance
-   # See https://docs.microsoft.com/azure/active-directory/msi-howto-assign-access-portal for details.
    $spID = (Get-AzureRMVM -ResourceGroupName <RESOURCE-GROUP> -Name <VM-NAME>).identity.principalid
    ```
    
@@ -68,7 +67,7 @@ The following script demonstrates how to:
    ```azurecli-interactive
    az login --msi
 
-   $spID=$(az resource list -n <VM-NAME> --query [*].identity.principalId --out tsv)
+   spID=$(az resource list -n <VM-NAME> --query [*].identity.principalId --out tsv)
    ```
 
 ## How to acquire an access token from MSI
@@ -92,7 +91,7 @@ Instead of acquiring the access token from Azure Active Directory (AD), an MSI e
 Stuart?? This wasn't on the list.
 
    ```azurecli-interactive
-   az login --msi
+      az login --msi
 
    ```
 
