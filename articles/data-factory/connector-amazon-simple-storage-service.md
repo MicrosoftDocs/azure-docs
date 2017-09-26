@@ -39,7 +39,7 @@ To copy data from Amazon S3, make sure you have been granted the following permi
 For details about the full list of Amazon S3 permissions, see [Specifying Permissions in a Policy](http://docs.aws.amazon.com/amazons3/latest/dev/using-with-s3-actions.html).
 
 ## Getting started
-You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity. 
+You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Amazon S3.
 
@@ -56,7 +56,6 @@ The following properties are supported for Amazon S3 linked service:
 
 >[!NOTE]
 >This connector requires access keys for IAM account to copy data from Amazon S3. [Temporary Security Credential](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) is not supported.
->
 
 Here is an example:
 
