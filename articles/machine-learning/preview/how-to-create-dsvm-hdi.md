@@ -16,7 +16,7 @@ ms.date: 09/26/2017
 
 You can easily scale up or scale out your machine learning experiment by adding additional compute targets such as Ubuntu-based DSVM (Data Science Virtual Machine), and Apache Spark for Azure HDInsight cluster. This article walks you through the steps of creating these compute targets in Azure. For more information on Azure ML compute targets, refer to [overview of Azure Machine Learning experiment execution service](experiment-execution-configuration.md).
 
->[!IMPORTANT]
+>[!NOTE]
 >You need to ensure you have proper permissions to create resources such as VM and HDI clusters in Azure before you proceed. Also both of these resources can consume many compute cores depending on your configuration. Make sure your subscription has enough capacity for the virtual CPU cores. You can always get in touch with Azure support to increase the maximum number of cores allowed in your subscription.
 
 ## Create an Ubuntu DSVM in Azure portal
@@ -69,7 +69,7 @@ For the _vmSize_ field, you can use any suppported VM size listed in the [Ubuntu
 - Standard_NC12 
 - Standard_NC24 
  
->![TIP]
+>[!TIP]
 > The VM sizes started with "NC" are the ones equipped with GPU.
 
 Read more about these [sizes for Linux virtual machines in Azure](../../virtual-machines/linux/sizes.md) and their [pricing information](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/).
