@@ -84,39 +84,39 @@ This scenario shows you how to identify and respond to an alarm that's triggered
 
 As an operator, you see in the dashboard that there's an alarm related to the pressure of a chiller.
 
-1. On the **Dashboard** page, in the **Alarm Status** grid, you can see the **Chiller pressure too high** alarm. The chiller is also highlighted on the map:
+1. On the **Dashboard** page, in the **System Alarms** grid, you can see the **Chiller pressure too high** alarm. The chiller is also highlighted on the map:
 
-    <!-- Insert screenshot -->
+    ![Dashboard shows pressure alarm and device on map](media/iot-suite-remote-monitoring-explore/dashboardalarm.png)
 
 1. To view the device details and telemetry, click the highlighted chiller on the map. The telemetry shows a pressure spike:
 
-    <!-- Insert screenshot -->
+    ![Choose device on map to view detail](media/iot-suite-remote-monitoring-explore/dashboarddetail.png)
 
-1. Close **Device details** and click **...** next to the alarm in the alarm grid. To navigate to the rule definition, select **Maintenance**.
+1. Close **Device detail** and click **...** next to the alarm in the alarm grid. To navigate to the rule definition, select **Maintenance**.
 
 On the **Maintenance** page, you can view the details of the rule that triggered the chiller pressure alarm.
 
 1. You can see the number of times the alarm has triggered, acknowledgments, and open and closed alarms:
 
-    <!-- Insert screenshot -->
+    ![Maintenance page shows list of alarms that have triggered](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
 
-1. The first alarm in the list is the most recent one. Click this alarm to view the associated devices and telemetry. The telemetry shows a pressure spike for the chiller:
+1. The first alarm in the list is the most recent one. Click the **Chiller Pressure** alarm to view the associated devices and telemetry. The telemetry shows a pressure spike for the chiller:
 
-    <!-- Insert screenshot -->
+    ![Maintenance page shows telemetry for selected alarm](media/iot-suite-remote-monitoring-explore/maintenancetelemetry.png)
 
 You have now identified the issue that triggered the alarm and the associated device. As an operator, the next steps are to acknowledge the alarm and mitigate the issue.
 
-1. To indicate that you are now working on the alarm, change the **Alarm status** to **Acknowledge**. Then select the affected chiller:
+1. To indicate that you are now working on the alarm, change the **Alarm status** to **Acknowledge**:
 
-    <!-- Insert screenshot -->
+    ![Select and acknowledge the alarm](media/iot-suite-remote-monitoring-explore/maintenanceacknowledge.png)
 
-1. To act on the chiller, select **Schedule** in the upper-right panel. Select **Valve pressure release**, add a job name **Chiller pressure release**, do not add a time range. These settings create a job that executes immediately:
+1. To act on the chiller, select it and then choose **Schedule**. Select **EmergencyValveRelease**, add a job name **Chiller pressure release**, and choose **Apply**. These settings create a job that executes immediately:
 
-    <!-- Insert screenshot -->
+    ![Select the device and schedule an action](media/iot-suite-remote-monitoring-explore/maintenanceschedule.png)
 
-1. To view the job status, return to the **Maintenance** page and view the list of events. You can see the job has run to release the valve pressure on the chiller:
+1. To view the job status, return to the **Maintenance** page and view the list of jobs in the **System Status** view. You can see the job has run to release the valve pressure on the chiller:
 
-    <!-- Insert screenshot -->
+    <!-- TODO Insert screenshot -->
 
 Finally, confirm that the telemetry values from the chiller are back to normal.
 
@@ -126,7 +126,7 @@ Finally, confirm that the telemetry values from the chiller are back to normal.
 
 1. To close the incident, navigate to the **Maintenance** page, select the alarm, and set the status to **Closed**:
 
-    <!-- Insert screenshot -->
+    <!-- TODO Insert screenshot -->
 
 ## Update device firmware
 
@@ -134,52 +134,48 @@ Contoso is testing a new type of device in the field. As part of the testing cyc
 
 To perform the necessary device management tasks, use the **Devices** page. Start by filtering for all prototyping devices:
 
-1. Navigate to the **Devices** page. Choose the **Prototyping** filter in the **Filters** drop-down:
+1. Navigate to the **Devices** page. Choose the **Prototyping devices** filter in the **Filters** drop-down:
 
-    <!-- Insert screenshot -->
+    ![Use a filter on the devices page](media/iot-suite-remote-monitoring-explore/devicesprototypingfilter.png)
 
     > [!TIP]
     > Click **Manage** to manage the available filters.
 
 1. Select one of the prototyping devices:
 
-    <!-- Insert screenshot -->
+    ![Select a device on the devices page](media/iot-suite-remote-monitoring-explore/devicesselect.png)
 
-1. Click the **Schedule** button and then choose **Firmware update**:
+1. Click the **Schedule** button and then choose **Firmware update**. Enter values for **Job name** and **Firmware URI**. Choose **Apply** to schedule the job to run now:
 
-    <!-- Insert screenshot -->
+    ![Schedule firmware update on device](media/iot-suite-remote-monitoring-explore/devicesschedulefirmware.png)
 
-1. Enter values for **Job name** and **Firmware URL**. Schedule the job to run now:
+1. Note how many devices the job affects and choose **Apply**:
 
-    <!-- Insert screenshot -->
-
-1. Click **Apply** and note how many devices the job affects:
-
-    <!-- Insert screenshot -->
+    ![Submit the firmware update job](media/iot-suite-remote-monitoring-explore/devicessubmitupdate.png)
 
 You can use the **Maintenance** page to track the job as it runs.
 
 1. Navigate to the **Maintenance** page and click **System status**:
 
-    <!-- Insert screenshot -->
+    <!-- TODO Insert screenshot -->
 
 1. Locate the event related to the job you created. Verify that the firmware update process was initiated correctly:
 
-    <!-- Insert screenshot -->
+    <!-- TODO Insert screenshot -->
 
 You can create a filter to verify the firmware version update correctly.
 
 1. To create a filter, navigate to the **Devices** page and select **Manage**:
 
-    <!-- Insert screenshot -->
+    ![Manage device filters](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
 
-1. Create a group that includes only devices with the new firmware version:
+1. Create a filter that includes only devices with the new firmware version:
 
-    <!-- Insert screenshot -->
+    ![Create device filter](media/iot-suite-remote-monitoring-explore/devicescreatefilter.png)
 
 1. Return to the **Devices** page and verify that the device has the new firmware version:
 
-    <!-- Insert screenshot -->
+    <!-- TODO Insert screenshot -->
 
 ## Organize your assets
 
@@ -192,39 +188,39 @@ To make it easier as an operator to organize and manage your devices, you want t
 
 You can create tag names to use with devices.
 
-1. To display all the devices, navigate to the **Devices** page and choose the **All** filter:
+1. To display all the devices, navigate to the **Devices** page and choose the **All devices** filter:
 
-    <!-- Insert screenshot -->
+    ![Show all devices](media/iot-suite-remote-monitoring-explore/devicesalldevices.png)
 
 1. Select the **Trucks** and **Prototyping** devices. Then choose **Tag**:
 
-    <!-- Insert screenshot -->
+    ![Select prototype and truck devices](media/iot-suite-remote-monitoring-explore/devicesmultiselect.png)
 
-1. In the **Tag** menu, create a new tag called **FieldService** with a value **ConnectedVehicle**. Then click **Save**:
+1. Choose **Tag** and then create a new string tag called **FieldService** with a value **ConnectedVehicle**. Then click **Apply**:
 
-    <!-- Insert screenshot -->
+    ![Add tag to prototype and truck devices](media/iot-suite-remote-monitoring-explore/devicesaddtag.png)
 
 1. Select the **Chiller**, **Elevator**, and **Engine** devices. Then choose **Tag**:
 
-    <!-- Insert screenshot -->
+    ![Select chiller, engine, and elevator devices](media/iot-suite-remote-monitoring-explore/devicesmultiselect2.png)
 
-1. In the **Tag** menu, create a new tag called **FieldService** with a value **SmartBuilding**. Then click **Save**:
+1. Choose **Tag** and then create a new tag called **FieldService** with a value **SmartBuilding**. Then click **Save**:
 
-    <!-- Insert screenshot -->
+    ![Add tag to chiller, engine, and elevator devices](media/iot-suite-remote-monitoring-explore/devicesaddtag2.png)
 
 You can use the tag values to create filters.
 
 1. On the **Devices** page, choose **Manage filters**:
 
-    <!-- Insert screenshot -->
+    ![Manage device filters](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
 
-1. Create a new group that uses the tag name **FieldService** and value **SmartBuilding**. Save the filter as **Smart Building**:
+1. Create a new filter that uses the tag name **FieldService** and value **SmartBuilding**. Save the filter as **Smart Building**:
 
-    <!-- Insert screenshot -->
+    <!-- TODO Insert screenshot -->
 
-1. Create a new group that uses the tag name **FieldService** and value **ConnectedVehicle**. Save the filter as **Connected Vehicle**:
+1. Create a new filter that uses the tag name **FieldService** and value **ConnectedVehicle**. Save the filter as **Connected Vehicle**:
 
-    <!-- Insert screenshot -->
+    <!-- TODO Insert screenshot -->
 
 Now the Contoso operator can query devices based on the operating team without the need to change anything on the devices.
 
@@ -244,6 +240,3 @@ Now that you have explored the remote monitoring solution, the suggested next st
 * [Manage your devices](./iot-suite-remote-monitoring-manage.md).
 * [Automate your solution with rules](./iot-suite-remote-monitoring-automate.md).
 * [Maintain your solution](./iot-suite-remote-monitoring-maintain.md).
-
-
-<!-- Next tutorials in the sequence -->
