@@ -30,7 +30,7 @@ sections:
     - image:
         src: https://docs.microsoft.com/media/common/i_portal.svg
       text: Azure Portal
-      href: /azure/container-instances/container-instances-quickstart-portal 
+      href: /azure/container-instances/container-instances-quickstart-portal
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
@@ -48,6 +48,6 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/cli/azure/container">Azure CLI</a></p>
+      html: <p><a href="/cli/azure/container">Azure CLI</a></p><p><a href="/powershell/module/azurerm.containerinstance">PowerShell</a></p>
     - title: REST
       html: <p><a href="/rest/api/container-instances">REST API Reference</a></p>

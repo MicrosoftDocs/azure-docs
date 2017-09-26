@@ -47,6 +47,8 @@
     href: /cli/azure/container
   - name: REST
     href: /rest/api/container-instances
+  - name: PowerShell
+    href: /powershell/module/azurerm.containerinstance
 - name: Resources
   items:
   - name: Azure Roadmap
