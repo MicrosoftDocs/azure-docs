@@ -58,7 +58,7 @@ To be able to successfully connect to services through Microsoft peering, you mu
 
 * You must attach the route filter to the ExpressRoute circuit.
 
-## Before beginning
+## Before you begin
 
 Before beginning, install the latest version of the CLI commands (2.0 or later). For information about installing the CLI commands, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli) and [Get Started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli).
 
@@ -68,7 +68,7 @@ Before beginning, install the latest version of the CLI commands (2.0 or later).
 
 * You must have an active Microsoft peering. Follow instructions at [Create and modifying peering configuration](howto-routing-cli.md)
 
-### 1. Sign in to your Azure account and select your subscription
+### Sign in to your Azure account and select your subscription
 
 To begin your configuration, sign in to your Azure account. Use the following examples to help you connect:
 
@@ -88,7 +88,7 @@ Select the subscription for which you want to create an ExpressRoute circuit.
 az account set --subscription "<subscription ID>"
 ```
 
-## <a name="prefixes"></a>Step 1. Get a list of prefixes and BGP community values
+## <a name="prefixes"></a>Step 1: Get a list of prefixes and BGP community values
 
 ### 1. Get a list of BGP community values
 
@@ -101,7 +101,7 @@ az network route-filter rule list-service-communities
 
 Make a list of BGP community values you want to use in the route filter. As an example, the BGP community value for Dynamics 365 services is 12076:5040.
 
-## <a name="filter"></a>Step 2. Create a route filter and a filter rule
+## <a name="filter"></a>Step 2: Create a route filter and a filter rule
 
 A route filter can have only one rule, and the rule must be of type 'Allow'. This rule can have a list of BGP community values associated with it.
 
@@ -121,7 +121,7 @@ Run the following command to create a new rule:
 az network route-filter rule create --filter-name MyRouteFilter -n CRM --communities 12076:5040 --access Allow -g MyResourceGroup
 ```
 
-## <a name="attach"></a>Step 3. Attach the route filter to an ExpressRoute circuit
+## <a name="attach"></a>Step 3: Attach the route filter to an ExpressRoute circuit
 
 Run the following command to attach the route filter to the ExpressRoute circuit:
 
@@ -161,6 +161,6 @@ You can only delete a route filter if it is not attached to any circuit. Ensure 
 az network route-filter delete -n MyRouteFilter -g MyResourceGroup
 ```
 
-Next steps
+## Next Steps
 
 For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
