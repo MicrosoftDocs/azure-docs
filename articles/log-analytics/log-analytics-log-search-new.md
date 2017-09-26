@@ -86,4 +86,4 @@ For complete documentation on the Azure Log Analytics query language including t
 ## Next steps
 
 - Learn about the [portals that you use to create and edit log searches](log-analytics-log-search-portals.md).
-- Check out a [tutorial on writing queries](log-analytics-tutorial-viewdata) using the new query language.
+- Check out a [tutorial on writing queries](log-analytics-tutorial-viewdata.md) using the new query language.

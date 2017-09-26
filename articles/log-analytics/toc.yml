@@ -32,7 +32,7 @@
   - name: Manage access
     href: log-analytics-manage-access.md
   - name: Log search portals
-    href: log-analytics-log-search-portals   
+    href: log-analytics-log-search-portals.md   
   - name: Log searches overview
     href: log-analytics-log-search-new.md    
   - name: Features for Service providers
