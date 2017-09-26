@@ -41,17 +41,36 @@ VPN client configuration files are contained in a zip file. Configuration files 
 
 Before you begin, make sure that all connecting users have a valid certificate installed on the user's device. For more information about installing a client certificate, see [Install a client certificate](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
+You can generate client configuration files from PowerShell or by using the Azure portal. Either method returns the same zip file.
+
+Unzip the file to view the following folders:
+
+  * **WindowsAmd64** and **WindowsX86**, which contain the Windows 32-bit and 64-bit installer packages, respectively. The **WindowsAmd64** installer package is for all supported 64-bit Windows clients, not just Amd.
+  * **Generic**, which contains general information used to create your own VPN client configuration. Ignore this folder. The Generic folder is provided only if IKEv2 or SSTP+IKEv2 was configured on the gateway. If only SSTP is configured, then the Generic folder is not present.
+
+### <a name="zipportal"></a>Generate files using the Azure portal
+
+1. In the Azure portal, navigate to the virtual network gateway for the virtual network that you want to connect to.
+2. On the virtual network gateway page, click **Point-to-site configuration**.
+3. At the top of the Point-to-site configuration page, click **Download VPN client**. It takes a few minutes for the client configuration package to generate.
+4. Your browser indicates that a client configuration zip file is available. It is named the same name as your gateway. Unzip the file to view the folders.
+
+### <a name="zipps"></a>Generate files using PowerShell
+
 1. When generating VPN client configuration files, the value for '-AuthenticationMethod' is 'EapTls'. Generate the VPN client configuration files using the following command:
 
   ```powershell
   New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGatewayName "VNet1GW" -AuthenticationMethod "EapTls"
   ```
-2. The previous command returns a link that you use to download the client configuration files. Copy and paste the link to a web browser to download the 'VpnClientConfiguration.zip' file. Unzip the file to view the following folders:
+2. The previous command returns a link that you use to download the client configuration files. Copy and paste the link to a web browser to download the 'VpnClientConfiguration.zip' file. 
 
-  * **WindowsAmd64** and **WindowsX86**, which contain the Windows 32-bit and 64-bit installer packages, respectively. The **WindowsAmd64** installer package is for all supported 64-bit Windows clients, not just Amd.
-  * **Generic**, which contains general information used to create your own VPN client configuration. Ignore this folder. The Generic folder is provided only if IKEv2 or SSTP+IKEv2 was configured on the gateway. If only SSTP is configured, then the Generic folder is not present.
+### To retrieve client configuration files again
 
-### To retrieve client configuration files
+#### Azure portal
+
+You can download the package using exactly the same steps that you previously used in the portal.
+
+#### PowerShell
 
 If you already generated client configuration files and you need to just retrieve them, you can use the 'Get-AzureRmVpnClientConfiguration' cmdlet. The 'Get-AzureRmVpnClientConfiguration' cmdlet returns a URL (link) from where you can download the VpnClientConfiguration.zip file. If you made any changes to your P2S VPN configuration, such as the VPN Protocol type or authentication type, the configuration doesn’t update automatically. You must instead run the 'New-AzureRmVpnClientConfiguration' cmdlet to recreate the configuration.
 
@@ -106,6 +125,6 @@ Click **Add** to import.
   ![apply](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
 8. On the **Network** dialog, click **Apply** to save all changes. Then, click **Connect** to start the P2S connection to the Azure VNet.
 
-## Next steps
+## Next Steps
 
 Return to the article to [complete your P2S configuration](vpn-gateway-howto-point-to-site-rm-ps.md).
