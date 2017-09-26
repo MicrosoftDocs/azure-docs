@@ -19,6 +19,8 @@ ms.author: erikje
 ---
 # Azure marketplace items available for Azure Stack
 
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+
 Microsoft Azure Stack supports the following Azure marketplace items:
 
 |  | Item name | Description | Publisher |
@@ -39,7 +41,7 @@ Microsoft Azure Stack supports the following Azure marketplace items:
 | ![](media/azure-stack-marketplace-azure-items/civicrm.png) | [CiviCRM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.civicrm?tab=Overview) | Simple web-based relationship management system. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/cmsmadesimple.png) | [CMS Made Simple](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.cmsmadesimple?tab=Overview) | Fast and easy way to create and manage a website. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/codiad.png) | [Codiad](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.codiad?tab=Overview) | Open Source Cloud IDE with minimal footprint. | Bitnami |
-| ![](media/azure-stack-marketplace-azure-items/concrete5.png) | [Concrete5](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.concrete5?tab=Overview) | Easily deploy web applications, websites, stores and forums. | Bitnami |
+| ![](media/azure-stack-marketplace-azure-items/concrete5.png) | [Concrete5](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.concrete5?tab=Overview) | Easily deploy web applications, websites, stores, and forums. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/coppermine.png) | [Coppermine](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.coppermine?tab=Overview) | Multi-purpose, fully featured web gallery. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/couchdb.png) | [CouchDB](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.couchdb?tab=Overview) | Easy-to-use Open Source database system. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/diaspora.png) | [Diaspora](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.diaspora?tab=Overview) | Popular personal web server. | Bitnami |
@@ -58,7 +60,7 @@ Microsoft Azure Stack supports the following Azure marketplace items:
 | ![](media/azure-stack-marketplace-azure-items/bitnami.png) | [GitLab Community Edition](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.gitlab?tab=Overview) | Fast, secure Git management software. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/ghost.png) | [Ghost](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.ghost?tab=Overview) | A platform dedicated to publishing. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/hadoop.png) | [Hadoop](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.hadoop?tab=Overview) | Framework for reliable, scalable, and distributed computing. | Bitnami |
-| ![](media/azure-stack-marketplace-azure-items/hhvm.png) | [HHVM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.hhvmstack?tab=Overview) | Fully-integrated and ready-to-run development environment. | Bitnami |
+| ![](media/azure-stack-marketplace-azure-items/hhvm.png) | [HHVM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.hhvmstack?tab=Overview) | Fully integrated and ready-to-run development environment. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/hordegroupwarewebmail.png) | [Horde Groupware Webmail](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.hordegroupwarewebmail?tab=Overview) | Free, enterprise ready, browser-based communication suite. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/jasperreports.png) | [JasperReports](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.jasperreports?tab=Overview) | Stand-alone and embeddable reporting server. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/jenkins.png) | [Jenkins](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.jenkins?tab=Overview) | Integration server supporting SCM tools: CVS, Subversion, and Git. | Bitnami |
@@ -66,7 +68,7 @@ Microsoft Azure Stack supports the following Azure marketplace items:
 | ![](media/azure-stack-marketplace-azure-items/jruby.png) | [JRuby](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.jrubystack?tab=Overview) | High-performance Java implementation of Ruby. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/kafka.png) | [Kafka](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.kafka?tab=Overview) | Powerful distributed publish-subscribe messaging system. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/lamp.png) | [LAMP](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.lampstack?tab=Overview) | Fully integrated and ready to run development environment. | Bitnami |
-| ![](media/azure-stack-marketplace-azure-items/lapp.png) | [LAPP](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.lappstack?tab=Overview) | Complete PHP, PostgreSQL and Apache development environment. | Bitnami |
+| ![](media/azure-stack-marketplace-azure-items/lapp.png) | [LAPP](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.lappstack?tab=Overview) | Complete PHP, PostgreSQL, and Apache development environment. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/letschat.png) | [Let's Chat](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.letschat?tab=Overview) | Open Source persistent messaging application. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/limesurvey.png) | [LimeSurvey](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.limesurvey?tab=Overview) | Question-and-answer poll management system. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/livehelperchat.png) | [Live Helper Chat](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.livehelperchat?tab=Overview) | Open Source live chat support. | Bitnami |
@@ -89,7 +91,7 @@ Microsoft Azure Stack supports the following Azure marketplace items:
 | ![](media/azure-stack-marketplace-azure-items/odoo.png) | [Odoo](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.odoo?tab=Overview) | ERP and CRM system that effectively connects business processes. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/openatrium.png) | [Open Atrium](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.openatrium?tab=Overview) | Flexible, multi-faceted Intranet platform. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/opencart.png) | [OpenCart](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.opencart?tab=Overview) | Free e-commerce platform for online merchants. | Bitnami |
-| ![](media/azure-stack-marketplace-azure-items/openfire.png) | [OpenFire](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.openfire?tab=Overview) | Open Source real time collaboration server with XMPP. | Bitnami |
+| ![](media/azure-stack-marketplace-azure-items/openfire.png) | [OpenFire](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.openfire?tab=Overview) | Open Source real-time collaboration server with XMPP. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/openproject.png) | [OpenProject](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.openproject?tab=Overview) | Popular open source project management software. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/orangehrm.png) | [OrangeHRM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.orangehrm?tab=Overview) | HR management system with a wealth of modules. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/orocrm.png) | [OroCRM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.orocrm?tab=Overview) | Flexible open source CRM application. | Bitnami |
@@ -114,7 +116,7 @@ Microsoft Azure Stack supports the following Azure marketplace items:
 | ![](media/azure-stack-marketplace-azure-items/resourcespace.png) | [ResourceSpace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.resourcespace?tab=Overview) | Digital asset management system for improved collaboration. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/roundcube.png) | [Roundcube](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.roundcube?tab=Overview) | Browser-based IMAP client with fuctinality such as MIME support. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/ruby.png) | [Ruby](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.rubystack?tab=Overview) | Easy-to-use development environment for Ruby on Rails. | Bitnami |
-| ![](media/azure-stack-marketplace-azure-items/seopanel.png) | [SEO Panel](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.seopanel?tab=Overview) | Open Source SEO management application for tracking multiple web. | Bitnami |
+| ![](media/azure-stack-marketplace-azure-items/seopanel.png) | [SEO Panel](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.seopanel?tab=Overview) | Open Source SEO management application for tracking multiple websites. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/shopware.png) | [Shopware](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.shopware?tab=Overview) | Open Source eCommerce Platform. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/simplemachinesforum.png) | [Simple Machines Forum](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.simplemachinesforum?tab=Overview) | Simple forum software to build your own online community. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/spree.png) | [Spree](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.spree?tab=Overview) | Easy-to-use ecommerce platform. | Bitnami |
@@ -122,7 +124,7 @@ Microsoft Azure Stack supports the following Azure marketplace items:
 | ![](media/azure-stack-marketplace-azure-items/sugarcrm.png) | [SugarCRM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.sugarcrm?tab=Overview) | Flexible customer relationship management solution. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/suitecrm.png) | [SuiteCRM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.suitecrm?tab=Overview) | Popular Enterprise-grade CRM application. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/testlink.png) | [TestLink](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.testlink?tab=Overview) | Test management software facilitating qualilty assurance. | Bitnami |
-| ![](media/azure-stack-marketplace-azure-items/tikiwikicmsgroupware.png) | [Tiki Wiki CMS Groupware](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.tikiwikicmsgroupware?tab=Overview) | Fully-featured wiki platform. | Bitnami |
+| ![](media/azure-stack-marketplace-azure-items/tikiwikicmsgroupware.png) | [Tiki Wiki CMS Groupware](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.tikiwikicmsgroupware?tab=Overview) | Fully featured wiki platform. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/tomcat.png) | [Tomcat](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.tom-cat?tab=Overview) | Popular platform implementing specifications from Java Community. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/trac.png) | [Trac](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.trac?tab=Overview) | Enhanced wiki and issue tracking system. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/typo3.png) | [Typo3](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.typo3?tab=Overview) | Fully flexible CMS. | Bitnami |
