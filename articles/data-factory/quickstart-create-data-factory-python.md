@@ -37,7 +37,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     John|Doe
     Jane|Doe
     ```
-2.	Use tools such as [Azure Storage Explorer](http://storageexplorer.com/) to create the **adfv2tutorial** container, and to upload the **input.txt** file to the **input folder** of the container. 
+2.	Use tools such as [Azure Storage Explorer](http://storageexplorer.com/) to create the **adfv2tutorial** container, and **input** folder in the container. Then, upload the **input.txt** file to the **input** folder. 
 
 ## Install the Python package
 1. Open a terminal or command prompt with administrator privileges.  
@@ -59,52 +59,68 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     
     ```python
     from azure.common.credentials import ServicePrincipalCredentials
-    from msrestazure.azure_cloud import Cloud, CloudEndpoints, CloudSuffixes
     from azure.mgmt.resource import ResourceManagementClient
     from azure.mgmt.datafactory import DataFactoryManagementClient
     from azure.mgmt.datafactory.models import *
     from datetime import datetime, timedelta
     import time
-    import json
     ```
 2. Add the following functions that print information. 
 
     ```python
     def print_item(group):
-      """Print an Azure object instance."""
-      print("\tName: {}".format(group.name))
-      print("\tId: {}".format(group.id))
-      if hasattr(group, 'location'):
-          print("\tLocation: {}".format(group.location))
-      if hasattr(group, 'tags'):
-          print("\tTags: {}".format(group.tags))
-      if hasattr(group, 'properties'):
-          print_properties(group.properties)
+        """Print an Azure object instance."""
+        print("\tName: {}".format(group.name))
+        print("\tId: {}".format(group.id))
+        if hasattr(group, 'location'):
+            print("\tLocation: {}".format(group.location))
+        if hasattr(group, 'tags'):
+            print("\tTags: {}".format(group.tags))
+        if hasattr(group, 'properties'):
+            print_properties(group.properties)
     
     def print_properties(props):
-      """Print a ResourceGroup properties instance."""
-      if props and hasattr(props, 'provisioning_state') and props.provisioning_state:
-          print("\tProperties:")
-          print("\t\tProvisioning State: {}".format(props.provisioning_state))
-      print("\n\n")    
+        """Print a ResourceGroup properties instance."""
+        if props and hasattr(props, 'provisioning_state') and props.provisioning_state:
+            print("\tProperties:")
+            print("\t\tProvisioning State: {}".format(props.provisioning_state))
+        print("\n\n")
+    
+    def print_activity_run(activity_run):
+        """Print activity run details."""
+        print("\n\tActivity run details\n")
+        print("\tActivity run status: {}".format(activity_run.status))    
+        if activity_run.status == 'Succeeded':
+            print("\tNumber of bytes read: {}".format(activity_run.output['dataRead']))       
+            print("\tNumber of bytes written: {}".format(activity_run.output['dataWritten']))           
+            print("\tCopy duration: {}".format(activity_run.output['copyDuration']))           
+        else:
+            print("\tErrors: {}".format(activity_run.error['message'])) 
+  
     ```
-3. Add the following code to the **Main** method that creates an instance of DataFactoryManagementClient class. You use this object to create the data factory, linked service, datasets, and pipeline. You also use this object to monitor the pipeline run details.
+3. Add the following code to the **Main** method that creates an instance of DataFactoryManagementClient class. You use this object to create the data factory, linked service, datasets, and pipeline. You also use this object to monitor the pipeline run details. Set **subscription_id** variable to the ID of your Azure subscription.
 
     ```python   
-    def main():    
-        subscription_id = '<your subscription ID where the factory resides>'
-        credentials = ServicePrincipalCredentials(
-                client_id='<yourClientId>',
-                secret='<YourPassword>',
-                tenant='<YourTenandId>'
-        )
+    def main():
+
+        # Azure subscription ID
+        subscription_id = '<Specify your Azure Subscription ID>'
+        
+        # This program creates this resource group. If it's an existing resource group, comment out the code that creates the resource group
+        rg_name = 'ADFTutorialResourceGroup'
+    
+        # The data factory name. It must be globally unique. 
+        df_name = '<Specify a name for the data factory. It must be globally unique>'
+    
+    
+        # Specify your Active Directory client ID, client secret, and tenant ID
+        credentials = ServicePrincipalCredentials(client_id='<Active Directory application/client ID>', secret='<client secret>', tenant='<Active Directory tenant ID>')
         resource_client = ResourceManagementClient(credentials, subscription_id)
         adf_client = DataFactoryManagementClient(credentials, subscription_id)
     
         rg_params = {'location':'eastus'}
         df_params = {'location':'eastus'}
-        rg_name = '<Your Resource Group Name>'
-        df_name = '<Your Data Factory Name>'
+    
     ```
 
 ## Create a data factory
@@ -137,7 +153,7 @@ You create linked services in a data factory to link your data stores and comput
     ls_name = 'storageLinkedService'
 
     #Replace Storage String with your credentials
-    storage_string = SecureString('DefaultEndpointsProtocol=https;AccountName=<replace>;AccountKey=<replace>')
+    storage_string = SecureString('DefaultEndpointsProtocol=https;AccountName=<storageaccountname>;AccountKey=<storageaccountkey>')
 
     ls_azure_storage = AzureStorageLinkedService(connection_string=storage_string)
     ls = adf_client.linked_services.create_or_update(rg_name, df_name, ls_name, ls_azure_storage)
@@ -214,12 +230,15 @@ Add the following code to the **Main** method that **triggers a pipeline run**.
 To monitor the pipeline run, add the following code the **Main** method:
 
 ```python
+    #Monitor the pipeline run
     time.sleep(30)
     pipeline_run = adf_client.pipeline_runs.get(rg_name, df_name, run_response.run_id)
     print("\n\tPipeline run status: {}".format(pipeline_run.status))
+    activity_runs_paged = list(adf_client.activity_runs.list_by_pipeline_run(rg_name, df_name, pipeline_run.run_id, datetime.now() - timedelta(1),  datetime.now() + timedelta(1)))
+    print_activity_run(activity_runs_paged[0])
 ```
 
-Now, invoke the main method:
+Now, add the following statement to invoke the **main** method when the program is run: 
 
 ```python
 main()
@@ -230,14 +249,11 @@ Here is the full Python code:
 
 ```python
 from azure.common.credentials import ServicePrincipalCredentials
-from msrestazure.azure_cloud import Cloud, CloudEndpoints, CloudSuffixes
 from azure.mgmt.resource import ResourceManagementClient
 from azure.mgmt.datafactory import DataFactoryManagementClient
 from azure.mgmt.datafactory.models import *
 from datetime import datetime, timedelta
 import time
-import json
-
 
 def print_item(group):
     """Print an Azure object instance."""
@@ -257,25 +273,40 @@ def print_properties(props):
         print("\t\tProvisioning State: {}".format(props.provisioning_state))
     print("\n\n")
 
+def print_activity_run(activity_run):
+    """Print activity run details."""
+    print("\n\tActivity run details\n")
+    print("\tActivity run status: {}".format(activity_run.status))    
+    if activity_run.status == 'Succeeded':
+        print("\tNumber of bytes read: {}".format(activity_run.output['dataRead']))       
+        print("\tNumber of bytes written: {}".format(activity_run.output['dataWritten']))           
+        print("\tCopy duration: {}".format(activity_run.output['copyDuration']))           
+    else:
+        print("\tErrors: {}".format(activity_run.error['message']))           
+
+
 def main():
-    subscription_id = '1e42591f-1f0c-4c5a-b7f2-a268f6105ec5'
-    credentials = ServicePrincipalCredentials(
-            client_id='fcf920e7-e4b4-4fe2-96f1-9f387aae1afa',
-            secret='qiVL4vM6Lk28Kk++1aWtgW904HGXsISiBLT6pURs2fQ=',
-            tenant='72f988bf-86f1-41af-91ab-2d7cd011db47'
-    )
+
+    # Azure subscription ID
+    subscription_id = '<Specify your Azure Subscription ID>'
+    
+    # This program creates this resource group. If it's an existing resource group, comment out the code that creates the resource group
+    rg_name = 'ADFTutorialResourceGroup'
+
+    # The data factory name. It must be globally unique. 
+    df_name = '<Specify a name for the data factory. It must be globally unique>'
+
+    credentials = ServicePrincipalCredentials(client_id='<Active Directory application/client ID>', secret='<client secret>', tenant='<Active Directory tenant ID>')
     resource_client = ResourceManagementClient(credentials, subscription_id)
     adf_client = DataFactoryManagementClient(credentials, subscription_id)
 
     rg_params = {'location':'eastus'}
     df_params = {'location':'eastus'}
-    rg_name = 'ADFTutorialResourceGroup'
-    df_name = 'SPPythonFactory0926-3'
 
-    #Create Resource Group
+    #Create an Azure resource group
     # resource_client.resource_groups.create_or_update(rg_name, rg_params)
 
-    #Create Data Factory
+    #Create a data factory
     df_resource = Factory(location='eastus')
     df = adf_client.factories.create_or_update(rg_name, df_name, df_resource)
     print_item(df)
@@ -288,13 +319,13 @@ def main():
     ls_name = 'storageLinkedService'
 
     #Replace Storage String with your credentials
-    storage_string = SecureString('DefaultEndpointsProtocol=https;AccountName=spstoragemswest;AccountKey=39l9JePVi83UeWO2O5Q83MmX28kF393cVdyETDvL7o+ClBdwVfIjH85zzvzW41g79ryOrV3OpK92bj8JaQFp5g==')
+    storage_string = SecureString('DefaultEndpointsProtocol=https;AccountName=<storageaccountname>;AccountKey=<storageaccountkey>')
 
     ls_azure_storage = AzureStorageLinkedService(connection_string=storage_string)
     ls = adf_client.linked_services.create_or_update(rg_name, df_name, ls_name, ls_azure_storage)
     print_item(ls)
 
-    #Create Dataset Input
+    #Create an Azure Blob dataset (input)
     ds_name = 'ds_in'
     ds_ls = LinkedServiceReference(ls_name)
     blob_path= 'adftutorial/input'
@@ -303,14 +334,14 @@ def main():
     ds = adf_client.datasets.create_or_update(rg_name, df_name, ds_name, ds_azure_blob)
     print_item(ds)    
 
-    #Create Dataset Output
+    #Create an Azure Blob dataset (output)
     dsOut_name = 'ds_out'
     output_blobpath = 'adftutorial/output/'
     dsOut_azure_blob = AzureBlobDataset(ds_ls, folder_path=output_blobpath)
     dsOut = adf_client.datasets.create_or_update(rg_name, df_name, dsOut_name, dsOut_azure_blob)
     print_item(dsOut)
 
-    #Create 1st activity: Copy Activity
+    #Create a copy activity
     act_name =  'copyBlobtoBlob'
     blob_source = BlobSource()
     blob_sink = BlobSink()
@@ -318,22 +349,27 @@ def main():
     dsOut_ref = DatasetReference(dsOut_name)
     copy_activity = CopyActivity(act_name,inputs=[dsin_ref], outputs=[dsOut_ref], source=blob_source, sink=blob_sink)
 
-    #Create Pipeline
+    #Create a pipeline with the copy activity
     p_name =  'copyPipeline'
     params_for_pipeline = {}
     p_obj = PipelineResource(activities=[copy_activity], parameters=params_for_pipeline)
     p = adf_client.pipelines.create_or_update(rg_name, df_name, p_name, p_obj)
     print_item(p)
 
-    #Create Pipeline Run
+    #Create a pipeline run
     run_response = adf_client.pipelines.create_run(rg_name, df_name, p_name,
         {
         }
     )
 
+    #Monitor the pipeline run
     time.sleep(30)
     pipeline_run = adf_client.pipeline_runs.get(rg_name, df_name, run_response.run_id)
     print("\n\tPipeline run status: {}".format(pipeline_run.status))
+    activity_runs_paged = list(adf_client.activity_runs.list_by_pipeline_run(rg_name, df_name, pipeline_run.run_id, datetime.now() - timedelta(1),  datetime.now() + timedelta(1)))
+    print_activity_run(activity_runs_paged[0])
+
+# Now, call the main method to start the program
 main()
 ```
 
@@ -341,6 +377,8 @@ main()
 Build and start the application, then verify the pipeline execution.
 
 The console prints the progress of creating data factory, linked service, datasets, pipeline, and pipeline run. Wait until you see the copy activity run details with data read/written size. Then, use tools such as [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/) to check the blob(s) is copied to "outputBlobPath" from "inputBlobPath" as you specified in variables.
+
+
 
 
 ## Clean up resources
