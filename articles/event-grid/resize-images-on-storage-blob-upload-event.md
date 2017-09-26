@@ -187,10 +187,10 @@ In this tutorial, you learned how to:
 Advance to part three of the Storage tutorial series to learn how to secure access to the storage account.
 
 > [!div class="nextstepaction"]
-> [Secure access to an applications data in the cloud](storage-secure-access-application.md)
+> [Secure access to an applications data in the cloud](../storage/blobs/storage-secure-access-application.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 
 + To learn more about Event Grid, see [An introduction to Azure Event Grid](overview.md). 
 + To try another tutorial that features Azure Functions, see [Create a function that integrates with Azure Logic Apps](..\azure-functions\functions-twitter-email.md). 
 
-[previous-tutorial]: storage-upload-process-images.md
+[previous-tutorial]: ../storage/blobs/storage-upload-process-images.md
