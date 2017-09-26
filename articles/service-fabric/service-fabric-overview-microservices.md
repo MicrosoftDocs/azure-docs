@@ -152,7 +152,7 @@ A key approach to Service Fabric is to reuse existing code, which can then be mo
 
 ![Migration to Microservices][Image3]
 
-It is important to emphasis again, that you can **start and stop at any of these stages**, you are not compelled to moved to the next stage. Let's now look at examples for each of these stages.
+It is important to emphasize again, that you can **start and stop at any of these stages**. You are not compelled to progress to the next stage. Let's now look at examples for each of these stages.
 
 **Lift and Shift** - large numbers of companies are lifting and shifting existing monolithic applications into containers to for two reasons;
 

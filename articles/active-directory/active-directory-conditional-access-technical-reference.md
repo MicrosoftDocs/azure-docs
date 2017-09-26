@@ -120,8 +120,8 @@ In your conditional access policy, the following browsers are supported:
 | Windows 10             | Chrome                      | Preview     |
 | Windows 8 / 8.1        | Internet Explorer, Chrome   | ![Check][1] |
 | Windows 7              | Internet Explorer, Chrome   | ![Check][1] |
-| iOS                    | Safari                      | ![Check][1] |
-| Android                | Chrome                      | ![Check][1] |
+| iOS                    | Safari, Intune Managed Browser                      | ![Check][1] |
+| Android                | Chrome, Intune Managed Browser                      | ![Check][1] |
 | Windows Phone          | Internet Explorer, Edge     | ![Check][1] |
 | Windows Server 2016    | Internet Explorer, Edge     | ![Check][1] |
 | Windows Server 2016    | Chrome                      | Coming soon |
@@ -131,8 +131,8 @@ In your conditional access policy, the following browsers are supported:
 | macOS                  | Chrome                      | Coming soon |
 
 > [!NOTE]
-> For Chrome support, use Windows 10 Creators Update and install [this extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
-
+> For Chrome support, you muse use Windows 10 Creators Update (version 1703) or later.<br>
+> You can install [this extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
 
 ### Supported mobile applications and desktop clients
 

@@ -253,9 +253,9 @@ Note the use of {Resolution} macro in the FileName; it indicates to the encoder 
 	</JpgImage>
 	</Encoding>
 	<Outputs>
-	<Output FileName="{Basename}_{Resolution}{Width}x{Height}_{Index}{Extension}">
-	  <JpgFormat/>
-	</Output>
+	  <Output FileName="{Basename}_{Resolution}_{Index}{Extension}">
+	    <JpgFormat/>
+	  </Output>
 	</Outputs>
 	</Preset>
 	
