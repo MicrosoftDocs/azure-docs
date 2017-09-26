@@ -30,9 +30,12 @@ For more information on the benefits of BGP, and to understand the technical req
 
 This article helps you with the following tasks:
 
-* Section 1 - [Enable BGP for your VPN gateway](#enablebgp)
-* Section 2 - [Establish a cross-premises connection with BGP](#crossprembgp)
-* Section 3 - [Establish a VNet-to-VNet connection with BGP](#v2vbgp)
+* [Enable BGP for your VPN gateway](#enablebgp) (Required)
+
+  You can then configure either of the following sections, or both:
+
+* [Establish a cross-premises connection with BGP](#crossprembgp)
+* [Establish a VNet-to-VNet connection with BGP](#v2vbgp)
 
 Each of these three sections forms a basic building block for enabling BGP in your network connectivity. If you complete all three sections, you build the topology as shown in the following diagram:
 
@@ -80,7 +83,7 @@ az network vnet subnet create --vnet-name TestVNet1 -n BackEnd -g TestBGPRG1 --a
 az network vnet subnet create --vnet-name TestVNet1 -n GatewaySubnet -g TestBGPRG1 --address-prefix 10.12.255.0/27 
 ```
 
-### Part 2 - Create the VPN Gateway for TestVNet1 with BGP parameters
+### Step 2 - Create the VPN Gateway for TestVNet1 with BGP parameters
 
 #### 1. Create the public IP address
 
@@ -172,13 +175,13 @@ Example output:
   "etag": "W/\"778b2fad-e473-41e2-a1c1-3dd976d6e885\"", 
   "gatewayDefaultSite": null, 
   "gatewayType": "Vpn", 
-  "id": "/subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestBGPRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW",
+  "id": "/subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fd9/resourceGroups/TestBGPRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW",
 ```
 
 Copy the values after **"id":** within the quotes.
 
 ```
-"id": "/subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW"
+"id": "/subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fd9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW"
 ```
 
 #### 2. Get the resource ID of Site5
@@ -191,10 +194,10 @@ az network local-gateway show -n Site5 -g TestBGPRG5
 
 #### 3. Create the TestVNet1 to Site5 connection
 
-In this step, you create the connection from TestVNet1 to Site5. As discussed earlier, it is possible to have both BGP and non-BGP connections for the same Azure VPN gateway. Unless BGP is enabled in the connection property, Azure will not enable BGP for this connection, even though BGP parameters are already configured on both gateways.
+In this step, you create the connection from TestVNet1 to Site5. As discussed earlier, it is possible to have both BGP and non-BGP connections for the same Azure VPN gateway. Unless BGP is enabled in the connection property, Azure will not enable BGP for this connection, even though BGP parameters are already configured on both gateways. Make sure to replace the subscription IDs with your own.
 
 ```azurecli
-az network vpn-connection create -n VNet1ToSite5 -g TestBGPRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestBGPRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW --enable-bgp -l eastus --shared-key "abc123" --local-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestBGPRG5/providers/Microsoft.Network/localNetworkGateways/Site5 --no-wait
+az network vpn-connection create -n VNet1ToSite5 -g TestBGPRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fd9/resourceGroups/TestBGPRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW --enable-bgp -l eastus --shared-key "abc123" --local-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fd9/resourceGroups/TestBGPRG5/providers/Microsoft.Network/localNetworkGateways/Site5 --no-wait
 ```
 
 For this exercise, the following example lists the parameters to enter into the BGP configuration section of your on-premises VPN device:
@@ -285,14 +288,14 @@ az network vnet-gateway show -n VNet2GW -g TestBGPRG2
 
 #### 3. Create the connections
 
-Create the connection from TestVNet1 to TestVNet2, and the connection from TestVNet2 to TestVNet1.
+Create the connection from TestVNet1 to TestVNet2, and the connection from TestVNet2 to TestVNet1. Make sure to replace the subscription IDs with your own.
 
 ```azurecli
-az network vpn-connection create -n VNet1ToVNet2 -g TestBGPRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestBGPRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW --enable-bgp -l eastus --shared-key "efg456" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestBGPRG2/providers/Microsoft.Network/virtualNetworkGateways/VNet2GW
+az network vpn-connection create -n VNet1ToVNet2 -g TestBGPRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fd9/resourceGroups/TestBGPRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW --enable-bgp -l eastus --shared-key "efg456" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fd9/resourceGroups/TestBGPRG2/providers/Microsoft.Network/virtualNetworkGateways/VNet2GW
 ```
 
 ```azurecli
-az network vpn-connection create -n VNet2ToVNet1 -g TestBGPRG2 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestBGPRG2/providers/Microsoft.Network/virtualNetworkGateways/VNet2GW --enable-bgp -l westus --shared-key "efg456" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestBGPRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW
+az network vpn-connection create -n VNet2ToVNet1 -g TestBGPRG2 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda/resourceGroups/TestBGPRG2/providers/Microsoft.Network/virtualNetworkGateways/VNet2GW --enable-bgp -l westus --shared-key "efg456" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fd9/resourceGroups/TestBGPRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW
 ```
 
 > [!IMPORTANT]
@@ -306,6 +309,6 @@ If you complete all three sections of this exercise, you establish the network t
 
 ![BGP for VNet-to-VNet](./media/vpn-gateway-bgp-resource-manager-ps/bgp-crosspremv2v.png)
 
-## Next steps
+## Next Steps
 
 Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for steps.
