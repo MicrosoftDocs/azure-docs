@@ -2251,11 +2251,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/app-service-web/app-service-local-cache.md",
-            "redirect_url": "/azure/app-service/app-service-local-cache",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/app-service-web/web-sites-java-custom-upload.md",
             "redirect_url": "/azure/app-service/web-sites-configure",
             "redirect_document_id": false
