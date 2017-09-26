@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 09/26/2017
 ms.author: bwren
 
 ---
@@ -132,9 +132,6 @@ All solutions will continue to work in an upgraded workspace, although their per
 
 ### Known issue: Capacity and Performance solution
 Some of the parts in the [Capacity and Performance](log-analytics-capacity.md) view may be empty.  A fix to this issue will be available shortly.
-
-### Known issue: Device Health solution
-The [Device Health solution](https://docs.microsoft.com/windows/deployment/update/device-health-monitor) will not collect data in an upgraded workspace.  A fix to this issue will be available shortly.
 
 ### Known issue: Application Insights connector
 Perspectives in [Application Insights Connector solution](log-analytics-app-insights-connector.md) are currently not supported in an upgraded workspace.  A fix to this issue is currently under analysis.
