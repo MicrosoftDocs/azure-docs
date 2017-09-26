@@ -3,8 +3,8 @@ title: 'Configure route filters for Azure ExpressRoute Microsoft peering: CLI | 
 description: This article describes how to configure route filters for Microsoft Peering using Azure CLI
 documentationcenter: na
 services: expressroute
-author: cherylmc
-manager: timlt
+author: azaman
+manager: ganesr
 editor: ''
 tags: azure-resource-manager
 
@@ -15,10 +15,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: cherylmc
+ms.author: azaman
 
 ---
-# Configure route filters for Microsoft peering
+# Configure route filters for Microsoft peering: Azure CLI
+
+> [!div class="op_single_selector"]
+> * [Azure Portal](how-to-routefilter-portal.md)
+> * [Azure PowerShell](how-to-routefilter-powershell.md)
+> * [Azure CLI](how-to-routefilter-cli.md)
+> 
 
 Route filters are a way to consume a subset of supported services through Microsoft peering. The steps in this article help you configure and manage route filters for ExpressRoute circuits.
 
@@ -129,7 +135,9 @@ Run the following command to attach the route filter to the ExpressRoute circuit
 az network express-route peering update --circuit-name MyCircuit -g ExpressRouteResourceGroupName --name MicrosoftPeering --route-filter MyRouteFilter
 ```
 
-## <a name="getproperties"></a>To get the properties of a route filter
+## <a name="tasks"></a>Common tasks
+
+### <a name="getproperties"></a>To get the properties of a route filter
 
 To get the properties of a route filter, use the following command:
 
@@ -137,7 +145,7 @@ To get the properties of a route filter, use the following command:
 az network route-filter show -g ExpressRouteResourceGroupName --name MyRouteFilter 
 ```
 
-## <a name="updateproperties"></a>To update the properties of a route filter
+### <a name="updateproperties"></a>To update the properties of a route filter
 
 If the route filter is already attached to a circuit, updates to the BGP community list automatically propagate appropriate prefix advertisement changes through the established BGP sessions. You can update the BGP community list of your route filter using the following command:
 
@@ -145,7 +153,7 @@ If the route filter is already attached to a circuit, updates to the BGP communi
 az network route-filter rule update --filter-name MyRouteFilter -n CRM -g ExpressRouteResourceGroupName --add communities '12076:5040' --add communities '12076:5010'
 ```
 
-## <a name="detach"></a>To detach a route filter from an ExpressRoute circuit
+### <a name="detach"></a>To detach a route filter from an ExpressRoute circuit
 
 Once a route filter is detached from the ExpressRoute circuit, no prefixes are advertised through the BGP session. You can detach a route filter from an ExpressRoute circuit using the following command:
 
@@ -153,7 +161,7 @@ Once a route filter is detached from the ExpressRoute circuit, no prefixes are a
 az network express-route peering update --circuit-name MyCircuit -g ExpressRouteResourceGroupName --name MicrosoftPeering --remove routeFilter
 ```
 
-## <a name="delete"></a>To delete a route filter
+### <a name="delete"></a>To delete a route filter
 
 You can only delete a route filter if it is not attached to any circuit. Ensure that the route filter is not attached to any circuit before attempting to delete it. You can delete a route filter using the following command:
 
