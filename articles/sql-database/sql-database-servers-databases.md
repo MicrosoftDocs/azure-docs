@@ -214,7 +214,7 @@ To create and manage Azure SQL server, databases, and firewalls use these REST A
 |[Databases - List By Elastic Pool](/rest/api/sql/databases/listbyelasticpool)|Returns a list of databases in an elastic pool.|
 |[Databases - List By Recommended Elastic Pool](/rest/api/sql/databases/listbyrecommendedelasticpool)|Returns a list of databases inside a recommented elastic pool.|
 |[Databases - List By Server](/rest/api/sql/databases/listbyserver)|Returns a list of databases in a server.|
-|[Databases - Update](/api/sql/databases/update)|Updates an existing database.|
+|[Databases - Update](/rest/api/sql/databases/update)|Updates an existing database.|
 |[Firewall Rules - Create Or Update](/rest/api/sql/firewallrules/createorupdate)|Creates or updates a firewall rule.|
 |[Firewall Rules - Delete](/rest/api/sql/firewallrules/delete)|Deletes a firewall rule.|
 |[Firewall Rules - Get](/rest/api/sql/firewallrules/get)|Gets a firewall rule.|
