@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 09/23/2017
 ms.author: shlo
 ---
-# Azure Data Factory - Frequently Asked Questions
+# Azure Data Factory - Frequently asked questions
 This article applies to version 2 of the Azure Data Factory service. It provides a list of frequently asked questions (FAQ), and their answers.  
 
 ## What is Azure Data Factory? 
@@ -87,7 +87,7 @@ For more information, see [Integration Runtime in Azure Data Factory](concepts-i
 ## What is the limit on the number of integration runtimes?
 There are no hard limits on how many Integration Runtimes instances you can have in a data factory. There is however a limit on the number of virtual machine (VM) cores the Integration Runtime can use per subscription for SSIS package execution. For more information, see [Data Factory limits](../azure-subscription-service-limits.md#data-factory-limits).
 
-## When to use version 2 vs. vs version 1? 
+## When to use version 2 rather than version 1? 
 If you are new to Azure Data Factory, start directly with version 2. If you are already using version 1, rebuild your data factories on version 2.
 
 > [!WARNING]
@@ -117,7 +117,7 @@ Linked services are used for two purposes in Data Factory:
 Triggers represent the unit of processing that determines when a pipeline execution needs to be kicked off. There are different types of triggers for different types of events; for preview, we support wall-clock scheduler trigger. 
 
 
-### Pipeline Runs
+### Pipeline runs
 A pipeline run is an instance of the pipeline execution. Pipeline Runs are typically instantiated by passing the arguments to the parameters defined in pipelines. The arguments can be passed manually or within the trigger definition
 
 ### Parameters
@@ -126,7 +126,7 @@ A Dataset is a strongly typed parameter and a reusable/referenceable entity. An 
 
 A linked service is also a strongly typed parameter containing the connection information to either a data store or a compute environment. It is also a reusable/referenceable entity.
 
-### Control Flow
+### Control flow
 Orchestration of pipeline activities that includes chaining activities in a sequence, branching, and parameters that can be defined at the pipeline level and arguments passed while invoking the pipeline on demand or from a trigger. Also includes custom state passing and looping containers, that is, For-each iterators.
 
 
@@ -139,7 +139,7 @@ For more information about Data Factory concepts, see the following articles:
 ## What is the pricing model for Data Factory?
 See [Data Factory Pricing Details](https://azure.microsoft.com/pricing/details/data-factory/) page for the pricing details for the Azure Data Factory.
 
-## What regions Azure Data Factory version is available?
+## What regions support Azure Data Factory version 2?
 Currently, you can create data factories of version 2 in East US and East US 2 regions. However, a data factory can use Integration Runtime in another region to move data between data stores, dispatch activities against compute services, or dispatch SSIS packages.  For more information, see [Data Factory locations](concepts-integration-runtime.md#integration-runtime-location).
 
 ## How can I stay up to date with information about Data Factory?
@@ -151,38 +151,42 @@ Use the following sites to stay up to date with information about Azure Data Fac
 
 ## Technical deep dive 
 
-## Can I have version 1 and version 2 pipelines run side by side?
+### Can I have version 1 and version 2 pipelines run side by side?
 No. Version 2 or version 1 data factories cannot have entities (linked services, datasets, pipelines, etc.) of other version.   
 
-## Do I still need to define datasets in version 2?
+### Do I still need to define datasets in version 2?
 Dataset is no longer a mandatory entity for most activities. It is required for Copy, Machine Learning, Lookup, Validation, and custom activities that use the schema and other metadata information in the Dataset for transformation. The rest of the activities do not require datasets any more.
 
-## Can I chain two activities without a dataset in version 2?
+### Can I chain two activities without a dataset in version 2?
 Yes. You can chain together activities in version 2 without requiring Datasets. You chain activities by using the **dependsOn** property in the JSON definition of your pipeline. 
 
-## Are all the version 1 activities supported in version 2? 
+### Are all the version 1 activities supported in version 2? 
 Yes, all the version 1 activities are supported
 
-## How can I schedule a version 2 pipeline? 
+### How can I schedule a version 2 pipeline? 
 You can use the scheduler trigger to schedule a version 2 pipeline. It uses a wall-clock calendar schedule and enables users to schedule pipelines either periodically or using calendar-based recurrent patterns (for example, weekly Mondays @ 6 PM and Thursdays @ 9 PM). For more information, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md).
 
-## Can I pass parameters to a pipeline run in version 2?
+### Can I pass parameters to a pipeline run in version 2?
 Yes, parameters are first class top-level concept in version 2. You can define parameters at the pipeline level and pass arguments while executing the pipeline run on-demand or by using a trigger.  
 
-## Can I define default values for the pipeline parameters? 
+### Can I define default values for the pipeline parameters? 
 Yes. You can define default values for the parameters in the pipelines. 
 
-## Can an activity in a pipeline consume arguments passed to a pipeline run? 
+### Can an activity in a pipeline consume arguments passed to a pipeline run? 
 Yes. Each activity within the pipeline can consume the parameter value passed to the pipeline run with the `@parameter` construct. 
 
-## Can an activity output property be consumed in another activity? 
+### Can an activity output property be consumed in another activity? 
 Yes. An activity output can be consumed in a subsequent activity with the @activity construct.
  
-## How do I gracefully handle null values in an activity output? 
+### How do I gracefully handle null values in an activity output? 
 You can use the `@coalesce` construct in the expressions to handle null values gracefully. 
 
-## Can I use retries, timeouts at the activity level in version 2?
+### Can I use retries, timeouts at the activity level in version 2?
 Yes. You can configure retry and timeout at the activity level to govern the execution of activities in version 2 like in version 1. 
 
+## Next steps
+For step-by-step instructions to create a data factory of version 2, see the following tutorials:
 
+- [Quickstart: create a data factory](quickstart-create-data-factory-dot-net.md)
+- [Tutorial: copy data in cloud](tutorial-copy-data-dot-net.md)
 
