@@ -178,16 +178,16 @@ You can read a complete example of [creating multiple NICs using Resource Manage
 
 
 ## Configure guest OS for multiple NICs
-When you aDD multiple NICs to a Linux VM, you need to create routing rules. These rules allow the VM to send and receive traffic that belongs to a specific NIC. Otherwise, traffic that belongs to *eth1*, for example, cannot be processed correctly by the defined default route.
+When you add multiple NICs to a Linux VM, you need to create routing rules. These rules allow the VM to send and receive traffic that belongs to a specific NIC. Otherwise, traffic that belongs to *eth1*, for example, cannot be processed correctly by the defined default route.
 
-To correct this routing issue, first add two routing tables to */etc/iproute2/rt_tables*
+To correct this routing issue, first add two routing tables to */etc/iproute2/rt_tables* as follows:
 
 ```bash
 echo "200 eth0-rt" >> /etc/iproute2/rt_tables
 echo "201 eth1-rt" >> /etc/iproute2/rt_tables
 ```
 
-To make the change persistent and applied during network stack activation, edit */etc/sysconfig/network-scipts/ifcfg-eth0* and */etc/sysconfig/network-scipts/ifcfg-eth1*. Alter the line *"NM_CONTROLLED=yes"* to *"NM_CONTROLLED=no"*. Without this step, the additional rules/routing are not applied.
+To make the change persistent and applied during network stack activation, edit */etc/sysconfig/network-scipts/ifcfg-eth0* and */etc/sysconfig/network-scipts/ifcfg-eth1*. Alter the line *"NM_CONTROLLED=yes"* to *"NM_CONTROLLED=no"*. Without this step, the additional rules/routing are not automatically applied.
  
 Next, extend the routing tables. Let's assume we have the following setup in place:
 
