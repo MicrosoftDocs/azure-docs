@@ -26,15 +26,15 @@ A security policy defines the desired configuration of your workloads and helps 
 Security Center policies contain the following components:
 
 - Data collection: agent provisioning and [data collection](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) settings.
-- Security policy: an [Azure Policy](https://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) that determines which controls are monitored and recommended by Security Center (edit in in Security Center or use Azure Policy to create new definitions, define additional policies, and assign policies across Management Groups).
+- Security policy: an [Azure Policy](https://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) that determines which controls are monitored and recommended by Security Center (edit in Security Center, or use Azure Policy to create new definitions, define additional policies, and assign policies across Management Groups).
 - Email notifications: security contacts, and [e-mail notification](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) settings.
-- Pricing tier: free or standard [pricing selection](https://docs.microsoft.com/azure/security-center/security-center-pricing), which determine which Security Center features are available for resources in scope (can be specified for subscriptions, resource groups and workspaces). 
+- Pricing tier: free or standard [pricing selection](https://docs.microsoft.com/azure/security-center/security-center-pricing), which determines which Security Center features are available for resources in scope (can be specified for subscriptions, resource groups, and workspaces). 
 
 
 ## Who can edit security policies?
 Security Center uses Role-Based Access Control (RBAC), which provides built-in roles that can be assigned to users, groups, and services in Azure. When a user opens Security Center, they only see information related to resources they have access to. Which means the user is assigned the role of Owner, Contributor, or Reader to the subscription or resource group that a resource belongs to. In addition to these roles, there are two specific Security Center roles:
 
-- Security reader: user that belongs to this role is be able to view rights to Security Center, which includes recommendations, alerts, policy, and health, but it won't be able to make changes.
+- Security reader: user that belongs to this role is able to view rights to Security Center, which includes recommendations, alerts, policy, and health, but it won't be able to make changes.
 - Security admin: same as security reader but it can also update the security policy, dismiss recommendations and alerts.
 
 
