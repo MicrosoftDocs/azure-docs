@@ -37,7 +37,7 @@ In this part we cover how to:
 
 A sample data set has been prepared for you. **Download [clinical-trials.zip](https://github.com/roygara/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials.zip)** and unzip it to its own folder.
 
-Contained in the sample is a set of text files obtained from [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). We are using them as the example text files which we are going to search using Azure.
+Contained in the sample is a set of text files obtained from [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). We are using them as example text files which we are going to search using Azure.
 
 
 ## Log in to Azure
@@ -62,7 +62,7 @@ If you are not familiar with the process of creating a General-purpose storage a
 
 5. Select **create new** for your resource group, give it a unique name, and select a Location appropriate for you.
     
-   We recommend creating a separate resource group for these sequences of tutorials so that you may easily clean up all associated resources after completing both tutorials.
+   We recommend creating a separate resource group for these tutorials so that you may easily clean up all associated resources after completing both tutorials.
 
 6. Leave the remaining values as their defaults but be sure to select an appropriate subscription.
 
@@ -76,7 +76,7 @@ Containers are blob-specific, they exist to store blobs and are similar to folde
 
 Blobs are basically files, like those that you store on your computer (or tablet, mobile device, and so on). They can be pictures, Microsoft Excel files, HTML files, virtual hard disks (VHDs), database backups, and big data such as logs.
 
-For this tutorial, we are using a single container to store the text obtained from clinicaltrials.gov in a blob.
+For this tutorial, we are using a single container to store the text obtained from clinicaltrials.gov.
 
 1. Navigate to and open your storage account.
 
@@ -145,8 +145,6 @@ Now that you have a search service, you can attach it to your blob storage. This
 3. Select **Search Service** inside **Import Data** and then click the search service you created.
 
     You can now proceed to the next part, **Data Source.** Click that if it doesn't automatically open.
-
- **New data source** opens.
 
 ### New Data Source
 
