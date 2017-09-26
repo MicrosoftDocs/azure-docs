@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 09/26/2017
 ms.author: banders
 
 ---
@@ -40,7 +40,7 @@ The following table describes the connected sources that are supported by this s
 | [Linux agents](log-analytics-linux-agents.md) | No | Direct Linux agents are not used by the solution. |
 | [SCOM management group](log-analytics-om-agents.md) | No | A direct connection from the SCOM agent to Log Analytics is not used by the solution. |
 | [Azure storage account](log-analytics-azure-storage.md) | No | Log Analytics does not read the data from a storage account. |
-| [Azure diagnostics](log-analytics-azure-storage.md) | Yes | Azure metric and log data is sent to Log Analytics directly by Azure. |
+| [Azure diagnostics](log-analytics-azure-storage.md) | Yes | Azure metric and log data are sent to Log Analytics directly by Azure. |
 
 ## Prerequisites
 
@@ -58,9 +58,9 @@ Perform the following steps to add the Azure SQL Analytics solution to your work
 3. In the **Monitoring + Management** list click **See all**.
 4. In the **Recommended** list, click **More** , and then in the new list, find **Azure SQL Analytics (Preview)** and then select it.  
     ![Azure SQL Analytics solution](./media/log-analytics-azure-sql/azure-sql-solution-portal.png)
-5. In the **Azure SQL Analytics (Preview)** blade, click **Create**.  
+5. In the **Azure SQL Analytics (Preview)** pane, click **Create**.  
     ![Create](./media/log-analytics-azure-sql/portal-create.png)
-6. In the **Create new solution** blade, select the workspace that you want to add the solution to and then click **Create**.  
+6. In the **Create new solution** pane, select the workspace that you want to add the solution to and then click **Create**.  
     ![add to workspace](./media/log-analytics-azure-sql/add-to-workspace.png)
 
 
@@ -81,7 +81,7 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 ## Using the solution
 
 >[!NOTE]
-> Please upgrade your Log Analytics to get the latest version of Azure SQL Analytics.
+> Upgrade your Log Analytics workspace to get the latest version of Azure SQL Analytics.
 >
 
 When you add the solution to your workspace, the Azure SQL Analytics tile is added to your workspace, and it appears in Overview. The tile shows the number of Azure SQL databases and Azure SQL elastic pools that the solution is connected to.
