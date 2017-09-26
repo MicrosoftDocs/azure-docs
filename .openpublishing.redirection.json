@@ -2326,11 +2326,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/app-service/app-service-local-cache.md",
-            "redirect_url": "/azure/app-service/app-service-web-overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/app-service/app-service-powershell-backup.md",
             "redirect_url": "/azure/app-service/web-sites-backup",
             "redirect_document_id": false
@@ -2348,6 +2343,11 @@
         {
             "source_path": "articles/app-service/app-service-value-prop-what-is.md",
             "redirect_url": "/azure/app-service/app-service-web-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-local-cache.md",
+            "redirect_url": "/azure/app-service/app-service-local-cache-overview",
             "redirect_document_id": false
         },
         {
@@ -12895,7 +12895,7 @@
             "redirect_url": "/azure-stack/azure-stack-app-service-overview",
             "redirect_document_id": false
         },
-                {
+        {
             "source_path": "articles/azure-stack/azure-stack-sql-resource-provider-databases.md",
             "redirect_url": "/azure-stack/azure-stack-sql-resource-provider-deploy",
             "redirect_document_id": false
@@ -13349,6 +13349,11 @@
             "source_path": "articles/data-factory/data-factory-web-table-connector.md",
             "redirect_url": "/azure/data-factory/v1/data-factory-web-table-connector",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps-classic.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps",
+            "redirect_document_id": false
         }
     ]
 }
