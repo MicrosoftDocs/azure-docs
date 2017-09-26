@@ -258,7 +258,7 @@ The following table summarizes the list of currently available options.
 
 | Area | External Monitoring Solution |
 | -- | -- |
-| Azure Stack software | - [Azure Stack Management Pack for Operations Manager](https://azure.microsoft.com/en-us/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>- [Nagios plug-in](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>- REST-based API calls | 
+| Azure Stack software | - [Azure Stack Management Pack for Operations Manager](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>- [Nagios plug-in](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>- REST-based API calls | 
 | Physical servers (BMCs via IPMI) | - Operations Manager vendor management pack<br>- OEM hardware vendor-provided solution<br>- Hardware vendor Nagios plug-ins | OEM partner-supported monitoring solution (included) | 
 | Network devices (SNMP) | - Operations Manager network device discovery<br>- OEM hardware vendor-provided solution<br>- Nagios switch plug-in |
 | Tenant subscription health monitoring | - [System Center Management Pack for Windows Azure](https://www.microsoft.com/download/details.aspx?id=50013) | 
@@ -294,5 +294,5 @@ To replicate data to a secondary location and orchestrate application failover i
 
 ## Next steps
 
-- For information about use cases, purchasing, partners, and OEM hardware vendors, see the [Azure Stack](https://azure.microsoft.com/en-us/overview/azure-stack/) product page.
-- For information about the roadmap and geo-availability for Azure Stack integrated systems, see the white paper: [Azure Stack: An extension of Azure](https://azure.microsoft.com/en-us/resources/azure-stack-an-extension-of-azure/). 
+- For information about use cases, purchasing, partners, and OEM hardware vendors, see the [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) product page.
+- For information about the roadmap and geo-availability for Azure Stack integrated systems, see the white paper: [Azure Stack: An extension of Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
