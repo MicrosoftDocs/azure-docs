@@ -384,16 +384,19 @@ Following changes are required to use the Remoting V2 Stack.
 This change will be a 2-step upgrade. Follow the steps in the same sequence as listed.
 
 1.  Add the following assembly attribute on Actor Interfaces. This attribute will start two listeners for ActorService, V1 (existing) and V2 Listener. Upgrade ActorService with this change.
-```csharp
-[assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.CompatListener,RemotingClient = RemotingClient.V2Client)]
-```
+
+  ```csharp
+  [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.CompatListener,RemotingClient = RemotingClient.V2Client)]
+  ```
+
 2. Upgrade ActorClients after completing the above upgrade.
 This step makes sure Actor Proxy is using Remoting V2 Stack.
 
 3. This step is optional. Change the above attribute to remove V1 Listener.
-```csharp
-[assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
-```
+
+    ```csharp
+    [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
+    ```
 
 ## Next steps
 * [Actor state management](service-fabric-reliable-actors-state-management.md)

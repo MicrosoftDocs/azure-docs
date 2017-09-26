@@ -123,7 +123,9 @@ Here are the steps to follow to change to V2 Stack.
         return this.CreateServiceRemotingInstanceListeners();
     }
   ```
+
 3.  Add Assembly Attribute on Remoting Interfaces.
+
   ```csharp
   [assembly: FabricTransportServiceRemotingProvider(RemotingListener = RemotingListener.V2Listener, RemotingClient = RemotingClient.V2Client)]
   ```
