@@ -3,8 +3,8 @@ title: 'Configure route filters for Azure ExpressRoute Microsoft peering: PowerS
 description: This article describes how to configure route filters for Microsoft Peering using PowerShell
 documentationcenter: na
 services: expressroute
-author: cherylmc
-manager: timlt
+author: ganesr
+manager: rossort
 editor: ''
 tags: azure-resource-manager
 
@@ -15,10 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2017
-ms.author: ganesr;cherylmc
+ms.author: ganesr
 
 ---
-# Configure route filters for Microsoft peering
+# Configure route filters for Microsoft peering: PowerShell
+> [!div class="op_single_selector"]
+> * [Azure Portal](how-to-routefilter-portal.md)
+> * [Azure PowerShell](how-to-routefilter-powershell.md)
+> * [Azure CLI](how-to-routefilter-cli.md)
+> 
 
 Route filters are a way to consume a subset of supported services through Microsoft peering. The steps in this article help you configure and manage route filters for ExpressRoute circuits.
 
@@ -148,7 +153,9 @@ $ckt.Peerings[0].RouteFilter = $routefilter
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-## <a name="getproperties"></a>To get the properties of a route filter
+## <a name="tasks"></a>Tasks
+
+### <a name="getproperties"></a>To get the properties of a route filter
 
 To get the properties of a route filter, use the following steps:
 
@@ -164,7 +171,7 @@ To get the properties of a route filter, use the following steps:
   $rule = $routefilter.Rules[0]
   ```
 
-## <a name="updateproperties"></a>To update the properties of a route filter
+### <a name="updateproperties"></a>To update the properties of a route filter
 
 If the route filter is already attached to a circuit, updates to the BGP community list automatically propagates appropriate prefix advertisement changes through the established BGP sessions. You can update the BGP community list of your route filter using the following command:
 
@@ -174,7 +181,7 @@ $routefilter.rules[0].Communities = "12076:5030", "12076:5040"
 Set-AzureRmRouteFilter -RouteFilter $routefilter
 ```
 
-## <a name="detach"></a>To detach a route filter from an ExpressRoute circuit
+### <a name="detach"></a>To detach a route filter from an ExpressRoute circuit
 
 Once a route filter is detached from the ExpressRoute circuit, no prefixes are advertised through the BGP session. You can detach a route filter from an ExpressRoute circuit using the following command:
   
@@ -183,7 +190,7 @@ $ckt.Peerings[0].RouteFilter = $null
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-## <a name="delete"></a>To delete a route filter
+### <a name="delete"></a>To delete a route filter
 
 You can only delete a route filter if it is not attached to any circuit. Ensure that the route filter is not attached to any circuit before attempting to delete it. You can delete a route filter using the following command:
 
@@ -191,6 +198,6 @@ You can only delete a route filter if it is not attached to any circuit. Ensure 
 Remove-AzureRmRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup"
 ```
 
-## Next steps
+## Next Steps
 
 For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).

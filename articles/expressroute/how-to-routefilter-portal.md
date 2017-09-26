@@ -3,8 +3,8 @@ title: 'Configure route filters for Azure ExpressRoute Microsoft peering: Portal
 description: This article describes how to configure route filters for Microsoft Peering using the Azure portal
 documentationcenter: na
 services: expressroute
-author: cherylmc
-manager: timlt
+author: ganesr
+manager: rossort
 editor: ''
 tags: azure-resource-manager
 
@@ -15,10 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/11/2017
-ms.author: ganesr;cherylmc
+ms.author: ganesr
 
 ---
-# Configure route filters for Microsoft peering
+# Configure route filters for Microsoft peering: Azure portal
+> [!div class="op_single_selector"]
+> * [Azure Portal](how-to-routefilter-portal.md)
+> * [Azure PowerShell](how-to-routefilter-powershell.md)
+> * [Azure CLI](how-to-routefilter-cli.md)
+> 
 
 Route filters are a way to consume a subset of supported services through Microsoft peering. The steps in this article help you configure and manage route filters for ExpressRoute circuits.
 
@@ -114,14 +119,16 @@ If the connectivity provider configures peering for your ExpressRoute circuit re
 
 ![Create a route filter](.\media\how-to-routefilter-portal\RefreshExpressRouteCircuit.png)
 
-## <a name="getproperties"></a>To get the properties of a route filter
+## <a name="tasks"></a>Tasks
+
+### <a name="getproperties"></a>To get the properties of a route filter
 
 You can view properties of a route filter when you open the resource in the portal.
 
 ![Create a route filter](.\media\how-to-routefilter-portal\ViewRouteFilter.png)
 
 
-## <a name="updateproperties"></a>To update the properties of a route filter
+### <a name="updateproperties"></a>To update the properties of a route filter
 
 You can update the list of BGP community values attached to a circuit by selecting the "Manage rule" button.
 
@@ -131,19 +138,19 @@ You can update the list of BGP community values attached to a circuit by selecti
 ![Create a route filter](.\media\how-to-routefilter-portal\AddRouteFilterRule.png) 
 
 
-## <a name="detach"></a>To detach a route filter from an ExpressRoute circuit
+### <a name="detach"></a>To detach a route filter from an ExpressRoute circuit
 
 To detach a circuit from the route filter, right click on the circuit and click on "disassociate".
 
 ![Create a route filter](.\media\how-to-routefilter-portal\DetachRouteFilter.png) 
 
 
-## <a name="delete"></a>To delete a route filter
+### <a name="delete"></a>To delete a route filter
 
 You can delete a route filter by selecting the delete button. 
 
 ![Create a route filter](.\media\how-to-routefilter-portal\DeleteRouteFilter.png) 
 
-## Next steps
+## Next Steps
 
 For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
