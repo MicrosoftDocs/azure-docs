@@ -44,8 +44,8 @@ Creates a Service Fabric compose deployment.
  |   --name      [Required]| The identity of the deployment.|
 |    --encrypted-pass      | Rather than prompting for a container registry password, use an already
                             encrypted passphrase.|
-|    --has-pass            | Will prompt for a password to the container registry.|
-|    --timeout -t          | Server timeout in seconds.  Default: 60.|
+|    --has-pass            | Prompts for a password to the container registry.|
+|    --timeout -t          | Server time-out in seconds.  Default: 60.|
  |   --user                | User name to connect to container registry.|
 
 ### Global Arguments
@@ -71,8 +71,8 @@ Gets the status about the compose deployments that were created or are in the pr
 |Argument|Description|
 | --- | --- |
 | --continuation-token| The continuation token parameter is used to obtain next set of results. A      continuation token with a non empty value is included in the response of      the API when the results from the system do not fit in a single response.      When this value is passed to the next API call, the API returns next set      of results. If there are no further results, then the continuation token      does not contain a value. The value of this parameter should not be URL      encoded.|
-| --max-results    | The maximum number of results to be returned as part of the paged queries.      This parameter defines the upper bound on the number of results returned.      If      they do not fit in the message as per the max message size restrictions      defined in the configuration, the results returned can be less than the specified maximum results. If this parameter is zero or not specified,      the paged queries includes as much results as possible that fit in the      return message.|
-| --timeout -t     | Server timeout in seconds.  Default: 60.|
+| --max-results    | The maximum number of results to be returned as part of the paged queries.      This parameter defines the upper bound on the number of results returned.      If      they do not fit in the message as per the max message size restrictions      defined in the configuration, the results returned can be less than the specified maximum results. If this parameter is zero or not specified,      the paged queries include as many results as possible that fit in the      return message.|
+| --timeout -t     | Server time-out in seconds.  Default: 60.|
 
 ### Global Arguments
 
@@ -94,7 +94,7 @@ Deletes an existing Service Fabric compose deployment.
 |Argument|Description|
 | --- | --- |
 | --deployment-name [Required]| The identity of the deployment. This is typically the full name of             the application without the 'fabric:' URI scheme.|
-| --timeout -t            | Server timeout in seconds.  Default: 60.|
+| --timeout -t            | Server time-out in seconds.  Default: 60.|
 
 ### Global Arguments
 
@@ -118,7 +118,7 @@ Returns the status of compose deployment that was created or in the process of b
 |Argument|Description|
 | --- | --- |
 | --deployment-name [Required]| The identity of the deployment. |
-| --timeout -t            | Server timeout in seconds.  Default: 60.|
+| --timeout -t            | Server time-out in seconds.  Default: 60.|
 
 ### Global Arguments
 
@@ -141,20 +141,20 @@ Starts upgrading a compose deployment in the Service Fabric cluster.
 | --- | --- |
 |    --file-path        [Required]| Path to the target Docker compose file.|
 |    --name             [Required]| The identity of the deployment.|
-|    --default-svc-type-health-map| JSON encoded dictionary that describe the health policy used to
+|    --default-svc-type-health-map| JSON encoded dictionary that describes the health policy used to
                                    evaluate the health of services.|
 |    --encrypted-pass             | Rather than prompting for a container registry password, use an
                                    already encrypted passphrase.|
  |   --failure-action             | Possible values include: 'Invalid', 'Rollback', 'Manual'.
 |    --force-restart              | Force restart.|
  |   --has-pass                   | Will prompt for a password to the container registry.|
-|    --health-check-retry         | Health check retry timeout measured in milliseconds.|
+|    --health-check-retry         | Health check retry time-out measured in milliseconds.|
 |    --health-check-stable        | Health check stable duration measured in milliseconds.|
 |    --health-check-wait          | Health check wait duration measured in milliseconds.|
-|    --replica-set-check          | Upgrade replica set check timeout measured in seconds.|
+|    --replica-set-check          | Upgrade replica set check time-out measured in seconds.|
 |    --svc-type-health-map        | JSON encoded list of objects that describe the health policies
                                    used to evaluate the health of different service types.|
-|    --timeout -t                 | Server timeout in seconds.  Default: 60.|
+|    --timeout -t                 | Server time-out in seconds.  Default: 60.|
 |    --unhealthy-app              | The maximum allowed percentage of unhealthy applications before
                                    reporting an error.|
         For example, to allow 10% of applications to be unhealthy, this value would be 10. The
@@ -163,11 +163,11 @@ Starts upgrading a compose deployment in the Service Fabric cluster.
         least one unhealthy application, the health is evaluated as Warning. This is calculated by
         dividing the number of unhealthy applications over the total number of application instances
         in the cluster.|
-|    --upgrade-domain-timeout     | Upgrade domain timeout measured in milliseconds.|
+|    --upgrade-domain-timeout     | Upgrade domain time-out measured in milliseconds.|
 |    --upgrade-kind               | Default: Rolling.|
 |    --upgrade-mode               | Possible values include: 'Invalid', 'UnmonitoredAuto',
                                    'UnmonitoredManual', 'Monitored'.  Default: UnmonitoredAuto.|
-|    --upgrade-timeout            | Upgrade timeout measured in milliseconds.|
+|    --upgrade-timeout            | Upgrade time-out measured in milliseconds.|
 |    --user                       | User name to connect to container registry.|
 |    --warning-as-error           | Warnings are treated with the same severity as errors.|
 

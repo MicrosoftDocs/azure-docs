@@ -81,9 +81,9 @@ For clusters that have one or more instances of the Infrastructure Service confi
 | --debug          | Increase logging verbosity to show all debug logs.|
 | --help -h        | Show this help message and exit.|
 | --output -o      | Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.|
-| --query          | JMESPath query string. For more information, see http://jmespath.org/ for more information and      examples.|
+| --query          | JMESPath query string. For more information, see http://jmespath.org/.|
 | --verbose        | Increase logging verbosity. Use --debug for full debug logs.|
 
 ## Next steps
-- [Setup](service-fabric-cli.md) the Service Fabric CLI.
+- [Set up](service-fabric-cli.md) the Service Fabric CLI.
 - Learn how to use the Service Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
