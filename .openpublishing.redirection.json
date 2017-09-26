@@ -2326,11 +2326,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/app-service/app-service-local-cache.md",
-            "redirect_url": "/azure/app-service/app-service-web-overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/app-service/app-service-powershell-backup.md",
             "redirect_url": "/azure/app-service/web-sites-backup",
             "redirect_document_id": false
