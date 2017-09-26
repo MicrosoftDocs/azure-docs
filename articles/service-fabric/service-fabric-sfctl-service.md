@@ -53,8 +53,7 @@ Creates the specified Service Fabric service from the description.
 
 |Argument|Description|
 | --- | --- |
-| --app-id       [Required]| The identity of the parent application. This is typically the full ID           of the application without the 'fabric:' URI scheme. Starting from
-                               version 6.0, hierarchical names are delimited with the '~' character.
+| --app-id       [Required]| The identity of the parent application. This is typically the full ID           of the application without the 'fabric:' URI scheme. Starting from version 6.0, hierarchical names are delimited with the '~' character.
                                For example, if the application name is 'fabric://myapp/app1', the
                                application identity would be 'myapp~app1' in 6.0+ and 'myapp/app1'
                                in previous versions.|
@@ -137,11 +136,7 @@ Gets the description of an existing Service Fabric service. A service must be cr
 
 |Argument|Description|
 | --- | --- |
-| --service-id [Required]| The identity of the service. This is typically the full name of the         service without the 'fabric:' URI scheme. Starting from version 6.0,
-                             hierarchical names are delimited with the "~" character. For example,
-                             if the service name is "fabric://myapp/app1/svc1", the service identity
-                             would be "myapp~app1~svc1" in 6.0+ and "myapp/app1/svc1" in previous
-                             versions.|
+| --service-id [Required]| The identity of the service. This is typically the full name of the         service without the 'fabric:' URI scheme. Starting from version 6.0,                              hierarchical names are delimited with the "~" character. For example,                             if the service name is "fabric://myapp/app1/svc1", the service identity                             would be "myapp~app1~svc1" in 6.0+ and "myapp/app1/svc1" in previous                             versions.|
 | --timeout -t        | Server timeout in seconds.  Default: 60.|
 
 ### Global Arguments
@@ -166,17 +161,9 @@ Gets the health information of the specified service. Use EventsHealthStateFilte
 
 |Argument|Description|
 | --- | --- |
-| --service-id          [Required]| The identity of the service. This is typically the full name                  of the service without the 'fabric:' URI scheme. Starting from
-                                      version 6.0, hierarchical names are delimited with the "~"
-                                      character. For example, if the service name is
-                                      "fabric://myapp/app1/svc1", the service identity would be
-                                      "myapp~app1~svc1" in 6.0+ and "myapp/app1/svc1" in previous
-                                      versions.|
+| --service-id          [Required]| The identity of the service. This is typically the full name                  of the service without the 'fabric:' URI scheme. Starting from                                      version 6.0, hierarchical names are delimited with the "~"                                      character. For example, if the service name is                                      "fabric://myapp/app1/svc1", the service identity would be                                      "myapp~app1~svc1" in 6.0+ and "myapp/app1/svc1" in previous                                      versions.|
 | --events-health-state-filter | Allows filtering the collection of HealthEvent objects                  returned based on health state. The possible values for this                  parameter include integer value of one of the following health                  states. Only events that match the filter are returned. All                  events are used to evaluate the aggregated health state. If                  not specified, all entries are returned. The state values are                  flag-based enumeration, so the value could be a combination of                  these values obtained using bitwise 'OR' operator. For example,                  If the provided value is 6 then all of the events with                  HealthState value of OK (2) and Warning (4) are returned. -                  Default - Default value. Matches any HealthState. The value is                  zero. - None - Filter that doesn’t match any HealthState                  value. Used in order to return no results on a given                  collection of states. The value is 1. - Ok - Filter that                  matches input with HealthState value Ok. The value is 2. -                  Warning - Filter that matches input with HealthState value                  Warning. The value is 4. - Error - Filter that matches input                  with HealthState value Error. The value is 8. - All - Filter                  that matches input with any HealthState value. The value is                  65535.|
-|--exclude-health-statistics     | Indicates whether the health statistics should be returned as
-                                      part of the query result. False by default. The statistics
-                                      show the number of children entities in health state Ok,
-                                      Warning, and Error.|
+|--exclude-health-statistics     | Indicates whether the health statistics should be returned as                                      part of the query result. False by default. The statistics                                      show the number of children entities in health state Ok,                                      Warning, and Error.|
 | --partitions-health-state-filter| Allows filtering of the partitions health state objects                  returned in the result of service health query based on their                  health state. The possible values for this parameter include                  integer value of one of the following health states. Only                  partitions that match the filter are returned. All partitions                  are used to evaluate the aggregated health state. If not                  specified, all entries are returned. The state values are flag-based enumeration, so the value could be a combination of                  these values obtained using bitwise 'OR' operator. For example,                  if the provided value is "6" then health state of partitions                  with HealthState value of OK (2) and Warning (4) are                  returned. - Default - Default value. Matches any HealthState.                  The value is zero. - None - Filter that doesn't match any                  HealthState value. Used in order to return no results on a                  given collection of states. The value is 1. - Ok - Filter that                  matches input with HealthState value Ok. The value is 2. -                  Warning - Filter that matches input with HealthState value                  Warning. The value is 4. - Error - Filter that matches input                  with HealthState value Error. The value is 8. - All - Filter                  that matches input with any HealthState value. The value is                  65535.|
 | --timeout -t                 | Server timeout in seconds.  Default: 60.|
 
@@ -200,16 +187,8 @@ Returns the information about specified service belonging to the specified Servi
 
 |Argument|Description|
 | --- | --- |
-| --application-id [Required]| The identity of the application. This is typically the full name of             the application without the 'fabric:' URI scheme. Starting from
-                                 version 6.0, hierarchical names are delimited with the "~"
-                                 character. For example, if the application name is
-                                 "fabric://myapp/app1", the application identity would be
-                                 "myapp~app1" in 6.0+ and "myapp/app1" in previous versions.|
-| --service-id     [Required]| The identity of the service. This is typically the full name of the             service without the 'fabric:' URI scheme. Starting from version
-                                 6.0, hierarchical names are delimited with the "~" character. For
-                                 example, if the service name is "fabric://myapp/app1/svc1", the
-                                 service identity would be "myapp~app1~svc1" in 6.0+ and
-                                 "myapp/app1/svc1" in previous versions.|
+| --application-id [Required]| The identity of the application. This is typically the full name of             the application without the 'fabric:' URI scheme. Starting from                                 version 6.0, hierarchical names are delimited with the "~"                                 character. For example, if the application name is                                 "fabric://myapp/app1", the application identity would be                                 "myapp~app1" in 6.0+ and "myapp/app1" in previous versions.|
+| --service-id     [Required]| The identity of the service. This is typically the full name of the             service without the 'fabric:' URI scheme. Starting from version                                 6.0, hierarchical names are delimited with the "~" character. For                                 example, if the service name is "fabric://myapp/app1/svc1", the                                 service identity would be "myapp~app1~svc1" in 6.0+ and                                 "myapp/app1/svc1" in previous versions.|
 | --timeout -t            | Server timeout in seconds.  Default: 60.|
 
 ### Global Arguments
@@ -233,11 +212,7 @@ Returns the information about all services belonging to the application specifie
 
 |Argument|Description|
 | --- | --- |
-| --application-id [Required]| The identity of the application. This is typically the full name of             the application without the 'fabric:' URI scheme. Starting from
-                                 version 6.0, hierarchical names are delimited with the "~"
-                                 character. For example, if the application name is
-                                 "fabric://myapp/app1", the application identity would be
-                                 "myapp~app1" in 6.0+ and "myapp/app1" in previous versions.|
+| --application-id [Required]| The identity of the application. This is typically the full name of             the application without the 'fabric:' URI scheme. Starting from                                 version 6.0, hierarchical names are delimited with the "~"                                 character. For example, if the application name is                                 "fabric://myapp/app1", the application identity would be                                 "myapp~app1" in 6.0+ and "myapp/app1" in previous versions.|
 | --continuation-token    | The continuation token parameter is used to obtain next set of             results. A continuation token with a non empty value is included in             the response of the API when the results from the system do not fit             in a single response. When this value is passed to the next API             call, the API returns next set of results. If there are no further             results, then the continuation token does not contain a value. The             value of this parameter should not be URL encoded.|
 | --service-type-name     | The service type name used to filter the services to query for.|
 | --timeout -t            | Server timeout in seconds.  Default: 60.|
@@ -316,11 +291,7 @@ Resolve a Service Fabric service partition, to get the endpoints of the service 
 
 |Argument|Description|
 | --- | --- |
-| --service-id [Required]| The identity of the service. This is typically the full name of the         service without the 'fabric:' URI scheme. Starting from version 6.0,
-                             hierarchical names are delimited with the "~" character. For example,
-                             if the service name is "fabric://myapp/app1/svc1", the service identity
-                             would be "myapp~app1~svc1" in 6.0+ and "myapp/app1/svc1" in previous
-                             versions.|
+| --service-id [Required]| The identity of the service. This is typically the full name of the         service without the 'fabric:' URI scheme. Starting from version 6.0,                             hierarchical names are delimited with the "~" character. For example,                             if the service name is "fabric://myapp/app1/svc1", the service identity                             would be "myapp~app1~svc1" in 6.0+ and "myapp/app1/svc1" in previous                             versions.|
 | --partition-key-type| Key type for the partition. This parameter is required if the partition         scheme for the service is Int64Range or Named. The possible values are         following. - None (1) - Indicates that the PartitionKeyValue         parameter is not specified. This is valid for the partitions with         partitioning scheme as Singleton. This is the default value. The value         is 1. - Int64Range (2) - Indicates that the PartitionKeyValue         parameter is an int64 partition key. This is valid for the partitions         with partitioning scheme as Int64Range. The value is 2. - Named (3) -         Indicates that the PartitionKeyValue parameter is a name of the         partition. This is valid for the partitions with partitioning scheme as         Named. The value is 3.|
 | --partition-key-value  | Partition key. This is required if the partition scheme for the service         is Int64Range or Named.|
 | --previous-rsp-version | The value in the Version field of the response that was received         previously. This is required if the user knows that the result that was         got previously is stale.|
@@ -343,11 +314,7 @@ Updates the specified service using the given update description.
 
 |Argument|Description|
 | --- | --- |
-| --service-id   [Required]| Target service to update. This is typically the full ID of the           service without the 'fabric:' URI scheme. Starting from version 6.0,
-                               hierarchical names are delimited with the "~" character. For example,
-                               if the service name is 'fabric://myapp/app1/svc1', the service
-                               identity would be 'myapp~app1~svc1' in 6.0+ and 'myapp/app1/svc1' in
-                               previous versions.|
+| --service-id   [Required]| Target service to update. This is typically the full ID of the           service without the 'fabric:' URI scheme. Starting from version 6.0,                               hierarchical names are delimited with the "~" character. For example,                               if the service name is 'fabric://myapp/app1/svc1', the service                               identity would be 'myapp~app1~svc1' in 6.0+ and 'myapp/app1/svc1' in                               previous versions.|
 | --constraints         | The placement constraints as a string. Placement constraints are           boolean expressions on node properties and allow for restricting a           service to particular nodes based on the service requirements. For           example, to place a service on nodes where NodeType is blue specify           the following: "NodeColor == blue".|
 | --correlated-service  | Name of the target service to correlate with.|
 | --correlation         | Correlate the service with an existing service using an alignment           affinity.|

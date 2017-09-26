@@ -42,8 +42,7 @@ Creates a Service Fabric compose deployment.
 | --- | --- |
 | --file-path [Required]| Path to the target Docker compose file.|
  |   --name      [Required]| The identity of the deployment.|
-|    --encrypted-pass      | Rather than prompting for a container registry password, use an already
-                            encrypted passphrase.|
+|    --encrypted-pass      | Rather than prompting for a container registry password, use an already                            encrypted passphrase.|
 |    --has-pass            | Prompts for a password to the container registry.|
 |    --timeout -t          | Server time-out in seconds.  Default: 60.|
  |   --user                | User name to connect to container registry.|
@@ -133,8 +132,7 @@ Returns the status of compose deployment that was created or in the process of b
 ## sfctl compose upgrade
 Starts upgrading a compose deployment in the Service Fabric cluster.
 
-        Validates the supplied upgrade parameters and starts upgrading the deployment if the
-        parameters are valid.
+Validates the supplied upgrade parameters and starts upgrading the deployment if the        parameters are valid.
 
 ### Arguments
 |Argument|Description|
@@ -156,13 +154,7 @@ Starts upgrading a compose deployment in the Service Fabric cluster.
                                    used to evaluate the health of different service types.|
 |    --timeout -t                 | Server time-out in seconds.  Default: 60.|
 |    --unhealthy-app              | The maximum allowed percentage of unhealthy applications before
-                                   reporting an error.|
-        For example, to allow 10% of applications to be unhealthy, this value would be 10. The
-        percentage represents the maximum tolerated percentage of applications that can be unhealthy
-        before the cluster is considered in error. If the percentage is respected but there is at
-        least one unhealthy application, the health is evaluated as Warning. This is calculated by
-        dividing the number of unhealthy applications over the total number of application instances
-        in the cluster.|
+                                   reporting an error.        For example, to allow 10% of applications to be unhealthy, this value would be 10. The        percentage represents the maximum tolerated percentage of applications that can be unhealthy        before the cluster is considered in error. If the percentage is respected but there is at        least one unhealthy application, the health is evaluated as Warning. This is calculated by        dividing the number of unhealthy applications over the total number of application instances        in the cluster.|
 |    --upgrade-domain-timeout     | Upgrade domain time-out measured in milliseconds.|
 |    --upgrade-kind               | Default: Rolling.|
 |    --upgrade-mode               | Possible values include: 'Invalid', 'UnmonitoredAuto',
