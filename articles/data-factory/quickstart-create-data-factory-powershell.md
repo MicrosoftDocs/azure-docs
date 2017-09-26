@@ -56,7 +56,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     $resourceGroupName = "<your resource group to create the factory>";
     ```
 
-    Define a variable for the resource group name that you can use in PowerShell commands later. 
+    Define a variable for the data factory name that you can use in PowerShell commands later. 
 
     ```powershell
     $dataFactoryName = "<specify the name of data factory to create. It must be globally unique.>";
