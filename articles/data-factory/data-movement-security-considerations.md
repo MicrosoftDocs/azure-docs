@@ -81,12 +81,12 @@ Amazon Redshift supports cluster encryption for data at rest. For more informati
 #### Salesforce
 Salesforce supports Shield Platform Encryption that allows encryption of all files, attachments, custom fields. For more information, see [Understanding the Web Server OAuth Authentication Flow](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm).  
 
-## Hybrid Scenarios (using Self-hosted Integration Runtime)
-Hybrid scenarios require self-hosted integration runtime to be installed in an on-premises network or inside a virtual network (Azure) or a virtual private cloud (Amazon). The self-hosted integration runtime must be able to access the local data stores. For more information about the self-hosted integration runtime, see [Self-hosted integration runtime](create-self-hosted-integration-runtime.md). 
+## Hybrid scenarios (using self-hosted integration runtime)
+Hybrid scenarios require self-hosted integration runtime to be installed in an on-premises network or inside a virtual network (Azure) or a virtual private cloud (Amazon). The self-hosted integration runtime must be able to access the local data stores. For more information about the self-hosted integration runtime, see [self-hosted integration runtime](create-self-hosted-integration-runtime.md). 
 
-![Self-hosted integration runtime channels](media/data-movement-security-considerations/data-management-gateway-channels.png)
+![self-hosted integration runtime channels](media/data-movement-security-considerations/data-management-gateway-channels.png)
 
-The **command channel** allows communication between data movement services in Data Factory and Self-hosted Integration runtime. The communication contains information related to the activity. The data channel is used for transferring data between on-premises data stores and cloud data stores.    
+The **command channel** allows communication between data movement services in Data Factory and self-hosted integration runtime. The communication contains information related to the activity. The data channel is used for transferring data between on-premises data stores and cloud data stores.    
 
 ### On-premises data store credentials
 The credentials for your on-premises data stores are always encrypted and stored. It can be either stored locally on the self-hosted integration runtime machine or in Azure Data Factory managed storage (just like cloud store credentials). 
@@ -118,9 +118,9 @@ The following table summarizes the network and self-hosted integration runtime c
 
 | Source      | Destination                              | Network configuration                    | Integration runtime setup                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| On-premises | Virtual machines and cloud services deployed in virtual networks | IPSec VPN (point-to-site or site-to-site) | Self-hosted integration runtime can be installed either on-premises or on an Azure virtual machine (VM) in VNet |
-| On-premises | Virtual machines and cloud services deployed in virtual networks | ExpressRoute (Private Peering)           | Self-hosted integration runtime can be installed either on-premises or on an Azure VM in VNet |
-| On-premises | Azure-based services that have a public endpoint | ExpressRoute (Public Peering)            | Self-hosted integration runtime must be installed on-premises |
+| On-premises | Virtual machines and cloud services deployed in virtual networks | IPSec VPN (point-to-site or site-to-site) | The self-hosted integration runtime can be installed either on-premises or on an Azure virtual machine (VM) in VNet |
+| On-premises | Virtual machines and cloud services deployed in virtual networks | ExpressRoute (Private Peering)           | The self-hosted integration runtime can be installed either on-premises or on an Azure VM in VNet |
+| On-premises | Azure-based services that have a public endpoint | ExpressRoute (Public Peering)            | The self-hosted integration runtime must be installed on-premises |
 
 The following images show the usage of self-hosted integration runtime for moving data between an on-premises database and Azure services using Express route and IPSec VPN (with Virtual Network):
 
@@ -132,7 +132,7 @@ The following images show the usage of self-hosted integration runtime for movin
 
 ![IPSec VPN with gateway](media/data-movement-security-considerations/ipsec-vpn-for-gateway.png)
 
-### Firewall configurations and whitelisting IP address (Self-hosted integration runtime)
+### Firewall configurations and whitelisting IP address (self-hosted integration runtime)
 
 #### Firewall requirements for on-premises/private network	
 In an enterprise, a **corporate firewall** runs on the central router of the organization. And, **Windows firewall** runs as a daemon on the local machine on which the self-hosted integration runtime is installed. 
@@ -150,7 +150,7 @@ The following table provides **outbound port** and domain requirements for the *
 > [!NOTE] 
 > You may have to manage ports/ whitelisting domains at the corporate firewall level as required by respective data sources. This table only uses Azure SQL Database, Azure SQL Data Warehouse, Azure Data Lake Store as examples.   
 
-The following table provides **inbound port** requirements for the **windows firewall**.
+The following table provides **inbound port** requirements for the **Windows firewall**.
 
 | Inbound ports | Description                              |
 | ------------- | ---------------------------------------- |
@@ -158,7 +158,7 @@ The following table provides **inbound port** requirements for the **windows fir
 
 ![Gateway port requirements](media\data-movement-security-considerations/gateway-port-requirements.png) 
 
-#### IP configurations/ whitelisting in data store
+#### IP configurations/whitelisting in data store
 Some data stores in the cloud also require whitelisting of IP address of the machine accessing them. Ensure that the IP address of the self-hosted integration runtime machine is whitelisted/ configured in firewall appropriately.
 
 The following cloud data stores require whitelisting of IP address of the self-hosted integration runtime machine. Some of these data stores, by default, may not require whitelisting of the IP address. 
@@ -175,7 +175,7 @@ The following cloud data stores require whitelisting of IP address of the self-h
 **Answer:** We do not support this feature yet. We are actively working on it.
 
 **Question:** What are the port requirements for the self-hosted integration runtime to work?
-**Answer:** Self-hosted integration runtime makes HTTP-based connections to open internet. The **outbound ports 443 and 80** must be opened for self-hosted integration runtime to make this connection. Open **Inbound Port 8050** only at the machine level (not at corporate firewall level) for Credential Manager application. If Azure SQL Database or Azure SQL Data Warehouse is used as source/ destination, then you need to open **1433** port as well. For more information, see [Firewall configurations and whitelisting IP addresses](#firewall-configurations-and-whitelisting-ip-address-of gateway) section. 
+**Answer:** The self-hosted integration runtime makes HTTP-based connections to open internet. The **outbound ports 443 and 80** must be opened for self-hosted integration runtime to make this connection. Open **Inbound Port 8050** only at the machine level (not at corporate firewall level) for Credential Manager application. If Azure SQL Database or Azure SQL Data Warehouse is used as source/ destination, then you need to open **1433** port as well. For more information, see [Firewall configurations and whitelisting IP addresses](#firewall-configurations-and-whitelisting-ip-address-of gateway) section. 
 
 
 ## Next steps
