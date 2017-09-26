@@ -143,7 +143,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	a. Paste **SAML Single Sign-On Service URL**, which you have copied from the Azure portal into the **SSO-Login URL** textbox.
 	
-	b. As **SSO - Single Sign-on Mode**, select **Optional**, and then click **Save**.
+	b. As **SSO - Single Sign-on Mode**, select **Optional**, and then click **Save**. Note: **Optional** mode is for testing only, once you are happy with the configuration **Required** mode to enforce all users to authenticate using Azure AD.
 
 	c. Open the downloaded certificate in notepad, copy the certificate content without the first line (-----BEGIN CERTIFICATE-----) and the last line (-----END CERTIFICATE-----), paste it into the **SSO-x.509 Certificate** textbox, and then click **Save**.
 		
@@ -220,7 +220,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 The objective of this section is to test your Azure AD SSO configuration using the Access Panel.
 
-When you click the Promapp tile in the Access Panel, you should get automatically signed-on to your Promapp application.
+To test you'll need to initiate the authentication from your Promapp site.  This can be done by leaving the password field blank when logging in whilst **Optional** mode is enabled.  The Promapp intergration app within Azure AD doesn't currently support Identity Provider initiated authentication.
 
 ## Additional resources
 
