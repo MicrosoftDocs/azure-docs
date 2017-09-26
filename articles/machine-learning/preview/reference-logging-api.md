@@ -1,5 +1,5 @@
 ---
-title: Logging API reference | Microsoft Docs
+title: Azure ML Logging API reference | Microsoft Docs
 description: Logging API reference.
 services: machine-learning
 author: akshaya-a
@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 09/25/2017
 ---
 
-# Logging API Reference
+# Logging API reference
 
 Azure ML's logging library allows the program to emit metrics and files that are tracked by the history service for later analysis. Currently, a few basic types of metrics and files are supported, and the set of supported types will grow with future releases of the Python package.
 
-## Uploading Metrics
+## Uploading metrics
 
 ```python
 # import logging API package
@@ -43,7 +43,7 @@ logger.log("my metric 1", 1).wait()
 logger.log("my metric 2", 2).wait()
 ```
 
-## Consuming Metrics
+## Consuming metrics
 
 The metrics are stored by the history service and tied to the Run that produced them. Both the Run History tab and CLI command below allow you to retrieve them (and artifacts below) after a run has completed.
 
@@ -58,7 +58,7 @@ $ az ml history list
 $ az ml history info -r <runid>
 ```
 
-## Artifacts (Files)
+## Artifacts (files)
 
 In addition to metrics, AzureML allows the user to track files as well. By default, all files written into the `outputs` folder relative to the program's working directory (the project folder in the compute context) are uploaded to the history service and tracked for later analysis. The caveat is that the individual file size must be smaller than 512 MB.
 
@@ -68,7 +68,7 @@ In addition to metrics, AzureML allows the user to track files as well. By defau
 logger.upload("artifact/path", "This should be the contents of artifact/path in the service")
 ```
 
-## Consuming Artifacts
+## Consuming artifacts
 
 To print the contents of an artifact that has been tracked, user can use the Run History tab for the given run to **Download** or **Promote** the Artifact, or use the below CLI commands to achieve the same effect.
 
@@ -79,3 +79,6 @@ $ az ml history info -r <runid> -a <artifact/path>
 # promote a particular artifact
 $ az ml history promote -r <runid> -ap <artifact/prefix> -n <name of asset to create>
 ```
+## Next steps
+- Walk through the [Classifying iris tutoria, part 2](tutorial-classifying-iris-part-2.md) to see logging API in action.
+- Review [How to Use Run History and Model Metrics in Azure Machine Learning Workbench](how-to-use-run-history-model-metrics.md) to understand deeper how logging APIs can be used in Run History.
