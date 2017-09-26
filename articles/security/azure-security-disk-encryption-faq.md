@@ -116,7 +116,13 @@ This article provides answers to frequently asked questions (FAQ) about Azure Di
 * Encrypt (can take multiple hours or even days depending on vm characteristics and size of any attached data disks)
 * Customize, and add software to the image as needed.
 
-If this workflow is not possible, relying on server side encryption (SSE) at the platform storage account layer may be an alternative to full disk encryption using dm-crypt.
+If this workflow is not possible, relying on [Storage Service Encryption](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption) (SSE) at the platform storage account layer may be an alternative to full disk encryption using dm-crypt.
+
+**Q:** What is the disk "Bek Volume" or "/mnt/azure_bek_disk"?
+
+**A:** "Bek volume" for Windows or "/mnt/azure_bek_disk" for Linux is a local data volume which securely stores the encryption keys for Encrypted Azure IaaS VMs.
+> [!NOTE]
+> Do not delete or edit any contents in this disk. Do not unmount the disk since the encryption key presence is needed for any encryption operations on the IaaS VM.
 
 **Q:** Where can I go to ask questions or provide feedback?
 

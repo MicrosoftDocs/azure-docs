@@ -43,7 +43,7 @@ az group create --name myResourceGroup --location eastus
 
 ## Create virtual machine
 
-Create a VM with [az vm create](/cli/azure/vm#create). 
+Create a VM with [az vm create](/cli/azure/vm#az_vm_create). 
 
 The following example creates a VM named *myVM*. This example uses *azureuser* for an administrative user name and *myPassword12* as the password. Update these values to something appropriate to your environment. These values are needed when creating a connection with the virtual machine.
 
