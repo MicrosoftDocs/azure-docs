@@ -51,7 +51,7 @@ Follow the [Install and create Quickstart](quickstart-installation.md) to instal
    ![iris.csv](media/tutorial-classifying-iris/show_iris_csv.png)
 
    >[!NOTE]
-   >Note: it is not recommended to include data files in your project folder, particularly when the file size is large. We include **iris.csv** in this template for demonstration purposes because it is tiny. For more information, please reference the [How to read and write large data files](how-to-read-write-files.md) article.
+   > It is not recommended to include data files in your project folder, particularly when the file size is large. We include **iris.csv** in this template for demonstration purposes because it is tiny. For more information, please reference the [How to read and write large data files](how-to-read-write-files.md) article.
 
 2. In the **Data View**, click on the **+** icon to add a new data source. The **Add Data Source** wizard launches. 
 
