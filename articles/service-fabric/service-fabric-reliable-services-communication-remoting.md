@@ -203,8 +203,8 @@ This step makes sure that service is listening only on V2 Listener.
 
 ```csharp
 [assembly: FabricTransportServiceRemotingProvider(RemotingListener = RemotingListener.V2Listener, RemotingClient = RemotingClient.V2Client)]
+```
 
-      ```
 ## How to use Custom Serialization with Remoting V2.
 Following example uses Json Serialization with Remoting V2.
 1. Implement IServiceRemotingMessageSerializationProvider interface to provide implementation for custom serialization.
@@ -356,7 +356,8 @@ Following example uses Json Serialization with Remoting V2.
     }
     ```
 
-2.    Override Default Serialization Provider with JsonSerializationProvider for Remoting Listener.
+2.    Override Default Serialization Provider with JsonSerializationProvider for Remoting    Listener.
+
   ```csharp
   protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
    {
@@ -370,6 +371,7 @@ Following example uses Json Serialization with Remoting V2.
        };
    }
   ```
+  
 3.    Override Default Serialization Provider with JsonSerializationProvider for Remoting Client Factory.
 
 ```csharp
