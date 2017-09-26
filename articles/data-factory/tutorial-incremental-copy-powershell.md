@@ -379,7 +379,7 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
         "properties": {
     		"activities": [
     			{
-    				"name": "LookupWaterMarkActivity",
+    				"name": "LookupOldWaterMarkActivity",
     				"type": "Lookup",
     				"typeProperties": {
     					"source": {
@@ -394,7 +394,7 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
     				}
     			},
     			{
-    				"name": "LookupMaxValuefromSourceActivity",
+    				"name": "LookupNewWaterMarkActivity",
     				"type": "Lookup",
     				"typeProperties": {
     					"source": {
@@ -415,7 +415,7 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
     				"typeProperties": {
     					"source": {
     						"type": "SqlSource",
-    						"sqlReaderQuery": "select * from data_source_table where LastModifytime > '@{activity('LookupWaterMarkActivity').output.firstRow.WatermarkValue}' and LastModifytime <= '@{activity('LookupMaxValuefromSourceActivity').output.firstRow.NewWatermarkvalue}'"
+    						"sqlReaderQuery": "select * from data_source_table where LastModifytime > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and LastModifytime <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'"
     					},
     					"sink": {
     						"type": "BlobSink"
@@ -423,13 +423,13 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
     				},
     				"dependsOn": [
     					{
-    						"activity": "LookupMaxValuefromSourceActivity",
+    						"activity": "LookupNewWaterMarkActivity",
     						"dependencyConditions": [
     							"Succeeded"
     						]
     					},
     					{
-    						"activity": "LookupWaterMarkActivity",
+    						"activity": "LookupOldWaterMarkActivity",
     						"dependencyConditions": [
     							"Succeeded"
     						]
@@ -457,8 +457,8 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
     
     					"storedProcedureName": "sp_write_watermark",
     					"storedProcedureParameters": {
-    						"LastModifiedtime": {"value": "@{activity('LookupMaxValuefromSourceActivity').output.firstRow.NewWatermarkvalue}", "type": "datetime" },
-    						"TableName":  { "value":"@{activity('LookupWaterMarkActivity').output.firstRow.TableName}", "type":"String"}
+    						"LastModifiedtime": {"value": "@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}", "type": "datetime" },
+    						"TableName":  { "value":"@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}", "type":"String"}
     					}
     				},
     
@@ -497,7 +497,7 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
     PipelineName      : IncrementalCopyPipeline
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
-    Activities        : {LookupWaterMarkActivity, LookupMaxValuefromSourceActivity, IncrementalCopyActivity, StoredProceduretoWriteWatermarkActivity}
+    Activities        : {LookupOldWaterMarkActivity, LookupNewWaterMarkActivity, IncrementalCopyActivity, StoredProceduretoWriteWatermarkActivity}
     Parameters        :
    ```
  
@@ -519,7 +519,7 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
 	```json
 	ResourceGroupName : ADF
 	DataFactoryName   : incrementalloadingADF
-	ActivityName      : LookupMaxValuefromSourceActivity
+	ActivityName      : LookupNewWaterMarkActivity
 	PipelineRunId     : d4bf3ce2-5d60-43f3-9318-923155f61037
 	PipelineName      : IncrementalCopyPipeline
 	Input             : {source, dataset}
@@ -533,7 +533,7 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
 	
 	ResourceGroupName : ADF
 	DataFactoryName   : incrementalloadingADF
-	ActivityName      : LookupWaterMarkActivity
+	ActivityName      : LookupOldWaterMarkActivity
 	PipelineRunId     : d4bf3ce2-5d60-43f3-9318-923155f61037
 	PipelineName      : IncrementalCopyPipeline
 	Input             : {source, dataset}
@@ -639,7 +639,7 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
 	```json
 	ResourceGroupName : ADF
 	DataFactoryName   : incrementalloadingADF
-	ActivityName      : LookupMaxValuefromSourceActivity
+	ActivityName      : LookupNewWaterMarkActivity
 	PipelineRunId     : 2fc90ab8-d42c-4583-aa64-755dba9925d7
 	PipelineName      : IncrementalCopyPipeline
 	Input             : {source, dataset}
@@ -653,7 +653,7 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
 	
 	ResourceGroupName : ADF
 	DataFactoryName   : incrementalloadingADF
-	ActivityName      : LookupWaterMarkActivity
+	ActivityName      : LookupOldWaterMarkActivity
 	PipelineRunId     : 2fc90ab8-d42c-4583-aa64-755dba9925d7
 	PipelineName      : IncrementalCopyPipeline
 	Input             : {source, dataset}
