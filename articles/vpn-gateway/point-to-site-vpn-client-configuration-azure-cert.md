@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 09/26/2017
 ms.author: cherylmc
 
 ---
@@ -64,20 +64,13 @@ If you need to retrieve client configuration files again, you can re-run the ste
 1. When generating VPN client configuration files, the value for '-AuthenticationMethod' is 'EapTls'. Generate the VPN client configuration files using the following command:
 
   ```powershell
-  New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGatewayName "VNet1GW" -AuthenticationMethod "EapTls"
+  $profile=New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls"
+
+  $profile.VPNProfileSASUrl
   ```
-2. The previous command returns a link that you use to download the client configuration files. Copy and paste the link to a web browser to download the 'VpnClientConfiguration.zip' file. 
+2. Copy the URL to your browser to download the zip file, then unzip the zip file.
+3. If you need to retrieve the zip file again, just run the cmdlets again.
 
-#### To retrieve client configuration files again
-
-If you already generated client configuration files and you need to just retrieve them, you can use the 'Get-AzureRmVpnClientConfiguration' cmdlet. The 'Get-AzureRmVpnClientConfiguration' cmdlet returns a URL (link) from where you can download the VpnClientConfiguration.zip file. If you made any changes to your P2S VPN configuration, such as the VPN Protocol type or authentication type, the configuration doesn’t update automatically. You must instead run the 'New-AzureRmVpnClientConfiguration' cmdlet to recreate the configuration.
-
-To retrieve previously generated client configuration files, use the following example:
-
-```powershell
-Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGatewayName "VNet1GW"
-```
- 
 ## <a name="installwin"></a>Install a Windows VPN client configuration package
 
 You can use the same VPN client configuration package on each Windows client computer, as long as the version matches the architecture for the client. For the list of client operating systems that are supported, see the Point-to-Site section of the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#P2S).
