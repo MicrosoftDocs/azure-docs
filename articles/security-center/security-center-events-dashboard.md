@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 09/20/2017
 ms.author: terrylan
 
 ---
@@ -43,6 +43,9 @@ The **Events dashboard** provides an overview of the number of events processed 
 
  - **Notable events** include event queries that Security Center provides and event queries that you create and add. The dashboard also provides a quick view into the count of each notable event.
  - **All events by type** shows the event types that are being received and a count for each type. Examples of event type are SecurityEvent, CommonSecurityLog, WindowsFirewall and W3CIISLog.
+
+> [!NOTE]
+> Notable events include [web baseline assessment](https://docs.microsoft.com/azure/operations-management-suite/oms-security-web-baseline-assessment). The goal of the Web Baseline assessment is to find potentially vulnerable web server settings. 
 
 ## View processed event details
 1. Under the **Security Center** main menu, select **Events Processed**.

@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
-ms.author: anzaman,cherylmc
+ms.date: 09/25/2017
+ms.author: cherylmc
 
 ---
 # Create and modify routing for an ExpressRoute circuit using CLI
@@ -440,6 +440,12 @@ You can update any part of the configuration. The advertised prefixes of the cir
 
 ```azurecli
 az network express-route peering update --circuit-name MyCircuit -g ExpressRouteResourceGroup --peering-type MicrosoftPeering --advertised-public-prefixes 124.1.0.0/24
+```
+
+### To add IPv6 Microsoft peering settings to an existing IPv4 configuration
+
+```azurecli
+az network express-route peering update -g ExpressRouteResourceGroup --circuit-name MyCircuit --peering-type MicrosoftPeering --ip-version ipv6 --primary-peer-subnet 2002:db00::/126 --secondary-peer-subnet 2003:db00::/126 --advertised-public-prefixes 2002:db00::/126
 ```
 
 ### To delete Microsoft peering

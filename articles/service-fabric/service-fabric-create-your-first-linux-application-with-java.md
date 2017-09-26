@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/23/2017
+ms.date: 09/20/2017
 ms.author: ryanwi
 
 ---
@@ -129,7 +129,7 @@ Use the uninstall script provided in the template to delete the application inst
 In Service Fabric explorer you see that the application and application type no longer appear in the **Applications** node.
 
 ## Service Fabric Java libraries on Maven
-Service Fabric Java libraries have been hosted in Maven. You can add the dependencies in the ``pom.xml`` or ``build.gradle`` of your projects to use Service Fabric Java libraries from **mavenCentral**.
+Service Fabric Java libraries have been hosted in Maven. You can add the dependencies in the ``pom.xml`` or ``build.gradle`` of your projects to use Service Fabric Java libraries from **mavenCentral**. 
 
 ### Actors
 
@@ -139,7 +139,7 @@ Service Fabric Reliable Actor support for your application.
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf-actors-preview</artifactId>
-      <version>0.10.0</version>
+      <version>0.12.0</version>
   </dependency>
   ```
 
@@ -148,19 +148,19 @@ Service Fabric Reliable Actor support for your application.
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-actors-preview:0.10.0'
+      compile 'com.microsoft.servicefabric:sf-actors-preview:0.12.0'
   }
   ```
 
 ### Services
 
-Service Fabric Stateless Service support for your application.
+Service Fabric Reliable Services support for your application.
 
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf-services-preview</artifactId>
-      <version>0.10.0</version>
+      <version>0.12.0</version>
   </dependency>
   ```
 
@@ -169,7 +169,7 @@ Service Fabric Stateless Service support for your application.
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-services-preview:0.10.0'
+      compile 'com.microsoft.servicefabric:sf-services-preview:0.12.0'
   }
   ```
 
@@ -182,7 +182,7 @@ Transport layer support for Service Fabric Java application. You do not need to 
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf-transport-preview</artifactId>
-      <version>0.10.0</version>
+      <version>0.12.0</version>
   </dependency>
   ```
 
@@ -191,7 +191,7 @@ Transport layer support for Service Fabric Java application. You do not need to 
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-transport-preview:0.10.0'
+      compile 'com.microsoft.servicefabric:sf-transport-preview:0.12.0'
   }
   ```
 
@@ -203,7 +203,7 @@ System level support for Service Fabric, which talks to native Service Fabric ru
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf-preview</artifactId>
-      <version>0.10.0</version>
+      <version>0.12.0</version>
   </dependency>
   ```
 
@@ -212,7 +212,7 @@ System level support for Service Fabric, which talks to native Service Fabric ru
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-preview:0.10.0'
+      compile 'com.microsoft.servicefabric:sf-preview:0.12.0'
   }
   ```
 
