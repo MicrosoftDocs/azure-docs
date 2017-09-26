@@ -101,18 +101,21 @@ $ az account set -s <subscription name or Id>
 $ az group create -n <resource group name> -l <azure region>
 
 # now let's create the DSVM based on the JSON configuration file you created earlier.
-# note we assume the mydsvm.json config file is placed in the docs folder.
-# this can take a few minutes to finish
+# note we assume the mydsvm.json config file is placed in the "docs" sub-folder.
 $ az group deployment create -g <resource group name> --template-uri https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/azuredeploy.json --parameters @docs/mydsvm.json
 
-# find IP address of the VM just created
-$ az vm list-ip-addresses
+# find the FQDN (fully qualified domain name) of the VM just created
+$ az vm show -g <resource group name> -n <vm name> --query "fqdns"
+
+# find the IP address of the VM just created
+$ az vm show -g <resource group name> -n <vm name> --query "publicIps"
 ```
 ## Attach a DSVM compute target
 Once the DSVM is created, you can now attach it to your Azure ML project.
 
 ```azurecli
 # attach the DSVM compute target
+# it is a good idea to use FQDN in case the IP address changes after you deallocate the VM and restart it
 $ az ml computetarget attach --name <compute target name> --address <ip address or FQDN> --username <admin username> --password <admin password> --type remotedocker
 
 # prepare the Docker image on the DSVM 
