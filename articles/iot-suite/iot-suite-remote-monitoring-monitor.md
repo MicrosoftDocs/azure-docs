@@ -69,30 +69,29 @@ To pause the live telemetry display, choose **Flowing**. To re-enable the live d
 
 The map displays information about the simulated trucks selected by the current filter. You can zoom and pan the map to display locations in more or less detail. The device icons on the map indicate any **Alarms** or **Warnings** that are active for the device. A summary of the number of **Alarms** and **Warnings** displays to the left of the map.
 
-<!-- TODO Check this is true -->
-If you hover the mouse pointer over a device on the map, you can view summary information that device:
-
 To view the device details, click the device on the map. The details include:
 
 * Recent telemetry values
 * Methods the device supports
 * Device properties
 
-<!-- TODO insert screenshot -->
+![View device details on the dashboard](media/iot-suite-remote-monitoring-monitor/dashboarddevicedetail.png)
 
 ## View alarms from your devices
 
 The map highlights the devices in the current filter with **Alarms** and **Warnings**. The **System alarms** panel displays detailed information about the most recent alarms from your devices:
 
-<!-- TODO insert screenshot -->
+![View system alarms on the dashboard](media/iot-suite-remote-monitoring-monitor/dashboardsystemalarms.png)
 
-You can use the **System alarms** filter to adjust the time span for recent alarms. By default, the panel displays alarms from the last hour.
+You can use the **System alarms** filter to adjust the time span for recent alarms. By default, the panel displays alarms from the last hour:
+
+![Filter the alarms by time](media/iot-suite-remote-monitoring-monitor/dashboardalarmsfilter.png)
 
 ## View the system KPIs
 
 The **Dashboard** page displays system KPIs:
 
-<!-- TODO insert screenshot -->
+![Filter the alarms by time](media/iot-suite-remote-monitoring-monitor/dashboardkpis.png)
 
 You can use the **System KPI** filter to adjust the time span for the KPI aggregation. By default, the panel displays KPIs aggregated over the last hour.
 
