@@ -135,7 +135,7 @@ Run the following command to attach the route filter to the ExpressRoute circuit
 az network express-route peering update --circuit-name MyCircuit -g ExpressRouteResourceGroupName --name MicrosoftPeering --route-filter MyRouteFilter
 ```
 
-## <a name="tasks"></a>Tasks
+## <a name="tasks"></a>Common tasks
 
 ### <a name="getproperties"></a>To get the properties of a route filter
 
