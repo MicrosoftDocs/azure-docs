@@ -24,7 +24,7 @@ You can store credentials for data stores in an [Azure Key Vault](../key-vault/k
 
 ## Steps
 
-When creating a data factory, a service identity can be created along with factory creation. The service identity is a managed application registered to Azure Activity Directory, and represents this specific data factory. Note:
+When creating a data factory, a service identity can be created along with factory creation. The service identity is a managed application registered to Azure Activity Directory, and represents this specific data factory.
 
 - When creating data factory through **Azure portal or PowerShell**, service identity will always be created automatically since public preview.
 - When creating data factory through **SDK**, service identity will be created only if you specify "Identity = new FactoryIdentity()" in the factory object for creation. See example from [.NET quickstart - create data factory](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
@@ -139,10 +139,11 @@ The following properties are supported when you configure a field in linked serv
 
 ## Generate service identity
 
-If you find your data factory doesn't have a service identity associated following [retrieve service identity](#retrieve-service-identity) instruction, you can generate one by updating the data factory with identity initiator programmatically. Note:
+If you find your data factory doesn't have a service identity associated following [retrieve service identity](#retrieve-service-identity) instruction, you can generate one by updating the data factory with identity initiator programmatically.
 
-- Service identity cannot be regenerated. Updating a data factory which already have a service identity won't have any impact, the service identity will be kept unchanged.
-- Service identity cannot be deleted either. If you update a data factory which already have a service identity, without specifying "identity" parameter in the factory object or without specifying "identity" section in REST request body, you will get an error.
+> [!NOTE]
+> - **Service identity cannot be changed**. Updating a data factory which already have a service identity won't have any impact, the service identity will be kept unchanged.
+> - **Service identity cannot be deleted**. If you update a data factory which already have a service identity, without specifying "identity" parameter in the factory object or without specifying "identity" section in REST request body, you will get an error.
 
 The following sections show some samples on generating service identity for your factory if it does not exist.
 
