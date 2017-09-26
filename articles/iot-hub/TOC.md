@@ -32,6 +32,7 @@
 ##### [Set up Intel NUC as a gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 ##### [Connect the gateway to IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 ##### [Use the gateway for data conversion](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+##### [Troubleshooting](iot-hub-gateway-kit-c-troubleshooting.md)
 
 ## Extended IoT scenarios
 ### [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
@@ -82,7 +83,9 @@
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.js](iot-hub-node-node-c2d.md)
-### [Upload files from devices](iot-hub-csharp-csharp-file-upload.md)
+### [Upload files from devices]
+#### [.NET](iot-hub-csharp-csharp-file-upload.md)
+#### [Java](iot-hub-java-java-file-upload.md)
 ### Get started with device twins
 #### [Node.js back end/Node.js device](iot-hub-node-node-twin-getstarted.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-twin-getstarted.md)
@@ -96,31 +99,34 @@
 ### Get started with device management
 #### [Node.js back end/Node.js device](iot-hub-node-node-device-management-get-started.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-device-management-get-started.md)
+#### [.NET back end/.NET device](iot-hub-csharp-csharp-device-management-get-started.md)
 #### [Java back end/Java device](iot-hub-java-java-device-management-getstarted.md)
 ### How to use twin properties
 #### [Node.js back end/Node.js device](iot-hub-node-node-twin-how-to-configure.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-twin-how-to-configure.md)
 #### [.NET back end/.NET device](iot-hub-csharp-csharp-twin-how-to-configure.md)
+#### [Java back end/Java device](iot-hub-java-java-twin-how-to-configure.md)
 ### Use device jobs to update device firmware
 #### [Node back end/Node device](iot-hub-node-node-firmware-update.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-firmware-update.md)
+#### [Java back end/Java device](iot-hub-java-java-firmware-update.md)
 ### Schedule and broadcast jobs
 #### [Node.js back end/Node.js device](iot-hub-node-node-schedule-jobs.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-schedule-jobs.md)
 #### [Java](iot-hub-java-java-schedule-jobs.md)
 ## Manage
 ### Create an IoT hub 
-#### [Use the portal](iot-hub-create-through-portal.md)
-#### [Use PowerShell](iot-hub-create-using-powershell.md)
-#### [Use CLI 2.0](iot-hub-create-using-cli.md)
+#### [Use Azure portal](iot-hub-create-through-portal.md)
+#### [Use Azure PowerShell](iot-hub-create-using-powershell.md)
+#### [Use Azure CLI](iot-hub-create-using-cli.md)
 #### [Use CLI](iot-hub-create-using-cli-nodejs.md)
 #### [Use the REST API](iot-hub-rm-rest.md)
-#### [Use a template from PowerShell](iot-hub-rm-template-powershell.md)
+#### [Use a template from Azure PowerShell](iot-hub-rm-template-powershell.md)
 #### [Use a template from .NET](iot-hub-rm-template.md)
 ### Configure file upload
-#### [Use the portal](iot-hub-configure-file-upload.md)
-#### [Use PowerShell](iot-hub-configure-file-upload-powershell.md)
-#### [Use CLI 2.0](iot-hub-configure-file-upload-cli.md)
+#### [Use Azure portal](iot-hub-configure-file-upload.md)
+#### [Use Azure PowerShell](iot-hub-configure-file-upload-powershell.md)
+#### [Use Azure CLI](iot-hub-configure-file-upload-cli.md)
 ### [Bulk manage IoT devices](iot-hub-bulk-identity-mgmt.md)
 ### [Usage metrics](iot-hub-metrics.md)
 ### [Operations monitoring](iot-hub-operations-monitoring.md)
