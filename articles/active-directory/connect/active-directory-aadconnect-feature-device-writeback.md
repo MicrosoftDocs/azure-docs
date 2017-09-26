@@ -45,10 +45,10 @@ Use the following steps to prepare for using device writeback.
 2. If the Active Directory PowerShell module is NOT installed, install it using the following command:
   
    ``` powershell
-   Add-WindowsFeature RSAT-AD-PowerShell
+   Add-WindowsFeature RSAT-AD-Tools
    ```
 
-3. If the Azure Active Directory PowerShell module is NOT installed, then download and install it from [Azure Active Directory Module for Windows PowerShell (64-bit version)](http://go.microsoft.com/fwlink/p/?linkid=236297). This component has a dependency on the sign-in assistant, which is installed with Azure AD Connect.
+3. If the Azure Active Directory PowerShell module is NOT installed, then download and install it from [Remote Server Administration Tools for Windows 10](https://www.microsoft.com/download/details.aspx?id=45520&751be11f-ede8-5a0c-058c-2ee190a24fa6=True). This component has a dependency on the sign-in assistant, which is installed with Azure AD Connect.  The Remote Server Administration Tools contains the PowerShell module and dsacls.exe which is required to run the script.
 4. With enterprise admin credentials, run the following commands and then exit PowerShell.
    
    ``` powershell
@@ -62,20 +62,7 @@ Use the following steps to prepare for using device writeback.
 Enterprise admin credentials are required since changes to the configuration namespace are needed. A domain admin will not have enough permissions.
 
 ![Powershell for enabling device writeback](./media/active-directory-aadconnect-feature-device-writeback/powershell.png)
-
->[!NOTE] 
-> If you run the `Initialize-ADSyncDeviceWriteback` and recieve the following error:</br>
->
->Initializing your Active Directory forest and domain for device object write-back from Azure AD.
-& : The term 'dsacls.exe' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or
-if a path was included, verify that the path is correct and try again.
-At C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1:915 char:7
->+     & dsacls.exe $objectDN /G $userAcls /I:$inheritFlag
->+       ~~~~~~~~~~
->    + CategoryInfo          : ObjectNotFound: (dsacls.exe:String) [], CommandNotFoundException
->    + FullyQualifiedErrorId : CommandNotFoundException
->
->You can resovle this by installing the Remote Server Administration Tools by running `Add-WindowsFeature RSAT-AD-Tools`.
+d
 
 
 Description:
