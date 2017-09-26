@@ -98,11 +98,11 @@ On the **Maintenance** page, you can view the details of the rule that triggered
 
 1. You can see the number of times the alarm has triggered, acknowledgments, and open and closed alarms:
 
-    ![Maintenace page shows list of alarms that have triggered](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
+    ![Maintenance page shows list of alarms that have triggered](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
 
 1. The first alarm in the list is the most recent one. Click the **Chiller Pressure** alarm to view the associated devices and telemetry. The telemetry shows a pressure spike for the chiller:
 
-    ![Maintenace page shows telemetry for selected alarm](media/iot-suite-remote-monitoring-explore/maintenancetelemetry.png)
+    ![Maintenance page shows telemetry for selected alarm](media/iot-suite-remote-monitoring-explore/maintenancetelemetry.png)
 
 You have now identified the issue that triggered the alarm and the associated device. As an operator, the next steps are to acknowledge the alarm and mitigate the issue.
 
