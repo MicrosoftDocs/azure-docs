@@ -3,7 +3,7 @@ title: Troubleshoot errors when you delete Azure storage accounts, containers, o
 description: Troubleshoot errors when you delete Azure storage accounts, containers, or VHDs
 services: storage
 documentationcenter: ''
-author: genlin, passaree
+author: passaree
 manager: cshepard
 editor: na
 tags: storage
