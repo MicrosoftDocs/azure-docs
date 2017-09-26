@@ -7,7 +7,7 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 09/16/2017
+ms.date: 09/28/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
@@ -39,15 +39,15 @@ If you haven't deployed the remote monitoring solution yet, you should complete 
 
 To select which devices display on the **Dashboard** page, use filters. To display only the **Truck** devices, choose the built-in **Trucks** filter in the filter drop-down:
 
-<!-- TODO insert screenshot -->
+![Filter for trucks on the dashboard](media/iot-suite-remote-monitoring-monitor/dashboardtruckfilter.png)
 
 When you apply a filter, only those devices that match the filter conditions display in the map on the **Dashboard** page:
 
-<!-- TODO insert screenshot -->
+![Trucks display on the map](media/iot-suite-remote-monitoring-monitor/dashboardtruckmap.png)
 
 The filter also determines which devices you see in the **Telemetry** chart:
 
-<!-- TODO insert screenshot -->
+![Truck telemetry displays on the dashboard](media/iot-suite-remote-monitoring-monitor/dashboardtelemetry.png)
 
 To create, edit, and delete filters, choose **Manage filters**.
 
@@ -55,22 +55,19 @@ To create, edit, and delete filters, choose **Manage filters**.
 
 The preconfigured solution plots detailed real-time telemetry data in the chart on the **Dashboard** page. The telemetry chart shows telemetry information for the devices selected by the current filter:
 
-<!-- TODO insert screenshot -->
+![Truck telemetry plot](media/iot-suite-remote-monitoring-monitor/dashboardtelemetryview.png)
 
 To select the telemetry values to view, choose the telemetry type at the top of the chart:
 
-<!-- TODO insert screenshot -->
+![Truck telemetry plot](media/iot-suite-remote-monitoring-monitor/dashboardtelemetryview.png)
 
-To pause the live telemetry display, choose **Hide subchart**. To re-enable the live display, choose **Show subchart**:
+To pause the live telemetry display, choose **Flowing**. To re-enable the live display, choose **Pause**:
 
-<!-- TODO insert screenshot -->
+![Pause and restart telemetry display](media/iot-suite-remote-monitoring-monitor/dashboardtelemetrypause.png)
 
 ## Use the map
 
 The map displays information about the simulated trucks selected by the current filter. You can zoom and pan the map to display locations in more or less detail. The device icons on the map indicate any **Alarms** or **Warnings** that are active for the device. A summary of the number of **Alarms** and **Warnings** displays to the left of the map.
-
-<!-- TODO Check this is true -->
-If you hover the mouse pointer over a device on the map, you can view summary information that device:
 
 To view the device details, click the device on the map. The details include:
 
@@ -78,21 +75,23 @@ To view the device details, click the device on the map. The details include:
 * Methods the device supports
 * Device properties
 
-<!-- TODO insert screenshot -->
+![View device details on the dashboard](media/iot-suite-remote-monitoring-monitor/dashboarddevicedetail.png)
 
 ## View alarms from your devices
 
 The map highlights the devices in the current filter with **Alarms** and **Warnings**. The **System alarms** panel displays detailed information about the most recent alarms from your devices:
 
-<!-- TODO insert screenshot -->
+![View system alarms on the dashboard](media/iot-suite-remote-monitoring-monitor/dashboardsystemalarms.png)
 
-You can use the **System alarms** filter to adjust the time span for recent alarms. By default, the panel displays alarms from the last hour.
+You can use the **System alarms** filter to adjust the time span for recent alarms. By default, the panel displays alarms from the last hour:
+
+![Filter the alarms by time](media/iot-suite-remote-monitoring-monitor/dashboardalarmsfilter.png)
 
 ## View the system KPIs
 
 The **Dashboard** page displays system KPIs:
 
-<!-- TODO insert screenshot -->
+![Filter the alarms by time](media/iot-suite-remote-monitoring-monitor/dashboardkpis.png)
 
 You can use the **System KPI** filter to adjust the time span for the KPI aggregation. By default, the panel displays KPIs aggregated over the last hour.
 
