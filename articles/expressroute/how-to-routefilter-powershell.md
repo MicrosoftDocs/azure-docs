@@ -173,7 +173,7 @@ To get the properties of a route filter, use the following steps:
 
 ### <a name="updateproperties"></a>To update the properties of a route filter
 
-If the route filter is already attached to a circuit, updates to the BGP community list automatically propagates appropriate prefix advertisement changes through the established BGP sessions. You can update the BGP community list of your route filter using the following command:
+If the route filter is already attached to a circuit, updates to the BGP community list automatically propagate appropriate prefix advertisement changes through the established BGP sessions. You can update the BGP community list of your route filter using the following command:
 
 ```powershell
 $routefilter = Get-AzureRmRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
