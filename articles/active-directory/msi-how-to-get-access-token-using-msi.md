@@ -26,7 +26,7 @@ After you've enabled MSI on an Azure resource, such as an Azure VM, you can use 
 
 If you plan to use the PowerShell examples in this article, be sure to install [Azure PowerShell version 4.3.1](https://www.powershellgallery.com/packages/AzureRM) or greater, if you haven't already.
 
->
+
 > [!IMPORTANT]
 > - All sample code/script in this article assumes the client is running on an MSI-enabled Virtual Machine. For details on enabling MSI on a VM, see [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md), or one of the variant articles (using PowerShell, CLI, or a template). 
 > - To prevent authorization errors (403/AuthorizationFailed) in the code/script, the VM's identity must be given "Reader" access to the VM instance to perform some of the operations. See [Assign a Managed Service Identity (MSI) access to a resource using the Azure portal](msi-howto-assign-access-portal.md) for details.
