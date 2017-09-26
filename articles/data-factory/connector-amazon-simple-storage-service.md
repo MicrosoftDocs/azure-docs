@@ -9,7 +9,7 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 09/26/2017
 ms.author: jingwang
 
 ---
@@ -53,6 +53,10 @@ The following properties are supported for Amazon S3 linked service:
 | accessKeyID | ID of the secret access key. |Yes |
 | secretAccessKey | The secret access key itself. Mark this field as a SecureString. |Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
+
+>[!NOTE]
+>Note [Temporary Security Credential](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) is not supported. This connector requires access keys for IAM account to access Amazon S3.
+>
 
 Here is an example:
 
