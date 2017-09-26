@@ -8,19 +8,25 @@
   expanded: true
   items:
     - name: Get started
-      href: get-started.md
+      href: quick-start.md
 - name: How to  
   items:
+    - name: Call Bing Custom Search endpoint
+      items:
+        - name: C#
+          href: call-endpoint-csharp.md
+        - name: Nodejs
+          href: call-endpoint-nodejs.md        
     - name: Define your slice
       href: define-your-slice.md
     - name: Rank results
       href: rank-results.md
-    - name: Configure hosted UI
-      href: hosted-ui.md
     - name: Handle hit highlighting
       href: hit-highlighting.md
     - name: Page webpages
       href: paging-webpages.md
+    - name: Configure hosted UI
+      href: hosted-ui.md
 - name: References
   items:
     - name: Bing Custom Search API v7 Reference
