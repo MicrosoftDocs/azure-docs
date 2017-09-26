@@ -20,11 +20,15 @@ ms.author: jingwang
 You can store credentials for data stores in an [Azure Key Vault](../key-vault/key-vault-whatis.md). Azure Data Factory retrieves the credentials when executing an activity that uses the data store.
 
 > [!NOTE]
-> Currently, only [Dynamics connector](connector-dynamics-crm-office-365.md) support this feature. 
+> Currently, only [Dynamics connector](connector-dynamics-crm-office-365.md) support this feature.
 
 ## Steps
 
-When creating a data factory, a service identity is created along with factory creation. The service identity is a managed application registered to Azure Activity Directory, and represents this specific data factory.
+When creating a data factory, a service identity can be created along with factory creation. The service identity is a managed application registered to Azure Activity Directory, and represents this specific data factory. Note:
+
+- When creating data factory through **Azure portal or PowerShell**, service identity will always be created automatically since public preview.
+- When creating data factory through **SDK**, service identity will be created only if you specify "Identity = new FactoryIdentity()" in the factory object for creation. See example from [.NET quickstart - create data factory](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
+- When creating data factory through **REST API**, service identity will be created only if you specify "identity" section in request body. See example from [REST quickstart - create data factory](quickstart-create-data-factory-rest-api.mdcreate-a-data-factory).
 
 To reference a credential stored in Azure Key Vault, you need to:
 
@@ -37,8 +41,8 @@ To reference a credential stored in Azure Key Vault, you need to:
 
 You can retrieve the service identity from Azure portal or programmatically. The following sections show some samples.
 
->[!NOTE]
-> If you provision the data factory during early private preview, [upgrade private preview factory](#upgrade-private-preview-factory) to generate the service identity.
+>[!TIP]
+> If you don't see the service identity, [generate service identity](#generate-service-identity) by updating your factory.
 
 ### Using Azure portal
 
@@ -133,9 +137,14 @@ The following properties are supported when you configure a field in linked serv
 }
 ```
 
-## Upgrade private preview factory
+## Generate service identity
 
-If you provision a data factory during early private preview, your factory may not have a service identity associated. Refer to [retrieve service identity](#retrieve-service-identity) section to validate. To generate a service identity for your existing factory, update data factory with identity initiator programmatically. The following sections show some samples.
+If you find your data factory doesn't have a service identity associated following [retrieve service identity](#retrieve-service-identity) instruction, you can generate one by updating the data factory with identity initiator programmatically. Note:
+
+- Service identity cannot be regenerated. Updating a data factory which already have a service identity won't have any impact, the service identity will be kept unchanged.
+- Service identity cannot be deleted either. If you update a data factory which already have a service identity, without specifying "identity" parameter in the factory object or without specifying "identity" section in REST request body, you will get an error.
+
+The following sections show some samples on generating service identity for your factory if it does not exist.
 
 ### Using PowerShell
 
