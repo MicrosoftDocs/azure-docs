@@ -13101,16 +13101,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/data-lake-store/data-lake-store-authenticate-using-active-directory.md",
-            "redirect_url": "/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/app-service-web/app-service-linux-using-nodejs-pm2.md",
-            "redirect_url": "/azure/app-service/containers/quickstart-nodejs",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/data-factory/data-factory-data-processing-using-batch.md",
             "redirect_url": "/azure/data-factory/v1/data-factory-data-processing-using-batch",
             "redirect_document_id": true
@@ -13359,6 +13349,11 @@
             "source_path": "articles/data-factory/data-factory-web-table-connector.md",
             "redirect_url": "/azure/data-factory/v1/data-factory-web-table-connector",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/data-lake-store/data-lake-store-authenticate-using-active-directory.md",
+            "redirect_url": "/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory",
+            "redirect_document_id": false
         }
     ]
 }
