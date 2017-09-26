@@ -48,7 +48,7 @@ Use the following steps to prepare for using device writeback.
    Add-WindowsFeature RSAT-AD-Tools
    ```
 
-3. If the Azure Active Directory PowerShell module is NOT installed then download and install it from [Remote Server Administration Tools for Windows 10](https://www.microsoft.com/download/details.aspx?id=45520&751be11f-ede8-5a0c-058c-2ee190a24fa6=True).  This component has a dependency on the sign-in assistant, which is installed with Azure AD Connect.  
+3. If the Azure Active Directory PowerShell module is NOT installed, then download and install it from [Azure Active Directory Module for Windows PowerShell (64-bit version)](http://go.microsoft.com/fwlink/p/?linkid=236297). This component has a dependency on the sign-in assistant, which is installed with Azure AD Connect.  
 4. With enterprise admin credentials, run the following commands and then exit PowerShell.
    
    ``` powershell
