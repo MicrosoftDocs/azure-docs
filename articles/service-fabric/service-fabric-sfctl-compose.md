@@ -28,21 +28,25 @@ Create, delete, and manage Docker Compose applications.
 |    list  | Gets the list of compose applications created in the Service Fabric cluster.|
 |   remove| Deletes an existing Service Fabric compose application from cluster.|
 |   status| Gets information about a Service Fabric compose application.|
+|upgrade       | Starts upgrading a compose deployment in the Service Fabric cluster.|
+|    upgrade-status| Gets details for the latest upgrade performed on this Service Fabric compose
+                    deployment.|
 
 
 ## sfctl compose create
-Creates a Service Fabric application from a Compose file.
+Creates a Service Fabric compose deployment.
 
 ### Arguments
 
 |Argument|Description|
 | --- | --- |
-| --application-id [Required]| The ID of application to create from Compose file. This is             typically the full ID of the application including "fabric:" URI             scheme.|
-| --compose-file   [Required]| Path to the Compose file to use.|
-| --encrypted             | If true, indicate to use an encrypted password rather than             prompting for a plaintext one.|
-| --repo-pass             | Encrypted contain repository password.|
-| --repo-user             | Container repository user name if needed for authentication.|
-| --timeout -t            | Server timeout in seconds.  Default: 60.|
+| --file-path [Required]| Path to the target Docker compose file.|
+ |   --name      [Required]| The identity of the deployment.|
+|    --encrypted-pass      | Rather than prompting for a container registry password, use an already
+                            encrypted passphrase.|
+|    --has-pass            | Will prompt for a password to the container registry.|
+|    --timeout -t          | Server timeout in seconds.  Default: 60.|
+ |   --user                | User name to connect to container registry.|
 
 ### Global Arguments
 
@@ -55,11 +59,11 @@ Creates a Service Fabric application from a Compose file.
 | --verbose               | Increase logging verbosity. Use --debug for full debug logs.|
 
 ## sfctl compose list
-Gets the list of compose applications created in the Service Fabric cluster.
+Gets the list of compose deployments created in the Service Fabric cluster.
 
-Gets the status about the compose applications that were created or are in the process of being
+Gets the status about the compose deployments that were created or are in the process of being
         created in the Service Fabric cluster. The response includes the name, status, and other
-        details about the compose application. If the applications do not fit in a page, one page of
+        details about the compose deployment. If the deployments do not fit in a page, one page of
         results is returned as well as a continuation token, which can be used to get the next page.
 
 ### Arguments
@@ -81,16 +85,15 @@ Gets the status about the compose applications that were created or are in the p
 | --verbose        | Increase logging verbosity. Use --debug for full debug logs.|
 
 ## sfctl compose remove
-Deletes an existing Service Fabric compose application from cluster.
+Deletes an existing Service Fabric compose deployment from cluster.
 
-Deletes an existing Service Fabric compose application. An application must be created
-        before it can be deleted.
+Deletes an existing Service Fabric compose deployment. 
 
 ### Arguments
 
 |Argument|Description|
 | --- | --- |
-| --application-id [Required]| The identity of the application. This is typically the full name of             the application without the 'fabric:' URI scheme.|
+| --deployment-name [Required]| The identity of the deployment. This is typically the full name of             the application without the 'fabric:' URI scheme.|
 | --timeout -t            | Server timeout in seconds.  Default: 60.|
 
 ### Global Arguments
@@ -104,9 +107,9 @@ Deletes an existing Service Fabric compose application. An application must be c
 | --verbose               | Increase logging verbosity. Use --debug for full debug logs.|
 
 ## sfctl compose status
-Gets information about a Service Fabric compose application.
+Gets information about a Service Fabric compose deployment.
 
-Returns the status of compose application that was created or in the process of being
+Returns the status of compose deployment that was created or in the process of being
         created in the Service Fabric cluster and whose name matches the one specified as the
         parameter. The response includes the name, status, and other details about the application.
 
@@ -114,7 +117,7 @@ Returns the status of compose application that was created or in the process of 
 
 |Argument|Description|
 | --- | --- |
-| --application-id [Required]| The identity of the application. This is typically the full name of             the application without the 'fabric:' URI scheme.|
+| --deployment-name [Required]| The identity of the deployment. |
 | --timeout -t            | Server timeout in seconds.  Default: 60.|
 
 ### Global Arguments
@@ -126,6 +129,58 @@ Returns the status of compose application that was created or in the process of 
 | --output -o             | Output format.  Allowed values: json, jsonc, table, tsv.  Default:             json.|
 | --query                 | JMESPath query string. For more information and examples, see http://jmespath.org/.|
 | --verbose               | Increase logging verbosity. Use --debug for full debug logs.|
+
+## sfctl compose upgrade
+Starts upgrading a compose deployment in the Service Fabric cluster.
+
+        Validates the supplied upgrade parameters and starts upgrading the deployment if the
+        parameters are valid.
+
+### Arguments
+|Argument|Description|
+| --- | --- |
+|    --file-path        [Required]| Path to the target Docker compose file.|
+|    --name             [Required]| The identity of the deployment.|
+|    --default-svc-type-health-map| JSON encoded dictionary that describe the health policy used to
+                                   evaluate the health of services.|
+|    --encrypted-pass             | Rather than prompting for a container registry password, use an
+                                   already encrypted passphrase.|
+ |   --failure-action             | Possible values include: 'Invalid', 'Rollback', 'Manual'.
+|    --force-restart              | Force restart.|
+ |   --has-pass                   | Will prompt for a password to the container registry.|
+|    --health-check-retry         | Health check retry timeout measured in milliseconds.|
+|    --health-check-stable        | Health check stable duration measured in milliseconds.|
+|    --health-check-wait          | Health check wait duration measured in milliseconds.|
+|    --replica-set-check          | Upgrade replica set check timeout measured in seconds.|
+|    --svc-type-health-map        | JSON encoded list of objects that describe the health policies
+                                   used to evaluate the health of different service types.|
+|    --timeout -t                 | Server timeout in seconds.  Default: 60.|
+|    --unhealthy-app              | The maximum allowed percentage of unhealthy applications before
+                                   reporting an error.|
+        For example, to allow 10% of applications to be unhealthy, this value would be 10. The
+        percentage represents the maximum tolerated percentage of applications that can be unhealthy
+        before the cluster is considered in error. If the percentage is respected but there is at
+        least one unhealthy application, the health is evaluated as Warning. This is calculated by
+        dividing the number of unhealthy applications over the total number of application instances
+        in the cluster.|
+|    --upgrade-domain-timeout     | Upgrade domain timeout measured in milliseconds.|
+|    --upgrade-kind               | Default: Rolling.|
+|    --upgrade-mode               | Possible values include: 'Invalid', 'UnmonitoredAuto',
+                                   'UnmonitoredManual', 'Monitored'.  Default: UnmonitoredAuto.|
+|    --upgrade-timeout            | Upgrade timeout measured in milliseconds.|
+|    --user                       | User name to connect to container registry.|
+|    --warning-as-error           | Warnings are treated with the same severity as errors.|
+
+### Global Arguments
+ |Argument|Description|
+| --- | --- |
+|   --debug                      | Increase logging verbosity to show all debug logs.|
+|    --help -h                    | Show this help message and exit.|
+ |   --output -o                  | Output format.  Allowed values: json, jsonc, table, tsv.
+                                   Default: json.|
+ |   --query                      | JMESPath query string. See http://jmespath.org/ for more
+                                   information and examples.|
+ |   --verbose                    | Increase logging verbosity. Use --debug for full debug logs.|
 
 ## Next steps
 - [Setup](service-fabric-cli.md) the Service Fabric CLI.

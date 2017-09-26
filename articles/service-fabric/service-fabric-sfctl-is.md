@@ -39,16 +39,15 @@ For clusters that have one or more instances of the Infrastructure Service confi
         depending upon the infrastructure on which the cluster is running. This API supports the
         Service Fabric platform; it is not meant to be used directly from your code. .
 
-Arguments
+### Arguments
 
 |Argument|Description|
 | --- | --- |
 | --command [Required]| The text of the command to be invoked. The content of the command is      infrastructure-specific.  Default: is command.|
-| --callback       | When specified, called with each chunk of data that is streamed.      The callback should take two arguments, the bytes of the current chunk of      data and the response object. If the data is uploading, response is      None.|
 | --service-id     | The identity of the infrastructure service. This is  the full name of the      infrastructure service without the 'fabric:' URI scheme. This parameter      required only for clusters that have more than one instance of      infrastructure service running.|
 | --timeout -t     | Server timeout in seconds.  Default: 60.|
 
-Global Arguments
+### Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -67,16 +66,15 @@ For clusters that have one or more instances of the Infrastructure Service confi
         depending upon the infrastructure on which the cluster is running. This API supports the
         Service Fabric platform; it is not meant to be used directly from your code.
 
-Arguments
+### Arguments
 
 |Argument|Description|
 | --- | --- |
 | --command [Required]| The text of the command to be invoked. The content of the command is      infrastructure-specific.  Default: is query.|
-| --callback       | When specified, called with each chunk of data that is streamed.      The callback should take two arguments, the bytes of the current chunk of      data and the response object. If the data is uploading, response is      None.|
 | --service-id     | The identity of the infrastructure service. This is  the full name of the      infrastructure service without the 'fabric:' URI scheme. This parameter is     required only for clusters that have more than one instance of      infrastructure service running.|
 | --timeout -t     | Server timeout in seconds.  Default: 60.|
 
-Global Arguments
+### Global Arguments
 
 |Argument|Description|
 | --- | --- |
