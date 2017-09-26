@@ -50,7 +50,7 @@ This topic provides a reference for the following API Management policies. For i
   <vary-by-header>Accept-Charset</vary-by-header>  
   <!-- should be present in most cases -->  
   <vary-by-header>Authorization</vary-by-header>  
-  <!-- should be present when allow-authorized-response-caching is "true"-->  
+  <!-- should be present when allow-private-response-caching is "true"-->  
   <vary-by-header>header name</vary-by-header>  
   <!-- optional, can repeated several times -->  
   <vary-by-query-parameter>parameter name</vary-by-query-parameter>  
@@ -115,8 +115,8 @@ This topic provides a reference for the following API Management policies. For i
 |allow-private-response-caching|When set to `true`, allows caching of requests that contain an Authorization header.|No|false|  
 |downstream-caching-type|This attribute must be set to one of the following values.<br /><br /> -   none - downstream caching is not allowed.<br />-   private - downstream private caching is allowed.<br />-   public - private and shared downstream caching is allowed.|No|none|  
 |must-revalidate|When downstream caching is enabled this attribute turns on or off  the `must-revalidate` cache control directive in gateway responses.|No|true|  
-|vary-by-developer|Set to `true` to cache responses per developer key.|No|false|  
-|vary-by-developer-groups|Set to `true` to cache responses per user role.|No|false|  
+|vary-by-developer|Set to `true` to cache responses per developer key.|Yes||  
+|vary-by-developer-groups|Set to `true` to cache responses per user role.|Yes||  
   
 ### Usage  
  This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
