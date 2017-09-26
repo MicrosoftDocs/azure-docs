@@ -21,7 +21,7 @@ ms.author: sethm
 
 The most central capability of a message broker such as Service Bus is to accept messages into a queue or topic and hold them available for later retrieval. *Send* is the term that is commonly used for the transfer of a message into the message broker. *Receive* is the term commonly used for the transfer of a message to a retrieving client.
 
-When a client sends a message, it will usually want to know whether the message has been properly transferred to and accepted by the broker or whether some sort of error occurred. This positive or negative acknowledgment settles the client and the broker understanding about the transfer state of the message and is thus referred to as *settlement*.
+When a client sends a message, it usually wants to know whether the message has been properly transferred to and accepted by the broker or whether some sort of error occurred. This positive or negative acknowledgment settles the client and the broker understanding about the transfer state of the message and is thus referred to as *settlement*.
 
 Likewise, when the broker transfers a message a client, the broker and client want to establish an understanding of whether the message has been successfully processed and can therefore be removed, or whether the message delivery or processing failed, and thus the message might have to be delivered again.
 
@@ -89,7 +89,7 @@ for (int i = 0; i \< 100; i++)
 }
 ```
 
-With a low-level AMQP client, Service Bus also accepts "pre-settled" transfers. A pre-settled transfer is a fire-and-forget operation for which the outcome, either way, will not be reported back to the client and the message is considered settled when sent. The lack of feedback to the client also means that there is no actionable data available for diagnostics, which means that this mode does not qualify for help via Azure support.
+With a low-level AMQP client, Service Bus also accepts "pre-settled" transfers. A pre-settled transfer is a fire-and-forget operation for which the outcome, either way, is not reported back to the client and the message is considered settled when sent. The lack of feedback to the client also means that there is no actionable data available for diagnostics, which means that this mode does not qualify for help via Azure support.
 
 ## Settling receive operations
 
@@ -109,13 +109,13 @@ The receiving client initiates settlement of a received message with a positive 
 
 When the receiving client fails to process a message but wants the message to be redelivered, it can explicitly ask for the message to be released and unlocked instantly by calling [Abandon](/dotnet/api/microsoft.servicebus.messaging.queueclient.abandon) or it can do nothing and let the lock elapse.
 
-If a receiving client fails to process a message and knows that redelivering the message and retrying the operation will not help, it can reject the message, which will move it into the dead-letter queue by calling [DeadLetter](/dotnet/api/microsoft.servicebus.messaging.queueclient.deadletter), which also allows setting a custom property including a reason code that can be retrieved with the message from the dead-letter queue.
+If a receiving client fails to process a message and knows that redelivering the message and retrying the operation will not help, it can reject the message, which moves it into the dead-letter queue by calling [DeadLetter](/dotnet/api/microsoft.servicebus.messaging.queueclient.deadletter), which also allows setting a custom property including a reason code that can be retrieved with the message from the dead-letter queue.
 
 A special case of settlement is deferral, which is discussed in a separate article.
 
-The **Complete** or **Deadletter** operations as well as the **RenewLock** operations may fail due to network issues, if the held lock has expired, or there are other service-side conditions that prevent settlement. In one of the latter cases, the service will send a negative acknowledgment that surfaces as an exception in the API clients. If the reason is a broken network connection, the lock is dropped since Service Bus does not support recovery of existing AMQP links on a different connection.
+The **Complete** or **Deadletter** operations as well as the **RenewLock** operations may fail due to network issues, if the held lock has expired, or there are other service-side conditions that prevent settlement. In one of the latter cases, the service sends a negative acknowledgment that surfaces as an exception in the API clients. If the reason is a broken network connection, the lock is dropped since Service Bus does not support recovery of existing AMQP links on a different connection.
 
-If **Complete** fails, which occurs typically at the very end of message handling and in some cases after minutes of processing work, the receiving application can decide whether it preserves the state of the done work and ignores the same message when it is delivered a second time, or whether it tosses out the work result and retries as the message is redelivered.
+If **Complete** fails, which occurs typically at the very end of message handling and in some cases after minutes of processing work, the receiving application can decide whether it preserves the state of the work and ignores the same message when it is delivered a second time, or whether it tosses out the work result and retries as the message is redelivered.
 
 The typical mechanism for identifying duplicate message deliveries is by checking the message-id, which can and should be set by the sender to a unique value, possibly aligned with an identifier from the originating process. A job scheduler would likely set the message-id to the identifier of the job it is trying to assign to a worker with the given worker, and the worker would ignore the second occurrence of the job assignment if that job is already done.
 
