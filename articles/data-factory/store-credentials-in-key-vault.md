@@ -28,7 +28,7 @@ When creating a data factory, a service identity can be created along with facto
 
 - When creating data factory through **Azure portal or PowerShell**, service identity will always be created automatically since public preview.
 - When creating data factory through **SDK**, service identity will be created only if you specify "Identity = new FactoryIdentity()" in the factory object for creation. See example from [.NET quickstart - create data factory](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
-- When creating data factory through **REST API**, service identity will be created only if you specify "identity" section in request body. See example from [REST quickstart - create data factory](quickstart-create-data-factory-rest-api.mdcreate-a-data-factory).
+- When creating data factory through **REST API**, service identity will be created only if you specify "identity" section in request body. See example from [REST quickstart - create data factory](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
 
 To reference a credential stored in Azure Key Vault, you need to:
 
