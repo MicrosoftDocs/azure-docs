@@ -25,7 +25,8 @@
 ### [Secure data in Data Lake Store](data-lake-store-secure-data.md)
 ### [Encryption](data-lake-store-encryption.md)
 
-## [Authenticate with Data Lake Store](data-lakes-store-authentication-using-azure-active-directory.md)
+## Authenticate with Data Lake Store
+### [Authentication options](data-lakes-store-authentication-using-azure-active-directory.md)
 ### [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md)
 #### [Using .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md)
 #### [Using REST API](data-lake-store-end-user-authenticate-rest-api.md)
