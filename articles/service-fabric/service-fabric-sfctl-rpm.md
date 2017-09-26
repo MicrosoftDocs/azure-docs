@@ -39,8 +39,7 @@ This API supports the Service Fabric platform; it is not meant to be used direct
 | --- | --- |
 |    --task-id [Required]| The ID of the completed repair task to be deleted.|
 |    --version           | The current version number of the repair task. If non-zero, then the
-                          request will only succeed if this value matches the actual current version
-                          of the repair task. If zero, then no version check is performed.|
+                          request will only succeed if this value matches the actual current versionof the repair task. If zero, then no version check is performed.|
 
 ### Global Arguments
 |Argument|Description|
@@ -48,8 +47,7 @@ This API supports the Service Fabric platform; it is not meant to be used direct
 |    --debug             | Increase logging verbosity to show all debug logs.|
 |    --help -h           | Show this help message and exit.|
 |    --output -o         | Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.
-|    --query             | JMESPath query string. See http://jmespath.org/ for more information and
-                          examples.|
+|    --query             | JMESPath query string. See http://jmespath.org/ for more information and examples.|
 |    --verbose           | Increase logging verbosity. Use --debug for full debug logs.|
 
 
@@ -62,11 +60,8 @@ This API supports the Service Fabric platform; it is not meant to be used direct
 ### Arguments
 |Argument|Description|
 | --- | --- |
-|    --executor-filter| The name of the repair executor whose claimed tasks should be included in the
-                       list.|
-|    --state-filter   | A bitwise-OR of the following values, specifying which task states should be
-                       included in the result list. - 1 - Created - 2 - Claimed - 4 - Preparing - 8
-                       - Approved - 16 - Executing - 32 - Restoring - 64 - Completed.|
+|    --executor-filter| The name of the repair executor whose claimed tasks should be included in the   list.|
+|    --state-filter   | A bitwise-OR of the following values, specifying which task states should be included in the result list. - 1 - Created - 2 - Claimed - 4 - Preparing - 8 - Approved - 16 - Executing - 32 - Restoring - 64 - Completed.|
 |    --task-id-filter | The repair task ID prefix to be matched.|
 
 ### Global Arguments
@@ -75,6 +70,5 @@ This API supports the Service Fabric platform; it is not meant to be used direct
 |    --debug          | Increase logging verbosity to show all debug logs.|
 |    --help -h        | Show this help message and exit.|
 |    --output -o      | Output format.  Allowed values: json, jsonc, table, tsv.  Default| json.|
-|    --query          | JMESPath query string. See http://jmespath.org/ for more information and
-                       examples.|
+|    --query          | JMESPath query string. See http://jmespath.org/ for more information and examples.|
 |    --verbose        | Increase logging verbosity. Use --debug for full debug logs.|
