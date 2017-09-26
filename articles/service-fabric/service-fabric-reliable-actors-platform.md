@@ -370,20 +370,20 @@ ActorProxyBase.create(MyActor.class, new ActorId(1234));
 When you're using GUIDs/UUIDs and strings, the values are hashed to an Int64. However, when you're explicitly providing an Int64 to an `ActorId`, the Int64 will map directly to a partition without further hashing. You can use this technique to control which partition the actors are placed in.
 
 ## Actor using Remoting V2 Stack
-With 2.8 nuget package , users can now use Remoting V2 stack, which is more performant and provides features like custom Serialization. Remoting V2 is not backward compatible with existing Remoting stack (we are calling now it as V1 Remoting stack).
+With 2.8 nuget package, users can now use Remoting V2 stack, which is more performant and provides features like custom Serialization. Remoting V2 is not backward compatible with existing Remoting stack (we are calling now it as V1 Remoting stack).
 
 Following changes are required to use the Remoting V2 Stack.
- 1. Add the following asssembly attribute on Actor Interfaces.
+ 1. Add the following assembly attribute on Actor Interfaces.
    ```csharp
    [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
    ```
 
- 2. Build and Upgrade ActorService And Actor Client projects to start using V2 Stack .
+ 2. Build and Upgrade ActorService And Actor Client projects to start using V2 Stack.
 
 ### Actor Service Upgrade to Remoting V2 Stack without impacting Service Availability.
-This will be a 2-step upgrade . Follow the steps in the same sequence as listed.
+This change will be a 2-step upgrade. Follow the steps in the same sequence as listed.
 
-1.  Add the following asssembly attribute on Actor Interfaces. This attribute will start 2 listeners for ActorService , V1 (existing) and V2 Listener. Upgrade ActorService with this change.
+1.  Add the following assembly attribute on Actor Interfaces. This attribute will start two listeners for ActorService, V1 (existing) and V2 Listener. Upgrade ActorService with this change.
 ```csharp
 [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.CompatListener,RemotingClient = RemotingClient.V2Client)]
 ```
