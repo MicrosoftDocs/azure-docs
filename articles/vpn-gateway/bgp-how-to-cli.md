@@ -172,7 +172,7 @@ Example output:
     "peerWeight": 0 
   }, 
   "enableBgp": true, 
-  "etag": "W/\"778b2fad-e473-41e2-a1c1-3dd976d6e885\"", 
+  "etag": "W/\"778b2fad-e473-41e2-a1c1-3d85\"", 
   "gatewayDefaultSite": null, 
   "gatewayType": "Vpn", 
   "id": "/subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fd9/resourceGroups/TestBGPRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW",
@@ -295,7 +295,7 @@ az network vpn-connection create -n VNet1ToVNet2 -g TestBGPRG1 --vnet-gateway1 /
 ```
 
 ```azurecli
-az network vpn-connection create -n VNet2ToVNet1 -g TestBGPRG2 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda/resourceGroups/TestBGPRG2/providers/Microsoft.Network/virtualNetworkGateways/VNet2GW --enable-bgp -l westus --shared-key "efg456" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fd9/resourceGroups/TestBGPRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW
+az network vpn-connection create -n VNet2ToVNet1 -g TestBGPRG2 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fd9/resourceGroups/TestBGPRG2/providers/Microsoft.Network/virtualNetworkGateways/VNet2GW --enable-bgp -l westus --shared-key "efg456" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fd9/resourceGroups/TestBGPRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW
 ```
 
 > [!IMPORTANT]
