@@ -442,7 +442,7 @@ To set the cluster probe port parameter, update variables in the following scrip
 
    `<SQL Server IP Address Resource Name>`: SQL Server FCI IP address resource name. In **Failover Cluster Manager** > **Roles**, under the SQL Server FCI role, under **Server Name**, right click the IP address resource, and click **Properties**. The correct value is under **Name**, on the **General** tab. 
 
-   `<ILBIP>`: The ILB IP address. This address is configured in the Azure portal as the ILB front end address. This is also the SQL Server FCI IP address. You can find it in **Failover Cluster Manager** on the same properties page where you located the `<IP Address Resource Name>`.  
+   `<ILBIP>`: The ILB IP address. This address is configured in the Azure portal as the ILB front-end address. This is also the SQL Server FCI IP address. You can find it in **Failover Cluster Manager** on the same properties page where you located the `<IP Address Resource Name>`.  
 
    `<nnnnn>`: Is the probe port you configured in the load balancer health probe. Any unused TCP port is valid. 
 
