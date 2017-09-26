@@ -131,19 +131,20 @@ The following steps describe how to add a new KPI to display on the **Dashboard*
 
 See the [Customize map](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map) page in GitHub for details of the map components in the solution.
 
+<!--
 ### Customize the telemetry chart
 
 See the [Customize telemetry chart](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub for details of the telemetry chart components in the solution.
-<!-- Update the previous link -->
 
 ### Connect an external visualization tool
 
 See the [Connect an external visualization tool](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub for details of how to connect an external visualization tool.
-<!-- Update the previous link -->
 
 ### Duplicate an existing control
 
 To duplicate an existing UI element such as a chart or alert, see the [Duplicate a control](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub.
+
+-->
 
 ### Other customization options
 
@@ -177,9 +178,9 @@ To create an accurate representation of your device, you need to modify the appl
 
 To learn how to add a new device type in the _device simulator_ microservice, see [Test your solution with simulated devices](iot-suite-remote-monitoring-test.md).
 
-### Creating methods and jobs
+### Define custom methods for simulated devices
 
-The following sections describe options to define custom methods and jobs in the remote monitoring solution:
+To learn how to define custom methods for simulated devices in the remote monitoring solution, see [Device Models](https://github.com/Azure/device-simulation-dotnet/wiki/%5BAPI-Specifications%5D-Device-Models) in the GitHub repository.
 
 <!--
 #### Using the simulator service
