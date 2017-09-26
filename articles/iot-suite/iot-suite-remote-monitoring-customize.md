@@ -208,10 +208,11 @@ To further modify the device connectivity and streaming layer in the remote moni
 
 The following sections describe options to customize the data processing and analytics layer in the remote monitoring solution:
 
+<!--
 ### Rules and actions
 
 See the [Customize rules and actions](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub for details of how to customize the rules and actions in solution.
-<!-- Update the previous link -->
+-->
 
 ### Other customization options
 
@@ -224,15 +225,15 @@ To further modify the data processing and analytics layer in the remote monitori
 
 The following sections describe options for customizing the infrastructure services in the remote monitoring solution:
 
+<!--
 ### Change storage
 
 The default storage service for the remote monitoring solution is Cosmos DB. See the [Customize storage service](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub for details of how to change the storage service the solution uses.
-<!-- Update the previous link -->
 
 ### Change log storage
 
 The default storage service for logs is Cosmos DB. See the [Customize log storage service](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub for details of how to change the storage service the solution uses for logging.
-<!-- Update the previous link -->
+-->
 
 ### Other customization options
 
