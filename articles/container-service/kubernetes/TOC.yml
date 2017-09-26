@@ -71,7 +71,7 @@
       href: container-service-deploy-spring-boot-app-on-kubernetes.md
 - name: Reference
   items:
-  - name: Azure CLI 2.0
+  - name: Azure CLI
     href: /cli/azure/acs
   - name: REST
     href: /rest/api/container-service
