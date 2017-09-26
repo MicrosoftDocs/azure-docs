@@ -17,7 +17,7 @@ ms.date: 9/6/2017
 ms.author: yujhong
 
 ---
-# Azure Government Functions Quickstarts for Government
+# Azure Functions Quickstarts for Azure Government
 The series of Quickstarts below will help you get started using Azure Functions on Azure Government. Using Azure Functions with Azure Government is similar to using it with the Azure commercial platform, with a [few exceptions](documentation-government-compute.md#azure-functions).
 
 To learn more about Azure Functions, click [here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview). 
@@ -29,14 +29,14 @@ Before running this sample, you must have the following:
 
 + An active [GitHub](https://github.com) account. 
 + An active Azure Government subscription.
-If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/en-us/overview/clouds/government/) before you begin.
+If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/overview/clouds/government/) before you begin.
 
 + Installed [CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest). 
 
-	>**Note:**
-	>This topic requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest). 
-	>
-	>
+> [!NOTE]
+> This topic requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest). 
+>
+>
 
 ### Launch Azure CLI 2.0
 
@@ -168,7 +168,7 @@ After the deployment source been set, the Azure CLI shows information similar to
 ```
 ### Test the function
 
-Use cURL to test the deployed function on a Mac or Linux computer or using Bash on Windows, which you can [install](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide).  
+Use cURL to test the deployed function on a Mac or Linux computer or using Bash on Windows, which you can [install](https://msdn.microsoft.com/commandline/wsl/install_guide).  
 
 Execute the following cURL command, replacing the `<app_name>` placeholder with the name of your function app. Append the query string `&name=<yourname>` to the URL.
 
@@ -267,7 +267,6 @@ This tutorial will walk through how to update an existing function by adding out
 * This tutorial also requires an Azure Queue, if you have not created one you can do so by following [these steps](https://docs.microsoft.com/en-us/azure/storage/queues/storage-dotnet-how-to-use-queues).
 
 ### Update the function code 
-
 In order to connect the function to your output Queue, you must create an output binding. 
 1. Open your function in Visual Studio
 2.  For a C# function, update your function definition as follows to add the output Queue storage binding parameter (replace the <QueueName> placeholder with the name of your output Queue). Skip this step for a JavaScript function.
@@ -289,9 +288,7 @@ In order to connect the function to your output Queue, you must create an output
 	<QueueName>.Add("Name passed to the function: " + name);     
 	```
 ### Test your function
-
 1. Run your function on Visual Studio.
-
 2. Navigate to the Azure Government [portal](https://portal.azure.us) and click on the Storage Accounts button from the menu on the left-hand side. 
 3. On the Overview page click on the "Queues" button in order to see the different Queues. 
 
@@ -299,7 +296,7 @@ In order to connect the function to your output Queue, you must create an output
 4. Click on your Queue and you should be able to see the output of your function.
 
     ![triggerfunctioncreate7](./media/documentation-government-function11.png)
-5. Now that you have tested the output binding locally, go throuogh the same steps for deployment that you did in the [section above](documentation-government-functions.md#create-function-using-visual-studio). 
+5. Now that you have tested the output binding locally, go through the same steps for deployment that you did in the [section above](documentation-government-functions.md#create-function-using-visual-studio). 
 
 ### Clean up resources
 
@@ -310,3 +307,5 @@ az group delete --name myResourceGroup
 ```
 Type `y` when prompted.
 
+## Next steps
+For supplemental information and updates, subscribe to the [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/).
