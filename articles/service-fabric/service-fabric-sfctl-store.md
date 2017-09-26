@@ -74,6 +74,6 @@ Returns the information about the image store content at the specified contentPa
 | --query               | JMESPath query string. See http://jmespath.org/ for more information           and examples.|
 | --verbose             | Increase logging verbosity. Use --debug for full debug logs.|
 
-## Next Steps
+## Next steps
 - [Setup](service-fabric-cli.md) the Service Fabric CLI.
 - Learn how to use the Service Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

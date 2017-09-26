@@ -127,6 +127,6 @@ Returns the status of compose application that was created or in the process of 
 | --query                 | JMESPath query string. For more information and examples, see http://jmespath.org/.|
 | --verbose               | Increase logging verbosity. Use --debug for full debug logs.|
 
-## Next Steps
+## Next steps
 - [Setup](service-fabric-cli.md) the Service Fabric CLI.
 - Learn how to use the Service Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

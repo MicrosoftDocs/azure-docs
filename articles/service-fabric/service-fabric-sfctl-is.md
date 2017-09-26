@@ -86,6 +86,6 @@ Global Arguments
 | --query          | JMESPath query string. For more information, see http://jmespath.org/ for more information and      examples.|
 | --verbose        | Increase logging verbosity. Use --debug for full debug logs.|
 
-## Next Steps
+## Next steps
 - [Setup](service-fabric-cli.md) the Service Fabric CLI.
 - Learn how to use the Service Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

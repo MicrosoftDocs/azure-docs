@@ -414,6 +414,6 @@ Optionally display upload progress for each file in the package. Upload progress
                        examples.|
 | --verbose     | Increase logging verbosity. Use --debug for full debug logs.|
 
-## Next Steps
+## Next steps
 - [Setup](service-fabric-cli.md) the Service Fabric CLI.
 - Learn how to use the Service Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

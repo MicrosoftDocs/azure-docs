@@ -115,6 +115,6 @@ Stops Chaos from scheduling further faults; but, the in-flight faults are not af
 | --query  | JMESPath query string. See http://jmespath.org/ for more information and examples.|
 | --verbose| Increase logging verbosity. Use --debug for full debug logs.|
 
-## Next Steps
+## Next steps
 - [Setup](service-fabric-cli.md) the Service Fabric CLI.
 - Learn how to use the Service Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

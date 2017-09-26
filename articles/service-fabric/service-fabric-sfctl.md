@@ -36,6 +36,6 @@ Commands for managing Service Fabric clusters and entities. This version is comp
 | [service](service-fabric-sfctl-service.md) | Create, delete, and manage service, service types and service packages.|
 | [store](service-fabric-sfctl-store.md)   | Perform basic file level operations on the cluster image store.|
 
-## Next Steps
+## Next steps
 - [Set up](service-fabric-cli.md) the Service Fabric CLI.
 - Learn how to use the Service Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
