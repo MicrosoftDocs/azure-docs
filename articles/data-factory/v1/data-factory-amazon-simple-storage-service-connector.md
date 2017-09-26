@@ -67,7 +67,7 @@ A linked service links a data store to a data factory. You create a linked servi
 | secretAccessKey |The secret access key itself. |Encrypted secret string |Yes |
 
 >[!NOTE]
->Note [Temporary Security Credential](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) is not supported. This connector requires access keys for IAM account to access Amazon S3.
+>This connector requires access keys for IAM account to copy data from Amazon S3. [Temporary Security Credential](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) is not supported.
 >
 
 Here is an example:
