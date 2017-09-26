@@ -29,7 +29,7 @@ Your organization must have an Azure AD Premium P1 license to use the product. F
 
 To set up Cloud App Discovery, you must be a Global Administrator or a Security Reader in Azure Active Directory. A user who is assigned an admin role has the same permissions across all of the cloud apps to which your organization has subscribed.
 
-## Set up steps
+## Setup steps
 
 1. [Set up snapshot reports](cloudappdiscovery-set-up-snapshots.md) to check your log format make sure your logs provide usable information to Cloud App Discovery. They can also provide ad-hoc visibility into traffic logs you manually upload from your firewalls and proxy servers.
 
