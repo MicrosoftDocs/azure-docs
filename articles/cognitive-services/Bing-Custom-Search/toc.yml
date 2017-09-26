@@ -28,7 +28,7 @@
     - name: Bing Autosuggest API
       href: ../bing-autosuggest/get-suggested-search-terms.md
     - name: Bing Use and Display Requirements
-      href: https://docs.microsoft.com/azure/cognitive-services/bing-web-search/useanddisplayrequirements
+      href: use-and-display-requirements.md
 - name: Resources
   items:
   - name: Azure Roadmap
