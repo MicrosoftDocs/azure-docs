@@ -49,5 +49,5 @@ Changes to the offer are not immediately visible to the user. To see the changes
 >
 
 
-## Next steps
+### Next steps
 [Subscribe to an offer and then provision a VM](azure-stack-subscribe-plan-provision-vm.md)
