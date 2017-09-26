@@ -1,5 +1,5 @@
 ---
-title: Log searches in OMS Log Analytics| Microsoft Docs
+title: Log searches in Azure Log Analytics| Microsoft Docs
 description: You require a log search to retrieve any data from Log Analytics.  This article describes how new log searches are used in Log Analytics and provides concepts that you need to understand before creating one.
 services: log-analytics
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 09/26/2017
 ms.author: bwren
 
 ---
@@ -29,9 +29,9 @@ You require a log search to retrieve any data from Log Analytics.  Whether you'r
 
 The different ways that you will use log searches in Log Analytics include the following:
 
-- **Portals.** You can perform interactive analysis of data in the repository with the [Log Search portal](log-analytics-log-search-log-search-portal.md) or the [Advanced Analytics portal](https://go.microsoft.com/fwlink/?linkid=856587).  This allows you to edit your query and analyze the results in a variety of formats and visualizations.  Most queries that you create will start in one of the portals and then copied once you verify that it works as expected.
+- **Portals.** You can perform interactive analysis of data in the repository in the Azure portal or the [Advanced Analytics portal](https://go.microsoft.com/fwlink/?linkid=856587).  This allows you to edit your query and analyze the results in a variety of formats and visualizations.  Most queries that you create will start in one of the portals and then copied once you verify that it works as expected.
 - **Alert rules.** [Alert rules](log-analytics-alerts.md) proactively identify issues from data in your workspace.  Each alert rule is based on a log search that is automatically run at regular intervals.  The results are inspected to determine if an alert should be created.
-- **Views.**  You can create visualizations of data to be included in user dashboards with [View Designer](log-analytics-view-designer.md).  Log searches provide the data used by [tiles](log-analytics-view-designer-tiles.md) and [visualization parts](log-analytics-view-designer-parts.md) in each view.  You can drill down from visualization parts into the Log Search portal to perform further analysis on the data.
+- **Views.**  You can create visualizations of data to be included in user dashboards with [View Designer](log-analytics-view-designer.md).  Log searches provide the data used by [tiles](log-analytics-view-designer-tiles.md) and [visualization parts](log-analytics-view-designer-parts.md) in each view.  You can drill down from visualization parts into the Log Search page to perform further analysis on the data.
 - **Export.**  When you export data from the Log Analytics workspace to Excel or [Power BI](log-analytics-powerbi.md), you create a log search to define the data to export.
 - **PowerShell.** You can run a PowerShell script from a command line or an Azure Automation runbook that uses [Get-​Azure​Rm​Operational​Insights​Search​Results](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) to retrieve data from Log Analytics.  This cmdlet requires a query to determine the data to retrieve.
 - **Log Analytics API.**  The [Log Analytics log search API](log-analytics-log-search-api.md) allows any REST API client to retrieve data from the workspace.  The API request includes a query that is run against Log Analytics to determine the data to retrieve.
@@ -39,7 +39,7 @@ The different ways that you will use log searches in Log Analytics include the f
 ![Log searches](media/log-analytics-log-search-new/log-search-overview.png)
 
 ## How Log Analytics data is organized
-When you build a query, you start by determining which tables have the data that you're looking for. Each [data source](log-analytics-data-sources.md) and [solution](../operations-management-suite/operations-management-suite-solutions.md) stores its data in dedicated tables in the Log Analytics workspace.  Documentation for each data source and solution includes the name of the data type that it creates and a description of each of its properties.     Many queries will only require data from a single tables, but others may use a variety of options to include data from multiple tables.
+When you build a query, you start by determining which tables have the data that you're looking for. Each [data source](log-analytics-data-sources.md) and [solution](../operations-management-suite/operations-management-suite-solutions.md) stores its data in dedicated tables in the Log Analytics workspace.  Documentation for each data source and solution includes the name of the data type that it creates and a description of each of its properties.  Many queries will only require data from a single tables, but others may use a variety of options to include data from multiple tables.
 
 ![Tables](media/log-analytics-log-search-new/queries-tables.png)
 
@@ -86,4 +86,4 @@ For complete documentation on the Azure Log Analytics query language including t
 ## Next steps
 
 - Learn about the [portals that you use to create and edit log searches](log-analytics-log-search-portals.md).
-- Check out a [tutorial on writing queries](https://go.microsoft.com/fwlink/?linkid=856078) using the new query language.
+- Check out a [tutorial on writing queries](log-analytics-tutorial-viewdata) using the new query language.
