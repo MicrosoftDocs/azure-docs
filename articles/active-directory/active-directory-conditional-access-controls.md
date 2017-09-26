@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/20/2017
+ms.date: 09/25/2017
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -25,6 +25,7 @@ ms.reviewer: calebb
 With [Azure Active Directory (Azure AD) conditional access](active-directory-conditional-access-azure-portal.md), you can control how authorized users access your cloud apps. In a conditional access policy, you define the response ("do this") to a specific condition ("when this happens"). In the context of conditional access, 
 
 - "**When this happens**" is called **condition statement**
+
 - "**Then do this**" is called **controls**
 
 ![Control](./media/active-directory-conditional-access-controls/11.png)
@@ -50,7 +51,7 @@ With grant controls, you can either block access altogether or allow access with
 - All selected controls to be fulfilled (*AND*) 
 - One selected control to be fulfilled (*OR*)
 
-![Control](./media/active-directory-conditional-access-controls/73.png)
+![Control](./media/active-directory-conditional-access-controls/17.png)
 
 
 
@@ -72,7 +73,7 @@ You can configure conditional access policies that are device-based. The objecti
 
 ### Domain-joined device
 
-Requiring a domain-joined device is another option you have to configure a device-based conditional access policies. This requirement refers to Windows desktops, laptops, and enterprise tablets that are joined to an on-premises Active Directory. For more information, see [set up Azure Active Directory device-based conditional access policies](active-directory-conditional-access-policy-connected-applications.md).
+Requiring a domain-joined device is another option you have to configure device-based conditional access policies. This requirement refers to Windows desktops, laptops, and enterprise tablets that are joined to an on-premises Active Directory. For more information, see [set up Azure Active Directory device-based conditional access policies](active-directory-conditional-access-policy-connected-applications.md).
 
 
 
@@ -89,7 +90,60 @@ With approved client apps, you can require a client app that attempts to access 
 
 ### Terms of Use
 
-You can require a user in your tenant to consent to a terms of use before being granted access to a resource. As an administrator, you can configure and customize a terms of use by uploading a PDF document. If a user falls in scope of this control they will only be given access to the application if they agree or have previously agreed to the terms presented. For more information, see how to create a terms of use.
+You can require a user in your tenant to consent to the terms of use before being granted access to a resource. As an administrator, you can configure and customize terms of use by uploading a PDF document. If a user falls in scope of this control access to an application is only granted if the terms of use have been agreed. 
+
+
+### Custom controls 
+
+You can create custom controls in Conditional Access that redirect your users to a compatible service to satisfy further requirements outside of Azure Active Directory. This allows you to use certain external multi-factor authentication and verification providers to enforce Conditional Access rules, or to build your own custom service. To satisfy this control, a user’s browser is redirected to the external service, performs any required authentication or validation activities, and is then redirected back to Azure Active Directory. If the user was successfully authenticated or validated, the user continues in the Conditional Access flow. 
+
+## Custom controls
+
+Custom controls in conditional access redirect your users to a compatible service to satisfy further requirements outside of Azure Active Directory. To satisfy this control, a user’s browser is redirected to the external service, performs any required authentication or validation activities, and is then redirected back to Azure Active Directory. Azure Active Directory verifies the response and, if the user was successfully authenticated or validated, the user continues in the conditional access flow.
+
+These controls allow the use of certain external or custom services as conditional access controls, and generally extend the capabilities of Conditional Access.
+
+Providers currently offering a compatible service include:
+
+- Duo Security
+
+- RSA
+
+- Trusona
+
+For more information on those services, contact the providers directly.
+
+### Creating custom controls
+
+To create a custom control, you should first contact the provider that you wish to utilize. Each non-Microsoft provider has its own process and requirements to sign up, subscribe, or otherwise become a part of the service, and to indicate that you wish to integrate with conditional access. At that point, the provider will provide you with a block of data in JSON format. This data allows the provider and conditional access to work together for your tenant, creates the new control and defines how conditional access can tell if your users have successfully performed verification with the provider.
+
+Copy the JSON data and then paste it into the related textbox. Do not make any changes to the JSON unless you explicitly understand the change you’re making. Making any change could break the connection between the provider and Microsoft and potentially lock you and your users out of your accounts.
+
+The option to create a custom control is in the **Manage** section of the **Conditional access** page.
+
+![Control](./media/active-directory-conditional-access-controls/82.png)
+
+Clicking **New custom control**, opens a blade with a textbox for the JSON data of your control.  
+
+
+![Control](./media/active-directory-conditional-access-controls/81.png)
+
+
+### Deleting custom controls
+
+To delete a custom control, you must first ensure that it isn’t being used in any conditional access policy. Once complete:
+
+1. Go to the Custom controls list
+
+2. Click …  
+
+3. Select **Delete**.
+
+### Editing custom controls
+
+To edit a custom control, you must delete the current control and create a new control with the updated information.
+
+
 
 
 ## Session controls
