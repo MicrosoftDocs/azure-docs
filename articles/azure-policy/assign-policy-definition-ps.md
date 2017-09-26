@@ -23,21 +23,13 @@ Before you start, make sure that the latest version of PowerShell is installed. 
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-## Log in to Azure
-
-Log in to your Azure subscription with the `Add-AzureRmAccount` command and follow the on-screen directions.
-
-```powershell
-Add-AzureRmAccount
-```
-
 ## Opt in to Azure Policy
 
 Azure Policy is now available in Limited Preview, so you need to register to request access.
 
-1. Launch the Azure Policy service in the Azure portal by searching for and selecting  **Policy** in the left pane.
+1. Go to Azure Policy at https://aka.ms/getpolicy and select **Sign Up** in the left pane.
 
-   ![Search for policy](media/assign-policy-definition/search-policy.png)
+   ![Search for policy](media/assign-policy-definition/sign-up.png)
 
 2. Opt in to Azure Policy by selecting the subscriptions in the **Subscription** list you would like to work with. Then select **Register**.
 

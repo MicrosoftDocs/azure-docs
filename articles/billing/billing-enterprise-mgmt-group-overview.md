@@ -21,7 +21,7 @@ ms.author: rithorn
 If you have multiple subscriptions, you can organize them into containers called “management groups" to help you manage access, policy, costs, and compliance across your subscriptions. As an example, you can apply policies to a management group that limit which resource types can be created.
 
 > [!Note]
-> This feature is currently in a private preview. [Sign up here](https://forms.office.com/Pages/DesignPage.aspx#FormId=v4j5cvGGr0GRqy180BHbR0YtfU6ham9OsGsPPYdu2xdUNk1BQUwzTkUyOVc5NUpCTFcwR0pIOVFETS4u) to have your enrollment join the preview.   
+> This feature is currently in a private preview. [Sign up here](https://aka.ms/MGPreviewSignup) to have your enrollment join the preview.   
  
 
 
