@@ -35,6 +35,7 @@
 ## Configure route filters for Microsoft peering
 ### [Azure portal](how-to-routefilter-portal.md)
 ### [Azure PowerShell](how-to-routefilter-powershell.md)
+### [Azure CLI](how-to-routefilter-cli.md)
 ## [Move a circuit from classic to Resource Manager](expressroute-howto-move-arm.md)
 ## [Migrate associated virtual networks from classic to Resource Manager](expressroute-migration-classic-resource-manager.md)
 ## Configure a router for ExpressRoute
