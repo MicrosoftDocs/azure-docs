@@ -436,18 +436,18 @@ To set the cluster probe port parameter, update variables in the following scrip
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
    ```
 
-   In the preceding script the use the following values:
+In the preceding script the use the following values:
 
-      `<Cluster Network Name>`: Windows Server Failover Cluster name for the network. In **Failover Cluster Manager** > **Networks**, right-click on the network and click **Properties**. The correct value is under **Name** on the **General** tab. 
+   `<Cluster Network Name>`: Windows Server Failover Cluster name for the network. In **Failover Cluster Manager** > **Networks**, right-click on the network and click **Properties**. The correct value is under **Name** on the **General** tab. 
 
-      `<SQL Server FCI IP Address Resource Name>`: SQL Server FCI IP address resource name. In **Failover Cluster Manager** > **Roles**, under the SQL Server FCI role, under **Server Name**, right click the IP address resource, and click **Properties**. The correct value is under **Name**, on the **General** tab. 
+   `<SQL Server FCI IP Address Resource Name>`: SQL Server FCI IP address resource name. In **Failover Cluster Manager** > **Roles**, under the SQL Server FCI role, under **Server Name**, right click the IP address resource, and click **Properties**. The correct value is under **Name**, on the **General** tab. 
 
-      `<ILBIP>`: The ILB IP address. This address is configured in the Azure portal as the ILB front-end address. This is also the SQL Server FCI IP address. You can find it in **Failover Cluster Manager** on the same properties page where you located the `<SQL Server FCI IP Address Resource Name>`.  
+   `<ILBIP>`: The ILB IP address. This address is configured in the Azure portal as the ILB front-end address. This is also the SQL Server FCI IP address. You can find it in **Failover Cluster Manager** on the same properties page where you located the `<SQL Server FCI IP Address Resource Name>`.  
 
-      `<nnnnn>`: Is the probe port you configured in the load balancer health probe. Any unused TCP port is valid. 
+   `<nnnnn>`: Is the probe port you configured in the load balancer health probe. Any unused TCP port is valid. 
 
-   >[!IMPORTANT]
-   >The subnet mask for the cluster parameter must be the TCP IP broadcast address: `255.255.255.255`.
+>[!IMPORTANT]
+>The subnet mask for the cluster parameter must be the TCP IP broadcast address: `255.255.255.255`.
 
 After you set the cluster probe you can see all of the cluster parameters in PowerShell. Run the following script:
 
