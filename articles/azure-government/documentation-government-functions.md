@@ -287,7 +287,9 @@ In order to connect the function to your output Queue, you must create an output
 	```cs
 	<QueueName>.Add("Name passed to the function: " + name);     
 	```
+	
 ### Test your function
+
 1. Run your function on Visual Studio.
 2. Navigate to the Azure Government [portal](https://portal.azure.us) and click on the Storage Accounts button from the menu on the left-hand side. 
 3. On the Overview page click on the "Queues" button in order to see the different Queues. 
