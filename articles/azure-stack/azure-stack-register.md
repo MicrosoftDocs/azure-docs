@@ -19,7 +19,7 @@ ms.author: erikje
 ---
 # Register Azure Stack with your Azure Subscription
 
-*Applies to: Azure Stack Development Kit*
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 For Azure Active Directory deployments, you can register [Azure Stack](azure-stack-poc.md) with Azure to download marketplace items from Azure and to set up commerce data reporting back to Microsoft. 
 
