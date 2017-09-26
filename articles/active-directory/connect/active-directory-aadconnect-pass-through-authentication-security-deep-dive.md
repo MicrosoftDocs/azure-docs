@@ -65,7 +65,6 @@ Only Global Administrators can install an Authentication Agent (using Azure AD C
 - The Authentication Agent application itself. This runs with [Network Service](https://msdn.microsoft.com/library/windows/desktop/ms684272.aspx) privileges.
 - The Updater application used for auto updating the Authentication Agent. This runs with [Local System](https://msdn.microsoft.com/library/windows/desktop/ms684190.aspx) privileges.
 
-![Authentication Agent software](./media/active-directory-aadconnect-pass-through-authentication/pta13.png)
 
 ### Authentication Agent registration
 
@@ -75,7 +74,7 @@ The registration procedure also binds the Authentication Agent with your tenant 
 
 Here is how Authentication Agents register themselves with Azure AD:
 
-![Azure AD Pass-through Authentication](./media/active-directory-aadconnect-pass-through-authentication/pta14.png)
+![Agent Registration](./media/active-directory-aadconnect-pass-through-authentication-security-deep-dive/pta1.png)
 
 1. Azure AD first requests a Global Administrator to sign in to Azure AD with their credentials. During sign in, the Authentication Agent acquires an Access Token that it can use on behalf of the Global Administrator.
 2. The Authentication Agent then generates a key pair – a public key and a private key.
@@ -96,7 +95,11 @@ Here is how Authentication Agents register themselves with Azure AD:
 
 When the Authentication Agent starts, either for the first time after registration or after a server restart, it needs a way to securely communicate with Azure AD service and start accepting password validation requests.
 
+![Agent initialization](./media/active-directory-aadconnect-pass-through-authentication-security-deep-dive/pta2.png)
+
 Here is how Authentication Agents get initialized:
+
+
 
 1. The Authentication Agent starts by making an outbound “bootstrap” request to Azure AD. 
     - This bootstrap request is made over port 443 and is over a mutually authenticated HTTPS channel (using the same certificate issued during Authentication Agent registration).
@@ -110,7 +113,7 @@ If you have multiple Authentication Agents registered on your tenant, then the i
 
 The diagram below shows how Pass-through Authentication processes user sign-in requests.
 
-![Azure AD Pass-through Authentication](./media/active-directory-aadconnect-pass-through-authentication/pta15.png)
+![Processing sign-in](./media/active-directory-aadconnect-pass-through-authentication-security-deep-dive/pta3.png)
 
 Pass-through Authentication handles a user sign-in request as follows: 
 
@@ -134,6 +137,8 @@ Pass-through Authentication handles a user sign-in request as follows:
 ## Operational security of Authentication Agents
 
 To ensure that Pass-through Authentication remains operationally secure, Azure AD periodically renews their certificates. These renewals are triggered from Azure AD, and are not governed by the Authentication Agents themselves.
+
+![Operational security](./media/active-directory-aadconnect-pass-through-authentication-security-deep-dive/pta4.png)
 
 Here is how an Authentication Agent renews its trust with Azure AD:
 
