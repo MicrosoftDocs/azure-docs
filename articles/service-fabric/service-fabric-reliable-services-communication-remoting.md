@@ -24,8 +24,8 @@ For services that are not tied to a particular communication protocol or stack, 
 ## Set up remoting on a service
 Setting up remoting for a service is done in two simple steps:
 
-1. Create an interface for your service to implement. This interface defines the methods that will be available for a remote procedure call on your service. The methods must be task-returning asynchronous methods. The interface must implement `Microsoft.ServiceFabric.Services.Remoting.IService` to signal that the service has a remoting interface.
-2. Use a remoting listener in your service. This is an `ICommunicationListener` implementation that provides remoting capabilities. The `Microsoft.ServiceFabric.Services.Remoting.Runtime` namespace contains an extension method,`CreateServiceRemotingListener` for both stateless and stateful services that can be used to create a remoting listener using the default remoting transport protocol.
+1. Create an interface for your service to implement. This interface defines the methods that are available for a remote procedure call on your service. The methods must be task-returning asynchronous methods. The interface must implement `Microsoft.ServiceFabric.Services.Remoting.IService` to signal that the service has a remoting interface.
+2. Use a remoting listener in your service.RemotingListener is an `ICommunicationListener` implementation that provides remoting capabilities. The `Microsoft.ServiceFabric.Services.Remoting.Runtime` namespace contains an extension method,`CreateServiceRemotingListener` for both stateless and stateful services that can be used to create a remoting listener using the default remoting transport protocol.
 
 [!NOTE]  The `Remoting` namespace is available as a separate nuget package called `Microsoft.ServiceFabric.Services.Remoting`
 
@@ -66,7 +66,7 @@ class MyService : StatelessService, IMyService
 >
 
 ## Call remote service methods
-Calling methods on a service by using the remoting stack is done by using a local proxy to the service through the `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` class. The `ServiceProxy` method creates a local proxy by using the same interface that the service implements. With that proxy, you can simply call methods on the interface remotely.
+Calling methods on a service by using the remoting stack is done by using a local proxy to the service through the `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` class. The `ServiceProxy` method creates a local proxy by using the same interface that the service implements. With that proxy, you can call methods on the interface remotely.
 
 ```csharp
 
@@ -79,7 +79,7 @@ string message = await helloWorldClient.HelloWorldAsync();
 The remoting framework propagates exceptions thrown at the service to the client. So exception-handling logic at the client by using `ServiceProxy` can directly handle exceptions that the service throws.
 
 ## Service Proxy Lifetime
-ServiceProxy creation is a lightweight operation, so user can create as many as they need it. Service Proxy can be reused as long as user need it. User can reuse the same proxy in case of Exception. Each ServiceProxy contains communication client used to send messages over the wire. While invoking API, we have internal check to see if communication client used is valid. Based on that result, we re-create the communication client. Hence user does not need to recreate serviceproxy in case of Exception.
+ServiceProxy creation is a lightweight operation, so user can create as many as they need it. Service Proxy can be reused as long as user need it. User can reuse the same proxy in case of Exception. Each ServiceProxy contains communication client used to send messages over the wire. While invoking API, we have internal check to see if communication client used is valid. Based on that result, we re-create the communication client. Hence user does not need to recreate serviceproxy if Exception occurs.
 
 ### ServiceProxyFactory Lifetime
 [ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) is a factory that creates proxy for different remoting interfaces. If you use API ServiceProxy.Create for creating proxy, then framework creates the singleton ServiceProxyFactory.
@@ -91,7 +91,7 @@ Best practice is to cache ServiceProxyFactory for as long as possible.
 All the remote exception thrown by service API, are sent back to the client as AggregateException. RemoteExceptions should be DataContract Serializable otherwise [ServiceException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) is thrown to the proxy API with the serialization error in it.
 
 ServiceProxy does handle all Failover Exception for the service partition it  is created for. It re-resolves the endpoints if there is Failover Exceptions(Non-Transient Exceptions) and retries the call with the correct endpoint. Number of retries for failover Exception is indefinite.
-In case of TransientExceptions, it only retries the call.
+If Transient Exceptions occurs, proxy retries the call.
 
 Default retry parameters are provied by [OperationRetrySettings]. (https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings)
 User can configure these values by passing OperationRetrySettings object to ServiceProxyFactory constructor.
@@ -166,7 +166,7 @@ Here are the steps to follow.
   ```
 
 ## How to upgrade from Remoting V1 to Remoting V2.
-In order to upgrade from V1 to V2, 2-step upgrades are required. These steps need to be followed in the sequence listed.
+In order to upgrade from V1 to V2, 2-step upgrades are required. Following steps to be executed in the sequence listed.
 
 1. Upgrade the V1 Service to V2 Service by using CompactListener Attribute.
 This change makes sure that service is listening  on V1 and V2 Listener.
@@ -198,7 +198,7 @@ This change makes sure that service is listening  on V1 and V2 Listener.
 This step makes sure Client is using V2 stack.
 No Change in Client Project/Service is required. Building Client projects with updated interface assembly is sufficient.
 
-3. This step is optional. Upgrade the V2 Service to use V2Listener Attribute.
+3. This step is optional. Use V2Listener Attribute and then Upgrade the V2 Service.
 This step makes sure that service is listening only on V2 Listener.
 
 ```csharp
@@ -371,7 +371,7 @@ Following example uses Json Serialization with Remoting V2.
        };
    }
   ```
-  
+
 3.    Override Default Serialization Provider with JsonSerializationProvider for Remoting Client Factory.
 
 ```csharp
