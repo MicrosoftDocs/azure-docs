@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/20/2017
+ms.date: 09/25/2017
 ms.author: asaxton
 
 ---
@@ -29,7 +29,7 @@ With **Microsoft Power BI Workspace Collections**, you can integrate Power BI re
 Before we go any further, you want to save the following resources: They help you when integrating Power BI reports into the sample app and your own apps too.
 
 * [Sample workspace web app](http://go.microsoft.com/fwlink/?LinkId=761493)
-* [Power BI Workspace Collections API reference](https://msdn.microsoft.com/en-US/library/azure/mt711507.aspx)
+* [Power BI Workspace Collections API reference](https://msdn.microsoft.com/library/azure/mt711507.aspx)
 * [Power BI .NET SDK ](http://go.microsoft.com/fwlink/?LinkId=746472) (available via NuGet)
 * [JavaScript Report Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo)
 

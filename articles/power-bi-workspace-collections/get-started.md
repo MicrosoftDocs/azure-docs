@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/20/2017
+ms.date: 09/25/2017
 ms.author: asaxton
 ---
 # Get started with Microsoft Power BI Workspace Collections
@@ -34,7 +34,7 @@ Resources for **Microsoft Power BI Workspace Collections** are provisioned throu
 A **Workspace Collection** is the top-level Azure resource and a container for the content that will be embedded in your application. A **Workspace Collection** can be created in two ways:
 
 * Manually using the Azure portal
-* Programmatically using the Azure Resource Manager(ARM) APIs
+* Programmatically using the Azure Resource Manager APIs
 
 Let's walk through the steps to build a **Workspace Collection** using the Azure portal.
 
