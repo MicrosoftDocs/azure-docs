@@ -19,7 +19,7 @@ ms.author: dobett
 ---
 # Reference - choose a communication protocol
 
-IoT Hub allows devices to us the following protocols for device-side communications:
+IoT Hub allows devices to use the following protocols for device-side communications:
 
 * [MQTT][lnk-mqtt]
 * MQTT over WebSockets

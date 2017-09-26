@@ -1661,6 +1661,46 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/app-service/app-service-environment/create-external-ase.md",
+            "redirect_url": "/azure/app-service/environment/create-external-ase",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-environment/create-from-template.md",
+            "redirect_url": "/azure/app-service/environment/create-from-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-environment/create-ilb-ase.md",
+            "redirect_url": "/azure/app-service/environment/create-ilb-ase",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-environment/intro.md",
+            "redirect_url": "/azure/app-service/environment/intro",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-environment/management-addresses.md",
+            "redirect_url": "/azure/app-service/environment/management-addresses",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-environment/network-info.md",
+            "redirect_url": "/azure/app-service/environment/network-info",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-environment/readme.md",
+            "redirect_url": "/azure/app-service/environment/intro",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-environment/using-an-ase.md",
+            "redirect_url": "/azure/app-service/environment/using-an-ase",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/app-service/app-service-environment-auto-scale.md",
             "redirect_url": "/azure/app-service/environment/app-service-environment-auto-scale",
             "redirect_document_id": false
@@ -2293,11 +2333,6 @@
         {
             "source_path": "articles/app-service/app-service-powershell-backup.md",
             "redirect_url": "/azure/app-service/web-sites-backup",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/app-service/app-service-environment/readme.md",
-            "redirect_url": "/azure/app-service/environment/intro",
             "redirect_document_id": false
         },
         {
@@ -5170,6 +5205,36 @@
             "redirect_url": "/azure/storsimple/storsimple-virtual-array-service-summary",
             "redirect_document_id": false
         },
+         {
+             "source_path": "articles/storsimple/storsimple-install-update-1.md",
+             "redirect_url": "/azure/storsimple/storsimple-install-update-5",
+             "redirect_document_id": false
+         },
+         {
+             "source_path": "articles/storsimple/storsimple-install-update-2.md",
+             "redirect_url": "/azure/storsimple/storsimple-install-update-5",
+             "redirect_document_id": false
+         },
+         {
+             "source_path": "articles/storsimple/storsimple-install-update-21.md",
+             "redirect_url": "/azure/storsimple/storsimple-install-update-5",
+             "redirect_document_id": false
+         },
+         {
+             "source_path": "articles/storsimple/storsimple-ova-install-update-01.md",
+             "redirect_url": "/azure/storsimple/storsimple-virtual-array-install-update-06",
+             "redirect_document_id": false
+         },
+         {
+             "source_path": "articles/storsimple/storsimple-ova-pp-release-notes.md",
+             "redirect_url": "/azure/storsimple/storsimple-virtual-array-update-06-release-notes",
+             "redirect_document_id": false
+         },
+         {
+             "source_path": "articles/storsimple/storsimple-security.md",
+             "redirect_url": "/azure/storsimple/storsimple-8000-security",
+             "redirect_document_id": false
+         },
         {
             "source_path": "articles/traffic-manager/disable-enable-or-delete-a-profile.md",
             "redirect_url": "/azure/traffic-manager/traffic-manager-manage-profiles",
@@ -11867,7 +11932,17 @@
         },
         {
             "source_path": "articles/app-service-api/index.md",
-            "redirect_url": "azure/app-service",
+            "redirect_url": "/azure/app-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/create-cli-availability-zone.md",
+            "redirect_url": "/azure/availability-zones/az-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/create-powershell-availability-zone.md",
+            "redirect_url": "/azure/availability-zones/az-overview",
             "redirect_document_id": false
         },
         {
