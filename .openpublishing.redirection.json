@@ -2346,6 +2346,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/app-service/app-service-local-cache.md",
+            "redirect_url": "/azure/app-service/app-service-local-cache-overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/app-service/app-service-webjobs-readme.md",
             "redirect_url": "https://github.com/Azure/azure-webjobs-sdk/wiki",
             "redirect_document_id": false
