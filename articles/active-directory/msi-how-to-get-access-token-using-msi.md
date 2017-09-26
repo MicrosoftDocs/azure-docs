@@ -18,7 +18,7 @@ ms.author: bryanla
 
 # How to use an Azure Managed Service Identity for sign-in and token acquisition 
 
-After you've enabled MSI on an Azure resource, [such as an Azure VM](msi-qs-configure-powershell-windows-vm.md), you can use the identity for sign-in and to request an access token. This article shows you how to use an MSI [service principal](develop/active-directory-dev-glossary.md#service-principal-object) for sign-in, and various ways to acquire an access token to access other resources.
+After you've enabled MSI on an Azure resource, [such as an Azure VM](msi-qs-configure-powershell-windows-vm.md), you can use the MSI for sign-in and to request an access token. This article shows you how to use an MSI [service principal](develop/active-directory-dev-glossary.md#service-principal-object) for sign-in, and various ways to acquire an [app-only access token](develop/active-directory-dev-glossary.md#access-token) to access other resources.
 
 ## Prerequisites
 
@@ -33,7 +33,9 @@ Install [Azure PowerShell version 4.3.1](https://www.powershellgallery.com/packa
 
 ## How to sign in using an MSI identity
 
-In cases where a secure client application needs to access an Azure resource under its own identity, you can use the identity of the MSI. Previously, you would have been required to register the application with Azure AD, and authenticate using the client application's identity. In the examples below, we show how to use a VM's MSI service principal for sign-in.
+In cases where a secure client application needs to sign in to Azure Active Directory (AD) under its own identity, MSI allows you to use an identity representing the host Azure resource instead. Previously, you would have been required to register the application with Azure AD, and authenticate using the client application's identity. 
+
+In the examples below, we show how to use a VM's MSI service principal for sign-in.
 
 ### PowerShell
 
@@ -41,7 +43,7 @@ The following script demonstrates how to:
 
 - acquire an MSI access token
 - use the access token to sign in to Azure AD under the corresponding MSI service principal
-- use the MSI service principal to make an Azure Resource Manager call
+- use the MSI service principal to make an Azure Resource Manager call, to obtain the ID of the service principal
 
    ```powershell
    # Get an access token from MSI
@@ -55,6 +57,7 @@ The following script demonstrates how to:
    # The MSI service principal is now signed in for this session.
    # Next, a call to Azure Resource Manager is made to get the service principal ID for the VM's MSI. 
    $spID = (Get-AzureRMVM -ResourceGroupName <RESOURCE-GROUP> -Name <VM-NAME>).identity.principalid
+   echo "The MSI service principal ID is $spID"
    ```
    
 ### Azure CLI
@@ -62,21 +65,25 @@ The following script demonstrates how to:
 The following script demonstrates how to:
 
 - sign in to Azure AD under the corresponding MSI service principal
-- use the MSI service principal to make an Azure Resource Manager call
+- use the MSI service principal to make an Azure Resource Manager call, to obtain the ID of the service principal
 
    ```azurecli-interactive
    az login --msi
-
    spID=$(az resource list -n <VM-NAME> --query [*].identity.principalId --out tsv)
+   echo The MSI service principal ID is $spID
    ```
 
 ## How to acquire an access token from MSI
 
-Instead of acquiring the access token from Azure Active Directory (AD), an MSI endpoint is provided for use by the resource on which the MSI was configured (in this case, a Windows VM). 
+Instead of acquiring an app-only access token from Azure AD, an MSI-enabled Azure resource provides the OAuth endpoint for client applications. The endpoint allows the client to obtain an access token under the identity provided by the MSI, rather than the client's application identity. 
+
+In the examples below, we show how to use a VM's MSI for token acquisition.
+
+### Get a token using .NET
+
+TBD
 
 ### Get a token using PowerShell
-
-1. Sign in to Azure using the `Login-AzureRmAccount` cmdlet. Use an account that is associated with the Azure subscription under which you have configured the MSI:
 
    ```powershell
    # Get an access token from MSI
@@ -84,42 +91,39 @@ Instead of acquiring the access token from Azure Active Directory (AD), an MSI e
                                  -Method GET -Body @{resource="https://management.azure.com/"} -Headers @{Metadata="true"}
    $content =$response.Content | ConvertFrom-Json
    $access_token = $content.access_token
-   ```
-
-## Get a token using CLI
-
-Stuart?? This wasn't on the list.
-
-   ```azurecli-interactive
-      az login --msi
-
+   echo "The MSI access token is $access_token"
    ```
 
 ### Get a token using CURL
 
-
+   ```bash
+   response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true)
+   access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
+   echo The MSI access token is $access_token
+   ```
 
 ### Get a token using .NET C#
 
 > [!IMPORTANT]
 > MSI and Azure AD are not integrated. Therefore, the Azure AD Authentication Libraries (ADAL) cannot be used for MSI token acquisition. See [MSI known issues](msi-known-issues.md) for more details.
 
-
+TBD
 
 ### Get a token using REST
 
-NOTES:
-- look at https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol
+TBD (simlar to https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol)
 
 ## How to use MSI with Azure SDK libraries
 
 ### .NET library
 
+TBD
+
 ## Additional information
 
 ### Token expiration
 
-TODO: do we recommend calling every time or caching? See Rashid's sample for catching the exception after timeout and retrying.
+TBD (do we recommend calling every time or caching? See Rashid's sample for catching the exception after timeout and retrying.)
 
 ### Resource IDs for Azure services
 
