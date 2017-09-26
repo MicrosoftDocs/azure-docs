@@ -80,7 +80,7 @@ string message = await helloWorldClient.HelloWorldAsync();
 The remoting framework propagates exceptions thrown at the service to the client. So exception-handling logic at the client by using `ServiceProxy` can directly handle exceptions that the service throws.
 
 ## Service Proxy Lifetime
-ServiceProxy creation is a lightweight operation, so users can create as many as they need it. Service Proxy can be reused as long as users need it. If Remote Api throws Exception ,users can still reuse the same proxy. Each ServiceProxy contains communication client used to send messages over the wire. While invoking API, we have internal check to see if communication client used is valid. Based on that result, we re-create the communication client. Hence if Exception occurs , users do not need to recreate serviceproxy .
+ServiceProxy creation is a lightweight operation, so users can create as many as they need it. Service Proxy can be reused as long as users need it. If Remote Api throws Exception, users can still reuse the same proxy. Each ServiceProxy contains communication client used to send messages over the wire. While invoking API, we have internal check to see if communication client used is valid. Based on that result, we re-create the communication client. Hence if Exception occurs, users do not need to recreate serviceproxy.
 
 ### ServiceProxyFactory Lifetime
 [ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) is a factory that creates proxy for different remoting interfaces. If you use API ServiceProxy.Create for creating proxy, then framework creates the singleton ServiceProxyFactory.
@@ -105,7 +105,7 @@ Remoting V2 is not compatible with V1(previous Remoting stack), so follow below 
 
 Here are the steps to follow to change to V2 Stack.
 
-1. Add Service Endpoint with name as "ServiceEndpointV2".
+1. Add an Endpoint Resource with name as "ServiceEndpointV2" in the service manifest.
 
   ```xml
   <Resources>
@@ -132,7 +132,7 @@ Build the  Client assembly with interface assembly, to makes sure that above ass
 
 ### Using Explicit V2 Classes to create Listener/ ClientFactory
 Here are the steps to follow.
-1. Add Service Endpoint with name as "ServiceEndpointV2" .
+1.  Add an Endpoint Resource with name as "ServiceEndpointV2" in the service manifest.
 
   ```xml
   <Resources>
@@ -142,7 +142,7 @@ Here are the steps to follow.
   </Resources>
   ```
 
-2. Use [Remoting V2Listener](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingistener?view=azure-dotnet). Default Service Endpoint  used is "ServiceEndpointV2".
+2. Use [Remoting V2Listener](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingistener?view=azure-dotnet). Default Service Endpoint Resource name used is "ServiceEndpointV2" and must be defined in Service Manifest.
 
   ```csharp
   protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -172,7 +172,7 @@ In order to upgrade from V1 to V2, 2-step upgrades are required. Following steps
 1. Upgrade the V1 Service to V2 Service by using CompactListener Attribute.
 This change makes sure that service is listening  on V1 and V2 Listener.
 
-    a) Add Service Endpoint with name as "ServiceEndpointV2".
+    a)  Add an Endpoint Resource with name as "ServiceEndpointV2" in the service manifest.
       ```xml
       <Resources>
         <Endpoints>
