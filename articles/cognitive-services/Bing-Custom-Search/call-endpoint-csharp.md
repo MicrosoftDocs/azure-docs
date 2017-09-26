@@ -18,13 +18,7 @@ namespace bing_custom_search_example_dotnet
             var customConfigId = "YOUR-CUSTOM-CONFIG-ID";
             var searchTerm = args.Length > 0 ? args[0]: "microsoft";            
 
-            // valid values
-            subscriptionKey = "a8e9c2a9c37c49a2a58db23eea15c7b2";
-            customConfigId = "4060624086";
-            searchTerm = "drones";
-            // / --
-
-            var url = "https://api.cognitive.microsoft.com/bingcustomsearch/v5.0/search?" +
+            var url = "https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?" +
                 "q=" + searchTerm +
                 "&customconfig=" + customConfigId;
 
