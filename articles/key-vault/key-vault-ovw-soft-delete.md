@@ -5,8 +5,9 @@ ms.service: key-vault
 author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
-ms.date: 07/10/2017
+ms.date: 09/25/2017
 ---
+
 # Azure Key Vault soft-delete overview
 
 Key Vault's soft delete feature allows recovery of the deleted vaults and vault objects, known as soft-delete. Specifically, we address the following scenarios:
@@ -16,7 +17,9 @@ Key Vault's soft delete feature allows recovery of the deleted vaults and vault 
 
 ## Supporting interfaces
 
-The soft-delete feature is initially available through the REST, .NET/C# and PowerShell interfaces. Refer to the references for these for more details, [Key Vault Reference](https://docs.microsoft.com/azure/key-vault/).
+The soft-delete feature is initially available through the REST, .NET/C#, PowerShell and, CLI interfaces.
+
+For general information see the references for these for more details, [Key Vault Reference](https://docs.microsoft.com/azure/key-vault/).
 
 ## Scenarios
 
@@ -30,7 +33,7 @@ Azure Key Vaults are tracked resources, managed by Azure Resource Manager. Azure
 
 With this feature, the DELETE operation on a key vault or key vault object is a soft-delete, effectively holding the resources for a given retention period, while giving the appearance that the object is deleted. The service further provides a mechanism for recovering the deleted object, essentially undoing the deletion. 
 
-Soft-delete is an optional Key Vault behavior and is **not enabled by default** in this release. For details on enabling soft-delete for your key vault, see the specific guidance in the reference for the interface of your choice, [Key Vault Reference](https://docs.microsoft.com/azure/key-vault/).
+Soft-delete is an optional Key Vault behavior and is **not enabled by default** in this release. 
 
 ### Key vault recovery
 
@@ -61,5 +64,10 @@ Permanently deleting, purging, a key vault is possible via a POST operation on t
 
 An exception to this is the case when the Azure subscription has been marked as *undeletable*. In this case, only the service may then perform the actual deletion, and does so as a scheduled process. 
 
+## Next steps
 
+The following two guides offer the primary usage scenarios for using soft-delete.
+
+- [How to use Key Vault soft-delete with PowerShell](key-vault-soft-delete-powershell.md) 
+- [How to use Key Vault soft-delete with CLI](key-vault-soft-delete-cli.md)
 

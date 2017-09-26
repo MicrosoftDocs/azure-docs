@@ -8,17 +8,17 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.technology: content-moderator
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 09/26/2017
 ms.author: sajagtap
 ---
 
-# Video Moderation API overview #
+# Video Moderation API
 
-Today, online viewers are generating billions of video views across popular and regional social media web sites and increasing. By applying machine-learning based services to predict potential adult and racy content, you can significantly lower the cost of your moderation efforts.
+Today, online viewers generate billions of video views across popular and regional social media web sites and increasing. By applying machine-learning based services to predict potential adult and racy content, you significantly lower the cost of your moderation efforts.
 
 ## How it works
 
-The Content Moderator video capability is powered by the adult classifier (media processor) in the **Azure Media Services (AMS)**. The capability is currently in private preview and available at no charge. Here are the steps you need to follow to try the service:
+The Content Moderator video capability is powered by the adult classifier (media processor) in the **Azure Media Services (AMS)**. The capability is currently in private preview and available at no charge. Here are the steps to try the service:
 
 1. [Create an **Azure Media Services** account](https://ms.portal.azure.com/#create/Microsoft.MediaService) in your Azure subscription.
 1. [Contact us](https://cognitive.uservoice.com/ "Contact Us") with this information for enabling the Content Moderator in your region.
