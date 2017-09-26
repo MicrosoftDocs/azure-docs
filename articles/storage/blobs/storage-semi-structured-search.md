@@ -21,9 +21,9 @@ ms.custom: mvc
 
 # Search semi-structured data in cloud Storage
 
-This tutorial is part two of a two-part series. In these tutorials, you learn how to search semi-structured and unstructured data. Semi-structured data, such as JSON, contains tags or markings which separate content within the data. It differs from structured data in that it is data that is not formally structured such as data models for relational databases.
+IThis tutorial is part one of a two-part series. In this series you learn how to search semi-structured and unstructured data. Part two covers semi-structured data, such as JSON. Semi-structured data contains tags or markings which separate content within the data. It differs from structured data in that it is data that is not formally structured such as data models for relational databases.
 
-In this part you learn how to:
+In this part we cover how to:
 
 > [!div class="checklist"]
 > * Create an Azure Search Service using the REST API
@@ -34,8 +34,8 @@ In this part you learn how to:
 To complete this tutorial:
 
 * Complete the [previous tutorial](./storage-unstructured-search.md)
-* A REST client
-* Some familiarity with REST API queries
+* Have A REST client installed
+* Have some familiarity with REST API queries
 
 ## Setup
 
@@ -43,7 +43,9 @@ To complete this tutorial you need to have a REST client. For the purposes of th
 
 After installing postman, launch it.
 
-If this is your first time making REST calls to Azure, here's a brief introduction of the components that are important for this tutorial: The request method for every call in this tutorial is "POST." The header keys, which are "Content-type" and "api-key", application/json and your "admin key" (this is a placeholder for your search primary key). The rest of the call (including the brackets) is the body of your call. Depending on the client you're using, there may be some variations on how you construct your query but that's the gist of it.
+If this is your first time making REST calls to Azure, here's a brief introduction of the important components for this tutorial: The request method for every call in this tutorial is "POST." The header keys, which are "Content-type" and "api-key", application/json and your "admin key" (this is a placeholder for your search primary key). The rest of the call (including the brackets) is the body of your call. Depending on the client you're using, there may be some variations on how you construct your query but those are the basics.
+
+  ![Semi-structured search](media/storage-unstructured-structured-search/postmanoverview.png)
 
 The search api-key is required, it can be found under **Keys** inside your search service. This api-key must be in the header of every API call this tutorial directs you to make. So note it down.
 
@@ -51,7 +53,7 @@ The search api-key is required, it can be found under **Keys** inside your searc
 
 ## Download the sample data
 
-For this tutorial, a sample data set has been prepared for you. **Download [clinical-trials-json.zip](https://github.com/roygara/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip)** and unzip it to its own folder.
+A sample data set has been prepared for you. **Download [clinical-trials-json.zip](https://github.com/roygara/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip)** and unzip it to its own folder.
 
 Contained in the sample are example JSON files, which were originally text files obtained from [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). We have already converted them to JSON for your convenience.
 
@@ -174,7 +176,7 @@ Now that you've completed the tutorial, you can go ahead and clean up all your r
 
 The quickest way to accomplish this is to delete the resource group you created for the tutorial.
 
-In this tutorial, you learned about searching semi-structured data such as how to:
+In this tutorial, we covered searching semi-structured data such as how to:
 
 > [!div class="checklist"]
 > * Create an Azure Search Service using the REST API7
