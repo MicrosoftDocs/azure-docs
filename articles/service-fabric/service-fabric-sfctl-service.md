@@ -53,10 +53,7 @@ Creates the specified Service Fabric service from the description.
 
 |Argument|Description|
 | --- | --- |
-| --app-id       [Required]| The identity of the parent application. This is typically the full ID           of the application without the 'fabric:' URI scheme. Starting from version 6.0, hierarchical names are delimited with the '~' character.
-                               For example, if the application name is 'fabric://myapp/app1', the
-                               application identity would be 'myapp~app1' in 6.0+ and 'myapp/app1'
-                               in previous versions.|
+| --app-id       [Required]| The identity of the parent application. This is typically the full ID           of the application without the 'fabric:' URI scheme. Starting from version 6.0, hierarchical names are delimited with the '~' character. For example, if the application name is 'fabric://myapp/app1', the         application identity would be 'myapp~app1' in 6.0+ and 'myapp/app1'           in previous versions.|
 | --name         [Required]| Name of the service. This should be a child of the application ID.           This is the full name including the `fabric:` URI. For example           service `fabric:/A/B` is a child of application `fabric:/A`.|
 | --service-type [Required]| Name of the service type.|
 | --activation-mode     | The activation mode for the service package.|
@@ -108,11 +105,7 @@ Deletes an existing Service Fabric service. A service must be created before it 
 
 |Argument|Description|
 | --- | --- |
-| --service-id [Required]| The identity of the service. This is typically the full name of the         service without the 'fabric:' URI scheme. Starting from version 6.0,
-                             hierarchical names are delimited with the "~" character. For example,
-                             if the service name is "fabric://myapp/app1/svc1", the service identity
-                             would be "myapp~app1~svc1" in 6.0+ and "myapp/app1/svc1" in previous
-                             versions.|
+| --service-id [Required]| The identity of the service. This is typically the full name of the         service without the 'fabric:' URI scheme. Starting from version 6.0,                              hierarchical names are delimited with the "~" character. For example,                             if the service name is fabric://myapp/app1/svc1", the service identity                              would be "myapp~app1~svc1" in 6.0+ and "myapp/app1/svc1" in previous                              versions.|
 | --force-remove      | Remove a Service Fabric application or service forcefully without going         through the graceful shutdown sequence. This parameter can be used to         forcefully delete an application or service for which delete is timing         out due to issues in the service code that prevents graceful close of         replicas.|
 | --timeout -t        | Server timeout in seconds.  Default: 60.|
 
@@ -265,11 +258,7 @@ Indicates to the Service Fabric cluster that it should attempt to recover the sp
 
 |Argument|Description|
 | --- | --- |
-| --service-id [Required]| The identity of the service. This is typically the full name of the         service without the 'fabric:' URI scheme. Starting from version 6.0,
-                             hierarchical names are delimited with the "~" character. For example,
-                             if the service name is "fabric://myapp/app1/svc1", the service identity
-                             would be "myapp~app1~svc1" in 6.0+ and "myapp/app1/svc1" in previous
-                             versions.|
+| --service-id [Required]| The identity of the service. This is typically the full name of the         service without the 'fabric:' URI scheme. Starting from version 6.0,                              hierarchical names are delimited with the "~" character. For example,                              if the service name is fabric://myapp/app1/svc1", the service identity                              would be "myapp~app1~svc1" in 6.0+ and "myapp/app1/svc1" in previous                              versions.|
 | --timeout -t        | Server timeout in seconds.  Default: 60.|
 
 ### Global Arguments
