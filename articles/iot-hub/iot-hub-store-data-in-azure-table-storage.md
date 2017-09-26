@@ -14,11 +14,14 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2017
+ms.date: 09/24/2017
 ms.author: xshi
 
 ---
 # Save IoT hub messages that contain sensor data to your Azure table storage
+
+> ![NOTE]
+> IoT Hub now natively supports routing data to Azure Storage containers as blobs without the need for Azure Functions as an intermediary. Please see [how to use message routes](iot-hub-devguide-messages-read-custom.md) for more details. This article will be updated soon.
 
 ![End-to-end diagram](media/iot-hub-get-started-e2e-diagram/3.png)
 
