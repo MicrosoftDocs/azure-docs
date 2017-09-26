@@ -18,7 +18,7 @@ This article helps you find and correct errors or failures encountered as a part
 > [!IMPORTANT]
 > When communicating with the support team, it is important to have the build number. You can find out the build number of the app by clicking on the **Help** menu. Clicking on the build number copies it to your clipboard. You can paste it into emails or support forums to help report issues.
 
-![check version number](media/known-issues-and-troubleshooting-guide/version.png)
+![check version number](media/known-issues-and-troubleshooting-guide/buildno.png)
 
 ## How to get help
 There are a few different ways to get help.
