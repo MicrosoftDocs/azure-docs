@@ -17,8 +17,8 @@ Azure Database for PostgreSQL generates query and error logs. However, access to
 You can list and download Azure PostgreSQL server error logs using the Azure portal, [Azure CLI](howto-configure-server-logs-using-cli.md), and Azure REST APIs.
 
 ## Log retention
-You can set the retention period for system logs using the **log\_retention\_period** parameter associated with your server. The unit for this parameter is days. The default value is three days. The maximum value is 7 days. Note that your server must have enough allocated storage to contain the retained log files.
-The log files rotate every 1 hour or 100MB size, whichever comes first.
+You can set the retention period for system logs using the **log\_retention\_period** parameter associated with your server. The unit for this parameter is days. The default value is three days. The maximum value is 7 days. Your server must have enough allocated storage to contain the retained log files.
+The log files rotate every one hour or 100 MB size, whichever comes first.
 
 ## Configure logging for Azure PostgreSQL server
 You can enable query logging and error logging for your server. Error logs can contain auto-vacuum, connection, and checkpoints information.
