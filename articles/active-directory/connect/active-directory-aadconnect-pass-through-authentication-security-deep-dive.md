@@ -42,7 +42,7 @@ These are the key security aspects of this feature:
 
 ## Components involved
 
-For general details about Azure AD’s operational, service and data security, see the [Trust Center](https://azure.microsoft.com/support/trust-center/). The following components are involved when Pass-through Authentication is used for user sign-in:
+For general details about Azure AD operational, service and data security, see the [Trust Center](https://azure.microsoft.com/support/trust-center/). The following components are involved when Pass-through Authentication is used for user sign-in:
 - **Azure AD STS**: A stateless Security Token Service (STS) that processes sign-in requests and issues security tokens to users' browsers, clients, or services as required.
 - **Azure Service Bus**: Provides cloud-enabled communication with enterprise messaging and relays communication that helps you connect on-premises solutions with the cloud.
 - **Azure AD Connect Authentication Agent (Authentication Agent)**: An on-premises component that listens for and responds to password validation requests.
@@ -166,6 +166,8 @@ Here is how an Authentication Agent renews its trust with Azure AD:
 The Updater application automatically updates the Authentication Agent when a new version is released. It does not handle any password validation requests for your tenant. 
 
 Azure AD hosts the new version of the software as a signed **Windows Installer Package (MSI)**. The MSI is signed using [Microsoft Authenticode](https://msdn.microsoft.com/library/ms537359.aspx) with **SHA256** as the digest algorithm. 
+
+![Auto update](./media/active-directory-aadconnect-pass-through-authentication-security-deep-dive/pta5.png)
 
 Here is how an Authentication Agent gets auto-updated:
 
