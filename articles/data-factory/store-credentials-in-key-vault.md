@@ -2,7 +2,7 @@
 title: Store credentials in Azure Key Vault | Microsoft Docs
 description: Learn how to store credentials for data stores used in an Azure key vault that Azure Data Factory can automatically retrieve at runtime. 
 services: data-factory
-author: spelluru
+author: linda33wj
 manager: jhubbard
 editor: ''
 
@@ -11,8 +11,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2017
-ms.author: spelluru
+ms.date: 09/26/2017
+ms.author: jingwang
 ---
 
 # Store credential in Azure Key Vault
@@ -24,18 +24,55 @@ You can store credentials for data stores in an [Azure Key Vault](../key-vault/k
 
 ## Steps
 
-When creating a data factory, a service identity is created along with factory creation. The service identity is a managed application registered to Azure Activity Directory, and represents this specific data factory. You can find the service identity information from Azure portal -> your data factory -> Properties: 
-
-- SERVICE IDENTITY ID
-- SERVICE IDENTITY TENANT
-- SERVICE IDENTITY APPLICATION ID
+When creating a data factory, a service identity is created along with factory creation. The service identity is a managed application registered to Azure Activity Directory, and represents this specific data factory.
 
 To reference a credential stored in Azure Key Vault, you need to:
 
-1. Copy the "SERVICE IDENTITY APPLICATION ID" generated along with your data factory.
+1. Copy the "SERVICE IDENTITY APPLICATION ID" generated along with your data factory. Refer to [retrieve service identity](#retrieve-service-identity).
 2. Grant the service identity access to your Azure Key Vault. In your key vault -> Access control -> Add -> search this service identity application ID to add Reader permission. It allows this designated factory to access secret in key vault.
 3. Create a linked service pointing to your Azure Key Vault. Refer to [Azure Key Vault linked service](#azure-key-vault-linked-service).
-4. Create data store linked service, inside which reference the corresponding secret stored in key vault. Refer to [Reference credential stored in key vault](#reference-credential-stored-in-key-vault).
+4. Create data store linked service, inside which reference the corresponding secret stored in key vault. Refer to [reference credential stored in key vault](#reference-credential-stored-in-key-vault).
+
+## Retrieve service identity
+
+You can retrieve the service identity from Azure portal or programmatically. The following sections show some samples.
+
+>[!NOTE]
+> If you provision the data factory during early private preview, [upgrade private preview factory](#upgrade-private-preview-factory) to generate the service identity.
+
+### Using Azure portal
+
+You can find the service identity information from Azure portal -> your data factory -> Settings -> Properties:
+
+- SERVICE IDENTITY ID
+- SERVICE IDENTITY TENANT
+- **SERVICE IDENTITY APPLICATION ID** > copy this value to grant access in Key Vault
+
+![Retrieve service identity](media/store-credentials-in-key-vault/retrieve-service-identity-portal.png)
+
+### Using PowerShell
+
+The service identity principal ID and tenant ID will be returned when you get a specific data factory as follows:
+
+```powershell
+PS C:\WINDOWS\system32> (Get-AzureRmDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName>).Identity
+
+PrincipalId                          TenantId
+-----------                          --------
+765ad4ab-2e22-4df9-99ba-51ed985819dc 72f988bf-86f1-41af-91ab-2d7cd011db47
+```
+
+Copy the principal ID, then run below Azure Active Directory command with principal ID as parameter to get the **ApplicationId**, which you use to grant access in Key Vault:
+
+```powershell
+PS C:\WINDOWS\system32> Get-AzureRmADServicePrincipal -ObjectId 765ad4ab-2e22-4df9-99ba-51ed985819dc
+
+ServicePrincipalNames : {76f668b3-a36b-491e-8ece-1b3348c75e02, https://identity.azure.net/P86P8g6nt1QxfPJx22om8MOooMf/Ag0Qf/nnREppHkU=}
+ApplicationId         : 76f668b3-a36b-491e-8ece-1b3348c75e02
+DisplayName           : ADFV2DemoFactory
+Id                    : 765ad4ab-2e22-4df9-99ba-51ed985819dc
+Type                  : ServicePrincipal
+```
 
 ## Azure Key Vault linked service
 
@@ -44,7 +81,7 @@ The following properties are supported for Azure Key Vault linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **AzureKeyVault**. | Yes |
-| baseUrl | Specify the Azure Key Vault URL (DNS name). | Yes |
+| baseUrl | Specify the Azure Key Vault URL. | Yes |
 
 **Example:**
 
@@ -94,6 +131,83 @@ The following properties are supported when you configure a field in linked serv
         }
     }
 }
+```
+
+## Upgrade private preview factory
+
+If you provision a data factory during early private preview, your factory may not have a service identity associated. Refer to [retrieve service identity](#retrieve-service-identity) section to validate. To generate a service identity for your existing factory, update data factory with identity initiator programmatically. The following sections show some samples.
+
+### Using PowerShell
+
+Call **Set-AzureRmDataFactoryV2** command again, then you see "Identity" fields being newly generated:
+
+```powershell
+PS C:\WINDOWS\system32> Set-AzureRmDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName> -Location <region>
+
+DataFactoryName   : ADFV2DemoFactory
+DataFactoryId     : /subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/ADFV2DemoFactory
+ResourceGroupName : <resourceGroupName>
+Location          : East US
+Tags              : {}
+Identity          : Microsoft.Azure.Management.DataFactory.Models.FactoryIdentity
+ProvisioningState : Succeeded
+```
+
+### Using REST API
+
+Call below API with "identity" section in the request body:
+
+```
+PATCH https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<data factory name>?api-version=2017-09-01-preview
+```
+
+**Request body**: add "identity": { "type": "SystemAssigned" }.
+
+```json
+{
+    "name": "<dataFactoryName>",
+    "location": "<region>",
+    "properties": {},
+    "identity": {
+        "type": "SystemAssigned"
+    }
+}
+```
+
+**Response**: service identity is created automatically, and "identity" section is populated accordingly.
+
+```json
+{
+    "name": "ADFV2DemoFactory",
+    "tags": {},
+    "properties": {
+        "provisioningState": "Succeeded",
+        "loggingStorageAccountKey": "**********",
+        "createTime": "2017-09-26T04:10:01.1135678Z",
+        "version": "2017-09-01-preview"
+    },
+    "identity": {
+        "type": "SystemAssigned",
+        "principalId": "765ad4ab-2e22-4df9-99ba-51ed985819dc",
+        "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+    },
+    "id": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/ADFV2DemoFactory",
+    "type": "Microsoft.DataFactory/factories",
+    "location": "EastUS"
+}
+```
+
+### Using SDK
+
+Call the data factory create_or_update function with Identity=new FactoryIdentity(). Sample code using .NET:
+
+```csharp
+Factory dataFactory = new Factory
+{
+    Location = <region>,
+    Identity = new FactoryIdentity()
+};
+client.Factories.CreateOrUpdate(resourceGroup, dataFactoryName, dataFactory);
 ```
 
 ## Next steps
