@@ -51,7 +51,7 @@ for (int i = 0; i \< 100; i++)
 
 If the application starts the 10 asynchronous send operations in immediate succession and awaits their respective completion separately, the round trip time for those 10 send operations overlaps. The 10 messages are transferred in immediate succession, potentially even sharing TCP frames, and the overall transfer duration largely depends on the network-related time it takes to get the messages transferred to the broker.
 
-Making the same assumptions as for the prior loop, the total overlapped execution time for the loop below might stay well under one second:
+Making the same assumptions as for the prior loop, the total overlapped execution time for the following loop might stay well under one second:
 
 ```csharp
 var tasks = new List\<Task\>();
@@ -64,7 +64,7 @@ await Task.WhenAll(tasks.ToArray());
 
 It is important to note that all asynchronous programming models use some form of memory-based, hidden work queue that holds pending operations. When [SendAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.sendasync) (C#) or **Send** (Java) return, the send task is queued up in that work queue but the protocol gesture only commences once it is the task's turn to run. For code that tends to push bursts of messages and where reliability is a concern, care should be taken that not too many messages are put "in flight" at once, because all sent messages take up memory until they have factually been put onto the wire.
 
-Semaphores, as shown below in C#, are synchronization objects that enable such application-level throttling when needed. This use of a semaphore allows for at most 10 messages to be in flight at once. One of the 10 available semaphore locks is taken before the send and it is released as the send completes. The 11th pass through the loop waits until at least one of the prior sends has completed, and then makes its lock available:
+Semaphores, as shown in the following code snippet in C#, are synchronization objects that enable such application-level throttling when needed. This use of a semaphore allows for at most 10 messages to be in flight at once. One of the 10 available semaphore locks is taken before the send and it is released as the send completes. The 11th pass through the loop waits until at least one of the prior sends has completed, and then makes its lock available:
 
 ```csharp
 var semaphore = new SemaphoreSlim(10);
