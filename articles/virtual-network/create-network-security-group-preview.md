@@ -137,6 +137,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       --subnet-name mySubnet \
       --address-prefix 10.0.0.0/16 \
       --location westcentralus
+    ```
 
 11. Associate the network security group to the subnet in the virtual network:
 
@@ -146,7 +147,8 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       --resource-group myResourceGroup \
       --vnet-name myVnet \
       --network-security-group myNsg
-
+    ```
+    
 12. Create three network interfaces, one for each server type: 
 
     ```azurecli-interactive
