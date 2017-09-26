@@ -41,10 +41,7 @@ Before you begin this tutorial:
 - Install the [Service Fabric CLI](service-fabric-cli.md)
 - Install the [Azure CLI 2.0](/cli/azure/install-azure-cli)
 
-The following procedures create a five-node Service Fabric cluster. The cluster is secured by a self-signed certificate placed in a key vault. 
-
-To calculate cost incurred by running a Service Fabric cluster in Azure use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
-For more information on creating Service Fabric clusters, see [Create a Service Fabric cluster by using Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
+The following procedures create a five-node Service Fabric cluster. To calculate cost incurred by running a Service Fabric cluster in Azure use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
 
 ## Sign-in to Azure and select your subscription
 This guide uses Azure CLI. When you start a new session, sign in to your Azure account and select your subscription before you execute Azure commands.
@@ -85,13 +82,11 @@ az group deployment create \
 ```
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>
 ## Deploy the Service Fabric cluster
-Once the network resources have finished deploying, the next step is to deploy a Service Fabric cluster to the VNET in the subnet and NSG designated for the Service Fabric cluster. For this tutorial series, the Service Fabric Resource Manager template is pre-configured to use the names of the VNET, subnet, and NSG that you set up in a previous step.
-
-Deploying a cluster to an existing VNET and subnet (deployed previously in this article) requires a Resource Manager template.  Download the following Resource Manager template and parameters file:
+Once the network resources have finished deploying, the next step is to deploy a Service Fabric cluster to the VNET in the subnet and NSG designated for the Service Fabric cluster. Deploying a cluster to an existing VNET and subnet (deployed previously in this article) requires a Resource Manager template.  For more information, see [Create a cluster by using Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). For this tutorial series, the template is pre-configured to use the names of the VNET, subnet, and NSG that you set up in a previous step.  Download the following Resource Manager template and parameters file:
 - [linuxcluster.json][cluster-arm]
 - [linuxcluster.parameters.json][cluster-parameters-arm]
 
-Fill in the empty **clusterName**, **adminUserName**, and **adminPassword** parameters in the `linuxcluster.parameters.json` file for your deployment.  Leave the **certificateThumbprint**, **certificateUrlValue**, and **sourceVaultValue** parameters blank if you want to create a self-signed certificate.  If you have an existing certificate uploaded to a keyvault, fill in those parameter values.
+Fill in the empty **clusterName**, **adminUserName**, and **adminPassword** parameters in the `linuxcluster.parameters.json` file for your deployment.  Leave the **certificateThumbprint**, **certificateUrlValue**, and **sourceVaultValue** parameters blank if you want to create a self-signed certificate.  If you have an existing certificate previously uploaded to a key vault, fill in those parameter values.
 
 Use the following script to deploy the cluster using the Resource Manager template and parameter files.  A self-signed certificate is created in the specified key vault and is used to secure the cluster.  The certificate is also downloaded locally.
 
@@ -104,7 +99,7 @@ az group create --name $ResourceGroupName --location $Location
 az sf cluster create --resource-group $ResourceGroupName --location $Location \
    --certificate-output-folder . --certificate-password $Password --certificate-subject-name $Subject \
    --vault-name $VaultName --vault-resource-group $ResourceGroupName  \
-   --template-file portalcluster.json --parameter-file portalcluster.parameters.json
+   --template-file linuxcluster.json --parameter-file linuxcluster.parameters.json
 
 ```
 
