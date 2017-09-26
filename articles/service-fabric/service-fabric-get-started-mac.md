@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/21/2017
+ms.date: 09/26/2017
 ms.author: saysa
 
 ---
@@ -45,7 +45,7 @@ To create the local VM containing a 5-node Service Fabric cluster, perform the f
     ```bash
     git clone https://github.com/azure/service-fabric-linux-vagrant-onebox.git
     ```
-    This steps bring downs the file `Vagrantfile` containing the VM configuration along with the location the VM is downloaded from.  The file points to a stock Ubuntu image. 
+    This steps bring downs the file `Vagrantfile` containing the VM configuration along with the location the VM is downloaded from.  The file points to a stock Ubuntu image.
 
 2. Navigate to the local clone of the repo
 
@@ -72,7 +72,7 @@ To create the local VM containing a 5-node Service Fabric cluster, perform the f
     ```bash
     vagrant ssh
     ```
-   
+
    Install the SDK as described in [SDK installation](service-fabric-get-started-linux.md).  The script below is provided for convenience for installing the Service Fabric runtime and the Service Fabric common SDK along with sfctl CLI. Running the script assumes you have read and agreed to the licenses for all the software that is being installed.
 
     ```bash
@@ -93,6 +93,25 @@ To create the local VM containing a 5-node Service Fabric cluster, perform the f
 
     ![Service Fabric Explorer viewed from the host Mac][sfx-mac]
 
+## Install the necessary Java artifacts on Vagrant (optional, if you want to use the Java programming models)
+
+To build Service Fabric services using Java, ensure you have JDK 1.8 installed along with Gradle which is used for running build tasks. The following snippet installs Open JDK 1.8 along with Gradle. The Service Fabric Java libraries are pulled from Maven.
+
+  ```bash
+  vagrant ssh
+  sudo apt-get install openjdk-8-jdk-headless
+  sudo apt-get install gradle
+```
+
+## Set up the Service Fabric CLI
+
+The [Service Fabric CLI](service-fabric-cli.md) has commands for interacting with Service Fabric entities,
+including clusters and applications. It is based on python, so be sure to have python and pip installed before you
+proceed with the following command:
+
+```bash
+pip install sfctl
+```
 
 ## Create application on Mac using Yeoman
 Service Fabric provides scaffolding tools which will help you create a Service Fabric application from terminal using Yeoman template generator. Please follow the steps below to ensure you have the Service Fabric yeoman template generator working on your machine.
@@ -137,6 +156,7 @@ Service Fabric provides a plugin for the **Eclipse Neon for Java IDE** that can 
 * [Create a Service Fabric cluster in the Azure portal](service-fabric-cluster-creation-via-portal.md)
 * [Create a Service Fabric cluster using the Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 * [Understand the Service Fabric application model](service-fabric-application-model.md)
+* [Use the Service Fabric CLI to manage your applications](service-fabric-application-lifecycle-sfctl.md)
 
 <!-- Images -->
 [cluster-setup-script]: ./media/service-fabric-get-started-mac/cluster-setup-mac.png
