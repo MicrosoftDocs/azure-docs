@@ -35,13 +35,13 @@ Security Center automatically collects, analyzes, and integrates log data from y
 >
 
 ## Managing security alerts
-You can review your current alerts by looking at the **Security alerts** tile. Open Azure Portal and follow the steps below to see more details about each alert:
+You can review your current alerts by looking at the **Security alerts** tile. Follow the steps below to see more details about each alert:
 
 1. On the Security Center dashboard, you see the **Security alerts** tile.
 
     ![Security alerts tile in Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig1-ga.png)
 
-2. Click the tile to open the **Security alerts**, there you see more details about the alerts as shown below.
+2. Click the tile to open the **Security alerts** to see more details about the alerts.
 
    ![The Security alerts in Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig2-ga.png)
 
@@ -63,7 +63,7 @@ You can filter alerts based on date, state, and severity. Filtering alerts can b
     ![Filtering alerts in Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig3-2017.png)
 
 ### Respond to security alerts
-Select a security alert to learn more about the event(s) that triggered the alert and what, if any, steps you need to take to remediate an attack. Security alerts are grouped by type and date. Clicking a security alert open a page containing a list of the grouped alerts.
+Select a security alert to learn more about the event(s) that triggered the alert and what, if any, steps you need to take to remediate an attack. Security alerts are grouped by type and date. Clicking a security alert opens a page containing a list of the grouped alerts.
 
 ![Respond to security alerts in Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig5-ga.png)
 
@@ -76,8 +76,8 @@ In the **Description** field you find more details about this event. These addit
 The remediation suggested by Security Center vary according to the security alert. In some cases, you may have to use other Azure capabilities to implement the recommended remediation. For example, the remediation for this attack is to blacklist the IP address that is generating this attack by using a [network ACL](../virtual-network/virtual-networks-acl.md) or a [network security group](../virtual-network/virtual-networks-nsg.md) rule. For more information on the different types of alerts, read [Security Alerts by Type in Azure Security Center](security-center-alerts-type.md).
 
 > [!NOTE]
-> New Linux detections now in preview: Security Center has released to limited preview a new set of detections that leverage auditd records, a common auditing framework, to detect malicious behaviors on Linux machines. Please send an email 
-> with your subscription IDs to [us](ASC_linuxdetections@microsoft.com) to join the preview.
+> Security Center has released to limited preview a new set of detections that leverage auditd records, a common auditing framework, to detect malicious behaviors on Linux machines. Please send an email 
+> with your subscription IDs to [us](mailto:ASC_linuxdetections@microsoft.com) to join the preview.
 
 
 ## See also

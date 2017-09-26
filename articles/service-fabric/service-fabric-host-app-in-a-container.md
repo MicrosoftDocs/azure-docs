@@ -212,6 +212,8 @@ In this tutorial, you learned how to:
 > * Containerize an existing application
 > * Setup continuous integration with Visual Studio and VSTS
 
+In the next part of the tutorial, learn how to set up [monitoring for your container](service-fabric-tutorial-monitoring-wincontainers.md).
+
 <!--   NOTE SURE WHAT WE SHOULD DO YET HERE
 
 Advance to the next tutorial to learn how to bind a custom SSL certificate to it.
