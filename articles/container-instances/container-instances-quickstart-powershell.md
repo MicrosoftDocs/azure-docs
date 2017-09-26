@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2017
+ms.date: 09/26/2017
 ms.author: marsma
 ms.custom: mvc
 ---
@@ -42,7 +42,7 @@ Login-AzureRmAccount
 
 ## Create resource group
 
-Create an Azure resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed.
+Create an Azure resource group with [New-AzureRmResourceGroup][New-AzureRmResourceGroup]. A resource group is a logical container into which Azure resources are deployed and managed.
 
 ```powershell
 New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
@@ -50,13 +50,13 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## Create a container
 
-You can create a container by providing a name, a Docker image, and an Azure resource group. You can optionally expose the container to the internet with a public IP address. In this case, we'll use a Windows Nano Server container running Internet Information Services (IIS).
+You can create a container by providing a name, a Docker image, and an Azure resource group to the [New-AzureRmContainerGroup][New-AzureRmContainerGroup] cmdlet. You can optionally expose the container to the internet with a public IP address. In this case, we'll use a Windows Nano Server container running Internet Information Services (IIS).
 
 ```powershell
 New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -IpAddressType Public
 ```
 
-Within a few seconds you'll get a response to your request. Initially, the container will be in a **Creating** state, but it should start within a minute or two. You can check the status using the `Get-AzureRmContainerGroup` cmdlet:
+Within a few seconds you'll get a response to your request. Initially, the container will be in a **Creating** state, but it should start within a minute or two. You can check the status using the [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup] cmdlet:
 
 ```powershell
 Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
@@ -87,7 +87,7 @@ Once the container **ProvisioningState** moves to `Succeeded`, you can reach it 
 
 ## Delete the container
 
-When you are done with the container, you can remove it using the `Remove-AzureRmContainerGroup` cmdlet:
+When you are done with the container, you can remove it using the [Remove-AzureRmContainerGroup][Remove-AzureRmContainerGroup] cmdlet:
 
 ```powershell
 Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
@@ -99,6 +99,12 @@ In this Quickstart, you started a pre-built Windows container in Azure Container
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances tutorials](./container-instances-tutorial-prepare-app.md)
+
+<!-- LINKS -->
+[New-AzureRmResourceGroup]: /powershell/module/azurerm.resources/new-azurermresourcegroup
+[New-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
+[Get-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/get-azurermcontainergroup
+[Remove-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/remove-azurermcontainergroup
 
 <!-- IMAGES -->
 [qs-powershell-01]: ./media/container-instances-quickstart-powershell/qs-powershell-01.png
