@@ -2,8 +2,8 @@
 title: Logging API reference | Microsoft Docs
 description: Logging API reference.
 services: machine-learning
-author: akannava
-ms.author: akshaya-a
+author: akshaya-a
+ms.author: akannava
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
