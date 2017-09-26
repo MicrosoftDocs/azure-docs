@@ -25,13 +25,14 @@ If you are a Visual Studio C# developer, Azure Functions also [integrates with V
 
 ## Install the Azure Functions Core Tools
 
-[Azure Functions Core Tools] is a local version of the Azure Functions runtime that you can run on your local Windows computer. It's not an emulator or simulator. It's the same runtime that powers Functions in Azure. There are currently two versions of Azure Functions Core Tools, where each supports a different version of the Azure Functions runtime. Both are provided as an npm package.
+[Azure Functions Core Tools] is a local version of the Azure Functions runtime that you can run on your local Windows computer. It's not an emulator or simulator. It's the same runtime that powers Functions in Azure. There are currently two versions of Azure Functions Core Tools, where each supports a different version of the Azure Functions runtime. Both versions are provided as an npm package.
 
-You must first [install NodeJS](https://docs.npmjs.com/getting-started/installing-node), which includes npm.  
+>[!NOTE]  
+> Before you install either version, you must [install NodeJS](https://docs.npmjs.com/getting-started/installing-node), which includes npm.  
 
 ### Version 1.0 runtime
 
-The original version of the tools uses the Functions 1.0 runtime. This version is only supported on Windows computers. Use the following command to to install the version 1.0 tools:
+The original version of the tools uses the Functions 1.0 runtime. This version uses .NET standard and is only supported on Windows computers. Use the following command to to install the version 1.0 tools:
 
 ```bash
 npm install -g azure-functions-core-tools
@@ -58,7 +59,7 @@ When installing on Ubuntu use `sudo`, as follows:
 sudo npm install -g azure-functions-core-tools@core
 ```
 
-When installing on macOS, you may need to include the unsafe-perm flag, as follows:
+When installing on macOS, you may need to include the `unsafe-perm` flag, as follows:
 
 ```bash
 sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
@@ -72,6 +73,10 @@ sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
 * **azurefunctions**
 
 All of these alias can be used instead of `func` shown in the examples in this topic.
+
+```
+func init MyFunctionProj
+```
 
 ## Create a local Functions project
 
