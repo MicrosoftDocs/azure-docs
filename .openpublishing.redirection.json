@@ -12877,7 +12877,7 @@
         },
         {
             "source_path": "articles/billing/billing-usage-rate-card-partner-solution-cloudyn.md", 
-             "redirect_url": "/azure/cost-management/overview.md", 
+             "redirect_url": "/azure/cost-management/overview", 
              "redirect_document_id": false 
         },
         {
