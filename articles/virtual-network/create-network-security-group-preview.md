@@ -32,13 +32,25 @@ This article provides steps to create network security groups through the Resour
 
 ## Azure CLI
 
-Azure CLI commands are the same, whether you execute the commands from Windows, Linux, or macOS. However, there are scripting differences between operating system shells. The script in the following steps executes in a Bash shell. 
+Azure CLI commands are the same, whether you execute the commands from Windows, Linux, or macOS. However, there are scripting differences between operating system shells. The scripts in the following steps execute in a Bash shell. 
 
 1. [Install and configure the Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json).
-2. Ensure you are using a version of the CLI 2.0 higher than 2.0.17 by entering the `az --version` command. If you are not, install the most recent version.
+2. Ensure you are using version 2.0.18 or higher of the Azure CLI by entering the `az --version` command. If you are not, install the most recent version.
 3. Log in to Azure with the `az login` command.
-4. Register for the preview features used in this tutorial by completing steps 1-5 in [PowerShell](#powershell). You can only register for the preview using PowerShell. Do not continue with the remaining steps until your registration is successful or the steps fail.
-5. Run the following script to create a resource group:
+4. Register for the preview by entering the following commands:
+    
+    ```azurecli-interactive
+    az feature register --name AllowApplicationSecurityGroups --namespace Microsoft.Network
+    ``` 
+
+5. Confirm that you are registered for the preview by entering the following command:
+
+    ```azurecli-interactive
+    az feature show --name AllowApplicationSecurityGroups --namespace Microsoft.Network
+    ```
+
+    Do not continue with the remaining steps until *Registered* appears for **state** in the output returned from the previous command. If you continue before you're registered, remaining steps fail.
+6. Run the following bash script to create a resource group:
 
     ```azurecli-interactive
     #!/bin/bash
@@ -48,7 +60,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       --location westcentralus
     ```
 
-6. Create three application security groups, one for each server type:
+7. Create three application security groups, one for each server type:
 
     ```azurecli-interactive
     az network asg create \
@@ -67,7 +79,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       --location westcentralus
     ```
 
-7. Create a network security group:
+8. Create a network security group:
 
     ```azurecli-interactive
     az network nsg create \
@@ -76,7 +88,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       --location westcentralus
     ```
 
-8. Create security rules within the NSG.
+9. Create security rules within the NSG, setting the application security groups as the destination:
     
     ```azurecli-interactive    
     az network nsg rule create \
@@ -116,7 +128,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       --protocol "TCP" 
     ``` 
 
-9. Create a virtual network: 
+10. Create a virtual network: 
     
     ```azurecli-interactive
     az network vnet create \
@@ -125,8 +137,9 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       --subnet-name mySubnet \
       --address-prefix 10.0.0.0/16 \
       --location westcentralus
+    ```
 
-10. Associate the network security group to the subnet in the virtual network:
+11. Associate the network security group to the subnet in the virtual network:
 
     ```azurecli-interactive
     az network vnet subnet update \
@@ -134,8 +147,9 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       --resource-group myResourceGroup \
       --vnet-name myVnet \
       --network-security-group myNsg
-
-11. Create three network interfaces, one for each server type. 
+    ```
+    
+12. Create three network interfaces, one for each server type: 
 
     ```azurecli-interactive
     az network nic create \
@@ -166,9 +180,9 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       --application-security-groups "DatabaseServers"
     ```
 
-    Only the corresponding security rule you created in step 8 is applied to the network interface, based on the application security group the network interface is a member of. For example, only the *WebRule* is effective for the *myWebNic*, because the network interface is a member of the *WebServers* application security group and the rule specifies the *WebServers* application security group as its destination. The *AppRule* and *DatabaseRule* rules are not applied to the *myWebNic*, because the network interface is not a member of the *AppServers* and *DatabaseServers* application security groups.
+    Only the corresponding security rule you created in step 9 is applied to the network interface, based on the application security group the network interface is a member of. For example, only the *WebRule* is effective for the *myWebNic*, because the network interface is a member of the *WebServers* application security group and the rule specifies the *WebServers* application security group as its destination. The *AppRule* and *DatabaseRule* rules are not applied to the *myWebNic*, because the network interface is not a member of the *AppServers* and *DatabaseServers* application security groups.
 
-12. Create one virtual machine for each server type, attaching the corresponding network interface to each virtual machine. This example creates Windows virtual machines, but you can change *win2016datacenter* to *UbuntuLTS* to create Linux virtual machines instead.
+13. Create one virtual machine for each server type, attaching the corresponding network interface to each virtual machine. This example creates Windows virtual machines, but you can change *win2016datacenter* to *UbuntuLTS* to create Linux virtual machines instead.
 
     ```azurecli-interactive
     # Update for your admin password
@@ -202,7 +216,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       --admin-password $AdminPassword    
     ```
 
-13. **Optional**: Delete the resources that you create in this tutorial by completing the steps in [Delete resources](#delete-cli).
+14. **Optional**: Delete the resources that you create in this tutorial by completing the steps in [Delete resources](#delete-cli).
 
 ## PowerShell
 
