@@ -4,16 +4,30 @@
   items:
     - name: Customize your search
       href: overview.md
-    - name: How it works
-      href: how-it-works.md
 - name: Quickstarts
   expanded: true
   items:
-    - name: Build a custom search service
-      href: quickstart.md
+    - name: Get started
+      href: get-started.md
+- name: How to  
+  items:
+    - name: Define your slice
+      href: define-your-slice.md
+    - name: Rank results
+      href: rank-results.md
+    - name: Configure hosted UI
+      href: hosted-ui.md
+    - name: Handle hit highlighting
+      href: hit-highlighting.md
+    - name: Page webpages
+      href: paging-webpages.md
 - name: References
   items:
-    - name: Bing Web Search API Use and Display Requirements
+    - name: Bing Custom Search API v7 Reference
+      href: bing-custom-search-api-v7-reference.md
+    - name: Bing Autosuggest API
+      href: ../bing-autosuggest/get-suggested-search-terms.md
+    - name: Bing Use and Display Requirements
       href: https://docs.microsoft.com/azure/cognitive-services/bing-web-search/useanddisplayrequirements
 - name: Resources
   items:
