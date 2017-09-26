@@ -4,7 +4,7 @@ description: Learn how to use Ansible to create and manage a basic Linux virtual
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: na
 tags: azure-resource-manager
 
