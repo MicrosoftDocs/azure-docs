@@ -98,6 +98,6 @@ If the VHD is a data disk, detach the VHD from the VM to remove the lease:
 
 9. Select **_Save_**. The disk should now be detached from the VM, and the VHD should no longer have a lease on it. It may take a few minutes for the lease to be released. To verify that the lease has been released, browse to the blob location and in the **_Blob properties_** pane, the **_Lease Status_** value should be **_Unlocked_**.
 
-### Step 4: Retry delete Storage object
-Retry Storage object deletion process.
+### Step 4: Retry deletion of Storage object
+Retry deletion of storage object that had previously failed.
 
