@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/10/2017
+ms.date: 09/26/2017
 ms.author: jingwang
 
 ---
@@ -515,8 +515,8 @@ This pipeline performs two steps:
 
     ```json
 	Pipeline run details:
-    ResourceGroupName : adf
-    DataFactoryName   : lindaTutorialBulkCopy3
+    ResourceGroupName : <resourceGroupName>
+    DataFactoryName   : <dataFactoryName>
     RunId             : 0000000000-00000-0000-0000-000000000000
     PipelineName      : GetTableListAndTriggerCopyData
     LastUpdated       : 9/18/2017 4:08:15 PM
