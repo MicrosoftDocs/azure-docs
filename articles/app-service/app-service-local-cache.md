@@ -86,12 +86,12 @@ You enable Local Cache on a per-web-app basis by using this app setting:
 By default, the local cache size is **300 MB**. This includes the /site and /siteextensions folders that are copied from the content store, as well as any locally created logs and data folders. To increase this limit, use the app setting `WEBSITE_LOCAL_CACHE_SIZEINMB`. You can increase the size up to **2 GB** (2000 MB) per web app.
 
 ## Best practices for using App Service Local Cache
-We recommend that you use Local Cache in conjunction with the [Staging Environments](../app-service-web/web-sites-staged-publishing.md) feature.
+We recommend that you use Local Cache in conjunction with the [Staging Environments](../app-service/web-sites-staged-publishing.md) feature.
 
 * Add the *sticky* app setting `WEBSITE_LOCAL_CACHE_OPTION` with the value `Always` to your **Production** slot. If you're using `WEBSITE_LOCAL_CACHE_SIZEINMB`, also add it as a sticky setting to your Production slot.
 * Create a **Staging** slot and publish to your Staging slot. You typically don't set the staging slot to use Local Cache to enable a seamless build-deploy-test lifecycle for staging if you get the benefits of Local Cache for the production slot.
 * Test your site against your Staging slot.  
-* When you are ready, issue a [swap operation](../app-service-web/web-sites-staged-publishing.md#Swap) between your Staging and Production slots.  
+* When you are ready, issue a [swap operation](../app-service/web-sites-staged-publishing.md#Swap) between your Staging and Production slots.  
 * Sticky settings include name and sticky to a slot. So when the Staging slot gets swapped into Production, it inherits the Local Cache app settings. The newly swapped Production slot will run against the local cache after a few minutes and will be warmed up as part of slot warmup after swap. So when the slot swap is complete, your Production slot is running against the local cache.
 
 ## Frequently asked questions (FAQ)
