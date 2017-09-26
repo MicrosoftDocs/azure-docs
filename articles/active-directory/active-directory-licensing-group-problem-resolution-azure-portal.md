@@ -106,6 +106,35 @@ Azure AD attempts to assign all licenses that are specified in the group to each
 
 You'll be able to see the users who failed to get assigned failed and check which products have been affected by this.
 
+## How to manage licenses for products with prerequisites?
+
+Some Microsoft Online products that you acquire are "add-ons" - they require a prerequisite service plan to be enabled for a user, or a group, before they can be assigned. With group-based licensing, the system requires that both the prerequisite and add-on service plans be present on the group, to ensure that any users who are added to the group can received a valid service plan assignment. Let's consider the following example:
+
+*Microsoft Workplace Analytics* is an add-on product. It contains a single service plan with the same name and Id of WORKPLACE_ANALYTICS. This service plan can only be assigned to a user, or group, when one of the following prerequisites are also assigned:
+- *Exchange Online (Plan 1)* (Id: EXCHANGE_S_STANDARD)
+- or, *Exchange Online (Plan 2)* (Id: EXCHANGE_S_ENTERPRISE).
+
+If we try to assign this product on its own to a group, the portal will return an error - clicking on the error notification shows the following details:
+
+![Group, prerequisite missing](media/active-directory-licensing-group-problem-resolution-azure-portal/group-prerequisite-required.png)
+
+Clicking on the details shows the following error message:
+
+*License operation failed. Make sure that the group has necessary services before adding or removing a dependent service. **The service Microsoft Workplace Analytics requires Exchange Online (Plan 2) to be enabled as well.***
+
+In order to assign this add-on license to a group, we have to ensure that the group also contains the pre-requisite service plan. We could update an existing group that already contains the full *Office 365 E3* product with Exchange Online present.
+
+It is possible to create a standalone group that contains only the minimum required products to make the add-on work - it can be used to license only the selected users for the add-on product. In this example we have assigned the following products to the same group:
+- *Office 365 Enterprise E3*, with only the *Exchange Online (Plan 2)* service plan enabled
+- *Microsoft Workplace Analytics*
+
+![Group, prerequisite included](media/active-directory-licensing-group-problem-resolution-azure-portal/group-addon-with-prerequisite.png)
+
+The resulting assignment is valid and was applied to the group. From now on, any users added to this group will consume 1 license of the E3 product and one license of the Workplace Analytics product. At the same time those users can be members of another group that gives them the full E3 product and they will still consume only one license for that product.
+
+> [!TIP]
+> You can create multiple groups, for each prerequisite service plan. For example, if you use both *Office 365 Enterprise **E1*** and *Office 365 Enterprise **E3*** for your users, you could create two groups to license *Microsoft Workplace Analytics*; one using E1 as a prerequisite and the other using E3. This will allow you to distribute the add-on to E1 and E3 users without consuming additional licenses.
+
 ## License assignment fails silently for a user due to duplicate proxy addresses in Exchange Online
 
 If you are using Exchange Online, some users in your tenant may be incorrectly configured with the same proxy address value. When group-based licensing tries to assign a license to such a user, it will fail and will not record an error (unlike in the other error cases described above) - this is a limitation in the preview version of this feature and we are going to address it before *General Availability*.
