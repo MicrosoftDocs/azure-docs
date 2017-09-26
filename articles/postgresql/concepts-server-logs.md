@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 09/26/2017
 ---
 # Server Logs in Azure Database for PostgreSQL 
-Azure Database for PostgreSQL generates query and error logs. However, access to transaction logs is not supported. These logs can be used to identify, troubleshoot, and repair configuration errors and sub-optimal performance. For more information, see [Error Reporting and Logging](https://www.postgresql.org/docs/9.6/static/runtime-config-logging.html).
+Azure Database for PostgreSQL generates query and error logs. However, access to transaction logs is not supported. These logs can be used to identify, troubleshoot, and repair configuration errors and suboptimal performance. For more information, see [Error Reporting and Logging](https://www.postgresql.org/docs/9.6/static/runtime-config-logging.html).
 
 ## Access server logs
-You can list and download Azure PostgreSQL server error logs using the Azure Portal, [Azure CLI](howto-configure-server-logs-using-cli.md) and Azure REST APIs.
+You can list and download Azure PostgreSQL server error logs using the Azure portal, [Azure CLI](howto-configure-server-logs-using-cli.md), and Azure REST APIs.
 
 ## Log retention
 You can set the retention period for system logs using the **log\_retention\_period** parameter associated with your server. The unit for this parameter is days. The default value is three days. The maximum value is 7 days. Note that your server must have enough allocated storage to contain the retained log files.
-The log files will rotate every 1 hour or 100MB size, whichever comes first.
+The log files rotate every 1 hour or 100MB size, whichever comes first.
 
 ## Configure logging for Azure PostgreSQL server
-You can enable query logging and error logging for your server. Error logs can contain auto-vacuum, connection and checkpoints information.
+You can enable query logging and error logging for your server. Error logs can contain auto-vacuum, connection, and checkpoints information.
 
 You can enable query logging for your PostgreSQL DB instance by setting two server parameters: log\_statement and log\_min\_duration\_statement.
 
@@ -34,5 +34,5 @@ The **log\_min\_messages** allows you to control which message levels are writte
 For more information on these settings, see [Error Reporting and Logging](https://www.postgresql.org/docs/9.6/static/runtime-config-logging.html) documentation. For particularly configuring Azure Database for PostgreSQL server parameters, see [Server Logs in Azure Database for PostgreSQL](concepts-server-logs.md).
 
 ## Next steps
-- To access logs using Azure CLI command line interface, see [Configure and access server logs using Azure CLI](howto-configure-server-logs-using-cli.md)
+- To access logs using Azure CLI command-line interface, see [Configure and access server logs using Azure CLI](howto-configure-server-logs-using-cli.md)
 - For more information on server parameters, see [Customize server configuration parameters using Azure CLI](howto-configure-server-parameters-using-cli.md).
