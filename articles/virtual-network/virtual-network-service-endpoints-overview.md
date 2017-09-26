@@ -22,7 +22,7 @@ ms.custom:
 
 Virtual Network(VNet) service endpoints extend your virtual network private address space and the identity of your VNet to the Azure services, over a direct connection. Endpoints allow you to secure your critical Azure service resources to only your virtual networks. Traffic from your VNet to the Azure service always remains on the Microsoft Azure backbone network.
 
-This feature is available in preview* for following Azure services and regions:
+This feature is available in preview for the following Azure services and regions:
 
 - **Azure Storage**: WestCentralUS, WestUS2, EastUS, WestUS, AustraliaEast, and AustraliaSouthEast
 - **Azure SQL Database**: WestCentralUS, WestUS2, and EastUS.
