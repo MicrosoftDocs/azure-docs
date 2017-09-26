@@ -533,6 +533,23 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |[2896881] |Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 
 
+[4038782]: http://support.microsoft.com/kb/4038782
+[4038779]: http://support.microsoft.com/kb/4038779
+[4038786]: http://support.microsoft.com/kb/4038786
+[4038793]: http://support.microsoft.com/kb/4038793
+[4040966]: http://support.microsoft.com/kb/4040966
+[4040960]: http://support.microsoft.com/kb/4040960
+[4040965]: http://support.microsoft.com/kb/4040965
+[4040959]: http://support.microsoft.com/kb/4040959
+[4033988]: http://support.microsoft.com/kb/4033988
+[4040955]: http://support.microsoft.com/kb/4040955
+[4040967]: http://support.microsoft.com/kb/4040967
+[4040958]: http://support.microsoft.com/kb/4040958
+[4036586]: http://support.microsoft.com/kb/4036586
+[4034664]: http://support.microsoft.com/kb/4034664
+[4034665]: http://support.microsoft.com/kb/4034665
+[4034681]: http://support.microsoft.com/kb/4034681
+
 [4034658]: http://support.microsoft.com/kb/4034658
 [4034679]: http://support.microsoft.com/kb/4034679
 [4034672]: http://support.microsoft.com/kb/4034672
