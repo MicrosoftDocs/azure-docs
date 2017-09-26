@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric CLI- sfctl partition| Microsoft Docs
-description: Describes the Service Fabric CLI sfctl partition commands.
+title: Azure Service Fabric CLI- sfctl rpm| Microsoft Docs
+description: Describes the Service Fabric CLI sfctl rpm commands.
 services: service-fabric
 documentationcenter: na
 author: rwike77
@@ -72,3 +72,7 @@ This API supports the Service Fabric platform; it is not meant to be used direct
 |    --output -o      | Output format.  Allowed values: json, jsonc, table, tsv.  Default| json.|
 |    --query          | JMESPath query string. See http://jmespath.org/ for more information and examples.|
 |    --verbose        | Increase logging verbosity. Use --debug for full debug logs.|
+
+## Next steps
+- [Set up](service-fabric-cli.md) the Service Fabric CLI.
+- Learn how to use the Service Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
