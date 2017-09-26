@@ -32,7 +32,7 @@ This article has the following prerequisites:
 
 ## Functions class library project
 
-From Visual Studio, create a new Azure Functions project. The new project template creates the files *host.json* and *local.settings.json*. You can [customize Azure Functions runtime settings in host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json). 
+From Visual Studio, create a new Azure Functions project. The new project template creates the files *host.json* and *local.settings.json*. You can [customize Azure Functions runtime settings in host.json](functions-host-json.md). 
 
 The file *local.settings.json* stores app settings, connection strings, and settings for Azure Functions Core Tools. To learn more about its structure, see [Code and test Azure functions locally](functions-run-local.md#local-settings).
 

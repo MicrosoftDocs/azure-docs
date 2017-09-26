@@ -80,7 +80,11 @@ func init MyFunctionProj
 
 ## Create a local Functions project
 
+<<<<<<< HEAD
 When running locally, a Functions project is a directory that has the files host.json and local.settings.json. This directory is the equivalent of a function app in Azure. To learn more about the Azure Functions folder structure, see the [Azure Functions developers guide](functions-reference.md#folder-structure). Use the `func init` command to create the function app project, and optionally a local Git repository.
+=======
+When running locally, a Functions project is a directory that has the files [host.json](functions-host-json.md) and [local.settings.json](#local-settings). This directory is the equivalent of a function app in Azure. To learn more about the Azure Functions folder structure, see the [Azure Functions developers guide](functions-reference.md#folder-structure).
+>>>>>>> 8d23a2b67e9... host.json and app settings reference
 
 In the terminal window or from a command prompt, run the following command to create the project and local Git repository:
 
@@ -125,9 +129,7 @@ The file local.settings.json stores app settings, connection strings, and settin
 | Setting      | Description                            |
 | ------------ | -------------------------------------- |
 | **IsEncrypted** | When set to **true**, all values are encrypted using a local machine key. Used with `func settings` commands. Default value is **false**. |
-| **Values** | Collection of application settings used when running locally. Add your application settings to this object.  |
-| **AzureWebJobsStorage** | Sets the connection string to the Azure Storage account that is used internally by the Azure Functions runtime. The storage account supports your function's triggers. This storage account connection setting is required for all functions except for HTTP triggered functions.  |
-| **AzureWebJobsDashboard** | Sets the connection string to the Azure Storage account that is used to store the function logs. This optional value makes the logs accessible in the portal.|
+| **Values** | Collection of application settings used when running locally. **AzureWebJobsStorage** and **AzureWebJobsDashboard** are examples; for a complete list, see [app settings reference](functions-app-settings.md).  |
 | **Host** | Settings in this section customize the Functions host process when running locally. | 
 | **LocalHttpPort** | Sets the default port used when running the local Functions host (`func host start` and `func run`). The `--port` command-line option takes precedence over this value. |
 | **CORS** | Defines the origins allowed for [cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Origins are supplied as a comma-separated list with no spaces. The wildcard value (**\***) is supported, which allows requests from any origin. |

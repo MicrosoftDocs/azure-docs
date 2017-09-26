@@ -198,7 +198,7 @@ Functions lets you define the threshold trace level for writing to the console, 
 }  
 ```
 
-Values of **consoleLevel** correspond to the names of the `context.log` methods. To disable all trace logging to the console, set **consoleLevel** to _off_. For more information about the host.json file, see the [host.json reference topic](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
+Values of **consoleLevel** correspond to the names of the `context.log` methods. To disable all trace logging to the console, set **consoleLevel** to _off_. For more information, see [host.json reference](functions-host-json.md).
 
 ## HTTP triggers and bindings
 

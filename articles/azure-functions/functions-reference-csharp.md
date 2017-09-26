@@ -92,7 +92,7 @@ public static void Run(ICollector<string> myQueueItem, TraceWriter log)
 ## Logging
 To log output to your streaming logs in C#, include an argument of type `TraceWriter`. We recommend that you name it `log`. Avoid using `Console.Write` in Azure Functions. 
 
-`TraceWriter` is defined in the [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs). The log level for `TraceWriter` can be configured in [host\.json].
+`TraceWriter` is defined in the [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs). The log level for `TraceWriter` can be configured in [host.json](functions-host-json.md).
 
 ```csharp
 public static void Run(string myBlob, TraceWriter log)
@@ -194,7 +194,7 @@ For information on how to upload files to your function folder, see the followin
 
 ### Watched directories
 
-The directory that contains the function script file is automatically watched for changes to assemblies. To watch for assembly changes in other directories, add them to the `watchDirectories` list in [host\.json].
+The directory that contains the function script file is automatically watched for changes to assemblies. To watch for assembly changes in other directories, add them to the `watchDirectories` list in [host.json](functions-host-json.md).
 
 ## Using NuGet packages
 To use NuGet packages in a C# function, upload a *project.json* file to the function's folder in the function app's file system. Here is an example *project.json* file that adds a reference to Microsoft.ProjectOxford.Face version 1.1.0:
@@ -451,5 +451,3 @@ For more information, see the following resources:
 * [Azure Functions F# developer reference](functions-reference-fsharp.md)
 * [Azure Functions NodeJS developer reference](functions-reference-node.md)
 * [Azure Functions triggers and bindings](functions-triggers-bindings.md)
-
-[host\.json]: https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json

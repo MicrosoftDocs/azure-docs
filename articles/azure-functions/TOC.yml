@@ -145,6 +145,10 @@
       href: functions-bindings-timer.md
     - name: Twilio
       href: functions-bindings-twilio.md
+  - name: host.json Reference
+    href: functions-host-json.md     
+  - name: App Settings Reference
+    href: functions-app-settings.md     
   - name: OpenAPI Reference
     href: functions-api-definition.md     
 - name: Resources
