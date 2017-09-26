@@ -55,6 +55,10 @@ Unzip the file to view the following folders:
 3. At the top of the Point-to-site configuration page, click **Download VPN client**. It takes a few minutes for the client configuration package to generate.
 4. Your browser indicates that a client configuration zip file is available. It is named the same name as your gateway. Unzip the file to view the folders.
 
+#### To retrieve client configuration files again
+
+If you need to retrieve client configuration files again, you can re-run the steps in this section to generate another zip file.
+
 ### <a name="zipps"></a>Generate files using PowerShell
 
 1. When generating VPN client configuration files, the value for '-AuthenticationMethod' is 'EapTls'. Generate the VPN client configuration files using the following command:
@@ -64,13 +68,7 @@ Unzip the file to view the following folders:
   ```
 2. The previous command returns a link that you use to download the client configuration files. Copy and paste the link to a web browser to download the 'VpnClientConfiguration.zip' file. 
 
-### To retrieve client configuration files again
-
-#### Azure portal
-
-You can download the package using exactly the same steps that you previously used in the portal.
-
-#### PowerShell
+#### To retrieve client configuration files again
 
 If you already generated client configuration files and you need to just retrieve them, you can use the 'Get-AzureRmVpnClientConfiguration' cmdlet. The 'Get-AzureRmVpnClientConfiguration' cmdlet returns a URL (link) from where you can download the VpnClientConfiguration.zip file. If you made any changes to your P2S VPN configuration, such as the VPN Protocol type or authentication type, the configuration doesn’t update automatically. You must instead run the 'New-AzureRmVpnClientConfiguration' cmdlet to recreate the configuration.
 
