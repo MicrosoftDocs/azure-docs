@@ -101,7 +101,7 @@ Specify the subscription that you want to use.
 Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 ```
 
-## <a name="prefixes"></a>Step 1. Get a list of prefixes and BGP community values
+## <a name="prefixes"></a>Step 1: Get a list of prefixes and BGP community values
 
 ### 1. Get a list of BGP community values
 
@@ -114,7 +114,7 @@ Get-AzureRmBgpServiceCommunity
 
 Make a list of BGP community values you want to use in the route filter. As an example, the BGP community value for Dynamics 365 services is 12076:5040.
 
-## <a name="filter"></a>Step 2. Create a route filter and a filter rule
+## <a name="filter"></a>Step 2: Create a route filter and a filter rule
 
 A route filter can have only one rule, and the rule must be of type 'Allow'. This rule can have a list of BGP community values associated with it.
 
@@ -144,7 +144,7 @@ $routefilter.Rules.Add($rule)
 Set-AzureRmRouteFilter -RouteFilter $routefilter
 ```
 
-## <a name="attach"></a>Step 3. Attach the route filter to an ExpressRoute circuit
+## <a name="attach"></a>Step 3: Attach the route filter to an ExpressRoute circuit
 
 Run the following command to attach the route filter to the ExpressRoute circuit, assuming you have only Microsoft peering:
 
@@ -153,7 +153,7 @@ $ckt.Peerings[0].RouteFilter = $routefilter
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-## <a name="tasks"></a>Tasks
+## <a name="tasks"></a>Common tasks
 
 ### <a name="getproperties"></a>To get the properties of a route filter
 

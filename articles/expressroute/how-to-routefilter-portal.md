@@ -74,7 +74,7 @@ Before you begin configuration, make sure you meet the following criteria:
  - You must have an active Microsoft peering. Follow instructions at [Create and modifying peering configuration](expressroute-howto-routing-portal-resource-manager.md)
 
 
-## <a name="prefixes"></a>Step 1. Get a list of prefixes and BGP community values
+## <a name="prefixes"></a>Step 1: Get a list of prefixes and BGP community values
 
 ### 1. Get a list of BGP community values
 
@@ -84,7 +84,7 @@ BGP community values associated with services accessible through Microsoft peeri
 
 Make a list of BGP community values you want to use in the route filter. As an example, the BGP community value for Dynamics 365 services is 12076:5040.
 
-## <a name="filter"></a>Step 2. Create a route filter and a filter rule
+## <a name="filter"></a>Step 2: Create a route filter and a filter rule
 
 A route filter can have only one rule, and the rule must be of type 'Allow'. This rule can have a list of BGP community values associated with it.
 
@@ -109,7 +109,7 @@ You can select the services you want to connect to from the drop down list and s
 ![Create a route filter](.\media\how-to-routefilter-portal\AddRouteFilterRule.png)
 
 
-## <a name="attach"></a>Step 3. Attach the route filter to an ExpressRoute circuit
+## <a name="attach"></a>Step 3: Attach the route filter to an ExpressRoute circuit
 
 You can attach the route filter to a circuit by selecting the "add Circuit" button and selecting the ExpressRoute circuit from the drop down list.
 
@@ -119,7 +119,7 @@ If the connectivity provider configures peering for your ExpressRoute circuit re
 
 ![Create a route filter](.\media\how-to-routefilter-portal\RefreshExpressRouteCircuit.png)
 
-## <a name="tasks"></a>Tasks
+## <a name="tasks"></a>Common tasks
 
 ### <a name="getproperties"></a>To get the properties of a route filter
 
