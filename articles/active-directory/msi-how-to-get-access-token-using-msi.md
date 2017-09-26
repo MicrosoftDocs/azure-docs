@@ -85,7 +85,10 @@ In the examples below, we show how to use a VM's MSI for token acquisition.
 > [!IMPORTANT]
 > MSI and Azure AD are not integrated. Therefore, the Azure AD Authentication Libraries (ADAL) cannot be used for MSI token acquisition. For more details, see [MSI known issues](msi-known-issues.md).
 
-TBD
+```csharp
+
+
+```
 
 ### Get a token using PowerShell
 
@@ -101,7 +104,7 @@ echo "The MSI access token is $access_token"
 ### Get a token using CURL
 
 ```bash
-response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true)
+response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s)
 access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
 echo The MSI access token is $access_token
 ```
