@@ -25,8 +25,8 @@ By enabling change tracking, you can track changes to files and Windows registry
 
 You can enable change tracking directly from your Azure virtual machine.
 
-If you do not have an Azure virtual machine, you can create one by using the [Windows quickstart](../virtual-machines/windows/quick-create-portal.md)
-or the [Linux quickstart](../virtual-machines/linux/quick-create-portal.md).
+If you do not have an Azure virtual machine, you can create one by following the instructions in the [Windows quickstart](../virtual-machines/windows/quick-create-portal.md)
+or [Linux quickstart](../virtual-machines/linux/quick-create-portal.md) article.
 
 ## Enable change tracking for an Azure virtual machine
 
@@ -38,16 +38,16 @@ or the [Linux quickstart](../virtual-machines/linux/quick-create-portal.md).
    ![Change tracking onboard vm](./media/automation-vm-change-tracking/change-onboard-vm-blade.png)  
     The **Enable Update Management** window opens.
 
-    Validation is performed to determine whether change tracking is enabled for this virtual machine. If change tracking is not enabled, a banner appears that gives you the option to enable the solution.
+    Validation is performed to determine whether change tracking is enabled for this virtual machine. If change tracking is not enabled, a banner is displayed, giving you the option to enable the solution.
 
    ![Change tracking onboard configuration banner](./media/automation-vm-change-tracking/change-onboard-banner.png)
 
-5. To enable the solution, select the banner. If you do not have the following, they are added automatically:
+5. To enable the solution, select the banner. If you do not have the following items, they are added automatically:
 
    * [Log Analytics](../log-analytics/log-analytics-overview.md) workspace
    * [Automation](../automation/automation-offering-get-started.md) account
 
-6. Select a Log Analytics work space to store data logs from change tracking and an Automation account to track changes, and then select **Enable**.  
+6. Select a Log Analytics work space to store data logs from change tracking, select an Automation account to track changes, and then select **Enable**.  
     A status bar notifies you that the solution is being enabled. This process can take up to 15 minutes.
 
 ## Configure change tracking
@@ -60,7 +60,7 @@ To choose which files and registry keys to track, select **Edit settings**.
 
    The **Workspace Configuration** window opens. 
 
-In the **Workspace Configuration** window, add the Windows registry keys, Windows files, or Linux files to be tracked by selecting **Add** on the appropriate tab.
+In the **Workspace Configuration** window, add the Windows registry keys, Windows files, or Linux files to be tracked, as outlined in the next three sections.
 
 ### Add a Windows registry key
 
@@ -100,7 +100,7 @@ In the **Workspace Configuration** window, add the Windows registry keys, Window
 4. (Optional) In the **Group** box, enter a group name.
 5. In the **Enter Path** box, enter the full path and file name of the file you want to track.
 6. In the **Path Type** box, select either **File** or **Directory**.
-7. Under **Recursion**, select **On** to track changes for the specified path and all files and paths under it. To track only the selected path or file, select **Off**.
+7. Under **Recursion**, to track changes for the specified path and all files and paths under it, select **On**. To track only the selected path or file, select **Off**.
 8. Under **Use Sudo**, to track files that require the `sudo` command to access, select **On**. Otherwise, select **Off**.
 9. Select **Save**.
 
@@ -110,9 +110,7 @@ In the **Change tracking** window, you can view the changes in each of the vario
 
    ![Change tracking add view changes](./media/automation-vm-change-tracking/change-view-changes.png)
 
-You can select the categories and the time range of changes to view. At the top of the window, you view a graphical representation of changes over time.
-
-At the bottom of the window, you can view a list of recent changes.
+You can select the categories and time range of changes to view. At the top of the window, you can view a graphical representation of changes over time. At the bottom of the window, you can view a list of recent changes.
 
 ## View change-tracking log data
 
