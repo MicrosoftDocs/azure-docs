@@ -14,9 +14,9 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ---
 
-# Deploy the remote monitoring preconfigured solution (azureiotsuite.com)
+# Deploy the remote monitoring preconfigured solution
 
-This tutorial shows you how to provision the remote monitoring preconfigured solution. You deploy the solution from azureiotsuite.com.
+This tutorial shows you how to provision the remote monitoring preconfigured solution. You deploy the solution from azureiotsuite.com. You can also deploy the solution using the CLI, to learn about this option see [Deploy a preconfigured solution from the command line](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#deploy-a-pcs-from-the-command-line).
 
 In this tutorial, you learn how to:
 
@@ -50,6 +50,8 @@ Before you deploy the preconfigured solution to your Azure subscription, you mus
 1. Select the **Subscription** and **Region** you want to use to provision the solution.
 
 1. Click **Create Solution** to begin the provisioning process. This process typically takes several minutes to run.
+
+For troubleshooting information, see [What to do when a deployment fails](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide#what-to-do-when-a-deployment-fails) in the GitHub repository.
 
 ## Sign in to the preconfigured solution
 

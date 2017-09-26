@@ -56,14 +56,67 @@ The Java solution currently uses the .NET authentication, simulation, and revers
 
 The following sections describe options to customize the presentation and visualizations layer in the remote monitoring solution:
 
-<!--
 ### Change the logo in the UI
 
 The default deployment uses the Contoso company name and logo in the UI. To change these UI elements to display your company name and logo:
 
-1. Step 1
+1. Use the following command to clone the Web UI repository:
 
-1. Step 2
+    ```cmd/sh
+    git clone https://github.com/Azure/pcs-remote-monitoring-webui.git
+    ```
+
+1. To change the company name, open the `src/common/lang.js` file in a text editor.
+
+1. Locate the following line in the file:
+
+    ```js
+    CONTOSO: 'Contoso',
+    ```
+
+1. Replace `Contoso` with the name of your company. For example:
+
+    ```js
+    CONTOSO: 'YourCo',
+    ```
+
+1. Save the file.
+
+1. To update the logo, add a new SVG file to the `assets/icons` folder. The existing logo is the `assets/icons/Contoso.svg` file.
+
+1. Open the `src/components/layout/leftNav/leftNav.js` file in a text editor.
+
+1. Locate the following line in the file:
+
+    ```js
+    import ContosoIcon from '../../../assets/icons/Contoso.svg';
+    ```
+
+1. Replace `Contoso.svg` with the name of your logo file. For example:
+
+    ```js
+    import ContosoIcon from '../../../assets/icons/YourCo.svg';
+    ```
+
+1. Locate the following line in the file:
+
+    ```js
+    alt="ContosoIcon"
+    ```
+
+1. Replace `ContosoIcon` with your `alt` text. For example:
+
+    ```js
+    alt="YourCoIcon"
+    ```
+
+1. Save the file.
+
+1. To test the changes, you can run the updated `webui` on your local machine. To learn how to build and run the `webui` solution locally, see [Build, run and test locally](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/README.md#build-run-and-test-locally) in the  `webui` GitHub repository readme file.
+
+1. To deploy your changes, see the [Developer Reference Guide](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide).
+
+<!--
 
 ### Add a new KPI to the Dashboard page
 
@@ -76,22 +129,22 @@ The following steps describe how to add a new KPI to display on the **Dashboard*
 
 ### Customize the map
 
-See the [Customize map](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub for details of the map components in the solution.
-<!-- Update the previous link -->
+See the [Customize map](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map) page in GitHub for details of the map components in the solution.
 
+<!--
 ### Customize the telemetry chart
 
 See the [Customize telemetry chart](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub for details of the telemetry chart components in the solution.
-<!-- Update the previous link -->
 
 ### Connect an external visualization tool
 
 See the [Connect an external visualization tool](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub for details of how to connect an external visualization tool.
-<!-- Update the previous link -->
 
 ### Duplicate an existing control
 
 To duplicate an existing UI element such as a chart or alert, see the [Duplicate a control](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub.
+
+-->
 
 ### Other customization options
 
@@ -125,9 +178,9 @@ To create an accurate representation of your device, you need to modify the appl
 
 To learn how to add a new device type in the _device simulator_ microservice, see [Test your solution with simulated devices](iot-suite-remote-monitoring-test.md).
 
-### Creating methods and jobs
+### Define custom methods for simulated devices
 
-The following sections describe options to define custom methods and jobs in the remote monitoring solution:
+To learn how to define custom methods for simulated devices in the remote monitoring solution, see [Device Models](https://github.com/Azure/device-simulation-dotnet/wiki/%5BAPI-Specifications%5D-Device-Models) in the GitHub repository.
 
 <!--
 #### Using the simulator service
@@ -153,37 +206,39 @@ To further modify the device connectivity and streaming layer in the remote moni
 
 ## Data processing and analytics
 
+<!--
 The following sections describe options to customize the data processing and analytics layer in the remote monitoring solution:
 
 ### Rules and actions
 
 See the [Customize rules and actions](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub for details of how to customize the rules and actions in solution.
-<!-- Update the previous link -->
+
 
 ### Other customization options
+-->
 
-To further modify the data processing and analytics layer in the remote monitoring solution, you can edit the code. The relevant GitHub repositories are:
+To modify the data processing and analytics layer in the remote monitoring solution, you can edit the code. The relevant GitHub repositories are:
 
 * [Telemetry Agent (.NET)](https://github.com/Azure/telemetry-agent-dotnet)
 * [Telemetry Agent (Java)](https://github.com/Azure/telemetry-agent-java)
 
 ## Infrastructure
 
+<!--
 The following sections describe options for customizing the infrastructure services in the remote monitoring solution:
 
 ### Change storage
 
 The default storage service for the remote monitoring solution is Cosmos DB. See the [Customize storage service](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub for details of how to change the storage service the solution uses.
-<!-- Update the previous link -->
 
 ### Change log storage
 
 The default storage service for logs is Cosmos DB. See the [Customize log storage service](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub for details of how to change the storage service the solution uses for logging.
-<!-- Update the previous link -->
 
 ### Other customization options
+-->
 
-To further modify the infrastructure in the remote monitoring solution, you can edit the code. The relevant GitHub repositories are:
+To modify the infrastructure in the remote monitoring solution, you can edit the code. The relevant GitHub repositories are:
 
 * [IoTHub Manager (.NET)](https://github.com/Azure/iothub-manager-dotnet)
 * [IoTHub Manager (Java)](https://github.com/Azure/iothub-manager-java)
@@ -194,9 +249,11 @@ To further modify the infrastructure in the remote monitoring solution, you can 
 
 In this article, you learned about the resources available to help you customize the preconfigured solution.
 
-For more conceptual information about the remote monitoring preconfigured solution, see:
+For more conceptual information about the remote monitoring preconfigured solution, see [Remote monitoring architecture](iot-suite-remote-monitoring-sample-walkthrough.md)
 
-* [Modify the preconfigured solution from the CLI](iot-suite-remote-monitoring-cli.md)
-* [Remote monitoring architecture](iot-suite-remote-monitoring-sample-walkthrough.md)
+For more information about customizing the remote monitoring solution, see:
+
+* [Developer Reference Guide](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
+* [Developer Troubleshooting Guide](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
 
 <!-- Next tutorials in the sequence -->

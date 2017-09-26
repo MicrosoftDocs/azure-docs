@@ -9,45 +9,45 @@ manager: timlt
 ms.assetid: 2d38d08a-4133-4e5c-8b28-f93cadb5df05
 ms.service: iot-suite
 ms.topic: get-started-article
-ms.date: 08/30/2017
+ms.date: 09/21/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 
 ---
 
-<!-- Differences between IoT Central and PCS
-* Architecture
-* Infrastructure
-* Development
-* Decision criteria for choosing IoT and PCS
-
-Compare IoT solution options, replaces existing "What is IoT Suite?" article.-->
-
 # Azure IoT options
 
-The article Azure and Internet of Things(insert correct link) describes a typical IoT architecture with the following layers:
+The article [Azure and the Internet of Things](iot-suite-what-is-azure-iot.md) describes a typical IoT solution architecture with the following layers:
 
-* Device connectivity
+* Device connectivity and management
 * Data processing and analytics
-* Presentation
+* Presentation and business integration
 
 To implement this architecture, Azure IoT offers several options, each appropriate for different sets of customer requirements:
 
-* [Microsoft IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions) is a SaaS solution that uses a model-based approach to enable you to build enterprise-grade IoT solutions.
+* [Microsoft IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions) is a SaaS solution that uses a model-based approach to enable you to build enterprise-grade IoT solutions without requiring cloud solution development expertise.
 
-* [Azure IoT Suite](index.md) is an enterprise-grade collection of Platform-as-a-Service [preconfigured solutions] (iot-suite-what-are-preconfigured-solutions.md) that enable you to accelerate the development of custom IoT solutions.
+* [Azure IoT Suite](index.md) is an enterprise-grade collection of [preconfigured solutions] (iot-suite-what-are-preconfigured-solutions.md) built on Azure Platform-as-a-Service that enable you to accelerate the development of custom IoT solutions.
 
-* [Azure IoT Hub](../iot-hub/index.md) is the core Azure service that both IoT Central and IoT Suite are built on top of. IoT Hub provides services such as high-volume telemetry ingestion, device management, and security in an IoT solution.
+## Azure IoT Hub
 
-## Compare IoT Suite, IoT Central, and IoT Hub
+Azure IoT Hub is the core Azure Platform-as-a-Service that both IoT Central and IoT Suite make use of. IoT Hub provides services such as the following to an IoT solution:
 
-Choosing your Azure IoT product is a critical part of planning your IoT solution. IoT Hub is an individual Azure service that doesn't, by itself, provide an end-to-end IoT solution. Starting with IoT Hub alone enables the widest possible range of customization options. Typically, you need to combine IoT Hub with other services to implement an end-to-end solution. Both IoT Suite and IoT Central use IoT Hub along with other Azure services. The following table summarizes the key differences between IoT Suite and IoT Central to help you choose the correct one for your requirements:
+* High-volume device connectivity and management.
+* High-volume telemetry ingestion.
+* Command and control.
+* Security.
+
+## Compare IoT Suite and IoT Central
+
+Choosing your Azure IoT product is a critical part of planning your IoT solution. IoT Hub is an individual Azure service that doesn't, by itself, provide an end-to-end IoT solution. IoT Hub can be used as a starting point for any IoT solution, and you don’t need to use Azure IoT Suite or Microsoft IoT Central to use it. Both IoT Suite and IoT Central use IoT Hub along with other Azure services. The following table summarizes the key differences between IoT Suite and IoT Central to help you choose the correct one for your requirements:
 
 |                        | IoT Suite | IoT Central |
 | ---------------------- | --------- | ----------- |
-| Service type           | PaaS. You have access to the underlying Azure services to manage them. | SaaS. Fully managed solution, underlying services aren't exposed. |
-| Flexibility            | High. The code for the microservices is open source and you can modify it in any way you see fit. Additionally, you can customize the deployment infrastructure.| Medium. You can use the built-in GUI tools to customize the solution model and aspects of the UI. The infrastructure is not customizable because the different components are not exposed.|
-| Skills                 | Java or .NET skills are required to customize the solution back end. JavaScript are required to customize the visualization. | Modeling skills are required to customize the solution. |
+| Primary usage | To accelerate development of a custom IoT solution that needs maximum flexibility. | To accelerate time to market for straightforward IoT solutions that don’t require deep service customization. |
+| Access to underlying PaaS services          | You have access to the underlying Azure services to manage them, or replace them as needed. | SaaS. Fully managed solution, the underlying services aren't exposed. |
+| Flexibility            | High. The code for the microservices is open source and you can modify it in any way you see fit. Additionally, you can customize the deployment infrastructure.| Medium. You can use the built-in browser-based user experience to customize the solution model and aspects of the UI. The infrastructure is not customizable because the different components are not exposed.|
+| Skill level                 | Medium-High. You need Java or .NET skills to customize the solution back end. You need JavaScript skills to customize the visualization. | Low. You need modeling skills to customize the solution. No coding skills are required. |
 | Get started experience | Preconfigured solutions implement common IoT scenarios. Can be deployed in minutes. | Templates provide pre-built models. Can be deployed in minutes. |
 | Pricing                | You can fine-tune the services to control the cost. | Simple, predictable pricing structure. |
 

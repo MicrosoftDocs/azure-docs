@@ -34,11 +34,13 @@ Create a starter project in Visual Studio 2017 and add the IoT Hub device client
 
 1. In Visual Studio, create a C console application using the Visual C++ **Windows Console Application** template. Name the project **RMDevice**.
 
-<!-- Add screenshots -->
+    ![Create Visual C++ Windows Console Application](media/iot-suite-connecting-devices/visualstudio01.png)
 
 1. In **Solution Explorer**, delete the files `stdafx.h`, `targetver.h`, and `stdafx.cpp`.
 
 1. In **Solution Explorer**, rename the file `RMDevice.cpp` to `RMDevice.c`.
+
+    ![Solution Explorer showing renamed RMDevice.c file](media/iot-suite-connecting-devices/visualstudio02.png)
 
 1. In **Solution Explorer**, right-click the **RMDevice** project and then click **Manage NuGet packages**. Choose **Browse**, then search for and install the following NuGet packages:
 
@@ -46,15 +48,21 @@ Create a starter project in Visual Studio 2017 and add the IoT Hub device client
     * Microsoft.Azure.IoTHub.IoTHubClient
     * Microsoft.Azure.IoTHub.MqttTransport
 
+    ![NuGet package manager shows installed Microsoft.Azure.IoTHub packages](media/iot-suite-connecting-devices/visualstudio03.png)
+
 1. In **Solution Explorer**, right-click on the **RMDevice** project and then choose **Properties** to open the project's **Property Pages** dialog box. For details, see [Setting Visual C++ Project Properties](https://docs.microsoft.com/cpp/ide/working-with-project-properties).
 
 1. Choose the **C/C++** folder, then choose the **Precompiled Headers** property page.
 
 1. Set **Precompiled Header** to **Not Using Precompiled Headers**. Then choose **Apply**.
 
+    ![Project properties show project not using precompiled headers](media/iot-suite-connecting-devices/visualstudio04.png)
+
 1. Choose the **Linker** folder, then choose the **Input** property page.
 
 1. Add `crypt32.lib` to the **Additional Dependencies** property. To save the project property values, choose **OK** and then **OK** again.
+
+    ![Project properties show Linker including crypt32.lib](media/iot-suite-connecting-devices/visualstudio05.png)
 
 ### Add the Parson JSON library
 
@@ -71,6 +79,8 @@ Add the Parson JSON library to the **RMDevice** project and add the required `#i
 1. In Visual Studio, right-click the **RMDevice** project, choose **Add**, and then choose **Existing Item**.
 
 1. In the **Add Existing Item** dialog, select the `parson.h` and `parson.c` files in the **RMDevice** project folder. To add these two files to your project, choose **Add**.
+
+    ![Solution Explorer shows parson.h and parson.c files](media/iot-suite-connecting-devices/visualstudio06.png)
 
 1. In Visual Studio, open the `RMDevice.c` file. Replace the existing `#include` statements with the following code:
 
