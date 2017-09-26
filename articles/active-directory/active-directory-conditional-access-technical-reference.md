@@ -117,7 +117,7 @@ In your conditional access policy, the following browsers are supported:
 | OS                     | Browsers                    | Support     |
 | :--                    | :--                         | :-:         |
 | Windows 10             | Internet Explorer, Edge     | ![Check][1] |
-| Windows 10             | Chrome                      | Preview     |
+| Windows 10             | Chrome                      | ![Check][1] |
 | Windows 8 / 8.1        | Internet Explorer, Chrome   | ![Check][1] |
 | Windows 7              | Internet Explorer, Chrome   | ![Check][1] |
 | iOS                    | Safari, Intune Managed Browser                      | ![Check][1] |
