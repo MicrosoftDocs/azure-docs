@@ -103,7 +103,13 @@ The above error can also happen if you are not using an Ubuntu-based Linux VM in
 ## VM disk is full
 By default when you create a new Linux VM in Azure, you get a 30-GB disk for the operating system. Docker engine by default uses the same disk for pulling down images and running containers. This can fill up the OS disk and you see a "VM Disk is Full" error when it happens.
 
-You can add a data disk and configure Docker engine to use the data disk for storing images. Here is [how to add a data disk](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/add-disk).
+A quick fix is to remove all Docker images you no longer use. The following Docker command does just that. (Of course you have to SSH into the VM in order to execute the Docker command from a bash shell.)
+
+```
+$ docker system prune -a
+```
+
+You can also add a data disk and configure Docker engine to use the data disk for storing images. Here is [how to add a data disk](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/add-disk). You can then [change where Docker stores images](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169).
 
 Or, you can expand the OS disk, and you don't have to touch Docker engine configuration. Here is [how you can expand the OS disk](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/add-disk).
 
@@ -151,7 +157,7 @@ $ docker rm <container_id>
 # delete an image
 $ docker rmi <image_id>
 
-# delete all unussed Docker images (dangerous!)
+# delete all unussed Docker images 
 $ docker system prune -a
 
 ```
