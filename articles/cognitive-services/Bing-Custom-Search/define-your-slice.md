@@ -22,7 +22,7 @@ If your site is not available in Bing's web-index, you can follow up with Bing d
 
 Follow these instructions to define a Bing Custom Search instance as a site search service.
 
-- Sign in to Bing Custom Search portal
+- Sign in to [Bing Custom Search](https://customsearch.ai) portal
 - Click the button labeled **New custom search**, which brings up the **Create a new custom search instance** window
 - In the textbox labeled **Custom search instance name**, enter a name for your new custom search instance
 - Click **Ok**.  You are taken to the **Definition Editor** for your new custom search instance.
@@ -38,7 +38,7 @@ You can refine your Bing Custom Search instance in different ways to create a to
 ### Use Bing
 Follow these instructions to use Bing to add a site to your Bing Custom Search instance.
 
-- Sign in to Bing Custom Search portal
+- Sign in to [Bing Custom Search](https://customsearch.ai) portal
 - Select the instance to be modified.  You are taken to the **Definition Editor** tab for the selected instance.
 - Ensure the **search preview** pane is displayed by using the **search preview** button
 - Select **Bing** from the drop-down

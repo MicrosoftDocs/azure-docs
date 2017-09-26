@@ -18,7 +18,7 @@ Bing Custom Search enables developers, entrepreneurs, and businesses of any size
 
 ![picture alt](./media/bcs-overview.png "How Bing Custom Search works.")
 
-A Bing Custom Search configuration contains all the settings that are required to define a custom search service.  Bing Custom Search portal provides multiple ways of defining your custom view of the web. For example, you can use Bing Custom Search to provide search capability across all your websites.  You can use Bing Custom Search to provide a vertical search service targeting sites and webpages on a specific topic; see [Define your slice](./define-your-slice.md).  Bing Custom Search also provides a hosted UI used to embed your custom search instance into your website; see [Hosted UI](./hosted-ui.md).
+A Bing Custom Search instance contains all the settings that are required to define a custom search service.  Bing Custom Search portal provides multiple ways of defining your custom view of the web. For example, you can use Bing Custom Search to provide search capability across all your websites.  You can use Bing Custom Search to provide a vertical search service targeting sites and webpages on a specific topic; see [Define your slice](./define-your-slice.md).  Bing Custom Search also provides a hosted UI used to embed your custom search instance into your website; see [Hosted UI](./hosted-ui.md).
 
 ## Next steps
 - [Get started](./get-started.md)

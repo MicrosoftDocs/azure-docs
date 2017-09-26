@@ -24,7 +24,7 @@ This article guides you through the minimum steps to create a Bing Custom Search
 
 Follow these instructions to create a Bing Custom Search instance.
 
-- Sign in to Bing Custom Search portal
+- Sign in to [Bing Custom Search](https://customsearch.ai) portal
 - Click the button labeled **New custom search**, the window titled **Create a new custom search instance** is displayed
 
 > [!NOTE]
@@ -41,7 +41,9 @@ Follow these instructions to create a Bing Custom Search instance.
 Follow these instructions to retrieve search results from your custom search instance.
 
 - Get a subscription key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api)
-- From the configuration screen for your custom search instance, select the **API EndPoint** tab
+- Sign in to [Bing Custom Search](https://customsearch.ai) portal
+- Select the instance to be modified.  You are taken to the **Definition Editor** tab for the selected instance.
+- Select the **API EndPoint** tab
 - Record the **Custom Configuration ID**
 - Replace **YOUR-SUBSCRIPTION-KEY** and **YOUR-CUSTOM-CONFIG-ID** in the following code example with your values
 
