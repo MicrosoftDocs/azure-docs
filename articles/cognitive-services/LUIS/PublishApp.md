@@ -8,7 +8,7 @@ manager: hsalama
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 03/01/2017
+ms.date: 09/26/2017
 ms.author: cahann
 ---
 
@@ -29,19 +29,13 @@ You can either publish your app directly to the **Production Slot** where end us
     If you have previously published this app, this page will look like the following screenshot: 
  
     ![Publish page](./media/luis-how-to-publish-app/luis-republish.png)
-2. If you want to use a key other than the Starter key, click **Change** next to the **Assigned endpoint key** label. This opens a dialog that allows you to select an existing endpoint key to assign to the app, or click **Add a new key to your account** to add a new one. For more information on how to create and add endpoint keys to your account, see [Manage your keys](Manage-Keys.md).
+2. If you want to use a key other than the Starter key, click **Change** next to the **Assigned endpoint key** label. This opens a dialog that allows you to select an existing endpoint key to assign to the app. For more information on how to create and add endpoint keys to your account, see [Manage your keys](Manage-Keys.md).
 3. Choose whether to publish to **Production** or to **Staging** slot by selecting the corresponding value from the **Endpoint Slot** list. 
-4. If you will use an external service with your LUIS app (e.g. Bing Spell Check):
-    - Click **Add Key Association** to assign the external service key to the app by selecting the key type and key value in the following dialog box.
-    - Click **Enable Bing Spell Checker** check box. 
-    
-        ![Assign External Key](./Images/PublishApp-KeyAssociation.JPG)
+4. If you want to enable Bing Spell Check, click the **Enable Bing Spell Checker** check box. 
 5. If you want the JSON response of your published app to include all intents defined in your app and their prediction scores, click **Add Verbose Flag** checkbox. Otherwise, it will include only the top scoring intent.
 6. Click **Train** if the app wasn't trained already.  
 
 7. Click **Publish**. The endpoint URL of your published app is displayed. 
-
-    ![HTTP endpoint URL](./Images/PublishApp-URL.JPG)
 
     >[!NOTE]
     >If the **Publish** button is disabled, then either your app does not have an assigned an endpoint key, or you have not trained your app yet.
