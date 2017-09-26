@@ -19,6 +19,8 @@ ms.author: erikje
 ---
 # Azure marketplace items available for Azure Stack
 
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+
 Microsoft Azure Stack supports the following Azure marketplace items:
 
 |  | Item name | Description | Publisher |

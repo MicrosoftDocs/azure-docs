@@ -3,8 +3,8 @@ title: Monitor and track usage of free services - Azure| Microsoft Docs
 description: Learn to check usage of free services. Use Azure portal and usage csv.
 services: ''
 documentationcenter: ''
-author: amberb
-manager: ''
+author: amberbhargava
+manager: amberb
 editor: ''
 tags: billing
 
