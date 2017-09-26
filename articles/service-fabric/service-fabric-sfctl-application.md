@@ -35,6 +35,7 @@ Create, delete, and manage applications and application types.
 | info         | Gets information about a Service Fabric application.|
 | list         | Gets the list of applications created in the Service Fabric cluster that match
                       filters specified as the parameter.|
+| load | Gets load information about a Service Fabric application. |
 | manifest     | Gets the manifest describing an application type.|
 | provision    | Provisions or registers a Service Fabric application type with the cluster.|
 | report-health| Sends a health report on the Service Fabric application.|
@@ -84,7 +85,11 @@ Deletes an existing Service Fabric application. An application must be created b
 
 |Argument|Description|
 | --- | --- |
-| --application-id [Required]| The identity of the application. This is typically the full name of        the application without the 'fabric:' URI scheme.|
+| --application-id [Required]| The identity of the application. This is typically the full name of        the application without the 'fabric:' URI scheme. Starting from
+                                 version 6.0, hierarchical names are delimited with the "~"
+                                 character. For example, if the application name is
+                                 "fabric://myapp/app1", the application identity would be
+                                 "myapp~app1" in 6.0+ and "myapp/app1" in previous versions.|
 | --force-remove          | Remove a Service Fabric application or service forcefully without        going through the graceful shutdown sequence. This parameter can be        used to forcefully delete an application or service for which        delete is timing out due to issues in the service code that        prevents graceful close of replicas.|
 | --timeout -t            | Server timeout in seconds.  Default: 60.|
 
@@ -105,7 +110,11 @@ Gets the information about an application deployed on a Service Fabric node.|
 
 |Argument|Description|
 | --- | --- |
-| --application-id [Required]| The identity of the application. This is typically the full name of        the application without the 'fabric:' URI scheme.|
+| --application-id [Required]| The identity of the application. This is typically the full name of        the application without the 'fabric:' URI scheme. Starting from
+                                 version 6.0, hierarchical names are delimited with the "~"
+                                 character. For example, if the application name is
+                                 "fabric://myapp/app1", the application identity would be
+                                 "myapp~app1" in 6.0+ and "myapp/app1" in previous versions.|
 | --node-name      [Required]| The name of the node.|
 | --timeout -t            | Server timeout in seconds.  Default: 60.|
 
@@ -128,9 +137,18 @@ Returns the heath state of the service fabric application. The response reports 
 
 |Argument|Description|
 | --- | --- |
-| --application-id                 [Required]| The identity of the application. This is typically                        the full name of the application without the                        'fabric:' URI scheme.|
+| --application-id                 [Required]| The identity of the application. This is typically                        the full name of the application without the                        'fabric:' URI scheme. Starting from version 6.0,
+                                                 hierarchical names are delimited with the "~"
+                                                 character. For example, if the application name is
+                                                 "fabric://myapp/app1", the application identity
+                                                 would be "myapp~app1" in 6.0+ and "myapp/app1" in
+                                                 previous versions.|
 | --deployed-applications-health-state-filter| Allows filtering of the deployed applications                        health state objects returned in the result of                        application health query based on their health                        state. The possible values for this parameter                        include integer value of one of the following                        health states. Only deployed applications that                        match the filter will be returned.\ All deployed                        applications are used to evaluate the aggregated                        health state. If not specified, all entries are                        returned. The state values are flag-based                        enumeration, so the value could be a combination of                        these values obtained using bitwise 'OR' operator.                        For example, if the provided value is 6 then health                        state of deployed applications with HealthState                        value of OK (2) and Warning (4) are returned. -                        Default - Default value. Matches any HealthState.                        The value is zero. - None - Filter that doesn't                        match any HealthState value. Used in order to                        return no results on a given collection of states.                        The value is 1. - Ok - Filter that matches input                        with HealthState value Ok. The value is 2. -                        Warning - Filter that matches input with                        HealthState value Warning. The value is 4. - Error                        - Filter that matches input with HealthState value                        Error. The value is 8. - All - Filter that matches                        input with any HealthState value. The value is                        65535.|
 | --events-health-state-filter            | Allows filtering the collection of HealthEvent                        objects returned based on health state. The                        possible values for this parameter include integer                        value of one of the following health states. Only                        events that match the filter are returned. All                        events are used to evaluate the aggregated health                        state. If not specified, all entries are returned.                        The state values are flag-based enumeration, so the                        value could be a combination of these values                        obtained using bitwise 'OR' operator. For example,                        If the provided value is 6 then all of the events                        with HealthState value of OK (2) and Warning (4)                        are returned. - Default - Default value. Matches                        any HealthState. The value is zero. - None - Filter                        that doesn’t match any HealthState value. Used in                        order to return no results on a given collection of                        states. The value is 1. - Ok - Filter that matches                        input with HealthState value Ok. The value is 2. -                        Warning - Filter that matches input with                        HealthState value Warning. The value is 4. - Error                        - Filter that matches input with HealthState value                        Error. The value is 8. - All - Filter that matches                        input with any HealthState value. The value is                        65535.|
+| --exclude-health-statistics | Indicates whether the health statistics should be
+                                                 returned as part of the query result. False by
+                                                 default. The statistics show the number of children
+                                                 entities in health state Ok, Warning, and Error.|
 | --services-health-state-filter          | Allows filtering of the services health state                        objects returned in the result of services health                        query based on their health state. The possible                        values for this parameter include integer value of                        one of the following health states. Only services                        that match the filter are returned. All services                        are used to evaluate the aggregated health state.                        If not specified, all entries are returned. The                        state values are flag-based enumeration, so the                        value could be a combination of these values                        obtained using bitwise 'OR' operator. For example,                        if the provided value is 6 then health state of                        services with HealthState value of OK (2) and                        Warning (4) will be returned. - Default - Default                        value. Matches any HealthState. The value is zero.                        - None - Filter that doesn't match any HealthState                        value. Used in order to return no results on a                        given collection of states. The value is 1. - Ok -                        Filter that matches input with HealthState value                        Ok. The value is 2. - Warning - Filter that matches                        input with HealthState value Warning. The value is                        4. - Error - Filter that matches input with                        HealthState value Error. The value is 8. - All -                        Filter that matches input with any HealthState                        value. The value is 65535.|
 | --timeout -t                            | Server timeout in seconds.  Default: 60.|
 
@@ -153,7 +171,10 @@ Returns the information about the application that was created or in the process
 
 |Argument|Description|
 | --- | --- |
-| --application-id      [Required]| The identity of the application. This is typically the full             name of the application without the 'fabric:' URI scheme.|
+| --application-id      [Required]| The identity of the application. This is typically the full             name of the application without the 'fabric:' URI scheme. Starting from version 6.0, hierarchical names are delimited
+                                      with the "~" character. For example, if the application name
+                                      is "fabric://myapp/app1", the application identity would be
+                                      "myapp~app1" in 6.0+ and "myapp/app1" in previous versions.|
 | --exclude-application-parameters| The flag that specifies whether application parameters will be             excluded from the result.|
 | --timeout -t                 | Server timeout in seconds.  Default: 60.|
 
@@ -177,6 +198,18 @@ Gets the information about the applications that were created or in the process 
 
 |Argument|Description|
 | --- | --- |
+|--application-definition-kind-filter| Used to filter on ApplicationDefinitionKind for
+                                          application query operations. - Default - Default value.
+                                          Filter that matches input with any
+                                          ApplicationDefinitionKind value. The value is 0. - All -
+                                          Filter that matches input with any
+                                          ApplicationDefinitionKind value. The value is 65535. -
+                                          ServiceFabricApplicationDescription - Filter that matches
+                                          input with ApplicationDefinitionKind value
+                                          ServiceFabricApplicationDescription. The value is 1. -
+                                          Compose - Filter that matches input with
+                                          ApplicationDefinitionKind value Compose. The value is 2.
+                                          Default: 65535.|
 | --application-type-name      | The application type name used to filter the applications to             query for. This value should not contain the application type             version.|
 | --continuation-token         | The continuation token parameter is used to obtain next set of             results. A continuation token with a non empty value is             included in the response of the API when the results from the             system do not fit in a single response. When this value is             passed to the next API call, the API returns next set of             results. If there are no further results, then the continuation             token does not contain a value. The value of this parameter             should not be URL encoded.|
 | --exclude-application-parameters| The flag that specifies whether application parameters are             excluded from the result.|
@@ -191,6 +224,37 @@ Gets the information about the applications that were created or in the process 
 | --output -o                  | Output format.  Allowed values: json, jsonc, table, tsv.             Default: json.|
 | --query                      | JMESPath query string. See http://jmespath.org/ for more             information and examples.|
 | --verbose                    | Increase logging verbosity. Use --debug for full debug logs.|
+
+## sfctl application load
+Gets load information about a Service Fabric application.
+
+        Returns the load information about the application that was created or in the process of
+        being created in the Service Fabric cluster and whose name matches the one specified as the
+        parameter. The response includes the name, minimum nodes, maximum nodes, the number of nodes
+        the app is occupying currently, and application load metric information about the
+        application.
+
+### Arguments
+|Argument|Description|
+| --- | --- |
+|--application-id [Required]| The identity of the application. This is typically the full name of
+                                 the application without the 'fabric:' URI scheme. Starting from
+                                 version 6.0, hierarchical names are delimited with the "~"
+                                 character. For example, if the application name is
+                                 "fabric://myapp/app1", the application identity would be
+                                 "myapp~app1" in 6.0+ and "myapp/app1" in previous versions. |
+| --timeout -t               | Server timeout in seconds.  Default: 60.|
+
+### Global Arguments
+|Argument|Description|
+| --- | --- |
+|--debug                    | Increase logging verbosity to show all debug logs.|
+    --help -h                  | Show this help message and exit.|
+    --output -o                | Output format.  Allowed values: json, jsonc, table, tsv.  Default:
+                                 json.|
+    --query                    | JMESPath query string. See http://jmespath.org/ for more
+                                 information and examples.|
+    --verbose                  | Increase logging verbosity. Use --debug for full debug logs.|
 
 ## sfctl application manifest
 Gets the manifest describing an application type.
@@ -289,14 +353,16 @@ Removes or unregisters a Service Fabric application type from the cluster. This 
 ## sfctl application upgrade
 Starts upgrading an application in the Service Fabric cluster.
 
-Validates the supplied application upgrade parameters and starts upgrading the application if the parameters are valid. Please note that upgrade description replaces the existing application description. This means that if the parameters are not specified, the existing parameters on the applications will be overwritten with the empty parameters list. This would results in application using the default value of the parameters from the application manifest.
+Validates the supplied application upgrade parameters and starts upgrading the application if the parameters are valid. Please note that upgrade description replaces the existing application description. This means that if the parameters are not specified, the existing parameters on the applications will be overwritten with the empty parameters list. This results in application using the default value of the parameters from the application manifest.
 
 ### Arguments
 
 |Argument|Description|
 | --- | --- |
-| --app-id             [Required]| The identity of the application. This is typically the full            name of the application without the 'fabric:' URI scheme.|
-| --app-version        [Required]| The target application type version (found in the application            manifest) for the application upgrade.|
+| --app-id             [Required]| The identity of the application. This is typically the full            name of the application without the 'fabric:' URI scheme. Starting from version 6.0, hierarchical names are delimited with the '~' character. For
+        example, if the application name is 'fabric://myapp/app1', the application identity would be
+        'myapp~app1' in 6.0+ and 'myapp/app1' in previous versions.|
+| --app-version        [Required]| Target application version.|
 | --parameters         [Required]| A JSON encoded list of application parameter overrides to be            applied when upgrading the application.|
 | --default-service-health-policy| JSON encoded specification of the health policy used by default            to evaluate the health of a service type.|
 | --failure-action            | The action to perform when a Monitored upgrade encounters            monitoring policy or health policy violations.|
@@ -333,6 +399,8 @@ Optionally display upload progress for each file in the package. Upload progress
 |Argument|Description|
 | --- | --- |
 | --path [Required]| Path to local application package.|
+|--imagestore-string| Destination image store to upload the application package to.  Default:
+                         fabric:ImageStore.|
 | --show-progress  | Show file upload progress for large packages.|
 
 ### Global Arguments

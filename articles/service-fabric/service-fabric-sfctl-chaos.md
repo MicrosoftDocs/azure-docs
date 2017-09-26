@@ -33,15 +33,25 @@ Start, stop, and report on the chaos test service.
 Gets the next segment of the Chaos report based on the passed-in
     continuation token or the passed-in time-range.
 
-You can either specify the ContinuationTokenOptionalQueryParam to get the next segment of the Chaos report or you can specify the time-range through StartTimeUtcOptionalQueryParam and EndTimeUtcOptionalQueryParam, but you cannot specify both the ContinuationTokenOptionalQueryParam and the time-range at the same time. When the Chaos report contains more than 100 Chaos events, the Chaos report is returned in segments where a segment contains no more than 100 Chaos events. .
+You can either specify the ContinuationToken to get the next segment of the Chaos report or
+        you can specify the time-range through StartTimeUtc and EndTimeUtc, but you cannot specify
+        both the ContinuationToken and the time-range in the same call. When there are more than 100
+        Chaos events, the Chaos report is returned in segments where a segment contains no more than
+        100 Chaos events. 
 
 ### Arguments
 
 |Argument|Description|
 | --- | --- |
 | --continuation-token| The continuation token parameter is used to obtain next set of results. A continuation token with a non empty value is included in the response of the API when the results from the system do not fit in a single response. When this value is passed to the next API call, the API returns next set of results. If there are no further results then the continuation token does not contain a value. The value of this parameter should not be URL encoded.|
-| --end-time-utc   | End of the time range for which a Chaos report is to be generated.|
-| --start-time-utc | Start of the time range for which a Chaos report is to be generated.|
+| --end-time-utc   | The count of ticks representing the end time of the time range for which a
+                          Chaos report is to be generated. Please consult [DateTime.Ticks
+                          Property](https://msdn.microsoft.com/en-
+                          us/library/system.datetime.ticks%28v=vs.110%29) for details about tick.|
+| --start-time-utc | The count of ticks representing the start time of the time range for which
+                          a Chaos report is to be generated. Please consult [DateTime.Ticks
+                          Property](https://msdn.microsoft.com/en-
+                          us/library/system.datetime.ticks%28v=vs.110%29) for details about tick.|
 | --timeout -t     | Server timeout in seconds.  Default: 60.|
 
 ### Global Arguments
