@@ -37,7 +37,7 @@ Select, manage, and operate Service Fabric clusters.
 | unprovision     | Unprovision the code or configuration packages of a Service Fabric cluster.|
 |    upgrade         | Start upgrading the code or configuration version of a Service Fabric cluster.|
 |    upgrade-resume  | Make the cluster upgrade move on to the next upgrade domain.|
-|    upgrade-rollback| Rollback the upgrade of a Service Fabric cluster.|
+|    upgrade-rollback| Roll back the upgrade of a Service Fabric cluster.|
 |    upgrade-status  | Gets the progress of the current cluster upgrade.|
 |upgrade-update  | Update the upgrade parameters of a Service Fabric cluster upgrade.|
 
@@ -88,9 +88,8 @@ Gets the health of a Service Fabric cluster. Use EventsHealthStateFilter to filt
                                                     states. Only events that match the filter are
                                                     returned. All events are used to evaluate the
                                                     aggregated health state. If not specified, all
-                                                    entries are returned. The state values are flag
-                                                    based enumeration, so the value could be a
-                                                    combination of these value obtained using
+                                                    entries are returned. The state values are flag-                                                    based enumeration, so the value could be a
+                                                    combination of these values obtained using
                                                     bitwise 'OR' operator. For example, If the
                                                     provided value is 6 then all of the events with
                                                     HealthState value of OK (2) and Warning (4) are
@@ -130,11 +129,11 @@ Gets the health of a Service Fabric cluster. Use EventsHealthStateFilter to filt
                                                     nodes that match the filter are returned. All
                                                     nodes are used to evaluate the aggregated health
                                                     state. If not specified, all entries are
-                                                    returned. The state values are flag based
+                                                    returned. The state values are flag-based
                                                     enumeration, so the value could be a combination
                                                     of these values obtained using bitwise 'OR'
                                                     operator. For example, if the provided value is
-                                                    6 then health state of nodes with HealthState
+                                                    "6" then health state of nodes with HealthState
                                                     value of OK (2) and Warning (4) are returned. -
                                                     Default - Default value. Matches any
                                                     HealthState. The value is zero. - None - Filter
@@ -166,7 +165,7 @@ Get the Service Fabric cluster manifest.
 Get the Service Fabric cluster manifest. The cluster manifest contains properties of the
         cluster that include different node types on the cluster, security configurations, fault, and
         upgrade domain topologies etc. These properties are specified as part of the
-        ClusterConfig.JSON file while deploying a stand alone cluster. However, most of the
+        ClusterConfig.JSON file while deploying a standalone cluster. However, most of the
         information in the cluster manifest is generated internally by service fabric during cluster
         deployment in other deployment scenarios (for example when using the [Azure portal](https://portal.azure.com)). The contents of
         the cluster manifest are for informational purposes only and users are not expected to take
