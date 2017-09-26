@@ -65,7 +65,7 @@ You can assign a conditional access policy to the following cloud apps from Micr
 
 In addition to the Microsoft cloud apps, you can assign a conditional access policy to the following types of cloud apps:
 
-- Azure Active Directory (Azure AD)-connected applications
+- Azure AD-connected applications
 
 - Pre-integrated federated software as a service (SaaS) application
 
@@ -98,7 +98,7 @@ Azure AD conditional access supports the following device platforms:
 
 ## Client apps condition 
 
-When you configure a conditional access policy, you can [**Select client apps**](active-directory-conditional-access-azure-portal.md#client-apps) for the client app condition. Set the client apps condition to grant or block access when an access attempt is made from the following types of client apps:
+When you configure a conditional access policy, you can [select client apps](active-directory-conditional-access-azure-portal.md#client-apps) for the client app condition. Set the client apps condition to grant or block access when an access attempt is made from the following types of client apps:
 
 - Browser
 - Mobile apps and desktop apps
@@ -131,7 +131,7 @@ In your conditional access policy, the following browsers are supported:
 | macOS                  | Chrome                      | Coming soon |
 
 > [!NOTE]
-> For Chrome support, use Windows 10 Creators Update and install this [extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+> For Chrome support, use Windows 10 Creators Update and install [this extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
 
 
 ### Supported mobile applications and desktop clients
@@ -169,7 +169,7 @@ Control client connections by using the **Require approved client app** option i
 
 ![Control access for approved client apps](./media/active-directory-conditional-access-technical-reference/21.png)
 
-The following client apps can be used with the Approved client application requirement:
+The following client apps can be used with the approved client application requirement:
 
 - Microsoft Excel
 
