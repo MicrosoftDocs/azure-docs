@@ -4,15 +4,15 @@ You can view the telemetry sent from your device on the **Devices** page in the 
 
 1. Select the device you provisioned in the list of devices on the **Devices** page. A panel displays information about your device including a plot of the device telemetry:
 
-    <!-- Insert screenshot here -->
+    ![See device detail](media/iot-suite-visualize-connecting/devicesdetail.png)
 
-1. Choose **Humidity** to change the telemetry display:
+1. Choose **Pressure** to change the telemetry display:
 
-    <!-- Insert screenshot here -->
+    ![View pressure telemetry](media/iot-suite-visualize-connecting/devicespressure.png)
 
-1. To view diagnostic information about your device, choose **Display diagnostics**:
+1. To view diagnostic information about your device, scroll down to **Diagnostics**:
 
-    <!-- Insert screenshot here -->
+    ![View device diagnostics](media/iot-suite-visualize-connecting/devicesdiagnostics.png)
 
 ## Act on your device
 
@@ -22,17 +22,15 @@ To invoke methods on your devices, use the **Devices** page in the remote monito
 
 1. Select the device you provisioned in the list of devices on the **Devices** page:
 
-    <!-- Insert screenshot here -->
+    ![Select your physical device](media/iot-suite-visualize-connecting/devicesselect.png)
 
 1. To display a list of the methods you can call on your device, choose **Schedule**. To schedule a method to run on multiple devices, you can select multiple devices in the list. The **Schedule** panel shows the types of method common to all the devices you selected.
 
-1. Choose **Reboot** and set the job name to **Reboot physical chiller**:
+1. Choose **Reboot**, set the job name to **RebootPhysicalChiller**, and choose **Apply**:
 
-    <!-- Insert screenshot here -->
+    ![Schedule the reboot](media/iot-suite-visualize-connecting/deviceschedule.png)
 
-1. A message displays in the console running your device code when the device handles the method:
-
-    <!-- Insert screenshot here -->
+1. A message displays in the console running your device code when the device handles the method.
 
 > [!NOTE]
 > To track the status of the job in the solution, choose **View**.
