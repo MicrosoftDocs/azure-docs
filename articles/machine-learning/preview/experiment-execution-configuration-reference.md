@@ -107,7 +107,7 @@ packages:
 ## Run configuration
 To specify a particular run configuration, a pair of files is needed. They are typically generated using a CLI command. But you can also clone exiting ones, rename them, and edit them.
 
-```shell
+```azurecli
 # create a compute target pointing to a VM via SSH
 $ az ml computetarget attach -n <compute target name> -a <IP address or FQDN of VM> -u <username> -w <password> --type remotedocker
 
@@ -120,8 +120,8 @@ This command creates a pair of files based on the compute target specified. Let'
 >[!NOTE]
 > _local_ or _docker_ names for the run configuration files are arbitrary. Azure ML Workbench adds these two run configurations when you create a blank project for your convenience. You can rename "<run configuration name>.runconfig" files that come with the project template, or create new ones with any name you want.
 
-### <compute target name>.compute
-_<compute target name>.compute_ file specifies connection and configuration information for the compute target. It is a list of name-value pairs. Follwing are the supported settings.
+### \<compute target name>.compute
+_\<compute target name>.compute_ file specifies connection and configuration information for the compute target. It is a list of name-value pairs. Follwing are the supported settings.
 
 **type**: Type of the compute environment. Supported values are:
   - local
@@ -129,7 +129,7 @@ _<compute target name>.compute_ file specifies connection and configuration info
   - remotedocker
   - cluster
 
-**baseDockerImage**: The Docker image used to run the Python/PySpark script. The default value is _microsoft/mmlspark:plus-0.7.dev7_2.gcfbc920_. We also support one other image: _microsoft/mmlspark:plus-gpu-0.7.dev7_2.gcfbc920_, which gives you GPU access to the host machine (if GPU is present).
+**baseDockerImage**: The Docker image used to run the Python/PySpark script. The default value is _microsoft/mmlspark:plus-0.7.91_. We also support one other image: _microsoft/mmlspark:plus-gpu-0.7.91_, which gives you GPU access to the host machine (if GPU is present).
 
 **address**: The IP address, or FQDN (fully qualified domain name) of the virtual machine, or HDInsight cluster head-node.
 
@@ -143,8 +143,8 @@ _<compute target name>.compute_ file specifies connection and configuration info
 
 **nativeSharedDirectory**: This property specifies the base directory (For example: _~/.azureml/share/_) where files can be saved in order to be shared across runs on the same compute target. If this setting is used when running on a Docker container, _sharedVolumes_ must be set to true. Otherwise, execution fails.
 
-### <run configuration name>.runconfig
-_<run configuration name>.runconfig_ specifies the Azure ML Workbench execution behavior. It specifies runconfiguration behavior such as tracking run history or what compute target to use along with many others. The names of the run configuration files are used to populate the execution context dropdown in the Azure ML Workbench desktop application.
+### \<run configuration name>.runconfig
+_\<run configuration name>.runconfig_ specifies the Azure ML Workbench execution behavior. You can configure execution behaviors such as tracking run history, or what compute target to use along with many others. The names of the run configuration files are used to populate the execution context dropdown in the Azure ML Workbench desktop application.
 
 **ArgumentVector**: This section specifies the script to be run as part of this execution and the parameters for the script. For example, if you have the following snippet in your "<run configuration name>.runconfig" file 
 
@@ -206,3 +206,5 @@ Based on the substitution above, the following code sample now reads from "myrem
 ```
 df = datasource.load_datasource('mylocal.dsource')
 ```
+## Next steps
+Learn more about [execution environment configuration](experiment-execution-configuration.md)
