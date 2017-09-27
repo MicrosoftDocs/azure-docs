@@ -73,7 +73,7 @@ Maven prompts you for values needed to finish generating the project. For _group
 
 ![Terminal output showing the Maven archetype inputs](media/functions-create-java-maven/archetype.png)
 
-Maven creates the project files in a new folder with a name of _appName_. The generated code in the project is a simple [HTTP triggered](/azure/azure-functions/functions-bindings-http-webhook) function that echoes back the body of the request:
+Maven creates the project files in a new folder with a name of _appName_. The generated code in the project is a simple [HTTP triggered](/azure/azure-functions/functions-bindings-http-webhook) function that echoes the body of the request:
 
 ```java
 public class Function {
