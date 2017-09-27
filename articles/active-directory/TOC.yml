@@ -48,6 +48,8 @@
         href: msi-qs-configure-cli-windows-vm.md
       - name: With Azure Resource Manager template
         href: msi-qs-configure-template-windows-vm.md  
+      - name: With Azure SDK
+        href: msi-qs-configure-sdk-windows-vm.md          
     - name: Assign an MSI access to an Azure resource
       items:
       - name: With the Azure portal
