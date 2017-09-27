@@ -163,6 +163,8 @@ Content-Type: application/json
 
 ## How to use MSI with Azure SDK libraries
 
+Azure supports multiple programming languages/frameworks through a series of [Azure SDKs](https://azure.microsoft.com/downloads). Several of them have been updated to support MSI, and provide corresponding samples to demonstrate usage. This list is updated as additional support is added:
+
 | SDK | Sample |
 | --- | ------ | 
 | .NET   | [Manage resource from an MSI-enabled VM](https://azure.microsoft.com/resources/samples/aad-dotnet-manage-resources-from-vm-with-msi/) |
