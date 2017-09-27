@@ -56,7 +56,7 @@ Following are the paths to some important logs and artifacts. We refer to this i
 ## Metric data doesn't appear in the Azure portal
 Azure Diagnostics provides metric data that can be displayed in the Azure portal. If you have problems seeing the data in portal, check the WADMetrics\* table in the Azure Diagnostics storage account to see if the corresponding metric records are there. 
 
-Here, **PartitionKey** of the table is the resource ID, virtual machine, or virtual machine scale set. **RowKey** is the metric name (also known as the performance counter name).
+Here, the **PartitionKey** of the table is the resource ID, virtual machine, or virtual machine scale set. **RowKey** is the metric name (also known as the performance counter name).
 
 If the resource ID is incorrect, check **Diagnostics** **Configuration** > **Metrics** > **ResourceId** to see if the resource ID is set correctly.
 
