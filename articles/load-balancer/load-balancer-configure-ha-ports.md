@@ -33,6 +33,22 @@ Figure 1 illustrates the following configuration of the deployment example descr
 
 Figure 1 - Network Virtual Appliances deployed behind an internal Load Balancer with high availability ports 
 
+## Preview sign-up
+
+To participate in the Preview of the HA ports feature in Load Balancer Standard SKU, register your subscription to gain access using either PowerShell or Azure CLI 2.0.
+
+- Sign up using PowerShell
+
+    ```powershell
+    Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
+    ```
+
+- Sign up using Azure CLI 2.0
+
+    ```cli
+    az feature register --name AllowLBPreview --namespace Microsoft.Network
+    ```
+
 ## Configuring HA Ports
 
 The configuration of the HA ports involves setting up an Internal Load Balancer, with the NVAs in the backend pool, a corresponding load balancer health probe configuration to detect NVA health, and the Load Balancer rule with HA ports. The general Load Balancer related configuration is covered in [Get Started](load-balancer-get-started-ilb-arm-portal.md). This article highlights the HA ports configuration.
