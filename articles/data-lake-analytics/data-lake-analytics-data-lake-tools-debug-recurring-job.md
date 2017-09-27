@@ -38,7 +38,7 @@ Through **Tools > Data Lake > Job View**, you can paste the job URL to open Job 
 
 ![Data Lake Analytics Tools View Related Jobs](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/View-Related-Job.png)
  
-## Case 2: You don’t have the URL, but you know the pipeline of abnormal recurring job
+### Case 2: You don’t have the URL, but you know the pipeline of abnormal recurring job
 
 In Visual Studio, you can open Pipeline Browser through **Server Explorer > your ADLA account > Pipelines** (if you cannot find this node in Server Explorer, please get the lasted tool [here](http://aka.ms/adltoolsvs)). In Pipeline Browser, all pipelines for the ADLA account are listed at left, you can expand the pipelines to find all recurring jobs, click the one has problems, the Related Job View opens at right.
 
