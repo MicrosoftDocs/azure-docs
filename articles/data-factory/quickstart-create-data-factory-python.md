@@ -53,6 +53,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     ```
 
     The [Python SDK for Data Factory](https://github.com/Azure/azure-sdk-for-python) supports Python 2.7, 3.3, 3.4, 3.5 and 3.6.
+
 ## Create a data factory client
 
 1. Create a file named **datafactory.py**. Add the following statements to add references to namespaces.
@@ -130,7 +131,7 @@ Add the following code to the **Main** method that creates a **data factory**. I
     # comment out if the resource group already exits
     resource_client.resource_groups.create_or_update(rg_name, rg_params)
 
-    #Create Data Factory
+    #Create a data factory
     df_resource = Factory(location='eastus')
     df = adf_client.factories.create_or_update(rg_name, df_name, df_resource)
     print_item(df)
@@ -146,10 +147,10 @@ Add the following code to the **Main** method that creates an **Azure Storage li
 You create linked services in a data factory to link your data stores and compute services to the data factory. In this quickstart, you only need create one Azure Storage linked service as both copy source and sink store, named "AzureStorageLinkedService" in the sample. Replace `<storageaccountname>` and `<storageaccountkey>` with name and key of your Azure Storage account. 
 
 ```python
-    #Create Storage Linked Service
+    # Create an Azure Storage linked service
     ls_name = 'storageLinkedService'
 
-    #Replace Storage String with your credentials
+    # IMPORTANT: specify the name and key of your Azure Storage account. 
     storage_string = SecureString('DefaultEndpointsProtocol=https;AccountName=<storageaccountname>;AccountKey=<storageaccountkey>')
 
     ls_azure_storage = AzureStorageLinkedService(connection_string=storage_string)
@@ -165,7 +166,7 @@ Add the following code to the Main method that creates an Azure blob dataset. Fo
 You define a dataset that represents the source data in Azure Blob. This Blob dataset refers to the Azure Storage linked service you create in the previous step.
 
 ```python
-    #Create Dataset Input
+    # Create an Azure blob dataset (input)
     ds_name = 'ds_in'
     ds_ls = LinkedServiceReference(ls_name)
     blob_path= 'adfv2tutorial/input'
@@ -181,7 +182,7 @@ Add the following code to the Main method that creates an Azure blob dataset. Fo
 You define a dataset that represents the source data in Azure Blob. This Blob dataset refers to the Azure Storage linked service you create in the previous step.
 
 ```python
-    #Create Dataset Output
+    # Create an Azure blob dataset (output)
     dsOut_name = 'ds_out'
     output_blobpath = 'adfv2tutorial/output'
     dsOut_azure_blob = AzureBlobDataset(ds_ls, folder_path=output_blobpath)
@@ -194,7 +195,7 @@ You define a dataset that represents the source data in Azure Blob. This Blob da
 Add the following code to the **Main** method that creates a **pipeline with a copy activity**.
 
 ```python
-    #Create 1st activity: Copy Activity
+    # Create a copy activity 
     act_name =  'copyBlobtoBlob'
     blob_source = BlobSource()
     blob_sink = BlobSink()
@@ -202,7 +203,7 @@ Add the following code to the **Main** method that creates a **pipeline with a c
     dsOut_ref = DatasetReference(dsOut_name)
     copy_activity = CopyActivity(act_name,inputs=[dsin_ref], outputs=[dsOut_ref], source=blob_source, sink=blob_sink)
     
-    #Create Pipeline
+    #Create a pipeline with the copy activity
     p_name =  'copyPipeline'
     params_for_pipeline = {}
     p_obj = PipelineResource(activities=[copy_activity], parameters=params_for_pipeline)
@@ -216,7 +217,7 @@ Add the following code to the **Main** method that creates a **pipeline with a c
 Add the following code to the **Main** method that **triggers a pipeline run**.
 
 ```python
-    #Create Pipeline Run
+    #Create a pipeline run.
     run_response = adf_client.pipelines.create_run(rg_name, df_name, p_name,
         {
         }
@@ -238,6 +239,7 @@ To monitor the pipeline run, add the following code the **Main** method:
 Now, add the following statement to invoke the **main** method when the program is run: 
 
 ```python
+# Start the main method
 main()
 ```
 
@@ -305,7 +307,7 @@ def main():
     # comment out if the resource group already exits
     resource_client.resource_groups.create_or_update(rg_name, rg_params)
 
-    #Create Data Factory
+    # Create a data factory
     df_resource = Factory(location='eastus')
     df = adf_client.factories.create_or_update(rg_name, df_name, df_resource)
     print_item(df)
@@ -313,17 +315,17 @@ def main():
         df = adf_client.factories.get(rg_name, df_name)
         time.sleep(1)
 
-    #Create Storage Linked Service
+    # Create an Azure Storage linked service
     ls_name = 'storageLinkedService'
 
-    #Replace Storage String with your credentials
+    # Specify the name and key of your Azure Storage account
     storage_string = SecureString('DefaultEndpointsProtocol=https;AccountName=<storage account name>;AccountKey=<storage account key>')
 
     ls_azure_storage = AzureStorageLinkedService(connection_string=storage_string)
     ls = adf_client.linked_services.create_or_update(rg_name, df_name, ls_name, ls_azure_storage)
     print_item(ls)
 
-    #Create Dataset Input
+    # Create an Azure blob dataset (input)
     ds_name = 'ds_in'
     ds_ls = LinkedServiceReference(ls_name)
     blob_path= 'adftutorial/input'
@@ -332,14 +334,14 @@ def main():
     ds = adf_client.datasets.create_or_update(rg_name, df_name, ds_name, ds_azure_blob)
     print_item(ds)
 
-    #Create Dataset Output
+    # Create an Azure blob dataset (output)
     dsOut_name = 'ds_out'
     output_blobpath = 'adftutorial/output'
     dsOut_azure_blob = AzureBlobDataset(ds_ls, folder_path=output_blobpath)
     dsOut = adf_client.datasets.create_or_update(rg_name, df_name, dsOut_name, dsOut_azure_blob)
     print_item(dsOut)
 
-    #Create 1st activity: Copy Activity
+    # Create a copy activity
     act_name =  'copyBlobtoBlob'
     blob_source = BlobSource()
     blob_sink = BlobSink()
@@ -347,27 +349,27 @@ def main():
     dsOut_ref = DatasetReference(dsOut_name)
     copy_activity = CopyActivity(act_name,inputs=[dsin_ref], outputs=[dsOut_ref], source=blob_source, sink=blob_sink)
 
-    #Create Pipeline
+    # Create a pipeline with the copy activity
     p_name =  'copyPipeline'
     params_for_pipeline = {}
     p_obj = PipelineResource(activities=[copy_activity], parameters=params_for_pipeline)
     p = adf_client.pipelines.create_or_update(rg_name, df_name, p_name, p_obj)
     print_item(p)
 
-    #Create Pipeline Run
+    # Create a pipeline run
     run_response = adf_client.pipelines.create_run(rg_name, df_name, p_name,
         {
         }
     )
 
-    #Monitor the pipeline run
+    # Monitor the pipeilne run
     time.sleep(30)
     pipeline_run = adf_client.pipeline_runs.get(rg_name, df_name, run_response.run_id)
     print("\n\tPipeline run status: {}".format(pipeline_run.status))
     activity_runs_paged = list(adf_client.activity_runs.list_by_pipeline_run(rg_name, df_name, pipeline_run.run_id, datetime.now() - timedelta(1),  datetime.now() + timedelta(1)))
     print_activity_run_details(activity_runs_paged[0])
 
-
+# Start the main method
 main()
 ```
 
