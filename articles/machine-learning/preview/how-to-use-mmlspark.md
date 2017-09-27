@@ -10,7 +10,7 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/26/2017
 ---
 # How to Use Microsoft Machine Learning Library for Apache Spark
 
@@ -62,10 +62,14 @@ You can also install MMLSpark directly on your HDInsight Spark cluster using [Sc
 
 Open CLI window from Azure Machine Learning Workbench by going to "File" Menu and click "Open Command Prompt"
 
-In CLI Window, run following command:
+In CLI Window, run following commands:
 
 ```
-az ml computecontext attach --name <myhdi> --address <ssh-myhdi.azurehdinsight.net> --username <sshusername> --password <sshpwd> --type cluster
+az ml computetarget attach --name <myhdi> --address <myhdi-ssh.azurehdinsight.net> --username <sshusername> --password <sshpwd> --type cluster
+```
+
+```
+az ml experiment prepare -c <myhdi>
 ```
 
 Now the cluster is available as compute target for the project.

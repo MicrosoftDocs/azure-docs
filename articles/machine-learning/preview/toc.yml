@@ -141,6 +141,8 @@
     items:
     - name: Execution configuration
       href: experiment-execution-configuration-reference.md
+    - name: Logging API
+      href: reference-logging-api.md
   - name: Model Management
     items:
     - name: Model Management API

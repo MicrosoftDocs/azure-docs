@@ -44,6 +44,7 @@
 ### [Dead-letter queues](service-bus-dead-letter-queues.md)
 ### [Transaction processing](service-bus-transactions.md)
 ### [Diagnostic logs](service-bus-diagnostic-logs.md)
+### [Paired namespace implementation](service-bus-paired-namespaces.md)
 ### AMQP
 #### [AMQP overview](service-bus-amqp-overview.md)
 #### [.NET](service-bus-amqp-dotnet.md)

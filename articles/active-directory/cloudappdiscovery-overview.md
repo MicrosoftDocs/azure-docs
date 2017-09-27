@@ -31,8 +31,13 @@ More than 80% of employees admit using non-approved SaaS apps for work purposes.
 * **Ongoing analysis and alerts**
   Cloud App Discovery in Azure AD now provides detailed ongoing risk analysis as well provide alerts when there is a new app in use. You can now gain more in-depth knowledge of the cloud app usage in your organization, such as information regarding inbound traffic, outbound traffic, and top users for discovered apps.
 
-If you don't have Activity Directory Premium, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/) for more details.
-
-## Next steps
+If you don't have Active Directory Premium, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/) for more details.
 
 Use this link to explore the [new Cloud App Discovery experience in Azure AD](https://portal.cloudappsecurity.com).
+
+## Next steps
+Use the following links to set up Cloud App Discovery in Azure AD.
+
+* [Create snapshot reports](cloudappdiscovery-set-up-snapshots.md)
+* [Configure continuous reporting](https://docs.microsoft.com/cloud-app-security/discovery-docker)
+* [Use a custom log parser](https://docs.microsoft.comcommit/cloud-app-security/custom-log-parser)
