@@ -40,7 +40,7 @@ You can also use an Azure resource management template to deploy a DSVM.
 >[!NOTE]
 >All following commands are assumed to be issued from the root folder of an Azure ML project.
 
-First, create a `mydsvm.json` file using your favorite text editor in the `docs` folder. (If you don't have a `docs` folder in the project root folder, create one.) We use this file to configure some basic parameters for the Resource Manager template. 
+First, create a `mydsvm.json` file using your favorite text editor in the `docs` folder. (If you don't have a `docs` folder in the project root folder, create one.) We use this file to configure some basic parameters for the Azure resource management template. 
 
 Copy and paste the following JSON snippet into the `mydsvm.json` file, and fill in the appropriate values:
 
