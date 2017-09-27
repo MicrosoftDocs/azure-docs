@@ -156,10 +156,9 @@ In this tutorial, you learned how to:
 > * Create a release definition
 > * Automatically deploy and upgrade an application
 
-Now that you have deployed an application and configured continuous integration, try the following:
-- [Monitor and diagnose the Voting app](service-fabric-tutorial-monitoring-aspnet.md)
-- [Upgrade an app](service-fabric-application-upgrade.md)
-- [Test an app](service-fabric-testability-overview.md) 
+Advance to the next tutorial:
+> [!div class="nextstepaction"]
+> [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md) 
 
 
 <!-- Image References -->

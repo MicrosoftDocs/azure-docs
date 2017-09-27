@@ -77,7 +77,7 @@ The table below lists the property names and their description needed for creati
 </tr>
 <tr>
 <td>Format</td>
-<td>Only applicable for JSON serialization. Line separated specifies that the output will be formatted by having each JSON object separated by a new line. Array specifies that the output will be formatted as an array of JSON objects.</td>
+<td>Only applicable for JSON serialization. Line separated specifies that the output will be formatted by having each JSON object separated by a new line. Array specifies that the output will be formatted as an array of JSON objects. This array will be closed only when the job stops or Stream Analytics has moved on to the next time window. In general, it is preferable to use line separated JSON, since it doesn't require any special handling while the output file is still being written to.</td>
 </tr>
 </tbody>
 </table>
@@ -133,7 +133,7 @@ The table below lists the property names and their description for creating a bl
 </tr>
 <tr>
 <td>Path Prefix Pattern [optional]</td>
-<td>The file path used to write your blobs within the specified container.<BR>Within the path, you may choose to use one or more instances of the following 2 variables to specify the frequency that blobs are written:<BR>{date}, {time}<BR>Example 1: cluster1/logs/{date}/{time}<BR>Example 2: cluster1/logs/{date}</td>
+<td>The file path pattern used to write your blobs within the specified container. <BR> In the path pattern, you may choose to use one or more instances of the following 2 variables to specify the frequency that blobs are written: <BR> {date}, {time} <BR> Example 1: cluster1/logs/{date}/{time} <BR> Example 2: cluster1/logs/{date} <BR> <BR> File naming will follow the following convention: <BR> {Path Prefix Pattern}/schemaHashcode_Guid_Number.extension <BR> <BR> Example output files: <BR> Myoutput/20170901/00/45434_gguid_1.csv <BR> Myoutput/20170901/01/45434_gguid_1.csv <BR> <BR> Also, here are the situations, where a new file is created: <BR> 1. Current file exceeds the maximum permissible number of blocks (currently 50,000) <BR> 2. Change in output schema <BR> 3. External or internal restart of a job  </td>
 </tr>
 <tr>
 <td>Date Format [optional]</td>
@@ -178,7 +178,7 @@ There are a few parameters that are needed to configure Event Hub data streams a
 | Event Serialization Format |Serialization format for output data.  JSON, CSV, and Avro are supported. |
 | Encoding |For CSV and JSON, UTF-8 is the only supported encoding format at this time |
 | Delimiter |Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab and vertical bar. |
-| Format |Only applicable for JSON type. Line separated specifies that the output will be formatted by having each JSON object separated by a new line. Array specifies that the output will be formatted as an array of JSON objects. |
+| Format |Only applicable for JSON serialization. Line separated specifies that the output will be formatted by having each JSON object separated by a new line. Array specifies that the output will be formatted as an array of JSON objects. This array will be closed only when the job stops or Stream Analytics has moved on to the next time window. In general, it is preferable to use line separated JSON, since it doesn't require any special handling while the output file is still being written to. |
 
 ## Power BI
 [Power BI](https://powerbi.microsoft.com/) can be used as an output for a Stream Analytics job to provide for a rich visualization experience of analysis results. This capability can be used for operational dashboards, report generation and metric driven reporting.
@@ -311,6 +311,21 @@ The below list details the property names and their description for creating an 
   2\) MyCollection{partition} – Such collections must exist– "MyCollection0”, “MyCollection1”, “MyCollection2” and so on.  
 * **Partition Key** – Optional. This is only needed if you are using a {parition} token in your collection name pattern. The name of the field in output events used to specify the key for partitioning output across collections. For single collection output, any arbitrary output column can be used e.g. PartitionId.  
 * **Document ID** – Optional. The name of the field in output events used to specify the primary key on which insert or update operations are based.  
+
+## Azure Functions
+Azure Functions is a serverless compute service that enables you to run code on-demand without having to explicitly provision or manage infrastructure. It lets you implement code that is triggered by events occurring in Azure or third-party services.  This ability of Azure Functions to respond to triggers makes it a natural output for a Azure Stream Analytics. This output adapter allows users to connect Stream Analytics to Azure Functions, and run a script or piece of code in response to a variety of events.
+
+Azure Stream Analytics invokes Azure Functions via HTTP triggers. The new Azure Function Output adapter is available with the following configurable properties:
+
+| Property Name | Description |
+| --- | --- |
+| Function App |Name of your Azure Functions App |
+| Function |Name of the function in your Azure Functions App |
+| Max Batch Size |This property can be used to set the maximum size for each output batch that will be sent to your Azure Function. By default, this value is 256 KB |
+| Max Batch Count  |As the name indicates, this property lets you specify the maximum number of events in each batch that gets sent to Azure Functions. The default max batch count value is 100 |
+| Key |If you want to use an Azure Function from another subscription, you can do so by providing the key to access your function |
+
+Note that when Azure Stream Analytics receives 413 (http Request Entity Too Large) exception from Azure function, it reduces the size of the batches it sends to Azure Functions. In your Azure function code, use this exception to make sure that Azure Stream Analytics doesn’t send oversized batches. Also, please make sure that the max batch count and size values used in the function are consistent with the values entered in the Stream Analytics portal.
 
 
 ## Get help
