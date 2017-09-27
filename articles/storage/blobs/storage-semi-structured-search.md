@@ -198,4 +198,4 @@ In this tutorial, we covered searching semi-structured data such as how to:
 
 Follow this link to learn more about search.
 
-[!div class="nextstepaction"](../search/search-what-is-azure-search.md)
+[!div class="nextstepaction"](https://docs.microsoft.com/en-us/azure/search/search-what-is-azure-search)

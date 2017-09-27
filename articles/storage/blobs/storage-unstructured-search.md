@@ -21,7 +21,7 @@ ms.custom: mvc
 
 # Search unstructured data in cloud storage
 
-In this two-part tutorial series, you learn how to search semi-structured and unstructured data. In this part you search unstructured data. Unstructured data is data that either is not organized in a pre-defined manner or does not have a data model. An example would be a .txt file.
+In this two-part tutorial series, you learn how to search semi-structured and unstructured data. In this part, you search unstructured data. Unstructured data is data that either is not organized in a pre-defined manner or does not have a data model. An example would be a .txt file.
 
 In this part you learn how to:
 
@@ -56,11 +56,11 @@ If you are not familiar with the process of creating a General-purpose storage a
 
 2. Enter a name for your storage account. 
 
-3. Leave Deployment model as **Resource Manager** and select **General purpose** from the Account kind drop down.
+3. Leave Deployment model as **Resource Manager** and select **General purpose** from the Account kind drop-down.
 
-4. Select **Locally-redundant storage (LRS)** from the Replication drop down.
+4. Select **Locally-redundant storage (LRS)** from the Replication drop-down.
 
-5. Under **Resource group** select **Create new** and enter a unique name.
+5. Under **Resource group**, select **Create new** and enter a unique name.
 
 6. Leave the remaining values as their defaults but be sure to select an appropriate subscription.
 
@@ -128,7 +128,7 @@ If you are not familiar with the process of creating a search service, here's ho
 
 6. Under **Resource group**, select **Use existing** and choose the resource group you created earlier.
 
-7. For the **Pricing tier** select the **Free** tier and click Select.
+7. For the **Pricing tier**, select the **Free** tier and click Select.
 
 8. Select **Create** to create the search service.
 
@@ -195,7 +195,7 @@ The following table provides a listing of the available attributes and their des
 
 ### Create an Indexer
     
-  An indexer connects a data source with a search index, and provides a schedule to re-index your data.
+  An indexer connects a data source with a search index, and provides a schedule to reindex your data.
 
 1. Enter a name in the **Name** field and select **OK**.
 
@@ -239,7 +239,7 @@ You can also create queries that search by system properties using the `$select`
 
 Enter `$select=metadata_storage_name` into the query string and press enter, returning only that particular field.
     
-The query string is directly modifying the URL, so spaces are not permitted. To search multiple fields use a comma, such as: `$select=metadata_storage_name,metadata_storage_size`
+The query string is directly modifying the URL, so spaces are not permitted. To search multiple fields, use a comma, such as: `$select=metadata_storage_name,metadata_storage_size`
     
 The `$select` parameter can only be used with fields that are marked retrievable when defining your index.
 
