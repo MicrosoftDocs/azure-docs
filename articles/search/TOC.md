@@ -57,12 +57,21 @@
 ### Query Construction
 #### [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
 #### [Lucene query syntax ](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
-#### [Lucene syntax query examples](search-query-lucene-examples.md)
-#### [Filter expression syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
+#### [Lucene query examples](search-query-lucene-examples.md)
 ### Analyzers in Azure Search
 #### [Overview](search-analyzers.md)
 #### [Language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support)
 #### [Custom analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
+### Filters in Azure Search
+#### [Overview](search-filters.md)
+#### [Facet filters](search-filters-facets.md)
+#### [Date filters](search-filters-dates.md)
+#### [Geography "Find near me" filters](search-filters-geo.md)
+#### [Language filters](search-filters-language.md)
+#### [Range filters](search-filters-range.md)
+#### [Security filters (generic)](search-filters-security-generic.md)
+#### [Security filters (Active Directory)](search-filters-security-add.md)
+#### [OData filter reference](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
 ### [Paging results](search-pagination-page-layout.md)
 ### [Scoring](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
 ### [Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggesters)

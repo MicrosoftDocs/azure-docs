@@ -17,7 +17,7 @@ ms.author: heidist
 
 # Analyzers in Azure Search
 
-An *analyzer* is a component of [full text search](search-lucene-query-architecture.md) responsible for processing text in query strings and the contents of indexed documents. During indexing, an analyzer transforms text into tokens, which are written as terms into the index. During search, an analyzer performs the same transformations on query terms used to retrieve documents with matching terms from the index.
+An *analyzer* is a component of [full text search](search-lucene-query-architecture.md) responsible for processing text in query strings and the contents of indexed documents. During indexing, an analyzer transforms text into *tokens*, which are written as *tokenized terms* into the index. During search, an analyzer performs the same transformations on *query terms*. Query terms are processed and matched against *tokenized terms* in the index, with matching documents returned in the result set.
 
 The following transformations are typical during analysis:
 
@@ -26,7 +26,7 @@ The following transformations are typical during analysis:
 + Upper-case words are lower-cased.
 + Words are reduced to root forms so that a match can be found regardless of tense.
 
-Azure Search provides a default analyzer. You can override it on a field-by-field basis with an alternative analyzer. The purpose of this article is to describe the range of choices and provide best practices for customizing the process of lexical analysis for a given field. It also shows example configurations for key scenarios.
+Azure Search uses the Standard Lucene analyzer as the default. You can override the default on a field-by-field basis. The purpose of this article is to describe the range of choices and provide best practices for customizing the process of lexical analysis for a given field. This article also provides example configurations for key scenarios.
 
 ## Supported analyzers
 
