@@ -24,7 +24,10 @@ After you've enabled MSI on an Azure resource, such as an Azure VM, you can use 
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/msi-qs-configure-prereqs.md)]
 
-If you plan to use the PowerShell examples in this article, be sure to install [Azure PowerShell version 4.3.1](https://www.powershellgallery.com/packages/AzureRM) or greater, if you haven't already.
+If you plan to use the PowerShell examples in this article, be sure to install [Azure PowerShell version 4.3.1](https://www.powershellgallery.com/packages/AzureRM) or greater. If you plan to use the Azure CLI examples in this article, you have three options:
+- Use [Azure Cloud Shell](../cloud-shell/overview.md) from the Azure portal.
+- Use the embedded Azure Cloud Shell via the "Try It" button, located in the top right corner of each code block.
+- [Install the latest version of CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 or later) if you prefer to use CLI in a local command prompt. 
 
 
 > [!IMPORTANT]
@@ -83,7 +86,7 @@ In the examples below, we show how to use a VM's MSI for token acquisition.
 ### .NET
 
 > [!IMPORTANT]
-> MSI and Azure AD are not integrated. Therefore, the Azure AD Authentication Libraries (ADAL) cannot be used for MSI token acquisition. For more details, see [MSI known issues](msi-known-issues.md).
+> MSI and Azure AD are not integrated. Therefore, the Azure AD Authentication Libraries (ADAL) cannot be used for MSI token acquisition. For more details, see [MSI FAQs and known issues](msi-known-issues.md#frequently-asked-questions-faqs).
 
 ```csharp
 // Build request to acquire MSI token
@@ -175,7 +178,7 @@ See the [Azure services that support Azure AD authentication](msi-overview.md#az
 
 ## Troubleshooting
 
-If the MSI for the resource does not show up in the list of available identities, verify that the MSI has been enabled correctly. In our case, we can go back to the Azure VM in the [Azure portal](https://portal.azure.com) and:
+If sign-in or token acquisiton fails for an MSI, verify that the MSI has been enabled correctly. In our case, we can go back to the Azure VM in the [Azure portal](https://portal.azure.com) and:
 
 - Look at the "Configuration" page and ensure MSI enabled = "Yes."
 - Look at the "Extensions" page and ensure the MSI extension deployed successfully.
