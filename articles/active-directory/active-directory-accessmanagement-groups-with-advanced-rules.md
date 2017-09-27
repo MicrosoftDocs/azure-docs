@@ -298,13 +298,14 @@ You can also create a rule that selects device objects for membership in a group
 It is possible to change how membership is managed in a group. This is useful when you want to keep the same group name and ID in the system, so any existing references to the group are still valid; creating a new group would require updating those references.
 
 > [!WARNING]
-> When changing an existing static group to a dynamic group, all existing members will be removed from the group, and then the membership rule will be processed to determine who the new members should be. If the group is used to control access to apps or resources, the original members may lose access until the membership rule is fully processed.
+> When changing an existing static group to a dynamic group, all existing members will be removed from the group, and then the membership rule will be processed to add new members. If the group is used to control access to apps or resources, the original members may lose access until the membership rule is fully processed.
+>
 > It is a recommended practice to test the new membership rule beforehand to make sure that the new membership in the group is as expected.
 
 1. In the [Azure classic portal](https://manage.windowsazure.com), open the group.
-2. Select the **Configure** tab to view the existing state of dynamic membership.
+2. Select the **Configure** tab to view the current state of dynamic membership.
 3. To make a group static, simply toggle the **Enable dynamic memberships** setting to **NO**. Click the **Save** button in the toolbar below to confirm. Existing members will be kept in the group and from now on the membership rule will not be processed.
-4. To make a group dynamic, toggle the setting to **YES**, specify the desired membership rule and click **Save**. Existing members will be removed and the new rule will start processing to add the new members.
+4. To make a group dynamic, toggle the setting to **YES**, specify the desired membership rule and click **Save**. Existing members will be removed and the new rule will start processing to add new members.
 
 ## Next steps
 These articles provide additional information on Azure Active Directory.

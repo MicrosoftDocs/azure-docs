@@ -294,7 +294,8 @@ You can also create a rule that selects device objects for membership in a group
 It is possible to change how membership is managed in a group. This is useful when you want to keep the same group name and ID in the system, so any existing references to the group are still valid; creating a new group would require updating those references.
 
 > [!WARNING]
-> When changing an existing static group to a dynamic group, all existing members will be removed from the group, and then the membership rule will be processed to determine who the new members should be. If the group is used to control access to apps or resources, the original members may lose access until the membership rule is fully processed.
+> When changing an existing static group to a dynamic group, all existing members will be removed from the group, and then the membership rule will be processed to add new members. If the group is used to control access to apps or resources, the original members may lose access until the membership rule is fully processed.
+>
 > It is a recommended practice to test the new membership rule beforehand to make sure that the new membership in the group is as expected.
 
 We are in the process of updating the Azure portal to support this task. In the meantime, you can use the [Azure classic portal](https://manage.windowsazure.com) (follow the instructions [here](active-directory-accessmanagement-groups-with-advanced-rules#)) or use PowerShell cmdlets as shown below.
