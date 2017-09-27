@@ -13,7 +13,7 @@ ms.service: cloud-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 7/10/2017
 ms.author: genli
 
