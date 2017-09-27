@@ -18,14 +18,14 @@ ms.author: fryu
 ---
 # Require secure transfer in Azure Storage
 
-The "Secure transfer required" option enhances the security of your Azure Storage account by only allowing requests to the account from secure connections. For example, when calling REST APIs to access your storage account, you must connect by using HTTPS. "Secure transfer required" rejects requests using HTTP.
+The "Secure transfer required" option enhances the security of your storage account by only allowing requests to the account from secure connections. For example, when you're calling REST APIs to access your storage account, you must connect by using HTTPS. "Secure transfer required" rejects requests that use HTTP.
 
-When you use the Azure Files service, any connection without encryption fails when "Secure transfer required" is enabled. This includes scenarios using SMB 2.1, SMB 3.0 without encryption, and some versions of the Linux SMB client. 
+When you use the Azure Files service, any connection without encryption fails when "Secure transfer required" is enabled. This includes scenarios that use SMB 2.1, SMB 3.0 without encryption, and some versions of the Linux SMB client. 
 
 By default, the "Secure transfer required" option is disabled.
 
 > [!NOTE]
-> Because Azure Storage doesn't support HTTPS for custom domain names, this option is not applied when using a custom domain name.
+> Because Azure Storage doesn't support HTTPS for custom domain names, this option is not applied when you're using a custom domain name.
 
 ## Enable "Secure transfer required" in the Azure portal
 
@@ -50,13 +50,13 @@ You can turn on the "Secure transfer required" setting when you create a storage
 
 To require secure transfer programmatically, use the setting _supportsHttpsTrafficOnly_ in storage account properties with REST API, tools, or libraries:
 
-* [REST API](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts) (Version: 2016-12-01)
-* [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.storage/set-azurermstorageaccount?view=azurermps-4.1.0) (Version: 4.1.0)
-* [CLI](https://pypi.python.org/pypi/azure-cli-storage/2.0.11) (Version: 2.0.11)
-* [NodeJS](https://www.npmjs.com/package/azure-arm-storage/) (Version: 1.1.0)
-* [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/6.3.0-preview) (Version: 6.3.0)
-* [Python SDK](https://pypi.python.org/pypi/azure-mgmt-storage/1.1.0) (Version: 1.1.0)
-* [Ruby SDK](https://rubygems.org/gems/azure_mgmt_storage) (Version: 0.11.0)
+* [REST API](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts) (version: 2016-12-01)
+* [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.storage/set-azurermstorageaccount?view=azurermps-4.1.0) (version: 4.1.0)
+* [CLI](https://pypi.python.org/pypi/azure-cli-storage/2.0.11) (version: 2.0.11)
+* [NodeJS](https://www.npmjs.com/package/azure-arm-storage/) (version: 1.1.0)
+* [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/6.3.0-preview) (version: 6.3.0)
+* [Python SDK](https://pypi.python.org/pypi/azure-mgmt-storage/1.1.0) (version: 1.1.0)
+* [Ruby SDK](https://rubygems.org/gems/azure_mgmt_storage) (version: 0.11.0)
 
 ### Enable "Secure transfer required" setting with REST API
 
