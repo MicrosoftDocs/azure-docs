@@ -45,6 +45,6 @@ Azure supports multiple programming languages/frameworks through a series of [Az
 
 ## Next steps
 
-- For an overview of MSI and related content, see [Managed Service Identity overview](msi-overview.md).
+- See related articles under "Configure MSI for an Azure VM" to learn how you can also use the Azure portal, PowerShell, CLI, and resource templates.
 
 Use the following comments section to provide feedback and help us refine and shape our content.

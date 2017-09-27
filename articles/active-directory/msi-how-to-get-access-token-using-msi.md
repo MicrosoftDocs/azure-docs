@@ -26,18 +26,18 @@ After you've enabled MSI on an Azure resource, such as an Azure VM, you can use 
 
 If you plan to use the PowerShell examples in this article, be sure to install [Azure PowerShell version 4.3.1](https://www.powershellgallery.com/packages/AzureRM) or greater. If you plan to use the Azure CLI examples in this article, you have three options:
 - Use [Azure Cloud Shell](../cloud-shell/overview.md) from the Azure portal.
-- Use the embedded Azure Cloud Shell via the "Try It" button, located in the top right corner of each code block.
+- Use the embedded Azure Cloud Shell via the "Try It" button, located in the top right corner of Azure CLI code blocks.
 - [Install the latest version of CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 or later) if you prefer to use CLI in a local command prompt. 
 
 
 > [!IMPORTANT]
 > - All sample code/script in this article assumes the client is running on an MSI-enabled Virtual Machine. For details on enabling MSI on a VM, see [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md), or one of the variant articles (using PowerShell, CLI, or a template). 
-> - To prevent authorization errors (403/AuthorizationFailed) in the code/script, the VM's identity must be given "Reader" access to the VM instance when performing operations that call Azure Resource Manager. See [Assign a Managed Service Identity (MSI) access to a resource using the Azure portal](msi-howto-assign-access-portal.md) for details.
+> - To prevent authorization errors (403/AuthorizationFailed) in the code/script, the VM's identity must be given "Reader" access at the VM scope to allow Azure Resource Manager operations on the VM. See [Assign a Managed Service Identity (MSI) access to a resource using the Azure portal](msi-howto-assign-access-portal.md) for details.
 > - Before proceeding to one of the following sections, use the VM "Connect" feature in the Azure portal, to remotely connect to your MSI-enabled VM.
 
 ## How to sign in using an MSI identity
 
-In cases where a secure client application needs to sign in to Azure Active Directory (AD) under its own identity, MSI allows you to use an identity representing the host Azure resource instead. Previously, you would have been required to register the application with Azure AD, and authenticate using the client application's identity. 
+In cases where a secure client application needs to sign in to Azure Active Directory (AD) under its own identity, MSI allows you to use an identity representing the host Azure resource instead (such as a VM). Previously, you would have been required to register the client application with Azure AD, and authenticate using the application's identity. 
 
 In the examples below, we show how to use a VM's MSI service principal for sign-in.
 
@@ -86,7 +86,7 @@ In the examples below, we show how to use a VM's MSI for token acquisition.
 ### .NET
 
 > [!IMPORTANT]
-> MSI and Azure AD are not integrated. Therefore, the Azure AD Authentication Libraries (ADAL) cannot be used for MSI token acquisition. For more details, see [MSI FAQs and known issues](msi-known-issues.md#frequently-asked-questions-faqs).
+> MSI and Azure AD are not integrated. Therefore, the Azure AD Authentication Libraries (ADAL) cannot be used for MSI token acquisition. For more information, see [MSI FAQs and known issues](msi-known-issues.md#frequently-asked-questions-faqs).
 
 ```csharp
 // Build request to acquire MSI token
@@ -174,11 +174,11 @@ TBD (do we recommend calling every time or caching? See Rashid's sample for catc
 
 ### Resource IDs for Azure services
 
-See the [Azure services that support Azure AD authentication](msi-overview.md#azure-services-that-support-azure-ad-authentication) topic for a list of services that support MSI, and their respective resource IDs.
+See [Azure services that support Azure AD authentication](msi-overview.md#azure-services-that-support-azure-ad-authentication) for a list of services that support MSI, and their respective resource IDs.
 
 ## Troubleshooting
 
-If sign-in or token acquisiton fails for an MSI, verify that the MSI has been enabled correctly. In our case, we can go back to the Azure VM in the [Azure portal](https://portal.azure.com) and:
+If sign-in or token acquisition fails for an MSI, verify that the MSI has been enabled correctly. In our case, we can go back to the Azure VM in the [Azure portal](https://portal.azure.com) and:
 
 - Look at the "Configuration" page and ensure MSI enabled = "Yes."
 - Look at the "Extensions" page and ensure the MSI extension deployed successfully.
