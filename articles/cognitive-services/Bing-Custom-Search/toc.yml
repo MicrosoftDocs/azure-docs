@@ -24,7 +24,7 @@
     - name: Handle hit highlighting
       href: hit-highlighting.md
     - name: Page webpages
-      href: paging-webpages.md
+      href: page-webpages.md
     - name: Configure hosted UI
       href: hosted-ui.md
 - name: References
@@ -33,8 +33,6 @@
       href: bing-custom-search-api-v7-reference.md
     - name: Bing Autosuggest API
       href: ../bing-autosuggest/get-suggested-search-terms.md
-    - name: Bing Use and Display Requirements
-      href: use-and-display-requirements.md
 - name: Resources
   items:
   - name: Azure Roadmap

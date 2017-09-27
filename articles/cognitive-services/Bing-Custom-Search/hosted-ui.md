@@ -12,7 +12,7 @@ ms.date: 05/09/2017
 ms.author: v-brapel
 ---
 
-# Hosted UI
+# Configure and consume custom hosted UI
 Bing Custom Search provides a custom hosted UI that can be configured in the Bing Custom Search portal.  
 
 ## Configure custom hosted UI

@@ -12,7 +12,7 @@ ms.date: 05/09/2017
 ms.author: v-brapel
 ---
 
-# Get started
+# Your first Bing Custom Search instance
 Before you can make your first call, you need to get a Cognitive Services subscription key. To get a key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).
 
 You can access the Bing Custom Search portal at [https://customsearch.ai](https://customsearch.ai).

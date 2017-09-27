@@ -1,5 +1,5 @@
 ---
-title: Bing Custom Search Get started | Microsoft Docs
+title: Bing Custom Search Call endpoint | Microsoft Docs
 description: Describes how to call Bing Custom Search endpoint with nodejs
 services: cognitive-services
 author: brapel
@@ -12,7 +12,7 @@ ms.date: 05/09/2017
 ms.author: v-brapel
 ---
 
-## Call Bing Custom Search endpoint (nodejs)
+# Call Bing Custom Search endpoint (nodejs)
 
 [!INCLUDE [call-bing-custom-search-endpoint](call-bing-custom-search-endpoint.md)]
 

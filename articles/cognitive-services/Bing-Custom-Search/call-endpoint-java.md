@@ -1,6 +1,6 @@
 ---
-title: Bing Custom Search Call endpoint | Microsoft Docs
-description: Describes how to call Bing Custom Search endpoint with C#
+title: Bing Custom Search Get started | Microsoft Docs
+description: Describes how to call Bing Custom Search endpoint with Java
 services: cognitive-services
 author: brapel
 manager: ehansen
@@ -12,9 +12,9 @@ ms.date: 05/09/2017
 ms.author: v-brapel
 ---
 
-# Call Bing Custom Search endpoint (C#)
+## Call Bing Custom Search endpoint (Java)
 
-[!INCLUDE [call-bing-custom-search-endpoint](../../../includes/call-bing-custom-search-endpoint.md)]
+[!INCLUDE [call-bing-custom-search-endpoint](call-bing-custom-search-endpoint.md)]
 
 ```csharp
 using System;

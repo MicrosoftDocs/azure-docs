@@ -1,5 +1,5 @@
 ---
-title: Bing Custom Search Overview | Microsoft Docs
+title: Bing Custom Search Define your slice | Microsoft Docs
 description: Describes how to create a site and vertical search services
 services: cognitive-services
 author: brapel
@@ -12,7 +12,7 @@ ms.date: 05/09/2017
 ms.author: v-brapel
 ---
 
-# Define your slice
+# Define your custom view of the web
 There are different ways to define your custom view of the web using Bing Custom Search portal.  This article provides examples of defining a site search service and a vertical search service.
 
 ## Site search

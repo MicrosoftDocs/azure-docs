@@ -12,7 +12,7 @@ ms.date: 05/09/2017
 ms.author: v-brapel
 ---
 
-# Customize your search
+# Search your custom view of the web
 Bing Custom Search enables developers, entrepreneurs, and businesses of any size to create custom search services for any website or topic.  Use the Bing Custom Search portal to configure your own custom view of the web.  Then, use your Bing Custom Search instance to integrate custom search results into your website, desktop app, or mobile app.
 
 
