@@ -86,9 +86,9 @@ When you deploy a preconfigured solution, the provisioning process configures a 
 * [Azure Event Hubs](../event-hubs/index.md). This service provides high-volume event ingestion to the cloud. See [Comparison of Azure IoT Hub and Azure Event Hubs](../iot-hub/iot-hub-compare-event-hubs.md).
 * [Azure Time Series Insights](../time-series-insights/index.md). The preconfigured solutions use this service to analyze and display the telemetry data from your devices.
 * [Azure Container Service](../container-service/index.yml). This service hosts and manages the microservices in the preconfigured solutions.
-* [Azure Cosmos DB](../cosmos-db/index.yml) and [Azure Storage](../storage/index.md) for data storage.
+* [Azure Cosmos DB](../cosmos-db/index.yml) and [Azure Storage](../storage/index.yml) for data storage.
 * [Azure Stream Analytics](../stream-analytics/index.md). The predictive maintenance preconfigured solution uses this service to process incoming telemetry, perform aggregation, and detect events. This preconfigured solution also uses stream analytics to process informational messages that contain data such as metadata or command responses from devices.
-* [Azure Web Apps](../app-service-web/index.yml) to host the custom application code in the preconfigured solutions.
+* [Azure Web Apps](../app-service/index.yml) to host the custom application code in the preconfigured solutions.
 
 For an overview of the architecture of a typical IoT solution, see [Microsoft Azure and the Internet of Things (IoT)](iot-suite-what-is-azure-iot.md).
 
@@ -115,6 +115,9 @@ This microservices architecture is a proven pattern for cloud solutions that:
 * Is easy to understand.
 * Enables individual services to be swapped out for alternatives.
 
+> [!TIP]
+> To learn more about microservice architectures, see [.NET Application Architecture](https://www.microsoft.com/net/learn/architecture) and [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
+
 When you deploy the new version of remote monitoring, you must select one of the following deployment options:
 
 * **Basic:** Reduced cost version for a demonstration or to test a deployment. All the microservices deploy to a single Azure virtual machine.
@@ -126,6 +129,8 @@ Implementations of each of the microservices are available in both Java and .NET
 
 * [Remote monitoring .NET GitHub repository](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
 * [Remote monitoring Java GitHub repository](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
+
+If you'd like to see other language implementations, add a request to [Azure IoT user voice](https://feedback.azure.com/forums/321918-azure-iot).
 
 ### React user interface framework
 
