@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/14/2017
+ms.date: 09/29/2017
 ms.author: jejiang
 ---
 
@@ -29,42 +29,10 @@ Learn how to use Azure Data Lake Tools for Visual Studio Code (VS Code) to creat
 
 Data Lake Tools can be installed on the platforms supported by VS Code. The supported platforms include Windows, Linux, and MacOS. The different platforms have the following prerequisites:
 
-- Windows
-
-    - [Visual Studio Code]( https://www.visualstudio.com/products/code-vs.aspx).
-    - [Java SE Runtime Environment version 8 update 77 or later](https://java.com/download/manual.jsp). Add the java.exe path to the system environment variable path. For configuration instructions, see [How do I set or change the Path system variable?]( https://www.java.com/download/help/path.xml). The path is similar to C:\Program Files\Java\jdk1.8.0_77\jre\bin.
-    - [.NET Core SDK 1.0.3 or .NET Core 1.1 runtime](https://www.microsoft.com/net/download).
-    
-- Linux (We recommend Ubuntu 14.04 LTS)
-
-    - [Visual Studio Code]( https://www.visualstudio.com/products/code-vs.aspx). To install the code, enter the following command:
-
-              sudo dpkg -i code_<version_number>_amd64.deb
-
-    - [Mono 4.2.x](http://www.mono-project.com/docs/getting-started/install/linux/). 
-
-        - To update the deb package source, enter the following commands:
-
-                sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-                echo "deb http://download.mono-project.com/repo/debian wheezy/snapshots 4.2.4.4/main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list
-                sudo apt-get update
-
-        - To install Mono, enter the following command:
-
-                sudo apt-get install mono-complete
-
-		    > [!NOTE] 
-            > Mono 4.6 is not supported. Uninstall version 4.6 entirely before you install 4.2.x.  
-
-        - [Java SE Runtime Environment version 8 update 77 or later](https://java.com/download/manual.jsp). For instructions on installation, see the [Linux 64-bit installation instructions for Java]( https://java.com/en/download/help/linux_x64_install.xml) page.
-        - [.NET Core SDK 1.0.3 or .NET Core 1.1 runtime](https://www.microsoft.com/net/download).
-- MacOS
-
-    - [Visual Studio Code]( https://www.visualstudio.com/products/code-vs.aspx).
-    - [Mono 4.2.4](http://download.mono-project.com/archive/4.2.4/macos-10-x86/). 
-    - [Java SE Runtime Environment version 8 update 77 or later](https://java.com/download/manual.jsp). For instructions on installation, see the [Linux 64-bit installation instructions for Java](https://java.com/en/download/help/mac_install.xml) page.
-    - [.NET Core SDK 1.0.3 or .NET Core 1.1 runtime](https://www.microsoft.com/net/download).
-
+- [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx).
+- [.NET Core SDK 2.0](https://www.microsoft.com/net/download).
+- [Mono 5.2.x](http://www.mono-project.com/download/). Mono is only required for Linux and MacOS.
+       
 ## Install Data Lake Tools
 
 After you install the prerequisites, you can install Data Lake Tools for VS Code.
@@ -72,16 +40,19 @@ After you install the prerequisites, you can install Data Lake Tools for VS Code
 **To install Data Lake Tools**
 
 1. Open Visual Studio Code.
-2. Select Ctrl+P, and then enter the following command:
-```
-ext install usql-vscode-ext
-```
-You can see a list of Visual Studio code extensions. One of them is **Azure Data Lake Tools**.
+2. Click **Extensions** in the left pane. Enter **Azure Data Lake** in the search box.
+3. Click **Install** next to **Azure Data Lake tools**. After a few seconds, the **Install** button will be changed to **Reload**.
+4. Click **Reload** to activate the **Azure Data Lake tools** extension.
+5. Click **Reload Window** to confirm. You can see **Azure Data Lake tools** in the Extensions pane.
 
-3. Select **Install** next to **Azure Data Lake Tools**. After a few seconds, the **Install** button changes to **Reload**.
-4. Select **Reload** to activate the extension.
-5. Select **OK** to confirm. You can see Azure Data Lake Tools in the **Extensions** pane.
     ![Data Lake Tools for Visual Studio Code Extensions pane](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extensions.png)
+
+Our tool relys on the CSharp dependencies. normally, **Csharp** plugin installs together with **Azure Data Lake tools**. If not, please install mannually. 
+
+**To install CSharp Tool**
+
+1. Search **C#** from **Extensions** pane and click **Install** to continue.
+        ![Install C# in Data Lake Tools for Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-install-ms-vscodecsharp.png)
 
 ## Activate Azure Data Lake Tools
 Create a new .usql file or open an existing .usql file to activate the extension. 
@@ -305,14 +276,15 @@ After you have connected to Azure, you can use the following steps to access the
 You can use Azure Data Lake Storage-related commands to:
  - Browse through the Azure Data Lake Storage resources. 
  - Preview the Azure Data Lake Storage file.  
- - Upload the file directly to Azure Data Lake Storage in VS Code. 
+ - Upload the file directly to Azure Data Lake Storage in VS Code.
+ - Download the file directly from Azure Data Lake Storage in VS Code. 
 
 ### List the storage path 
 You can list the storage path through the command palette or through right-click.
 
 **To list the storage path through the command palette**
 
-1.  Open the command palette (Ctrl+Shift+P) and enter **ADL: List Storage Path**.
+1. Right-click the script editor and select **ADL: List Storage Path**.
 
     ![Data Lake Tools for Visual Studio Code list storage path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-storage.png)
 
@@ -366,7 +338,7 @@ You can preview the storage file through the command palette or through right-cl
 
 **To preview the storage file through the command palette**
 
-1.  Open the command palette (Ctrl+Shift+P) and enter **ADL: Preview Storage File**.
+1.  Right-click the script editor and select **ADL: Preview Storage File**.
 
        ![Data Lake Tools for Visual Studio Code preview storage file](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-preview.png)
 
@@ -386,7 +358,7 @@ You can preview the storage file through the command palette or through right-cl
 
        ![Data Lake Tools for Visual Studio Code preview file result](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-preview-results.png)
 
-**To list the storage path through right-click**
+**To Preview the storage file through right-click**
 
 1.  To preview a file, right-click the file path.
 
@@ -400,13 +372,13 @@ You can preview the storage file through the command palette or through right-cl
 
        ![Data Lake Tools for Visual Studio Code preview file result](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-preview-results.png)
 
-### Upload a file 
+### Upload file 
 
 You can upload files by entering the commands **ADL: Upload File** or **ADL: Upload File through Configuration**.
 
 **To upload files though the ADL: Upload File command**
-1. Select Ctrl+Shift+P to open the command palette or right-click the script editor, and then enter **Upload File**.
-2.  To upload the file, enter a local path.
+1. Right-click the script editor, and then select **Upload File**.
+2. To upload the file, enter a local path.
 
     ![Data Lake Tools for Visual Studio Code enter local path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-auto-input-local-path.png)
 
@@ -424,7 +396,7 @@ You can upload files by entering the commands **ADL: Upload File** or **ADL: Upl
 
 5. Enter an Azure storage path. For example: /output.
 
-       ![Data Lake Tools for Visual Studio Code enter storage path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-input-preview-file.png)
+    ![Data Lake Tools for Visual Studio Code enter storage path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-input-preview-file.png)
 
 6. Find your Azure storage path. Select **Choose current folder**.
 
@@ -435,7 +407,7 @@ You can upload files by entering the commands **ADL: Upload File** or **ADL: Upl
        ![Data Lake Tools for Visual Studio Code upload status](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-upload-status.png)    
 
 **To upload files though the ADL: Upload File through Configuration command**
-1.  Select Ctrl+Shift+P to open the command palette or right-click the script editor, and then enter **Upload File through Configuration**.
+1.  Right-click the script editor, and then select **Upload File through Configuration**.
 2.  VS Code displays a JSON file. You can enter file paths and upload multiple files at the same time. Instructions are displayed in the **Output** window. To proceed to upload the file, save (Ctrl+S) the JSON file.
 
        ![Data Lake Tools for Visual Studio Code file path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-upload-file.png)
@@ -446,8 +418,63 @@ You can upload files by entering the commands **ADL: Upload File** or **ADL: Upl
 
 Another way to upload a file to storage is through the right-click menu on the file's full path or the file's relative path in the script editor. Enter the local file path, and then select the account. The **Output** window displays the upload status. 
 
+
+
+### Download file 
+
+You can download files by entering the commands **ADL: Download Storage File** or **ADL: Download Storage File through Configuration**.
+
+**To Download files though the ADL: Download Storage File command**
+1. Right-click the script editor, and then select **Download Storage File**.
+2. Select one of the ways of listing the storage path. This passage uses **Enter a path** as an example.
+
+    ![Data Lake Tools for Visual Studio Code select storage path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account-selectoneway.png)
+    >[!NOTE]
+    >- VS Code keeps the last-visited path in every Data Lake Analytics account. For example: /tt/ss.
+    >- Browser from root path: The list root path from your selected Data Lake Analytics account or a local path.
+    >- Enter a path: List a specified path from your selected Data Lake Analytics account or a local path.
+
+3. Select an account from the local path or a Data Lake Analytics account.
+
+    ![Data Lake Tools for Visual Studio Code right-click storage](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account.png)
+
+4. Enter an Azure storage path. For example: /output.
+
+    ![Data Lake Tools for Visual Studio Code enter storage path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-input-preview-file.png)
+
+5. Select one file.
+
+    ![Data Lake Tools for Visual Studio Code select one file](./media/data-lake-analytics-data-lake-tools-for-vscode/download-file-select-file.png)
+
+6. Results: The **Output** window displays the file download status. 
+
+    ![Data Lake Tools for Visual Studio Code download status](./media/data-lake-analytics-data-lake-tools-for-vscode/download-file-result.png) 
+    The file is saved as the temp folder. You can maunal set a default downloading path for the parameter **usql.defaultLocalFolderForDownload**, through the VSCode menu **File**-> **Preferences** -> **Setting**.
+
+**To download files though the ADL: Download File through Configuration command**
+1. Right-click the script editor, and then select **Downlad Storage File through Configuration**.
+2. VS Code displays a JSON file. You can enter file paths and download multiple files at the same time. Instructions are displayed in the **Output** window. To proceed to download the file, save (Ctrl+S) the JSON file.
+
+    ![Data Lake Tools for Visual Studio Code Download files with config](./media/data-lake-analytics-data-lake-tools-for-vscode/download-multi-files.png)
+
+3.  Results: The **Output** window displays the file upload status.
+
+    ![Data Lake Tools for Visual Studio Code Download multiple files Result](./media/data-lake-analytics-data-lake-tools-for-vscode/download-multi-file-result.png)     
+
+Another way to upload a file to storage is through the right-click menu on the file's full path or the file's relative path in the script editor.
+
+### Check Storage Tasks' Status
+Our tool supports to check the downloading, uploading status.
+1. Select Ctrl+Shift+P to open the command palette.
+2. Enter **Check Storage Tasks' Status** and the select it.
+
+   ![Data Lake Tools for Visual Studio Code Check Storage status](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-status.png)
+
+
 ### Open Azure Storage Explorer
 You can open **Azure Storage Explorer** by entering the command **ADL: Open Web Azure Storage Explorer** or by selecting it from the right-click context menu.
+
+
 
 **To open Azure Storage Explorer**
 
