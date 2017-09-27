@@ -18,7 +18,7 @@ The [Sentiment Analysis API](https://westus.dev.cognitive.microsoft.com/docs/ser
 
 This capability is useful for detecting positive and negative sentiment in social media, customer reviews, and discussion forums. Content is provided by you; models and training data are provided by the service.
 
-Currently, Sentiment Analysis supports English, German, Spanish, and French. Other languages are in preview. For more information, see [Supported languages](../overview.md#supported-languages).
+Currently, Sentiment Analysis supports English, German, Spanish, and French. Other languages are in preview. For more information, see [Supported languages](../text-analytics-supported-languages.md).
 
 ## Concepts
 
@@ -32,7 +32,7 @@ Sentiment analysis produces a higher quality result when you give it smaller chu
 
 You must have JSON documents in this format: id, text, language
 
-Document size must be under 10 KB per document, and you can have up to 1,000 items (IDs) per collection. The collection is submitted in the body of the request. The following is an example of content you might submit for sentiment analysis.
+Document size must be under 5,000 characters per document, and you can have up to 1,000 items (IDs) per collection. The collection is submitted in the body of the request. The following is an example of content you might submit for sentiment analysis.
 
 ```
     {
@@ -142,4 +142,4 @@ In this article, you learned concepts and workflow for sentiment analysis using 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Extract keywords](text-analytics-how-to-keyword-extraction.md)
+> [Extract key phrases](text-analytics-how-to-keyword-extraction.md)

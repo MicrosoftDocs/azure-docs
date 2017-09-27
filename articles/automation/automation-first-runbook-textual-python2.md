@@ -54,7 +54,6 @@ We start by creating a simple runbook that outputs the text *Hello World*.
 Now we add a simple command to print the text "Hello World":
 
 ```python
-#!/usr/bin/env python2
 print("Hello World!")
 ```
 
@@ -112,7 +111,7 @@ To manage Azure resources, the script has to authenticate using the credentials 
    import automationassets
 
    def get_automation_runas_credential(runas_connection):
-    from OpenSSL import crypto
+       from OpenSSL import crypto
        import binascii
        from msrestazure import azure_active_directory
        import adal
@@ -212,7 +211,7 @@ Click **OK** to start the runbook. The runbook runs and starts the VM that you s
 
 ## Next steps
 
-* To get started with PowerShell runbooks, see [My first graphical runbook](automation-first-runbook-textual-powershell.md)
+* To get started with PowerShell runbooks, see [My first PowerShell runbook](automation-first-runbook-textual-powershell.md)
 * To get started with Graphical runbooks, see [My first graphical runbook](automation-first-runbook-graphical.md)
 * To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md)
 * To know more about runbook types, their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md)
