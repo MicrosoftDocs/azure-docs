@@ -114,7 +114,7 @@ Add code to invoke the **remote\_monitoring\_run** function, then build and run 
     }
     ```
 
-1. Choose **Build** and then **Build Solution** to build the device application.
+1. Choose **Build** and then **Build Solution** to build the device application. Ignore the warning about the **gmtime** function.
 
 1. In **Solution Explorer**, right-click the **RMDevice** project, choose **Debug**, and then choose **Start new instance** to run the sample. The console displays messages as:
 

@@ -69,7 +69,7 @@ To pause the live telemetry display, choose **Flowing**. To re-enable the live d
 
 The map displays information about the simulated trucks selected by the current filter. You can zoom and pan the map to display locations in more or less detail. The device icons on the map indicate any **Alarms** or **Warnings** that are active for the device. A summary of the number of **Alarms** and **Warnings** displays to the left of the map.
 
-To view the device details, click the device on the map. The details include:
+To view the device details, pan and zoom the map to locate the devices, then click the device on the map. The details include:
 
 * Recent telemetry values
 * Methods the device supports
