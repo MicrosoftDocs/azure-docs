@@ -67,10 +67,11 @@ Azure backup provides the capability to restore [Azure VMs and disks](./backup-a
 
 #### For Windows
 
-The following table shows the compatibility between server and computer operating systems. When recovering files, you can't restore files between incompatible operating systems.
+The following table shows the compatibility between server and computer operating systems. When recovering files, you can't restore files to a previous or future operating system version. For example, you can't restore a file from a Windows Server 2016 VM to Windows Server 2012 or Windows 8 computer. You can restore files from a VM to the same server operating system, or to the compatible client operating system.   
 
 |Server OS | Compatible client OS  |
 | --------------- | ---- |
+| Windows Server 2016    | Windows 10 |
 | Windows Server 2012 R2 | Windows 8.1 |
 | Windows Server 2012    | Windows 8  |
 | Windows Server 2008 R2 | Windows 7   |
