@@ -98,7 +98,7 @@ If you find a **negative** exit code, refer to the [exit code table](#azure-diag
 ## Diagnostics data is not logged to Azure Storage
 Determine if none of the data is appearing or some of the data is appearing.
 
-### Diagnostics infrastructure Logs
+### Diagnostics infrastructure logs
 Diagnostics logs all errors in the Diagnostics infrastructure logs. Make sure you have enabled the [capture of Diagnostics infrastructure logs in your configuration](#how-to-check-diagnostics-extension-configuration). Then you can quickly look for any relevant errors that appear in the `DiagnosticInfrastructureLogsTable` table in your configured storage account.
 
 ### No data is appearing
@@ -271,7 +271,7 @@ A new file called `<relevantLogFile>.csv` is created in the same path as the cor
 
 - Make sure the compiled code actually has the **Diagnostics.Trace lines** (use Reflector, ildasm, or ILSpy to verify). **Diagnostics.Trace** commands are removed from the compiled binary unless you use the TRACE conditional compilation symbol. This is a common problem that occurs when you're using msbuild to build a project.   
 
-## Known Issues and mitigations
+## Known issues and mitigations
 Here is a list of known issues with known mitigations:
 
 **1. .NET 4.5 dependency**
