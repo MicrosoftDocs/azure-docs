@@ -49,7 +49,7 @@ To restore files or folders from the restore point, go to the virtual machine an
 
     ![download message for the executable or script](./media/backup-azure-restore-files-from-vm/run-the-script.png)
 
-    To run the executable or script as an administrator,it is suggested you save the download to your computer.
+    To run the executable or script as an administrator, it is suggested you save the download to your computer.
 
 6. The executable or script is password protected, and requires a password. In the **File Recovery** menu, click the copy button to load the password into memory.
 
@@ -134,13 +134,13 @@ In Linux, after the connection to the recovery point is severed, the OS doesn't 
 If the protected Azure VM has volumes with one or both of the following characteristics, you can't run the executable script on the same VM. 
 
   - Volumes that span multiple disks (spanned and striped volumes)
-  - Fault-tolerant volumes (mirrored and RAID-5 volumes) on dynamic disks, 
+  - Fault-tolerant volumes (mirrored and RAID-5 volumes) on dynamic disks 
 
-Instead, run the executable script on any other machine with a compatible operating system.
+Instead, run the executable script on any other computer with a compatible operating system.
 
 ### Windows Storage Spaces
 
-Windows Storage Spaces is a technology in Windows storage that enables you to virtualize storage. With Windows Storage Spaces you can group industry-standard disks into storage pools, and then create virtual disks, called storage spaces, from the available space in those storage pools.
+Windows Storage Spaces is a Windows technology that enables you to virtualize storage. With Windows Storage Spaces you can group industry-standard disks into storage pools. Then you use the available space in those storage pools to create virtual disks, called storage spaces.
 
 If the protected Azure VM uses Windows Storage Spaces, you can't run the executable script on the same VM. Instead, run the executable script on any other machine with a compatible operating system.
 
@@ -148,7 +148,7 @@ If the protected Azure VM uses Windows Storage Spaces, you can't run the executa
 
 In Linux, Logical volume manager (LVM) and/or software RAID Arrays are used to manage logical volumes over multiple disks. If the protected Linux VM uses LVM and/or RAID Arrays, you can't run the script on the same VM. Instead run the script on any other machine with a compatible OS and which supports the file system of the protected VM.
 
-The followig script output displays the LVM and/or RAID Arrays disks and the volumes with the partition type.
+The following script output displays the LVM and/or RAID Arrays disks and the volumes with the partition type.
 
    ![Linux LVM Output menu](./media/backup-azure-restore-files-from-vm/linux-LVMOutput.png)
    
