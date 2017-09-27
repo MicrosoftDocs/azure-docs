@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2017
+ms.date: 09/26/2017
 ms.author: kumud
 ---
 
@@ -32,6 +32,22 @@ Figure 1 illustrates the following configuration of the deployment example descr
 ![ha ports example deployment](./media/load-balancer-configure-ha-ports/haports.png)
 
 Figure 1 - Network Virtual Appliances deployed behind an internal Load Balancer with high availability ports 
+
+## Preview sign-up
+
+To participate in the Preview of the HA ports feature in Load Balancer Standard SKU, register your subscription to gain access using either PowerShell or Azure CLI 2.0.
+
+- Sign up using PowerShell
+
+   ```powershell
+   Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
+    ```
+
+- Sign up using Azure CLI 2.0
+
+    ```cli
+  az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network  
+    ```
 
 ## Configuring HA Ports
 
