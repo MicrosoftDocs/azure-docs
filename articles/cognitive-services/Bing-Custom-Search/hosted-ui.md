@@ -18,12 +18,12 @@ Bing Custom Search provides a custom hosted UI that can be configured in the Bin
 ## Configure custom hosted UI
 Follow these instructions to configure hosted UI for one of your Bing Custom Search instances.
 
-- Sign in to Bing Custom Search portal
-- Select the Bing Custom Search instance you would like to configure custom hosted UI for
-- Select the Hosted UI tab
-- Choose a layout
-- Select a color theme
-- In the section titled **Additional Configurations**, provide appropriate values for your needs
+1. Sign in to Bing Custom Search portal
+2. Select the Bing Custom Search instance you would like to configure custom hosted UI for
+3. Select the Hosted UI tab
+4. Choose a layout
+5. Select a color theme
+6. In the section titled **Additional Configurations**, provide appropriate values for your needs
 
 > [!NOTE]
 > As changes are made to the custom hosted UI configuration the pane on the right provides a visual reference for the changes made, search results cannot be retrieved from this view.
