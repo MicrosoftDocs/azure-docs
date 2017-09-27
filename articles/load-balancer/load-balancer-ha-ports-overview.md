@@ -56,13 +56,13 @@ To participate in the Preview of the HA ports feature in Load Balancer Standard 
 - Sign up using PowerShell
 
     ```powershell
-    Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
+    Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
     ```
 
 - Sign up using Azure CLI 2.0
 
     ```cli
-    az feature register --name AllowLBPreview --namespace Microsoft.Network
+    az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network 
     ```
 ## Caveats
 
