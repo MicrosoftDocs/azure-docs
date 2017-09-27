@@ -25,14 +25,14 @@ The [Create an Azure-SSIS integration runtime](create-azure-ssis-integration-run
 Stop the Azure-SSIS integration runtime. This command releases all of its nodes and stops billing.
 
 ```powershell
-#Stop-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName 
+Stop-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName 
 ```
 
 ## Start 
 Start the Azure-SSIS integration runtime. This command allocates all of its nodes and starts billing.   
 
 ```powershell
-#Start-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName
+Start-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName
 ```
 
 ## Reconfigure

@@ -20,7 +20,7 @@ ms.author: spelluru
 # Create an Azure-SSIS integration runtime in Azure Data Factory
 This article provides steps for provisioning an Azure-SSIS integration runtime in Azure Data Factory. Then, you can use SQL Server Data Tools (SSDT) or SQL Server Management Studio (SSMS) to deploy SQL Server Integration Services (SSIS) packages to this runtime on Azure.
 
-The tutorial: [Tutorial: deploy SQL Server Integration Services packages (SSIS) to Azure](tutorial-deploy-ssis-packages.md) shows you how to create an Azure-SSIS Integration Runtime (IR) by using Azure SQL Database as the store for SSIS catalog. This article expands on the tutorial and shows you how to do the following: 
+The tutorial: [Tutorial: deploy SQL Server Integration Services packages (SSIS) to Azure](tutorial-deploy-ssis-packages-azure.md) shows you how to create an Azure-SSIS Integration Runtime (IR) by using Azure SQL Database as the store for SSIS catalog. This article expands on the tutorial and shows you how to do the following: 
 
 - Use Azure SQL Managed Instance (private preview) for hosting an SSIS catalog (SSISDB database).
 - Join Azure-SSIS IR to an Azure virtual network (VNet). 
