@@ -8,7 +8,7 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 09/27/2017
 ms.author: jingwang
 
 ---
@@ -471,10 +471,6 @@ To specify compression for a dataset, use the **compression** property in the da
 {
     "name": "AzureBlobDataSet",
     "properties": {
-        "availability": {
-            "frequency": "Day",
-              "interval": 1
-        },
         "type": "AzureBlob",
         "linkedServiceName": "StorageLinkedService",
         "typeProperties": {
