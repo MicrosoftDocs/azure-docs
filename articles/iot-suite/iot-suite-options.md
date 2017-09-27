@@ -25,18 +25,18 @@ The article [Azure and the Internet of Things](iot-suite-what-is-azure-iot.md) d
 
 To implement this architecture, Azure IoT offers several options, each appropriate for different sets of customer requirements:
 
-* [Microsoft IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions) is a SaaS solution that uses a model-based approach to enable you to build enterprise-grade IoT solutions without requiring cloud solution development expertise.
+* [Azure IoT Suite](index.md) is an enterprise-grade collection of [preconfigured solutions](iot-suite-what-are-preconfigured-solutions.md) built on Azure Platform-as-a-Service that enable you to accelerate the development of custom IoT solutions.
 
-* [Azure IoT Suite](index.md) is an enterprise-grade collection of [preconfigured solutions] (iot-suite-what-are-preconfigured-solutions.md) built on Azure Platform-as-a-Service that enable you to accelerate the development of custom IoT solutions.
+* [Microsoft IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions) is a SaaS solution that uses a model-based approach to enable you to build enterprise-grade IoT solutions without requiring cloud solution development expertise.
 
 ## Azure IoT Hub
 
-Azure IoT Hub is the core Azure Platform-as-a-Service that both IoT Central and IoT Suite make use of. IoT Hub provides services such as the following to an IoT solution:
+Azure IoT Hub is the core Azure Platform-as-a-Service that both IoT Central and IoT Suite make use of. IoT Hub enables reliable and securely bidirectional communications between millions of IoT devices and a cloud solution. IoT Hub helps you meet IoT implementation challenges such as:
 
 * High-volume device connectivity and management.
 * High-volume telemetry ingestion.
-* Command and control.
-* Security.
+* Command and control of devices.
+* Device security enforcement.
 
 ## Compare IoT Suite and IoT Central
 
@@ -50,6 +50,7 @@ Choosing your Azure IoT product is a critical part of planning your IoT solution
 | Skill level                 | Medium-High. You need Java or .NET skills to customize the solution back end. You need JavaScript skills to customize the visualization. | Low. You need modeling skills to customize the solution. No coding skills are required. |
 | Get started experience | Preconfigured solutions implement common IoT scenarios. Can be deployed in minutes. | Templates provide pre-built models. Can be deployed in minutes. |
 | Pricing                | You can fine-tune the services to control the cost. | Simple, predictable pricing structure. |
+| Example | Manufacturing company wants to create a smart factory. The company wants to connect multiple brownfield devices to perform commands and to drive aggregated insights in a back-end system. | Coffee manufacturer wants to create a smart coffee maker. The coffee maker sends simple telemetry and can be managed from the cloud. |
 
 The decision of which product to use to build your IoT solution is ultimately determined by:
 

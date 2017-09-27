@@ -115,6 +115,9 @@ This microservices architecture is a proven pattern for cloud solutions that:
 * Is easy to understand.
 * Enables individual services to be swapped out for alternatives.
 
+> [!TIP]
+> To learn more about microservice architectures, see [.NET Application Architecture](https://www.microsoft.com/net/learn/architecture) and [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
+
 When you deploy the new version of remote monitoring, you must select one of the following deployment options:
 
 * **Basic:** Reduced cost version for a demonstration or to test a deployment. All the microservices deploy to a single Azure virtual machine.
@@ -126,6 +129,8 @@ Implementations of each of the microservices are available in both Java and .NET
 
 * [Remote monitoring .NET GitHub repository](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
 * [Remote monitoring Java GitHub repository](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
+
+If you'd like to see other language implementations, add a request to [Azure IoT user voice](https://feedback.azure.com/forums/321918-azure-iot).
 
 ### React user interface framework
 
