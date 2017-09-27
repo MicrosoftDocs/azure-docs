@@ -20,13 +20,9 @@ We support up to 128 VPN clients to be able to connect to a virtual network at t
 
 Azure supports two types of Point-to-site VPN options:
 
-* Secure Socket Tunneling Protocol (SSTP)
+* Secure Socket Tunneling Protocol (SSTP). SSTP is a Microsoft proprietary SSL-based solution that can penetrate firewalls since most firewalls open the TCP port that 443 SSL uses.
 
-  SSTP is a Microsoft proprietary SSL-based solution that can penetrate firewalls since most firewalls open the TCP port that 443 SSL uses.
-
-* IKEv2 VPN
-
-  IKEv2 VPN is a standards-based IPsec VPN solution that uses UDP port 500 and 4500 and IP protocol no. 50. Firewalls do not always open these ports, so there is a possibility of IKEv2 VPN not being able to traverse proxies and firewalls.
+* IKEv2 VPN. IKEv2 VPN is a standards-based IPsec VPN solution that uses UDP port 500 and 4500 and IP protocol no. 50. Firewalls do not always open these ports, so there is a possibility of IKEv2 VPN not being able to traverse proxies and firewalls.
 
 ### If I restart a client computer configured for Point-to-Site, will the VPN automatically reconnect?
 
