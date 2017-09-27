@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 09/27/2017
 ms.author: twooley
 
 ---
@@ -106,7 +106,7 @@ The following table summarizes these domain naming decisions.
 
 ## Certificate requirements
 
-For deployment, and if you deploy additional resource providers post-deployment, you’ll need to provide Secure Sockets Layer (SSL) certificates for public-facing endpoints. Certificates have the following requirements:
+For deployment, you’ll need to provide Secure Sockets Layer (SSL) certificates for public-facing endpoints. Certificates have the following requirements:
 
 - You can use a single wildcard certificate or you can use a set of dedicated certificates, and use wildcards only for endpoints such as storage and Key Vault.
 - Certificates must be issued by a public trusted certificate authority (CA) or enterprise CA.
@@ -129,29 +129,14 @@ The following table shows the services and number of public-facing endpoints tha
 
 **Certificates for Graph and AD FS endpoints are only needed for AD FS deployments.
 
-If you want to deploy additional resource providers post-deployment, such as SQL/MySQL or App Service, you’ll need more certificates. These are:
+If you want to use a single wildcard certificate, you need a total of six Subject Alternative Names (SANs) for initial Azure Stack deployment. These SANs are: 
 
-| Used For | Endpoint 
-| -------- | ------------- | 
-| SQL/MySQL | &#42;.dbadapter.[region].[external_domain] |
-| App Service | &#42;.appservice.[region].[external_domain]<br>&#42;.scm.appservice. [region].[external_domain]<br>api.appservice.[region].[external_domain]<br>sso.appservice.[region].[external_domain]
-| | |
-
-If you want to use a single wildcard certificate, you need a total of six Subject Alternative Names (SANs) for an initial Azure Stack deployment, and nine if you deploy additional resource providers for App Service and SQL/MySQL. 
-
-SANs for initial deployment:
 - &#42;.[region].[external_domain]
 - &#42;.vault.[region].[external_domain]
 - &#42;.adminvault.[region].[external_domain]
 - &#42;.blob.[region].[external_domain]
 - &#42;.table.[region].[external_domain] 
 - &#42;.queue.[region].[external_domain]
-
-SANs for additional resource providers:
-- &#42;.dbadapter. [region].[external_domain]
-- &#42;.appservice. [region].[external_domain]
-- &#42;.scm.appservice.[region].[external_domain]
-
 
 ## Time synchronization
 

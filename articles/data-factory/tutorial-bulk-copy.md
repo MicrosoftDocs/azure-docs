@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/10/2017
+ms.date: 09/26/2017
 ms.author: jingwang
 
 ---
@@ -492,19 +492,20 @@ This pipeline performs two steps:
 
     ```powershell
 	while ($True) {
-    $run = Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
+        $run = Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
 
-    if ($run) {
-        if ($run.Status -ne 'InProgress') {
-            Write-Host "Pipeline run finished. The status is: " $run.Status -foregroundcolor "Yellow"
-            Write-Host "Pipeline run details:" -foregroundcolor "Yellow"
-            $run
-            break
+        if ($run) {
+            if ($run.Status -ne 'InProgress') {
+                Write-Host "Pipeline run finished. The status is: " $run.Status -foregroundcolor "Yellow"
+                Write-Host "Pipeline run details:" -foregroundcolor "Yellow"
+                $run
+                break
+            }
+            Write-Host  "Pipeline is running...status: InProgress" -foregroundcolor "Yellow"
         }
-    }
 
-    Write-Host  "Pipeline is running...status: " $run.Status -foregroundcolor "Yellow"
-    Start-Sleep -Seconds 15
+        Start-Sleep -Seconds 15
+    }
 
 	$result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
     Write-Host "Activity run details:" -foregroundcolor "Yellow"
@@ -515,8 +516,8 @@ This pipeline performs two steps:
 
     ```json
 	Pipeline run details:
-    ResourceGroupName : adf
-    DataFactoryName   : lindaTutorialBulkCopy3
+    ResourceGroupName : <resourceGroupName>
+    DataFactoryName   : <dataFactoryName>
     RunId             : 0000000000-00000-0000-0000-000000000000
     PipelineName      : GetTableListAndTriggerCopyData
     LastUpdated       : 9/18/2017 4:08:15 PM
