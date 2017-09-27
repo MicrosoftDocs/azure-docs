@@ -147,8 +147,7 @@ Validates the supplied upgrade parameters and starts upgrading the deployment.
 |    --health-check-stable        | Health check stable duration measured in milliseconds.|
 |    --health-check-wait          | Health check wait duration measured in milliseconds.|
 |    --replica-set-check          | Upgrade replica set check time-out measured in seconds.|
-|    --svc-type-health-map        | JSON encoded list of objects that describe the health policies
-                                   used to evaluate the health of different service types.|
+|    --svc-type-health-map        | JSON encoded list of objects that describe the health policies                                   used to evaluate the health of different service types.|
 |    --timeout -t                 | Server time-out in seconds.  Default: 60.|
 |    --unhealthy-app              | The maximum allowed percentage of unhealthy applications before                                   reporting an error.        For example, to allow 10% of applications to be unhealthy, this value would be 10. The        percentage represents the maximum tolerated percentage of applications that can be unhealthy        before the cluster is considered in error. If the percentage is respected but there is at        least one unhealthy application, the health is evaluated as Warning. This percentage is calculated by        dividing the number of unhealthy applications over the total number of application instances        in the cluster.|
 |    --upgrade-domain-timeout     | Upgrade domain time-out measured in milliseconds.|
