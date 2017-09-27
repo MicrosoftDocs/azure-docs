@@ -55,18 +55,18 @@ For each StorSimple Device Manager service, the following attributes exist:
 * **Location** – The geographical location in which the StorSimple device will be deployed.
 * **Subscription** – The billing subscription that is associated with your service.
 
-## Move a service to Azure portal
-StorSimple 8000 series can be now managed in the Azure portal. If you have an existing service to manage the StorSimple devices, we recommend that you move your service to the Azure portal. The Azure classic portal for the StorSimple Manager service is not available after September 30, 2017.
+## Move a service from classic portal to Azure portal
+StorSimple 8000 series can be now managed in the Azure portal. If you have an existing service to manage the StorSimple devices, we recommend that you move your service to the Azure portal. The Azure classic portal for the StorSimple Manager service is not available after September 30, 2017. If you want to move, review the impact of migration as documented in the [Considerations for transition](#considerations-for-transition). 
 
-The option to migrate to the Azure portal is available in phases. If you do not see an option to migrate to Azure portal but you want to move and have reviewed the impact of migration as documented in the [Considerations for transition](#considerations-for-transition), you can [submit a request](https://aka.ms/ss8000-cx-signup).
+> [!NOTE]
+> Starting October 5, 2017, your classic StorSimple device managers will automatically move to the new Azure portal. This is a phased rollout, and we will update you about the move via email and portal notifications. If you have any questions, see [FAQ: Move to Azure portal]().
 
 ### Considerations for transition
 
 Review the impact of migrating to the new Azure portal before you move the service.
 
-
 > [!NOTE]
-> The existing Azure Service Management (ASM) PowerShell cmdlets are not supported. Update the scripts to manage your devices through the Azure Resource Manager SDK. For scripts using Resource Manager SDK, refer the [storsimpledevicemgmttools github](https://github.com/anoobbacker/storsimpledevicemgmttools).
+> The existing Azure Service Management (ASM) PowerShell cmdlets are not supported after you move to the new Azure portal. Update the scripts to manage your devices through the Azure Resource Manager SDK. For scripts using Resource Manager SDK, refer the [storsimpledevicemgmttools github](https://github.com/anoobbacker/storsimpledevicemgmttools).
 > The new Azure portal supports devices running Update 3.0 or later. If your device is not up to date, we strongly recommend that you apply Update 5 as soon as possible.
 
 #### Before you transition
@@ -102,6 +102,8 @@ Perform the following steps to transition your service to the Azure portal.
     ![Select device manager](./media/storsimple-8000-manage-service/service-browse02.png)
 
 2. You see a notification that informs you that the StorSimple Device Manager service is now available in the Azure portal. In the Azure portal, the service is referred to as the StorSimple Device Manager service.
+
+The option to migrate to the Azure portal is available in phases. If you do not see an option to migrate to Azure portal but you want to move, you can [submit a request](https://aka.ms/ss8000-cx-signup).
 
     ![Migration notification](./media/storsimple-8000-manage-service/service-transition1.jpg)
 
