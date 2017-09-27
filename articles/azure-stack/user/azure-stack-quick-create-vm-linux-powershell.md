@@ -217,4 +217,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## Next steps
 
-In this quick start, you’ve deployed a simple Linux virtual machine, a network security group rule, and installed a web server. To learn more about Azure Stack virtual machines, continue to [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md).
+In this quick start, you’ve deployed a simple Linux virtual machine. To learn more about Azure Stack virtual machines, continue to [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md).
