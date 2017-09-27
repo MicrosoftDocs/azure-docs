@@ -25,14 +25,14 @@ If you are a Visual Studio C# developer, Azure Functions also [integrates with V
 
 ## Install the Azure Functions Core Tools
 
-[Azure Functions Core Tools] is a local version of the Azure Functions runtime that you can run on your local Windows computer. It's not an emulator or simulator. It's the same runtime that powers Functions in Azure. There are currently two versions of Azure Functions Core Tools, where each supports a different version of the Azure Functions runtime. Both versions are provided as an npm package.
+[Azure Functions Core Tools] is a local version of the Azure Functions runtime that you can run on your local development computer. It's not an emulator or simulator. It's the same runtime that powers Functions in Azure. There are currently two versions of Azure Functions Core Tools, where each supports a different version of the Azure Functions runtime. Both versions are provided as an [npm package](https://docs.npmjs.com/getting-started/what-is-npm).
 
 >[!NOTE]  
-> Before you install either version, you must [install NodeJS](https://docs.npmjs.com/getting-started/installing-node), which includes npm.  
+> Before you install either version, you must [install NodeJS](https://docs.npmjs.com/getting-started/installing-node), which includes npm. For version 2.0 of the tools, we recommend using Node.js 8.5, or a higher version. 
 
 ### Version 1.0 runtime
 
-The original version of the tools uses the Functions 1.0 runtime. This version uses .NET standard and is only supported on Windows computers. Use the following command to to install the version 1.0 tools:
+The original version of the tools uses the Functions 1.0 runtime. This version uses the .NET Framework and is only supported on Windows computers. Use the following command to to install the version 1.0 tools:
 
 ```bash
 npm install -g azure-functions-core-tools
@@ -40,12 +40,12 @@ npm install -g azure-functions-core-tools
 
 ### Version 2.0 runtime
 
-Version 2.0 of the tools uses the Azure Function runtime 2.0 that is built on .NET Core 2.0. This version is supported on all computers that run .NET Core 2.0. Use this version for cross-platform development and when the Functions runtime 2.0 is required. 
+Version 2.0 of the tools uses the Azure Function runtime 2.0 that is built on .NET Core. This version is supported on all computers that run .NET Core 2.0. Use this version for cross-platform development and when the Functions runtime 2.0 is required. 
 
 >[!IMPORTANT]   
 > Before installing Azure Functions Core Tools, you must [install .NET Core 2.0](https://www.microsoft.com/net/core).  
 >
-> Azure Functions runtime 2.0 is currently in preview and not all features of Azure Functions are supported. For more information, see [Azure Functions runtime 2.0 known issues](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues) 
+> Azure Functions runtime 2.0 is in preview and currently not all features of Azure Functions are supported. For more information, see [Azure Functions runtime 2.0 known issues](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues) 
 
  Use the following command to to install the version 2.0 tools:
 
@@ -59,7 +59,7 @@ When installing on Ubuntu use `sudo`, as follows:
 sudo npm install -g azure-functions-core-tools@core
 ```
 
-When installing on macOS, you may need to include the `unsafe-perm` flag, as follows:
+When installing on macOS and Linux, you may need to include the `unsafe-perm` flag, as follows:
 
 ```bash
 sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
@@ -82,7 +82,7 @@ func init MyFunctionProj
 
 When running locally, a Functions project is a directory that has the files host.json and local.settings.json. This directory is the equivalent of a function app in Azure. To learn more about the Azure Functions folder structure, see the [Azure Functions developers guide](functions-reference.md#folder-structure).
 
-At a command prompt, run the following command:
+In the terminal window or from a command prompt, run the following command:
 
 ```
 func init MyFunctionProj
@@ -98,7 +98,7 @@ Created launch.json
 Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
 ```
 
-To opt out of creating a Git repository, use the option `--no-source-control [-n]`.
+Use the `--no-source-control [-n]` option to create the project without a local Git repository.
 
 <a name="local-settings"></a>
 
@@ -269,6 +269,14 @@ You can use the following options:
 | **`--overwrite-settings -y`** | Must be used with `-i`. Overwrites AppSettings in Azure with local value if different. Default is prompt.|
 
 The `publish` command uploads the contents of the Functions project directory. If you delete files locally, the `publish` command does not delete them from Azure. You can delete files in Azure by using the [Kudu tool](functions-how-to-use-azure-function-app-settings.md#kudu) in the [Azure portal].
+
+>[!IMPORTANT]  
+> When publishing from version 2.0 of the tools, your function app will use the Function runtime version 1.0 by default. To instead use the runtime version 2.0, you must add the application setting `FUNCTIONS_EXTENSION_VERSION=beta`. Use the following Azure CLI code to add this setting to your function app: 
+```azurecli-interactive
+az functionapp config appsettings set --name <function_app> \
+--resource-group myResourceGroup \
+--settings FUNCTIONS_EXTENSION_VERSION=beta   
+```
 
 ## Next steps
 
