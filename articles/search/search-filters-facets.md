@@ -20,6 +20,9 @@ ms.author: heidist
 
 # How to apply facet filters in Azure Search 
 
+https://docs.microsoft.com/en-us/rest/api/searchservice/search-documents 
+
+
 ## See also
 
  [Filters in Azure Search]()

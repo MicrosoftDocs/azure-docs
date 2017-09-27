@@ -19,7 +19,7 @@ ms.author: heidist
 ---
 # Filters in Azure Search 
 
-In Azure Search, filters are used to 
+In Azure Search, filters reduce the search results by applying 
 
 + explicitly exclude results returned to the calling application...
 
@@ -68,9 +68,9 @@ Maximum limit on the function is the maximum limit on the request: 16 MB for POS
 you require an expression. You can create multiple filter expressions, up to XXXX, but each one can have only set of criteria. If you want to search on multiple phrases, for example a city name, a type of hotel, ...
 
 TBD
-
+```
 $filter=[string] (optional)
-
+```
 A structured search expression in standard OData syntax. When calling via POST, this parameter is named filter instead of $filter. 
 
 ## Filter by language
@@ -97,8 +97,8 @@ You can try **Search explorer** in the portal to submit queries with **$filter**
 
 ## See also
 
- [How full text search works in Azure Search]()
- [Search Documents REST API]()
- [Simple query syntax]()
- [Lucene query syntax]()
++ [How full text search works in Azure Search]()
++ [Search Documents REST API]()
++ [Simple query syntax]()
++ [Lucene query syntax]()
 
