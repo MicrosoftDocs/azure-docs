@@ -119,7 +119,7 @@ The following table describes names and descriptions of properties that are spec
 | name                | Name of the activity in the pipeline     | Yes      |
 | description         | Text describing what the activity does.  | No       |
 | type                | For Data Lake Analytics U-SQL activity, the activity type is  **DataLakeAnalyticsU-SQL**. | Yes      |
-| linkedServiceName   | Linked Service to Azure Data Lake Analytics. To learn about this linked service, see [Compute linked services](compute-linked-services.md) article.  |          |
+| linkedServiceName   | Linked Service to Azure Data Lake Analytics. To learn about this linked service, see [Compute linked services](compute-linked-services.md) article.  |Yes       |
 | scriptPath          | Path to folder that contains the U-SQL script. Name of the file is case-sensitive. | Yes      |
 | scriptLinkedService | Linked service that links the storage that contains the script to the data factory | Yes      |
 | degreeOfParallelism | The maximum number of nodes simultaneously used to run the job. | No       |
