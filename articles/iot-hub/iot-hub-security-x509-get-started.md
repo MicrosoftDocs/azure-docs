@@ -75,7 +75,7 @@ The X.509 certificate-based security in the IoT Hub requires you to start with a
     }
     Initialize-CAOpenSSL
     ```
-4. Next run the following script that searches whether a certificate by the specified *Subject Name* is already installed, and whether OpenSSL is configured correctly on your machine:
+4. Next, run the following script that searches whether a certificate by the specified *Subject Name* is already installed, and whether OpenSSL is configured correctly on your machine:
     ```PowerShell
     function Get-CACertBySubjectName([string]$subjectName)
     {
@@ -125,7 +125,7 @@ The X.509 certificate-based security in the IoT Hub requires you to start with a
 	      if ($isASigner -eq $true)
 	      {
 		        $selfSignedArgs += @{"-KeyUsage"="CertSign"; }
-            $selfSignedArgs += @{"-TextExtension"= @(("2.5.29.19={text}ca=TRUE&pathlength=12"))  ; }
+            $selfSignedArgs += @{"-TextExtension"= @(("2.5.29.19={text}ca=TRUE&pathlength=12")); }
 	      }
         else
         {
@@ -158,7 +158,7 @@ The X.509 certificate-based security in the IoT Hub requires you to start with a
         Import-Certificate -CertStoreLocation "cert:\LocalMachine\CA" -FilePath $certFileName | Out-Null
 
         # Store public PEM for later chaining
-        openssl x509 -inform der -in $certFileName -out $pemFileName
+        openssl x509 -inform deer -in $certFileName -out $pemFileName
 
         del $certFileName
    
@@ -296,55 +296,103 @@ These steps show you how to add a new Certificate Authority to your hub through 
 
 ## Task 5: Device connects to the hub
 
-### Add the certificates to environment variables
+In this section, you create a C# application to simulate the X.509 device registered for your IoT hub, and send temperature and humidity values from the device to your hub. Note that in this tutorial, we will create only the device application, that is set up to communicate with the service application. It is left as an exercise to the readers to create the service application that will send response to the events sent by this simulated device.
 
-Run the following script to save the certificates to environment variables. These will be used by the IoT Hub device client in the next section to connect to your hub.
-
-    ```PowerShell
-    function Write-CACertificatesToEnvironment([string]$deviceName, [string]$iothubName, [bool]$useIntermediate)
-    {
-        $newDevicePemPrivateFileName  = ("./{0}-private.pem" -f $deviceName)
-        $newDevicePemPublicFileName  = ("./{0}-public.pem" -f $deviceName)
-
-        $rootCAPem          = Get-CAPemEncodingForEnvironmentVariable $rootCAPemFileName
-        $devicePublicPem    = Get-CAPemEncodingForEnvironmentVariable $newDevicePemPublicFileName
-        $devicePrivatePem   = Get-CAPemEncodingForEnvironmentVariable $newDevicePemPrivateFileName
-
-        if ($useIntermediate -eq $true)
-        {
-	        $intermediate1CAPem = Get-CADogfoodPemEncodingForEnvironmentVariable $intermediate1CAPemFileName
-	    }
-    else
-    {
-        $intermediate1CAPem = $null
-    }
-    
-    $env:IOTHUB_CA_DOGFOOD_X509_PUBLIC                 = $devicePublicPem + $intermediate1CAPem + $rootCAPem
-    $env:IOTHUB_CA_DOGFOOD_X509_PRIVATE_KEY            = $devicePrivatePem
-    $env:IOTHUB_CA_DOGFOOD_CONNECTION_STRING_TO_DEVICE = "HostName={0};DeviceId={1};x509=true" -f $iothubName, $deviceName
-    if ($useEcc -eq $true)
-    {
-        $env:IOTHUB_CA_DOGFOOD_USE_ECC = "1"
-    }
-    else
-    {
-        $env:IOTHUB_CA_DOGFOOD_USE_ECC = "0"
-    }
-    
-    Write-Host "Success"
-}
-    ```
-
-### Create IoT Hub device client and connect to your hub
-
-1. Create a Visual Studio project named **SimulateX509Device**. <!--add png-->
-2. Add Nuget package for "microsoft.azure.devices.client".
+1. In Visual Studio, create a new Visual C# Windows Classic Desktop project by using the Console Application project template. Name the project **SimulateX509Device**.
+   ![Create X.509 device project in Visual Studio](./media/iot-hub-security-x509-get-started/create-device-project.png)
+2. In Solution Explorer, right-click the **SimulateX509Device** project, and then click **Manage NuGet Packages...**. In the NuGet Package Manager window, select **Browse** and search for **microsoft.azure.devices.client**. Select **Install** to install the **Microsoft.Azure.Devices.Client** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the Azure IoT device SDK NuGet package and its dependencies.
+   ![Add device SDK Nuget package in Visual Studio](./media/iot-hub-security-x509-get-started/device-sdk-nuget.png)
 3. Add the following lines of code at the top of the *Program.cs* file:
     ```CSharp
-    static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;x509=true";
-    static DeviceClient Client = null;
+    using Microsoft.Azure.Devices.Client;
+    using Microsoft.Azure.Devices.Shared;
+    using System.Security.Cryptography.X509Certificates;
     ```
-4. 
+4. Add the following lines of code inside the **Program** class:
+    ```CSharp
+    private static int MESSAGE_COUNT = 5;
+    private const int TEMPERATURE_THRESHOLD = 30;
+    private static String deviceId = "<your-device-id>";
+    private static float temperature;
+    private static float humidity;
+    private static Random rnd = new Random();
+    ```
+5. Add the following function to create random numbers for temperature and humidity and send these values to the hub:
+    ```CSharp
+    static async Task SendEvent(DeviceClient deviceClient)
+    {
+        string dataBuffer;
+        Console.WriteLine("Device sending {0} messages to IoTHub...\n", MESSAGE_COUNT);
+
+        for (int count = 0; count < MESSAGE_COUNT; count++)
+        {
+            temperature = rnd.Next(20, 35);
+            humidity = rnd.Next(60, 80);
+            dataBuffer = string.Format("{{\"deviceId\":\"{0}\",\"messageId\":{1},\"temperature\":{2},\"humidity\":{3}}}", deviceId, count, temperature, humidity);
+            Message eventMessage = new Message(Encoding.UTF8.GetBytes(dataBuffer));
+            eventMessage.Properties.Add("temperatureAlert", (temperature > TEMPERATURE_THRESHOLD) ? "true" : "false");
+            Console.WriteLine("\t{0}> Sending message: {1}, Data: [{2}]", DateTime.Now.ToLocalTime(), count, dataBuffer);
+
+            await deviceClient.SendEventAsync(eventMessage);
+        }
+    }
+    ```
+6. Add the following function to received commands from the IoT hub in response to the events sent above:
+    ```CSharp
+    static async Task ReceiveCommands(DeviceClient deviceClient)
+    {
+        Console.WriteLine("\nDevice waiting for commands from IoTHub...\n");
+        Message receivedMessage;
+        string messageData;
+
+        while (true)
+        {
+            receivedMessage = await deviceClient.ReceiveAsync(TimeSpan.FromSeconds(1));
+            if (receivedMessage != null)
+            {
+                messageData = Encoding.ASCII.GetString(receivedMessage.GetBytes());
+                Console.WriteLine("\t{0}> Received message: {1}", DateTime.Now.ToLocalTime(), messageData);
+
+                int propCount = 0;
+                foreach (var prop in receivedMessage.Properties)
+                {
+                    Console.WriteLine("\t\tProperty[{0}> Key={1} : Value={2}", propCount++, prop.Key, prop.Value);
+                }
+
+                await deviceClient.CompleteAsync(receivedMessage);
+            }
+        }
+    }
+    ```
+7. Finally, add the following lines of code to the **Main** function:
+    ```CSharp
+    try
+    {
+        var cert = new X509Certificate2(@"D:\x509test\9_19\test-device.pfx", "123");
+        var auth = new DeviceAuthenticationWithX509Certificate("test-device", cert);
+        var deviceClient = DeviceClient.Create("test-hub-docs.azure-devices.net", auth, TransportType.Amqp_Tcp_Only);
+
+        if (deviceClient == null)
+        {
+            Console.WriteLine("Failed to create DeviceClient!");
+        }
+        else
+        {
+            Console.WriteLine("Successfully created DeviceClient!");
+            SendEvent(deviceClient).Wait();
+            Console.WriteLine("Press any key to exit.");
+            ReceiveCommands(deviceClient).Wait();
+        }
+
+        Console.WriteLine("Exited!\n");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("Error in sample: {0}", ex.Message);
+    }
+    ```
+   This code connects to your IoT hub by creating the connection string for your X.509 device. Once successfully connected, it then sends temperature and humidity events to the hub, and waits for its response. 
+8. Since this application accesses a *.pfx* file, you need to execute this in *Admin* mode. Save and close the above Visual Studio solution. Open a new command window as an **Administrator**, and navigate to the folder containing the above application. Navigate to the *bin/Debug* path within the solution folder. Run the application **SimulateX509Device.exe** from the Admin command window. You should see your device succesfully connecting to the hub and sending the events. 
 
 ## See also
 To learn more about securing your IoT solution, see:
