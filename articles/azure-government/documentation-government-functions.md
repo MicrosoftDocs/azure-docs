@@ -42,12 +42,16 @@ If you don't have an Azure Government subscription, create a [free account](http
 
 You must first connect to Azure Government with Azure Command Line Interface (CLI) by following [these steps](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-get-started-connect-with-cli). 
 
-	
-Log in to the Azure Government cloud through CLI: 
+To connect to Azure Government through CLI, you set the cloud:
+
+```
+az cloud set --name AzureUSGovernment
+```
+
+After the cloud has been set, you can continue logging in:
 
 ```
 az login
-
 ```
 ### Create a Resource Group with CLI
 
