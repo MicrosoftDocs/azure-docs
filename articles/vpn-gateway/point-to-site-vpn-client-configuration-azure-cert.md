@@ -41,9 +41,7 @@ VPN client configuration files are contained in a zip file. Configuration files 
 
 Before you begin, make sure that all connecting users have a valid certificate installed on the user's device. For more information about installing a client certificate, see [Install a client certificate](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
-You can generate client configuration files from PowerShell or by using the Azure portal. Either method returns the same zip file.
-
-Unzip the file to view the following folders:
+You can generate client configuration files from PowerShell or by using the Azure portal. Either method returns the same zip file. Unzip the file to view the following folders:
 
   * **WindowsAmd64** and **WindowsX86**, which contain the Windows 32-bit and 64-bit installer packages, respectively. The **WindowsAmd64** installer package is for all supported 64-bit Windows clients, not just Amd.
   * **Generic**, which contains general information used to create your own VPN client configuration. Ignore this folder. The Generic folder is provided only if IKEv2 or SSTP+IKEv2 was configured on the gateway. If only SSTP is configured, then the Generic folder is not present.
@@ -55,10 +53,6 @@ Unzip the file to view the following folders:
 3. At the top of the Point-to-site configuration page, click **Download VPN client**. It takes a few minutes for the client configuration package to generate.
 4. Your browser indicates that a client configuration zip file is available. It is named the same name as your gateway. Unzip the file to view the folders.
 
-#### To retrieve client configuration files again
-
-If you need to retrieve client configuration files again, you can re-run the steps in this section to generate another zip file.
-
 ### <a name="zipps"></a>Generate files using PowerShell
 
 1. When generating VPN client configuration files, the value for '-AuthenticationMethod' is 'EapTls'. Generate the VPN client configuration files using the following command:
@@ -68,8 +62,7 @@ If you need to retrieve client configuration files again, you can re-run the ste
 
   $profile.VPNProfileSASUrl
   ```
-2. Copy the URL to your browser to download the zip file, then unzip the zip file.
-3. If you need to retrieve the zip file again, just run the cmdlets again.
+2. Copy the URL to your browser to download the zip file, then unzip the file to view the folders.
 
 ## <a name="installwin"></a>Install a Windows VPN client configuration package
 
