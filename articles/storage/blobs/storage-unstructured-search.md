@@ -19,9 +19,9 @@ ms.author: rogara
 ms.custom: mvc
 ---
 
-# Search unstructured data in cloud Storage
+# Search unstructured data in cloud storage
 
-This tutorial is part one of a two-part series. In this series you learn how to search semi-structured and unstructured data. Part one shows you how to search unstructured data. Unstructured data is data that either is not organized in a pre-defined manner or does not have a data model. An example of unstructured data is a .txt file.
+In this two-part tutorial series, you learn how to search semi-structured and unstructured data. In this part you search unstructured data. Unstructured data is data that either is not organized in a pre-defined manner or does not have a data model. An example would be a .txt file.
 
 In this part you learn how to:
 
@@ -80,7 +80,7 @@ For this tutorial, you use a single container to store the text files obtained f
 
 3. Select **+Container** to create a new container.
 
-4. Name the container "clinical-trials" and select **Container** for the public access level.
+4. Name the container "data" and select **Container** for the public access level.
 
 5. Select **OK** to create the container. 
 
@@ -168,12 +168,9 @@ Now that you have a search service, you can attach it to your blob storage. This
 
 ### Configure the Index
 
-  An index is a collection of fields from your data source that are able to be searched.
+  An index is a collection of fields from your data source that are able to be searched.    
 
-  The parameters of your index and what attributes you give those parameters are important. The parameters specify *what* data to store, the attributes specify *how* to store that data.
-    
-
-1. Enter a name for your index in the **inddex name** field.
+1. Enter a name for your index in the **index name** field.
 
 2. Select **metadata_storage_name** from the **Key** dropdown.
 
@@ -181,7 +178,9 @@ Now that you have a search service, you can attach it to your blob storage. This
 
 3. Click **OK**, which brings up **Create an Indexer.**
 
-The following table provides a listing of the available attributes and their escriptions.
+The parameters of your index and what attributes you give those parameters are important. The parameters specify *what* data to store, the attributes specify *how* to store that data.
+
+The following table provides a listing of the available attributes and their descriptions.
 
 ### Field attributes
 | Attribute | Description |
