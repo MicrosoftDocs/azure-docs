@@ -73,7 +73,7 @@ SELECT id from clicks PARTITION BY PartitionId INNER JOIN impressions PARTITION 
 </code>
 
 Once the query is partitioned out, it is spread out over multiple nodes. As a results the number of events coming into each node is reduced thereby reducing the size of the state kept in the join window. 
-#### Temportal analytic dunction
+#### Temportal analytic function
 The state size of a temporal analytic function is proportional to the event rate multiply by the duration. 
 The remediation is similar to temporal join. You can scale out the query using PARTITION BY. 
 
