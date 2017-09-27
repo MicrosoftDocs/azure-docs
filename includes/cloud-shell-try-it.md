@@ -9,7 +9,7 @@ The button launches an interactive shell that you can use to run the steps in th
 
 [![Screenshot showing the Cloud Shell window in the portal](./media/cloud-shell-try-it/cloud-shell-safari.png)](https://portal.azure.com)
 
-
+If you are prompted by Azure Cloud Shell that you currently have no storage mounted, select a subscription to create the storage account on and confirm pushing **Create storage** button. 
 
 
 
