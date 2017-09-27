@@ -127,6 +127,10 @@ ProxyPassword="Password"
   If you have Scale-out Process servers attached to this Configuration Server, you need to [re-register all the scale-out process servers](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#re-registering-a-scale-out-process-server) in your deployment.
 
 ## Registering a Configuration Server with a different Recovery Services Vault.
+
+> [!WARNING]
+> The below set of steps will disassociate the Configuration from the current vault, and the replication of all protected virtual machines in the current vault will stop.
+
 1. Login to your Configuration Server.
 2. from an admin command prompt, run the command
 
@@ -222,6 +226,17 @@ The SSL Certificate's validity for all installations that happened before May 20
 
   >[!TIP]
   If instead of a **Renew Now** button you see an **Upgrade Now** button. This means that there are some components in your environment that have not yet been upgraded to 9.4.xxxx.x or higher versions.
+
+## Revive a Configuration server if the Secure Socket Layer (SSL) certificate expired
+
+1. Update your Configuration Server to the [latest version](http://aka.ms/unifiedinstaller)
+2. If you have any Scale-out Process servers, Failback Master Target servers, Failback Process Servers update them to the latest version
+3. Update the Mobility Service on all the protected virtual machines to the latest version.
+4. Log in to the Configuration server and open a command prompt with administrator previleges.
+5. Browse to the folder %ProgramData%\ASR\home\svsystems\bin
+6. Run RenewCerts.exe to renew the SSL certificate on the Configuration Server.
+7. If the process succeeds you should see the message "Certificate  renewal is Success"
+
 
 ## Sizing requirements for a Configuration Server
 
