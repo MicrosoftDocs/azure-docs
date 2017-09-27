@@ -51,3 +51,21 @@ It's difficult to maintain the exact throughput of the VPN tunnels. IPsec and SS
 ### Can I use any software VPN client for Point-to-Site that supports SSTP and/or IKEv2?
 
 No. You can only use the native VPN client on Windows for SSTP, and the native VPN client on Mac for IKEv2. Refer to the list of supported client operating systems.
+
+### Can I access the Internet when I am connected over P2S VPN?
+
+Yes, you can access the Internet while on a P2S VPN.
+
+### Does Azure support IKEv2 VPN with Windows?
+
+Users can connect to Azure using the built-in Windows VPN client, which does support IKEv2. But, IKEv2 connections from a Windows device won't work in the following scenario:
+
+  When the user's device contains a large number of trusted root certificates, the message payload size during IKE exchange is large and causes IP layer fragmentation. The fragments are rejected at the Azure end, which results in the connection failing. The exact certificate count at which this problem occurs is difficult to estimate. As a result, IKEv2 connections from Windows devices are not guaranteed to work. When you configure both SSTP and IKEv2 in a mixed environment (consisting of Windows and Mac devices), the Windows VPN profile always tries IKEv2 tunnel first. If it fails due to the issue described here, it falls back to SSTP.
+
+### Other than Windows and Mac, which other platforms does Azure support for P2S VPN?
+
+Azure supports only Windows and Mac for P2S VPN.
+
+### I already have an Azure VPN Gateway deployed. Can I enabled RADIUS and/or IKEv2 VPN on it?
+
+Yes, you can enable these new features on already deployed gateways, both through Powershell and the Azure portal.
