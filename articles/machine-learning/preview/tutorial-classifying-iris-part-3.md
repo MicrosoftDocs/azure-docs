@@ -205,7 +205,7 @@ Now you are ready to create the real-time web service.
    >[!IMPORTANT]
    >The service name (which is also the new Docker image name) must be all lower case, otherwise you get an error. 
 
-2. When you run the command, the model and the scoring file are uploaded into to the storage account you created as part of the environment setup. The deployment process builds a Docker image with your model, schema, scoring file in it, and pushes it to the ACR registry: **<ACR_name>.azureacr.io/<imagename>:<version>**. It then pulls down that image locally to your computer, and starts a Docker container based on that image. (If your environment is configured in cluster mode, the Docker container is deployed into the ACS Kubernetes cluster instead.)
+2. When you run the command, the model and the scoring file are uploaded into to the storage account you created as part of the environment setup. The deployment process builds a Docker image with your model, schema, scoring file in it, and pushes it to the ACR registry: **<ACR_name>.azureacr.io//<imagename>:<version>**. It then pulls down that image locally to your computer, and starts a Docker container based on that image. (If your environment is configured in cluster mode, the Docker container is deployed into the ACS Kubernetes cluster instead.)
 
    As part of the deployment, an HTTP REST endpoint for the web service is created on your local machine. After a few minutes the command should finish with a success message and your web service is ready for action!
 
@@ -276,7 +276,7 @@ Test the running **irisapp** web service by feeding it with a JSON encoded recor
    az ml service keys realtime -i <web service ID>
    ```
 
-## View the collected data in Azure blob storage:
+## View the collected data in Azure blob storage
 
 1. Sign into the [Azure portal](https://portal.azure.com).
 
@@ -297,7 +297,9 @@ Test the running **irisapp** web service by feeding it with a JSON encoded recor
 
    Data flows into blobs with the following container path:
 
-   `/modeldata/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<day>/data.csv`
+   ```
+   /modeldata/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<day>/data.csv
+   ```
 
 6. You can consume this data from Azure blobs. There are a variety of tools in using both Microsoft software and open source tools such as:
 
