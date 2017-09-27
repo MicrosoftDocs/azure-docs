@@ -78,7 +78,7 @@ Use the install script provided to copy the Voting application definition to the
 ./install.sh
 ```
 
-Open a browser and navigate to Service Fabric Explorer at http://\<my-azure-service-fabric-cluster-url>:80 - for example, `http://linh1x87d1d.westus.cloudapp.azure.com:80`. Expand the Applications node to see that there is now an entry for the Voting application type and the instance you created.
+Open a browser and navigate to Service Fabric Explorer at http://\<my-azure-service-fabric-cluster-url>:19080/Explorer - for example, `http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`. Expand the Applications node to see that there is now an entry for the Voting application type and the instance you created.
 
 ![Service Fabric Explorer][sfx]
 
