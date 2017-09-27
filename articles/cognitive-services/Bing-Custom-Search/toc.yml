@@ -15,6 +15,8 @@
       items:
         - name: C#
           href: call-endpoint-csharp.md
+        - name: Java
+          href: call-endpoint-java.md
         - name: Nodejs
           href: call-endpoint-nodejs.md        
     - name: Define your custom view

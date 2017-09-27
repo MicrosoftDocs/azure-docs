@@ -12,7 +12,7 @@ ms.date: 05/09/2017
 ms.author: v-brapel
 ---
 
-## Call Bing Custom Search endpoint (Java)
+# Call Bing Custom Search endpoint (Java)
 
 [!INCLUDE [call-bing-custom-search-endpoint](../../../includes/call-bing-custom-search-endpoint.md)]
 
