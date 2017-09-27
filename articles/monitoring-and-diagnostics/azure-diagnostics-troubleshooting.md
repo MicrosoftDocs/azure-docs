@@ -28,7 +28,7 @@ This article describes troubleshooting information that's relevant to using Azur
 **Monitoring Agent (MonAgent\*.exe processes)**: Monitors, collects, and transfers the diagnostics data.  
 
 ## Log/artifact paths
-Following are the paths to some important logs and artifacts. We refer to this information throughout the rest of the document:
+Following are the paths to some important logs and artifacts. We refer to this information throughout the rest of the document.
 
 ### Azure Cloud Services
 | Artifact | Path |
@@ -53,14 +53,14 @@ Following are the paths to some important logs and artifacts. We refer to this i
 | **Log collection utility path** | C:\WindowsAzure\Packages |
 | **MonAgentHost log file** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
-## Metric data doesn't appear in Azure portal
+## Metric data doesn't appear in the Azure portal
 Azure Diagnostics provides metric data that can be displayed in the Azure portal. If you have problems seeing the data in portal, check the WADMetrics\* table in the Azure Diagnostics storage account to see if the corresponding metric records are there. 
 
-Here, the **PartitionKey** of the table is the resource ID, virtual machine, or virtual machine scale set. **RowKey** is the metric name (also known as the performance counter name).
+Here, **PartitionKey** of the table is the resource ID, virtual machine, or virtual machine scale set. **RowKey** is the metric name (also known as the performance counter name).
 
-If the resource ID is incorrect, check **Diagnostics Configuration > Metrics > ResourceId** to see if the resource ID is set correctly.
+If the resource ID is incorrect, check **Diagnostics** **Configuration** > **Metrics** > **ResourceId** to see if the resource ID is set correctly.
 
-If there's no data for the specific metric, check **Diagnostics Configuration > PerformanceCounter** to see if the metric (performance counter) is included. We enable the following counters by default:
+If there's no data for the specific metric, check **Diagnostics Configuration** > **PerformanceCounter** to see if the metric (performance counter) is included. We enable the following counters by default:
 - \Processor(_Total)\% Processor Time
 - \Memory\Available Bytes
 - \ASP.NET Applications(__Total__)\Requests/Sec
@@ -111,7 +111,7 @@ If the storage account is configured correctly, remote access into the machine a
 If the processes are running, go to [Is data getting captured locally?](#is-data-getting-captured-locally) and follow the instructions there.
 
 ### Part of the data is missing
-If you are getting some data but not all, it means that the data collection/transfer pipeline is set correctly. Follow the subsections here to narrow down the issue:
+If you are getting some data but not all, it means that the data collection/transfer pipeline is set correctly. Follow the subsections here to narrow down the issue.
 
 #### Is the collection configured? 
 The Diagnostics configuration contains instructions for a particular type of data to be collected. [Review your configuration](#how-to-check-diagnostics-extension-configuration) to verify that you are only looking for data that you've configured for the collection.
@@ -122,7 +122,7 @@ The Diagnostics configuration contains instructions for a particular type of dat
 - **Trace logs**:  Remote access into the VM and add a TextWriterTraceListener to the app’s config file.  See http://msdn.microsoft.com/library/sk36c28t.aspx to set up the text listener.  Make sure the `<trace>` element has `<trace autoflush="true">`.<br />
 If you don't see trace logs being generated, see [More about trace logs missing](#more-about-trace-logs-missing).
 
-- **ETW traces**: Remote access into the VM and install PerfView.  In PerfView, run **File > User Command > Listen etwprovder1 > etwprovider2,** and so on. The **Listen** command is case-sensitive and that there cannot be spaces between the comma-separated list of ETW providers. If the command fails to run, you can select the **Log** button in the bottom-right of the Perfview tool to see what  attempted to run and what the result was.  Assuming the input is correct, a new window pops up. In a few seconds, you begin seeing ETW traces.
+- **ETW traces**: Remote access into the VM and install PerfView.  In PerfView, run **File** > **User Command** > **Listen etwprovder1** > **etwprovider2**, and so on. The **Listen** command is case-sensitive, and there cannot be spaces between the comma-separated list of ETW providers. If the command fails to run, you can select the **Log** button in the bottom right of the Perfview tool to see what  attempted to run and what the result was.  Assuming the input is correct, a new window pops up. In a few seconds, you begin seeing ETW traces.
 
 - **Event logs**: Remote access into the VM. Open `Event Viewer`, and then ensure that the events exist.
 
@@ -218,7 +218,7 @@ Alternatively, remote desktop into the machine and look at the Azure Diagnostics
 
 In either case, search for **Microsoft.Azure.Diagnostics**, and then for the **xmlCfg** or **WadCfg** field. 
 
-If you're searching on a virtual machine and the **WadCfg** field is present, it means the config is in JSON format. If the **xmlCfg** field is present, it means the config is in XML, and is base64-encoded. You need to [decode it](http://www.bing.com/search?q=base64+decoder) to see the XML that was loaded by Diagnostics.
+If you're searching on a virtual machine and the **WadCfg** field is present, it means the config is in JSON format. If the **xmlCfg** field is present, it means the config is in XML and is base64-encoded. You need to [decode it](http://www.bing.com/search?q=base64+decoder) to see the XML that was loaded by Diagnostics.
 
 For the cloud service role, if you pick the configuration from disk, the data is base64-encoded, so you need to [decode it](http://www.bing.com/search?q=base64+decoder) to see the XML that was loaded by Diagnostics.
 
@@ -228,7 +228,7 @@ The plugin returns the following exit codes:
 | Exit code | Description |
 | --- | --- |
 | 0 |Success. |
-| -1 |Generic Error. |
+| -1 |Generic error. |
 | -2 |Unable to load the rcf file.<p>This internal error should only happen if the guest agent plugin launcher is manually invoked incorrectly on the VM. |
 | -3 |Cannot load the Diagnostics configuration file.<p><p>Solution: Caused by a configuration file not passing schema validation. The solution is to provide a configuration file that complies with the schema. |
 | -4 |Another instance of the monitoring agent Diagnostics is already using the local resource directory.<p><p>Solution: Specify a different value for **LocalResourceDirectory**. |
@@ -256,7 +256,7 @@ The monitoring agent collects logs and artifacts as `.tsf` files. The `.tsf` fil
 A new file called `<relevantLogFile>.csv` is created in the same path as the corresponding `.tsf` file.
 
 >[!NOTE] 
-> You only need to run this utility against the main .tsf file (for example, PerformanceCountersTable.tsf). The accompanying files (for example, PerformanceCountersTables_\*\*001.tsf, PerformanceCountersTables_\*\*002.tsf etc.) are automatically processed.
+> You only need to run this utility against the main .tsf file (for example, PerformanceCountersTable.tsf). The accompanying files (for example, PerformanceCountersTables_\*\*001.tsf, PerformanceCountersTables_\*\*002.tsf, and so on) are automatically processed.
 
 ### More about missing trace logs 
 
@@ -274,25 +274,25 @@ A new file called `<relevantLogFile>.csv` is created in the same path as the cor
 ## Known Issues and mitigations
 Here is a list of known issues with known mitigations:
 
-**1. .NET 4.5 dependency:**
+**1. .NET 4.5 dependency**
 
-Windows Azure Diagnostics Extension has a runtime dependency on .NET 4.5 framework or later. At the time of writing, all machines that are provisioned for Azure Cloud Services, as well as all official images that are based on Azure virtual machines, have .NET 4.5 or higher installed. 
+Windows Azure Diagnostics Extension has a runtime dependency on .NET 4.5 framework or later. At the time of writing, all machines that are provisioned for Azure Cloud Services, as well as all official images that are based on Azure virtual machines, have .NET 4.5 or later installed. 
 
-It is still possible encounter a situation where you try to run Windows Azure Diagnostics Extension on a machine that doesn't have .NET 4.5 or above. This happens when you create your machine off of an old image or snapshot, or when you bring your own custom disk.
+It is still possible encounter a situation where you try to run Windows Azure Diagnostics Extension on a machine that doesn't have .NET 4.5 or later. This happens when you create your machine from an old image or snapshot, or when you bring your own custom disk.
 
 This generally manifests as an exit code **255** when running **DiagnosticsPluginLauncher.exe.** Failure happens due to the following unhandled exception: 
 ```
 System.IO.FileLoadException: Could not load file or assembly 'System.Threading.Tasks, Version=1.5.11.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies
 ```
 
-**Mitigation:** Install .NET 4.5 or higher on your machine.
+**Mitigation:** Install .NET 4.5 or later on your machine.
 
-**2. Performance counters data available in storage but not showing in portal**
+**2. Performance counters data is available in storage but not showing in the portal**
 
 The portal experience in the virtual machines shows certain performance counters by default. If you don't see the performance counters, and you know that the data is getting generated because it is available in storage, check the following:
 
 - Whether the data in storage has counter names in English. If the counter names are not in English, the portal metric chart won't able to recognize it.
 
-- If you are using wild cards (\*) in your performance counter names, the portal won't able to correlate the configured and collected counter.
+- If you are using wildcards (\*) in your performance counter names, the portal won't able to correlate the configured and collected counter.
 
-**Mitigation**: Change the machine's language to English for system accounts. To do this, select **Control Panel > Region > Administrative > Copy Settings.** Next, deselect **Welcome screen and system accounts** so that the custom language is not applied to the system account. Also make sure you do not use wild cards if you want portal to be your primary consumption experience.
+**Mitigation**: Change the machine's language to English for system accounts. To do this, select **Control Panel** > **Region** > **Administrative** > **Copy Settings**. Next, deselect **Welcome screen and system accounts** so that the custom language is not applied to the system account. Also make sure you do not use wildcards if you want the portal to be your primary consumption experience.
