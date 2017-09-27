@@ -34,19 +34,17 @@ If you haven't deployed the remote monitoring solution yet, you should complete 
 
 ## Use the maintenance dashboard
 
-<!-- Need to update with the name of the rule in question -->
-On the **Dashboard** page you notice there are unexpected alarms coming from the rule associated with the **Prototype** devices:
+On the **Dashboard** page you notice there are unexpected temperature alarms coming from the rule associated with the **Prototype** devices:
 
-<!-- TODO insert screenshot -->
+![Alarms showing on the dashboard](media/iot-suite-remote-monitoring-maintain/dashboardalarm.png)
 
 To investigate the issue further, choose the **Explore Alarm** option next to the alarm:
 
-<!-- TODO insert screenshot -->
+![Explore alarm from the dashboard](media/iot-suite-remote-monitoring-maintain/dashboardexplorealarm.png)
 
-<!-- TODO Check if the deep link goes directly to the alarm detail or to the list -->
 You can now see a list of alarms on the **Maintenance** page:
 
-<!-- TODO insert screenshot -->
+![List of alarms on the maintenance page](media/iot-suite-remote-monitoring-maintain/maintenancealarms.png)
 
 To display details of the alarm, choose the alarm in the **Alarms** list. The detail view shows:
 
@@ -54,37 +52,35 @@ To display details of the alarm, choose the alarm in the **Alarms** list. The de
 * Status information about the devices associated with the alarm
 * Telemetry from the devices associated with the alarm
 
-<!-- TODO insert screenshot -->
+![Alarm details](media/iot-suite-remote-monitoring-maintain/maintenancealarmdetail.png)
 
 To acknowledge the alarm, select the **Alarm occurrences** and choose **Acknowledge**. This action enables other operators to see that you have seen the alarm and are working on it.
 
-<!-- TODO insert screenshot -->
+![Acknowledge the alarms](media/iot-suite-remote-monitoring-maintain/maintenanceacknowledge.png)
 
 In the list, you can see the **Prototype** device responsible for erroneously firing the temperature alarm:
 
-<!-- TODO insert screenshot -->
+![List the devices causing the alarm](media/iot-suite-remote-monitoring-maintain/maintenanceresponsibledevice.png)
 
 ## Remediate the issue
 
 To remediate the issue with the **Prototype** device, you need to call the **DecreaseTemperature** method on the device.
 
-<!-- TODO Clarify how the navigation to the device to call the method works. -->
-
 To act on a device, select it in the list of devices and then choose **Schedule**. The **Engine** device model specifies three methods a device must support:
 
-<!-- TODO insert screenshot -->
+![View the methods the device supports](media/iot-suite-remote-monitoring-maintain/maintenancemethods.png)
 
-Choose **DecreaseTemperature** and set the job name to **Decrease temperature**:
+Choose **DecreaseTemperature** and set the job name to **DecreaseTemperature**. Then choose **Apply**:
 
-<!-- TODO insert screenshot -->
+![Create the job to decrease the temperature](media/iot-suite-remote-monitoring-maintain/maintenancecreatejob.png)
 
 To track the status of the job on the **Maintenance** page, choose **System Status**. Use the **System Status** view to track all the jobs and method calls in the solution:
 
-<!-- TODO insert screenshot -->
+![Monitor the job to decrease the temperature](media/iot-suite-remote-monitoring-maintain/maintenancerunningjob.png)
 
 To view the details of a specific job or method call, choose it in the list in the **System Status** view:
 
-<!-- TODO insert screenshot -->
+![View job details](media/iot-suite-remote-monitoring-maintain/maintenancejobdetail.png)
 
 ## Next steps
 

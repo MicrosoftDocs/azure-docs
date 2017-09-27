@@ -110,13 +110,13 @@ You have now identified the issue that triggered the alarm and the associated de
 
     ![Select and acknowledge the alarm](media/iot-suite-remote-monitoring-explore/maintenanceacknowledge.png)
 
-1. To act on the chiller, select it and then choose **Schedule**. Select **EmergencyValveRelease**, add a job name **Chiller pressure release**, and choose **Apply**. These settings create a job that executes immediately:
+1. To act on the chiller, select it and then choose **Schedule**. Select **EmergencyValveRelease**, add a job name **ChillerPressureRelease**, and choose **Apply**. These settings create a job that executes immediately:
 
     ![Select the device and schedule an action](media/iot-suite-remote-monitoring-explore/maintenanceschedule.png)
 
 1. To view the job status, return to the **Maintenance** page and view the list of jobs in the **System Status** view. You can see the job has run to release the valve pressure on the chiller:
 
-    <!-- TODO Insert screenshot -->
+    ![The status of the jobs in System Status](media/iot-suite-remote-monitoring-explore/maintenancerunningjob.png)
 
 Finally, confirm that the telemetry values from the chiller are back to normal.
 
@@ -126,7 +126,7 @@ Finally, confirm that the telemetry values from the chiller are back to normal.
 
 1. To close the incident, navigate to the **Maintenance** page, select the alarm, and set the status to **Closed**:
 
-    <!-- TODO Insert screenshot -->
+    ![Select and close the alarm](media/iot-suite-remote-monitoring-explore/maintenanceacknowledge.png)
 
 ## Update device firmware
 
@@ -155,13 +155,9 @@ To perform the necessary device management tasks, use the **Devices** page. Star
 
 You can use the **Maintenance** page to track the job as it runs.
 
-1. Navigate to the **Maintenance** page and click **System status**:
+1. Navigate to the **Maintenance** page and click **System status**.
 
-    <!-- TODO Insert screenshot -->
-
-1. Locate the event related to the job you created. Verify that the firmware update process was initiated correctly:
-
-    <!-- TODO Insert screenshot -->
+1. Locate the event related to the job you created. Verify that the firmware update process was initiated correctly.
 
 You can create a filter to verify the firmware version update correctly.
 
@@ -173,9 +169,7 @@ You can create a filter to verify the firmware version update correctly.
 
     ![Create device filter](media/iot-suite-remote-monitoring-explore/devicescreatefilter.png)
 
-1. Return to the **Devices** page and verify that the device has the new firmware version:
-
-    <!-- TODO Insert screenshot -->
+1. Return to the **Devices** page and verify that the device has the new firmware version.
 
 ## Organize your assets
 
@@ -214,13 +208,9 @@ You can use the tag values to create filters.
 
     ![Manage device filters](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
 
-1. Create a new filter that uses the tag name **FieldService** and value **SmartBuilding**. Save the filter as **Smart Building**:
+1. Create a new filter that uses the tag name **FieldService** and value **SmartBuilding**. Save the filter as **Smart Building**.
 
-    <!-- TODO Insert screenshot -->
-
-1. Create a new filter that uses the tag name **FieldService** and value **ConnectedVehicle**. Save the filter as **Connected Vehicle**:
-
-    <!-- TODO Insert screenshot -->
+1. Create a new filter that uses the tag name **FieldService** and value **ConnectedVehicle**. Save the filter as **Connected Vehicle**.
 
 Now the Contoso operator can query devices based on the operating team without the need to change anything on the devices.
 

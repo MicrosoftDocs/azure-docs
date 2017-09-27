@@ -38,25 +38,25 @@ If you haven't deployed the remote monitoring solution yet, you should complete 
 
 The **Rules & Actions** page in the solution displays a list of all the current rules:
 
-<!-- TODO insert screenshot -->
+![Rules and Actions page](media/iot-suite-remote-monitoring-automate/rulesactions.png)
 
 To view only the rules that apply to **Chiller** devices, apply a filter:
 
-<!-- TODO insert screenshot -->
+![Filter the list of rules](media/iot-suite-remote-monitoring-automate/rulesactionsfilter.png)
 
-You can view more information about a rule when you select it in the list:
+You can view more information about a rule and edit it when you select it in the list:
 
-<!-- TODO insert screenshot -->
+![View rule details](media/iot-suite-remote-monitoring-automate/rulesactionsdetail.png)
 
-To edit, disable, enable, or delete one or more rules, select multiple rules in the list:
+To disable, enable, or delete one or more rules, select multiple rules in the list:
 
-<!-- TODO insert screenshot -->
+![Select multiple rules](media/iot-suite-remote-monitoring-automate/rulesactionsmultiselect.png)
 
 ## Create a new rule
 
 To add a new rule that generates a warning when the pressure in a **Chiller** device exceeds 150 PSI, choose **New rule**:
 
-<!-- TODO insert screenshot -->
+![Create rule](media/iot-suite-remote-monitoring-automate/rulesactionsnewrule.png)
 
 Use the following values to create the rule:
 
@@ -70,9 +70,7 @@ Use the following values to create the rule:
 | Severity level   | Warning                               |
 | Alarm event text | Chiller pressure has exceeded 150 PSI |
 
-To save the new rule, choose **Apply**:
-
-<!-- TODO insert screenshot -->
+To save the new rule, choose **Apply**.
 
 You can view when the rule is triggered on the **Rules & Actions** page or on the **Dashboard** page.
 
@@ -80,21 +78,19 @@ You can view when the rule is triggered on the **Rules & Actions** page or on th
 
 To make a change to an existing rule, select it in the list of rules. Then, in the **Rule Detail** panel choose **Edit mode**.
 
-<!-- TODO choose an existing rule to update -->
+![Edit rule](media/iot-suite-remote-monitoring-automate/rulesactionsedit.png)
 
 ## Disable a rule
 
 To temporarily switch off a rule, you can disable it in the list of rules. Choose the rule to disable, and then choose **Disable**. The **Status** of the rule in the list changes to indicate the rule is now disabled. You can re-enable a rule that you previously disabled using the same procedure.
 
-<!-- TODO insert screenshot -->
+![Disable rule](media/iot-suite-remote-monitoring-automate/rulesactionsdisable.png)
 
 You can enable and disable multiple rules at the same time if you select multiple rules in the list.
 
 ## Delete a rule
 
 To permanently delete a rule, choose the rule in the list of rules and then choose **Delete**.
-
-<!-- TODO insert screenshot -->
 
 You can delete multiple rules at the same time if you select multiple rules in the list.
 

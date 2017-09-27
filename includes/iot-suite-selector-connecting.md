@@ -29,7 +29,7 @@ The **Chiller** device you create in this tutorial sends data to an instance of 
 
 When the provisioning process for the remote monitoring solution finishes, click **Launch** to open the solution dashboard in your browser.
 
-<!-- TODO Add screenshot of dashboard after deployment -->
+![The solution dashboard](media/iot-suite-selector-connecting/dashboard.png)
 
 ### Provision your device in the remote monitoring solution
 
@@ -42,20 +42,15 @@ To add a device to your remote monitoring solution, complete the following steps
 
 1. Choose **Provision**, and then choose **Physical** as the **Device type**:
 
-    <!-- TODO Add screenshot here -->
+    ![Provision a physical device](media/iot-suite-selector-connecting/devicesprovision.png)
 
-1. Choose the **Chiller** device type in the **Select type** drop-down. Enter **Physical-chiller** as the device ID prefix. Leave the other fields with default values:
+1. Enter **Physical-chiller** as the Device ID. Choose the **Symmetric Key** and **Auto generate keys** options:
 
-    <!-- TODO Add screenshot here -->
+    ![Choose device options](media/iot-suite-selector-connecting/devicesoptions.png)
 
-    > [!NOTE]
-    > You are using the built-in **Chiller** device type. You can upload a JSON file to define a custom device type.
+1. Make a note of the **Device ID** and **Primary key** values. You use these values when you add code to connect your device to the solution.
 
-1. Make a note of the **Device ID** and **Primary key** values. You use these values when you add code to connect your device to the solution. <!-- TODO - Where do you find the IoT Hub name?? -->
-
-    <!-- TODO Add screenshot here -->
-
-You have now provisioned a physical **Chiller** device in the remote monitoring preconfigured solution. In the following sections, you implement the client application that uses the device credentials to connect to your solution.
+You have now provisioned a physical device in the remote monitoring preconfigured solution. In the following sections, you implement the client application that uses the device credentials to connect to your solution.
 
 The client application implements the built-in **Chiller** device model. A preconfigured solution device model specifies the following about a device:
 
