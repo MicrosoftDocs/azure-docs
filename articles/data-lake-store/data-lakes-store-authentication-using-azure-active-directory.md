@@ -38,9 +38,8 @@ The following table illustrates how end-user and service-to-service authenticati
 |Service-to-service (using client key)         |    **[✔*](data-lake-store-service-to-service-authenticate-net-sdk.md)** |    **[✔*](data-lake-store-service-to-service-authenticate-java.md)**    |    ✔      |       ✔      |    **[✔*](data-lake-store-service-to-service-authenticate-python.md)**     |    **[✔*](data-lake-store-service-to-service-authenticate-rest-api.md)**    |
 |Service-to-service (using client certificate) |    ✔        |    ✔    |    ✔      |       ✔      |    ✔     |    ✔    |
 
-\* *Click the **✔\*** symbol. It's a link.*
-
-\** *MFA stands for multi-factor authentication*
+<i>* Click the <b>✔*</b> symbol. It's a link.</i><br>
+<i>** MFA stands for multi-factor authentication</i>
 
 See  [Authentication Scenarios for Azure Active Directory](../active-directory/develop/active-directory-authentication-scenarios.md) for more information on how to use Azure Active Directory for authentication.
 
