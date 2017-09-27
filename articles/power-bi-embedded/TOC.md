@@ -13,6 +13,10 @@
 ### [Create a new report from a dataset](power-bi-embedded-create-report-from-dataset.md)
 ### [Save reports](power-bi-embedded-save-reports.md)
 ### [Toggle between view and edit](power-bi-embedded-toggle-mode.md)
+## Migrate
+### [How to migrate from Power BI Workspace Collections](migrate-from-power-bi-workspace-collections.md)
+### [Migration tool](migrate-tool.md)
+### [Migration code snippets](migrate-code-snippets.md)
 
 # Reference
 ## [Code samples](https://github.com/Microsoft/PowerBI-Developer-Samples)
