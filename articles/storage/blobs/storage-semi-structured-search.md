@@ -176,7 +176,7 @@ A basic query would be `$select=Gender,metadata_storage_size`, which limits the 
 
 A more complex query would be `$filter=MinimumAge ge 30 and MaximumAge lt 75`, which returns only results where the parameters MinimumAge is greater than or equal to 30 and MaximumAge is less than 75.
 
-  ![Semi-structured search](media/metadatashort.png)
+  ![Semi-structured search](media/storage-unstructured-structured-search/metadatashort.png)
 
 If you'd like to experiment and try a few more queries yourself, feel free to do so. Know that Logical operators (and, or, not) work as well as comparison operators (eq, ne, gt, lt, ge, le). String comparisons are case-sensitive.
 
