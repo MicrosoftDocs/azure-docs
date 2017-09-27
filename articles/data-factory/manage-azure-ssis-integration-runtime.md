@@ -64,6 +64,8 @@ Remove-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName 
 ## Next steps
 For more information about Azure-SSIS runtime, see the following topics: 
 
-- [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). This article provides conceptual information about integration runtimes in general inclduing the Azure-SSIS IR. 
-- [Join Azure-SSIS Integration Runtime to VNET](join-azure-ssis-integration-runtime-virtual-network.md). This how to article expands on the tutorial and shows you how to use Azure SQL Managed Instance (private preview) for hosting the SSIS catalog. It also provides information on joining an Azure-SSIS IR to an Azure virtual network (VNet).
-- [Tutorial: Provision an Azure-SSIS integration runtime](tutorial-deploy-ssis-packages-azure.md). This tutorial uses Azure SQL Database for hosting the SSIS catalog. 
+- [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). This article provides conceptual information about integration runtimes in general including the Azure-SSIS IR. 
+- [Tutorial: deploy SSIS packages to Azure](tutorial-deploy-ssis-packages-azure.md). This article provides step-by-step instructions to create an Azure-SSIS IR and uses an Azure SQL database to host the SSIS catalog. 
+- [How to: Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md). This article expands on the tutorial and provides instructions on using Azure SQL Managed Instance (private preview) and joining the IR to a VNet. 
+- [Monitor an Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). This article shows you how to retrieve information about an Azure-SSIS IR and descriptions of statuses in the returned information. 
+- [Join an Azure-SSIS IR to a VNet](join-azure-ssis-integration-runtime-virtual-network.md). This article provides conceptual information about joining an Azure-SSIS IR to an Azure virtual network (VNet). It also provides steps to use Azure portal to configure VNet so that Azure-SSIS IR can join the VNet. 

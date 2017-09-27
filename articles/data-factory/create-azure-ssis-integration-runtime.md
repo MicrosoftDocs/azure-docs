@@ -62,7 +62,7 @@ $SSISDBPricingTier = "[your Azure SQL Database pricing tier, e.g. S3, or leave i
 ```
 
 ## Validate the connection to database
-Add the following script to validate your Azure SQL Datbabase server server.database.windows.net or your Azure SQL Managed Instance (private preview) server endpont. 
+Add the following script to validate your Azure SQL Database server server.database.windows.net or your Azure SQL Managed Instance (private preview) server endpoint. 
 
 ```powershell
 $SSISDBConnectionString = "Data Source=" + $SSISDBServerEndpoint + ";User ID="+ $SSISDBServerAdminUserName +";Password="+ $SSISDBServerAdminPassword
@@ -83,8 +83,8 @@ Catch [System.Data.SqlClient.SqlException]
 }
 ```
 
-## Login and select subscription
-Add the following code the script to login and select your Azure subscription: 
+## Log in and select subscription
+Add the following code the script to log in and select your Azure subscription: 
 
 ```powershell
 Login-AzureRmAccount
@@ -285,5 +285,8 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 ## Next steps
 See the other Azure-SSIS IR topics in this documentation:
 
+- [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). This article provides conceptual information about integration runtimes in general including the Azure-SSIS IR. 
+- [Tutorial: deploy SSIS packages to Azure](tutorial-deploy-ssis-packages-azure.md). This article provides step-by-step instructions to create an Azure-SSIS IR and uses an Azure SQL database to host the SSIS catalog. 
 - [Monitor an Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). This article shows you how to retrieve information about an Azure-SSIS IR and descriptions of statuses in the returned information. 
 - [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). This article shows you how to stop, start, or remove an Azure-SSIS IR. It also shows you how to scale out your Azure-SSIS IR by adding more nodes to the IR. 
+- [Join an Azure-SSIS IR to a VNet](join-azure-ssis-integration-runtime-virtual-network.md). This article provides conceptual information about joining an Azure-SSIS IR to an Azure virtual network (VNet). It also provides steps to use Azure portal to configure VNet so that Azure-SSIS IR can join the VNet. 
