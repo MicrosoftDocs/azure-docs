@@ -1,11 +1,11 @@
 # Find runs with best accuracy and lowest duration
 Given multiple runs, one use case is to find runs with best accuracy. One approach is to use CLI with a JMESPATH query.
-In the following example, 4 runs are created with accuracy values of 0, .98, 1, and 1. Runs will be filtered if they are in the range [`MaxAccuracy-Threshold`, `MaxAccuracy`] where `Threshold = .03`.
+In the following example, four runs are created with accuracy values of 0, 0.98, 1, and 1. Runs are filtered if they are in the range [`MaxAccuracy-Threshold`, `MaxAccuracy`] where `Threshold = .03`.
 
 ## Initialization
-If you don't have existing run history with `Accuracy` value in log, follow the steps below.
+If you don't have existing run histories with `Accuracy` value, follow the steps below:
 
-First, create a python file in workbench, name it `log_accuracy.py`, and paste in the code below.
+First, create a python file in workbench, name it `log_accuracy.py`, and paste in the following code:
 ```python
 # create logger with 'spam_application'
 from azureml.logging import get_azureml_logger
@@ -20,7 +20,7 @@ if len(sys.argv) > 1:
 logger.log("Accuracy", accuracy_value)
 ```
 
-Next, create a file `run.py`, and paste in the code below.
+Next, create a file `run.py`, and paste in the following code:
 ```python
 import os
 
@@ -29,10 +29,10 @@ for value in accuracy_values:
     os.system('az ml experiment submit -c local ./log_accuracy.py {}'.format(value))
 ```
 
-Lastly, open command line through workbench. Then run command `python run.py` to submit experiments. After script finishes, you should see 4 more runs under `Run History`.
+Lastly, open command line through workbench. Then run command `python run.py` to submit experiments. After script finishes, you should see four more runs under `Run History`.
 
 ## Operation
-The first command will find the max accuracy value.
+The first command finds the max accuracy value.
 
     az ml history list --query '@[?Accuracy != null] | max_by(@, &Accuracy).Accuracy'
 
