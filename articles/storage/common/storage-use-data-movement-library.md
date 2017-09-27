@@ -58,7 +58,7 @@ This document demonstrates how to create a .NET Core console application that th
 1. Add the latest version of the Data Movement Library to the `dependencies` section of your `<project-name>.csproj` file. At the time of writing, this version would be `"Microsoft.Azure.Storage.DataMovement": "0.6.2"` 
 2. A prompt should display to restore your project. Click the "restore" button. You can also restore your project from the command line by typing the command `dotnet restore` in the root of your project directory.
 
-Modify `project-name>.csproj`:
+Modify `<project-name>.csproj`:
 
     <Project Sdk="Microsoft.NET.Sdk">
 
