@@ -1,4 +1,5 @@
 - name: App Service Documentation
+  href: index.yml
 - name: Overview
   items:
   - name: About Web Apps
