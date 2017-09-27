@@ -21,7 +21,7 @@ ms.author: yanacai
 # How to troubleshoot recurring job problem
 
 In this document, we will introduce how to use [Azure Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs) to troubleshoot recurring job problems. Learn more about pipeline and recurring jobs from [here](https://blogs.msdn.microsoft.com/azuredatalake/2017/09/19/managing-pipeline-recurring-jobs-in-azure-data-lake-analytics-made-easy/).
-Recurring jobs usually share same query logic and similar input data. For example, you have a recurring job run on every Monday morning at 8 A.M. to count last week’s weekly active user, the scripts for these jobs share one script template which contains the query logic, and the inputs for these jobs are the usage data for last week. Sharing same query logic and similar input usually means performance of these jobs is similar and stable, if one of your recurring jobs suddenly performs abnormal, failed or slow down a lot, you might want to:
+Recurring jobs usually share same query logic and similar input data. For example, you have a recurring job running on every Monday morning at 8 A.M. to count last week’s weekly active user, the scripts for these jobs share one script template which contains the query logic, and the inputs for these jobs are the usage data for last week. Sharing same query logic and similar input usually means performance of these jobs is similar and stable, if one of your recurring jobs suddenly performs abnormal, failed or slow down a lot, you might want to:
 
 1.	See the statistics reports for the previews runs of the recurring job to see what happened.
 2.	Compare the abnormal job with a normal one to figure out what has been changed.
