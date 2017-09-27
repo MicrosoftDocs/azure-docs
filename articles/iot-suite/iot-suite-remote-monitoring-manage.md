@@ -72,7 +72,7 @@ Choose **Restart** and set the job name to **Restart engine**:
 
 <!-- Insert screenshot here -->
 
-To track the status of the job on the **Maintenance** page, choose **View**:
+To track the status of the job on the **Maintenance** page, choose **System Status**:
 
 <!-- Insert screenshot here -->
 
@@ -92,7 +92,7 @@ To make a change, add a name for the job, update the property values, and choose
 
 <!-- Insert screenshot here -->
 
-To track the status of the job on the **Maintenance** page, choose **View**:
+To track the status of the job on the **Maintenance** page, choose **System Status**:
 
 <!-- Insert screenshot here -->
 

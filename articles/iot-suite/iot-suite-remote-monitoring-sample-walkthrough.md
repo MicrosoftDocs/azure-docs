@@ -38,6 +38,9 @@ The following diagram outlines the logical components of the remote monitoring p
 
 Cloud architecture has evolved since Microsoft released the first preconfigured solutions. [Microservices](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) have emerged as a proven practice to achieve scale and flexibility without sacrificing development speed. Several Microsoft services use this architectural pattern internally with great reliability and scalability results. The updated preconfigured solutions put these learnings into practice so you can also benefit from them.
 
+> [!TIP]
+> To learn more about microservice architectures, see [.NET Application Architecture](https://www.microsoft.com/net/learn/architecture) and [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
+
 ## Device connectivity
 
 The solution includes the following components in the device connectivity part of the logical architecture:
@@ -89,7 +92,7 @@ The solution includes the following components in the data processing and analyt
 
 The solution includes two microservices to handle device telemetry.
 
-The `telemetry-agent` microservice:
+The [telemetry-agent](https://github.com/Azure/telemetry-agent-dotnet) microservice:
 
 * Stores telemetry in Cosmos DB.
 * Analyzes the telemetry stream from devices.
@@ -106,7 +109,7 @@ Use the RESTful endpoint provided by this microservice to manage telemetry, rule
 
 ### Storage
 
-The `storage-adapter` microservice is an adapter in front of the main storage service used for the preconfigured solution. It provides simple collection and key-value storage.
+The [storage-adapter](https://github.com/Azure/pcs-storage-adapter-dotnet) microservice is an adapter in front of the main storage service used for the preconfigured solution. It provides simple collection and key-value storage.
 
 The standard deployment of the preconfigured solution uses Cosmos DB as its main storage service.
 
@@ -116,7 +119,7 @@ The Cosmos DB database stores data in the preconfigured solution. The **storage-
 
 The solution includes the following components in the presentation part of the logical architecture:
 
-The web user interface is a React Javascript application. The application:
+The [web user interface is a React Javascript application](https://github.com/Azure/pcs-remote-monitoring-webui). The application:
 
 * Uses Javascript React only and runs entirely in the browser.
 * Is styled with CSS.
@@ -124,10 +127,10 @@ The web user interface is a React Javascript application. The application:
 
 The user interface presents all the preconfigured solution functionality, and interacts with other services such as:
 
-* The authentication microservice to protect user data.
-* The `iothub-manager`microservice to list and manage the IoT devices.
+* The [authentication](https://github.com/Azure/pcs-auth-dotnet) microservice to protect user data.
+* The [iothub-manager](https://github.com/Azure/iothub-manager-dotnet) microservice to list and manage the IoT devices.
 
-The `ui-config` microservice enables the user interface to store and retrieve configuration settings.
+The [ui-config](https://github.com/Azure/pcs-config-dotnet) microservice enables the user interface to store and retrieve configuration settings.
 
 ## Next steps
 
