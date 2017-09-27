@@ -298,7 +298,7 @@ It is possible to change how membership is managed in a group. This is useful wh
 >
 > It is a recommended practice to test the new membership rule beforehand to make sure that the new membership in the group is as expected.
 
-We are in the process of updating the Azure portal to support this task. In the meantime, you can use the [Azure classic portal](https://manage.windowsazure.com) (follow the instructions [here](active-directory-accessmanagement-groups-with-advanced-rules#)) or use PowerShell cmdlets as shown below.
+We are in the process of updating the Azure portal to support this task. In the meantime, you can use the [Azure classic portal](https://manage.windowsazure.com) (follow the instructions [here](active-directory-accessmanagement-groups-with-advanced-rules#changing-dynamic-membership-to-static-and-vice-versa)) or use PowerShell cmdlets as shown below.
 
 **Using PowerShell to change membership management on a group**
 
