@@ -10,9 +10,11 @@
 ## [Log in to the Azure Government portal](documentation-government-get-started-connect-with-portal.md)
 ## [Connect with PowerShell](documentation-government-get-started-connect-with-ps.md)
 ## [Connect with CLI](documentation-government-get-started-connect-with-cli.md)
+## [Connect to Azure Storage](documentation-government-get-started-connect-to-storage.md)
 ## [Set up Visual Studio for Azure Government](documentation-government-get-started-connect-with-vs.md)
 ## [Connect to Azure Government from Visual Studio Team Services](documentation-government-get-started-connect-with-vsts.md)
 ## [Available services](documentation-government-services.md)
+
 ## [Web App Quickstart](documentation-government-howto-deploy-webandmobile.md)
 ## [Functions Quickstart](documentation-government-functions.md)
 

@@ -198,6 +198,17 @@ This sample output shows the start of processing, all resulting user changes, an
 >[!TIP]
 > Clicking items related to *Change user license* will show details for license changes applied to each individual user.
 
+## Deleting a group with an assigned license
+
+It is not possible to delete a group with an active license assigned. An administrator could delete a group not realizing that it will cause licenses to be removed from users - for this reason we require any licenses to be removed from the group first, before it can be deleted.
+
+When trying to delete a group in the Azure portal you may see an error notification like this:
+![Screenshot group deletion failed](media/active-directory-licensing-group-advanced/groupdeletionfailed.png)
+
+Go to the **Licenses** tab on the group and see if there are any licenses assigned. If yes, remove those licenses and try to delete the group again.
+
+You may see similar errors when trying to delete the group through PowerShell or Graph API. If you are using a group synced from on-premises, Azure AD Connect may also report errors if it is failing to delete the group in Azure AD. In all such cases, make sure to check if there are any licenses assigned to the group, and remove them first.
+
 ## Limitations and known issues
 
 If you use group-based licensing, it's a good idea to familiarize yourself with the following list of limitations and known issues.

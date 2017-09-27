@@ -1,6 +1,6 @@
 ---
-title: Build a .NET Core and SQL Database web app in Azure Web Apps for Containers | Microsoft Docs 
-description: Learn how to get a .NET Core app working in Azure Web Apps for Containers, with connection to a SQL Database.
+title: Build a .NET Core and SQL Database web app in Azure Web App for Containers | Microsoft Docs 
+description: Learn how to get a .NET Core app working in Azure Web App for Containers, with connection to a SQL Database.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -17,11 +17,11 @@ ms.date: 08/31/2017
 ms.author: cephalin
 ms.custom: mvc
 ---
-# Build a .NET Core and SQL Database web app in Azure Web Apps for Containers
+# Build a .NET Core and SQL Database web app in Azure Web App for Containers
 
-[Web Apps for Containers](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a .NET Core web app and connect it to a SQL Database. When you're done, you'll have a .NET Core MVC app running in Web Apps for Containers. 
+[Web App for Containers](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a .NET Core web app and connect it to a SQL Database. When you're done, you'll have a .NET Core MVC app running in Web App for Containers. 
 
-![app running in Web Apps for Containers](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
+![app running in Web App for Containers](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
 What you learn how to:
 
@@ -69,7 +69,7 @@ dotnet ef database update
 dotnet run
 ```
 
-Navigate to http://localhost:5000 in a browser. Select the **Create New** link and create a couple _to-do_ items.
+Navigate to `http://localhost:5000` in a browser. Select the **Create New** link and create a couple _to-do_ items.
 
 ![connects successfully to SQL Database](./media/tutorial-dotnetcore-sqldb-app/local-app-in-browser.png)
 
@@ -146,7 +146,7 @@ This is the connection string for your .NET Core app. Copy it for use later.
 
 ## Deploy app to Azure
 
-In this step, you deploy your SQL Database-connected .NET Core application to Web Apps for Containers.
+In this step, you deploy your SQL Database-connected .NET Core application to Web App for Containers.
 
 ### Configure local git deployment 
 
@@ -246,9 +246,9 @@ http://<app_name>.azurewebsites.net
 
 Add a few to-do items.
 
-![app running in Web Apps for Containers](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
+![app running in Web App for Containers](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
-**Congratulations!** You're running a data-driven .NET Core app in Web Apps for Containers.
+**Congratulations!** You're running a data-driven .NET Core app in Web App for Containers.
 
 ## Update locally and redeploy
 
@@ -330,7 +330,7 @@ Run the app locally.
 dotnet run
 ```
 
-In your browser, navigate to http://local:5000/. You can now add a to-do item and check **Done**. Then it should show up in your homepage as a completed item. Remember that the `Edit` view doesn't show the `Done` field, because you didn't change the `Edit` view.
+In your browser, navigate to `http://localhost:5000/`. You can now add a to-do item and check **Done**. Then it should show up in your homepage as a completed item. Remember that the `Edit` view doesn't show the `Done` field, because you didn't change the `Edit` view.
 
 ### Publish changes to Azure
 
@@ -376,4 +376,4 @@ What you learned:
 Advance to the next tutorial to learn how to map a custom DNS name to your web app.
 
 > [!div class="nextstepaction"] 
-> [Map an existing custom DNS name to Azure Web Apps](../../app-service-web/app-service-web-tutorial-custom-domain.md)
+> [Map an existing custom DNS name to Azure Web Apps](../app-service-web-tutorial-custom-domain.md)
