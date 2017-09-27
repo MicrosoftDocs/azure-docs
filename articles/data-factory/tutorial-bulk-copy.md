@@ -492,19 +492,20 @@ This pipeline performs two steps:
 
     ```powershell
 	while ($True) {
-    $run = Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
+        $run = Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
 
-    if ($run) {
-        if ($run.Status -ne 'InProgress') {
-            Write-Host "Pipeline run finished. The status is: " $run.Status -foregroundcolor "Yellow"
-            Write-Host "Pipeline run details:" -foregroundcolor "Yellow"
-            $run
-            break
+        if ($run) {
+            if ($run.Status -ne 'InProgress') {
+                Write-Host "Pipeline run finished. The status is: " $run.Status -foregroundcolor "Yellow"
+                Write-Host "Pipeline run details:" -foregroundcolor "Yellow"
+                $run
+                break
+            }
+            Write-Host  "Pipeline is running...status: InProgress" -foregroundcolor "Yellow"
         }
-    }
 
-    Write-Host  "Pipeline is running...status: " $run.Status -foregroundcolor "Yellow"
-    Start-Sleep -Seconds 15
+        Start-Sleep -Seconds 15
+    }
 
 	$result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
     Write-Host "Activity run details:" -foregroundcolor "Yellow"
