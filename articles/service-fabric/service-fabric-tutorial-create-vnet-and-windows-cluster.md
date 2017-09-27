@@ -178,27 +178,13 @@ Once the network resources have finished deploying, the next step is to deploy a
 - [cluster.json][cluster-arm]
 - [cluster.parameters.json][cluster-parameters-arm]
 
-Fill in the empty parameters in the `cluster.parameters.json` file for your deployment, including the [Key Vault information](service-fabric-cluster-creation-via-arm.md#set-up-a-key-vault) for your cluster certificate.
+Fill in the empty **clusterName**, **adminUserName**, **adminPassword**, **certificateThumbprint**, **certificateUrlValue**, and **sourceVaultValue** parameters in the `linuxcluster.parameters.json` file for your deployment.  If you have an existing certificate previously uploaded to a key vault, fill in the **certificateThumbprint**, **certificateUrlValue**, and **sourceVaultValue** values for that certificate.
 
 Use the following PowerShell command to deploy the Resource Manager template and parameter files to create the Service Fabric cluster:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile .\cluster.json -TemplateParameterFile .\cluster.parameters.json -Verbose
 ```
-
-## Modify the certificate & access Service Fabric Explorer 
-
-1. Double-click the certificate to open the Certificate Import Wizard.
-
-2. Use default settings, but make sure to check the **Mark this key as exportable.** check box, in the **private key protection** step. Visual Studio needs to export the certificate when configuring Azure Container Registry to Service Fabric Cluster authentication later in this tutorial.
-
-3. You can now open Service Fabric Explorer in a browser. To do so, navigate to the **ManagementEndpoint** URL for your cluster using a web browser, and select the certificate that was saved on your machine.
-
->[!NOTE]
->When opening Service Fabric Explorer, you see a certificate error, as you are using a self-signed certificate. In Edge, you have to click *Details* and then the *Go on to the webpage* link. In Chrome, you have to click *Advanced* and then the *proceed* link.
-
->[!NOTE]
->If the cluster creation fails, you can always rerun the command, which updates the resources already deployed. If a certificate was created as part of the failed deployment, a new one is generated. To troubleshoot cluster creation, see [Create a Service Fabric cluster by using Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
 ## Connect to the secure cluster
 Connect to the cluster using the Service Fabric PowerShell module installed with the Service Fabric SDK.  First, install the certificate into the Personal (My) store of the current user on your computer.  Run the following PowerShell command:
@@ -228,13 +214,8 @@ Check that you are connected and the cluster is healthy using the [Get-ServiceFa
 Get-ServiceFabricClusterHealth
 ```
 
-```azurecli
-sfctl cluster health
-```
-
 ## Clean up resources
-
-A cluster is made up of other Azure resources in addition to the cluster resource itself. The simplest way to delete the cluster and all the resources it consumes is to delete the resource group.
+The other articles in this tutorial series use the cluster you just created. If you're not immediately moving on to the next article, you might want to delete the cluster to avoid incurring charges. The simplest way to delete the cluster and all the resources it consumes is to delete the resource group.
 
 Log in to Azure and select the subscription ID with which you want to remove the cluster.  You can find your subscription ID by logging in to the [Azure portal](http://portal.azure.com). Delete the resource group and all the cluster resources using the [Remove-AzureRMResourceGroup cmdlet](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup).
 
@@ -257,7 +238,7 @@ In this tutorial, you learned how to:
 > * Connect to the cluster using PowerShell
 > * Remove a cluster
 
-Next, advance to the following tutorial to learn how to deploy an existing application.
+Next, advance to the following tutorial to learn how to deploy API Management with Service Fabric.
 > [!div class="nextstepaction"]
 > [Deploy API Managment](service-fabric-tutorial-deploy-api-management.md)
 

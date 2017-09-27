@@ -118,8 +118,7 @@ sfctl cluster health
 ```
 
 ## Clean up resources
-
-A cluster is made up of other Azure resources in addition to the cluster resource itself. The simplest way to delete the cluster and all the resources it consumes is to delete the resource group.
+The other articles in this tutorial series use the cluster you just created. If you're not immediately moving on to the next article, you might want to delete the cluster to avoid incurring charges. The simplest way to delete the cluster and all the resources it consumes is to delete the resource group.
 
 Log in to Azure and select the subscription ID with which you want to remove the cluster.  You can find your subscription ID by logging in to the [Azure portal](http://portal.azure.com). Delete the resource group and all the cluster resources using the [az group delete](/cli/azure/group?view=azure-cli-latest#az_group_delete) command.
 
@@ -137,7 +136,7 @@ In this tutorial, you learned how to:
 > * Connect to the cluster using Service Fabric CLI
 > * Remove a cluster
 
-Next, advance to the following tutorial to learn how to deploy an existing application.
+Next, advance to the following tutorial to learn how to deploy API Management with Service Fabric.
 > [!div class="nextstepaction"]
 > [Deploy API Managment](service-fabric-tutorial-deploy-api-management.md)
 
