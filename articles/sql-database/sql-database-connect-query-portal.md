@@ -56,7 +56,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 5. Click **OK to login**.
 
 
-## Automatically connect to your database using Azure Active Directory Authentication
+## Connect to your database using Azure Active Directory Authentication
 
 Configuring an Active Directory administrator enables you to use a single identity to login to the Azure portal and your SQL database. Follow the steps below to configure an active directory admin for the SQL Server you created.
 
@@ -147,7 +147,7 @@ Use the following code to delete the new product that you previously added using
 2. On the toolbar, click **Run** to delete the specified row in the Product table.
 
 
-## Query Editor Considerations
+## Query Editor considerations
 
 There are a few things to know when working with the Query Editor while it remains in preview state:
 
