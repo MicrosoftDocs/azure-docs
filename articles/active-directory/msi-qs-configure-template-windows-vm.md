@@ -41,7 +41,7 @@ Regardless of the option you choose, template syntax is the same during initial 
 
 1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the VM. Also ensure that your account belongs to a role that gives you write permissions on the VM (for example, the role of “Virtual Machine Contributor”).
 
-2. After loading the template into an editor, locate the `Microsoft.Compute/virtualMachines` resource of interest within the `resources` section. Yours may look slightly different from the following screenshot, depending on the editor you're using and whether you are editing a template for a new deployment or existing one.
+2. After loading the template into an editor, locate the `Microsoft.Compute/virtualMachines` resource of interest within the `resources` section. Yours might look slightly different from the following screenshot, depending on the editor you're using and whether you are editing a template for a new deployment or existing one.
 
    >[!NOTE] 
    > This example assumes variables such as `vmName`, `storageAccountName`, and `nicName` have been defined in the template.
@@ -60,7 +60,7 @@ Regardless of the option you choose, template syntax is the same during initial 
 4. Then add the VM MSI extension as a `resources` element. Use the following syntax:
 
    >[!NOTE] 
-   > The following example assumes a Windows VM extension (`ManagedIdentityExtensionForWindows`) is being deployed. You may also configure for Linux by using `ManagedIdentityExtensionForLinux` instead, for the `"name"` and `"type"` elements.
+   > The following example assumes a Windows VM extension (`ManagedIdentityExtensionForWindows`) is being deployed. You can also configure for Linux by using `ManagedIdentityExtensionForLinux` instead, for the `"name"` and `"type"` elements.
    >
 
    ```JSON
