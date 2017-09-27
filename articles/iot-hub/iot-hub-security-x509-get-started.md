@@ -291,12 +291,60 @@ These steps show you how to add a new Certificate Authority to your hub through 
    When prompted for the password for the CA's private key, enter "123". 
 
 
-<!--
+
 <a id="deviceconnects"></a>
 
 ## Task 5: Device connects to the hub
 
--->
+### Add the certificates to environment variables
+
+Run the following script to save the certificates to environment variables. These will be used by the IoT Hub device client in the next section to connect to your hub.
+
+    ```PowerShell
+    function Write-CACertificatesToEnvironment([string]$deviceName, [string]$iothubName, [bool]$useIntermediate)
+    {
+        $newDevicePemPrivateFileName  = ("./{0}-private.pem" -f $deviceName)
+        $newDevicePemPublicFileName  = ("./{0}-public.pem" -f $deviceName)
+
+        $rootCAPem          = Get-CAPemEncodingForEnvironmentVariable $rootCAPemFileName
+        $devicePublicPem    = Get-CAPemEncodingForEnvironmentVariable $newDevicePemPublicFileName
+        $devicePrivatePem   = Get-CAPemEncodingForEnvironmentVariable $newDevicePemPrivateFileName
+
+        if ($useIntermediate -eq $true)
+        {
+	        $intermediate1CAPem = Get-CADogfoodPemEncodingForEnvironmentVariable $intermediate1CAPemFileName
+	    }
+    else
+    {
+        $intermediate1CAPem = $null
+    }
+    
+    $env:IOTHUB_CA_DOGFOOD_X509_PUBLIC                 = $devicePublicPem + $intermediate1CAPem + $rootCAPem
+    $env:IOTHUB_CA_DOGFOOD_X509_PRIVATE_KEY            = $devicePrivatePem
+    $env:IOTHUB_CA_DOGFOOD_CONNECTION_STRING_TO_DEVICE = "HostName={0};DeviceId={1};x509=true" -f $iothubName, $deviceName
+    if ($useEcc -eq $true)
+    {
+        $env:IOTHUB_CA_DOGFOOD_USE_ECC = "1"
+    }
+    else
+    {
+        $env:IOTHUB_CA_DOGFOOD_USE_ECC = "0"
+    }
+    
+    Write-Host "Success"
+}
+    ```
+
+### Create IoT Hub device client and connect to your hub
+
+1. Create a Visual Studio project named **SimulateX509Device**. <!--add png-->
+2. Add Nuget package for "microsoft.azure.devices.client".
+3. Add the following lines of code at the top of the *Program.cs* file:
+    ```CSharp
+    static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;x509=true";
+    static DeviceClient Client = null;
+    ```
+4. 
 
 ## See also
 To learn more about securing your IoT solution, see:
