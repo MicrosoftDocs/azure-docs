@@ -3,7 +3,7 @@
 ## [What's new in Power BI Workspace Collections](whats-new.md)
 
 # Get started
-## [Get started with Power BI Workspace COllections](get-started.md)
+## [Get started with Power BI Workspace Collections](get-started.md)
 ## [Get started with a sample](get-started-sample.md)
 ## [FAQ](faq.md)
 
@@ -14,7 +14,7 @@
 ## Manage
 ### [Connect to a data source](connect-datasource.md)
 ### [Embed a Power BI report](embed-report.md)
-### [Interact with Reports](interact-with-reports.md)
+### [Interact with reports](interact-with-reports.md)
 ### [Create a new report from a dataset](create-report-from-dataset.md)
 ### [Save reports](save-reports.md)
 ### [Toggle between view and edit](toggle-mode.md)
