@@ -13,9 +13,10 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/03/2017
 ms.author: cfowler
+ms.custom: mvc
 ---
 # Use a custom Docker image for Azure Web App for Containers
 
