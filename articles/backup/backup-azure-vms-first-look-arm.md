@@ -81,7 +81,7 @@ Use the following steps to configure the backup job from the virtual machine man
 
   ![Enable Backup Wizard](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
 
-  If there are no Recovery Services vaults, or you want to use a new vault, click **Create new** and provide the name for the new vault. A new vault is created in the same Resource Group and same location as the virtual machine. If you want to create a Recovery Services vault with different values, see the section on how to [create a recovery services vault](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm).
+  If there are no Recovery Services vaults, or you want to use a new vault, click **Create new** and provide the name for the new vault. A new vault is created in the same Resource Group and same region as the virtual machine. If you want to create a Recovery Services vault with different values, see the section on how to [create a recovery services vault](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm).
 
 6. To view the details of the Backup policy, click **Backup policy**.
 
@@ -128,7 +128,7 @@ To configure the backup job, you complete the following steps.
 A Recovery Services vault is an entity that stores all the backups and recovery points that have been created over time. The Recovery Services vault also contains the backup policy applied to the protected VMs.
 
 > [!NOTE]
-> Backing up VMs is a local process. You cannot back up VMs from one location to a Recovery Services vault in another location. So, for every Azure location that has VMs to be backed up, at least one Recovery Services vault must exist in that location.
+> Backing up VMs is a local process. You cannot back up VMs from one region to a Recovery Services vault in another region. So, for every Azure region that has VMs to be backed up, at least one Recovery Services vault must exist in that region.
 >
 >
 
@@ -165,7 +165,7 @@ To create a Recovery Services vault:
 7. Click **Location** to select the geographic region for the vault. This choice determines the geographic region where your backup data is sent.
 
   > [!IMPORTANT]
-  > If you are unsure of the location in which your VM exists, close out of the vault creation dialog, and go to the list of Virtual Machines in the portal. If you have virtual machines in multiple regions, create a Recovery Services vault in each region. Create the vault in the first location before going to the next location. There is no need to specify the storage accounts used to store the backup data--the Recovery Services vault and the Azure Backup service automatically handle the storage.
+  > If you are unsure of the region in which your VM exists, close out of the vault creation dialog, and go to the list of Virtual Machines in the portal. If you have virtual machines in multiple regions, create a Recovery Services vault in each region. Create the vault in the first region before going to the next region. There is no need to specify the storage accounts used to store the backup data--the Recovery Services vault and the Azure Backup service automatically handle the storage.
   >
 
 8. At the bottom of the Recovery Services vault blade, click **Create**.
