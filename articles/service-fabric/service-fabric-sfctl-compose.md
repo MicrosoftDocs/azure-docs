@@ -29,8 +29,7 @@ Create, delete, and manage Docker Compose applications.
 |   remove| Deletes an existing Service Fabric compose application from cluster.|
 |   status| Gets information about a Service Fabric compose application.|
 |upgrade       | Starts upgrading a compose deployment in the Service Fabric cluster.|
-|    upgrade-status| Gets details for the latest upgrade performed on this Service Fabric compose
-                    deployment.|
+|    upgrade-status| Gets details for the latest upgrade performed on this Service Fabric compose                    deployment.|
 
 
 ## sfctl compose create
@@ -139,11 +138,9 @@ Validates the supplied upgrade parameters and starts upgrading the deployment.
 | --- | --- |
 |    --file-path        [Required]| Path to the target Docker Compose file.|
 |    --name             [Required]| The identity of the deployment.|
-|    --default-svc-type-health-map| JSON encoded dictionary that describes the health policy used to
-                                   evaluate the health of services.|
-|    --encrypted-pass             | Rather than prompting for a container registry password, use an
-                                   already encrypted passphrase.|
- |   --failure-action             | Possible values include: 'Invalid', 'Rollback', 'Manual'.
+|    --default-svc-type-health-map| JSON encoded dictionary that describes the health policy used to                                   evaluate the health of services.|
+|    --encrypted-pass             | Rather than prompting for a container registry password, use an                                   already encrypted passphrase.|
+ |   --failure-action             | Possible values include: 'Invalid', 'Rollback', 'Manual'.|
 |    --force-restart              | Force restart.|
  |   --has-pass                   | Prompts for a password to the container registry.|
 |    --health-check-retry         | Health check retry time-out measured in milliseconds.|
@@ -153,12 +150,10 @@ Validates the supplied upgrade parameters and starts upgrading the deployment.
 |    --svc-type-health-map        | JSON encoded list of objects that describe the health policies
                                    used to evaluate the health of different service types.|
 |    --timeout -t                 | Server time-out in seconds.  Default: 60.|
-|    --unhealthy-app              | The maximum allowed percentage of unhealthy applications before
-                                   reporting an error.        For example, to allow 10% of applications to be unhealthy, this value would be 10. The        percentage represents the maximum tolerated percentage of applications that can be unhealthy        before the cluster is considered in error. If the percentage is respected but there is at        least one unhealthy application, the health is evaluated as Warning. This percentage is calculated by        dividing the number of unhealthy applications over the total number of application instances        in the cluster.|
+|    --unhealthy-app              | The maximum allowed percentage of unhealthy applications before                                   reporting an error.        For example, to allow 10% of applications to be unhealthy, this value would be 10. The        percentage represents the maximum tolerated percentage of applications that can be unhealthy        before the cluster is considered in error. If the percentage is respected but there is at        least one unhealthy application, the health is evaluated as Warning. This percentage is calculated by        dividing the number of unhealthy applications over the total number of application instances        in the cluster.|
 |    --upgrade-domain-timeout     | Upgrade domain time-out measured in milliseconds.|
 |    --upgrade-kind               | Default: Rolling.|
-|    --upgrade-mode               | Possible values include: 'Invalid', 'UnmonitoredAuto',
-                                   'UnmonitoredManual', 'Monitored'.  Default: UnmonitoredAuto.|
+|    --upgrade-mode               | Possible values include: 'Invalid', 'UnmonitoredAuto',                                   'UnmonitoredManual', 'Monitored'.  Default: UnmonitoredAuto.|
 |    --upgrade-timeout            | Upgrade time-out measured in milliseconds.|
 |    --user                       | User name to connect to container registry.|
 |    --warning-as-error           | Warnings are treated with the same severity as errors.|
@@ -170,8 +165,7 @@ Validates the supplied upgrade parameters and starts upgrading the deployment.
 |    --help -h                    | Show this help message and exit.|
  |   --output -o                  | Output format.  Allowed values: json, jsonc, table, tsv.
                                    Default: json.|
- |   --query                      | JMESPath query string. See http://jmespath.org/ for more
-                                   information and examples.|
+ |   --query                      | JMESPath query string. See http://jmespath.org/ for more                                   information and examples.|
  |   --verbose                    | Increase logging verbosity. Use --debug for full debug logs.|
 
 ## Next steps

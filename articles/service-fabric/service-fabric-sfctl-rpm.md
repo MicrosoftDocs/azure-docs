@@ -38,8 +38,7 @@ This API supports the Service Fabric platform; it is not meant to be used direct
 |Argument|Description|
 | --- | --- |
 |    --task-id [Required]| The ID of the completed repair task to be deleted.|
-|    --version           | The current version number of the repair task. If non-zero, then the
-                          request will only succeed if this value matches the actual current versionof the repair task. If zero, then no version check is performed.|
+|    --version           | The current version number of the repair task. If non-zero, then the                          request will only succeed if this value matches the actual current version of the repair task. If zero, then no version check is performed.|
 
 ### Global Arguments
 |Argument|Description|
