@@ -147,7 +147,7 @@ For more information on other ways to secure your backend service, such as HTTP 
 
 [Azure API Management REST API Certificate entity]: http://msdn.microsoft.com/library/azure/dn783483.aspx
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[to configure certificate authentication in Azure WebSites refer to this article]: https://azure.microsoft.com/en-us/documentation/articles/app-service-web-configure-tls-mutual-auth/
+[to configure certificate authentication in Azure WebSites refer to this article]: ../app-service/app-service-web-configure-tls-mutual-auth.md
 
 [Prerequisites]: #prerequisites
 [Upload a client certificate]: #step1

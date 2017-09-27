@@ -1236,8 +1236,8 @@ public class MyHandler : DelegatingHandler
 [Add authentication to your app]: app-service-mobile-windows-store-dotnet-get-started-users.md
 [Offline Data Sync in Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
 [Add push notifications to your app]: app-service-mobile-windows-store-dotnet-get-started-push.md
-[Register your app to use a Microsoft account login]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[How to configure App Service for Active Directory login]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[Register your app to use a Microsoft account login]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
+[How to configure App Service for Active Directory login]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 
 <!-- Microsoft URLs. -->
 [MobileServiceCollection]: https://msdn.microsoft.com/en-us/library/azure/dn250636(v=azure.10).aspx

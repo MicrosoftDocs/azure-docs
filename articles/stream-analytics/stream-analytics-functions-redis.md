@@ -147,8 +147,8 @@ We have now created an Azure Function that reads from a Service Bus Queue. All t
     private static Lazy<ConnectionMultiplexer> lazyConnection = 
         new Lazy<ConnectionMultiplexer>(() =>
             {
-                var cnn = ConfigurationManager.ConnectionStrings["CONN NAME"].ConnectionString
-                return ConnectionMultiplexer.Connect();
+                var cnn = ConfigurationManager.ConnectionStrings["CONN NAME"].ConnectionString;
+                return ConnectionMultiplexer.Connect(cnn);
             });
 
     public static ConnectionMultiplexer Connection
