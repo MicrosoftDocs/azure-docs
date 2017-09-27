@@ -1,6 +1,6 @@
 ---
-title: Create a Service Fabric cluster in Azure | Microsoft Docs
-description: Learn how to create a Windows cluster in Azure using a template.
+title: Create a Windows Service Fabric cluster in Azure | Microsoft Docs
+description: Learn how to deploy a Windows Service Fabric cluster into an existing Azure virtual network using PowerShell.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -13,27 +13,27 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/06/2017
+ms.date: 09/26/2017
 ms.author: ryanwi
 
 ---
 
-# Deploy a secure Service Fabric Windows cluster into an Azure virtual network
-This tutorial is part one of a series. You will learn how to create a Service Fabric cluster (Windows) running in Azure and deploy it into an existing virtual network (VNET) and subnet. When you're finished, you have a cluster running in the cloud that you can deploy applications to.  To create a Linux cluster, see [Create a secure Linux cluster on Azure using a template](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+# Deploy a Service Fabric Windows cluster into an Azure virtual network
+This tutorial is part one of a series. You will learn how to deploy a Windows Service Fabric cluster into an existing Azure virtual network (VNET) and sub-net using PowerShell. When you're finished, you have a cluster running in the cloud that you can deploy applications to.  To create a Linux cluster using Azure CLI, see [Create a secure Linux cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a VNET in Azure using a template
+> * Create a VNET in Azure using PowerShell
 > * Create a key vault and upload a certificate
-> * Create a secure Service Fabric cluster in Azure using a template
+> * Create a secure Service Fabric cluster in Azure PowerShell
 > * Secure the cluster with an X.509 certificate
 > * Connect to the cluster using PowerShell
 > * Remove a cluster
 
 In this tutorial series you learn how to:
 > [!div class="checklist"]
-> * Create a secure cluster on Azure using a template
+> * Create a secure cluster on Azure
 > * [Deploy API Management with Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## Prerequisites
@@ -178,7 +178,7 @@ Once the network resources have finished deploying, the next step is to deploy a
 - [cluster.json][cluster-arm]
 - [cluster.parameters.json][cluster-parameters-arm]
 
-Fill in the empty **clusterName**, **adminUserName**, **adminPassword**, **certificateThumbprint**, **certificateUrlValue**, and **sourceVaultValue** parameters in the `linuxcluster.parameters.json` file for your deployment.  If you have an existing certificate previously uploaded to a key vault, fill in the **certificateThumbprint**, **certificateUrlValue**, and **sourceVaultValue** values for that certificate.
+Fill in the empty **clusterName**, **adminUserName**, **adminPassword**, **certificateThumbprint**, **certificateUrlValue**, and **sourceVaultValue** parameters in the *cluster.parameters.json* file for your deployment.  If you have an existing certificate previously uploaded to a key vault, fill in the **certificateThumbprint**, **certificateUrlValue**, and **sourceVaultValue** values for that certificate.
 
 Use the following PowerShell command to deploy the Resource Manager template and parameter files to create the Service Fabric cluster:
 
@@ -231,9 +231,9 @@ Remove-AzureRmResourceGroup -Name $ResourceGroupName -Force
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Create a VNET in Azure using a template
+> * Create a VNET in Azure using PowerShell
 > * Create a key vault and upload a certificate
-> * Create a secure Service Fabric cluster in Azure using a template
+> * Create a secure Service Fabric cluster in Azure using PowerShell
 > * Secure the cluster with an X.509 certificate
 > * Connect to the cluster using PowerShell
 > * Remove a cluster

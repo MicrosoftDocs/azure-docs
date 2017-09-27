@@ -1,6 +1,6 @@
 ---
-title: Create a Service Fabric cluster in Azure | Microsoft Docs
-description: Learn how to create a Linux cluster in Azure using a template.
+title: Create a Linux Service Fabric cluster in Azure | Microsoft Docs
+description: Learn how to deploy a Linux Service Fabric cluster into an existing Azure virtual network using Azure CLI.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -13,26 +13,26 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/16/2017
+ms.date: 09/26/2017
 ms.author: ryanwi
 
 ---
 
-# Deploy a secure Service Fabric Linux cluster into an Azure virtual network
-This tutorial is part one of a series. You will learn how to create a Service Fabric cluster (Linux) running in Azure and deploy it into an existing virtual network (VNET) and subnet. When you're finished, you have a cluster running in the cloud that you can deploy applications to. To create a Windows cluster, see [Create a secure Windows cluster on Azure using a template](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+# Deploy a Service Fabric Linux cluster into an Azure virtual network
+This tutorial is part one of a series. You will learn how to deploy a Linux Service Fabric cluster into an existing Azure virtual network (VNET) and sub-net using Azure CLI. When you're finished, you have a cluster running in the cloud that you can deploy applications to. To create a Windows cluster using PowerShell, see [Create a secure Windows cluster on Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a VNET in Azure using a template
-> * Create a secure Service Fabric cluster in Azure using a template
+> * Create a VNET in Azure using Azure CLI
+> * Create a secure Service Fabric cluster in Azure using Azure CLI
 > * Secure the cluster with an X.509 certificate
 > * Connect to the cluster using Service Fabric CLI
 > * Remove a cluster
 
 In this tutorial series you learn how to:
 > [!div class="checklist"]
-> * Create a secure cluster on Azure using a template
+> * Create a secure cluster on Azure
 > * [Deploy API Management with Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## Prerequisites
@@ -86,7 +86,7 @@ Once the network resources have finished deploying, the next step is to deploy a
 - [linuxcluster.json][cluster-arm]
 - [linuxcluster.parameters.json][cluster-parameters-arm]
 
-Fill in the empty **clusterName**, **adminUserName**, and **adminPassword** parameters in the `linuxcluster.parameters.json` file for your deployment.  Leave the **certificateThumbprint**, **certificateUrlValue**, and **sourceVaultValue** parameters blank if you want to create a self-signed certificate.  If you have an existing certificate previously uploaded to a key vault, fill in those parameter values.
+Fill in the empty **clusterName**, **adminUserName**, and **adminPassword** parameters in the *linuxcluster.parameters.json* file for your deployment.  Leave the **certificateThumbprint**, **certificateUrlValue**, and **sourceVaultValue** parameters blank if you want to create a self-signed certificate.  If you have an existing certificate previously uploaded to a key vault, fill in those parameter values.
 
 Use the following script to deploy the cluster using the Resource Manager template and parameter files.  A self-signed certificate is created in the specified key vault and is used to secure the cluster.  The certificate is also downloaded locally.
 
@@ -107,7 +107,7 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location \
 Connect to the cluster using the Service Fabric CLI `sfctl cluster select` command using your key.  Note, only use the **--no-verify** option for a self-signed certificate.
 
 ```azurecli
-sfctl cluster select --endpoint https://mysfcluster.southcentralus.cloudapp.azure.com:19080 \
+sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.azure.com:19080 \
 --pem ./aztestcluster201709151446.pem --no-verify
 ```
 
@@ -130,8 +130,8 @@ az group delete --name $ResourceGroupName
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Create a VNET in Azure using a template
-> * Create a secure Service Fabric cluster in Azure using a template
+> * Create a VNET in Azure using Azure CLI
+> * Create a secure Service Fabric cluster in Azure using Azure CLI
 > * Secure the cluster with an X.509 certificate
 > * Connect to the cluster using Service Fabric CLI
 > * Remove a cluster
