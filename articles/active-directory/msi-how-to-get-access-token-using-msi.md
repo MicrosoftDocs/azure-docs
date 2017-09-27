@@ -86,7 +86,27 @@ In the examples below, we show how to use a VM's MSI for token acquisition.
 > MSI and Azure AD are not integrated. Therefore, the Azure AD Authentication Libraries (ADAL) cannot be used for MSI token acquisition. For more details, see [MSI known issues](msi-known-issues.md).
 
 ```csharp
+// Build request to acquire MSI token
+HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:50342/oauth2/token?resource=https://management.azure.com/");
+request.Headers["Metadata"] = "true";
+request.Method = "GET";
 
+try
+{
+    // Call /token endpoint
+    HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+    // Pipe response Stream to a StreamReader, and extract access token
+    StreamReader streamResponse = new StreamReader(response.GetResponseStream()); 
+    string stringResponse = streamResponse.ReadToEnd();
+    JavaScriptSerializer j = new JavaScriptSerializer();
+    Dictionary<string, string> list = (Dictionary<string, string>) j.Deserialize(stringResponse, typeof(Dictionary<string, string>));
+    string accessToken = list["access_token"];
+}
+catch (Exception e)
+{
+    string errorText = String.Format("{0} \n\n{1}", e.Message, e.InnerException != null ? e.InnerException.Message : "Acquire token failed");
+}
 
 ```
 
