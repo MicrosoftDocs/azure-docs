@@ -55,6 +55,7 @@ $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token `
                               -Method GET -Body @{resource="https://management.azure.com/"} -Headers @{Metadata="true"}
 $content =$response.Content | ConvertFrom-Json
 $access_token = $content.access_token
+
 # Use the access token to sign in under the MSI service principal
 Login-AzureRmAccount -AccessToken $access_token -AccountId “CLIENT”
 
@@ -162,9 +163,16 @@ Content-Type: application/json
 
 ## How to use MSI with Azure SDK libraries
 
-### .NET library
-
-TBD
+| SDK | Sample |
+| --- | ------ | 
+| .NET   | [Manage resource from an MSI-enabled VM](https://azure.microsoft.com/resources/samples/aad-dotnet-manage-resources-from-vm-with-msi/) |
+| Java   | [Manage Storage from an MSI-enabled VM](https://azure.microsoft.com/resources/samples/compute-java-manage-resources-from-vm-with-msi-in-aad-group/)|
+| Node.js| [Create a VM with MSI enabled](https://azure.microsoft.com/resources/samples/compute-node-msi-vm/) |
+|        | [Manage resources using Managed Service Identity](https://azure.microsoft.com/resources/samples/resources-node-manage-resources-with-msi/) |
+| Python | [Create a VM with MSI enabled](https://azure.microsoft.com/resources/samples/compute-python-msi-vm/) |
+|        | [Use MSI to authenticate simply from inside a VM](https://azure.microsoft.com/resources/samples/resource-manager-python-manage-resources-with-msi/) |
+| Ruby   | [Create Azure VM with an MSI](https://azure.microsoft.com/resources/samples/compute-ruby-msi-vm/) |
+|      | [Manage resources from an MSI-enabled VM](https://azure.microsoft.com/resources/samples/resources-ruby-manage-resources-with-msi/) | 
 
 ## Additional information
 
