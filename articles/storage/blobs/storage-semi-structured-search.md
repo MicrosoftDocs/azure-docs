@@ -47,7 +47,7 @@ If this is your first time making REST calls to Azure, here's a brief introducti
 
   ![Semi-structured search](media/storage-unstructured-structured-search/postmanoverview.png)
 
-For the calls covered in this tutorial, search api-key is required, it can be found under **Keys** inside your search service. This api-key must be in the header of every API call (place it where "admin key" is pictured in the preceding screeenshot) this tutorial directs you to make. Retain this since you will need it for each call.
+For the calls covered in this tutorial, search api-key is required, it can be found under **Keys** inside your search service. This api-key must be in the header of every API call (place it where "admin key" in the preceding screeenshot) this tutorial directs you to make. Retain this since you will need it for each call.
 
   ![Semi-structured search](media/storage-unstructured-structured-search/keys.png)
 
@@ -162,9 +162,11 @@ After replacing the URL, copy and paste the following code into your body and ru
 
 Now that the search service has been connected to your data container you can begin searching your files.
 
-Open up the Azure portal and navigate back to your search service. Open up the search explorer, as shown in the [previous tutorial](storage-unstructured-search.md#search-your-text-files).
+Open up the Azure portal and navigate back to your search service. Just like you did in the previous tutorial.
 
   ![Unstructured search](media/storage-unstructured-structured-search/indexespane.png)
+
+### User-defined metadata search
 
 As before, the data can be queried in a number of ways: full text search, system properties, or user-defined metadata. Both system properties and user-defined metadata may only be searched with the select parameter if they were marked as retrievable during creation of the target index. Once parameters are created in the target index they may not be altered, though additional parameters may be added.
 
