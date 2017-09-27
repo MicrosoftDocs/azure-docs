@@ -104,7 +104,7 @@ Click **Add** to import.
 6. **Choose An Identity** displays a list of certificates for you to choose from. Select the proper certificate, then click **Continue**.
 
   ![identity](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
-7. In the **Local ID** field, specify the name of the certificate (from Step 5). In this example, it is "ikev2Client.com". Then, click **Apply** button to save the changes.
+7. In the **Local ID** field, specify the name of the certificate (from Step 6). In this example, it is "ikev2Client.com". Then, click **Apply** button to save the changes.
 
   ![apply](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
 8. On the **Network** dialog, click **Apply** to save all changes. Then, click **Connect** to start the P2S connection to the Azure VNet.
