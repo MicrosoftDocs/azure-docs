@@ -1,6 +1,6 @@
 ---
 title: How to use an Azure Managed Service Identity for sign-in and token acquisition
-description: Step by step instructions for using an MSI service principal for sign-in, and acquiring an access token.
+description: Step by step instructions for using an MSI service principal for sign-in, and for acquiring an access token.
 services: active-directory
 documentationcenter: 
 author: bryanla
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/25/2017
+ms.date: 09/28/2017
 ms.author: bryanla
 ---
 
