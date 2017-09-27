@@ -40,11 +40,11 @@ If you haven't deployed the remote monitoring solution yet, you should complete 
 
 Navigate to the **Devices** page in the solution and then choose **Provision**. In the **Provision** panel, choose **Simulated**:
 
-<!-- TODO insert screenshot -->
+![Provision a simulated device](media/iot-suite-remote-monitoring-manage/devicesprovision.png)
 
-Leave the number of devices to provision set to **1**. Enter a device ID prefix such as `TestDevice`, choose **Engine** as the **Device Type**, and then choose **Apply** to create the simulated device:
+Leave the number of devices to provision set to **1**. Choose **Engine** as the **Device model**, and then choose **Apply** to create the simulated device:
 
-<!-- TODO insert screenshot -->
+![Provision a simulated engine device](media/iot-suite-remote-monitoring-manage/devicesprovisionengine.png)
 
 To learn how to provision a *physical* device, see [Connect your device to the remote monitoring preconfigured solution](iot-suite-connecting-devices-node.md).
 
@@ -52,29 +52,29 @@ To learn how to provision a *physical* device, see [Connect your device to the r
 
 To view details of your new simulated device, select it in the list of devices on the **Devices** page. Information about your device displays in the **Device detail** panel:
 
-<!-- TODO insert screenshot -->
+![View the new simulated engine device](media/iot-suite-remote-monitoring-manage/devicesviewnew.png)
 
-In **Device detail**, verify your new device is sending telemetry. To view the different telemetry streams from your device, choose a telemetry name such as **Coolant**:
+In **Device detail**, verify your new device is sending telemetry. To view the different telemetry streams from your device, choose a telemetry name such as **vibration**:
 
-<!-- TODO insert screenshot -->
+![Select a telemetry stream to view](media/iot-suite-remote-monitoring-manage/devicesvibration.png)
 
 The **Device detail** panel displays other information about the device such as tag values, the methods it supports, and the properties reported by the device.
 
-To view detailed diagnostics, choose **Display diagnostics**.
+To view detailed diagnostics, scroll down to view **Diagnostics**.
 
 ## Act on a device
 
-To act on a device, select it in the list of devices and then choose **Schedule**. The **Engine** device model specifies three methods a device must support:
+To act on a device, select it in the list of devices and then choose **Schedule**. The **Engine** device model specifies four methods a device must support:
 
-<!-- TODO insert screenshot -->
+![Engine methods](media/iot-suite-remote-monitoring-manage/devicesmethods.png)
 
-Choose **Restart** and set the job name to **Restart engine**:
+Choose **Restart**, set the job name to **RestartEngine**, and then choose **Apply**:
 
-<!-- Insert screenshot here -->
+![Schedule the restart method](media/iot-suite-remote-monitoring-manage/devicesrestartengine.png)
 
 To track the status of the job on the **Maintenance** page, choose **System Status**:
 
-<!-- Insert screenshot here -->
+![Monitor the schedules job](media/iot-suite-remote-monitoring-manage/maintenancerestart.png)
 
 ### Methods in other devices
 
@@ -86,15 +86,13 @@ To schedule a method to run on multiple devices, you can select multiple devices
 
 To change the configuration of a device, select it in the device list on the **Devices** page and then choose **Reconfigure**. The reconfigure panel shows the property values for the selected device that you can change:
 
-<!-- Insert screenshot here -->
+![Reconfigure a device](media/iot-suite-remote-monitoring-manage/devicesreconfigure.png)
 
 To make a change, add a name for the job, update the property values, and choose **Apply**:
 
-<!-- Insert screenshot here -->
+![Update a device property value](media/iot-suite-remote-monitoring-manage/devicesreconfigurephysical.png)
 
-To track the status of the job on the **Maintenance** page, choose **System Status**:
-
-<!-- Insert screenshot here -->
+To track the status of the job on the **Maintenance** page, choose **System Status**.
 
 ## Next steps
 
