@@ -29,7 +29,7 @@ If you plan to use the PowerShell examples in this article, be sure to install [
 
 > [!IMPORTANT]
 > - All sample code/script in this article assumes the client is running on an MSI-enabled Virtual Machine. For details on enabling MSI on a VM, see [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md), or one of the variant articles (using PowerShell, CLI, or a template). 
-> - To prevent authorization errors (403/AuthorizationFailed) in the code/script, the VM's identity must be given "Reader" access to the VM instance to perform some of the operations. See [Assign a Managed Service Identity (MSI) access to a resource using the Azure portal](msi-howto-assign-access-portal.md) for details.
+> - To prevent authorization errors (403/AuthorizationFailed) in the code/script, the VM's identity must be given "Reader" access to the VM instance when performing operations that call Azure Resource Manager. See [Assign a Managed Service Identity (MSI) access to a resource using the Azure portal](msi-howto-assign-access-portal.md) for details.
 > - Before proceeding to one of the following sections, use the VM "Connect" feature in the Azure portal, to remotely connect to your MSI-enabled VM.
 
 ## How to sign in using an MSI identity
@@ -80,7 +80,7 @@ Instead of acquiring an app-only access token from Azure AD, an MSI-enabled Azur
 
 In the examples below, we show how to use a VM's MSI for token acquisition.
 
-### Get a token using .NET
+### .NET
 
 > [!IMPORTANT]
 > MSI and Azure AD are not integrated. Therefore, the Azure AD Authentication Libraries (ADAL) cannot be used for MSI token acquisition. For more details, see [MSI known issues](msi-known-issues.md).
@@ -110,7 +110,7 @@ catch (Exception e)
 
 ```
 
-### Get a token using PowerShell
+### PowerShell
 
 ```powershell
 # Get an access token from MSI
@@ -121,7 +121,7 @@ $access_token = $content.access_token
 echo "The MSI access token is $access_token"
 ```
 
-### Get a token using CURL
+### Bash/CURL
 
 ```bash
 response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s)
@@ -129,9 +129,33 @@ access_token=$(echo $response | python -c 'import sys, json; print (json.load(sy
 echo The MSI access token is $access_token
 ```
 
-### Get a token using REST
+### REST
 
-TBD (simlar to https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol)
+Request:
+
+```
+GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
+Metadata: true
+User-Agent: Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) 
+Host: localhost:50342
+Proxy-Connection: Keep-Alive
+```
+
+Response:
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
+{
+  "access_token": "eyJ0eXAi...",
+  "refresh_token": "",
+  "expires_in": "3599",
+  "expires_on": "1506484173",
+  "not_before": "1506480273",
+  "resource": "https://management.azure.com/",
+  "token_type": "Bearer"
+}
+```
 
 ## How to use MSI with Azure SDK libraries
 
