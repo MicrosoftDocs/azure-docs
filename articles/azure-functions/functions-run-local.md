@@ -268,10 +268,13 @@ You can use the following options:
 | **`--publish-local-settings -i`** |  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists.|
 | **`--overwrite-settings -y`** | Must be used with `-i`. Overwrites AppSettings in Azure with local value if different. Default is prompt.|
 
-The `publish` command uploads the contents of the Functions project directory. If you delete files locally, the `publish` command does not delete them from Azure. You can delete files in Azure by using the [Kudu tool](functions-how-to-use-azure-function-app-settings.md#kudu) in the [Azure portal].
+This command requires that the function app exists in Azure, it doesn't create the app for you. To learn how to create a function app from the command prompt or Terminal window using the Azure CLI, see [Create a Function App for serverless execution](./scripts/functions-cli-create-serverless).
+
+The `publish` command uploads the contents of the Functions project directory. If you delete files locally, the `publish` command does not delete them from Azure. You can delete files in Azure by using the [Kudu tool](functions-how-to-use-azure-function-app-settings.md#kudu) in the [Azure portal].  
 
 >[!IMPORTANT]  
-> When publishing from version 2.0 of the tools, your function app will use the Function runtime version 1.0 by default. To instead use the runtime version 2.0, you must add the application setting `FUNCTIONS_EXTENSION_VERSION=beta`. Use the following Azure CLI code to add this setting to your function app: 
+> When publishing from version 2.0 of the tools, your function app will use the Function runtime version 1.0 by default. To instead use the runtime version 2.0, you must add the application setting `FUNCTIONS_EXTENSION_VERSION=beta`.  
+Use the following Azure CLI code to add this setting to your function app: 
 ```azurecli-interactive
 az functionapp config appsettings set --name <function_app> \
 --resource-group myResourceGroup \
