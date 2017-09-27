@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/27/2017
+ms.date: 09/28/2017
 ms.author: asaxton
 ---
 
@@ -45,13 +45,12 @@ Using the REST API, Power BI Embedded allows developing with any language.
 
 * [Communities](https://community.powerbi.com/): Ask Power BI questions
 * [Power BI Ideas](https://ideas.powerbi.com): Request and vote for features
-* [Stack Overflow](https://stackoverflow.com/questions/tagged/powerbi): Ask development questions
 * [Reddit](https://www.reddit.com/r/PowerBI/): Discuss Power BI
 
 ## Next steps
 
 See the [pricing page](https://azure.microsoft.com/pricing/details/power-bi-embedded/) for capacity node details.
 
-To create a Power BI Embedded capacity, see Create Power BI Embedded resource.
+To create a Power BI Embedded capacity, see [Create Power BI Embedded capacity in the Azure portal](create-capacity.md)
 
 To begin embedding your Power BI content, see [How to embed your Power BI dashboards, reports and tiles](https://powerbi.microsoft.com/documentation/powerbi-developer-embedding-content/).

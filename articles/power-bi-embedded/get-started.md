@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/27/2017
+ms.date: 09/28/2017
 ms.author: asaxton
 ---
 # Get started with Microsoft Power BI Embedded

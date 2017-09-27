@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/20/2017
+ms.date: 09/28/2017
 ms.author: asaxton
 ---
 # Code snippets for migrating content from Power BI Workspace Collections

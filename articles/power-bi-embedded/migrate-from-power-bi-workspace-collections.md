@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/20/2017
+ms.date: 09/28/2017
 ms.author: asaxton
 ---
 # How to migrate Power BI Workspace Collection content to Power BI Embedded
@@ -158,7 +158,7 @@ In addition to the content you migrated from Power BI Workspace Collections, you
 
 2. Rebuild your AuthN/AuthZ authentication using the *master* account for your application. You can take advantage of using an [embed token](https://msdn.microsoft.com/library/mt784614.aspx) to allow this user to act on behalf of other users.
 
-3. Embed your reports from Power BI Embedded into your application.
+3. Embed your reports from Power BI Embedded into your application. For more information, see [How to embed your Power BI dashboards, reports and tiles](https://powerbi.microsoft.com/documentation/powerbi-developer-embedding-content/).
 
 ## Map your users to a Power BI user
 
@@ -187,6 +187,6 @@ Some cleanup is needed within Power BI Workspace Collections.
 
 ## Next steps
 
-Congratulations. Your application is now migrated to Power BI Embedded.
+Congratulations. Your application is now migrated to Power BI Embedded. For information about how to embed your Power BI dashboards, reports and datasets, see [How to embed your Power BI dashboards, reports and tiles](https://powerbi.microsoft.com/documentation/powerbi-developer-embedding-content/).
 
 More questions? [Try asking the Power BI Community](http://community.powerbi.com/)

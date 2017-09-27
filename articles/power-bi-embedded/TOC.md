@@ -7,12 +7,9 @@
 
 # How to
 ## Manage
-### [Connect to a data source](power-bi-embedded-connect-datasource.md)
-### [Embed a Power BI report](power-bi-embedded-embed-report.md)
-### [Interact with Reports](power-bi-embedded-interact-with-reports.md)
-### [Create a new report from a dataset](power-bi-embedded-create-report-from-dataset.md)
-### [Save reports](power-bi-embedded-save-reports.md)
-### [Toggle between view and edit](power-bi-embedded-toggle-mode.md)
+### [Create capacity](create-capacity.md)
+### [Scale capacity](scale-capacity.md)
+### [Pause and start capacity](pause-start.md)
 ## Migrate
 ### [How to migrate from Power BI Workspace Collections](migrate-from-power-bi-workspace-collections.md)
 ### [Migration tool](migrate-tool.md)
