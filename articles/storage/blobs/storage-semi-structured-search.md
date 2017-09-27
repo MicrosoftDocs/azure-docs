@@ -21,7 +21,7 @@ ms.custom: mvc
 
 # Search semi-structured data in cloud storage
 
-In this two-part tutorial series, you learn how to search semi-structured and unstructured data. In this part you search semi-structured data, such as JSON. Semi-structured data contains tags or markings which separate content within the data. It differs from structured data in that it is data that is not formally structured such as data models for relational databases.
+In this two-part tutorial series, you learn how to search semi-structured and unstructured data. In this part, you search semi-structured data, such as JSON. Semi-structured data contains tags or markings which separate content within the data. It differs from structured data in that it is data that is not formally structured such as data models for relational databases.
 
 In this part we cover how to:
 
@@ -47,7 +47,7 @@ If this is your first time making REST calls to Azure, here's a brief introducti
 
   ![Semi-structured search](media/storage-unstructured-structured-search/postmanoverview.png)
 
-For the calls covered in this tutorial, search api-key is required, it can be found under **Keys** inside your search service. This api-key must be in the header of every API call (place it where "admin key" in the preceding screeenshot) this tutorial directs you to make. Retain this since you will need it for each call.
+For the calls covered in this tutorial, search api-key is required, it can be found under **Keys** inside your search service. This api-key must be in the header of every API call (place it where "admin key" in the preceding screenshot) this tutorial directs you to make. Retain this since you need it for each call.
 
   ![Semi-structured search](media/storage-unstructured-structured-search/keys.png)
 
@@ -85,7 +85,7 @@ A data source is what you use to specify what data to index.
 
 The endpoint of this call is `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`, replace `[service name]` with the name of your search service.
 
-For this call you will need the name of your storage account and your storage account key, the storage account key can be found in your storage account under **Access Keys**. As pictured below:
+For this call, you need the name of your storage account and your storage account key, the storage account key can be found in your storage account under **Access Keys**. As pictured below:
 
   ![Semi-structured search](media/storage-unstructured-structured-search/storagekeys.png)
 
@@ -180,7 +180,7 @@ A more complex query would be `$filter=MinimumAge ge 30 and MaximumAge lt 75`, w
 
 If you'd like to experiment and try a few more queries yourself, feel free to do so. Know that Logical operators (and, or, not) work as well as comparison operators (eq, ne, gt, lt, ge, le). String comparisons are case-sensitive.
 
-Be aware that `$filter` will only work with metadata that were marked filterable when creating your index.
+Be aware that `$filter` only works with metadata that were marked filterable when creating your index.
 
 ## Clean-up
 
