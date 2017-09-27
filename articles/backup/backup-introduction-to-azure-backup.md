@@ -103,7 +103,7 @@ While backing up Premium Storage VMs, the Backup service creates a temporary sta
 >
 
 ### Restore Premium Storage VMs
-Premium Storage VMs can be restored to either Premium Storage or to normal storage. Restoring a Premium Storage VM recovery point back to Premium Storage is the typical process of restoration. However, it can be cost effective to restore a Premium Storage VM recovery point to standard storage. This type of restoration can be used if you need a subset of files from the VM.
+Premium Storage VMs can be restored to either Premium Storage or to Standard Storage. Restoring a Premium Storage VM recovery point back to Premium Storage is the typical process of restoration. However, it can be cost effective to restore a Premium Storage VM recovery point to Standard Storage. This type of restoration can be used if you need a subset of files from the VM.
 
 ## Using managed disk VMs with Azure Backup
 Azure Backup protects managed disk VMs. Managed disks free you from managing storage accounts of virtual machines and greatly simplify VM provisioning.
