@@ -30,7 +30,6 @@ If you are a Visual Studio C# developer, Azure Functions also [integrates with V
 >[!NOTE]  
 > Before you install either version, you must [install NodeJS](https://docs.npmjs.com/getting-started/installing-node), which includes npm. For version 2.0 of the tools, we recommend using Node.js 8.5, or a higher version. 
 
-<<<<<<< HEAD
 ### Version 1.0 runtime
 
 The original version of the tools uses the Functions 1.0 runtime. This version uses the .NET Framework and is only supported on Windows computers. Use the following command to to install the version 1.0 tools:
@@ -68,8 +67,6 @@ sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
 
 ## Run Azure Functions Core Tools
  
-=======
->>>>>>> f5dde96... Removed note
 [Azure Functions Core Tools] adds the following command aliases:
 * **func**
 * **azfun**
@@ -271,7 +268,7 @@ You can use the following options:
 | **`--publish-local-settings -i`** |  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists.|
 | **`--overwrite-settings -y`** | Must be used with `-i`. Overwrites AppSettings in Azure with local value if different. Default is prompt.|
 
-This command requires that the function app exists in Azure, it doesn't create the app for you. To learn how to create a function app from the command prompt or Terminal window using the Azure CLI, see [Create a Function App for serverless execution](./scripts/functions-cli-create-serverless).
+This command requires that the function app exists in Azure, it doesn't create the app for you. To learn how to create a function app from the command prompt or Terminal window using the Azure CLI, see [Create a Function App for serverless execution](./scripts/functions-cli-create-serverless.md).
 
 The `publish` command uploads the contents of the Functions project directory. If you delete files locally, the `publish` command does not delete them from Azure. You can delete files in Azure by using the [Kudu tool](functions-how-to-use-azure-function-app-settings.md#kudu) in the [Azure portal].  
 
