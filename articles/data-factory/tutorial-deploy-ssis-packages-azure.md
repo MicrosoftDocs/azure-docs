@@ -31,37 +31,41 @@ This tutorial provides steps for provisioning an Azure-SSIS integration runtime 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Prerequisites
-- **Azure SQL Database server** or **SQL Server Managed Instance (private preview) (Extended Private Preview)**. If you don't already have a database server, create one in the Azure portal before you get started. This server hosts the SSIS Catalog database (SSISDB). We recommend that you create the database server in the same Azure region as the integration runtime. This configuration lets the integration runtime write execution logs to SSISDB without crossing Azure regions. 
-- **Classic Virtual Network(VNet) (optional)**. You must have an Azure Virtual Network (VNet) if at least one of the following conditions is true:
-    - You are hosting the SSIS Catalog database on a SQL Server Managed Instance (private preview) that is part of a VNet.
-    - You want to connect to on-premises data stores from SSIS packages running on an Azure-SSIS integration runtime.
+- **Azure SQL Database server**. If you don't already have a database server, create one in the Azure portal before you get started. This server hosts the SSIS Catalog database (SSISDB). We recommend that you create the database server in the same Azure region as the integration runtime. This configuration lets the integration runtime write execution logs to SSISDB without crossing Azure regions. 
 - **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps). You use PowerShell to run a script to provision an Azure-SSIS integration runtime that runs SSIS packages in the cloud. 
 
+## Launch Windows PowerShell ISE
+Start **Windows PowerShell ISE** with administrative privileges. 
+
 ## Create variables
-Define variables for use in the script in this tutorial:
+Copy and pate the following script. Specify values for the variables. 
 
 ```powershell
-# Azure Data Factory version 2 information
-$SubscriptionName = "[your Azure subscription name]"
-$ResourceGroupName = "[your Azure resource group name]"
-$DataFactoryName = "[your data factory name]"
-$DataFactoryLocation = "EastUS" # In public preview, only EastUS|EastUS2 are supported.
+$SubscriptionName = "<Azure subscription name>"
+$ResourceGroupName = "<Azure resource group name>"
+# Data factory name. Must be globally unique
+$DataFactoryName = "<Data factory name>" 
+# In public preview, only EastUS amd EastUS2 are supported.
+$DataFactoryLocation = "EastUS" 
 
-# Azure-SSIS integration runtime information - This is the Data Factory compute resource for running SSIS packages
-$AzureSSISName = "[your Azure-SSIS integration runtime name]"
-$AzureSSISDescription = "This is my Azure-SSIS integration runtime"
-$AzureSSISLocation = "EastUS" # In public preview, only EastUS|NorthEurope are supported.
-$AzureSSISNodeSize = "Standard_A4_v2" # In public preview, only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported.
-$AzureSSISNodeNumber = 2 # In public preview, only 1-10 nodes are supported.
-$AzureSSISMaxParallelExecutionsPerNode = 2 # In public preview, only 1-8 parallel executions per node are supported.
-$VnetId = "[your VNet resource ID or leave it empty]" # OPTIONAL: In public preview, only classic virtual network (VNET) is supported.
-$SubnetName = "[your subnet name or leave it empty]" # OPTIONAL: In public preview, only classic VNet is supported.
+# Azure-SSIS integration runtime information. This is a Data Factory compute resource for running SSIS packages
+$AzureSSISName = "<Specify a name for your Azure-SSIS integration runtime (IR)>"
+$AzureSSISDescription = "<Specify description for your Azure-SSIS IR"
+# In public preview, only EastUS and NorthEurope are supported.
+$AzureSSISLocation = "EastUS" 
+ # In public preview, only Standard_A4_v2, Standard_A8_v2, Standard_D1_v2, Standard_D2_v2, Standard_D3_v2, Standard_D4_v2 are supported
+$AzureSSISNodeSize = "Standard_A4_v2"
+# In public preview, only 1-10 nodes are supported.
+$AzureSSISNodeNumber = 2 
+# In public preview, only 1-8 parallel executions per node are supported.
+$AzureSSISMaxParallelExecutionsPerNode = 2 
 
 # SSISDB info
-$SSISDBServerEndpoint = "[your Azure SQL Database server name.database.windows.net or your Azure SQL Managed Instance (private preview) server endpoint]"
-$SSISDBServerAdminUserName = "[your server admin username]"
-$SSISDBServerAdminPassword = "[your server admin password]"
-$SSISDBPricingTier = "[your Azure SQL Database pricing tier, e.g. S3, or leave it empty for Azure SQL Managed Instance (private preview)]" # Not applicable for Azure SQL Managed Instance (private preview)
+$SSISDBServerEndpoint = "<Azure SQL server name>.database.windows.net"
+$SSISDBServerAdminUserName = "<Azure SQL server - user name>"
+$SSISDBServerAdminPassword = "<Azure SQL server - user password>"
+# Pricing tier of you Azure SQL server. For example S0, S3 etc. 
+$SSISDBPricingTier = "S0" 
 ```
 
 ## Validate the connection to database
@@ -94,26 +98,10 @@ Login-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 ```
 
-## Configure virtual network
-Add the following script to automatically configure virtual network permissions/settings for your Azure-SSIS integration runtime to join.
-
-```powershell
-# Register to Azure Batch resource provider
-if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
-{
-    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName "MicrosoftAzureBatch").Id
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
-    while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
-    {
-    Start-Sleep -s 10
-    }
-    # Assign VM contributor role to Microsoft.Batch
-    New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
-}
-```
-
 ## Create a resource group
 Create an [Azure resource group](../azure-resource-manager/resource-group-overview.md) using the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. The following example creates a resource group named `myResourceGroup` in the `westeurope` location.
+
+If your resource group already exists, don't copy this code to your script. 
 
 ```powershell
 New-AzureRmResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
@@ -124,8 +112,8 @@ Run the following command to create a data factory:
 
 ```powershell
 Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
-                         -Location $DataFactoryLocation `
-                         -Name $DataFactoryName
+                        -Location $DataFactoryLocation `
+                        -Name $DataFactoryName
 ```
 
 ## Create an integration runtime
@@ -145,16 +133,14 @@ Set-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $ResourceGroupNam
                                             -Location $AzureSSISLocation `
                                             -NodeSize $AzureSSISNodeSize `
                                             -NodeCount $AzureSSISNodeNumber `
-                                            -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode `
-                                            -VnetId $VnetId `
-                                            -Subnet $SubnetName
+                                            -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode 
 ```
 
 ## Start integration runtime
 Run the following command to start the Azure-SSIS integration runtime: 
 
 ```powershell
-write-host("##### Starting #####")
+write-host("##### Starting your Azure-SSIS integration runtime. This command takes 20 to 30 minutes to complete. #####")
 Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                              -DataFactoryName $DataFactoryName `
                                              -Name $AzureSSISName `
@@ -166,7 +152,7 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 This command takes from **20 to 30 minutes** to complete. 
 
 ## Deploy SSIS packages
-Now, use SQL Server Data Tools (SSDT) or SQL Server Management Studio (SSMS) to deploy your SSIS packages to Azure. Connect to your Azure SQL server that hosts the SSIS catalog (SSISDB). The name of the Azure SQL server is in the format: &lt;servername&gt;.database.windows.net (for Azure SQL Database). 
+Now, use SQL Server Data Tools (SSDT) or SQL Server Management Studio (SSMS) to deploy your SSIS packages to Azure. Connect to your Azure SQL server that hosts the SSIS catalog (SSISDB). The name of the Azure SQL server is in the format: `<servername>.database.windows.net` (for Azure SQL Database). 
 
 See the following articles from SSIS documentation: 
 
