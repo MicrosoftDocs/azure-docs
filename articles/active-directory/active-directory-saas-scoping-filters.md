@@ -60,7 +60,7 @@ According to this scoping filter, users must satisfy the following criteria, to 
 ## Creating scoping filters
 Scoping filters are configured as part of the attribute mappings for each Azure AD user provisioning connector. The procedure below assumes you have already set up automatic provisioning for [one of the supported applications](active-directory-saas-tutorial-list.md), and are adding a scoping filter to it.
 
-###To create a scoping filter:
+### To create a scoping filter:
 1. In the [Azure portal](https://portal.azure.com), go to the **Azure Active Directory > Enterprise Applications > All applications** section.
 2. Select the application for which you have configured automatic provisioning. Example: "ServiceNow"
 3. Select the **Provisioning** tab.
