@@ -1,11 +1,11 @@
 ---
-title: Use the Azure Data Lake Tools for Visual Studio Code | Microsoft Docs
-description: 'Learn how to use the Azure Data Lake Tools for Visual Studio Code to create, test, and run U-SQL scripts. '
+title: How to troubleshoot recurring job problem | Microsoft Docs
+description: 'Learn how to use Azure Data Lake Tools for Visual Studio to debug recurring jobs problems. '
 services: data-lake-analytics
 documentationcenter: ''
 author: yanacai
-manager: jhubbard
-editor: cgronlun
+manager: 
+editor: 
 
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/30/2016
+ms.date: 09/27/2017
 ms.author: yanacai
 
 ---
