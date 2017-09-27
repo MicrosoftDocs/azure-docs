@@ -19,7 +19,7 @@ ms.custom: mvc, devcenter
 
 # Create your first function with Java and Maven (Preview)
 
-This quickstart guides through creating a serverless function project with Maven, testing it locally, and deploying it to Azure Functions. When you're done, you have a HTTP-triggered function running in Azure.
+This quickstart guides through creating a serverless function project with Maven, testing it locally, and deploying it to Azure Functions. When you're done, you have a HTTP-triggered function app running in Azure.
 
  ![Access a Hello World function from the command line with cURL](media/functions-create-java-maven/hello-azure.png)
 
@@ -69,11 +69,11 @@ mvn archetype:generate \
     -DarchetypeVersion=1.0-SNAPSHOT
 ```
 
-Maven prompts you for values needed to finish generating the project. For _groupId_, _artifactId_, and _version_ values, see the [Maven naming conventions](https://maven.apache.org/guides/mini/guide-naming-conventions.html) reference. The _appName_ value must be unique across Azure, so it generated an app name based on the previously entered _artifactId_  as a default. The _packageName_ value determines what Java package the generated code in the project uses.
+Maven prompts you for values needed to finish generating the project. For _groupId_, _artifactId_, and _version_ values, see the [Maven naming conventions](https://maven.apache.org/guides/mini/guide-naming-conventions.html) reference. The _appName_ value must be unique across Azure, so Maven generates an app name based on the previously entered _artifactId_  as a default. The _packageName_ value determines the Java package for the generated function code.
 
 ![Terminal output showing the Maven archetype inputs](media/functions-create-java-maven/archetype.png)
 
-Maven generates the project files in a new folder under the current one named after the _appName_ value used when configuring the project. The generated code in the project is a simple [HTTP triggered](/azure/azure-functions/functions-bindings-http-webhook) function that echoes back the body of the request:
+Maven creates the project files in a new folder with a name of _appName_. The generated code in the project is a simple [HTTP triggered](/azure/azure-functions/functions-bindings-http-webhook) function that echoes back the body of the request:
 
 ```java
 public class Function {
