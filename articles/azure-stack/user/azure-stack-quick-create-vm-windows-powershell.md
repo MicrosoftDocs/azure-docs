@@ -242,5 +242,5 @@ Remove-AzureRmResourceGroup `
 
 ## Next steps
 
-To learn about Storage in Azure Stack, refer to the [storage overview](azure-stack-storage-overview.md) topic.
+In this quick start, you’ve deployed a simple Windows virtual machine. To learn more about Azure Stack virtual machines, continue to [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md).
 
