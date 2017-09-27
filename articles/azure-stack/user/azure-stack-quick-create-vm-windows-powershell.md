@@ -27,7 +27,7 @@ This guide details using PowerShell to create a Windows Server 2016 virtual mach
 
 Before you begin, make sure that your Azure Stack operator has added the “Windows Server 2016” image to the Azure Stack marketplace.  
 
-Azure Stack requires a specific version of Azure PowerShell to create and manage the resources. If you don't have PowerShell configured for Azure Stack, follow the steps to [install and configure PowerShell](azure-stack-powershell-install.md).    
+Azure Stack requires a specific version of Azure PowerShell to create and manage the resources. If you don't have PowerShell configured for Azure Stack, follow the steps to [install](azure-stack-powershell-install.md) and [configure](azure-stack-powershell-configure-user.md) PowerShell.    
 
 
 ## Create a resource group
