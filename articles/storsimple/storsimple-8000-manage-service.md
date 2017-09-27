@@ -55,7 +55,7 @@ For each StorSimple Device Manager service, the following attributes exist:
 * **Location** – The geographical location in which the StorSimple device will be deployed.
 * **Subscription** – The billing subscription that is associated with your service.
 
-## Move a service from classic portal to Azure portal
+## Move a service to Azure portal
 StorSimple 8000 series can be now managed in the Azure portal. If you have an existing service to manage the StorSimple devices, we recommend that you move your service to the Azure portal. The Azure classic portal for the StorSimple Manager service is not supported after September 30, 2017. If you want to move to the new Azure portal, refer [Considerations for transition](#considerations-for-transition). 
 
 > [!NOTE]
