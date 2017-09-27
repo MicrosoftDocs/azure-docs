@@ -1,5 +1,5 @@
 ---
-title: Use decoration markers to highlight text | Microsoft Docs
+title: Bing Custom Search Use decoration markers to highlight text | Microsoft Docs
 description: Shows how to enable text decorations in search responses.
 services: cognitive-services
 author: brapel

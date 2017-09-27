@@ -1,5 +1,5 @@
 ---
-title: How to page through the available webpages | Microsoft Docs
+title: Bing Custom Search How to page through the available webpages | Microsoft Docs
 description: Shows how to page through all of the webpages that Bing can return.
 services: cognitive-services
 author: brapel
