@@ -12,7 +12,7 @@ ms.service: storage
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.date: 09/19/2017
 ms.author: genli
 
