@@ -29,7 +29,7 @@ The following information identifies the Azure Government boundary for Azure Key
 | --- | --- |
 |All data that's encrypted with Azure Key Vault key might contain regulated or controlled data. |Azure Key Vault metadata cannot contain export-controlled data. This metadata includes all configuration data that you enter while creating and maintaining  Key Vault.  Do not enter regulated or controlled data into the following fields: **Resource group names, Key Vault names, Subscription names**.|
 
-Key Vault is generally available in Azure Government. There is no extension, so Key Vault is available through PowerShell and CLI only.
+Key Vault is generally available in Azure Government.
 
 
 ## Azure Active Directory Premium
