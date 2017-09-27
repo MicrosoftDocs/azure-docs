@@ -105,7 +105,7 @@ The currently supported identity scenarios to simultaneously manage Azure Commer
 - Hybrid and cloud identities - Hybrid identity for one subscription, cloud identity for the other
 - Hybrid identities - Hybrid identities are used to manage both subscriptions.
 
-      A common scenario, having both Office 365 and Azure subscriptions, are conveyed in each of the following scenarios:
+A common scenario, having both Office 365 and Azure subscriptions, is conveyed in each of scenarios listed below.
 
 ### Using cloud identities for multi-cloud subscription administration
 
