@@ -18,7 +18,7 @@ ms.author: spelluru
 ---
 
 # Manage an Azure-SSIS integration runtime
-This article provides information on how to stop, start, and reconfigure Azure-SSIS integration runtime.  
+The [Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md) article shows you how to create an Azure-SSIS integration runtime by using Azure Data Factory. This article complements it by providing information on how to stop, start, reconfigure, or remove an Azure-SSIS integration runtime.  
 
 
 ## Stop 
@@ -53,9 +53,17 @@ After you provision and start an instance of Azure-SSIS integration runtime, you
 	```powershell
 	Start-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName
 	```
+
+## Remove
+To remove an existing Azure-SSIS integration runtime, run the following command: 
+
+```powershell
+Remove-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Force
+```
+
 ## Next steps
 For more information about Azure-SSIS runtime, see the following topics: 
 
-- [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime)
-- [Join Azure-SSIS Integration Runtime to VNET](join-azure-ssis-integration-runtime-virtual-network.md)
-- [Provision an Azure-SSIS integration runtime](tutorial-deploy-ssis-packages-azure.md).
+- [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). This article provides conceptual information about integration runtimes in general inclduing the Azure-SSIS IR. 
+- [Join Azure-SSIS Integration Runtime to VNET](join-azure-ssis-integration-runtime-virtual-network.md). This how to article expands on the tutorial and shows you how to use Azure SQL Managed Instance (private preview) for hosting the SSIS catalog. It also provides information on joining an Azure-SSIS IR to an Azure virtual network (VNet).
+- [Tutorial: Provision an Azure-SSIS integration runtime](tutorial-deploy-ssis-packages-azure.md). This tutorial uses Azure SQL Database for hosting the SSIS catalog. 

@@ -18,10 +18,12 @@ ms.author: spelluru
 ---
 
 # Join an Azure-SSIS integration runtime to a virtual network
-If you use an Azure SQL Managed Instance (Private Preview) to host the SQL Server Integration Services (SSIS) catalog inside a virtual network (VNet), you must also join your Azure-SSIS integration runtime to the same virtual network. Azure Data Factory version 2 (Preview) lets you join your Azure-SSIS integration runtime to a classic VNet. Currently, Azure Resource Manager VNet is not supported yet. However, you can work it around by doing the following steps: 
+You must join Azure-SSIS integration runtime (IR) to an Azure virtual network (VNet) if one of the following conditions is true: 
 
-1. Create a [classic VNet](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) for your Azure-SSIS integration runtime to join. 
-2. Configure a connection between your class VNet and Azure Resource Manager VNet. For more information, see [Connect virtual networks from different deployment models using the portal](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md). 
+    - You are hosting the SSIS Catalog database on a SQL Server Managed Instance (private preview) that is part of a VNet.
+    - You want to connect to on-premises data stores from SSIS packages running on an Azure-SSIS integration runtime.
+
+ Azure Data Factory version 2 (Preview) lets you join your Azure-SSIS integration runtime to a classic VNet. Currently, Azure Resource Manager VNet is not supported yet. However, you can work it around as shown in the following section. 
 
 ## Access on-premises data stores
 If your SSIS packages access on-premises data stores, join your Azure-SSIS integration runtime to a VNet that is connected to your on-premises network. Here are a few important points to note: 
@@ -90,7 +92,7 @@ For more information about Azure-SSIS runtime, see the following topics:
 
 - [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime)
 - [Manage Azure-SSIS Integration Runtime](manage-azure-ssis-integration-runtime.md)
-- [Provision an Azure-SSIS integration runtime](tutorial-deploy-ssis-packages-azure.md).
+- [Tutorial: Provision an Azure-SSIS integration runtime](tutorial-deploy-ssis-packages-azure.md).
 
 
 
