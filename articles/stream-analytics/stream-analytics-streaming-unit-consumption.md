@@ -41,11 +41,11 @@ Choosing the number of required SUs for a particular job depends on the partitio
 
 In general, the best practice is to start with 6 SUs for queries that don't use *PARTITION BY*. Then determine the sweet spot by using a trial and error method in which you modify the number of SUs after you pass representative amounts of data and examine the SU %Utilization metric.
 
-Smaller queries can use 3 SUs. 
-Using 1 SU is not recommended for production job. We usually advice to only use 1-SU-jobs for prototyping and testing jobs.
+For more information about choosing the right number of SUs, see this page: [Scale Azure Stream Analytics jobs to increase throughput](stream-analytics-scale-jobs.md)
 
-> [NOTE]
-> When the number of readers changes during job upgrades, transient warnings are written to audit logs. Stream Analytics jobs automatically recover from these transient issues.
+> [NOTE] Smaller queries can use 3 SUs. 
+> Using 1 SU is not recommended for production jobs. We usually advice to only use 1-SU-jobs for prototyping and testing jobs.
+
 
 ## Factors increasing SU% utilization 
 ### Stateful query logic 
