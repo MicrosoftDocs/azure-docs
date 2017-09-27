@@ -41,10 +41,10 @@ VPN client configuration files are contained in a zip file. Configuration files 
 
 Before you begin, make sure that all connecting users have a valid certificate installed on the user's device. For more information about installing a client certificate, see [Install a client certificate](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
-You can generate client configuration files from PowerShell or by using the Azure portal. Either method returns the same zip file. Unzip the file to view the following folders:
+You can generate client configuration files using PowerShell, or by using the Azure portal. Either method returns the same zip file. Unzip the file to view the following folders:
 
   * **WindowsAmd64** and **WindowsX86**, which contain the Windows 32-bit and 64-bit installer packages, respectively. The **WindowsAmd64** installer package is for all supported 64-bit Windows clients, not just Amd.
-  * **Generic**, which contains general information used to create your own VPN client configuration. Ignore this folder. The Generic folder is provided only if IKEv2 or SSTP+IKEv2 was configured on the gateway. If only SSTP is configured, then the Generic folder is not present.
+  * **Generic**, which contains general information used to create your own VPN client configuration. Ignore this folder. The Generic folder is provided if IKEv2 or SSTP+IKEv2 was configured on the gateway. If only SSTP is configured, then the Generic folder is not present.
 
 ### <a name="zipportal"></a>Generate files using the Azure portal
 
