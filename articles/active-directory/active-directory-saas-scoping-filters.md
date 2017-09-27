@@ -42,7 +42,7 @@ A scoping filter consists of one or **clauses**. Clauses determines which users 
 
 A single clause defines a single condition for a single attribute value. If multiple clauses are created in a single scoping filter, they are evaluated together using "AND" logic. This means all clauses must evaluate to "true" in order for a user to be provisioned.
 
-Finally, multiple scoping filters can be a created for a single application. If multiple scoping filters are present, they are evaluated together using "OR" logic. This means that if all the clauses in any single one of the configured scoping filters evalutes to "true", then the user will bve provisioned.
+Finally, multiple scoping filters can be a created for a single application. If multiple scoping filters are present, they are evaluated together using "OR" logic. This means that if all the clauses in any of the configured scoping filters evalutes to "true", then the user is provisioned.
 
 Each user or group processed by the Azure AD provisioning service is always evaluted individually agaist each scoping filter.
 
@@ -68,8 +68,8 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
 5. Select the **Source object scope** menu.
 6. Select **Add scoping filter**.
 7. Define a clause by selecting a source **Attribute Name**, an **Operator**, and an **Attribute Value** to match against. Below are the supported operators:
-   * **EQUALS** - Clause returns "true" if the evaluated attribute matches the input string value exactly (case-sensistve).
-   * **NOT EQUALS** - Clause returns "true" if the evaluated attribute does not match the input string value (case-sensistve).
+   * **EQUALS** - Clause returns "true" if the evaluated attribute matches the input string value exactly (case-sensitive).
+   * **NOT EQUALS** - Clause returns "true" if the evaluated attribute does not match the input string value (case-sensitive).
    * **IS TRUE** - Clause returns "true" if the evaluated attribute contains a boolean value of true.
    * **IS FALSE** - Clause returns "true" if the evaluated attribute contains a boolean value of false.
    * **IS NULL** - Clause returns "true" if the evaluated attribute is empty.
@@ -77,14 +77,14 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
    * **REGEX MATCH** - Clause returns "true" if the evaluated attribute matches a regular expression pattern. Example: ([1-9][0-9]) matches  any number between 10 and 99
    * **NOT REGEX MATCH** - Clause returns "true" if the evaluated attribute does not match a regular expression pattern.
 8. Select **Add new scoping clause**.
-9. Optionally, repeat stepts 7-8 to add additional scoping clauses.
+9. Optionally, repeat steps 7-8 to add additional scoping clauses.
 10. In **Scoping Filter Title**, add a name for your scoping filter.
 11. Select **OK**.
 12. Select **OK** again on the Scoping Filters screen (or repeat steps 6-11 to add another scoping filter).
 13. Select **Save** on the Attribute Mapping screen. 
 
 >[!IMPORTANT] 
-> Saving a new scoping filter will trigger a new full sync for the application, where all users in the source system will be evaluated again against the new scoping filter. If a user in the application was previously in scope for provisioning, but falls out of scope, then their account will be disabled or deprovisoned in the application.
+> Saving a new scoping filter triggers a new full sync for the application, where all users in the source system are evaluated again against the new scoping filter. If a user in the application was previously in scope for provisioning, but falls out of scope, then their account will be disabled or deprovisioned in the application.
 
 
 ## Related Articles
