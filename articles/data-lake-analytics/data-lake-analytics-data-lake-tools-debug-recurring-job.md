@@ -3,7 +3,7 @@ title: How to troubleshoot recurring job problem | Microsoft Docs
 description: 'Learn how to use Azure Data Lake Tools for Visual Studio to debug recurring jobs problems. '
 services: data-lake-analytics
 documentationcenter: ''
-author: yanacai
+author:yanancai
 manager: 
 editor: 
 
