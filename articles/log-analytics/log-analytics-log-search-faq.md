@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/27/2017
+ms.date: 09/26/2017
 ms.author: bwren
 
 ---
@@ -55,6 +55,18 @@ You can use the language converter tool in the log search page to convert each o
 ### Question: Why are my query results not sorted?
 Results are not sorted by default in the new query language.  Use the [sort operator](https://go.microsoft.com/fwlink/?linkid=856079) to sort your results by one or more properties.
 
+### Question: Where did minify go after I upgraded?
+Minify is a feature that gives a summarized view of your search results.  After you upgrade, the Minify option no longer appears in the Log Search portal.  You can get similar functionality with the new search language using [reduce](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/reduce-operator) or [autocluster_v2](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/evaluate-operator/autocluster). 
+
+	Event
+	| where TimeGenerated > ago(10h)
+	| reduce by RenderedDescription
+
+	Event
+	| where TimeGenerated > ago(10h)
+	| evaluate autocluster_v2()
+
+
 ### Known issue: Search results in a list may include properties with no data
 Log search results in a list may display properties with no data.  Prior to upgrade, these properties wouldn't be included.  This issue will be corrected so that empty properties are not displayed.
 
@@ -64,7 +76,7 @@ Prior to upgrade, when you selected a value in a chart, it would return a detail
 ## Log Search API
 
 ### Question: Does the Log Search API get updated after I upgrade?
-The [Log Search API](log-analytics-log-search-api.md) has not yet been upgraded to the new search language.  Continue to use the legacy query language with this API, even after you upgrade your workspace.  Updated documentation will become available for the Log Search API when it's updated.
+The legacy [Log Search API](log-analytics-log-search-api.md) will no longer work when you upgraded your workspace.  See [Azure Log Analytics REST API](https://dev.loganalytics.io/) for details on the new API.
 
 
 ## Portals
@@ -121,11 +133,11 @@ All solutions will continue to work in an upgraded workspace, although their per
 ### Known issue: Capacity and Performance solution
 Some of the parts in the [Capacity and Performance](log-analytics-capacity.md) view may be empty.  A fix to this issue will be available shortly.
 
-### Known issue: Device Health solution
-The [Device Health solution](https://docs.microsoft.com/windows/deployment/update/device-health-monitor) will not collect data in an upgraded workspace.  A fix to this issue will be available shortly.
-
 ### Known issue: Application Insights connector
 Perspectives in [Application Insights Connector solution](log-analytics-app-insights-connector.md) are currently not supported in an upgraded workspace.  A fix to this issue is currently under analysis.
+
+### Known issue: Backup solution
+The Backup Solution will not collect data in an upgraded workspace. A new Backup solution that works with the upgraded workspace will be announced shortly.
 
 ## Upgrade process
 

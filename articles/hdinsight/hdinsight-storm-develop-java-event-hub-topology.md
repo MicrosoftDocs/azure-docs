@@ -64,7 +64,7 @@ The `POM.xml` file contains configuration information for this Maven project. Th
 
 #### Event Hub components
 
-The component that reads and writes to Azure Event Hubs is located in the [HDInsight repository](https://github.com/hdinsight/mvn-rep). The following sections in the `POM.xml` file load the components from this repository
+The component that reads and writes to Azure Event Hubs is located in the [HDInsight repository](https://github.com/hdinsight/mvn-repo). The following sections in the `POM.xml` file load the components from this repository
 
 ```xml
 <repositories>

@@ -46,6 +46,7 @@
 ## [Configure tokens](active-directory-b2c-token-session-sso.md)
 ## [Enable MFA](active-directory-b2c-reference-mfa.md)
 ## [Use custom attributes](active-directory-b2c-reference-custom-attr.md)
+## [Customize password](active-directory-b2c-reference-password-complexity.md)
 ## [Customizing the UI](active-directory-b2c-reference-ui-customization.md)
 ### [Helper tool for customization](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Language customization](active-directory-b2c-reference-language-customization.md)
@@ -66,11 +67,17 @@
 ### Integrate RESTful APIs
 #### [Validate user input](active-directory-b2c-rest-api-validation-custom.md)
 #### [Obtain additional claims](active-directory-b2c-rest-api-step-custom.md)
-### Customize login
+### User flows
 #### [Configure user input](active-directory-b2c-configure-signup-self-asserted-custom.md)
 #### [Custom attributes](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [Customize UI](active-directory-b2c-ui-customization-custom.md)
 #### [Customize tokens](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
+#### [Password complexity](active-directory-b2c-reference-password-complexity-custom.md)
+
+#### [Password change](active-directory-b2c-reference-password-change-custom.md)
+
+#### [Enable keep me signed in](active-directory-b2c-reference-kmsi-custom.md)
+
 ### Troubleshooting
 #### [Collect logs using Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Reference

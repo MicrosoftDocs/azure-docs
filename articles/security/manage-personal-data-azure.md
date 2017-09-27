@@ -33,7 +33,7 @@ Among many other items, the company keeps track of RSVPs that include food aller
 
 - Data admins must be able to correct inaccurate personal information and update incomplete or changing personal information.
 
-- Data admins need must be able to delete personal information upon the request of a data subject.
+- Data admins must be able to delete personal information upon the request of a data subject.
 
 - Data admins need to export data and provide it to a data subject in a common, structured format upon his or her request.
 

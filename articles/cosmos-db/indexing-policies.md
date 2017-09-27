@@ -74,8 +74,6 @@ Azure Cosmos DB supports three indexing modes which can be configured via the in
 > 
 > 
 
-The following sample show how create an Azure Cosmos DB collection using the .NET SDK with consistent automatic indexing on all document insertions.
-
 The following table shows the consistency for queries based on the indexing mode (Consistent and Lazy) configured for the collection and the consistency level specified for the query request. This applies to queries made using any interface - REST API, SDKs or from within stored procedures and triggers. 
 
 |Consistency|Indexing Mode: Consistent|Indexing Mode: Lazy|

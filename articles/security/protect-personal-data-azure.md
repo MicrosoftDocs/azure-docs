@@ -26,15 +26,14 @@ This article introduces a series of articles that help you use Azure security te
 
 A large cruise company, headquartered in the United States, is expanding its operations to offer itineraries in the Mediterranean, Adriatic, and Baltic seas, as well as the British Isles. To support those efforts, it has acquired several smaller cruise lines based in Italy, Germany, Denmark and the U.K.
 
-The company uses Microsoft Azure to store corporate data in the cloud. This may include employee and/or customer information such as:
+The company uses Microsoft Azure to store corporate data in the cloud. This may include customer and/or employee information such as:
 
 - addresses
 - phone numbers
 - tax identification numbers
-- medical information
 - credit card information
 
-The company must protect the privacy of employee and customer data while making data accessible to those departments that need it. (such as payroll and reservations departments)
+The company must protect the privacy of customer and employee data while making data accessible to those departments that need it. (such as payroll and reservations departments)
 
 ## Company goals 
 

@@ -109,9 +109,9 @@ We are limited to using pre-shared keys (PSK) for authentication.
 * Azure portal: navigate to the classic virtual network > VPN connections > Site-to-site VPN connections > Local site name > Local site > Client address space. 
 * Classic portal: add each range that you want sent through the gateway for your virtual network on the Networks page under Local Networks. 
 
-### Can I configure Forced Tunneling?
+### Can I configure Force Tunneling?
 
-Yes. See [Configure forced tunneling](vpn-gateway-about-forced-tunneling.md).
+Yes. See [Configure force tunneling](vpn-gateway-about-forced-tunneling.md).
 
 ### Can I set up my own VPN server in Azure and use it to connect to my on-premises network?
 
@@ -155,13 +155,17 @@ We support Windows Server 2012 Routing and Remote Access (RRAS) servers for Site
 
 Other software VPN solutions should work with our gateway as long as they conform to industry standard IPsec implementations. Contact the vendor of the software for configuration and support instructions.
 
-## <a name="P2S"></a>Point-to-Site connections
+## <a name="P2S"></a>Point-to-Site - native Azure certificate authentication
 
-[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-point-to-site-faq-include.md)]
+[!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
+
+## <a name="P2SRADIUS"></a>Point-to-Site - RADIUS authentication
+
+[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 
 ## <a name="V2VMulti"></a>VNet-to-VNet and Multi-Site connections
 
-[!INCLUDE [vpn-gateway-vnet-vnet-faq-include](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+[!INCLUDE [vpn-gateway-vnet-vnet-faq-include](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ### Can I use Azure VPN gateway to transit traffic between my on-premises sites or to another virtual network?
 
@@ -193,12 +197,12 @@ Yes, this is supported. For more information, see [Configure ExpressRoute and Si
 
 ## <a name="ipsecike"></a>IPsec/IKE policy
 
-[!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-ipsecikepolicy-faq-include.md)]
+[!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-faq-ipsecikepolicy-include.md)]
 
 
 ## <a name="bgp"></a>BGP
 
-[!INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)]
+[!INCLUDE [vpn-gateway-faq-bgp-include](../../includes/vpn-gateway-faq-bgp-include.md)]
 
 ## <a name="vms"></a>Cross-premises connectivity and VMs
 
