@@ -41,7 +41,7 @@ To restore files or folders from the restore point, go to the virtual machine an
 
 4. From the **Select recovery point** drop-down menu, select the recovery point that contains the files you want. By default, the latest recovery point is already selected.
 
-5. To download the software that you'll use to copy files from the recovery point, click **Download Executable** (for Windows Azure VM) or **Download Script** (for Linux Azure VM). 
+5. To download the software used to copy files from the recovery point, click **Download Executable** (for Windows Azure VM) or **Download Script** (for Linux Azure VM). 
 
     ![Generated password](./media/backup-azure-restore-files-from-vm/download-executable.png)
 
@@ -152,39 +152,43 @@ The following script output displays the LVM and/or RAID Arrays disks and the vo
 
    ![Linux LVM Output menu](./media/backup-azure-restore-files-from-vm/linux-LVMOutput.png)
    
-To bring these partitions online, run the following commands. 
+To bring these partitions online, run the commands in the following sections. 
 
 **For LVM Partitions**
 
+To list the volume group names under a physical volume.
 ```
 $ pvs <volume name as shown above in the script output> 
 ```
-This lists the volume group names under a physical volume.
+To list all logical volumes, names, and their paths in a volume group.
 
 ```
 $ lvdisplay <volume-group-name from the pvs command’s results> 
 ```
-This lists all logical volumes, names, and their paths in a volume group.
+
+To mount the logical volumes to the path of your choice.
 
 ```
 $ mount <LV path> </mountpath>
 ```
-To mount the logical volumes to the path of your choice.
+
 
 
 **For RAID Arrays**
 
+The following command displays details about all raid disks.
+
 ```
 $ mdadm –detail –scan
 ```
-This displays details about all raid disks. The relevant RAID disk is displayed as `/dev/mdm/<RAID array name in the protected VM>`
+ The relevant RAID disk is displayed as `/dev/mdm/<RAID array name in the protected VM>`
 
 Use the mount command if the RAID disk has physical volumes.
 ```
-$ mount [RAID Disk Path] [/mounthpath]
+$ mount [RAID Disk Path] [/mountpath]
 ```
 
-If this RAID disk has another LVM configured in it, then follow the preceding procedure for LVM partitions with the volume name being the RAID Disk name
+If the RAID disk has another LVM configured in it, then use the preceding procedure for LVM partitions but use the volume name in place of the RAID Disk name
 
 ## Troubleshooting
 
