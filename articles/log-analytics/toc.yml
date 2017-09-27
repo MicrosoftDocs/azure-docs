@@ -25,20 +25,20 @@
   items:
   - name: Log Analytics FAQ
     href: log-analytics-faq.md
-    items:
-    - name: Log Search
-       - name: Log Search FAQ
-         href: log-analytics-log-search-faq.md
-       - name: Log searches overview
-         href: log-analytics-log-search-new.md   
-       - name: Log search portals
-         href: log-analytics-log-search-portals.md   
   - name: Data Consumption
     href: log-analytics-usage.md
   - name: Manage access
     href: log-analytics-manage-access.md
   - name: Features for Service providers
     href: log-analytics-service-providers.md 
+  - name: Log Search
+    items:
+       - name: Log Search FAQ
+         href: log-analytics-log-search-faq.md
+       - name: Log searches overview
+         href: log-analytics-log-search-new.md   
+       - name: Log search portals
+         href: log-analytics-log-search-portals.md   
 - name: How To
   items:
   - name: Collect data
