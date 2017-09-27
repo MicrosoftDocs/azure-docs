@@ -13,9 +13,10 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 08/29/2017
 ms.author: cfowler
+ms.custom: mvc
 ---
 # Create a Ruby App with Web Apps on Linux
 
