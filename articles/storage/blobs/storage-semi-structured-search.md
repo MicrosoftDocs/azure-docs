@@ -39,11 +39,11 @@ To complete this tutorial:
 
 ## Setup
 
-To complete this tutorial you need to have a REST client. For the purposes of this tutorial, we are using [Postman](https://www.getpostman.com/). Feel free to use a different REST client if you're already comfortable with a particular one.
+To complete this tutorial you need a REST client. For the purposes of this tutorial, we are using [Postman](https://www.getpostman.com/). Feel free to use a different REST client if you're already comfortable with a particular one.
 
 After installing postman, launch it.
 
-If this is your first time making REST calls to Azure, here's a brief introduction of the important components for this tutorial: The request method for every call in this tutorial is "POST." The header keys, which are "Content-type" and "api-key", and the values of the header keys, which are "application/json" and your "admin key" (this is a placeholder for your search primary key) respectively. The body is where you place the actual contents of your call. Depending on the client you're using, there may be some variations on how you construct your query but those are the basics.
+If this is your first time making REST calls to Azure, here's a brief introduction of the important components for this tutorial: The request method for every call in this tutorial is "POST." The header keys, which are "Content-type" and "api-key." The values of the header keys, which are "application/json" and your "admin key" (this is a placeholder for your search primary key) respectively. The body is where you place the actual contents of your call. Depending on the client you're using, there may be some variations on how you construct your query but those are the basics.
 
   ![Semi-structured search](media/storage-unstructured-structured-search/postmanoverview.png)
 
@@ -75,7 +75,7 @@ After the upload completes, the files should appear in their own subfolder insid
 
 We are using the REST API to perform the connection because the UI does not currently support JSON indexing.
 
-The URL (also known as an endpoint) for each call must end with **api-version=2016-09-01-Preview** and each call should return a **201 Created**. The generally available api-version does not yet have the capability to handle json as a jsonArray, currently only the preview api-version does.
+The querystring must contain **api-version=2016-09-01-Preview** and each call should return a **201 Created**. The generally available api-version does not yet have the capability to handle json as a jsonArray, currently only the preview api-version does.
 
 Execute the following three API calls from your REST client.
 
@@ -85,7 +85,7 @@ A data source is what you use to specify what data to index.
 
 The endpoint of this call is `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`, replace `[service name]` with the name of your search service.
 
-For this call, you need the name of your storage account and your storage account key, the storage account key can be found in your storage account under **Access Keys**. As pictured below:
+For this call, you need the name of your storage account and your storage account key, the storage account key can be found in your storage account under **Access Keys**. Pictured following:
 
   ![Semi-structured search](media/storage-unstructured-structured-search/storagekeys.png)
 
@@ -100,13 +100,35 @@ Make sure to replace the `[storage account name]` and `[storage account key]` in
 }
 ```
 
+The response should look like:
+
+```json
+{
+    "@odata.context": "https://exampleurl.search.windows.net/$metadata#datasources/$entity",
+    "@odata.etag": "\"0x8D505FBC3856C9E\"",
+    "name": "clinical-trials-json",
+    "description": null,
+    "type": "azureblob",
+    "subtype": null,
+    "credentials": {
+        "connectionString": "DefaultEndpointsProtocol=https;AccountName=[mystorageaccounthere];AccountKey=[[myaccountkeyhere]]];"
+    },
+    "container": {
+        "name": "data",
+        "query": "clinical-trials-json"
+    },
+    "dataChangeDetectionPolicy": null,
+    "dataDeletionDetectionPolicy": null
+}
+```
+
 ### Create an index
     
 The second API call creates an index, it sets all the parameters and their attributes.
 
 The URL for this call is `https://[service name].search.windows.net/indexes?api-version=2016-09-01-Preview`, replace `[service name]` with the name of your search service.
 
-After replacing the URL, copy and paste the following code into your body and run the query.
+Replace the URL, then copy and paste the following code into your body and run the query.
 
 ```json
 {
@@ -141,13 +163,62 @@ After replacing the URL, copy and paste the following code into your body and ru
   ]
 }
 ```
+
+The response should look like;
+
+```json
+{
+    "@odata.context": "https://exampleurl.search.windows.net/$metadata#indexes/$entity",
+    "@odata.etag": "\"0x8D505FC00EDD5FA\"",
+    "name": "clinical-trials-json-index",
+    "fields": [
+        {
+            "name": "FileName",
+            "type": "Edm.String",
+            "searchable": false,
+            "filterable": false,
+            "retrievable": true,
+            "sortable": true,
+            "facetable": false,
+            "key": false,
+            "indexAnalyzer": null,
+            "searchAnalyzer": null,
+            "analyzer": null,
+            "synonymMaps": []
+        },
+        {
+            "name": "Description",
+            "type": "Edm.String",
+            "searchable": true,
+            "filterable": false,
+            "retrievable": false,
+            "sortable": false,
+            "facetable": false,
+            "key": false,
+            "indexAnalyzer": null,
+            "searchAnalyzer": null,
+            "analyzer": null,
+            "synonymMaps": []
+        },
+        ...
+          "scoringProfiles": [],
+    "defaultScoringProfile": null,
+    "corsOptions": null,
+    "suggesters": [],
+    "analyzers": [],
+    "tokenizers": [],
+    "tokenFilters": [],
+    "charFilters": []
+}
+```
+
 ### Create an index
 
 An indexer connects the data source to the target search index and (optionally) provides a schedule to automate the data refresh.
 
 The URL for this call is `https://[service name].search.windows.net/indexers?api-version=2016-09-01-Preview`, replace `[service name]` with the name of your search service.
 
-After replacing the URL, copy and paste the following code into your body and run the query.
+Replace the URL, then copy and paste the following code into your body and run the query.
 
 ```json
 {
@@ -155,6 +226,32 @@ After replacing the URL, copy and paste the following code into your body and ru
   "dataSourceName" : "clinical-trials-json",
   "targetIndexName" : "clinical-trials-json-index",
   "parameters" : { "configuration" : { "parsingMode" : "jsonArray" } }
+}
+```
+
+The response should look like:
+
+```json
+{
+    "@odata.context": "https://exampleurl.search.windows.net/$metadata#indexers/$entity",
+    "@odata.etag": "\"0x8D505FDE143D164\"",
+    "name": "clinical-trials-json-indexer",
+    "description": null,
+    "dataSourceName": "clinical-trials-json",
+    "targetIndexName": "clinical-trials-json-index",
+    "schedule": null,
+    "parameters": {
+        "batchSize": null,
+        "maxFailedItems": null,
+        "maxFailedItemsPerBatch": null,
+        "base64EncodeKeys": null,
+        "configuration": {
+            "parsingMode": "jsonArray"
+        }
+    },
+    "fieldMappings": [],
+    "enrichers": [],
+    "disabled": null
 }
 ```
 
@@ -180,17 +277,11 @@ A more complex query would be `$filter=MinimumAge ge 30 and MaximumAge lt 75`, w
 
 If you'd like to experiment and try a few more queries yourself, feel free to do so. Know that Logical operators (and, or, not) work as well as comparison operators (eq, ne, gt, lt, ge, le). String comparisons are case-sensitive.
 
-Be aware that `$filter` only works with metadata that were marked filterable when creating your index.
-
-## Clean-up
-
-Now that you've completed the tutorial, you can go ahead and clean up all your resources.
-
-The quickest way to accomplish this is to delete the resource group you created for the tutorial.
+The `$filter` parameter only works with metadata that were marked filterable at the creation of your index.
 
 ## Next steps
 
-In this tutorial, we covered searching semi-structured data such as how to:
+In this tutorial, you learned about searching semi-structured data such as how to:
 
 > [!div class="checklist"]
 > * Create an Azure Search Service using the REST API

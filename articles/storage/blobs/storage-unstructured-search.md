@@ -251,7 +251,7 @@ Make sure **not** to delete any resources created in this tutorial, as most of t
 
 ## Next steps
 
-In this tutorial, we covered searching unstructured data such as how to:
+In this tutorial, you learned about searching unstructured data such as how to:
 
 > [!div class="checklist"]
 > * Create a resource group
