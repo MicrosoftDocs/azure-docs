@@ -13351,6 +13351,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/virtual-machines/virtual-machines-dotnet-diagnostics.md",
+            "redirect_url": "/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps-classic.md",
             "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps",
             "redirect_document_id": false
