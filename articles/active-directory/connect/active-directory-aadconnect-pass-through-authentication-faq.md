@@ -91,11 +91,11 @@ If AD FS was configured as the sign-in method _outside_ of the Azure AD Connect 
 
 Yes. Multi-forest environments are supported if there are forest trusts between your AD forests and if name suffix routing is correctly configured.
 
-## Do Pass-through Authentication Agents provide load balancing capability?
+## How many Pass-through Authentication Agents do I need to install?
 
-No, installing multiple Pass-through Authentication Agents ensures [high availability](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability), but not load balancing. One or two of the Authentication Agents may end up handling the bulk of the sign-in requests.
+Installing multiple Pass-through Authentication Agents ensures [high availability](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability). However it does not provide load balancing. One or two of the Authentication Agents may end up handling the bulk of the sign-in requests.
 
-Password validation requests that the Authentication Agents need to handle are lightweight. Therefore peak and average load for most customers is easily handled by two or three Authentication Agents in total.
+Consider the peak and average load of sign-in requests that you expect to see on your tenant. As a benchmark, a single Authentication Agent can handle 300,000 to 400,000 authentications per second on a standard 4-core CPU, 16 GB RAM server. For most customers, two or three Authentication Agents in total are sufficient for high availability and capacity.
 
 We recommend that you install Authentication Agents close to your Domain Controllers to improve sign-in latency.
 
