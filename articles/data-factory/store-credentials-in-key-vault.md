@@ -63,18 +63,18 @@ PS C:\WINDOWS\system32> (Get-AzureRmDataFactoryV2 -ResourceGroupName <resourceGr
 
 PrincipalId                          TenantId
 -----------                          --------
-765ad4ab-2e22-4df9-99ba-51ed985819dc 72f988bf-86f1-41af-91ab-2d7cd011db47
+765ad4ab-XXXX-XXXX-XXXX-51ed985819dc 72f988bf-XXXX-XXXX-XXXX-2d7cd011db47
 ```
 
 Copy the principal ID, then run below Azure Active Directory command with principal ID as parameter to get the **ApplicationId**, which you use to grant access in Key Vault:
 
 ```powershell
-PS C:\WINDOWS\system32> Get-AzureRmADServicePrincipal -ObjectId 765ad4ab-2e22-4df9-99ba-51ed985819dc
+PS C:\WINDOWS\system32> Get-AzureRmADServicePrincipal -ObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
 
-ServicePrincipalNames : {76f668b3-a36b-491e-8ece-1b3348c75e02, https://identity.azure.net/P86P8g6nt1QxfPJx22om8MOooMf/Ag0Qf/nnREppHkU=}
-ApplicationId         : 76f668b3-a36b-491e-8ece-1b3348c75e02
+ServicePrincipalNames : {76f668b3-XXXX-XXXX-XXXX-1b3348c75e02, https://identity.azure.net/P86P8g6nt1QxfPJx22om8MOooMf/Ag0Qf/nnREppHkU=}
+ApplicationId         : 76f668b3-XXXX-XXXX-XXXX-1b3348c75e02
 DisplayName           : ADFV2DemoFactory
-Id                    : 765ad4ab-2e22-4df9-99ba-51ed985819dc
+Id                    : 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
 Type                  : ServicePrincipal
 ```
 
@@ -168,7 +168,7 @@ ProvisioningState : Succeeded
 Call below API with "identity" section in the request body:
 
 ```
-PATCH https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<data factory name>?api-version=2017-09-01-preview
+PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<data factory name>?api-version=2017-09-01-preview
 ```
 
 **Request body**: add "identity": { "type": "SystemAssigned" }.
@@ -198,8 +198,8 @@ PATCH https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups
     },
     "identity": {
         "type": "SystemAssigned",
-        "principalId": "765ad4ab-2e22-4df9-99ba-51ed985819dc",
-        "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+        "principalId": "765ad4ab-XXXX-XXXX-XXXX-51ed985819dc",
+        "tenantId": "72f988bf-XXXX-XXXX-XXXX-2d7cd011db47"
     },
     "id": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/ADFV2DemoFactory",
     "type": "Microsoft.DataFactory/factories",
