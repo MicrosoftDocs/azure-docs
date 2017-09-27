@@ -35,7 +35,7 @@ You can create a DSVM from Azure portal.
 
 ## Create an Ubuntu DSVM using azure-cli
 
-You can also use an Azure Resource Manager (ARM) template to deploy a DSVM.
+You can also use an Azure resource management template to deploy a DSVM.
 
 >[!NOTE]
 >All following commands are assumed to be issued from the root folder of an Azure ML project.
@@ -57,7 +57,7 @@ Copy and paste the following JSON snippet into the `mydsvm.json` file, and fill 
 }
 ```
 
-For the _vmSize_ field, you can use any suppported VM size listed in the [Ubuntu DSVM ARM template](https://github.com/Azure/DataScienceVM/blob/master/Scripts/CreateDSVM/Ubuntu/multiazuredeploywithext.json). We recommend you use one of the below sizes as compute targets for Azure ML. 
+For the _vmSize_ field, you can use any suppported VM size listed in the [Ubuntu DSVM Azure resource management template](https://github.com/Azure/DataScienceVM/blob/master/Scripts/CreateDSVM/Ubuntu/multiazuredeploywithext.json). We recommend you use one of the below sizes as compute targets for Azure ML. 
 
 - Standard_DS2_v2 
 - Standard_DS3_v2 
@@ -72,7 +72,7 @@ For the _vmSize_ field, you can use any suppported VM size listed in the [Ubuntu
 >[!TIP]
 > The VM sizes started with "NC" are the ones equipped with GPU.
 
-Read more about these [sizes for Linux virtual machines in Azure](../../virtual-machines/linux/sizes.md) and their [pricing information](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/).
+Read more about these [sizes for Linux virtual machines in Azure](../../virtual-machines/linux/sizes.md) and their [pricing information](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 Launch CLI Window from the Azure ML Workbench app by clicking on **File** --> **Open Command Prompt**, or **Open PowerShell** menu item. 
 
@@ -176,5 +176,5 @@ Now you should be ready to run experiments on this Spark cluster.
 Learn more about:
 - [Overview of Azure Machine Learning experiment execution service](experiment-execution-configuration.md)
 - [Azure Machine Learning Workbench execution configuration files](experiment-execution-configuration-reference.md)
-- [Apache Spark for Azure HDInsight cluster](https://azure.microsoft.com/en-us/services/hdinsight/apache-spark/)
-- [Data Science Virtual Machine](https://azure.microsoft.com/en-us/services/virtual-machines/data-science-virtual-machines/)
+- [Apache Spark for Azure HDInsight cluster](https://azure.microsoft.com/services/hdinsight/apache-spark/)
+- [Data Science Virtual Machine](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)
