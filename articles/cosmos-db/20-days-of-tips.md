@@ -136,6 +136,24 @@ Tip 15: Create new Azure #CosmosDB account without ever leaving @code. Install e
 
 [![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/912384598486679557)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318150514613850112)
 
+
+## Tip 16: VS Code integration
+
+Tip 16: Awesome demo! Integrate Azure #cosmosDB, functions and @twilio to send an SMS on any DB change. See docs at [https://aka.ms/Kjkc2d](https://aka.ms/Kjkc2d) 
+
+> [!VIDEO https://www.youtube.com/embed/3Q7WffTeaKY]
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/912703755988160512)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318469696291246081)
+
+
+## Tip 17: VS Code integration
+
+Tip 17: Optimize cost by using Mongoose discriminators to store multiple entities in a single #CosmosDB collection [https://aka.ms/M488jm](https://aka.ms/M488jm)
+
+Blog:  [Using Mongoose Discriminators to Store Multiple Entities in a Single Cosmos DB Collection by Anthony Chu](https://aka.ms/M488jm)
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913076502429933569)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318842474928443393)
+
 ## Next steps
 
 Learn more about Azure Cosmos DB by reading [Welcome to Azure Cosmos DB](introduction.md) and [A technical overview of Azure Cosmos DB](https://azure.microsoft.com/blog/a-technical-overview-of-azure-cosmos-db/).
