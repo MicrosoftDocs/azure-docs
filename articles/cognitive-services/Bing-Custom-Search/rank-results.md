@@ -18,13 +18,13 @@ Bing Custom Search allows you to adjust the rank of results returned by your cus
 ## Pin search results
 Pinning a search result causes it to appear first in the results returned by your Bing Custom Search instance.  To pin a search result, follow these instructions.
 
-- Sign in to [Bing Custom Search](https://customsearch.ai) portal
-- Select the instance to be modified.  You are taken to the **Definition Editor** tab for the selected instance.
-- Ensure the search preview pane is expanded using the **search preview** button
-- Select **My Instance** from the drop-down
-- Enter a search term in the text box labeled **Enter a query...**
-- Press enter or click the search icon
-- Click **Pin to top** for the search result that you would like to pin
+1. Sign in to [Bing Custom Search](https://customsearch.ai) portal
+2. Select the instance to be modified.  You are taken to the **Definition Editor** tab for the selected instance.
+3. Ensure the search preview pane is expanded using the **search preview** button
+4. Select **My Instance** from the drop-down
+5. Enter a search term in the text box labeled **Enter a query...**
+6. Press enter or click the search icon
+7. Click **Pin to top** for the search result that you would like to pin
 
 ## Boost a site
 Boosting a site causes the results for that site to appear higher in the results returned by a Bing Custom Search instance.  Boosting a site can be done in different ways.  
