@@ -54,4 +54,4 @@ After three or more entries are added, Bing Custom Search generates suggestions 
 ## Next steps
 - [Hosted UI](./hosted-ui.md)
 - [Hit highlighting](./hit-highlighting.md)
-- [Page webpages](./paging-webpages.md)
+- [Page webpages](./page-webpages.md)

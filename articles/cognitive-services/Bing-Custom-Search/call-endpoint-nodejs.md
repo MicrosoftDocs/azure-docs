@@ -14,7 +14,7 @@ ms.author: v-brapel
 
 # Call Bing Custom Search endpoint (nodejs)
 
-[!INCLUDE [call-bing-custom-search-endpoint](call-bing-custom-search-endpoint.md)]
+[!INCLUDE [call-bing-custom-search-endpoint](../../../includes/call-bing-custom-search-endpoint.md)]
 
 ```javascript
 var request = require("request");

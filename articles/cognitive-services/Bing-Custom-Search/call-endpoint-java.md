@@ -14,7 +14,7 @@ ms.author: v-brapel
 
 ## Call Bing Custom Search endpoint (Java)
 
-[!INCLUDE [call-bing-custom-search-endpoint](call-bing-custom-search-endpoint.md)]
+[!INCLUDE [call-bing-custom-search-endpoint](../../../includes/call-bing-custom-search-endpoint.md)]
 
 ```csharp
 using System;

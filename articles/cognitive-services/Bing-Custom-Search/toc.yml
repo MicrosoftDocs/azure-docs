@@ -29,8 +29,6 @@
       href: hosted-ui.md
 - name: References
   items:
-    - name: Bing Custom Search API v7 Reference
-      href: bing-custom-search-api-v7-reference.md
     - name: Bing Autosuggest API
       href: ../bing-autosuggest/get-suggested-search-terms.md
 - name: Resources

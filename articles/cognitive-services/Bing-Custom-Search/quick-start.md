@@ -35,7 +35,7 @@ Follow these instructions to create a Bing Custom Search instance.
 - Press enter or click the add button
 
 ## Next steps
-- [Define your slice](./define-your-slice.md)
+- [Define your custom view](./define-your-custom-view.md)
 - [Hit highlighting](./hit-highlighting.md)
-- [Page webpages](./paging-webpages.md)
+- [Page webpages](./page-webpages.md)
 - [Hosted UI](./hosted-ui.md)

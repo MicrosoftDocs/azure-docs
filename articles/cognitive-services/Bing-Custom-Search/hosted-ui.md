@@ -36,4 +36,4 @@ Custom UI can be consumed in two ways:
 
 ## Next steps
 - [Hit highlighting](./hit-highlighting.md)
-- [Page webpages](./paging-webpages.md)
+- [Page webpages](./page-webpages.md)

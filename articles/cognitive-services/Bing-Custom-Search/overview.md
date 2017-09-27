@@ -22,9 +22,9 @@ A Bing Custom Search instance contains all the settings that are required to def
 
 ## Next steps
 - [Get started](./quick-start.md)
-- [Define your slice](./define-your-slice.md)
+- [Define your custom view](./define-your-custom-view.md)
 - [Hosted UI](./hosted-ui.md)
 - [Hit highlighting](./hit-highlighting.md)
-- [Page webpages](./paging-webpages.md)
+- [Page webpages](./page-webpages.md)
 
 
