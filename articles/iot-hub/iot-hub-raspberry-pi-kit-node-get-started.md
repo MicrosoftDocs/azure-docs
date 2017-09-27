@@ -77,6 +77,7 @@ Prepare the microSD card for installation of the Raspbian image.
 
 1. Download Raspbian.
    1. [Download Raspbian Stretch](http://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/) (the .zip file).
+
    > [!WARNING]
    > Please use above link to download `raspbian-2017-07-5` zip image. The latest version of Raspbian images has some known issues with Wiring-Pi Node, which might cause failure in your next steps.
    1. Extract the Raspbian image to a folder on your computer.
