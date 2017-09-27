@@ -436,7 +436,7 @@ To set the cluster probe port parameter, update variables in the following scrip
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
    ```
 
-In the preceding script the use the following values:
+In the preceding script, set the values for your environment. The following list describes the values:
 
    - `<Cluster Network Name>`: Windows Server Failover Cluster name for the network. In **Failover Cluster Manager** > **Networks**, right-click on the network and click **Properties**. The correct value is under **Name** on the **General** tab. 
 
