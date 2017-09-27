@@ -133,13 +133,13 @@ To configure Azure AD single sign-on with Absorb LMS, do the following:
 
 	![The Users tab](./media/active-directory-saas-absorblms-tutorial/3.png)
 
-11. On the Single Sign-On configuration page, do the following:
+11. On the single sign-on configuration page, do the following:
 
 	![The single sign-on configuration page](./media/active-directory-saas-absorblms-tutorial/4.png)
 
 	a. In the **Mode** box, select **Identity Provider Initiated**.
 
-	b. In Notepad, open the certificate that you downloaded from the Azure portal, remove the **---BEGIN CERTIFICATE---** and **---END CERTIFICATE---** tags and then, in the **Key** box, paste the remaining content.
+	b. In Notepad, open the certificate that you downloaded from the Azure portal. Remove the **---BEGIN CERTIFICATE---** and **---END CERTIFICATE---** tags. Then, in the **Key** box, paste the remaining content.
 	
 	c. In the **Id Property** box, select the attribute that you configured as the user identifier in Azure AD. For example, if *userPrincipalName* is selected in Azure AD, select **Username**.
 
