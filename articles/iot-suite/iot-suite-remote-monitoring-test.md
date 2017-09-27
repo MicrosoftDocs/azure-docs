@@ -16,9 +16,9 @@ ms.workload: NA
 
 # Test your solution with simulated devices
 
-This tutorial shows you how to use customize the device simulator microservice with the remote monitoring preconfigured solution. To show the capabilities of the device simulator, this tutorial uses a scenario in the Contoso IoT application.
+This tutorial shows you how to use customize the device simulator microservice with the remote monitoring preconfigured solution. To show the capabilities of the device simulator, this tutorial uses two scenarios in the Contoso IoT application.
 
-Contoso wants to test a new smart lightbulb device. To perform the tests, you create a new simulated device with the following characteristics:
+In the first scenario, Contoso wants to test a new smart lightbulb device. To perform the tests, you create a new simulated device with the following characteristics:
 
 *Properties*
 
@@ -55,6 +55,8 @@ The following table shows the initial status of the device:
 | Initial brightness       | 75     |
 | Initial remaining life   | 10,000 |
 | Initial telemetry status | "on"   |
+
+In the second scenario, you add a new telemetry type to Contoso's existing **Chiller** device.
 
 This tutorial shows you how to use the device simulator with the remote monitoring preconfigured solution:
 
@@ -263,17 +265,37 @@ To test and debug your changes locally, see [Running the service with Visual Stu
 
 Configure the project to copy the new **Lightbulb** device files to the output directory.
 
-When you run the **device-simulation** service locally, it sends telemetry to your remote monitoring solution. On the **Devices** page, you can provision instances of your new type:
+To test the new device in a deployed solution:
 
-<!-- TODO Add screenshot here -->
+1. Copy the new files into your home directory in the virtual machine that hosts the device simulation. For example:
+
+    ```sh
+    scp lightbulb-01.json youraccount@52.232.74.206:~/
+    scp lightbulb-01-state.js youraccount@52.232.74.206:~/
+    scp Switch* youraccount@52.232.74.206:~/
+    ```
+
+1. In an **ssh** shell connected to your virtual machine, copy the files into the docker container and restart the container:
+
+    ```sh
+    docker cp lightbulb-01.json app_devicesimulation_1:/app/data/devicemodels
+    docker cp lightbulb-01-state.js app_devicesimulation_1:/app/data/devicemodels/scripts
+    docker cp SwitchOff-method.js app_devicesimulation_1:/app/data/devicemodels/scripts
+    docker cp SwitchOn-method.js app_devicesimulation_1:/app/data/devicemodels/scripts
+    sudo docker restart app_devicesimulation_1
+    ```
+
+On the **Devices** page, you can provision instances of your new type:
+
+![View the list of available simulations](media/iot-suite-remote-monitoring-test/devicesmodellist.png)
 
 You can view the telemetry from the simulated device:
 
-<!-- TODO Add screenshot here -->
+![View lightbulb telemetry](media/iot-suite-remote-monitoring-test/devicestelemetry.png)
 
 You can call the **SwitchOn** and **SwitchOff** methods on your device:
 
-<!-- TODO Add screenshot here -->
+![Call lightbulb methods](media/iot-suite-remote-monitoring-test/devicesmethods.png)
 
 To build a Docker image with the new device type for deployment to Azure, see [Building a customized Docker image](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md#building-a-customized-docker-image).
 
@@ -360,13 +382,28 @@ When you run the **device-simulation** service locally, it sends telemetry to yo
 
 To test and debug your changes locally, see [Running the service with Visual Studio](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md#running-the-service-with-visual-studio) or [Build and Run from the command line](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md#build-and-run-from-the-command-line).
 
-When you run the **device-simulation** service locally, it sends telemetry to your remote monitoring solution. On the **Devices** page, you can provision instances of your updated type:
+To test the new device in a deployed solution:
 
-<!-- TODO Add screenshot here -->
+1. Copy the new files into your home directory in the virtual machine that hosts the device simulation. For example:
 
-You can view the new **Internal temperature** telemetry from the simulated device:
+    ```sh
+    scp chiller-01.json youraccount@52.232.74.206:~/
+    scp chiller-01-state.js youraccount@52.232.74.206:~/
+    ```
 
-<!-- TODO Add screenshot here -->
+1. In an **ssh** shell connected to your virtual machine, copy the files into the docker container and restart the container:
+
+    ```sh
+    docker cp chiller-01.json app_devicesimulation_1:/app/data/devicemodels
+    docker cp chiller-01-state.js app_devicesimulation_1:/app/data/devicemodels/scripts
+    sudo docker restart app_devicesimulation_1
+    ```
+
+On the **Devices** page, you can provision instances of your updated type:
+
+![Add updated chiller](media/iot-suite-remote-monitoring-test/devicesupdatedchiller.png)
+
+You can view the new **Internal temperature** telemetry from the simulated device.
 
 To build a Docker image with the new device type for deployment to Azure, see [Building a customized Docker image](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md#building-a-customized-docker-image).
 
