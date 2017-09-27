@@ -368,9 +368,9 @@ In this section, you create a C# application to simulate the X.509 device regist
     ```CSharp
     try
     {
-        var cert = new X509Certificate2(@"D:\x509test\9_19\test-device.pfx", "123");
-        var auth = new DeviceAuthenticationWithX509Certificate("test-device", cert);
-        var deviceClient = DeviceClient.Create("test-hub-docs.azure-devices.net", auth, TransportType.Amqp_Tcp_Only);
+        var cert = new X509Certificate2(@"<absolute-path-to-your-device-pfx-file>", "123");
+        var auth = new DeviceAuthenticationWithX509Certificate("<device-name>", cert);
+        var deviceClient = DeviceClient.Create("<your-iot-hub-name>.azure-devices.net", auth, TransportType.Amqp_Tcp_Only);
 
         if (deviceClient == null)
         {
