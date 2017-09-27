@@ -21,7 +21,7 @@ ms.custom: mvc
 
 # Search semi-structured data in cloud Storage
 
-IThis tutorial is part one of a two-part series. In this series you learn how to search semi-structured and unstructured data. Part two covers semi-structured data, such as JSON. Semi-structured data contains tags or markings which separate content within the data. It differs from structured data in that it is data that is not formally structured such as data models for relational databases.
+This tutorial is part one of a two-part series. In this series you learn how to search semi-structured and unstructured data. Part two covers semi-structured data, such as JSON. Semi-structured data contains tags or markings which separate content within the data. It differs from structured data in that it is data that is not formally structured such as data models for relational databases.
 
 In this part we cover how to:
 
@@ -43,11 +43,11 @@ To complete this tutorial you need to have a REST client. For the purposes of th
 
 After installing postman, launch it.
 
-If this is your first time making REST calls to Azure, here's a brief introduction of the important components for this tutorial: The request method for every call in this tutorial is "POST." The header keys, which are "Content-type" and "api-key", application/json and your "admin key" (this is a placeholder for your search primary key). The rest of the call (including the brackets) is the body of your call. Depending on the client you're using, there may be some variations on how you construct your query but those are the basics.
+If this is your first time making REST calls to Azure, here's a brief introduction of the important components for this tutorial: The request method for every call in this tutorial is "POST." The header keys, which are "Content-type" and "api-key", application/json and your "admin key" (this is a placeholder for your search primary key). The body is where you place the actual contents of your call. Depending on the client you're using, there may be some variations on how you construct your query but those are the basics.
 
   ![Semi-structured search](media/storage-unstructured-structured-search/postmanoverview.png)
 
-The search api-key is required, it can be found under **Keys** inside your search service. This api-key must be in the header of every API call this tutorial directs you to make. So note it down.
+For the calls covered in this tutorial, search api-key is required, it can be found under **Keys** inside your search service. This api-key must be in the header of every API call (place it where "admin key" is pictured in the above screeenshot) this tutorial directs you to make. So note it down.
 
   ![Semi-structured search](media/storage-unstructured-structured-search/keys.png)
 
@@ -77,7 +77,7 @@ The URL (also known as an endpoint) for each call must end with **api-version=20
 
  Additionally, the `[service name]` in the example URLs is the name of the search service created in the last tutorial. So note the name of your search service down as well. An example of a properly constructed URL would be: `https://mysearch.search.windows.net/datasources?api-version=2016-09-01-Preview`
 
-You also need the name of your storage account and your storage account key, the storage account key can be found in your storage account under **Access Keys**. As pictured below:
+For the first query you also need the name of your storage account and your storage account key, the storage account key can be found in your storage account under **Access Keys**. As pictured below:
 
   ![Semi-structured search](media/storage-unstructured-structured-search/storagekeys.png)
 
@@ -158,7 +158,7 @@ Now that the search service has been connected to your data container you can be
 
 Open up the portal and navigate back to your search service. Open up the search explorer, as shown in the [previous tutorial](storage-unstructured-search.md#Search-your-text-files).
 
-As before, the data can be queried in a number of ways: particular terms (such as Myopia), the full data set, system properties, or user-defined metadata. Both system properties and user-defined metadata may only be searched with the select parameter if they were marked as retrievable during creation of the target index. Once parameters are created in the target index they may not be altered, though additional parameters may be added.
+As before, the data can be queried in a number of ways: full text search, system properties, or user-defined metadata. Both system properties and user-defined metadata may only be searched with the select parameter if they were marked as retrievable during creation of the target index. Once parameters are created in the target index they may not be altered, though additional parameters may be added.
 
 A basic query would be `$select=Gender,metadata_storage_size`, which limits the return to those two parameters.
 
@@ -168,7 +168,7 @@ A more complex query would be `$filter=MinimumAge ge 20 and MaximumAge lt 75`, w
 
 If you'd like to experiment and try a few more queries yourself, feel free to do so. Know that Logical operators (and, or, not) work as well as comparison operators (eq, ne, gt, lt, ge, le). String comparisons are case-sensitive. 
 
-Keep in mind that $filter will only worked with metadata with the filterable parameter.
+Keep in mind that `$filter` will only worked with metadata that were marked filterable when creating your index.
 
 ## Clean-up
 
