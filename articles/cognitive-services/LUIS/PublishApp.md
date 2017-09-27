@@ -14,9 +14,10 @@ ms.author: cahann
 
 
 # Publish your app
-When you finish building and testing your app, you can publish it as webservice on Azure and get an HTTP endpoint that can be integrated in any backend code. 
+When you finish building and testing your LUIS app, you can publish it as a web service on Azure and get an HTTP endpoint that can be integrated into any client or backend code. 
 
-Optionally, it would be better to test your app before publishing it. For instructions, see [Train and test your app](Train-Test.md).
+> [!TIP]
+> You can optionally test your app before publishing it. For instructions, see [Train and test your app](Train-Test.md).
 
 You can either publish your app directly to the **Production Slot** where end users can access and use your model, or you can publish to a **Staging Slot** to use as a development workstation where you can work on your app and go through trials and tests to validate any changes before publishing to the production slot. 
 
@@ -29,9 +30,11 @@ You can either publish your app directly to the **Production Slot** where end us
     If you have previously published this app, this page will look like the following screenshot: 
  
     ![Publish page](./media/luis-how-to-publish-app/luis-republish.png)
-2. If you want to use a key other than the Starter key, click **Change** next to the **Assigned endpoint key** label. This opens a dialog that allows you to select an existing endpoint key to assign to the app. For more information on how to create and add endpoint keys to your account, see [Manage your keys](Manage-Keys.md).
+2. If you want to use a key other than the Starter key, click **Change** next to the **Assigned endpoint key** label. This opens a dialog that allows you to select an existing endpoint key to assign to the app. For more information on how to create and add endpoint keys to your LUIS app, see [Manage your keys](Manage-Keys.md).
 3. Choose whether to publish to **Production** or to **Staging** slot by selecting the corresponding value from the **Endpoint Slot** list. 
 4. If you want to enable Bing Spell Check, click the **Enable Bing Spell Checker** check box. 
+    >[!NOTE]
+    >The option to enable Bing Spell Check is included with your LUIS subscription. However, you need to add `spellcheck=true` to the URL when you call the LUIS app endpoint to turn on spell checking. Checking the **Enable Bing Spell Checker** check box will append `spellcheck=true` to the URL that displays in the **Publish app** page when publish is complete. <!-- TODO: add screenshot -->
 5. If you want the JSON response of your published app to include all intents defined in your app and their prediction scores, click **Add Verbose Flag** checkbox. Otherwise, it will include only the top scoring intent.
 6. Click **Train** if the app wasn't trained already.  
 

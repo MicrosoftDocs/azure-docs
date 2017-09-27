@@ -15,20 +15,20 @@ ms.author: cahann
 # Manage your keys
 A key is your passport to the server allowing you to publish your app to be used by end users. LUIS has three different types of keys:
 
-* **Programmatic API Key:** Created automatically for LUIS account and it's free. It enables you to author and edit your application using the LUIS Programmatic APIs. 
+* **Starter Key:** Created automatically for LUIS account and it's free. It enables you to get started creating your LUIS app. It also allows you to author and edit your application using the LUIS Programmatic APIs. 
 [Click here for a complete API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
 
 * **Endpoint Key(s):** You need to buy it from the Microsoft Azure portal. It is essential for publishing your app and accessing your HTTP endpoint. This key reflects your quota of endpoint hits based on the usage plan you specified while creating the key. See [Cognitive Services Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) for pricing information.
 
 * **External Key(s):** You need to buy an external key only if you want to use any external services with LUIS.
  
-The process of creating and using endpoint and external keys involves the following tasks in the same order:
+The process of creating and using endpoint keys involves the following tasks:
 
  1. Create a key on the Azure portal.
  
- 2. Add the key to your LUIS account (on the **My Keys** page). 
- 3. Assign the key to your app on the **Publish** page. 
+ 2. On the **Publish app** page, click the **Change** link to to add the new key to your app. 
 
+<!-- TODO: add screenshot -->
 
 ## Regions and keys
 
@@ -41,6 +41,11 @@ East US 2     |   https://eastus2.api.cognitive.microsoft.com/luis/v2.0/apps/YOU
 West Central US     |   https://westcentralus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 Southeast Asia     |   https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 
+> [!IMPORTANT]
+> You can't publishing to https://www.luis.ai using a key for European regions. If you attempt to publish using a key in the Europe region, LUIS displays an error message. Instead, use https://eu.luis.ai.
+
+### Publishing to Europe
+
 To publish to the European regions, you can create LUIS apps at https://eu.luis.ai.  
 
 > [!NOTE]
@@ -50,7 +55,7 @@ To publish to the European regions, you can create LUIS apps at https://eu.luis.
 ------|------|
 West Europe     | https://westeurope.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY |
 
-
+<!-- 
 
 ## Reset your Programmatic API key
 You can reset your Programmatic API key to get a new one generated for your account.
@@ -113,3 +118,5 @@ External keys are the keys required for any external services that you want to u
 2. Click **Add Key Association** ![Add Key Association button](./Images/MyKeys-AddKeyAssociation-btn.JPG).
 
 3. Select Bing Spell Check as the key type from the **Key Type** list, and select from the **Key Value** list the external key that you want to assign to the app. 
+
+-->
