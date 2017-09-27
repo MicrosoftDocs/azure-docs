@@ -30,6 +30,7 @@ If you are a Visual Studio C# developer, Azure Functions also [integrates with V
 >[!NOTE]  
 > Before you install either version, you must [install NodeJS](https://docs.npmjs.com/getting-started/installing-node), which includes npm. For version 2.0 of the tools, we recommend using Node.js 8.5, or a higher version. 
 
+<<<<<<< HEAD
 ### Version 1.0 runtime
 
 The original version of the tools uses the Functions 1.0 runtime. This version uses the .NET Framework and is only supported on Windows computers. Use the following command to to install the version 1.0 tools:
@@ -67,6 +68,8 @@ sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
 
 ## Run Azure Functions Core Tools
  
+=======
+>>>>>>> f5dde96... Removed note
 [Azure Functions Core Tools] adds the following command aliases:
 * **func**
 * **azfun**
