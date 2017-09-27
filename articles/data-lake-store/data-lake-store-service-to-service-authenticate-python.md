@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/30/2017
+ms.date: 09/28/2017
 ms.author: nitinme
 
 ---
@@ -30,7 +30,7 @@ In this article, you learn about how to use the Python SDK to do service-to-serv
 
 ## Prerequisites
 
-* **Python**. You can download Python from [here](https://www.python.org/downloads/). This article uses Python 3.5.2.
+* **Python**. You can download Python from [here](https://www.python.org/downloads/). This article uses Python 3.6.2.
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -59,10 +59,10 @@ pip install azure-datalake-store
 2. Add the following snippet to import the required modules
 
 	```
-	## Use this only for Azure AD service-to-service authentication
-	from azure.common.credentials import ServicePrincipalCredentials
+	## Use this for Azure AD authentication
+	from msrestazure.azure_active_directory import AADTokenCredentials
 
-	## Required for Azure Data Lake Store account management
+    ## Required for Azure Data Lake Store account management
 	from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
 	from azure.mgmt.datalake.store.models import DataLakeStoreAccount
 
@@ -70,6 +70,7 @@ pip install azure-datalake-store
 	from azure.datalake.store import core, lib, multithread
 
 	# Common Azure imports
+    import adal
 	from azure.mgmt.resource.resources import ResourceManagementClient
 	from azure.mgmt.resource.resources.models import ResourceGroup
 
@@ -83,7 +84,16 @@ pip install azure-datalake-store
 
 Use this snippet to authenticate with Azure AD for account management operations on Data Lake Store such as create Data Lake Store account, delete Data Lake Store account, etc. The following snippet can be used to authenticate your application non-interactively, using the client secret for an application / service principal of an existing Azure AD "Web App" application.
 
-    credentials = ServicePrincipalCredentials(client_id = 'FILL-IN-HERE', secret = 'FILL-IN-HERE', tenant = 'FILL-IN-HERE')
+    authority_host_uri = 'https://login.microsoftonline.com'
+    tenant = '<TENANT>'
+    authority_uri = authority_host_uri + '/' + tenant
+    resource_uri = 'https://management.core.windows.net/'
+    client_id = '<CLIENT_ID>'
+    client_secret = '<CLIENT_SECRET>'
+
+    context = adal.AuthenticationContext(authority_uri, api_version=None)
+    mgmt_token = context.acquire_token_with_client_credentials(resource_uri, client_id, client_secret)
+    credentials = AADTokenCredentials(mgmt_token, client_id)
 
 ## Service-to-service authentication with client secret for filesystem operations
 

@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/30/2017
+ms.date: 09/28/2017
 ms.author: nitinme
 
 ---
@@ -30,7 +30,7 @@ In this article, you learn how to use Python SDK to perform filesystem operation
 
 ## Prerequisites
 
-* **Python**. You can download Python from [here](https://www.python.org/downloads/). This article uses Python 3.5.2.
+* **Python**. You can download Python from [here](https://www.python.org/downloads/). This article uses Python 3.6.2.
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
