@@ -91,7 +91,7 @@ Service Fabric makes sure your container instances automatically move to other n
 
 To fail over the front-end container, do the following steps:
 
-1. Open Service Fabric Explorer in your cluster - for example, `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
+1. Open Service Fabric Explorer in your cluster - for example, `http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`.
 2. Click on the **fabric:/Voting/azurevotefront** node in the tree view and expand the partition node (represented by a GUID). Notice the node name in the treeview, which shows you the nodes that the container is currently running on - for example `_nodetype_4`
 3. Expand the **Nodes** node in the tree view. Click on the ellipsis (three dots) next to the node that is running the container.
 4. Choose **Restart** to restart that node and confirm the restart action. The restart causes the container to fail over to another node in the cluster.
