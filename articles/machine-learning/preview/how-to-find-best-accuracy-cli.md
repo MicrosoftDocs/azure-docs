@@ -41,6 +41,6 @@ Using this accuracy value (`1`) and threshold value (`0.03`), the second command
     az ml history list --query '@[?Accuracy >= sum(`[1, -0.03]`)] | sort_by(@, &duration)'
 
 ## In Development
-When run json has field `Properties.Arguments`, field value can be projected from each run object json using the following command. Result will be a json array.
+When run json has field `Properties.Arguments`, field value can be projected from each run object json using the following command. Result is a json array.
 
     az ml history list --query '@[?Accuracy >= sum(`[1, -0.03]`)] | sort_by(@, &duration) | @[].Properties.Arguments'
