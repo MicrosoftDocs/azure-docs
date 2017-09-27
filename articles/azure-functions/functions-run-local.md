@@ -29,9 +29,6 @@ Azure Functions Core Tools is a local version of the Azure Functions runtime tha
 
 The [Azure Functions Core Tools] is provided as an npm package. You must first [install NodeJS](https://docs.npmjs.com/getting-started/installing-node), which includes npm.  
 
->[!NOTE]
->At this time, the Azure Functions Core Tools package can only be installed on Windows computers. This restriction is due to a temporary limitation in the Functions host.
-
 [Azure Functions Core Tools] adds the following command aliases:
 * **func**
 * **azfun**
