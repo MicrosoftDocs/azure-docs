@@ -23,16 +23,16 @@ This article guides you through the minimum steps to create a Bing Custom Search
 
 Follow these instructions to create a Bing Custom Search instance.
 
-- Sign in to [Bing Custom Search](https://customsearch.ai) portal
-- Click the button labeled **New custom search**, the window titled **Create a new custom search instance** is displayed
+1. Sign in to [Bing Custom Search](https://customsearch.ai) portal
+2. Click the button labeled **New custom search**, the window titled **Create a new custom search instance** is displayed
 
 > [!NOTE]
 > If you are signing in to Bing Custom Search for the first time the **Create a new custom search instance** window comes up automatically
 
-- In the textbox labeled **Custom search instance name**, enter a name for your new custom search instance
-- Click **Ok**.  You are taken to the **Definition Editor** for your new custom search instance
-- Enter the domain name of a site to be included in your custom search 
-- Press enter or click the add button
+3. In the textbox labeled **Custom search instance name**, enter a name for your new custom search instance
+4. Click **Ok**.  You are taken to the **Definition Editor** for your new custom search instance
+5. Enter the domain name of a site to be included in your custom search 
+6. Press enter or click the add button
 
 ## Next steps
 - [Define your custom view](./define-your-custom-view.md)
