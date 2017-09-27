@@ -30,16 +30,16 @@ Pinning a search result causes it to appear first in the results returned by you
 Boosting a site causes the results for that site to appear higher in the results returned by a Bing Custom Search instance.  Boosting a site can be done in different ways.  
 
 To boost an existing entry, follow these instructions.
-- Sign in to [Bing Custom Search](https://customsearch.ai) portal
-- Select the instance to be modified.  You are taken to the **Definition Editor** tab for the selected instance.
-- In the **Ranking Adjust** column, click the up chevron for the entry to be boosted
+1. Sign in to [Bing Custom Search](https://customsearch.ai) portal
+2. Select the instance to be modified.  You are taken to the **Definition Editor** tab for the selected instance.
+3. In the **Ranking Adjust** column, click the up chevron for the entry to be boosted
 
 To boost a site from a search result, follow these instructions.
-- Sign in to [Bing Custom Search](https://customsearch.ai) portal
-- Select the instance to be modified.  You are taken to the **Definition Editor** tab for the selected instance.
-- Ensure the search preview pane is expanded using the **search preview** button.
-- Select **My Instance** from the drop-down
-- Enter a search term in the text box labeled **Enter a query...**.
-- Press enter or click the search icon
-- Click **Boost site** for the search result you would like to boost.  The window titled **What do you want to boost?** is displayed.
-- Select **Entire Site** or **Subsite** as appropriate
+1. Sign in to [Bing Custom Search](https://customsearch.ai) portal
+2. Select the instance to be modified.  You are taken to the **Definition Editor** tab for the selected instance.
+3. Ensure the search preview pane is expanded using the **search preview** button.
+4. Select **My Instance** from the drop-down
+5. Enter a search term in the text box labeled **Enter a query...**.
+6. Press enter or click the search icon
+7. Click **Boost site** for the search result you would like to boost.  The window titled **What do you want to boost?** is displayed.
+8. Select **Entire Site** or **Subsite** as appropriate
