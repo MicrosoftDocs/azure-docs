@@ -22,7 +22,6 @@ This feature was introduced with build 1.1.105.0 (released February 2016).
 
 ## Overview
 Making sure your Azure AD Connect installation is always up to date has never been easier with the **automatic upgrade** feature. This feature is enabled by default for express installations and DirSync upgrades. When a new version is released, your installation is automatically upgraded.
-
 Automatic upgrade is enabled by default for the following:
 
 * Express settings installation and DirSync upgrades.
@@ -93,7 +92,7 @@ Here is a list of the most common messages you find. It does not list all, but t
 | UpgradeNotSupportedMultiForestSetup |You are connecting to more than one forest. Express setup only connects to one forest. |
 | UpgradeNotSupportedNonLocalDbInstall |You are not using a SQL Server Express LocalDB database. |
 | UpgradeNotSupportedNonMsolAccount |The [AD Connector account](active-directory-aadconnect-accounts-permissions.md#active-directory-account) is not the default MSOL_ account anymore. |
-| UpgradeNotSupportedNotConfiguredSignInMethod | When setting up AAD Connect, you chose *Do not configure* when selecting the sign-on method. | 
+| UpgradeNotSupportedNotConfiguredSignInMethod | When setting up AAD Connect, you chose *Do Not Configure* when selecting the sign-on method. | 
 | UpgradeNotSupportedPtaSignInMethod | You have selected Pass-through Authentication as the sign-in method. |
 | UpgradeNotSupportedStagingModeEnabled |The server is set to be in [staging mode](active-directory-aadconnectsync-operations.md#staging-mode). |
 | UpgradeNotSupportedUserWritebackEnabled |You have enabled the [user writeback](active-directory-aadconnect-feature-preview.md#user-writeback) feature. |
