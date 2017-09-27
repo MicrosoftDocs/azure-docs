@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 09/26/2017
+ms.date: 09/27/2017
 ---
 
 # Classifying Iris part 3: Deploy a model
@@ -205,7 +205,9 @@ Now you are ready to create the real-time web service.
    >[!IMPORTANT]
    >The service name (which is also the new Docker image name) must be all lower case, otherwise you get an error. 
 
-2. When you run the command, the model and the scoring file are uploaded into to the storage account you created as part of the environment setup. The deployment process builds a Docker image with your model, schema, scoring file in it, and pushes it to the ACR registry: **<ACR_name>.azureacr.io//<imagename>:<version>**. It then pulls down that image locally to your computer, and starts a Docker container based on that image. (If your environment is configured in cluster mode, the Docker container is deployed into the ACS Kubernetes cluster instead.)
+2. When you run the command, the model and the scoring file are uploaded into to the storage account you created as part of the environment setup. The deployment process builds a Docker image with your model, schema, scoring file in it, and pushes it to the ACR registry: **\<ACR_name\>.azureacr.io/\<imagename\>:\<version\>**. 
+
+   It then pulls down that image locally to your computer, and starts a Docker container based on that image. If your environment is configured in cluster mode, the Docker container is deployed into the ACS Kubernetes cluster instead.
 
    As part of the deployment, an HTTP REST endpoint for the web service is created on your local machine. After a few minutes the command should finish with a success message and your web service is ready for action!
 
