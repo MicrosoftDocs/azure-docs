@@ -182,4 +182,12 @@ Here is how an Authentication Agent gets auto-updated:
 
 >[!NOTE]
 >If you have multiple Authentication Agents registered on your tenant, Azure AD does not renew their certificates or update them at the same time. Instead Azure AD does so gradually to ensure high availability of the sign-in requests.
->
+
+
+## Next steps
+- [**Current limitations**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - Learn which scenarios are supported and which ones are not.
+- [**Quick Start**](active-directory-aadconnect-pass-through-authentication-quick-start.md) - Get up and running Azure AD Pass-through Authentication.
+- [**Frequently Asked Questions**](active-directory-aadconnect-pass-through-authentication-faq.md) - Answers to frequently asked questions.
+- [**Troubleshoot**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) - Learn how to resolve common issues with the feature.
+- [**Azure AD Seamless SSO**](active-directory-aadconnect-sso.md) - Learn more about this complementary feature.
+- [**How it works**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) - Learn the basics of how Azure AD Pass-through Authentication works.
