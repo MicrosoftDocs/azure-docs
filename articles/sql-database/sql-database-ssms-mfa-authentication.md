@@ -48,7 +48,6 @@ Azure AD users supported for Azure AD B2B scenarios as guest users (see [What is
 - The SSMS Table Designer does not support Universal Authentication.
 - There are no additional software requirements for Active Directory Universal Authentication except that you must use a supported version of SSMS.  
 - The Active Directory Authentication Library (ADAL) version for Universal authentication was updated to its latest ADAL.dll 3.13.9 available released version. See [Active Directory Authentication Library 3.14.1](http://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).  
-- When using **Active Directory- Universal with MFA** authentication, ADAL tracing is available beginning with [SSMS 17.3](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms). Off by default, you can turn on ADAL tracing by using the **Tools**, **Options** menu, under **Azure Services**, **Azure Cloud**, **ADAL Output Window Trace Level**.  
 
 
 ## Next steps
@@ -62,3 +61,4 @@ Azure AD users supported for Azure AD B2B scenarios as guest users (see [What is
 - [Import a BACPAC file to a new Azure SQL Database](../sql-database/sql-database-import.md)  
 - [Export an Azure SQL database to a BACPAC file](../sql-database/sql-database-export.md)  
 - C# interface [IUniversalAuthProvider Interface](https://msdn.microsoft.com/library/microsoft.sqlserver.dac.iuniversalauthprovider.aspx)  
+- When using **Active Directory- Universal with MFA** authentication, ADAL tracing is available beginning with [SSMS 17.3](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms). Off by default, you can turn on ADAL tracing by using the **Tools**, **Options** menu, under **Azure Services**, **Azure Cloud**, **ADAL Output Window Trace Level**.  
