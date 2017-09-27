@@ -20,8 +20,8 @@ ms.author: spelluru
 # Join an Azure-SSIS integration runtime to a virtual network
 You must join Azure-SSIS integration runtime (IR) to an Azure virtual network (VNet) if one of the following conditions is true: 
 
-    - You are hosting the SSIS Catalog database on a SQL Server Managed Instance (private preview) that is part of a VNet.
-    - You want to connect to on-premises data stores from SSIS packages running on an Azure-SSIS integration runtime.
+- You are hosting the SSIS Catalog database on a SQL Server Managed Instance (private preview) that is part of a VNet.
+- You want to connect to on-premises data stores from SSIS packages running on an Azure-SSIS integration runtime.
 
  Azure Data Factory version 2 (Preview) lets you join your Azure-SSIS integration runtime to a classic VNet. Currently, Azure Resource Manager VNet is not supported yet. However, you can work it around as shown in the following section. 
 
