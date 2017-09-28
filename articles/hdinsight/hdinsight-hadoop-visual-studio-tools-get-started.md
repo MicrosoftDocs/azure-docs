@@ -16,13 +16,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/23/2017
+ms.date: 09/27/2017
 ms.author: jgao
 
 ---
 # Connect to Azure HDInsight and run Hive queries using Data Lake Tools for Visual Studio
 
-Learn how to use Data Lake Tools for Visual Studio to connect to Hadoop clusters in [Azure HDInsight](hdinsight-hadoop-introduction.md) and submit Hive queries. For more information about using HDInsight, see [Introduction to HDInsight](hdinsight-hadoop-introduction.md) and [Get started with HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md). For more information about connecting to a Storm cluster, see [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
+Learn how to use Data Lake Tools for Visual Studio (it is also called Azure Data Lake and Stream Analytics Tools) to connect to Hadoop clusters in [Azure HDInsight](hdinsight-hadoop-introduction.md) and submit Hive queries. For more information about using HDInsight, see [Introduction to HDInsight](hdinsight-hadoop-introduction.md) and [Get started with HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md). For more information about connecting to a Storm cluster, see [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 Data Lake Tools for Visual Studio can be used to access both Data Lake Analytics and HDInsight.  For the information about Data Lake Tools, see [Tutorial: develop U-SQL scripts using Data Lake Tools for Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md).
 
@@ -41,11 +41,20 @@ To complete this tutorial and use the Data Lake Tools in Visual Studio, you'll n
     > 
     > 
 
-## Install Data Lake Tools for Visual Studio
+## Install and upgrade Data Lake Tools for Visual Studio
 
 Data Lake Tools is installed by default for Visual Studio 2017. For older versions, you can install it using the [Web Platform Installer](https://www.microsoft.com/web/downloads/). You must choose the one that matches your version of Visual Studio. If you don't have Visual Studio installed, you can install the latest Visual Studio Community and Azure SDK using the [Web Platform Installer](https://www.microsoft.com/web/downloads/):
 
 ![Data Lake Tools for Visual Studio Web Platform installer.](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.wpi.png "Use Web Platform Installer to install Data Lake Tools for Visual Studio")
+
+**To update the tools**
+1. Open Visual Studio.
+2. From the **Tools** menu, click **Extensions and updates**.
+3. Expand **Updates**, update **Azure Data Lake and Stream Analytics Tools** if there is any.
+
+> [!NOTE]
+>
+> Only the version 2.3.0.0 or later supports connecting to Interactive Query clusters and running interactive Hive queries.
 
 ## Connect to Azure subscriptions
 Data Lake Tools for Visual Studio allows you to connect to your HDInsight clusters, perform some basic management operations, and run Hive queries.
@@ -90,7 +99,7 @@ After opening a container, you can use the following buttons to upload, delete, 
 
 ![Data Lake Tools for Visual Studio server explorer blob operations](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.blob.operations.png "upload, delete, and download blobs")
 
-## Run a Hive query
+## Run Hive batch jobs
 [Apache Hive](http://hive.apache.org) is a data warehouse infrastructure built on Hadoop for providing data summarization, queries, and analysis. Data Lake Tools for Visual Studio supports running Hive queries from Visual Studio. For more information about Hive, see [Use Hive with HDInsight](hdinsight-use-hive.md).
 
 It is time consuming to test Hive script against an HDInsight cluster. It could take several minutes or more. Data Lake Tools for Visual Studio is capable of validating Hive script locally without connecting to a live cluster.
@@ -142,7 +151,7 @@ There are two ways to create and run Hive queries:
    > Only the metadata of the clusters that is selected in HDInsight Toolbar will be suggested.
    > 
    > 
-4. (Optional): Click **Validate Script** to check the script syntax errors.
+4. (Optional) Click **Validate Script** to check the script syntax errors.
    
     ![Data Lake Tools: Data Lake Tools for Visual Studio local validation](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.validate.hive.script.png "Validate script")
 5. Click **Submit** or **Submit (Advanced)**. With the advanced submit option, you'll configure **Job Name**, **Arguments**, **Additional Configurations**, and **Status Directory** for the script:
