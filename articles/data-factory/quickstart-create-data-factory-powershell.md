@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: hero-article
-ms.date: 09/19/2017
+ms.date: 09/26/2017
 ms.author: jingwang
 
 ---
@@ -25,10 +25,9 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Prerequisites
 
-* **Azure Storage account**. You use the blob storage as both the **source** and **sink** data stores. If you don't have an Azure storage account, see the [Create a storage account] on creating one. (../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one.
-* Create a **blob container** in Blob Storage, create an input **folder** in the container, and upload some files to the folder. 
+* **Azure Storage account**. You use the blob storage as both the **source** and **sink** data stores. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) on creating one. 
+* Create a **blob container** in Blob Storage, create an input **folder** in the container, and upload some files to the folder. You can use tools such as [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/) to connect to Azure Blob storage, create a blob container, upload input file, and verify the output file.
 * **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
-* [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/). You can use this tool to connect to Azure Blob storage, create a blob container, upload input file, and verify the output file. 
 
 ## Create a data factory
 
@@ -267,9 +266,9 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
                 $run
                 break
             }
+            Write-Host  "Pipeline is running...status: InProgress" -foregroundcolor "Yellow"
         }
 
-        Write-Host  "Pipeline is running...status: " $run.Status -foregroundcolor "Yellow"
         Start-Sleep -Seconds 30
     }
     ```
@@ -298,8 +297,8 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
 2. Run the following script to retrieve copy activity run details, for example, size of the data read/written.
 
     ```powershell
-    $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
     Write-Host "Activity run details:" -foregroundcolor "Yellow"
+    $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
     $result
     
     Write-Host "Activity 'Output' section:" -foregroundcolor "Yellow"
@@ -334,6 +333,8 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
     "throughput": 14073.209
     "errors": []
     "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (West US)"
+    "usedCloudDataMovementUnits": 2
+    "billedDuration": 23
     ```
 
 ## Verify the output

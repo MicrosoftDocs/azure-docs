@@ -352,6 +352,7 @@
 ### [sfctl node](service-fabric-sfctl-node.md)
 ### [sfctl partition](service-fabric-sfctl-partition.md)
 ### [sfctl replica](service-fabric-sfctl-replica.md)
+### [sfctl rpm](service-fabric-sfctl-rpm.md)
 ### [sfctl service](service-fabric-sfctl-service.md)
 ### [sfctl store](service-fabric-sfctl-store.md)
 ## [Java API](/java/api/overview/azure/servicefabric)

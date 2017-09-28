@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 08/26/2017
 ms.author: billmath
 ---
 
@@ -37,9 +37,9 @@ Ensure that the Seamless SSO feature is still **Enabled** on your tenant. You ca
 
 ![Azure Active Directory admin center - Azure AD Connect blade](./media/active-directory-aadconnect-sso/sso10.png)
 
-## Sign-in failure reasons on the Azure Active Directory admin center
+## Sign-in failure reasons on the Azure Active Directory admin center (needs Premium license)
 
-A good place to start troubleshooting user sign-in issues with Seamless SSO is to look at the [sign-in activity report](../active-directory-reporting-activity-sign-ins.md) on the [Azure Active Directory admin center](https://aad.portal.azure.com/).
+If your tenant has an Azure AD Premium license associated with it, you can also look at the [sign-in activity report](../active-directory-reporting-activity-sign-ins.md) on the [Azure Active Directory admin center](https://aad.portal.azure.com/).
 
 ![Azure Active Directory admin center - Sign-ins report](./media/active-directory-aadconnect-sso/sso9.png)
 

@@ -4,7 +4,7 @@ description: Learn how to create and manage a Windows VM that has multiple NICs 
 services: virtual-machines-windows
 documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 9bff5b6d-79ac-476b-a68f-6f8754768413
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/05/2017
+ms.date: 09/26/2017
 ms.author: iainfou
 
 ---
@@ -122,7 +122,7 @@ Now start to build your VM configuration. Each VM size has a limit for the total
     ```
 
 ## Add a NIC to an existing VM
-To add a virtual NIC to an existing VM, you deallocate the VM, add the virtual NIC, then start the VM.
+To add a virtual NIC to an existing VM, you deallocate the VM, add the virtual NIC, then start the VM. Different [VM sizes](sizes.md) support a varying number of NICs, so size your VM accordingly. If needed, you can [resize a VM](resize-vm.md).
 
 1. Deallocate the VM with [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm). The following example deallocates the VM named *myVM* in *myResourceGroup*:
 
