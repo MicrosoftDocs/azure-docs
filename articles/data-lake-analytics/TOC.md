@@ -4,7 +4,7 @@
 # Get started
 ## [Azure portal](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-## [Visual Studio](data-lake-analytics-data-lake-tools-for-vscode.md)
+## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [Azure CLI](data-lake-analytics-get-started-cli2.md)
 
