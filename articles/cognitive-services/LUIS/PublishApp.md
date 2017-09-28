@@ -46,6 +46,8 @@ You can either publish your app directly to the **Production Slot** where end us
     >[!NOTE]
     >If the **Publish** button is disabled, then either your app does not have an assigned an endpoint key, or you have not trained your app yet.
 
+    ![Endpoint URL displayed in Publish page](./media/luis-how-to-publish-app/luis-publish-url.png)
+
     > [!TIP]
     > The endpoint URL corresponds to the Azure region associated with the endpoint key. For more information, see [Regions and keys](./Manage-Keys.md#regions-and-keys).
 
@@ -53,7 +55,7 @@ You can either publish your app directly to the **Production Slot** where end us
 ## Test your published endpoint in a browser
 If you want to test your published endpoint in a browser using the generated URL, click the URL to open it in your browser, then set the URL parameter "&q" to your test query. For example, append `&q=Book me a flight to Boston on May 4"` to your URL, and then press Enter. The browser displays the JSON response of your HTTP endpoint. 
 
-![JSON response of published HTTP endpoint](./media/luis-publish-app-json-response.png)
+![JSON response from a published HTTP endpoint](./media/luis-publish-app-json-response.png)
 
 
 ## Next steps
