@@ -55,7 +55,7 @@ Learn how to add data visualizations and interactive reports to applications wit
         </a>
     </li>
     <li>
-        <a href="/azure/power-bi-embedded/power-bi-embedded-get-started">
+        <a href="/azure/power-bi-embedded/get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
