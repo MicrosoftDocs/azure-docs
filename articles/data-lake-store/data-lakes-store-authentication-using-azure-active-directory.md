@@ -18,7 +18,9 @@ ms.author: nitinme
 ---
 # Authentication with Data Lake Store using Azure Active Directory
 
-Azure Data Lake Store uses Azure Active Directory for authentication. Before authoring an application that works with Azure Data Lake Store, you must decide how to authenticate your application with Azure Active Directory (Azure AD). The two main options available are:
+Azure Data Lake Store uses Azure Active Directory for authentication. Before authoring an application that works with Azure Data Lake Store, you must decide how to authenticate your application with Azure Active Directory (Azure AD). 
+
+## Authentication options
 
 * **End-user authentication** - An end user's Azure credentials are used to authenticate with the Data Lake Store. The application you create to work with Data Lake Store prompts for these user credentials. As a result, this authentication mechanism is *interactive* and the application runs in the logged in user's context. For more information and instructions, see [End-user authentication for Data Lake Store](data-lake-store-end-user-authenticate-using-active-directory.md).
 
