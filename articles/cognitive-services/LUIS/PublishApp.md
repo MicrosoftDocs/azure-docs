@@ -23,7 +23,7 @@ You can either publish your app directly to the **Production Slot** where end us
 
 ## Publish your app to an HTTP endpoint
 
-1. Open your app by clicking its name on **My Apps** page, and then click **Publish App** in the left panel to access the **Publish App** page. The screenshot below shows the Publish page if you haven't published your app yet.
+1. Open your app by clicking its name on the **My Apps** page, and then click **Publish App** in the left panel. The following screenshot shows the **Publish App** page if you haven't published your app yet.
 
     ![Publish page-](./media/luis-how-to-publish-app/luis-first-publish.png)
  
@@ -53,7 +53,7 @@ You can either publish your app directly to the **Production Slot** where end us
 
 
 ## Test your published endpoint in a browser
-If you want to test your published endpoint in a browser using the generated URL, click the URL to open it in your browser, then set the URL parameter "&q" to your test query. For example, append `&q=Book me a flight to Boston on May 4"` to your URL, and then press Enter. The browser displays the JSON response of your HTTP endpoint. 
+If you want to test your published endpoint in a browser using the generated URL, click the URL to open it in your browser, then set the URL parameter "&q" to your test query. For example, append `&q=Book me a flight to Boston on May 4` to your URL, and then press Enter. The browser displays the JSON response of your HTTP endpoint. 
 
 ![JSON response from a published HTTP endpoint](./media/luis-how-to-publish-app/luis-publish-app-json-response.png)
 
