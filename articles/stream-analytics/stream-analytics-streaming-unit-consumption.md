@@ -25,8 +25,8 @@ In order to achieve low latency streaming processing, Azure Stream Analytics job
 
 One important metric you can monitor the resource usage with is the SU % utilization metric. Streaming Units (SUs) represent the computing resources that are consumed to execute a job. SUs provide a way to describe the relative event processing capacity based on a blended measure of CPU, memory, and read and write rates. This capacity let you focus on the query logic and removes you from needing to know storage tier performance considerations, allocate memory for your job manually, and approximate the CPU core-count needed to run your job in a timely manner.
 
-The metric is a percentage number ranging from 0% to 100%. For a streaming job with minimal footprint, the SU % Utilization metric is usually under 10%. It’s best to keep the metric below 80% to account for occasional spikes.  You can set an alert on the metric. 
-See https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/insights-alerts-portal 
+The metric is a percentage number ranging from 0% to 100%. For a streaming job with minimal footprint, the SU % Utilization metric is usually under 10%. It’s best to keep the metric below 80% to account for occasional spikes.  You can set an alert on the metric (see [here to set up metric alerts](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/insights-alerts-portal)).
+
 
 
 ## Configure Stream Analytics Streaming Units (SUs)
@@ -105,6 +105,13 @@ Reference data in ASA are loaded into memory for fast lookup. With the current i
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## Next steps
-* [Create parallelizable queries in Azure Stream Analytics]
+* [Create parallelizable queries in Azure Stream Analytics](stream-analytics-parallelization.md)
 * [Scale Azure Stream Analytics jobs to increase throughput](stream-analytics-scale-jobs.md)
 
+<!--Image references-->
+
+[img.stream.analytics.monitor.job]: ./media/stream-analytics-scale-jobs/StreamAnalytics.job.monitor-NewPortal.png
+[img.stream.analytics.configure.scale]: ./media/stream-analytics-scale-jobs/StreamAnalytics.configure.scale.png
+[img.stream.analytics.perfgraph]: ./media/stream-analytics-scale-jobs/perf.png
+[img.stream.analytics.streaming.units.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsStreamingUnitsExample.jpg
+[img.stream.analytics.preview.portal.settings.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsPreviewPortalJobSettings-NewPortal.png   

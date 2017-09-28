@@ -21,16 +21,16 @@ ms.author: samacha
 # Scale Azure Stream Analytics jobs to increase  throughput
 This article shows you how to tune a Stream Analytics query to increase throughput for Streaming Analytics jobs. You can use the following guide to scale your job to handle higher load and take advantage of more system resources (e.g. more bandwidth, more CPU resources, more memory).
 As a prerequisite, you may need to read the following articles:
--	[Understand and adjust Streaming Units - TODO add link]()
--	[Create parallelizable jobs - TODO add link]()
+-	[Understand and adjust Streaming Units](tream-analytics-streaming-unit-consumption.md)
+-	[Create parallelizable jobs](stream-analytics-parallelization.md)
 
 
 ## Case 1 – Your query is inherently fully parallelizable across input partitions
 If your query is inherently fully parallelizable across input partitions, you can follow the following steps:
-1.	Author your query to be embarrassingly parallel by using *Partition By* keyword. See more details in the Embarrassingly parallel jobs section [TODO add link]().
+1.	Author your query to be embarrassingly parallel by using *Partition By* keyword. See more details in the Embarrassingly parallel jobs section [on this page](stream-analytics-parallelization.md).
 2.	Depending on output types used in your query, some output may either be not parallelizable, or need further configuration to be embarrassingly parallel. For example, SQL, SQL DW, and PowerBI outputs are not parallelizable. Outputs are always merged before sending to the output sink. Blobs, Tables, ADLS, Service Bus, and Azure Function are automatically parallelized. CosmosDB and Event Hub needs to have the PartitionKey configuration set to match with the Partition By field (usually PartitionId). For Event Hub, please also pay extra attention to match the number of partitions for all inputs and all outputs to avoid cross-over between partitions. 
 3.	Run you query with **6 SU** (which is the full capacity of a single computing node) to measure maximum achievable throughput, and if you are doing Group By, measure how many groups (cardinality) the job can handle. General symptoms of the job hitting system resource limits are the following.
-    - SU % utilization metric is over 80%. This indicates memory usage is high. The factors contributing to the increase of this metric is described [here - TODO add link to Understand Streaming Units](). 
+    - SU % utilization metric is over 80%. This indicates memory usage is high. The factors contributing to the increase of this metric are described [here](tream-analytics-streaming-unit-consumption.md). 
     -	Output timestamp is falling behind with respect to wall clock time. Depending on your query logic, the output timestamp may have a logic offset from the wall clock time. However, they should progress at roughly the same rate. If the output timestamp is falling further and further behind, it’s an indicator that the system is overworking. It can be a result of downstream output sink throttling, or high CPU utilization. We don’t provide CPU utilization metric at this time, so it can be difficult to differentiate the two.
         - If the issue is due to sink throttling, you may need to increase the number of output partitions (and also input partitions to keep the job fully parallelizable), or increase the amount of resources of the sink (e.g. number of Request Units for CosmosDB).
     - In job diagram, there is a per partition backlog event metric for each input. If the backlog event metric keeps increasing, it’s also an indicator that the system resource is constrained (either because of output sink throttling, or high CPU).

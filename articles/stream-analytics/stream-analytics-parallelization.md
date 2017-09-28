@@ -37,7 +37,7 @@ Scaling a Stream Analytics job takes advantage of partitions in the input or out
 -	IoT Hub  (need to set the partition key explicitly)
 -	Service Bus
 
-PowerBI, SQL and SQL Data-Warehouse outputs don’t support partitioning. However you can still partition the input as described in the section [“TODO add link]”() 
+PowerBI, SQL and SQL Data-Warehouse outputs don’t support partitioning. However you can still partition the input as described in [this section](#multi-step-query-with-a-grouping-key) 
 
 For more information about partitions, see the following articles:
 
@@ -108,7 +108,7 @@ Query:
 This query has a grouping key, so the same key needs to be processed by the same query instance. We can use the same strategy as in the previous example. In this case, the query has multiple steps. Does each step have Partition By **PartitionId**? Yes, so the query fulfills requirement #3. For the output, we need to set the partition key to **PartitionId**, as discussed earlier. We can also see that it has the same number of partitions as the input.+ 
 
 
-## Example scenarios that are *not* embarrassingly parallel
+## Example of scenarios that are *not* embarrassingly parallel
 
 In the previous section, we showed some embarrassingly parallel scenarios. In this section, we discuss scenarios that don't meet all the requirements to be embarrassingly parallel. 
 
