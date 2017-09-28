@@ -100,7 +100,7 @@ If you need to update an existing document with the list of groups, you can use 
 
 In order to trim documents based on `group_ids` access, you should issue a search query with a `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))` filter, where 'group_id1, group_id2,...' are the groups to which the search request issuer belongs.
 This filter matches all documents for which the `group_ids` field contains one of the given identifiers.
-For full details on searching documents using Azure Search, you can read [Search Documents](search-documents.md).
+For full details on searching documents using Azure Search, you can read [Search Documents](https://docs.microsoft.com/en-us/rest/api/searchservice/search-documents).
 Note that this sample shows how to search documents using a POST request.
 
 Issue the HTTP POST request:
