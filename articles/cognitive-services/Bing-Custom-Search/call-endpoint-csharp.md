@@ -1,5 +1,5 @@
 ---
-title: Bing Custom Search Call endpoint | Microsoft Docs
+title: "Bing Custom Search: Call endpoint by using C Sharp | Microsoft Docs"
 description: Describes how to call Bing Custom Search endpoint with C#
 services: cognitive-services
 author: brapel
@@ -8,7 +8,7 @@ manager: ehansen
 ms.service: cognitive-services
 ms.technology: bing-web-search
 ms.topic: article
-ms.date: 05/09/2017
+ms.date: 09/28/2017
 ms.author: v-brapel
 ---
 

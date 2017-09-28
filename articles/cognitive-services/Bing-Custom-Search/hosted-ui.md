@@ -1,5 +1,5 @@
 ---
-title: Bing Custom Search Site Search | Microsoft Docs
+title: "Bing Custom Search: Site search | Microsoft Docs"
 description: Describes how to configure hosted UI
 services: cognitive-services
 author: brapel
@@ -8,7 +8,7 @@ manager: ehansen
 ms.service: cognitive-services
 ms.technology: bing-web-search
 ms.topic: article
-ms.date: 05/09/2017
+ms.date: 09/28/2017
 ms.author: v-brapel
 ---
 
