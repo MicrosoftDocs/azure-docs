@@ -13356,6 +13356,16 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/data-lake-store/data-lake-store-authenticate-using-active-directory.md",
+            "redirect_url": "/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/data-lake-store/data-lake-store-manage-use-nodejs.md",
+            "redirect_url": "/azure/data-lake-store/data-lake-store-get-started-python",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-machines/virtual-machines-dotnet-diagnostics.md",
             "redirect_url": "/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines",
             "redirect_document_id": true

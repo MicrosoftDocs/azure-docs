@@ -1,13 +1,12 @@
 ---
-title: 'Python: Account management operations on Azure Data Lake Store | Microsoft Docs'
-description: Learn how to use Python SDK to work with Data Lake Store account management operations.
+title: 'Python: Filesystem operations on Azure Data Lake Store | Microsoft Docs'
+description: Learn how to use Python SDK to work with Data Lake Store file system.
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 
-ms.assetid: 75f6de6f-6fd8-48f4-8707-cb27d22d27a6
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: get-started-article
@@ -18,21 +17,24 @@ ms.author: nitinme
 
 ---
 
-# Account management operations on Azure Data Lake Store using Python
+# Filesystem operations on Azure Data Lake Store using REST API
 > [!div class="op_single_selector"]
-> * [.NET SDK](data-lake-store-get-started-net-sdk.md)
-> * [REST API](data-lake-store-get-started-rest-api.md)
-> * [Python](data-lake-store-get-started-python.md)
+> * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
+> * [Java SDK](data-lake-store-get-started-java-sdk.md)
+> * [REST API](data-lake-store-data-operations-rest-api.md)
+> * [Python](data-lake-store-data-operations-python.md)
 >
->
+> 
 
-Learn how to use the Python SDK for Azure Data Lake Store to perform basic account management operations such as create Data Lake Store account, list Data Lake Store account, etc. For instructions on how to perform filesystem operations on Data Lake Store using Python, see [Filesystem operations on Data Lake Store using Python](data-lake-store-data-operations-python.md).
+In this article, you learn how to use Python SDK to perform filesystem operations on Azure Data Lake Store. For instructions on how to perform account management operations on Data Lake Store using Python, see [Account management operations on Data Lake Store using Python](data-lake-store-get-started-python.md).
 
 ## Prerequisites
 
 * **Python**. You can download Python from [here](https://www.python.org/downloads/). This article uses Python 3.6.2.
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+
+* **Azure Data Lake Store account**. Follow the instructions at [Get started with Azure Data Lake Store using the Azure portal](data-lake-store-get-started-portal.md).
 
 ## Install the modules
 
@@ -54,7 +56,7 @@ pip install azure-datalake-store
 
 1. In the IDE of your choice create a new Python application, for example, **mysample.py**.
 
-2. Add the following snippet to import the required modules
+2. Add the following lines to import the required modules
 
 	```
 	## Use this only for Azure AD service-to-service authentication
@@ -90,30 +92,7 @@ In this section, we talk about the different ways to authenticate with Azure AD.
 * For end-user authentication for your application, see [End-user authentication with Data Lake Store using Python](data-lake-store-end-user-authenticate-python.md).
 * For service-to-service authentication for your application, see [Service-to-service authentication with Data Lake Store using Python](data-lake-store-service-to-service-authenticate-python.md).
 
-## Create an Azure Resource Group
-
-Use the following code snippet to create an Azure Resource Group:
-
-	## Declare variables
-	subscriptionId= 'FILL-IN-HERE'
-	resourceGroup = 'FILL-IN-HERE'
-	location = 'eastus2'
-	
-	## Create resource management client object
-	resourceClient = ResourceManagementClient(
-	    credentials,
-	    subscriptionId
-	)
-	
-	## Create an Azure Resource Group
-	resourceClient.resource_groups.create_or_update(
-	    resourceGroup,
-	    ResourceGroup(
-	        location=location
-	    )
-	)
-
-## Create client and Data Lake Store account
+## Create filesystem client
 
 The following snippet first creates the Data Lake Store account client. It uses the client object to create a Data Lake Store account. Finally, the snippet creates a filesystem client object.
 
@@ -121,35 +100,33 @@ The following snippet first creates the Data Lake Store account client. It uses 
     subscriptionId = 'FILL-IN-HERE'
 	adlsAccountName = 'FILL-IN-HERE'
 
-	## Create data lake store account management client object
-	adlsAcctClient = DataLakeStoreAccountManagementClient(credentials, subscriptionId)
+	## Create a filesystem client object
+    adlsFileSystemClient = core.AzureDLFileSystem(token, store_name=adlsAccountName)
 
-	## Create a Data Lake Store account
-	adlsAcctResult = adlsAcctClient.account.create(
-		resourceGroup,
-		adlsAccountName,
-		DataLakeStoreAccount(
-			location=location
-		)
-	).wait()
+## Create a directory
 
-	
-## List the Data Lake Store accounts
+	## Create a directory
+    adlsFileSystemClient.mkdir('/mysampledirectory')
 
-	## List the existing Data Lake Store accounts
-	result_list_response = adlsAcctClient.account.list()
-	result_list = list(result_list_response)
-	for items in result_list:
-    	print(items)
+## Upload a file
 
-## Delete the Data Lake Store account
 
-	## Delete the existing Data Lake Store accounts
-	adlsAcctClient.account.delete(adlsAccountName)
-	
+    ## Upload a file
+    multithread.ADLUploader(adlsFileSystemClient, lpath='C:\\data\\mysamplefile.txt', rpath='/mysampledirectory/mysamplefile.txt', nthreads=64, overwrite=True, buffersize=4194304, blocksize=4194304)
+
+
+## Download a file
+
+    ## Download a file
+    multithread.ADLDownloader(adlsFileSystemClient, lpath='C:\\data\\mysamplefile.txt.out', rpath='/mysampledirectory/mysamplefile.txt', nthreads=64, overwrite=True, buffersize=4194304, blocksize=4194304)
+
+## Delete a directory
+
+	## Delete a directory
+	adlsFileSystemClient.rm('/mysampledirectory', recursive=True)
 
 ## Next steps
-* [Filesystem operations on Data Lake Store using Python](data-lake-store-data-operations-python.md).
+* [Account management operations on Data Lake Store using Python](data-lake-store-get-started-python.md).
 
 ## See also
 * [Azure Data Lake Store Python (Account management) Reference](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
