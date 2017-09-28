@@ -23,7 +23,7 @@ A key is your passport to the server that allows you to publish your LUIS app to
  
 The process of creating and using endpoint keys involves the following tasks:
 
-1. Create a key on the [Azure portal](https://portal.azure.com).
+1. Create a key on the [Azure portal](https://portal.azure.com). For further instructions, see [Creating a subscription key using Azure](AzureIbizaSubscription.md).
  
 2. On the **Publish app** page, click the **Change** link to open the **Assign a key to your app** dialog. 
 
