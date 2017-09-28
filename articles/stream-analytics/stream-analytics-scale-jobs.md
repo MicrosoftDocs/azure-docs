@@ -48,18 +48,16 @@ For example, you have measured your 6 SU job can achieve 4 MB/s processing rate,
 4.	When running such a job, Stream Analytics puts each step on its own node with dedicated 6 SU resources. 
 5.	If you still haven’t achieved your load target, you can attempt to use **PARTITION BY** starting from steps closer to the input. For **GROUP BY** operator that may not be naturally partitionable, you can use the local/global aggregate pattern to perform a partitioned **GROUP BY** followed by a non-partitioned **GROUP BY**. For example, if you want to count how many cars going through each toll booth every 3 minutes, and the volume of the data is beyond what can be handled by 6 SU.
 
+Query:
+    WITH Step1 AS (
+    SELECT COUNT(*) AS Count, TollBoothId, PartitionId
+    FROM Input1 Partition By PartitionId
+    GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
+    )
+    SELECT SUM(Count) AS Count, TollBoothId
+    FROM Step1
+    GROUP BY TumblingWindow(minute, 3), TollBoothId
 
-
-```WITH Step1 AS (
-SELECT COUNT(*) AS Count, TollBoothId, PartitionId
-FROM Input1 Partition By PartitionId
-GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
-)
-
-SELECT SUM(Count) AS Count, TollBoothId
-FROM Step1
-GROUP BY TumblingWindow(minute, 3), TollBoothId
-```
 In the query above, you are counting cars per toll booth per partition, and then adding the count from all partitions together.
 
 Once partitioned, for each partition of the step, allocate up to 6 SU, each partition having 6 SU is the maximum, so each partition can be placed on its own processing node.
