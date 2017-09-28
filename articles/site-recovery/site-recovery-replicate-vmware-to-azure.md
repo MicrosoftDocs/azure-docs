@@ -121,6 +121,8 @@ Microsoft Software Assurance customers can leverage Azure Hybrid User Benefit to
 - Select the check box to confirm that you have an eligible Windows Server license with Software Assurance that you can use to apply the Hybrid Use Benefit on the machine that'll be created on failover.
 - Save settings for the replicated machine.
 
+Learn more about [Azure Hybrid Use Benefit.](https://aka.ms/azure-hybrid-use-benefit-pricing)
+
 ## Common issues
 
 * Each disk should be less than 1TB in size.
