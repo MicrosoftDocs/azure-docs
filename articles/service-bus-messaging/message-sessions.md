@@ -61,6 +61,20 @@ The strategy for handling many concurrent sessions, whereby each session only sp
 
 The session lock held by the session receiver is an umbrella for the message locks used by the *peek-lock* settlement mode. A receiver cannot have two messages concurrently "in flight," but the messages must be processed in order. A new message can only be obtained when the prior message has been completed or dead-lettered. Abandoning a message causes the same message to be served again with the next receive operation.
 
+## Message session state
+
+When workflows are processed in high-scale, high-availability cloud systems, the workflow handler associated with a particular session must be able to recover from unexpected failures and also be capable of resuming partially completed work on a different process or machine from where the work began.
+
+The session state facility enables an application-defined annotation of a message session inside the broker, so that the recorded processing state relative to that session becomes instantly available when the session is acquired by a new processor.
+
+From the Service Bus perspective, the message session state is an opaque binary object that can hold data of the size of one message, which is 256 KB for Service Bus Standard, and 1 MB for Service Bus Premium. The processing state relative to a session can be held inside the session state, or the session state can point to some storage location or database record that holds such information.
+
+The API gestures for managing session state, [SetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) and [GetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState), can be found on the [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) object in both the C# and Java APIs. A session that had previously no session state set will return a **null** reference for **GetState**. Clearing the previously set session state is done with [SetState(null)](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_).
+
+All existing sessions in a queue or subscription can be enumerated with the **SessionBrowser** method in the Java API and with [GetMessageSessions](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessions) on the [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) and [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) in the .NET client.
+
+The session state held in a queue or in a subscription counts towards that entity's storage quota. When the application is finished with a session, it is therefore strongly recommended for the application to clean up its retained state to avoid external management cost.
+
 ## Next steps
 
 - [A complete example](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/BasicSessionSendReceiveUsingQueueClient) of sending and receiving session-based messages from Service Bus queues using the .NET Standard library.
