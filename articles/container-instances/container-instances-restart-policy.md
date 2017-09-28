@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/27/2017
+ms.date: 10/03/2017
 ms.author: marsma
 ms.custom:
 ---
@@ -94,7 +94,7 @@ This container runs a Python script that, by default, analyzes the text of Shake
 
 When you create a container instance, you can set its environment variables, as well as specify a custom command line to execute when the container is started. Your job can use these settings for task-specific configuration when creating a container for each of its tasks.
 
-### Environment variables
+## Environment variables
 
 Set environment variables in your container to provide dynamic configuration of the script or application run by the container. This is similar to the `--env` command-line argument to `docker run`.
 
@@ -128,7 +128,7 @@ New-AzureRmContainerGroup `
 
 ---
 
-### Command line override
+## Command line override
 
 Specify a command line to override the command line baked into the container image. This is similar to the `--entrypoint` command-line argument to `docker run`.
 
