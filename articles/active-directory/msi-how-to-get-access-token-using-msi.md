@@ -35,15 +35,17 @@ If you plan to use the PowerShell examples in this article, be sure to install [
 
 
 > [!IMPORTANT]
-> - All sample code/script in this article assumes the client is running on an MSI-enabled Virtual Machine. For details on enabling MSI on a VM, see [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md), or one of the variant articles (using PowerShell, CLI, or a template). 
+> - All sample code/script in this article assumes the client is running on an MSI-enabled Virtual Machine. For details on enabling MSI on a VM, see [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md), or one of the variant articles (using PowerShell, CLI, a template, or an Azure SDK). 
 > - To prevent authorization errors (403/AuthorizationFailed) in the code/script, the VM's identity must be given "Reader" access at the VM scope to allow Azure Resource Manager operations on the VM. See [Assign a Managed Service Identity (MSI) access to a resource using the Azure portal](msi-howto-assign-access-portal.md) for details.
 > - Before proceeding to one of the following sections, use the VM "Connect" feature in the Azure portal, to remotely connect to your MSI-enabled VM.
 
 ## How to sign in from PowerShell or CLI using MSI
 
-Previously, running a script under its own identity meant registering it as a client application with Azure AD, and authenticate using an application identity. With MSI, your script no longer needs a client registration (nor embedded credentials), as MSI provides an identity that represents the host VM. 
+Previously, running a script under its own identity meant:
+- registering it as a confidential/web client application with Azure AD
+- signing in using the application's client ID/secret credentials
 
-In the examples below, we show how to use a VM's MSI service principal for sign-in.
+With MSI, your script client no longer needs to register with Azure AD nor provide credentials. In the examples below, we show how to use a VM's MSI service principal for sign-in.
 
 ### Azure PowerShell
 
@@ -84,7 +86,7 @@ echo The MSI service principal ID is $spID
 
 ## How to acquire an access token from MSI
 
-Using MSI, your client application/script no longer needs to register with Azure AD, nor present its client ID and secret to obtain an access token. Your client can simply ask the local MSI endpoint for an access token, without presenting any application credentials. The app-only access token is issued for the MSI service principal, suitable for use as a bearer token in [service-to-service calls requiring client credentials](active-directory-protocols-oauth-service-to-service.md).
+Using MSI, your client application/script no longer needs to register with Azure AD, nor present its client ID and secret to obtain an access token. Your client can simply ask the local MSI endpoint for an access token, without presenting application credentials. The app-only access token is issued for the MSI service principal, suitable for use as a bearer token in [service-to-service calls requiring client credentials](active-directory-protocols-oauth-service-to-service.md).
 
 In the examples below, we show how to use a VM's MSI for token acquisition.
 
@@ -139,7 +141,7 @@ echo The MSI access token is $access_token
 
 ### REST
 
-Request:
+Sample request:
 
 ```
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
@@ -148,12 +150,12 @@ Metadata: true
 
 | Element | Description |
 | ------- | ----------- |
-| `GET` | An HTTP verb, indicating you want to retrieve data from the endpoint. In this case, an OAuth access token. | 
+| `GET` | The HTTP verb, indicating you want to retrieve data from the endpoint. In this case, an OAuth access token. | 
 | `http://localhost:50342/oauth2/token` | The MSI endpoint, where 50342 is the default port and is configurable. |
 | `resource` | A query string parameter, indicating the App ID URI of the target resource. It also appears in the `aud` (audience) claim of the issued token. In this example, we are requesting a token to access Azure Resource Manager, which has an App ID URI of https://management.azure.com. |
 | `Metadata` | An HTTP header, required by MSI as a mitigation against Server Side Request Forgery (SSRF) attack.
 
-Response:
+Sample response:
 
 ```
 HTTP/1.1 200 OK
