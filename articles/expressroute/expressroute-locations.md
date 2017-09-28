@@ -13,7 +13,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2017
-ms.author: pareshmu
+ms.author: kaanan
 
 ---
 # ExpressRoute partners and peering locations
@@ -84,7 +84,7 @@ The following table shows locations by service provider. If you want to view ava
 | **euNetworks** |Supported |Supported |Amsterdam |
 | **GÉANT** |Supported |Supported |Amsterdam |
 | **[Global Cloud Xchange (GCX)] (http://globalcloudxchange.com/cloud-platform/cloud-x-fusion/cloud-x-fusion-for-azure/)** | Supported| Supported | Chennai, Mumbai |
-| **[InterCloud](https://www.intercloud.com/)** |Supported |Supported |Amsterdam, London, Singapore, Washington DC |
+| **[InterCloud](https://www.intercloud.com/)** |Supported |Supported |Amsterdam, London, Paris, Singapore, Washington DC |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |Supported |Supported |Osaka, Tokyo |
 | **Internet Solutions - Cloud Connect** |Supported |Supported |Amsterdam, London |
 | **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Supported |Supported |Amsterdam, Dublin, London, Paris |
