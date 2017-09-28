@@ -29,7 +29,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 To complete this quickstart, you need:
 
 * **Azure subscription:** Visit [Azure Free Trial](https://azure.microsoft.com/free/) to create an account.
-* **Azure Active Directory:** Your subscription must be associated with an Azure Active Directory tenant. And, ***you need to be signed in to Azure with an account in that tenant***. Microsoft accounts are not supported. To learn more, see Authentication and user permissions.
+* **Azure Active Directory:** Your subscription must be associated with an Azure Active Directory (AAD) tenant. And, ***you need to be signed in to Azure with an account in that tenant***. Microsoft accounts are not supported. To learn more, see Authentication and user permissions.
+* **Power BI tenant:** At least one account in your AAD tenant must have signed up for Power BI.
 * **Resource group:** Use a resource group you already have or [create a new one](../azure-resource-manager/resource-group-overview.md).
 
 ## Create a capacity
@@ -38,15 +39,11 @@ To complete this quickstart, you need:
 
 2. Select **+ (New)** > **Data + analytics**.
 
-3. Select **See all** within **Featured**.
+3. In the search box, search for *Power BI Embedded*.
 
-    ![New item within Azure portal](media/create-capacity/azure-portal-new-featured.png)
+4. Within Power BI Embedded, select **Create**.
 
-4. Under **Data analytics**, select **Power BI Embedded**.
-
-5. Within Power BI Embedded, select **Create**.
-
-6. Fill in the required information and then select **Create**.
+5. Fill in the required information and then select **Create**.
 
     ![Fields to fill out to create new capacity](media/create-capacity/azure-portal-create-power-bi-embedded.png)
 
@@ -55,11 +52,11 @@ To complete this quickstart, you need:
     |**Resource name**|A name to identify the capacity. The resource name is displayed within the Power BI admin portal in addition to the Azure portal.|
     |**Subscription**|The subscription you would like to create the capacity against.|
     |**Resource group**|The resource group that contains this new capacity. Pick from an existing resource group, or create another. For more information, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).|
-    |**Power BI capacity administrator**|The initial Power BI capacity administrator. By default, the capacity administrator is your account. The capacity administrator must be within your Power BI tenant.|
-    |**Location**|The region to create the capacity within. It is recommended that you select the region that your Power BI tenant is in.|
-    |**Pricing tier**|Select the SKU and v-core count that meets your needs. For details, see [Power BI Embedded pricing](https://azure.microsoft.com/pricing/details/power-bi-embedded/)|
+    |**Power BI capacity administrator**|Power BI capacity administrators can view the capacity in the Power BI admin portal and give assignment permissions to other users. By default, the capacity administrator is your account. The capacity administrator must be within your Power BI tenant.|
+    |**Location**|The location where Power BI is hosted for your tenant. This setting is resolved automatically, a different location cannot be selected.|
+    |**Pricing tier**|Select the SKU (v-core count and memory size) that meets your needs.  For details, see [Power BI Embedded pricing](https://azure.microsoft.com/pricing/details/power-bi-embedded/)|
 
-7. Select **Create**.
+6. Select **Create**.
 
 Creation usually takes under a minute; often just a few seconds. If you selected **Pin to dashboard**, navigate to your dashboard to see your new capacity. Or, navigate to **More services** > **Power BI Embedded** to see if your capacity is ready.
 

@@ -32,7 +32,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
     ![More services within Azure portal](media/scale-capacity/azure-portal-more-services.png)
 
-3. Select the capacity you want to pause.
+3. Select the capacity you want to scale.
 
     ![Power BI Embedded capacity list within Azure portal](media/scale-capacity/azure-portal-capacity-list.png)
 

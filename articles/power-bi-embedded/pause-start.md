@@ -49,7 +49,7 @@ Pausing your capacity prevents you from being billed. Pausing your capacity is g
 
 ## Start your capacity
 
-Resume usage by staring your capacity. Starting your capacity also resumes billing.
+Resume usage by starting your capacity. Starting your capacity also resumes billing.
 
 1. Sign into the [Azure portal](https://portal.azure.com/).
 
@@ -68,6 +68,8 @@ Resume usage by staring your capacity. Starting your capacity also resumes billi
 5. Select **Yes**, which confirms you want to start the capacity.
 
     ![Confirm start](media/pause-start/azure-portal-confirm-start.png)
+
+If any content is assigned to this capacity, it is available once started.
 
 ## Next steps
 
