@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 09/29/2017
 ms.author: asgang
 
 ---
@@ -92,8 +92,8 @@ We recommend that you verify the properties of the source machine. Remember that
 1. Click **Settings** > **Replicated items** >, and select the machine. The **Essentials** blade shows information about machines settings and status.
 2. In **Properties**, you can view replication and failover information for the VM.
 3. In **Compute and Network** > **Compute properties**, you can specify the Azure VM name and target size. Modify the name to comply with Azure requirements if you need to.
-    ![Enable replication](./media/site-recovery-vmware-to-azure/VMProperties_AVSET.png)
- 
+    ![Enable replication](./media/site-recovery-vmware-to-azure/vmproperties.png)
+
 4.  You can select a [resource group](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) of which machine will become part of  post fail over. You can change this setting any time before fail over. Post fail over, if you migrate the machine to a different resource group then protection settings of a machine will break.
 5. You can select an [availability set](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) if your machine required to be be a part of one post fail over. While selecting availability set, please keep in mind that:
 
@@ -103,7 +103,7 @@ We recommend that you verify the properties of the source machine. Remember that
 5. You can also view and add information about the target network, subnet, and IP address that will be assigned to the Azure VM.
 6. In **Disks**, you can see the operating system and data disks on the VM that will be replicated.
 
-### Network adapters and IP addressing 
+### Network adapters and IP addressing
 
 - You can set the target IP address. If you don't provide an address, the failed over machine will use DHCP. If you set an address that isn't available at failover, the failover won't work. The same target IP address can be used for test failover if the address is available in the test failover network.
 - The number of network adapters is dictated by the size you specify for the target virtual machine, as follows:
@@ -112,9 +112,14 @@ We recommend that you verify the properties of the source machine. Remember that
     - For example if a source machine has two network adapters and the target machine size supports four, the target machine will have two adapters. If the source machine has two adapters but the supported target size only supports one then the target machine will have only one adapter.
     - If the virtual machine has multiple network adapters they will all connect to the same network.
     - If the virtual machine has multiple network adapters then the first one shown in the list becomes the *Default* network adapter in the Azure virtual machine.
-   
 
+### Azure Hybrid Use Benefit
 
+Microsoft Software Assurance customers can leverage Azure Hybrid User Benefit to save on  licensing costs for Windows Server machines that are migrated to Azure, or use Azure for disaster recovery. If you are entitled to use the Azure Hybrid Use Benefit, you may specify that the virtual machine that ASR creates in Azure in the event of a failover, be assigned this benefit. To do this,
+- Go to the Compute and Network properties section of the replicated virtual machine.
+- Answer the question that asks if you have a Windows Server License that makes you eligible for the Azure Hybrid Use Benefit.
+- Select the check box to confirm that you have an eligible Windows Server license with Software Assurance that you can use to apply the Hybrid Use Benefit on the machine that'll be created on failover.
+- Save settings for the replicated machine.
 
 ## Common issues
 
