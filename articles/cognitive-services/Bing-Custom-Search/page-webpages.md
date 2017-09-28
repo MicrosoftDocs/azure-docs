@@ -42,7 +42,7 @@ The following shows an example that requests 15 webpages beginning at offset 45.
   
 ```  
 GET https://api.cognitive.microsoft.com/bing/v5.0/search?q=sailing+dinghies&count=15&offset=45&mkt=en-us HTTP/1.1  
-Ocp-Apim-Subscription-Key: 123456789ABCDE  
+Ocp-Apim-Subscription-Key: <subscription ID>
 Host: api.cognitive.microsoft.com  
 ```  
 
@@ -51,7 +51,7 @@ Host: api.cognitive.microsoft.com
 
 > ```  
 > GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&count=15&offset=45&mkt=en-us HTTP/1.1  
-> Ocp-Apim-Subscription-Key: 123456789ABCDE  
+> Ocp-Apim-Subscription-Key: <subscription ID>  
 > Host: api.cognitive.microsoft.com  
 >
 
@@ -59,7 +59,7 @@ If the default `count` value works for your implementation, you only need to spe
   
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&offset=45&mkt=en-us HTTP/1.1  
-Ocp-Apim-Subscription-Key: 123456789ABCDE  
+Ocp-Apim-Subscription-Key: <subscription ID>  
 Host: api.cognitive.microsoft.com  
 ```  
 
@@ -68,7 +68,7 @@ Host: api.cognitive.microsoft.com
 
 > ```  
 > GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&offset=45&mkt=en-us HTTP/1.1  
-> Ocp-Apim-Subscription-Key: 123456789ABCDE  
+> Ocp-Apim-Subscription-Key: <subscription ID>  
 > Host: api.cognitive.microsoft.com  
 >
   
