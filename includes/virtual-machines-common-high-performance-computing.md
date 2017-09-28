@@ -139,7 +139,7 @@ Azure virtual machines, virtual machine scale sets, Batch, and related compute s
 
 ### Data and analytics
 * [HDInsight](../articles/hdinsight/hdinsight-hadoop-introduction.md) for Hadoop clusters on Azure
-* [Data Factory](../articles/data-factory/data-factory-introduction.md)
+* [Data Factory](../articles/data-factory/introduction.md)
 * [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
 * [Machine Learning](../articles/machine-learning/machine-learning-what-is-machine-learning.md)
 * [SQL Database](../articles/sql-database/sql-database-technical-overview.md)

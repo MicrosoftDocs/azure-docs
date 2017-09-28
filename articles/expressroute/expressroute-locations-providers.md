@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/28/2017
+ms.date: 09/27/2017
 ms.author: kaanan
 ---
 # ExpressRoute partners and peering locations
@@ -84,7 +84,7 @@ The following table shows connectivity locations and the service providers for e
 | **New York** |Coresite, Equinix, Megaport, Zayo Group |
 | **Newport(Wales)** |Next Generation Data |
 | **Osaka** |Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
-| **Paris** |Colt, Interxion, Equinix, Orange |
+| **Paris** |Colt, Intercloud, Interxion, Equinix, Orange |
 | **Quebec City** | Megaport |
 | **San Antonio** |Megaport |
 | **Sao Paulo** |Ascenty Data Centers+, Equinix, Level 3 Communications, Neutrona Networks, Telefonica, UOLDIVEO |
