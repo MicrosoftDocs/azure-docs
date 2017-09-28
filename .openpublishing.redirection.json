@@ -13359,6 +13359,11 @@
             "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps-classic.md",
             "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/index.md",
+            "redirect_url": "/azure/#pivot=products&panel=cognitive",
+            "redirect_document_id": false
         }
     ]
 }
