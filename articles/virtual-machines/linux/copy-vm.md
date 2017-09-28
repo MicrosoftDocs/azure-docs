@@ -45,7 +45,9 @@ The following example deallocates the VM named **myVM** in the resource group
 **myResourceGroup**:
 
 ```azurecli
-az vm deallocate --resource-group myResourceGroup --name myVM
+az vm deallocate \
+    --resource-group myResourceGroup \
+	--name myVM
 ```
 
 ## Step 2: Copy the source VM
@@ -64,7 +66,8 @@ overview](../windows/managed-disks-overview.md).
 	
 	```azurecli
 	az vm list -g myResourceGroup \
-	     --query '[].{Name:name,DiskName:storageProfile.osDisk.name}' --output table
+	     --query '[].{Name:name,DiskName:storageProfile.osDisk.name}' \
+		 --output table
 	```
 
     The output is similar to the following example:
@@ -91,9 +94,6 @@ overview](../windows/managed-disks-overview.md).
 	```azurecli
 	az disk list --resource-group myResourceGroup --output table
 	```
-
-1.  Skip to ["Step 3: Set up a virtual
-    network"](#step-3-set-up-a-virtual-network).
 
 
 ## Step 3: Set up a virtual network
