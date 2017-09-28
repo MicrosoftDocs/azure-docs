@@ -62,7 +62,7 @@ By default, only RDP connections are allowed to a Windows virtual machine deploy
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
 
-## Connect to virtual machine
+## Connect to the virtual machine
 
 Use the following command to create a remote desktop session with the virtual machine. Replace the IP address with the public IP address of your virtual machine. When prompted, enter the credentials used when creating the virtual machine.
 
