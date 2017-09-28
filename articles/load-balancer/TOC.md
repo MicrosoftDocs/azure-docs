@@ -26,9 +26,8 @@
 ### [Configure Internet facing Load Balancer (CLI)](load-balancer-get-started-internet-arm-cli.md)
 ### [Configure Internet facing Load Balancer (Template)](load-balancer-get-started-internet-arm-template.md)
 
-## [Configure Internet facing Load Balancer (Classic Portal)](load-balancer-get-started-internet-classic-portal.md)
+## [Configure Internet facing Load Balancer - (Classic PowerShell)](load-balancer-get-started-internet-classic-ps.md)
 ### [Configure Internet facing Load Balancer (Classic Cloud)](load-balancer-get-started-internet-classic-cloud.md)
-### [Configure Internet facing Load Balancer (Classic PS)](load-balancer-get-started-internet-classic-ps.md)
 ### [Configure Internet facing Load Balancer (Classic CLI)](load-balancer-get-started-internet-classic-cli.md)
 
 ## [Create an Internet facing load balancer with IPv6](load-balancer-ipv6-internet-ps.md)
