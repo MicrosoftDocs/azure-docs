@@ -22,13 +22,13 @@ ms.author: pullabhk;markgal
 Azure backup provides the capability to restore [Azure VMs and disks](./backup-azure-arm-restore-vms.md) from Azure VM backups. Now this article explains how you can recover items such as files and folders from an Azure VM backup.
 
 > [!Note]
-> This feature is available for Azure VMs deployed using the Resource Manager model and protected to a Recovery services vault.
+> This feature is available for Azure VMs deployed using the Resource Manager model and protected to a Recovery Services vault.
 > File recovery from an encrypted VM backup is not supported.
 >
 
 ## Mount the volume and copy files
 
-1. Sign into the [Azure portal](http://portal.Azure.com). Find the relevant Recovery services vault and the required backup item.
+1. Sign into the [Azure portal](http://portal.Azure.com). Find the relevant Recovery Services vault and the required backup item.
 
 2. On the Backup Item blade, click **File Recovery**
 
@@ -99,7 +99,7 @@ The script also requires python and bash components to execute and connect secur
 
 #### For Windows
 
-When you run the exectuable, the operating system mounts the new volumes and assigns drive letters. You can use Windows Explorer or File Explorer to browse those drives. The drive letters assigned to the volumes may not be the same letters as the original virtual machine, however, the volume name is preserved. For example, if the volume on the original virtual machine was “Data Disk (E:\)”, that volume can be attached as “Data Disk ('Any drive letter available':\) on the local computer. Browse through all volumes mentioned in the script output until you find your files/folder.  
+When you run the exectuable, the operating system mounts the new volumes and assigns drive letters. You can use Windows Explorer or File Explorer to browse those drives. The drive letters assigned to the volumes may not be the same letters as the original virtual machine, however, the volume name is preserved. For example, if the volume on the original virtual machine was “Data Disk (E:\)”, that volume can be attached as “Data Disk ('Any drive letter available':\)” on the local computer. Browse through all volumes mentioned in the script output until you find your files/folder.  
        
    ![File recovery blade](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
            
