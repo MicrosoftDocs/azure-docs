@@ -25,7 +25,7 @@ The tutorial: [Tutorial: deploy SQL Server Integration Services packages (SSIS) 
 - Use Azure SQL Managed Instance (private preview) for hosting an SSIS catalog (SSISDB database).
 - Join Azure-SSIS IR to an Azure virtual network (VNet). 
 
-For conceptual information on joining an Azure-SSIS IR to a VNet and configuring a VNet in Azure portal, see [Join Azure-SSIS IR to VNet](join0azure-ssis-integration-runtime-vnet.md). 
+For conceptual information on joining an Azure-SSIS IR to a VNet and configuring a VNet in Azure portal, see [Join Azure-SSIS IR to VNet](join-azure-ssis-integration-runtime-vnet.md). 
 
 ## Prerequisites
 
