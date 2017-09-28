@@ -49,13 +49,13 @@ The Service Fabric runtime currently does not provide reservation for resources.
 
 At this point, the sum of limits is equal to the capacity of the node. A process and a container are running with one core each and not interfering with each other. Service Fabric doesn't place any more containers or replicas when they are specifying CPU limit. However, there are two situations in which other processes might contend for CPU. In these situations, a process and a container from our example might experience the noisy neighbor problem:
 
-* Mixing governed and non-governed services and containers: If a user creates a service without any resource governance specified, the runtime sees it as consuming no resources, and can place it on the node in our example. In this case, this new process effectively consumes some CPU at the expense of the services that are already running on the node. The solution to this problem is either not to mix governed and non-governed services on the same cluster, or to use [placement constraints](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) so that these two types of services don't end up on the same set of nodes.
+* Mixing governed and non-governed services and containers: If a user creates a service without any resource governance specified, the runtime sees it as consuming no resources, and can place it on the node in our example. In this case, this new process effectively consumes some CPU at the expense of the services that are already running on the node. There are two solution to this problem. Either don't mix governed and non-governed services on the same cluster, or use [placement constraints](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) so that these two types of services don't end up on the same set of nodes.
 
 * When another process is started on the node, outside of Service Fabric (for example, an OS service), that process also contends for CPU with existing services. The solution to this problem is to set up node capacities correctly to account for OS overhead, as shown in the next section.
 
 ## Cluster setup for enabling resource governance
 
-When a node starts and joins the cluster, Service Fabric detects the available amount of memory and the available number of cores, and then sets the node capacities for those two resources. To leave some buffer space for the operating system, and for other processes that could be running on the node, Service Fabric uses only 80% of the available resources on the node. This percentage is configurable, and can be changed in the cluster manifest. Here is an example of how to instruct Service Fabric to use 50% of available CPU and 70% of available memory: 
+When a node starts and joins the cluster, Service Fabric detects the available amount of memory and the available number of cores, and then sets the node capacities for those two resources. To leave buffer space for the operating system, and for other processes might be running on the node, Service Fabric uses only 80% of the available resources on the node. This percentage is configurable, and can be changed in the cluster manifest. Here is an example of how to instruct Service Fabric to use 50% of available CPU and 70% of available memory: 
 
 ```xml
 <Section Name="PlacementAndLoadBalancing">
@@ -65,7 +65,7 @@ When a node starts and joins the cluster, Service Fabric detects the available a
 </Section>
 ```
 
-If you need full manual setup of node capacities, you can use the regular mechanism for describing the nodes in the cluster. Here is an example of how toyou can do  set up the node with four cores and two GB of memory: 
+If you need full manual setup of node capacities, you can use the regular mechanism for describing the nodes in the cluster. Here is an example of how to set up the node with 4 cores and two GB of memory: 
 
 ```xml
     <NodeType Name="MyNodeType">
@@ -80,7 +80,7 @@ When auto-detection of available resources is enabled, and node capacities are m
 * If node capacities that are defined in the manifest are less than or equal to the available resources on the node, then Service Fabric uses the capacities that are specified in the manifest.
 * If node capacities that are defined in the manifest are greater than available resources, Service Fabric uses the available resources as node capacities.
 
-Auto-detection of available resources can be completely turned off if it is not required. To turn it off, change the following setting:
+Auto-detection of available resources can be turned off if it is not required. To turn it off, change the following setting:
 
 ```xml
 <Section Name="PlacementAndLoadBalancing">
@@ -127,7 +127,7 @@ In this example, the service package called **ServicePackageA** gets one core on
 Memory limits are absolute, so both code packages are limited to 1024 MB of memory (and a soft-guarantee reservation of the same). Code packages (containers or processes) can't allocate more memory than this limit, and attempting to do so results in an out-of-memory exception. For resource limit enforcement to work, all code packages within a service package should have memory limits specified.
 
 ## Other resources for containers
-Besides CPU and memory, it's possible to specify other resource limits for containers. These limits are specified at the code-package level, and are applied when the container is started. Unlike with CPU and memory, Cluster Resource Manager won't be aware of these resources, and won't do any capacity checks or load balancing for them. 
+Besides CPU and memory, it's possible to specify other resource limits for containers. These limits are specified at the code-package level and are applied when the container is started. Unlike with CPU and memory, Cluster Resource Manager isn't aware of these resources, and won't do any capacity checks or load balancing for them. 
 
 * *MemorySwapInMB*: The amount of swap memory that a container can use.
 * *MemoryReservationInMB*: The soft limit for memory governance that is enforced only when memory contention is detected on the node.
