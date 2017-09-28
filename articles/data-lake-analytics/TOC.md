@@ -4,6 +4,7 @@
 # Get started
 ## [Azure portal](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+## [Visual Studio](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [Azure CLI](data-lake-analytics-get-started-cli2.md)
 
@@ -29,7 +30,6 @@
 ### [U-SQL R extensions](data-lake-analytics-u-sql-r-extensions.md)
 ### [U-SQL Cognitive extensions](data-lake-analytics-u-sql-cognitive.md)
 ### [Analyze website logs](data-lake-analytics-analyze-weblogs.md)
-### [U-SQL for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 
 ## Debug U-SQL programs
 ### [Monitor and troubleshoot jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
