@@ -33,18 +33,29 @@ See https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/insights-a
 1. Sign in to [Azure portal](http://portal.azure.com/)
 2. In the list of resources, find the Stream Analytics job that you want to scale and then open it. 
 3. In the job blade, under Configure, click **Scale**. 
+    ![Azure portal Stream Analytics job configuration][img.stream.analytics.preview.portal.settings.scale]
 4. Use the slider to set the SUs for the job. Notice that you are limited to specific SU settings. 
+
+
+## Monitor job performance
+Using the Azure portal, you can track the throughput of a job:
+
+![Azure Stream Analytics monitor jobs][img.stream.analytics.monitor.job]
+
+Calculate the expected throughput of the workload. If the throughput is less than expected, tune the input partition, tune the query, and add SUs to your job.
+
 
 ## How many SUs are required for a job?
 
 Choosing the number of required SUs for a particular job depends on the partition configuration for the inputs and the query that's defined within the job. The **Scale** blade allows you to set the right number of SUs. It is a best practice to allocate more SUs than needed. The Stream Analytics processing engine optimizes for latency and throughput at the cost of allocating additional memory.
 
-In general, the best practice is to start with 6 SUs for queries that don't use *PARTITION BY*. Then determine the sweet spot by using a trial and error method in which you modify the number of SUs after you pass representative amounts of data and examine the SU %Utilization metric.
+In general, the best practice is to start with 6 SUs for queries that don't use *PARTITION BY*. Then determine the sweet spot by using a trial and error method in which you modify the number of SUs after you pass representative amounts of data and examine the SU% Utilization metric.
 
 For more information about choosing the right number of SUs, see this page: [Scale Azure Stream Analytics jobs to increase throughput](stream-analytics-scale-jobs.md)
 
-> [NOTE] Smaller queries can use 3 SUs. 
-> Using 1 SU is not recommended for production jobs. We usually advice to only use 1-SU-jobs for prototyping and testing jobs.
+> [Note] Choosing how many SUs are required for a particular job depends on the partition configuration for the inputs and on the query defined for the job. You can select up to your quota in SUs for a job. By default, each Azure subscription has a quota of up to 200 SUs for all the analytics jobs in a specific region. To increase SUs for your subscriptions beyond this quota, contact [Microsoft Support](http://support.microsoft.com). Valid values for SUs per job are 1, 3, 6, and up in increments of 6.
+> Note that using 1 SU is not recommended for production jobs. We usually advice to only use 1-SU-jobs for prototyping and testing jobs.
+
 
 
 ## Factors increasing SU% utilization 
@@ -73,7 +84,7 @@ SELECT id from clicks PARTITION BY PartitionId INNER JOIN impressions PARTITION 
 </code>
 
 Once the query is partitioned out, it is spread out over multiple nodes. As a results the number of events coming into each node is reduced thereby reducing the size of the state kept in the join window. 
-#### Temportal analytic function
+#### Temporal analytic function
 The state size of a temporal analytic function is proportional to the event rate multiply by the duration. 
 The remediation is similar to temporal join. You can scale out the query using PARTITION BY. 
 
