@@ -13,26 +13,37 @@ ms.author: cahann
 ---
 
 # Manage your keys
-A key is your passport to the server allowing you to publish your app to be used by end users. LUIS has three different types of keys:
+A key is your passport to the server allowing you to publish your app to be used by end users. LUIS has two different types of keys:
 
-* **Starter Key:** Created automatically for LUIS account and it's free. It enables you to get started creating your LUIS app. It also allows you to author and edit your application using the LUIS Programmatic APIs. 
+* **Starter Key:** A starter key is created automatically for LUIS account and it's free. It gives you 1000 endpoint hits per month so you can start using your LUIS app. It also gives you unlimited hits for authoring and editing your application using the LUIS Programmatic APIs. 
 [Click here for a complete API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
 
-* **Endpoint Key(s):** You need to buy it from the Microsoft Azure portal. It is essential for publishing your app and accessing your HTTP endpoint. This key reflects your quota of endpoint hits based on the usage plan you specified while creating the key. See [Cognitive Services Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) for pricing information.
+* **Endpoint Key(s):** If you need more than 1000 hits per month you can buy a key from the Microsoft Azure portal. It is essential for publishing your app and accessing your HTTP endpoint. This key allows a quota of endpoint hits based on the usage plan you specified when creating the key. See [Cognitive Services Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) for pricing information.
 
-* **External Key(s):** You need to buy an external key only if you want to use any external services with LUIS.
  
 The process of creating and using endpoint keys involves the following tasks:
 
- 1. Create a key on the Azure portal.
+1. Create a key on the [Azure portal](https://portal.azure.com).
  
- 2. On the **Publish app** page, click the **Change** link to to add the new key to your app. 
+2. On the **Publish app** page, click the **Change** link to open the **Assign a key to your app** dialog. 
 
-<!-- TODO: add screenshot -->
+![Assign a key to your app](./media/luis-manage-keys/luis-assign-key-to-app.png)
+
+3. Select a Tenant ID in the dialog. In Azure, a tenant represents the client or organization associated with a service. You can find your tenant ID in the Azure portal under Azure Active Directory > Manage > Properties, in the Directory ID field.
+
+![Tenant ID in Azure portal](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
+
+4. Choose the subscription associated with the key you want to add.
+
+![Choose a subscription](./media/luis-manage-keys/luis-assign-key-subscription.png)
+
+5. Select a key associated with the subscription.
+
+![Choose the key](./media/luis-manage-keys/luis-assign-key-select.png)
 
 ## Regions and keys
 
-The region to which you publish your LUIS app must correspond to the region or location you specify in the Azure portal when you create a key. To publish a LUIS app to more than one region, you need at least one key per region. LUIS apps created on https://www.luis.ai can be published to endpoints in the following regions:
+The region to which you publish your LUIS app corresponds to the region or location you specify in the Azure portal when you create a key. When you [publish an app](./PublishApp.md), LUIS automatically generates an endpoint URL for the region associated with the key. To publish a LUIS app to more than one region, you need at least one key per region. LUIS apps created on https://www.luis.ai can be published to endpoints in the following regions:
 
  Azure region   |   Endpoint URL format   |   
 ------|------|
@@ -42,7 +53,7 @@ West Central US     |   https://westcentralus.api.cognitive.microsoft.com/luis/v
 Southeast Asia     |   https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 
 > [!IMPORTANT]
-> You can't publishing to https://www.luis.ai using a key for European regions. If you attempt to publish using a key in the Europe region, LUIS displays an error message. Instead, use https://eu.luis.ai.
+> If you attempt to publish to https://www.luis.ai using a key in the Europe Azure region, LUIS displays a warning message. Instead, use https://eu.luis.ai.
 
 ### Publishing to Europe
 
