@@ -21,7 +21,7 @@ ms.author: samacha
 # Scale Azure Stream Analytics jobs to increase  throughput
 This article shows you how to tune a Stream Analytics query to increase throughput for Streaming Analytics jobs. You can use the following guide to scale your job to handle higher load and take advantage of more system resources (e.g. more bandwidth, more CPU resources, more memory).
 As a prerequisite, you may need to read the following articles:
--	[Understand and adjust Streaming Units](tream-analytics-streaming-unit-consumption.md)
+-	[Understand and adjust Streaming Units](stream-analytics-streaming-unit-consumption.md)
 -	[Create parallelizable jobs](stream-analytics-parallelization.md)
 
 
