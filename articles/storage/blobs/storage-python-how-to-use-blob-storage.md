@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 9/29/2017
-ms.author: marsma
+ms.date: 2/24/2017
+ms.author: tamram
 
 ---
 # How to use Azure Blob storage from Python
@@ -43,10 +43,13 @@ To install via the Python Package Index (PyPI), type:
 pip install azure-storage-blob
 ```
 
+
 > [!NOTE]
 > If you are upgrading from the Azure Storage SDK for Python version 0.36 or earlier, you will first need to uninstall using `pip uninstall azure-storage` as we are no longer releasing the Storage SDK for Python in a single package.
 > 
 > 
+
+For alternative installation methods, visit the [Azure Storage SDK for Python on Github](https://github.com/Azure/azure-storage-python/).
 
 ## Create a container
 Based on the type of blob you would like to use, create a **BlockBlobService**, **AppendBlobService**, or **PageBlobService** object. The following code uses a **BlockBlobService** object. Add the following near the top of any Python file in which you wish to programmatically access Azure Block Blob Storage.

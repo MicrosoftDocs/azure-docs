@@ -33,6 +33,26 @@ This tutorial will demonstrate the basics of using Python to develop application
 > [!Note]  
 > Because Azure Files may be accessed over SMB, it is possible to write simple applications that access the Azure File share using the standard Python I/O classes and functions. This article will describe how to write applications that use the Azure Storage Python SDK, which uses the [Azure Files REST API](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/file-service-rest-api) to talk to Azure Files.
 
+### Download and Install Azure Storage SDK for Python
+
+Azure Storage SDK for Python requires Python 2.7, 3.3, 3.4, 3.5, or 3.6, and comes in 4 different packages: `azure-storage-blob`, `azure-storage-file`, `azure-storage-table` and `azure-storage-queue`. In this tutorial we are going to use `azure-storage-file` package.
+ 
+#### Install via PyPi
+
+To install via the Python Package Index (PyPI), type:
+
+```bash
+pip install azure-storage-file
+```
+
+
+> [!NOTE]
+> If you are upgrading from the Azure Storage SDK for Python version 0.36 or earlier, you will first need to uninstall using `pip uninstall azure-storage` as we are no longer releasing the Storage SDK for Python in a single package.
+> 
+> 
+
+For alternative installation methods, visit the [Azure Storage SDK for Python on Github](https://github.com/Azure/azure-storage-python/).
+
 ### Set up your application to use Azure Files
 Add the following near the top of any Python source file in which you wish to programmatically access Azure Storage.
 
