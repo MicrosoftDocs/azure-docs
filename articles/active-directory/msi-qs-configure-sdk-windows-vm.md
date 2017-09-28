@@ -1,5 +1,5 @@
 ---
-title: How to configure and use an MSI-enabled Azure VM using an Azure SDK
+title: How to configure an MSI-enabled Azure VM using an Azure SDK
 description: Step by step instructions for configuring and using a Managed Service Identity (MSI) on an Azure VM, using an Azure SDK.
 services: active-directory
 documentationcenter: ''
@@ -16,11 +16,11 @@ ms.date: 09/28/2017
 ms.author: bryanla
 ---
 
-# Configure and use a VM Managed Service Identity (MSI), using an Azure SDK
+# Configure a VM Managed Service Identity (MSI) using an Azure SDK
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
+Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory (AD). You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
 In this article, you learn how to enable and remove MSI for an Azure VM, using an Azure SDK.
 
@@ -30,21 +30,18 @@ In this article, you learn how to enable and remove MSI for an Azure VM, using a
 
 ## Azure SDKs with MSI support 
 
-Azure supports multiple programming languages/frameworks through a series of [Azure SDKs](https://azure.microsoft.com/downloads). Several of them have been updated to support MSI, and provide corresponding samples to demonstrate usage. This list is updated as additional support is added:
+Azure supports multiple programming platforms through a series of [Azure SDKs](https://azure.microsoft.com/downloads). Several of them have been updated to support MSI, and provide corresponding samples to demonstrate usage. This list is updated as additional support is added:
 
 | SDK | Sample |
 | --- | ------ | 
 | .NET   | [Manage resource from an MSI-enabled VM](https://azure.microsoft.com/resources/samples/aad-dotnet-manage-resources-from-vm-with-msi/) |
 | Java   | [Manage storage from an MSI-enabled VM](https://azure.microsoft.com/resources/samples/compute-java-manage-resources-from-vm-with-msi-in-aad-group/)|
 | Node.js| [Create a VM with MSI enabled](https://azure.microsoft.com/resources/samples/compute-node-msi-vm/) |
-|        | [Manage resources using Managed Service Identity](https://azure.microsoft.com/resources/samples/resources-node-manage-resources-with-msi/) |
 | Python | [Create a VM with MSI enabled](https://azure.microsoft.com/resources/samples/compute-python-msi-vm/) |
-|        | [Use MSI to authenticate simply from inside a VM](https://azure.microsoft.com/resources/samples/resource-manager-python-manage-resources-with-msi/) |
 | Ruby   | [Create Azure VM with an MSI](https://azure.microsoft.com/resources/samples/compute-ruby-msi-vm/) |
-|      | [Manage resources from an MSI-enabled VM](https://azure.microsoft.com/resources/samples/resources-ruby-manage-resources-with-msi/) | 
 
 ## Next steps
 
-- See related articles under "Configure MSI for an Azure VM" to learn how you can also use the Azure portal, PowerShell, CLI, and resource templates.
+- See related articles under "Configure MSI for an Azure VM", to learn how you can also use the Azure portal, PowerShell, CLI, and resource templates.
 
 Use the following comments section to provide feedback and help us refine and shape our content.
