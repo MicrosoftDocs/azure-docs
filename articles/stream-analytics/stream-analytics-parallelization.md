@@ -47,7 +47,7 @@ When you work with Stream Analytics, you can take advantage of partitioning in t
 -	IoT Hub  (need to set the partition key explicitly)
 -	Service Bus
 
-PowerBI, SQL and SQL Data-Warehouse outputs don’t support partitioning. However you can still partition the input as described in [this section](#multi-step-query-with-a-grouping-key) 
+PowerBI, SQL, and SQL Data-Warehouse outputs don’t support partitioning. However you can still partition the input as described in [this section](#multi-step-query-with-a-grouping-key) 
 
 For more information about partitions, see the following articles:
 
@@ -84,7 +84,7 @@ Query:
     FROM Input1 Partition By PartitionId
     WHERE TollBoothId > 100
 
-This query is a simple filter. Therefore, we don't need to worry about partitioning the input that is being sent to the event hub. Notice that the query includes **PARTITION BY PartitionId**, so it fulfills requirement #2 from earlier. For the output, we need to configure the event hub output in the job to have the parition key set to **PartitionId**. One last check is to make sure that the number of input partitions is equal to the number of output partitions.
+This query is a simple filter. Therefore, we don't need to worry about partitioning the input that is being sent to the event hub. Notice that the query includes **PARTITION BY PartitionId**, so it fulfills requirement #2 from earlier. For the output, we need to configure the event hub output in the job to have the partition key set to **PartitionId**. One last check is to make sure that the number of input partitions is equal to the number of output partitions.
 
 ### Query with a grouping key
 
@@ -141,12 +141,13 @@ The total number of streaming units that can be used by a Stream Analytics job d
 ### Steps in a query
 A query can have one or many steps. Each step is a subquery defined by the **WITH** keyword. The query that is outside the **WITH** keyword (one query only) is also counted as a step, such as the **SELECT** statement in the following query:
 
+Query:
+
     WITH Step1 AS (
         SELECT COUNT(*) AS Count, TollBoothId
         FROM Input1 Partition By PartitionId
         GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
     )
-
     SELECT SUM(Count) AS Count, TollBoothId
     FROM Step1
     GROUP BY TumblingWindow(minute,3), TollBoothId
