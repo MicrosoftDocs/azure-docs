@@ -42,11 +42,12 @@ For example, you have measured your 6 SU job can achieve 4MB/s processing rate, 
 
 
 ## Case 2 - If your query is not embarrassingly parallel.
-1.	Start with a query with no **PARTITION BY** first to avoid partitioning complexity, and run your query with 6 SU to measure maximum load as in #1.
+1.	Start with a query with no **PARTITION BY** first to avoid partitioning complexity, and run your query with 6 SU to measure maximum load as in [Case 1](#case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions).
 2.	If you can achieve your anticipated load in term of throughput, you are done. Alternatively, you may choose to measure the same job running at 3 SU and 1 SU, to find out the minimum number of SU that works for your scenario.
 3.	If you can’t achieve the desired throughput, try to break your query into multiple steps if possible, if it doesn’t have multiple steps already, and allocate up to 6 SU for each step in the query. E.g. if you have 3 steps, allocate 18 SU in the “Scale” option.
 4.	When running such a job, Stream Analytics puts each step on its own node with dedicated 6 SU resources. 
 5.	If you still haven’t achieved your load target, you can attempt to use **PARTITION BY** starting from steps closer to the input. For **GROUP BY** operator that may not be naturally partitionable, you can use the local/global aggregate pattern to perform a partitioned **GROUP BY** followed by a non-partitioned **GROUP BY**. For example, if you want to count how many cars going through each toll booth every 3 minutes, and the volume of the data is beyond what can be handled by 6 SU.
+
 
 
 ```WITH Step1 AS (
@@ -63,13 +64,15 @@ In the query above, you are counting cars per toll booth per partition, and then
 
 Once partitioned, for each partition of the step, allocate up to 6 SU, each partition having 6 SU is the maximum, so each partition can be placed on its own processing node.
 
+> **Note**
+If your query cannot be divided into several steps or partitioned, adding additional SU may actually reduce the overall throughput.
 
 ## Case 3 - You are running lots of independent queries in a job.
 For certain ISV use cases, where it’s more cost-efficient to process data from multiple tenants in a single job, using separate inputs and outputs for each tenant, you may end up running quite a few (e.g. 20) independent queries in a single job. The assumption is each such subquery’s load is relatively small. 
 In this case, you can follow the following steps.
 1.	In this case, do not use **PARTITION BY** in the query
 2.	Reduce the input partition count to the lowest possible value of 2 if you are using Event Hub.
-3.	Run the query with 6 SU. With expected load for each subquery, add as many such subquery as possible, until the job is hitting system resource limits. Refer to #1 for the symptoms when this happens.
+3.	Run the query with 6 SU. With expected load for each subquery, add as many such subquery as possible, until the job is hitting system resource limits. Refer to [Case 1](#case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions) for the symptoms when this happens.
 4.	Once you are hitting the subquery limit measured above, start adding the subquery to a new job. The number of jobs to run as a function of the number of independent queries should be fairly linear, assuming you don’t have any load skew. You can then forecast how many 6 SU jobs you need to run as a function of the number of tenants you would like to serve.
 5.	When using reference data join with such queries, you should union the inputs together, before joining with the same reference data, then split out the events if necessary. Otherwise, each reference data join keeps a copy of reference data in memory, likely blowing up the memory usage unnecessarily.
 
@@ -88,12 +91,10 @@ The client sends sensor data in JSON format. The data output is also in JSON for
 
 The following query is used to send an alert when a light is switched off:
 
-    SELECT AVG(lght),
-     "LightOff" as AlertText
-    FROM input TIMESTAMP
-    BY devicetime
-     WHERE
-        lght< 0.05 GROUP BY TumblingWindow(second, 1)
+    SELECT AVG(lght), "LightOff" as AlertText
+    FROM input TIMESTAMP BY devicetime 
+    PARTITION BY PartitionID
+    WHERE lght< 0.05 GROUP BY TumblingWindow(second, 1)
 
 ### Measure throughput
 

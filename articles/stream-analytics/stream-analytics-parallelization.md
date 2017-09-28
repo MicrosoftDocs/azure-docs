@@ -1,5 +1,5 @@
 ---
-title: Scale Stream Analytics jobs to increase throughput | Microsoft Docs
+title: Leverage query parallelization in Azure Stream Analytics| Microsoft Docs
 description: Learn how to scale Stream Analytics jobs by configuring input partitions, tuning the query definition, and setting job streaming units.
 keywords: data streaming, streaming data processing, tune analytics
 services: stream-analytics
@@ -18,7 +18,7 @@ ms.date: 06/22/2017
 ms.author: samacha
 
 ---
-# Scale Azure Stream Analytics jobs to increase stream data processing throughput
+# Leverage query parallelization in Azure Stream Analytics
 This article shows you how to take advantage of parallelization in Azure Stream Analytics. You learn how to scale Stream Analytics jobs by configuring input partitions and tuning the analytics query definition.
 
 ## What are the parts of a Stream Analytics job?
@@ -27,7 +27,17 @@ A Stream Analytics job definition includes inputs, a query, and output. Inputs a
 A job requires at least one input source for data streaming. The data stream input source can be stored in an Azure event hub or in Azure blob storage. For more information, see [Introduction to Azure Stream Analytics](stream-analytics-introduction.md) and [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md).
 
 ## Partitions in sources and sinks
-Scaling a Stream Analytics job takes advantage of partitions in the input or output. Partitioning lets you divide data into subsets based on a partition key. A process that consumes the data (such as a Streaming Analytics job) can consume and write different partitions in parallel, which increases throughput. When you work with Stream Analytics, you can take advantage of partitioning in the following input/outputs:
+Scaling a Stream Analytics job takes advantage of partitions in the input or output. Partitioning lets you divide data into subsets based on a partition key. A process that consumes the data (such as a Streaming Analytics job) can consume and write different partitions in parallel, which increases throughput. 
+
+### Inputs
+All Azure Stream Analytics input can take advantage of partitioning:
+-	EventHub (need to set the partition key explicitly)
+-	IoT Hub  (need to set the partition key explicitly)
+-	Blob storage
+
+### Outputs
+
+When you work with Stream Analytics, you can take advantage of partitioning in the outputs:
 -	Azure Data Lake Storage
 -	Azure Functions
 -	Azure Table
@@ -52,7 +62,7 @@ An *embarrassingly parallel* job is the most scalable scenario we have in Azure 
 
 2. Once the data is laid out on the input side, you must make sure that your query is partitioned. This requires you to use **PARTITION BY** in all the steps. Multiple steps are allowed, but they all must be partitioned by the same key. Currently, the partitioning key must be set to **PartitionId** in order for the job to be fully parallel.  
 
-3. Currently only event hubs and blob storage support partitioned output. For event hub output, you must configure the partition key to be **PartitionId**. For blob storage output, you don't have to do anything.  
+3. Most of our output can take advantage of partitioning, however if you use an output type that doesn't support partitioning your job won't be fully parallel. Refer to the [output section](#Outputs) for more details.
 
 4. The number of input partitions must equal the number of output partitions. Blob storage output doesn't currently support partitions. But that's okay, because it inherits the partitioning scheme of the upstream query. Here are examples of partition values that allow a fully parallel job:  
 
@@ -88,25 +98,6 @@ Query:
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
 
 This query has a grouping key. Therefore, the events grouped together must be sent to the same Event Hub partition. Since in this example we group by TollBoothID, we should be sure that TollBoothID is used as the partition key when the events are sent to Event Hub. Then in ASA, we can use **PARTITION BY PartitionId** to inherit from this partition scheme and enable full parallelization. Since the output is blob storage, we don't need to worry about configuring a partition key value, as per requirement #4.
-
-### Multi-step query with a grouping key
-* Input: Event hub with 8 partitions
-* Output: Event hub instance with 8 partitions
-
-Query:
-
-    WITH Step1 AS (
-    SELECT COUNT(*) AS Count, TollBoothId
-    FROM Input1 Partition By PartitionId
-    GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
-    )
-
-    SELECT SUM(Count) AS Count, TollBoothId
-    FROM Step1 Partition By PartitionId
-    GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
-
-This query has a grouping key, so the same key needs to be processed by the same query instance. We can use the same strategy as in the previous example. In this case, the query has multiple steps. Does each step have **PARTITION BY PartitionId**? Yes, so the query fulfills requirement #3. For the output, we need to set the partition key to **PartitionId**, as discussed earlier. We can also see that it has the same number of partitions as the input.+ 
-
 
 ## Example of scenarios that are *not* embarrassingly parallel
 
@@ -247,7 +238,7 @@ Each of the **Input1** partitions will be processed separately by Stream Analyti
 
 This query can be scaled to 24 SUs.
 
-> [!NOTE]
+> [NOTE]
 > If you are joining two streams, make sure that the streams are partitioned by the partition key of the column that you use to create the joins. Also make sure that you have the same number of partitions in both streams.
 > 
 > 
