@@ -30,16 +30,16 @@ You can either publish your app directly to the **Production Slot** where end us
     If you have previously published this app, this page looks like the following screenshot: 
  
     ![Publish page](./media/luis-how-to-publish-app/luis-republish.png)
-2. If you want to use a key other than the Starter key, click **Change** next to the **Assigned endpoint key** label. This opens a dialog that allows you to select an existing endpoint key to assign to the app. For more information on how to create and add endpoint keys to your LUIS app, see [Manage your keys](Manage-Keys.md).
+2. If you want to use a key other than the Starter key, click **Change** next to the **Assigned endpoint key** label. This action opens a dialog that allows you to select an existing endpoint key to assign to the app. For more information on how to create and add endpoint keys to your LUIS app, see [Manage your keys](Manage-Keys.md).
 3. Choose whether to publish to **Production** or to **Staging** by selecting from the **Endpoint Slot** list. 
 4. If you want to enable Bing Spell Check, click the **Enable Bing Spell Checker** check box. 
 
     >[!NOTE]
-    >For a limited time, the option to enable Bing Spell Check is included with your LUIS subscription. However, you need to add `spellCheck=true` to the URL when you call the LUIS app endpoint to turn on spell checking. Checking the **Enable Bing Spell Checker** check box will append `spellCheck=true` to the URL that displays in the **Publish app** page when publish is complete. 
+    >For a limited time, the option to enable Bing Spell Check is included with your LUIS subscription. However, you need to add `spellCheck=true` to the URL when you call the LUIS app endpoint to turn on spell checking. Checking the **Enable Bing Spell Checker** check box appends `spellCheck=true` to the URL that displays in the **Publish app** page when publish is complete. 
 
 
-5. If you want the JSON response of your published app to include all intents defined in your app and their prediction scores, click **Add Verbose Flag** checkbox. Otherwise, it will include only the top scoring intent.
-6. Click **Train** if the app wasn't trained already.  
+5. If you want the JSON response of your published app to include all intents defined in your app and their prediction scores, click **Add Verbose Flag** checkbox. Otherwise, it includes only the top scoring intent.
+6. If the app has not been trained, click **Train**.  
 
 7. Click **Publish**. The endpoint URL of your published app is displayed. 
 
