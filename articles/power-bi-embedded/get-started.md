@@ -27,13 +27,28 @@ Power BI Embedded has benefits for an ISV, their developers, and customers. For 
 
 Developers can spend time focused on building the core competency of their application rather than spending time developing visuals and analytics. Developers can rapidly meet customer report and dashboard demands and can embed easily with fully documented APIs and SDKs. Lastly, by enabling easy-to-navigate data exploration in their apps, ISVs allow their customers to make quick, data-driven decisions in context and with confidence from any device.
 
+## Register an application within Azure Active Directory
 
+A registered application within Azure Active Directory (AAD) is needed in order to embed in a custom application. The registered application requires that your tenant is a Power BI tenant. A Power BI tenant means that at least one user in the organization has signed up for Power BI. Having a user signed up for Power BI will allow the Power BI APIs to show up within the registered application.
 
+For more information about how to register an application in AAD, see [Register an Azure AD app to embed Power BI content](https://powerbi.microsoft.com/documentation/powerbi-developer-register-app/).
 
+## Embed content in your application
+
+After you have your registered application in AAD, embed Power BI content within your application. Embed content by using the REST API along with the JavaScript APIs.
+
+We have samples to help get you started. For a walkthrough of the sample, see [Integrate a dashboard, tile, or report into your application](https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/).
+
+## Get capacity and move to production
+
+Create Power BI Embedded capacity within Microsoft Azure to move your application to production. For information on how to create capacity, see [Create Power BI Embedded capacity in the Azure portal](create-capacity.md).
+
+Manage your capacity within the Power BI admin portal. Assign workspace assigner to assist with your app workspaces. For more information, see [Manage capacities within Power BI Premium and Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/).
 
 ## Next steps
 
+If you are ready to create Power BI Embedded capacity, see [Create Power BI Embedded capacity in the Azure portal](create-capacity.md).
 
+If you are looking for a sample walk through, see [Integrate a dashboard, tile, or report into your application](https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/).
 
 More questions? [Try the Power BI Community](http://community.powerbi.com/)
-

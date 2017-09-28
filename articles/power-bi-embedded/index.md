@@ -10,7 +10,7 @@ ms.service: power-bi-embedded
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 09/27/2017
+ms.date: 09/28/2017
 ms.author: carolz
 ---
 # Power BI Embedded Documentation
@@ -136,4 +136,3 @@ Learn how to add data visualizations and interactive reports to applications wit
         </div>
     </li>
 </ul>
-
