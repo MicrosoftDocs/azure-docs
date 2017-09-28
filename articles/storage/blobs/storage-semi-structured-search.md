@@ -85,7 +85,7 @@ A data source is what you use to specify what data to index.
 
 The endpoint of this call is `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`, replace `[service name]` with the name of your search service.
 
-For this call, you need the name of your storage account and your storage account key, the storage account key can be found in your storage account under **Access Keys**. Pictured following:
+For this call, you need the name of your storage account and your storage account key, the storage account key can be found in your storage account under **Access Keys**. Location pictured following:
 
   ![Semi-structured search](media/storage-unstructured-structured-search/storagekeys.png)
 
@@ -164,7 +164,7 @@ Replace the URL, then copy and paste the following code into your body and run t
 }
 ```
 
-The response should look like;
+The response should look like:
 
 ```json
 {

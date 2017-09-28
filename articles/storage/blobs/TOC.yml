@@ -28,6 +28,12 @@
         href: storage-secure-access-application.md 
       - name: 4 - Monitor and troubleshoot storage
         href: storage-monitor-troubleshoot-storage-application.md
+  - name: Search data in cloud storage
+    items:
+      - name: search unstructured data in cloud storage
+        href: storage-unstructured-search.md
+      - name: search semi-structured data in cloud storage
+        href: storage-semi-structured-search.md
 - name: Samples
   items:
   - name: Azure PowerShell
