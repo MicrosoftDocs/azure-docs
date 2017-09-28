@@ -22,7 +22,7 @@ ms.author: asgang
 This article describes common problems you might face when you try to install the Azure Site Recovery Mobility Service on the source server to enable protection.
 
 ## Error 78007 - The requested operation could not be completed
-This error can be thrown by the service for mulitple reasons. Choose the corrosponding provider error to troubleshoot further.
+This error can be thrown by the service for multiple reasons. Choose the corresponding provider error to troubleshoot further.
 
 * [Error 95103](#error-95103---protection-could-not-be-enabled-ep0854) 
 * [Error 95105](#error-95105---protection-could-not-be-enabled-ep0856) 
@@ -77,14 +77,14 @@ This error can be thrown by the service for mulitple reasons. Choose the corrosp
 
 **Error code** | **Possible causes** | **Error-specific recommendations**
 --- | --- | ---
-95265 </br>**Message:** Push installation of the mobility service to the source machine succeeded but source machine requires a restart for some system changes to take effect. <br>| An older version of the mobility service was already installed on the server.| Replication of the virtual machine will continue seamlessly.M<br> Reboot the server during your next maintenance window to get benefits of the new enhancements in mobility service.|
+95265 </br>**Message:** Push installation of the mobility service to the source machine succeeded but source machine requires a restart for some system changes to take effect. <br>| An older version of the mobility service was already installed on the server.| Replication of the virtual machine continues seamlessly.M<br> Reboot the server during your next maintenance window to get benefits of the new enhancements in mobility service.|
 
 
 ## Error 95224 - Protection could not be enabled (EP0883)
 
 **Error code** | **Possible causes** | **Error-specific recommendations**
 --- | --- | ---
-95224 </br>**Message:** Push installation of the mobility service to the source machine %SourceIP; failed with error code EP0883;. A system restart from a previous installation / update is pending.| The system was not restarted uninstalling a older/incompatible version of mobility service.| Ensure that no version of mobility service exists on the server. <br> Reboot the server and re-run the enable protection job|
+95224 </br>**Message:** Push installation of the mobility service to the source machine %SourceIP; failed with error code EP0883. A system restart from a previous installation / update is pending.| The system was not restarted uninstalling a older/incompatible version of mobility service.| Ensure that no version of mobility service exists on the server. <br> Reboot the server and rerun the enable protection job|
 
 ## Resource to troubleshoot push installation problems
 
