@@ -28,7 +28,7 @@ If you are a Visual Studio C# developer, Azure Functions also [integrates with V
 [Azure Functions Core Tools] is a local version of the Azure Functions runtime that you can run on your local development computer. It's not an emulator or simulator. It's the same runtime that powers Functions in Azure. There are currently two versions of Azure Functions Core Tools, where each supports a different version of the Azure Functions runtime. Both versions are provided as an [npm package](https://docs.npmjs.com/getting-started/what-is-npm).
 
 >[!NOTE]  
-> Before you install either version, you must [install NodeJS](https://docs.npmjs.com/getting-started/installing-node), which includes npm. For version 2.0 of the tools, we recommend using Node.js 8.5, or a higher version. 
+> Before you install either version, you must [install NodeJS](https://docs.npmjs.com/getting-started/installing-node), which includes npm. For version 2.0 of the tools, only Node.js 8.5 and higher versions are supported. 
 
 ### Version 1.0 runtime
 
