@@ -1,4 +1,4 @@
----
+i---
 title: Run Azure Batch workloads on cost-effective low-priority VMs (Preview) | Microsoft Docs
 description: Learn how to provision low-priority VMs to reduce the cost of Azure Batch workloads.
 services: batch
@@ -17,7 +17,7 @@ ms.author: markscu
 
 # Use low-priority VMs with Batch (Preview)
 
-Azure Batch offers low-priorty virtual machines (VMs) to reduce the cost of
+Azure Batch offers low-priority virtual machines (VMs) to reduce the cost of
 Batch workloads. Low-priority VMs make new types of Batch workloads possible by
 providing a large amount of compute power that is also economical.
 
