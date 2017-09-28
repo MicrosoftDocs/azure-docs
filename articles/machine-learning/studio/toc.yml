@@ -1,5 +1,5 @@
 - name: Machine Learning Studio Documentation
-  href: index.yml
+  href: index.md
 - name: Overview
   expanded: true
   items:
@@ -183,9 +183,9 @@
       href: azure-ml-customer-churn-scenario.md
 - name: Reference
   items:
-  - name: PowerShell module (New)
+  - name: Azure PowerShell module (New)
     href: /powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning
-  - name: PowerShell module (Classic)
+  - name: Azure PowerShell module (Classic)
     href: powershell-module.md
   - name: Algorithm & Module reference
     href: https://msdn.microsoft.com/library/azure/dn905974.aspx

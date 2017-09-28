@@ -15,7 +15,7 @@ ms.date: 09/14/2017
 Graphical Processing Unit (GPU) is widely used to process computationally intensive tasks that can typically happen when training certain deep neural network models. By using GPUs, you can reduce the training time of the models significantly. In this document, you learn how to configure Azure ML Workbench to use  [DSVM (Data Science Virtual Machine)](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) equipped with GPUs as execution target. 
 
 ## Prerequisites
-- To step through this how-to guide, you need to first [install Azure ML Workbench](quick-start-installation.md).
+- To step through this how-to guide, you need to first [install Azure ML Workbench](quickstart-installation.md).
 - You need to have access to computers equipped with NVidia GPUs.
     - You can run your scripts directly on local machine (Windows or macOS) with GPUs.
     - You can also run scripts in a Docker container on a machine with GPUs.
@@ -73,7 +73,7 @@ You can use the _Classifying MNIST using TensorFlow_ example, or the _Classifyin
 Launch the command line from Azure ML Workbench. Enter the following command. Replace the placeholder text from the example below with your own values for the name, IP address, username, and password. 
 
 ```batch
-C:\MyProj> az ml computetarget attach --name "my_dsvm" --address "my_dsvm_ip_address" --username "my_name" --password "my_password"
+C:\MyProj> az ml computetarget attach --name "my_dsvm" --address "my_dsvm_ip_address" --username "my_name" --password "my_password" --type remotedocker
 ```
 
 ### Configure Azure ML Workbench to Access GPU
@@ -83,7 +83,7 @@ Open the `my_dsvm.compute`. Change the `baseDockerImage` to `microsoft/mmlspark:
  
 ```yaml
 ...
-baseDockerImage: microsoft/mmlspark:plus-gpu-0.7.9
+baseDockerImage: microsoft/mmlspark:plus-gpu-0.7.91
 nvidiaDocker: true
 ```
  

@@ -1,27 +1,47 @@
 - name: Data Science Virtual Machine documentation
+  items:
 - name: Overview
-  href: virtual-machine-overview.md
   items:
-  - name: Deep Learning
+  - name: What is the Data Science VM?
+    href: overview.md
+  - name: What is the Deep Learning VM?
     href: deep-learning-dsvm-overview.md
-- name: Get Started
+- name: Get started
   items:
-  - name: Windows DSVM
+  - name: Create a Windows Data Science VM
     href: provision-vm.md
-  - name: Linux Ubuntu DSVM
+  - name: Create an Ubuntu Data Science VM
     href: dsvm-ubuntu-intro.md
-  - name: Linux CentOS DSVM
+  - name: Create a CentOS Data Science VM
     href: linux-dsvm-intro.md
-  - name: Deep Learning
-    href: provision-deep-learning-dsvm.md
-- name: How To
+  - name: Create a Deep Learning VM
+    href: provision-deep-learning-dsvm.md  
+- name: How to
   items:
-  - name: Use Windows DSVM
+  - name: Use a Windows Data Science VM
     href: vm-do-ten-things.md
-  - name: Use Linux DSVM
+  - name: Use a Linux Data Science VM
     href: linux-dsvm-walkthrough.md
-  - name: Using Deep Learning
+  - name: Use a Deep Learning VM
     href: use-deep-learning-dsvm.md
+- name: Reference
+  items:
+  - name: Deep Learning and AI frameworks
+    href: dsvm-deep-learning-ai-frameworks.md
+  - name: ML and data science tools
+    href: dsvm-ml-data-science-tools.md
+  - name: Languages
+    href: dsvm-languages.md
+  - name: Development tools 
+    href: dsvm-tools-development.md
+  - name: Data ingestion tools
+    href: dsvm-tools-ingestion.md
+  - name: Data exploration and visualization tools
+    href: dsvm-tools-explore-and-visualize.md
+  - name: Data platforms
+    href: dsvm-data-platforms.md
+  - name: Samples and walkthroughs
+    href: dsvm-samples-and-walkthroughs.md
 - name: Resources
   items:
   - name: Blog

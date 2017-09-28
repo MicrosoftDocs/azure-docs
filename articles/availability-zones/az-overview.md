@@ -14,18 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 09/28/2017
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications). 
 ---
 
 # Overview of Availability Zones in Azure (Preview)
 
-Availability Zones help to protect you from datacenter-level failures. They are located inside an Azure region, and each one has its own independent power source, network, cooling. To ensure resiliency, there's a minimum of three separate zones in all enabled regions. The physical and logical separation of Availability Zones within a region, protects applications and data from zone-level failures. 
+Availability Zones help to protect you from datacenter-level failures. They are located inside an Azure region, and each one has its own independent power source, network, and cooling. To ensure resiliency, there's a minimum of three separate zones in all enabled regions. The physical and logical separation of Availability Zones within a region protects applications and data from zone-level failures. 
 
 ![conceptual view of one zone going down in a region](./media/az-overview/az-graphic-two.png)
-
-[!INCLUDE [Availability Zones preview statement](../../includes/availability-zones-preview-statement.md)]
 
 ## Regions that support Availability Zones
 
@@ -47,6 +45,7 @@ The Azure services that support Availability Zones are:
 - Av2
 - Dv2
 - DSv2
+
 
 ## Get started with the Availability Zones preview
 

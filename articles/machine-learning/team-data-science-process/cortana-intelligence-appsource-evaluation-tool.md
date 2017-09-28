@@ -144,7 +144,7 @@ If your solution does not require support for these data sizes or if you are usi
 ### Cortana Intelligence solutions should include dedicated ingestion data environments
 Cortana Intelligence solutions should generally avoid directly inserting data into relational data sources. Instead, raw data should be stored in an unstructured environment, with idempotent inserts/updates into any relational stores using Azure Data Factory.
 
-For more information on copying data with Azure Data Factory, [Tutorial: Create a pipeline with Copy Activity using Visual Studio](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-copy-activity-tutorial-using-visual-studio).
+For more information on copying data with Azure Data Factory, [Tutorial: Create a pipeline with Copy Activity using Visual Studio](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-copy-activity-tutorial-using-visual-studio).
 
 ### Azure SQL Data Warehouse should use PolyBase for data ingestion
 Azure SQL DW supports PolyBase for highly scalable, parallel data ingestion. PolyBase allows you to use Azure SQL DW to issue queries against external datasets stored in either Azure Blob Storage or Azure Data Lake Store. This provides superior performance to alternative methods of bulk updates.
@@ -183,7 +183,7 @@ For more information about Azure virtual machine availability, see [Manage the a
 
 ## Other evaluation considerations
 ### Cortana Intelligence apps should use a centralized tool for data orchestration
-Using a single tool for managing and scheduling data movement and transformation ensures consistency around mission-critical data. It provides a clear logic around retry logic, dependency management, alert/logging, etc. We recommend the use of [Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-introduction) for data orchestration in Azure.
+Using a single tool for managing and scheduling data movement and transformation ensures consistency around mission-critical data. It provides a clear logic around retry logic, dependency management, alert/logging, etc. We recommend the use of [Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-introduction) for data orchestration in Azure.
 
 If you are using a tool other than Azure Data Factory for data orchestration, please describe which tool or tools you are using.
 ### Azure Machine Learning models should be retrained using Azure Data Factory
@@ -191,7 +191,7 @@ Azure Machine Learning (AzureML) provides easy to use tools for the creation and
 
 For more information on creating retraining web services in AzureML, see [Retrain Machine Learning models programmatically](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-retrain-models-programmatically).
 
-For more information about automating the model training process using Azure Data Factory, see [Updating Azure Machine Learning models using Update Resource Activity](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-azure-ml-update-resource-activity).
+For more information about automating the model training process using Azure Data Factory, see [Updating Azure Machine Learning models using Update Resource Activity](https://docs.microsoft.com/en-us/azure//data-factory/v1/data-factory-azure-ml-update-resource-activity).
 
 ## Existing documentation
 [Microsoft Azure Certified to grow your cloud business](https://azure.microsoft.com/en-us/marketplace/programs/certified/)

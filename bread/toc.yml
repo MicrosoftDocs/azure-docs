@@ -70,7 +70,7 @@
   - name: Germany
     tocHref: /azure/germany/
     topicHref: /azure/germany/
-  - name: Portal
+  - name: Azure portal
     tocHref: /azure/azure-portal/
     topicHref: /azure/azure-portal/
   - name: Resource Manager
@@ -79,6 +79,9 @@
   - name: Azure Stack
     tocHref: /azure/azure-stack/
     topicHref: /azure/azure-stack/
+  - name: Azure Stack User
+    tocHref: /azure/azure-stack/user/
+    topicHref: /azure/azure-stack/user/
   - name: Supportability
     tocHref: /azure/azure-supportability/
     topicHref: /azure/azure-supportability/
@@ -208,7 +211,7 @@
     tocHref: /azure/machine-learning/
     topicHref: /azure/machine-learning/
     items:
-      - name: Preview features
+      - name: Services (preview)
         tocHref: /azure/machine-learning/preview
         topicHref: /azure/machine-learning/preview/
       - name: Studio

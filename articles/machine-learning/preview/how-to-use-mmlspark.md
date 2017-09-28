@@ -10,7 +10,7 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/08/2017
+ms.date: 09/26/2017
 ---
 # How to Use Microsoft Machine Learning Library for Apache Spark
 
@@ -25,7 +25,7 @@ ms.date: 09/08/2017
 ## Prerequisites
 
 To step through this how-to guide, you need to:
-- [Install Azure Machine Learning Workbench](quick-start-installation.md)
+- [Install Azure Machine Learning Workbench](quickstart-installation.md)
 - [Set up Azure HDInsight Spark cluster](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql)
 
 ## Run Your Experiment in Docker Container
@@ -43,13 +43,17 @@ To complete this and the following step, you need to first [create an Azure HDIn
 By default, Azure Machine Learning Workbench installs MMLSpark package on your cluster when you run your experiment. You can control this behavior and install other Spark packages by editing a file named _aml_config/spark_dependencies.yml_ in your project folder.
 
 ```
-configuration: {}
+# Spark configuration properties.
+configuration:
+  "spark.app.name": "Azure ML Experiment"
+  "spark.yarn.maxAppAttempts": 1
+
 repositories:
   - "https://mmlspark.azureedge.net/maven"
 packages:
   - group: "com.microsoft.ml.spark"
     artifact: "mmlspark_2.11"
-    version: "0.7"
+    version: "0.7.9"
 ```
 
 You can also install MMLSpark directly on your HDInsight Spark cluster using [Script Action](https://github.com/Azure/mmlspark#hdinsight).
@@ -58,10 +62,14 @@ You can also install MMLSpark directly on your HDInsight Spark cluster using [Sc
 
 Open CLI window from Azure Machine Learning Workbench by going to "File" Menu and click "Open Command Prompt"
 
-In CLI Window, run following command:
+In CLI Window, run following commands:
 
 ```
-az ml computecontext attach --name <myhdi> --address <ssh-myhdi.azurehdinsight.net> --username <sshusername> --password <sshpwd> --type cluster
+az ml computetarget attach --name <myhdi> --address <myhdi-ssh.azurehdinsight.net> --username <sshusername> --password <sshpwd> --type cluster
+```
+
+```
+az ml experiment prepare -c <myhdi>
 ```
 
 Now the cluster is available as compute target for the project.

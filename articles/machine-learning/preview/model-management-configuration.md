@@ -14,9 +14,9 @@ ms.date: 08/29/2017
 # Model management setup
 
 ## Overview
-This document gets you started with using Azure ML Model Management to deploy and manage your machine learning models. 
+This document gets you started with using Azure ML model management to deploy and manage your machine learning models as web services. 
 
-Using Azure ML Model Management, you can efficiently deploy and manage Machine Learning models that are built using a number of frameworks including SparkML, Keras, TensorFlow, the Microsoft Cognitive Toolkit, or Python. 
+Using Azure ML model management, you can efficiently deploy and manage Machine Learning models that are built using a number of frameworks including SparkML, Keras, TensorFlow, the Microsoft Cognitive Toolkit, or Python. 
 
 By the end of this document, you should be able to have your model management environment set up and ready for deploying your machine learning models.
 
@@ -25,7 +25,7 @@ To get the most out of this guide, you should have owner access to an Azure subs
 The CLI comes pre-installed on the Azure Machine Learning Workbench and on [Azure DSVMs](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
 
 ## Using the CLI
-To use the command-line interfaces (CLIs) from the Workbench, click **File** -> **Open CommandLine Interface**. 
+To use the command-line interfaces (CLIs) from the Workbench, click **File** -] **Open CommandLine Interface**. 
 
 On a Data Science Virtual Machine, connect and open the command prompt. Type `az ml -h` to see the options. For more details on the commands, use the --help flag.
 
@@ -42,27 +42,32 @@ pip install azure-cli
 pip install azure-cli-ml
 ```
  
-> [!NOTE]
-> If you have an earlier version, uninstall it first using the following command:
+>[!NOTE]
+>If you have an earlier version, uninstall it first using the following command:
 >
 
 ```cmd
 pip uninstall azure-cli-ml
 ```
 
-
 ### Installing (or updating) on Linux
 Run the following command from the command line, and follow the prompts:
 
 ```bash
-sudo pip install azure-cli
-sudo pip install azure-cli-ml
+sudo -i
+pip install azure-cli
+pip install azure-cli-ml
+```
+
+After intallation is complete, run the following command:
+
+```bash
 sudo /opt/microsoft/azureml/initial_setup.sh
 ```
 
-> [!NOTE]
-> Log out and log back in to your SSH session for the changes to take effect.
-> You can use the previous commands to update an earlier version of the CLIs on the DSVM.
+>[!NOTE]
+>Log out and log back in to your SSH session for the changes to take effect.
+>You can use the previous commands to update an earlier version of the CLIs on the DSVM.
 >
 
 ## Deploying your model
@@ -77,14 +82,20 @@ When completing the environment setup:
 - During the authentication process, you are prompted for an account to authenticate with. Important: Select an account that has a valid Azure subscription and sufficient permissions to create resources in the account.- When the log-in is complete, your subscription information is presented and you are prompted whether you wish to continue with the selected account.
 
 ### Environment Setup
+To start the setup process, you need to register the environment provider by entering the following command:
+
+```azurecli
+az provider register -n Microsoft.MachineLearningCompute
+```
+
 #### Local deployment
 To deploy and test your web service on the local machine, set up a local environment using the following command:
 
 ```azurecli
-az ml env setup -l <location of Azure Region, e.g. eastus2> -n <your environment name> [-g <existing resource group>]
+az ml env setup -l [location of Azure Region, e.g. eastus2] -n [your environment name] [-g [existing resource group]]
 ```
-> [!NOTE] 
-> Local web service deployment requires your to install Docker on the local machine. 
+>[!NOTE] 
+>Local web service deployment requires your to install Docker on the local machine. 
 >
 
 The local environment setup command creates the following resources in your subscription:
@@ -96,7 +107,7 @@ The local environment setup command creates the following resources in your subs
 After setup completes successfully, set the environment to be used using the following command:
 
 ```azurecli
-az ml env set -n <environment name> -g <resource group>
+az ml env set -n [environment name] -g [resource group]
 ```
 
 #### Cluster deployment
@@ -105,7 +116,7 @@ Use Cluster deployment for high-scale production scenarios. It sets up an ACS cl
 To deploy your web service to a production environment, first set up the environment using the following command:
 
 ```azurecli
-az ml env setup -c --cluster-name [your environment name] --location <Azure region e.g. eastus2> [-g <resource group>]
+az ml env setup -c --cluster-name [your environment name] --location [Azure region e.g. eastus2] [-g [resource group]]
 ```
 
 The cluster environment setup command creates the following resources in your subscription:
@@ -120,10 +131,10 @@ The resource group, storage account, and ACR are created quickly. The ACS deploy
 After setup is complete, you need to set the environment to be used for this deployment. Use the following command:
 
 ```azurecli
-az ml env set -n <environment name> -g <resource group>
+az ml env set -n [environment name] -g [resource group]
 ```
 
-> [!NOTE] 
+>[!NOTE] 
 > After the environment is created, for subsequent deployments, you only need to use the set command above to reuse it.
 >
 
@@ -133,19 +144,19 @@ An account is required for deploying models. You need to do this once per accoun
 To create a new account, use the following command:
 
 ```azurecli
-az ml account modelmanagement create -l <Azure region, e.g. eastus2> -n <your account name> -g <resource group name> --sku-instances <number of instances, e.g. 1> --sku-name <Pricing tier for example S1>
+az ml account modelmanagement create -l [Azure region, e.g. eastus2] -n [your account name] -g [resource group name] --sku-instances [number of instances, e.g. 1] --sku-name [Pricing tier for example S1]
 ```
 
 To use an existing account, use the following command:
 ```azurecli
-az ml account modelmanagement set -n <your account name> -g <resource group it was created in>
+az ml account modelmanagement set -n [your account name] -g [resource group it was created in]
 ```
 
 ### Deploy your model
 You are now ready to deploy your saved model as a web service. 
 
 ```azurecli
-az ml service create realtime --model-file <model file/folder path> -f <scoring file e.g. score.py> -n <your service name> -s <schema file e.g. service_schema.json> -r <runtime for the Docker container e.g. spark-py or python> -c <conda dependencies file for additional python packages>
+az ml service create realtime --model-file [model file/folder path] -f [scoring file e.g. score.py] -n [your service name] -s [schema file e.g. service_schema.json] -r [runtime for the Docker container e.g. spark-py or python] -c [conda dependencies file for additional python packages]
 ```
 
 ### Next Steps
