@@ -364,6 +364,7 @@ To participate in the Preview for Load Balancer Standard SKU and its companion P
     ```cli
     az feature register --name AllowLBPreview --namespace Microsoft.Network
     ```
+
 >[!NOTE]
 >Registration of the Load Balancer Standard feature may take up to an hour.
 
