@@ -1,6 +1,6 @@
 ---
-title: How to use an Azure Managed Service Identity for sign-in and token acquisition
-description: Step by step instructions for using an MSI service principal for sign-in, and for acquiring an access token.
+title: How to use an Azure VM Managed Service Identity for sign-in and token acquisition
+description: Step by step instructions for using an Azure VM MSI service principal for sign-in, and for acquiring an access token.
 services: active-directory
 documentationcenter: 
 author: bryanla
@@ -16,9 +16,13 @@ ms.date: 09/28/2017
 ms.author: bryanla
 ---
 
-# How to use an Azure Managed Service Identity for sign-in and token acquisition 
+# How to use an Azure VM Managed Service Identity (MSI) for sign-in and token acquisition 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
-After you've enabled MSI on an Azure resource, such as an Azure VM, you can use the MSI for sign-in and to request an access token. This article shows you various ways to use an MSI [service principal](develop/active-directory-dev-glossary.md#service-principal-object) for sign-in, and acquire an [app-only access token](develop/active-directory-dev-glossary.md#access-token) to access other resources.
+After you've enabled MSI on an Azure VM, you can use the MSI for sign-in and to request an access token. This article shows you various ways to use an MSI [service principal](develop/active-directory-dev-glossary.md#service-principal-object) for sign-in, and acquire an [app-only access token](develop/active-directory-dev-glossary.md#access-token) to access other resources, including:
+
+- Silent/unattended sign-in from PowerShell or Azure CLI
+- Token acquisition for various clients, including .NET, PowerShell, Bash/CURL, REST
+- Sign-in using an Azure SDK, including .NET, Java, Node.js, Python, Ruby
 
 ## Prerequisites
 
@@ -35,17 +39,17 @@ If you plan to use the PowerShell examples in this article, be sure to install [
 > - To prevent authorization errors (403/AuthorizationFailed) in the code/script, the VM's identity must be given "Reader" access at the VM scope to allow Azure Resource Manager operations on the VM. See [Assign a Managed Service Identity (MSI) access to a resource using the Azure portal](msi-howto-assign-access-portal.md) for details.
 > - Before proceeding to one of the following sections, use the VM "Connect" feature in the Azure portal, to remotely connect to your MSI-enabled VM.
 
-## How to sign in using an MSI identity
+## How to sign in from PowerShell or CLI using MSI
 
-In cases where a secure client application needs to sign in to Azure Active Directory (AD) under its own identity, MSI allows you to use an identity representing the host Azure resource instead (such as a VM). Previously, you would have been required to register the client application with Azure AD, and authenticate using the application's identity. 
+Previously, running a script under its own identity meant registering it as a client application with Azure AD, and authenticate using an application identity. With MSI, your script no longer needs a client registration (nor embedded credentials), as MSI provides an identity that represents the host VM. 
 
 In the examples below, we show how to use a VM's MSI service principal for sign-in.
 
-### PowerShell
+### Azure PowerShell
 
 The following script demonstrates how to:
 
-- acquire an MSI access token
+- acquire an MSI access token for an Azure VM
 - use the access token to sign in to Azure AD under the corresponding MSI service principal
 - use the MSI service principal to make an Azure Resource Manager call, to obtain the ID of the service principal
 
@@ -69,7 +73,7 @@ echo "The MSI service principal ID is $spID"
 
 The following script demonstrates how to:
 
-- sign in to Azure AD under the corresponding MSI service principal
+- sign in to Azure AD under the VM's MSI service principal
 - use the MSI service principal to make an Azure Resource Manager call, to obtain the ID of the service principal
 
 ```azurecli-interactive
@@ -80,14 +84,14 @@ echo The MSI service principal ID is $spID
 
 ## How to acquire an access token from MSI
 
-Instead of acquiring an app-only access token from Azure AD, an MSI-enabled Azure resource provides the OAuth endpoint for client applications. The endpoint allows the client to obtain an access token under the identity provided by the MSI, rather than the client's application identity. 
+Using MSI, your client application/script no longer needs to register with Azure AD, nor present its client ID and secret to obtain an access token. Your client can simply ask the local MSI endpoint for an access token, without presenting any application credentials. The app-only access token is issued for the MSI service principal, suitable for use as a bearer token in [service-to-service calls requiring client credentials](active-directory-protocols-oauth-service-to-service.md).
 
 In the examples below, we show how to use a VM's MSI for token acquisition.
 
 ### .NET
 
 > [!IMPORTANT]
-> MSI and Azure AD are not integrated. Therefore, the Azure AD Authentication Libraries (ADAL) cannot be used for MSI token acquisition. For more information, see [MSI FAQs and known issues](msi-known-issues.md#frequently-asked-questions-faqs).
+> The Azure AD Authentication Library (ADAL) is not integrated with MSI. To obtain an access token using MSI, make a request to the local MSI endpoint in a VM. For more information, see [MSI FAQs and known issues](msi-known-issues.md#frequently-asked-questions-faqs).
 
 ```csharp
 // Build request to acquire MSI token
@@ -114,7 +118,7 @@ catch (Exception e)
 
 ```
 
-### PowerShell
+### Azure PowerShell
 
 ```powershell
 # Get an access token from MSI
@@ -140,10 +144,14 @@ Request:
 ```
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
 Metadata: true
-User-Agent: Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) 
-Host: localhost:50342
-Proxy-Connection: Keep-Alive
 ```
+
+| Element | Description |
+| ------- | ----------- |
+| `GET` | An HTTP verb, indicating you want to retrieve data from the endpoint. In this case, an OAuth access token. | 
+| `http://localhost:50342/oauth2/token` | The MSI endpoint, where 50342 is the default port and is configurable. |
+| `resource` | A query string parameter, indicating the App ID URI of the target resource. It also appears in the `aud` (audience) claim of the issued token. In this example, we are requesting a token to access Azure Resource Manager, which has an App ID URI of https://management.azure.com. |
+| `Metadata` | An HTTP header, required by MSI as a mitigation against Server Side Request Forgery (SSRF) attack.
 
 Response:
 
@@ -161,26 +169,37 @@ Content-Type: application/json
 }
 ```
 
-## How to use MSI with Azure SDK libraries
+| Element | Description |
+| ------- | ----------- |
+| `access_token` | The requested access token. When calling a REST API, the token is embedded in the `Authorization` request header field as a "bearer" token, allowing the API to authenticate the caller. | 
+| `refresh_token` | Not used by MSI. |
+| `expires_in` | The number of seconds the access token continues to be valid, before expiring, from time of issuance. Time of issuance can be found in the token's `iat` claim. |
+| `expires_on` | The timespan when the access token expires. The date is represented as the number of seconds from "1970-01-01T0:0:0Z UTC"  (corresponds to the token's `exp` claim). |
+| `not_before` | The timespan when the access token takes effect, and can be accepted. The date is represented as the number of seconds from "1970-01-01T0:0:0Z UTC" (corresponds to the token's `nbf` claim). |
+| `resource` | The resource the access token was requested for, which matches the `resource` query string parameter of the request. |
+| `token_type` | The type of token, which is a "Bearer" access token, which means the resource can give access to the bearer of this token. |
 
-Azure supports multiple programming languages/frameworks through a series of [Azure SDKs](https://azure.microsoft.com/downloads). Several of them have been updated to support MSI, and provide corresponding samples to demonstrate usage. This list is updated as additional support is added:
+## How to sign in with Azure SDK libraries using MSI
+
+Azure supports multiple programming languages/frameworks through a series of [Azure SDKs](https://azure.microsoft.com/downloads). Several of them have been updated to support sign-in using an MSI, and provide corresponding samples to demonstrate usage. This list is updated as additional support is added:
 
 | SDK | Sample |
 | --- | ------ | 
 | .NET   | [Manage resource from an MSI-enabled VM](https://azure.microsoft.com/resources/samples/aad-dotnet-manage-resources-from-vm-with-msi/) |
 | Java   | [Manage Storage from an MSI-enabled VM](https://azure.microsoft.com/resources/samples/compute-java-manage-resources-from-vm-with-msi-in-aad-group/)|
-| Node.js| [Create a VM with MSI enabled](https://azure.microsoft.com/resources/samples/compute-node-msi-vm/) |
-|        | [Manage resources using Managed Service Identity](https://azure.microsoft.com/resources/samples/resources-node-manage-resources-with-msi/) |
-| Python | [Create a VM with MSI enabled](https://azure.microsoft.com/resources/samples/compute-python-msi-vm/) |
-|        | [Use MSI to authenticate simply from inside a VM](https://azure.microsoft.com/resources/samples/resource-manager-python-manage-resources-with-msi/) |
-| Ruby   | [Create Azure VM with an MSI](https://azure.microsoft.com/resources/samples/compute-ruby-msi-vm/) |
-|      | [Manage resources from an MSI-enabled VM](https://azure.microsoft.com/resources/samples/resources-ruby-manage-resources-with-msi/) | 
+| Node.js| [Manage resources using Managed Service Identity](https://azure.microsoft.com/resources/samples/resources-node-manage-resources-with-msi/) |
+| Python | [Use MSI to authenticate simply from inside a VM](https://azure.microsoft.com/resources/samples/resource-manager-python-manage-resources-with-msi/) |
+| Ruby   | [Manage resources from an MSI-enabled VM](https://azure.microsoft.com/resources/samples/resources-ruby-manage-resources-with-msi/) | 
 
 ## Additional information
 
 ### Token expiration
 
-TBD (do we recommend calling every time or caching? See Rashid's sample for catching the exception after timeout and retrying.)
+The local MSI subsystem caches tokens. Therefore, you can call it as often as you like, and an on-the-wire call to Azure AD results only if:
+- a cache miss occurs due to no token in the cache
+- the token is expired
+
+If you cache the token in your code, you should be prepared to handle scenarios where the resource indicates that the token is expired.
 
 ### Resource IDs for Azure services
 

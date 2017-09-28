@@ -38,6 +38,8 @@
 - name: Managed Service Identity
   href: msi-overview.md
   items:
+    - name: How to sign in or acquire a token
+      href: msi-how-to-get-access-token-using-msi.md
     - name: Configure MSI for an Azure VM
       items:
       - name: With the Azure Portal
