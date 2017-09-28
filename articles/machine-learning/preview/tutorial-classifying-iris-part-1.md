@@ -61,7 +61,7 @@ Follow the [Install and create Quickstart](quickstart-installation.md) to instal
    - On the first screen, select the **File(s)/Directory** option, then click **Next**.
    - On the second screen, choose the **iris.csv** local file, for example "C:\Temp\myIris\iris.csv".
    - On the third screen **File Details**, accept default values.
-   - On the fourth screen **Data Types**, change the **DATA TYPE** from _String_ to _Numeric_ for _Column1_ through _Column5_ since these are all numerical values. 
+   - On the fourth screen **Data Types**, change the **DATA TYPE** from _String_ to _Numeric_ for _Column1_ through _Column4_ since these are all numerical values. 
    - On the fifth and the sixth screens, accept the default settings.
    - Click the **Finish** button.
 
