@@ -27,7 +27,6 @@ To configure conditional access for VPN connectivity, you need to complete the f
 1.	Configure your VPN server.
 2.	Configure your VPN client.
 3.	Configure your conditional access policy.
-4.	Verification.
 
 
 ## Before you begin
@@ -37,7 +36,7 @@ This topic assumes that you're familiar with the following topics:
 - [Conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md)
 - [VPN and conditional access](https://docs.microsoft.com/windows/access-protection/vpn/vpn-conditional-access)
 
-You might also want to take a look at [Enhancing remote access in Windows 10 with an automatic VPN profile](https://www.microsoft.com/itshowcase/Article/Content/894/Enhancing-remote-access-in-Windows-10-with-an-automatic-VPN-profile) to gain insights on how Microsoft implements this feature.   
+To gain insights on how Microsoft implements this feature, see [Enhancing remote access in Windows 10 with an automatic VPN profile](https://www.microsoft.com/itshowcase/Article/Content/894/Enhancing-remote-access-in-Windows-10-with-an-automatic-VPN-profile).   
 
 
 ## Prerequisites
@@ -54,7 +53,7 @@ This step configures root certificates for VPN authentication with Azure AD. To 
 2. Download the VPN certificate.
 2. Deploy the certificate to your VPN server.
 
-The VPN certificate is the issuer used by Azure AD to sign certificates issued to Windows 10 clients when authenticating to Azure AD for VPN connectivity. The token that the Windows 10 client requests is a certificate that then presents to the application, which, in this case, is the VPN server.
+Azure AD uses the VPN certificate to sign certificates issued to Windows 10 clients when authenticating to Azure AD for VPN connectivity. The token that the Windows 10 client requests is a certificate that then presents to the application, which, in this case, is the VPN server.
 
 ![Download certificate for conditional access](./media/active-directory-conditional-access-vpn-connectivity-windows10/06.png)
 
@@ -117,7 +116,7 @@ This section provides you with instructions for configuring your conditional acc
 
     ![Select add on conditional access page](./media/active-directory-conditional-access-vpn-connectivity-windows10/07.png)
 
-2. On the **New** page, in the **Name** textbox, type a name for your policy. For example, **VPN policy**.
+2. On the **New** page, in the **Name** textbox, type a name for your policy. For example, type **VPN policy**.
 
     ![Add name for policy on conditional access page](./media/active-directory-conditional-access-vpn-connectivity-windows10/08.png)
 
