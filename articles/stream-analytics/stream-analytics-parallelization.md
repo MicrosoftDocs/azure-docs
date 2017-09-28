@@ -4,7 +4,7 @@ description: Learn how to scale Stream Analytics jobs by configuring input parti
 keywords: data streaming, streaming data processing, tune analytics
 services: stream-analytics
 documentationcenter: ''
-author: samacha
+author: JSeb225
 manager: jhubbard
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/22/2017
-ms.author: samacha
+ms.author: jeanb
 
 ---
 # Leverage query parallelization in Azure Stream Analytics
@@ -172,43 +172,12 @@ When a query is partitioned, the input events are processed and aggregated in se
 All non-partitioned steps together can scale up to six streaming units (SUs) for a Stream Analytics job. In addition to this, you can add 6 SUs for each partition in a partitioned step.
 You can see some **examples** in the table below.
 
-<table border="1">
-<tr><th>Query</th><th>Max SUs for the job</th></td>
-
-<tr><td>
-<ul>
-<li>The query contains one step.</li>
-<li>The step is not partitioned.</li>
-</ul>
-</td>
-<td>6</td></tr>
-
-<tr><td>
-<ul>
-<li>The input data stream is partitioned by 16.</li>
-<li>The query contains one step.</li>
-<li>The step is partitioned.</li>
-</ul>
-</td>
-<td>96 (6 * 16 partitions)</td></tr>
-
-<tr><td>
-<ul>
-<li>The query contains two steps.</li>
-<li>Neither of the steps is partitioned.</li>
-</ul>
-</td>
-<td>6</td></tr>
-
-<tr><td>
-<ul>
-<li>The input data stream is partitioned by 3.</li>
-<li>The query contains two steps. The input step is partitioned and the second step is not.</li>
-<li>The <strong>SELECT</strong> statement reads from the partitioned input.</li>
-</ul>
-</td>
-<td>24 (18 for partitioned steps + 6 for non-partitioned steps)</td></tr>
-</table>
+| Query                                               | Max SUs for the job |
+| --------------------------------------------------- | ------------------- |
+| <ul><li>The query contains one step.</li><li>The step is not partitioned.</li></ul> | 6 |
+| <ul><li>The input data stream is partitioned by 16.</li><li>The query contains one step.</li><li>The step is partitioned.</li></ul> | 96 (6 * 16 partitions) |
+| <ul><li>The query contains two steps.</li><li>Neither of the steps is partitioned.</li></ul> | 6 |
+| <ul><li>The input data stream is partitioned by 3.</li><li>The query contains two steps. The input step is partitioned and the second step is not.</li><li>The <strong>SELECT</strong> statement reads from the partitioned input.</li></ul> | 24 (18 for partitioned steps + 6 for non-partitioned steps |
 
 ### Examples of scaling
 
@@ -240,7 +209,7 @@ Each of the **Input1** partitions will be processed separately by Stream Analyti
 
 This query can be scaled to 24 SUs.
 
-> [NOTE]
+> [!NOTE]
 > If you are joining two streams, make sure that the streams are partitioned by the partition key of the column that you use to create the joins. Also make sure that you have the same number of partitions in both streams.
 > 
 > 
