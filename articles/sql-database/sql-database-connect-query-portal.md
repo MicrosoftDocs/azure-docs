@@ -19,7 +19,7 @@ ms.topic: hero-article
 ms.date: 08/01/2017
 ms.author: ayolubek
 ---
-# Azure Portal: Use the SQL Query Editor to connect and query data
+# Azure portal: Use the SQL Query Editor to connect and query data
 
 The SQL Query Editor is a browser query tool that provides an efficient and lightweight way to execute SQL queries on your Azure SQL Database or Azure SQL Data Warehouse without leaving the Azure portal. This quick start demonstrates how to use the Query Editor to connect to a SQL database, and then use Transact-SQL statements to query, insert, update, and delete data in the database. 
 
@@ -39,7 +39,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Connect to your database using SQL Authentication
 > [!NOTE]
-> Make sure that the "Allow access to Azure Services" option is set to "ON" in your SQL Server firewall settings. This option gives the SQL Query Editor access to your databases and datawarehouses.
+> Make sure that the "Allow access to Azure Services" option is set to "ON" in your SQL Server firewall settings. This option gives the SQL Query Editor access to your databases and data warehouses.
 
 1. Click **SQL databases** from the left-hand menu and click the database you would like to query.
 
@@ -76,9 +76,9 @@ Configuring an Active Directory administrator enables you to use a single identi
 Navigate to the SQL database you would like to query, click the **Tools command** on the toolbar, and select the **Query editor (preview)** option. The Query editor page opens and automatically connects you to the database.
 
 
-## Query your database with query editor
+## Query your database with Query Editor
 
-After you are authenticated, type the following query in the query editor pane to query for the top 20 products by category.
+After you are authenticated, type the following query in the Query editor pane to query for the top 20 products by category.
 
 ```sql
  SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
@@ -91,7 +91,7 @@ Click **Run** and then review the query results in the **Results** pane.
 
 ![query editor results](./media/sql-database-get-started-portal/query-editor-results.png)
 
-## Insert data into your database using query editor
+## Insert data into your database using Query Editor
 
 Use the following code to insert a new product into the SalesLT.Product table using the [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL statement.
 
@@ -133,7 +133,7 @@ Use the following code to update the new product that you previously added using
 
 2. On the toolbar, click **Run** to update the specified row in the Product table.
 
-## Delete data using query editor
+## Delete data using Query Editor
 
 Use the following code to delete the new product that you previously added using the [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL statement.
 
@@ -161,7 +161,7 @@ There are a few things to know when working with the Query Editor while it remai
 
 5. There is no support for IntelliSense for database tables and views. However, the editor does support auto-complete on names that have already been typed. 
 
-6. Pressing the F5 key will refresh the query editor page and lose the query that is being worked on. Use the Run button on the toolbar to execute queries.
+6. Pressing the F5 key will refresh the Query editor page and lose the query that is being worked on. Use the Run button on the toolbar to execute queries.
 
 
 ## Next steps
