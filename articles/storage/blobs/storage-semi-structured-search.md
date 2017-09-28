@@ -43,11 +43,11 @@ To complete this tutorial you need a REST client. For the purposes of this tutor
 
 After installing postman, launch it.
 
-If this is your first time making REST calls to Azure, here's a brief introduction of the important components for this tutorial: The request method for every call in this tutorial is "POST." The header keys, which are "Content-type" and "api-key." The values of the header keys, which are "application/json" and your "admin key" (this is a placeholder for your search primary key) respectively. The body is where you place the actual contents of your call. Depending on the client you're using, there may be some variations on how you construct your query but those are the basics.
+If this is your first time making REST calls to Azure, here's a brief introduction of the important components for this tutorial: The request method for every call in this tutorial is "POST." The header keys are "Content-type" and "api-key." The values of the header keys are "application/json" and your "admin key" (this is a placeholder for your search primary key) respectively. The body is where you place the actual contents of your call. Depending on the client you're using, there may be some variations on how you construct your query, but those are the basics.
 
   ![Semi-structured search](media/storage-unstructured-structured-search/postmanoverview.png)
 
-For the calls covered in this tutorial, search api-key is required, it can be found under **Keys** inside your search service. This api-key must be in the header of every API call (place it where "admin key" in the preceding screenshot) this tutorial directs you to make. Retain this since you need it for each call.
+For the calls covered in this tutorial, your search api-key is required, it can be found under **Keys** inside your search service. This api-key must be in the header of every API call (repalce "admin key" in the preceding screenshot with it) this tutorial directs you to make. Retain this since you need it for each call.
 
   ![Semi-structured search](media/storage-unstructured-structured-search/keys.png)
 
@@ -65,7 +65,7 @@ Log in to the [Azure portal](http://portal.azure.com).
 
 Navigate back to the storage account from the previous tutorial, open the **data** container, and click **Upload**.
 
-Click **Advanced** and enter "clinical-trials-json", then upload all of the JSON files you downloaded.
+Click **Advanced**, enter "clinical-trials-json", and then upload all of the JSON files you downloaded.
 
   ![Semi-structured search](media/storage-unstructured-structured-search/clinicalupload.png)
 
@@ -75,7 +75,7 @@ After the upload completes, the files should appear in their own subfolder insid
 
 We are using the REST API to perform the connection because the UI does not currently support JSON indexing.
 
-The querystring must contain **api-version=2016-09-01-Preview** and each call should return a **201 Created**. The generally available api-version does not yet have the capability to handle json as a jsonArray, currently only the preview api-version does.
+The query string must contain **api-version=2016-09-01-Preview** and each call should return a **201 Created**. The generally available api-version does not yet have the capability to handle json as a jsonArray, currently only the preview api-version does.
 
 Execute the following three API calls from your REST client.
 
@@ -85,7 +85,7 @@ A data source is what you use to specify what data to index.
 
 The endpoint of this call is `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`, replace `[service name]` with the name of your search service.
 
-For this call, you need the name of your storage account and your storage account key, the storage account key can be found in your storage account under **Access Keys**. Location pictured following:
+For this call, you need the name of your storage account and your storage account key. The storage account key can be found in your storage account under **Access Keys**. Location pictured following:
 
   ![Semi-structured search](media/storage-unstructured-structured-search/storagekeys.png)
 
@@ -128,7 +128,7 @@ The second API call creates an index, it sets all the parameters and their attri
 
 The URL for this call is `https://[service name].search.windows.net/indexes?api-version=2016-09-01-Preview`, replace `[service name]` with the name of your search service.
 
-Replace the URL, then copy and paste the following code into your body and run the query.
+First replace the URL. Then copy and paste the following code into your body and run the query.
 
 ```json
 {
@@ -218,7 +218,7 @@ An indexer connects the data source to the target search index and (optionally) 
 
 The URL for this call is `https://[service name].search.windows.net/indexers?api-version=2016-09-01-Preview`, replace `[service name]` with the name of your search service.
 
-Replace the URL, then copy and paste the following code into your body and run the query.
+First replace the URL. Then copy and paste the following code into your body and run the query.
 
 ```json
 {
@@ -257,7 +257,7 @@ The response should look like:
 
 ## Search your JSON files
 
-Now that the search service has been connected to your data container you can begin searching your files.
+Now that your search service has been connected to your data container you can begin searching your files.
 
 Open up the Azure portal and navigate back to your search service. Just like you did in the previous tutorial.
 
@@ -265,7 +265,7 @@ Open up the Azure portal and navigate back to your search service. Just like you
 
 ### User-defined metadata search
 
-As before, the data can be queried in a number of ways: full text search, system properties, or user-defined metadata. Both system properties and user-defined metadata may only be searched with the select parameter if they were marked as retrievable during creation of the target index. Once parameters are created in the target index they may not be altered, though additional parameters may be added.
+As before, the data can be queried in a number of ways: full text search, system properties, or user-defined metadata. Both system properties and user-defined metadata may only be searched with the `$select` parameter if they were marked as retrievable during creation of the target index. Once parameters are created in the target index they may not be altered, though additional parameters may be added.
 
 A basic query would be `$select=Gender,metadata_storage_size`, which limits the return to those two parameters.
 
@@ -275,13 +275,13 @@ A more complex query would be `$filter=MinimumAge ge 30 and MaximumAge lt 75`, w
 
   ![Semi-structured search](media/storage-unstructured-structured-search/metadatashort.png)
 
-If you'd like to experiment and try a few more queries yourself, feel free to do so. Know that Logical operators (and, or, not) work as well as comparison operators (eq, ne, gt, lt, ge, le). String comparisons are case-sensitive.
+If you'd like to experiment and try a few more queries yourself, feel free to do so. Know that you can use Logical operators (and, or, not) and comparison operators (eq, ne, gt, lt, ge, le). String comparisons are case-sensitive.
 
 The `$filter` parameter only works with metadata that were marked filterable at the creation of your index.
 
 ## Next steps
 
-In this tutorial, you learned about searching semi-structured data such as how to:
+In this tutorial, you learned about searching semi-structured data, such as how to:
 
 > [!div class="checklist"]
 > * Create an Azure Search Service using the REST API

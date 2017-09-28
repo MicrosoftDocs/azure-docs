@@ -39,7 +39,6 @@ A sample data set has been prepared for you. **Download [clinical-trials.zip](ht
 
 Contained in the sample is a set of text files obtained from [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). You are using them as example text files to search using Azure.
 
-
 ## Log in to Azure
 
 Log in to the [Azure portal](http://portal.azure.com).
@@ -52,7 +51,7 @@ Currently, there are two types of storage accounts, **Blob** and **General-purpo
 
 If you are not familiar with the process of creating a General-purpose storage account, here's how to create one:
 
-1. From the left menu, select **Storage Accounts**, then select **Add.**
+1. From the left menu, select **Storage Accounts**, then select **Add**.
 
 2. Enter a name for your storage account. 
 
@@ -62,7 +61,7 @@ If you are not familiar with the process of creating a General-purpose storage a
 
 5. Under **Resource group**, select **Create new** and enter a unique name.
 
-6. Leave the remaining values as their defaults but be sure to select an appropriate subscription.
+6. Select an appropriate subscription.
 
 7. Choose a Location and select **Create.**
 
@@ -104,7 +103,7 @@ Now that you have a container, you can upload your example data to it.
 
 The upload process may take a moment.
 
-After it completes, navigate back into your data container, to confirm the text files uploaded.
+After it completes, navigate back into your data container to confirm the text files uploaded.
 
   ![Unstructured search](media/storage-unstructured-structured-search/clinicalfolder.png)
 
@@ -116,7 +115,7 @@ If you are not familiar with the process of creating a search service, here's ho
 
 1. Navigate to your storage account.
 
-2. Scroll down and click **Add Azure Search** under **BLOB SERVICE.**
+2. Scroll down and click **Add Azure Search** under **BLOB SERVICE**.
 
 3. Under **Import Data**, select **Search Service**.
 
@@ -128,7 +127,7 @@ If you are not familiar with the process of creating a search service, here's ho
 
 6. Under **Resource group**, select **Use existing** and choose the resource group you created earlier.
 
-7. For the **Pricing tier**, select the **Free** tier and click Select.
+7. For the **Pricing tier**, select the **Free** tier and click **Select**.
 
 8. Select **Create** to create the search service.
 
@@ -146,7 +145,7 @@ Now that you have a search service, you can attach it to your blob storage. This
 
 ### New Data Source
 
-  A data source specifies which data to index, how to access the data. A data source can be used multiple times in the same search service.
+  A data source specifies which data to index and how to access the data. A data source can be used multiple times in the same search service.
 
 1. Enter a name for the data source. Under **Data to extract** select **Content and Metadata**. This specifies which parts of the blob are indexed.
     
@@ -168,7 +167,7 @@ Now that you have a search service, you can attach it to your blob storage. This
 
 ### Configure the Index
 
-  An index is a collection of fields from your data source that are able to be searched.    
+  An index is a collection of fields from your data source that can be searched. The index is how your search service knows in what ways your data should be searched.
 
 1. Enter a name for your index in the **index name** field.
 
@@ -176,11 +175,11 @@ Now that you have a search service, you can attach it to your blob storage. This
 
   ![Unstructured search](media/storage-unstructured-structured-search/valuestoselect.png)
 
-3. Click **OK**, which brings up **Create an Indexer.**
+3. Click **OK**, which brings up **Create an Indexer**.
 
-The parameters of your index and what attributes you give those parameters are important. The parameters specify *what* data to store, the attributes specify *how* to store that data.
+The parameters of your index and the attributes you give those parameters are important. The parameters specify *what* data to store, the attributes specify *how* to store that data.
 
-The following table provides a listing of the available attributes and their descriptions.
+The **FIELD NAME** column contains the parameters. The following table provides a listing of the available attributes and their descriptions.
 
 ### Field attributes
 | Attribute | Description |
@@ -201,7 +200,7 @@ The following table provides a listing of the available attributes and their des
 
   ![Unstructured search](media/storage-unstructured-structured-search/exindexer.png)
 
-2. You are brought back to **Import Data** select **OK** to complete the connection process.
+2. You are brought back to **Import Data**, select **OK** to complete the connection process.
 
 You've now successfully connected your blob to your search service. The search service begins indexing immediately and you can begin searching right away.
 
@@ -209,7 +208,7 @@ You've now successfully connected your blob to your search service. The search s
 
 To search your files, you need to open the search explorer inside the index of your newly created search service.
 
-The following steps show you where to find it and provide you some example queries:
+The following steps show you where to find it and provides you some example queries:
 
 1. Navigate to all resources and find your newly created search service.
 
@@ -229,7 +228,7 @@ The following steps show you where to find it and provide you some example queri
 
 ### Full-text search 
 
-In the **Query string** field "Myopia" and select **Search**. This initiates a search of the contents of the files, returns a subset of them that contain the word "Myopia."
+Enter "Myopia" in the **Query string** field and select **Search**. This initiates a search of the contents of the files and returns a subset of them that contains the word "Myopia."
 
   ![Unstructured search](media/storage-unstructured-structured-search/secondMyopia.png) 
 
@@ -251,7 +250,7 @@ Make sure **not** to delete any resources created in this tutorial, as most of t
 
 ## Next steps
 
-In this tutorial, you learned about searching unstructured data such as how to:
+In this tutorial, you learned about searching unstructured data, such as how to:
 
 > [!div class="checklist"]
 > * Create a resource group
