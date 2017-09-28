@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 09/25/2017
+ms.date: 09/28/2017
 ---
 
 # Classifying Iris part 1: Prepare data
@@ -61,7 +61,7 @@ Follow the [Install and create Quickstart](quickstart-installation.md) to instal
    - On the first screen, select the **File(s)/Directory** option, then click **Next**.
    - On the second screen, choose the **iris.csv** local file, for example "C:\Temp\myIris\iris.csv".
    - On the third screen **File Details**, accept default values.
-   - On the fourth screen **Data Types**, change the **DATA TYPE** from _String_ to _Numeric_ for _Column1_ through _Column5_ since these are all numerical values. 
+   - On the fourth screen **Data Types**, change the **DATA TYPE** from _String_ to _Numeric_ for _Column1_ through _Column4_ since these columns are numeric values. 
    - On the fifth and the sixth screens, accept the default settings.
    - Click the **Finish** button.
 
