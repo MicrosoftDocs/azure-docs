@@ -35,11 +35,9 @@ Java annotations are included in the `azure-functions-java-core` package to bind
 Binding | Annotation
 ---|---
 CosmosDB | N/A
-Event Hubs | <ul><li>`EventHubTrigger`</li><li>`EventHubOutput`</li></ul> 
 HTTP | <ul><li>`HttpTrigger`</li><li>`HttpOutput`</li></ul>
 Mobile Apps | N/A
 Notification Hubs | N/A
-Service Bus | <ul><li>`ServiceBusQueueTrigger`</li><li>`ServiceBusQueueOutput`</li><li>`ServiceBusTopicTrigger`</li><li>`ServiceBusTopicOutput`</li></ul>
 Storage Blob | <ul><li>`BlobTrigger`</li><li>`BlobOutput`</li><li>`StorageAccount`</li></ul>
 Storage Queue | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li><li>`StorageAccount`</li></ul>
 Storage Table | <ul><li>`TableInput`</li><li>`TableOutput`</li><li>`StorageAccount`</li></ul>
@@ -47,6 +45,8 @@ Timer | <ul><li>`TimerTrigger`</li></ul>
 Twilio | N/A
 
 Trigger inputs and outputs can also be defined in the [function.json](/azure/azure-functions/functions-reference#function-code) for your application.
+
+> [IMPORTANT] You must configure an Azure Storage account in your [local.settings.json](/azure/azure-functions/functions-run-local#local-settings-file) to run Blob, Queue, or Table storage triggers locally.
 
 Example using annotations:
 
@@ -103,7 +103,7 @@ You are free to use all the data types in Java for the input and output data, in
 
 ### Strings
 
-Strings passed into function methods will be interpreted directly as Strings by the function method if the input parameter type for the function is of type `String`. 
+Strings passed into function methods will be interpreted directly as String objects by the function method if the input parameter type for the function is of type `String`. 
 
 ### Plain old Java objects (POJOs)
 
@@ -116,8 +116,6 @@ public class MyData {
     private int x;
 }
 ```
-
-### Byte arrays
 
 ## Function method overloading
 
@@ -231,6 +229,16 @@ and define the output binding in `function.json`:
   ]
 }
 ```
+## Specialized Types
+
+Sometimes a function need to take a more detailed control of the input and output, and that's why we also provide some specialized types in the `azure-functions-java-core` package for you to manipulate:
+
+| Specialized Type      |       Target        | Typical Usage                  |
+| --------------------- | :-----------------: | ------------------------------ |
+| `HttpRequestMessage`  |    HTTP Trigger     | Get method, headers or queries |
+| `HttpResponseMessage` | HTTP Output Binding | Return status other than 200   |
+
+> [NOTE] You can also use `@Bind` annotation to get HTTP headers and queries. For example, `@Bind("name") String query` will try to iterate the HTTP request headers and queries and pass that value to the method; `query` will be `"test"` if the request URL is `http://example.org/api/echo?name=test`.
 
 ## Functions execution context
 
@@ -257,15 +265,3 @@ public class Function {
     }
 }
 ```
-
-
-## Specialized Types
-
-Sometimes a function need to take a more detailed control of the input and output, and that's why we also provide some specialized types in the `azure-functions-java-core` package for you to manipulate:
-
-| Specialized Type      |       Target        | Typical Usage                  |
-| --------------------- | :-----------------: | ------------------------------ |
-| `HttpRequestMessage`  |    HTTP Trigger     | Get method, headers or queries |
-| `HttpResponseMessage` | HTTP Output Binding | Return status other than 200   |
-
-> [NOTE] You can also use `@Bind` annotation to get HTTP headers and queries. For example, `@Bind("name") String query` will try to iterate the HTTP request headers and queries and pass that value to the method; `query` will be `"test"` if the request URL is `http://example.org/api/echo?name=test`.
