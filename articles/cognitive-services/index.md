@@ -2,7 +2,7 @@
 title: Azure Cognitive Services Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to add intelligent capabilities to your applications, such as vision, speech, and language analytics. Get quick start guides and API references.
 services: cognitive-services
-author: czeumault
+author: v-thepet
 manager: carolz
 layout: LandingPage
 ms.assetid:
@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 04/10/2017
-ms.author: carolz
+ms.author: v-thepet
 ---
 # Cognitive Services Documentation
 
