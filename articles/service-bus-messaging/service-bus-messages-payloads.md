@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus messages, payloads, and serialization | Microsoft Docs
-description: Overview of Service Bus message handling
+description: Overview of Service Bus message payloads
 services: service-bus-messaging
 documentationcenter: ''
 author: clemensv
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 09/28/2017
 ms.author: sethm
 
 ---
@@ -23,7 +23,7 @@ Microsoft Azure Service Bus handles messages. Messages carry a payload as well a
 
 The object model of the official Service Bus clients for .NET and Java reflect the abstract Service Bus message structure, which is mapped to and from the wire protocols Service Bus supports.
  
-A Service Bus message consists of a binary payload section that Service Bus never handles in any form on the service-side, and two sets of properties. The "broker properties" are predefined by the system. These predefined properties either control message-level functionality inside the broker, or they map to common and standardized metadata items. The "user properties" are a collection of key-value pairs that can be defined and set by the application.
+A Service Bus message consists of a binary payload section that Service Bus never handles in any form on the service-side, and two sets of properties. The *broker properties* are predefined by the system. These predefined properties either control message-level functionality inside the broker, or they map to common and standardized metadata items. The *user properties* are a collection of key-value pairs that can be defined and set by the application.
  
 The predefined broker properties are listed in the following table. The names are used with all official client APIs and also in the [BrokerProperties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Properties_) JSON object of the HTTP protocol mapping.
  
@@ -55,11 +55,11 @@ The equivalent names used at the AMQP protocol level are listed in parentheses.
 | [To](/dotnet/api/microsoft.azure.servicebus.message.to) (to)                               | This property is reserved for future use in routing scenarios and presently ignored by the broker itself. Applications can use this value in rule-driven auto-forward chaining scenarios to indicate the intended logical destination of the message.                                                                                                                                                                                   |
 | [Via​Partition​Key](/dotnet/api/microsoft.azure.servicebus.message.viapartitionkey)                       | If a message is sent via a transfer queue in the scope of a transaction, this value selects the transfer queue partition.                                                                                                                                                                                                                                                                                                                 |
 
-The abstract message model enables a message to be posted to a queue via HTTP (actually always HTTPS) and can be retrieved via AMQP. In either case, the message looks "normal" in the context of the respective protocol. The broker properties are translated as needed, and the user properties are mapped to the most appropriate location on the respective protocol message model. In HTTP, user properties map directly to and from HTTP headers; in AMQP they map to and from the application-properties map.
+The abstract message model enables a message to be posted to a queue via HTTP (actually always HTTPS) and can be retrieved via AMQP. In either case, the message looks normal in the context of the respective protocol. The broker properties are translated as needed, and the user properties are mapped to the most appropriate location on the respective protocol message model. In HTTP, user properties map directly to and from HTTP headers; in AMQP they map to and from the **application-properties** map.
 
 ## Message routing and correlation
 
-A subset of the broker properties described previously, specifically **To**, **ReplyTo**, **ReplyToSessionId**, **MessageId**, **CorrelationId**, and **SessionId**, are used to help applications route messages to particular destinations. To illustrate this, consider a few patterns:
+A subset of the broker properties described previously, specifically [To](/dotnet/api/microsoft.azure.servicebus.message.to), [ReplyTo](/dotnet/api/microsoft.azure.servicebus.message.replyto), [ReplyToSessionId](/dotnet/api/microsoft.azure.servicebus.message.replytosessionid), [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid), [CorrelationId](/dotnet/api/microsoft.azure.servicebus.message.correlationid), and [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid), are used to help applications route messages to particular destinations. To illustrate this, consider a few patterns:
 
 - **Simple request/reply**: A publisher sends a message into a queue and expects a reply from the message consumer. To receive the reply, the publisher owns a queue into which it expects replies to be delivered. The address of that queue is expressed in the outbound message's **ReplyTo** property. When the consumer responds, it copies the **MessageId** of the handled message into the **CorrelationId** property of the reply message and delivers the message to the destination indicated by the **ReplyTo** property. One message can yield multiple replies, depending on the application context.
 - **Multicast request/reply**: As a variation of the prior pattern, a publisher sends the message into a topic and multiple subscribers become eligible to consume the message. Each of the subscribers might respond in the fashion described previously. This pattern is used in discovery or roll-call scenarios and the respondent typically identifies itself with a user property or inside the payload. If **ReplyTo** points to a topic, such a set of discovery responses can be distributed to an audience.
@@ -70,7 +70,7 @@ Routing inside of a Service Bus namespace can be realized using auto-forward cha
 
 ## Payload serialization
 
-When in transit or stored inside of Service Bus, the payload is always an opaque, binary block. The **ContentType** property enables applications to describe the payload, with the suggested format for the property values being a MIME content-type description according to IETF RFC2045; for example, `application/json;charset=utf-8`.
+When in transit or stored inside of Service Bus, the payload is always an opaque, binary block. The [ContentType](/dotnet/api/microsoft.azure.servicebus.message.contenttype) property enables applications to describe the payload, with the suggested format for the property values being a MIME content-type description according to IETF RFC2045; for example, `application/json;charset=utf-8`.
 
 Unlike the Java or .NET Standard variants, the .NET Framework version of the Service Bus API supports creating **BrokeredMessage** instances by passing arbitrary .NET objects into the constructor. 
 
