@@ -21,7 +21,6 @@ ms.author: subramar
 
 When you're running multiple services on the same node or cluster, it's possible that one service might consume more resources, starving other services in the process. This problem is referred to as the "noisy-neighbor" problem. Service Fabric enables the developer to specify reservations and limits per service to guarantee resources and limit resource usage.
 
->
 > Before proceeding with this article, we recommend that you get familiar with the [Service Fabric application model](service-fabric-application-model.md), and with the [Service Fabric hosting model](service-fabric-hosting-model.md).
 >
 
@@ -30,6 +29,7 @@ When you're running multiple services on the same node or cluster, it's possible
 Resource governance is supported in Service Fabric per the [Service Package](service-fabric-application-model.md). The resources that are assigned to Service Package can be further divided between code packages. The resource limits that are specified also mean the reservation of the resources. Service Fabric supports specifying CPU and memory per service package, with two built-in [metrics](service-fabric-cluster-resource-manager-metrics.md):
 
 * *CPU* (metric name `servicefabric:/_CpuCores`): A logical core that's available on the host machine. All cores across all nodes are weighted the same.
+
 * *Memory* (metric name `servicefabric:/_MemoryInMB`): Memory is expressed in megabytes, and it maps to physical memory that is available on the machine.
 
 For these two metrics, the [Cluster Resource Manager](service-fabric-cluster-resource-manager-cluster-description.md) tracks total cluster capacity, the load on each node in the cluster, and the remaining resources in the cluster. These two metrics are equivalent to any other user or custom metric. All existing features can be used with them:
@@ -45,17 +45,23 @@ The Service Fabric runtime currently does not provide reservation for resources.
 
 1. First, a container is placed on the node, requesting one CPU core. The runtime opens the container and sets the CPU limit to one core. The container won't able to use more than one core.
 
-2. Then, a replica of service is placed on the node, and the corresponding service package specifies a limit of one CPU core. The runtime opens the code package and sets its CPU limit to one core.
+2. Then, a replica of a service is placed on the node, and the corresponding service package specifies a limit of one CPU core. The runtime opens the code package and sets its CPU limit to one core.
 
-At this point, the sum of limits is equal to the capacity of the node. A process and a container are running with one core each and not interfering with each other. Service Fabric doesn't place any more containers or replicas when they are specifying CPU limit. However, there are two situations in which other processes might contend for CPU. In these situations, a process and a container from our example might experience the noisy neighbor problem:
+At this point, the sum of limits is equal to the capacity of the node. A process and a container are running with one core each and not interfering with each other. Service Fabric doesn't place any more containers or replicas when they are specifying the CPU limit.
 
-* Mixing governed and non-governed services and containers: If a user creates a service without any resource governance specified, the runtime sees it as consuming no resources, and can place it on the node in our example. In this case, this new process effectively consumes some CPU at the expense of the services that are already running on the node. There are two solution to this problem. Either don't mix governed and non-governed services on the same cluster, or use [placement constraints](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) so that these two types of services don't end up on the same set of nodes.
+However, there are two situations in which other processes might contend for CPU. In these situations, a process and a container from our example might experience the noisy neighbor problem:
 
-* When another process is started on the node, outside of Service Fabric (for example, an OS service), that process also contends for CPU with existing services. The solution to this problem is to set up node capacities correctly to account for OS overhead, as shown in the next section.
+* *Mixing governed and non-governed services and containers*: If a user creates a service without any resource governance specified, the runtime sees it as consuming no resources, and can place it on the node in our example. In this case, this new process effectively consumes some CPU at the expense of the services that are already running on the node. There are two solution to this problem. Either don't mix governed and non-governed services on the same cluster, or use [placement constraints](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) so that these two types of services don't end up on the same set of nodes.
+
+* *When another process is started on the node, outside of Service Fabric (for example, an OS service)*: In this situation, the process outside of Service Fabric also contends for CPU with existing services. The solution to this problem is to set up node capacities correctly to account for OS overhead, as shown in the next section.
 
 ## Cluster setup for enabling resource governance
 
-When a node starts and joins the cluster, Service Fabric detects the available amount of memory and the available number of cores, and then sets the node capacities for those two resources. To leave buffer space for the operating system, and for other processes might be running on the node, Service Fabric uses only 80% of the available resources on the node. This percentage is configurable, and can be changed in the cluster manifest. Here is an example of how to instruct Service Fabric to use 50% of available CPU and 70% of available memory: 
+When a node starts and joins the cluster, Service Fabric detects the available amount of memory and the available number of cores, and then sets the node capacities for those two resources. 
+
+To leave buffer space for the operating system, and for other processes might be running on the node, Service Fabric uses only 80% of the available resources on the node. This percentage is configurable, and can be changed in the cluster manifest. 
+
+Here is an example of how to instruct Service Fabric to use 50% of available CPU and 70% of available memory: 
 
 ```xml
 <Section Name="PlacementAndLoadBalancing">
@@ -78,6 +84,7 @@ If you need full manual setup of node capacities, you can use the regular mechan
 
 When auto-detection of available resources is enabled, and node capacities are manually defined in the cluster manifest, Service Fabric checks that the node has enough resources to support the capacity that the user has defined:
 * If node capacities that are defined in the manifest are less than or equal to the available resources on the node, then Service Fabric uses the capacities that are specified in the manifest.
+
 * If node capacities that are defined in the manifest are greater than available resources, Service Fabric uses the available resources as node capacities.
 
 Auto-detection of available resources can be turned off if it is not required. To turn it off, change the following setting:
@@ -122,7 +129,9 @@ Resource governance limits are specified in the application manifest (ServiceMan
   </ServiceManifestImport>
 ```
   
-In this example, the service package called **ServicePackageA** gets one core on the nodes where it is placed. This service package contains two code packages (**CodeA1** and **CodeA2**), and both specify the `CpuShares` parameter. The proportion of CpuShares 512:256  divides the core across the two code packages. Thus, in this example, CodeA1 gets two-thirds of a core, and CodeA2 gets one-third of a core (and a soft-guarantee reservation of the same). If CpuShares are not specified for code packages, Service Fabric divides the cores equally among them.
+In this example, the service package called **ServicePackageA** gets one core on the nodes where it is placed. This service package contains two code packages (**CodeA1** and **CodeA2**), and both specify the `CpuShares` parameter. The proportion of CpuShares 512:256  divides the core across the two code packages. 
+
+Thus, in this example, CodeA1 gets two-thirds of a core, and CodeA2 gets one-third of a core (and a soft-guarantee reservation of the same). If CpuShares are not specified for code packages, Service Fabric divides the cores equally among them.
 
 Memory limits are absolute, so both code packages are limited to 1024 MB of memory (and a soft-guarantee reservation of the same). Code packages (containers or processes) can't allocate more memory than this limit, and attempting to do so results in an out-of-memory exception. For resource limit enforcement to work, all code packages within a service package should have memory limits specified.
 
@@ -149,5 +158,7 @@ These resources can be combined with CPU and memory. Here is an example of how t
 ```
 
 ## Next steps
-* To learn more about Cluster Resource Manager, read this [article](service-fabric-cluster-resource-manager-introduction.md).
-* To learn more about the application model, service packages, code packages, and how replicas map to them read this [article](service-fabric-application-model.md).
+* To learn more about Cluster Resource Manager, read [Introducing the Service Fabric cluster resource manager]
+
+(service-fabric-cluster-resource-manager-introduction.md).
+* To learn more about the application model, service packages, code packages, and how replicas map to them, read [Model an application in Service Fabric](service-fabric-application-model.md).
