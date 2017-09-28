@@ -147,7 +147,9 @@ To run scale-out Spark jobs, you need to create an Apache Spark for Azure HDInsi
 
 1. Log on to Azure portal from https://portal.azure.com
 2. Click on the **+NEW** link, and search for "HDInsight".
+
     ![find hdi](media/how-to-create-dsvm-hdi/hdi.png)
+    
 3. Choose **HDInsight** in the list, and then click on the **Create** button.
 4. In the **Basics** configuration screen, **Cluster type** settings, make sure you choose **Spark** as the _Cluster type_, **Linux** as the _Operating system_, and **Spark 2.1.0 (HDI 3.6)** as the _Version.
 
