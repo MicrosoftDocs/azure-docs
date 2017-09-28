@@ -81,6 +81,14 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
   * Dynamics 365 for Customer Service
   * Dynamics 365 for Field Service
   * Dynamics 365 for Project Service
+* Using [route filters](#route-filters-for-microsoft-peering), you get access to the same public services with the Microsoft peering :
+  * Power BI
+  * Dynamics 365 for Finance and Operations
+  * Most of the Azure services, with the following few exceptions :
+    * CDN
+    * Visual Studio Team Services Load Testing
+    * Multi-factor Authentication
+    * Traffic Manager
 
 ## Data and connections
 
