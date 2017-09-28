@@ -4,17 +4,35 @@
   items:
     - name: Customize your search
       href: overview.md
-    - name: How it works
-      href: how-it-works.md
 - name: Quickstarts
   expanded: true
   items:
-    - name: Build a custom search service
-      href: quickstart.md
+    - name: Get started
+      href: quick-start.md
+- name: How to  
+  items:
+    - name: Call Bing Custom Search endpoint
+      items:
+        - name: C#
+          href: call-endpoint-csharp.md
+        - name: Java
+          href: call-endpoint-java.md
+        - name: Nodejs
+          href: call-endpoint-nodejs.md        
+    - name: Define your custom view
+      href: define-your-custom-view.md
+    - name: Rank results
+      href: rank-results.md
+    - name: Handle hit highlighting
+      href: hit-highlighting.md
+    - name: Page webpages
+      href: page-webpages.md
+    - name: Configure hosted UI
+      href: hosted-ui.md
 - name: References
   items:
-    - name: Bing Web Search API Use and Display Requirements
-      href: https://docs.microsoft.com/azure/cognitive-services/bing-web-search/useanddisplayrequirements
+    - name: Bing Autosuggest API
+      href: ../bing-autosuggest/get-suggested-search-terms.md
 - name: Resources
   items:
   - name: Azure Roadmap
