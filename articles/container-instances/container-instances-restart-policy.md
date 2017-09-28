@@ -88,15 +88,15 @@ New-AzureRmContainerGroup `
 
 ---
 
-This container runs a Python script that, by default, analyzes the text of Shakespeare's [Hamlet](http://shakespeare.mit.edu/hamlet/full.html), writes the 10 most common words to STDOUT, and then exits. You can modify the behavior of the script, however, by specifying a new command line and environment variables when you create the container instance.
+This container runs a Python script that, by default, analyzes the text of Shakespeare's [Hamlet](http://shakespeare.mit.edu/hamlet/full.html), writes the 10 most common words to STDOUT, and then exits. You can modify the behavior of the script, however, by setting the container's environment variables or specifying a new command line and when you create it.
 
 ## Configure containers at runtime
 
-When you create a container instance, you can set its environment variables, as well as specify a custom command line to execute when the container is started. Your job can use these settings for task-specific configuration when creating a container for each of its tasks.
+When you create a container instance, you can set its **environment variables**, as well as specify a custom **command line** to execute when the container is started. You can use these settings in your batch jobs to prepare each container with task-specific configuration.
 
 ## Environment variables
 
-Set environment variables in your container to provide dynamic configuration of the script or application run by the container. This is similar to the `--env` command-line argument to `docker run`.
+Set environment variables in your container to provide dynamic configuration of the application or script run by the container. This is similar to the `--env` command-line argument to `docker run`.
 
 For example, you can modify the behavior of the script run by the container in the earlier example by specifying the following environment variables when you create the container instance:
 
