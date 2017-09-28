@@ -36,6 +36,8 @@ You can either publish your app directly to the **Production Slot** where end us
 
     >[!NOTE]
     >The option to enable Bing Spell Check is included with your LUIS subscription. However, you need to add `spellcheck=true` to the URL when you call the LUIS app endpoint to turn on spell checking. Checking the **Enable Bing Spell Checker** check box will append `spellcheck=true` to the URL that displays in the **Publish app** page when publish is complete. 
+
+    
 5. If you want the JSON response of your published app to include all intents defined in your app and their prediction scores, click **Add Verbose Flag** checkbox. Otherwise, it will include only the top scoring intent.
 6. Click **Train** if the app wasn't trained already.  
 
