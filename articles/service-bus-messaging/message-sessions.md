@@ -29,13 +29,13 @@ Typically, however, an application has a clear notion of where a set of related 
 
 An example of how to delineate a sequence for transferring a file is to set the **Label** property for the first message to **start**, for intermediate messages to **content**, and for the last message to **end**. The relative position of the content messages can be computed as current message's *SequenceNumber* delta from the **start** message's *SequenceNumber*.
 
-The session feature in Service Bus enables a specific kind of receive operation, in the form of [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) in the C# and Java APIs. You enable the feature by setting the [requiresSession](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) property on the queue or subscription via Azure Resource Manager, or by setting the flag in the portal. This is required before you attempt to use the related API operations.
+The session feature in Service Bus enables a specific receive operation, in the form of [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) in the C# and Java APIs. You enable the feature by setting the [requiresSession](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) property on the queue or subscription via Azure Resource Manager, or by setting the flag in the portal. This is required before you attempt to use the related API operations.
 
 In the portal, the flag is set with the following check box:
 
 ![][2]
 
-The API gestures for sessions exist on queue and subscription clients. There is an imperative model where you control when sessions and messages are received, and a handler-based model, very similar to *OnMessage*, that hides the complexity of managing the receive loop.
+The API gestures for sessions exist on queue and subscription clients. There is an imperative model where you control when sessions and messages are received, and a handler-based model, similar to *OnMessage*, that hides the complexity of managing the receive loop.
 
 ## Session features
 
@@ -49,7 +49,7 @@ When the [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesess
 
 The lock is released when **Close** or **CloseAsync** are called, or when the lock expires in cases in which the application is unable to do so. The session lock should be treated like an exclusive lock on a file, meaning that the application should close the session as soon as it no longer needs it and/or does not expect any further messages.
 
-When multiple concurrent receivers pull from the queue, the messages belonging to a particular session are dispatched to the specific receiver that currently holds the lock for that session. With that, an interleaved message stream residing in one queue or subscription will be cleanly de-multiplexed to different receivers and those receivers can also live on different client machines, since the lock management happens service-side, inside Service Bus.
+When multiple concurrent receivers pull from the queue, the messages belonging to a particular session are dispatched to the specific receiver that currently holds the lock for that session. With that operation, an interleaved message stream residing in one queue or subscription is cleanly de-multiplexed to different receivers and those receivers can also live on different client machines, since the lock management happens service-side, inside Service Bus.
 
 A queue is, however, still a queue: there is no random access. If multiple concurrent receivers wait to accept specific sessions or wait for messages from specific sessions and there is a message at the top of a queue belonging to a session that no receiver has yet claimed, deliveries hold until a session receiver claims that session.
 
