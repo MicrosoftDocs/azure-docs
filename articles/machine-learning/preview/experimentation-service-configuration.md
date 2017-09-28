@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
 ---
-#Configuring Azure Machine Learning Experimentation Service
+# Configuring Azure Machine Learning Experimentation Service
 
 ## Overview of Azure Machine Learning Experimentation Service
 Azure ML (Azure Machine Learning) Experimentation Service enables data scientists to execute their experiments using Azure ML's execution and run management capabilities. It provides a framework for agile experimentation with fast iterations. Azure ML Workbench allows you to start with local runs on your machine and an easy path for scaling up and out to other environments such as remote Data Science VMs with GPU or HDInsight Clusters running Spark.
@@ -123,7 +123,7 @@ Azure ML Workbench creates a corresponding .runconfig file when you create a com
 Run configurations show up as part of experiment run experience in the Workbench application. 
 
 >[!NOTE]
->You can learn more about the run configuration file in the [Experiment Execution Configuration Reference](experimentation-service-configuration.md) Section.
+>You can learn more about the run configuration file in the [Experiment Execution Configuration Reference](experimentation-service-configuration-reference.md) Section.
 
 ## Running a script locally on Azure ML Workbench-installed runtime
 Azure ML Workbench enables you to run your scripts directly against the Azure ML Workbench-installed Python 3.5.2 runtime. This default runtime is installed at Azure ML Workbench set-up time and includes Azure ML libraries and dependencies. Run results and artifacts for local executions are still saved in Run History Service in the cloud.
@@ -145,7 +145,7 @@ $ conda env list
 >Running PySpark locally directly against local Spark environments is currently **not** supported. Azure ML Workbench does support PySpark scripts running on local Docker. Azure ML base Docker image comes with Spark 2.1.11 pre-installed. 
 
 _**Overview of local execution for a Python script:**_
-![](media/experiment-execution-configuration/local-native-run.png)
+![](media/experimentation-service-configuration/local-native-run.png)
 
 ## Running a script on local Docker
 You can also run your projects on a Docker container on your local machine through Azure ML Experimentation Service. Azure ML Workbench provides a base Docker image that comes with Azure ML libraries and as well as Spark 2.1.11 runtime to make local Spark executions easy. Docker needs to be already running on the local machine.
