@@ -1,7 +1,7 @@
 ---
 title: Azure Quick Start - Back up a VM with Azure CLI | Microsoft Docs
 description: Learn how to back up your virtual machines with the Azure CLI
-services: virtual-machines-linux, azure-backup
+services: backup, virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
@@ -9,12 +9,12 @@ editor:
 tags: azure-resource-manager, virtual-machine-backup
 
 ms.assetid: 
-ms.service: virtual-machines-linux, azure-backup
+ms.service: backup, virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
-ms.date: 09/18/2017
+ms.workload: storage-backup-recovery
+ms.date: 09/28/2017
 ms.author: iainfou
 ms.custom: mvc
 ---
@@ -40,7 +40,7 @@ az provider register --namespace Microsoft.RecoveryServices
 ## Create a recovery services vault
 A Recovery Services vault is a logical container that stores the backup data for each protected resource, such as Azure VMs. When the backup job for a protected resource runs, it creates a recovery point inside the Recovery Services vault. You can then use one of these recovery points to restore data to a given point in time.
 
-Create a Recovery Services vault with **az backup vault create**. Specify the same resource group and location as the VM you wish to protect. If you used the [VM quickstart](../virtual-machines/linux/quick-create-cli.md), the resource group is named *myResourceGroup*, the VM is named *myVM*, and the resources are in the *eastus* location.
+Create a Recovery Services vault with [az backup vault create](/cli/azure/backup/vault#az_backup_vault_create). Specify the same resource group and location as the VM you wish to protect. If you used the [VM quickstart](../virtual-machines/linux/quick-create-cli.md), the resource group is named *myResourceGroup*, the VM is named *myVM*, and the resources are in the *eastus* location.
 
 ```azurecli-interactive 
 az backup vault create --resource-group myResourceGroup \
