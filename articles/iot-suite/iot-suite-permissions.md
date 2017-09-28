@@ -102,7 +102,7 @@ You must be an AAD global administrator to change roles for a user:
 
 ### I'm a service administrator and I'd like to change the directory mapping between my subscription and a specific AAD tenant. How do I complete this task?
 
-See [To add an existing subscription to your Azure AD directory](../active-directory/active-directory-how-subscriptions-associated-directory#to-add-an-existing-subscription-to-your-azure-ad-directory)
+See [To add an existing subscription to your Azure AD directory](../active-directory/active-directory-how-subscriptions-associated-directory.md#to-add-an-existing-subscription-to-your-azure-ad-directory)
 
 ### I'm a domain user/member on the AAD tenant and I've created a preconfigured solution. How do I get assigned a role for my application?
 
