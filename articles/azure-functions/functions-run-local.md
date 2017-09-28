@@ -32,7 +32,7 @@ If you are a Visual Studio C# developer, Azure Functions also [integrates with V
 
 ### Version 1.0 runtime
 
-The original version of the tools uses the Functions 1.0 runtime. This version uses the .NET Framework and is only supported on Windows computers. Use the following command to to install the version 1.0 tools:
+The original version of the tools uses the Functions 1.0 runtime. This version uses the .NET Framework and is only supported on Windows computers. Use the following command to install the version 1.0 tools:
 
 ```bash
 npm install -g azure-functions-core-tools
@@ -47,7 +47,7 @@ Version 2.0 of the tools uses the Azure Function runtime 2.0 that is built on .N
 >
 > Azure Functions runtime 2.0 is in preview and currently not all features of Azure Functions are supported. For more information, see [Azure Functions runtime 2.0 known issues](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues) 
 
- Use the following command to to install the version 2.0 tools:
+ Use the following command to install the version 2.0 tools:
 
 ```bash
 npm install -g azure-functions-core-tools@core
@@ -72,7 +72,7 @@ sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
 * **azfun**
 * **azurefunctions**
 
-All of these alias can be used instead of `func` shown in the examples in this topic.
+All of these aliases can be used instead of `func` shown in the examples in this topic.
 
 ```
 func init MyFunctionProj
@@ -147,7 +147,7 @@ When no valid storage connection string is set for **AzureWebJobsStorage**, the 
 
 ### Configure app settings
 
-To set a value for connection strings, you can do one of the following:
+To set a value for connection strings, you can do one of the following options:
 * Enter the connection string from [Azure Storage Explorer](http://storageexplorer.com/).
 * Use one of the following commands:
 
@@ -203,7 +203,7 @@ func host start
 | **`--cors`** | A comma-separated list of CORS origins, with no spaces. |
 | **`--nodeDebugPort -n`** | The port for the node debugger to use. Default: A value from launch.json or 5858. |
 | **`--debugLevel -d`** | The console trace level (off, verbose, info, warning, or error). Default: Info.|
-| **`--timeout -t`** | The time out for the Functions host t     o start, in seconds. Default: 20 seconds.|
+| **`--timeout -t`** | The timeout for the Functions host to start, in seconds. Default: 20 seconds.|
 | **`--useHttps`** | Bind to https://localhost:{port} rather than to http://localhost:{port}. By default, this option creates a trusted certificate on your computer.|
 | **`--pause-on-error`** | Pause for additional input before exiting the process. Useful when launching Azure Functions Core Tools from an integrated development environment (IDE).|
 
@@ -273,7 +273,7 @@ This command requires that the function app exists in Azure, it doesn't create t
 The `publish` command uploads the contents of the Functions project directory. If you delete files locally, the `publish` command does not delete them from Azure. You can delete files in Azure by using the [Kudu tool](functions-how-to-use-azure-function-app-settings.md#kudu) in the [Azure portal].  
 
 >[!IMPORTANT]  
-> When publishing from version 2.0 of the tools, your function app will use the Function runtime version 1.0 by default. To instead use the runtime version 2.0, you must add the application setting `FUNCTIONS_EXTENSION_VERSION=beta`.  
+> When publishing from version 2.0 of the tools, your function app uses version 1.0 of the Function runtime by default. To have the function app instead use version 2.0 of the Functions runtime, you must add the application setting `FUNCTIONS_EXTENSION_VERSION=beta`.  
 Use the following Azure CLI code to add this setting to your function app: 
 ```azurecli-interactive
 az functionapp config appsettings set --name <function_app> \
