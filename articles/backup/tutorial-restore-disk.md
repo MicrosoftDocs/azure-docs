@@ -1,7 +1,7 @@
 ---
 title: Restore a VM disk with Azure Backup | Microsoft Docs
 description: Learn how to restore a disk and create a recover a VM in Azure with Backup and Recovery Services.
-services: virtual-machines, azure-backup
+services: backup, virtual-machines
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
@@ -9,12 +9,12 @@ editor:
 tags: azure-resource-manager, virtual-machine-backup
 
 ms.assetid: 
-ms.service: virtual-machines, azure-backup
+ms.service: backup, virtual-machines
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/19/2017
+ms.date: 09/28/2017
 ms.author: iainfou
 ms.custom: mvc
 ---
@@ -47,7 +47,7 @@ When the data transfer is complete, the snapshot is removed and a recovery point
 ## List available recovery points
 To restore a disk, you select a recovery point as the source for the recovery data. As the default policy creates a recovery point each day and retains them for 30 days, you can keep a set of recovery points that allows you to select a particular point in time for recovery. 
 
-To see a list of available recovery points, use **az backup recoverypoint list**. The recovery point **name** is used to recover disks. In this tutorial, we want the most recent recovery point available. The `--query [0].name` parameter selects the most recent recovery point name as follows:
+To see a list of available recovery points, use [az backup recoverypoint list](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list). The recovery point **name** is used to recover disks. In this tutorial, we want the most recent recovery point available. The `--query [0].name` parameter selects the most recent recovery point name as follows:
 
 ```azurecli-interactive
 az backup recoverypoint list \
@@ -72,7 +72,7 @@ To restore your disk from the recovery point, you first create an Azure storage 
         --sku Standard_LRS
     ```
 
-2. Restore the disk from your recovery point with **az backup restore restore-disks**. Replace *mystorageaccount* with the name of the storage account you created in the preceding command. Replace *myRecoveryPointName* with the recovery point name you obtained in the output from the previous **az backup recoverypoint list** command:
+2. Restore the disk from your recovery point with [az backup restore restore-disks](/cli/azure/backup/restore?view=azure-cli-latest#az_backup_restore_restore_disks). Replace *mystorageaccount* with the name of the storage account you created in the preceding command. Replace *myRecoveryPointName* with the recovery point name you obtained in the output from the previous [az backup recoverypoint list](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list) command:
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -86,7 +86,7 @@ To restore your disk from the recovery point, you first create an Azure storage 
 
 
 ## Monitor the restore job
-To monitor the status of restore job, use **az backup job list**:
+To monitor the status of restore job, use [az backup job list](/cli/azure/backup/job?view=azure-cli-latest#az_backup_job_list):
 
 ```azurecli-interactive 
 az backup job list \
