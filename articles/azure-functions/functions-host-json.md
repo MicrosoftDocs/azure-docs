@@ -206,6 +206,7 @@ The unique ID for a job host. Can be a lower case GUID with dashes removed. Requ
 Controls filtering for logs written by an [ILogger object](functions-monitoring.md#write-logs-in-c-functions) or by [context.log](functions-monitoring.md#write-logs-in-javascript-functions).
 
 ```javascript
+{
     "logger": {
         "categoryFilter": {
             "defaultLevel": "Information",
