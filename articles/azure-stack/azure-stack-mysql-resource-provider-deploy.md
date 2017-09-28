@@ -154,8 +154,6 @@ Depending on the system performance and download speeds, installation may take a
 
 4. As you add servers, you must assign them to a new or existing SKU to allow differentiation of service offerings. For example, you could have an enterprise instance providing database capacity and automatic backup, reserve high-performance servers for individual departments, etc. The SKU name should reflect the properties so that tenants can place their databases appropriately and all hosting servers in a SKU should have the same capabilities.
 
-    ![Create a MySQL SKU](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
-
 
 >[!NOTE]
 SKUs can take up to an hour to be visible in the portal. You cannot create a database until the SKU is created.
@@ -177,8 +175,6 @@ SKUs can take up to an hour to be visible in the portal. You cannot create a dat
     ![Select a SKU](./media/azure-stack-mysql-rp-deploy/mysql-select-a-sku.png)
 
 5. Create a login setting. The login setting can be reused or a new one created. This contains the user name and password for the database.
-
-    ![Create a new database login](./media/azure-stack-mysql-rp-deploy/create-new-login.png)
 
     The connections string includes the real database server name. Copy it from the portal.
 

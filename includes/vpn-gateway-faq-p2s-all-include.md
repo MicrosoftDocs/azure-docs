@@ -20,13 +20,9 @@ We support up to 128 VPN clients to be able to connect to a virtual network at t
 
 Azure supports two types of Point-to-site VPN options:
 
-* Secure Socket Tunneling Protocol (SSTP)
+* Secure Socket Tunneling Protocol (SSTP). SSTP is a Microsoft proprietary SSL-based solution that can penetrate firewalls since most firewalls open the TCP port that 443 SSL uses.
 
-  SSTP is a Microsoft proprietary SSL-based solution that can penetrate firewalls since most firewalls open the TCP port that 443 SSL uses.
-
-* IKEv2 VPN
-
-  IKEv2 VPN is a standards-based IPsec VPN solution that uses UDP port 500 and 4500 and IP protocol no. 50. Firewalls do not always open these ports, so there is a possibility of IKEv2 VPN not being able to traverse proxies and firewalls.
+* IKEv2 VPN. IKEv2 VPN is a standards-based IPsec VPN solution that uses UDP port 500 and 4500 and IP protocol no. 50. Firewalls do not always open these ports, so there is a possibility of IKEv2 VPN not being able to traverse proxies and firewalls.
 
 ### If I restart a client computer configured for Point-to-Site, will the VPN automatically reconnect?
 
@@ -51,3 +47,21 @@ It's difficult to maintain the exact throughput of the VPN tunnels. IPsec and SS
 ### Can I use any software VPN client for Point-to-Site that supports SSTP and/or IKEv2?
 
 No. You can only use the native VPN client on Windows for SSTP, and the native VPN client on Mac for IKEv2. Refer to the list of supported client operating systems.
+
+### Can I access the Internet when I am connected over P2S VPN?
+
+Yes, you can access the Internet while on a P2S VPN.
+
+### Does Azure support IKEv2 VPN with Windows?
+
+Users can connect to Azure using the built-in Windows VPN client, which does support IKEv2. But, IKEv2 connections from a Windows device won't work in the following scenario:
+
+  When the user's device contains a large number of trusted root certificates, the message payload size during IKE exchange is large and causes IP layer fragmentation. The fragments are rejected at the Azure end, which results in the connection failing. The exact certificate count at which this problem occurs is difficult to estimate. As a result, IKEv2 connections from Windows devices are not guaranteed to work. When you configure both SSTP and IKEv2 in a mixed environment (consisting of Windows and Mac devices), the Windows VPN profile always tries IKEv2 tunnel first. If it fails due to the issue described here, it falls back to SSTP.
+
+### Other than Windows and Mac, which other platforms does Azure support for P2S VPN?
+
+Azure supports only Windows and Mac for P2S VPN.
+
+### I already have an Azure VPN Gateway deployed. Can I enabled RADIUS and/or IKEv2 VPN on it?
+
+Yes, you can enable these new features on already deployed gateways, both through Powershell and the Azure portal.

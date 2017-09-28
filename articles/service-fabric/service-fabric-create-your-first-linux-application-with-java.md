@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/23/2017
+ms.date: 09/20/2017
 ms.author: ryanwi
 
 ---
@@ -129,7 +129,7 @@ Use the uninstall script provided in the template to delete the application inst
 In Service Fabric explorer you see that the application and application type no longer appear in the **Applications** node.
 
 ## Service Fabric Java libraries on Maven
-Service Fabric Java libraries have been hosted in Maven. You can add the dependencies in the ``pom.xml`` or ``build.gradle`` of your projects to use Service Fabric Java libraries from **mavenCentral**.
+Service Fabric Java libraries have been hosted in Maven. You can add the dependencies in the ``pom.xml`` or ``build.gradle`` of your projects to use Service Fabric Java libraries from **mavenCentral**. 
 
 ### Actors
 

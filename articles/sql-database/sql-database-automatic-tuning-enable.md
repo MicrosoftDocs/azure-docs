@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: NA
-ms.date: 06/05/2016
+ms.date: 09/19/2016
 ms.author: vvasic
 
 ---
@@ -38,7 +38,7 @@ The Azure portal enables you to individually specify the automatic tuning config
 > The general recommendation is to manage the automatic tuning configuration at server level so the same configuration settings can be applied on every database automatically. Configure automatic tuning on an individual database if the database is different that others on the same server.
 >
 
-To enable automatic tuning on a single database, navigate to the database in the Azure portal and then and select **Automatic tuning**. You can configure a single database to inherit the settings from the database by selecting the checkbox or you can specify the configuration for a database individually.
+To enable automatic tuning on a single database, navigate to the database in the Azure portal and then and select **Automatic tuning**. You can configure a single database to inherit the settings from the server by selecting the option or you can specify the configuration for a database individually.
 
 ![Database](./media/sql-database-automatic-tuning-enable/database.png)
 
