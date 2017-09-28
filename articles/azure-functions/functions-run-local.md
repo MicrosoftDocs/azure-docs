@@ -116,7 +116,7 @@ To set a value for connection strings, you can do one of the following:
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
     ```
-    func azure functionapp storage fetch-connection-string <StorageAccountName>
+    func azure storage fetch-connection-string <StorageAccountName>
     ```
     Both commands require you to first sign-in to Azure.
 
