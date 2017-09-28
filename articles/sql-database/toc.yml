@@ -17,7 +17,7 @@
     items:
     - name: SSMS
       href: sql-database-connect-query-ssms.md
-    - name: Azure Portal
+    - name: Azure portal
       href: sql-database-connect-query-portal.md
     - name: VS Code
       href: sql-database-connect-query-vscode.md
