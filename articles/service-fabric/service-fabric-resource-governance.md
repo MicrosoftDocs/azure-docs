@@ -26,7 +26,7 @@ When you're running multiple services on the same node or cluster, it's possible
 
 ## Resource governance metrics 
 
-Resource governance is supported in Service Fabric per the [Service Package](service-fabric-application-model.md). The resources that are assigned to Service Package can be further divided between code packages. The resource limits that are specified also mean the reservation of the resources. Service Fabric supports specifying CPU and memory per service package, with two built-in [metrics](service-fabric-cluster-resource-manager-metrics.md):
+Resource governance is supported in Service Fabric per the [service package](service-fabric-application-model.md). The resources that are assigned to the service package can be further divided between code packages. The resource limits that are specified also mean the reservation of the resources. Service Fabric supports specifying CPU and memory per service package, with two built-in [metrics](service-fabric-cluster-resource-manager-metrics.md):
 
 * *CPU* (metric name `servicefabric:/_CpuCores`): A logical core that's available on the host machine. All cores across all nodes are weighted the same.
 
