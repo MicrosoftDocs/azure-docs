@@ -358,9 +358,9 @@ When using route filters, any customer can turn on Microsoft peering. However, f
 
 No, you do not need authorization for Dynamics 365. You can create a rule and select Dynamics 365 community without authorization.
 
-### I already have Microsoft peering, how can I take advantage of route filters?
+### I enabled Microsoft peering prior to August 1st, 2017, how can I take advantage of route filters?
 
-You can create a route filter, select the services you want to use, and attach the filter to your Microsoft peering. For instructions, see [Configure route filters for Microsoft peering](how-to-routefilter-powershell.md).
+Your existing circuit will continue advertising the prefixes for Office 365 and Dynamics 365. If you want to add Azure public prefixes advertisements over the same Microsoft peering, you can create a route filter, select the services you need advertised (including the Office 365 service(s) you need and Dynamics 365), and attach the filter to your Microsoft peering. For instructions, see [Configure route filters for Microsoft peering](how-to-routefilter-powershell.md).
 
 ### I have Microsoft peering at one location, now I am trying to enable it at another location and I am not seeing any prefixes.
 
