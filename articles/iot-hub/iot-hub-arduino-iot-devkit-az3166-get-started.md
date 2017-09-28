@@ -125,7 +125,7 @@ We encourage you to use the installation package to prepare the development envi
 The .zip file that you download contains all the necessary tools and packages for DevKit development.
 
 > [!div class="button"]
-[Download](https://azureboard.azureedge.net/prod/installpackage/devkit_install_1.0.2.zip)
+[Download](https://azureboard.azureedge.net/prod/installpackage/devkit_install_1.1.0.zip)
 
 
 The .zip file contains the following tools and packages. If you already have some components installed, the script will detect and skip them.
