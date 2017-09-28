@@ -55,7 +55,7 @@ You can either publish your app directly to the **Production Slot** where end us
 ## Test your published endpoint in a browser
 If you want to test your published endpoint in a browser using the generated URL, click the URL to open it in your browser, then set the URL parameter "&q" to your test query. For example, append `&q=Book me a flight to Boston on May 4"` to your URL, and then press Enter. The browser displays the JSON response of your HTTP endpoint. 
 
-![JSON response from a published HTTP endpoint](./media/luis-publish-app-json-response.png)
+![JSON response from a published HTTP endpoint](./media/luis-how-to-publish-app/luis-publish-app-json-response.png)
 
 
 ## Next steps
