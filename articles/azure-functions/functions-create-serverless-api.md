@@ -67,7 +67,7 @@ In the next section, you will surface your API through a proxy. Azure Functions 
 
 A proxy can point to any HTTP resource, such as:
 - Azure Functions 
-- API apps in [Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-value-prop-what-is)
+- API apps in [Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
 - Docker containers in [App Service on Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro)
 - Any other hosted API
 
