@@ -23,15 +23,15 @@ You can either publish your app directly to the **Production Slot** where end us
 
 ## Publish your app to an HTTP endpoint
 
-1. Open your app (e.g. TravelAgent) by clicking its name on **My Apps** page, and then click **Publish App** in the left panel to access the **Publish App** page. The screenshot below shows the Publish page if you haven't published your app yet.
+1. Open your app by clicking its name on **My Apps** page, and then click **Publish App** in the left panel to access the **Publish App** page. The screenshot below shows the Publish page if you haven't published your app yet.
 
     ![Publish page-](./media/luis-how-to-publish-app/luis-first-publish.png)
  
-    If you have previously published this app, this page will look like the following screenshot: 
+    If you have previously published this app, this page looks like the following screenshot: 
  
     ![Publish page](./media/luis-how-to-publish-app/luis-republish.png)
 2. If you want to use a key other than the Starter key, click **Change** next to the **Assigned endpoint key** label. This opens a dialog that allows you to select an existing endpoint key to assign to the app. For more information on how to create and add endpoint keys to your LUIS app, see [Manage your keys](Manage-Keys.md).
-3. Choose whether to publish to **Production** or to **Staging** slot by selecting the corresponding value from the **Endpoint Slot** list. 
+3. Choose whether to publish to **Production** or to **Staging** by selecting from the **Endpoint Slot** list. 
 4. If you want to enable Bing Spell Check, click the **Enable Bing Spell Checker** check box. 
 
     >[!NOTE]
@@ -47,13 +47,13 @@ You can either publish your app directly to the **Production Slot** where end us
     >If the **Publish** button is disabled, then either your app does not have an assigned an endpoint key, or you have not trained your app yet.
 
     > [!TIP]
-    > The endpoint URL corresponds to the Azure region associated with the endpoint key. See [Regions and keys](./Manage-Keys.md#regions-and-keys) for more information.
+    > The endpoint URL corresponds to the Azure region associated with the endpoint key. For more information, see [Regions and keys](./Manage-Keys.md#regions-and-keys).
 
 
 ## Test your published endpoint in a browser
 If you want to test your published endpoint in a browser using the generated URL, click the URL to open it in your browser, then set the URL parameter "&q" to your test query. For example, append `&q=Book me a flight to Boston on May 4"` to your URL, and then press Enter. The browser displays the JSON response of your HTTP endpoint. 
 
-![JSON response of published HTTP endpoint](./Images/PublishApp-JSONresponse.JPG)
+![JSON response of published HTTP endpoint](./media/luis-publish-app-json-response.png)
 
 
 ## Next steps
