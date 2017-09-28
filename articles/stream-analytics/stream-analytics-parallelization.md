@@ -50,7 +50,7 @@ An *embarrassingly parallel* job is the most scalable scenario we have in Azure 
 
 1. If your query logic depends on the same key being processed by the same query instance, you must make sure that the events go to the same partition of your input. For event hubs, this means that the event data must have the **PartitionKey** value set. Alternatively, you can use partitioned senders. For blob storage, this means that the events are sent to the same partition folder. If your query logic does not require the same key to be processed by the same query instance, you can ignore this requirement. An example of this logic would be a simple select-project-filter query.  
 
-2. Once the data is laid out on the input side, you must make sure that your query is partitioned. This requires you to use **Partition By** in all the steps. Multiple steps are allowed, but they all must be partitioned by the same key. Currently, the partitioning key must be set to **PartitionId** in order for the job to be fully parallel.  
+2. Once the data is laid out on the input side, you must make sure that your query is partitioned. This requires you to use **PARTITION BY** in all the steps. Multiple steps are allowed, but they all must be partitioned by the same key. Currently, the partitioning key must be set to **PartitionId** in order for the job to be fully parallel.  
 
 3. Currently only event hubs and blob storage support partitioned output. For event hub output, you must configure the partition key to be **PartitionId**. For blob storage output, you don't have to do anything.  
 
@@ -74,7 +74,7 @@ Query:
     FROM Input1 Partition By PartitionId
     WHERE TollBoothId > 100
 
-This query is a simple filter. Therefore, we don't need to worry about partitioning the input that is being sent to the event hub. Notice that the query includes **Partition By PartitionId**, so it fulfills requirement #2 from earlier. For the output, we need to configure the event hub output in the job to have the parition key set to **PartitionId**. One last check is to make sure that the number of input partitions is equal to the number of output partitions.
+This query is a simple filter. Therefore, we don't need to worry about partitioning the input that is being sent to the event hub. Notice that the query includes **PARTITION BY PartitionId**, so it fulfills requirement #2 from earlier. For the output, we need to configure the event hub output in the job to have the parition key set to **PartitionId**. One last check is to make sure that the number of input partitions is equal to the number of output partitions.
 
 ### Query with a grouping key
 
@@ -87,7 +87,7 @@ Query:
     FROM Input1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
 
-This query has a grouping key. Therefore, the events grouped together must be sent to the same Event Hub partition. Since in this example we group by TollBoothID, we should be sure that TollBoothID is used as the partition key when the events are sent to Event Hub. Then in ASA, we can use Partition By PartitionId to inherit from this partition scheme and enable full parallelization. Since the output is blob storage, we don't need to worry about configuring a partition key value, as per requirement #4.
+This query has a grouping key. Therefore, the events grouped together must be sent to the same Event Hub partition. Since in this example we group by TollBoothID, we should be sure that TollBoothID is used as the partition key when the events are sent to Event Hub. Then in ASA, we can use **PARTITION BY PartitionId** to inherit from this partition scheme and enable full parallelization. Since the output is blob storage, we don't need to worry about configuring a partition key value, as per requirement #4.
 
 ### Multi-step query with a grouping key
 * Input: Event hub with 8 partitions
@@ -105,7 +105,7 @@ Query:
     FROM Step1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
 
-This query has a grouping key, so the same key needs to be processed by the same query instance. We can use the same strategy as in the previous example. In this case, the query has multiple steps. Does each step have Partition By **PartitionId**? Yes, so the query fulfills requirement #3. For the output, we need to set the partition key to **PartitionId**, as discussed earlier. We can also see that it has the same number of partitions as the input.+ 
+This query has a grouping key, so the same key needs to be processed by the same query instance. We can use the same strategy as in the previous example. In this case, the query has multiple steps. Does each step have **PARTITION BY PartitionId**? Yes, so the query fulfills requirement #3. For the output, we need to set the partition key to **PartitionId**, as discussed earlier. We can also see that it has the same number of partitions as the input.+ 
 
 
 ## Example of scenarios that are *not* embarrassingly parallel
@@ -124,7 +124,7 @@ In this case, it doesn't matter what the query is. If the input partition count 
 
 PowerBI output doesn't currently support partitioning. Therefore, this scenario is not embarrassingly parallel.
 
-### Multi-step query with different Partition By values
+### Multi-step query with different PARTITION BY values
 * Input: Event hub with 8 partitions
 * Output: Event hub with 8 partitions
 
@@ -171,7 +171,7 @@ Partitioning a step requires the following conditions:
 
 * The input source must be partitioned. 
 * The **SELECT** statement of the query must read from a partitioned input source.
-* The query within the step must have the **Partition By** keyword.
+* The query within the step must have the **PARTITION BY** keyword.
 
 When a query is partitioned, the input events are processed and aggregated in separate partition groups, and outputs events are generated for each of the groups. If you want a combined aggregate, you must create a second non-partitioned step to aggregate.
 

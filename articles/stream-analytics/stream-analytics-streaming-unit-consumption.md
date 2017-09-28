@@ -49,7 +49,7 @@ Calculate the expected throughput of the workload. If the throughput is less tha
 
 Choosing the number of required SUs for a particular job depends on the partition configuration for the inputs and the query that's defined within the job. The **Scale** blade allows you to set the right number of SUs. It is a best practice to allocate more SUs than needed. The Stream Analytics processing engine optimizes for latency and throughput at the cost of allocating additional memory.
 
-In general, the best practice is to start with 6 SUs for queries that don't use *PARTITION BY*. Then determine the sweet spot by using a trial and error method in which you modify the number of SUs after you pass representative amounts of data and examine the SU% Utilization metric.
+In general, the best practice is to start with 6 SUs for queries that don't use **PARTITION BY**. Then determine the sweet spot by using a trial and error method in which you modify the number of SUs after you pass representative amounts of data and examine the SU% Utilization metric.
 
 For more information about choosing the right number of SUs, see this page: [Scale Azure Stream Analytics jobs to increase throughput](stream-analytics-scale-jobs.md)
 
@@ -65,7 +65,7 @@ One of the unique capability of Azure Stream Analytics job is to perform statefu
 The state size of a windowed aggregate is proportional to the number of groups (cardinality) in the group by operator. 
 For example, in <code>SELECT count(*) from input group by clusterid, tumblingwindow (minutes, 5)</code> query, the number associated with clusterid is the cardinality of the query. 
 
-In order to ameliorate issues caused by high cardinality in the previous query, you can send events to Event Hub partitioned by ''clusterid'', and scale out the query by allowing the system to process each input partition separately using ''Partition By'' as shown in the example below:
+In order to ameliorate issues caused by high cardinality in the previous query, you can send events to Event Hub partitioned by ''clusterid'', and scale out the query by allowing the system to process each input partition separately using **PARTITION BY** as shown in the example below:
 <code>SELECT count(*) from input PARTITION BY PartitionId GROUP BY PartitionId, clusterid, tumblingwindow (minutes, 5)</code>
 Once the query is partitioned out, it is spread out over multiple nodes. As a result, the number of clusterid coming into each node is reduced thereby reducing the cardinality of the group by operator. 
 
@@ -78,7 +78,7 @@ The number of unmatched events in the join affect the memory utilization for the
 
 In this example, it is possible that lots of ads are shown and few people click on it and it is required to keep all the events in the time window. Memory consumed is proportional to the window size and event rate. 
 
-To remediate this, send events to Event Hub partitioned by the join keys (id in this case), and scale out the query by allowing the system to process each input partition separately using the Partition By as shown:
+To remediate this, send events to Event Hub partitioned by the join keys (id in this case), and scale out the query by allowing the system to process each input partition separately using  **PARTITION BY** as shown:
 <code>
 SELECT id from clicks PARTITION BY PartitionId INNER JOIN impressions PARTITION BY PartitionId on impression.PartitionId = clocks.PartitionId AND impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10 
 </code>
@@ -86,18 +86,18 @@ SELECT id from clicks PARTITION BY PartitionId INNER JOIN impressions PARTITION 
 Once the query is partitioned out, it is spread out over multiple nodes. As a results the number of events coming into each node is reduced thereby reducing the size of the state kept in the join window. 
 #### Temporal analytic function
 The state size of a temporal analytic function is proportional to the event rate multiply by the duration. 
-The remediation is similar to temporal join. You can scale out the query using PARTITION BY. 
+The remediation is similar to temporal join. You can scale out the query using **PARTITION BY**. 
 
 ### Out of order buffer 
 User can configure the out of order buffer size in the Event Ordering configuration pane. The buffer is used to hold inputs for the duration of the window, and reorder them. The size of the buffer is proportional to the event input rate multiply by the out of order window size. The default window size is 0. 
 
-To remediate this, scale out query using PARTITION BY. Once the query is partitioned out, it is spread out over multiple nodes. As a results the number of events coming into each node is reduced thereby reducing the number of events in each reorder buffer. 
+To remediate this, scale out query using **PARTITION BY**. Once the query is partitioned out, it is spread out over multiple nodes. As a results the number of events coming into each node is reduced thereby reducing the number of events in each reorder buffer. 
 
 ### Input partition count 
 Each input partition of a job input has a buffer. The larger number of input partitions, the more resource the job consumes. For each SU, Azure Stream Analytics can process roughly 1MB/s of input, so you may want to match ASA SU number with the number of partition of your Event Hub. Typically, 1SU job is sufficient for an Event Hub with 2 partitions (which is the minimum for Event Hub) If the Event Hub has more partitions, your ASA job consumes more resources, but not necessarily uses the extra throughput provided by Event Hub. For a 6SU job, you may need 4 or 8 partitions from the Event Hub. Using an Event Hub with 16 partitions or larger in an 1SU job often contributes to excessive resource usage, and should be avoided. 
 
 ### Reference data 
-Reference data in ASA are loaded into memory for fast lookup. With the current implementation, each join operation with reference data keeps a copy of the reference data in memory, even if you join with the same reference data multiple times. For queries with Partition By, each partition has a copy of the reference data, so the partitions are fully decoupled. With the multiplier effect, memory usage can quickly get very high if you join with reference data multiple times with multiple partitions.  
+Reference data in ASA are loaded into memory for fast lookup. With the current implementation, each join operation with reference data keeps a copy of the reference data in memory, even if you join with the same reference data multiple times. For queries with **PARTITION BY**, each partition has a copy of the reference data, so the partitions are fully decoupled. With the multiplier effect, memory usage can quickly get very high if you join with reference data multiple times with multiple partitions.  
 
 
 
