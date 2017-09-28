@@ -65,7 +65,7 @@ In the query above, you are counting cars per toll booth per partition, and then
 Once partitioned, for each partition of the step, allocate up to 6 SU, each partition having 6 SU is the maximum, so each partition can be placed on its own processing node.
 
 > **Note**
-If your query cannot be divided into several steps or partitioned, adding additional SU may actually reduce the overall throughput.
+ If your query cannot be partitioned, adding additional SU in a multi-steps query may not always improve throughput. One way to gain performance is to reduce volume on the initial steps using local/global aggregate pattern, as described above in step 5.
 
 ## Case 3 - You are running lots of independent queries in a job.
 For certain ISV use cases, where it’s more cost-efficient to process data from multiple tenants in a single job, using separate inputs and outputs for each tenant, you may end up running quite a few (e.g. 20) independent queries in a single job. The assumption is each such subquery’s load is relatively small. 
