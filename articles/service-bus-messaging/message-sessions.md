@@ -63,6 +63,9 @@ The session lock held by the session receiver is an umbrella for the message loc
 
 ## Next steps
 
+- [A complete example](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/BasicSessionSendReceiveUsingQueueClient) of sending and receiving session-based messages from Service Bus queues using the .NET Standard library.
+- [A sample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) that uses the .NET Framework client to handle session-aware messages. 
+
 To learn more about Service Bus messaging, see the following topics:
 
 * [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
