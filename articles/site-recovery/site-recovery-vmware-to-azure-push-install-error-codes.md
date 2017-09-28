@@ -88,9 +88,9 @@ This error can be thrown by the service for multiple reasons. Choose the corresp
 
 ## Resource to troubleshoot push installation problems
 
-#### Troubleshoot File & Print Sharing issues
+#### Troubleshoot File and Print Sharing issues
 *  [Enable or disable File sharing with Group Policy](https://technet.microsoft.com/en-us/library/cc754359(v=ws.10).aspx)
-* [How to enable File & Print sharing through Windows Firewall](https://technet.microsoft.com/en-us/library/ff633412(v=ws.10).aspx)
+* [How to enable File and Print sharing through Windows Firewall](https://technet.microsoft.com/en-us/library/ff633412(v=ws.10).aspx)
 
 #### Troubleshoot WMI issues
 * [Basic WMI Testing](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/)
