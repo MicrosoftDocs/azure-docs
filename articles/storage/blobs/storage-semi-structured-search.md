@@ -10,7 +10,7 @@ tags:
 
 ms.assetid: 
 ms.service: storage
- ms.devlang: na
+ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: storage
 ms.workload: 
