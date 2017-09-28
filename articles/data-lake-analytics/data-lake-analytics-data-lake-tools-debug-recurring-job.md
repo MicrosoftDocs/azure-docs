@@ -37,10 +37,9 @@ Through **Tools > Data Lake > Job View**, you can paste the job URL to open Job 
 
 ![Data Lake Analytics Tools View Related Jobs](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/view-related-job.png)
  
-### Case 2: You know the pipeline for the recurring job, but not the URL
+### Case 2: You have the pipeline for the recurring job, but not the URL
 
 In Visual Studio, you can open Pipeline Browser through **Server Explorer > your Data Lake Analytics account > Pipelines** (if you cannot find this node in Server Explorer, please get the lasted tool [here](http://aka.ms/adltoolsvs)). In Pipeline Browser, all pipelines for the ADLA account are listed at left, you can expand the pipelines to find all recurring jobs, click the one has problems, the Related Job View opens at right.
-
 
 ![Data Lake Analytics Tools View Related Jobs](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/pipeline-browser.png)
 
@@ -68,4 +67,4 @@ You usually need to pay attention to the big differences between these 2 jobs as
 ## Next steps
 
 * [How to debug and resolve data skew issues](data-lake-analytics-data-lake-tools-data-skew-solutions.md)
-* [How to debug U-SQL job failure with user-defined code error](data-lake-analytics-debug-u-sql-jobs.md)
+* [How to debug U-SQL job failure for user-defined code error](data-lake-analytics-debug-u-sql-jobs.md)
