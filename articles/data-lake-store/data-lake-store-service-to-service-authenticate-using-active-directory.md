@@ -53,7 +53,7 @@ When programmatically logging in, you need the ID for your application. If the a
 ## Step 3: Assign the Azure AD application to the Azure Data Lake Store account file or folder
 
 
-1. Sign on to the new [Azure portal](https://portal.azure.com). Open the Azure Data Lake Store account that you want to associate with the Azure Active Directory application you created earlier.
+1. Sign on to the [Azure portal](https://portal.azure.com). Open the Azure Data Lake Store account that you want to associate with the Azure Active Directory application you created earlier.
 2. In your Data Lake Store account blade, click **Data Explorer**.
    
     ![Create directories in Data Lake Store account](./media/data-lake-store-authenticate-using-active-directory/adl.start.data.explorer.png "Create directories in Data Lake account")
@@ -82,7 +82,7 @@ When programmatically logging in, you need the ID for your application. If the a
 
 ## Step 4: Get the OAuth 2.0 token endpoint (only for Java-based applications)
 
-1. Sign on to the new [Azure portal](https://portal.azure.com) and click Active Directory from the left pane.
+1. Sign on to the [Azure portal](https://portal.azure.com) and click Active Directory from the left pane.
 
 2. From the left pane, click **App registrations**.
 

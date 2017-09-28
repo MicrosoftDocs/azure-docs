@@ -38,7 +38,7 @@
 #### [Using Python](data-lake-store-service-to-service-authenticate-python.md)
 
 ## Work with Data Lake Store
-### Account manangement operations
+### Account management operations
 #### [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
 #### [Using REST API](data-lake-store-get-started-rest-api.md)
 #### [Using Python](data-lake-store-get-started-python.md)
