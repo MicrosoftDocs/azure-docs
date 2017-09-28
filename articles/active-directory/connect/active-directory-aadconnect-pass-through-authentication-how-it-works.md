@@ -17,7 +17,7 @@ ms.author: billmath
 ---
 
 # Azure Active Directory Pass-through Authentication: Technical deep dive
-The following article is a overview of how Azure AD Pass-through Authentication works.  For deep technical and security information see [**Azure AD Pass-through Authentication Security Deep Dive**](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md)
+The following article is a overview of how Azure AD Pass-through Authentication works.  For deep technical and security information see [**Azure AD Pass-through Authentication Security Deep Dive**](active-directory-aadconnect-pta-security-deep-dive.md)
 
 ## How does Azure Active Directory Pass-through Authentication work?
 
