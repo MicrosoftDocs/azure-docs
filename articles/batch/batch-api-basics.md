@@ -71,6 +71,10 @@ You can create an Azure Batch account using the [Azure portal](batch-account-cre
 
 You can run multiple Batch workloads in a single Batch account, or distribute your workloads among Batch accounts that are in the same subscription, but in different Azure regions.
 
+> [!NOTE]
+> When creating a Batch account, you should generally choose the default **Batch service** mode, in which pools are allocated behind the scenes in Azure-managed subscriptions. In the alternative **User subscription** mode, which is no longer recommended, Batch VMs and other resources are created directly in your subscription when a pool is created.
+>
+
 
 ## Azure Storage account
 
