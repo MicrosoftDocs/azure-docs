@@ -19,9 +19,9 @@ When you finish building and testing your LUIS app, you can publish it as a web 
 > [!TIP]
 > You can optionally test your app before publishing it. For instructions, see [Train and test your app](Train-Test.md).
 
-You can either publish your app directly to the **Production Slot** where end users can access and use your model, or you can publish to a **Staging Slot** to use as a development workstation where you can work on your app and go through trials and tests to validate any changes before publishing to the production slot. 
+You can either publish your app directly to the **Production Slot** where end users can access and use your model, or you can publish to a **Staging Slot** for working through trials and tests to validate changes before publishing to the production slot. 
 
-**To publish your app to an HTTP endpoint:**
+## Publish your app to an HTTP endpoint
 
 1. Open your app (e.g. TravelAgent) by clicking its name on **My Apps** page, and then click **Publish App** in the left panel to access the **Publish App** page. The screenshot below shows the Publish page if you haven't published your app yet.
 
@@ -35,7 +35,7 @@ You can either publish your app directly to the **Production Slot** where end us
 4. If you want to enable Bing Spell Check, click the **Enable Bing Spell Checker** check box. 
 
     >[!NOTE]
-    >The option to enable Bing Spell Check is included with your LUIS subscription. However, you need to add `spellCheck=true` to the URL when you call the LUIS app endpoint to turn on spell checking. Checking the **Enable Bing Spell Checker** check box will append `spellCheck=true` to the URL that displays in the **Publish app** page when publish is complete. 
+    >For a limited time, the option to enable Bing Spell Check is included with your LUIS subscription. However, you need to add `spellCheck=true` to the URL when you call the LUIS app endpoint to turn on spell checking. Checking the **Enable Bing Spell Checker** check box will append `spellCheck=true` to the URL that displays in the **Publish app** page when publish is complete. 
 
 
 5. If you want the JSON response of your published app to include all intents defined in your app and their prediction scores, click **Add Verbose Flag** checkbox. Otherwise, it will include only the top scoring intent.
@@ -46,14 +46,17 @@ You can either publish your app directly to the **Production Slot** where end us
     >[!NOTE]
     >If the **Publish** button is disabled, then either your app does not have an assigned an endpoint key, or you have not trained your app yet.
 
+    > [!TIP]
+    > The endpoint URL corresponds to the Azure region associated with the endpoint key. See [Regions and keys](./Manage-Keys.md#regions-and-keys) for more information.
 
 
-
-If you want to test your published endpoint in a browser using the generated URL, you can click the URL to open it in your browser, then set the URL parameter "&q" to your test query (for example: "&q=Book me a flight to Boston on May 4"), and then press Enter. You will get the JSON response of your HTTP endpoint. 
+## Test your published endpoint in a browser
+If you want to test your published endpoint in a browser using the generated URL, click the URL to open it in your browser, then set the URL parameter "&q" to your test query. For example, append `&q=Book me a flight to Boston on May 4"` to your URL, and then press Enter. The browser displays the JSON response of your HTTP endpoint. 
 
 ![JSON response of published HTTP endpoint](./Images/PublishApp-JSONresponse.JPG)
 
 
 ## Next steps
 
-To test how your published app works, you can access the test console by clicking **Train & Test** in the left panel. For instructions on how to test your app using the test console, see [Train and test your app](Train-Test.md).
+* See [Manage keys](./Manage-Keys.md) to add keys to your LUIS app, and learn about how keys map to regions.
+* See [Train and test your app](Train-Test.md) for instructions on how to test your published app in the test console.
