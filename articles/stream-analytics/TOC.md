@@ -29,6 +29,11 @@
 ### [Output to Data Lake Store](stream-analytics-data-lake-output.md)
 ### [Output to Cosmos DB](stream-analytics-documentdb-output.md)
 
+## Use Visual Studio tools
+### [Install](stream-analytics-tools-for-visual-studio-install.md)
+### [Get started](stream-analytics-tools-for-visual-studio.md)
+### [Set up CI/CD pipelines](stream-analytics-tools-for-visual-studio-cicd.md)
+
 ## Monitor & optimize
 ### [Add alerts](stream-analytics-set-up-alerts.md)
 ### [Monitor jobs](stream-analytics-monitoring.md)
@@ -52,7 +57,6 @@
 ### [Diagnostics logs](stream-analytics-job-diagnostic-logs.md)
 
 ## Automate
-### [Tools for Visual Studio](stream-analytics-tools-for-visual-studio.md)
 ### [Use the Management .NET SDK](stream-analytics-dotnet-management-sdk.md)
 ### [One-click Azure PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
