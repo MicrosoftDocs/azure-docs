@@ -16,7 +16,7 @@ ms.date: 09/28/2017
 ## Overview of Azure Machine Learning Experimentation Service
 Azure ML (Azure Machine Learning) Experimentation Service enables data scientists to execute their experiments using Azure ML's execution and run management capabilities. It provides a framework for agile experimentation with fast iterations. Azure ML Workbench allows you to start with local runs on your machine and an easy path for scaling up and out to other environments such as remote Data Science VMs with GPU or HDInsight Clusters running Spark.
 
-Experimentation service is built for providing isolated, reproducible, and consistent runs of your experiments. It helps you manage your compute targets, execution environments, and run configurations. By using Azure ML Workbench execution and run management capabilities, you can easily move  between different environments. 
+Experimentation Service is built for providing isolated, reproducible, and consistent runs of your experiments. It helps you manage your compute targets, execution environments, and run configurations. By using Azure ML Workbench execution and run management capabilities, you can easily move  between different environments. 
 
 You can execute a Python or PySpark script in an Azure ML Workbench project locally or at scale in the cloud. 
 
@@ -31,7 +31,7 @@ You can run your scripts on:
 >Azure ML Experimentation Service currently supports Python 3.5.2 and Spark 2.1.11 as Python and Spark runtime versions, respectively. 
 
 
-### Key concepts in Azure ML Experimentation Services
+### Key concepts in Azure ML Experimentation Service
 It is important to understand the following concepts in Azure ML experiment execution. In the subsequent sections, we discuss how to use these concepts in detail. 
 #### Compute target
 Compute target specifies where to execute user's program such as user's desktop, remote Docker on a VM, or a cluster. Compute target needs to be addressable and accessible by the user. Azure ML Workbench gives you the ability to create compute targets and manage them using the Workbench application and the CLI. 

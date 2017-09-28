@@ -177,9 +177,9 @@ print(os.environ.get("EXAMPLE_ENV_VAR1"))
 
 **SparkDependenciesFile**: This property points to the file that specifies the Spark dependencies in the **aml_config** folder. It is set to _null_ by default and it points to the default **spark_dependencies.yml** file.
 
-**PrepareEnvironment**: This property, when set to _true_, tells the experimentation service to prepare the conda environment based on the conda dependencies specified as part of your initial run. This property is effective only when you execute against a Docker environment. This setting has no effect if you are running against a _local_ environment. 
+**PrepareEnvironment**: This property, when set to _true_, tells the Experimentation Service to prepare the conda environment based on the conda dependencies specified as part of your initial run. This property is effective only when you execute against a Docker environment. This setting has no effect if you are running against a _local_ environment. 
 
-**TrackedRun**: This flag signals the experimentation service whether or not to track the run in Azure ML Workbench run history infrastructure. The default value is _true_. 
+**TrackedRun**: This flag signals the Experimentation Service whether or not to track the run in Azure ML Workbench run history infrastructure. The default value is _true_. 
 
 **UseSampling**: _UseSampling_ specifies whether the active sample datasets for data sources are used for the run. If set to _false_, data sources ingest and use the full data read from the data store. If set to _true_, active samples are used. Users can use the **DataSourceSettings" to specify which specific sample datasets to use if they want to override the active sample. 
 
@@ -207,4 +207,4 @@ Based on the substitution above, the following code sample now reads from "myrem
 df = datasource.load_datasource('mylocal.dsource')
 ```
 ## Next steps
-Learn more about [experimentation service configuration](experimentation-service-configuration.md).
+Learn more about [Experimentation Service configuration](experimentation-service-configuration.md).
