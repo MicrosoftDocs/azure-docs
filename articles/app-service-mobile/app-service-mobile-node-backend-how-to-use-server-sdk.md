@@ -978,7 +978,7 @@ download the project to your local computer. To edit script files in the online 
 [Troubleshoot an Azure App Service in Visual Studio]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md
 [specify the Node Version]: ../nodejs-specify-node-version-azure-apps.md
 [use Node modules]: ../nodejs-use-node-modules-azure-apps.md
-[Create a new Azure App Service]: ../app-service-web/
+[Create a new Azure App Service]: ../app-service/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
 [Express]: http://expressjs.com/
 [Swagger]: http://swagger.io/
