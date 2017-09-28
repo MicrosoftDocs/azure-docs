@@ -3,7 +3,7 @@ title: How to use Azure Blob storage (object storage) from Python | Microsoft Do
 description: Store unstructured data in the cloud with Azure Blob storage (object storage).
 services: storage
 documentationcenter: python
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 9/29/2017
-ms.author: marsma
+ms.date: 2/24/2017
+ms.author: tamram
 
 ---
 # How to use Azure Blob storage from Python
