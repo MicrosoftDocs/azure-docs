@@ -14,13 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2017
+ms.date: 09/26/2017
 ms.author: kumud
 ---
 
-# High Availability Ports Overview
+# High Availability Ports overview (Preview)
 
 The Standard SKU of Azure Load Balancer introduces high availability (HA) ports - a capability to distribute traffic from all ports, and for all supported protocols. While configuring an Internal Load Balancer, users can configure an HA Ports rule that can set the frontend and backend ports to **0** and protocol to **all**, and thus allow all the traffic to flow through the Internal Load Balancer.
+
+>[!NOTE]
+> High Availability Ports feature is currently in Preview. During preview, the feature may not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 The load balancing algorithm still remains the same and the destination is selected based in the five touples <Source IP Address, Source Port, Destination IP Address, Destination Port, Protocol>. But this configuration allows for a single LB rule to process all available traffic, and reduces configuration complexity as well as any limits imposed by the maximum number of Load Balancing rules that one can add.
 
@@ -38,6 +41,32 @@ The following example presents a hub-and-spoke virtual network deployment, with 
 
 Figure 1 - Hub-and-spoke virtual network with NVAs deployed in HA mode
 
+
+## Region availability
+
+HA ports is currently available in the following regions:
+- East US 2
+- Central US
+- North Europe
+- West Central US
+- West Europe
+- Southeast Asia 
+
+## Preview sign-up
+
+To participate in the Preview of the HA ports feature in Load Balancer Standard SKU, register your subscription to gain access using either PowerShell or Azure CLI 2.0.
+
+- Sign up using PowerShell
+
+    ```powershell
+    Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
+    ```
+
+- Sign up using Azure CLI 2.0
+
+    ```cli
+    az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network 
+    ```
 ## Caveats
 
 Following are the supported configurations or exceptions for HA Ports:

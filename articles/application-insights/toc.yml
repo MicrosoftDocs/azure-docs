@@ -138,6 +138,8 @@
         href: app-insights-proactive-failure-diagnostics.md
       - name: Performance anomalies
         href: app-insights-proactive-performance-diagnostics.md
+    - name: Dynamics CRM
+      href: app-insights-sample-mscrm.md
     - name: Create a resource
       href: app-insights-create-new-resource.md
   - name: Analyze
