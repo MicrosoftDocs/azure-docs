@@ -29,7 +29,7 @@ ms.author: markgal;trinadhk;
 
 This article provides the steps for preparing your environment to back up a Resource Manager-deployed virtual machine (VM). The steps shown in the procedures use the Azure portal.  
 
-The Azure Backup service has two types of vaults (back up vaults and recovery services vaults) for protecting your VMs. A backup vault protects VMs deployed using the Classic deployment model. A recovery services vault protects **both Classic-deployed or Resource Manager-deployed VMs**. You must use a Recovery Services vault to protect a Resource Manager-deployed VM.
+The Azure Backup service has two types of vaults (back up vaults and recovery services vaults) for protecting your VMs. A backup vault protects VMs deployed using the Classic deployment model. A Recovery Services vault protects **both Classic-deployed or Resource Manager-deployed VMs**. You must use a Recovery Services vault to protect a Resource Manager-deployed VM.
 
 > [!NOTE]
 > Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). See [Prepare your environment to back up Azure virtual machines](backup-azure-vms-prepare.md) for details on working with Classic deployment model VMs.
@@ -38,7 +38,7 @@ The Azure Backup service has two types of vaults (back up vaults and recovery se
 
 Before you can protect or back up a Resource Manager-deployed virtual machine (VM), make sure these prerequisites exist:
 
-* Create a recovery services vault (or identify an existing recovery services vault) *in the same location as your VM*.
+* Create a Recovery Services vault (or identify an existing Recovery Services vault) *in the same location as your VM*.
 * Select a scenario, define the backup policy, and define items to protect.
 * Check the installation of VM Agent on virtual machine.
 * Check network connectivity
@@ -68,10 +68,10 @@ Before you prepare your environment, please understand the limitations.
   * Virtual machines with multiple reserved IP addresses
   * Virtual machines with multiple network adapters
 
-## Create a recovery services vault for a VM
-A recovery services vault is an entity that stores the backups and recovery points that have been created over time. The recovery services vault also contains the backup policies associated with the protected virtual machines.
+## Create a Recovery Services vault for a VM
+A Recovery Services vault is an entity that stores the backups and recovery points that have been created over time. The Recovery Services vault also contains the backup policies associated with the protected virtual machines.
 
-To create a recovery services vault:
+To create a Recovery Services vault:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. On the Hub menu, click **Browse** and in the list of resources, type **Recovery Services**. As you begin typing, the list will filter based on your input. Click **Recovery Services vault**.
@@ -120,7 +120,7 @@ To edit the storage replication setting:
     After choosing the storage option for your vault, you are ready to associate the VM with the vault. To begin the association, you should discover and register the Azure virtual machines.
 
 ## Select a backup goal, set policy and define items to protect
-Before registering a VM with a vault, run the discovery process to ensure that any new virtual machines that have been added to the subscription are identified. The process queries Azure for the list of virtual machines in the subscription, along with additional information like the cloud service name and the region. In the Azure portal, scenario refers to what you are going to put into the recovery services vault. Policy is the schedule for how often and when recovery points are taken. Policy also includes the retention range for the recovery points.
+Before registering a VM with a vault, run the discovery process to ensure that any new virtual machines that have been added to the subscription are identified. The process queries Azure for the list of virtual machines in the subscription, along with additional information like the cloud service name and the region. In the Azure portal, scenario refers to what you are going to put into the Recovery Services vault. Policy is the schedule for how often and when recovery points are taken. Policy also includes the retention range for the recovery points.
 
 1. If you already have a Recovery Services vault open, proceed to step 2. If you do not have a Recovery Services vault open, then open the [Azure portal](https://portal.azure.com/) and on the Hub menu, click **More services**.
 
