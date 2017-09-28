@@ -22,7 +22,7 @@ Organizations often ask if they should host their website and services inside or
 
 You can host a website outside of China. The advantage is that you don't have to set up a company in China and go through the ICP filing procedures. However, there are several disadvantages worth mentioning:
 - The website may not be completely accessible in China. Even if the website is in Chinese, it may be hard to find on Baidu, China's largest search engine.
-- A website that is not hosted in mainland China may get blocked. The list of what is banned can be changed at any time. 
+- A website that is not hosted in mainland China may get blocked. The list of what is banned can change at any time. 
 - If your website is not hosted on a dedicated server, and another site hosted on your shared server gets banned, the whole server—including your site—may get blocked. 
 - Users may not have the best experience. Network latency can slow access to services hosted outside of China even if the service is specifically optimized for low bandwidth and mobile access.
 

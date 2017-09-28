@@ -36,15 +36,15 @@ This basic background is intended to help you get started. For updated and offic
 ## Step 1: ICP license and filing
 To host a website on a server located in mainland China, you must apply for a state-issued registration number: either the ICP license for commercial entities or the ICP filing for non-commercial entities.
 
-Sharing an ICP license is against Chinese laws and regulations. Providers that violate this law can be shut down at any time, with no notice, along with the websites they host. In addition, if your organization shares an ICP license, you no longer own your online presence in China. This includes your website, hosting, and even domain name. If your provider goes out of business or stop services, you have little to no legal recourse.
+Sharing an ICP license is against Chinese laws and regulations. Providers that violate this law can be shut down at any time, with no notice, along with the websites they host. In addition, if your organization shares an ICP license, you no longer own your online presence in China. This includes your website, hosting, and even domain name. If your provider goes out of business or stops services, you have little to no legal recourse.
 
-The application requirements and review process vary by [province](https://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/special-request.pdf). For example, in Shanghai and Chongqing the process takes about three days. In Ganshu and Yunnan, the process takes three weeks. We recommend planning two months ahead because the IPC license process typically takes at least 20 business days after submitting your application documents.
+The application requirements and review process vary by [province](https://wacndevelop.blob.core.chinacloudapi.cn/marketing-resource/documents/special-request.pdf). For example, in Shanghai and Chongqing the process takes about three days. In Ganshu and Yunnan, the process takes three weeks. We recommend planning two months ahead because the ICP license process typically takes at least 20 business days after submitting your application documents.
 
 The review application and results are posted on the [21Vianet application website](http://icp.cloud.21vianet.com/), and 21Vianet notifies you of the result by email or phone. The following example outlines the steps in the process for a business registered in Shanghai City.
 
 ### Apply for ICP
 1.	Register a new account using your email address to sign in to the [application website](http://icp.cloud.21vianet.com/). 
-2.	Follow the instruction to fill in the required information for ICP filing, including details about your website and IP.
+2.	Follow the instructions to fill in the required information for ICP filing, including details about your website and ICP.
 3.	Upload soft copies of the required materials as color scans or photos.
 4.	Within two working days, the first review feedback will be sent to you. If the application passes this first review, you will receive an email request for an onsite interview in the 21Vianet office in either Beijing or Shanghai:
     - No. 1, Rd. Jiuxiangqiao East, District Chaoyang, Beijing<br>
@@ -68,7 +68,7 @@ The following entities **may not** apply for an ICP:
 ## Step 2: Public security registration
 Within 30 days of receiving your ICP license, you must also apply for filing at the local police station. You can apply directly using the [registration portal](http://www.beian.gov.cn/portal/index) without going through 21Vianet.
 1. To start the online application submission, register a new account at the [registration portal](http://www.beian.gov.cn/portal/index) (in Chinese—you may need to use an English language translator for help).
-2. Follow the instruction to complete the required information for filing, including website and IP details. 
+2. Follow the instructions to complete the required information for filing, including website and ICP details. 
 3. After you pass the online application review, you will be notified to proceed with an onsite review with the [required materials](https://www.azure.cn/support/announcement/public-security-registration/process/). The review site depends on the entity’s registration address or individual’s household registration address on the identification you used for website hosting. This review takes about two weeks.
 4. After you pass the materials review, the authorized code is assigned and is available at [www.beian.gov.cn](http://www.beian.gov.cn).
 

@@ -22,7 +22,7 @@ Microsoft Azure operated by 21Vianet (Azure China 21Vianet) is a physically sepa
 
 The services are based on the same Azure, Microsoft Office 365, and Microsoft Power BI technologies that make up the Microsoft global cloud service with comparable service levels. Agreements and contracts for Microsoft Azure in China, where applicable, are signed between customers and 21Vianet.
 
-Azure provides world-class security and the [compliance services](https://www.trustcenter.cn/en-us/) required by Chinese regulations for all systems and applications built on its architecture. Azure includes the core components of infrastructure as a service (IaaS), platform as a service (PaaS), and software as a service (SaaS). These components include network, storage, data management, identity management, and many other services.
+Azure provides world-class security and the compliance services, as discussed on the [Trust Center](https://www.trustcenter.cn/compliance/), required by Chinese regulations for all systems and applications built on its architecture. Azure includes the core components of infrastructure as a service (IaaS), platform as a service (PaaS), and software as a service (SaaS). These components include network, storage, data management, identity management, and many other services.
 
 Azure China 21Vianet supports most of the same great [services](/azure/china/china-get-started-service-availability) that global Azure has, such as geosynchronous data replication and autoscaling. Even if you already use global Azure services, to operate in China, you may need to [rehost](/azure/china/china-how-to-rehost) or [refactor](/azure/china/china-how-to-refactor) some or all of your applications or services. 
 
@@ -38,9 +38,9 @@ According to the China [Telecommunication Regulation](http://www.miit.gov.cn/n11
 ## Next steps
 - [Services and features in Microsoft Azure China 21Vianet](/azure/china/china-get-started-service-availability)
 - [Azure Global Connection Center](http://aka.ms/azcc)
-- [Azure case studies](https://www.azure.cn/partnerancasestudy/case-studies/)
+- [Azure case studies](https://www.azure.cn/partnerancasestudy/case-studies/) (in Chinese)
 - [Global Connection Toolkit on GitHub](https://github.com/Azure/AzureGlobalConnectionToolkit)
 - [Cloud services business model operated by 21Vianet](https://wacnppe.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_and_Office_365_cloud_services_business_model_operated_by_21Vianet12.pdf) (in Chinese)
-- [Azure China 21Vianet Trust Center: Compliance](https://www.trustcenter.cn/en-us/compliance/) (in Chinese)
+- [Azure China 21Vianet Trust Center: Compliance](https://www.trustcenter.cn/compliance/)
 - [Developers guide](https://www.azure.cn/documentation/articles/developerdifferences/#dev-guide) (in Chinese)
 

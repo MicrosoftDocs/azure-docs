@@ -70,7 +70,7 @@ If your application uses Azure AD B2C, you must find an alternative. AD B2C is a
 Although Microsoft Azure China 21Vianet does not support a social identity provider at this time, the China Customer Advisory Team (CAT) has been working on many Azure solutions for integration with WeChat. For development guidance, please contact your Microsoft account representatives.
 
 ### Set up Azure Traffic Manager
-In Microsoft Azure China 21Vianet, application [endpoints](https://www.azure.cn/documentation/articles/traffic-manager-endpoint-types/) managed by Azure Traffic Manager must be hosted within China, in either the China East or China North datacenter.
+In Microsoft Azure China 21Vianet, application [endpoints](https://www.azure.cn/documentation/articles/traffic-manager-endpoint-types/) (in Chinese) managed by Azure Traffic Manager must be hosted within China, in either the China East or China North datacenter.
 
 Traffic Manager uses DNS to direct end users to particular service endpoint based on the chosen traffic-routing method and the health of the current endpoints. Traffic Manager supports endpoints for Azure virtual machines, Azure Web Apps, and other Azure services, in addition to external endpoints not hosted on Azure. For details, see the [endpoint documentation](https://www.azure.cn/documentation/articles/traffic-manager-endpoint-types/) (in Chinese, or see the [English translation](https://translate.google.com.hk/translate?hl=zh-CN&sl=zh-CN&tl=en&u=https%3A%2F%2Fwww.azure.cn%2Fdocumentation%2Farticles%2Ftraffic-manager-endpoint-types%2F)).
 
@@ -93,9 +93,7 @@ The [Azure Global Connection Toolkit](https://github.com/Azure/AzureGlobalConnec
 
 The Global Connection Toolkit offers two components:
 - **Assessment Tool:** Generates a report so you can assess an existing global Azure subscription and get help with migration planning tasks. The report answers questions about migrating Azure Services between different Azure cloud environments, comparing services, estimating costs, and listing important considerations.
-- **CI/CD (Continuous Integration and Continuous Delivery) Tool:** Validates and performs a migration. For example, use the CI/CD tool to migrate virtual machines from Azure’s 
-
-East Asia region to the China East region. The toolkit syncs your metadata and configuration between the source and the destination subscriptions, ensuring they match the original after the migration. As an open source tool, it can be freely customized or integrated into an existing DevOps process. Choose from a PowerShell version and a cross-platform NodeJS version that support Mac, Linux, and Windows.
+- **CI/CD (Continuous Integration and Continuous Delivery) Tool:** Validates and performs a migration. For example, use the CI/CD tool to migrate virtual machines from Azure’s East Asia region to the China East region. The toolkit syncs your metadata and configuration between the source and the destination subscriptions, ensuring they match the original after the migration. As an open source tool, it can be freely customized or integrated into an existing DevOps process. Choose from a PowerShell version and a cross-platform NodeJS version that support Mac, Linux, and Windows.
 
 [Get the toolkit](https://github.com/Azure/AzureGlobalConnectionToolkit).
 
@@ -108,7 +106,7 @@ Several tools are available for you to use in migrating IaaS resources or virtua
 
 ## Next steps
 - [Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-whatis/)
-- [Endpoint documentation](https://www.azure.cn/documentation/articles/traffic-manager-endpoint-types/)
+- [Endpoint documentation](https://www.azure.cn/documentation/articles/traffic-manager-endpoint-types/) (in Chinese)
 - [Notification Hubs](https://azure.microsoft.com/documentation/articles/notification-hubs-push-notification-overview/)
 - [Azure Key Vault](https://azure.microsoft.com/documentation/articles/key-vault-whatis/)
 - [Global Connection Toolkit](https://github.com/Azure/AzureGlobalConnectionToolkit)
