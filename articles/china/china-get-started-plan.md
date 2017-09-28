@@ -1,5 +1,5 @@
 ---
-title: Plan an Azure deployment | Microsoft Docs
+title: Plan an Azure deployment for Azure China 21Vianet | Microsoft Docs
 description: From setting up shop in China to hosting your workload on Azure China, you have many decisions to make. This article provides guidance on ICP filing, SLA agreements, complying with specific requirements, finding partners, and deploying your application.
 services: china
 cloud: na

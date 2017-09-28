@@ -1,5 +1,5 @@
 ---
-title: Rehost and migrate an application to Azure | Microsoft Docs
+title: Rehost and migrate an application to Azure China 21Vianet | Microsoft Docs
 description: If your application or workload is deployed to global Azure, you can rehost it on Azure China 21Vianet, but changes may be needed. This page discusses how to adapt Azure Active Directory, Azure Traffic Manager, Azure Notification Hubs, and Azure Key Vault.
 services: china
 cloud: na
@@ -21,7 +21,7 @@ ms.author: v-wimarc
 If your application or workload is deployed to global Azure, you can rehost it on Microsoft Azure operated by 21Vianet (Azure China 21Vianet), but some design changes may be needed. This page discusses how to adapt Azure Active Directory, Azure Traffic Manager, Azure Notification Hubs, and Azure Key Vault when rehosting.
 
 ## Azure Active Directory services
-Microsoft Azure China 21Vianet includes [Azure Active Directory](https://azure.microsoft.com/en-us/documentation/articles/active-directory-whatis/) (AD) as a dedicated service exclusively for users accessing applications within this environment. Azure AD identities cannot be synchronized between global Azure and Azure China 21Vianet. 
+Microsoft Azure China 21Vianet includes [Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-whatis/) (AD) as a dedicated service exclusively for users accessing applications within this environment. Azure AD identities cannot be synchronized between global Azure and Azure China 21Vianet. 
 
 Currently, Azure AD Premium, Azure AD B2C, and Azure AD Domain Services are not supported. If your application uses any of these services, you must find an alternative solution. 
 
@@ -74,19 +74,19 @@ In Microsoft Azure China 21Vianet, application [endpoints](https://www.azure.cn/
 
 Traffic Manager uses DNS to direct end users to particular service endpoint based on the chosen traffic-routing method and the health of the current endpoints. Traffic Manager supports endpoints for Azure virtual machines, Azure Web Apps, and other Azure services, in addition to external endpoints not hosted on Azure. For details, see the [endpoint documentation](https://www.azure.cn/documentation/articles/traffic-manager-endpoint-types/) (in Chinese, or see the [English translation](https://translate.google.com.hk/translate?hl=zh-CN&sl=zh-CN&tl=en&u=https%3A%2F%2Fwww.azure.cn%2Fdocumentation%2Farticles%2Ftraffic-manager-endpoint-types%2F)).
 
-When rehosting a global Azure application, you can support users who travel outside China by setting up Traffic Manager on global Azure, then route traffic to a site hosted on Azure China 21Vianet. Traffic Manager is configured with the [performance traffic-routing method](https://azure.microsoft.com/en-us/documentation/articles/traffic-manager-routing-methods/#performance-traffic-routing-method). An app’s responsiveness improves when Traffic Manager routes users to the closest location as measured by the lowest network latency. To work, the solution must synchronize user data between the applications hosted on global Azure and Azure China 21Vianet.
+When rehosting a global Azure application, you can support users who travel outside China by setting up Traffic Manager on global Azure, then route traffic to a site hosted on Azure China 21Vianet. Traffic Manager is configured with the [performance traffic-routing method](https://azure.microsoft.com/documentation/articles/traffic-manager-routing-methods/#performance-traffic-routing-method). An app’s responsiveness improves when Traffic Manager routes users to the closest location as measured by the lowest network latency. To work, the solution must synchronize user data between the applications hosted on global Azure and Azure China 21Vianet.
 
 ### Set up push notifications
 When rehosting an application that uses push notifications, note that Azure Notification Hubs use a different platform notification service (PNS) in China. For Android devices, Notification Hubs use the Baidu Push PNS for notifications sent to mobile devices in China.
 
-By comparison, global Azure [Notification Hubs](https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-push-notification-overview/) work with APNS (Apple Push Notification Services), GCM (Google Cloud Message), WNS (Windows Push Notification Services), and MPNS (Microsoft Push Notification Service).
+By comparison, global Azure [Notification Hubs](https://azure.microsoft.com/documentation/articles/notification-hubs-push-notification-overview/) work with APNS (Apple Push Notification Services), GCM (Google Cloud Message), WNS (Windows Push Notification Services), and MPNS (Microsoft Push Notification Service).
 
-The design of your application’s push notifications should take into account whether the users of your service travel outside China. Users within China retain excellent access to applications hosted in Azure and can receive notifications through Azure Notification Hubs. However, to improve performance for users who travel outside China when accessing your application, consider adding a dynamic routing solution. For example, you can use the [performance traffic-routing method](https://azure.microsoft.com/en-us/documentation/articles/traffic-manager-routing-methods/#performance-traffic-routing-method) to reroute users to an application instance hosted on global Azure instead.
+The design of your application’s push notifications should take into account whether the users of your service travel outside China. Users within China retain excellent access to applications hosted in Azure and can receive notifications through Azure Notification Hubs. However, to improve performance for users who travel outside China when accessing your application, consider adding a dynamic routing solution. For example, you can use the [performance traffic-routing method](https://azure.microsoft.com/documentation/articles/traffic-manager-routing-methods/#performance-traffic-routing-method) to reroute users to an application instance hosted on global Azure instead.
 
 ### Design secure key management
 Secure key management is essential to protecting data on the cloud. You can use Azure Key Vault to help safeguard cryptographic keys and secrets used by your cloud applications and services hosted on Microsoft Azure China 21Vianet. However, you cannot import or generate hardware security modules (HSMs), an added feature available in global Azure.
 
-[Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/key-vault-whatis/) encrypts keys and secrets, such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords. Key Vault streamlines the key management process and enables you to maintain control of keys that access and encrypt your data.
+[Azure Key Vault](https://azure.microsoft.com/documentation/articles/key-vault-whatis/) encrypts keys and secrets, such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords. Key Vault streamlines the key management process and enables you to maintain control of keys that access and encrypt your data.
 
 ## Use the Global Connection Toolkit
 The [Azure Global Connection Toolkit](https://github.com/Azure/AzureGlobalConnectionToolkit) helps ease application migration between national clouds and is available on [GitHub](https://github.com/Azure/AzureGlobalConnectionToolkit).
@@ -100,17 +100,17 @@ East Asia region to the China East region. The toolkit syncs your metadata and c
 [Get the toolkit](https://github.com/Azure/AzureGlobalConnectionToolkit).
 
 ## Migrate Azure classic virtual machines
-If you have classic Azure Service Manager IaaS resources, it is highly recommended that you first [migrate them to Azure Resource Manager](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-migration-classic-resource-manager/) before moving them to Microsoft Azure China 21Vianet. 
+If you have classic Azure Service Manager IaaS resources, it is highly recommended that you first [migrate them to Azure Resource Manager](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-migration-classic-resource-manager/) before moving them to Microsoft Azure China 21Vianet. 
 
 Several tools are available for you to use in migrating IaaS resources or virtual machines from classic Azure to Azure Resource Manager, which launched publicly in early 2016. For example: 
-- [General availability of IaaS migration from classic to resource manager](https://azure.microsoft.com/en-us/blog/iaas-migration-ga/)
-- [Migrate IaaS resources from classic to Azure Resource Manager by using Azure PowerShell](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-ps-migration-classic-resource-manager/)
+- [General availability of IaaS migration from classic to resource manager](https://azure.microsoft.com/blog/iaas-migration-ga/)
+- [Migrate IaaS resources from classic to Azure Resource Manager by using Azure PowerShell](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-ps-migration-classic-resource-manager/)
 
 ## Next steps
-- [Azure Active Directory](https://azure.microsoft.com/en-us/documentation/articles/active-directory-whatis/)
+- [Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-whatis/)
 - [Endpoint documentation](https://www.azure.cn/documentation/articles/traffic-manager-endpoint-types/)
-- [Notification Hubs](https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-push-notification-overview/)
-- [Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/key-vault-whatis/)
+- [Notification Hubs](https://azure.microsoft.com/documentation/articles/notification-hubs-push-notification-overview/)
+- [Azure Key Vault](https://azure.microsoft.com/documentation/articles/key-vault-whatis/)
 - [Global Connection Toolkit](https://github.com/Azure/AzureGlobalConnectionToolkit)
-- [Migrate to Azure Resource Manager](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-migration-classic-resource-manager/)
+- [Migrate to Azure Resource Manager](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-migration-classic-resource-manager/)
 

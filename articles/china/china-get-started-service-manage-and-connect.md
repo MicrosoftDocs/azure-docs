@@ -1,5 +1,5 @@
 ---
-title: Manage and connect to your subscription | Microsoft Docs
+title: Manage and connect to your Azure China 21Vianet subscription | Microsoft Docs
 description: Azure China 21Vianet has unique URLs and endpoints for managing your environment. After connecting to the Azure environment, operations for managing a service work if the component has been deployed correctly. Learn why it's important to use the right connections to manage your environment. 
 services: china
 cloud: na

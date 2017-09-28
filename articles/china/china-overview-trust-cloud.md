@@ -1,5 +1,5 @@
 ---
-title: Trust cloud principle | Microsoft Docs
+title: Azure China 21Vianet Trust cloud principle | Microsoft Docs
 description: Microsoft Azure China 21Vianet complies with the international and industry-specific compliance standards, in addition to the Information System Classified Security Protection standard that is managed by Ministry of Public Security of People’s Republic of China. 
 services: china
 cloud: na

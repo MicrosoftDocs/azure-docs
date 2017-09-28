@@ -17,7 +17,7 @@ ms.date: 09/29/2017
 ms.author: v-wimarc
 
 ---
-# FAQ
+# Azure China 21Vianet FAQ
 Get answers to frequently asked questions about Microsoft Azure operated by 21Vianet (Azure China 21Vianet). Topics covered include accounts and subscriptions, portals, and operations.
 
 ## Accounts and subscriptions
@@ -26,9 +26,9 @@ A [subscription](https://www.azure.cn/support/faq/#What-is-the-relationship-betw
 
 ## Portals
 ### What is the Azure portal?
-In June 2017, the [Azure portal](https://portal.azure.cn), based on Azure Resource Manager (ARM), became generally available in China. The Azure portal combines the functions of the classic Azure Management portal and Account portal. The classic Azure Management portal is being retired gradually. All new services will launch in the Azure portal, but may not launch in the Management portal.
+In June 2017, the [Azure portal](https://portal.azure.cn), based on Azure Resource Manager, became generally available in China. The Azure portal combines the functions of the classic Azure Management portal and Account portal. The classic Azure Management portal is being retired gradually. All new services will launch in the Azure portal, but may not launch in the Management portal.
 
-We highly encourage you to start using the new Azure portal to deploy services. The ARM platform brings more flexibility to resource management.
+We highly encourage you to start using the new Azure portal to deploy services. The Azure Resource Manager platform brings more flexibility to resource management.
 
 ### What can I do in the EA portal?
 The [Azure Enterprise Agreement (EA) portal](https://ea.azure.cn/), is an exclusive benefit of an enterprise online service premium agreement (OSPA). Here you can:

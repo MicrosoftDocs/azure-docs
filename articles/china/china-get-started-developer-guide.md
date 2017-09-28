@@ -24,7 +24,7 @@ When referring to publicly available content for global Azure services, make sur
 
 ## Migrate existing applications and workloads
 Migrating an application or workload hosted elsewhere takes time and planning. To migrate to Microsoft Azure China 21Vianet:
-- [Move virtual machines](/azure/china/china-how-to-rehost) from classic Azure Service Manager (ASM) to Azure Resource Manager (ARM).
+- [Move virtual machines](/azure/china/china-how-to-rehost) from classic Azure Service Manager (ASM) to Azure Resource Manager.
 - [Refactor an existing application that is hosted in another cloud provider](/azure/china/china-how-to-refactor) for a better, faster migration. 
 - [Rehost an existing application that is hosted in global Azure](/azure/china/china-how-to-rehost).
 - [Run a trial migration using the Global Connection Toolkit](https://github.com/Azure/AzureGlobalConnectionToolkit) in your testing environment to help mitigate the migration risks.
@@ -47,7 +47,7 @@ Microsoft Azure China 21Vianet differs from global Azure, so any Azure service e
 The following table shows the endpoints to change. 
 
 See also:
-- [Developer Notes for Azure in China Applications](https://msdn.microsoft.com/en-us/library/azure/dn578439.aspx)
+- [Developer Notes for Azure in China Applications](https://msdn.microsoft.com/library/azure/dn578439.aspx)
 - [Azure Datacenter IP Ranges in China](https://www.microsoft.com/en-us/download/details.aspx?id=42064) 
 - [Developers Guide](https://www.azure.cn/documentation/articles/developerdifferences/#dev-guide) (in Chinese).
 
@@ -58,7 +58,7 @@ See also:
 | Azure compute                         | \*.cloudapp.net                                                                                                         | \*.chinacloudapp.cn                                                                                                                                   |
 | Azure storage                         | \*.blob.core.windows.net \*.queue.core.windows.net \*.table.core.windows.net                                            | \*.blob.core.chinacloudapi.cn \*.queue.core.chinacloudapi.cn \*.table.core.chinacloudapi.cn                                                           |
 | Azure service management              | https://management.core.windows.net                                                                                     | [https://management.core.chinacloudapi.cn](https://management.core.chinacloudapi.cn/)                                                                 |
-| Azure Resource Manager (ARM)          | [https://management.azure.com](https://management.azure.com/)                                                           | [https://management.chinacloudapi.cn](https://management.chinacloudapi.cn/)                                                                           |
+| Azure Resource Manager          | [https://management.azure.com](https://management.azure.com/)                                                           | [https://management.chinacloudapi.cn](https://management.chinacloudapi.cn/)                                                                           |
 | Azure management portal               | [http://manage.windowsazure.com](http://manage.windowsazure.com/) [https://portal.azure.com](https://portal.azure.com/) | [http://manage.windowsazure.cn](http://manage.windowsazure.cn/) [https://portal.azure.cn](https://portal.azure.cn/)                                   |
 | SQL Database                          | \*.database.windows.net                                                                                                 | \*.database.chinacloudapi.cn                                                                                                                          |
 | SQL Azure DB management API           | [https://management.database.windows.net](https://management.database.windows.net/)                                     | [https://management.database.chinacloudapi.cn](https://management.database.chinacloudapi.cn/)                                                         |
@@ -72,7 +72,7 @@ See also:
 | Azure AD logon                        | [https://login.windows.net](https://login.windows.net/)                                                                 | [https://login.chinacloudapi.cn](https://login.chinacloudapi.cn/)                                                                                     |
 | Azure AD Graph API                    | [https://graph.windows.net](https://graph.windows.net/)                                                                 | [https://graph.chinacloudapi.cn](https://graph.chinacloudapi.cn/)                                                                                     |
 | Cognitive Services                    | <https://api.projectoxford.ai/face/v1.0>                                                                                | <https://api.cognitive.azure.cn/face/v1.0>                                                                                                            |
-| Logon with PowerShell: <br>- Classic Azure <br>- ARM  <br>- Azure AD|    - Add-AzureAccount<br>- Add-AzureRmAccount <br> - Connect-msolservice                                                                                                                       |  - Add-AzureAccount -Environment AzureChinaCloud  <br> - Add-AzureRmAccount -Environment AzureChinaCloud <br>- Connect-msolservice -AzureEnvironment AzureChinaCloud |               |                                                                                                                         |
+| Logon with PowerShell: <br>- Classic Azure <br>- Azure Resource Manager  <br>- Azure AD|    - Add-AzureAccount<br>- Add-AzureRmAccount <br> - Connect-msolservice                                                                                                                       |  - Add-AzureAccount -Environment AzureChinaCloud  <br> - Add-AzureRmAccount -Environment AzureChinaCloud <br>- Connect-msolservice -AzureEnvironment AzureChinaCloud |               |                                                                                                                         |
  |
 
 

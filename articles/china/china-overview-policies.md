@@ -1,5 +1,5 @@
 ---
-title: China cloud policies and regulations | Microsoft Docs
+title: China cloud policies and regulations for Azure China 21Vianet | Microsoft Docs
 description: To launch Internet services in China, your organization must comply with applicable China cloud policies and laws. Learn about the various regulations that Internet content providers (ICPs) must apply for with the China Ministry of Industry and Information Technology (MIIT).
 services: china
 cloud: na

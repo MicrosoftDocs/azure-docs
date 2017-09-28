@@ -1,5 +1,5 @@
 ---
-title: Manage performance and connectivity | Microsoft Docs
+title: Manage performance and connectivity on Azure China 21Vianet | Microsoft Docs
 description: When deploying and operating an application or workload on Microsoft Azure China 21Vianet, we recommend performance and network testing. If your Azure application provides services to users outside of China, there are other considerations as well.
 services: china
 cloud: na
