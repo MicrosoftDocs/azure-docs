@@ -37,7 +37,7 @@ Azure Machine Learning Workbench can be configured to work with popular Python I
 * macOS - select the .app path, for example “/Applications/PyCharm CE.app”, and the app appends the rest of the path for you. The full path to the executable by default is `/Applications/PyCharm CE.app/Contents/MacOS/pycharm`. You may also find PyCharm at the bin folder, `/usr/local/bin/charm`
 
 ## Open project in IDE 
-Once the configuration is complete, you can open an Azure Machine Learning project by opening the **File** menu in Azure Machine Learning Workbench, then click **Open Project (<IDE_Name>)**. This will open the current active project in the configured IDE. _Note: If you are not in a project, the **Open Project (<IDE_Name>)** will be disabled._
+Once the configuration is complete, you can open an Azure Machine Learning project by opening the **File** menu in Azure Machine Learning Workbench, then click **Open Project (<IDE_Name>)**. This action opens the current active project in the configured IDE. _Note: If you are not in a project, the **Open Project (<IDE_Name>)** will be disabled._
 
 ## Configuring the integrated terminal in Visual Studio Code
 
