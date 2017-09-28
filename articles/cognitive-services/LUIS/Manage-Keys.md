@@ -2,18 +2,18 @@
 title: Manage your keys in LUIS | Microsoft Docs
 description: Use Language Understanding Intelligent Services (LUIS) to manage your programmatic API, endpoint, and external keys. 
 services: cognitive-services
-author: cahann
+author: DeniseMak
 manager: hsalama
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 03/01/2017
+ms.date: 09/27/2017
 ms.author: cahann
 ---
 
 # Manage your keys
-A key is your passport to the server allowing you to publish your app to be used by end users. LUIS has two different types of keys:
+A key is your passport to the server that allows you to publish your LUIS app to end users. LUIS has two different types of keys:
 
 * **Starter Key:** A starter key is created automatically for LUIS account and it's free. It gives you 1000 endpoint hits per month so you can start using your LUIS app. It also gives you unlimited hits for authoring and editing your application using the LUIS Programmatic APIs. 
 [Click here for a complete API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
