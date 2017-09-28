@@ -72,7 +72,7 @@ UseDevelopmentStorage=true
 To create any Azure service client, you need to use the **ServicesBuilder** class. You can:
 
 * Pass the connection string directly to it or
-* Use environment variables in your Web App to store the connection string. See [Azure web app configuration settings](../../app-service-web/web-sites-configure.md) document for configuring connection strings.
+* Use environment variables in your Web App to store the connection string. See [Azure web app configuration settings](../../app-service/web-sites-configure.md) document for configuring connection strings.
 
 For the examples outlined here, the connection string is passed directly.
 
