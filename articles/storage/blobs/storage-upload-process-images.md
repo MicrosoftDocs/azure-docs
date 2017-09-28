@@ -41,13 +41,13 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
  
-The following example creates a resource group named `myResourceGroup`.   
+The following example creates a resource group named `myResourceGroup`.
  
 ```azurecli-interactive 
 az group create --name myResourceGroup --location westcentralus 
 ``` 
 
-## Create an Azure Storage account
+## Create a storage account
  
 The sample uploads images to a blob container in an Azure Storage account. A storage account provides a unique namespace to store and access your Azure storage data objects. Create a storage account in the resource group you created by using the [az storage account create](/cli/azure/storage/account#create) command. 
 
@@ -62,7 +62,7 @@ az storage account create --name <blob_storage_account> \
 --sku Standard_LRS --kind blobstorage --access-tier hot 
 ``` 
  
-## Create blob storage containers 
+## Create blob storage containers
  
 The app uses two containers in the Blob storage account. Containers are similar to folders and are used to store blobs. The _images_ container is where the app uploads full-resolution images. In a later part of the series, an Azure function app uploads resized image thumbnails to the _thumbs_ container. 
 
@@ -218,7 +218,7 @@ In part one of the series, you learned about configuring a web app interacting w
 > * Deploy a Web App to Azure
 > * Interact with the web application
 
-Advance to part two of the series to learn about using Event Grid to trigger an Azure function to resize an image.  
+Advance to part two of the series to learn about using Event Grid to trigger an Azure function to resize an image.
 
 > [!div class="nextstepaction"]
-> [Use Event Grid to trigger an Azure Function to resize an uploaded image](../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+> [Use Event Grid to trigger an Azure Function to resize an uploaded image](../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

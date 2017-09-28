@@ -12,9 +12,10 @@ ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: sngun
+ms.custom: mvc
 ---
 
 # Create a Windows virtual machine on Azure Stack using Azure CLI
@@ -92,6 +93,4 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-[Create a virtual machine by using password stored in key vault](azure-stack-kv-deploy-vm-with-secret.md)
-
-[To learn about Storage in Azure Stack](azure-stack-storage-overview.md)
+In this quick start, you’ve deployed a simple Windows virtual machine. To learn more about Azure Stack virtual machines, continue to [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md).

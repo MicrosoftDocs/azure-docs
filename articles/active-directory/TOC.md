@@ -42,7 +42,6 @@
 #### [Identify and resolve license problems in a group](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Migrate individual licensed users to group-based licensing](active-directory-licensing-group-migration-azure-portal.md)
 #### [Additional scenarios for group-based licensing](active-directory-licensing-group-advanced.md)
-#### [Provide terms of use for users and apps](active-directory-tou.md)
 #### [Azure PowerShell examples for group-based licensing](active-directory-licensing-ps-examples.md)
 ### [Manage user profiles](active-directory-users-profile-azure-portal.md)
 ### [Reset a password](active-directory-users-reset-password-azure-portal.md)
@@ -149,9 +148,14 @@
 ### [Getting started](active-directory-integrating-applications-getting-started.md)
 ### [SaaS app integration tutorials](active-directory-saas-tutorial-list.md)
 ### [Cloud App Discovery](cloudappdiscovery-overview.md)
-#### [What is Cloud App Discovery?](active-directory-cloudappdiscovery-whatis.md)
-#### [Update registry settings](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
-#### [Understand security and privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
+#### [Set up agentless discovery](cloudappdiscovery-get-started.md)
+#### [Create snapshot reports](cloudappdiscovery-set-up-snapshots.md)
+#### [Configure continuous reporting](https://docs.microsoft.com/cloud-app-security/discovery-docker)
+#### [Use a custom log parser](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
+#### Agent-based discovery
+##### [What is Cloud App Discovery?](active-directory-cloudappdiscovery-whatis.md)
+##### [Update registry settings](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
+##### [Understand security and privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
 
 ### [Access apps remotely with App Proxy](active-directory-application-proxy-get-started.md)
@@ -296,6 +300,7 @@
 #### Tasks
 ##### [Set up device-based conditional access](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Set up app-based conditional access](active-directory-conditional-access-mam.md)
+##### [Provide terms of use for users and apps](active-directory-tou.md)
 ##### [Set up VPN connectivity](active-directory-conditional-access-vpn-connectivity-windows10.md)
 ##### [Set up SharePoint and Exchange Online](active-directory-conditional-access-no-modern-authentication.md)
 ##### [Remediation](active-directory-conditional-access-device-remediation.md)
@@ -324,6 +329,9 @@
 #### [Glossary](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
+
+## [Integrate other services with Azure AD]()
+### [Enable LinkedIn integration](linkedin-integration.md)
 
 ## [Deploy AD DS on Azure VMs](virtual-networks-windows-server-active-directory-virtual-machines.md)
 ### [Windows Server Active Directory on Azure VMs](active-directory-deploying-ws-ad-guidelines.md)

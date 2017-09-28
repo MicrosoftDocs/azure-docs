@@ -12,9 +12,10 @@ ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: sngun
+ms.custom: mvc
 
 ---
 
@@ -26,7 +27,7 @@ This guide details using PowerShell to create a Windows Server 2016 virtual mach
 
 Before you begin, make sure that your Azure Stack operator has added the “Windows Server 2016” image to the Azure Stack marketplace.  
 
-Azure Stack requires a specific version of Azure PowerShell to create and manage the resources. If you don't have PowerShell configured for Azure Stack, follow the steps to [install and configure PowerShell](azure-stack-powershell-install.md).    
+Azure Stack requires a specific version of Azure PowerShell to create and manage the resources. If you don't have PowerShell configured for Azure Stack, follow the steps to [install](azure-stack-powershell-install.md) and [configure](azure-stack-powershell-configure-user.md) PowerShell.    
 
 
 ## Create a resource group
@@ -241,5 +242,5 @@ Remove-AzureRmResourceGroup `
 
 ## Next steps
 
-To learn about Storage in Azure Stack, refer to the [storage overview](azure-stack-storage-overview.md) topic.
+In this quick start, you’ve deployed a simple Windows virtual machine. To learn more about Azure Stack virtual machines, continue to [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md).
 
