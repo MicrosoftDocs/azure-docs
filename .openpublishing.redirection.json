@@ -5407,12 +5407,12 @@
         },
         {
             "source_path": "articles/cognitive-services/Bing-Custom-Search/how-it-works.md",
-            "redirect_url": "/azure/coginitive-services/Bing-Custom-Search/define-your-custom-view",
+            "redirect_url": "/azure/cognitive-services/Bing-Custom-Search/define-your-custom-view",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/cognitive-services/Bing-Custom-Search/quickstart.md",
-            "redirect_url": "/azure/coginitive-services/Bing-Custom-Search/quick-start",
+            "redirect_url": "/azure/cognitive-services/Bing-Custom-Search/quick-start",
             "redirect_document_id": false
         },
         {
