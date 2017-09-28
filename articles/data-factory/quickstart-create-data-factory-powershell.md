@@ -25,10 +25,9 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Prerequisites
 
-* **Azure Storage account**. You use the blob storage as both the **source** and **sink** data stores. If you don't have an Azure storage account, see the [Create a storage account] on creating one. (../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one.
-* Create a **blob container** in Blob Storage, create an input **folder** in the container, and upload some files to the folder. 
+* **Azure Storage account**. You use the blob storage as both the **source** and **sink** data stores. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) on creating one. 
+* Create a **blob container** in Blob Storage, create an input **folder** in the container, and upload some files to the folder. You can use tools such as [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/) to connect to Azure Blob storage, create a blob container, upload input file, and verify the output file.
 * **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
-* [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/). You can use this tool to connect to Azure Blob storage, create a blob container, upload input file, and verify the output file. 
 
 ## Create a data factory
 
