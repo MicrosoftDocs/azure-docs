@@ -3,7 +3,7 @@ title: Create a Batch account in the Azure portal | Microsoft Docs
 description: Learn how to create an Azure Batch account in the Azure portal to run large-scale parallel workloads in the cloud
 services: batch
 documentationcenter: ''
-author: dlepow
+author: v-dotren
 manager: timlt
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/25/2017
+ms.date: 09/28/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
@@ -40,7 +40,7 @@ For background about Batch accounts and scenarios, see the [feature overview](ba
 2. Click **New**, and search the Marketplace for **Batch Service**.
 
     ![Batch in the Marketplace][marketplace_portal]
-3. Select **Batch Service**, click **Create**, and enter **New Batch Account** settings. See the following details.
+3. Select **Batch Service**, click **Create**, and enter **New Batch account** settings. See the following details.
 
     ![Create a Batch account][account_portal]
 
@@ -61,7 +61,7 @@ For background about Batch accounts and scenarios, see the [feature overview](ba
 
 
 ## View Batch account properties
-Once the account has been created,  click the account to access its settings and properties. You can access all account settings and properties by using the left menu.
+Once the account has been created, click the account to access its settings and properties. You can access all account settings and properties by using the left menu.
 
 ![Batch account blade in Azure portal][account_blade]
 
@@ -83,16 +83,11 @@ Once the account has been created,  click the account to access its settings and
 
 You can link a general-purpose Azure Storage account to your Batch account, which is helpful for many scenarios. The [application packages](batch-application-packages.md) feature of Batch uses Azure Blob storage, as does the [Batch File Conventions .NET](batch-task-output.md) library. These optional features assist you in deploying the applications that your Batch tasks run, and persisting the data they produce.
 
-We recommend that you create a new Storage account exclusively for use by your Batch account.
+We recommend that you create a new Storage account exclusively for use by your Batch account. Azure Batch currently supports only the general-purpose Storage account type. This account type is described in step 5, [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account), in [About Azure storage accounts](../storage/common/storage-create-storage-account.md).
 
 ![Creating a general-purpose storage account][storage_account]
 
 > [!NOTE]
-> Azure Batch currently supports only the general-purpose Storage account type. This account type is described in step 5, [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account), in [About Azure storage accounts](../storage/common/storage-create-storage-account.md).
->
->
-
-> [!WARNING]
 > Be careful when regenerating the access keys of a linked Storage account. Regenerate only one Storage account key and click **Sync Keys** on the linked Storage account blade. Wait five minutes to allow the keys to propagate to the compute nodes in your pools, then regenerate and synchronize the other key if necessary. If you regenerate both keys at the same time, your compute nodes will not be able to synchronize either key, and they will lose access to the Storage account.
 >
 >
@@ -106,7 +101,7 @@ As with your Azure subscription and other Azure services, certain [quotas and li
 
 
 
-Additionally, many of these quotas can be increased simply with a free product support request submitted in the Azure portal. See [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for details on requesting quota increases.
+Additionally, many of these quotas can be increased with a free product support request submitted in the Azure portal. See [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for details on requesting quota increases.
 
 ## Other Batch account management options
 In addition to using the Azure portal, you can create and manage Batch accounts with the following:

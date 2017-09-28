@@ -13,7 +13,7 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 09/28/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 

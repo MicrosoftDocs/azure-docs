@@ -3,7 +3,7 @@ title: Use Azure Active Directory to authenticate Azure Batch service solutions 
 description: Batch supports Azure AD for authentication from the Batch service.
 services: batch
 documentationcenter: .net
-author: tamram
+author: v-dotren
 manager: timlt
 editor: ''
 tags: 
@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 06/20/2017
+ms.date: 09/28/2017
 ms.author: tamram
 ---
 

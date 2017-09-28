@@ -67,7 +67,7 @@ Some of the following resources--accounts, compute nodes, pools, jobs, and tasks
 ## Account
 A Batch account is a uniquely identified entity within the Batch service. All processing is associated with a Batch account.
 
-You can create an Azure Batch account using the [Azure portal](batch-account-create-portal.md) or programmatically, such as with the [Batch Management .NET library](batch-management-dotnet.md). When creating the account, you can associate an Azure storage account.
+You can create an Azure Batch account using the [Azure portal](batch-account-create-portal.md) or programmatically, such as with the [Batch Management .NET library](batch-management-dotnet.md). When creating the account, you can associate an Azure storage account for storing job-related input and output data or applications.
 
 You can run multiple Batch workloads in a single Batch account, or distribute your workloads among Batch accounts that are in the same subscription, but in different Azure regions.
 

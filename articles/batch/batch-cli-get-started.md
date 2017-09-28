@@ -3,7 +3,7 @@ title: Get started with Azure CLI for Batch | Microsoft Docs
 description: Get a quick introduction to the Batch commands in Azure CLI for managing Azure Batch service resources
 services: batch
 documentationcenter: ''
-author: tamram
+author: v-dotren
 manager: timlt
 editor: ''
 
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 07/20/2017
+ms.date: 09/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 
@@ -28,7 +28,7 @@ Microsoft recommends using the latest version of the Azure CLI, version 2.0. For
 
 ## Set up the Azure CLI
 
-To install the Azure CLI, follow the steps outlined in [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli.md).
+To install the Azure CLI, follow the steps outlined in [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 > [!TIP]
 > We recommend that you update your Azure CLI installation frequently to take advantage of service updates and enhancements.
