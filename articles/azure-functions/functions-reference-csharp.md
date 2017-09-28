@@ -114,7 +114,7 @@ public async static Task ProcessQueueMessageAsync(
 }
 ```
 
-## Cancellation Token
+## Cancellation token
 Some operations require graceful shutdown. While it's always best to write code that can handle crashing,  in cases where you want to handle graceful shutdown requests, you define a [`CancellationToken`](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) typed argument.  A `CancellationToken` is provided to signal that a host shutdown is triggered.
 
 ```csharp
@@ -149,7 +149,7 @@ The following namespaces are automatically imported and are therefore optional:
 * `Microsoft.Azure.WebJobs`
 * `Microsoft.Azure.WebJobs.Host`
 
-## Referencing External Assemblies
+## Referencing external assemblies
 For framework assemblies, add references by using the `#r "AssemblyName"` directive.
 
 ```csharp
@@ -213,7 +213,7 @@ To use NuGet packages in a C# function, upload a *project.json* file to the func
 
 Only the .NET Framework 4.6 is supported, so make sure that your *project.json* file specifies `net46` as shown here.
 
-When you upload a *project.json* file, the runtime gets the packages and automatically adds references to the package assemblies. You don't need to add `#r "AssemblyName"` directives. To use the types defined in the NuGet packages, add the required `using` statements to your *run.csx* file 
+When you upload a *project.json* file, the runtime gets the packages and automatically adds references to the package assemblies. You don't need to add `#r "AssemblyName"` directives. To use the types defined in the NuGet packages, add the required `using` statements to your *run.csx* file. 
 
 In the Functions runtime, NuGet restore works by comparing `project.json` and `project.lock.json`. If the date and time stamps of the files **do not** match, a NuGet restore runs and NuGet downloads updated packages. However, if the date and time stamps of the files **do** match, NuGet does not perform a restore. Therefore, `project.lock.json` should not be deployed as it causes NuGet to skip package restore. To avoid deploying the lock file, add the `project.lock.json` to the `.gitignore` file.
 
@@ -376,7 +376,7 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 }
 ```
 
-where `BindingTypeAttribute` is the .NET attribute that defines your binding and `T` is the input or output type that's
+`BindingTypeAttribute` is the .NET attribute that defines your binding and `T` is the input or output type that's
 supported by that binding type. `T` also cannot be an `out` parameter type (such as `out JObject`). For example, the
 Mobile Apps table output binding supports
 [six output types](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22),

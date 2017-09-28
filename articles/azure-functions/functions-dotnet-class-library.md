@@ -42,7 +42,7 @@ The attribute [`FunctionNameAttribute`](https://github.com/Azure/azure-webjobs-s
 
 ### Conversion to function.json
 
-When an Azure Functions project is built, it produces a file `function.json` in the directory matching the function name defined by `[FunctionName]`. It specifies triggers and bindings and points to the project assembly file.
+When you build an Azure Functions project, a *function.json* file is created in the function's directory. The directory name is the same as the function name that the `[FunctionName]` attribute specifies. The *function.json* file contains triggers and bindings and points to the project assembly file.
 
 This conversion is performed by the NuGet package [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). The source is available in the GitHub repo [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 

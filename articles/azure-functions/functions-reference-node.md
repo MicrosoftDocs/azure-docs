@@ -266,7 +266,7 @@ When you work with HTTP triggers, you can access the HTTP request and response o
     context.done(null, res);   
     ```  
 
-## Node version and Package Management
+## Node version and package management
 The node version is currently locked at `6.5.0`. We're investigating adding support for more versions and making it configurable.
 
 The following steps let you include packages in your function app: 

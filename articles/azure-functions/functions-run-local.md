@@ -17,7 +17,7 @@ ms.date: 09/25/2017
 ms.author: glenga
 
 ---
-# Code and test Azure functions locally
+# Code and test Azure Functions locally
 
 While the [Azure portal] provides a full set of tools for developing and testing Azure Functions, many developers prefer a local development experience. Azure Functions makes it easy to use your favorite code editor and local development tools to develop and test your functions on your local computer. Your functions can trigger on events in Azure, and you can debug your C# and JavaScript functions on your local computer. 
 
@@ -80,11 +80,7 @@ func init MyFunctionProj
 
 ## Create a local Functions project
 
-<<<<<<< HEAD
-When running locally, a Functions project is a directory that has the files host.json and local.settings.json. This directory is the equivalent of a function app in Azure. To learn more about the Azure Functions folder structure, see the [Azure Functions developers guide](functions-reference.md#folder-structure). Use the `func init` command to create the function app project, and optionally a local Git repository.
-=======
 When running locally, a Functions project is a directory that has the files [host.json](functions-host-json.md) and [local.settings.json](#local-settings). This directory is the equivalent of a function app in Azure. To learn more about the Azure Functions folder structure, see the [Azure Functions developers guide](functions-reference.md#folder-structure).
->>>>>>> 8d23a2b67e9... host.json and app settings reference
 
 In the terminal window or from a command prompt, run the following command to create the project and local Git repository:
 
