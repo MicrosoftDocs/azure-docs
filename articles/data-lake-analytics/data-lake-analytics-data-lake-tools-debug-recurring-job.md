@@ -68,4 +68,4 @@ You usually need to pay attention to the big differences between these 2 jobs as
 ## Next steps
 
 * [How to debug and resolve data skew issues](data-lake-analytics-data-lake-tools-data-skew-solutions.md)
-* [How to debug U-SQL Jobs with user defined code error](data-lake-analytics-debug-u-sql-jobs.md)
+* [How to debug U-SQL job failure with user-defined code error](data-lake-analytics-debug-u-sql-jobs.md)
