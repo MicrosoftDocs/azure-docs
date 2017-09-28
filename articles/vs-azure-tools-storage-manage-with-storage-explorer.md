@@ -221,7 +221,7 @@ In this context, a service can be a blob container, queue, or table. To generate
     ![Result of attaching to a shared service by using an SAS][20]
 
 ## Connect to an Azure Cosmos DB account by using a connection string
-Besides manage Comos DB accounts through Azure subscription, an alternative way of connecting to an Azure Cosmos DB is to use a connection string. Use the following steps to connect using a connection string.
+Besides manage Azure Cosmos DB accounts through Azure subscription, an alternative way of connecting to an Azure Cosmos DB is to use a connection string. Use the following steps to connect using a connection string.
 
 1. Find **Local and Attached** in the left tree, right-click **Azure Cosmos DB Accounts**, choose **Connect to Azure Cosmos DB...**
 
