@@ -128,3 +128,6 @@ External keys are the keys required for any external services that you want to u
 3. Select Bing Spell Check as the key type from the **Key Type** list, and select from the **Key Value** list the external key that you want to assign to the app. 
 
 -->
+## Next steps
+
+Use your key to publish your app in the **Publish app** page. For instructions on publishing, see [Publish app](PublishApp.md).
