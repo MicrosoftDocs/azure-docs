@@ -148,13 +148,14 @@
 ### [Getting started](active-directory-integrating-applications-getting-started.md)
 ### [SaaS app integration tutorials](active-directory-saas-tutorial-list.md)
 ### [Cloud App Discovery](cloudappdiscovery-overview.md)
-#### [What is Cloud App Discovery?](active-directory-cloudappdiscovery-whatis.md)
-#### [Set up steps](cloudappdiscovery-get-started.md)
+#### [Set up agentless discovery](cloudappdiscovery-get-started.md)
 #### [Create snapshot reports](cloudappdiscovery-set-up-snapshots.md)
 #### [Configure continuous reporting](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Use a custom log parser](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
-#### [Update registry settings](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
-#### [Understand security and privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
+#### Agent-based discovery
+##### [What is Cloud App Discovery?](active-directory-cloudappdiscovery-whatis.md)
+##### [Update registry settings](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
+##### [Understand security and privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
 
 ### [Access apps remotely with App Proxy](active-directory-application-proxy-get-started.md)
