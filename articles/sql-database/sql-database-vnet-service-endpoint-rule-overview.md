@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 09/27/2017
+ms.date: 09/28/2017
 ms.author: genemi
 ---
 # Use Virtual Network service endpoints and rules for Azure SQL Database
@@ -113,7 +113,12 @@ The roles of Network Admin and Database Admin have more capabilities than are ne
 
 You have the option of using [role-based access control (RBAC)][rbac-what-is-813s] in Azure to create a single custom role that has only the necessary subset of capabilities. The custom role could be used instead of involving either the Network Admin or the Database Admin. The surface area of your security exposure is lower if you add a user to a custom role, versus adding the user to the other two major administrator roles.
 
-#### Limitations
+
+
+
+
+
+## Limitations
 
 For Azure SQL Database, the virtual network rules feature has the following limitations:
 
@@ -141,9 +146,30 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 
 
 
+## Errors 40914 and 40615
+
+Connection error 40914 relates to virtual network rules:
+
+- ErrorNumber: 40914
+    - Message text:  Cannot open server '*[server-name]*' requested by the login. Client is not allowed to access the server.
+    - (GATEWAY\_VNET\_FIREWALL\_BLOCKED)
+
+    *Error description:* The client is a subnet inside a virtual network, the Azure SQL Database server has no virtual network rule that grants to the subnet the right to communicate with the SQL Database.
+
+    *Error resolution:* One resolution is to use the Firewall pane in the [Azure portal to add a virtual network rule](#anchor-how-to-by-using-firewall-portal-59j) for the subnet. But first ensure that the subnet is a [virtual network service endpoint][vm-virtual-network-service-endpoints-overview-649d]. Another resolution could be to [assign a static IP address][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w] to your client, and to then enter the IP address into the Firewall.
+
+Connection error 40615 is a somewhat similar error. The resolution for 40615 emphasizes the adding of IP address on the Firewall pane in the Azure portal.
+
+A list of several SQL Database error messages is documented [here][sql-database-develop-error-messages-419g].
+
+
+
+
+
+
 <a name="anchor-how-to-by-using-firewall-portal-59j" />
 
-## How to create a virtual network rule by using the portal
+## Portal can create a virtual network rule
 
 This section illustrates how you can use the [Azure portal][http-azure-portal-link-ref-477t] to create a *virtual network rule* in your Azure SQL Database. The rule tells your SQL Database to accept communication from a particular subnet that has been tagged as being a *Virtual Network service endpoint*.
 
@@ -226,6 +252,8 @@ The Microsoft Azure Virtual Network service endpoints feature, and the virtual n
 [rbac-what-is-813s]: ../active-directory/role-based-access-control-what-is.md
 
 [sql-db-firewall-rules-config-715d]: sql-database-firewall-configure.md
+
+[sql-database-develop-error-messages-419g]: sql-database-develop-error-messages.md
 
 [sql-db-vnet-service-endpoint-rule-powershell-md-52d]: sql-database-vnet-service-endpoint-rule-powershell.md
 
