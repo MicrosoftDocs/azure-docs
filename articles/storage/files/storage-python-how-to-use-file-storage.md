@@ -13,13 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-<<<<<<< HEAD
-ms.date: 12/08/2016
-ms.author: tamram
-=======
 ms.date: 09/19/2017
-ms.author: robinsh
->>>>>>> 1b8c397813f8fc93a029fcbfd371c3abb6e60f93
+ms.author: tamram
 ---
 
 # Develop for Azure Files with Python
