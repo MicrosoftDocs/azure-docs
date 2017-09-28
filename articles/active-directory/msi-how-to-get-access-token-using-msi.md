@@ -153,7 +153,7 @@ Metadata: true
 | `GET` | The HTTP verb, indicating you want to retrieve data from the endpoint. In this case, an OAuth access token. | 
 | `http://localhost:50342/oauth2/token` | The MSI endpoint, where 50342 is the default port and is configurable. |
 | `resource` | A query string parameter, indicating the App ID URI of the target resource. It also appears in the `aud` (audience) claim of the issued token. In this example, we are requesting a token to access Azure Resource Manager, which has an App ID URI of https://management.azure.com. |
-| `Metadata` | An HTTP header, required by MSI as a mitigation against Server Side Request Forgery (SSRF) attack.
+| `Metadata` | An HTTP header, required by MSI as a mitigation against Server Side Request Forgery (SSRF) attack. This value must be set to "true", in all lower case.
 
 Sample response:
 
