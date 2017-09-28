@@ -45,5 +45,5 @@ The following diagram illustrates all the components and the steps involved.
 - [**Frequently Asked Questions**](active-directory-aadconnect-pass-through-authentication-faq.md) - Answers to frequently asked questions.
 - [**Troubleshoot**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) - Learn how to resolve common issues with the feature.
 - [**Azure AD Seamless SSO**](active-directory-aadconnect-sso.md) - Learn more about this complementary feature.
-- [**Security Deep Dive**](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) - Additional deep technical information on Azure AD Pass-through Authentication.
+- [**Security Deep Dive**](active-directory-aadconnect-pta-security-deep-dive.md) - Additional deep technical information on Azure AD Pass-through Authentication.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - For filing new feature requests.

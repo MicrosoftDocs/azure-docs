@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 09/27/2017
 ms.author: billmath
 
 ---
@@ -49,7 +49,7 @@ For general details about Azure AD operational, service and data security, see t
 - **Azure SQL Database**: Holds information about your tenant's Authentication Agents, including its metadata and encryption keys.
 - **Active Directory (AD)**: Your on-premises Active Directory, where your user accounts (and their passwords) are stored.
 
-## Installation and registration Authentication Agents
+## Installation and registration of Authentication Agents
 
 Authentication Agents are installed and registered with Azure AD when you [enable Pass-through Authentication using Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-quick-start#step-2-enable-the-feature) or when you [add additional Authentication Agents to ensure high availability of sign-in requests](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-quick-start#step-4-ensure-high-availability). Getting an Authentication Agent working involves three main phases:
 
