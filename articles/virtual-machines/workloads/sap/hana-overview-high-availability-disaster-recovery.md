@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/15/2016
+ms.date: 09/27/2016
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 
@@ -151,7 +151,7 @@ The steps to set up storage snapshots with HANA Large Instances are as follows:
 
 ### Step 1: Install the SAP HANA HDB client
 
-The Linux operating system installed on SAP HANA on Azure (Large Instances) includes the folders and scripts necessary to execute SAP HANA storage snapshots for backup and disaster-recovery purposes. Check for more recent releases in [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). The most recent release version of the scripts is 2.0.
+The Linux operating system installed on SAP HANA on Azure (Large Instances) includes the folders and scripts necessary to execute SAP HANA storage snapshots for backup and disaster-recovery purposes. Check for more recent releases in [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). The most recent release version of the scripts is 2.1.
 However, it is your responsibility to install the SAP HANA HDB client on the HANA Large Instance units while you are installing SAP HANA. (Microsoft does not install the HDB client or SAP HANA.)
 
 ### Step 2: Change the /etc/ssh/ssh\_config

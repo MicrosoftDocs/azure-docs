@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 09/27/2017
 ms.author: billmath
 ---
 
 # Azure Active Directory Pass-through Authentication: Technical deep dive
+The following article is a overview of how Azure AD Pass-through Authentication works.  For deep technical and security information see [**Azure AD Pass-through Authentication Security Deep Dive**](active-directory-aadconnect-pta-security-deep-dive.md)
 
 ## How does Azure Active Directory Pass-through Authentication work?
 
@@ -44,4 +45,5 @@ The following diagram illustrates all the components and the steps involved.
 - [**Frequently Asked Questions**](active-directory-aadconnect-pass-through-authentication-faq.md) - Answers to frequently asked questions.
 - [**Troubleshoot**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) - Learn how to resolve common issues with the feature.
 - [**Azure AD Seamless SSO**](active-directory-aadconnect-sso.md) - Learn more about this complementary feature.
+- [**Security Deep Dive**](active-directory-aadconnect-pta-security-deep-dive.md) - Additional deep technical information on Azure AD Pass-through Authentication.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - For filing new feature requests.
