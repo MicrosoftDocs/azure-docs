@@ -243,7 +243,7 @@ Before registering a VM with a vault, run the discovery process to ensure that a
 
     ![Select workload](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
-    The selected virtual machine is validated. If you do not see the virtual machines that you expected to see, check that they exist in the same Azure location as the Recovery Services vault. The location of the Recovery Services vault is shown on the vault dashboard.
+    The selected virtual machine is validated. If you do not see the virtual machines that you expected to see, check that they exist in the same Azure location as the Recovery Services vault and that they are not already being backed up. The location of the Recovery Services vault is shown on the vault dashboard.
 
 6. Now that you have defined all settings for the vault, in the Backup blade, click **Enable Backup** to deploy the policy to the vault and the VMs. Deploying the backup policy does not create the initial recovery point for the virtual machine.
 
