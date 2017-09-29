@@ -116,16 +116,32 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	> [!NOTE] 
 	> This value is not real. Update this values with the actual Sign-on URL. Contact [Compliance ELF support team](mailto:support@complianceelf.com) to get this value.
- 
-4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
-
-	![The Certificate download link](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_certificate.png) 
 
 5. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-complianceelf-tutorial/tutorial_general_400.png)
 
-6. To configure single sign-on on **Compliance ELF** side, you need to send the downloaded **Metadata XML** to [Compliance ELF support team](mailto:support@complianceelf.com). They set this setting to have the SAML SSO connection set properly on both sides.
+6. To generate the **Metadata** url, perform the following steps:
+
+    a. Click **App registrations**.
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_appregistrations.png)
+   
+    b. Click **Endpoints** to open **Endpoints** dialog box.  
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_endpointicon.png)
+
+    c. Click the copy button to copy **FEDERATION METADATA DOCUMENT** url and paste it into notepad.
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_endpoint.png)
+     
+    d. Now go to the property page of **Compliance ELF** and copy the **Application Id** using **Copy** button and paste it into notepad.
+ 
+    ![Configure Single Sign-On](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_appid.png)
+
+    e. Generate the **Metadata URL** using the following pattern: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
+
+7. To configure single sign-on on **Compliance ELF** side, you need to send the **Metadata URL** to [Compliance ELF support team](mailto:support@complianceelf.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
