@@ -93,7 +93,7 @@ An easy way to launch the CLI is opening a project in Workbench and navigating t
 
 ![](media/experimentation-service-configuration/opening-cli.png)
 
-This command launches a terminal window in which you can enter commands to execute scripts in the current project folder. This terminal window is configured with the Python 3.5.2 environment which is installed by Workbench.
+This command launches a terminal window in which you can enter commands to execute scripts in the current project folder. This terminal window is configured with the Python 3.5.2 environment, which is installed by Workbench.
 
 >[!NOTE]
 > When you execute any _az ml_ command from the command window, you need to be authenticated against Azure. CLI uses an independent authentication cache then the desktop app and so logging in to Workbench doesn't mean you are authenticated in your CLI environment. To authenticate, follow the steps below. Authentication token is cached locally for a period of time so you only need to repeat these steps when the token expires. When the token expires or if you are seeing authentication errors, execute the following commands:
@@ -164,7 +164,7 @@ az ml experiment submit --run-configuration docker myscript.py
 The execution environment on local Docker is prepared using the Azure Machine Learning base Docker image. Workbench downloads this image when running for the first time and overlays it with packages specified in your conda_dependencies.yml file. This operation makes the initial run slower but subsequent runs are considerably faster thanks to Workbench reusing cached layers. 
 
 >[!IMPORTANT]
->You need to run _az ml experiment prepare -c docker_ command first to prepare the Docker image for your first run. You can also set the **PrepareEnvironment** parameter to true in your docker.runconfig file. This action will automatically prepare your environment as part of your run execution.  
+>You need to run _az ml experiment prepare -c docker_ command first to prepare the Docker image for your first run. You can also set the **PrepareEnvironment** parameter to true in your docker.runconfig file. This action automatically prepares your environment as part of your run execution.  
 
 >[!NOTE]
 >If running a PySpark script on Spark, spark_dependencies.yml is also used in addition to conda_dependencies.yml.
@@ -190,7 +190,7 @@ Remote VM should satisfy the following requirements:
 > Windows VMs running Docker is **not** supported as remote compute targets
 
 
-You can use the following command to create both the compute target definition and run configuration for a remote Docker-based executions.
+You can use the following command to create both the compute target definition and run configuration for remote Docker-based executions.
 
 ```
 az ml computetarget attach --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --password "sshpassword" --type remotedocker
@@ -234,7 +234,7 @@ $ az ml experiment submit -c myhdi myscript.py
 
 Workbench prepares and manages execution environment on HDInsight cluster using Conda. Configuration is managed by _conda_dependencies.yml_ and _spark_dependencies.yml_ configuration files. 
 
-You needs SSH access to the HDInsight cluster in order to execute experiments in this mode. 
+You need SSH access to the HDInsight cluster in order to execute experiments in this mode. 
 
 >[!NOTE]
 >Supported configuration is HDInsight Spark clusters running Linux (Ubuntu with Python/PySpark 3.5.2 and Spark 2.1.11).
