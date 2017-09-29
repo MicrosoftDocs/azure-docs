@@ -4327,7 +4327,7 @@
         },
         {
             "source_path": "articles/machine-learning/machine-learning-data-science-virtual-machine-overview.md",
-            "redirect_url": "/azure/machine-learning/data-science-virtual-machine/virtual-machine-overview",
+            "redirect_url": "/azure/machine-learning/data-science-virtual-machine/overview",
             "redirect_document_id": false
         },
         {
