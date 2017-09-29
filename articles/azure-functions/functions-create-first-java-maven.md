@@ -56,9 +56,16 @@ mvn archetype:generate \
 
 Maven prompts you for values needed to finish generating the project. For _groupId_, _artifactId_, and _version_ values, see the [Maven naming conventions](https://maven.apache.org/guides/mini/guide-naming-conventions.html) reference. The _appName_ value must be unique across Azure, so Maven generates an app name based on the previously entered _artifactId_  as a default. The _packageName_ value determines the Java package for the generated function code.
 
-![Terminal output showing the Maven archetype inputs](media/functions-create-java-maven/archetype.png)
+```Output
+Define value for property 'groupId': com.fabrikam.functions
+Define value for property 'artifactId' : fabrikam-functions
+Define value for property 'version' 1.0-SNAPSHOT : 
+Define value for property 'package': com.fabrikam.functions
+Define value for property 'appName' fabrikam-functions-20170927220323382:
+Confirm properties configuration: Y
+```
 
-Maven creates the project files in a new folder with a name of _appName_. The generated code in the project is a simple [HTTP triggered](/azure/azure-functions/functions-bindings-http-webhook) function that echoes the body of the request:
+Maven creates the project files in a new folder with a name of _artifactId_. The generated code in the project is a simple [HTTP triggered](/azure/azure-functions/functions-bindings-http-webhook) function that echoes the body of the request:
 
 ```java
 public class Function {
@@ -81,7 +88,14 @@ mvn clean package azure-functions:run
 
 You see this output when the function is running:
 
-![Terminal output after the Hello function started](media/functions-create-java-maven/local-hello.png)
+```Output
+Listening on http://localhost:7071
+Hit CTRL-C to exit...
+
+Http Functions:
+
+   hello: http://localhost:7071/api/hello
+```
 
 Trigger the function from the command line using curl in a new terminal:
 
@@ -93,7 +107,7 @@ curl -w '\n' -d LocalFunction http://localhost:7071/api/hello
 Hello LocalFunction!
 ```
 
-Use `Ctrl+C` in the terminal to stop the function code.
+Use `Ctrl-C` in the terminal to stop the function code.
 
 ## Deploy the function to Azure
 
@@ -124,6 +138,7 @@ curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/h
 Hello AzureFunctions!
 ```
 
+
 ## Next steps
 
 You have created a Java function app with a simple HTTP trigger.
@@ -132,6 +147,9 @@ You have created a Java function app with a simple HTTP trigger.
 - Add additional functions with different triggers to your project using the `azure-functions:add` Maven target.
 
    ![Different templates you can use to add new Functions to your project](media/functions-create-java-maven/add-new-functions.png)
+
+- Debug functions locally with Visual Studio Code. With the [Java extension pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) installed and with your Functions project open in Visual Studio code, attach the debugger to port localhost port 5005. Then set a breakpoint and trigger your function:
+    ![Debug functions in Visual Studio Code](media/)functions-create-java-maven/vscode-debug.png)
 
 - Review the  [Java Functions developer guide](functions-reference-java.md) for more information on developing Java functions.
 - The [Java Functions annotation reference](https://github.com/Azure/azure-functions-java-worker/tree/documentation/azure-functions-java-core) summarizes the available function triggers and their Java annotations syntax.
