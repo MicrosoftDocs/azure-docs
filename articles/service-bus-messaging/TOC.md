@@ -36,6 +36,7 @@
 ### [Queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 ### [Apps that use queues](service-bus-create-queues.md)
 ### [Apps that use topics/subscriptions](service-bus-create-topics-subscriptions.md)
+### [Messages, payloads, and serialization](service-bus-messages-payloads.md)
 ### [Authentication and authorization](service-bus-authentication-and-authorization.md)
 #### [Migrate from ACS to SAS](service-bus-migrate-acs-sas.md)
 #### [Authentication with Shared Access Signatures](service-bus-sas.md)
@@ -45,6 +46,9 @@
 ### [Duplicate message detection](duplicate-detection.md)
 ### [Diagnostic logs](service-bus-diagnostic-logs.md)
 ### [Paired namespace implementation](service-bus-paired-namespaces.md)
+### [Message sequencing and timestamps](message-sequencing.md)
+### [Message browsing](message-browsing.md)
+### [Message transfers, locks, and settlement](message-transfers-locks-settlement.md)
 ### AMQP
 #### [AMQP overview](service-bus-amqp-overview.md)
 #### [.NET](service-bus-amqp-dotnet.md)

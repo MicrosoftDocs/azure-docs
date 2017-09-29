@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/05/2017
 ms.author: cfowler
-ms.custom: mvc
+ms.custom: mvc, devcenter
 ---
 # Create a Node.js web app in Azure
 
