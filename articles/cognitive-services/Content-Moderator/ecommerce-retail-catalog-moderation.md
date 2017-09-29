@@ -14,7 +14,7 @@ ms.author: sajagtap
 
 # eCommerce content classification and moderation
 
-In this tutorial, we learn how to use the Content Moderator platform with Computer Vision and Custom Vision services to classify and moderate eCommerce product catalog images. The integrated solution combines machine assisted classification with human-in-the-loop capabilities.
+In this tutorial, we learn how to use the Content Moderator platform with Computer Vision and Custom Vision services. The solution combines machine assisted classification with human review capabilities to classify eCommerce catalog images
 
 ![Classified product images](images/tutorial-ecommerce-content-moderator.PNG)
 
@@ -47,7 +47,7 @@ Refer to the [Quickstart](quick-start.md) page to sign up for Content Moderator 
 
 ## 4. Configure moderation tags in the review tool
 
-Refer to the [Tags](https://docs.microsoft.com/en-us/azure/cognitive-services/content-moderator/review-tool-user-guide/tags) article to add these custom tags for celebrity and custom image detection, in addition to the built-in **adult** and **racy** tags. Defining these tags here will allow the review tool to display the descriptive names of the tags when your application creates the reviews.
+Refer to the [Tags](https://docs.microsoft.com/en-us/azure/cognitive-services/content-moderator/review-tool-user-guide/tags) article to add custom tags. In addition to the built-in **adult** and **racy** tags, the new tags allow the review tool to display the descriptive names for the tags.
 
 In our case, we define these custom tags (**celebrity**, **flag**, **us**, **toy**, **pen**):
 
@@ -56,10 +56,10 @@ In our case, we define these custom tags (**celebrity**, **flag**, **us**, **toy
 ## 5. List your API keys and REST endpoints for use in your sample.
 
 1. The tutorial uses three APIs and the corresponding keys and API end points.
-2. Your API end points will be different based on your subscription regions and the Content Moderator Review Team ID.
+2. Your API end points are different based on your subscription regions and the Content Moderator Review Team ID.
 
 > [!NOTE]
-> The tutorial is designed to use subscription keys in the regions visible in the endpoints below. Be sure to match your API keys with the region Uris otherwise your keys may not work with the endpoints listed below.
+> The tutorial is designed to use subscription keys in the regions visible in the endpoints below. Be sure to match your API keys with the region Uris otherwise your keys may not work with the following endpoints:
 
          // Your API keys
         public const string ContentModeratorKey = "XXXXXXXXXXXXXXXXXXXX";
@@ -181,8 +181,8 @@ In our case, we define these custom tags (**celebrity**, **flag**, **us**, **toy
  
 ## 9. Use the Review API to create reviews for human-in-the-loop process
 
-1. So far, you have scanned the incoming images for adult and racy (Content Moderator), celebrities (Computer Vision) and Flags (Custom Vision).
-2. Now, based on our configured match thresholds for each scan, make the nuanced cases available for human review in the review tool.
+1. In the previous sections, you scanned the incoming images for adult and racy (Content Moderator), celebrities (Computer Vision) and Flags (Custom Vision).
+2. Basedon our match thresholds for each scan, make the nuanced cases available for human review in the review tool.
 
         public static bool CreateReview(string ImageUrl, KeyValuePair[] Metadata)
         {
@@ -206,7 +206,7 @@ In our case, we define these custom tags (**celebrity**, **flag**, **us**, **toy
 ## 10. Prepare to send a batch of images to your sample
 
 1. This tutorial assumes a "C:Test" directory with a text file that has a list of image Urls.
-2. The code below checks for the existence of the file and reads all Urls into memory.
+2. The following code checks for the existence of the file and reads all Urls into memory.
 
             // Check for a test directory for a text file with the list of Image URLs to scan
             var topdir = @"C:\test\";
@@ -223,10 +223,10 @@ In our case, we define these custom tags (**celebrity**, **flag**, **us**, **toy
             // Read all image URLs in the file
             var Urls = File.ReadLines(Urlsfile);
 
-## 11. Create a top level function to call all preceding functions.
+## 11. Create a top-level function to call all preceding functions.
 
-1. This top level function loops through all image URLs in the text file we mentioned earlier.
-2. It scans them with each API and creates a review for human moderators if the match confidence scores fall within our criteria.
+1. This top-level function loops through all image URLs in the text file we mentioned earlier.
+2. It scans them with each API and if the match confidence score falls within our criteria, creates a review for human moderators.
 
              // for each image URL in the file...
             foreach (var Url in Urls)
