@@ -30,7 +30,7 @@ Learn how to use Azure Data Lake Tools for Visual Studio Code (VS Code) to creat
 Data Lake Tools can be installed on the platforms supported by VS Code. The supported platforms include Windows, Linux, and MacOS. The different platforms have the following prerequisites:
 
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx).
-- [.NET Core SDK 2.0](https://www.microsoft.com/net/download).
+- [.NET Core SDK 2.0](https://www.microsoft.com/net/download/core).
 - [Mono 5.2.x](http://www.mono-project.com/download/). Mono is only required for Linux and MacOS.
        
 ## Install Data Lake Tools
@@ -47,7 +47,7 @@ After you install the prerequisites, you can install Data Lake Tools for VS Code
 
     ![Data Lake Tools for Visual Studio Code Extensions pane](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extensions.png)
 
-Our tool relys on the CSharp dependencies. normally, **Csharp** plugin installs together with **Azure Data Lake tools**. If not, please install mannually. 
+Our tool relies on the CSharp dependencies. normally, **Csharp** plugin installs together with **Azure Data Lake tools**. If not, please install mannually. 
 
 **To install CSharp Tool**
 
@@ -57,35 +57,7 @@ Our tool relys on the CSharp dependencies. normally, **Csharp** plugin installs 
 ## Activate Azure Data Lake Tools
 Create a new .usql file or open an existing .usql file to activate the extension. 
 
-## Connect to Azure
 
-Before you can compile and run U-SQL scripts in Data Lake Analytics, you must connect to your Azure account.
-
-**To connect to Azure**
-
-1.	Select Ctrl+Shift+P to open the command palette. 
-2.  Enter **ADL: Login**. The login information appears in the **Output** pane.
-
-    ![Data Lake Tools for Visual Studio Code command palette](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login.png)
-    ![Data Lake Tools for Visual Studio Code device login information](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-login-info.png)
-3. Select Ctrl+click on the login URL: https://aka.ms/devicelogin to open the login webpage. Enter the code **G567LX42V** into the text box, and then select **Continue**.
-
-   ![Data Lake Tools for Visual Studio Code login paste code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login-paste-code.png )   
-4.  Follow the instructions to sign in from the webpage. When you're connected, your Azure account name appears on the status bar in the lower-left corner of the **VS Code** window. 
-
-    > [!NOTE] 
-    > If your account has two factors enabled, we recommend that you use phone authentication rather than using a PIN.
-
-To sign out, enter the command **ADL: Logout**.
-
-## List your Data Lake Analytics accounts
-
-To test the connection, get a list of your Data Lake Analytics accounts.
-
-**To list the Data Lake Analytics accounts under your Azure subscription**
-
-1. Select Ctrl+Shift+P to open the command palette.
-2. Enter **ADL: List Accounts**. The accounts appear in the **Output** pane.
 
 ## Open the sample script
 Open the command palette (Ctrl+Shift+P) and enter **ADL: Open Sample Script**. This opens another instance of this sample. You can also edit, configure, and submit script on this instance.
@@ -249,6 +221,36 @@ OUTPUT @d1
     USING Outputters.Tsv();
 ```
 
+## Connect to Azure
+
+Before you can compile and run U-SQL scripts in Data Lake Analytics, you must connect to your Azure account.
+
+**To connect to Azure**
+
+1.	Select Ctrl+Shift+P to open the command palette. 
+2.  Enter **ADL: Login**. The login information appears in the **Output** pane.
+
+    ![Data Lake Tools for Visual Studio Code command palette](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login.png)
+    ![Data Lake Tools for Visual Studio Code device login information](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-login-info.png)
+3. Select Ctrl+click on the login URL: https://aka.ms/devicelogin to open the login webpage. Enter the code **G567LX42V** into the text box, and then select **Continue**.
+
+   ![Data Lake Tools for Visual Studio Code login paste code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login-paste-code.png )   
+4.  Follow the instructions to sign in from the webpage. When you're connected, your Azure account name appears on the status bar in the lower-left corner of the **VS Code** window. 
+
+    > [!NOTE] 
+    > If your account has two factors enabled, we recommend that you use phone authentication rather than using a PIN.
+
+To sign out, enter the command **ADL: Logout**.
+
+## List your Data Lake Analytics accounts
+
+To test the connection, get a list of your Data Lake Analytics accounts.
+
+**To list the Data Lake Analytics accounts under your Azure subscription**
+
+1. Select Ctrl+Shift+P to open the command palette.
+2. Enter **ADL: List Accounts**. The accounts appear in the **Output** pane.
+
 
 ## Access the Data Lake Analytics catalog
 
@@ -376,36 +378,6 @@ You can preview the storage file through the command palette or through right-cl
 
 You can upload files by entering the commands **ADL: Upload File** or **ADL: Upload File through Configuration**.
 
-**To upload files though the ADL: Upload File command**
-1. Right-click the script editor, and then select **Upload File**.
-2. To upload the file, enter a local path.
-
-    ![Data Lake Tools for Visual Studio Code enter local path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-auto-input-local-path.png)
-
-3. Select one of the ways of listing the storage path. This passage uses **Enter a path** as an example.
-
-    ![Data Lake Tools for Visual Studio Code list storage path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account-selectoneway.png)
-    >[!NOTE]
-    >- VS Code keeps the last-visited path in every Data Lake Analytics account. For example: /tt/ss.
-    >- Browser from root path: The list root path from your selected Data Lake Analytics account or a local path.
-    >- Enter a path: List a specified path from your selected Data Lake Analytics account or a local path.
-
-4. Select an account from the local path or a Data Lake Analytics account.
-
-    ![Data Lake Tools for Visual Studio Code right-click storage](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account.png)
-
-5. Enter an Azure storage path. For example: /output.
-
-    ![Data Lake Tools for Visual Studio Code enter storage path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-input-preview-file.png)
-
-6. Find your Azure storage path. Select **Choose current folder**.
-
-    ![Data Lake Tools for Visual Studio Code select a folder](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-choose-current-folder.png)
-
-7.  Results: The **Output** window displays the file upload status.
-
-       ![Data Lake Tools for Visual Studio Code upload status](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-upload-status.png)    
-
 **To upload files though the ADL: Upload File through Configuration command**
 1.  Right-click the script editor, and then select **Upload File through Configuration**.
 2.  VS Code displays a JSON file. You can enter file paths and upload multiple files at the same time. Instructions are displayed in the **Output** window. To proceed to upload the file, save (Ctrl+S) the JSON file.
@@ -415,6 +387,14 @@ You can upload files by entering the commands **ADL: Upload File** or **ADL: Upl
 3.  Results: The **Output** window displays the file upload status.
 
        ![Data Lake Tools for Visual Studio Code upload status](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-upload-status.png)     
+
+**To upload files though the ADL: Upload File command**
+
+Right-click the script editor and select **Upload File** -> Input your **Local File Path** -> Choose the folder in the list as the upload destination, or click **Enter Path** or **Browse from Root** to continue -> Select your **ADLA Account** ->  Navigate or enter the storage folder path, click **Choose Current Folder** to specify your upload destination.
+
+![Data Lake Tools for Visual Studio Code upload status](./media/data-lake-analytics-data-lake-tools-for-vscode/upload-file.png)    
+
+
 
 Another way to upload a file to storage is through the right-click menu on the file's full path or the file's relative path in the script editor. Enter the local file path, and then select the account. The **Output** window displays the upload status. 
 
