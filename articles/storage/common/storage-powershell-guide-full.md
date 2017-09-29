@@ -3,7 +3,7 @@ title: Using Azure PowerShell with Azure Storage | Microsoft Docs
 description: Learn how to use the Azure PowerShell cmdlets for Azure Storage to create and manage storage accounts; work with blobs, tables, queues, and files; configure and query storage analytics, and create shared access signatures.
 services: storage
 documentationcenter: na
-author: robinsh
+author: tamram
 manager: timlt
 
 ms.assetid: f4704f58-abc6-4f89-8b6d-1b1659746f5a
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2017
-ms.author: robinsh
+ms.author: tamram
 ---
 
 # Using Azure PowerShell with Azure Storage
@@ -684,9 +684,9 @@ $Queue.CloudQueue.DeleteMessage($QueueMessage)
 ```
 
 ## How to manage Azure file shares and files
-Azure File storage offers shared storage for applications using the standard SMB protocol. Microsoft Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premises applications can access file data in a share via the File storage API or Azure PowerShell.
+Azure Files offers shared storage for applications using the standard SMB protocol. Microsoft Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premises applications can access file data in a share via the File storage API or Azure PowerShell.
 
-For more information on Azure File storage, see [Get started with Azure File storage on Windows](../storage-dotnet-how-to-use-files.md) and [File Service REST API](http://msdn.microsoft.com/library/azure/dn167006.aspx).
+For more information on Azure Files, see [Get started with Azure Files on Windows](../files/storage-files-introduction.md) and [File Service REST API](http://msdn.microsoft.com/library/azure/dn167006.aspx).
 
 ## How to set and query storage analytics
 You can use [Azure Storage Analytics](../storage-analytics.md) to collect metrics for your Azure storage accounts and log data about requests sent to your storage account. You can use storage metrics to monitor the health of a storage account, and storage logging to diagnose and troubleshoot issues with your storage account. You can configure monitoring using the Azure portal or Windows PowerShell, or programmatically using the storage client library. Storage logging happens server-side and enables you to record details for both successful and failed requests in your storage account. These logs enable you to see details of read, write, and delete operations against your tables, queues, and blobs as well as the reasons for failed requests.
