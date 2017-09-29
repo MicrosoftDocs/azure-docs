@@ -24,8 +24,8 @@ To achieve this goal, you can:
 
 * Encode your stream to a multi-bitrate (adaptive bitrate) video stream. This will take care of quality and network conditions.
 * Use Microsoft Azure Media Services [dynamic packaging](media-services-dynamic-packaging-overview.md) to dynamically re-package your stream into different protocols. This will take care of streaming on different devices. Media Services supports delivery of the following adaptive bitrate streaming technologies: 
-    * **HTTP Live Streaming** (HLS) - add "(format=m3u8-aapl)" path to the "/Manifest" to tell the streaming origin server to return back HLS content for consumption on Apple iOS native devices,
-    * **MPEG-DASH** - add "(format=mpd-time-csf)" path to the "/Manifest" to tell the streaming origin server to return back MPEG-DASH.
+    * **HTTP Live Streaming** (HLS) - add "(format=m3u8-aapl)" path to the "/Manifest" portion of the URL to tell the streaming origin server to return back HLS content for consumption on Apple iOS native devices (for details, see [locators](#locators) and [URLs](#URLs),
+    * **MPEG-DASH** - add "(format=mpd-time-csf)" path to the "/Manifest" portion of the URL to tell the streaming origin server to return back MPEG-DASH (for details, see [locators](#locators) and [URLs](#URLs),
     * **Smooth Streaming**.
 
 >[!NOTE]
@@ -51,7 +51,7 @@ You can define filters for your assets with Media Services. These filters are se
 
 For more information, see [Filters and dynamic manifests](media-services-dynamic-manifest-overview.md).
 
-## Locators
+## <a id="locators"/>Locators
 To provide your user with a URL that can be used to stream or download your content, you first need to publish your asset by creating a locator. A locator provides an entry point to access the files contained in an asset. Media Services supports two types of locators:
 
 * OnDemandOrigin locators. These are used to stream media (for example, MPEG-DASH, HLS, or Smooth Streaming) or progressively download files.
@@ -81,10 +81,10 @@ To provide users with streaming URLs, you first must create an OnDemandOrigin lo
 > You can also stream your content over an SSL connection. To do this, make sure your streaming URLs start with HTTPS. Note that, currently, AMS doesn’t support SSL with custom domains.  
 > 
 
-
 You can only stream over SSL if the streaming endpoint from which you deliver your content was created after September 10th, 2014. If your streaming URLs are based on the streaming endpoints created after September 10th, 2014, the URL contains “streaming.mediaservices.windows.net.” Streaming URLs that contain “origin.mediaservices.windows.net” (the old format) do not support SSL. If your URL is in the old format and you want to be able to stream over SSL, create a new streaming endpoint. Use URLs based on the new streaming endpoint to stream your content over SSL.
 
-## Streaming URL formats
+## <a id="URLs"/>Streaming URL formats
+
 ### MPEG-DASH format
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
