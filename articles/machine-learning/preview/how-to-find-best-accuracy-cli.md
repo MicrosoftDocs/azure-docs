@@ -1,3 +1,16 @@
+---
+title: How to find runs with best accuracy and lowest duration | Microsoft Docs
+description: An end-to-end use case use to find best accuracy through CLI using Azure Machine Learning Workbench
+services: machine-learning
+author: kefzhou
+ms.author: kefuzhou
+manager: akannava
+ms.reviewer: akannava, haining, mldocs
+ms.service: machine-learning
+ms.workload: data-services
+ms.topic: article
+ms.date: 09/29/2017
+---
 # How to find runs with best accuracy and lowest duration
 Given multiple runs, one use case is to find runs with best accuracy. One approach is to use CLI with a JMESPATH query.
 In the following example, four runs are created with accuracy values of 0, 0.98, 1, and 1. Runs are filtered if they are in the range [`MaxAccuracy-Threshold`, `MaxAccuracy`] where `Threshold = .03`.
