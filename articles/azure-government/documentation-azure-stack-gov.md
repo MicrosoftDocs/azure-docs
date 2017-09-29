@@ -4,7 +4,7 @@ description: Provides guidance on what features and capabilities are available f
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: dumartin
+author: eggg84
 manager: zakramer
 
 ms.assetid: 
