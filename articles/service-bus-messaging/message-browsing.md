@@ -29,6 +29,8 @@ This is especially important to keep in mind when attempting to recover deferred
 
 Peek also returns messages that were locked and are currently being processed by other receivers, but have not yet been completed. However, because Peek returns a disconnected snapshot, the lock state of a message cannot be observed on peeked messages, and the [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.lockeduntilutc#Microsoft_Azure_ServiceBus_Core_MessageReceiver_LockedUntilUtc) and [LockToken](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.locktoken#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_LockToken) properties throw an [InvalidOperationException](/dotnet/api/system.invalidoperationexception) when the application attempts to read them.
 
+## Peek APIs
+
 The [Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) and [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) methods exist in all .NET and Java client libraries and on all receiver objects: **MessageReceiver**, **MessageSession**, **QueueClient**, and **SubscriptionClient**. Peek works on all queues and subscriptions and their respective dead-letter queues.
 
 When called repeatedly, the Peek method enumerates all messages that exist in the queue or subscription log, in sequence number order, from the lowest available sequence number to the highest. This is the order in which messages were enqueued; it is not the order in which messages might eventually be retrieved.
