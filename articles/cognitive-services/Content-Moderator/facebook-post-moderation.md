@@ -22,7 +22,9 @@ The tutorial guides you through these steps:
 2. Create Azure Functions that listen for HTTP events from Content Moderator and Facebook.
 3. Create a Facebook Page and App, and connect it to Content Moderator.
 
-After we are done, Facebook will send the content posted by the visitors to Content Moderator. Based on the match thresholds, your Content Moderator workflows either publish the content or create reviews within the review tool.
+After we are done, Facebook will send the content posted by the visitors to Content Moderator. Based on the match thresholds, your Content Moderator workflows either publish the content or create reviews within the review tool. The following illustration shows the elements of the solution.
+
+![Facebook post moderation](images/tutorial-facebook-moderation.PNG)
 
 ## 1. Create a Content Moderator team
 
