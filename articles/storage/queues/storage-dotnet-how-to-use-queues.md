@@ -3,7 +3,7 @@ title: Get started with Azure Queue storage using .NET | Microsoft Docs
 description: Azure Queues provide reliable, asynchronous messaging between application components. Cloud messaging enables your application components to scale independently.
 services: storage
 documentationcenter: .net
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/27/2017
-ms.author: robinsh
+ms.author: tamram
 ---
 
 # Get started with Azure Queue storage using .NET
