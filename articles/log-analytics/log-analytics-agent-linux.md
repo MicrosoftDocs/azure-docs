@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/23/2017
+ms.date: 09/29/2017
 ms.author: magoedte
 ---
 
@@ -70,7 +70,7 @@ The agent includes multiple packages. The release file contains the following pa
 
 **Package** | **Version** | **Description**
 ----------- | ----------- | --------------
-omsagent | 1.4.0 | The Operations Management Suite Agent for Linux
+omsagent | 1.4.1 | The Operations Management Suite Agent for Linux
 omsconfig | 1.1.1 | Configuration agent for the OMS Agent
 omi | 1.2.0 | Open Management Infrastructure (OMI) - a lightweight CIM Server
 scx | 1.6.3 | OMI CIM Providers for operating system performance metrics
@@ -101,7 +101,7 @@ This section describes how to install the OMS Agent for Linux using a bunndle, w
 
 First you need your OMS workspace ID and key, which you can find by switching to the [OMS classic portal](https://mms.microsoft.com).  On the **Overview** page, from the top menu select **Settings**, and then navigate to **Connected Sources\Linux Servers**.  You see the value to the right of **Workspace ID** and **Primary Key**.  Copy and paste both into your favorite editor.    
 
-1. Download the latest [OMS Agent for Linux (x64)](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.0-45/omsagent-1.4.0-45.universal.x64.sh) or [OMS Agent for Linux x86](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.0-45/omsagent-1.4.0-45.universal.x86.sh) from GitHub.  
+1. Download the latest [OMS Agent for Linux (x64)](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.1-45/omsagent-1.4.1-45.universal.x64.sh) or [OMS Agent for Linux x86](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.1-45/omsagent-1.4.1-45.universal.x86.sh) from GitHub.  
 2. Transfer the appropriate bundle (x86 or x64) to your Linux computer using scp/sftp.
 3. Install the bundle by using the `--install` or `--upgrade` argument. 
 
