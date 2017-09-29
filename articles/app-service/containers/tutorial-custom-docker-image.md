@@ -524,7 +524,7 @@ The command reveals two passwords that can be used with the user name.
 }
 ```
 
-Now that you have the necessary credentials, log in to the Azure Container Registry using the `docker login` command. The name of the registry is required to log in. Use the format `{azure-container-registry-name>.azurecr.io`.
+Now that you have the necessary credentials, log in to the Azure Container Registry using the `docker login` command. The server name is required to log in. Use the format `{azure-container-registry-name>.azurecr.io`.
 
 ```bash
 docker login <azure-container-registry-name>.azurecr.io --username <azure-container-registry-name> --password <password> 
