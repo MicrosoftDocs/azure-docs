@@ -144,3 +144,8 @@ Before you can download files from your function app with FTP or local Git repos
     If requested, supply your [configured deployment credentials](#credentials).  
 
 [GitHub]: https://github.com/
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Best Practices for Azure Functions](functions-best-practices.md)
