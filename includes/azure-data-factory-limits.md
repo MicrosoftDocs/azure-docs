@@ -41,7 +41,7 @@ Data factory is a multi-tenant service that has the following default limits in 
 
 <sup>3</sup> Cloud data movement unit (DMU) is being used in a cloud-to-cloud copy operation. It is a measure that represents the power (a combination of CPU, memory, and network resource allocation) of a single unit in Data Factory. You can achieve higher copy throughput by leveraging more DMUs for some scenarios. Refer to [Cloud data movement units](../articles/data-factory/v1/data-factory-copy-activity-performance.md#cloud-data-movement-units) section on details.
 
-<sup>4</sup> The Integration Runtime (IR) is the compute infrastructure used by Azure Data Factory to provide the following data integration capabilities across different network environments: data movement, dispatching activities to compute services, execution of SSIS packages. For more information, see [Integration Runtime overview](concepts-integration-runtime.md).
+<sup>4</sup> The Integration Runtime (IR) is the compute infrastructure used by Azure Data Factory to provide the following data integration capabilities across different network environments: data movement, dispatching activities to compute services, execution of SSIS packages. For more information, see [Integration Runtime overview](../articles/data-factory/concepts-integration-runtime.md).
 
 | **Resource** | **Default lower limit** | **Minimum limit** |
 | --- | --- | --- |
