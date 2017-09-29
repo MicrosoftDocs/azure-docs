@@ -21,9 +21,9 @@ ms.author: sethm
 
 Service Bus sessions enable joint and ordered handling of unbounded sequences of related messages. Service Bus is not prescriptive about the nature of the relationship between the messages, and also does not define a particular model for determining where a message sequence starts or ends.
 
-Any sender can create a session when submitting messages into a topic or queue by setting the *SessionId* broker property to some application-defined identifier that is unique to the session. At the AMQP 1.0 protocol level, this value maps to the *group-id* property.
+Any sender can create a session when submitting messages into a topic or queue by setting the [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) broker property to some application-defined identifier that is unique to the session. At the AMQP 1.0 protocol level, this value maps to the *group-id* property.
 
-On session-aware queues or subscriptions, sessions come into existence when there is at least one message with the session's *SessionId*. Once a session exists, there is no defined time or API for when the session expires or disappears. Theoretically, a message can be received for a session today, the next message in a year's time, and if the *SessionId* matches, the session is the same from the Service Bus perspective.
+On session-aware queues or subscriptions, sessions come into existence when there is at least one message with the session's [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId). Once a session exists, there is no defined time or API for when the session expires or disappears. Theoretically, a message can be received for a session today, the next message in a year's time, and if the **SessionId** matches, the session is the same from the Service Bus perspective.
 
 Typically, however, an application has a clear notion of where a set of related messages starts and ends; but Service Bus does not set any specific rules.
 
@@ -55,7 +55,7 @@ A queue is, however, still a queue: there is no random access. If multiple concu
 
 The previous illustration shows three concurrent session receivers, all of which must actively take messages from the queue for every receiver to make progress. The previous session with *SessionId*=4 has no active, owning client, which means that no messages are delivered to anyone until that message has been taken by a newly created, owning session receiver.
 
-While that might appear very constraining, a single receiver process can handle many concurrent sessions easily, especially when they are written with strictly asynchronous code; juggling several dozen concurrent sessions is effectively automatic with the callback model.
+While that might appear to be constraining, a single receiver process can handle many concurrent sessions easily, especially when they are written with strictly asynchronous code; juggling several dozen concurrent sessions is effectively automatic with the callback model.
 
 The strategy for handling many concurrent sessions, whereby each session only sporadically receives messages, is for the handler to drop the session after some idle time and resume processing when the session is accepted as the next session arrives.
 
