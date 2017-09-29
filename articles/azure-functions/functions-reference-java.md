@@ -26,7 +26,7 @@ ms.author: routlaw
 
 Your Azure function should be a stateless class method that processes input and produces output. Although you are allowed to write instance methods, your function must not depend on any instance fields of the class. All  function methods must have a `public` access modifier.
 
-### Triggers and annotations
+## Triggers and annotations
 
 Typically an Azure function is invoked because of an external trigger. Your function needs to process that trigger and its associated inputs and produce one or more outputs.
 
@@ -46,7 +46,7 @@ Twilio | N/A
 
 Trigger inputs and outputs can also be defined in the [function.json](/azure/azure-functions/functions-reference#function-code) for your application.
 
-> [IMPORTANT] You must configure an Azure Storage account in your [local.settings.json](/azure/azure-functions/functions-run-local#local-settings-file) to run Blob, Queue, or Table storage triggers locally.
+> [!IMPORTANT] You must configure an Azure Storage account in your [local.settings.json](/azure/azure-functions/functions-run-local#local-settings-file) to run Storage Blob, Queue, or Table triggers locally.
 
 Example using annotations:
 
@@ -55,7 +55,8 @@ import com.microsoft.azure.serverless.functions.annotation.HttpTrigger;
 import com.microsoft.azure.serverless.functions.ExecutionContext;
 
 public class Function {
-    public String echo(@HttpTrigger(name = "req", methods = {"get"}, authLevel = AuthorizationLevel.ANONYMOUS) String req, ExecutionContext context) {
+    public String echo(@HttpTrigger(name = "req", methods = {"get"},  authLevel = AuthorizationLevel.ANONYMOUS) 
+        String req, ExecutionContext context) {
         return String.format(req);
     }
 }
@@ -99,17 +100,17 @@ with the corresponding `function.json`:
 
 ## Data Types
 
-You are free to use all the data types in Java for the input and output data, including native types; customized Java types and specialized Azure types defined in `azure-functions-java-core` package. The Azure Functions runtime will try to convert the input received into the type requested by your code.
+You are free to use all the data types in Java for the input and output data, including native types; customized Java types and specialized Azure types defined in `azure-functions-java-core` package. The Azure Functions runtime attempts convert the input received into the type requested by your code.
 
 ### Strings
 
-Strings passed into function methods will be interpreted directly as String objects by the function method if the input parameter type for the function is of type `String`. 
+Values passed into function methods will be cast to Strings if the corresponding input parameter type for the function is of type `String`. 
 
 ### Plain old Java objects (POJOs)
 
-Strings formatted with JSON will be convered to Java types if the input of the function method expects that Java type. This allows you to pass deserialized JSON objects into your functions and then work with the Java types in your function code.
+Strings formatted with JSON will be cast to Java types if the input of the function method expects that Java type. This conversion allows you to pass JSON inputs into your functions and work with Java types in your code without having to implement the conversion in your own code.
 
-POJO types used as inputs to functions must the same `public` access modififer as the function methods they are being used in. The POJO class fields do not have to be declared `public`; for example a JSON string `{ "x": 3 }` is able to be converted to the following POJO type:
+POJO types used as inputs to functions must the same `public` access modifier as the function methods they are being used in. You don't have to declare POJO class fields `public`. For example, a JSON string `{ "x": 3 }` is able to be converted to the following POJO type:
 
 ```Java
 public class MyData {
@@ -119,11 +120,11 @@ public class MyData {
 
 ## Function method overloading
 
-You are  allowed to overload function methods with the same name but with different types. For example, you can have both `String echo(String s)` and `String echo(MyType s)` in one class, and Azure Functions runtime will decide which one to invoke by examine the actual input type (for HTTP input, MIME type `text/plain` leads to `String` while `application/json` represents `MyType`).
+You are allowed to overload function methods with the same name but with different types. For example, you can have both `String echo(String s)` and `String echo(MyType s)` in one class, and Azure Functions runtime decides which one to invoke by examine the actual input type (for HTTP input, MIME type `text/plain` leads to `String` while `application/json` represents `MyType`).
 
 ## Inputs
 
-Input are divided into two categories in Azure Functions: one is the trigger input and the other is the additional input. Although they are different in `function.json`, the usage are identical in Java code. Let's take the following code snippet as an example:
+Input are divided into two categories in Azure Functions: one is the trigger input and the other is the additional input. Although they are different in `function.json`, the usage is identical in Java code. Let's take the following code snippet as an example:
 
 ```java
 package com.example;
@@ -142,7 +143,7 @@ public class MyClass {
 }
 ```
 
-The `@Bind` annotation accepts a `String` property which represents the name of the binding/trigger defined in `function.json`:
+The `@Bind` annotation accepts a `String` property that represents the name of the binding/trigger defined in `function.json`:
 
 ```json
 {
@@ -175,7 +176,7 @@ The `@Bind` annotation accepts a `String` property which represents the name of 
 }
 ```
 
-So when this function is invoked, the HTTP request payload will be passed as the `String` for argument `in`; and one specific item will be retrieved from the Azure Table Storage and be parsed to `MyObject` type and be passed to argument `obj`.
+So when this function is invoked, the HTTP request payload passes a   `String` for argument `in` and an Azure Table Storage `MyObject` type passed to argument `obj`.
 
 ## Outputs
 
@@ -231,26 +232,24 @@ and define the output binding in `function.json`:
 ```
 ## Specialized Types
 
-Sometimes a function need to take a more detailed control of the input and output, and that's why we also provide some specialized types in the `azure-functions-java-core` package for you to manipulate:
+Sometimes a function must have detailed control over inputs and outputs. Specialized types in the `azure-functions-java-core` package are provided for you to manipulate request information and tailor the return status of a HTTP trigger:
 
 | Specialized Type      |       Target        | Typical Usage                  |
 | --------------------- | :-----------------: | ------------------------------ |
-| `HttpRequestMessage`  |    HTTP Trigger     | Get method, headers or queries |
+| `HttpRequestMessage`  |    HTTP Trigger     | Get method, headers, or queries |
 | `HttpResponseMessage` | HTTP Output Binding | Return status other than 200   |
 
-> [NOTE] You can also use `@Bind` annotation to get HTTP headers and queries. For example, `@Bind("name") String query` will try to iterate the HTTP request headers and queries and pass that value to the method; `query` will be `"test"` if the request URL is `http://example.org/api/echo?name=test`.
+> [!NOTE] You can also use `@Bind` annotation to get HTTP headers and queries. For example, `@Bind("name") String query` iterates the HTTP request headers and queries and pass that value to the method. For example,  `query` will be `"test"` if the request URL is `http://example.org/api/echo?name=test`.
 
 ## Functions execution context
 
 You interact with Azure Functions execution environment via the `ExecutionContext` object defined in the `azure-functions-java-core` package. Use the `ExecutionContext` object to use invocation information and functions runtime information in your code.
 
-<insert sample>
-
 ### Logging
 
 Access to the Functions runtime logger is available through the `ExecutionContext` object. This logger is tied to the Azure monitor and allows you to flag warnings and errors encountered during function execution.
 
-The following example code logs a warning message if the request body received is empty.
+The following example code logs a warning message when the request body received is empty.
 
 ```java
 import com.microsoft.azure.serverless.functions.annotation.HttpTrigger;

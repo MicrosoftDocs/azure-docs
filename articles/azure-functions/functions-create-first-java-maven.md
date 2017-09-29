@@ -146,7 +146,7 @@ You have created a Java function app with a simple HTTP trigger.
    ![Different templates you can use to add new Functions to your project](media/functions-create-java-maven/add-new-functions.png)
 
 - Debug functions locally with Visual Studio Code. With the [Java extension pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) installed and with your Functions project open in Visual Studio code, attach the debugger to port localhost port 5005. Then set a breakpoint and trigger your function:
-    ![Debug functions in Visual Studio Code](media/)functions-create-java-maven/vscode-debug.png)
+    ![Debug functions in Visual Studio Code](media/functions-create-java-maven/vscode-debug.png)
 
 - Review the  [Java Functions developer guide](functions-reference-java.md) for more information on developing Java functions.
 - The [Java Functions annotation reference](https://github.com/Azure/azure-functions-java-worker/tree/documentation/azure-functions-java-core) summarizes the available function triggers and their Java annotations syntax.
