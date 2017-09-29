@@ -70,7 +70,7 @@ When API Management is in external virtual network mode, the DNS is managed by A
 > API Management service does not listen to requests coming from IP addresses. It only responds to requests to the host name configured on its service endpoints. These endpoints include gateway, developer portal, publisher portal, direct management endpoint, and Git.
 
 ### Access on default host names
-When you create an API Management service in the global Azure cloud, named "contoso" for example, the following service endpoints are configured by default:
+When you create an API Management service, named "contoso" for example, the following service endpoints are configured by default:
 
    * Gateway or proxy: contoso.azure-api.net
 
@@ -80,7 +80,7 @@ When you create an API Management service in the global Azure cloud, named "cont
 
    * Git: contoso.scm.azure-api.net
 
-To access these API Management service endpoints, you can create a virtual machine in a subnet connected to the virtual network in which API Management is deployed. Assuming the internal virtual IP address for your service is 10.0.0.5, you can map  the hosts file, %SystemDrive%\drivers\etc\hosts, as follows:
+To access these API Management service endpoints, you can create a virtual machine in a subnet connected to the virtual network in which API Management is deployed. Assuming the internal virtual IP address for your service is 10.0.0.5, you can map the hosts file, %SystemDrive%\drivers\etc\hosts, as follows:
 
    * 10.0.0.5     contoso.azure-api.net
 
