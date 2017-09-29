@@ -284,7 +284,7 @@ At the time of writing, IoT Edge only supports BLE modules in gateways running o
 Install dependencies for Azure IoT Edge:
 
 ```sh
-sudo apt-get install cmake uuid-dev curl libcurl4-openssl-dev libssl-dev
+sudo apt-get install cmake uuid-dev curl libcurl4-openssl-dev libssl-dev libtool
 ```
 
 Use the following commands to clone IoT Edge and all its submodules to your home directory:
