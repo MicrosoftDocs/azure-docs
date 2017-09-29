@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus message sessions | Microsoft Docs
-description: Handle sequences of of Azure Service Bus messages with sessions.
+description: Handle sequences of Azure Service Bus messages with sessions.
 services: service-bus-messaging
 documentationcenter: ''
 author: clemensv
