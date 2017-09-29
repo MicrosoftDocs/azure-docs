@@ -64,6 +64,7 @@
 #### [Custom analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
 ### Filters in Azure Search
 #### [Overview](search-filters.md)
+#### [Composite multi-field filters](search-filters-composite.md)
 #### [Facet filters](search-filters-facets.md)
 #### [Date filters](search-filters-dates.md)
 #### [Geo "Find near me" filters](search-filters-geo.md)
