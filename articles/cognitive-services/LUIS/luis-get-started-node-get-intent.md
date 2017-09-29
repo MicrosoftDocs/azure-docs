@@ -12,7 +12,7 @@ ms.date: 04/26/2017
 ms.author: v-demak
 ---
 
-# Call a LUIS app using Node.js
+# Call a LUIS app using JavaScript
 
 This Quickstart shows you how to call your Language Understanding Intelligent Service (LUIS) app in just a few minutes. When you're finished, you'll be able to use JavaScript code to pass utterances to a LUIS endpoint and get results.
 
