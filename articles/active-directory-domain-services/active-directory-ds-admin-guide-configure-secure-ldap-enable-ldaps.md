@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 09/26/2017
 ms.author: maheshu
 
 ---
@@ -22,20 +22,13 @@ ms.author: maheshu
 ## Before you begin
 Ensure you've completed [Task 2 - export the secure LDAP certificate to a .PFX file](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md).
 
-Choose whether to use the preview Azure portal experience or the Azure classic portal to complete this task.
-> [!div class="op_single_selector"]
-> * **Azure portal (Preview)**: [Enable secure LDAP using the Azure portal](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
-> * **Azure classic portal**: [Enable secure LDAP using the classic Azure portal](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps-classic.md)
->
->
 
-
-## Task 3 - enable secure LDAP for the managed domain using the Azure portal (Preview)
+## Task 3 - enable secure LDAP for the managed domain using the Azure portal
 To enable secure LDAP, perform the following configuration steps:
 
 1. Navigate to the **[Azure portal](https://portal.azure.com)**.
 
-2. Search for 'domain services' in the **Search resources** search box. Select **Azure AD Domain Services** from the search result. The **Azure AD Domain Services** blade lists your managed domain.
+2. Search for 'domain services' in the **Search resources** search box. Select **Azure AD Domain Services** from the search result. The **Azure AD Domain Services** page lists your managed domain.
 
     ![Find managed domain being provisioned](./media/getting-started/domain-services-provisioning-state-find-resource.png)
 
@@ -45,12 +38,16 @@ To enable secure LDAP, perform the following configuration steps:
 
 3. Click **Secure LDAP** on the navigation pane.
 
-    ![Domain Services - Secure LDAP blade](./media/active-directory-domain-services-admin-guide/secure-ldap-blade.png)
+    ![Domain Services - Secure LDAP page](./media/active-directory-domain-services-admin-guide/secure-ldap-blade.png)
 
 4. By default, secure LDAP access to your managed domain is disabled. Toggle **Secure LDAP** to **Enable**.
 
     ![Enable secure LDAP](./media/active-directory-domain-services-admin-guide/secure-ldap-blade-configure.png)
 5. By default, secure LDAP access to your managed domain over the internet is disabled. Toggle **Allow secure LDAP access over the internet** to **Enable**, if desired. 
+
+    > [!TIP]
+    > If you enable secure LDAP access over the internet, we recommend setting up an NSG to lock down access to required source IP address ranges. See the instructions to [lock down LDAPS access to your managed domain over the internet](#task-5---lock-down-ldaps-access-to-your-managed-domain-over-the-internet).
+    >
 
 6. Click the folder icon following **.PFX file with secure LDAP certificate**. Specify the path to the PFX file with the certificate for secure LDAP access to the managed domain.
 
@@ -77,7 +74,7 @@ To enable secure LDAP, perform the following configuration steps:
 
 Before you begin this task, ensure you have completed the steps outlined in [Task 3](#task-3---enable-secure-ldap-for-the-managed-domain-using-the-azure-portal-preview).
 
-Once you have enabled secure LDAP access over the internet for your managed domain, you need to update DNS so that client computers can find this managed domain. At the end of task 3, an external IP address is displayed on the **Properties** blade in **EXTERNAL IP ADDRESS FOR LDAPS ACCESS**.
+Once you have enabled secure LDAP access over the internet for your managed domain, you need to update DNS so that client computers can find this managed domain. At the end of task 3, an external IP address is displayed on the **Properties** tab in **EXTERNAL IP ADDRESS FOR LDAPS ACCESS**.
 
 Configure your external DNS provider so that the DNS name of the managed domain (for example, 'ldaps.contoso100.com') points to this external IP address. In our example, we need to create the following DNS entry:
 
