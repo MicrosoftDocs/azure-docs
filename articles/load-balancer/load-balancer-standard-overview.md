@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/21/2017
+ms.date: 09/28/2017
 ms.author: kumud
 ---
 
@@ -364,6 +364,9 @@ To participate in the Preview for Load Balancer Standard SKU and its companion P
     ```cli
     az feature register --name AllowLBPreview --namespace Microsoft.Network
     ```
+
+>[!NOTE]
+>Registration of the Load Balancer Standard feature may take up to an hour.
 
 >[!NOTE]
 >If you wish to use Availability Zones with Load Balancer and Public IP, you need to register your subscription for the Availability Zones Preview as well.
