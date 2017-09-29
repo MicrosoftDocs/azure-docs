@@ -30,6 +30,9 @@ IoT Hub monitors six categories of events:
 * File uploads
 * Message routing
 
+> [!IMPORTANT]
+> IoT Hub operations monitoring does not guarantee reliable nor ordered delivery of events. This means that, depending on IoT Hub underlying infrastructure some events might be lost or delivered out of order. Use operations monitoring to generate alerts based on error signals such as failed connection attempts, or high-frequency disconnections for specific devices. Do not rely on operations monitoring events to create a consistent store for device state, e.g. a store tracking connected or disconnected state of a device. 
+
 ## How to enable operations monitoring
 
 1. Create an IoT hub. You can find instructions on how to create an IoT hub in the [Get Started][lnk-get-started] guide.
