@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 09/28/2017
+ms.date: 09/29/2017
 ms.author: genemi
 ---
 # Use Virtual Network service endpoints and rules for Azure SQL Database
@@ -148,20 +148,26 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 
 ## Errors 40914 and 40615
 
-Connection error 40914 relates to virtual network rules:
+Connection error 40914 relates to *virtual network rules*, as specified on the Firewall pane in the Azure portal. Error 40615 is similar, except it relates to *IP address rules* on the Firewall.
 
-- ErrorNumber: 40914
-    - Message text:  Cannot open server '*[server-name]*' requested by the login. Client is not allowed to access the server.
-    - (GATEWAY\_VNET\_FIREWALL\_BLOCKED)
+#### Error 40914
 
-    *Error description:* The client is a subnet inside a virtual network, the Azure SQL Database server has no virtual network rule that grants to the subnet the right to communicate with the SQL Database.
+*Message text:* Cannot open server '*[server-name]*' requested by the login. Client is not allowed to access the server.
 
-    *Error resolution:* One resolution is to use the Firewall pane in the [Azure portal to add a virtual network rule](#anchor-how-to-by-using-firewall-portal-59j) for the subnet. But first ensure that the subnet is a [virtual network service endpoint][vm-virtual-network-service-endpoints-overview-649d]. Another resolution could be to [assign a static IP address][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w] to your client, and to then enter the IP address into the Firewall.
+*Error description:* The client is in a subnet that has virtual network server endpoints. But the Azure SQL Database server has no virtual network rule that grants to the subnet the right to communicate with the SQL Database.
 
-Connection error 40615 is a somewhat similar error. The resolution for 40615 emphasizes the adding of IP address on the Firewall pane in the Azure portal.
+*Error resolution:* On the Firewall pane of the Azure portal, use the virtual network rules control to [add a virtual network rule](#anchor-how-to-by-using-firewall-portal-59j) for the subnet.
+
+#### Error 40615
+
+*Message text:* Cannot open server '{0}' requested by the login. Client with IP address '{1}' is not allowed to access the server.
+
+*Error description:* The client is trying to connect from an IP address that is not authorized to connect to the Azure SQL Database server. The server firewall has no IP address rule that allows a client to communicate from the given IP address to the SQL Database.
+
+*Error resolution:* Enter the client's IP address as an IP rule. Do this by using the Firewall pane in the Azure portal.
+
 
 A list of several SQL Database error messages is documented [here][sql-database-develop-error-messages-419g].
-
 
 
 
