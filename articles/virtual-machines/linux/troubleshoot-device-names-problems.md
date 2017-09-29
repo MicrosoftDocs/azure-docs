@@ -22,7 +22,7 @@ ms.author: genli
 
 This article explains why device names change after you restart a Linux VM or reattach the data disks. The article also provides solutions for this problem.
 
-## Problem symptoms
+## Symptoms
 
 You may experience the following problems when running Linux VMs in Microsoft Azure:
 
@@ -30,7 +30,7 @@ You may experience the following problems when running Linux VMs in Microsoft Az
 - When data disks are detached and reattached, the disk device names are changed.
 - An application or script that references a disk by using the device name fails because the device name has changed.
 
-## Problem cause
+## Cause
 
 Device paths in Linux aren't guaranteed to be consistent across restarts. Device names consist of major numbers (letters) and minor numbers. When the Linux storage device driver detects a new device, the driver assigns major and minor numbers from the available range to the device. When a device is removed, the device numbers are freed for reuse.
 
