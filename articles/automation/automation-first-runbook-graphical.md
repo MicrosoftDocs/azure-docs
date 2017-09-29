@@ -3,7 +3,7 @@ title: My first graphical runbook in Azure Automation | Microsoft Docs
 description: Tutorial that walks you through the creation, testing, and publishing of a simple graphical runbook.
 services: automation
 documentationcenter: ''
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: ''
 keywords: runbook, runbook template, runbook automation, azure runbook

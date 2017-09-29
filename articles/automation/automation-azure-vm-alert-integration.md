@@ -3,7 +3,7 @@ title: " Remediate Azure VM Alerts with Automation Runbooks | Microsoft Docs"
 description: This article demonstrates how to integrate Azure Virtual Machine alerts with Azure Automation runbooks and auto-remediate issues
 services: automation
 documentationcenter: ''
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 

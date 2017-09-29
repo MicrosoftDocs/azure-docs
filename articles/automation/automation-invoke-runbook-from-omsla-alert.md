@@ -3,7 +3,7 @@ title: Calling an Azure Automation Runbook from a Log Analytics Alert | Microsof
 description: This article provides an overview of how to invoke an Automation runbook from a Microsoft OMS Log Analytics alert.
 services: automation
 documentationcenter: ''
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: ''
 

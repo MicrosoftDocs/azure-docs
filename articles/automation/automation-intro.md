@@ -3,7 +3,7 @@ title: What is Azure Automation | Microsoft Docs
 description: Learn what value Azure Automation provides and get answers to common questions so that you can get started in creating, using runbooks and Azure Automation DSC.
 services: automation
 documentationcenter: ''
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: ''
 keywords: what is automation, azure automation, azure automation examples

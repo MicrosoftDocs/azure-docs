@@ -3,7 +3,7 @@ title: Scheduling a runbook in Azure Automation | Microsoft Docs
 description: Describes how to create a schedule in Azure Automation so that you can automatically start a runbook at a particular time or on a recurring schedule.
 services: automation
 documentationcenter: ''
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 

@@ -3,7 +3,7 @@ title: Forward Azure Automation job data to OMS Log Analytics | Microsoft Docs
 description: This article demonstrates how to send job status and runbook job streams to Microsoft Operations Management Suite Log Analytics to deliver additional insight and management.
 services: automation
 documentationcenter: ''
-author: MGoedtel
+author: eslesar
 manager: carmonm
 editor: tysonn
 

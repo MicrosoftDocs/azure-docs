@@ -3,7 +3,7 @@ title: Migrate Automation Account and Resources | Microsoft Docs
 description: This article describes how to move an Automation Account in Azure Automation and associated resources from one subscription to another.
 services: automation
 documentationcenter: ''
-author: MGoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 

@@ -3,7 +3,7 @@ title: Create an Azure Automation Integration Module | Microsoft Docs
 description: Tutorial that walks you through the creation, testing, and example use of  integration modules in Azure Automation.
 services: automation
 documentationcenter: ''
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: ''
 
