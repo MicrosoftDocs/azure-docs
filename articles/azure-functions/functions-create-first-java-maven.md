@@ -31,36 +31,21 @@ This quickstart guides through creating a serverless function project with Maven
 -  [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 1.8.
 -  [Azure CLI](https://docs.microsoft.com/cli/azure)
 -  [Apache Maven](https://maven.apache.org) , version 3.0 or above.
--  [Azure Functions Core Tools](/azure/azure-functions/functions-run-local#install-the-azure-functions-core-tools) 2.0 or higher.
-   
-## Configure Maven
+-  [Node.js](https://nodejs.org/download/), latest LTS version.
 
-To create a new Functions project with Maven, you first need to configure Maven to generate the project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html). Update your Maven [settings](https://maven.apache.org/settings.html) to add the Azure Functions archetype repository:
+## Install the Azure Functions Core Tools
 
-```XML
-<profile>
-    <id>azure-functions-private-preview</id>
-    <activation>
-		<activeByDefault>true</activeByDefault>
-    </activation>
-    <repositories>
-		<repository>
-		    <id>archetype</id>
-		    <url>https://www.myget.org/F/azure-function/maven/</url>
-		    <releases>
-		        <enabled>true</enabled>
-		    </releases>
-		    <snapshots>
-		        <enabled>true</enabled>
-		    </snapshots>
-		</repository>
-    </repositories>
-</profile>
+The [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) provide a local development environment for writing, running, and debugging Azure Functions. The tools are cross-platform and are distributed using [npm](https://www.npmjs.com/) , which is included with [Node.js](https://nodejs.org/).
+
+Install the Azure Functions Core Tools on your system:
+
+```
+npm install -g azure-functions-core-tools@core
 ```
 
 ## Generate a new Functions project
 
-In an empty folder, run the following command to generate the Functions project:
+In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
 
 ```bash
 mvn archetype:generate \
