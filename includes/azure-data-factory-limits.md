@@ -17,8 +17,8 @@ Data factory is a multi-tenant service that has the following default limits in 
 | Bytes per object for dataset and linked service objects <sup>1</sup> | 100 KB | 2000 KB |
 | Cloud data movement units <sup>3</sup> | 32 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Retry count for pipeline activity runs | 1 day(timeout) | 1 day (timeout) |
-| API write calls | 2500/hr<br/><br/> This limit is imposed by Azure Resource Manager, not Azure Data Factory. | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| API read calls | 12,500/hr<br/><br/> This limit is imposed by Azure Resource Manager, not Azure Data Factory. | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Write API calls | 2500/hr<br/><br/> This limit is imposed by Azure Resource Manager, not Azure Data Factory. | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Read API calls | 12,500/hr<br/><br/> This limit is imposed by Azure Resource Manager, not Azure Data Factory. | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 
 
 ### Version 1
@@ -39,7 +39,7 @@ Data factory is a multi-tenant service that has the following default limits in 
 
 <sup>2</sup> On-demand HDInsight cores are allocated out of the subscription that contains the data factory. As a result, the above limit is the Data Factory enforced core limit for on-demand HDInsight cores and is different from the core limit associated with your Azure subscription.
 
-<sup>3</sup> Cloud data movement unit (DMU) is being used in a cloud-to-cloud copy operation. It is a measure that represents the power (a combination of CPU, memory, and network resource allocation) of a single unit in Data Factory. You can achieve higher copy throughput by leveraging more DMUs for some scenarios. Refer to [Cloud data movement units](../articles/data-factory/v1/data-factory-copy-activity-performance.md#cloud-data-movement-units) section on details.
+<sup>3</sup> Cloud data movement unit (DMU) is being used in a cloud-to-cloud copy operation. It is a measure that represents the power (a combination of CPU, memory, and network resource allocation) of a single unit in Data Factory. You can achieve higher copy throughput by using more DMUs for some scenarios. Refer to [Cloud data movement units](../articles/data-factory/v1/data-factory-copy-activity-performance.md#cloud-data-movement-units) section on details.
 
 <sup>4</sup> The Integration Runtime (IR) is the compute infrastructure used by Azure Data Factory to provide the following data integration capabilities across different network environments: data movement, dispatching activities to compute services, execution of SSIS packages. For more information, see [Integration Runtime overview](../articles/data-factory/concepts-integration-runtime.md).
 
