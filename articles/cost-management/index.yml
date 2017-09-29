@@ -36,4 +36,4 @@ sections:
     items:
     - html: <a href="tutorial-review-usage">Review usage and costs to detect anomalies and efficiencies</a>
     - html: <a href="tutorial-user-access">Assign access to Cost Management data</a>
-    - html: <a href="tutorial-forecast-spending">Forecast future spending and optimize usage and costs</a>
+    - html: <a href="tutorial-forecast-spending">Forecast future spending</a>

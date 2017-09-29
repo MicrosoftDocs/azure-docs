@@ -74,7 +74,7 @@ In this tutorial, you learned how to:
 > * Create a user with user access
 > * Create entities
 
-Advance to the next tutorial to learn how to forecast spending using historical data and optimize usage and costs.
+Advance to the next tutorial to learn how to forecast spending using historical data.
 
 > [!div class="nextstepaction"]
-> [Forecast future spending and optimize usage and costs](tutorial-forecast-spending.md)
+> [Forecast future spending](tutorial-forecast-spending.md)
