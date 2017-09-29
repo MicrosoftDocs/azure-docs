@@ -41,6 +41,9 @@ The [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-c
 npm install -g azure-functions-core-tools@core
 ```
 
+> [!NOTE]
+> If you have trouble installing Azure Functions Core Tools version 2.0, see [Version 2.x runtime](/azure/azure-functions/functions-run-local#version-2x-runtime).
+
 ## Generate a new Functions project
 
 In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
