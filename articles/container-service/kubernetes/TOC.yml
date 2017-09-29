@@ -73,10 +73,10 @@
       href: container-service-deploy-spring-boot-app-using-fabric8-maven-plugin.md
 - name: Reference
   items:
-  - name: Azure CLI 2.0
+  - name: Azure CLI
     href: /cli/azure/acs
   - name: REST
-    href: /rest/api/container-services
+    href: /rest/api/container-service
 - name: Resources
   items:
   - name: Azure Roadmap

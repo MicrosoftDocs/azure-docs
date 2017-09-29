@@ -3,7 +3,7 @@ title: Create your first actor-based Azure microservice in Java | Microsoft Docs
 description: This tutorial walks you through the steps of creating, debugging, and deploying a simple actor-based service using Service Fabric Reliable Actors.
 services: service-fabric
 documentationcenter: .net
-author: vturecek
+author: rwike77
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2017
-ms.author: vturecek
+ms.author: ryanwi
 
 ---
 # Getting started with Reliable Actors
