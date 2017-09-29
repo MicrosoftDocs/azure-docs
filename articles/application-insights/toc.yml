@@ -117,6 +117,8 @@
         href: app-insights-snapshot-debugger.md
     - name: J2EE
       items:
+      - name: Eclipse
+        href: app-insights-java-eclipse.md
       - name: Log traces
         href: app-insights-java-trace-logs.md
       - name: Unix metrics
@@ -138,6 +140,8 @@
         href: app-insights-proactive-failure-diagnostics.md
       - name: Performance anomalies
         href: app-insights-proactive-performance-diagnostics.md
+    - name: Dynamics CRM
+      href: app-insights-sample-mscrm.md
     - name: Create a resource
       href: app-insights-create-new-resource.md
   - name: Analyze
