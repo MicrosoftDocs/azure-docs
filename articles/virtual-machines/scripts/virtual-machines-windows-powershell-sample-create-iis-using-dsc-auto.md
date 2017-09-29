@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 09/17/2017
+ms.date: 09/29/2017
 ms.author: cynthn
 ---
 
