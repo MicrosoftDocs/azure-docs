@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 09/15/2017
+ms.date: 09/29/2017
 ms.author: cynthn
 
 ---
 
-# Create an IIS VM using the New-AzVM PowerShell cmdlet
+# Create an IIS VM using the New-AzVM PowerShell cmdlet (preview)
 
-This script creates an Azure Virtual Machine running Windows Server 2016, and then uses the Azure Virtual Machine Custom Script Extension to install IIS. After running the script, you can access the default IIS website on the public IP address of the virtual machine.
+This script creates an Azure Virtual Machine running Windows Server 2016, and then uses the Azure Virtual Machine Custom Script Extension to install IIS. After running the script, you can access the default IIS website on the public IP address of the virtual machine. 
+
+This sample uses the New-AzVM cmdlet, which is in preview. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

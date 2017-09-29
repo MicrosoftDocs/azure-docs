@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 09/14/2017
+ms.date: 09/29/2017
 ms.author: cynthn
 
 ---
 
-# Create a fully configured virtual machine with the New-AzVM PowerShell cmdlet
+# Create a fully configured virtual machine with the New-AzVM PowerShell cmdlet (preview)
 
 This script uses the New-AzVM cmdlet in Cloud Shell to create an Azure Virtual Machine running Windows Server 2016. After running the script, you can access the virtual machine over RDP. Cloud Shell has the module that includes New-AzVM installed by default, which makes it easier for you to check out the new functionality.
 
-
+This sample uses the New-AzVM cmdlet, which is in preview. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
