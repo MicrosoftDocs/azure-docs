@@ -6126,6 +6126,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/stream-analytics/stream-analytics-functions-redis.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-introduction",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/logic-apps/logic-apps-enterprise-integration-accounts.md",
             "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-create-integration-account",
             "redirect_document_id": false
