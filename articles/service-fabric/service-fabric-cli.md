@@ -21,7 +21,7 @@ The Azure Service Fabric command-line interface (CLI) is a command-line utility 
 
 Prior to installation, make sure your environment has both Python and pip installed. For more information, see the [pip quickstart documentation](https://pip.pypa.io/en/latest/quickstart/) and the official [Python installation documentation](https://wiki.python.org/moin/BeginnersGuide/Download).
 
-The CLI supports Python versions 2.7, 3.5 and 3.6. It is recommended to use version 3.6, since Python 2.7 will reach end of support soon.
+The CLI supports Python versions 2.7, 3.5 and 3.6. Python 3.6 is the recommended version, since Python 2.7 will reach end of support soon.
 
 ### Service Fabric target runtime
 
@@ -38,7 +38,7 @@ You can optionally specify a target version of the CLI to install by suffixing t
 pip install -I sfctl==1.1.0
 ```
 
-Keep this in mind when running the following commands to install the CLI.
+Replace the following `pip install` command with the previously mentioned command when necessary.
 
 ## Install pip, Python, and the Service Fabric CLI
 
@@ -72,7 +72,7 @@ sfctl -h
 
 ### Ubuntu and Windows subsystem for Linux
 
-To install the Service Fabric CLI run the following commands:
+To install the Service Fabric CLI, run the following commands:
 
 ```bash
 sudo apt-get install python3
@@ -86,9 +86,9 @@ Then you can test the installation with:
 sfctl -h
 ```
 
-If you receive an error such as:
+If you receive a command not found error such as:
 
-> sfctl: command not found
+`sfctl: command not found`
 
 Be sure that `~/.local/bin` is accessible from the `$PATH`:
 
@@ -97,9 +97,7 @@ export PATH=$PATH:~/.local/bin
 echo "export PATH=$PATH:~/.local/bin" >> .bashrc
 ```
 
-Sometimes also installations on Windows subsystem for Linux will fail with
-incorrect folder permissions. In this case it may be necessary to try again
-with elevated permissions:
+If the installation on Windows subsystem for Linux fails with incorrect folder permissions, it may be necessary to try again with elevated permissions:
 
 ```bash
 sudo pip3 install sfctl
