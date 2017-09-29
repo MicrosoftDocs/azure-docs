@@ -123,7 +123,7 @@ In our case, we define these custom tags (**celebrity**, **flag**, **us**, **toy
 4. Choose from the list of Internet accounts to log in.
 5. Note the API keys displayed on your service page.
     
-   ![Computer Vision API keys](images/tutorial-ecommerce-computer-vision-signup.PNG)
+   ![Computer Vision API keys](images/tutorial-computer-vision-keys.PNG)
     
 6. Refer to the project source code for the function that scans the image with the Computer Vision API.
 
