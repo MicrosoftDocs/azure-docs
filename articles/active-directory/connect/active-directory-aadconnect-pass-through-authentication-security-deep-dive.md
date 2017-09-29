@@ -11,11 +11,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 09/29/2017
 ms.author: billmath
 
 ---
-# Azure Active Directory Pass-through Authentication (PTA) security deep-dive
+# Azure Active Directory Pass-through Authentication security deep-dive
 
 This article provides a more detailed description on how Pass-through Authentication works. It focuses more on the security aspects of the feature. This topic will be of interest to security and IT administrators, Chief Compliance and Security officers, and other IT professionals responsible for IT security and compliance at small-to-medium organizations or large enterprises.
 
@@ -187,6 +187,7 @@ Here is how an Authentication Agent gets auto-updated:
 ## Next steps
 - [**Current limitations**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - Learn which scenarios are supported and which ones are not.
 - [**Quick Start**](active-directory-aadconnect-pass-through-authentication-quick-start.md) - Get up and running Azure AD Pass-through Authentication.
+- [**Smart Lockout**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) - Configure Smart Lockout capability on your tenant to protect user accounts.
 - [**Frequently Asked Questions**](active-directory-aadconnect-pass-through-authentication-faq.md) - Answers to frequently asked questions.
 - [**Troubleshoot**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) - Learn how to resolve common issues with the feature.
 - [**Azure AD Seamless SSO**](active-directory-aadconnect-sso.md) - Learn more about this complementary feature.
