@@ -36,13 +36,6 @@ To understand what a LUIS app returns, you can paste the URL of a sample LUIS ap
 
     ![JSON result detects the intent TurnOff](./media/luis-get-started-node-get-intent/json-turn-off-floor.png)
 
-<!-- 
-    >[!NOTE]
-    >The culture cannot be changed once the application is created. -->
-
-LUIS creates the TravelAgent app and opens its main page which looks like the following screen. Use the navigation links in the left panel to move through your app pages to define data and work on your app. 
-
-![TravelAgent app created and Opened](./Images/AppCreated_Opened.JPG)
 
 ## Consume a LUIS result using the Endpoint API with JavaScript 
 
@@ -93,6 +86,8 @@ You can use JavaScript to access to the same results you saw in the browser wind
 
 3. Open the file you saved using a web browser.  An alert window should pop up that says `Detected the following intent: TurnOn`.
 
+![Popup that says TurnOn](./media/luis-get-started-node-get-intent/popup-turn-on.png)
+
 ## Next steps
 
-* Try passing some other utterances to the sample app.
+* Try adding a parameter to the code to test some other utterances to the sample app.
