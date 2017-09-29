@@ -1,6 +1,6 @@
 ---
 title: How to find runs with best accuracy and lowest duration | Microsoft Docs
-description: An end-to-end use case use to find best accuracy through CLI using Azure Machine Learning Workbench
+description: An end-to-end use case to find best accuracy through CLI using Azure Machine Learning Workbench
 services: machine-learning
 author: totekp
 ms.author: kefzhou
