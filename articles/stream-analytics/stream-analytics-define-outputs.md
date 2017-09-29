@@ -53,7 +53,7 @@ The table below lists the property names and their description needed for creati
 </tr>
 <tr>
 <td>Path Prefix Pattern</td>
-<td>The file path used to write your files within the specified Data Lake Store Account. <BR>{date}, {time}<BR>Example 1: folder1/logs/{date}/{time}<BR>Example 2: folder1/logs/{date}</td>
+<td>File naming will follow the following convention: <BR>{Path Prefix Pattern}/schemaHashcode_Guid_Number.extension <BR> <BR>Example output files:<BR>Myoutput/20170901/00/45434_gguid_1.csv <BR>Myoutput/20170901/01/45434_gguid_1.csv <BR> <BR>Also, here are the situations, where a new file is created:<BR>1. Change in output schema <BR>2. External or Internal restart of a job<BR><BR>Additionally, if the file path pattern does not contain a trailing “/”, the last pattern in the file path will be treated as a filename prefix.<BR><BR>Example:<BR>For the path pattern: folder1/logs/HH, the generated file may look like: folder1/logs/02_134343_gguid_1.csv</td>
 </tr>
 <tr>
 <td>Date Format [<I>optional</I>]</td>

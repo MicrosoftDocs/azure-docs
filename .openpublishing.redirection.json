@@ -6126,6 +6126,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/stream-analytics/stream-analytics-functions-redis.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-introduction",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/logic-apps/logic-apps-enterprise-integration-accounts.md",
             "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-create-integration-account",
             "redirect_document_id": false
@@ -6138,6 +6143,11 @@
         {
             "source_path": "articles/backup/backup-azure-backup-ibiza-faq.md",
             "redirect_url": "/azure/backup/backup-azure-backup-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/backup/backup-azure-vms-first-look.md",
+            "redirect_url": "/azure/backup/backup-azure-vms-first-look-arm",
             "redirect_document_id": false
         },
         {
@@ -6843,6 +6853,11 @@
         {
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-microsoft-authenticator.md",
             "redirect_url": "./end-user/microsoft-authenticator-app-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-fabric/service-fabric-reliable-actors-get-started-java.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-create-your-first-linux-application-with-java",
             "redirect_document_id": false
         },
         {
@@ -13351,6 +13366,16 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/data-lake-store/data-lake-store-authenticate-using-active-directory.md",
+            "redirect_url": "/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/data-lake-store/data-lake-store-manage-use-nodejs.md",
+            "redirect_url": "/azure/data-lake-store/data-lake-store-get-started-python",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-machines/virtual-machines-dotnet-diagnostics.md",
             "redirect_url": "/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines",
             "redirect_document_id": true
@@ -13359,6 +13384,16 @@
             "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps-classic.md",
             "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/index.md",
+            "redirect_url": "/azure/#pivot=products&panel=cognitive",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory-domain-services/active-directory-ds-azure-portal-enable-preview-access.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-contact-us",
+            "redirect_document_id": false     
         }
     ]
 }

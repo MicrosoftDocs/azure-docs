@@ -1,4 +1,5 @@
 ---
+
 title: How to use Azure API Management with internal virtual networks | Microsoft Docs
 description: Learn how to setup and configure Azure API Management on an internal virtual network
 services: api-management
@@ -13,7 +14,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 09/29/2017
 ms.author: apimpm
 
 ---
@@ -22,12 +23,14 @@ With Azure Virtual Networks, Azure API Management can manage APIs not accessible
 * External
 * Internal
 
+
 When API Management deploys in internal virtual network mode, all the service endpoints (gateway, developer portal, publisher portal, direct management, and Git) are only visible inside a virtual network that you control the access to. None of the service endpoints are registered on the public DNS server.
 
 Using API Management in internal mode, you can achieve the following scenarios:
 * Make APIs hosted in your private datacenter securely accessible by third parties outside of it by using site-to-site or Azure ExpressRoute VPN connections.
 * Enable hybrid cloud scenarios by exposing your cloud-based APIs and on-premises APIs through a common gateway.
 * Manage your APIs hosted in multiple geographic locations by using a single gateway endpoint. 
+
 
 ## Prerequisites
 
@@ -94,11 +97,13 @@ You can then access all the service endpoints from the virtual machine you creat
 If you use a custom DNS server in a virtual network, you can also create A DNS records and access these endpoints from anywhere in your virtual network. 
 
 ### Access on custom domain names:
+
    1. If you don’t want to access the API Management service with the default host names, you can set up custom domain names for all your service endpoints as shown in the following image: 
 
    ![Setting up a custom domain for API Management][api-management-custom-domain-name]
 
    2. Then you can create records in your DNS server to access the endpoints that are only accessible from within your virtual network.
+
 
 ## <a name="related-content"> </a>Related content
 To learn more, see the following articles:
@@ -109,6 +114,7 @@ To learn more, see the following articles:
 [api-management-using-internal-vnet-menu]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-menu.png
 [api-management-internal-vnet-dashboard]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-dashboard.png
 [api-management-custom-domain-name]: ./media/api-management-using-with-internal-vnet/api-management-custom-domain-name.png
+
 
 [Create API Management service]: api-management-get-started.md#create-service-instance
 [Common network configuration problems]: api-management-using-with-vnet.md#network-configuration-issues
