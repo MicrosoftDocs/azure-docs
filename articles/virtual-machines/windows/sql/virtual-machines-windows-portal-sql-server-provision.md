@@ -1,5 +1,5 @@
 ---
-title: Provision a Windows SQL Server Virtual Machine | Microsoft Docs
+title: Create a Linux SQL Server 2017 VM in Azure | Microsoft Docs
 description: This tutorial shows how to create a Windows SQL Server 2017 virtual machine in the Azure portal.
 services: virtual-machines-windows
 documentationcenter: na

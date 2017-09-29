@@ -1,5 +1,5 @@
 ---
-title: Provision a Linux SQL Server VM in Azure | Microsoft Docs
+title: Create a Linux SQL Server 2017 VM in Azure | Microsoft Docs
 description: This tutorial shows how to create a Linux SQL Server 2017 virtual machine in the Azure portal.
 author: rothja 
 ms.author: jroth 
@@ -9,9 +9,7 @@ ms.topic: article
 ms.prod: sql-linux
 ms.technology: database-engine
 ---
-# Create a Linux SQL Server 2017 virtual machine with the Azure portal
-
-# Provision a SQL Server virtual machine in the Azure portal
+# Provision a Linux SQL Server virtual machine in the Azure portal
 
 > [!div class="op_single_selector"]
 > * [Linux](provision-sql-server-linux-virtual-machine.md)
