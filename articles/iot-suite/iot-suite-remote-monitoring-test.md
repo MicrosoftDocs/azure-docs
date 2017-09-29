@@ -265,25 +265,10 @@ To test and debug your changes locally, see [Running the service with Visual Stu
 
 Configure the project to copy the new **Lightbulb** device files to the output directory.
 
-To test the new device in a deployed solution:
+To test the new device in a deployed solution, see one of:
 
-1. Copy the new files into your home directory in the virtual machine that hosts the device simulation. For example:
-
-    ```sh
-    scp lightbulb-01.json youraccount@52.232.74.206:~/
-    scp lightbulb-01-state.js youraccount@52.232.74.206:~/
-    scp Switch* youraccount@52.232.74.206:~/
-    ```
-
-1. In an **ssh** shell connected to your virtual machine, copy the files into the docker container and restart the container:
-
-    ```sh
-    docker cp lightbulb-01.json app_devicesimulation_1:/app/data/devicemodels
-    docker cp lightbulb-01-state.js app_devicesimulation_1:/app/data/devicemodels/scripts
-    docker cp SwitchOff-method.js app_devicesimulation_1:/app/data/devicemodels/scripts
-    docker cp SwitchOn-method.js app_devicesimulation_1:/app/data/devicemodels/scripts
-    sudo docker restart app_devicesimulation_1
-    ```
+* [Deploying containers from custom docker-hub account](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#deploying-containers-from-custom-docker-hub-account)
+* [Update a deployed container via manual copy](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#update-a-deployed-container-via-manual-copy)
 
 On the **Devices** page, you can provision instances of your new type:
 
@@ -374,30 +359,16 @@ The following steps show you how to add a new **Internal Temperature** type to t
 
 ### Test the Chiller device type
 
-To test the updated **Chiller** device type, you:
-
 To test the updated **Chiller** device type, you can first test your device type behaves as expected by running a local copy of the **device-simulation** service. When you have tested and debugged your updated device type locally, you can rebuild the container and redeploy the **device-simulation** service to Azure.
 
 When you run the **device-simulation** service locally, it sends telemetry to your remote monitoring solution. On the **Devices** page, you can provision instances of your updated type.
 
 To test and debug your changes locally, see [Running the service with Visual Studio](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md#running-the-service-with-visual-studio) or [Build and Run from the command line](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md#build-and-run-from-the-command-line).
 
-To test the new device in a deployed solution:
+To test the new device in a deployed solution, see one of:
 
-1. Copy the new files into your home directory in the virtual machine that hosts the device simulation. For example:
-
-    ```sh
-    scp chiller-01.json youraccount@52.232.74.206:~/
-    scp chiller-01-state.js youraccount@52.232.74.206:~/
-    ```
-
-1. In an **ssh** shell connected to your virtual machine, copy the files into the docker container and restart the container:
-
-    ```sh
-    docker cp chiller-01.json app_devicesimulation_1:/app/data/devicemodels
-    docker cp chiller-01-state.js app_devicesimulation_1:/app/data/devicemodels/scripts
-    sudo docker restart app_devicesimulation_1
-    ```
+* [Deploying containers from custom docker-hub account](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#deploying-containers-from-custom-docker-hub-account)
+* [Update a deployed container via manual copy](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#update-a-deployed-container-via-manual-copy)
 
 On the **Devices** page, you can provision instances of your updated type:
 
