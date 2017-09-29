@@ -387,12 +387,11 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 
 ## Next steps
 
-You can continue this tutorial with the following articles:
+You can continue this tutorial with the following article:
 
 * [Stream Analytics and Power BI: A real-time analytics dashboard for streaming data](stream-analytics-power-bi-dashboard.md). This article shows you how to send the TelCo output of the Stream Analytics job to Power BI for real-time visualization and analysis.
-* [How to store data from Azure Stream Analytics in an Azure Redis Cache using Azure Functions](stream-analytics-functions-redis.md). This article shows how to use Azure Functions to write fraudulent calls to an Azure Redis cache via a Service Bus queue.
 
-For more information about Stream Analytics in general, try these articles:
+For more information about Stream Analytics in general, see these articles:
 
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
