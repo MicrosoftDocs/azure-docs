@@ -6851,6 +6851,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/service-fabric/service-fabric-reliable-actors-get-started-java.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-create-your-first-linux-application-with-java",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/service-fabric/service-fabric-cluster-creation-via-visual-studio.md",
             "redirect_url": "/azure/service-fabric/service-fabric-cluster-creation-via-arm",
             "redirect_document_id": false
@@ -13379,6 +13384,11 @@
             "source_path": "articles/cognitive-services/index.md",
             "redirect_url": "/azure/#pivot=products&panel=cognitive",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory-domain-services/active-directory-ds-azure-portal-enable-preview-access.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-contact-us",
+            "redirect_document_id": false     
         }
     ]
 }
