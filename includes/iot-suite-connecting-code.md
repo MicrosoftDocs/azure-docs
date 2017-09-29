@@ -160,6 +160,7 @@ Now add code that implements the behavior defined in the model.
         addProperty(propMap, "$$ContentType", "JSON");
         time_t now = time(0);
         struct tm* timeinfo;
+        #pragma warning(disable: 4996)
         timeinfo = gmtime(&now);
         char timebuff[50];
         strftime(timebuff, 50, "%Y-%m-%dT%H:%M:%SZ", timeinfo);
