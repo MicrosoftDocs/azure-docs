@@ -93,7 +93,7 @@ The following configurations are not currently supported.
 | Compute |XML VM extensions (BGInfo 1.*, Visual Studio Debugger, Web Deploy, and Remote Debugging) |This is not supported. It is recommended that you remove these extensions from the virtual machine to continue migration or they will be dropped automatically during the migration process. |
 | Compute |Boot diagnostics with Premium storage |Disable Boot Diagnostics feature for the VMs before continuing with migration. You can re-enable boot diagnostics in the Resource Manager stack after the migration is complete. Additionally, blobs that are being used for screenshot and serial logs should be deleted so you are no longer charged for those blobs. |
 | Compute |Cloud services that contain web/worker roles |This is currently not supported. |
-| Network |Virtual networks that contain virtual machines and web/worker roles |This is currently not supported. |
+| Network |Virtual networks that contain both virtual machines and web/worker roles |This is currently not supported. |
 | Azure App Service |Virtual networks that contain App Service environments |This is currently not supported. |
 | Azure HDInsight |Virtual networks that contain HDInsight services |This is currently not supported. |
 | Microsoft Dynamics Lifecycle Services |Virtual networks that contain virtual machines that are managed by Dynamics Lifecycle Services |This is currently not supported. |
