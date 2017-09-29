@@ -47,6 +47,7 @@
 ### [Diagnostic logs](service-bus-diagnostic-logs.md)
 ### [Paired namespace implementation](service-bus-paired-namespaces.md)
 ### [Message sequencing and timestamps](message-sequencing.md)
+### [Message browsing](message-browsing.md)
 ### [Message transfers, locks, and settlement](message-transfers-locks-settlement.md)
 ### AMQP
 #### [AMQP overview](service-bus-amqp-overview.md)
