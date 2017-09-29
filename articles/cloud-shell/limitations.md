@@ -62,8 +62,8 @@ PowerShell in Azure Cloud Shell could take up to 60 seconds to initialize during
 ### No $Home directory persistence
 Data written to $Home by any application (such as: git, vim, and others) does not persist across PowerShell sessions.  For a workaround [see here](troubleshooting.md#powershell-resolutions).
 
-### Update AzureRM error
-When you update the AzureRM module to the lastest version (4.4.0), the following error appears upon startup.
+### Error if AzureRM module is updated from PowerShellGallery
+If you update the AzureRM modules to the latest version (4.4.0), you may see following error on Cloudshell startup.
 ``` powershell
 VERBOSE: Authenticating to Azure ...
 Import-Module : Method 'RemoveUser' in type 'Microsoft.Azure.PSCloudConsole.ADAuth.ADAuthFactory' from assembly 'Microsoft.Azure.PSCloudConsole.ADAuth, Version=0.0.0.0,
