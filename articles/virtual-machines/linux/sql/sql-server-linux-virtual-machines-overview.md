@@ -6,7 +6,6 @@ documentationcenter: ''
 author: rothja
 manager: jhubbard
 tags: azure-service-management
-
 ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: get-started-article
