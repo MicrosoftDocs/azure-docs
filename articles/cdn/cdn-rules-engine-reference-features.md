@@ -128,8 +128,7 @@ Key information:
 
 - The Value option defines the query string parameter name through which a token may be specified.
 - The Value option cannot be set to "ec_token."
-- Make sure that the name defined in the Value option only 
-- contains valid URL characters.
+- Ensure that the name defined in the Value option contains only valid URL characters.
 
 Value|Result
 ----|----
@@ -244,7 +243,7 @@ If you would like to duplicate the query string caching behavior known as "no-ca
 
 #### Sample Scenarios
 
-Sample usage for this feature is provided below. A sample request and the default cache-key are provided below.
+The following sample usage for this feature provides a sample request and the default cache-key:
 
 - **Sample request:** http://wpc.0001.&lt;Domain&gt;/800001/Origin/folder/asset.htm?sessionid=1234&language=EN&userid=01
 - **Default cache-key:** /800001/Origin/folder/asset.htm
@@ -342,7 +341,7 @@ Key information:
 - This feature will only compress assets whose size is less than 1 MB. Larger assets will not be compressed by our servers.
 - Certain types of content, such as images, video, and audio media assets (for example, JPG, MP3, MP4, etc.), are already compressed. Additional compression on these types of assets will not significantly diminish file size. Therefore, it is recommended that you do not enable compression on these types of assets.
 - Wildcard characters, such as asterisks, are not supported.
-- Before adding this feature to a rule, make sure to set the Compression Disabled option on the Compression page for the platform to which this rule will be applied.
+- Before you add this feature to a rule, ensure that you set the Compression Disabled option on the Compression page for the platform to which this rule will be applied.
 
 ###Default Internal Max-Age
 **Purpose:** Determines the default max-age interval for edge server to origin server cache revalidation. In other words, the amount of time that will pass before an edge server will check whether a cached asset matches the asset stored on the origin server.
@@ -428,7 +427,7 @@ Key information:
 Key information:
 
 - Define a space-delimited set of allowed H.264 filename extensions in the File Extensions option. The File Extensions option will override the default behavior. Maintain MP4 and F4V support by including those filename extensions when setting this option. 
-- Make sure to include a period when specifying each filename extension (for example, .mp4 .f4v).
+- Be sure to include a period when specifying each filename extension (for example, .mp4 .f4v).
 
 **Default Behavior:** HTTP Progressive Download supports MP4 and F4V media by default.
 
@@ -511,7 +510,7 @@ Key information:
     - URL Query Literal
     - URL Query Wildcard
 
-**Default Behavior:** 2 minutes
+**Default Behavior:** Two minutes
 
 ###Partial Cache Sharing
 **Purpose:** Determines whether a request can generate partially cached content.
@@ -543,7 +542,7 @@ Valid values are:
 
 Value|Result
 --|--
-Enabled|Causes our edge server to re-fetch the asset from the origin server.
+Enabled|Causes our edge server to refetch the asset from the origin server.
 Disabled|Restores the default behavior. The default behavior is to serve up valid cache assets upon request.
 This feature is not required for correct caching and content delivery, but may be useful as a workaround. For example, dynamic content generators on origin servers can inadvertently result in 0-byte responses being sent to the edge servers. These types of responses are typically cached by our edge servers. If you know that a 0-byte response is never a valid response 
 
@@ -560,11 +559,11 @@ Define a space-delimited set of the desired status codes.
 
 Key information:
 
-- Please also enable the Ignore Origin No-Cache feature. If that feature is not enabled, then non-200 OK responses may not be cached.
+- Enable the Ignore Origin No-Cache feature. If this feature is not enabled, then non-200 OK responses may not be cached.
 - The set of valid status codes for this feature are: 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504, and 505.
 - This feature cannot be used to disable caching for responses that generate a 200 OK status code.
 
-**Default Behavior:** Caching is only enabled for responses that generate a 200 OK status code.
+**Default Behavior:** Caching is enabled only for responses that generate a 200 OK status code.
 ###Stale Content Delivery on Error
 **Purpose:** 
 
@@ -597,7 +596,7 @@ One use for this feature is to provide additional information on the general pur
 Key information:
 
 - A maximum of 150 characters may be specified.
-- Make sure to only use alphanumeric characters.
+- Use only alphanumeric characters.
 - This feature does not affect the behavior of the rule. It is merely meant to provide an area where you can provide information for future reference or that may help when troubleshooting the rule.
  
 ## Headers
@@ -656,18 +655,18 @@ One of the following actions can be performed on a request header:
 
 Option|Description|Example
 -|-|-
-Append|The specified value will be added toend of the existing request header value.|**Request header value (Client):**Value1 <br/> **Request header value (HTTP Rules Engine):** Value2 <br/>**New request header value:** Value1Value2
+Append|The specified value will be added to the end of the existing request header value.|**Request header value (Client):**Value1 <br/> **Request header value (HTTP Rules Engine):** Value2 <br/>**New request header value:** Value1Value2
 Overwrite|The request header value will be set to the specified value.|**Request header value (Client):**Value1 <br/>**Request header value (HTTP Rules Engine):** Value2 <br/>**New request header value:** Value2 <br/>
 Delete|Deletes the specified request header.|**Request header value (Client):**Value1 <br/> **Modify Client Request Header configuration:** Delete the request header in question. <br/>**Result:** The specified request header will not be forwarded to the origin server.
 
 Key information:
 
-- Make sure that the value specified in the Name option is an exact match for the desired request header.
+- Ensure that the value specified in the Name option is an exact match for the desired request header.
 - Case is not taken into account for the purpose of identifying a header. For example, any of the following variations of the Cache-Control header name can be used to identify it:
     - cache-control
     - CACHE-CONTROL
     - cachE-Control
-- Make sure to only use alphanumeric characters, dashes, or underscores when specifying a header name.
+- When specifying a header name, use only alphanumeric characters, dashes, or underscores.
 - Deleting a header will prevent it from being forwarded to an origin server by our edge servers.
 - The following headers are reserved and cannot be modified by this feature:
     - forwarded
@@ -689,13 +688,13 @@ One of the following actions can be performed on a response header:
 
 Option|Description|Example
 -|-|-
-Append|The specified value will be added toend of the existing request header value.|**Response header value (Client):**Value1 <br/> **Response header value (HTTP Rules Engine):** Value2 <br/>**New Response header value:** Value1Value2
+Append|The specified value will be added to the end of the existing request header value.|**Response header value (Client):**Value1 <br/> **Response header value (HTTP Rules Engine):** Value2 <br/>**New Response header value:** Value1Value2
 Overwrite|The request header value will be set to the specified value.|**Response header value (Client):**Value1 <br/>**Response header value (HTTP Rules Engine):** Value2 <br/>**New response header value:** Value2 <br/>
 Delete|Deletes the specified request header.|**Request header value (Client):** Value1 <br/> **Modify Client Request Header configuration:** Delete the response header in question. <br/>**Result:** The specified response header will not be forwarded to the requester.
 
 Key information:
 
-- Make sure that the value specified in the Name option is an exact match for the desired response header. 
+- Ensure that the value specified in the Name option is an exact match for the desired response header. 
 - Case is not taken into account for the purpose of identifying a header. For example, any of the following variations of the Cache-Control header name can be used to identify it:
 	- cache-control
 	- CACHE-CONTROL
@@ -725,7 +724,7 @@ The Header name option defines the name of the custom request header where the
 
 This feature allows a customer origin server to find out client IP addresses through a custom request header. If the request is served from cache, then the origin server will not be informed of the client's IP address. Therefore, it is recommended that this feature be used with ADN or assets that will not be cached.
 
-Please make sure that the specified header name does not match any of the following:
+Ensure that the specified header name does not match any of the following names:
 
 - Standard request header names. A list of standard header names can be found in [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 - Reserved header names:
@@ -925,7 +924,7 @@ The configuration of this feature requires setting the following options:
 Option|Description
 -|-
 Code|Select the response code that will be returned to the requester.
-Source & Pattern| These settings define a request URI pattern that identifies the type of requests that may be redirected. Only requests whose URL satisfies both of the following criteria will be redirected: <br/> <br/> **Source :** (or content access point) Select a relative path that identifies an origin server. This is the  "/XXXX/" section and your endpoint name. <br/> **Source (pattern):** A pattern that identifies requests by relative path must be defined. This regular expression pattern must define a path that starts directly after the previously selected content access point (see above). <br/> - Make sure that the request URI criteria (that is, Source & Pattern) defined above doesn't conflict with any match conditions defined for this feature. <br/> - Make sure to specify a pattern. Using a blank value as the pattern will only match requests to the root folder of the selected origin server (for example, http://cdn.mydomain.com/).
+Source & Pattern| These settings define a request URI pattern that identifies the type of requests that may be redirected. Only requests whose URL satisfies both of the following criteria will be redirected: <br/> <br/> **Source (or content access point):** Select a relative path that identifies an origin server. This is the  "/XXXX/" section and your endpoint name. <br/> **Source (pattern):** A pattern that identifies requests by relative path must be defined. This regular expression pattern must define a path that starts directly after the previously selected content access point (see above). <br/> - Ensure that the request URI criteria (that is, Source & Pattern) previously defined doesn't conflict with any match conditions defined for this feature. <br/> - Specify a pattern; if you use a blank value as the pattern, all strings are matched.
 Destination| Define the URL to which the above requests will be redirected. <br/> Dynamically construct this URL using: <br/> - A regular expression pattern <br/>- HTTP variables <br/> Substitute the values captured in the source pattern into the destination pattern using $_n_ where _n_ identifies a value by the order in which it was captured. For example, $1 represents the first value captured in the source pattern, while $2 represents the second value. <br/> 
 It is highly recommended to use an absolute URL. The use of a relative URL may redirect CDN URLs to an invalid path.
 
@@ -965,7 +964,7 @@ Key information:
 
 Option|Description
 -|-
- Source & Pattern | These settings define a request URI pattern that identifies the type of requests that may be rewritten. Only requests whose URL satisfies both of the following criteria will be rewritten: <br/>     - **Source (or content access point):** Select a relative path that identifies an origin server. This is the  "/XXXX/" section and your endpoint name. <br/> - **Source (pattern):** A pattern that identifies requests by relative path must be defined. This regular expression pattern must define a path that starts directly after the previously selected content access point (see above). <br/> Verify that the request URI criteria (that is, Source & Pattern) previously defined doesn't conflict with any of the match conditions defined for this feature. Make sure to specify a pattern. Using a empty value as the pattern will match all strings. 
+ Source & Pattern | These settings define a request URI pattern that identifies the type of requests that may be rewritten. Only requests whose URL satisfies both of the following criteria will be rewritten: <br/>     - **Source (or content access point):** Select a relative path that identifies an origin server. This is the  "/XXXX/" section and your endpoint name. <br/> - **Source (pattern):** A pattern that identifies requests by relative path must be defined. This regular expression pattern must define a path that starts directly after the previously selected content access point (see above). <br/> Verify that the request URI criteria (that is, Source & Pattern) previously defined doesn't conflict with any of the match conditions defined for this feature. Specify a pattern; if you use a blank value as the pattern, all strings are matched. 
  Destination  |Define the relative URL to which the above requests will be rewritten by: <br/>    1. Selecting a content access point that identifies an origin server. <br/>    2. Defining a relative path using: <br/>        - A regular expression pattern <br/>        - HTTP variables <br/> <br/> Substitute the values captured in the source pattern into the destination pattern using $_n_ where _n_ identifies a value by the order in which it was captured. For example, $1 represents the first value captured in the source pattern, while $2 represents the second value. 
  This feature allows our edge servers to rewrite the URL without performing a traditional redirect. This means that the requester will receive the same response code as if the rewritten URL had been requested.
 
