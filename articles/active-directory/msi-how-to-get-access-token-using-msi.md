@@ -152,8 +152,8 @@ Metadata: true
 | ------- | ----------- |
 | `GET` | The HTTP verb, indicating you want to retrieve data from the endpoint. In this case, an OAuth access token. | 
 | `http://localhost:50342/oauth2/token` | The MSI endpoint, where 50342 is the default port and is configurable. |
-| `resource` | A query string parameter, indicating the App ID URI of the target resource. It also appears in the `aud` (audience) claim of the issued token. In this example, we are requesting a token to access Azure Resource Manager, which has an App ID URI of https://management.azure.com. |
-| `Metadata` | An HTTP header, required by MSI as a mitigation against Server Side Request Forgery (SSRF) attack. This value must be set to "true", in all lower case.
+| `resource` | A query string parameter, indicating the App ID URI of the target resource. It also appears in the `aud` (audience) claim of the issued token. In this example, we are requesting a token to access Azure Resource Manager, which has an App ID URI of https://management.azure.com/. |
+| `Metadata` | An HTTP request header field, required by MSI as a mitigation against Server Side Request Forgery (SSRF) attack. This value must be set to "true", in all lower case.
 
 Sample response:
 
@@ -183,7 +183,7 @@ Content-Type: application/json
 
 ## How to sign in with Azure SDK libraries using MSI
 
-Azure supports multiple programming languages/frameworks through a series of [Azure SDKs](https://azure.microsoft.com/downloads). Several of them have been updated to support sign-in using an MSI, and provide corresponding samples to demonstrate usage. This list is updated as additional support is added:
+Azure supports multiple programming platforms through a series of [Azure SDKs](https://azure.microsoft.com/downloads). Several of them have been updated to support sign-in using an MSI, and provide corresponding samples to demonstrate usage. This list is updated as additional support is added:
 
 | SDK | Sample |
 | --- | ------ | 
@@ -209,12 +209,28 @@ See [Azure services that support Azure AD authentication](msi-overview.md#azure-
 
 ## Troubleshooting
 
-If sign-in or token acquisition fails for an MSI, verify that the MSI has been enabled correctly. In our case, we can go back to the Azure VM in the [Azure portal](https://portal.azure.com) and:
+### Sign-in or token acquisition fails
+
+Verify that the MSI has been enabled correctly. Go back to the Azure VM in the [Azure portal](https://portal.azure.com) and:
 
 - Look at the "Configuration" page and ensure MSI enabled = "Yes."
 - Look at the "Extensions" page and ensure the MSI extension deployed successfully.
 
 If either is incorrect, you may need to redeploy the MSI on your resource again, or troubleshoot the deployment failure.
+
+### HTTP request error responses
+
+- *bad_request_102: Required metadata header not specified*
+
+  Either the `Metadata` request header field is missing from your request, or is formatted incorrectly. The value must be specified as `true`, in all lower case. See the "Sample request" in the [preceding REST section](#rest) for an example.
+
+- *unknown: Failed to retrieve token from the Active directory. For details see logs in \<file path\>*
+
+  Verify that your HTTP GET request URI is formatted correctly, particularly the resource URI specified in the query string. See the "Sample request" in the [preceding REST section](#rest) for an example, or [Azure services that support Azure AD authentication](msi-overview.md#azure-services-that-support-azure-ad-authentication) for a list of services and their respective resource IDs.
+
+- *unknown_source: Unknown Source \<URI\>*
+
+  Verify that your HTTP GET request URI is formatted correctly. The `scheme:host/resource-path` portion must be specified as `http://localhost:50342/oauth2/token`. See the "Sample request" in the [preceding REST section](#rest) for an example.
 
 ## Related content
 
