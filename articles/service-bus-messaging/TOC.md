@@ -46,6 +46,7 @@
 ### [Duplicate message detection](duplicate-detection.md)
 ### [Diagnostic logs](service-bus-diagnostic-logs.md)
 ### [Paired namespace implementation](service-bus-paired-namespaces.md)
+### [Message sessions](message-sessions.md)
 ### [Message sequencing and timestamps](message-sequencing.md)
 ### [Message browsing](message-browsing.md)
 ### [Message transfers, locks, and settlement](message-transfers-locks-settlement.md)
