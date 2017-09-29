@@ -3,7 +3,7 @@ title: How to find runs with best accuracy and lowest duration | Microsoft Docs
 description: An end-to-end use case use to find best accuracy through CLI using Azure Machine Learning Workbench
 services: machine-learning
 author: kefzhou
-ms.author: kefuzhou
+ms.author: totekp
 manager: akannava
 ms.reviewer: akannava, haining, mldocs
 ms.service: machine-learning
@@ -57,3 +57,7 @@ If you use powershell, the code below will use local variables to store threshol
      $threshold = 0.03
      $max_accuracy_value = az ml history list --query '@[?Accuracy != null] | max_by(@, &Accuracy).Accuracy'
      az ml history list --query '@[?Accuracy >= sum(`[{0}, -{1}]`)] | sort_by(@, &duration)' -f $max_accuracy_value, $threshold
+
+
+## Next Steps
+- For more information on logging, see [How to Use Run History and Model Metrics in Azure Machine Learning Workbench](https://github.com/totekp/azure-docs-pr/blob/bestAccuracy/articles/machine-learning/preview/how-to-use-run-history-model-metrics.md).    
