@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/28/2017
+ms.date: 09/29/2017
 ms.author: jonbeck
 
 ---
@@ -34,29 +34,33 @@ This interface allows the RDMA-capable instances to communicate over an InfiniBa
 
 Following are requirements for RDMA-capable Linux VMs to access the Azure RDMA network:
  
-* **Distributions** - You must deploy VMs from RDMA-capable SUSE Linux Enterprise Server (SLES) or Rogue Wave Software (formerly OpenLogic) CentOS-based HPC images in the Azure Marketplace. The following Marketplace images support RDMA connectivity:
+* **Distributions** - Deploy VMs from one of the images in the Azure Marketplace that supports RDMA connectivity:
   
-    * SLES 12 SP1 for HPC, or SLES 12 SP1 for HPC (Premium)
+    * **Ubuntu** - Ubuntu Server 16.04 LTS
+
+    * **SUSE Linux Enterprise Server** - SLES 12 SP3 for HPC, SLES 12 SP3 for HPC (Premium), SLES 12 SP1 for HPC, SLES 12 SP1 for HPC (Premium)
     
-    * CentOS-based 7.3 HPC, CentOS-based 7.1 HPC, CentOS-based 6.8 HPC, or CentOS-based 6.5 HPC  
+    * **CentOS-based** - CentOS-based 7.3 HPC, CentOS-based 7.1 HPC, CentOS-based 6.8 HPC, or CentOS-based 6.5 HPC (version 7.1 or later recommended for H-series) 
  
         > [!NOTE]
-        > For H-series VMs, we recommend either a SLES 12 SP1 for HPC image or CentOS-based 7.1 or later HPC image.
-        >
         > On the CentOS-based HPC images, kernel updates are disabled in the **yum** configuration file. This is because the Linux RDMA drivers are distributed as an RPM package, and driver updates might not work if the kernel is updated.
         > 
         > 
-* **MPI** - Intel MPI Library 5.x
+* **MPI** - Intel MPI Library 5.x or later
   
-    Depending on the Marketplace image you choose, separate licensing, installation, or configuration of Intel MPI may be needed, as follows: 
+    Depending on the Marketplace image you choose, separate licensing, installation, or configuration of RDMA and Intel MPI may be needed, as follows: 
   
-  * **SLES 12 SP1 for HPC image** - Intel MPI packages are distributed on the VM. Install by running the following command:
+  * **Ubuntu** - Configure RDMA and register with Intel to download Intel MPI:
+
+[!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
+
+  * **SLES 12 for HPC** - Intel MPI packages are distributed on the VM. Install by running the following command:
 
       ```bash
       sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
       ```
 
-  * **CentOS-based HPC images**  - Intel MPI 5.1 is already installed.  
+  * **CentOS-based HPC**  - Intel MPI 5.1 is already installed.  
     
     Additional system configuration is needed to run MPI jobs on clustered VMs. For example, on a cluster of VMs, you need to establish trust among the compute nodes. For typical settings, see [Set up a Linux RDMA cluster to run MPI applications](classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
