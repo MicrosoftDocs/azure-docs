@@ -4327,7 +4327,7 @@
         },
         {
             "source_path": "articles/machine-learning/machine-learning-data-science-virtual-machine-overview.md",
-            "redirect_url": "/azure/machine-learning/data-science-virtual-machine/virtual-machine-overview",
+            "redirect_url": "/azure/machine-learning/data-science-virtual-machine/overview",
             "redirect_document_id": false
         },
         {
@@ -6123,6 +6123,11 @@
         {
             "source_path": "articles/stream-analytics/stream-analytics-get-started.md",
             "redirect_url": "/azure/stream-analytics/stream-analytics-real-time-fraud-detection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/stream-analytics/stream-analytics-functions-redis.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-introduction",
             "redirect_document_id": false
         },
         {

@@ -25,7 +25,6 @@
 ### [Integrate JavaScript UDFs](stream-analytics-javascript-user-defined-functions.md)
 ### [Integrate REST API & Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 ### [Create outputs](stream-analytics-define-outputs.md)
-### [Output to Azure Functions](stream-analytics-functions-redis.md)
 ### [Output to Data Lake Store](stream-analytics-data-lake-output.md)
 ### [Output to Cosmos DB](stream-analytics-documentdb-output.md)
 
