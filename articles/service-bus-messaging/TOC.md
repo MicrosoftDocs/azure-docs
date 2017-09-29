@@ -42,8 +42,10 @@
 ### [Partitioned queues and topics](service-bus-partitioning.md)
 ### [Dead-letter queues](service-bus-dead-letter-queues.md)
 ### [Transaction processing](service-bus-transactions.md)
+### [Duplicate message detection](duplicate-detection.md)
 ### [Diagnostic logs](service-bus-diagnostic-logs.md)
 ### [Paired namespace implementation](service-bus-paired-namespaces.md)
+### [Message transfers, locks, and settlement](message-transfers-locks-settlement.md)
 ### AMQP
 #### [AMQP overview](service-bus-amqp-overview.md)
 #### [.NET](service-bus-amqp-dotnet.md)
