@@ -76,7 +76,9 @@ Get an instance of `TelemetryClient` (except in JavaScript in webpages):
 
 TelemetryClient is thread-safe.
 
-For ASP.NET and Java projects, we recommend that you use an instance of TelemetryClient for each module of your app. For instance, you may have one TelemetryClient instance in your web service to report incoming HTTP requests, and another in a middleware class to report business logic events. You can set properties such as `TelemetryClient.Context.User.Id` to track users and sessions, or `TelemetryClient.Context.Device.Id` to identify the machine. This information is attached to all events that the instance sends. In Node.js projects, you can use `new applicationInsights.TelemetryClient(instrumentationKey?)` to create a new instance, but this is recommended only for scenarios that require isolated configuration from the singleton `defaultClient`.
+For ASP.NET and Java projects, we recommend that you create an instance of TelemetryClient for each module of your app. For instance, you may have one TelemetryClient instance in your web service to report incoming HTTP requests, and another in a middleware class to report business logic events. You can set properties such as `TelemetryClient.Context.User.Id` to track users and sessions, or `TelemetryClient.Context.Device.Id` to identify the machine. This information is attached to all events that the instance sends.
+
+In Node.js projects, you can use `new applicationInsights.TelemetryClient(instrumentationKey?)` to create a new instance, but this is recommended only for scenarios that require isolated configuration from the singleton `defaultClient`.
 
 ## TrackEvent
 In Application Insights, a *custom event* is a data point that you can display in [Metrics Explorer](app-insights-metrics-explorer.md) as an aggregated count, and in [Diagnostic Search](app-insights-diagnostic-search.md) as individual occurrences. (It isn't related to MVC or other framework "events.")
@@ -163,7 +165,7 @@ To send a single metric value:
 *Node.js*
 
  ```Javascript
-     appInsights.trackMetric({name: "queueLength", value: 42.0});
+     telemetry.trackMetric({name: "queueLength", value: 42.0});
  ```
 
 #### Aggregating metrics
@@ -491,7 +493,7 @@ The reports include the stack traces.
     }
     catch (ex)
     {
-       appInsights.trackException({exception: ex});
+       telemetry.trackException({exception: ex});
     }
 
 The SDKs catch many exceptions automatically, so you don't always have to call TrackException explicitly.
@@ -874,6 +876,13 @@ If you want to set default property values for some of the custom events that yo
     context.getProperties().put("Game", currentGame.Name);
 
     gameTelemetry.TrackEvent("WinGame");
+    
+*Node.js*
+
+    var gameTelemetry = new applicationInsights.TelemetryClient();
+    gameTelemetry.commonProperties["Game"] = currentGame.Name;
+
+    gameTelemetry.TrackEvent({name: "WinGame"});
 
 
 
