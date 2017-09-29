@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Web Apps for Containers Documentation
+title: App Service on Linux Documentation
 metadata:
   document_id: 2239df92-8506-4ee4-b5b0-9ab512c487b2
   title: Azure Web App for Containers Documentation - Tutorials, API Reference
-  meta.description: Learn how to use Web Apps for Containers to build and host websites and web applications leveraging Docker.
+  meta.description: Learn how to use App Service on Linux to build and host websites and web applications leveraging Docker.
   services: app-service
   author: syntaxc4
   manager: carolz
@@ -48,7 +48,7 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: Learn how to deploy, manage, and monitor secure web application on Azure Web Apps for Containers
+    text: Learn how to deploy, manage, and monitor secure web application on App Service on Linux
   - type: list
     style: ordered
     items:
