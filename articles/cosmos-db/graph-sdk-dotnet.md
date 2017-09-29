@@ -25,11 +25,21 @@ ms.author: mimig
 |**API documentation**|[.NET API reference documentation](https://aka.ms/acdbgraphapiref)|
 |**Quickstart**|[Azure Cosmos DB: Create a graph app using .NET and the Graph API](create-graph-dotnet.md)|
 |**Tutorial**|[Azure CosmosDB: Create a container with the Graph API](tutorial-develop-graph-dotnet.md)|
-|**Current supported framework**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
+|**Current supported framework**|[Microsoft .NET Framework 4.6.1](https://www.microsoft.com/en-us/download/details.aspx?id=49981)|
+
 
 ## Release notes
 
-* Initial preview release.
+### 0.3.0-preview
+* Support for `.netstandard 1.6`
+  - Removed support for .NET Framework 4.5.1
+* New `gremlin-groovy` parser. This complete parser replacement and aims at matchign `gremlin-groovy` syntax.
+  * Improves parsing performance x2 
+  * Fixes a number of issues related to unescaped characters in queries.
+* Optimizations for traversals with edge predicates.
+  Traversals similar to `g.V().outE().has('name', 'marko').inV()` should see this improvement.
+* Optimizations for `limit()` step.
+
 
 ## Release & Retirement dates
 Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
