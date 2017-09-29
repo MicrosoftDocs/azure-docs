@@ -72,7 +72,7 @@ Stateful services have a similar pattern to stateless services, with a few chang
     - `StatefulServiceBase.CreateServiceReplicaListeners()` is invoked 
       - If the service is a Primary all returned listeners are Opened. `ICommunicationListener.OpenAsync()` is called on each listener.
       - If the service is a Secondary, only those listeners marked as `ListenOnSecondary = true` are opened. Having listeners that are open on Secondaries is less common.
-    - The if the Service is currently a Primary, the service's `StatefulServiceBase.RunAsync()` method is called
+    - Then if the Service is currently a Primary, the service's `StatefulServiceBase.RunAsync()` method is called
 4. Once all the replica listener's `OpenAsync()` calls complete and `RunAsync()` is called, `StatefulServiceBase.OnChangeRoleAsync()` is called. This is uncommonly overridden in the service.
 
 Similarly to stateless services, there's no coordination between the order in which the listeners are created and opened and when RunAsync is called. If you need coordination, the solutions are much the same. THere is one additional case: say that the calls arriving at the communication listeners require information kept inside some [Reliable Collections](service-fabric-reliable-services-reliable-collections.md). Because the communication listeners could open before the reliable collections are readable or writeable, and before RunAsync could start, some additional coordination is necessary. The simplest and most common solution is for the communication listeners to return some error code that the client uses to know to retry the request.
