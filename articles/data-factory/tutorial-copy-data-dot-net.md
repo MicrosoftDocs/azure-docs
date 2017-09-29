@@ -3,7 +3,7 @@ title: Copy data from Azure Blob Storage to SQL Database | Microsoft Docs
 description: 'This tutorial provides step-by-step instructions for copying  data from Azure Blob Storage to Azure SQL Database.'
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
+author: linda33wj
 manager: jhubbard
 editor: spelluru
 
@@ -12,8 +12,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/13/2017
-ms.author: shlo
+ms.date: 09/26/2017
+ms.author: jingwang
 
 ---
 # Copy data from Azure Blob to Azure SQL Database using Azure Data Factory
@@ -506,7 +506,6 @@ Checking copy activity run details...
   "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US)",
   "usedCloudDataMovementUnits": 2,
   "billedDuration": 2
-
 }
 
 Press any key to exit...
@@ -525,7 +524,7 @@ The pipeline in this sample copies data from one location to another location in
 > * Monitor the pipeline and activity runs.
 
 
-Advance to the following tutorial to learn about coping data from on-premises to cloud: 
+Advance to the following tutorial to learn about copying data from on-premises to cloud: 
 
 > [!div class="nextstepaction"]
 >[Copy data from on-premises to cloud](tutorial-hybrid-copy-powershell.md)
