@@ -17,7 +17,7 @@ ms.author: sethm
 
 ---
 
-# Sequencing and timestamps
+# Message sequencing and timestamps
 
 Sequencing and timestamping are two features that are always enabled on all Service Bus entities and surface through the [Sequence​Number](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber) and [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc) properties of received or browsed messages.
 

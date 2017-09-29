@@ -3,7 +3,7 @@ title: Azure Billing Enterprise APIs - Usage Details| Microsoft Docs
 description: Learn about Azure Billing Usage and RateCard APIs, which are used to provide insights into Azure resource consumption and trends.
 services: ''
 documentationcenter: ''
-author: aedwin
+author: cwatson-cat
 manager: aedwin
 editor: ''
 tags: billing
