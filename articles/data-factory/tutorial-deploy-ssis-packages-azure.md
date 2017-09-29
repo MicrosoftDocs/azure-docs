@@ -64,7 +64,7 @@ $AzureSSISMaxParallelExecutionsPerNode = 2
 $SSISDBServerEndpoint = "<Azure SQL server name>.database.windows.net"
 $SSISDBServerAdminUserName = "<Azure SQL server - user name>"
 $SSISDBServerAdminPassword = "<Azure SQL server - user password>"
-# Pricing tier of you Azure SQL server. For example S0, S3 etc. 
+# Pricing tier of you Azure SQL server. For example Basic, S0, S3 etc. 
 $SSISDBPricingTier = "<pricing tier of your Azure SQL server>" 
 ```
 
@@ -203,7 +203,7 @@ $AzureSSISMaxParallelExecutionsPerNode = 2
 $SSISDBServerEndpoint = "<Azure SQL server name>.database.windows.net"
 $SSISDBServerAdminUserName = "<Azure SQL server - user name>"
 $SSISDBServerAdminPassword = "<Azure SQL server - user password>"
-# Pricing tier of you Azure SQL server. For example S0, S3 etc. 
+# Pricing tier of you Azure SQL server. For example Basic, S0, S3 etc. 
 $SSISDBPricingTier = "<Pricing tier of your Azure SQL server>"
 
 $SSISDBConnectionString = "Data Source=" + $SSISDBServerEndpoint + ";User ID="+ $SSISDBServerAdminUserName +";Password="+ $SSISDBServerAdminPassword

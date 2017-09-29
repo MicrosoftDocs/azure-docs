@@ -61,7 +61,7 @@ $SSISDBServerAdminPassword = "[your server admin password]"
 
 # Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (private preview)
 # This parameter applies only to Azure SQL Database. 
-$SSISDBPricingTier = "[your Azure SQL Database pricing tier, e.g. S3. Remove the variable for Azure SQL Managed Instance (private preview)]"
+$SSISDBPricingTier = "[your Azure SQL Database pricing tier, e.g. Basic, S0, S3. Remove the variable for Azure SQL Managed Instance (private preview)]"
 
 ## Remove these two variables if you are using Azure SQL Database. 
 ## These two parameters apply if you are using VNet and Azure SQL Managed Instance (private preview). 
