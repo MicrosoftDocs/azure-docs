@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus message expiration | Microsoft Docs
-description: Expiration and time to live of Service Bus messages
+description: Expiration and time to live of Azure Service Bus messages
 services: service-bus-messaging
 documentationcenter: ''
 author: clemensv
@@ -28,6 +28,8 @@ The expiration for any individual message can be controlled by setting the [Time
 Past the **ExpiresAtUtc** instant, messages become ineligible for retrieval. The expiration does not affect messages that are currently locked for delivery; those messages are still handled normally. If the lock expires or the message is abandoned, the expiration takes immediate effect.
 
 While the message is under lock, the application may be in possession of a message that has nominally expired. Whether the application is willing to go ahead with processing or chooses to abandon the message is up to the implementer.
+
+## Entity-level expiration
 
 All messages sent into a queue or topic are subject to a default expiration that is set at the entity level with the [defaultMessageTimeToLive](/azure/templates/microsoft.servicebus/namespaces/queues) property and which can also be set in the portal during creation and adjusted later. The default expiration is used for all messages sent to the entity where [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) is not explicitly set. The default expiration also functions as a ceiling for the **TimeToLive** value. Messages that have a longer **TimeToLive** expiration than the default value are silently adjusted to the **defaultMessageTimeToLive** value before being enqueued.
 
