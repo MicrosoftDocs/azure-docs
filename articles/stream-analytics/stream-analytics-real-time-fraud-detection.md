@@ -350,7 +350,7 @@ The job is now configured. You've specified an input (the event hub), a transfor
 
 4. Click **Start**. 
 
-    !["Start job" pane for the Stream Analytics job](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-start-job-pane.png)
+    !["Start job" pane for the Stream Analytics job](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-start-job-blade.png)
 
     Azure notifies you when the job has started, and in the job pane, the status is displayed as **Running**.
 
