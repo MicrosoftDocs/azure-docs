@@ -5,7 +5,7 @@ services: functions
 documentationcenter: na
 author: rloutlaw
 manager: justhe
-keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
+keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture, java
 ms.service: functions
 ms.devlang: java
 ms.topic: article
