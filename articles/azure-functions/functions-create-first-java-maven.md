@@ -35,9 +35,7 @@ This quickstart guides through creating a serverless function project with Maven
 
 ## Install the Azure Functions Core Tools
 
-The [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) provide a local development environment for writing, running, and debugging Azure Functions. The tools are cross-platform and are distributed using [npm](https://www.npmjs.com/) , which is included with [Node.js](https://nodejs.org/).
-
-Install the Azure Functions Core Tools on your system:
+The [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) provide a local development environment for writing, running, and debugging Azure Functions. Install the tools with [npm](https://www.npmjs.com/) , included with [Node.js](https://nodejs.org/).
 
 ```
 npm install -g azure-functions-core-tools@core
@@ -137,7 +135,6 @@ curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/h
 ```Output
 Hello AzureFunctions!
 ```
-
 
 ## Next steps
 
