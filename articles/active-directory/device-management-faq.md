@@ -30,7 +30,7 @@ ms.reviewer: jairoc
 
 **Remarks:**
 
-- The users that are included in your conditional access policy need a [supported version of Office for macOS](active-directory-conditional-access-technical-reference.md#supported-mobile-apps-and-desktop-clients) to access resources. 
+- The users that are included in your conditional access policy need a [supported version of Office for macOS](active-directory-conditional-access-technical-reference.md#client-apps-condition) to access resources. 
 
 - During the first access attempt, your users are prompted to enroll the device using the company portal.
 
