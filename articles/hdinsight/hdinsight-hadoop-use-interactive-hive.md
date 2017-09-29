@@ -47,7 +47,7 @@ To execute Hive queries, you have the following options:
 
 * Use Visual Studio
 
-    See [Connect to Azure HDInsight and run Hive queries using Data Lake Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md#run-a-hive-query).
+    See [Connect to Azure HDInsight and run Hive queries using Data Lake Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md#run-interactive-hive-queries).
 
 * Use Visual Studio Code
 
@@ -77,7 +77,7 @@ To find the Java Database Connectivity (JDBC) connection string:
 * Learn how to [create Interactive Query clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 * Learn how to [visualize big data with Power BI in Azure HDInsight](./hdinsight-connect-hive-power-bi.md).
 * Learn how to [use Zeppelin to run Hive queries in Azure HDInsight ](./hdinsight-connect-hive-zeppelin.md).
-* Learn how to [run Hive queries using Data Lake Tools for Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md#run-a-hive-query).
+* Learn how to [run Hive queries using Data Lake Tools for Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md#run-interactive-hive-queries).
 * Learn how to [use HDInsight Tools for Visual Studio Code](hdinsight-for-vscode.md).
 * Learn how to [use Hive View with Hadoop in HDInsight](hdinsight-hadoop-use-hive-ambari-view.md)
 * Learn how to [use Beeline to submit Hive queries in HDInsight](hdinsight-hadoop-use-hive-beeline.md).
