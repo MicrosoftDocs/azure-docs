@@ -46,8 +46,8 @@ Retry deleting storage account, container, or blob after the above steps are com
 
     ![Screenshot of the portal, with the Storage account blobs and right click > "Edit Metadata" hilighted](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/utd-edit-metadata-sm.png)
 
-4. In Blob metadata pane, check and record the value for **MicrosoftAzureCompute_VMName**. This value is the name of the VM that the VHD is attached to. (See [Important](#important) if this field does not exist)
-5. In Blob metadata pane, check and record the value of **MicrosoftAzureCompute_DiskType**. This identifies if the attached disk is OS or data disk (See [Important](#important) if this field does not exist). 
+4. In Blob metadata pane, check and record the value for **MicrosoftAzureCompute_VMName**. This value is the name of the VM that the VHD is attached to. (See **important** if this field does not exist)
+5. In Blob metadata pane, check and record the value of **MicrosoftAzureCompute_DiskType**. This identifies if the attached disk is OS or data disk (See **important** if this field does not exist). 
 
      ![Screenshot of the portal, with the storage "Blob Metadata" pane open](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/utd-blob-metadata-sm.png)
 
