@@ -38,7 +38,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 Start **Windows PowerShell ISE** with administrative privileges. 
 
 ## Create variables
-Copy and pate the following script: Specify values for the variables. 
+Copy and pate the following script: Specify values for the variables. For a list of supported **pricing tiers** for Azure SQL Database, see [SQL Database resource limits](../sql-database/sql-database-resource-limits.md).
 
 ```powershell
 $SubscriptionName = "<Azure subscription name>"
@@ -178,6 +178,7 @@ The PowerShell script in this section configures an instance of Azure-SSIS integ
 > [!NOTE]
 > The script connects to your Azure SQL Database to prepare the SSIS Catalog database (SSISDB). The script also configures permissions and settings for your VNet, if specified, and joins the new instance of Azure-SSIS integration runtime to the VNet.
 
+For a list of supported **pricing tiers** for Azure SQL Database, see [SQL Database resource limits](../sql-database/sql-database-resource-limits.md).
 
 ```powershell
 $SubscriptionName = "<Azure subscription name>"
