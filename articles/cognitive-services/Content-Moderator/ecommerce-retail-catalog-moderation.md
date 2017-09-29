@@ -51,7 +51,7 @@ Refer to the [Tags](https://docs.microsoft.com/en-us/azure/cognitive-services/co
 
 In our case, we define these custom tags (**celebrity**, **flag**, **us**, **toy**, **pen**):
 
-![Configure custom tags](images/tutorial-tags2.PNG)
+![Configure custom tags](images/tutorial-ecommerce-tags2.PNG)
 
 ## 5. List your API keys and REST endpoints for use in your sample.
 
