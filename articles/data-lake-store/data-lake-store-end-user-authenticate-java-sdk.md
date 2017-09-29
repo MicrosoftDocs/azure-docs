@@ -65,9 +65,7 @@ In this article, you learn about how to use the Java SDK to do end-user authenti
         import com.microsoft.azure.datalake.store.oauth2.AccessTokenProvider;
         import com.microsoft.azure.datalake.store.oauth2.DeviceCodeTokenProvider;
 
-4. Use the following snippet in your Java application to obtain token for the Active Directory Web application you created earlier using one of the subclasses of `AccessTokenProvider` (the following example uses `ClientCredsTokenProvider`). The token provider caches the creds used to obtain the token in memory, and automatically renews the token if it is about to expire. It is possible to create your own subclasses of `AccessTokenProvider` so tokens are obtained by your customer code. For now, let's just use the one provided in the SDK.
-
-    Replace **FILL-IN-HERE** with the actual values for the Azure Active Directory Web application.
+4. Use the following snippet in your Java application to obtain token for the Active Directory native application you created earlier using the `DeviceCodeTokenProvider`. Replace **FILL-IN-HERE** with the actual values for the Azure Active Directory native application.
 
         private static String nativeAppId = "FILL-IN-HERE";
             
