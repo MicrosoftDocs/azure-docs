@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/25/2017
+ms.date: 09/29/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
@@ -263,9 +263,9 @@ Then run installation commands specific for your distribution.
   >
 
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3.tar.gz
  
-  tar xvzf lis-rpms-4.2.1.tar.gz
+  tar xvzf lis-rpms-4.2.3.tar.gz
  
   cd LISISO
  
@@ -342,7 +342,19 @@ sudo yum update
 sudo reboot
 ```
 
+## RDMA network for NC24r VMs
 
+RDMA network connectivity can be enabled on NC24r VMs deployed in the same availability set. The RDMA network supports Message Passing Interface (MPI) traffic for applications running with Intel MPI.
+
+Following are requirements for RDMA-capable Linux VMs to access the Azure RDMA network:
+
+* **Distribution** - Currently only Ubuntu Server 16.04 LTS from the Azure Marketplace supports RDMA on NC24r VMs
+
+* **MPI** - Intel MPI Library 5.x or later
+  
+RDMA configuration and MPI installation steps:
+
+[!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
 ## Troubleshooting
 

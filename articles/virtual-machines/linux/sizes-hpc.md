@@ -48,11 +48,11 @@ Following are requirements for RDMA-capable Linux VMs to access the Azure RDMA n
         > 
 * **MPI** - Intel MPI Library 5.x or later
   
-    Depending on the Marketplace image you choose, separate licensing, installation, or configuration of RDMA and Intel MPI may be needed, as follows: 
+* **Configuration steps** - Depending on the Marketplace image you choose, separate licensing, installation, or configuration of RDMA and Intel MPI may be needed, as follows: 
   
   * **Ubuntu** - Configure RDMA and register with Intel to download Intel MPI:
 
-[!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
+     [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
   * **SLES 12 for HPC** - Intel MPI packages are distributed on the VM. Install by running the following command:
 
