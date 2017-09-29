@@ -14,7 +14,7 @@ ms.author: sajagtap
 
 # eCommerce content classification and moderation
 
-In this tutorial, we learn how to use the Content Moderator platform with Computer Vision and Custom Vision services. The solution combines machine assisted classification with human review capabilities to classify eCommerce catalog images
+In this tutorial, we learn how to use the Content Moderator platform with Computer Vision and Custom Vision services. The solution combines machine assisted classification with human review capabilities to classify eCommerce catalog images.
 
 ![Classified product images](images/tutorial-ecommerce-content-moderator.PNG)
 
@@ -40,12 +40,12 @@ The tutorial guides you through these steps:
 5. Use the Custom Vision service to scan for possible presence of flags.
 6. Present the nuanced scan results for human review and final decision making.
 
-## 3. Create a Content Moderator team
+## 3. Create a team
 
 Refer to the [Quickstart](quick-start.md) page to sign up for Content Moderator and create a team. Note the **Team ID** from the **Credentials** page.
 
 
-## 4. Configure moderation tags in the review tool
+## 4. Define custom tags
 
 Refer to the [Tags](https://docs.microsoft.com/en-us/azure/cognitive-services/content-moderator/review-tool-user-guide/tags) article to add custom tags. In addition to the built-in **adult** and **racy** tags, the new tags allow the review tool to display the descriptive names for the tags.
 
@@ -53,7 +53,7 @@ In our case, we define these custom tags (**celebrity**, **flag**, **us**, **toy
 
 ![Configure custom tags](images/tutorial-ecommerce-tags2.PNG)
 
-## 5. List your API keys and REST endpoints for use in your sample.
+## 5. List your API keys and endpoints
 
 1. The tutorial uses three APIs and the corresponding keys and API end points.
 2. Your API end points are different based on your subscription regions and the Content Moderator Review Team ID.
@@ -72,10 +72,10 @@ In our case, we define these custom tags (**celebrity**, **flag**, **us**, **toy
         public const string ComputerVisionUri = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0";
         public const string CustomVisionUri = "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.0/Prediction/XXXXXXXXXXXXXXXXXXXX/url";
 
-## 6. Use Content Moderator's image API to scan for potential adult and racy content
+## 6. Scan for adult and racy content
 
 1. The function takes an image URL and an array of key-value pairs as parameters.
-2. It calls the Content Moderator API to get the Adult and Racy scores.
+2. It calls the Content Moderator's Image API to get the Adult and Racy scores.
 3. If the score is greater than 0.4 (range is from 0 to 1), it sets the value in the **ReviewTags** array to **True**.
 4. The **ReviewTags** array is used to highlight the corresponding tag in the review tool.
 
@@ -115,9 +115,9 @@ In our case, we define these custom tags (**celebrity**, **flag**, **us**, **toy
             return response.IsSuccessStatusCode;
         }
 
-## 7. Use the Computer Vision API to detect potential celebrities
+## 7. Scan for celebrities
 
-1. Sign up for a [free trial](https://azure.microsoft.com/en-us/try/cognitive-services/?api=computer-vision) of the [Computer Vision API](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/).
+1. Sign up for a [free trial](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision) of the [Computer Vision API](https://azure.microsoft.com/services/cognitive-services/computer-vision/).
 2. Click the **Get API Key** button.
 3. Accept the terms.
 4. To login, choose from the list of Internet accounts available.
@@ -152,12 +152,12 @@ In our case, we define these custom tags (**celebrity**, **flag**, **us**, **toy
             return Response.IsSuccessStatusCode;
         }
 
-## 8. Use the Custom Vision API to classify images as potential flags, toys, and pens.
+## 8. Classify into flags, toys, and pens
 
 1. [Sign in](https://www.customvision.ai/account/signin) to the [Custom Vision API preview](https://www.customvision.ai/).
-2. Use the [Quickstart](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) to build your custom classifier to detect the potential presence of flags, toys, and pens.
+2. Use the [Quickstart](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) to build your custom classifier to detect the potential presence of flags, toys, and pens.
    ![Custom Vision Training Images](images/tutorial-ecommerce-custom-vision.PNG)
-3. [Get the prediction endpoint URL](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/use-prediction-api) for your custom classifier.
+3. [Get the prediction endpoint URL](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api) for your custom classifier.
 4. Refer to the project source code to see the function that calls your custom classifier prediction endpoint to scan your image.
 
         public static bool EvaluateCustomVisionTags(string ImageUrl, string CustomVisionUri, string CustomVisionKey, ref KeyValuePair[] ReviewTags)
@@ -177,7 +177,7 @@ In our case, we define these custom tags (**celebrity**, **flag**, **us**, **toy
             return response.IsSuccessStatusCode;
         }       
  
-## 9. Use the Review API to create reviews for human-in-the-loop process
+## 9. Reviews for human-in-the-loop
 
 1. In the previous sections, you scanned the incoming images for adult and racy (Content Moderator), celebrities (Computer Vision) and Flags (Custom Vision).
 2. Based on our match thresholds for each scan, make the nuanced cases available for human review in the review tool.
@@ -200,7 +200,7 @@ In our case, we define these custom tags (**celebrity**, **flag**, **us**, **toy
             return response.IsSuccessStatusCode;
         }
 
-## 10. Prepare to send a batch of images to your sample
+## 10. Submit batch of images
 
 1. This tutorial assumes a "C:Test" directory with a text file that has a list of image Urls.
 2. The following code checks for the existence of the file and reads all Urls into memory.
@@ -219,7 +219,7 @@ In our case, we define these custom tags (**celebrity**, **flag**, **us**, **toy
             // Read all image URLs in the file
             var Urls = File.ReadLines(Urlsfile);
 
-## 11. Create a top-level function to call all preceding functions.
+## 11. Initiate all scans
 
 1. This top-level function loops through all image URLs in the text file we mentioned earlier.
 2. It scans them with each API and if the match confidence score falls within our criteria, creates a review for human moderators.
