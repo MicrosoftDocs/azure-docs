@@ -59,7 +59,7 @@ In our case, we define these custom tags (**celebrity**, **flag**, **us**, **toy
 2. Your API end points are different based on your subscription regions and the Content Moderator Review Team ID.
 
 > [!NOTE]
-> The tutorial is designed to use subscription keys in the regions visible in the endpoints below. Be sure to match your API keys with the region Uris otherwise your keys may not work with the following endpoints:
+> The tutorial is designed to use subscription keys in the regions visible in the following endpoints. Be sure to match your API keys with the region Uris otherwise your keys may not work with the following endpoints:
 
          // Your API keys
         public const string ContentModeratorKey = "XXXXXXXXXXXXXXXXXXXX";
@@ -77,7 +77,7 @@ In our case, we define these custom tags (**celebrity**, **flag**, **us**, **toy
 1. The function takes an image URL and an array of key-value pairs as parameters.
 2. It calls the Content Moderator API to get the Adult and Racy scores.
 3. If the score is greater than 0.4 (range is from 0 to 1), it sets the value in the **ReviewTags** array to **True**.
-4. The **ReviewTags** array will be used to highlight the corresponding tag in the review tool.
+4. The **ReviewTags** array is used to highlight the corresponding tag in the review tool.
 
         public static bool EvaluateAdultRacy(string ImageUrl, ref KeyValuePair[] ReviewTags)
         {
@@ -120,7 +120,7 @@ In our case, we define these custom tags (**celebrity**, **flag**, **us**, **toy
 1. Sign up for a [free trial](https://azure.microsoft.com/en-us/try/cognitive-services/?api=computer-vision) of the [Computer Vision API](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/).
 2. Click the **Get API Key** button.
 3. Accept the terms.
-4. Choose from the list of Internet accounts to log in.
+4. To login, choose from the list of Internet accounts available.
 5. Note the API keys displayed on your service page.
     
    ![Computer Vision API keys](images/tutorial-computer-vision-keys.PNG)
@@ -180,7 +180,7 @@ In our case, we define these custom tags (**celebrity**, **flag**, **us**, **toy
 ## 9. Use the Review API to create reviews for human-in-the-loop process
 
 1. In the previous sections, you scanned the incoming images for adult and racy (Content Moderator), celebrities (Computer Vision) and Flags (Custom Vision).
-2. Basedon our match thresholds for each scan, make the nuanced cases available for human review in the review tool.
+2. Based on our match thresholds for each scan, make the nuanced cases available for human review in the review tool.
         public static bool CreateReview(string ImageUrl, KeyValuePair[] Metadata)
         {
 
