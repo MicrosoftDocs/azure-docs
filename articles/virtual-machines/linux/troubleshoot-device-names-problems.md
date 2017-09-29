@@ -23,7 +23,6 @@ ms.author: genli
 This article explains why device names change after you restart a Linux VM or reattach the data disks. The article also provides solutions for this problem.
 
 ## Symptoms
-
 You may experience the following problems when running Linux VMs in Microsoft Azure:
 
 - The VM fails to boot after a restart.
@@ -36,7 +35,7 @@ Device paths in Linux aren't guaranteed to be consistent across restarts. Device
 
 The problem occurs because device scanning in Linux is scheduled by the SCSI subsystem to happen asynchronously. As a result, a device path name can vary across restarts. 
 
-## Solution: Use persistent naming
+## Solution
 
 To resolve this problem, use persistent naming. There are four ways to use persistent naming: by filesystem label, by UUID, by ID, or by path. We recommend using the filesystem label or UUID for Azure Linux VMs. 
 
