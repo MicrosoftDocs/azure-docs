@@ -23,9 +23,9 @@ When you're delivering your streaming or video-on-demand content to customers, y
 To achieve this goal, you can:
 
 * Encode your stream to a multi-bitrate (adaptive bitrate) video stream. This will take care of quality and network conditions.
-* Use Microsoft Azure Media Services [dynamic packaging](media-services-dynamic-packaging-overview.md) to dynamically re-package your stream into different protocols. This will take care of streaming on different devices. Media Services supports delivery of the following adaptive bitrate streaming technologies: 
-    * **HTTP Live Streaming** (HLS) - add "(format=m3u8-aapl)" path to the "/Manifest" portion of the URL to tell the streaming origin server to return back HLS content for consumption on Apple iOS native devices (for details, see [locators](#locators) and [URLs](#URLs),
-    * **MPEG-DASH** - add "(format=mpd-time-csf)" path to the "/Manifest" portion of the URL to tell the streaming origin server to return back MPEG-DASH (for details, see [locators](#locators) and [URLs](#URLs),
+* Use Microsoft Azure Media Services [dynamic packaging](media-services-dynamic-packaging-overview.md) to dynamically re-package your stream into different protocols. This will take care of streaming on different devices. Media Services supports delivery of the following adaptive bitrate streaming technologies: <br/>
+    * **HTTP Live Streaming** (HLS) - add "(format=m3u8-aapl)" path to the "/Manifest" portion of the URL to tell the streaming origin server to return back HLS content for consumption on **Apple iOS** native devices (for details, see [locators](#locators) and [URLs](#URLs)),
+    * **MPEG-DASH** - add "(format=mpd-time-csf)" path to the "/Manifest" portion of the URL to tell the streaming origin server to return back MPEG-DASH (for details, see [locators](#locators) and [URLs](#URLs)),
     * **Smooth Streaming**.
 
 >[!NOTE]
