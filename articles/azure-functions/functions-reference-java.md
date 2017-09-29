@@ -46,7 +46,8 @@ Twilio | N/A
 
 Trigger inputs and outputs can also be defined in the [function.json](/azure/azure-functions/functions-reference#function-code) for your application.
 
-> [!IMPORTANT] You must configure an Azure Storage account in your [local.settings.json](/azure/azure-functions/functions-run-local#local-settings-file) to run Storage Blob, Queue, or Table triggers locally.
+> [!IMPORTANT] 
+> You must configure an Azure Storage account in your [local.settings.json](/azure/azure-functions/functions-run-local#local-settings-file) to run Storage Blob, Queue, or Table triggers locally.
 
 Example using annotations:
 
@@ -239,7 +240,8 @@ Sometimes a function must have detailed control over inputs and outputs. Special
 | `HttpRequestMessage`  |    HTTP Trigger     | Get method, headers, or queries |
 | `HttpResponseMessage` | HTTP Output Binding | Return status other than 200   |
 
-> [!NOTE] You can also use `@Bind` annotation to get HTTP headers and queries. For example, `@Bind("name") String query` iterates the HTTP request headers and queries and pass that value to the method. For example,  `query` will be `"test"` if the request URL is `http://example.org/api/echo?name=test`.
+> [!NOTE] 
+> You can also use `@Bind` annotation to get HTTP headers and queries. For example, `@Bind("name") String query` iterates the HTTP request headers and queries and pass that value to the method. For example,  `query` will be `"test"` if the request URL is `http://example.org/api/echo?name=test`.
 
 ## Functions execution context
 
