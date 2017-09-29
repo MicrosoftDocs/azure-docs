@@ -1,5 +1,5 @@
 ---
-title: Authorize users for Ambari views - Azure HDInsight | Microsoft Docs
+title: Authorize users for Ambari Views - Azure HDInsight | Microsoft Docs
 description: 'How to manage Ambari user and group permissions for domain-joined HDInsight clusters.'
 services: hdinsight
 documentationcenter: ''
@@ -30,15 +30,15 @@ Active Directory users can log on to the cluster nodes using their domain creden
 
 If you have not already done so, follow [these instructions](hdinsight-domain-joined-configure.md) to provision a new domain-joined cluster.
 
-## Access the Ambari Management page
+## Access the Ambari management page
 
-To get to the **Ambari Management Page** on the [Ambari Web UI](hdinsight-hadoop-manage-ambari.md), browse to **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**. Enter the cluster administrator username and password that you defined when creating the cluster. Next, from the Ambari dashboard, select **Manage Ambari** underneath the **admin** menu:
+To get to the **Ambari management page** on the [Ambari Web UI](hdinsight-hadoop-manage-ambari.md), browse to **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**. Enter the cluster administrator username and password that you defined when creating the cluster. Next, from the Ambari dashboard, select **Manage Ambari** underneath the **admin** menu:
 
 ![Manage Ambari](./media/hdinsight-authorize-users-to-ambari/manage-ambari.png)
 
 ## Grant permissions to Hive views
 
-Ambari comes with view instances for Hive and Tez, among others. To grant access to one or more Hive view instances, go to the **Ambari Management Page**.
+Ambari comes with view instances for Hive and Tez, among others. To grant access to one or more Hive view instances, go to the **Ambari management page**.
 
 1. From the management page, select the **Views** link under the **Views** menu heading on the left.
 
@@ -87,7 +87,7 @@ To assign users and groups to a Tez view instance, expand the **TEZ** row on the
 
 To add users or groups, repeat steps 3 - 5 in the previous section.
 
-## Assign users to Roles
+## Assign users to roles
 
 There are five security roles for users and groups, listed in order of decreasing access permissions:
 
@@ -97,7 +97,7 @@ There are five security roles for users and groups, listed in order of decreasin
 * Service Operator
 * Cluster User
 
-To manage roles, go to the **Ambari Management Page**, then select the **Roles** link within the *Clusters* menu group on the left.
+To manage roles, go to the **Ambari management page**, then select the **Roles** link within the *Clusters* menu group on the left.
 
 ![Roles menu link](./media/hdinsight-authorize-users-to-ambari/roles-link.png)
 
@@ -133,7 +133,7 @@ We have assigned our Azure AD domain user "hiveuser1" permissions to Hive and Te
 
 ![User with views only](./media/hdinsight-authorize-users-to-ambari/user-views-only.png)
 
-## Log in to Ambari as a Cluster User
+## Log in to Ambari as a cluster user
 
 We have assigned our Azure AD domain user "hiveuser2" to the *Cluster User* role. This role is able to access the dashboard and all of the menu items. A cluster user has fewer permitted options than an administrator. For example, hiveuser2 can view configurations for each of the services, but cannot edit them.
 
