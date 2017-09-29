@@ -121,51 +121,6 @@ The following steps use the Kubernetes [Guestbook example](https://github.com/ku
 * Every service is automatically assigned its own virtual IP address in the load balancer.
 * If you want to reach the load balancer by a DNS name, work with your domain service provider to create a DNS name for the rule's IP address.
 
-## Using a Reserved IP address
-
-By default the service is provisioned with a dynamically allocated IP address. Should you wish to configure the service with a static IP address the load balancer can be provisioned to use an existing Reserved IP.
-
-The following steps build upon the guestbook example above.
-
-1. Create a new Reserved IP address in the same Resource Group as your Azure Container Service deployment.
-
-    ```
-    az network public-ip create -g MyClusterResourceGroup -n MyIpName --dns-name MyLabel --allocation-method Static
-    ```
-
-2. Retrieve the IP address of the newly provisioned Reserved IP:
-
-    ```
-    az network public-ip show -g MyClusterResourceGroup -n MyIpName --query "{ address: ipAddress }"
-    ```
-
-3. In the file `guestbook-all-in-one.yaml` above the line `type: LoadBalancer` add:
-
-    ```
-    loadBalancerIP: 52.179.14.59
-    ```
-
-Where the IP address, in the example above `52.179.14.59`,  matches the IP address retrieved in step 2.
-
-The YAML will now look similar to the following image:
-
-![Load balancer in service configuration with reserved IP](./media/container-service-kubernetes-load-balancing/guestbook-frontend-loadbalance-reserved.png)
-
-4. Save the file, and deploy the app by running the following command:
-
-    ```
-    kubectl create -f guestbook-all-in-one.yaml
-    ```
-
-5. Type `kubectl get svc` to see the state of the services in the cluster. While the load balancer configures the rule, the `EXTERNAL-IP` of the `frontend` service appears as `<pending>`. After a few minutes, the external IP address is configured to match your reserved IP:
-
-    ![Configure Azure load balancer](./media/container-service-kubernetes-load-balancing/guestbook-external-ip-reserved.png)
-
-### Considerations
-* The Reserved IP address must be in the same resource group as the cluster.
-* The IP address must be provisioned using Azure Resource Manager. If using the Azure portal select `Public IP` and choose allocation method as `Static`. Do not deploy a `Reserved IP` from the portal as this does not use Azure Resource Manager.
-* If the service remains with an `EXTERNAL-IP` of `<pending>` to get more details run `kubectl describe service frontend` where `frontend` is the name of the service being deployed. If you see an error such as `User supplied IP Address XXX.XXX.XXX.XXX was not found`, run `az network public-ip list -g MyClusterResourceGroup -o table` and ensure that the reserved IP address is listed.
-
 ## HTTP or HTTPS traffic
 
 To load balance HTTP or HTTPS traffic to container web apps and manage certificates for transport layer security (TLS), you can use the Kubernetes [Ingress](https://kubernetes.io/docs/user-guide/ingress/) resource. An Ingress is a collection of rules that allow inbound connections to reach the cluster services. For an Ingress resource to work, the Kubernetes cluster must have an [Ingress controller](https://kubernetes.io/docs/user-guide/ingress/#ingress-controllers) running.
