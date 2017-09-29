@@ -71,7 +71,7 @@ To participate in the Preview of the HA ports feature in Load Balancer Standard 
 
 Following are the supported configurations or exceptions for HA Ports:
 
-- A single frontend ipConfiguration can have a single DSR Load Balancer rule with HA ports (all ports), or it can have a single non-DSR load balancer rule with HA ports (all ports). It cannot have both.
+- A single frontend ipConfiguration can have a single Direct Server Return (DSR) Load Balancer rule with HA ports (all ports), or it can have a single non-DSR load balancer rule with HA ports (all ports). It cannot have both.
 - A single Network Interface IP configuration can only have one non-DSR load balancer rule with HA ports. No other rules can be configured for this ipconfig.
 - A single Network Interface IP configuration can have one or more DSR load balancer rules with HA ports, provided all of their respective frontend ip configurations are unique.
 - Two (or more) Load Balancer rules pointing to the same backend pool can co-exist if all of the load balancing rules are HA port (DSR only), or, all of the rules are non-HA port (DSR & non-DSR). Two such LB rules cannot co-exist if there is a combination of HA port and non-HA Port rules.
