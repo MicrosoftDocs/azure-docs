@@ -1,4 +1,3 @@
-Cu﻿---
 title: Azure Protect personal data at rest with encryption | Microsoft Docs
 description: This article is part of a series helping you use Azure to protect personal data
 services: security

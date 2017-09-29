@@ -150,11 +150,9 @@ Depending on the system performance and download speeds, installation may take a
 3. Fill the form with the connection details of your MySQL Server instance. Provide the fully qualified domain name (FQDN) or a valid IPv4 address, and not the short VM name. This installation no longer provides a default MySQL instance. The size provided helps the resource provider manage the database capacity. It should be close to the physical capacity of the database server.
 
     > [!NOTE]
-    > As long as the MySQL instance can be accessed by the tenant and admin Azure Resource Manager, it can be placed under control of the resource provider. The MySQL instance __must__ be allocated exclusively to the RP.
+    > As long as the MySQL instance can be accessed by the user and admin Azure Resource Manager, it can be placed under control of the resource provider. The MySQL instance __must__ be allocated exclusively to the RP.
 
-4. As you add servers, you must assign them to a new or existing SKU to allow differentiation of service offerings. For example, you could have an enterprise instance providing database capacity and automatic backup, reserve high-performance servers for individual departments, etc. The SKU name should reflect the properties so that tenants can place their databases appropriately and all hosting servers in a SKU should have the same capabilities.
-
-    ![Create a MySQL SKU](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
+4. As you add servers, you must assign them to a new or existing SKU to allow differentiation of service offerings. For example, you could have an enterprise instance providing database capacity and automatic backup, reserve high-performance servers for individual departments, etc. The SKU name should reflect the properties so that users can place their databases appropriately and all hosting servers in a SKU should have the same capabilities.
 
 
 >[!NOTE]
@@ -178,8 +176,6 @@ SKUs can take up to an hour to be visible in the portal. You cannot create a dat
 
 5. Create a login setting. The login setting can be reused or a new one created. This contains the user name and password for the database.
 
-    ![Create a new database login](./media/azure-stack-mysql-rp-deploy/create-new-login.png)
-
     The connections string includes the real database server name. Copy it from the portal.
 
     ![Get the connection string for the MySQL database](./media/azure-stack-mysql-rp-deploy/mysql-db-created.png)
@@ -193,8 +189,8 @@ SKUs can take up to an hour to be visible in the portal. You cannot create a dat
 Add capacity by adding additional MySQL servers in the Azure Stack portal. If you wish to use another instance of MySQL, click **Resource Providers** &gt; **MySQLAdapter** &gt; **MySQL Hosting Servers** &gt; **+Add**.
 
 
-## Making MySQL databases available to tenants
-Create plans and offers to make MySQL databases available for tenants. Add the Microsoft.MySqlAdapter service, add a quota, etc.
+## Making MySQL databases available to users
+Create plans and offers to make MySQL databases available for users. Add the Microsoft.MySqlAdapter service, add a quota, etc.
 
 ![Create plans and offers to include databases](./media/azure-stack-mysql-rp-deploy/mysql-new-plan.png)
 
@@ -204,9 +200,9 @@ To remove the resource provider, it is essential to first remove any dependencie
 
 1. Ensure you have the original deployment package that you downloaded for this version of the Resource Provider.
 
-2. All tenant databases must be deleted from the resource provider (this will not delete the data). This should be performed by the tenants themselves.
+2. All user databases must be deleted from the resource provider (this will not delete the data). This should be performed by the users themselves.
 
-3. Tenants must unregister from the namespace.
+3. Users must unregister from the namespace.
 
 4. Administrator must delete the hosting servers from the MySQL Adapter
 

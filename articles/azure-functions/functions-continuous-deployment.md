@@ -26,7 +26,7 @@ Continuous deployment is a great option for projects where multiple and frequent
 * [Bitbucket](https://bitbucket.org/)
 * [Dropbox](https://www.dropbox.com/)
 * External repository (Git or Mercurial)
-* [Git local repository](../app-service-web/app-service-deploy-local-git.md)
+* [Git local repository](../app-service/app-service-deploy-local-git.md)
 * [GitHub](https://github.com)
 * [OneDrive](https://onedrive.live.com/)
 * [Visual Studio Team Services](https://www.visualstudio.com/team-services/)
@@ -144,3 +144,8 @@ Before you can download files from your function app with FTP or local Git repos
     If requested, supply your [configured deployment credentials](#credentials).  
 
 [GitHub]: https://github.com/
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Best Practices for Azure Functions](functions-best-practices.md)

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/21/2017
+ms.date: 09/23/2017
 ms.author: magoedte
 ---
 
@@ -79,7 +79,7 @@ mysql-cimprov | 1.0.1 | MySQL Server performance monitoring provider for OMI. In
 docker-cimprov | 1.0.0 | Docker provider for OMI. Installed if Docker is detected.
 
 ### Compatibility with System Center Operations Manager
-The OMS Agent for Linux shares agent binaries with the System Center Operations Manager agent. If you install the OMS Agent for Linux on a system currently managed by Operations Manager, it the OMI and SCX packages on the computer to a newer version. In this release, the OMS and System Center 2016 - Operations Manager/Operations Manager 2012 R2 agents for Linux are compatible. 
+The OMS Agent for Linux shares agent binaries with the System Center Operations Manager agent. If you install the OMS Agent for Linux on a system currently managed by Operations Manager, it upgrades the OMI and SCX packages on the computer to a newer version. In this release, the OMS and System Center 2016 - Operations Manager/Operations Manager 2012 R2 agents for Linux are compatible. 
 
 > [!NOTE]
 > System Center 2012 SP1 and earlier versions are currently not compatible or supported with the OMS Agent for Linux.<br>
@@ -124,8 +124,8 @@ sudo sh ./omsagent-<version>.universal.x64.sh --upgrade
 sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -w <workspace id> -s <shared key> -d opinsights.azure.us
 ```
 
-## Configuring the agent for use with an HTTP proxy server or OMS Gateway
-The OMS Agent for Linux supports communicating either through an HTTP or HTTPS proxy server or OMS Gateway to the OMS service.  Both anonymous and basic authentication (username/password) is supported.  
+## Configuring the agent for use with a proxy server or OMS Gateway
+The OMS Agent for Linux supports communicating either through a proxy server or OMS Gateway to the OMS service using the HTTPS protocol.  Both anonymous and basic authentication (username/password) is supported.  
 
 ### Proxy configuration
 The proxy configuration value has the following syntax:
@@ -134,14 +134,14 @@ The proxy configuration value has the following syntax:
 
 Property|Description
 -|-
-Protocol|http or https
+Protocol|https
 user|Optional username for proxy authentication
 password|Optional password for proxy authentication
 proxyhost|Address or FQDN of the proxy server/OMS Gateway
 port|Optional port number for the proxy server/OMS Gateway
 
 For example:
-`http://user01:password@proxy01.contoso.com:8080`
+`https://user01:password@proxy01.contoso.com:30443`
 
 The proxy server can be specified during installation or by modifying the proxy.conf configuration file after installation.   
 
@@ -149,13 +149,13 @@ The proxy server can be specified during installation or by modifying the proxy.
 The `-p` or `--proxy` argument for the omsagent installation bundle specifies the proxy configuration to use. 
 
 ```
-sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -p http://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
+sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -p https://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
 ```
 
 ### Define the proxy configuration in a file
 The proxy configuration can be set in the files `/etc/opt/microsoft/omsagent/proxy.conf`  and `/etc/opt/microsoft/omsagent/conf/proxy.conf `. The files can be directly created or edited, but their permissions must be updated to grant the omiuser user read permission on the files. For example:
 ```
-proxyconf="https://proxyuser:proxypassword@proxyserver01:8080"
+proxyconf="https://proxyuser:proxypassword@proxyserver01:30443"
 sudo echo $proxyconf >>/etc/opt/microsoft/omsagent/proxy.conf
 sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf
 sudo chmod 600 /etc/opt/microsoft/omsagent/proxy.conf /etc/opt/microsoft/omsagent/conf/proxy.conf  
@@ -245,7 +245,7 @@ The agent packages can be uninstalled by running the bundle .sh file with the `-
 1. Reonboard to the OMS Service with the OMS Agent for Linux by using the following command with the option `-v` enabled. This allows verbose output of the agent connecting through the proxy to the OMS Service. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <OMS Workspace ID> -s <OMS Workspace Key> -p <Proxy Conf> -v`
 
-2. Review the section [Configuring the agent for use with an HTTP proxy server(#configuring the-agent-for-use-with-a-http-proxy-server) to verify you have properly configured the agent to communicate through a proxy server.    
+2. Review the section [Configuring the agent for use with a proxy server or OMS Gateway](#configuring the-agent-for-use-with-a-proxy-server-or-oms-gateway) to verify you have properly configured the agent to communicate through a proxy server.    
 * Double check that the following OMS Service endpoints are whitelisted:
 
     |Agent Resource| Ports |  
@@ -270,7 +270,7 @@ The agent packages can be uninstalled by running the bundle .sh file with the `-
 ### Issue: You see a 500 and 404 error in the log file right after onboarding
 This is a known issue that occurs on first upload of Linux data into an OMS workspace. This does not affect data being sent or service experience.
 
-### Issue:  You are not seeing any data in the OMS portal
+### Issue: You are not seeing any data in the OMS portal
 
 #### Probable causes
 
@@ -286,4 +286,4 @@ This is a known issue that occurs on first upload of Linux data into an OMS work
 
     >[!NOTE]
     >This issue is fixed in agent version 1.1.0-28 and later.
-> 
+

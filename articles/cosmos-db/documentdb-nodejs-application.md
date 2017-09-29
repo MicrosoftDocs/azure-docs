@@ -42,11 +42,10 @@ Don't have time to complete the tutorial and just want to get the complete solut
 Before following the instructions in this article, you should ensure
 that you have the following:
 
-* An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
-   OR
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-   A local installation of the [Azure Cosmos DB Emulator](local-emulator.md) (Windows only).
 * [Node.js][Node.js] version v0.10.29 or higher.
 * [Express generator](http://www.expressjs.com/starter/generator.html) (you can install this via `npm install express-generator -g`)
 * [Git][Git].
@@ -517,7 +516,7 @@ This should be all that we need for our application to work.
 5. To stop the application, press CTRL+C in the terminal window and then click **Y** to terminate the batch job.
 
 ## <a name="_Toc395783182"></a>Step 7: Deploy your application development project to Azure Websites
-1. If you haven't already, enable a git repository for your Azure Website. You can find instructions on how to do this in the [Local Git Deployment to Azure App Service](../app-service-web/app-service-deploy-local-git.md) topic.
+1. If you haven't already, enable a git repository for your Azure Website. You can find instructions on how to do this in the [Local Git Deployment to Azure App Service](../app-service/app-service-deploy-local-git.md) topic.
 2. Add your Azure Website as a git remote.
    
         git remote add azure https://username@your-azure-website.scm.azurewebsites.net:443/your-azure-website.git
