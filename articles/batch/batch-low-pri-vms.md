@@ -121,7 +121,6 @@ benefit from low-priority VMs:
     The quota for low-priority VMs is higher than the quota for dedicated VMs, because 
     low-priority VMs cost less. For more information, see [Batch service quotas and limits](batch-quota-limit.md#resource-quotas).    
 
->
 
 ## Create and update pools
 
