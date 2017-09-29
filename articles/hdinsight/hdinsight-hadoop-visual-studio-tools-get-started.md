@@ -30,7 +30,7 @@ Data Lake Tools for Visual Studio can be used to access both Data Lake Analytics
 
 To complete this tutorial and use the Data Lake Tools in Visual Studio, you need the following items:
 
-* An Azure HDInsight cluster: To create one, see [Get started using Linux-based HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+* An Azure HDInsight cluster: To create one, see [Get started using Hadoop in Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md). To learn how to run interactive Hive queries, you need a [HDInsight Interactive Query](./hdinsight-hadoop-use-interactive-hive.md) cluster.
 * A workstation with  Visual Studio 2013/2015/2017.
     
     > [!NOTE]
