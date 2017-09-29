@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
-ms.author: larryfr
+ms.author: maxluk
 ---
 # Manage user permissions at the file and folder levels
 

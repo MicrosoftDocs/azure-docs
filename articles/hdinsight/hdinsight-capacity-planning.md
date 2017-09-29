@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
-ms.author: larryfr
+ms.author: maxluk
 ---
 # Capacity planning for HDInsight clusters
 
