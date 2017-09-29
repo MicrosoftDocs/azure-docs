@@ -156,9 +156,7 @@ In our case, we define these custom tags (**celebrity**, **flag**, **us**, **toy
 
 1. [Sign in](https://www.customvision.ai/account/signin) to the [Custom Vision API preview](https://www.customvision.ai/).
 2. Use the [Quickstart](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) to build your custom classifier to detect the potential presence of flags, toys, and pens.
-
    ![Custom Vision Training Images](images/tutorial-ecommerce-custom-vision.PNG)
-
 3. [Get the prediction endpoint URL](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/use-prediction-api) for your custom classifier.
 4. Refer to the project source code to see the function that calls your custom classifier prediction endpoint to scan your image.
 
@@ -183,7 +181,6 @@ In our case, we define these custom tags (**celebrity**, **flag**, **us**, **toy
 
 1. In the previous sections, you scanned the incoming images for adult and racy (Content Moderator), celebrities (Computer Vision) and Flags (Custom Vision).
 2. Basedon our match thresholds for each scan, make the nuanced cases available for human review in the review tool.
-
         public static bool CreateReview(string ImageUrl, KeyValuePair[] Metadata)
         {
 
@@ -207,7 +204,6 @@ In our case, we define these custom tags (**celebrity**, **flag**, **us**, **toy
 
 1. This tutorial assumes a "C:Test" directory with a text file that has a list of image Urls.
 2. The following code checks for the existence of the file and reads all Urls into memory.
-
             // Check for a test directory for a text file with the list of Image URLs to scan
             var topdir = @"C:\test\";
             var Urlsfile = topdir + "Urls.txt";
@@ -227,7 +223,6 @@ In our case, we define these custom tags (**celebrity**, **flag**, **us**, **toy
 
 1. This top-level function loops through all image URLs in the text file we mentioned earlier.
 2. It scans them with each API and if the match confidence score falls within our criteria, creates a review for human moderators.
-
              // for each image URL in the file...
             foreach (var Url in Urls)
             {
