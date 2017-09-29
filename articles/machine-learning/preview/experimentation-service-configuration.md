@@ -1,5 +1,5 @@
 ---
-title: Configuring Azure Machine Learning Experiment Service | Microsoft Docs
+title: Configuring Azure Machine Learning Experimentation Service | Microsoft Docs
 description: This article provides a high-level overview of Azure Machine Learning Experimentation Service with instructions on how to configure it.
 services: machine-learning
 author: gokhanuluderya-msft
