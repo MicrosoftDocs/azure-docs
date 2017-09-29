@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 09/29/2017
 ms.author: jeedes
 
 ---
@@ -119,7 +119,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [SmartRecruiters Client support team](https://www.smartrecruiters.com/about-us/contact-us/) to get these values. 
 
-5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+5. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate on your computer.
 
 	![The Certificate download link](./media/active-directory-saas-smartrecruiters-tutorial/tutorial_smartrecruiters_certificate.png) 
 
@@ -133,21 +133,25 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 8. In a different web browser window, log in to your SmartRecruiters company site as an administrator.
 
-9. Go to **Settings / Admin > Web SSO**.
+9. Go to **Settings / Admin**.
+
+    ![SmartRecruiters Configuration](./media/active-directory-saas-smartrecruiters-tutorial/configure.png)
+
+10. In the **Configuration** section, click **Web SSO**.
 
 	![SmartRecruiters Configuration](./media/active-directory-saas-smartrecruiters-tutorial/configure1.png)
 
-10. Toggle **Enable Web SSO**.
+11. Toggle **Enable Web SSO**.
 
 	![SmartRecruiters Configuration](./media/active-directory-saas-smartrecruiters-tutorial/configure2.png)
 
-11. In **Identity Provider Configuration**, perform the following steps:
+12. In **Identity Provider Configuration**, perform the following steps:
 
 	![SmartRecruiters Configuration](./media/active-directory-saas-smartrecruiters-tutorial/configure4.png)
 
 	a. In **Identity Provider URL** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal.
 
-	b. In **Identity Provider certificate** textbox, paste the value of **X509Certificate** from the metadata downloaded from Azure portal.
+	b. Open **certificate(Base64)** which you have downloaded from Azure portal and paste the value into **Identity Provider certificate** textbox.
 
 13. Click **Save Web SSO configuration**.
 
