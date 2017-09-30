@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 09/29/2017
 ms.author: banders
 
 ---
@@ -85,7 +85,7 @@ The dashboard includes the blades shown in the table. Each blade lists up to 10 
 
 | **Column** | **Description** |
 | --- | --- |
-| Applications - Number of applications | Shows the number of applications in Application resources. Also lists application names and for each, the count of application records. Click the number to run a log search for <code>Type=ApplicationInsights &#124; measure sum(SampledCount) by ApplicationName</code> <br><br>  Click an application name to run a log search for the application that shows application records per host, records by telemetry type, and all data by type (based on the last day). |
+| Applications - Number of applications | Shows the number of applications in Application resources. Also lists application names and for each, the count of application records. Click the number to run a log search for <code>ApplicationInsights &#124; summarize sum(SampledCount) by ApplicationName</code> <br><br>  Click an application name to run a log search for the application that shows application records per host, records by telemetry type, and all data by type (based on the last day). |
 | Data Volume – Hosts sending data | Shows the number of computer hosts that are sending data. Also lists computer hosts and record count for each host. Click the number to run a log search for <code>Type=ApplicationInsights &#124; measure sum(SampledCount) by Host</code> <br><br> Click on a computer name to run a log search for the host that shows application records per host, records by telemetry type, and all data by type (based on the last day). |
 | Availability – Webtest results | Shows a doughnut chart for web test results, indicating pass or fail. Click the chart to run a log search for <code>Type=ApplicationInsights TelemetryType=Availability &#124; measure sum(SampledCount) by AvailabilityResult</code> <br><br> Results show the number of passes and failures for all tests. It shows all Web Apps with traffic for the last minute. Click an application name to view a log search showing details of failed web tests. |
 | Server Requests – Requests per hour | Shows a line chart of the server requests per hour for various applications. Hover over a line in the chart to see the top 3 applications receiving requests for a point in time. Also shows a list of the applications receiving requests and the number of requests for the selected period. <br><br>Click the graph to run a log search for <code>Type=ApplicationInsights TelemetryType=Request &#124; measure sum(SampledCount) by ApplicationName interval 1hour</code> that shows a more detailed line chart of the server requests per hour for various applications. <br><br> Click an application in the list to run a log search for <code>Type=ApplicationInsights  ApplicationName=yourapplicationname  TelemetryType=Request</code> that shows a list of requests, charts for requests over time and request duration and a list of request response codes.   |

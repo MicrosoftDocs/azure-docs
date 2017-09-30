@@ -80,10 +80,6 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 
 ## Using the solution
 
->[!NOTE]
-> Upgrade your Log Analytics workspace to get the latest version of Azure SQL Analytics.
->
-
 When you add the solution to your workspace, the Azure SQL Analytics tile is added to your workspace, and it appears in Overview. The tile shows the number of Azure SQL databases and Azure SQL elastic pools that the solution is connected to.
 
 ![Azure SQL Analytics tile](./media/log-analytics-azure-sql/azure-sql-sol-tile.png)
