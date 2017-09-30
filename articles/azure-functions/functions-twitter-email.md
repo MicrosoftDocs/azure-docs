@@ -126,9 +126,8 @@ Now you have a function that categorizes sentiment scores. Next, you create a lo
     | Setting      |  Suggested value   | Description                                        |
     | ----------------- | ------------ | ------------- |
     | **Name** | TweetSentiment | Choose an appropriate name for your app. |
-    | **Resource group** | myResourceGroup | API used to analyze text.  |
-    | **Location** | East US | Choose a location close to you. |
-    | **Resource group** | myResourceGroup | Choose the same existing resource group as before.|
+    | **Resource group** | myResourceGroup | Choose the same existing resource group as before. |
+    | **Location** | East US | Choose a location close to you. |    
 
 4. Click **Create** to create your logic app. After the app is created, click your new logic app pinned to the dashboard. Then in the Logic Apps Designer, scroll down and click the **Blank Logic App** template. 
 
@@ -148,7 +147,7 @@ First, create a connection to your Twitter account. The logic app polls for twee
 
     | Setting      |  Suggested value   | Description                                        |
     | ----------------- | ------------ | ------------- |
-    | **Search text** | #Azure | Use a hashtag that is popular enough for to generate new tweets in the chosen interval. When using the Free tier and your hashtag is too popular, you can quickly use up the transactions in your Cognitive Services account. |
+    | **Search text** | #Azure | Use a hashtag that is popular enough to generate new tweets in the chosen interval. When using the Free tier and your hashtag is too popular, you can quickly use up the transactions in your Cognitive Services account. |
     | **Frequency** | Minute | The frequency unit used for polling Twitter.  |
     | **Interval** | 15 | The time elapsed between Twitter requests, in frequency units. |
 
