@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 9/20/2017
+ms.date: 10/02/2017
 ms.author: kmouss
 
 ---
@@ -124,7 +124,7 @@ LicenseType              :
 
 ## List all Azure Hybrid Benefit for Windows Server VMs in a subscription
 
-To see and count all virtual machines deployed with Azure Hybrid Benefit for Windows Server on your Azure subscription, you can run the following command:
+To see and count all virtual machines deployed with Azure Hybrid Benefit for Windows Server, you can run the following command from your subscription:
 
 ```powershell
 $vms = Get-AzureRMVM 
