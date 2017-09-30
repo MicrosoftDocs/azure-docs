@@ -81,7 +81,7 @@ When Swaggerize asks for a project name, use *ContactList*.
 1. Copy the *lib* folder into the *ContactList* folder created by `yo swaggerize`, then change directory into *ContactList*.
 
     ```bash
-    cp -r lib/ ContactList/
+    cp -r lib ContactList/
     cd ContactList
     ```
 
