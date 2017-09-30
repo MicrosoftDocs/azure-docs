@@ -3,7 +3,7 @@ title: Azure Performance Diagnostics VM Extension for Windows| Microsoft Docs
 description: Introduces Azure Performance Diagnostics VM Extension for Windows.
 services: virtual-machines-windows'
 documentationcenter: ''
-author: simonxjx
+author: genlin
 manager: cshepard
 editor: na
 tags: ''
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/29/2017
-ms.author: v-six
+ms.author: genli
 
 ---
 # Azure Performance Diagnostics VM Extension for Windows
@@ -93,7 +93,7 @@ Follow these steps to install the VM Extension on Windows Virtual Machines:
 4. Select Azure Performance Diagnostics Extension, Review the Terms and conditions and click the **Create** button.
 
     ![Create Azure Performance Diagnostics Extension](media/performance-diagnostics-vm-extension/create-azure-performance-diagnostics-extension.png)
-5. Provide the parameter values for the installation and click **OK** to install the extension.
+5. Provide the parameter values for the installation and click **OK** to install the extension. You can find more information on the supported troubleshooting scenarios [here](how-to-use-perfInsights.md#supported-troubleshooting-scenarios). 
 
     ![Install the extension](media/performance-diagnostics-vm-extension/install-the-extension.png)
 6. Once the installation is successful, you will see a message indicating provisioning succeeded.
