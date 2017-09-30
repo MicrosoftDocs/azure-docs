@@ -114,13 +114,8 @@ To connect to a Machine Learning Web service, the **Microsoft.AspNet.WebApi.Clie
 2. Assign apiKey with the key from a Web service. See **Get an Azure Machine Learning authorization key** above.
 3. Assign serviceUri with the Request URI.
 
-**Here is what your code will look like.**
+**Here is what a complete request looks like.**
 ```csharp
-// This code requires the Nuget package Microsoft.AspNet.WebApi.Client to be installed.
-// Instructions for doing this in Visual Studio:
-// Tools -> Nuget Package Manager -> Package Manager Console
-// Install-Package Microsoft.AspNet.WebApi.Client
-
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -208,7 +203,7 @@ namespace CallRequestResponseService
 ```
 
 ### Python Sample
-To connect to a Machine Learning Web service, use the **urllib2** library passing ScoreData. ScoreData contains a FeatureVector, an n-dimensional  vector of numerical features that represents the ScoreData. You authenticate to the Machine Learning service with an API key.
+To connect to a Machine Learning Web service, use the **urllib2** library for Python 2.X and **urllib.request** library for Python 3.X, passing ScoreData. ScoreData contains a FeatureVector, an n-dimensional vector of numerical features that represents the ScoreData. You authenticate to the Machine Learning service with an API key.
 
 **To run the code sample**
 
@@ -216,3 +211,50 @@ To connect to a Machine Learning Web service, use the **urllib2** library passin
 2. Assign apiKey with the key from a Web service. See the **Get an Azure Machine Learning authorization key** section near the beginning of this article.
 3. Assign serviceUri with the Request URI.
 
+**Here is what a complete request looks like.**
+```python
+import urllib2 # urllib.request for Python 3.X
+import json
+
+data = {
+        "Inputs": {
+            "input1":
+            [
+                {
+                    'timestamp': "",   
+                    'open': "1",   
+                    'high': "1",   
+                    'low': "1",   
+                    'close': "1",   
+                    'volume': "1",   
+                }
+            ],
+        },
+    "GlobalParameters":  {
+    }
+}
+
+body = str.encode(json.dumps(data))
+
+# Replace this with the URI and API Key for your web service
+url = '<your-api-uri>'
+api_key = '<your-api-key>'
+headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
+
+# "urllib.request.Request(uri, body, headers)" for Python 3.X
+req = urllib2.Request(url, body, headers)
+
+try:
+    # "urllib.request.urlopen(req)" for Python 3.X
+    response = urllib2.urlopen(req)
+
+    result = response.read()
+    print(result)
+# "urllib.error.HTTPError as error" for Python 3.X
+except urllib2.HTTPError, error: 
+    print("The request failed with status code: " + str(error.code))
+
+    # Print the headers - they include the requert ID and the timestamp, which are useful for debugging the failure
+    print(error.info())
+    print(json.loads(error.read())) 
+```
