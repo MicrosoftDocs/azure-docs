@@ -1,27 +1,19 @@
 ---
-title: Search semi-structured data in Azure cloud Storage
-description: Tutorial - Search semi-structured data in cloudSstorage 
-services: storage
-documentationcenter: storage
-author: rogara
-manager: tamram
-editor: 
-tags: 
+title: Search semi-structured data in Azure cloud storage
+description: Tutorial - Search semi-structured data in cloud storage 
+author: roygara
+manager: timlt
 
-ms.assetid: 
 ms.service: storage
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: storage
-ms.workload: 
-ms.date: 09/07/2017
+ms.topic: tutorial
+ms.date: 09/29/2017
 ms.author: rogara
 ms.custom: mvc
 ---
 
 # Search semi-structured data in cloud storage
 
-In this two-part tutorial series, you learn how to search semi-structured and unstructured data. In this part, you search semi-structured data, such as JSON. Semi-structured data contains tags or markings which separate content within the data. It differs from structured data in that it is data that is not formally structured such as data models for relational databases.
+In this two-part tutorial series, you learn how to search semi-structured and unstructured data. This tutorial shows you how to search semi-structured data, such as JSON. Semi-structured data contains tags or markings which separate content within the data. It differs from structured data in that it is not formally structured according to a data model, such as a relational database schema.
 
 In this part we cover how to:
 
@@ -47,13 +39,13 @@ If this is your first time making REST calls to Azure, here's a brief introducti
 
   ![Semi-structured search](media/storage-unstructured-structured-search/postmanoverview.png)
 
-For the calls covered in this tutorial, your search api-key is required, it can be found under **Keys** inside your search service. This api-key must be in the header of every API call (repalce "admin key" in the preceding screenshot with it) this tutorial directs you to make. Retain this since you need it for each call.
+For the calls covered in this tutorial, your search api-key is required, it can be found under **Keys** inside your search service. This api-key must be in the header of every API call (replace "admin key" in the preceding screenshot with it) this tutorial directs you to make. Retain this since you need it for each call.
 
   ![Semi-structured search](media/storage-unstructured-structured-search/keys.png)
 
 ## Download the sample data
 
-A sample data set has been prepared for you. **Download [clinical-trials-json.zip](https://github.com/roygara/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip)** and unzip it to its own folder.
+A sample data set has been prepared for you. **Download [clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip)** and unzip it to its own folder.
 
 Contained in the sample are example JSON files, which were originally text files obtained from [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). We have converted them to JSON for your convenience.
 
@@ -281,7 +273,7 @@ The `$filter` parameter only works with metadata that were marked filterable at 
 
 ## Next steps
 
-In this tutorial, you learned about searching semi-structured data, such as how to:
+In this tutorial, you learned about searching semi-structured data using Azure search, such as how to:
 
 > [!div class="checklist"]
 > * Create an Azure Search Service using the REST API

@@ -1,20 +1,12 @@
 ---
-title: Search unstructured data in Azure cloud Storage
-description: Tutorial - Search unstructured data in cloud Storage
-services: storage
-documentationcenter: storage
-author: rogara
-manager: tamram
-editor: 
-tags: 
+title: Search unstructured data in Azure cloud storage
+description: Tutorial - Search unstructured data in cloud storage
+author: roygara
+manager: timlt
 
-ms.assetid: 
 ms.service: storage
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: storage
-ms.workload: 
-ms.date: 09/07/2017
+ms.topic: tutorial
+ms.date: 09/29/2017
 ms.author: rogara
 ms.custom: mvc
 ---
@@ -35,9 +27,9 @@ In this part you learn how to:
 
 ## Download the sample
 
-A sample data set has been prepared for you. **Download [clinical-trials.zip](https://github.com/roygara/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials.zip)** and unzip it to its own folder.
+A sample data set has been prepared for you. **Download [clinical-trials.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials.zip)** and unzip it to its own folder.
 
-Contained in the sample is a set of text files obtained from [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). You are using them as example text files to search using Azure.
+The sample consists of text files obtained from [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). You can use them as example text files to search using Azure.
 
 ## Log in to Azure
 
@@ -53,11 +45,11 @@ If you are not familiar with the process of creating a General-purpose storage a
 
 1. From the left menu, select **Storage Accounts**, then select **Add**.
 
-2. Enter a name for your storage account. 
+2. Enter a unique name for your storage account. 
 
-3. Leave Deployment model as **Resource Manager** and select **General purpose** from the Account kind drop-down.
+3. Select **Resource Manager** for your **Deployment model** and select **General purpose** from the **Account kind** drop-down.
 
-4. Select **Locally-redundant storage (LRS)** from the Replication drop-down.
+4. Select **Locally-redundant storage (LRS)** from the **Replication** drop-down.
 
 5. Under **Resource group**, select **Create new** and enter a unique name.
 
@@ -73,11 +65,11 @@ Containers are similar to folders and are used to store blobs.
 
 For this tutorial, you use a single container to store the text files obtained from clinicaltrials.gov.
 
-1. Navigate to your storage account.
+1. Navigate to your storage account in the Azure portal.
 
 2. Select **Browse blobs** under **Blob Service.**
 
-3. Select **+Container** to create a new container.
+3. Add a new container.
 
 4. Name the container "data" and select **Container** for the public access level.
 
@@ -89,15 +81,13 @@ For this tutorial, you use a single container to store the text files obtained f
 
 Now that you have a container, you can upload your example data to it.
 
-1. Select your container and select Upload.
+1. Select your container and select **Upload**.
 
-2. Select the blue folder icon pictured next to the Files field.
+2. Select the blue folder icon pictured next to the Files field and browse to the local folder where you extracted the sample data.
 
-3. Navigate to the local folder where you extracted the sample data. 
+3. Select all of the extracted files and select **Open**
 
-4. Select the extracted files and select **Open**
-
-5. Select **Upload** to begin the upload process.
+4. Select **Upload** to begin the upload process.
 
   ![Unstructured search](media/storage-unstructured-structured-search/upload.png)
 
@@ -113,17 +103,15 @@ Azure Search is a search-as-a-service cloud solution that gives developers APIs 
 
 If you are not familiar with the process of creating a search service, here's how to create one:
 
-1. Navigate to your storage account.
+1. Navigate to your storage account in the Azure portal.
 
 2. Scroll down and click **Add Azure Search** under **BLOB SERVICE**.
 
-3. Under **Import Data**, select **Search Service**.
+3. Under **Import Data**, select **Pick your service**.
 
 4. Select **Click here to create a new search service**.
 
-  Under **New Search Service**.
-
-5. Enter a unique name for your search service in the **URL** field.
+5. Inside **New Search Service** enter a unique name for your search service in the **URL** field.
 
 6. Under **Resource group**, select **Use existing** and choose the resource group you created earlier.
 
@@ -133,7 +121,7 @@ If you are not familiar with the process of creating a search service, here's ho
 
   ![Unstructured search](media/storage-unstructured-structured-search/createsearch2.png)
 
-## Connect your search service to your blob storage
+## Connect your search service to your container
 
 Now that you have a search service, you can attach it to your blob storage. This section walks you through the process of choosing a data source, creating an index, and creating an indexer.
 
@@ -145,11 +133,11 @@ Now that you have a search service, you can attach it to your blob storage. This
 
 ### New Data Source
 
-  A data source specifies which data to index and how to access the data. A data source can be used multiple times in the same search service.
+  A data source specifies which data to index and how to access the data. A data source can be used multiple times by the same search service.
 
-1. Enter a name for the data source. Under **Data to extract** select **Content and Metadata**. This specifies which parts of the blob are indexed.
+1. Enter a name for the data source. Under **Data to extract**, select **Content and Metadata**. The data source specifies which parts of the blob are indexed.
     
-    a. In the future, for your own data, you can also select **Storage metadata only** if you wish to limit the data that is indexed to standard blob properties or user-defined properties.
+    a. In your own future scenarios, you can also select **Storage metadata only**. You would make that selection if you wish to limit the data that is indexed to standard blob properties or user-defined properties.
     
     b. You can also choose **All metadata** to obtain both standard blob properties and *all* content-type specific metadata. 
 
@@ -159,7 +147,7 @@ Now that you have a search service, you can attach it to your blob storage. This
 
 3. Select **Storage Container** to list the available storage accounts.
 
-4. Select your storage account then select the container you created in the preceding step.
+4. Select your storage account, then select the container you created previously.
 
 5. Click **Select** to return to **New data source** and select **OK** to continue.
 
@@ -169,13 +157,15 @@ Now that you have a search service, you can attach it to your blob storage. This
 
   An index is a collection of fields from your data source that can be searched. The index is how your search service knows in what ways your data should be searched.
 
-1. Enter a name for your index in the **index name** field.
+1. In **Import data** select **Customize target index**.
+ 
+2. Enter a name for your index in the **Index name** field.
 
-2. Select **metadata_storage_name** from the **Key** dropdown.
+3. Select **metadata_storage_name** from the **Key** dropdown.
 
   ![Unstructured search](media/storage-unstructured-structured-search/valuestoselect.png)
 
-3. Click **OK**, which brings up **Create an Indexer**.
+4. Click **OK**, which brings up **Create an Indexer**.
 
 The parameters of your index and the attributes you give those parameters are important. The parameters specify *what* data to store, the attributes specify *how* to store that data.
 
@@ -206,15 +196,15 @@ You've now successfully connected your blob to your search service. The search s
 
 ## Search your text files
 
-To search your files, you need to open the search explorer inside the index of your newly created search service.
+To search your files, open the search explorer inside the index of your newly created search service.
 
-The following steps show you where to find it and provides you some example queries:
+The following steps show you where to find the search explorer and provides you some example queries:
 
 1. Navigate to all resources and find your newly created search service.
 
   ![Unstructured search](media/storage-unstructured-structured-search/exampleurl.png)
 
-3. Select your index inside of indexes to open it up. 
+3. Select your index to open it up. 
 
   ![Unstructured search](media/storage-unstructured-structured-search/overview.png)
 
@@ -228,15 +218,13 @@ The following steps show you where to find it and provides you some example quer
 
 ### Full-text search 
 
-Enter "Myopia" in the **Query string** field and select **Search**. This initiates a search of the contents of the files and returns a subset of them that contains the word "Myopia."
+Enter "Myopia" in the **Query string** field and select **Search**. Initiating a search of the contents of the files and returning a subset of them, which contains the word "Myopia."
 
   ![Unstructured search](media/storage-unstructured-structured-search/secondMyopia.png) 
 
 ### System properties search
 
-You can also create queries that search by system properties using the `$select` parameter.
-
-Enter `$select=metadata_storage_name` into the query string and press enter, returning only that particular field.
+You can also create queries that search by system properties using the `$select` parameter. Enter `$select=metadata_storage_name` into the query string and press enter, returning only that particular field.
     
 The query string is directly modifying the URL, so spaces are not permitted. To search multiple fields, use a comma, such as: `$select=metadata_storage_name,metadata_storage_size`
     
@@ -250,7 +238,7 @@ Make sure **not** to delete any resources created in this tutorial, as most of t
 
 ## Next steps
 
-In this tutorial, you learned about searching unstructured data, such as how to:
+In this tutorial, you learned about searching unstructured data using Azure search, such as how to:
 
 > [!div class="checklist"]
 > * Create a resource group
