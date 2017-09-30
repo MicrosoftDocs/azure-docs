@@ -129,7 +129,7 @@ The following namespaces are automatically opened:
 * `Microsoft.Azure.WebJobs.Host`.
 
 ## Referencing External Assemblies
-Similarly, framework assembly references be added with the `#r "AssemblyName"` directive.
+Similarly, framework assembly references can be added with the `#r "AssemblyName"` directive.
 
 ```fsharp
 #r "System.Web.Http"
