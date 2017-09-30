@@ -28,77 +28,39 @@ ms.author: saysa
 You can build Service Fabric applications to run on Linux clusters using Mac OS X. This article covers how to set up your Mac for development.
 
 ## Prerequisites
-Service Fabric does not run natively on OS X. To run a local Service Fabric cluster, we provide a pre-configured Ubuntu virtual machine using Vagrant and VirtualBox. Before you get started, you need:
+Service Fabric does not run natively on OS X. To run a local Service Fabric cluster, we provide a pre-configured Docker image. Before you get started, you need:
 
-* [Vagrant (v1.8.4 or later)](http://www.vagrantup.com/downloads.html)
-* [VirtualBox](http://www.virtualbox.org/wiki/Downloads)
+* [Docker](https://docs.docker.com/docker-for-mac/install/)
 
->[!NOTE]
-> You need to use mutually supported versions of Vagrant and VirtualBox. Vagrant might behave erratically on an unsupported VirtualBox version.
->
+## Download and start the docker image.
+To start the docker image having a pre-configured 5-node Service Fabric cluster, perform the following steps:
 
-## Create the local VM
-To create the local VM containing a 5-node Service Fabric cluster, perform the following steps:
-
-1. Clone the `Vagrantfile` repo
+1. Download and run the pre-configured docker image
 
     ```bash
-    git clone https://github.com/azure/service-fabric-linux-vagrant-onebox.git
+    sudo docker run -it -p 19080:19080 servicefabricoss/service-fabric-onebox bash
     ```
-    This steps downloads the file `Vagrantfile` containing the VM configuration along with the location the VM is downloaded from.  The file points to a stock Ubuntu image.
+    This steps downloads the the docker image and runs it.
 
-2. Navigate to the local clone of the repo
+2. Setup the Service Fabric
 
     ```bash
-    cd service-fabric-linux-vagrant-onebox
+    ./setup.sh
     ```
-3. (Optional) Modify the default VM settings
-
-    By default, the local VM is configured as follows:
-
-   * 3 GB of memory allocated
-   * Private host network configured at IP 192.168.50.50 enabling passthrough of traffic from the Mac host
-
-     You can change either of these settings or add other configuration to the VM in the `Vagrantfile`. See the [Vagrant documentation](http://www.vagrantup.com/docs) for the full list of configuration options.
-4. Create the VM
-
+3. Run the Service Fabric cluster
     ```bash
-    vagrant up
+    ./run.sh
     ```
 
-
-5. Log into the VM and install the Service Fabric SDK
-
-    ```bash
-    vagrant ssh
-    ```
-
-   Install the SDK as described in [SDK installation](service-fabric-get-started-linux.md).  The script below is provided for convenience for installing the Service Fabric runtime and the Service Fabric common SDK along with sfctl CLI. Running the script assumes you have read and agreed to the licenses for all the software that is being installed.
-
-    ```bash
-    sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-templates/master/scripts/SetupServiceFabric/SetupServiceFabric.sh | sudo bash
-    ```
-
-5.  Start the Service Fabric cluster
-
-    ```bash
-    sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
-    ```
-
-    >[!TIP]
-    > If the VM download is taking a long time, you can download it using wget or curl or through a browser by navigating to the link specified by **config.vm.box_url** in the file `Vagrantfile`. After downloading it locally, edit `Vagrantfile` to point to the local path where you downloaded the image. For example if you downloaded the image to /home/users/test/azureservicefabric.tp8.box, then set **config.vm.box_url** to that path.
-    >
-
-5. Test that the cluster has been set up correctly by navigating to Service Fabric Explorer at http://192.168.50.50:19080/Explorer (assuming you kept the default private network IP).
+4. Test that the cluster has been set up correctly by navigating to Service Fabric Explorer at http://localhost:19080/Explorer.
 
     ![Service Fabric Explorer viewed from the host Mac][sfx-mac]
 
-## Install the necessary Java artifacts on Vagrant to use Service Fabric Java programming model
+## Install the necessary Java artifacts on docker image to use Service Fabric Java programming model
 
 To build Service Fabric services using Java, ensure you have JDK 1.8 installed along with Gradle which is used for running build tasks. The following snippet installs Open JDK 1.8 along with Gradle. The Service Fabric Java libraries are pulled from Maven.
 
   ```bash
-  vagrant ssh
   sudo apt-get install openjdk-8-jdk-headless
   sudo apt-get install gradle
 ```
@@ -145,9 +107,6 @@ Install the [.NET Core 2.0 SDK for Mac](https://www.microsoft.com/net/core#macos
 ## Install the Service Fabric plugin for Eclipse Neon
 
 Service Fabric provides a plugin for the **Eclipse Neon for Java IDE** that can simplify the process of creating, building, and deploying Java services. You can follow the installation steps mentioned in this general [documentation](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse-neon) about installing or updating Service Fabric Eclipse plugin.
-
->[!TIP]
-> By default we support the default IP as mentioned in the ``Vagrantfile`` in the ``Local.json`` of the generated application. In case you change that and deploy Vagrant with a different IP, please update the corresponding IP in ``Local.json`` of your application as well.
 
 ## Next steps
 <!-- Links -->
