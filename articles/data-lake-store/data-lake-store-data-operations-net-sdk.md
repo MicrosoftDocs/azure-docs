@@ -131,7 +131,7 @@ The following snippet reads the contents of a file in Data Lake Store.
     }
 
 ## Get file properties
-The following snippet returns the properties associated with a file.
+The following snippet returns the properties associated with a file or a directory.
 
     // Get file properties
     var directoryEntry = client.GetDirectoryEntry(fileName);
