@@ -165,4 +165,4 @@ http://<app name>.azurewebsites.net
 
 ## Next steps
 
-[Azure App Service Web App on Linux FAQ](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-faq)
+[Azure App Service Web App on Linux FAQ](app-service-linux-faq.md)
