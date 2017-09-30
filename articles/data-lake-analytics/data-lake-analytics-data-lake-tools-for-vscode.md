@@ -52,7 +52,7 @@ After you install the prerequisites, you can install Data Lake Tools for VS Code
 Create a new .usql file or open an existing .usql file to activate the extension. 
 
 ## Open the sample script
-Open the command palette (Ctrl+Shift+P) and enter **ADL: Open Sample Script**. This opens another instance of this sample. You can also edit, configure, and submit script on this instance.
+Open the command palette (Ctrl+Shift+P) and enter **ADL: Open Sample Script**. It opens another instance of this sample. You can also edit, configure, and submit script on this instance.
 
 ## Work with U-SQL
 
@@ -146,7 +146,7 @@ The following two screenshots show a code-behind file and its associated U-SQL s
 
 ![Data Lake Tools for Visual Studio Code code-behind script file](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-behind-call.png) 
 
-We support local run and local debug, the instructions see [U-SQL local run and local debug with Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md).
+We support local run and local debug, the instructions see [U-SQL local run, and local debug with Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md).
 
 ## Use assemblies
 
@@ -356,7 +356,7 @@ Choose the folder in the list, or click **Enter Path** or **Browse from Root** (
 
    ![Data Lake Tools for Visual Studio Code download status](./media/data-lake-analytics-data-lake-tools-for-vscode/download-file.png) 
 
-   In result picture, the file is saved as the temp folder. You can manual set a default downloading path for the parameter **usql.defaultLocalFolderForDownload**, through the VSCode menu **File** -> **Preferences** -> **Setting**.
+   In result picture, the file is saved as the temp folder. You can set a default downloading path for the parameter **usql.defaultLocalFolderForDownload** by yourself, through the VSCode menu **File** -> **Preferences** -> **Setting**.
 
 Another way of downloading storage files is through the right-click menu on the file's full path or the file's relative path in the script editor.
 
