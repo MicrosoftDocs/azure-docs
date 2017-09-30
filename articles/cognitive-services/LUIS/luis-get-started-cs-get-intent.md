@@ -1,6 +1,6 @@
 ---
-title: Call a Language Understanding Intelligent Services (LUIS) app using Node.js | Microsoft Docs 
-description: Learn to call a LUIS app using Node.js. 
+title: Call a Language Understanding Intelligent Services (LUIS) app using C# | Microsoft Docs 
+description: Learn to call a LUIS app using C#. 
 services: cognitive-services
 author: DeniseMak
 manager: hsalama
@@ -14,7 +14,7 @@ ms.author: v-demak
 
 # Call a LUIS app using JavaScript
 
-This Quickstart shows you how to call your Language Understanding Intelligent Service (LUIS) app in just a few minutes. When you're finished, you'll be able to use JavaScript code to pass utterances to a LUIS endpoint and get results.
+This Quickstart shows you how to call your Language Understanding Intelligent Service (LUIS) app in just a few minutes. When you're finished, you'll be able to use C# code to pass utterances to a LUIS endpoint and get results.
 
 ## Before you begin
 You need a Cognitive services API key to make calls to the sample LUIS app we use in this walkthrough. 
@@ -37,54 +37,55 @@ To understand what a LUIS app returns, you can paste the URL of a sample LUIS ap
     ![JSON result detects the intent TurnOff](./media/luis-get-started-node-get-intent/json-turn-off-floor.png)
 
 
-## Consume a LUIS result using the Endpoint API with JavaScript 
+## Consume a LUIS result using the Endpoint API with C# 
 
-You can use JavaScript to access to the same results you saw in the browser window in the previous step. 
-1. Copy the code that follows and save it into an HTML file:
+You can use C# to access to the same results you saw in the browser window in the previous step. 
+1. Create a new console application in Visual Studio. Copy the code that follows and save it into an .cs file:
 
-```javascript
-<!DOCTYPE html>
-<html>
-<head>
-    <title>JSSample</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-</head>
-<body>
+```cs
+using System;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Net.Http;
+using System.Web;
 
-<script type="text/javascript">
-    $(function() {
-        var params = {
+namespace CSHttpClientSample
+{
+    static class Program
+    {
+        static void Main()
+        {
+            MakeRequest();
+            Console.WriteLine("Hit ENTER to exit...");
+            Console.ReadLine();
+        }
+        
+        static async void MakeRequest()
+        {
+            var client = new HttpClient();
+            var queryString = HttpUtility.ParseQueryString(string.Empty);
+
+            // Request headers
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "{subscription key}");
+
             // Request parameters
-            "timezoneOffset": "0",
-            "verbose": "false",
-            "spellCheck": "false",
-            "staging": "false",
-        };
-      
-        $.ajax({
-            url: "https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/60340f5f-99c1-4043-8ab9-c810ff16252d?q=turn%20on%20the%20left%20light" + $.param(params),
-            beforeSend: function(xhrObj){
-                // Request headers
-                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","YOUR SUBSCRIPTION KEY");
-            },
-            type: "GET",
-            // Request body
-            data: "{body}",
-        })
-        .done(function(data) {
-            alert("Detected the following intent: " + data.topScoringIntent.intent);
-        })
-        .fail(function() {
-            alert("error");
-        });
-    });
-</script>
-</body>
-</html>
-```
-2. Replace `"YOUR SUBSCRIPTION KEY"` with your subscription key in this line of code
+            queryString["timezoneOffset"] = "{number}";
+            queryString["verbose"] = "{boolean}";
+            queryString["spellCheck"] = "{boolean}";
+            queryString["staging"] = "{boolean}";
+            var uri = "https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q={q}&" + queryString;
 
-3. Open the file you saved using a web browser.  An alert window should pop up that says `Detected the following intent: TurnOn`.
+            var response = await client.GetAsync(uri);
+        }
+    }
+}	
+
+```
+2. Replace `"{subscription key}"` with your subscription key in this line of code: `client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "{subscription key}");`
+
+3. Set a breakpoint on MakeRequest() in Main().
+
+4. Debug the console application and inspect the result that MakeRequest returns.
 
 ![Popup that says TurnOn](./media/luis-get-started-node-get-intent/popup-turn-on.png)
 
