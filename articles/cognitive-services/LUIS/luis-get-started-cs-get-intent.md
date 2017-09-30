@@ -76,6 +76,8 @@ namespace CSHttpClientSample
             var uri = "https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q={q}&" + queryString;
 
             var response = await client.GetAsync(uri);
+            var strResponseContent = await response.Content.ReadAsStringAsync();
+            Console.WriteLine(strResponseContent.ToString());
         }
     }
 }	
