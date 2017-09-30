@@ -28,7 +28,7 @@ To get an API key follow these steps:
 
 To understand what a LUIS app returns, you can paste the URL of a sample LUIS app into a browser window. The sample app you'll use is an IoT app that detects whether the user wants to turn on or turn off lights.
 
-1. The endpoint of the sample app is in this format: `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/60340f5f-99c1-4043-8ab9-c810ff16252d?subscription-key=<YOUR_API_KEY>&verbose=false&q=turn%20on%20the%20left%20light`. Copy the URL and paste in your subscription key for the value of the `subscription-key` field.
+1. The endpoint of the sample app is in this format: `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/60340f5f-99c1-4043-8ab9-c810ff16252d?subscription-key=<YOUR_API_KEY>&verbose=false&q=turn%20on%20the%20left%20light`. Copy the URL and substitute your subscription key for the value of the `subscription-key` field.
 2. Paste the URL into a browser window and press Enter. The browswer displays a JSON result that indicates that LUIS detects the `TurnOn` intent and the `Light` entity with the value `left`.
 
     ![JSON result detects the intent TurnOn](./media/luis-get-started-node-get-intent/json-turn-on-left.png)
@@ -44,52 +44,60 @@ You can use C# to access to the same results you saw in the browser window in th
 
 ```cs
 using System;
-using System.Net.Http.Headers;
-using System.Text;
 using System.Net.Http;
 using System.Web;
 
-namespace CSHttpClientSample
+namespace ConsoleLuisEndpointSample
 {
-    static class Program
+    class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
             MakeRequest();
             Console.WriteLine("Hit ENTER to exit...");
             Console.ReadLine();
         }
-        
+
         static async void MakeRequest()
         {
             var client = new HttpClient();
             var queryString = HttpUtility.ParseQueryString(string.Empty);
 
-            // Request headers
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "{subscription key}");
+            // This app ID is for a public sample app that recognizes requests to turn on and turn off lights
+            var luisAppId = "60340f5f-99c1-4043-8ab9-c810ff16252d";
+            var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 
-            // Request parameters
-            queryString["timezoneOffset"] = "{number}";
-            queryString["verbose"] = "{boolean}";
-            queryString["spellCheck"] = "{boolean}";
-            queryString["staging"] = "{boolean}";
-            var uri = "https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q={q}&" + queryString;
+            // The request header contains your subscription key
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
 
+            // The "q" parameter contains the utterance to send to LUIS
+            queryString["q"] = "turn on the left light";
+
+            // These optional request parameters are set to their default values
+            queryString["timezoneOffset"] = "0";
+            queryString["verbose"] = "false";
+            queryString["spellCheck"] = "false";
+            queryString["staging"] = "false";
+
+            var uri = "https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/" + luisAppId + "?" + queryString;
             var response = await client.GetAsync(uri);
+
             var strResponseContent = await response.Content.ReadAsStringAsync();
+            
+            // Display the JSON result from LUIS
             Console.WriteLine(strResponseContent.ToString());
         }
     }
-}	
+}
 
 ```
-2. Replace `"{subscription key}"` with your subscription key in this line of code: `client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "{subscription key}");`
+2. Replace the value of the `subscriptionKey` variable with your LUIS subscription key.
 
-3. Set a breakpoint on MakeRequest() in Main().
+3. In the Visual Studio project, add a reference to **System.Web**.
 
-4. Debug the console application and inspect the result that MakeRequest returns.
+4. Run the console application. It displays the same JSON that you saw earlier in the browser window.
 
-![Popup that says TurnOn](./media/luis-get-started-node-get-intent/popup-turn-on.png)
+![Console window displays JSON result from LUIS](./media/luis-get-started-cs-get-intent/console-turn-on.png)
 
 ## Next steps
 
