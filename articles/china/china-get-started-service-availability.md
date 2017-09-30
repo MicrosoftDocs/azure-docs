@@ -69,7 +69,7 @@ The following tables compare services available in global Azure and Microsoft Az
 
 | **Services**            | **Global Azure**                                                                                                                               | **Azure China 21Vianet**                                                                       |
 |-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
-| Azure App Service       | Free <br>Shared <br>Basic <br>Standard <br>Premium <br>Isolated  <br><br>Following services are available: <br>Web App <br>Mobile App <br>API App <br>Logic App <br>Web App on Linux (Preview) | Free <br>Shared <br>Basic <br>Standard <br>Premium  <br><br>Only followings available: <br>Web Apps <br>Mobile Apps <br>API Apps   |
+| Azure App Service       | Free <br>Shared <br>Basic <br>Standard <br>Premium <br>Isolated  <br><br>The following services are available: <br>Web App <br>Mobile App <br>API App <br>Logic App <br>Web App on Linux (Preview) | Free <br>Shared <br>Basic <br>Standard <br>Premium  <br><br>Only the following services are available: <br>Web Apps <br>Mobile Apps <br>API Apps   |
 | Azure Mobile Engagement | GA (retiring)                                                                                                                                  | *Not available*                                                                                |
 | Azure Search            | Free <br>Basic <br>Standard S1 <br>Standard S2 <br>Standard S3                                                                                                 | *Not available*                                                                                |
 
@@ -83,7 +83,7 @@ The following tables compare services available in global Azure and Microsoft Az
 | SQL Server Stretch Database   | GA                                                                                                                        | GA                                                                                                                        |
 | Azure Redis Cache             | Basic <br>Standard <br>Premium                                                                                                    | Basic <br>Standard <br>Premium                                                                                                    |
 | Azure Cosmos DB               | GA                                                                                                                        | GA                                                                                                                        |
-| Azure Database for MySQL      | Preview                                                                                                                   | MS1 - MS6, MP1, MP2                                                                                                       |
+| Azure Database for MySQL      | Preview                                                                                                                   | MS1-MS6, MP1, MP2                                                                                                       |
 | Azure Database for PostgreSQL | Preview                                                                                                                   | *Not available*                                                                                                           |
 
 ## Intelligence and analytics services
@@ -91,7 +91,7 @@ The following tables compare services available in global Azure and Microsoft Az
 
 | **Services**              | **Global Azure**                                                                                                                               | **Azure China 21Vianet**                                                                                                                           |
 |---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cortana Intelligence      | GA                                                                                                                                             | NA                                                                                                                                                 |
+| Cortana Intelligence      | GA                                                                                                                                             | *Not available*                                                                                                                                                 |
 | Cognitive Services        | GA for Bing APIs, Translator APIs Preview for other APIs                                                                                       | Preview for Computer Vision API, Face API, and Emotion API                                                                                          |
 | Azure HDInsight           | Hadoop, HBase, Storm, Spark, R Server, Kafka (Preview), Interactive Hive (Preview)  <br><br>General Purpose Node <br>Compute Intensive Node <br>Optimized Node | Hadoop, HBase, Storm, Spark, R Server, Kafka (Preview), Interactive Hive (Preview)  <br><br>General Purpose Node <br>Compute Intensive Node <br>Optimized Node     |
 | Azure Machine Learning    | Free <br>Standard                                                                                                                                  | *Not available*                                                                                                                                    |
@@ -119,7 +119,7 @@ The following tables compare services available in global Azure and Microsoft Az
 
 | **Services**    | **Global Azure**                                                                                  | **Azure China 21Vianet**        |
 |-----------------|---------------------------------------------------------------------------------------------------|---------------------------------|
-| Media Services  | Encoding <br>Indexing <br>Streaming <br>DRM <br>(support multi-DRM: PlayReady, Widevine, and FairPlay Streaming) | Encoding <br>Indexing <br>Streaming <br>DRM |
+| Media Services  | Encoding <br>Indexing <br>Streaming <br>DRM <br>(support multi-DRM: PlayReady, Widevine, <br>and FairPlay Streaming) | Encoding <br>Indexing <br>Streaming <br>DRM |
 | CDN             | Provided by EdgeCast                                                                              | Provided by local CDN provider  |
 
 ## Enterprise integration
