@@ -96,9 +96,9 @@ You need open either a U-SQL file or a folder to work with U-SQL.
 
         ![Data Lake Tools for Visual Studio Code configuration file](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-configuration-file.png)
 
-    A compute Data Lake Analytics account is needed to compile and run U-SQL jobs. You need configure the computer account before you can compile and run U-SQL jobs.
+        A compute Data Lake Analytics account is needed to compile and run U-SQL jobs. You need configure the computer account before you can compile and run U-SQL jobs.
     
-After the configuration is saved, the account, database, and schema information appears on the status bar at the bottom-left corner of the corresponding .usql file. 
+        After the configuration is saved, the account, database, and schema information appears on the status bar at the bottom-left corner of the corresponding .usql file. 
  
  
 Compared to opening a file, when you open a folder you can:
@@ -281,7 +281,7 @@ You can use Azure Data Lake Storage-related commands to:
 
 Right-click the script editor and select **ADL: List Storage Path**.
 
-Choose the folder in the list, or click **Enter Path** or **Browse from Root**(uses Enter a path as an example). -> Select your **ADLA Account**. ->  Navigate or enter the storage folder path( For example: /output/ ). -> The command palette lists the path information based on your entries.
+Choose the folder in the list, or click **Enter Path** or **Browse from Root** (uses Enter a path as an example). -> Select your **ADLA Account**. ->  Navigate or enter the storage folder path (For example: /output/). -> The command palette lists the path information based on your entries.
 
 ![Data Lake Tools for Visual Studio Code list storage path results](./media/data-lake-analytics-data-lake-tools-for-vscode/list-storage-path.png)
 
@@ -298,7 +298,7 @@ Right-click the path string to select **List Storage Path** to continue.
 
 Right-click the script editor and select **ADL: Preview Storage File**.
 
-Select your **ADLA Account**. ->  Enter an Azure storage file path( For example, /output/SearchLog.txt ). -> Result: file opens in VSCode.
+Select your **ADLA Account**. ->  Enter an Azure storage file path (For example, /output/SearchLog.txt). -> Result: file opens in VSCode.
 
    ![Data Lake Tools for Visual Studio Code preview file result](./media/data-lake-analytics-data-lake-tools-for-vscode/preview-storage-file.png)
 
@@ -324,7 +324,7 @@ As the same time, you can monitor the [uploading status](#check-storage-tasks-st
 
 Right-click the script editor and select **Upload File**.
 
-Input your **Local File Path**. -> Choose the folder in the list, or click **Enter Path** or **Browse from Root**(uses Enter a path as an example). -> Select your **ADLA Account**. ->  Navigate or enter the storage folder path( For example: /output/ ). -> click **Choose Current Folder** to specify your upload destination.
+Input your **Local File Path**. -> Choose the folder in the list, or click **Enter Path** or **Browse from Root** (uses Enter a path as an example). -> Select your **ADLA Account**. ->  Navigate or enter the storage folder path (For example: /output/). -> click **Choose Current Folder** to specify your upload destination.
 
 ![Data Lake Tools for Visual Studio Code upload status](./media/data-lake-analytics-data-lake-tools-for-vscode/upload-file.png)    
 
@@ -352,11 +352,11 @@ As the same time, you can monitor the [downloading status](#check-storage-tasks-
 
 Right-click the script editor, and then select **Download Storage File**.
 
-Choose the folder in the list, or click **Enter Path** or **Browse from Root** (uses Enter a path as an example). -> Select your **ADLA Account**. ->  Navigate or enter the storage folder path( For example: /output/ ) -> choose a file to download.
+Choose the folder in the list, or click **Enter Path** or **Browse from Root** (uses Enter a path as an example). -> Select your **ADLA Account**. ->  Navigate or enter the storage folder path (For example: /output/) -> choose a file to download.
 
    ![Data Lake Tools for Visual Studio Code download status](./media/data-lake-analytics-data-lake-tools-for-vscode/download-file.png) 
 
-   In result picture, the file is saved as the temp folder. You can manual set a default downloading path for the parameter **usql.defaultLocalFolderForDownload**, through the VSCode menu **File**-> **Preferences** -> **Setting**.
+   In result picture, the file is saved as the temp folder. You can manual set a default downloading path for the parameter **usql.defaultLocalFolderForDownload**, through the VSCode menu **File** -> **Preferences** -> **Setting**.
 
 Another way of downloading storage files is through the right-click menu on the file's full path or the file's relative path in the script editor.
 
