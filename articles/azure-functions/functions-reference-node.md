@@ -57,7 +57,7 @@ All bindings, regardless of direction, are also passed along on the `context` ob
 ## context object
 The runtime uses a `context` object to pass data to and from your function and to let you communicate with the runtime.
 
-The context object is always the first parameter to a function and must be included because it has methods such as `context.done` and `context.log`, which are required to use the runtime correctly. You can name the object whatever you would like (for example, `ctx` or `c`).
+The `context` object is always the first parameter to a function and must be included because it has methods such as `context.done` and `context.log`, which are required to use the runtime correctly. You can name the object whatever you would like (for example, `ctx` or `c`).
 
 ```javascript
 // You must include a context, but other arguments are optional
