@@ -73,6 +73,34 @@
     href: functions-proxies.md 
   - name: Functions Runtime
     href: functions-runtime-overview.md
+  - name: Durable Functions
+    items:
+    - name: Overview 
+      href: durable-functions-overview.md
+    - name: Bindings
+      href: durable-functions-bindings.md
+    - name: Checkpoint and replay 
+      href: durable-functions-checkpointing-and-replay.md
+    - name: Instance management
+      href: durable-functions-instance-management.md
+    - name: HTTP API
+      href: durable-functions-http-api.md
+    - name: Error handling
+      href: durable-functions-error-handling.md
+    - name: Diagnostics
+      href: durable-functions-diagnostics.md
+    - name: Timers
+      href: durable-functions-timers.md
+    - name: External events
+      href: durable-functions-external-events.md
+    - name: Eternal orchestrations
+      href: durable-functions-eternal-orchestrations.md
+    - name: Versioning
+      href: durable-functions-versioning.md
+    - name: Performance and scale
+      href: durable-functions-perf-and-scale.md
+    - name: Known issues
+      href: durable-functions-known-issues.md
 - name: How-to guides
   items:
   - name: Develop
@@ -111,6 +139,18 @@
       href: functions-flow-scenario.md
     - name: Use Managed Service Identity
       href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
+  - name: Durable Functions
+    items:
+    - name: Install 
+      href: durable-functions-install.md
+    - name: Chaining 
+      href: durable-functions-sequence.md
+    - name: Fan out fan in 
+      href: durable-functions-cloud-backup.md
+    - name: Stateful singleton 
+      href: durable-functions-counter.md
+    - name: Human interaction 
+      href: durable-functions-phone-verification.md
 - name: Reference
   items:
   - name: Bindings
