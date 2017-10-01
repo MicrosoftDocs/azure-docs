@@ -7,7 +7,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Kubernetes Quickstart
+  - name: Kubernetes on Azure
     href: container-service-kubernetes-walkthrough.md
 - name: Tutorials
   items:
