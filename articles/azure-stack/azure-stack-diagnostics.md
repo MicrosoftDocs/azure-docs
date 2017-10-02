@@ -114,18 +114,18 @@ To run the log collection tool on an integrated system, you need to have access 
 ```
 $ip = "<IP OF THE PEP VM>" # You can also use the machine name instead of IP here.
  
-$pwd= ConvertTo-SecureString "<localadminpwd>" -AsPlainText -Force
+$pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
 $cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $pwd)
  
 $shareCred = Get-Credential
  
 $s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Credential $cred
-$fromDate = (Get-Date).AddHours(-1) #provide the date that includes the period for your issue
+
+$fromDate = (Get-Date).AddHours(-8)
+$toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
  
-Invoke-Command -Session $s {
-    
-    Get-AzureStackLog -OutputPath "\\HLH\c$\logs" -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate
-    }
+Invoke-Command -Session $s {    Get-AzureStackLog -OutputPath "\\<HLH MACHINE ADDREESS>\c$\logs" -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
+
 if($s)
 {
     Remove-PSSession $s
@@ -166,8 +166,8 @@ A few additional things to note:
 
 * The command takes some time to run based on which role(s) the logs are collecting. Contributing factors also include the time duration specified for log collection, and the numbers of nodes in the Azure Stack environment.
 * After log collection completes, check the new folder created in the `-OutputPath` parameter specified in the command.
-* A file called `Get-AzureStackLog_Output.log` is created in the folder. It contains the zip files and includes the command output. This output can be used for troubleshooting any failures in log collection.
-* Each role has its logs inside individual zip files. Depending on the size of the collected logs, a role may have its logs split in to multiple zip files. For such a role, if you want to have all the log files unzipped in to a single folder, use a tool that can  unzip in bulk (such as 7zip). Select all the zipped files for the role, and select **extract here**. This unzips all the log files for that role in a single merged folder. 
+* Each role has its logs inside individual zip files. Depending on the size of the collected logs, a role may have its logs split in to multiple zip files. For such a role, if you want to have all the log files unzipped in to a single folder, use a tool that can  unzip in bulk (such as 7zip). Select all the zipped files for the role, and select **extract here**. This unzips all the log files for that role in a single merged folder.
+* A file called `Get-AzureStackLog_Output.log` is also created in the folder that contains the zipped log files. This file is a log of the command output, which can be used for troubleshooting problems during log collection.
 * To investigate a specific failure, logs may be needed from more than one component.
     -	System and Event logs for all infrastructure VMs are collected in the *VirtualMachines* role.
     -	System and Event logs for all hosts are collected in the *BareMetal* role.
