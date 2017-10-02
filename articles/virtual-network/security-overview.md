@@ -148,7 +148,7 @@ If you create other rules, specifying other application security groups as the d
  
 To learn about limits when creating application security groups and specifying them in security rules, see [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-Application security groups are available in preview release. Before using network security groups, you must register to use them by completing steps 1-5 in [Create a network security group with application security groups](create-network-security-group-preview.md#powershell) and read [Preview features](#preview-features) for important information. During preview, application security groups are limited to the scope of the virtual network. Virtual networks peered with cross references to application security groups on a network security group are not applied. 
+Application security groups are available in preview release. Before using application security groups, you must register to use them by completing steps 1-5 in [Create a network security group with application security groups](create-network-security-group-preview.md#powershell) and read [Preview features](#preview-features) for important information. During preview, application security groups are limited to the scope of the virtual network. Virtual networks peered with cross references to application security groups on a network security group are not applied. 
 
 Features in preview do not have the same level of availability and reliability as features in general release. Before using application security groups, you must first register to use them. The features are available only in the following regions: West Central US.
 
