@@ -155,17 +155,20 @@ Now that the required packages are installed on the Linux virtual machine, the n
     ```
 
     >
-    > [!NOTE] **Troubleshooting:**
+    > [!NOTE] 
+    > **Troubleshooting:**
     > If *realm discover* is unable to find your managed domain:
     * Ensure that the domain is reachable from the virtual machine (try ping).
     * Check that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
     * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
     >
 
-2. Initialize Kerberos. In your PuTTY terminal, type the following command: Ensure that you specify a user who belongs to the 'AAD DC Administrators' group.
+2. Initialize Kerberos. In your PuTTY terminal, type the following command: 
 
     >
-    > [!TIP] Specify the domain name in capital letters, else kinit fails.
+    > [!TIP] 
+    > * Ensure that you specify a user who belongs to the 'AAD DC Administrators' group. 
+    > * Specify the domain name in capital letters, else kinit fails.
     >
 
     ```
@@ -175,7 +178,8 @@ Now that the required packages are installed on the Linux virtual machine, the n
 3. Join the machine to the domain. In your PuTTY terminal, type the following command: 
 
     >
-    > [!TIP] Use the same user account you specified in the preceding step ('kinit').
+    > [!TIP] 
+    > Use the same user account you specified in the preceding step ('kinit').
     >
 
     ```
