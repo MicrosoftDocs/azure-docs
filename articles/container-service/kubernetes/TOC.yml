@@ -69,14 +69,14 @@
       href: container-service-deploy-spring-boot-app-on-linux.md
     - name: Deploy a Spring Boot Application on a Kubernetes Cluster in the Azure Container Service
       href: container-service-deploy-spring-boot-app-on-kubernetes.md
+    - name: Deploy a Spring Boot app using the fabric8 Maven plugin
+      href: container-service-deploy-spring-boot-app-using-fabric8-maven-plugin.md
 - name: Reference
   items:
-  - name: Azure CLI 2.0
+  - name: Azure CLI
     href: /cli/azure/acs
   - name: REST
-    href: /rest/api/container-services
-  - name: PowerShell
-    href: /powershell/module/azurerm.compute/#container_service
+    href: /rest/api/container-service
 - name: Resources
   items:
   - name: Azure Roadmap

@@ -1,6 +1,6 @@
 ---
 title: "20 days of Azure Cosmos DB tips | Microsoft Docs"
-description: Find all of the tips from the "20 days of Azure Cosmos DB" twitter series in one place.
+description: Find all of the tips from Simona Cotin's 20 days of Azure Cosmos DB tips series in one place.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2017
+ms.date: 09/27/2017
 ms.author: mimig
 ms.custom: cda
 ---
@@ -66,19 +66,93 @@ Tip 5: Want to try Azure #CosmosDB for free? No signup or credit card required, 
 
 ## Tip 6: Migrate your MEAN app
 
-Tip 6: Is MEAN your thing? Learn how to easily migrate your app to Azure #cosmosDB! [https://aka.ms/gfh6i5](https://aka.ms/gfh6i5) Full video: [https://aka.ms/aoojih](https://aka.ms/aoojih)
-
-> [!VIDEO https://www.youtube.com/embed/1DzwI5HmU5w]
-
-[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/907634936160559105)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6313400758263967744/)
-
-## Tip 7: Build a Node.js app by using Graph API
-
-Tip 7: Build a Node.js app by using Graph API and Azure #CosmosDB. Learn more on docs page [https://aka.ms/X79feg](https://aka.ms/X79feg)
+Tip 6: Is MEAN your thing? Learn how to easily migrate your app to Azure #cosmosDB! https://aka.ms/gfh6i5 Full video:  https://aka.ms/aoojih  
 
 > [!VIDEO https://www.youtube.com/embed/vlAUxc3d2ak]
 
-[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/907982218353451009)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6313762492686352384)
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/907634936160559105)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6313400758263967744/)
+
+## Tip 8: Build a Node.js app by using SQL API
+
+Tip 8: Build a @nodejs app by using SQL API and Azure #CosmosDB. Learn more on docs page [https://aka.ms/Bd77a8](https://aka.ms/Bd77a8)  
+
+> [!VIDEO https://www.youtube.com/embed/_gd9ZY-rHtM]
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/908344625101815808)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6314096399197757440)
+
+## Tip 9: Query using MongoDB in Node.js
+
+Tip 9: Query Azure #CosmosDB using the MongoDB API in Node.js. Learn more on docs page [https://aka.ms/Dert0r](https://aka.ms/Dert0r)  
+
+![Query with MongoDB](./media/20-days-of-tips/cosmos-db-tip-9-mongodb-query.png)
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/908737218759376896)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6314500690261655552)
+
+## Tip 10: Copy MongoDB data using Studio 3T
+
+Tip 10: Learn how to copy your MongoDB data to Azure Cosmos DB using Studio 3T (MongoChef). Docs at [https://aka.ms/apzhww](https://aka.ms/apzhww)
+
+> [!VIDEO https://www.youtube.com/embed/Qa4YpShYEcI]
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/909794178489507840)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6315565289329164288)
+
+## Tip 11: Use React, Node.js, and Azure #CosmosDB
+
+Tip 11: Build a hero tracking app using React, Node.js and Azure Cosmos DB.
+
+Article: [Create a MongoDB app with React and Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-develop-mongodb-react?WT.mc_id=sicotint)
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910156604875649025)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6315922463670751233)
+
+## Tip 12: Go serverless
+
+Tip 12: Go serverless with Azure #CosmosDB and @AzureFunctions! Full docs at [https://aka.ms/Pmic1j](https://aka.ms/Pmic1j)
+
+> [!VIDEO https://www.youtube.com/embed/U--3mfisNCs]
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910534418716069889)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6316301619252248576)
+
+## Tip 13: MEAN app from scratch
+
+Tip 13: From zero to hero with @John_Papa and Azure Cosmos DB. Learn how to build  a MEAN app from scratch
+
+Article: [Create a MongoDB app with Angular and Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-develop-mongodb-nodejs?WT.mc_id=sicotint&utm_content=buffer2495b&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910881618855907329)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6316647045599944704)
+
+## Tip 14: Use cases
+
+Tip 14: Curious about common Azure #CosmosDB use cases? Have a look at [https://aka.ms/Ihpf00](https://aka.ms/Ihpf00) to learn about IoT, gaming and social apps
+
+Article: [Common Azure Cosmos DB use cases](https://aka.ms/Ihpf00)
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/911270472481992704)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6317036550945333248)
+
+## Tip 15: VS Code integration
+
+Tip 15: Create new Azure #CosmosDB account without ever leaving @code. Install extension from [https://aka.ms/Wy547u](https://aka.ms/Wy547u) 
+
+> [!VIDEO https://www.youtube.com/embed/w8HyW8AHHZQ]
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/912384598486679557)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318150514613850112)
+
+
+## Tip 16: Functions and Twilio demo
+
+Tip 16: Awesome demo! Integrate Azure #cosmosDB, functions and @twilio to send an SMS on any DB change. See docs at [https://aka.ms/Kjkc2d](https://aka.ms/Kjkc2d) 
+
+> [!VIDEO https://www.youtube.com/embed/3Q7WffTeaKY]
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/912703755988160512)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318469696291246081)
+
+
+## Tip 17: Using Mongoose discriminators
+
+Tip 17: Optimize cost by using Mongoose discriminators to store multiple entities in a single #CosmosDB collection [https://aka.ms/M488jm](https://aka.ms/M488jm)
+
+Blog:  [Using Mongoose Discriminators to Store Multiple Entities in a Single Cosmos DB Collection by Anthony Chu](https://aka.ms/M488jm)
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913076502429933569)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318842474928443393)
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Get started Azure Multi-Factor Auth Provider | Microsoft Docs
 description: Learn how to create an Azure Multi-Factor Auth Provider.
 services: multi-factor-authentication
 documentationcenter: ''
-author: MicrosoftGuyJFlo
+author: kgremban
 manager: femila
 
 ms.assetid: a7dd5030-7d40-4654-8fbd-88e53ddc1ef5
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/28/2017
-ms.author: joflore
+ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
 ---

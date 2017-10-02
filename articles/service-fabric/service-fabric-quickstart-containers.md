@@ -10,7 +10,7 @@ editor: 'vturecek'
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: quickstart
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/05/2017
@@ -47,7 +47,7 @@ Select **Service Fabric application**, name it "MyFirstContainer", and click **O
 
 Select **Container** from the list of **service templates**.
 
-In **Image Name**, enter "nanoserver/iis", the [Windows Server 2016 Nano Server and IIS base image](https://hub.docker.com/r/nanoserver/iis/). 
+In **Image Name**, enter "microsoft/iis:nanoserver", the [Windows Server Nano Server and IIS base image](https://hub.docker.com/r/microsoft/iis/). 
 
 Name your service "MyContainerService", and click **OK**.
 
@@ -117,7 +117,7 @@ Here are the complete service and application manifests used in this quickstart.
     <EntryPoint>
       <!-- Follow this link for more information about deploying Windows containers to Service Fabric: https://aka.ms/sfguestcontainers -->
       <ContainerHost>
-        <ImageName>nanoserver/iis</ImageName>
+        <ImageName>microsoft/iis:nanoserver</ImageName>
       </ContainerHost>
     </EntryPoint>
     <!-- Pass environment variables to your container: -->

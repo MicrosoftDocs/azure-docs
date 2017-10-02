@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 09/14/2017
 ms.author: terrylan
 
 ---
@@ -51,7 +51,7 @@ You can upgrade a subscription from **Onboarding** by selecting **Apply Standard
   ![Upgrade all subscriptions][2]
 
 3. Select **Standard** to upgrade from Free to Standard.
-4. Select **Apply**.
+4. Select **Save**.
 
 > [!NOTE]
 > Upgrading a subscription to Standard will turn on [automatic provisioning](security-center-enable-data-collection.md) if it was previously disabled. We recommend automatic provisioning of monitoring agents.
@@ -62,44 +62,47 @@ You can upgrade a subscription from **Onboarding** by selecting **Apply Standard
 Applying Standard to the workspace applies to all resources reporting to the workspace.
 
 1. Return to the **Onboarding** blade.
-2. Select a workspace.  
+2. Select a workspace.
+
+  ![Upgrade a workspace][8]
+
 3. Select **Standard** to upgrade.  
-4. Select **Apply**.
+4. Select **Save**.
 
    > [!NOTE]
    > There is a scenario where you may not have Free or Standard applied to your workspace. If you select Free, then Security Center’s Free capabilities are applied to your Azure VMs only. The Free capabilities are not applied to your non-Azure computers. If you select Standard, the Standard capabilities are applied to all Azure VMs and non-Azure computers reporting to the workspace. We recommend that you apply Standard to provide advanced security for your Azure and non-Azure resources.
    >
    >
 
-## Onboard non-Azure resources
+## Onboard non-Azure computers
 Security Center can monitor the security posture of your non-Azure computers but you need to first onboard these resources. You can add non-Azure computers from the **Onboarding** blade or from the **Compute** blade. We’ll walk through both methods.
 
-### Add new non-Azure resources from Onboarding
+### Add new non-Azure computers from Onboarding
 
 1. Return to **Onboarding**.   
-2. Select **Do you want to add new non-Azure resources**.
+2. Select **Do you want to add new non-Azure computers**.
 
-  ![Add non-Azure resource][3]
+  ![Add non-Azure computer][3]
 
-If you have existing workspaces, they are listed under **Add new Non-Azure resources**. You can add resources to an existing workspace or create a new workspace. To create a new workspace, select the link **add a new workspace**.
+If you have existing workspaces, they are listed under **Add new Non-Azure computers**. You can add computers to an existing workspace or create a new workspace. To create a new workspace, select the link **add a new workspace**.
 
 We’ll walk through both methods:
 
-- Create a new workspace and add resource
-- Select an existing workspace and add resource
+- Create a new workspace and add computer
+- Select an existing workspace and add computer
 
-**Create a new workspace and add resource**
+**Create a new workspace and add computer**
 
-1. Under **Add new non-Azure resources**, select **add a new workspace**.
+1. Under **Add new non-Azure computers**, select **add a new workspace**.
 
    ![Add a new workspace][4]
 
-2. Under **Security & Audit**, select **OMS workspace** to create a new workspace.
+2. Under **Security and Audit**, select **OMS workspace** to create a new workspace.
 3. Under **OMS Workspace**, enter the information for your workspace.
 4. Under **OMS Workspace**, select **OK**.  After you select OK, you will get a link for downloading a Windows or Linux agent and keys for your workspace ID to use in configuring the agent.
-5. Under **Security & Audit**, select **OK**.
+5. Under **Security and Audit**, select **OK**.
 
-**Select an existing workspace and add resource**
+**Select an existing workspace and add computer**
 
 You can add a computer by following the workflow from **Onboarding**, as shown above. You can also add a computer by following the workflow from **Compute**. In this example, we use **Compute**.
 
@@ -112,7 +115,7 @@ You can add a computer by following the workflow from **Onboarding**, as shown a
 
    ![Compute blade][6]
 
-4. Under **Add new non-Azure resources**, select a workspace to connect your computer to and click **Add Computers**.
+4. Under **Add new non-Azure computers**, select a workspace to connect your computer to and click **Add Computers**.
 
    ![Add computers][7]
 
@@ -133,3 +136,4 @@ In this article you learned how to onboard Azure and non-Azure resources in orde
 [5]: ./media/security-center-onboarding/overview.png
 [6]: ./media/security-center-onboarding/compute-blade.png
 [7]: ./media/security-center-onboarding/add-non-azure-computer.png
+[8]: ./media/security-center-onboarding/onboard-workspace.png

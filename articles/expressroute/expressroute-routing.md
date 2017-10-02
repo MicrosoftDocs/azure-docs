@@ -69,8 +69,12 @@ You can choose to use public or private IPv4 addresses for private peering. We p
 ### Public peering
 The Azure public peering path enables you to connect to all services hosted in Azure over their public IP addresses. These include services listed in the [ExpessRoute FAQ](expressroute-faqs.md) and any services hosted by ISVs on Microsoft Azure. Connectivity to Microsoft Azure services on public peering is always initiated from your network into the Microsoft network. You must use Public IP addresses for the traffic destined to Microsoft network.
 
+> [!IMPORTANT]
+> All Azure PaaS services are also accessible through Microsoft peering. We recommend you to create Microsoft peering and connect to Azure PaaS services over Microsoft peering.  
+>   
+
 ### Microsoft peering
-The Microsoft peering path lets you connect to Microsoft cloud services that are not supported through the Azure public peering path. The list of services includes Office 365 services, such as Exchange Online, SharePoint Online, Skype for Business, and Dynamics 365. Microsoft supports bi-directional connectivity on the Microsoft peering. Traffic destined to Microsoft cloud services must use valid public IPv4 addresses before they enter the Microsoft network.
+The Microsoft peering path lets you connect to all Microsoft cloud services hosted on public IP addresses. The list of services include Office 365, Dynamics 365 and Microsoft Azure PaaS services. Microsoft supports bi-directional connectivity on the Microsoft peering. Traffic destined to Microsoft cloud services must use valid public IPv4 / IPv6 addresses before they enter the Microsoft network.
 
 Make sure that your IP address and AS number are registered to you in one of the following registries:
 
@@ -130,39 +134,40 @@ You can purchase more than one ExpressRoute circuit per geopolitical region. Hav
 | **Microsoft Azure region** | **BGP community value** |
 | --- | --- |
 | **North America** | |
-| East US |12076:51004 |
-| East US 2 |12076:51005 |
-| West US |12076:51006 |
-| West US 2 |12076:51026 |
-| West Central US |12076:51027 |
-| North Central US |12076:51007 |
-| South Central US |12076:51008 |
-| Central US |12076:51009 |
-| Canada Central |12076:51020 |
-| Canada East |12076:51021 |
+| East US | 12076:51004 |
+| East US 2 | 12076:51005 |
+| West US | 12076:51006 |
+| West US 2 | 12076:51026 |
+| West Central US | 12076:51027 |
+| North Central US | 12076:51007 |
+| South Central US | 12076:51008 |
+| Central US | 12076:51009 |
+| Canada Central | 12076:51020 |
+| Canada East | 12076:51021 |
 | **South America** | |
-| Brazil South |12076:51014 |
+| Brazil South | 12076:51014 |
 | **Europe** | |
-| North Europe |12076:51003 |
-| West Europe |12076:51002 |
+| North Europe | 12076:51003 |
+| West Europe | 12076:51002 |
 | UK South | 12076:51024 |
 | UK West | 12076:51025 |
 | **Asia Pacific** | |
-| East Asia |12076:51010 |
-| Southeast Asia |12076:51011 |
+| East Asia | 12076:51010 |
+| Southeast Asia | 12076:51011 |
 | **Japan** | |
-| Japan East |12076:51012 |
-| Japan West |12076:51013 |
+| Japan East | 12076:51012 |
+| Japan West | 12076:51013 |
 | **Australia** | |
-| Australia East |12076:51015 |
-| Australia Southeast |12076:51016 |
+| Australia East | 12076:51015 |
+| Australia Southeast | 12076:51016 |
 | **India** | |
-| India South |12076:51019 |
-| India West |12076:51018 |
-| India Central |12076:51017 |
+| India South | 12076:51019 |
+| India West | 12076:51018 |
+| India Central | 12076:51017 |
 | **Korea** | |
-| Korea South |12076:51028 |
-| Korea Central |12076:51029 |
+| Korea South | 12076:51028 |
+| Korea Central | 12076:51029 |
+
 
 All routes advertised from Microsoft will be tagged with the appropriate community value. 
 
@@ -175,11 +180,11 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 
 | **Service** | **BGP community value** |
 | --- | --- |
-| Exchange Online |12076:5010 |
-| SharePoint Online |12076:5020 |
-| Skype For Business Online |12076:5030 |
-| Dynamics 365 |12076:5040 |
-| Other Office 365 Online services |12076:5100 |
+| Exchange Online | 12076:5010 |
+| SharePoint Online | 12076:5020 |
+| Skype For Business Online | 12076:5030 |
+| Dynamics 365 | 12076:5040 |
+| Other Office 365 Online services | 12076:5100 |
 
 > [!NOTE]
 > Microsoft does not honor any BGP community values that you set on the routes advertised to Microsoft.

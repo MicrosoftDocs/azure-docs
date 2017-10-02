@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 09/25/2017
 ms.author: glenga
 
 ---
-# Code and test Azure functions locally
+# Code and test Azure Functions locally
 
 While the [Azure portal] provides a full set of tools for developing and testing Azure Functions, many developers prefer a local development experience. Azure Functions makes it easy to use your favorite code editor and local development tools to develop and test your functions on your local computer. Your functions can trigger on events in Azure, and you can debug your C# and JavaScript functions on your local computer. 
 
@@ -25,25 +25,64 @@ If you are a Visual Studio C# developer, Azure Functions also [integrates with V
 
 ## Install the Azure Functions Core Tools
 
-Azure Functions Core Tools is a local version of the Azure Functions runtime that you can run on your local Windows computer. It's not an emulator or simulator. It's the same runtime that powers Functions in Azure.
+[Azure Functions Core Tools] is a local version of the Azure Functions runtime that you can run on your local development computer. It's not an emulator or simulator. It's the same runtime that powers Functions in Azure. There are two versions of Azure Functions Core Tools, one for version 1.x of the runtime and one for version 2.x. Both versions are provided as an [npm package](https://docs.npmjs.com/getting-started/what-is-npm).
 
-The [Azure Functions Core Tools] is provided as an npm package. You must first [install NodeJS](https://docs.npmjs.com/getting-started/installing-node), which includes npm.  
+>[!NOTE]  
+> Before you install either version, you must [install NodeJS](https://docs.npmjs.com/getting-started/installing-node), which includes npm. For version 2.x of the tools, only Node.js 8.5 and later versions are supported. 
 
->[!NOTE]
->At this time, the Azure Functions Core Tools package can only be installed on Windows computers. This restriction is due to a temporary limitation in the Functions host.
+### Version 1.x runtime
 
-[Azure Functions Core Tools] adds the following command aliases:
+The original version of the tools uses the Functions 1.x runtime. This version uses the .NET Framework and is only supported on Windows computers. Use the following command to install the version 1.x tools:
+
+```bash
+npm install -g azure-functions-core-tools
+```
+
+### Version 2.x runtime
+
+Version 2.x of the tools uses the Azure Functions runtime 2.x that is built on .NET Core. This version is supported on all platforms .NET Core 2.x supports. Use this version for cross-platform development and when the Functions runtime 2.x is required. 
+
+>[!IMPORTANT]   
+> Before installing Azure Functions Core Tools, [install .NET Core 2.0](https://www.microsoft.com/net/core).  
+>
+> Azure Functions runtime 2.0 is in preview and currently not all features of Azure Functions are supported. For more information, see [Azure Functions runtime 2.0 known issues](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues) 
+
+ Use the following command to install the version 2.0 tools:
+
+```bash
+npm install -g azure-functions-core-tools@core
+```
+
+When installing on Ubuntu use `sudo`, as follows:
+
+```bash
+sudo npm install -g azure-functions-core-tools@core
+```
+
+When installing on macOS and Linux, you may need to include the `unsafe-perm` flag, as follows:
+
+```bash
+sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
+```
+
+## Run Azure Functions Core Tools
+ 
+Azure Functions Core Tools adds the following command aliases:
 * **func**
 * **azfun**
 * **azurefunctions**
 
-All of these alias can be used instead of `func` shown in the examples in this topic.
+Any of these aliases can be used where `func` is shown in the examples.
+
+```
+func init MyFunctionProj
+```
 
 ## Create a local Functions project
 
-When running locally, a Functions project is a directory that has the files host.json and local.settings.json. This directory is the equivalent of a function app in Azure. To learn more about the Azure Functions folder structure, see the [Azure Functions developers guide](functions-reference.md#folder-structure).
+When running locally, a Functions project is a directory that has the files [host.json](functions-host-json.md) and [local.settings.json](#local-settings). This directory is the equivalent of a function app in Azure. To learn more about the Azure Functions folder structure, see the [Azure Functions developers guide](functions-reference.md#folder-structure).
 
-At a command prompt, run the following command:
+In the terminal window or from a command prompt, run the following command to create the project and local Git repository:
 
 ```
 func init MyFunctionProj
@@ -59,7 +98,7 @@ Created launch.json
 Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
 ```
 
-To opt out of creating a Git repository, use the option `--no-source-control [-n]`.
+To create the project without a local Git repository, use the `--no-source-control [-n]` option.
 
 <a name="local-settings"></a>
 
@@ -86,9 +125,7 @@ The file local.settings.json stores app settings, connection strings, and settin
 | Setting      | Description                            |
 | ------------ | -------------------------------------- |
 | **IsEncrypted** | When set to **true**, all values are encrypted using a local machine key. Used with `func settings` commands. Default value is **false**. |
-| **Values** | Collection of application settings used when running locally. Add your application settings to this object.  |
-| **AzureWebJobsStorage** | Sets the connection string to the Azure Storage account that is used internally by the Azure Functions runtime. The storage account supports your function's triggers. This storage account connection setting is required for all functions except for HTTP triggered functions.  |
-| **AzureWebJobsDashboard** | Sets the connection string to the Azure Storage account that is used to store the function logs. This optional value makes the logs accessible in the portal.|
+| **Values** | Collection of application settings used when running locally. **AzureWebJobsStorage** and **AzureWebJobsDashboard** are examples; for a complete list, see [app settings reference](functions-app-settings.md).  |
 | **Host** | Settings in this section customize the Functions host process when running locally. | 
 | **LocalHttpPort** | Sets the default port used when running the local Functions host (`func host start` and `func run`). The `--port` command-line option takes precedence over this value. |
 | **CORS** | Defines the origins allowed for [cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Origins are supplied as a comma-separated list with no spaces. The wildcard value (**\***) is supported, which allows requests from any origin. |
@@ -108,7 +145,7 @@ When no valid storage connection string is set for **AzureWebJobsStorage**, the 
 
 ### Configure app settings
 
-To set a value for connection strings, you can do one of the following:
+To set a value for connection strings, you can do one of the following options:
 * Enter the connection string from [Azure Storage Explorer](http://storageexplorer.com/).
 * Use one of the following commands:
 
@@ -164,7 +201,7 @@ func host start
 | **`--cors`** | A comma-separated list of CORS origins, with no spaces. |
 | **`--nodeDebugPort -n`** | The port for the node debugger to use. Default: A value from launch.json or 5858. |
 | **`--debugLevel -d`** | The console trace level (off, verbose, info, warning, or error). Default: Info.|
-| **`--timeout -t`** | The time out for the Functions host t     o start, in seconds. Default: 20 seconds.|
+| **`--timeout -t`** | The timeout for the Functions host to start, in seconds. Default: 20 seconds.|
 | **`--useHttps`** | Bind to https://localhost:{port} rather than to http://localhost:{port}. By default, this option creates a trusted certificate on your computer.|
 | **`--pause-on-error`** | Pause for additional input before exiting the process. Useful when launching Azure Functions Core Tools from an integrated development environment (IDE).|
 
@@ -229,7 +266,18 @@ You can use the following options:
 | **`--publish-local-settings -i`** |  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists.|
 | **`--overwrite-settings -y`** | Must be used with `-i`. Overwrites AppSettings in Azure with local value if different. Default is prompt.|
 
-The `publish` command uploads the contents of the Functions project directory. If you delete files locally, the `publish` command does not delete them from Azure. You can delete files in Azure by using the [Kudu tool](functions-how-to-use-azure-function-app-settings.md#kudu) in the [Azure portal].
+This command publishes to an existing function app in Azure. An error occurs when the `<FunctionAppName>` doesn't exist in your subscription. To learn how to create a function app from the command prompt or Terminal window using the Azure CLI, see [Create a Function App for serverless execution](./scripts/functions-cli-create-serverless.md).
+
+The `publish` command uploads the contents of the Functions project directory. If you delete files locally, the `publish` command does not delete them from Azure. You can delete files in Azure by using the [Kudu tool](functions-how-to-use-azure-function-app-settings.md#kudu) in the [Azure portal].  
+
+>[!IMPORTANT]  
+> When you create a function app in Azure, it uses version 1.x of the Function runtime by default. To make the function app use version 2.x of the runtime, add the application setting `FUNCTIONS_EXTENSION_VERSION=beta`.  
+Use the following Azure CLI code to add this setting to your function app: 
+```azurecli-interactive
+az functionapp config appsettings set --name <function_app> \
+--resource-group myResourceGroup \
+--settings FUNCTIONS_EXTENSION_VERSION=beta   
+```
 
 ## Next steps
 

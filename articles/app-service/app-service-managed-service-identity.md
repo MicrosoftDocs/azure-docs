@@ -42,7 +42,7 @@ To set up a managed service identity in the portal, you will first create an app
 
 ### Using an Azure Resource Manager template
 
-An Azure Resource Manager template can be used to automate deployment of your Azure resources. To learn more about deploying to App Service and Functions, see [Automating resource deployment in App Service](../app-service-web/app-service-deploy-complex-application-predictably.md) and [Automating resource deployment in Azure Functions](../azure-functions/functions-infrastructure-as-code.md).
+An Azure Resource Manager template can be used to automate deployment of your Azure resources. To learn more about deploying to App Service and Functions, see [Automating resource deployment in App Service](../app-service/app-service-deploy-complex-application-predictably.md) and [Automating resource deployment in Azure Functions](../azure-functions/functions-infrastructure-as-code.md).
 
 Any resource of type `Microsoft.Web/sites` can be created with an identity by including the following property in the resource definition:
 ```json
@@ -99,12 +99,13 @@ There is a simple REST protocol for obtaining a token in App Service and Azure F
 
 For .NET applications and functions, the simplest way to work with a managed service identity is through the Microsoft.Azure.Services.AppAuthentication package. This library will also allow you to test your code locally on your development machine, using your user account from the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest) or Active Directory Integrated Authentication. This section shows you how to get started with the library.
 
-1. Add a reference to the [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) NuGet package to your application.
+1. Add references to the [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) and [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet packages to your application.
 
 2.  Add the following code to your application:
 
 ```csharp
 using Microsoft.Azure.Services.AppAuthentication;
+using Microsoft.Azure.KeyVault;
 // ...
 var azureServiceTokenProvider = new AzureServiceTokenProvider();
 string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://management.azure.com/");
@@ -139,6 +140,7 @@ A successful 200 OK response includes a JSON body with the following properties:
 > |expires_on|The time when the access token expires. The date is represented as the number of seconds from 1970-01-01T0:0:0Z UTC until the expiration time. This value is used to determine the lifetime of cached tokens.|
 > |resource|The App ID URI of the receiving web service.|
 > |token_type|Indicates the token type value. The only type that Azure AD supports is Bearer. For more information about bearer tokens, see [The OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt).|
+
 
 This response is the same as the [response for the AAD service-to-service access token request](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#service-to-service-access-token-response).
 
@@ -187,4 +189,13 @@ const getToken = function(resource, apiver, cb) {
     rp(options)
         .then(cb);
 }
+```
+
+In PowerShell:
+```powershell
+$apiVersion = "2017-09-01"
+$resourceURI = "https://<AAD-resource-URI-for-resource-to-obtain-token>"
+$tokenAuthURI = $env:MSI_ENDPOINT + "?resource=$resourceURI&api-version=$apiVersion"
+$tokenResponse = Invoke-RestMethod -Method Get -Headers @{"Secret"="$env:MSI_SECRET"} -Uri $tokenAuthURI
+$accessToken = $tokenResponse.access_token
 ```
