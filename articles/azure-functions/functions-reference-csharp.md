@@ -23,9 +23,9 @@ ms.author: donnam
 > [!div class="op_single_selector"]
 > * [C# script](functions-reference-csharp.md)
 > * [F# script](functions-reference-fsharp.md)
-> * [Node.js](functions-reference-node.md)
->
->
+> * [JavaScript](functions-reference-node.md)
+> * [Java](functions-reference-java.md)
+> 
 
 The C# script experience for Azure Functions is based on the Azure WebJobs SDK. Data flows into your C# function via method arguments. Argument names are specified in `function.json`, and there are predefined names for accessing things like the function logger and cancellation tokens.
 
