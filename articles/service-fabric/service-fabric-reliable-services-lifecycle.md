@@ -30,7 +30,7 @@ When thinking about the lifecycles of Azure Service Fabric Reliable Services, th
   - Services are constructed.
   - The services have an opportunity to construct and return zero or more listeners.
   - Any returned listeners are opened, allowing communication with the service.
-  - The service's **RunAsync** method is called, allowing the service to do long running tasks or background work.
+  - The service's **RunAsync** method is called, allowing the service to do long-running tasks or background work.
 - During shutdown:
   - The cancellation token passed to **RunAsync** is canceled, and the listeners are closed.
   - After the listeners close, the service object itself is destructed.
@@ -67,12 +67,12 @@ When shutting down a stateless service, the same pattern is followed, just in re
 Stateful services have a similar pattern to stateless services, with a few changes. When starting up a stateful service, the order of events is as follows:
 
 1. The service is constructed.
-2. `StatefulServiceBase.OnOpenAsync()` is called. This call is uncommonly overridden in the service.
+2. `StatefulServiceBase.OnOpenAsync()` is called. This call is not commonly overridden in the service.
 3. The following things happen in parallel:
     - `StatefulServiceBase.CreateServiceReplicaListeners()` is invoked. 
       - If the service is a primary service, all returned listeners are opened. `ICommunicationListener.OpenAsync()` is called on each listener.
       - If the service is a secondary service, only those listeners marked as `ListenOnSecondary = true` are opened. Having listeners that are open on secondaries is less common.
-    - If the service is currently a primary, the service's `StatefulServiceBase.RunAsync()` method is called
+    - If the service is currently a primary, the service's `StatefulServiceBase.RunAsync()` method is called.
 4. After all the replica listener's `OpenAsync()` calls complete and `RunAsync()` is called, `StatefulServiceBase.OnChangeRoleAsync()` is called. This call is not commonly overridden in the service.
 
 Similar to stateless services, there's no coordination between the order in which the listeners are created and opened and when **RunAsync** is called. If you need coordination, the solutions are much the same. There is one additional case for stateful service. Say that the calls that arrive at the communication listeners require information kept inside some [Reliable Collections](service-fabric-reliable-services-reliable-collections.md). Because the communication listeners could open before the reliable collections are readable or writeable, and before **RunAsync** could start, some additional coordination is necessary. The simplest and most common solution is for the communication listeners to return an error code that the client uses to know to retry the request.
@@ -91,7 +91,7 @@ Like stateless services, the lifecycle events during shutdown are the same as du
 3. After `StatefulServiceBase.OnCloseAsync()` completes, the service object is destructed.
 
 ## Stateful service primary swaps
-While a stateful service is running, only the primary replicas of that stateful services have their communication listeners opened and their **RunAsync** method called. Secondary replicas are constructed, but see no further calls. While a stateful service is running that replica that's currently the primary can change. What does this mean in terms of the lifecycle events that a replica can see? The behavior the stateful replica sees depends on whether it is the replica being demoted or promoted during the swap.
+While a stateful service is running, only the primary replicas of that stateful services have their communication listeners opened and their **RunAsync** method called. Secondary replicas are constructed, but see no further calls. While a stateful service is running the replica that's currently the primary can change. What does this mean in terms of the lifecycle events that a replica can see? The behavior the stateful replica sees depends on whether it is the replica being demoted or promoted during the swap.
 
 ### For the primary that's demoted
 For the primary replica that's demoted, Service Fabric needs this replica to stop processing messages and quit any background work it is doing. As a result, this step looks like it did when the service is shut down. One difference is that the service isn't destructed or closed because it remains as a secondary. The following APIs are called:
