@@ -12,7 +12,7 @@ ms.date: 09/29/2017
 ms.author: v-demak
 ---
 
-# Call a LUIS app using Java
+# Call a LUIS app using Python
 
 This Quickstart shows you how to call your Language Understanding Intelligent Service (LUIS) app in just a few minutes. When you're finished, you'll be able to use Python code to pass utterances to a LUIS endpoint and get results.
 
