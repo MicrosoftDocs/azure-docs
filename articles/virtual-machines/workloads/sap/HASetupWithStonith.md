@@ -46,6 +46,7 @@ When customer setup HANA Large Instances with HSR, customer can request Microsof
 •	Customer Name (e.g., Microsoft)
 
 Once the STONITH device is configured, Microsoft Service Management team does provide you the SBD device name and IP address of the iSCSI storage which you can use to configure STONITH setup. 
+
 To setup the end to end HA using STONITH, the following steps needs to be followed:
 
 1.	Identify the SBD device
