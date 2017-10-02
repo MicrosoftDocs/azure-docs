@@ -88,12 +88,12 @@ The Machine Learning API help contains details about a prediction Web service.
 
 **To view Machine Learning API help for a New Web service**
 
-In the Azure Machine Learning Web Services Portal:
+In the [Azure Machine Learning Web Services Portal](https://services.azureml.net/):
 
 1. Click **WEB SERVICES** on the top menu.
 2. Click the Web service for which you want to retrieve the key.
 
-Click **Consume** to get the URIs for the Request-Reposonse and Batch Execution Services and Sample code in C#, R, and Python.
+Click **Use Web Service** to get the URIs for the Request-Reposonse and Batch Execution Services and Sample code in C#, R, and Python.
 
 Click **Swagger API** to get Swagger based documentation for the APIs called from the supplied URIs.
 
@@ -114,7 +114,7 @@ To connect to a Machine Learning Web service, the **Microsoft.AspNet.WebApi.Clie
 2. Assign apiKey with the key from a Web service. See **Get an Azure Machine Learning authorization key** above.
 3. Assign serviceUri with the Request URI.
 
-**Here is what a complete request looks like.**
+**Here is what a complete request will look like.**
 ```csharp
 using System;
 using System.Collections.Generic;
@@ -158,8 +158,7 @@ namespace CallRequestResponseService
                             }
                         },
                     },
-                    GlobalParameters = new Dictionary<string, string>() {
-                    }
+                    GlobalParameters = new Dictionary<string, string>() {}
                 };
 
                 // Replace these values with your API key and URI found on https://services.azureml.net/
@@ -203,7 +202,7 @@ namespace CallRequestResponseService
 ```
 
 ### Python Sample
-To connect to a Machine Learning Web service, use the **urllib2** library for Python 2.X and **urllib.request** library for Python 3.X, passing ScoreData. ScoreData contains a FeatureVector, an n-dimensional vector of numerical features that represents the ScoreData. You authenticate to the Machine Learning service with an API key.
+To connect to a Machine Learning Web service, use the **urllib2** library for Python 2.X and **urllib.request** library for Python 3.X. You will pass ScoreData, which contains a FeatureVector, an n-dimensional vector of numerical features that represents the ScoreData. You authenticate to the Machine Learning service with an API key.
 
 **To run the code sample**
 
@@ -211,27 +210,23 @@ To connect to a Machine Learning Web service, use the **urllib2** library for Py
 2. Assign apiKey with the key from a Web service. See the **Get an Azure Machine Learning authorization key** section near the beginning of this article.
 3. Assign serviceUri with the Request URI.
 
-**Here is what a complete request looks like.**
+**Here is what a complete request will look like.**
 ```python
 import urllib2 # urllib.request for Python 3.X
 import json
 
 data = {
-        "Inputs": {
-            "input1":
-            [
-                {
-                    'timestamp': "",   
-                    'open': "1",   
-                    'high': "1",   
-                    'low': "1",   
-                    'close': "1",   
-                    'volume': "1",   
-                }
-            ],
-        },
-    "GlobalParameters":  {
-    }
+    "Inputs": {
+        "input1":
+        [
+            {
+                'column1': "value1",   
+                'column2': "value2",   
+                'column3': "value3"
+            }
+        ],
+    },
+    "GlobalParameters":  {}
 }
 
 body = str.encode(json.dumps(data))
@@ -258,3 +253,62 @@ except urllib2.HTTPError, error:
     print(error.info())
     print(json.loads(error.read())) 
 ```
+
+### R Sample
+
+To connect to an Azure Machine Learning Web Service, use the **RCurl** and **rjson** libraries to make the request and process the returned JSON response. You will pass ScoreData, which contains a FeatureVector, an n-dimensional vector of numerical features that represents the ScoreData. You authenticate to the Machine Learning service with an API key.
+
+**Here is what a complete request will look like.**
+```r
+library("RCurl")
+library("rjson")
+
+# Accept SSL certificates issued by public Certificate Authorities
+options(RCurlOptions = list(cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl")))
+
+h = basicTextGatherer()
+hdr = basicHeaderGatherer()
+
+req = list(
+    Inputs = list(
+            "input1" = list(
+                list(
+                        'column1' = "value1",
+                        'column2' = "value2",
+                        'column3' = "value3"
+                    )
+            )
+        ),
+        GlobalParameters = setNames(fromJSON('{}'), character(0))
+)
+
+body = enc2utf8(toJSON(req))
+api_key = "<your-api-key>" # Replace this with the API key for the web service
+authz_hdr = paste('Bearer', api_key, sep=' ')
+
+h$reset()
+curlPerform(url = "<your-api-uri>",
+httpheader=c('Content-Type' = "application/json", 'Authorization' = authz_hdr),
+postfields=body,
+writefunction = h$update,
+headerfunction = hdr$update,
+verbose = TRUE
+)
+
+headers = hdr$value()
+httpStatus = headers["status"]
+if (httpStatus >= 400)
+{
+print(paste("The request failed with status code:", httpStatus, sep=" "))
+
+# Print the headers - they include the requert ID and the timestamp, which are useful for debugging the failure
+print(headers)
+}
+
+print("Result:")
+result = h$value()
+print(fromJSON(result))
+```
+
+
+### JavaScript Sample
