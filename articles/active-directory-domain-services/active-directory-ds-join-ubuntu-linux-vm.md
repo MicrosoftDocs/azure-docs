@@ -34,8 +34,6 @@ To perform the tasks listed in this article, you need:
 Perform the following steps to provision an Ubuntu Server virtual machine using the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-
-    ![Azure portal dashboard](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-dashboard.png)
 2. Click **New** on the left pane and click **Compute**. Click **Ubuntu Server 16.04 LTS**. You can also type **Ubuntu** into the **Search the Marketplace** textbox to see all supported Ubuntu images in the Azure marketplace.
 
     ![Select RHEL in results](./media/domain-join/ubuntu-join-azure-portal-find-image.png)
@@ -154,14 +152,14 @@ Now that the required packages are installed on the Linux virtual machine, the n
     sudo realm discover CONTOSO100.COM
     ```
 
-    >
-    > [!NOTE] 
-    > **Troubleshooting:**
-    > If *realm discover* is unable to find your managed domain:
-    * Ensure that the domain is reachable from the virtual machine (try ping).
-    * Check that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
-    * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
-    >
+      >
+      > [!NOTE] 
+      > **Troubleshooting:**
+      > If *realm discover* is unable to find your managed domain:
+        * Ensure that the domain is reachable from the virtual machine (try ping).
+        * Check that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
+        * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
+      >
 
 2. Initialize Kerberos. In your PuTTY terminal, type the following command: 
 
