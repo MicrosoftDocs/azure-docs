@@ -1,6 +1,6 @@
 ---
 title: Perform operations on Azure Queue storage with PowerShell | Microsoft Docs
-description: Tutorial - Perform operations on Azure Queue storage with PowerShell
+description: How to perform operations on Azure Queue storage with PowerShell
 services: storage
 documentationcenter: storage
 author: robinsh
@@ -12,14 +12,14 @@ ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/14/2017
 ms.author: robinsh
 ---
 
 # Perform Azure Queue storage operations with Azure PowerShell
 
-Azure Queue storage is a service for storing large numbers of messages that can be accessed from anywhere i the world via authenticated calls using HTTP or HTTPS. For detailed information, see [Introduction to Azure Queues](storage-queues-introduction.md). This tutorial covers common Queue storage operations. You learn how to:
+Azure Queue storage is a service for storing large numbers of messages that can be accessed from anywhere i the world via authenticated calls using HTTP or HTTPS. For detailed information, see [Introduction to Azure Queues](storage-queues-introduction.md). This how-to article covers common Queue storage operations. You learn how to:
 
 > [!div class="checklist"]
 > * Create a queue
@@ -29,7 +29,7 @@ Azure Queue storage is a service for storing large numbers of messages that can 
 > * Delete a message 
 > * Delete a queue
 
-This tutorial requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+This how-to article requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 ## Sign in to Azure
 
@@ -41,7 +41,7 @@ Login-AzureRmAccount
 
 ## Retrieve list of locations
 
-If you don't know which location you want to use, you can list the available locations. After the list is displayed, find the one you want to use. This tutorial will use **eastus**. Store this in the variable **location** for future use.
+If you don't know which location you want to use, you can list the available locations. After the list is displayed, find the one you want to use. This exercise will use **eastus**. Store this in the variable **location** for future use.
 
 ```powershell
 Get-AzureRmLocation | select Location 
@@ -68,8 +68,7 @@ $storageAccountName = "howtoqueuestorage"
 $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccountName `
   -Location $location `
-  -SkuName Standard_LRS `
-  -Kind Storage
+  -SkuName Standard_LRS
 
 $ctx = $storageAccount.Context
 ```
@@ -175,7 +174,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 ## Next steps
 
-In this tutorial, you learned about basic Queue storage management with PowerShell, including how to:
+In this how-to article, you learned about basic Queue storage management with PowerShell, including how to:
 
 > [!div class="checklist"]
 > * Create a queue
