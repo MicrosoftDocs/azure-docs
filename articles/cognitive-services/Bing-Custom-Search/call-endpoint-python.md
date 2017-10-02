@@ -20,10 +20,10 @@ Call Bing Custom Search endpoint using Python by performing these steps:
 3. Create a folder for your code
 4. From a command prompt or terminal, navigate to the folder you just created.
 4. Run the following commands:
-    ``` cmd
+    <pre>
     pip install pipenv
     pipenv install requests
-    ```
+    </pre>
 6. Create the file BingCustomSearch.py and copy the following code
 9. Replace **YOUR-SUBSCRIPTION-KEY** and **YOUR-CUSTOM-CONFIG-ID** with your key and configuration ID.
 
@@ -38,9 +38,4 @@ searchTerm = "microsoft"
 url = 'https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?q=' + searchTerm + '&customconfig=' + customConfigId
 r = requests.get(url, headers={'Ocp-Apim-Subscription-Key': subscriptionKey})
 print(r.text)
-```
-7. Run the code.
-
-```
-python BingCustomSearch.py
 ```

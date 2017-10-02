@@ -53,7 +53,6 @@ ms.author: v-brapel
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>APIs</h3>
                         <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference">API Reference</a></p>
                     </div>
                 </div>
