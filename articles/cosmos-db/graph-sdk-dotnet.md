@@ -25,21 +25,30 @@ ms.author: mimig
 |**API documentation**|[.NET API reference documentation](https://aka.ms/acdbgraphapiref)|
 |**Quickstart**|[Azure Cosmos DB: Create a graph app using .NET and the Graph API](create-graph-dotnet.md)|
 |**Tutorial**|[Azure CosmosDB: Create a container with the Graph API](tutorial-develop-graph-dotnet.md)|
-|**Current supported framework**|[Microsoft .NET Framework 4.6.1](https://www.microsoft.com/en-us/download/details.aspx?id=49981)|
+|**Current supported framework**| [Microsoft .NET Framework 4.6.1](https://www.microsoft.com/en-us/download/details.aspx?id=49981)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 
 ## Release notes
 
 ### 0.3.0-preview
-* Support for `.netstandard 1.6`
-  - Removed support for .NET Framework 4.5.1
-* New `gremlin-groovy` parser. This complete parser replacement and aims at matchign `gremlin-groovy` syntax.
-  * Improves parsing performance x2 
-  * Fixes a number of issues related to unescaped characters in queries.
-* Optimizations for traversals with edge predicates.
-  Traversals similar to `g.V().outE().has('name', 'marko').inV()` should see this improvement.
-* Optimizations for `limit()` step.
 
+#### What's new
+* Added support for `.netstandard 1.6`
+  * Requires `Microsoft.Azure.DocumentDB.Core >= 1.5.1`
+* Added a new `gremlin-groovy` parser to replace existing parser. This parser supports a subset of Tinkerpop's `gremlin-groovy` syntax and includes:
+  * Improved parsing performance by 2x.
+  * Fixed a number of issues related to character escaping in strings, incorrectly handled literals and other irregularities in the parser.
+* Added optimizations for traversals with edge predicates.
+  *  Traversal hops with filters should see this improvement, eg: `g.V('1').outE().has('name', 'marko').inV()`.
+* Added optimizations for traversals with `limit()` step.
+
+#### Breaking Changes
+* Removed support for .NET Framework 4.5.1
+
+* The new parser aligns with proper `gremlin-groovy` grammar, and as result, some syntax structures that worked previously may be ambigiuous for the new parser. Cases of note:
+  * `in` and `as` are keywords in `gremlin-groovy`, so queries with `in()` and `as()` steps must be qualified to avoid syntax errors. For example:  
+ `g.V().repeat(in()).times(2)` -> _throws a syntax error_  
+ `g.V().repeat(__.in()).times(2)` -> _succeeds_
 
 ## Release & Retirement dates
 Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
