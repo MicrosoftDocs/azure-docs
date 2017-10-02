@@ -18,7 +18,7 @@ ms.author: robinsh
 
 # Using Azure PowerShell with Azure Storage
 
-Azure PowerShell is used to create and manage Azure resources from the PowerShell command line or in scripts. For Azure Storage, these generally fall into two categories -- the control plane and the data plane. The control plane cmdlets are used to manage the storage account -- to create storage accounts, set properties, delete storage accounts, rotate the access keys, and so on. The data plane cmdlets are used to manage the data stored *in* the storage account. For example, uploading blobs, creating file shares, and adding messages to a queue.
+Azure PowerShell is used to create and manage Azure resources from the PowerShell command line or in scripts. For Azure Storage, these cmdlets fall into two categories -- the control plane and the data plane. The control plane cmdlets are used to manage the storage account -- to create storage accounts, set properties, delete storage accounts, rotate the access keys, and so on. The data plane cmdlets are used to manage the data stored *in* the storage account. For example, uploading blobs, creating file shares, and adding messages to a queue.
 
 This guide details using the management plane cmdlets used to manage storage accounts. It also provides links to the other PowerShell articles for Storage such as how to use the Government Cloud and the China Cloud, and articles showing how to use the data plane cmdlets.
 
@@ -46,7 +46,7 @@ Get-AzureRMStorageAccount | Select StorageAccountName, Location
 
 ## Get a reference to a storage account
 
-Next, you need a reference to a storage account. Tou can either create a new storage account or get a reference to an existing storage account. The following sections will show both methods. 
+Next, you need a reference to a storage account. You can either create a new storage account or get a reference to an existing storage account. The following sections shows both methods. 
 
 ### Use an existing storage account 
 
@@ -64,7 +64,7 @@ Now you have $storageAccount, which points to an existing storage account.
 
 ### Create a storage account 
 
-The following is the script for creating a general-purpose storage account using [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). After you create the account, retrieve its context, which can be used in subsequent commands rather than specifying the authentication with each call.
+The following script shows how to create a general-purpose storage account using [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). After you create the account, retrieve its context, which can be used in subsequent commands rather than specifying the authentication with each call.
 
 ```powershell
 # Get list of locations and select one.
@@ -91,13 +91,13 @@ $ctx = $storageAccount.Context
 
 The script uses the following PowerShell cmdlets: 
 
-*   [Get-AzureRmLocation](/powershell/module/azurerm.storage/Get-AzureRmLocation) -- this retrieves a list of the valid locations. The example uses `eastus` for location.
+*   [Get-AzureRmLocation](/powershell/module/azurerm.storage/Get-AzureRmLocation) -- retrieves a list of the valid locations. The example uses `eastus` for location.
 
-*   [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/New-AzureRmResourceGroup) -- this creates a new resource group. A resource group is a logical container into which your Azure resources are deployed and managed. Ours is called `teststoragerg`. 
+*   [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/New-AzureRmResourceGroup) -- creates a new resource group. A resource group is a logical container into which your Azure resources are deployed and managed. Ours is called `teststoragerg`. 
 
-*   [New-AzureRmStorageAccount](/powershell/module/azurerm.resources/New-AzureRmStorageAcccount) -- this creates the actual storage account. The example uses `testpshstorage`.
+*   [New-AzureRmStorageAccount](/powershell/module/azurerm.resources/New-AzureRmStorageAcccount) -- creates the actual storage account. The example uses `testpshstorage`.
 
-The SKU name indicates the type of replication for the storage account, such as LRS (Locally-Redundant Storage). For more information about replication, see [Azure Storage Replication](storage-redundancy.md).
+The SKU name indicates the type of replication for the storage account, such as LRS (Locally Redundant Storage). For more information about replication, see [Azure Storage Replication](storage-redundancy.md).
 
 > [!IMPORTANT]
 > The name of your storage account must be unique within Azure and must be lowercase. For naming conventions and restrictions, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
@@ -107,7 +107,7 @@ Now you have a new storage account and a reference to it.
 
 ## Managing the storage account
 
-Now that you have a reference to a new storage account or an existing storage account, the following shows some of the commands you can use to manage your storage account.
+Now that you have a reference to a new storage account or an existing storage account, the following section shows some of the commands you can use to manage your storage account.
 
 ### Storage account properties
 
@@ -115,11 +115,11 @@ To change the settings for a storage account, use [Set-AzureRmStorageAccount](/p
 
 * The **custom domain** assigned to the storage account.
 
-* The **tags** assigned to the storage account. These are often used to categorize resources for billing purposes.
+* The **tags** assigned to the storage account. Tags are often used to categorize resources for billing purposes.
 
 * The **SKU** is the replication setting for the storage account, such as LRS for Locally Redundant Storage. For example, you might change from Standard\_LRS to Standard\_GRS or Standard\_RAGRS. Note that you can't change Standard ZRS or Premium LRS to other SKUs, or change other SKUs to these. 
 
-* The **access tier** for Blob storage accounts. This is **hot** or **cool**, and allows you to minimize your cost by selecting the access tier that aligns with how you use the storage account. For more information, see [Hot, cool, and archive storage tiers](../blobs/storage-blob-storage-tiers.md).
+* The **access tier** for Blob storage accounts. The value for access tier is set to **hot** or **cool**, and allows you to minimize your cost by selecting the access tier that aligns with how you use the storage account. For more information, see [Hot, cool, and archive storage tiers](../blobs/storage-blob-storage-tiers.md).
 
 * The storage service encryption setting for blob storage and/or file storage. For more information about SSE, see [Storage Service Encryption](storage-service-encryption.md).
 
@@ -153,7 +153,7 @@ Regenerate one of your keys and then retrieve it again to see the new value.
 To delete a storage account, use [Remove-AzureRmStorageAccount](/powershell/module/azurerm.storage/Remove-AzureRmStorageAccount). 
 
 > [!IMPORTANT]
-> When you delete a storage account, all of the assets stored in the account are deleted as well. If you delete an account accidentally, call Support immediately and open a ticket to restore the storage account. This is not guaranteed, but does sometimes work. Do not create a new storage account with the same name as the old one until the support ticket has been resolved. 
+> When you delete a storage account, all of the assets stored in the account are deleted as well. If you delete an account accidentally, call Support immediately and open a ticket to restore the storage account. Recovery of your data is not guaranteed, but it does sometimes work. Do not create a new storage account with the same name as the old one until the support ticket has been resolved. 
 >
 
 ```powershell
@@ -190,7 +190,7 @@ You can configure monitoring using the [Azure portal](https://portal.azure.com),
 
 ## Managing the data in the storage account
 
-Now that you understand how to manage your storage account with PowerShell, the following articles will show you how to use PowerShell to access the data objects in the storage account.
+Now that you understand how to manage your storage account with PowerShell, the following articles show you how to use PowerShell to access the data objects in the storage account.
 
 * [How to manage blobs with PowerShell] (../blobs/storage-how-to-use-blobs-powershell.md)
 * [How to manage files with PowerShell] (../files/storage-how-to-use-files-powershell.md)
@@ -207,7 +207,7 @@ To access the Government cloud of the China datacenters, you have to use some sp
 
 ## Next Steps
 
-In this guide, you've learned how to manage your storage account with Azure PowerShell, and you have pointers to articles showing how to manage the data objects and access storage using the Governmenet Cloud and the China Cloud. Here are some other related articles and resources for reference: 
+In this guide, you've learned how to manage your storage account with Azure PowerShell, and you have pointers to articles showing how to manage the data objects and access storage using the Government Cloud and the China Cloud. Here are some other related articles and resources for reference: 
 
 * [Azure Storage control plane PowerShell cmdlets](/powershell/module/AzureRM.Storage/)
 * [Azure Storage data plane PowerShell cmdlets](/powershell/module/azure.storage/)
