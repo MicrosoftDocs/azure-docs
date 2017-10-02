@@ -163,9 +163,9 @@ You can specify these parameters in the command line. If you do not, or any para
 	![New Hosting Server](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.PNG)
 
     > [!NOTE]
-    > As long as the SQL instance can be accessed by the tenant and admin Azure Resource Manager, it can be placed under control of the resource provider. The SQL instance __must__ be allocated exclusively to the RP.
+    > As long as the SQL instance can be accessed by the user and admin Azure Resource Manager, it can be placed under control of the resource provider. The SQL instance __must__ be allocated exclusively to the RP.
 
-5. As you add servers, you must assign them to a new or existing SKU to differentiate service offerings. For example, you could have a SQL Enterprise instance providing database capacity and automatic backup, reserve high-performance servers for individual departments, etc. The SKU name should reflect the properties so that tenants can place their databases appropriately and all hosting servers in a SKU should have the same capabilities.
+5. As you add servers, you must assign them to a new or existing SKU to differentiate service offerings. For example, you could have a SQL Enterprise instance providing database capacity and automatic backup, reserve high-performance servers for individual departments, etc. The SKU name should reflect the properties so that users can place their databases appropriately and all hosting servers in a SKU should have the same capabilities.
 
 	An example:
 
@@ -201,14 +201,14 @@ SKUs can take up to an hour to be visible in the portal. You cannot create a dat
 
 Add capacity by adding additional SQL hosts in the Azure Stack portal and associate them with an appropriate SKU. If you wish to use another instance of SQL instead of the one installed on the provider VM, click **Resource Providers** &gt; **SQLAdapter** &gt; **SQL Hosting Servers** &gt; **+Add**.
 
-## Making SQL databases available to tenants
+## Making SQL databases available to users
 
-Create plans and offers to make SQL databases available for tenants. You must create a plan, add the Microsoft.SqlAdapter service to the plan, and add an existing Quota, or create a new one. If you create a quota, you can specify the capacity to allow the tenant.
+Create plans and offers to make SQL databases available for users. You must create a plan, add the Microsoft.SqlAdapter service to the plan, and add an existing Quota, or create a new one. If you create a quota, you can specify the capacity to allow the user.
 	![Create plans and offers to include databases](./media/azure-stack-sql-rp-deploy/sqlrp-newplan.png)
 
-## Tenant usage of the Resource Provider
+## User usage of the Resource Provider
 
-Self-service databases are provided through the tenant portal experience.
+Self-service databases are provided through the user portal experience.
 
 ## Removing the SQL Adapter Resource Provider
 
@@ -216,7 +216,7 @@ In order to remove the resource provider, it is essential to first remove any de
 
 1. Ensure you have the original deployment package that you downloaded for this version of the Resource Provider.
 
-2. All tenant databases must be deleted from the resource provider (this will not delete the data). This should be performed by the tenants themselves.
+2. All user databases must be deleted from the resource provider (this will not delete the data). This should be performed by the users themselves.
 
 3. Administrator must delete the hosting servers from the SQL Adapter
 
