@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 10/02/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: oldportal
@@ -271,26 +271,26 @@ You can create a group containing all direct reports of a manager. When the mana
 ## Using attributes to create rules for device objects
 You can also create a rule that selects device objects for membership in a group. The following device attributes can be used:
 
-| Properties              | Allowed values                  | Usage                                                       |
-|-------------------------|---------------------------------|-------------------------------------------------------------|
-| accountEnabled          | true false                      | (device.accountEnabled -eq true)                            |
-| displayName             | any string value                | (device.displayName -eq "Rob Iphone”)                       |
-| deviceOSType            | any string value                | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")   |
-| deviceOSVersion         | any string value                | (device.OSVersion -eq "9.1")                                |
-| deviceCategory          | a valid device category name    | (device.deviceCategory -eq "BYOD")                          |
-| deviceManufacturer      | any string value                | (device.deviceManufacturer -eq "Microsoft")                 |
-| deviceModel             | any string value                | (device.deviceModel -eq "IPhone 7+")                        |
-| deviceOwnership         | Personal, Company               | (device.deviceOwnership -eq "Company")                      |
-| domainName              | any string value                | (device.domainName -eq "contoso.com")                       |
-| enrollmentProfileName   | any string value                | (device.enrollmentProfileName -eq "")                       |
-| isRooted                | true false                      | (device.deviceOSType -eq true)                              |
-| managementType          | any string value                | (device.managementType -eq "")                              |
-| organizationalUnit      | any string value                | (device.organizationalUnit -eq "")                          |
-| deviceId                | a valid deviceId                | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
-| objectId                | a valid AAD objectId            | (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
+| Properties              | Allowed values                     | Usage                                                       |
+|-------------------------|------------------------------------|-------------------------------------------------------------|
+| accountEnabled          | true false                         | (device.accountEnabled -eq true)                            |
+| displayName             | any string value                   | (device.displayName -eq "Rob Iphone”)                       |
+| deviceOSType            | any string value                   | (device.deviceOSType -eq "Android")                         |
+| deviceOSVersion         | any string value                   | (device.OSVersion -eq "9.1")                                |
+| deviceCategory          | a valid device category name       | (device.deviceCategory -eq "BYOD")                          |
+| deviceManufacturer      | any string value                   | (device.deviceManufacturer -eq "Samsung")                   |
+| deviceModel             | any string value                   | (device.deviceModel -eq "iPad Air”)                         |
+| deviceOwnership         | Personal, Company                  | (device.deviceOwnership -eq "Company")                      |
+| domainName              | any string value                   | (device.domainName -eq "contoso.com")                       |
+| enrollmentProfileName   | Apple Device Enrollment Profile name    | (device.enrollmentProfileName -eq "DEP iPhones")       |
+| isRooted                | true false                         | (device.isRooted -eq true)                              |
+| managementType          | “MDM” for mobile devices, “PC” for computers managed through the Intune PC agent    | (device.managementType -eq "MDM")                  |
+| organizationalUnit      | any string value matching the name of the OU set by on-premises Active Directory | (device.organizationalUnit -eq "US PCs")      |
+| deviceId                | a valid Intune deviceId                | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
+| objectId                | a valid Azure AD objectId            | (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
 
 > [!NOTE]
-> These device rules cannot be created using the "simple rule" dropdown in the Azure classic portal.
+> Device rules cannot be created using the "simple rule" dropdown in the Azure classic portal.
 >
 >
 
