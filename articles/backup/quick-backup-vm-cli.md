@@ -79,8 +79,6 @@ az backup protection backup-now \
     --retain-until 18-10-2017
 ```
 
-As this first backup job creates a full recovery point, the process can take up to 20 minutes.
-
 
 ## Monitor the backup job
 To monitor the status of backup jobs, use [az backup job list](https://docs.microsoft.com/cli/azure/backup/job#az_backup_job_list):
