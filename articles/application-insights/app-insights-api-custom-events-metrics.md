@@ -442,7 +442,7 @@ In Search, the operation context is used to create the **Related Items** list:
 
 ![Related items](./media/app-insights-api-custom-events-metrics/21.png)
 
-See [application-insights-custom-operations-tracking.md] for more information on custom operations tracking.
+See [Track custom operations with Application Insights .NET SDK](./application-insights-custom-operations-tracking) for more information on custom operations tracking.
 
 ### Requests in Analytics 
 
