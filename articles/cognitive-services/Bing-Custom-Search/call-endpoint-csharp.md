@@ -16,16 +16,16 @@ ms.author: v-brapel
 
 Call Bing Custom Search endpoint using C# by performing these steps:
 1. Get a subscription key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).
-2. Install [.Net Core](https://www.microsoft.com/net/download/core)
-3. Create a folder for your code
+2. Install [.Net Core](https://www.microsoft.com/net/download/core).
+3. Create a folder for your code.
 5. From a command prompt or terminal, navigate to the folder you just created.
 6. Run the following commands:
-    ``` cmd
+    <pre>
     dotnet new console -o BingCustomSearch
     cd BingCustomSearch
     dotnet add package Newtonsoft.Json
     dotnet restore
-    ```
+    </pre>
 7. Copy the code below to Program.cs
 8. Replace **YOUR-SUBSCRIPTION-KEY** and **YOUR-CUSTOM-CONFIG-ID** with your key and configuration ID.
 

@@ -20,13 +20,13 @@ Call Bing Custom Search endpoint using NodeJs by performing these steps:
 3. Create a folder for your code
 4. From a command prompt or terminal, navigate to the folder you just created.
 5. Run npm init and follow the prompts:
-    ``` cmd
+    <pre>
     npm init
-    ```
+    </pre>
 6. Install the **request** node module:
-   ```
-   npm install request
-   ```
+    <pre>
+    npm install request
+    </pre>
 7. Create the file BingCustomSearch.js and copy the following code
 8. Replace **YOUR-SUBSCRIPTION-KEY** and **YOUR-CUSTOM-CONFIG-ID** with your key and configuration ID.
 

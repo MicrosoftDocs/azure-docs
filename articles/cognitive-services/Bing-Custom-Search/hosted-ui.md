@@ -43,19 +43,16 @@ Use the following instructions to configure a hosted UI to include in your web a
 To consume the hosted UI, either: 
 
 - Use the URL provided
-    ``` 
+    ``` html
     <html>
         <body>
-            <iframe 
-                src="https://rapuxserviceppe.cloudapp.net/hosted?customConfig=YOUR-CUSTOM-CONFIG-ID"
-                style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%;"
-                >
+            <iframe src="https://rapuxserviceppe.cloudapp.net/hosted?customConfig=YOUR-CUSTOM-CONFIG-ID" style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%;">
             </iframe>
         </body>    
     </html>
     ```
 - Include the script in your web page
-    ``` 
+    ``` html
     <html>
         <body>
             
