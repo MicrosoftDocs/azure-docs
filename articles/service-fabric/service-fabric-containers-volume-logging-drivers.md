@@ -41,7 +41,6 @@ Service Fabric supports specifying [Docker volume plugins](https://docs.docker.c
         </LogConfig>
         <Volume Source="c:\workspace" Destination="c:\testmountlocation1" IsReadOnly="false"></Volume>
         <Volume Source="d:\myfolder" Destination="c:\testmountlocation2" IsReadOnly="true"> </Volume>
-        <Volume Source="myexternalvolume" Destination="c:\testmountlocation3" Driver="sf" IsReadOnly="true"></Volume>
        </ContainerHostPolicies>
    </Policies>
     </ServiceManifestImport>
