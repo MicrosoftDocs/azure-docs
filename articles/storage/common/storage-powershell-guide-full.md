@@ -119,7 +119,7 @@ To change the settings for a storage account, use [Set-AzureRmStorageAccount](/p
 
 * The **SKU**, or replication setting for the storage account. For example, you might change from Standard\_LRS to Standard\_GRS or Standard\_RAGRS. You can't change Standard ZRS or Premium LRS to other SKUs, or change other SKUs to these. 
 
-* The **access tier** for Blob storage accounts. This is **hot** or **cool**, and allows you to set it to minimize your cost by selecting the access tier that aligns with how you use the storage account. For more information, see [Hot, cool, and archive storage tiers](../blobs/storage-blob-storage-tiers).
+* The **access tier** for Blob storage accounts. This is **hot** or **cool**, and allows you to set it to minimize your cost by selecting the access tier that aligns with how you use the storage account. For more information, see [Hot, cool, and archive storage tiers](../blobs/storage-blob-storage-tiers.md).
 
 * The storage service encryption setting for blob storage and/or file storage. For more information about SSE, see [Storage Service Encryption](storage-service-encryption.md).
 
@@ -188,7 +188,7 @@ Now that you understand how to manage your storage account with PowerShell, the 
 
 * [How to manage blobs with PowerShell] (../blobs/storage-how-to-use-blobs-powershell.md)
 * [How to manage files with PowerShell] (../files/storage-how-to-use-files-powershell.md)
-* [How to manage queues with PowerShell] (../blobs/storage-powershell-how-to-use-queues.md)
+* [How to manage queues with PowerShell] (../queues/storage-powershell-how-to-use-queues.md)
 
 <!--## Government Cloud and China Cloud
 
