@@ -15,7 +15,7 @@
     href: functions-create-first-azure-function-azure-cli.md
   - name: Create function - Visual Studio
     href: functions-create-your-first-function-visual-studio.md
-  - name: Create function - Java and Maven
+  - name: Create function - Java/Maven
     href: functions-create-first-java-maven.md
   - name: Triggers
     items:
