@@ -138,6 +138,9 @@ az ml env set -n [environment name] -g [resource group]
 > After the environment is created, for subsequent deployments, you only need to use the set command above to reuse it.
 >
 
+>[!NOTE] 
+>To create an HTTPS endpoint, specify an SSL cert when creating a cluster by using the --cert-name and --cert-pem options in az ml env setup. This sets up the cluster to serve requests on https, secured using the provided certificate. After setup is complete, create a CNAME DNS record that points to the cluster’s FQDN.
+
 ### Create an Account
 An account is required for deploying models. You need to do this once per account, and can reuse the same account in multiple deployments.
 
