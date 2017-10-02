@@ -83,7 +83,7 @@ Let's make a quick review of what's happening in the app. Open the Program.cs fi
     table.CreateIfNotExists();
     ```
 
-* A new Table container is created. You will notice this code very similar to regular Azure Table storage SDK. 
+* A new Table container is created. You will notice this code is very similar to using the regular Azure Table storage SDK. 
 
     ```csharp
     CustomerEntity item = new CustomerEntity()
