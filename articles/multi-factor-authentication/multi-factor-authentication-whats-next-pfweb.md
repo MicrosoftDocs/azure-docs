@@ -3,22 +3,25 @@ title: Configure Azure MFA | Microsoft Docs
 description: This is the Azure Multi-factor authentication page that describes what to do next with MFA.  This includes reports, fraud alert, one-time bypass, custom voice messages, caching, trusted ips and app passwords.
 services: multi-factor-authentication
 documentationcenter: ''
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 
-ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
+ms.assetid: 
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
-ms.author: kgremban
-ms.reviewer:
+ms.date: 10/02/2017
+ms.author: joflore
+ms.reviewer: alexwe
 ms.custom: it-pro
 ---
 # Configure Azure Multi-Factor Authentication settings
 This article helps you manage Azure Multi-Factor Authentication now that you are up and running.  It covers various topics that help you to get the most out of Azure Multi-Factor Authentication.  Not all these features are available in every version of Azure Multi-Factor Authentication.
+
+>[!NOTE]
+>These settings are in public preview in the Azure portal. For documentation on how to manage Azure Multi-Factor Authentication settings in preview, see [Configure Azure Multi-Factor Authentication settings - Public preview](multi-factor-authentication-whats-next.md).
 
 | Feature | Description | 
 |:--- |:--- |

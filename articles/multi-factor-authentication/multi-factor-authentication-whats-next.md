@@ -3,7 +3,7 @@ title: Configure Azure MFA | Microsoft Docs
 description: This is the Azure Multi-factor authentication page that describes what to do next with MFA.  This includes reports, fraud alert, one-time bypass, custom voice messages, caching, trusted ips and app passwords.
 services: multi-factor-authentication
 documentationcenter: ''
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 
 ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2017
-ms.author: kgremban
-experimental: true
-experiment_id: 8fe4e6cb-4af2-4c
+ms.date: 10/02/2017
+ms.author: joflore
+ms.reviewer: alexwe
 
 ---
 # Configure Azure Multi-Factor Authentication settings - Public preview
 
-
-
 This article helps you manage Azure Multi-Factor Authentication now that you are up and running.  It covers various topics that help you to get the most out of Azure Multi-Factor Authentication.  Not all these features are available in every [version of Azure Multi-Factor Authentication](/multi-factor-authentication-get-started.md#what-features-do-i-need).
+
+>[!NOTE]
+>These settings are in public preview in the Azure portal. For documentation on how to manage Azure Multi-Factor Authentication settings in the pfweb portal, see [Configure Azure Multi-Factor Authentication settings](multi-factor-authentication-whats-next-pfweb.md).
 
 | Feature | Description | 
 |:--- |:--- |
@@ -50,24 +50,10 @@ Fraud alert can be configured and set up so that your users can report fraudulen
 ### Configuration options
 
 - **Block user when fraud is reported** - If a user reports fraud, their account is blocked.
-- **Code To Report Fraud During Initial Greeting** - Users normally press # to confirm two-step verification. If they want to report fraud, they enter a code before pressing #. This code is **0** by default, but you can customize it.
+- **Code to report fraud during initial greeting** - When users receive a phone call to perform two-step verification, they normally press # to confirm their sign-in. If they want to report fraud, they enter a code before pressing #. This code is **0** by default, but you can customize it.
 
 > [!NOTE]
 > Microsoft’s default voice greetings instruct users to press 0# to submit a fraud alert. If you want to use a code other than 0, you should record and upload your own custom voice greetings with appropriate instructions.
-
-### How users report fraud 
-Fraud alert can be reported two ways.  Either through the mobile app or through the phone.  
-
-#### Report fraud with the mobile app
-1. When a verification is sent to your phone, select it to open the Microsoft Authenticator app.
-2. Select **Deny** on the notification. 
-3. Select **Report fraud**.
-4. Close the app.
-
-#### Report fraud with a phone
-1. When a verification call comes in to your phone, answer it.  
-2. To report fraud, enter the fraud code (Default is 0) and then the # sign. You will be notified that a fraud alert has been submitted.
-3. End the call.
 
 ### View fraud reports
 1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
@@ -86,12 +72,12 @@ A one-time bypass allows a user to authenticate a single time without performing
 ### Create a one-time bypass
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Navigate to **Azure Active Directory** > **Multi-Factor Authentication** > **Fraud alert**.
+2. Navigate to **Azure Active Directory** > **Multi-Factor Authentication** > **One-time bypass**.
 
    ![One-time bypass](./media/multi-factor-authentication-whats-next/onetimebypass.png)
 3. Select **Add**.
 4. If necessary, select the replication group for this bypass.
-5. Enter the username, the number of seconds that the bypass will exist, and the reason for the bypass. 
+5. Enter the username (in the form of username@domain.com), the number of seconds that the bypass will exist, and the reason for the bypass. 
 6. Select **Add**. The time limit goes into effect immediately, so the user needs to sign in before the one-time bypass expires. 
 
 ### View the one-time bypass report
@@ -116,37 +102,15 @@ Before you begin be aware of the following:
 
 ### Set up a custom message
 
-There are two parts to creating your custom message. First, create a custom voice message using either .wav or .mp3 file formats. Second, upload the message. Third, turn it on for your users.
+1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
+2. Navigate to **Azure Active Directory** > **Multi-Factor Authentication** > **Phone call settings**.
 
-To upload your custom message:
+   ![Phone call settings](./media/multi-factor-authentication-whats-next/phonecallsettings.png)
 
-1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
-2. On the left, select **Active Directory**.
-3. Select the directory you want to manage. 
-4. Select **Configure**
-5. Under Multi-Factor Authentication, select **Manage service settings**.
-6. At the bottom of the Service Settings page, select **Go to the portal**.
-7. In the Azure Multi-Factor Authentication Management Portal, click **Voice Messages** under the Configure section.
-8. On the Configure: Voice Messages page, click **New Voice Message**.
-   ![Cloud](./media/multi-factor-authentication-whats-next/custom1.png)
-9. On the Configure: New Voice Messages page, click **Manage Sound Files**.
-   ![Cloud](./media/multi-factor-authentication-whats-next/custom2.png)
-10. On the Configure: Sound Files page, click **Upload Sound File**.
-   ![Cloud](./media/multi-factor-authentication-whats-next/custom3.png)
-11. On the Configure: Upload Sound File, click **Browse** and navigate to your voice message, click **Open**.
-12. Add a Description and click **Upload**.
-13. Once this completes, a message confirms that you have successfully uploaded the file.
-
-To turn the message on for your users:
-
-1. On the left, click **Voice Messages**.
-2. Under the Voice Messages section, click **New Voice Message**.
-3. From the Language drop-down, select a language.
-4. If this message is for a specific application, specify it in the Application box.
-5. From the Message Type drop-down, select the message type to be overridden with your new custom message.
-6. From the Sound File drop-down, select the sound file that you uploaded in the first part.
-7. Click **Create**. A message confirms that you have successfully created a voice message.
-    ![Cloud](./media/multi-factor-authentication-whats-next/custom5.png)</center>
+3. Select **Add greeting**.
+4. Choose the type of greeting and the language.
+5. Select an .mp3 or .wav sound file to upload.
+6. Select **Add**.
 
 ## Caching in Azure Multi-Factor Authentication
 Caching allows you to set a specific time period so that subsequent authentication attempts within that time period succeed automatically. This is primarily used when on-premises systems such as VPN send multiple verification requests while the first request is still in progress. This allows the subsequent requests to succeed automatically after the user succeeds the first verification in progress. 
@@ -155,7 +119,7 @@ Caching is not intended to be used for sign-ins to Azure AD.
 
 ### Set up caching 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Navigate to **Azure Active Directory** > **Multi-Factor Authentication** > **Fraud alert**.
+2. Navigate to **Azure Active Directory** > **Multi-Factor Authentication** > **Caching rules**.
 
    ![Caching rules](./media/multi-factor-authentication-whats-next/cachingrules.png)
 

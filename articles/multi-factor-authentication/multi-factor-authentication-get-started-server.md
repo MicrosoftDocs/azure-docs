@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2017
+ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: alexwe
 ms.custom: it-pro
@@ -93,12 +93,15 @@ Follow these steps to download the Azure Multi-Factor Authentication Server from
 2. Select **Active Directory** > **Multi-Factor Authentication**.
 3. Select **Server settings**.
 4. Select **Download** and follow the instructions on the download page to save the installer. 
+
+   ![Download MFA Server](./media/multi-factor-authentication-get-started-server/downloadportal.png)
+
 5. Keep this page open as we will refer to it after running the installer.
 
 
 ## Download the MFA Server
 
-Follow these steps to download the Azure Multi-Factor Authentication Server from the
+Follow these steps to download the Azure Multi-Factor Authentication Server from the pfweb portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
 2. On the left, select **Active Directory**
@@ -128,7 +131,7 @@ Now that you have downloaded the server you can install and configure it. Be sur
 
    ![Cloud](./media/multi-factor-authentication-get-started-server/skip2.png)
 
-5. Back on the page that we downloaded the server from, click the **Generate Activation Credentials** button. Copy this information into the Azure MFA Server in the boxes provided and click **Activate**.
+5. Back on the page that you downloaded the server from, click the **Generate Activation Credentials** button. Copy this information into the Azure MFA Server in the boxes provided and click **Activate**.
 
 ## Send users an email
 
