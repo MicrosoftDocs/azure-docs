@@ -124,5 +124,5 @@ To learn more about running and searching log files in Log Analytics, see [Log A
 
 ## Next steps
 
-* To learn more about change tracking, see [Track software changes in your environment with the Change Tracking solution](../log-analytics/log-analytics-change-tracking.md)
+* To learn more about change tracking, see [Track software changes in your environment with the Change Tracking solution](../log-analytics/log-analytics-change-tracking.md).
 * To learn more about managing updates for your virtual machines, see [Update Management solution in OMS](../operations-management-suite/oms-solution-update-management.md).
