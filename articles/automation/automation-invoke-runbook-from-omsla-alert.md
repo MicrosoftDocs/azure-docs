@@ -33,11 +33,11 @@ There are two options to call a runbook in the alert configuration, such as:
 
 ## Calling a runbook using a webhook
 
-A webhook allows you to start a particular runbook in Azure Automation through a single HTTP request.  Before configuring the [Log Analytics alert](../log-analytics/log-analytics-alerts.md#alert-rules) to call the runbook using a webhook as an alert action, you need to first create a webhook for the runbook that will be called using this method.  Perform the steps in the [create a webhook](automation-webhooks.md#creating-a-webhook) article, and remember to record the webhook URL so you can reference it while configuring the alert rule.   
+A webhook allows you to start a particular runbook in Azure Automation through a single HTTP request.  Before configuring the [Log Analytics alert](../log-analytics/log-analytics-alerts.md#alert-rules) to call the runbook using a webhook as an alert action, you need to first create a webhook for the runbook that is called using this method.  Perform the steps in the [create a webhook](automation-webhooks.md#creating-a-webhook) article, and remember to record the webhook URL so you can reference it while configuring the alert rule.   
 
 ## Calling a runbook directly
 
-If you have the Automation & Control offering installed and configured in your OMS workspace, while configuring the Runbook actions option for the alert, you can view all runbooks from the **Select a runbook** drop-down list and select the specific runbook you want to run in response to the alert.  The selected runbook can run in a workspace in the Azure cloud or on a hybrid runbook worker.  After the alert is created using the runbook option, a webhook is created for the runbook.  You can see the webhook if you go to the Automation account and navigate to the webhook pane of the selected runbook.  If you delete the alert, the webhook is not deleted, but the user can delete the webhook manually.  It is not a problem if the webhook is not deleted, it is just an orphaned item that will eventually need to be deleted in order to maintain an organized Automation account.  
+If you have the Automation & Control offering installed and configured in your OMS workspace, while configuring the Runbook actions option for the alert, you can view all runbooks from the **Select a runbook** drop-down list and select the specific runbook you want to run in response to the alert.  The selected runbook can run in a workspace in the Azure cloud or on a hybrid runbook worker.  After the alert is created using the runbook option, a webhook is created for the runbook.  You can see the webhook if you go to the Automation account and navigate to the webhook pane of the selected runbook.  If you delete the alert, the webhook is not deleted, but the user can delete the webhook manually.  It is not a problem if the webhook is not deleted, it is just an orphaned item that you eventually need to delete to maintain an organized Automation account.  
 
 ## Characteristics of a runbook (for both options)
 
@@ -55,7 +55,7 @@ Both methods for calling the runbook from the Log Analytics alert have different
 
 	`$SearchResults = (ConvertFrom-Json $WebhookData.RequestBody).SearchResults.value`
 
-	*$SearchResults* will be an array of objects; each object contains the fields with values from one search result
+	*$SearchResults* is an array of objects; each object contains the fields with values from one search result
 
 ### WebhookData inconsistencies between the webhook option and runbook option
 
