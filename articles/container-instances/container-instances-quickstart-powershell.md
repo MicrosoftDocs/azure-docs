@@ -95,7 +95,7 @@ Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontaine
 
 ## Next steps
 
-In this Quickstart, you started a pre-built Windows container in Azure Container Instances. If you'd like to try building a container yourself and deploying it to Azure Container Instances using the Azure Container Registry, continue to the Azure Container Instances tutorial.
+In this quickstart, you started a pre-built Windows container in Azure Container Instances. If you'd like to try building a container yourself and deploying it to Azure Container Instances using the Azure Container Registry, continue to the Azure Container Instances tutorial.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances tutorials](./container-instances-tutorial-prepare-app.md)

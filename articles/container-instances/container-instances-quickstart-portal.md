@@ -78,7 +78,7 @@ Once the container moves to the **Running** state, navigate to the IP address yo
 
 ## Next steps
 
-In this Quickstart, you created an Azure Container Instance from an image in a public Docker Hub repository. If you'd like to try building a container yourself and deploy it to Azure Container Instances using the Azure Container Registry, continue to the Azure Container Instances tutorial.
+In this quickstart, you created an Azure Container Instance from an image in a public Docker Hub repository. If you'd like to try building a container yourself and deploy it to Azure Container Instances using the Azure Container Registry, continue to the Azure Container Instances tutorial.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances tutorials](./container-instances-tutorial-prepare-app.md)
