@@ -19,7 +19,7 @@ ms.author: davidmu
 
 # Configure App Service Web Apps with Application Gateway 
 
-Application gateway allows you to have an Azure Web App or other multi-tenant service as a back-end pool member. In this article, to you learn to configure an Azure web app with Application Gateway. The first example shows you how to configure an existing application gateway to use a web app as a back-end pool member. The second example shows you how to create a new application gateway with a web app as a back-end pool member.
+Application gateway allows you to have an Azure Web App or other multi-tenant service as a back-end pool member. In this article, you learn to configure an Azure web app with Application Gateway. The first example shows you how to configure an existing application gateway to use a web app as a back-end pool member. The second example shows you how to create a new application gateway with a web app as a back-end pool member.
 
 ## Configure a web app behind an existing application gateway
 
