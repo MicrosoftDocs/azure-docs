@@ -48,7 +48,7 @@ By default, the Recovery Services vault is set for Geo-Redundant storage. Geo-Re
 
 
 ## Enable backup for an Azure VM
-Create a protection policy to define: when a backup job runs, and how long the recovery points are stored. The default protection policy runs a backup job each day and retains recovery points for 30 days. You can use these default policy values to quickly protect your VM. To enable backup protection for a VM, use [az backup protection enable—for-vm](https://docs.microsoft.com/cli/azure/backup/protection#az_backup_protection_enable_for_vm). Specify the resource group and VM to protect, then the policy to use:
+Create a protection policy to define: when a backup job runs, and how long the recovery points are stored. The default protection policy runs a backup job each day and retains recovery points for 30 days. You can use these default policy values to quickly protect your VM. To enable backup protection for a VM, use [az backup protection enable-for-vm](https://docs.microsoft.com/cli/azure/backup/protection#az_backup_protection_enable_for_vm). Specify the resource group and VM to protect, then the policy to use:
 
 ```azurecli-interactive 
 az backup protection enable-for-vm \
