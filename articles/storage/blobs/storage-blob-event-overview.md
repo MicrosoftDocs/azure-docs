@@ -5,7 +5,7 @@ services: storage,event-grid
 keywords: 
 author: cbrooksmsft
 ms.author: cbrooks
-ms.date: 08/25/2017
+ms.date: "08/25/2017"
 ms.topic: article
 ms.service: storage
 ---
