@@ -66,7 +66,7 @@ The global admin account can also have [Privileged Identity Management](../activ
 
 If you receive an error and have problems with connectivity, then see [Troubleshoot connectivity problems](active-directory-aadconnect-troubleshoot-connectivity.md).
 
-## Pages under the section Sync
+## Pages under the Sync section
 
 ### Connect your directories
 To connect to your Active Directory Domain Service, Azure AD Connect needs the forest name and credentials of an account with sufficient permissions.
@@ -244,7 +244,7 @@ You can use an existing AD FS farm or you can choose to create a new AD FS farm.
 
 If you choose to use an existing AD FS farm, you are taken directly to the configuring the trust relationship between AD FS and Azure AD screen.
 
->[NOTE]
+>[!NOTE]
 >Azure AD Connect can be used to manage only one AD FS farm. If you have existing federation trust with Azure AD configured on the selected AD FS farm, the trust will be re-created again from scratch by Azure AD Connect.
 
 ### Specify the AD FS servers
