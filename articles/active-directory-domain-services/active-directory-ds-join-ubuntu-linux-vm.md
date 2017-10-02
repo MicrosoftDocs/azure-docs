@@ -152,7 +152,6 @@ Now that the required packages are installed on the Linux virtual machine, the n
     sudo realm discover CONTOSO100.COM
     ```
 
-      >
       > [!NOTE] 
       > **Troubleshooting:**
       > If *realm discover* is unable to find your managed domain:
@@ -163,7 +162,6 @@ Now that the required packages are installed on the Linux virtual machine, the n
 
 2. Initialize Kerberos. In your PuTTY terminal, type the following command: 
 
-    >
     > [!TIP] 
     > * Ensure that you specify a user who belongs to the 'AAD DC Administrators' group. 
     > * Specify the domain name in capital letters, else kinit fails.
@@ -175,7 +173,6 @@ Now that the required packages are installed on the Linux virtual machine, the n
 
 3. Join the machine to the domain. In your PuTTY terminal, type the following command: 
 
-    >
     > [!TIP] 
     > Use the same user account you specified in the preceding step ('kinit').
     >
