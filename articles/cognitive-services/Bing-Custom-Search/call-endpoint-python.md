@@ -20,7 +20,7 @@ Call Bing Custom Search endpoint using Python by performing these steps:
 3. Create a folder for your code
 4. From a command prompt or terminal, navigate to the folder you just created.
 4. Run the following commands:
-    ```
+    ``` cmd
     pip install pipenv
     pipenv install requests
     ```
