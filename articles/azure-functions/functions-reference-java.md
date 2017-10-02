@@ -24,7 +24,7 @@ ms.author: routlaw
 
 ## Programming model 
 
-Your Azure function should be a stateless class method that processes input and produces output. Although you are allowed to write instance methods, your function must not depend on any instance fields of the class. All  function methods must have a `public` access modifier.
+Your Azure function should be a stateless class method that processes input and produces output. Although you are allowed to write instance methods, your function must not depend on any instance fields of the class. All function methods must have a `public` access modifier.
 
 ## Triggers and annotations
 
@@ -38,16 +38,16 @@ CosmosDB | N/A
 HTTP | <ul><li>`HttpTrigger`</li><li>`HttpOutput`</li></ul>
 Mobile Apps | N/A
 Notification Hubs | N/A
-Storage Blob | <ul><li>`BlobTrigger`</li><li>`BlobOutput`</li><li>`StorageAccount`</li></ul>
-Storage Queue | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li><li>`StorageAccount`</li></ul>
-Storage Table | <ul><li>`TableInput`</li><li>`TableOutput`</li><li>`StorageAccount`</li></ul>
+Storage Blob | <ul><li>`BlobTrigger`</li><li>`BlobOutput`</li><li>`BlobOutput`</li></ul>
+Storage Queue | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li></ul>
+Storage Table | <ul><li>`TableInput`</li><li>`TableOutput`</li></ul>
 Timer | <ul><li>`TimerTrigger`</li></ul>
 Twilio | N/A
 
 Trigger inputs and outputs can also be defined in the [function.json](/azure/azure-functions/functions-reference#function-code) for your application.
 
 > [!IMPORTANT] 
-> You must configure an Azure Storage account in your [local.settings.json](/azure/azure-functions/functions-run-local#local-settings-file) to run Storage Blob, Queue, or Table triggers locally.
+> You must configure an Azure Storage account in your [local.settings.json](/azure/azure-functions/functions-run-local#local-settings-file) to run Azure Storage Blob, Queue, or Table triggers locally.
 
 Example using annotations:
 
@@ -56,7 +56,7 @@ import com.microsoft.azure.serverless.functions.annotation.HttpTrigger;
 import com.microsoft.azure.serverless.functions.ExecutionContext;
 
 public class Function {
-    public String echo(@HttpTrigger(name = "req", methods = {"get"},  authLevel = AuthorizationLevel.ANONYMOUS) 
+    public String echo(@HttpTrigger(name = "req", methods = {"post"},  authLevel = AuthorizationLevel.ANONYMOUS) 
         String req, ExecutionContext context) {
         return String.format(req);
     }
@@ -87,7 +87,7 @@ with the corresponding `function.json`:
       "name": "req",
       "direction": "in",
       "authLevel": "anonymous",
-      "methods": [ "get" ]
+      "methods": [ "post" ]
     },
     {
       "type": "http",
@@ -119,6 +119,38 @@ public class MyData {
 }
 ```
 
+### Binary data
+
+Binary data is represented as a `byte[]` in your Azure functions code. Bind binary inputs or outputs to your functions by setting the `dataType` field in your function.json to `binary`:
+
+```json
+ {
+  "scriptFile": "azure-functions-example.jar",
+  "entryPoint": "com.example.MyClass.echo",
+  "bindings": [
+    {
+      "type": "blob",
+      "name": "content",
+      "direction": "in",
+      "dataType": "binary",
+      "path": "container/myfile.bin",
+      "connection": "ExampleStorageAccount"
+    },
+  ]
+}
+```
+
+Then use it in your function code:
+
+```java
+// Class definition and imports are omitted here
+public static String echoLength(byte[] content) {
+}
+```
+
+Use `OutputBinding<byte[]>` type to make a binary output binding.
+
+
 ## Function method overloading
 
 You are allowed to overload function methods with the same name but with different types. For example, you can have both `String echo(String s)` and `String echo(MyType s)` in one class, and Azure Functions runtime decides which one to invoke by examine the actual input type (for HTTP input, MIME type `text/plain` leads to `String` while `application/json` represents `MyType`).
@@ -130,10 +162,10 @@ Input are divided into two categories in Azure Functions: one is the trigger inp
 ```java
 package com.example;
 
-import com.microsoft.azure.serverless.functions.annotation.Bind;
+import com.microsoft.azure.serverless.functions.annotation.BindingName;
 
 public class MyClass {
-    public static String echo(String in, @Bind("item") MyObject obj) {
+    public static String echo(String in, @BindingName("item") MyObject obj) {
         return "Hello, " + in + " and " + obj.getKey() + ".";
     }
 
@@ -144,7 +176,7 @@ public class MyClass {
 }
 ```
 
-The `@Bind` annotation accepts a `String` property that represents the name of the binding/trigger defined in `function.json`:
+The `@BindingName` annotation accepts a `String` property that represents the name of the binding/trigger defined in `function.json`:
 
 ```json
 {
@@ -191,10 +223,10 @@ To produce multiple output values, use `OutputParameter<T>` type defined in the 
 package com.example;
 
 import com.microsoft.azure.serverless.functions.OutputParameter;
-import com.microsoft.azure.serverless.functions.annotation.Bind;
+import com.microsoft.azure.serverless.functions.annotation.BindingName;
 
 public class MyClass {
-    public static String echo(String body, @Bind("message") OutputParameter<String> queue) {
+    public static String echo(String body, @BindingName("message") OutputParameter<String> queue) {
         String result = "Hello, " + body + ".";
         queue.setValue(result);
         return result;
@@ -241,7 +273,7 @@ Sometimes a function must have detailed control over inputs and outputs. Special
 | `HttpResponseMessage` | HTTP Output Binding | Return status other than 200   |
 
 > [!NOTE] 
-> You can also use `@Bind` annotation to get HTTP headers and queries. For example, `@Bind("name") String query` iterates the HTTP request headers and queries and pass that value to the method. For example,  `query` will be `"test"` if the request URL is `http://example.org/api/echo?name=test`.
+> You can also use `@BindingName` annotation to get HTTP headers and queries. For example, `@Bind("name") String query` iterates the HTTP request headers and queries and pass that value to the method. For example,  `query` will be `"test"` if the request URL is `http://example.org/api/echo?name=test`.
 
 ## Functions execution context
 
@@ -258,7 +290,7 @@ import com.microsoft.azure.serverless.functions.annotation.HttpTrigger;
 import com.microsoft.azure.serverless.functions.ExecutionContext;
 
 public class Function {
-    public String echo(@HttpTrigger(name = "req", methods = {"get"}, authLevel = AuthorizationLevel.ANONYMOUS) String req, ExecutionContext context) {
+    public String echo(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS) String req, ExecutionContext context) {
         if (req.isEmpty()) {
             context.getLogger().warning("Empty request body received in " + context.getInvocationId());
         }
