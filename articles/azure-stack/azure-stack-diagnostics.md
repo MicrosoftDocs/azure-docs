@@ -9,7 +9,7 @@ cloud: azure-stack
 
 ms.service: azure-stack
 ms.topic: article
-ms.date: 9/26/2017
+ms.date: 10/1/2017
 ms.author: adshar
 
 ---
@@ -19,7 +19,7 @@ ms.author: adshar
  
 Azure Stack is a large collection of components working together and interacting with each other. All these components  generate their own unique logs. This can make diagnosing issues a challenging task, especially for errors coming from multiple interacting Azure Stack components. 
 
-Our diagnostics tools help make sure the log collection mechanism is easy and efficient. The following diagram shows how log collection tools in Azure Stack work:
+Our diagnostics tools help ensure the log collection mechanism is easy and efficient. The following diagram shows how log collection tools in Azure Stack work:
 
 ![Log collection tools](media/azure-stack-diagnostics/image01.png)
  
@@ -30,7 +30,7 @@ The Trace Collector is enabled by default. It continuously runs in the backgroun
 
 The following are important things to know about the Trace Collector:
  
-* The Trace Collector runs continuously with default size limits. The default maximum size allowed for each file (200 MB) is **not** a cutoff size. A size check occurs periodically (currently every 10 minutes) and if the current file is >= 200 MB, it is saved and a new file is generated. There is also an 8 GB (configurable) limit on the total file size generated per event session. Once this limit is reached, the oldest files are deleted as new ones are created.
+* The Trace Collector runs continuously with default size limits. The default maximum size allowed for each file (200 MB) is **not** a cutoff size. A size check occurs periodically (currently every 2 minutes) and if the current file is >= 200 MB, it is saved and a new file is generated. There is also an 8 GB (configurable) limit on the total file size generated per event session. Once this limit is reached, the oldest files are deleted as new ones are created.
 * There is a 5-day age limit on the logs. This limit is also configurable. 
 * Each component defines the trace configuration properties through a JSON file. The JSON files are stored in `C:\TraceCollector\Configuration`. If necessary, these files can be edited to change the age and size limits of the collected logs. Changes to these files require a restart of the *Microsoft Azure Stack Trace Collector* service for the changes to take effect.
 * The following example is a trace configuration JSON file for FabricRingServices Operations from the XRP VM: 
@@ -72,17 +72,17 @@ The PowerShell command `Get-AzureStackLog` can be used to collect logs from all 
 > [!CAUTION]
 > These log files may contain personally identifiable information (PII). Take this into account before you publicly post any log files.
  
-We currently collect the following log types:
+The following are some example log types that are collected:
 *   **Azure Stack deployment logs**
 *	**Windows event logs**
 *	**Panther logs**
 
-     To troubleshoot VM creation issues.
+   To troubleshoot VM creation issues:
 *	**Cluster logs**
 *	**Storage diagnostic logs**
 *	**ETW logs**
 
-    These files are collected by the Trace Collector and stored in a share from where `Get-AzureStackLog` retrieves them.
+These files are collected by the Trace Collector and stored in a share from where `Get-AzureStackLog` retrieves them.
  
 **To run Get-AzureStackLog on an Azure Stack Development Kit (ASDK) system**
 1.	Log in as AzureStack\AzureStackAdmin on the host.
@@ -175,7 +175,7 @@ A few additional things to note:
     -	ACS logs are collected in the *Storage* and *ACS* roles.
 
 > [!NOTE]
-> Size and age limits are enforced on the logs collected as it is essential to ensure efficient utilization of your storage space to make sure it doesn't get flooded with logs. However, when diagnosing a problem you sometimes need logs that might not exist anymore because of these limits. Thus, it is **highly recommended** that you offload your logs to an external storage space (a storage account in Azure, an additional on-prem storage device etc.) every 8 to 12 hours and keep them there for 1 - 3 months, depending on your requirements. Also, make sure this storage location is encrypted.
+> Size and age limits are enforced on the logs collected as it is essential to ensure efficient utilization of your storage space to ensure it doesn't get flooded with logs. However, when diagnosing a problem you sometimes need logs that might not exist anymore because of these limits. Thus, it is **highly recommended** that you offload your logs to an external storage space (a storage account in Azure, an additional on-prem storage device etc.) every 8 to 12 hours and keep them there for 1 - 3 months, depending on your requirements. Also, ensure this storage location is encrypted.
 
 ## Next steps
 [Microsoft Azure Stack troubleshooting](azure-stack-troubleshooting.md)
