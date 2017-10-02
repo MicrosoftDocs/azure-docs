@@ -18,7 +18,7 @@ ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
 ---
-# Authorize users for Ambari views
+# Authorize users for Ambari Views
 
 [Domain-joined HDInsight clusters](hdinsight-domain-joined-introduction.md) provide enterprise-grade capabilities, including Azure Active Directory-based authentication. You can synchronize new users
 <!-- [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) --> added to Azure AD groups that have been provided access to the cluster, allowing those specific users to perform certain actions. Currently, working with users, groups, and permissions in Ambari is only supported when using a domain-joined HDInsight cluster.
