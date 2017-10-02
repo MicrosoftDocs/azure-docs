@@ -2,7 +2,7 @@
   href: ./index.yml
 - name: Overview
   items:
-  - name: About Container Service
+  - name: Kubernetes on Azure
     href: container-service-intro-kubernetes.md
 - name: Quickstarts
   expanded: true
