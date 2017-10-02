@@ -54,13 +54,13 @@ Perform the following steps to provision an Ubuntu Server virtual machine using 
 
 5. In the **Settings** page of the **Create virtual machine** wizard:
     * Select the **Availability set** for the virtual machine and choose whether to **use managed disks**.
-    * In the **Network** section select the **Virtual network** in which you have enabled Azure AD Domain Services.
+    * In the **Network** section, select the **Virtual network** in which you have enabled Azure AD Domain Services.
     * Pick a different **Subnet** than the one in which you have enabled Azure AD Domain Services.
     * Configure the other settings on this page as desired.
     * Click **OK** when you are done.
 
     ![Create VM - configure VM settings](./media/domain-join/ubuntu-join-azure-portal-create-vm-settings.png)
-6. On the **Purchase** page of the **Create virtual machine** wizard, review and click the **Purchase** button.
+6. On the **Purchase** page of the **Create virtual machine** wizard, review, and click the **Purchase** button.
 
     ![Create VM - purchase](./media/domain-join/ubuntu-join-azure-portal-create-vm-purchase.png)
 7. Deployment of the new virtual machine based on the Ubuntu image should start.
@@ -103,7 +103,7 @@ Here, 'contoso100.com' is the DNS domain name of your managed domain. 'contoso-u
 ## Install required packages on the Linux virtual machine
 After connecting to the virtual machine, the next task is to install packages required for domain join on the virtual machine. Perform the following steps:
 
-1.  In your PuTTY terminal, type the following command to download the package lists from the repositories. This command will update the package lists to get information on the newest versions of packages and their dependencies.
+1.  In your PuTTY terminal, type the following command to download the package lists from the repositories. This command updates the package lists to get information on the newest versions of packages and their dependencies.
 
     ```
     sudo apt-get update
@@ -114,10 +114,10 @@ After connecting to the virtual machine, the next task is to install packages re
       sudo apt-get install krb5-user samba sssd sssd-tools libnss-sss libpam-sss ntp ntpdate realmd adcli
     ```
 
-3. During the Kerberos installation, you will see a pink screen. The installation of the 'krb5-user' package will prompt for the realm name (in ALL UPPERCASE). This will write the [realm] and [domain_realm] sections in /etc/krb5.conf.
+3. During the Kerberos installation, you see a pink screen. The installation of the 'krb5-user' package prompts for the realm name (in ALL UPPERCASE). The installation writes the [realm] and [domain_realm] sections in /etc/krb5.conf.
 
     > [!TIP]
-    > Enter CONTOSO100.COM as the realm, if the name of your managed domain is contoso100.com. Remember, the realm name must be specified in UPPERCASE.
+    > If the name of your managed domain is contoso100.com, enter CONTOSO100.COM as the realm. Remember, the realm name must be specified in UPPERCASE.
     >
     >
 
@@ -162,17 +162,21 @@ Now that the required packages are installed on the Linux virtual machine, the n
     * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
     >
 
-2. Initialize Kerberos. In your PuTTY terminal, type the following command. Ensure that you specify a user who belongs to the 'AAD DC Administrators' group.
-
-    ```
-    kinit bob@CONTOSO100.COM
-    ```
+2. Initialize Kerberos. In your PuTTY terminal, type the following command: Ensure that you specify a user who belongs to the 'AAD DC Administrators' group.
 
     >
     > [!TIP] Specify the domain name in capital letters, else kinit fails.
     >
 
-3. Join the machine to the domain. In your PuTTY terminal, type the following command. Use the same user account you specified in the preceding step ('kinit').
+    ```
+    kinit bob@CONTOSO100.COM
+    ```
+
+3. Join the machine to the domain. In your PuTTY terminal, type the following command: 
+
+    >
+    > [!TIP] Use the same user account you specified in the preceding step ('kinit').
+    >
 
     ```
     sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM' --install=/
@@ -210,9 +214,9 @@ Add the following line in this file below the line 'session optional pam_sss.so'
 
 
 ## Verify domain join
-Verify whether the machine has been successfully joined to the managed domain. Connect to the newly domain joined Ubuntu VM using a different SSH connection. Use a domain user account and then check to see if the user account is resolved correctly.
+Verify whether the machine has been successfully joined to the managed domain. Connect to the domain joined Ubuntu VM using a different SSH connection. Use a domain user account and then check to see if the user account is resolved correctly.
 
-1. In your PuTTY terminal, type the following command to connect to the newly domain joined Ubuntu virtual machine using SSH. Use a domain account that belongs to the managed domain (for example, 'bob@CONTOSO100.COM' in this case.)
+1. In your PuTTY terminal, type the following command to connect to the domain joined Ubuntu virtual machine using SSH. Use a domain account that belongs to the managed domain (for example, 'bob@CONTOSO100.COM' in this case.)
     ```
     ssh -l bob@CONTOSO100.COM contoso-ubuntu.contoso100.com
     ```
@@ -229,7 +233,7 @@ Verify whether the machine has been successfully joined to the managed domain. C
 
 
 ## Grant the 'AAD DC Administrators' group sudo privileges
-You can grant members of the 'AAD DC Administrators' group on your managed domain administrative privileges on the Ubuntu VM. The sudo file is located at /etc/sudoers. The members of AD groups added in sudoers can perform sudo.
+You can grant members of the 'AAD DC Administrators' group administrative privileges on the Ubuntu VM. The sudo file is located at /etc/sudoers. The members of AD groups added in sudoers can perform sudo.
 
 1. In your PuTTY terminal, ensure you are logged in with superuser privileges. You can use the local administrator account you specified while creating the VM. Execute the following command:
     ```
@@ -242,7 +246,7 @@ You can grant members of the 'AAD DC Administrators' group on your managed domai
     %AAD\ DC\ Administrators ALL=(ALL) NOPASSWD:ALL
     ```
 
-3. You can now login as a member of the 'AAD DC Administrators' group and should have administrative privileges on the VM.
+3. You can now log in as a member of the 'AAD DC Administrators' group and should have administrative privileges on the VM.
 
 
 ## Troubleshooting domain join
