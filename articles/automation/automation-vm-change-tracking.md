@@ -28,12 +28,14 @@ You can enable change tracking directly from your Azure virtual machine.
 If you do not have an Azure virtual machine, you can create one by following the instructions in the [Windows quickstart](../virtual-machines/windows/quick-create-portal.md)
 or [Linux quickstart](../virtual-machines/linux/quick-create-portal.md) article.
 
+## Sign in to the Azure portal
+Sign in to the [Azure portal](https://portal.azure.com/).
+
 ## Enable change tracking for an Azure virtual machine
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. In the left pane, select **Virtual machines**.
-3. In the list, select a virtual machine.
-4. In the virtual machine window, under **Operations**, select **Change tracking**. 
+1. In the left pane of the Azure portal, select **Virtual machines**.
+2. In the list, select a virtual machine.
+3. In the virtual machine window, under **Operations**, select **Change tracking**. 
 
    ![Change tracking onboard vm](./media/automation-vm-change-tracking/change-onboard-vm-blade.png)  
     The **Enable Update Management** window opens.
@@ -42,12 +44,12 @@ or [Linux quickstart](../virtual-machines/linux/quick-create-portal.md) article.
 
    ![Change tracking onboard configuration banner](./media/automation-vm-change-tracking/change-onboard-banner.png)
 
-5. To enable the solution, select the banner. If you do not have the following items, they are added automatically:
+4. To enable the solution, select the banner. If you do not have the following items, they are added automatically:
 
    * [Log Analytics](../log-analytics/log-analytics-overview.md) workspace
    * [Automation](../automation/automation-offering-get-started.md) account
 
-6. Select a Log Analytics work space to store data logs from change tracking, select an Automation account to track changes, and then select **Enable**.  
+5. Select a Log Analytics work space to store data logs from change tracking, select an Automation account to track changes, and then select **Enable**.  
     A status bar notifies you that the solution is being enabled. This process can take up to 15 minutes.
 
 ## Configure change tracking
