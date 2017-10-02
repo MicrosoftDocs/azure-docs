@@ -57,8 +57,8 @@ The first column contains movie reviews and the second column contains their sen
 The folder structure is arranged as follows:
 
 1. All the code related to sentiment analysis using AMLWorkbench is in the root folder
-2. data: Contains the dataset used in the solution �
-3. docs: Contains all the hands-on labs �
+2. data: Contains the dataset used in the solution
+3. docs: Contains all the hands-on labs
 
 The order of Hands-on Labs to carry out the solution is as follows:
 
