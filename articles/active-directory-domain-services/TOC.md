@@ -25,8 +25,7 @@
 ### Configure secure LDAP for a managed domain
 #### [Task 1: obtain a certificate for secure LDAP](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Task 2: export the secure LDAP certificate](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
-#### [Task 3: enable secure LDAP for the managed domain using Azure classic portal](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps-classic.md)
-#### [Task 3: enable secure LDAP for the managed domain using Azure portal (preview)](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+#### [Task 3: enable secure LDAP for the managed domain using Azure portal](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
 
 ### [Create an OU on a managed domain](active-directory-ds-admin-guide-create-ou.md)
 ### [Administer group policy on a managed domain](active-directory-ds-admin-guide-administer-group-policy.md)
@@ -38,7 +37,6 @@
 ## Troubleshoot
 ### [FAQs](active-directory-ds-faqs.md)
 ### [Troubleshooting guide](active-directory-ds-troubleshooting.md)
-### [Enable the preview Azure portal experience](active-directory-ds-azure-portal-enable-preview-access.md)
 ### [Resolve mismatched tenant errors](active-directory-ds-mismatched-tenant-error.md)
 
 # Reference

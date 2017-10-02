@@ -17,7 +17,7 @@ ms.author: heidist
 
 # Analyzers in Azure Search
 
-An *analyzer* is a component of [full text search](search-lucene-query-architecture.md) responsible for processing text in query strings and the contents of indexed documents. During indexing, an analyzer transforms text into tokens, which are written as terms into the index. During search, an analyzer performs the same transformations on query terms used to retrieve documents with matching terms from the index.
+An *analyzer* is a component of [full text search](search-lucene-query-architecture.md) responsible for text processing in query strings and indexed documents. During indexing, an analyzer transforms text into *tokens*, which are written as *tokenized terms* into the index. During search, an analyzer performs the same transformations on *query terms*, providing the basis for matching terms in the index.
 
 The following transformations are typical during analysis:
 
@@ -26,7 +26,7 @@ The following transformations are typical during analysis:
 + Upper-case words are lower-cased.
 + Words are reduced to root forms so that a match can be found regardless of tense.
 
-Azure Search provides a default analyzer. You can override it on a field-by-field basis with an alternative analyzer. The purpose of this article is to describe the range of choices and provide best practices for customizing the process of lexical analysis for a given field. It also shows example configurations for key scenarios.
+Azure Search uses the [Standard Lucene analyzer](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) as the default. You can override the default on a field-by-field basis. This article describes the range of choices and offers best practices for custom analysis. It also provides example configurations for key scenarios.
 
 ## Supported analyzers
 
@@ -35,24 +35,24 @@ The following list describes which analyzers are supported in Azure Search.
 | Category | Description |
 |----------|-------------|
 | [Standard Lucene analyzer](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Default. No specification or configuration is required. This general-purpose analyzer performs well for most languages and scenarios.|
-| Predefined analyzers | Offered as a finished product intended to be used as-is, with limited customization. <br/>There are two types: specialized and language. What makes them "predefined" is that you reference them by name, with no customization. <br/><br/>[Specialized (language agnostic) analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable) for text inputs requiring specialized processing or minimal processing. Non-language predefined analyzers include **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop**, **Whitespace**.<br/><br/>[Language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support) provide rich linguistic support for individual languages. Azure Search supports 35 Lucene language analyzers and 50 Microsoft natural language processing analyzers. |
+| Predefined analyzers | Offered as a finished product intended to be used as-is, with limited customization. <br/>There are two types: specialized and language. What makes them "predefined" is that you reference them by name, with no customization. <br/><br/>[Specialized (language agnostic) analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable) are used when text inputs require specialized processing or minimal processing. Non-language predefined analyzers include **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop**, **Whitespace**.<br/><br/>[Language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support) are used when you need rich linguistic support for individual languages. Azure Search supports 35 Lucene language analyzers and 50 Microsoft natural language processing analyzers. |
 |[Custom analyzers](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | A user-defined configuration of a combination of existing elements, consisting of one tokenizer (required) and optional filters (char or token).|
 
 You can customize a predefined analyzer, such as **Pattern** or **Stop**, to use alternative options documented in [Predefined Analyzer Reference](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable). Only a few of the predefined analyzers have options that you can set. As with any customization, provide your new configuration with a name, such as *myPatternAnalyzer* to distinguish it from the Lucene Pattern analyzer.
 
 ## How to specify analyzers
 
-1. For custom analyzers only, create an `analyzer` section in the index definition. For more information, see [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) and also [Custom Analyzers > Create](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search#create-a-custom-analyzer).
+1. (for custom analyzers only) Create an **analyzer** section in the index definition. For more information, see [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) and also [Custom Analyzers > Create](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search#create-a-custom-analyzer).
 
-2. On each searchable field for which you want to use the analyzer, set the `analyzer` property to the name of a target analyzer on a [field definition in the index](https://docs.microsoft.com/rest/api/searchservice/create-index). Valid values include a predefined analyzer, a language analyzer, or a custom analyzer previously defined in the index schema.
+2. On a [field definition](https://docs.microsoft.com/rest/api/searchservice/create-index) in the index, set the **analyzer** property to the name of a target analyzer (for example, `"analyzer" = "keyword"`. Valid values include name of a predefined analyzer, language analyzer, or custom analyzer also defined in the index schema.
 
-  Alternatively, instead of one `analyzer` property, you can set different analyzers for indexing and querying using the `indexAnalyzer` and `searchAnalyzer` field parameters. 
+3. Optionally, instead of one **analyzer** property, you can set different analyzers for indexing and querying using the **indexAnalyzer** and **searchAnalyzer`** field parameters. 
 
-3. Analysis occurs during indexing. If you add an `analyzer` to an existing index, note the following steps:
+3. Adding an analyzer to a field definition incurs a write operation on the index. If you add an **analyzer** to an existing index, note the following steps:
  
  | Scenario | Steps |
  |----------|-------|
- | Add a new field (not indexed yet). | Analysis occurs when you add or update documents that provide content for the new field. Use [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) and [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) for this task.|
+ | Add a new field | If the field doesn't exist yet in the schema, there is no field revision to make. Text analysis occurs whenever you add or update documents that provide content for the new field. Use [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) and [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) for this task.|
  | Add an analyzer to an existing indexed field. | The inverted index for that field must be recreated from the ground up and document contents for those fields must be reindexed. <br/> <br/>For indexes under active development, [delete](https://docs.microsoft.com/rest/api/searchservice/delete-index) and [create](https://docs.microsoft.com/rest/api/searchservice/create-index) the index to pick up the new field definition. <br/> <br/>For indexes in production, you should create a new field to provide the revised definition and start using it. Use [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) and [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) to incorporate the new field. Later, as part of planned index servicing, you can clean up the index to remove obsolete fields. |
 
 ## Best practices
