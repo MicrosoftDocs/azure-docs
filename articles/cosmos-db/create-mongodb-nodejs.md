@@ -60,6 +60,7 @@ cd mean
 npm install
 npm start
 ```
+The application will try to connect to a MongoDB source and fail, go ahead and exit the application when the output returns "[MongoError: connect ECONNREFUSED 127.0.0.1:27017]".
 
 ## Log in to Azure
 
