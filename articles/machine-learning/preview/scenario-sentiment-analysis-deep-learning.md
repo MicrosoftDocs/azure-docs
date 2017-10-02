@@ -17,25 +17,28 @@ ms.date: 09/16/2017
 ms.author: miprasad
 ---
 
-# Sentiment analysis using deep learning with Azure Machine Learning
+
+# Sentiment Analysis using Deep Learning with Azure Machine Learning
 
 Sentiment analysis is a well-known task in the realm of natural language processing. Given a set of texts, the aim is to determine the sentiment of that text. The objective of this solution is to use CNTK as the backend for Keras (a model level library, providing high-level building blocks for developing deep learning models) and implement sentiment analysis from movie reviews.
 
 The solution is located at https://github.com/Azure/MachineLearningSamples-SentimentAnalysis
 
-## Link to the gallery GitHub repository
+## Link to the Gallery GitHub repository
+
+Follow this link to the public GitHub repository:
 
 [https://github.com/Azure/MachineLearningSamples-SentimentAnalysis](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis)
 
 ## Use case overview
 
-The explosion of data and the proliferation of mobile devices have created lots of opportunities for customers to express their feelings and attitudes about anything and everything at any time. This opinion or “sentiment” is often generated through social channels in the form of reviews, chats, shares, likes, tweets, etc. The sentiment can be invaluable for businesses looking to improve products and services, make more informed decisions, and better promote their brands.
+The explosion of data and the proliferation of mobile devices have created lots of opportunities for customers to express their feelings and attitudes about anything and everything at any time. This opinion or "sentiment" is often generated through social channels in the form of reviews, chats, shares, likes, tweets, etc. The sentiment can be invaluable for businesses looking to improve products and services, make more informed decisions, and better promote their brands.
 
 To get value from sentiment analysis, businesses must have the ability to mine vast stores of unstructured social data for actionable insights. In this sample, we will develop deep learning models for performing sentiment analysis of movie reviews using AMLWorkbench
 
 ## Prerequisites
 
-* An [Azure account](https://azure.microsoft.com/free/) (free trials are available).
+* An [Azure account](https://azure.microsoft.com/en-us/free/) (free trials are available).
 
 * An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) following the [quick start installation guide](./quickstart-installation.md) to install the program and create a workspace.
 
@@ -43,18 +46,9 @@ To get value from sentiment analysis, businesses must have the ability to mine v
 
 * This Solution assumes that you are running Azure Machine Learning Workbench on Windows 10 with Docker engine locally installed. On a macOS, the instruction is largely the same.
 
-## Create a new workbench project
-
-Create a new project using this example as a template:
-1.	Open Azure Machine Learning Workbench
-2.	On the **Projects** page, click the **+** sign and select **New Project**
-3.	In the **Create New Project** pane, fill in the information for your new project
-4.	In the **Search Project Templates** search box, type "Sentiment Analysis with Deep Learning" and select the template
-5.	Click **Create**
-
 ## Data description
 
-The dataset used for this sample is a small hand-crafted dataset and is located in the Data folder of the [Github repository](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/Data).
+The dataset used for this sample is a small hand-crafted dataset and is located in the [data folder](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/tree/master/data).
 
 The first column contains movie reviews and the second column contains their sentiment (0 - negative and 1 - positive). The dataset is merely used for demonstration purposes but typically to get robust sentiment scores, you need a large dataset. For example, the [IMDB Movie reviews sentiment classification problem](https://keras.io/datasets/#datasets ) from Keras consists of a dataset of 25,000 movies reviews from IMDB, labeled by sentiment (positive or negative). The intention of this lab is to show you how to perform sentiment analysis using deep learning with AMLWorkbench.
 
@@ -62,18 +56,18 @@ The first column contains movie reviews and the second column contains their sen
 
 The folder structure is arranged as follows:
 
-1. Code: Contains all the code related to sentiment analysis using AMLWorkbench  
-2. Data: Contains the dataset used in the solution  
-3. Labs: Contains all the hands-on labs  
+1. All the code related to sentiment analysis using AMLWorkbench is in the root folder
+2. data: Contains the dataset used in the solution �
+3. docs: Contains all the hands-on labs �
 
 The order of Hands-on Labs to carry out the solution is as follows:
 
 | Order| File Name | Related Files |
 |--|-----------|------|
-| 1 | [`DataPreparation.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/Docs/SentimentAnalysisDataPreparation.md) | 'Data/sampleReviews.txt' |
-| 2 | [`ModelingAndEvaluation.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/Docs/SentimentAnalysisModelingDocker.md) | 'Code/SentimentExtraction.py' |
-| 3 | [`ModelingAndEvaluationDocker.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/Docs/SentimentAnalysisModelingKerasWithCNTKBackend.md) | 'Code/SentimentExtractionDocker.py' |
-| 4 | [`Operationalization.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/Docs/SentimentAnalysisOperationalization.md) | 'Code/Operaionalization' |
+| 1 | [`SentimentAnalysisDataPreparation.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisDataPreparation.md) | 'data/sampleReviews.txt' |
+| 2 | [`SentimentAnalysisModelingKerasWithCNTKBackend.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisModelingKerasWithCNTKBackend.md) | 'SentimentExtraction.py' |
+| 3 | [`SentimentAnalysisModelingDocker.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisModelingDocker.md) | 'SentimentExtractionDocker.py' |
+| 4 | [`SentimentAnalysisOperationalization.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisOperationalization.md) | 'Operaionalization' |
 
 ## Conclusion
 
