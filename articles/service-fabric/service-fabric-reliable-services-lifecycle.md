@@ -85,7 +85,8 @@ Like stateless services, the lifecycle events during shutdown are the same as du
     - The cancellation token passed to `RunAsync()` is canceled. A check of the cancellation token's `IsCancellationRequested` property returns true, and if called, the token's `ThrowIfCancellationRequested` method throws an `OperationCanceledException`.
 2. After `CloseAsync()` completes on each listener and `RunAsync()` also completes, the service's `StatefulServiceBase.OnChangeRoleAsync()` is called. This call is not commonly overridden in the service.
 
-   > [NOTE!]  The need to wait for **RunAsync** to complete is only necessary if this replica is a primary replica.
+   > [NOTE!]  
+   > The need to wait for **RunAsync** to complete is only necessary if this replica is a primary replica.
 
 3. After the `StatefulServiceBase.OnChangeRoleAsync()` method completes, the `StatefulServiceBase.OnCloseAsync()` method is called. This call is an uncommon override, but it is available.
 3. After `StatefulServiceBase.OnCloseAsync()` completes, the service object is destructed.
