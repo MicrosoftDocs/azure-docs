@@ -30,7 +30,7 @@ Subscriptions are added to the Preview Program as capacity is available.  Reques
 ```azurecli-interactive
 az feature show --name storageEventSubscriptions --namespace Microsoft.EventGrid
 ```
-Once your registration state changes to “Registered”, you have been admitted to the preview program and you can subscribe to Blob storage events for accounts in the *West Central US* or *West US 2* locations.  Take a look at [Route Blob storage events to a custom web endpoint](storage-blob-event-quickstart.md) for a quick example.
+Once your registration state changes to “Registered”, you have been admitted to the preview program and you can subscribe to Blob storage events for accounts in the ***West Central US*** or ***West US 2*** locations.  Take a look at [Route Blob storage events to a custom web endpoint](storage-blob-event-quickstart.md) for a quick example.
 
 ## Blob Storage accounts
 Blob storage events are available in [Blob storage accounts](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) (and not in General Purpose storage accounts).  A Blob storage account is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob storage accounts are like general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For applications requiring only block or append blob storage, we recommend using Blob storage accounts.
