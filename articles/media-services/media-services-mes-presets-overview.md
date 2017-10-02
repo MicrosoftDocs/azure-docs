@@ -1,6 +1,6 @@
 ---
 title: Task Presets for MES (Media Encoder Standard) | Microsoft Docs
-description: TThe topic gives and overview of the service defined sample Presets for MES (Media Encoder Standard).
+description: The topic gives and overview of the service defined sample Presets for MES (Media Encoder Standard).
 author: Juliako
 manager: cfowler
 editor: johndeu
