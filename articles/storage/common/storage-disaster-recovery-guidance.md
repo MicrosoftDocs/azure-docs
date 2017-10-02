@@ -50,7 +50,7 @@ When a regional disaster affects your primary region, we will first try to resto
 A couple of points regarding the storage geo-failover experience:
 
 * Storage geo-failover will only be triggered by the Azure Storage team – there is no customer action required.
-* Your existing storage service endpoints for blobs, tables, queues, and files will remain the same after the failover; the DNS entry will need to be updated to switch from the primary region to the secondary region.
+* Your existing storage service endpoints for blobs, tables, queues, and files will remain the same after the failover; the Microsoft-supplied DNS entry will need to be updated to switch from the primary region to the secondary region.  Microsoft will perform this update automatically as part of the geo-failover process.
 * Before and during the geo-failover, you won't have write access to your storage account due to the impact of the disaster but you can still read from the secondary if your storage account has been configured as RA-GRS.
 * When the geo-failover has been completed and the DNS changes propagated, read and write access to your storage account will be resumed; this points to what used to be your secondary endpoint. 
 * Note that you will have write access if you have GRS or RA-GRS configured for the storage account. 
