@@ -83,7 +83,7 @@ $vm = Get-AzureRmVM -Name myVM -ResourceGroupName myResourceGroup
 Create the image configuration.
 
 ```powershell
-$image = New-AzureRmImageConfig -Location EastUS -SourceVirtualMachineId $vm.ID 
+$image = New-AzureRmImageConfig -Location WestEurope -SourceVirtualMachineId $vm.ID 
 ```
 
 Create the image.
