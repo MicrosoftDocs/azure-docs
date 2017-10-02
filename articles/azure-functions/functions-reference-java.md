@@ -16,11 +16,7 @@ ms.author: routlaw
 ---
 # Azure Functions Java developer guide
 > [!div class="op_single_selector"]
-> * [C# script](functions-reference-csharp.md)
-> * [F# script](functions-reference-fsharp.md)
-> * [JavaScript](functions-reference-node.md)
-> * [Java](functions-reference-java.md)
-> 
+[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
 
 ## Programming model 
 

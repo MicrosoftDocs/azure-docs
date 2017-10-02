@@ -26,16 +26,17 @@ This quickstart guides through creating a serverless function project with Maven
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
+Before running this sample, you must have the following installed:
 
--  [.NET Core](https://www.microsoft.com/net/core) , latest version.
+-  [.NET Core](https://www.microsoft.com/net/core), latest version.
 -  [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 1.8.
 -  [Azure CLI](https://docs.microsoft.com/cli/azure)
--  [Apache Maven](https://maven.apache.org) , version 3.0 or above.
+-  [Apache Maven](https://maven.apache.org), version 3.0 or above.
 -  [Node.js](https://nodejs.org/download/), latest LTS version.
 
 ## Install the Azure Functions Core Tools
 
-The [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) provide a local development environment for writing, running, and debugging Azure Functions. Install the tools with [npm](https://www.npmjs.com/) , included with [Node.js](https://nodejs.org/).
+The [Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools) provide a local development environment for writing, running, and debugging Azure Functions. Install the tools with [npm](https://www.npmjs.com/), included with [Node.js](https://nodejs.org/).
 
 ```
 npm install -g azure-functions-core-tools@core

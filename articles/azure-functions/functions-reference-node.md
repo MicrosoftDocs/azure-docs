@@ -20,12 +20,7 @@ ms.author: glenga
 
 ---
 # Azure Functions JavaScript developer guide
-> [!div class="op_single_selector"]
-> * [C# script](functions-reference-csharp.md)
-> * [F# script](functions-reference-fsharp.md)
-> * [JavaScript](functions-reference-node.md)
-> * [Java](functions-reference-java.md)
-> 
+[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
 
 The JavaScript experience for Azure Functions makes it easy to export a function, which is passed as a `context` object for communicating with the runtime and for receiving and sending data via bindings.
 
