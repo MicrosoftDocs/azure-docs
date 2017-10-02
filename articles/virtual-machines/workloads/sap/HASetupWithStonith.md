@@ -41,9 +41,9 @@ To setup the High availability using SUSE clustering, the following pre-requisit
 - NTP setup on one of the HANA Large Instance node
 
 When customer setup HANA Large Instances with HSR, customer can request Microsoft Service Management team to setup STONITH. If you are already an existing customer who have HANA Large Instances provisioned, and need STONITH device setup for your existing blades, you need to provide the following information to Microsoft Service Management team in the service request form (SRF). You can request SRF from thru the Technical Account Manager or your Microsoft Contact for HANA Large Instance onboarding. The new customers can request STONITH device at the time of provisioning. The inputs are available in the provisioning request form.
-•	Server Name and Server IP address (eg: myhanaserver1, 10.35.0.1)
-•	Location (eg: US East)
-•	Customer Name (eg: Microsoft)
+•	Server Name and Server IP address (e.g., myhanaserver1, 10.35.0.1)
+•	Location (e.g., US East)
+•	Customer Name (e.g., Microsoft)
 
 Once the STONITH device is configured, Microsoft Service Management team does provide you the SBD device name and IP address of the iSCSI storage which you can use to configure STONITH setup. 
 To setup the end to end HA using STONITH, the following steps needs to be followed:
@@ -61,12 +61,13 @@ To setup the end to end HA using STONITH, the following steps needs to be follow
 This section describes on how to determine the SBD device for your setup after Microsoft service management team have configured the STONITH. **This section only applies to the existing customer**. If you are a new customer, Microsoft service management team does provide SBD device name to you and you can skip this section.
 
 1.1	Modify */etc/iscsi/initiatorname.isci* to *iqn.1996-04.de.suse:01: <Tenant><Location><SID><NodeNumber>*.  
-Microsoft service management does provide this string. This needs to be done on **both** the nodes, however node number will be different on each node.
+Microsoft service management does provide this string. This needs to be done on **both** the nodes, however node number is different on each node.
+
 ![initiatorname.png](media/HowToHLI/HASetupWithStonith/initiatorname.png)
 
 1.2 Modify */etc/iscsi/iscsid.conf*: Set *node.session.timeo.replacement_timeout=5* and *node.startup = automatic*. This needs to be done on **both** the nodes.
 
-1.3	Execute the discovery command, it shows 4 sessions. This needs to be done on both the nodes.
+1.3	Execute the discovery command, it shows four sessions. This needs to be done on both the nodes.
 
 ```
 iscsiadm -m discovery -t st -p <IP address provided by Service Management>:3260
@@ -74,21 +75,21 @@ iscsiadm -m discovery -t st -p <IP address provided by Service Management>:3260
 
 ![iSCSIadmDiscovery.png](media/HowToHLI/HASetupWithStonith/iSCSIadmDiscovery.png)
 
-1.4	Execute the command to login to the iSCSI device, it shows 4 sessions. This needs to be done on **both** the nodes.
+1.4	Execute the command to log in to the iSCSI device, it shows four sessions. This needs to be done on **both** the nodes.
 
 ```
 iscsiadm -m node -l
 ```
 ![iSCSIadmLogin.png](media/HowToHLI/HASetupWithStonith/iSCSIadmLogin.png)
 
-1.5 Execute the rescan script: *rescan-scsi-bus.sh*.  This shows you the new disks created for you.  Run it on both the nodes. You should see LUN number greater than zero (eg: 1, 2 etc.)
+1.5 Execute the rescan script: *rescan-scsi-bus.sh*.  This shows you the new disks created for you.  Run it on both the nodes. You should see LUN number greater than zero (for example: 1, 2 etc.)
 
 ```
 rescan-scsi-bus.sh
 ```
 ![rescanscsibus.png](media/HowToHLI/HASetupWithStonith/rescanscsibus.png)
 
-1.6	To get the device name run the command *fdisk –l*. Run it on both the nodes. Please pick the device with size **178MiB**.
+1.6	To get the device name run the command *fdisk –l*. Run it on both the nodes. Pick the device with size **178MiB**.
 
 ```
   fdisk –l
@@ -150,7 +151,7 @@ Authentication is performed using the IP addresses and pre-shared-keys in Csync2
 ![yast-cluster-conntrackd.png](media/HowToHLI/HASetupWithStonith/yast-cluster-conntrackd.png)
 Click **Next**
 ![yast-cluster-service.png](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)
-In default option, Booting was off, change it to “on” so pacemaker is started on boot. You can make choise based on your setup requirements.
+In default option, Booting was off, change it to “on” so pacemaker is started on boot. You can make choice based on your setup requirements.
 Click **Next** and setup is complete.
 
 ## 4.	Setting Up the Softdog Watchdog
@@ -186,7 +187,7 @@ lsmod | grep dog
 ```
 ![sbd-sh-start.png](media/HowToHLI/HASetupWithStonith/sbd-sh-start.png)
 
-4.6	Test the SBD daemon on **both** the nodes. You see 2 entries after you configure it on **both** the nodes
+4.6	Test the SBD daemon on **both** the nodes. You see two entries after you configure it on **both** the nodes
 ```
 sbd -d <SBD Device Name> list
 ```
@@ -204,7 +205,7 @@ sbd  -d <SBD Device Name> list
 ```
 ![sbd-list-message.png](media/HowToHLI/HASetupWithStonith/sbd-list-message.png)
 
-4.9	To adopt the sbd config, update the file */etc/sysconfig/sbd* as below. This needs to be done on **both** the nodes
+4.9	To adopt the sbd config, update the file */etc/sysconfig/sbd* as following. This needs to be done on **both** the nodes
 ```
 SBD_DEVICE=" <SBD Device Name>" 
 SBD_WATCHDOG="yes" 
@@ -218,7 +219,7 @@ systemctl start pacemaker
 ```
 ![start-pacemaker.png](media/HowToHLI/HASetupWithStonith/start-pacemaker.png)
 
-If pacemaker service *fails*, please refer *Scenario 5: Pacemaker service fails*
+If pacemaker service *fails*, refer *Scenario 5: Pacemaker service fails*
 
 ## 5.	Joining the cluster
 This section describes on how to join the node to the cluster.
@@ -228,7 +229,7 @@ Run the following command on **node2** to let node2 join the cluster.
 ```
 ha-cluster-join
 ```
-If you receive an *error* during joining the cluster, please refer *Scenario 6: Node 2 unable to join the cluster*.
+If you receive an *error* during joining the cluster, refer *Scenario 6: Node 2 unable to join the cluster*.
 
 ## 6.	Validating the cluster
 
@@ -240,19 +241,19 @@ systemctl start pacemaker
 ```
 ![systemctl-status-pacemaker.png](media/HowToHLI/HASetupWithStonith/systemctl-status-pacemaker.png)
 ### 6.2 Monitor the status
-Run the command *crm_mon* to ensure **both** the nodes are online. You can run it on **any of the node** of the cluster
+Run the command *crm_mon* to ensure **both** the nodes are online. You can run it on **any of the nodes** of the cluster
 ```
 crm_mon
 ```
 ![crm-mon.png](media/HowToHLI/HASetupWithStonith/crm-mon.png)
-You can also login to hawk to check the cluster status *https://<node IP>:7630*. Default user is hacluster and password is linux. You can change the password using *passwd* command, if needed.
+You can also log in to hawk to check the cluster status *https://<node IP>:7630*. Default user is hacluster and password is linux. If needed, you can change the password using *passwd* command.
 
 ## 7. Configure Cluster Properties and Resources 
 This section describes the steps to configure the cluster resources.
-In this example, we did setup the following resource, rest can be configured (if needed) by referencing the SUSE HA guide. You will only need to perform this config in **one of the node** only. Do on primary node.
+In this example, we did setup the following resource, rest can be configured (if needed) by referencing the SUSE HA guide. You need to perform this config in **one of the nodes** only. Do on primary node.
 
 ### 7.1 Cluster bootstrap and more
-Add cluster bootstrap. Create the file and add the text as below.
+Add cluster bootstrap. Create the file and add the text as following.
 ```
 sapprdhdb95:~ # vi crm-bs.txt
 # enter the following to crm-bs.txt
@@ -274,7 +275,7 @@ crm configure load update crm-bs.txt
 ![crm-configure-crmbs.png](media/HowToHLI/HASetupWithStonith/crm-configure-crmbs.png)
 
 ### 7.2 STONITH device
-Add resource STONITH. Create the file and add the text as below.
+Add resource STONITH. Create the file and add the text as following.
 ```
 # vi crm-sbd.txt
 # enter the following to crm-sbd.txt
@@ -303,7 +304,7 @@ crm configure load update crm-vip.txt
 
 ### 7.4 Validate the resources
 
-You run command *crm_mon* and you see the 2 resources there.
+You run command *crm_mon* and you see the two resources there.
 ![crm_mon_command.png](media/HowToHLI/HASetupWithStonith/crm_mon_command.png)
 
 Also, you can see the status at *https://<node IP address>:7630/cib/live/state*
@@ -325,7 +326,7 @@ Now, stop the pacemaker service on **node2** and resources failed over to **node
 
 
 ## 9. Troubleshooting
-This section describes the few error scenarios which were encountered during the setup. You may not necessarily face these issues.
+This section describes the few error scenarios, which were encountered during the setup. You may not necessarily face these issues.
 
 ### Scenario 1: Cluster node not online
 If any of the nodes does not show online in cluster manager, you can try following to bring it online.
@@ -335,11 +336,11 @@ Start the iSCSI service
 service iscsid start
 ```
 
-And now you should be able to login to that iSCSI node
+And now you should be able to log in to that iSCSI node
 ```
 iscsiadm -m node -l
 ```
-Expected output looks like below
+Expected output looks like following
 ```
 sapprdhdb45:~ # iscsiadm -m node -l
 Logging in to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal: 10.250.22.11,3260] (multiple)
@@ -352,31 +353,39 @@ Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal
 Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal: 10.250.22.21,3260] successful.
 ```
 ### Scenario 2: yast2 does not show graphical view
-We used yast2 graphical screen to setup High Availability cluster in this document. If yast2 does not open with graphical window like below and throw Qt error, please follow the steps below. If it opens with graphical window, you can skip the steps.
+We used yast2 graphical screen to setup High Availability cluster in this document. If yast2 does not open with graphical window like following and throw Qt error, follow the steps below. If it opens with graphical window, you can skip the steps.
+
 **Error**
+
 ![yast2-qt-gui-error.png](media/HowToHLI/HASetupWithStonith/yast2-qt-gui-error.png)
+
 **Expected Output**
+
 ![yast-control-center.png](media/HowToHLI/HASetupWithStonith/yast-control-center.png)
 
-If yast2 does not open with graphical view, please follow the steps below.
+If yast2 does not open with graphical view, follow the steps following.
 
-Install the following packages. You must be logged in as user “root” and have SMT setup to download/install the packages.
+Install the required packages. You must be logged in as user “root” and have SMT setup to download/install the packages.
 
-To install the packages, use yast>Software>Software Management>Dependencies> option “Install recommended packages…”. The following screenshot illustrate the expected screens.
+To install the packages, use yast>Software>Software Management>Dependencies> option “Install recommended packages…”. The following screenshot illustrates the expected screens.
 >[!NOTE]
->You need to do on both the nodes so you can access yast2 graphical view from the both the nodes.
+>You need to do on both the nodes so you can access yast2 graphical view from both the nodes.
 
 ![yast-sofwaremanagement.png](media/HowToHLI/HASetupWithStonith/yast-sofwaremanagement.png)
 
-Under Dependencies, select "Install Recommnded Packages"
+Under Dependencies, select "Install Recommended Packages"
 ![yast-dependencies.png](media/HowToHLI/HASetupWithStonith/yast-dependencies.png)
 
 Review the changes and hit OK
+
 ![yast](media/HowToHLI/HASetupWithStonith/yast-automatic-changes.png)
+
 Package installation proceeds
 ![yast-performing-installation.png](media/HowToHLI/HASetupWithStonith/yast-performing-installation.png)
+
 Click Next
 ![yast-installation-report.png](media/HowToHLI/HASetupWithStonith/yast-installation-report.png)
+
 Click Finish
 
 You also need to install the libqt4 and libyui-qt packages.
@@ -389,7 +398,7 @@ zypper -n install libyui-qt
 ```
 ![zypper-install-ligyui.png](media/HowToHLI/HASetupWithStonith/zypper-install-ligyui.png)
 ![zypper-install-ligyui_part2.png](media/HowToHLI/HASetupWithStonith/zypper-install-ligyui_part2.png)
-Yast2 should be able to open graphical view now as below.
+Yast2 should be able to open graphical view now as following.
 ![yast2-control-center.png](media/HowToHLI/HASetupWithStonith/yast2-control-center.png)
 
 ### Scenario 3: yast2 does not High Availability option
@@ -403,20 +412,25 @@ Using Yast2>Software>Software management>Select the following patterns
 The following screen shows the steps to install the patterns.
 Using yast2 > Software > Software Management
 ![yast2-control-center.png](media/HowToHLI/HASetupWithStonith/yast2-control-center.png)
+
 Select the patterns
 ![yast-pattern1.png](media/HowToHLI/HASetupWithStonith/yast-pattern1.png)
 ![yast-pattern2.png](media/HowToHLI/HASetupWithStonith/yast-pattern2.png)
+
 Click **Accept**
 ![yast-changed-packages.png](media/HowToHLI/HASetupWithStonith/yast-changed-packages.png)
+
 Click **Continue**
 ![yast2-performing-installation.png](media/HowToHLI/HASetupWithStonith/yast2-performing-installation.png)
+
 Click **Next** when Installation is complete
 ![yast2-installation-report.png](media/HowToHLI/HASetupWithStonith/yast2-installation-report.png)
 
 ### Scenario 4: HANA Installation fails with gcc assemblies error
 HANA installation fails with following error.
 ![Hana-installation-error.png](media/HowToHLI/HASetupWithStonith/Hana-installation-error.png)
-To fix the issue, you need to install libraries (libgcc_sl and libstdc++6) as below.
+
+To fix the issue, you need to install libraries (libgcc_sl and libstdc++6) as following.
 ![zypper-install-lib.png](media/HowToHLI/HASetupWithStonith/zypper-install-lib.png)
 
 ### Scenario 5: Pacemaker service fails
@@ -459,7 +473,7 @@ sapprdhdb95:/ # tail -f /var/log/messages
 2017-09-28T18:45:01.275038-04:00 sapprdhdb95 cron[57995]: pam_unix(crond:session): session opened for user root by (uid=0)
 2017-09-28T18:45:01.308066-04:00 sapprdhdb95 CRON[57995]: pam_unix(crond:session): session closed for user root
 ```
-To fix it- delete the following line from the file */usr/lib/systemd/system/fstrim.timer*
+To fix it, delete the following line from the file */usr/lib/systemd/system/fstrim.timer*
 ```
 Persistent=true
 ```
@@ -481,7 +495,7 @@ cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys
 
 ![ssh-keygen-node2.PNG](media/HowToHLI/HASetupWithStonith/ssh-keygen-node2.PNG)
 
-After the above fix, node2 should get added to the cluster
+After the preceding fix, node2 should get added to the cluster
 ![ha-cluster-join-fix.png](media/HowToHLI/HASetupWithStonith/ha-cluster-join-fix.png)
 
 ## 10. General Documentation
