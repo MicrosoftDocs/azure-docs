@@ -77,7 +77,7 @@ A data source specifies what data to index.
 
 The endpoint of this call is `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`. Replace `[service name]` with the name of your search service.
 
-For this call, you need the name of your storage account and your storage account key. The storage account key can be found in the Azure portal inside your storage account's **Access Keys**. Location pictured following:
+For this call, you need the name of your storage account and your storage account key. The storage account key can be found in the Azure portal inside your storage account's **Access Keys**. The location is shown in the following image:
 
   ![Semi-structured search](media/storage-unstructured-structured-search/storagekeys.png)
 
