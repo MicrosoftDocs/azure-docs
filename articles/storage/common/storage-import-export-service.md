@@ -47,8 +47,7 @@ You can use Azure Import/Export service to copy data to **Block** blobs or **Pag
 To begin the process of importing to or exporting from storage, you first create a job. A job can be an import job or an export job:
 
 * Create an import job when you want to transfer data you have on-premises to blobs in your Azure storage account.
-* Create an export job when you want to transfer data currently stored as blobs in your storage account to hard drives that are shipped to you.s
-When you create a job, you notify the Import/Export service that you will be shipping one or more hard drives to an Azure data center.
+* Create an export job when you want to transfer data currently stored as blobs in your storage account to hard drives that are shipped to us. When you create a job, you notify the Import/Export service that you will be shipping one or more hard drives to an Azure data center.
 
 * For an import job, you will be shipping hard drives containing your data.
 * For an export job, you will be shipping empty hard drives.
