@@ -18,9 +18,9 @@ ms.author: v-deasim
 ---
 
 
-# Azure Diagnostic Logs
+# Azure diagnostic logs
 
-This feature is available for all CDN endpoints belonging to Verizon (Standard & Premium) and Akamai (Standard) CDN Profiles. For more information, see [Diagnostic Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+Azure diagnostic logs is available for all CDN endpoints belonging to Verizon (Standard & Premium) and Akamai (Standard) CDN Profiles. For more information, see [Diagnostic Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
 
 With this feature, you can view core analytics and save them into one or more destinations including:
 
@@ -32,7 +32,7 @@ With this feature, you can view core analytics and save them into one or more de
 
 For more information about diagnostic logs, see [Diagnostic Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
 
-Diagnostics logs allow you to export basic usage metrics from your CDN endpoint to a variety of sources so that you can consume them in a customized way. For example, you can do the following types of data export:
+Azure diagnostics logs allow you to export basic usage metrics from your CDN endpoint to a variety of sources so that you can consume them in a customized way. For example, you can do the following types of data export:
 
 - Export data to blob storage, export to CSV, and generate graphs in excel.
 - Export data to event hubs and correlate with data from other azure services.

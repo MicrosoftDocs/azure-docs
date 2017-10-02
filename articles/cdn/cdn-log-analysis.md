@@ -20,13 +20,13 @@ ms.author: v-semcev
 
 # Analyze Azure CDN usage patterns
 
-After enabling CDN for your application, you may want to monitor the CDN usage, check the health of your delivery, and troubleshoot potential issues. Azure CDN provides these capabilities with the following two products: 
+After you enable CDN for your application, you can monitor CDN usage, check the health of your delivery, and troubleshoot potential issues. Azure CDN provides these capabilities in the following two ways: 
 
-## CDN Core Analytics
+## Verizon core reports
 
-As a current Azure CDN user with Verizon standard or premium profile, you can view core analytics in the supplemental portal accessible via the **Manage** option from the Azure portal. For more information, see [CDN Core Analytics](cdn-analyze-usage-patterns.md)
+As an Azure CDN user with a Verizon standard or a Verizon premium profile, you can view Verizon core reports in the Verizon supplemental portal. Verizon core reports is accessible via the **Manage** option from the Azure portal. The Verizon supplemental portal offers a variety of graphs and views. For more information, see [Core reports from Verizon](cdn-analyze-usage-patterns.md).
 
-## Azure Diagnostic Logs
+## Core analytics via Azure diagnostic logs
 
-This feature is available for all CDN endpoints belonging to Verizon (Standard & Premium) and Akamai (Standard) CDN Profiles. For more information, see [Azure diagnostic logs](cdn-azure-diagnostic-logs.md).
+Core Analytics is available for all CDN endpoints belonging to Verizon (Standard and Premium) and Akamai (Standard) CDN profiles. Azure diagnostics logs allow core analytics to be exported to Azure storage, event hubs, or Operations Management Suite (OMS) log analytics. OMS Log Analytics offers a solution with graphs that are user-configurable and customizable. For more information, see [Azure diagnostic logs](cdn-azure-diagnostic-logs.md).
 
