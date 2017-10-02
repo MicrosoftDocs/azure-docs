@@ -206,13 +206,14 @@ You should get a message ("Successfully enrolled machine in realm") when the mac
 
 ## Configure automatic home directory creation
 To enable automatic creation of the home directory after logging in users, type the following commands in your PuTTY terminal:
-    ```
-    sudo vi /etc/pam.d/common-session
-    ```
+```
+sudo vi /etc/pam.d/common-session
+```
+    
 Add the following line in this file below the line 'session optional pam_sss.so' and save it:
-    ```
-    session required pam_mkhomedir.so skel=/etc/skel/ umask=0077
-    ```
+```
+session required pam_mkhomedir.so skel=/etc/skel/ umask=0077
+```
 
 
 ## Verify domain join
