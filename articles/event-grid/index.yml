@@ -24,7 +24,7 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: /azure/app-service-api/media/index/cli.svg
+        src: /azure/event-grid/media/index/cli.svg
       text: Azure CLI
       href: /azure/event-grid/custom-event-quickstart
 - title: Step-by-Step Tutorials
@@ -35,6 +35,7 @@ sections:
     style: ordered
     items:
     - html: <a href="/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app">Monitor changes to VMs with logic apps</a>
+    - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Resize uploaded images</a>
 - title: Reference
   items:
   - type: list
@@ -43,6 +44,7 @@ sections:
     items:
     - title: Command-Line
       html: <p><a href="/cli/azure/eventgrid">Azure CLI</a></p>
+      html: <p><a href="/powershell/module/azurerm.eventgrid">PowerShell</a></p>
     - title: REST APIs
       html: <p><a href="/rest/api/eventgrid">REST</a></p>  
     - title: Schemas
