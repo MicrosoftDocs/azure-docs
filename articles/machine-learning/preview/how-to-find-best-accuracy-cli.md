@@ -60,4 +60,4 @@ If you use powershell, the code below will use local variables to store threshol
 
 
 ## Next Steps
-- For more information on logging, see [How to Use Run History and Model Metrics in Azure Machine Learning Workbench](https://github.com/totekp/azure-docs-pr/blob/bestAccuracy/articles/machine-learning/preview/how-to-use-run-history-model-metrics.md).    
+- For more information on logging, see [How to Use Run History and Model Metrics in Azure Machine Learning Workbench](how-to-use-run-history-model-metrics.md).    
