@@ -3,7 +3,7 @@ title: Get started with two-step verification | Microsoft Docs
 description: This is the Azure Multi-Factor authentication page that will assist your end users with getting going with Azure Multi-Factor Authentication.
 services: multi-factor-authentication
 documentationcenter: ''
-author: kgremban
+author: barlanmsft
 manager: femila
 
 ms.assetid: e02cc045-2ac0-41ff-b07f-e9255e320383
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
-ms.author: kgremban
+ms.author: barlan
 ms.reviewer: yossib
 ms.custom: end-user
 ---
@@ -43,4 +43,3 @@ Select one of these topics to get started.
 | [Changing your settings](multi-factor-authentication-end-user-manage-settings.md) |Shows you how you can change your settings such as phone number or preferred enrollment method. |
 | [Help with app passwords](multi-factor-authentication-end-user-app-passwords.md) |Find information on creating and using app passwords. |
 | [Use the mobile app](microsoft-authenticator-app-how-to.md) |The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
-

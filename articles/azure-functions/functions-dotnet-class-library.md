@@ -4,7 +4,7 @@ description: Learn how to author .NET class libraries for use with Azure Functio
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: ''
 tags: ''
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
@@ -32,7 +32,7 @@ This article has the following prerequisites:
 
 ## Functions class library project
 
-From Visual Studio, create a new Azure Functions project. The new project template creates the files *host.json* and *local.settings.json*. You can [customize Azure Functions runtime settings in host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json). 
+From Visual Studio, create a new Azure Functions project. The new project template creates the files *host.json* and *local.settings.json*. You can [customize Azure Functions runtime settings in host.json](functions-host-json.md). 
 
 The file *local.settings.json* stores app settings, connection strings, and settings for Azure Functions Core Tools. To learn more about its structure, see [Code and test Azure functions locally](functions-run-local.md#local-settings).
 
@@ -42,7 +42,7 @@ The attribute [`FunctionNameAttribute`](https://github.com/Azure/azure-webjobs-s
 
 ### Conversion to function.json
 
-When an Azure Functions project is built, it produces a file `function.json` in the directory matching the function name defined by `[FunctionName]`. It specifies triggers and bindings and points to the project assembly file.
+When you build an Azure Functions project, a *function.json* file is created in the function's directory. The directory name is the same as the function name that the `[FunctionName]` attribute specifies. The *function.json* file contains triggers and bindings and points to the project assembly file.
 
 This conversion is performed by the NuGet package [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). The source is available in the GitHub repo [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 

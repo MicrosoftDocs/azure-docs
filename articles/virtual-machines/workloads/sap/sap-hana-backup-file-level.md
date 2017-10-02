@@ -1,4 +1,4 @@
-﻿---
+---
 title: SAP HANA Azure Backup on file level | Microsoft Docs
 description: There are two major backup possibilities for SAP HANA on Azure virtual machines, this article covers SAP HANA Azure Backup on file level
 services: virtual-machines-linux
@@ -32,9 +32,9 @@ This figure shows the dialog of the backup menu item in SAP HANA Studio. When ch
 
 While this choice sounds simple and straight forward, there are some considerations. As mentioned before, an Azure VM has a limitation of number of data disks that can be attached. There might not be capacity to store SAP HANA backup files on the file systems of the VM, depending on the size of the database and disk throughput requirements, which might involve software RAID using striping across multiple data disks. Various options for moving these backup files, and managing file size restrictions and performance when handling terabytes of data, are provided later in this article.
 
-Another option, which offers more freedom regarding total capacity, is Azure blob storage. While a single blob is also restricted to 1 TB, the total capacity of a single blob container is currently 500 TB. Additionally, it gives customers the choice to select so-called &quot;cool&quot; blob storage, which has a cost benefit. See [Azure Blob Storage: Hot and cool storage tiers](../../../storage/storage-blob-storage-tiers.md) for details about cool blob storage.
+Another option, which offers more freedom regarding total capacity, is Azure blob storage. While a single blob is also restricted to 1 TB, the total capacity of a single blob container is currently 500 TB. Additionally, it gives customers the choice to select so-called &quot;cool&quot; blob storage, which has a cost benefit. See [Azure Blob Storage: Hot and cool storage tiers](../../../storage/blobs/storage-blob-storage-tiers.md) for details about cool blob storage.
 
-For additional safety, use a geo-replicated storage account to store the SAP HANA backups. See [Azure Storage replication](../../../storage/storage-redundancy.md) for details about storage account replication.
+For additional safety, use a geo-replicated storage account to store the SAP HANA backups. See [Azure Storage replication](../../../storage/common/storage-redundancy.md) for details about storage account replication.
 
 One could place dedicated VHDs for SAP HANA backups in a dedicated backup storage account that is geo-replicated. Or else one could copy the VHDs that keep the SAP HANA backups to a geo-replicated storage account, or to a storage account that is in a different region.
 
@@ -46,7 +46,7 @@ A workaround is to first copy SAP HANA backup files to a Windows VM on Azure (fo
 
 ## Azure blobxfer utility details
 
-To store directories and files on Azure storage, one could use CLI or PowerShell, or develop a tool using one of the [Azure SDKs](https://azure.microsoft.com/downloads/). There is also a ready-to-use utility, AzCopy, for copying data to Azure storage, but it is Windows only (see [Transfer data with the AzCopy Command-Line Utility](../../../storage/storage-use-azcopy.md)).
+To store directories and files on Azure storage, one could use CLI or PowerShell, or develop a tool using one of the [Azure SDKs](https://azure.microsoft.com/downloads/). There is also a ready-to-use utility, AzCopy, for copying data to Azure storage, but it is Windows only (see [Transfer data with the AzCopy Command-Line Utility](../../../storage/common/storage-use-azcopy.md)).
 
 Therefore blobxfer was used for copying SAP HANA backup files. It is open source, used by many customers in production environments, and available on [GitHub](https://github.com/Azure/blobxfer). This tool allows one to copy data directly to either Azure blob storage or Azure file share. It also offers a range of useful features, like md5 hash or automatic parallelism when copying a directory with multiple files.
 
@@ -66,7 +66,7 @@ Repeating the same backup on software RAID with striping across five attached Az
 
 ## Copy SAP HANA backup files to Azure blob storage
 
-As of December 2016, the best option to quickly store SAP HANA backup files is Azure blob storage. One single blob container has a limit of 500 TB, enough for most SAP HANA systems, running in a GS5 VM on Azure, to keep sufficient SAP HANA backups. Customers have the choice between &quot;hot&quot; and &quot;cold&quot; blob storage (see [Azure Blob Storage: Hot and cool storage tiers](../../../storage/storage-blob-storage-tiers.md)).
+As of December 2016, the best option to quickly store SAP HANA backup files is Azure blob storage. One single blob container has a limit of 500 TB, enough for most SAP HANA systems, running in a GS5 VM on Azure, to keep sufficient SAP HANA backups. Customers have the choice between &quot;hot&quot; and &quot;cold&quot; blob storage (see [Azure Blob Storage: Hot and cool storage tiers](../../../storage/blobs/storage-blob-storage-tiers.md)).
 
 With the blobxfer tool, it is easy to copy the SAP HANA backup files directly to Azure blob storage.
 
@@ -134,7 +134,7 @@ So it works, but performance wasn't good for the 230-GB backup test. It would lo
 
 ## Copy SAP HANA backup files to Azure file service
 
-It is possible to mount an Azure file share inside an Azure Linux VM. The article [How to use Azure File storage with Linux](../../../storage/storage-how-to-use-files-linux.md) provides details on how to do it. Keep in mind that there is currently a 5-TB quota limit of one Azure file share, and a file size limit of 1 TB per file. See [Azure Storage Scalability and Performance Targets](../../../storage/storage-scalability-targets.md) for information on storage limits.
+It is possible to mount an Azure file share inside an Azure Linux VM. The article [How to use Azure File storage with Linux](../../../storage/files/storage-how-to-use-files-linux.md) provides details on how to do it. Keep in mind that there is currently a 5-TB quota limit of one Azure file share, and a file size limit of 1 TB per file. See [Azure Storage Scalability and Performance Targets](../../../storage/common/storage-scalability-targets.md) for information on storage limits.
 
 Tests have shown, however, that SAP HANA backup doesn&#39;t currently work directly with this kind of CIFS mount. It is also stated in [SAP Note 1820529](https://launchpad.support.sap.com/#/notes/1820529) that CIFS is not recommended.
 

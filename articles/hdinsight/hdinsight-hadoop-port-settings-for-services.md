@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/02/2017
+ms.date: 08/23/2017
 ms.author: larryfr
-
+   
 ---
 # Ports used by Hadoop services on HDInsight
 
@@ -71,13 +71,19 @@ All services publicly exposed on the internet must be authenticated:
 > [!NOTE]
 > Some services are only available on specific cluster types. For example, HBase is only available on HBase cluster types.
 
+> [!IMPORTANT]
+> Some services only run on one headnode at a time. If you attempt to connect to the service on the primary headnode and receive a 404 error, retry using the secondary headnode.
+
 ### Ambari
 
-| Service | Nodes | Port | Path | Protocol | 
+| Service | Nodes | Port | URL path | Protocol | 
 | --- | --- | --- | --- | --- |
 | Ambari web UI | Head nodes | 8080 | / | HTTP |
 | Ambari REST API | Head nodes | 8080 | /api/v1 | HTTP |
 
+Examples:
+
+* Ambari REST API: `curl -u admin "http://10.0.0.11:8080/api/v1/clusters"`
 
 ### HDFS ports
 
@@ -157,6 +163,11 @@ All services publicly exposed on the internet must be authenticated:
 
 ### Spark ports
 
-| Service | Nodes | Port | Protocol | Description |
-| --- | --- | --- | --- | --- |
-| Spark Thrift servers |Head nodes |10002 |Thrift |Service for  connecting to Spark SQL (Thrift/JDBC) |
+| Service | Nodes | Port | Protocol | URL path | Description |
+| --- | --- | --- | --- | --- | --- |
+| Spark Thrift servers |Head nodes |10002 |Thrift | &nbsp; | Service for connecting to Spark SQL (Thrift/JDBC) |
+| Livy server | Head nodes | 8998 | HTTP | /batches | Service for running statements, jobs, and applications |
+
+Examples:
+
+* Livy: `curl "http://10.0.0.11:8998/batches"`. In this example, `10.0.0.11` is the IP address of the headnode that hosts the Livy service.

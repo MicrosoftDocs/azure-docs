@@ -16,7 +16,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2017
+ms.date: 09/26/2017
 ms.author: larryfr
 
 ---
@@ -219,7 +219,6 @@ From this article, you learned how to run the samples included with the Linux-ba
 * [Use Hive with Hadoop on HDInsight][hdinsight-use-hive]
 * [Use MapReduce with Hadoop on HDInsight][hdinsight-use-mapreduce]
 
-[hdinsight-errors]: hdinsight-debug-jobs.md
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 [hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx
 

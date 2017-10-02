@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 08/15/2017
 ms.author: larryfr
 
 ---
@@ -33,6 +33,8 @@ Mahout is a [machine learning][ml] library for Apache Hadoop. Mahout contains al
 
 > [!IMPORTANT]
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+
+* An SSH client. For more information, see the [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) document.
 
 ## Mahout versioning
 
@@ -163,16 +165,10 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
 
     Press **Ctrl-X**, **Y**, and finally **Enter** to save the data.
 
-4. Use the following command to make the file executable:
+4. Run the Python script. The following command assumes you are in the directory where all the files were downloaded:
 
     ```bash
-    chmod +x show_recommendations.py
-    ```
-
-5. Run the Python script. The following command assumes you are in the directory where all the files were downloaded:
-
-    ```bash
-    ./show_recommendations.py 4 user-ratings.txt moviedb.txt recommendations.txt
+    python show_recommendations.py 4 user-ratings.txt moviedb.txt recommendations.txt
     ```
 
     This command looks at the recommendations generated for user ID 4.

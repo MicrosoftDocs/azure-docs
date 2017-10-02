@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/08/2017
+ms.date: 08/11/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -53,6 +53,11 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
 
 > [!NOTE] 
 > The Azure Cosmos DB .NET Core SDK is not yet compatible with Universal Windows Platform (UWP) apps. If you are interested in the .NET Core SDK that does support UWP apps, send email to [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+
+### <a name="1.5.0"/>1.5.0 
+
+* Added support for PartitionKeyRangeId as a FeedOption for scoping query results to a specific partition key range value. 
+* Added support for StartTime as a ChangeFeedOption to start looking for the changes after that time. 
 
 ### <a name="1.4.1"/>1.4.1
 
@@ -128,6 +133,7 @@ If you have questions related to this SDK, post to [StackOverflow](http://stacko
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.5.0](#1.5.0) |August 10, 2017 |--- | 
 | [1.4.1](#1.4.1) |August 07, 2017 |--- |
 | [1.4.0](#1.4.0) |August 02, 2017 |--- |
 | [1.3.2](#1.3.2) |June 12, 2017 |--- |

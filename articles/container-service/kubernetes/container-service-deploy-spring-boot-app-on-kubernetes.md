@@ -1,20 +1,21 @@
 ---
 title: Deploy a Spring Boot App on Kubernetes in Azure Container Service | Microsoft Docs
 description: This tutorial will walk you though the steps to deploy a Spring Boot application in a Kubernetes cluster on Microsoft Azure.
-services: ''
+services: container-service
 documentationcenter: java
 author: rmcmurray
 manager: cfowler
 editor: ''
 
 ms.assetid: 
-ms.service: multiple
+ms.service: container-service
 ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: asirveda;robmcm
+ms.custom: mvc
 
 ---
 

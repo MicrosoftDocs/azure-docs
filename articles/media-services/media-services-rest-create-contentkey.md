@@ -1,10 +1,10 @@
 ---
-title: Create ContentKeys with REST | Microsoft Docs
+title: Create content keys with REST | Microsoft Docs
 description: Learn how to create content keys that provide secure access to Assets.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 95e9322b-168e-4a9d-8d5d-d7c946103745
@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 08/10/2017
 ms.author: juliako
 
 ---
-# Create ContentKeys with REST
+# Create content keys with REST
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-create-contentkey.md)
 > * [.NET](media-services-dotnet-create-contentkey.md)
@@ -43,37 +43,40 @@ The following are general steps for generating content keys that you will associ
    Media Services .NET SDK uses RSA with OAEP when doing the encryption.  You can see an example in the [EncryptSymmetricKeyData function](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
 4. Create a checksum value (based on the PlayReady AES key checksum algorithm) calculated using the key identifier and content key. For more information, see the “PlayReady AES Key Checksum Algorithm” section of the PlayReady Header Object document located [here](http://www.microsoft.com/playready/documents/).
    
-   The following .NET example calculates the checksum using the GUID part of the key identifier and the clear content key.
-   
-     public static string CalculateChecksum(byte[] contentKey, Guid keyId)
-     {
-   
-         byte[] array = null;
-         using (AesCryptoServiceProvider aesCryptoServiceProvider = new AesCryptoServiceProvider())
+   The following is a .NET example that calculates the checksum using the GUID part of the key identifier and the clear content key.
+
+         public static string CalculateChecksum(byte[] contentKey, Guid keyId)
          {
-             aesCryptoServiceProvider.Mode = CipherMode.ECB;
-             aesCryptoServiceProvider.Key = contentKey;
-             aesCryptoServiceProvider.Padding = PaddingMode.None;
-             ICryptoTransform cryptoTransform = aesCryptoServiceProvider.CreateEncryptor();
-             array = new byte[16];
-             cryptoTransform.TransformBlock(keyId.ToByteArray(), 0, 16, array, 0);
+
+            byte[] array = null;
+            using (AesCryptoServiceProvider aesCryptoServiceProvider = new AesCryptoServiceProvider())
+            {
+                aesCryptoServiceProvider.Mode = CipherMode.ECB;
+                aesCryptoServiceProvider.Key = contentKey;
+                aesCryptoServiceProvider.Padding = PaddingMode.None;
+                ICryptoTransform cryptoTransform = aesCryptoServiceProvider.CreateEncryptor();
+                array = new byte[16];
+                cryptoTransform.TransformBlock(keyId.ToByteArray(), 0, 16, array, 0);
+            }
+            byte[] array2 = new byte[8];
+            Array.Copy(array, array2, 8);
+            return Convert.ToBase64String(array2);
          }
-         byte[] array2 = new byte[8];
-         Array.Copy(array, array2, 8);
-         return Convert.ToBase64String(array2);
-     }
 5. Create the Content key with the **EncryptedContentKey** (converted to base64-encoded string), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType**, and **Checksum** values you have received in previous steps.
 6. Associate the **ContentKey** entity with your **Asset** entity through the $links operation.
 
-Note that examples that generate an AES key, encrypt the key, and calculate the checksum have been omitted from this topic. Only the examples that show how to interact with Media Services are provided.
+Note that this topic does not show how to generate an AES key, encrypt the key, and calculate the checksum. 
 
-> [!NOTE]
-> When working with the Media Services REST API, the following considerations apply:
-> 
-> When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
-> 
-> After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI. For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).
-> 
+>[!NOTE]
+
+>When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
+
+## Connect to Media Services
+
+For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
+
+>[!NOTE]
+>After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI.
 
 ## Retrieve the ProtectionKeyId
 The following example shows how to retrieve the ProtectionKeyId, a certificate thumbprint, for the certificate you must use when encrypting your content key. Do this step to make sure that you already have the appropriate certificate on your machine.

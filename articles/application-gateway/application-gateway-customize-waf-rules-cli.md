@@ -1,9 +1,9 @@
 ---
 title: Customize web application firewall rules in Azure Application Gateway - Azure CLI 2.0 | Microsoft Docs
-description: This page provides information on how to customize web application firewall rules in Application Gateway with the Azure CLI 2.0.
+description: This article provides information on how to customize web application firewall rules in Application Gateway with the Azure CLI 2.0.
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.custom:
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
-ms.author: gwallace
+ms.author: davidmu
 
 ---
 
@@ -25,19 +25,21 @@ ms.author: gwallace
 > * [PowerShell](application-gateway-customize-waf-rules-powershell.md)
 > * [Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md)
 
-Application Gateway web application firewall provides protection for web applications. These protections are provided by OWASP CRS rulesets. Some rules can cause false positives and block real traffic.  For this reason application gateway provides the capability to customize rule groups and rules on a web application firewall enabled application gateway. For more information on the specific rule groups and rules, visit [web application firewall CRS Rule groups and rules](application-gateway-crs-rulegroups-rules.md)
+The Azure Application Gateway web application firewall (WAF) provides protection for web applications. These protections are provided by the Open Web Application Security Project (OWASP) Core Rule Set (CRS). Some rules can cause false positives and block real traffic. For this reason, Application Gateway provides the capability to customize rule groups and rules. For more information on the specific rule groups and rules, see [List of web application firewall CRS rule groups and rules](application-gateway-crs-rulegroups-rules.md).
 
 ## View rule groups and rules
 
-The following are examples show how to view rules and rule groups that are configurable on a WAF enabled application gateway.
+The following code examples show how to view rules and rule groups that are configurable.
 
 ### View rule groups
+
+The following example shows how to view the rule groups:
 
 ```azurecli-interactive
 az network application-gateway waf-config list-rule-sets --type OWASP
 ```
 
-The following a truncated response from the preceding example.
+The following output is a truncated response from the preceding example:
 
 ```
 [
@@ -84,13 +86,13 @@ The following a truncated response from the preceding example.
 
 ### View rules in a rule group
 
-The following example shows how to view rules in a specified rule group.
+The following example shows how to view rules in a specified rule group:
 
 ```azurecli-interactive
 az network application-gateway waf-config list-rule-sets --group "REQUEST-910-IP-REPUTATION"
 ```
 
-The following output is a truncated response from the preceding example.
+The following output is a truncated response from the preceding example:
 
 ```
 [
@@ -123,7 +125,7 @@ The following output is a truncated response from the preceding example.
 
 ## Disable rules
 
-The following example disables rules `910018` and `910017` on an application gateway.
+The following example disables rules `910018` and `910017` on an application gateway:
 
 ```azurecli-interactive
 az network application-gateway waf-config set --resource-group AdatumAppGatewayRG --gateway-name AdatumAppGateway --enabled true --rule-set-version 3.0 --disabled-rules 910018 910017
@@ -131,7 +133,7 @@ az network application-gateway waf-config set --resource-group AdatumAppGatewayR
 
 ## Next steps
 
-Once you configure your disabled rules, learn how to view your WAF logs by visiting [Application Gateway Diagnostics](application-gateway-diagnostics.md#diagnostic-logging)
+After you configure your disabled rules, you can learn how to view your WAF logs. For more information, see [Application Gateway diagnostics](application-gateway-diagnostics.md#diagnostic-logging).
 
 [fig1]: ./media/application-gateway-customize-waf-rules-portal/1.png
 [1]: ./media/application-gateway-customize-waf-rules-portal/figure1.png

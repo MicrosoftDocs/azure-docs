@@ -2,7 +2,7 @@
 title: Azure Media Services dynamic packaging overview | Microsoft Docs
 description: The topic gives and overview of dynamic packaging.
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 services: media-services
 documentationcenter: ''

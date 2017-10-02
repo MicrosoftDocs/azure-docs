@@ -10,14 +10,14 @@ tags:
 keywords: ''
 
 ms.assetid: 
-ms.service: 
+ms.service: container-instances
 ms.devlang: na
-ms.topic: na
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: seanmck
-ms.custom: 
+ms.custom: mvc
 ---
 
 # Container Groups in Azure Container Instances

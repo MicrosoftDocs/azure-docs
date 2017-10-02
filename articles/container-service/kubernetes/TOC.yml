@@ -37,13 +37,13 @@
     href: container-service-kubernetes-service-principal.md
 - name: How-to guides
   items:
-  - name: Kubernetes with Windows Quickstart
+  - name: Kubernetes with Windows
     href: container-service-kubernetes-windows-walkthrough.md
-  - name: Container management - Kubernetes UI
+  - name: Kubernetes web interface
     href: container-service-kubernetes-ui.md
   - name: Deploy Helm charts
     href: container-service-kubernetes-helm.md
-  - name: CI/CD with Kubernetes and Jenkins
+  - name: Jenkins and ACS Kubernetes
     href: container-service-kubernetes-jenkins.md
   - name: Use Draft with ACR and ACS
     href: container-service-draft-up.md
@@ -51,8 +51,12 @@
     href: container-service-connect.md
   - name: Scale an ACS cluster
     href: container-service-scale.md
+  - name: Load balance a Kubernetes ACS cluster
+    href: container-service-kubernetes-load-balancing.md
   - name: Monitor
     items:
+    - name: Monitor with OMS
+      href: container-service-kubernetes-oms.md
     - name: Monitor with Datadog
       href: container-service-kubernetes-datadog.md
     - name: Monitor with Sysdig
@@ -65,12 +69,14 @@
       href: container-service-deploy-spring-boot-app-on-linux.md
     - name: Deploy a Spring Boot Application on a Kubernetes Cluster in the Azure Container Service
       href: container-service-deploy-spring-boot-app-on-kubernetes.md
+    - name: Deploy a Spring Boot app using the fabric8 Maven plugin
+      href: container-service-deploy-spring-boot-app-using-fabric8-maven-plugin.md
 - name: Reference
   items:
-  - name: Azure CLI 2.0
+  - name: Azure CLI
     href: /cli/azure/acs
   - name: REST
-    href: /rest/api/compute/containerservices
+    href: /rest/api/container-service
 - name: Resources
   items:
   - name: Azure Roadmap

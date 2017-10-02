@@ -3,7 +3,7 @@ title: Actions and NotActions - Azure role-based access control (RBAC) | Microso
 description: This topic describes the built in roles for role-based access control (RBAC). The roles are continuously added, so check the documentation freshness.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: andredm7
 manager: femila
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/28/2017
-ms.author: curtand
+ms.author: andredm
 ms.reviewer:
 
 ms.custom: H1Hack27Feb2017

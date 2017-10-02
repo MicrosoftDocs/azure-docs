@@ -4,7 +4,7 @@ description: Understand how to develop functions by using JavaScript.
 services: functions
 documentationcenter: na
 author: christopheranderson
-manager: erikre
+manager: cfowler
 editor: ''
 tags: ''
 keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
@@ -16,7 +16,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
-ms.author: chrande, glenga
+ms.author: glenga
 
 ---
 # Azure Functions JavaScript developer guide
@@ -198,7 +198,7 @@ Functions lets you define the threshold trace level for writing to the console, 
 }  
 ```
 
-Values of **consoleLevel** correspond to the names of the `context.log` methods. To disable all trace logging to the console, set **consoleLevel** to _off_. For more information about the host.json file, see the [host.json reference topic](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
+Values of **consoleLevel** correspond to the names of the `context.log` methods. To disable all trace logging to the console, set **consoleLevel** to _off_. For more information, see [host.json reference](functions-host-json.md).
 
 ## HTTP triggers and bindings
 
@@ -266,7 +266,7 @@ When you work with HTTP triggers, you can access the HTTP request and response o
     context.done(null, res);   
     ```  
 
-## Node version and Package Management
+## Node version and package management
 The node version is currently locked at `6.5.0`. We're investigating adding support for more versions and making it configurable.
 
 The following steps let you include packages in your function app: 

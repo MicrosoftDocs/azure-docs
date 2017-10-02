@@ -3,7 +3,7 @@ title: "Azure Analysis Services tutorial supplemental lesson: Dynamic security |
 description: Describes how to use dynamic security by using row filters in the Azure Analysis Services tutorial.
 services: analysis-services
 documentationcenter: ''
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: ''
 tags: ''

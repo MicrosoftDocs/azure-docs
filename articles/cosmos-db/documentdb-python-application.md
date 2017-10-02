@@ -15,7 +15,6 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 08/09/2017
-ms.author: syamk
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
 
@@ -47,12 +46,11 @@ application that allows you to vote for a poll.
 Before following the instructions in this article, you should ensure
 that you have the following installed:
 
-* An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
- 
-    OR 
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
-    A local installation of the [Azure Cosmos DB Emulator](local-emulator.md).
-* [Microsoft Visual Studio Community 2017](http://www.visualstudio.com/).  
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
+* If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.  
 * [Python Tools for Visual Studio](https://github.com/Microsoft/PTVS/).  
 * [Microsoft Azure SDK for Python 2.7](https://azure.microsoft.com/downloads/). 
 * [Python 2.7.13](https://www.python.org/downloads/windows/). 
@@ -67,7 +65,7 @@ that you have the following installed:
 * [Microsoft Visual C++ Compiler for Python 2.7](https://www.microsoft.com/en-us/download/details.aspx?id=44266).
 
 ## Step 1: Create an Azure Cosmos DB database account
-Let's start by creating an Cosmos DB account. If you already have an account or if you are using the Azure Cosmos DB Emulator for this tutorial, you can skip to [Step 2: Create a new Python Flask web application](#step-2:-create-a-new-python-flask-web-application).
+Let's start by creating an Cosmos DB account. If you already have an account or if you are using the Azure Cosmos DB Emulator for this tutorial, you can skip to [Step 2: Create a new Python Flask web application](#step-2-create-a-new-python-flask-web-application).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -113,7 +111,7 @@ After your project is set up, you'll need to add the required Flask packages to 
 2. Save the **requirements.txt** file. 
 3. In Solution Explorer, right-click **env** and click **Install from requirements.txt**.
    
-    ![Screen shot showing env (Python 2.7) selected with Install from requirements.txt highlighted in the list](./media/documentdb-python-application/image11.png)
+    ![Screen shot showing env (Python 2.7) selected with Install from requirements.txt highlighted in the list](./media/documentdb-python-application/cosmos-db-python-install-from-requirements.png)
    
     After successful installation, the output window displays the following:
    
@@ -348,7 +346,7 @@ def vote():
 6. After adding all the files, Solution
    Explorer should look like this:
    
-    ![Screen shot of the Visual Studio Solution Explorer window](./media/documentdb-python-application/image15.png)
+    ![Screen shot of the Visual Studio Solution Explorer window](./media/documentdb-python-application/cosmos-db-python-solution-explorer.png)
 
 ## Step 4: Run your web application locally
 1. Build the solution by pressing **Ctrl**+**Shift**+**B**.

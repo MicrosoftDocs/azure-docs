@@ -24,9 +24,9 @@ ms.author: cynthn
 Azure Managed Disks simplifies your storage management by removing the need to separately manage storage accounts.  You can also migrate your existing Azure VMs to Managed Disks to benefit from better reliability of VMs in an Availability Set. It ensures that the disks of different VMs in an Availability Set will be sufficiently isolated from each other to avoid single point of failures. It automatically places disks of different VMs in an Availability Set in different Storage scale units (stamps) which limits the impact of single Storage scale unit failures caused due to hardware and software failures.
 Based on your needs, you can choose from two types of storage options:
 
-- [Premium Managed Disks](../../storage/storage-premium-storage.md) are Solid State Drive (SSD) based storage media which delivers highperformance, low-latency disk support for virtual machines running I/O-intensive workloads. You can take advantage of the speed and performance of these disks by migrating to Premium Managed Disks.
+- [Premium Managed Disks](../../storage/common/storage-premium-storage.md) are Solid State Drive (SSD) based storage media which delivers highperformance, low-latency disk support for virtual machines running I/O-intensive workloads. You can take advantage of the speed and performance of these disks by migrating to Premium Managed Disks.
 
-- [Standard Managed Disks](../../storage/storage-standard-storage.md) use Hard Disk Drive (HDD) based storage media and are best suited for Dev/Test and other infrequent access workloads that are less sensitive to performance variability.
+- [Standard Managed Disks](../../storage/common/storage-standard-storage.md) use Hard Disk Drive (HDD) based storage media and are best suited for Dev/Test and other infrequent access workloads that are less sensitive to performance variability.
 
 You can migrate to Managed Disks in following scenarios:
 
@@ -91,4 +91,4 @@ Review the [pricing for Managed Disks](https://azure.microsoft.com/en-us/pricing
 
 ## Next steps
 
-- Learn more about [Managed Disks](../../storage/storage-managed-disks-overview.md)
+- Learn more about [Managed Disks](managed-disks-overview.md)

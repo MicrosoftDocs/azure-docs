@@ -36,7 +36,7 @@ A Site-to-Site VPN gateway connection is used to connect your on-premises networ
 
 ![Site-to-Site VPN Gateway cross-premises connection diagram](./media/vpn-gateway-create-site-to-site-rm-powershell/site-to-site-diagram.png)
 
-## Before you begin
+## <a name="before"></a>Before you begin
 
 Verify that you have met the following criteria before beginning your configuration:
 
@@ -45,7 +45,7 @@ Verify that you have met the following criteria before beginning your configurat
 * If you are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you. When you create this configuration, you must specify the IP address range prefixes that Azure will route to your on-premises location. None of the subnets of your on-premises network can over lap with the virtual network subnets that you want to connect to.
 * Install the latest version of the Azure Resource Manager PowerShell cmdlets. PowerShell cmdlets are updated frequently and you will typically need to update your PowerShell cmdlets to get the latest feature functionality. If you don't update your PowerShell cmdlets, the values specified may fail. See [How to install and configure Azure PowerShell](/powershell/azure/overview) for more information about downloading and installing PowerShell cmdlets.
 
-### Example values
+### <a name="example"></a>Example values
 
 The examples in this article use the following values. You can use these values to create a test environment, or refer to them to better understand the examples in this article.
 
@@ -84,7 +84,7 @@ If you don't already have a virtual network, create one. When creating a virtual
 
 [!INCLUDE [No NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
-### To create a virtual network and a gateway subnet
+### <a name="vnet"></a>To create a virtual network and a gateway subnet
 
 This example creates a virtual network and a gateway subnet. If you already have a virtual network that you need to add a gateway subnet to, see [To add a gateway subnet to a virtual network you have already created](#gatewaysubnet).
 

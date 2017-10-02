@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 08/21/2017
 ms.author: owend
 
 ---
 # Create a model in Azure portal
 
-The Azure Analysis Services Web designer (preview) feature in Azure portal provides a quick and easy way to create and edit tabular models and query model data right in your browser. 
+The Azure Analysis Services web designer (preview) feature in Azure portal provides a quick and easy way to create and edit tabular models and query model data right in your browser. 
 
-Keep in mind, the Web designer is **preview**. While new functionality is being added all the time, in preview, functionality is limited. For more advanced model development and testing, it's best to use Visual Studio (SSDT) and SQL Server Management Studio (SSMS).
+Keep in mind, the web designer is **preview**. While new functionality is being added all the time, in preview, functionality is limited. For more advanced model development and testing, it's best to use Visual Studio (SSDT) and SQL Server Management Studio (SSMS).
 
 ## Prerequisites
 

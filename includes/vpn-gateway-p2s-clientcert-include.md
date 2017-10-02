@@ -7,7 +7,7 @@ You can generate client certificates using the following methods:
 - **Enterprise certificate:**
 
   - If you are using an enterprise certificate solution, generate a client certificate with the common name value format 'name@yourdomain.com', rather than the 'domain name\username' format.
-  - Make sure the client certificate is based on the 'User' certificate template that has 'Client Authentication' as the first item in the use list, rather than Smart Card Logon, etc. You can check the certificate by double-clicking the client certificate and viewing *Details > Enhanced Key Usage*.
+  - Make sure the client certificate is based on the 'User' certificate template that has 'Client Authentication' as the first item in the use list, rather than Smart Card Logon, etc. You can check the certificate by double-clicking the client certificate and viewing **Details > Enhanced Key Usage**.
 
 - **Self-signed root certificate:** It's important that you follow the steps in one of the P2S certificate articles below. Otherwise, the client certificates you create won't be compatible with P2S connections and clients receive an error when trying to connect. The steps in either of the following articles generate a compatible client certificate: 
 

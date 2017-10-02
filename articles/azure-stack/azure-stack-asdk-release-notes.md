@@ -13,12 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 09/25/2017
 ms.author: helaw
 
 ---
 
 # Azure Stack Development Kit release notes
+
+*Applies to: Azure Stack Development Kit*
+
 These release notes provide information on new features and known issues.
 
 ## Release Build 20170627.1
@@ -38,6 +41,7 @@ Starting with the [20170627.1](azure-stack-updates.md#determine-the-current-vers
 * You may notice deployment taking longer than previous releases. 
 * Get-AzureStackLogs generates diagnostic logs, however, does not log progress to the console.
 * You must use the new [deployment experience](azure-stack-run-powershell-script.md) to deploy Azure Stack, or deployment may fail.
+* Deployments using the *PublicVLANID* parameter will fail.
 
 #### Portal
 * You may see a blank dashboard in the portal.  You can recover the dashboard by selecting the gear in the upper right of the portal, and selecting "Restore default settings".

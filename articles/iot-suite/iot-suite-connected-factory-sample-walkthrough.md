@@ -22,7 +22,7 @@ ms.author: dobett
 
 The IoT Suite connected factory [preconfigured solution][lnk-preconfigured-solutions] is an implementation of an end-to-end industrial solution that:
 
-* Connects to both simulated industrial devices running OPC UA servers in simulated factory production lines, and real OPC UA server devices. For more information about OPC UA, see the [FAQ][lnk-faq].
+* Connects to both simulated industrial devices running OPC UA servers in simulated factory production lines, and real OPC UA server devices. For more information about OPC UA, see the [Connected factory FAQ](iot-suite-faq-cf.md).
 * Shows operational KPIs and OEE of those devices and production lines.
 * Demonstrates how a cloud-based application could be used to interact with OPC UA server systems.
 * Enables you to connect your own OPC UA server devices.
@@ -36,6 +36,8 @@ This article walks you through some of the key elements of the connected factory
 * Troubleshoot issues in the solution.
 * Plan how to customize to the solution to meet your own specific requirements.
 * Design your own IoT solution that uses Azure services.
+
+For more information, see the [Connected factory FAQ](iot-suite-faq-cf.md).
 
 ## Logical architecture
 
@@ -124,6 +126,7 @@ The web app deployed as part of the preconfigured solution comprises of an integ
 You can continue getting started with IoT Suite by reading the following articles:
 
 * [Permissions on the azureiotsuite.com site][lnk-permissions]
+* [Deploy a gateway on Windows or Linux for the connected factory preconfigured solution](iot-suite-connected-factory-gateway-deployment.md)
 
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
 
@@ -134,4 +137,3 @@ You can continue getting started with IoT Suite by reading the following article
 [lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
 [lnk-Azure-IoT-Gateway]: https://github.com/azure/iot-edge
 [lnk-permissions]: iot-suite-permissions.md
-[lnk-faq]: iot-suite-faq.md

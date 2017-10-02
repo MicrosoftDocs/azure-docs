@@ -29,7 +29,7 @@ The following table includes links to bash scripts built using the Azure CLI.
 | [Get cache details](./scripts/show-cache.md) | Gets details of an Azure Redis Cache instance, including provisioning status. |
 | [Get the hostname, ports, and keys](./scripts/cache-keys-ports.md) | Gets the hostname, ports, and keys for an Azure Redis Cache instance. |
 |**Web app plus cache**||
-| [Connect a web app to a redis cache](./../app-service-web/scripts/app-service-cli-app-service-redis.md) | Creates an Azure web app and a redis cache, then adds the redis connection details to the app settings. |
+| [Connect a web app to a redis cache](./../app-service/scripts/app-service-cli-app-service-redis.md) | Creates an Azure web app and a redis cache, then adds the redis connection details to the app settings. |
 |**Delete cache**||
 | [Delete a cache](./scripts/delete-cache.md) | Deletes an Azure Redis Cache instance  |
 | | |

@@ -10,14 +10,14 @@ tags:
 keywords: ''
 
 ms.assetid: 
-ms.service: 
+ms.service: container-instances
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2017
 ms.author: seanmck
-ms.custom: 
+ms.custom: mvc
 ---
 
 # Create container for deployment to Azure Container Instances
@@ -36,6 +36,8 @@ In subsequent tutorials, you will upload your image to an Azure Container Regist
 This tutorial assumes a basic understanding of core Docker concepts such as containers, container images, and basic docker commands. If needed, see [Get started with Docker]( https://docs.docker.com/get-started/) for a primer on container basics. 
 
 To complete this tutorial, you need a Docker development environment. Docker provides packages that easily configure Docker on any [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), or [Linux](https://docs.docker.com/engine/installation/#supported-platforms) system.
+
+Azure Cloud Shell does not include the Docker components required to complete every step this tutorial. Therefore, we recommend using a full Docker development environment.
 
 ## Get application code
 

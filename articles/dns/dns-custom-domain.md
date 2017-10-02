@@ -131,9 +131,9 @@ Once the process is complete, run **nslookup** to validate name resolution is wo
 
 ![figure 1](./media/dns-custom-domain/finalnslookup.png)
 
-To learn more about mapping a custom domain to App Service, visit [Map an existing custom DNS name to Azure Web Apps](../app-service-web/app-service-web-tutorial-custom-domain.md?toc=%dns%2ftoc.json).
+To learn more about mapping a custom domain to App Service, visit [Map an existing custom DNS name to Azure Web Apps](../app-service/app-service-web-tutorial-custom-domain.md?toc=%dns%2ftoc.json).
 
-If you need to purchase a custom domain, visit [Buy a custom domain name for Azure Web Apps](../app-service-web/custom-dns-web-site-buydomains-web-app.md) to learn more about App Service domains.
+If you need to purchase a custom domain, visit [Buy a custom domain name for Azure Web Apps](../app-service/custom-dns-web-site-buydomains-web-app.md) to learn more about App Service domains.
 
 ## Blob storage
 
@@ -160,7 +160,7 @@ Navigate back to your storage account by clicking **Storage** > **Storage Accoun
 
 Validate DNS resolution by running `nslookup`
 
-To learn more about mapping a custom domain to a blob storage endpoint visit [Configure a custom domain name for your Blob storage endpoint](../storage/storage-custom-domain-name.md?toc=%dns%2ftoc.json)
+To learn more about mapping a custom domain to a blob storage endpoint visit [Configure a custom domain name for your Blob storage endpoint](../storage/blobs/storage-custom-domain-name.md?toc=%dns%2ftoc.json)
 
 ## Azure CDN
 

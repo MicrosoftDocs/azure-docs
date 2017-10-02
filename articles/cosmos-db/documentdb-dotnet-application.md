@@ -42,12 +42,11 @@ This walk-through shows you how to use the Azure Cosmos DB service to store and 
 ## <a name="_Toc395637760"></a>Prerequisites for this database tutorial
 Before following the instructions in this article, you should ensure that you have the following:
 
-* An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
+* An active Azure account.  If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
-    OR
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-    A local installation of the [Azure Cosmos DB Emulator](local-emulator.md).
-* [Visual Studio 2017](http://www.visualstudio.com/).  
+* [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)]  
 * Microsoft Azure SDK for .NET for Visual Studio 2017, available through the Visual Studio Installer.
 
 All the screen shots in this article have been taken using Microsoft Visual Studio Community 2017. If your system is configured with a different version it is possible that your screens and options won't match entirely, but if you meet the above prerequisites this solution should work.
@@ -304,10 +303,7 @@ The first thing to do here is add a class that contains all the logic to connect
             }
         }
    
-   > [!TIP]
-   > When creating a new DocumentCollection you can supply an optional RequestOptions parameter of OfferType, which allows you to specify the performance level of the new collection. If this parameter is not passed the default offer type will be used. For more on Azure Cosmos DB offer types please refer to [Azure Cosmos DB Performance Levels](performance-levels.md).
-   > 
-   > 
+    
 3. We're reading some values from configuration, so open the **Web.config** file of your application and add the following lines under the `<AppSettings>` section.
    
         <add key="endpoint" value="enter the URI from the Keys blade of the Azure Portal"/>

@@ -539,7 +539,7 @@ Suppose you wanted to run the preceding Transact-SQL sample on Microsoft SQL Ser
 
 For more info about accounts and containers in the Azure Storage service, see:
 
-* [How to use Blob storage from .NET](../storage/storage-dotnet-how-to-use-blobs.md)
+* [How to use Blob storage from .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 * [Naming and Referencing Containers, Blobs, and Metadata](http://msdn.microsoft.com/library/azure/dd135715.aspx)
 * [Working with the Root Container](http://msdn.microsoft.com/library/azure/ee395424.aspx)
 * [Lesson 1: Create a stored access policy and a shared access signature on an Azure container](http://msdn.microsoft.com/library/dn466430.aspx)

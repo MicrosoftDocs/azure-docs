@@ -36,12 +36,21 @@
 ### [Queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 ### [Apps that use queues](service-bus-create-queues.md)
 ### [Apps that use topics/subscriptions](service-bus-create-topics-subscriptions.md)
+### [Messages, payloads, and serialization](service-bus-messages-payloads.md)
 ### [Authentication and authorization](service-bus-authentication-and-authorization.md)
+#### [Migrate from ACS to SAS](service-bus-migrate-acs-sas.md)
 #### [Authentication with Shared Access Signatures](service-bus-sas.md)
 ### [Partitioned queues and topics](service-bus-partitioning.md)
 ### [Dead-letter queues](service-bus-dead-letter-queues.md)
 ### [Transaction processing](service-bus-transactions.md)
+### [Duplicate message detection](duplicate-detection.md)
 ### [Diagnostic logs](service-bus-diagnostic-logs.md)
+### [Paired namespace implementation](service-bus-paired-namespaces.md)
+### [Message sessions](message-sessions.md)
+### [Message sequencing and timestamps](message-sequencing.md)
+### [Message browsing](message-browsing.md)
+### [Message transfers, locks, and settlement](message-transfers-locks-settlement.md)
+### [Message expiration (Time to Live)](message-expiration.md) 
 ### AMQP
 #### [AMQP overview](service-bus-amqp-overview.md)
 #### [.NET](service-bus-amqp-dotnet.md)
@@ -52,14 +61,21 @@
 
 ## Manage
 ### [Service Bus management libraries](service-bus-management-libraries.md)
-### [Using Azure Resource Manager templates](service-bus-resource-manager-overview.md)
-### [Using PowerShell to provision entities](service-bus-manage-with-ps.md)
+### [Use Azure Resource Manager templates](service-bus-resource-manager-overview.md)
+#### [Create a namespace](service-bus-resource-manager-namespace.md)
+#### [Create a namespace and a queue](service-bus-resource-manager-namespace-queue.md)
+#### [Create a namespace with topic and subscription](service-bus-resource-manager-namespace-topic.md)
+#### [Create an authorization rule for namespace and queue](service-bus-resource-manager-namespace-auth-rule.md)
+#### [Create a namespace with topic, subscription, and rule](service-bus-resource-manager-namespace-topic-with-rule.md)
+#### 
+### [Using Azure PowerShell to provision entities](service-bus-manage-with-ps.md)
 
 # Reference
 ## .NET
 ### [Microsoft.ServiceBus.Messaging (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.ServiceBus (.NET Standard)](/dotnet/api/microsoft.azure.servicebus)
-## [PowerShell](/powershell/module/azurerm.servicebus)
+## [Java](/java/api/overview/azure/servicebus)
+## [Azure PowerShell](/powershell/module/azurerm.servicebus)
 ## [REST](/rest/api/servicebus)
 ## [Exceptions](service-bus-messaging-exceptions.md)
 ## [Quotas](service-bus-quotas.md)
@@ -77,7 +93,7 @@
 ## [ServiceBus360](https://www.servicebus360.com/)
 ## [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [Service updates](https://azure.microsoft.com/updates/?product=service-bus)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azureservicebus)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 

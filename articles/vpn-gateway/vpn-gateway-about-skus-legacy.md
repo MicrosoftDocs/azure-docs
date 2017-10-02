@@ -22,15 +22,15 @@ ms.author: cherylmc
 
 This article contains information about the legacy (old) virtual network gateway SKUs. The legacy SKUs still work in both deployment models for VPN gateways that have already been created. Classic VPN gateways continue to use the legacy SKUs, both for existing gateways, and for new gateways. When creating new Resource Manager VPN gateways, use the new gateway SKUs. For information about the new SKUs, see [About VPN Gateway](vpn-gateway-about-vpngateways.md).
 
-## Gateway SKUs
+## <a name="gwsku"></a>Gateway SKUs
 
 [!INCLUDE [Legacy gateway SKUs](../../includes/vpn-gateway-gwsku-legacy-include.md)]
 
-## Estimated aggregate throughput by SKU
+## <a name="agg"></a>Estimated aggregate throughput by SKU
 
 [!INCLUDE [Aggregated throughput by legacy SKU](../../includes/vpn-gateway-table-gwtype-legacy-aggtput-include.md)]
 
-## Supported configurations by SKU and VPN type
+## <a name="config"></a>Supported configurations by SKU and VPN type
 
 [!INCLUDE [Table requirements for old SKUs](../../includes/vpn-gateway-table-requirements-legacy-sku-include.md)]
 
