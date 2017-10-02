@@ -98,3 +98,8 @@ A custom policy is represented as one or several XML-formatted files that refer 
 When an application calls the RP Policy file, the Identity Experience Framework in B2C will add all the elements from BASE, then from EXTENSIONS, and lastly from the RP policy file to assemble the current policy in effect.  Elements of the same type and name in the RP file will override those in the EXTENSIONS, and EXTENSIONS overrides BASE.
 
 **Built-in policies** in Azure AD B2C follow the 3-file pattern depicted above, but the developer only sees the Relying Party (RP) file, while the portal makes changes in the background to the EXTenstions file.  All of Azure AD B2C shares a BASE policy file that is under the control of the Azure B2C team and is updated frequently.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Get started with custom policies](active-directory-b2c-get-started-custom.md)
