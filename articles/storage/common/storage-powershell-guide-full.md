@@ -97,7 +97,7 @@ The script uses the following PowerShell cmdlets:
 
 *   [New-AzureRmStorageAccount](/powershell/module/azurerm.resources/New-AzureRmStorageAcccount) -- this creates the actual storage account. The example uses `testpshstorage`.
 
-The SKU name indicates the type of replication for the storage account. For more information about replication, see [Azure Storage Replication](storage-redundancy.md).
+The SKU name indicates the type of replication for the storage account, such as LRS (Locally-Redundant Storage). For more information about replication, see [Azure Storage Replication](storage-redundancy.md).
 
 > [!IMPORTANT]
 > The name of your storage account must be unique within Azure and must be lowercase. For naming conventions and restrictions, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
@@ -107,19 +107,19 @@ Now you have a new storage account and a reference to it.
 
 ## Managing the storage account
 
-Now that you have a reference to a new storage account or an existing storage account, you can use several commands to manage your storage account.
+Now that you have a reference to a new storage account or an existing storage account, the following shows some of the commands you can use to manage your storage account.
 
 ### Storage account properties
 
-To change the settings for a storage account, use [Set-AzureRmStorageAccount](/powershell/module/azurerm.resources/Set-AzureRmStorageAccount). There are some properties you can't change once the storage account is set up, such as the location of the storage account, or the resource group in which is resides. Here are some of the properties you might want to change: 
+To change the settings for a storage account, use [Set-AzureRmStorageAccount](/powershell/module/azurerm.resources/Set-AzureRmStorageAccount). While you can't change the location of a storage account, or the resource group in which it resides, you can change many of the other properties. The following lists some of the properties you can change using PowerShell.
 
 * The **custom domain** assigned to the storage account.
 
 * The **tags** assigned to the storage account. These are often used to categorize resources for billing purposes.
 
-* The **SKU**, or replication setting for the storage account. For example, you might change from Standard\_LRS to Standard\_GRS or Standard\_RAGRS. You can't change Standard ZRS or Premium LRS to other SKUs, or change other SKUs to these. 
+* The **SKU** is the replication setting for the storage account, such as LRS for Locally Redundant Storage. For example, you might change from Standard\_LRS to Standard\_GRS or Standard\_RAGRS. Note that you can't change Standard ZRS or Premium LRS to other SKUs, or change other SKUs to these. 
 
-* The **access tier** for Blob storage accounts. This is **hot** or **cool**, and allows you to set it to minimize your cost by selecting the access tier that aligns with how you use the storage account. For more information, see [Hot, cool, and archive storage tiers](../blobs/storage-blob-storage-tiers.md).
+* The **access tier** for Blob storage accounts. This is **hot** or **cool**, and allows you to minimize your cost by selecting the access tier that aligns with how you use the storage account. For more information, see [Hot, cool, and archive storage tiers](../blobs/storage-blob-storage-tiers.md).
 
 * The storage service encryption setting for blob storage and/or file storage. For more information about SSE, see [Storage Service Encryption](storage-service-encryption.md).
 
@@ -153,7 +153,7 @@ Regenerate one of your keys and then retrieve it again to see the new value.
 To delete a storage account, use [Remove-AzureRmStorageAccount](/powershell/module/azurerm.storage/Remove-AzureRmStorageAccount). 
 
 > [!IMPORTANT]
-> When you delete a storage account, all of the assets stored in the account are deleted as well. If you delete an account accidentally, you can try calling Support and opening a ticket to restore the storage account, but this is not a promised feature, and does not always work. To raise the likelihood of it working, do not create a new storage account with the same name as the old one until the data has been recovered or support has reported being unable to recover the data.
+> When you delete a storage account, all of the assets stored in the account are deleted as well. If you delete an account accidentally, call Support immediately and open a ticket to restore the storage account. This is not guaranteed, but does sometimes work. Do not create a new storage account with the same name as the old one until the support ticket has been resolved. 
 >
 
 ```powershell
@@ -171,7 +171,13 @@ The article shows how to manage these settings using the following PowerShell cm
 
 ## Using storage analytics  
 
-You can use [Azure Storage Analytics](storage-analytics.md) to collect metrics for your Azure storage accounts and log data about requests sent to your storage account. You can use storage metrics to monitor the health of a storage account, and storage logging to diagnose and troubleshoot issues with your storage account. You can configure monitoring using the [Azure portal](https://portal.azure.com), PowerShell, or programmatically using the storage client library. Storage logging happens server-side and enables you to record details for both successful and failed requests in your storage account. These logs enable you to see details of read, write, and delete operations against your tables, queues, and blobs as well as the reasons for failed requests.
+[Azure Storage Analytics](storage-analytics.md) consists of [Storage Analytics Metrics](/rest/api/storageservices/about-storage-analytics-metrics) and [Storage Analytics Logging](/rest/api/storageservices/about-storage-analytics-logging). 
+
+**Storage Analytics Metrics** is used to collect metrics for your Azure storage accounts that you can use to monitor the health of a storage account. Metrics can be enabled for blobs, files, tables, and queues.
+
+**Storage Analytics Logging** happens server-side and enables you to record details for both successful and failed requests to your storage account. These logs enable you to see details of read, write, and delete operations against your tables, queues, and blobs as well as the reasons for failed requests. Logging is not available for Azure Files.
+
+You can configure monitoring using the [Azure portal](https://portal.azure.com), PowerShell, or programmatically using the storage client library. 
 
 [!Note: You cannot use the Azure portal to enable minute analytics, but you can enable them using PowerShell.
 
@@ -182,7 +188,7 @@ You can use [Azure Storage Analytics](storage-analytics.md) to collect metrics f
 
 * For detailed information on using Storage Metrics and Storage Logging to troubleshoot storage issues, see [Monitoring, Diagnosing, and Troubleshooting Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 
-## Managing the data plane
+## Managing the data in the storage account
 
 Now that you understand how to manage your storage account with PowerShell, the following articles will show you how to use PowerShell to access the data objects in the storage account.
 
@@ -201,9 +207,8 @@ To access the Government cloud of the China datacenters, you have to use some sp
 
 ## Next Steps
 
-In this guide, you've learned how to manage your storage account with Azure PowerShell. Here are some related articles and resources for learning more.
+In this guide, you've learned how to manage your storage account with Azure PowerShell, and you have pointers to articles showing how to manage the data objects and access storage using the Governmenet Cloud and the China Cloud. Here are some other related articles and resources for reference: 
 
 * [Azure Storage control plane PowerShell cmdlets](/powershell/module/AzureRM.Storage/)
 * [Azure Storage data plane PowerShell cmdlets](/powershell/module/azure.storage/)
-* [Azure Storage documentation](https://azure.microsoft.com/documentation/services/storage/)
 * [Windows PowerShell Reference](https://msdn.microsoft.com/library/ms714469.aspx)
