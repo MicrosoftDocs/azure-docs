@@ -41,8 +41,8 @@ namespace bing_custom_search_example_dotnet
     {
         static void Main(string[] args)
         {
-            var subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
-            var customConfigId = "<YOUR-CUSTOM-CONFIG-ID>";
+            var subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
+            var customConfigId = "YOUR-CUSTOM-CONFIG-ID";
             var searchTerm = args.Length > 0 ? args[0]: "microsoft";            
 
             var url = "https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?" +
