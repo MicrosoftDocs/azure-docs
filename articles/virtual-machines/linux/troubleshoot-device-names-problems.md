@@ -76,7 +76,7 @@ LUN information from the Linux guest account is retrieved by using `lsscsi` or a
 
       [5:0:0:1] disk Msft Virtual Disk 1.0 /dev/sdd
 
-The guest LUN information is used with Azure subscription metadata to locate the VHD in Azure Storage that contains the partition data. For example, you can use the `az` cli:
+The guest LUN information is used with Azure subscription metadata to locate the VHD in Azure Storage that contains the partition data. For example, you can use the `az` CLI:
 
     $ az vm show --resource-group testVM --name testVM | jq -r .storageProfile.dataDisks                                        
     [                                                                                                                                                                  
