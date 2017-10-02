@@ -27,8 +27,8 @@ In addition to script files, Azure Functions supports publishing a class library
 
 This article has the following prerequisites:
 
-- [Visual Studio 2017 15.3 Preview](https://www.visualstudio.com/vs/preview/). Install the workloads **ASP.NET and web development** and **Azure development**.
-- [Azure Function Tools for Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=AndrewBHall-MSFT.AzureFunctionToolsforVisualStudio2017)
+- [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/), or a later version.
+- Install the **Azure development** workload.
 
 ## Functions class library project
 
@@ -72,7 +72,7 @@ The following table lists the triggers and bindings that are available in an Azu
 
 Azure Functions supports trigger, input, and output bindings for Azure Blob storage. For more information on binding expressions and metadata, see [Azure Functions Blob storage bindings](functions-bindings-storage-blob.md).
 
-A blob trigger is defined with the `[BlobTrigger]` attribute. You can use the attribute `[StorageAccount]` to define the storage account that is used by an entire function or class.
+A blob trigger is defined with the `[BlobTrigger]` attribute. You can use the attribute `[StorageAccount]` to define the app setting name that contains the connection string to the storage account that is used by an entire function or class.
 
 ```csharp
 [StorageAccount("AzureWebJobsStorage")]
@@ -228,7 +228,7 @@ Azure Functions supports an output binding for Notification Hubs. To learn more,
 
 Azure Functions supports trigger and output bindings for Azure queues. For more information, see [Azure Functions Queue Storage bindings](functions-bindings-storage-queue.md).
 
-The following example shows how to use the function return type with a queue output binding, using the `[Queue]` attribute. To define a queue trigger, use the `[QueueTrigger]` attribute.
+The following example shows how to use the function return type with a queue output binding, using the `[Queue]` attribute. 
 
 ```csharp
 [StorageAccount("AzureWebJobsStorage")]
@@ -242,7 +242,15 @@ public static class QueueFunctions
         log.Info($"C# function processed: {input.Text}");
         return input.Text;
     }
+}
 
+```
+
+To define a queue trigger, use the `[QueueTrigger]` attribute.
+```csharp
+[StorageAccount("AzureWebJobsStorage")]
+public static class QueueFunctions
+{
     // Queue trigger
     [FunctionName("QueueTrigger")]
     [StorageAccount("AzureWebJobsStorage")]
@@ -253,6 +261,7 @@ public static class QueueFunctions
 }
 
 ```
+
 
 <a name="sendgrid"></a>
 
