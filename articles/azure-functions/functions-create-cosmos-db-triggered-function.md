@@ -61,7 +61,7 @@ Next, you create a function in the new function app.
     | **Collection name** | Items | Name of collection to be monitored. |
     | **Create lease collection if it doesn't exist** | Checked | The collection doesn't already exist, so create it. |
 
-4. Select **New** next to the **Azure Cosmos DB account connection** label, and choose an existing Cosmos DB account or select **+ Create new**. 
+4. Select **New** next to the **Azure Cosmos DB account connection** label, and choose an existing Cosmos DB account or **+ Create new**. 
  
     ![Configure Azure Cosmos DB connection](./media/functions-create-cosmos-db-triggered-function/functions-create-CosmosDB.png)
 
