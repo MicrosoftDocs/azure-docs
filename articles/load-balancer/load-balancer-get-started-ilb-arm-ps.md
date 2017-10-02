@@ -260,7 +260,7 @@ $lb = Get-AzureRmLoadBalancer –name NRP-LB -resourcegroupname NRP-RG
 Load the backend configuration to a variable.
 
 ```powershell
-$backend = Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
+$backend = Get-AzureRmLoadBalancerBackendAddressPoolConfig -name LB-backend -LoadBalancer $lb
 ```
 
 ### Step 3

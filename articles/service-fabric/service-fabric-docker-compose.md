@@ -56,19 +56,19 @@ Remove-ServiceFabricComposeDeployment  -DeploymentName TestContainerApp
 Alternatively, you can use the following Service Fabric CLI command:
 
 ```azurecli
-sfctl compose create --application-id TestContainerApp --compose-file docker-compose.yml [ [ --repo-user --repo-pass --encrypted ] | [ --repo-user ] ] [ --timeout ]
+sfctl compose create --name TestContainerApp --file-path docker-compose.yml [ [ --user --encrypted-pass ] | [ --user --has-pass ] ] [ --timeout ]
 ```
 
 After you've created the application, you can check its status by using the following command:
 
 ```azurecli
-sfctl compose status --application-id TestContainerApp [ --timeout ]
+sfctl compose status --deployment-name TestContainerApp [ --timeout ]
 ```
 
 To delete the Compose application, use the following command:
 
 ```azurecli
-sfctl compose remove  --application-id TestContainerApp [ --timeout ]
+sfctl compose remove  --deployment-name TestContainerApp [ --timeout ]
 ```
 
 ## Supported Compose directives

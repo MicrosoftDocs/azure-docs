@@ -198,7 +198,6 @@
 ### Build a Reliable Actors service
 #### Get started
 ##### [C# on Windows](service-fabric-reliable-actors-get-started.md)
-##### [Java on Linux](service-fabric-reliable-actors-get-started-java.md)
 ##### [Java Actor on Linux](service-fabric-create-your-first-linux-application-with-java.md)
 #### [Send notifications](service-fabric-reliable-actors-events.md)
 #### [Set timers and reminders](service-fabric-reliable-actors-timers-reminders.md)
@@ -352,6 +351,7 @@
 ### [sfctl node](service-fabric-sfctl-node.md)
 ### [sfctl partition](service-fabric-sfctl-partition.md)
 ### [sfctl replica](service-fabric-sfctl-replica.md)
+### [sfctl rpm](service-fabric-sfctl-rpm.md)
 ### [sfctl service](service-fabric-sfctl-service.md)
 ### [sfctl store](service-fabric-sfctl-store.md)
 ## [Java API](/java/api/overview/azure/servicefabric)

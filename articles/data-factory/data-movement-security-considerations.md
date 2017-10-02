@@ -93,9 +93,9 @@ The credentials for your on-premises data stores are always encrypted and stored
 
 1. You can choose to **store credentials locally**. If you want to encrypt and store credentials locally on the self-hosted integration runtime, follow the steps in [encrypting credentials on self-hosted integration runtime](encrypt-credentials-self-hosted-integration-runtime.md). All connectors support this option. The self-hosted integration runtime uses Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) to encrypt the sensitive data/ credential information. 
 
-   Use **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential** cmdlet to encrypt Linked Service credentials/ encrypt sensitive details in Linked Service. You can then use the JSON returned (with  **EncryptedCredential** element in the **connectionString**) to create a Linked Service by **Set-AzureRmDataFactoryV2LinkedSevrice** cmdlet.  
+   Use **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** cmdlet to encrypt Linked Service credentials/ encrypt sensitive details in Linked Service. You can then use the JSON returned (with  **EncryptedCredential** element in the **connectionString**) to create a Linked Service by **Set-AzureRmDataFactoryV2LinkedSevrice** cmdlet.  
 
-2. If you do not use **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential** cmdlet as described in the above step, and instead directly use **Set-AzureRmDataFactoryV2LinkedSevrice** cmdlet with the connection strings/ credentials inline in the JSON then the Linked Service will be **encrypted and stored on Azure Data Factory managed storage**. The sensitive information is still encrypted by certificate and these certificates are managed by Microsoft.
+2. If you do not use **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** cmdlet as described in the above step, and instead directly use **Set-AzureRmDataFactoryV2LinkedSevrice** cmdlet with the connection strings/ credentials inline in the JSON then the Linked Service will be **encrypted and stored on Azure Data Factory managed storage**. The sensitive information is still encrypted by certificate and these certificates are managed by Microsoft.
 
 
 

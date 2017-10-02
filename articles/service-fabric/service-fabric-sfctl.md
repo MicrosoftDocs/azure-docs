@@ -32,6 +32,7 @@ Commands for managing Service Fabric clusters and entities. This version is comp
 | [is](service-fabric-sfctl-is.md)      | Query and send commands to the infrastructure service.|
 | [node](service-fabric-sfctl-node.md)    | Manage the nodes that form a cluster.|
 | [partition](service-fabric-sfctl-partition.md)  | Query and manage partitions for any service.|
+| [rpm](service-fabric-sfctl-rpm.md)        | Query and send commands to the repair manager service.|
 | [replica](service-fabric-sfctl-replica.md) | Manage the replicas that belong to service partitions.|
 | [service](service-fabric-sfctl-service.md) | Create, delete, and manage service, service types and service packages.|
 | [store](service-fabric-sfctl-store.md)   | Perform basic file level operations on the cluster image store.|

@@ -44,7 +44,7 @@ An example query to create a new computer group that includes an imported Active
 ## Dashboards
 
 ### Question: Can I still use dashboards in an upgraded workspace?
-You can continue to use any tiles that you added to **My Dashboard** before your workspace was upgraded, but you cannot edit those tiles or add new ones.  You can continue to create and edit views with [View Designer](log-analytics-view-designer.md) and also create dashboards in the Azure portal.
+With the upgrade, we are beginning the process of depracating **My Dashboard**.  You can continue to use any tiles that you added to the dashboard before your workspace was upgraded, but you cannot edit those tiles or add new ones.  You can continue to create and edit views with [View Designer](log-analytics-view-designer.md), which has a richer feature set, and also create dashboards in the Azure portal.
 
 
 ## Log searches

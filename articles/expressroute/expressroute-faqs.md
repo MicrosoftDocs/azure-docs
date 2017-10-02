@@ -162,6 +162,12 @@ Yes. You can authorize up to 10 other Azure subscriptions to use a single Expres
 
 For more information, see [Sharing an ExpressRoute circuit across multiple subscriptions](expressroute-howto-linkvnet-arm.md).
 
+## I have multiple Azure subscriptions associated to different Azure Active Directory tenants or Enterprise Agreement enrollments. Can I connect virtual networks that are in separate tenants and enrollments to a single ExpressRoute circuit not in the same tenant or enrollment?
+
+Yes. ExpressRoute authorizations can span subscription, tenant, and enrollment boundaries with no additional confgiruation required. 
+
+For more information, see [Sharing an ExpressRoute circuit across multiple subscriptions](expressroute-howto-linkvnet-arm.md).
+
 ### Are virtual networks connected to the same circuit isolated from each other?
 
 No. From a routing perspective, all virtual networks linked to the same ExpressRoute circuit are part of the same routing domain and are not isolated from each other. If you need route isolation, you need to create a separate ExpressRoute circuit.
