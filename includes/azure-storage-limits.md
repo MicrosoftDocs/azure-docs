@@ -19,7 +19,7 @@
 | Max IOPS per share |1000 |
 | Max number of files in a file share |Only limit is the 5 TB total capacity of the file share |
 | Max number of stored access policies per container, file share, table, or queue |5 |
-| Maximum Request Rate per storage account |Blobs: 20,000 requests per second<sup>2</sup> for blobs of any valid size<sup>3</sup> <br />Files: 20,000 requests per second <sup>2</sup> for files of any valid size<sup>3</sup> <br />Queues: 20,000 messages per second (assuming 1 KB message size)<br />Tables: 20,000 transactions per second (assuming 1 KB entity size) |
+| Maximum request rate per storage account |Blobs: 20,000 requests per second<sup>2</sup> for blobs of any valid size<sup>3</sup> <br />Files: 20,000 requests per second <sup>2</sup> for files of any valid size<sup>3</sup> <br />Queues: 20,000 messages per second (assuming 1 KB message size)<br />Tables: 20,000 transactions per second (assuming 1 KB entity size) |
 | Target throughput for single blob |Up to 60 MB per second, or up to 500 requests per second |
 | Target throughput for single queue (1 KB messages) |Up to 2000 messages per second |
 | Target throughput for single table partition (1 KB entities) |Up to 2000 entities per second |
@@ -29,11 +29,11 @@
 | Max ingress<sup>3</sup> per storage account (Non-US regions) |5 Gbps if GRS/ZRS<sup>4</sup> enabled, 10 Gbps for LRS<sup>2</sup> |
 | Max egress<sup>3</sup> per storage account (Non-US regions) |10 Gbps if RA-GRS/GRS/ZRS<sup>4</sup> enabled, 15 Gbps for LRS<sup>2</sup> |
 
-<sup>1</sup>This includes both Standard and Premium storage accounts. If you require more than 200 storage accounts, make a request through [Azure Support](https://azure.microsoft.com/support/faq/). The Azure Storage team will review your business case and may approve up to 250 storage accounts. 
+<sup>1</sup>Includes both Standard and Premium storage accounts. If you require more than 200 storage accounts, make a request through [Azure Support](https://azure.microsoft.com/support/faq/). The Azure Storage team will review your business case and may approve up to 250 storage accounts. 
 
 <sup>2</sup> To get your standard storage accounts to grow past the advertised limits in capacity, ingress/egress and request rate, please make a request through [Azure Support](https://azure.microsoft.com/support/faq/). The Azure Storage team will review the request and may approve higher limits on a case by case basis.
 
-<sup>3</sup>Capped only by the account's ingress/egress limits. *Ingress* refers to all data (requests) being sent to a storage account. *Egress* refers to all data (responses) being received from a storage account.  
+<sup>3</sup> Capped only by the account's ingress/egress limits. *Ingress* refers to all data (requests) being sent to a storage account. *Egress* refers to all data (responses) being received from a storage account.  
 
 <sup>4</sup>Azure Storage replication options include:
 * **RA-GRS**: Read-access geo-redundant storage. If RA-GRS is enabled, egress targets for the secondary location are identical to those for the primary location.
