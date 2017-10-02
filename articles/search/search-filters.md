@@ -19,37 +19,29 @@ ms.author: heidist
 ---
 # Filters in Azure Search 
 
-In Azure Search, a *filter* reduces the collection of documents based on the criteria you provide. Unfiltered search is open-ended and inclusive of all documents in the index. Filters are a mechanism for establishing a subset of documents. For example, restricting full text search to language-specific descriptions or titles.
+A *filter* reduces the collection of documents used in an Azure Search query based on criteria you provide. Unfiltered search is open-ended and inclusive of all documents in the index. Filters are a mechanism for creating a subset of documents for a query operation. For example, restricting full text search to Spanish strings in descriptions or titles in a multi-lingual search app.
 
-In this article, we explain the filter methodologies available in Azure Search, when to use filters, and general usage requirements.
+In this article, we explain the filter methodologies, when to use filters, and general usage requirements for text and numeric filters.
 
-## How filters are used in Azure Search.
+## How filters are used
 
-A filter is an instruction used to reduce the pool of documents for further query operations. The criteria provided in the filter either qualifies a document for inclusion or exclusion for more downstream processing (namely, evaluating for relevance and assigning a score). 
+A filter is an instruction used to reduce the pool of documents for further query operations. The criteria provided in the filter qualifies a document for inclusion or exclusion in a downstream processing operation (namely, evaluating content for relevance, scoring, ranking, and returning results to the calling application). 
 
-At query time, filter criteria are added to the query tree first and evaluated first. Subsequent query operations are performed only on the filtered subset of documents.
+At query time, filter criteria are added to the query tree first and evaluated first. Filter composition can be as simple as a string or field. Alternatively, it could be a complex expression articulated in OData syntax, where the expression resolves to additional items in a query tree. 
 
-Filters provide additional input into the query structure used in a search operation. Filter composition can be as simple as one or more strings. Alternatively, it could be an expression articulated in OData syntax, where the expression resolves to additional items in a query tree. 
+For text filters, the contents of the expression do not undergo linguistic analysis, but are added verbatim to the query tree.
 
-Contents of a filter expression do not undergo linguistic analysis, but are added verbatim to the query tree.
+## Use cases
 
-## Use cases for filters
+Filters are foundational to several search experiences, including "find near me", faceted navigation, and security filters that only show documents a user is allowed to see. The essence of these experiences is a filter that provides the geo.location corrdinates, a facet category selected by the user, or the security ID of the requestor.
 
-Filters are foundational to several search experiences, including "find near me", faceted navigation, and security filters that only show documents a user is allowed to see. In all cases, the filter adds elements to the query tree that improve relevance by categorically selecting documents based on criteria, as opposed to relying on algorithms as the sole determinant of which documents constitute a possible match.
+Field filters target specific fields. (such as Spanish strings if the browser local is Spanish).
 
+Text filters -- case-sensitive. Not analyzed. Access privileges, used to limit indexes and articles by user identity, are a derivative of text filtering.
 
 Numeric filters -- fast. Numeric fields are not searchable in the context of full text search. so if you have numeric data, the assumption is that you will use them for ranges, facets, sort, group. Documents that contain numeric fields (price, size, SKU, ID) will include the numeric values if the field is marked Returnable, but its not searchable (i.e., if enter $99.99 as a search term, you won't get all items priced at $99.99. Instead, you will get items that have 9s in string fields of the doucment)
 
-Text filters -- case-sensitive
-
-Field filters -- select specific feilds (such as Spanish strings if the browser local is Spanish).
-
-MSDN forum post: "access privileges to limit indexes and articles per client"
-
-
-### Use cases
-
-The following articles explore each use case in detail.
+The following articles offer comprehensive guidance for specific use cases.
 
 + [Composite multi-field filter](search-filters-composite.md)
 + [Date filters](search-filters-dates.md)
@@ -58,7 +50,22 @@ The following articles explore each use case in detail.
 + [Language filters](search-filters-language.md)
 + [Range filters](search-filters-range.md)
 + [Seurity filters using Active Directory](search-filters-security-aad.md)
-+ [Security filters (generic)](search-filters-security-generic.md)
++ [Security filters (generic)](search-filters-security-generic.md) 
+
+
+A filter has criteria, and a document is either included or excluded based on evaluation.
+
+1. Your use-case imposes a filter requirement:
+* Facets require a filter as the mechanism for classifying results on a per-facet basis.
+* Geo-search is implemented as a filter.
+* Security filters
+
+2. If you want to prioritize/sort/group on numeric data. Numeric fields aren't searchable or subject to full text search. If you need to manipulate results based on a numeric field (rather than rely on full text search and lexical analysis to do the right thing), use a filter.
+
+3. You need to use operands that are not available in a search string. A query string can include AND, OR, NOT, precedence -- but if you need 'between x and y', or 'greater than x', etc. you need a filter expression.
+
+4. From a code design standpoint, you want the query contructor to be simple and flexible, so you offload specialized logic to filters.
+
 
 ## Filter design patterns
 
@@ -86,20 +93,31 @@ For 4 million documents you might be able to update a new field relatively quick
 
 https://social.msdn.microsoft.com/Forums/azure/en-US/cfb2e9d9-a33f-4127-955b-f9e893d22675/how-to-make-a-field-filterable-we-have-uploaded-all-our-data-already?forum=azuresearch 
 
-## Filter definitions
 
-A filter has criteria, and a document is either included or excluded based on evaluation.
+### Text filters
 
-1. Your use-case imposes a filter requirement:
-* Facets require a filter as the mechanism for classifying results on a per-facet basis.
-* Geo-search is implemented as a filter.
-* Security filters
+Use search.in if possible.
 
-2. If you want to prioritize/sort/group on numeric data. Numeric fields aren't searchable or subject to full text search. If you need to manipulate results based on a numeric field (rather than rely on full text search and lexical analysis to do the right thing), use a filter.
+Applies to: api-version=2016-09-01-Preview, api-version=2015-02-28-Preview
 
-3. You need to use operands that are not available in a search string. A query string can include AND, OR, NOT, precedence -- but if you need 'between x and y', or 'greater than x', etc. you need a filter expression.
+An OData function, used to pass in a comma-delimited list of strings. The strings comprise the filter criteria, which are applied to every field in scope for the query.
 
-4. From a code design standpoint, you want the query contructor to be simple and flexible, so you offload specialized logic to filters.
+There is no lexical analysis on filter criteria. Strings are added to the query tree as provided by your application.
+
+Maximum limit on the function is the maximum limit on the request: 16 MB for POST, 8 KB for GET.
+
+
+### Numeric filters
+
+use $filter
+
+you require an expression. You can create multiple filter expressions, up to XXXX, but each one can have only one set of criteria. If you want to search on multiple phrases, for example a city name, a type of hotel, ...
+
+TBD
+```
+$filter=[string] (optional)
+```
+A structured search expression in standard OData syntax. When calling via POST, this parameter is named filter instead of $filter. 
 
 ## Filter methodologies
 
@@ -129,38 +147,14 @@ Use the **$filter** parameter for everything else. A filter expression is intend
 
  A **$filter** typically offers better performance if the filter condition is on a low cardinality field containing a relatively small number of vlaues (such as a list of colors, countries, or brand names), and the number of conditions is also small (color eq ‘blue’ or color eq ‘yellow’). The performance benefit comes from caching, which Azure Search does for queries most likely to be repeated.
 
-## How to build text filters
-
-Use search.in if possible.
-
-Applies to: api-version=2016-09-01-Preview, api-version=2015-02-28-Preview
-
-An OData function, used to pass in a comma-delimited list of strings. The strings comprise the filter criteria, which are applied to every field in scope for the query.
-
-There is no lexical analysis on filter criteria. Strings are added to the query tree as provided by your application.
-
-Maximum limit on the function is the maximum limit on the request: 16 MB for POST, 8 KB for GET.
-
-
-## How to build numeric filters
-
-use $filter
-
-you require an expression. You can create multiple filter expressions, up to XXXX, but each one can have only one set of criteria. If you want to search on multiple phrases, for example a city name, a type of hotel, ...
-
-TBD
-```
-$filter=[string] (optional)
-```
-A structured search expression in standard OData syntax. When calling via POST, this parameter is named filter instead of $filter. 
-
 ## Next steps
 
 You can try **Search explorer** in the portal to submit queries with **$filter** or **search.in** parameters. The following examples work against the built-in sample index, but can be easily adapted to work with any index published to your service.
 
 *check for the preview API for search.in*
 
-1. Sign in to [Azure portal]() and open the search dashboard. If it isn't pinned to the dashboard, you can search 
+1. Sign in to [Azure portal]() and open the search dashboard. If it isn't pinned to the dashboard, you can search
+
 
 ## See also
 

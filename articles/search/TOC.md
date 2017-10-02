@@ -72,7 +72,7 @@
 #### [Range filters](search-filters-range.md)
 #### [Security filters (generic)](search-filters-security-generic.md)
 #### [Security filters (AAD)](search-filters-security-aad.md)
-#### [OData filter expression syntax](odata-expression-syntax-for-azure-search)
+#### [Expression syntax](odata-expression-syntax-for-azure-search.md)
 ### [Paging results](search-pagination-page-layout.md)
 ### [Scoring](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
 ### [Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggesters)
