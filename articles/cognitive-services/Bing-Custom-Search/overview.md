@@ -8,23 +8,30 @@ manager: ehansen
 ms.service: cognitive-services
 ms.technology: bing-web-search
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 09/29/2017
 ms.author: v-brapel
 ---
 
 # Search your custom view of the web
-Bing Custom Search enables developers, entrepreneurs, and businesses of any size to create custom search services for any website or topic.  Use the Bing Custom Search portal to configure your own custom view of the web.  Then, use your Bing Custom Search instance to integrate custom search results into your website, desktop app, or mobile app.
+Bing Custom Search enables you to create tailored search experiences for topics that you care about. For example, if you own a bicycle website that provides a search experience, you can specify the domains, subsites, and webpages that Bing searches. Your users see search results that are tailored to the content they care about instead of having to page through general search results that may contain irrelevant content. 
+
+To create your custom view of the web, use the Bing Custom Search [portal](https://customsearch.ai). The portal lets you create a search instance that specifies the domains, subsites, and webpages that you want Bing to search, and those that you don’t want it to search. In addition to specifying the URLs of the content that you know about, you can also ask the portal to suggest content that you may want to add to your view. 
+
+The portal also lets you pin a specific webpage to the top of the search result if the user enters a specific search term. 
+
+After defining your instance, you can integrate custom search into your website, desktop app, or mobile app by calling the Custom Search API. If you have a web application, you can use the hosted UI for web applications.
+
+The following image shows the simplicity of the custom search integration.
 
 
-![A picture showing Bing Custom Search architecture](./media/bcs-overview.png "How Bing Custom Search works.")
 
-A Bing Custom Search instance contains all the settings that are required to define a custom search service.  Bing Custom Search portal provides multiple ways of defining your custom view of the web. For example, you can use Bing Custom Search to provide search capability across all your websites.  You can use Bing Custom Search to provide a vertical search service targeting sites and webpages on a specific topic; see [Define your custom view](./define-your-custom-view.md).  Bing Custom Search also provides a hosted UI used to embed your custom search instance into your website; see [Hosted UI](./hosted-ui.md).
+![picture alt](./media/bcs-overview.png "How Bing Custom Search works.")
 
 ### Next steps
-- [Get started](./quick-start.md)
-- [Define your custom view](./define-your-custom-view.md)
-- [Hosted UI](./hosted-ui.md)
-- [Hit highlighting](./hit-highlighting.md)
-- [Page webpages](./page-webpages.md)
+To get started quickly with your first request, see Making your first request in [C#](call-endpoint-csharp.md) | [Java](call-endpoint-java.md) | [Node.js](call-endpoint-nodejs.md) | Python.
+
+Familiarize yourself with the [Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference) reference. The reference contains the list of endpoints, headers, and query parameters that you'd use to request search results. It also includes definitions of the response objects. 
+
+Be sure to read [Bing Use and Display Requirements](./use-and-display-requirements.md) so you don't break any of the rules about using the search results.
 
 

@@ -1,5 +1,5 @@
 - name: Bing Custom Search Documentation
-  href: ../index.md
+  href: index.md
 - name: Overview
   items:
     - name: Customize your search
@@ -9,31 +9,35 @@
   items:
     - name: Get started
       href: quick-start.md
-- name: How to  
-  items:
-    - name: Call Bing Custom Search endpoint
-      items:
-        - name: C#
-          href: call-endpoint-csharp.md
-        - name: Java
-          href: call-endpoint-java.md
-        - name: Nodejs
-          href: call-endpoint-nodejs.md        
+    - name: C#
+      href: call-endpoint-csharp.md
+    - name: Java
+      href: call-endpoint-java.md
+    - name: NodeJs
+      href: call-endpoint-nodejs.md 
+    - name: Python
+      href: call-endpoint-python.md 
+- name: How-to  
+  items:        
     - name: Define your custom view
       href: define-your-custom-view.md
-    - name: Rank results
-      href: rank-results.md
+    - name: Configure hosted UI
+      href: hosted-ui.md
     - name: Handle hit highlighting
       href: hit-highlighting.md
     - name: Page webpages
-      href: page-webpages.md
-    - name: Configure hosted UI
-      href: hosted-ui.md
+      href: page-webpages.md    
 - name: References
   items:
-    - name: Bing Autosuggest API
-      href: ../bing-autosuggest/get-suggested-search-terms.md
+    - name: Bing Custom Search API Reference
+      href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference
+    - name: Bing Search API use and display requirements
+      href: use-and-display-requirements.md
 - name: Resources
   items:
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
+  - name: Subscription key
+    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api
+  - name: Try it!
+    href: https://dev.cognitive.microsoft.com/docs/services/56b43eeccf5ff8098cef3807/operations/56b4447dcf5ff8098cef380d

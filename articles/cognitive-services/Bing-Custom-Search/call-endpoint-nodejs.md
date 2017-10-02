@@ -1,5 +1,5 @@
 ---
-title: "Bing Custom Search: Call endpoint by using Node.js | Microsoft Docs"
+title: "Bing Custom Search: Call endpoint by using NodeJs | Microsoft Docs"
 description: Describes how to call Bing Custom Search endpoint with nodejs
 services: cognitive-services
 author: brapel
@@ -12,11 +12,25 @@ ms.date: 09/28/2017
 ms.author: v-brapel
 ---
 
-# Call Bing Custom Search endpoint (nodejs)
+# Call Bing Custom Search endpoint (NodeJs)
 
-[!INCLUDE [call-bing-custom-search-endpoint](../../../includes/call-bing-custom-search-endpoint.md)]
+Call Bing Custom Search endpoint using NodeJs by performing these steps:
+1. Get a subscription key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).
+2. Install [NodeJs](https://www.nodejs.org/).
+3. Create a folder for your code
+4. From a command prompt or terminal, navigate to the folder you just created.
+5. Run npm init and follow the prompts:
+    ```
+    npm init
+    ```
+6. Install the **request** node module:
+   ```
+   npm install request
+   ```
+7. Create the file BingCustomSearch.js and copy the following code
+8. Replace **YOUR-SUBSCRIPTION-KEY** and **YOUR-CUSTOM-CONFIG-ID** with your key and configuration ID.
 
-```javascript
+``` NodeJS
 var request = require("request");
 
 var subscriptionKey = 'YOUR-SUBSCRIPTION-KEY';
