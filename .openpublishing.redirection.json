@@ -13391,6 +13391,31 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/billing/billing-enterprise-api-balance-summary.md",
+            "redirect_url": "https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-enterprise-api-billing-periods.md",
+            "redirect_url": "https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-enterprise-api-marketplace-storecharge.md",
+            "redirect_url": "https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge",
+            "redirect_document_id": true
+       },
+       {
+            "source_path": "articles/billing/billing-enterprise-api-pricesheet.md",
+            "redirect_url": "https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-pricesheet",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-enterprise-api-usage-detail.md",
+            "redirect_url": "https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail",
+            "redirect_document_id": true
+        },    
+        {
             "source_path": "articles/active-directory-domain-services/active-directory-ds-azure-portal-enable-preview-access.md",
             "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-contact-us",
             "redirect_document_id": false
