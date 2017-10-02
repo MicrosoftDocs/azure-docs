@@ -12,7 +12,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 09/30/2017
 ms.author: robinsh
 ---
 
@@ -20,7 +20,18 @@ ms.author: robinsh
 
 Azure PowerShell is used to create and manage Azure resources from the PowerShell command line or in scripts. For Azure Storage, these cmdlets fall into two categories -- the control plane and the data plane. The control plane cmdlets are used to manage the storage account -- to create storage accounts, set properties, delete storage accounts, rotate the access keys, and so on. The data plane cmdlets are used to manage the data stored *in* the storage account. For example, uploading blobs, creating file shares, and adding messages to a queue.
 
-This guide details using the management plane cmdlets used to manage storage accounts. It also provides links to the other PowerShell articles for Storage such as how to use the Government Cloud and the China Cloud, and articles showing how to use the data plane cmdlets.
+This how-to article covers common operations using the management plane cmdlets to manage storage accounts. You learn how to: 
+
+> [!div class="checklist"]
+> * List storage accounts
+> * Get a reference to an existing storage account
+> * Create a storage account 
+> * Set storage account properties
+> * Retrieve and regenerate the access keys
+> * Protecting access to your storage account 
+> * Enabling Storage Analytics
+
+It also provides links to several other PowerShell articles for Storage, such as how to enable and access the Storage Analyics, how to use the Government Cloud and the China Cloud, and how to use the data plane cmdlets.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -207,7 +218,20 @@ To access the Government cloud of the China datacenters, you have to use some sp
 
 ## Next Steps
 
-In this guide, you've learned how to manage your storage account with Azure PowerShell, and you have pointers to articles showing how to manage the data objects and access storage using the Government Cloud and the China Cloud. Here are some other related articles and resources for reference: 
+In this how-to article, you leaned about basic storage account management with PowerShell, including hot to: 
+
+This how-to article covers common operations using the management plane cmdlets to manage storage accounts. You learn how to: 
+
+> [!div class="checklist"]
+> * List storage accounts
+> * Get a reference to an existing storage account
+> * Create a storage account 
+> * Set storage account properties
+> * Retrieve and regenerate the access keys
+> * Protecting access to your storage account 
+> * Enabling Storage Analytics
+
+You also have links to several other articles, such as how to manage the data objects, how to enable the Storage Analytics, and how to access storage with PowerShell using the Government Cloud and the China Cloud. Here are some other related articles and resources for reference: 
 
 * [Azure Storage control plane PowerShell cmdlets](/powershell/module/AzureRM.Storage/)
 * [Azure Storage data plane PowerShell cmdlets](/powershell/module/azure.storage/)
