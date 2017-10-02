@@ -37,16 +37,16 @@ ms.author: mimig
   * Requires `Microsoft.Azure.DocumentDB.Core >= 1.5.1`
 * Added a new `gremlin-groovy` parser to replace existing parser. This parser supports a subset of Tinkerpop's `gremlin-groovy` syntax and includes:
   * Improved parsing performance by 2x.
-  * Fixed a number of issues related to character escaping in strings, incorrectly handled literals and other irregularities in the parser.
+  * Resolved a number of issues related to character escaping in strings, incorrectly handled literal values, and other irregularities in the old parser.
 * Added optimizations for traversals with edge predicates.
-  *  Traversal hops with filters should see this improvement, eg: `g.V('1').outE().has('name', 'marko').inV()`.
+  *  Traversal hops with filters should see this improvement, for example: `g.V('1').outE().has('name', 'marko').inV()`.
 * Added optimizations for traversals with `limit()` step.
 
 #### Breaking Changes
 * Removed support for .NET Framework 4.5.1
 
-* The new parser aligns with proper `gremlin-groovy` grammar, and as result, some syntax structures that worked previously may be ambigiuous for the new parser. Cases of note:
-  * `in` and `as` are keywords in `gremlin-groovy`, so queries with `in()` and `as()` steps must be qualified to avoid syntax errors. For example:  
+* The new parser aligns with `gremlin-groovy` grammar. As a result, some expressions that worked previously are ambiguous for the new parser. One case of note:
+  * `in` and `as` are reserved keywords in `gremlin-groovy`, so these steps must be qualified with `.in()` or `.as()` to avoid syntax errors. For example:
  `g.V().repeat(in()).times(2)` -> _throws a syntax error_  
  `g.V().repeat(__.in()).times(2)` -> _succeeds_
 
