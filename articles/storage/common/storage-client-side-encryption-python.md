@@ -208,9 +208,9 @@ key_resolver.put_key(kek)
 
 # Define the encryption resolver_function.
 def my_encryption_resolver(pk, rk, property_name):
-        if property_name == 'foo':
-                return True
-        return False
+    if property_name == 'foo':
+        return True
+    return False
 
 # Set the KEK and key resolver on the service object.
 my_table_service.key_encryption_key = kek
