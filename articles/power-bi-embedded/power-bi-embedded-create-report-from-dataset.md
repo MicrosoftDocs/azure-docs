@@ -33,7 +33,7 @@ Access tokens should be created on the server as the access keys are used to sig
 
 In this example, we have our dataset id that we want to creat the new report on. We also need to add the scopes for *Dataset.Read and Workspace.Report.Create*.
 
-The *PowerBIToken class* requires that you install the [Power BI Core NuGut Package](https://www.nuget.org/packages/Microsoft.PowerBI.Core/).
+The *PowerBIToken class* requires that you install the [Power BI Core NuGet Package](https://www.nuget.org/packages/Microsoft.PowerBI.Core/).
 
 **NuGet package install**
 
