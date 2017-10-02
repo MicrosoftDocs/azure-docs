@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/02/2017
 ms.author: johnkem
 
 ---
@@ -32,7 +32,7 @@ The schema for resource diagnostic logs varies depending on the resource and log
 | Azure Batch |[Azure Batch diagnostic logging](../batch/batch-diagnostics.md) |
 | Customer Insights | Schema not available. |
 | Content Delivery Network | Schema not available. |
-| CosmosDB | Schema not available. |
+| CosmosDB | [Azure Cosmos DB Logging](../cosmos-db/logging.md) |
 | Data Lake Analytics |[Accessing diagnostic logs for Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[Accessing diagnostic logs for Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
 | Event Hubs |[Azure Event Hubs diagnostic logs](../event-hubs/event-hubs-diagnostic-logs.md) |
