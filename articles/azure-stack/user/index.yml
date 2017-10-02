@@ -15,7 +15,7 @@ metadata:
   ms.date: 10/02/2017
   ms.author: carolz
 abstract:
-  description: Azure Stack is a hybrid cloud platform that lets you use Azure services from your company's or service provider's datacenter. As a developer, you can build apps on Azure Stack. You can then deploy them to Azure Stack, to Azure, or you can build truly hybrid apps that leverage the connectivity between an Azure Stack cloud and Azure. Learn how to create resources and deploy apps with our quickstarts and tutorials.<br/><br/>If you're an Azure Stack operator who manages the infrastructure and offers services, see the <a href="/azure/azure-stack/">operator documentation</a>.
+  description: Azure Stack is a hybrid cloud platform that lets you use Azure services from your company's or service provider's datacenter. As a developer, you can build apps on Azure Stack. You can then deploy them to Azure Stack, to Azure, or you can build truly hybrid apps that leverage the connectivity between an Azure Stack cloud and Azure. Learn how to create resources and deploy apps with our quickstarts and tutorials.<br/><br/>If you're an Azure Stack operator who manages the infrastructure and offers services, see our <a href="/azure/azure-stack/">operator documentation</a>.
 sections:
 - title: 5-Minute Quickstarts
   items:
