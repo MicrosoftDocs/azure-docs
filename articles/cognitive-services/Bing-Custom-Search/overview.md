@@ -28,7 +28,7 @@ The following image shows the simplicity of the custom search integration.
 ![picture alt](./media/bcs-overview.png "How Bing Custom Search works.")
 
 ### Next steps
-To get started quickly with your first request, see Making your first request in [C#](call-endpoint-csharp.md) | [Java](call-endpoint-java.md) | [Node.js](call-endpoint-nodejs.md) | Python.
+To get started quickly with your first request, see Making your first request in [C#](call-endpoint-csharp.md) | [Java](call-endpoint-java.md) | [Node.js](call-endpoint-nodejs.md) | [Python](call-endpoint-python.md).
 
 Familiarize yourself with the [Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference) reference. The reference contains the list of endpoints, headers, and query parameters that you'd use to request search results. It also includes definitions of the response objects. 
 

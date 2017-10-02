@@ -100,13 +100,13 @@ But if you’re not sure which slices to include, you can run Bing queries in th
 
 If you don’t know which domains, subsites, or webpages to include in your instance, you can run a Bing query in the Preview pane and see what Bing returns. You can then select the slices that you want to include in your custom search. You would need to search multiple query terms to make sure you identify all the slices that you want for your instance. 
 Follow these steps to use Bing to add slices to your Custom Search instance. 
-1.	Sign in to Bing Custom Search [portal](https://customsearch.ai)
-2.	Create an instance or select an instance to update 
-3.	In the Preview pane on the right side, select Bing from the dropdown list
-4.	In the search box, enter a query term that’s relevant for your instance
-5.	Click **Add site** next to the result you want to include
-6.	Select **Entire Site**, **Subsite**, or **Exact URL** in the **What do you want to add**? window
-7.	Click the **Ok** button
+1.	Sign in to Bing Custom Search [portal](https://customsearch.ai).
+2.	Create an instance or select an instance to update .
+3.	In the Preview pane on the right side, select Bing from the dropdown list.
+4.	In the search box, enter a query term that’s relevant for your instance.
+5.	Click **Add site** next to the result you want to include.
+6.	Select **Entire Site**, **Subsite**, or **Exact URL** in the **What do you want to add**? window.
+7.	Click the **Ok** button.
 
 ## Next steps
 - [Hosted UI](./hosted-ui.md)
