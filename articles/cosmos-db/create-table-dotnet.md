@@ -115,7 +115,7 @@ Now we'll update the connection string information so your app can talk to Azure
 
 You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
 
-## Run the web app
+## Run the console app
 
 1. In Visual Studio, right-click on the **PremiumTableGetStarted** project in **Solution Explorer** and then click **Manage NuGet Packages**. 
 
