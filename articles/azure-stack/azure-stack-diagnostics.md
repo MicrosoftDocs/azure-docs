@@ -134,10 +134,11 @@ if($s)
 
 - When you collect logs from the PEP, specify the `OutputPath` parameter to be a location on the HLH machine. Also ensure that the location is encrypted.
 - The parameters `OutputSharePath` and `OutputShareCredential` are optional and are used when you upload logs to an external shared folder. Use these parameters *in addition* to `OutputPath`. If `OutputPath` is not specified, the log collection tool uses the system drive of the PEP VM for storage. This might cause the script to fail because  the drive space is limited.
+- As shown in the previous example, the `FromDate` and `ToDate` parameters can be used to collect logs for a particular time period. This can come in handy for scenarios like collecting logs after applying an update package on an integrated system.
 
 **Parameter considerations for both ASDK and integrated systems:**
 
-- As shown in the previous ASDK example, the `FromDate` and `ToDate` parameters can be used to collect logs for a particular time period. This can come in handy for scenarios like collecting logs after applying an update package on an integrated system. If the `FromDate` and `ToDate` parameters are not specified, logs are collected for the past four hours by default.
+- If the `FromDate` and `ToDate` parameters are not specified, logs are collected for the past four hours by default.
 - You can use the `TimeOutInMinutes` parameter to set the timeout for log collection. It is set to 150 (2.5 hours) by default.
 
 - Currently, you can use the `FilterByRole` parameter to filter log collection by the following roles:
