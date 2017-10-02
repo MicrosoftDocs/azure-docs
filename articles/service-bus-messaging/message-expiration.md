@@ -41,6 +41,17 @@ The combination of [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.t
 
 For example, consider a web site that needs to reliably execute jobs on a scale-constrained backend, and which occasionally experiences traffic spikes or wants to be insulated against availability episodes of that backend. In the regular case, the server-side handler for the submitted user data pushes the information into a queue and subsequently receives a reply confirming successful handling of the transaction into a reply queue. If there is a traffic spike and the backend handler cannot process its backlog items in time, the expired jobs are returned on the dead-letter queue. The interactive user can be notified that the requested operation will take a little longer than usual, and the request can then be put on a different queue for a processing path where the eventual processing result will be sent to the user by email. 
 
+## Temporary entities
+
+Service Bus queues, topics, and subscriptions can be created as temporary entities which are automatically removed when they have not been used for a specified period of time.
+ 
+Automatic cleanup is useful in development and test scenarios in which entities are created dynamically and are not cleaned up after use, due to the test or debugging run having been interrupted. It is also useful when an application creates dynamic entities, such as a reply queue, for receiving responses back into a web server process, or into another relatively short-lived object where it is difficult to reliably clean up those entities when the object instance disappears.
+
+The feature is enabled using the [autoDeleteOnIdle](/azure/templates/microsoft.servicebus/namespaces/queues) property, which is set to the duration for which an entity must be idle (unused) before it is automatically deleted. The minimum duration is 5 minutes.
+ 
+The property must be set through an Azure Resource Manager operation or via the .NET Framework client [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) APIs. It cannot be set through the portal.
+
+
 ## Next steps
 
 To learn more about Service Bus messaging, see the following topics:
