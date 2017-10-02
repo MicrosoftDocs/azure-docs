@@ -26,7 +26,7 @@ To use this preview, create your cluster with version 5.7 or greater of the Serv
 
 > [!NOTE]
 > This feature is in preview and is not supported in production.
-> The example below are based on version 6.0 and SDK 2.8.
+> The examples below are based on runtime version 6.0 and SDK version 2.8.
 
 ## Deploy a Docker Compose file on Service Fabric
 
