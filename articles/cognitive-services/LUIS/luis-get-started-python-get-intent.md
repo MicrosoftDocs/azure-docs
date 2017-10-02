@@ -81,8 +81,7 @@ except Exception as e:
 <!-- 
 ![Console window displays JSON result from LUIS](./media/luis-get-started-python-get-intent/console-turn-on.png)
 -->
-<!-- 
+
 ## Next steps
 
-* Try adding a parameter to the code to test some other utterances to the sample app.
--->
+* See the [LUIS Endpoint API reference](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78) to learn more about the parameters for calling your LUIS endpoint.
