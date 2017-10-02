@@ -11286,6 +11286,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/container-service/kubernetes/container-service-security.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-intro-kubernetes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/kubernetes/container-service-kubernetes-load-balancing.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-intro-kubernetes",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cosmos-db/request-units-per-minute.md",
             "redirect_url": "/azure/cosmos-db/request-units",
             "redirect_document_id": false
