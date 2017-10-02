@@ -71,7 +71,7 @@
       href: tutorial-iris-azure-cli.md
     - name: Track run history and model metrics
       href: how-to-use-run-history-model-metrics.md    
-    - name: How to find runs with best accuracy and lowest duration
+    - name: How to find runs with the best accuracy and lowest duration
       href: how-to-find-best-accuracy-cli.md
     - name: Read and write files
       href: how-to-read-write-files.md

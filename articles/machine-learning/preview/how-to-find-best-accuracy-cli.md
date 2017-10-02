@@ -1,5 +1,5 @@
 ---
-title: How to find runs with best accuracy and lowest duration | Microsoft Docs
+title: How to find runs with the best accuracy and lowest duration in Azure Machine Learning Workbench | Microsoft Docs
 description: An end-to-end use case to find best accuracy through CLI using Azure Machine Learning Workbench
 services: machine-learning
 author: totekp
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/29/2017
 ---
-# How to find runs with best accuracy and lowest duration
+# How to find runs with the best accuracy and lowest duration
 Given multiple runs, one use case is to find runs with best accuracy. One approach is to use CLI with a JMESPATH query.
 In the following example, four runs are created with accuracy values of 0, 0.98, 1, and 1. Runs are filtered if they are in the range [`MaxAccuracy-Threshold`, `MaxAccuracy`] where `Threshold = .03`.
 
-## Sample Data
+## Sample data
 If you don't have existing run histories with `Accuracy` value, the steps below will generate run histories for querying:
 
 First, create a python file in the workbench, name it `log_accuracy.py`, and paste in the following code:
@@ -43,7 +43,7 @@ for value in accuracy_values:
 
 Lastly, open command line through workbench. Then run command `python run.py` to submit experiments. After script finishes, you should see four more runs under `Run History`.
 
-## Querying the Run History
+## Querying the run history
 The first command finds the max accuracy value.
 
     az ml history list --query '@[?Accuracy != null] | max_by(@, &Accuracy).Accuracy'
@@ -59,5 +59,5 @@ If you use powershell, the code below will use local variables to store threshol
      az ml history list --query '@[?Accuracy >= sum(`[{0}, -{1}]`)] | sort_by(@, &duration)' -f $max_accuracy_value, $threshold
 
 
-## Next Steps
+## Next steps
 - For more information on logging, see [How to Use Run History and Model Metrics in Azure Machine Learning Workbench](https://github.com/totekp/azure-docs-pr/blob/bestAccuracy/articles/machine-learning/preview/how-to-use-run-history-model-metrics.md).    
