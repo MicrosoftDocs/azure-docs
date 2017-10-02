@@ -294,7 +294,7 @@ The table below lists the property names and their description for creating a ta
 | Topic Policy Name |When you create a Topic, you can also create shared access policies on the Topic Configure tab. Each shared access policy will have a name, permissions that you set, and access keys |
 | Topic Policy Key |The Shared Access key used to authenticate access to the Service Bus namespace |
 | Event Serialization Format |Serialization format for output data.  JSON, CSV, and Avro are supported. |
-| Encoding |If CSV or JSON format, an encoding must be specified. UTF-8 is the only supported encoding format at this time |
+ | Encoding |If CSV or JSON format, an encoding must be specified. UTF-8 is the only supported encoding format at this time |
 | Delimiter |Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab and vertical bar. |
 
 ## Azure Cosmos DB
@@ -325,7 +325,9 @@ Azure Stream Analytics invokes Azure Functions via HTTP triggers. The new Azure 
 | Max Batch Count  |As the name indicates, this property lets you specify the maximum number of events in each batch that gets sent to Azure Functions. The default max batch count value is 100 |
 | Key |If you want to use an Azure Function from another subscription, you can do so by providing the key to access your function |
 
-Note that when Azure Stream Analytics receives 413 (http Request Entity Too Large) exception from Azure function, it reduces the size of the batches it sends to Azure Functions. In your Azure function code, use this exception to make sure that Azure Stream Analytics doesn’t send oversized batches. Also, please make sure that the max batch count and size values used in the function are consistent with the values entered in the Stream Analytics portal.
+Note that when Azure Stream Analytics receives 413 (http Request Entity Too Large) exception from Azure function, it reduces the size of the batches it sends to Azure Functions. In your Azure function code, use this exception to make sure that Azure Stream Analytics doesn’t send oversized batches. Also, please make sure that the max batch count and size values used in the function are consistent with the values entered in the Stream Analytics portal. 
+
+Also, in a situation where there is no event landing in a time window, no output is generated. As a result, computeResult function will not be called. This behavior is consistent with the built-in windowed aggregate functions.
 
 
 ## Get help

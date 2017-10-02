@@ -1,8 +1,8 @@
 ---
-title: Task Presets for MES (Media Encoder Standard) | Microsoft Docs
-description: The topic gives and overview of the service defined sample Presets for MES (Media Encoder Standard).
+title: Task Presets for Media Encoder Standard (MES) | Microsoft Docs
+description: The topic gives and overview of the service-defined sample presets for Media Encoder Standard (MES).
 author: Juliako
-manager: cfowler
+manager: cfow
 editor: johndeu
 services: media-services
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.author: juliako
 
 ---
 
-# Sample Presets for MES (Media Encoder Standard)
+# Sample Presets for Media Encoder Standard (MES)
 
 **Media Encoder Standard** defines a set of pre-defined system encoding presets you can use when creating encoding jobs. It is recommended to use the "Adaptive Streaming" preset if you want to encode a video for streaming with Media Services. When you specify this preset, Media Encoder Standard will [auto-generate a bitrate ladder](media-services-autogen-bitrate-ladder-with-mes.md). 
 
@@ -26,7 +26,7 @@ ms.author: juliako
 Media Services fully supports customizing all values in presets to meet your specific encoding needs and requirements. If you need to customize an encoding preset, you should start with one of the below system presets that are provided in this section as a template for your custom configuration. For explanations of what each element in these presets means, and the valid values for each element, see the [Media Encoder Standard schema](media-services-mes-schema.md) topic.  
   
 > [!NOTE]
->  When using a preset for 4k encodes, you should get the `S3` reserved unit type. For more information, see [How to Scale Encoding](https://azure.microsoft.com/en-us/documentation/articles/media-services-portal-encoding-units).  
+>  When using a preset for 4k encodes, you should get the `S3` reserved unit type. For more information, see [How to Scale Encoding](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
 
 #### Video Rotation Default Setting in Presets:
 When working with Media Encoder Standard, video rotation is enabled by default. If your video has been recorded on a mobile device in Portrait mode, then these presets will rotate them to Landscape mode prior to encoding.
