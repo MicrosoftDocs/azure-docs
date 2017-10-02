@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 10/2/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
