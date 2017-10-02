@@ -49,10 +49,10 @@ The completed code for this tutorial can be downloaded from GitHub [here](https:
 ## Create a new Android Studio Project
 1. In Android Studio, start a new Android Studio project.
    
-       ![Android Studio - new project](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-new-project.png)
+![Android Studio - new project](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-new-project.png)
 2. Choose the **Phone and Tablet** form factor and the **Minimum SDK** that you want to support. Then click **Next**.
    
-       ![Android Studio - project creation workflow](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-choose-form-factor.png)
+![Android Studio - project creation workflow](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-choose-form-factor.png)
 3. Choose **Empty Activity** for the main activity, click **Next**, and then click **Finish**.
 
 ## Create a project that supports Firebase Cloud Messaging
