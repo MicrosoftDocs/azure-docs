@@ -442,7 +442,7 @@ In Search, the operation context is used to create the **Related Items** list:
 
 ![Related items](./media/app-insights-api-custom-events-metrics/21.png)
 
-See [application-insights-custom-operations-tracking.md] for more information on custom operations tracking.
+See [Track custom operations with Application Insights .NET SDK](./application-insights-custom-operations-tracking) for more information on custom operations tracking.
 
 ### Requests in Analytics 
 
@@ -1029,8 +1029,8 @@ To determine how long data is kept, see [Data retention and privacy](app-insight
 * [iOS SDK](https://github.com/Microsoft/ApplicationInsights-iOS)
 
 ## SDK code
-* [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
-* [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5)
+* [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
+* [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [Windows Server packages](https://github.com/Microsoft/applicationInsights-dotnet-server)
 * [Java SDK](https://github.com/Microsoft/ApplicationInsights-Java)
 * [Node.js SDK](https://github.com/Microsoft/ApplicationInsights-Node.js)
