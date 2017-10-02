@@ -20,11 +20,11 @@ ms.author: ganesr;cherylmc
 ---
 # Create and modify an ExpressRoute circuit using PowerShell (classic)
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
-> * [Resource Manager - PowerShell](expressroute-howto-circuit-arm.md)
-> * [Classic - PowerShell](expressroute-howto-circuit-classic.md)
-> * [Video - Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
-> 
+> * [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-circuit-arm.md)
+> * [Azure CLI](howto-circuit-cli.md)
+> * [Video - Azure portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
+> * [PowerShell (classic)](expressroute-howto-circuit-classic.md)
 >
 
 This article walks you through the steps to create an Azure ExpressRoute circuit by using PowerShell cmdlets and the classic deployment model. This article also shows you how to check the status, update, or delete and deprovision an ExpressRoute circuit.
@@ -41,7 +41,7 @@ This article walks you through the steps to create an Azure ExpressRoute circuit
 Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.  
 
 ### Step 2. Install the latest versions of the Azure Service Management (SM) PowerShell modules
-Follow the instructions in [Getting started with Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs) for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules.
+Follow the instructions in [Getting started with Azure PowerShell cmdlets](/powershell/azure/overview) for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules.
 
 ### Step 3. Log in to your Azure account and select a subscription
 1. Open your PowerShell console with elevated rights and connect to your account. Use the following example to help you connect:
@@ -54,11 +54,11 @@ Follow the instructions in [Getting started with Azure PowerShell cmdlets](/powe
 
 3. If you have more than one subscription, select the subscription that you want to use.
 
-    	Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+    	Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_id"
 
-4. Next, use the following cmdlet to add your Azure subscription to PowerShell for the classic deployment model.
+4. Confirm if the selected subscription id is set as default.
 
-		Add-AzureAccount
+		Get-AzureSubscription -default
 
 ## Create and provision an ExpressRoute circuit
 ### Step 1. Import the PowerShell modules for ExpressRoute

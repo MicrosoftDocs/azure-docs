@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/09/2017
+ms.date: 05/25/2017
 ms.author: elioda
 
 ---
@@ -34,7 +34,7 @@ Here is a detailed comparison of the various cloud-to-device communication optio
 | Targets | Single device using **deviceId**, or multiple devices using [jobs][lnk-jobs]. | Single device using **deviceId**, or multiple devices using [jobs][lnk-jobs]. | Single device by **deviceId**. |
 | Size | Up to 8KB requests and 8KB responses. | Maximum desired properties size is 8KB. | Up to 64KB messages. |
 | Frequency | High. For more information, see [IoT Hub limits][lnk-quotas]. | Medium. For more information, see [IoT Hub limits][lnk-quotas]. | Low. For more information, see [IoT Hub limits][lnk-quotas]. |
-| Protocol | Currently available only when using MQTT. | Currently available only when using MQTT. | Available on all protocols. Device must poll when using HTTP. |
+| Protocol | Available using MQTT or AMQP. | Available using MQTT or AMQP. | Available on all protocols. Device must poll when using HTTP. |
 
 Learn how to use direct methods, desired properties, and cloud-to-device messages in the following tutorials:
 
@@ -46,7 +46,7 @@ Learn how to use direct methods, desired properties, and cloud-to-device message
 [lnk-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-jobs]: iot-hub-devguide-jobs.md
-[lnk-c2d]: iot-hub-devguide-messaging.md#cloud-to-device-messages
+[lnk-c2d]: iot-hub-devguide-messages-c2d.md
 [lnk-methods]: iot-hub-devguide-direct-methods.md
 [lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
 [lnk-twin-properties]: iot-hub-node-node-twin-how-to-configure.md

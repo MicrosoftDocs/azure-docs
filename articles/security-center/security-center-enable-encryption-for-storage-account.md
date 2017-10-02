@@ -20,11 +20,11 @@ ms.author: terrylan
 # Enable encryption for Azure storage account in Azure Security Center
 Azure Security Center may recommend that you enable Azure Storage Service Encryption for data at rest.
 
-Storage Service Encryption (SSE) works by encrypting the data when it is written to Azure storage and decrypting the data before retrieval.  SSE is currently available only for the Azure Blob service and can be used for block blobs, page blobs, and append blobs.  To learn more, see [Storage Service Encryption for data at rest](../storage/storage-service-encryption.md).
+Storage Service Encryption (SSE) works by encrypting the data when it is written to Azure storage and decrypting the data before retrieval.  SSE is currently available only for the Azure Blob service and can be used for block blobs, page blobs, and append blobs.  To learn more, see [Storage Service Encryption for data at rest](../storage/common/storage-service-encryption.md).
 
 
 > [!Note]
-> After enabling encryption, only new data is encrypted. Any existing blobs in your storage account remain unencrypted. To encrypt existing blobs, see the [Storage Service Encryption FAQ](../storage/storage-service-encryption.md#frequently-asked-questions-about-storage-service-encryption-for-data-at-rest).
+> After enabling encryption, only new data is encrypted. Any existing blobs in your storage account remain unencrypted. To encrypt existing blobs, see the [Storage Service Encryption FAQ](../storage/common/storage-service-encryption.md#frequently-asked-questions-about-storage-service-encryption-for-data-at-rest).
 >
 >
 
@@ -50,7 +50,7 @@ You have now enabled storage encryption for **storageacct1**.
 ## See also
 This document showed you how to implement the Security Center recommendation "Enable encryption for Azure Storage Account." To learn more about Azure Storage Service Encryption, see the following:
 
-* [Azure Storage Service Encryption for Data at Rest](../storage/storage-service-encryption.md)
+* [Azure Storage Service Encryption for Data at Rest](../storage/common/storage-service-encryption.md)
 
 To learn more about Security Center, see the following:
 

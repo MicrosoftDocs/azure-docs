@@ -25,7 +25,7 @@ This article shows you how to attach both new and existing disks to a Windows vi
 
 Before you do this, review these tips:
 * The size of the virtual machine controls how many data disks you can attach. For details, see [Sizes for virtual machines](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* To use Premium storage, you'll need a Premium Storage enabled VM size like the DS-series or GS-series virtual machine. You can use disks from both Premium and Standard storage accounts with these virtual machines. Premium storage is available in certain regions. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../storage/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* To use Premium storage, you'll need a Premium Storage enabled VM size like the DS-series or GS-series virtual machine. You can use disks from both Premium and Standard storage accounts with these virtual machines. Premium storage is available in certain regions. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../storage/common/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Before you begin
 If you use PowerShell, make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it.
@@ -33,7 +33,7 @@ If you use PowerShell, make sure that you have the latest version of the AzureRM
 ```powershell
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
-For more information, see [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
+For more information, see [Azure PowerShell Versioning](/powershell/azure/overview).
 
 
 ## Add an empty data disk to a virtual machine
@@ -50,15 +50,35 @@ $storageType = 'PremiumLRS'
 $dataDiskName = $vmName + '_datadisk1'
 
 $diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location $location -CreateOption Empty -DiskSizeGB 128
-
 $dataDisk1 = New-AzureRmDisk -DiskName $dataDiskName -Disk $diskConfig -ResourceGroupName $rgName
 
 $vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName 
-
 $vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
 
 Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 ```
+
+### Using managed disks in an Availability Zone
+To create a disk in an Availability Zone, use [New-AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig) with the `-Zone` parameter. The following example creates a disk in zone *1*.
+
+[!INCLUDE [availability-zones-preview-statement.md](../../../includes/availability-zones-preview-statement.md)]
+
+```powershell
+$rgName = 'myResourceGroup'
+$vmName = 'myVM'
+$location = 'East US 2' 
+$storageType = 'PremiumLRS'
+$dataDiskName = $vmName + '_datadisk1'
+
+$diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location $location -CreateOption Empty -DiskSizeGB 128 -Zone 1
+$dataDisk1 = New-AzureRmDisk -DiskName $dataDiskName -Disk $diskConfig -ResourceGroupName $rgName
+
+$vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName 
+$vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
+
+Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
+```
+
 
 ### Using unmanaged disks in a storage account
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 08/25/2017
 ms.author: nberdy
 
 ---
@@ -38,7 +38,7 @@ IoT Hub monitors six categories of events:
 
     ![Access operations monitoring configuration in the portal][1]
 
-1. Select the monitoring categories you wish you monitor, and then click **Save**. The events are available for reading from the Event Hub-compatible endpoint listed in **Monitoring settings**. The IoT Hub endpoint is called `messages/operationsmonitoringevents`.
+1. Select the monitoring categories you wish to monitor, and then click **Save**. The events are available for reading from the Event Hub-compatible endpoint listed in **Monitoring settings**. The IoT Hub endpoint is called `messages/operationsmonitoringevents`.
 
     ![Configure operations monitoring on your IoT hub][2]
 
@@ -56,15 +56,15 @@ The device identity operations category tracks errors that occur when you attemp
 ```json
 {
     "time": "UTC timestamp",
-        "operationName": "create",
-        "category": "DeviceIdentityOperations",
-        "level": "Error",
-        "statusCode": 4XX,
-        "statusDescription": "MessageDescription",
-        "deviceId": "device-ID",
-        "durationMs": 1234,
-        "userAgent": "userAgent",
-        "sharedAccessPolicy": "accessPolicy"
+    "operationName": "create",
+    "category": "DeviceIdentityOperations",
+    "level": "Error",
+    "statusCode": 4XX,
+    "statusDescription": "MessageDescription",
+    "deviceId": "device-ID",
+    "durationMs": 1234,
+    "userAgent": "userAgent",
+    "sharedAccessPolicy": "accessPolicy"
 }
 ```
 
@@ -74,21 +74,21 @@ The device telemetry category tracks errors that occur at the IoT hub and are re
 
 ```json
 {
-        "messageSizeInBytes": 1234,
-        "batching": 0,
-        "protocol": "Amqp",
-        "authType": "{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\"}",
-        "time": "UTC timestamp",
-        "operationName": "ingress",
-        "category": "DeviceTelemetry",
-        "level": "Error",
-        "statusCode": 4XX,
-        "statusType": 4XX001,
-        "statusDescription": "MessageDescription",
-        "deviceId": "device-ID",
-        "EventProcessedUtcTime": "UTC timestamp",
-        "PartitionId": 1,
-        "EventEnqueuedUtcTime": "UTC timestamp"
+    "messageSizeInBytes": 1234,
+    "batching": 0,
+    "protocol": "Amqp",
+    "authType": "{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\"}",
+    "time": "UTC timestamp",
+    "operationName": "ingress",
+    "category": "DeviceTelemetry",
+    "level": "Error",
+    "statusCode": 4XX,
+    "statusType": 4XX001,
+    "statusDescription": "MessageDescription",
+    "deviceId": "device-ID",
+    "EventProcessedUtcTime": "UTC timestamp",
+    "PartitionId": 1,
+    "EventEnqueuedUtcTime": "UTC timestamp"
 }
 ```
 
@@ -112,7 +112,7 @@ The cloud-to-device commands category tracks errors that occur at the IoT hub an
     "deviceId": "device-ID",
     "EventProcessedUtcTime": "UTC timestamp",
     "PartitionId": 1,
-    "EventEnqueuedUtcTime": “UTC timestamp"
+    "EventEnqueuedUtcTime": "UTC timestamp"
 }
 ```
 
@@ -282,7 +282,7 @@ class Program
 To further explore the capabilities of IoT Hub, see:
 
 * [IoT Hub developer guide][lnk-devguide]
-* [Simulating a device with the IoT Gateway SDK][lnk-gateway]
+* [Simulating a device with Azure IoT Edge][lnk-iotedge]
 
 <!-- Links and images -->
 [1]: media/iot-hub-operations-monitoring/enable-OM-1.png
@@ -296,6 +296,6 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-dr]: iot-hub-ha-dr.md
 
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md

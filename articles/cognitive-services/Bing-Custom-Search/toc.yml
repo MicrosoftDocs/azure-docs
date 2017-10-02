@@ -1,0 +1,21 @@
+- name: Bing Custom Search Documentation
+  href: ../index.md
+- name: Overview
+  items:
+    - name: Customize your search
+      href: overview.md
+    - name: How it works
+      href: how-it-works.md
+- name: Quickstarts
+  expanded: true
+  items:
+    - name: Build a custom search service
+      href: quickstart.md
+- name: References
+  items:
+    - name: Bing Web Search API Use and Display Requirements
+      href: https://docs.microsoft.com/azure/cognitive-services/bing-web-search/useanddisplayrequirements
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/

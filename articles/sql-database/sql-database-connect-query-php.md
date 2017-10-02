@@ -1,190 +1,99 @@
 ---
-title: Connect to Azure SQL Database by using PHP | Microsoft Docs
-description: Presents a PHP code sample you can use to connect to and query Azure SQL Database.
+title: Use PHP to query Azure SQL Database | Microsoft Docs
+description: This topic shows you how to use PHP to create a program that connects to an Azure SQL Database and query it using Transact-SQL statements.
 services: sql-database
 documentationcenter: ''
-author: meet-bhagdev
+author: CarlRabeler
 manager: jhubbard
 editor: ''
 
-ms.assetid: 4e71db4a-a22f-4f1c-83e5-4a34a036ecf3
+ms.assetid: 4e71db4a-a 22f-4f1c-83e5-4a34a036ecf3
 ms.service: sql-database
-ms.custom: quick start
+ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: php
-ms.topic: article
-ms.date: 04/05/2017
-ms.author: meetb;carlrab;sstein
+ms.topic: quickstart
+ms.date: 08/08/2017
+ms.author: carlrab
 
 ---
-# Azure SQL Database: Use PHP to connect and query data
+# Use PHP to query an Azure SQL database
 
-Use [PHP](http://php.net/manual/en/intro-whatis.php) to connect to and query an Azure SQL database. This guide details using PHP to connect to an Azure SQL database, and then execute query, insert, update, and delete statements.
+This quick start tutorial demonstrates how to use [PHP](http://php.net/manual/en/intro-whatis.php) to create a program to connect to an Azure SQL database and use Transact-SQL statements to query data.
 
-This quick start uses as its starting point the resources created in one of these quick starts:
+## Prerequisites
 
-- [Create DB - Portal](sql-database-get-started-portal.md)
-- [Create DB - CLI](sql-database-get-started-cli.md)
+To complete this quick start tutorial, make sure you have the following:
 
-## Configure Development Environment
-### **Mac OS**
-Open your terminal and enter the following commands to install **brew**, **Microsoft ODBC Driver for Mac** and the **Microsoft PHP Drivers for SQL Server**. 
+- An Azure SQL database. This quick start uses the resources created in one of these quick starts: 
 
-```bash
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew tap microsoft/msodbcsql https://github.com/Microsoft/homebrew-msodbcsql-preview
-brew update
-brew install msodbcsql 
-#for silent install ACCEPT_EULA=y brew install msodbcsql 
-pecl install sqlsrv-4.1.7preview
-pecl install pdo_sqlsrv-4.1.7preview
-```
+   - [Create DB - Portal](sql-database-get-started-portal.md)
+   - [Create DB - CLI](sql-database-get-started-cli.md)
+   - [Create DB - PowerShell](sql-database-get-started-powershell.md)
 
-### **Linux (Ubuntu)**
-Enter the following commands to install the **Microsoft ODBC Driver for Linux** and the **Microsoft PHP Drivers for SQL Server**.
+- A [server-level firewall rule](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) for the public IP address of the computer you use for this quick start tutorial.
 
-```bash
-sudo su
-curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
-curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > /etc/apt/sources.list.d/mssql.list
-exit
-sudo apt-get update
-sudo apt-get install msodbcsql mssql-tools unixodbc-dev gcc g++ php-dev
-sudo pecl install sqlsrv pdo_sqlsrv
-sudo echo "extension= pdo_sqlsrv.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
-sudo echo "extension= sqlsrv.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
-```
+- You have installed PHP and related software for your operating system.
 
-### **Windows**
-- Install PHP 7.1.1 (x64) [from WebPlatform Installer](https://www.microsoft.com/web/downloads/platform.aspx?lang=) 
-- Install the [Microsoft ODBC Driver 13.1](https://www.microsoft.com/download/details.aspx?id=53339). 
-- Download the non-thread safe dll's for the [Microsoft PHP Driver for SQL Server](https://pecl.php.net/package/sqlsrv/4.1.6.1/windows) and place the binaries in the PHP\v7.x\ext folder.
-- Next edit your php.ini (C:\Program Files\PHP\v7.1\php.ini) file by adding the reference to the dll. For example:
-      
-      extension=php_sqlsrv.dll
-      extension=php_pdo_sqlsrv.dll
+    - **MacOS**: Install Homebrew and PHP, install the ODBC driver and SQLCMD, and then install the PHP Driver for SQL Server. See [Steps 1.2, 1.3, and 2.1](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/mac/).
+    - **Ubuntu**:  Install PHP and other required packages, and then install the PHP Driver for SQL Server. See [Steps 1.2 and 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/).
+    - **Windows**: Install the newest version of PHP for IIS Express, the newest version of Microsoft Drivers for SQL Server in IIS Express, Chocolatey, the ODBC driver, and SQLCMD. See [Steps 1.2 and 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).    
 
-At this point you should have the dll's registered with PHP.
+## SQL server connection information
 
-## Get connection information
-
-Get the connection string in the Azure portal. You use the connection string to connect to the Azure SQL database.
+Get the connection information needed to connect to the Azure SQL database. You will need the fully qualified server name, database name, and login information in the next procedures.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
-3. In the **Essentials** pane for your database, review the fully qualified server name. 
+3. On the **Overview** page for your database, review the fully qualified server name as shown in the following image. You can hover over the server name to bring up the **Click to copy** option.  
 
-    <img src="./media/sql-database-connect-query-dotnet/server-name.png" alt="connection strings" style="width: 780px;" />
+   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
+
+4. If you forget your server login information, navigate to the SQL Database server page to view the server admin name and, if necessary, reset the password.     
     
-## Select Data
-The [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) function can be used to retrieve a result set from a query against SQL Database. This function essentially accepts any query and returns a result set that can be iterated over with the use of [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
+## Insert code to query SQL database
 
-```PHP
-<?php
-$serverName = "yourserver.database.windows.net";
-$connectionOptions = array(
-    "Database" => "yourdatabase",
-    "Uid" => "yourusername",
-    "PWD" => "yourpassword"
-);
-//Establishes the connection
-$conn = sqlsrv_connect($serverName, $connectionOptions);
-$tsql= "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
-     FROM [SalesLT].[ProductCategory] pc
-     JOIN [SalesLT].[Product] p
-     ON pc.productcategoryid = p.productcategoryid";
-$getResults= sqlsrv_query($conn, $tsql);
-echo ("Reading data from table" . PHP_EOL);
-if ($getResults == FALSE)
-    echo (sqlsrv_errors());
-while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
+1. In your favorite text editor, create a new file, **sqltest.php**.  
+
+2. Replace the contents with the following code and add the appropriate values for your server, database, user, and password.
+
+   ```PHP
+   <?php
+   $serverName = "your_server.database.windows.net";
+   $connectionOptions = array(
+       "Database" => "your_database",
+       "Uid" => "your_username",
+       "PWD" => "your_password"
+   );
+   //Establishes the connection
+   $conn = sqlsrv_connect($serverName, $connectionOptions);
+   $tsql= "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
+           FROM [SalesLT].[ProductCategory] pc
+           JOIN [SalesLT].[Product] p
+        ON pc.productcategoryid = p.productcategoryid";
+   $getResults= sqlsrv_query($conn, $tsql);
+   echo ("Reading data from table" . PHP_EOL);
+   if ($getResults == FALSE)
+       echo (sqlsrv_errors());
+   while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
     echo ($row['CategoryName'] . " " . $row['ProductName'] . PHP_EOL);
-}
-sqlsrv_free_stmt($getResults);
-?>
-```
+   }
+   sqlsrv_free_stmt($getResults);
+   ?>
+   ```
 
+## Run the code
 
-## Insert data
-In SQL Database the [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) property and the [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) object can be used to auto-generate [primary key](https://msdn.microsoft.com/library/ms179610.aspx) values. 
+1. At the command prompt, run the following commands:
 
-```PHP
-<?php
-$serverName = "yourserver.database.windows.net";
-$connectionOptions = array(
-    "Database" => "yourdatabase",
-    "Uid" => "yourusername",
-    "PWD" => "yourpassword"
-);
-//Establishes the connection
-$conn = sqlsrv_connect($serverName, $connectionOptions);
-$tsql= "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, StandardCost, ListPrice, SellStartDate) VALUES (?,?,?,?,?,?);";
-$params = array("BrandNewProduct", "200989", "Blue", 75, 80, "7/1/2016");
-$getResults= sqlsrv_query($conn, $tsql, $params);
-if ($getResults == FALSE)
-    echo print_r(sqlsrv_errors(), true);
-else{
-    $rowsAffected = sqlsrv_rows_affected($getResults);
-    echo ($rowsAffected. " row(s) inserted" . PHP_EOL);
-    sqlsrv_free_stmt($getResults);
-}
-?>
-```
+   ```php
+   php sqltest.php
+   ```
 
-## Update data
-The [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) function can be used to do an [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL statement to update data in your Azure SQL database.
-
-```PHP
-<?php
-$serverName = "yourserver.database.windows.net";
-$connectionOptions = array(
-    "Database" => "yourdatabase",
-    "Uid" => "yourusername",
-    "PWD" => "yourpassword"
-);
-//Establishes the connection
-$conn = sqlsrv_connect($serverName, $connectionOptions);
-$tsql= "UPDATE SalesLT.Product SET ListPrice =? WHERE Name = ?";
-$params = array(50,"BrandNewProduct");
-$getResults= sqlsrv_query($conn, $tsql, $params);
-if ($getResults == FALSE)
-    echo print_r(sqlsrv_errors(), true);
-else{
-    $rowsAffected = sqlsrv_rows_affected($getResults);
-    echo ($rowsAffected. " row(s) updated" . PHP_EOL);
-    sqlsrv_free_stmt($getResults);
-}
-?>
-```
-
-## Delete data
-The [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) function can be used to do a [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL statement to delete data in your Azure SQL database.
-
-```PHP
-<?php
-$serverName = "yourserver.database.windows.net";
-$connectionOptions = array(
-    "Database" => "yourdatabase",
-    "Uid" => "yourusername",
-    "PWD" => "yourpassword"
-);
-//Establishes the connection
-$conn = sqlsrv_connect($serverName, $connectionOptions);
-$tsql= "DELETE FROM SalesLT.Product WHERE Name = ?";
-$params = array("BrandNewProduct");
-$getResults= sqlsrv_query($conn, $tsql, $params);
-if ($getResults == FALSE)
-    echo print_r(sqlsrv_errors(), true);
-else{
-    $rowsAffected = sqlsrv_rows_affected($getResults);
-    echo ($rowsAffected. " row(s) deleted" . PHP_EOL);
-    sqlsrv_free_stmt($getResults);
-}
-```
+2. Verify that the top 20 rows are returned and then close the application window.
 
 ## Next steps
-* Review the [SQL Database Development Overview](sql-database-develop-overview.md).
-* More information on the [Microsoft PHP Driver for SQL Server](https://github.com/Microsoft/msphpsql/).
-* [File issues/ask questions](https://github.com/Microsoft/msphpsql/issues).
-* Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
+- [Design your first Azure SQL database](sql-database-design-first-database.md)
+- [Microsoft PHP Drivers for SQL Server](https://github.com/Microsoft/msphpsql/)
+- [Report issues or ask questions](https://github.com/Microsoft/msphpsql/issues)

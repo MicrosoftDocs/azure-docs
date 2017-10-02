@@ -3,7 +3,7 @@ title: Log Analytics data security | Microsoft Docs
 description: Learn about how Log Analytics protects your privacy and secures your data.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: ''
 ms.assetid: a33bb05d-b310-4f2c-8f76-f627e600c8e7
@@ -12,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
-ms.author: banders
+ms.date: 05/03/2017
+ms.author: magoedte
 
 ---
 # Log Analytics data security
@@ -104,7 +104,9 @@ The OMS software development and service team is actively working with the Micro
 ## Certifications and attestations
 OMS Log Analytics meets the following requirements:
 
-* [ISO/IEC 27001](http://www.iso.org/iso/home/standards/management-standards/iso27001.htm) and [ISO/IEC 27018:2014](http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=61498) compliant
+* [ISO/IEC 27001](http://www.iso.org/iso/home/standards/management-standards/iso27001.htm)
+* [ISO/IEC 27018:2014](http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=61498)
+* [ISO 22301](https://azure.microsoft.com/en-us/blog/iso22301/)
 * [Payment Card Industry (PCI Compliant) Data Security Standard (PCI DSS)](https://www.microsoft.com/en-us/TrustCenter/Compliance/PCI) by the PCI Security Standards Council.
 * [Service Organization Controls (SOC) 1 Type 1 and SOC 2 Type 1](https://www.microsoft.com/en-us/TrustCenter/Compliance/SOC1-and-2) compliant
 * [HIPAA and HITECH](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA) for companies that have a HIPAA Business Associate Agreement
@@ -149,7 +151,7 @@ If any agent is unable to communicate to the service for any reason, the collect
 As described above, data from your agents is sent over SSL to Microsoft Azure datacenters. Optionally, you can use ExpressRoute to provide additional security for the data. ExpressRoute is a way to directly connect to Azure from your existing WAN network, such as a multi-protocol label switching (MPLS) VPN, provided by a network service provider. For more information, see [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
 ## 3. The Log Analytics service receives and processes data
-The Log Analytics service ensures that incoming data is from a trusted source by validating certificates and the data integrity with Azure authentication. The unprocessed raw data is then stored as a blob in [Microsoft Azure Storage](../storage/storage-introduction.md) and is not encrypted. However, each Azure storage blob has a set of unique set of keys, that is accessible only to that user. The type of data that is stored depends on the types of solutions that were imported and used to collect data. Then, the Log Analytics service processes the raw data for the Azure storage blob.
+The Log Analytics service ensures that incoming data is from a trusted source by validating certificates and the data integrity with Azure authentication. The unprocessed raw data is then stored as a blob in [Microsoft Azure Storage](../storage/common/storage-introduction.md) and is not encrypted. However, each Azure storage blob has a set of unique set of keys, that is accessible only to that user. The type of data that is stored depends on the types of solutions that were imported and used to collect data. Then, the Log Analytics service processes the raw data for the Azure storage blob.
 
 ## 4. Use Log Analytics to access the data
 You can sign in to Log Analytics in the OMS portal by using the organizational account or Microsoft account that you set up previously. All traffic between the OMS portal and Log Analytics in OMS is sent over a secure HTTPS channel. When using the OMS portal, a session ID is generated on the user client (web browser) and data is stored in a local cache until the session is terminated. When terminated, the cache is deleted. Client-side cookies, which do not contain personally identifiable information, are not automatically removed. Session cookies are marked HTTPOnly and are secured. After a pre-determined idle period, the OMS portal session is terminated.

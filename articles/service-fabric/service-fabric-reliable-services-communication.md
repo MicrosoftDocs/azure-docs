@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 02/10/2017
+ms.date: 04/07/2017
 ms.author: vturecek
 
 ---
@@ -424,7 +424,7 @@ CompletableFuture<?> result = myServicePartitionClient.invokeWithRetryAsync(clie
 ```
 
 ## Next steps
-* See an example of HTTP communication between services in a [C# sample project on GitHUb](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/WordCount) or [Java sample project on GitHUb](https://github.com/Azure-Samples/service-fabric-java-getting-started/tree/master/Services/WatchDog).
+* See an example of HTTP communication between services in a [C# sample project on GitHUb](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/WordCount) or [Java sample project on GitHUb](https://github.com/Azure-Samples/service-fabric-java-getting-started/tree/master/Services/WatchDog).
 * [Remote procedure calls with Reliable Services remoting](service-fabric-reliable-services-communication-remoting.md)
 * [Web API that uses OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 * [WCF communication by using Reliable Services](service-fabric-reliable-services-communication-wcf.md)

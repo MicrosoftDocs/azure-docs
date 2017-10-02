@@ -2,7 +2,7 @@
 title: Azure Data Lake Store Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to set up, manage, and access a hyper-scale, Hadoop-compatible data lake repository for analytics on data of any size, type, and ingestion speed.
 services: data-lake-store
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -175,6 +175,7 @@ Learn how to use Data Lake Store to create a hyper-scale, Hadoop-compatible repo
                     <div class="cardText">
                         <h3>Command-Line</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/azurerm.datalakestore">PowerShell</a></p>
+                        <p><a href="/cli/azure/dls">Azure CLI 2.0</a></p>
                     </div>
                 </div>
             </div>
@@ -186,7 +187,7 @@ Learn how to use Data Lake Store to create a hyper-scale, Hadoop-compatible repo
                 <div class="card">
                     <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.datalake.store">.NET</a></p>
+                        <p><a href="/dotnet/api/overview/azure/data-lake-store">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.datalake.store">Java</a></p>
                         <p><a href="https://www.npmjs.com/package/azure-arm-datalake-store">Node​.js</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html">Python (Account Mgmt​.)</a></p>

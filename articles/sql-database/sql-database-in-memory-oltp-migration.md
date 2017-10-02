@@ -9,7 +9,7 @@ editor: MightyPen
 
 ms.assetid: c2bf14a0-905b-47b4-afb6-efe9a61147d5
 ms.service: sql-database
-ms.custom: development
+ms.custom: develop databases
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -28,7 +28,7 @@ ms.author: jodebrui
 Follow these steps to adopt In-Memory OLTP in your existing database.
 
 ## Step 1: Ensure you are using a Premium database
-In-Memory OLTP is supported only in v12 Premium databases. In-Memory is supported if the returned result is 1 (not 0):
+In-Memory OLTP is supported only in Premium databases. In-Memory is supported if the returned result is 1 (not 0):
 
 ```
 SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');

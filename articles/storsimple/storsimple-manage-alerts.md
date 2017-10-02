@@ -110,7 +110,6 @@ The following tables list some of the Microsoft Azure StorSimple alerts that you
 * [Performance alerts](#performance-alerts)
 * [Security alerts](#security-alerts)
 * [Support package alerts](#support-package-alerts)
-* [Update alerts](#update-alerts)
 
 ### Cloud connectivity alerts
 | Alert text | Event | More information / recommended actions |
@@ -197,17 +196,6 @@ If cloud connectivity fails on your StorSimple production device, then depending
 | Alert text | Event | More information / recommended actions |
 |:--- |:--- |:--- |
 | Creation of support package failed. |StorSimple couldn't generate the package. |Retry this operation. If the issue persists, contact Microsoft Support. After you have resolved the issue, clear this alert from the alerts page. |
-
-### Update alerts
-| Alert text | Event | More information / recommended actions |
-|:--- |:--- |:--- |
-| Hotfix installed. |Software/firmware update completed. |The hotfix has been successfully installed on your device. |
-| Manual updates available. |Notification of available updates. |Use the Windows PowerShell Interface for StorSimple on your device to install these updates. <br>For more information, go to [Update your StorSimple 8000 Series device](storsimple-update-device.md). |
-| New updates available. |Notification of available updates. |You can install these updates either from the **Maintenance** page or by using the Windows PowerShell Interface for StorSimple on your device. <br>For more information, go to [Update your StorSimple 8000 Series device](storsimple-update-device.md). |
-| Failed to install updates. |Updates were not successfully installed. |Your system was not able to install the updates. You can install these updates either from the **Maintenance** page or by using the Windows PowerShell Interface for StorSimple on your device. If the issue persists, contact Microsoft Support. <br>For more information, go to [Update your StorSimple 8000 Series device](storsimple-update-device.md). |
-| Unable to automatically check for new updates. |Automatic check failed. |You can manually check for new updates from the **Maintenance** page. |
-| New WUA agent available. |Notification of available update. |Download the latest Windows Update Agent and install it from the Windows PowerShell interface. |
-| Version of firmware component <*component ID*> does not match with hardware. |Firmware update(s) were not successfully installed. |Contact Microsoft Support. |
 
 ## Next steps
 Learn more about [StorSimple errors and troubleshooting an operational device](storsimple-troubleshoot-operational-device.md).

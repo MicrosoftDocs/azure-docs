@@ -1,9 +1,9 @@
----
-title: Navigate and select Windows VM images | Microsoft Docs
-description: Learn how to determine the publisher, offer, and SKU for images when creating a Windows virtual machine with the Resource Manager deployment model.
+﻿---
+title: Select Windows VM images in Azure | Microsoft Docs
+description: Learn how to use Azure PowerSHell to determine the publisher, offer, SKU, and version for Marketplace VM images.
 services: virtual-machines-windows
 documentationcenter: ''
-author: squillace
+author: dlepow
 manager: timlt
 editor: ''
 tags: azure-resource-manager
@@ -14,32 +14,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 08/23/2016
-ms.author: rasquill
+ms.date: 07/12/2017
+ms.author: danlep
 
 ---
-# Navigate and select Windows virtual machine images in Azure with PowerShell
-This topic describes how to find VM image publishers, offers, skus, and versions for each location into which you might deploy. To give an example, some commonly used Windows VM images are:
+# How to find Windows VM images in the Azure Marketplace with Azure PowerShell
+
+This topic describes how to use Azure PowerShell to find VM images in the Azure Marketplace. Use this information to specify a Marketplace image when you create a Windows VM.
+
+Make sure that you installed and configured the latest [Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+
+
 
 ## Table of commonly used Windows images
 | PublisherName | Offer | Sku |
 |:--- |:--- |:--- |:--- |
-| MicrosoftDynamicsNAV |DynamicsNAV |2015 |
-| MicrosoftSharePoint |MicrosoftSharePointServer |2013 |
-| MicrosoftSQLServer |SQL2014-WS2012R2 |Enterprise-Optimized-for-DW |
-| MicrosoftSQLServer |SQL2014-WS2012R2 |Enterprise-Optimized-for-OLTP |
+| MicrosoftWindowsServer |WindowsServer |2016-Datacenter |
+| MicrosoftWindowsServer |WindowsServer |2016-Datacenter-Server-Core |
+| MicrosoftWindowsServer |WindowsServer |2016-Datacenter-with-Containers |
+| MicrosoftWindowsServer |WindowsServer |2016-Nano-Server |
 | MicrosoftWindowsServer |WindowsServer |2012-R2-Datacenter |
-| MicrosoftWindowsServer |WindowsServer |2012-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2008-R2-SP1 |
-| MicrosoftWindowsServer |WindowsServer |Windows-Server-Technical-Preview |
-| MicrosoftWindowsServerEssentials |WindowsServerEssentials |WindowsServerEssentials |
+| MicrosoftDynamicsNAV |DynamicsNAV |2017 |
+| MicrosoftSharePoint |MicrosoftSharePointServer |2016 |
+| MicrosoftSQLServer |SQL2016-WS2016 |Enterprise |
+| MicrosoftSQLServer |SQL2014SP2-WS2012R2 |Enterprise |
 | MicrosoftWindowsServerHPCPack |WindowsServerHPCPack |2012R2 |
+| MicrosoftWindowsServerEssentials |WindowsServerEssentials |WindowsServerEssentials |
 
-## Find Azure images with PowerShell
-> [!NOTE]
-> Install and configure the [latest Azure PowerShell](/powershell/azureps-cmdlets-docs). If you are using Azure PowerShell modules below 1.0, you still use the following commands but you must first `Switch-AzureMode AzureResourceManager`. 
-> 
-> 
+## Find specific images
+
 
 When creating a new virtual machine with Azure Resource Manager, in some cases you need to specify an image with the combination of the following image properties:
 
@@ -47,9 +51,9 @@ When creating a new virtual machine with Azure Resource Manager, in some cases y
 * Offer
 * SKU
 
-For example, these values are needed for the `Set-AzureRMVMSourceImage` PowerShell cmdlet or with a resource group template file in which you must specify the type of virtual machine to be created.
+For example, use these values with the [Set-AzureRMVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage) PowerShell cmdlet, or with a resource group template in which you must specify the type of VM to be created.
 
-If you need to determine these values, you can navigate the images to determine these values:
+If you need to determine these values, you can run the [Get-AzureRMVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher), [Get-AzureRMVMImageOffer](/powershell/module/azurerm.compute/get-azurermvmimageoffer), and [Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) cmdlets to navigate the images. You determine these values:
 
 1. List the image publishers.
 2. For a given publisher, list their offers.
@@ -76,14 +80,19 @@ $offerName="<offer>"
 Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 ```
 
-From the display of the `Get-AzureRMVMImageSku` command, you have all the information you need to specify the image for a new virtual machine.
+From the output of the `Get-AzureRMVMImageSku` command, you have all the information you need to specify the image for a new virtual machine.
 
 The following shows a full example:
 
 ```powershell
-PS C:\> $locName="West US"
-PS C:\> Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
+$locName="West US"
+Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
 
+```
+
+Output:
+
+```
 PublisherName
 -------------
 a10networks
@@ -102,31 +111,47 @@ Canonical
 For the "MicrosoftWindowsServer" publisher:
 
 ```powershell
-PS C:\> $pubName="MicrosoftWindowsServer"
-PS C:\> Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
+$pubName="MicrosoftWindowsServer"
+Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
+```
 
+Output:
+
+```
 Offer
 -----
+Windows-HUB
 WindowsServer
+WindowsServer-HUB
 ```
 
 For the "WindowsServer" offer:
 
 ```powershell
-PS C:\> $offerName="WindowsServer"
-PS C:\> Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
+$offerName="WindowsServer"
+Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
+```
 
+Output:
+
+```
 Skus
 ----
 2008-R2-SP1
+2008-R2-SP1-smalldisk
 2012-Datacenter
+2012-Datacenter-smalldisk
 2012-R2-Datacenter
-2016-Nano-Server-Technical-Previe
-2016-Technical-Preview-with-Conta
-Windows-Server-Technical-Preview
+2012-R2-Datacenter-smalldisk
+2016-Datacenter
+2016-Datacenter-Server-Core
+2016-Datacenter-Server-Core-smalldisk
+2016-Datacenter-smalldisk
+2016-Datacenter-with-Containers
+2016-Nano-Server
 ```
 
 From this list, copy the chosen SKU name, and you have all the information for the `Set-AzureRMVMSourceImage` PowerShell cmdlet or for a resource group template.
 
 ## Next steps
-Now you can choose precisely the image you want to use. To create a virtual machine quickly by using the image information, which you just found, or to use a template with that image information, see [Create a Windows VM using Resource Manager and PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Now you can choose precisely the image you want to use. To create a virtual machine quickly by using the image information, which you just found, see [Create a Windows virtual machine with PowerShell](quick-create-powershell.md).

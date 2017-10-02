@@ -1,5 +1,5 @@
 ---
-title: Use Hadoop Hive with PowerShell in HDInsight | Microsoft Docs
+title: Use Hadoop Hive with PowerShell in HDInsight - Azure | Microsoft Docs
 description: Use PowerShell to run Hive queries in Hadoop on HDInsight.
 services: hdinsight
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/21/2017
+ms.date: 09/06/2017
 ms.author: larryfr
 
 ---
@@ -32,10 +32,10 @@ This document provides an example of using Azure PowerShell in the Azure Resourc
 * **An Azure HDInsight cluster**: It does not matter whether the cluster is Windows or Linux-based.
 
   > [!IMPORTANT]
-  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * **A workstation with Azure PowerShell**.
-  
+
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 ## Run Hive queries using Azure PowerShell
@@ -44,13 +44,13 @@ Azure PowerShell provides *cmdlets* that allow you to remotely run Hive queries 
 
 The following cmdlets are used when running Hive queries in a remote HDInsight cluster:
 
-* **Add-AzureRmAccount**: Authenticates Azure PowerShell to your Azure subscription
-* **New-AzureRmHDInsightHiveJobDefinition**: Creates a *job definition* by using the specified HiveQL statements
-* **Start-AzureRmHDInsightJob**: Sends the job definition to HDInsight, starts the job, and returns a *job* object that can be used to check the status of the job
+* **Add-AzureRmAccount**: Authenticates Azure PowerShell to your Azure subscription.
+* **New-AzureRmHDInsightHiveJobDefinition**: Creates a *job definition* by using the specified HiveQL statements.
+* **Start-AzureRmHDInsightJob**: Sends the job definition to HDInsight and starts the job. A *job* object is returned.
 * **Wait-AzureRmHDInsightJob**: Uses the job object to check the status of the job. It waits until the job completes or the wait time is exceeded.
-* **Get-AzureRmHDInsightJobOutput**: Used to retrieve the output of the job
-* **Invoke-AzureRmHDInsightHiveJob**: Used to run HiveQL statements. This cmdlet blocks the query completes, then returns the results
-* **Use-AzureRmHDInsightCluster**: Sets the current cluster to use for the **Invoke-AzureRmHDInsightHiveJob** command
+* **Get-AzureRmHDInsightJobOutput**: Used to retrieve the output of the job.
+* **Invoke-AzureRmHDInsightHiveJob**: Used to run HiveQL statements. This cmdlet blocks the query completes, then returns the results.
+* **Use-AzureRmHDInsightCluster**: Sets the current cluster to use for the **Invoke-AzureRmHDInsightHiveJob** command.
 
 The following steps demonstrate how to use these cmdlets to run a job in your HDInsight cluster:
 
@@ -59,13 +59,13 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
     [!code-powershell[main](../../powershell_scripts/hdinsight/use-hive/use-hive.ps1?range=5-42)]
 
 2. Open a new **Azure PowerShell** command prompt. Change directories to the location of the **hivejob.ps1** file, then use the following command to run the script:
-   
+
         .\hivejob.ps1
-   
+
     When the script runs, you are prompted to enter the cluster name and the HTTPS/Admin account credentials for the cluster. You may also be prompted to log in to your Azure subscription.
 
-3. When the job completes, it returns information similar to the following thext:
-   
+3. When the job completes, it returns information similar to the following text:
+
         Display the standard output...
         2012-02-03      18:35:34        SampleClass0    [ERROR] incorrect       id
         2012-02-03      18:55:54        SampleClass1    [ERROR] incorrect       id
@@ -82,15 +82,15 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
         2012-02-03    19:25:27    SampleClass4    [ERROR]    incorrect    id
 
    > [!NOTE]
-   > For longer HiveQL queries, you can use the Azure PowerShell **Here-Strings** cmdlet or HiveQL script files. The following snippet shows how to use the **Invoke-Hive** cmdlet to run a HiveQL script file. The HiveQL script file must be uploaded to wasbs://.
-   > 
-   > `Invoke-AzureRmHDInsightHiveJob -File "wasbs://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
-   > 
+   > For longer HiveQL queries, you can use the Azure PowerShell **Here-Strings** cmdlet or HiveQL script files. The following snippet shows how to use the **Invoke-Hive** cmdlet to run a HiveQL script file. The HiveQL script file must be uploaded to wasb://.
+   >
+   > `Invoke-AzureRmHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
+   >
    > For more information about **Here-Strings**, see <a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">Using Windows PowerShell Here-Strings</a>.
 
 ## Troubleshooting
 
-If no information is returned when the job completes, an error may have occurred during processing. To view error information for this job, add the following to the end of the **hivejob.ps1** file, save it, and then run it again.
+If no information is returned when the job completes, view the error logs. To view error information for this job, add the following to the end of the **hivejob.ps1** file, save it, and then run it again.
 
 ```powershell
 # Print the output of the Hive job.
@@ -101,7 +101,7 @@ Get-AzureRmHDInsightJobOutput `
         -DisplayOutputType StandardError
 ```
 
-This cmdlet returns the information that is written to STDERR on the server when you ran the job.
+This cmdlet returns the information that is written to STDERR during job processing.
 
 ## Summary
 
@@ -117,4 +117,3 @@ For information about other ways you can work with Hadoop on HDInsight:
 
 * [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
 * [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
-

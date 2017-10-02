@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
+ms.date: 08/08/2017
 ms.author: dobett
 
 ---
@@ -57,7 +57,7 @@ Sign in to your Azure account and select your subscription.
 
 The following steps assume that you created your storage account using the **Resource Manager** deployment model, and not the **Classic** deployment model.
 
-You need the connection string of an Azure storage account in the same subscription as your IoT hub to configure file uploads from your devices. You also need the name of a blob container in the storage account. Use the following command to retrieve your storage account keys:
+To configure file uploads from your devices, you need the connection string for an Azure storage account. The storage account must be in the same subscription as your IoT hub. You also need the name of a blob container in the storage account. Use the following command to retrieve your storage account keys:
 
 ```powershell
 Get-AzureRmStorageAccountKey `
@@ -121,7 +121,8 @@ Set-AzureRmIotHub `
 ```
 
 ## Next steps
-For more information about the file upload capabilities of IoT Hub, see [Upload files from a device][lnk-upload] in the IoT Hub developer guide.
+
+For more information about the file upload capabilities of IoT Hub, see [Upload files from a device][lnk-upload].
 
 Follow these links to learn more about managing Azure IoT Hub:
 
@@ -132,7 +133,7 @@ Follow these links to learn more about managing Azure IoT Hub:
 To further explore the capabilities of IoT Hub, see:
 
 * [IoT Hub developer guide][lnk-devguide]
-* [Simulating a device with the IoT Gateway SDK][lnk-gateway]
+* [Simulating a device with IoT Edge][lnk-iotedge]
 * [Secure your IoT solution from the ground up][lnk-securing]
 
 [lnk-upload]: iot-hub-devguide-file-upload.md
@@ -142,11 +143,11 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-monitor]: iot-hub-operations-monitoring.md
 
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
 [lnk-securing]: iot-hub-security-ground-up.md
-[lnk-powershell-install]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs/
-[lnk-powershell-storage]: https://docs.microsoft.com/powershell/storage/
-[lnk-powershell-iothub]: https://docs.microsoft.com/powershell/resourcemanager/azurerm.iothub/v1.1.0/new-azurermiothub
+[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[lnk-powershell-storage]: https://docs.microsoft.com/powershell/module/azurerm.storage/
+[lnk-powershell-iothub]: https://docs.microsoft.com/powershell/module/azurerm.iothub/new-azurermiothub
 [lnk-portal-hub]: iot-hub-create-through-portal.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-portal-storage]: ../storage/storage-create-storage-account.md
+[lnk-portal-storage]:../storage/common/storage-create-storage-account.md

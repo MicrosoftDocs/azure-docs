@@ -1,10 +1,10 @@
----
+﻿---
 title: Continuous export of telemetry from Application Insights | Microsoft Docs
 description: Export diagnostic and usage data to storage in Microsoft Azure, and download it from there.
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 
 ms.assetid: 5b859200-b484-4c98-9d9f-929713f1030c
 ms.service: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
-ms.author: awills
+ms.author: bwren
 
 ---
 # Export telemetry from Application Insights
@@ -38,7 +38,7 @@ After Continuous Export copies your data to storage (where it can stay for as lo
 
 2. Choose the telemetry data types you want to export.
 
-3. Create or select an [Azure storage account](../storage/storage-introduction.md) where you want to store the data.
+3. Create or select an [Azure storage account](../storage/common/storage-introduction.md) where you want to store the data.
 
     > [!Warning]
     > By default, the storage location will be set to the same geographical region as your Application Insights resource. If you store in a different region, you may incur transfer charges.
@@ -152,7 +152,7 @@ Open the Continuous Export blade and edit your export. Edit the Export Destinati
 The continuous export will restart.
 
 ## Export samples
-* [Export to SQL using a worker role][exportcode]
+
 * [Export to SQL using Stream Analytics][exportasa]
 * [Stream Analytics sample 2](app-insights-export-stream-analytics.md)
 
@@ -186,13 +186,12 @@ On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdin
     Yes. Click Disable.
 
 ## Code samples
-* [Parse exported JSON using a worker role][exportcode]
+
 * [Stream Analytics sample](app-insights-export-stream-analytics.md)
 * [Export to SQL using Stream Analytics][exportasa]
 * [Detailed data model reference for the property types and values.](app-insights-export-data-model.md)
 
 <!--Link references-->
 
-[exportcode]: app-insights-code-sample-export-telemetry-sql-database.md
 [exportasa]: app-insights-code-sample-export-sql-stream-analytics.md
 [roles]: app-insights-resources-roles-access-control.md

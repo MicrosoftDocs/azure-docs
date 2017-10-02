@@ -9,11 +9,11 @@ editor: ''
 
 ms.assetid: c413efcd-d750-4b22-b34b-15bcaa03934a
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2017
+ms.date: 04/05/2017
 ms.author: raynew
 
 ---
@@ -45,9 +45,16 @@ You can:
 
 ## Migrate on-premises VMs and physical servers
 
-To migrate on-premises Hyper-V VMs, VMware VMs, and physical servers, you follow almost the same steps as those used for regular replication. You set up a Recovery Services vault, configure the required management servers (depending on what you want to migrate), add them to the vault, and specify replication settings. You enable replication for the machines you want to migrate, and run a quick test failover to ensure that everything's working as it should.
+To migrate on-premises Hyper-V VMs, VMware VMs, and physical servers, you follow almost the same steps as those used for regular replication.
 
-After you verify that your replication environment is working, you use a planned or unplanned failover depending on [what's supported](site-recovery-failover.md) for your scenario. For migration, you don't need to commit a failover. Instead, you select the **Complete Migration** option for each machine you want to migrate. The **Complete Migration** action finishes up the migration process, removes replication for the machine, and stops Site Recovery billing for the machine.
+1. Set up a Recovery Services vault
+2. Configure the required management servers (VMware, VMM, Hyper-V - depending on what you want to migrate), add them to the vault, and specify replication settings.
+3. Enable replication for the machines you want to migrate
+4. After the initial migration, run a quick test failover to ensure that everything's working as it should.
+5. After you verify that your replication environment is working, you use a planned or unplanned failover depending on [what's supported](site-recovery-failover.md) for your scenario. We recommend you use a planned failover when possible.
+6. For migration, you don't need to commit a failover, or delete it. Instead, you select the **Complete Migration** option for each machine you want to migrate.
+     - In **Replicated Items**, right-click the VM, and click **Complete Migration**. Click **OK** to complete. You can track progress in the VM properties, in by monitoring the Complete Migration job in **Site Recovery jobs**.
+     - The **Complete Migration** action finishes up the migration process, removes replication for the machine, and stops Site Recovery billing for the machine.
 
 ![completemigration](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
 
@@ -69,3 +76,5 @@ You can migrate AWS instances to Azure VMs. In this scenario only migration is s
 - [Migrate Hyper-V VMs without VMM to Azure](site-recovery-hyper-v-site-to-azure.md)
 - [Migrate Azure VMs between Azure regions](site-recovery-migrate-azure-to-azure.md)
 - [Migrate AWS instances to Azure](site-recovery-migrate-aws-to-azure.md)
+- [Prepare migrated machines to enable replication](site-recovery-azure-to-azure-after-migration.md) to another region for disaster recovery needs.
+- Start protecting your workloads by [replicating Azure virtual machines.](site-recovery-azure-to-azure.md)

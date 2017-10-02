@@ -3,7 +3,7 @@ title: Sharing accounts using Azure AD | Microsoft Docs
 description: Describes how Azure Active Directory enables organizations to securely share accounts for on-premises apps and consumer cloud services.
 services: active-directory
 documentationcenter: ''
-author: msStevenPo
+author: curtand
 manager: femila
 editor: ''
 
@@ -13,8 +13,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2016
-ms.author: stevenpo
+ms.date: 08/28/2017
+ms.author: curtand
+ms.reviewer: jeffsta
+ms.custom: it-pro
 
 ---
 # Sharing accounts with Azure AD

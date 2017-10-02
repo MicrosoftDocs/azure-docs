@@ -1,0 +1,181 @@
+- name: Azure Machine Learning Documentation (Preview)
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Azure Machine Learning?
+    href: overview-what-is-azure-ml.md
+  - name: Model Management overview
+    href: model-management-overview.md
+- name: Quickstarts
+  items:
+  - name: Install and create
+    href: quickstart-installation.md
+- name: Tutorials
+  items:
+  - name: 1 - Prepare data
+    href: tutorial-classifying-iris-part-1.md
+  - name: 2 - Build a model 
+    href: tutorial-classifying-iris-part-2.md
+  - name: 3 - Deploy a model
+    href: tutorial-classifying-iris-part-3.md
+  - name: 4 - Advanced data preparation
+    href: tutorial-bikeshare-dataprep.md  
+- name: Concepts   
+  items: 
+  - name: Key concepts
+    href: overview-general-concepts.md
+- name: How-to guides
+  items:  
+  - name: Use Machine Learning Workbench
+    items:
+    - name: Working with Python IDEs
+      href: how-to-configure-your-IDE.md
+    - name: Use Jupyter notebooks      
+      href: how-to-use-jupyter-notebooks.md
+    - name: Integrate with a Git repo
+      href: using-git-ml-project.md
+    - name: Structure a project with TDSP
+      href: how-to-use-tdsp-in-azure-ml.md
+    - name: How to do roaming and collaboration
+      href: roaming-and-collaboration.md
+  - name: Use Visual Studio tools
+    href: quickstart-visual-studio-tools.md
+  - name: Configure compute environment
+    items: 
+    - name: Configure execution targets
+      href: experiment-execution-configuration.md    
+    - name: Create DSVM and HDI Spark cluster
+      href: how-to-create-dsvm-hdi.md
+    - name: Train with GPUs
+      href: how-to-use-gpu.md    
+  - name: Acquire and understand data
+    items:    
+    - name: Access data with the Data Source Wizard
+      href: data-source-wizard.md
+    - name: Get started with data preparation
+      href: data-prep-getting-started.md
+    - name: Data preparation guide
+      href: data-prep-user-guide.md
+    - name: Data preparation transformations
+      items:
+      - name: Combine columns by example
+        href: data-prep-combine-columns-by-example.md
+      - name: Derive column by example
+        href: data-prep-derive-column-by-example.md
+      - name: Split column by example
+        href: data-prep-split-column-by-example.md
+      - name: Expand JSON
+        href: data-prep-expand-json.md
+  - name: Develop models
+    items: 
+    - name: Classify Iris using CLI
+      href: tutorial-iris-azure-cli.md
+    - name: Track run history and model metrics
+      href: how-to-use-run-history-model-metrics.md    
+    - name: Read and write files
+      href: how-to-read-write-files.md
+    - name: MMLSpark library
+      href: how-to-use-mmlspark.md
+  - name: Deploy models
+    items:
+    - name: Set up Model Management
+      href: deployment-setup-configuration.md
+    - name: Deploy a web service
+      href: model-management-service-deploy.md
+    - name: Consume a web service
+      href: model-management-consumption.md  
+    - name: How to use model data collection
+      href: how-to-use-model-data-collection.md
+  - name: Real-world examples
+    items:
+    - name: Document collection analysis
+      href: scenario-document-collection-analysis.md  
+    - name: Q & A matching
+      href: scenario-qna-matching.md
+    - name: Predictive maintenance
+      href: scenario-predictive-maintenance.md
+    - name: Aerial image classification
+      href: scenario-aerial-image-classification.md
+    - name: Server workload forecasting on terabytes of data
+      href: scenario-big-data.md
+    - name: Energy demand time series forecasting
+      href: scenario-time-series-forecasting.md
+    - name: Distributed tuning of hyperparameters
+      href: scenario-distributed-tuning-of-hyperparameters.md
+    - name: Customer churn prediction
+      href: scenario-churn-prediction.md
+    - name: Sentiment analysis with deep learning
+      href: scenario-sentiment-analysis-deep-learning.md
+    - name: Biomedical entity recognition - TDSP project
+      href: scenario-tdsp-biomedical-recognition.md  
+    - name: Classify US incomes - TDSP project
+      href: scenario-tdsp-classifying-us-incomes.md
+- name: Reference
+  items:  
+  - name: Data preparation
+    items:
+    - name: Python extensions for data preparation
+      href: data-prep-python-extensibility-overview.md
+    - name: Supported data sources
+      href: data-prep-appendix2-supported-data-sources.md
+    - name: Supported transforms
+      href: data-prep-appendix3-supported-transforms.md
+    - name: Supported inspectors
+      href: data-prep-appendix4-supported-inspectors.md
+    - name: Supported data destinations
+      href: data-prep-appendix5-supported-destinations.md
+    - name: Supported execution and data environment combinations
+      href: data-prep-supported-runtime-data-environments.md
+    - name: Sample of filter expressions in Python
+      href: data-prep-appendix6-sample-filter-expressions-python.md
+    - name: Sample of custom DataFlow transforms in Python
+      href: data-prep-appendix7-sample-transform-data-flow-python.md
+    - name: Sample of source connections in Python
+      href: data-prep-appendix8-sample-source-connections-python.md
+    - name: Sample of destination connections in Python
+      href: data-prep-appendix9-sample-destination-connections-python.md
+    - name: Sample of column transforms in Python
+      href: data-prep-appendix10-sample-custom-column-transforms-python.md  
+    - name: Data preparation execution API
+      href: data-prep-python-execution-api.md
+  - name: Experimentation    
+    items:
+    - name: Execution configuration
+      href: experiment-execution-configuration-reference.md
+    - name: Logging API
+      href: reference-logging-api.md
+  - name: Model Management
+    items:
+    - name: Model Management API
+      href: model-management-api-reference.md
+    - name: Model Management CLI
+      href: model-management-cli-reference.md
+    - name: Model data collection API
+      href: model-data-collection-api-reference.md
+- name: Resources
+  items:  
+  - name: FAQ
+    href: frequently-asked-questions.md
+  - name: Known issues and troubleshooting guide
+    href: known-issues-and-troubleshooting-guide.md
+  - name: Team Data Science Process documentation
+    href: ../team-data-science-process/overview.md
+  - name: Data Science VM documentation
+    href: ../data-science-virtual-machine/overview.md
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/machine-learning/
+  - name: MSDN forum
+    href: https://social.msdn.microsoft.com/Forums/home?forum=MachineLearning
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-machine-learning
+  - name: Videos
+    href: https://azure.microsoft.com/resources/videos/index/?services=machine-learning
+  - name: Feedback forum
+    href: https://feedback.azure.com/forums/257792-machine-learning
+  - name: Region availability
+    href: https://azure.microsoft.com/regions/services/
+  - name: Support options
+    href: https://azure.microsoft.com/support/options/

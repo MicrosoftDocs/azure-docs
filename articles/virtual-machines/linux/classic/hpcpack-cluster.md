@@ -48,14 +48,14 @@ For more information about HPC Pack cluster deployment options in Azure, see [Op
   * **Ubuntu Server**: 14.04 LTS, 16.04 LTS
     
     > [!TIP]
-    > To use the Azure RDMA network with one of the RDMA-capable VM sizes, specify a SUSE Linux Enterprise Server 12 HPC or CentOS-based HPC image from the Azure Marketplace. For more information, see [About H-series and compute-intensive A-series VMs](../a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+    > To use the Azure RDMA network with one of the RDMA-capable VM sizes, specify a SUSE Linux Enterprise Server 12 HPC or CentOS-based HPC image from the Azure Marketplace. For more information, see [High performance compute VM sizes](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
     > 
     > 
 
 Additional prerequisites to deploy the cluster by using the HPC Pack IaaS deployment script:
 
 * **Client computer** - You need a Windows-based client computer to run the cluster deployment script.
-* **Azure PowerShell** - [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) (version 0.8.10 or later) on your client computer.
+* **Azure PowerShell** - [Install and configure Azure PowerShell](/powershell/azure/overview) (version 0.8.10 or later) on your client computer.
 * **HPC Pack IaaS deployment script** - Download and unpack the latest version of the script from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). You can check the version of the script by running `.\New-HPCIaaSCluster.ps1 –Version`. This article is based on version 4.4.1 or later of the script.
 
 ### Deployment option 1. Use a Resource Manager template
@@ -83,7 +83,7 @@ Additional prerequisites to deploy the cluster by using the HPC Pack IaaS deploy
 Following are additional prerequisites to deploy the cluster by using the HPC Pack IaaS deployment script:
 
 * **Client computer** - You need a Windows-based client computer to run the cluster deployment script.
-* **Azure PowerShell** - [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) (version 0.8.10 or later) on your client computer.
+* **Azure PowerShell** - [Install and configure Azure PowerShell](/powershell/azure/overview) (version 0.8.10 or later) on your client computer.
 * **HPC Pack IaaS deployment script** - Download and unpack the latest version of the script from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). You can check the version of the script by running `.\New-HPCIaaSCluster.ps1 –Version`. This article is based on version 4.4.1 or later of the script.
 
 **XML configuration file**
@@ -182,7 +182,7 @@ You have several choices to move data among Linux nodes and the Windows head nod
 ### Azure File storage
 The [Azure File](https://azure.microsoft.com/services/storage/files/) service exposes file shares using the standard SMB 2.1 protocol. Azure VMs and cloud services can share file data across application components via mounted shares, and on-premises applications can access file data in a share through the File storage API. 
 
-For detailed steps to create an Azure File share and mount it on the head node, see [Get started with Azure File storage on Windows](../../../storage/storage-dotnet-how-to-use-files.md). To mount the Azure File share on the Linux nodes, see [How to use Azure File Storage with Linux](../../../storage/storage-how-to-use-files-linux.md). To set up persisting connections, see [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
+For detailed steps to create an Azure File share and mount it on the head node, see [Get started with Azure File storage on Windows](../../../storage/files/storage-how-to-use-files-windows.md). To mount the Azure File share on the Linux nodes, see [How to use Azure File storage with Linux](../../../storage/files/storage-how-to-use-files-linux.md). To set up persisting connections, see [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
 
 In the following example, create an Azure File share on a storage account. To mount the share on the head node, open a Command Prompt and enter the following commands:
 
@@ -295,7 +295,7 @@ The HPC Pack [clusrun](https://technet.microsoft.com/library/cc947685.aspx) tool
 
 ## Next steps
 * Try scaling up the cluster to a larger number of nodes, or try running a Linux workload on the cluster. For an example, see [Run NAMD with Microsoft HPC Pack on Linux compute nodes in Azure](hpcpack-cluster-namd.md).
-* Try a cluster with [RDMA-capable, compute-intensive VMs](../../windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to run MPI workloads. For an example, see [Run OpenFOAM with Microsoft HPC Pack on a Linux RDMA cluster in Azure](hpcpack-cluster-openfoam.md).
+* Try a cluster with [RDMA-capable, compute-intensive VMs](../../windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to run MPI workloads. For an example, see [Run OpenFOAM with Microsoft HPC Pack on a Linux RDMA cluster in Azure](hpcpack-cluster-openfoam.md).
 * If you are interested in working with Linux nodes in an on-premises HPC Pack cluster, see the [TechNet guidance](https://technet.microsoft.com/library/mt595803.aspx).
 
 <!--Image references-->

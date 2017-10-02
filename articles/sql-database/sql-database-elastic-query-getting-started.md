@@ -4,17 +4,17 @@ description: how to use cross database database queries
 services: sql-database
 documentationcenter: ''
 manager: jhubbard
-author: ddove
+author: MladjoA
 
 ms.assetid: c81ef5e3-41e9-4fd2-8631-868f2e168147
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
-ms.author: ddove
+ms.author: mlandzic
 
 ---
 # Report across scaled-out cloud databases (preview)
@@ -34,7 +34,7 @@ Here you will create a shard map manager along with several shards, followed by 
 
     ![command prompt][1]
 2. In the command window, type "1" and press **Enter**. This creates the shard map manager, and adds two shards to the server. Then type "3" and press **Enter**; repeat the action four times. This inserts sample data rows in your shards.
-3. The [Azure portal](https://portal.azure.com) should show three new databases in your v12 server:
+3. The [Azure portal](https://portal.azure.com) should show three new databases in your server:
 
    ![Visual Studio confirmation][2]
 

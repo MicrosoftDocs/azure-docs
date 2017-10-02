@@ -1,20 +1,19 @@
----
+﻿---
 title: Create an Azure Application Gateway - templates | Microsoft Docs
 description: This page provides instructions to create an Azure application gateway by using the Azure Resource Manager template
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 
-ms.assetid: 8192ee25-d9f0-4b32-a45e-1d74629c54e5
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
-ms.author: gwallace
+ms.date: 07/31/2017
+ms.author: davidmu
 
 ---
 # Create an application gateway by using the Azure Resource Manager template
@@ -26,12 +25,9 @@ ms.author: gwallace
 > * [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
 > * [Azure CLI](application-gateway-create-gateway-cli.md)
 
-Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are in the cloud or on-premises.
-Application Gateway provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others.
+Azure Application Gateway is a layer-7 load balancer. It provides failover and performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. Application Gateway provides many application delivery controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others. To find a complete list of supported features, visit [Application Gateway overview](application-gateway-introduction.md)
 
-To find a complete list of supported features, visit [Application Gateway Overview](application-gateway-introduction.md)
-
-You learn how to download and modify an existing Azure Resource Manager template from GitHub and deploy the template from GitHub, PowerShell, and the Azure CLI.
+This article walks you through downloading and modifying an existing Azure Resource Manager template from GitHub and deploying the template from GitHub, PowerShell, and the Azure CLI.
 
 If you are simply deploying the Azure Resource Manager template directly from GitHub without any changes, skip to deploy a template from GitHub.
 
@@ -70,10 +66,6 @@ You can download the existing Azure Resource Manager template to create a virtua
   | **wafMode** | Mode of the web application firewall.  Available options are **prevention** or **detection**.|
   | **wafRuleSetType** | Ruleset type for WAF.  Currently OWASP is the only supported option. |
   | **wafRuleSetVersion** |Ruleset version. OWASP CRS 2.2.9 and 3.0 are currently the supported options. |
-
-
-  > [!IMPORTANT]
-  > Azure Resource Manager templates maintained in GitHub can change over time. Make sure that you check the template before using it.
 
 1. Check the content under **resources** and notice the following properties:
 
@@ -132,109 +124,110 @@ You can download the existing Azure Resource Manager template to create a virtua
 
 ## Deploy the Azure Resource Manager template by using PowerShell
 
-If you have never used Azure PowerShell, visit: [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) and follow the instructions to sign into Azure and select your subscription.
+If you have never used Azure PowerShell, visit: [How to install and configure Azure PowerShell](/powershell/azure/overview) and follow the instructions to sign into Azure and select your subscription.
 
-### Step 1
+1. Login to PowerShell
 
-```powershell
-Login-AzureRmAccount
-```
+    ```powershell
+    Login-AzureRmAccount
+    ```
 
-### Step 2
+1. Check the subscriptions for the account.
 
-Check the subscriptions for the account.
+    ```powershell
+    Get-AzureRmSubscription
+    ```
 
-```powershell
-Get-AzureRmSubscription
-```
+    You are prompted to authenticate with your credentials.
 
-You are prompted to authenticate with your credentials.
+1. Choose which of your Azure subscriptions to use.
 
-### Step 3
+    ```powershell
+    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+    ```
 
-Choose which of your Azure subscriptions to use.
+1. If needed, create a resource group by using the **New-AzureResourceGroup** cmdlet. In the following example, you create a resource group called AppgatewayRG in East US location.
 
-```powershell
-Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
-```
+    ```powershell
+    New-AzureRmResourceGroup -Name AppgatewayRG -Location "West US"
+    ```
 
-### Step 4
-
-If needed, create a resource group by using the **New-AzureResourceGroup** cmdlet. In the following example, you create a resource group called AppgatewayRG in East US location.
-
-```powershell
-New-AzureRmResourceGroup -Name AppgatewayRG -Location "West US"
-```
-
-Run the **New-AzureRmResourceGroupDeployment** cmdlet to deploy the new virtual network by using the preceding template and parameter files you downloaded and modified.
-
-```powershell
-New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
--TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
-```
+1. Run the **New-AzureRmResourceGroupDeployment** cmdlet to deploy the new virtual network by using the preceding template and parameter files you downloaded and modified.
+    
+    ```powershell
+    New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
+    -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
+    ```
 
 ## Deploy the Azure Resource Manager template by using the Azure CLI
 
 To deploy the Azure Resource Manager template you downloaded by using Azure CLI, follow the following steps:
 
-### Step 1
+1. If you have never used Azure CLI, see [Install and configure the Azure CLI](/cli/azure/install-azure-cli) and follow the instructions up to the point where you select your Azure account and subscription.
 
-If you have never used Azure CLI, see [Install and configure the Azure CLI](/cli/azure/install-azure-cli) and follow the instructions up to the point where you select your Azure account and subscription.
+1. If necessary, run the `az group create` command to create a resource group, as shown in the following code snippet. Notice the output of the command. The list shown after the output explains the parameters used. For more information about resource groups, visit [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 
-### Step 2
+    ```azurecli
+    az group create --location westus --name appgatewayRG
+    ```
+    
+    **-n (or --name)**. Name for the new resource group. For our scenario, it's *appgatewayRG*.
+    
+    **-l (or --location)**. Azure region where the new resource group is created. For our scenario, it's *westus*.
 
-If necessary, run the `az group create` command to create a resource group, as shown in the following code snippet. Notice the output of the command. The list shown after the output explains the parameters used. For more information about resource groups, visit [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
+1. Run the `az group deployment create` cmdlet to deploy the new virtual network by using the template and parameter files you downloaded and modified in the preceding step. The list shown after the output explains the parameters used.
 
-```azurecli
-az group create --location westus --name appgatewayRG
-```
-
-**-n (or --name)**. Name for the new resource group. For our scenario, it's *appgatewayRG*.
-
-**-l (or --location)**. Azure region where the new resource group is created. For our scenario, it's *westus*.
-
-### Step 4
-
-Run the `az group deployment create` cmdlet to deploy the new virtual network by using the template and parameter files you downloaded and modified in the preceding step. The list shown after the output explains the parameters used.
-
-```azurecli
-az group deployment create --resource-group appgatewayRG --name TestAppgatewayDeployment --template-file azuredeploy.json --parameters @azuredeploy-parameters.json
-```
+    ```azurecli
+    az group deployment create --resource-group appgatewayRG --name TestAppgatewayDeployment --template-file azuredeploy.json --parameters @azuredeploy-parameters.json
+    ```
 
 ## Deploy the Azure Resource Manager template by using click-to-deploy
 
 Click-to-deploy is another way to use Azure Resource Manager templates. It's an easy way to use templates with the Azure portal.
 
-### Step 1
+1. Go to [Create an application gateway with web application firewall](https://azure.microsoft.com/documentation/templates/101-application-gateway-waf/).
 
-Go to [Create an application gateway with web application firewall](https://azure.microsoft.com/documentation/templates/101-application-gateway-waf/).
+1. Click **Deploy to Azure**.
 
-### Step 2
+    ![Deploy to Azure](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)
+    
+1. Fill out the parameters for the deployment template on the portal and click **OK**.
 
-Click **Deploy to Azure**.
+    ![Parameters](./media/application-gateway-create-gateway-arm-template/ibiza1.png)
+    
+1. Select **I agree to the terms and conditions stated above** and click **Purchase**.
 
-![Deploy to Azure](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)
-
-### Step 3
-
-Fill out the parameters for the deployment template on the portal and click **OK**.
-
-![Parameters](./media/application-gateway-create-gateway-arm-template/ibiza1.png)
-
-### Step 4
-
-Select **I agree to the terms and conditions stated above** and click **Purchase**.
-
-### Step 5
-
-On the Custom deployment blade, click **Create**.
+1. On the Custom deployment blade, click **Create**.
 
 ## Providing certificate data to Resource Manager templates
 
-When using SSL with a template, the certificate needs to be provided in a base64 string instead of being uploaded. To convert a .pfx or .cer to a base64 string run the following PowerShell command. This snippet converts the certificate to a base64 string, which can be provided to the template. The expected output is a string that can be stored in a variable and pasted in the template.
+When using SSL with a template, the certificate needs to be provided in a base64 string instead of being uploaded. To convert a .pfx or .cer to a base64 string use one of the following commands. The following commands convert the certificate to a base64 string, which can be provided to the template. The expected output is a string that can be stored in a variable and pasted in the template.
 
+### macOS
+```bash
+cert=$( base64 <certificate path and name>.pfx )
+echo $cert
+```
+
+### Windows
 ```powershell
 [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("<certificate path and name>.pfx"))
+```
+
+## Delete all resources
+
+To delete all resources created in this article, complete one of the following steps:
+
+### PowerShell
+
+```powershell
+Remove-AzureRmResourceGroup -Name appgatewayRG
+```
+
+### Azure CLI
+
+```azurecli
+az group delete --name appgatewayRG
 ```
 
 ## Next steps

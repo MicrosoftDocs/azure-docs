@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
+ms.date: 9/13/2017
 ms.custom: loading
 ms.author: cakarst;barbkess
 
@@ -41,21 +41,9 @@ When you have migrated all your external tables to the new external data source 
 2. Drop first database scoped credential based on the primary storage access key
 3. Log into Azure and regenerate the primary access key ready for the next time
 
-## Query Azure blob storage data
-Queries against external tables simply use the table name as though it was a relational table.
 
-```sql
--- Query Azure storage resident data via external table.
-SELECT * FROM [ext].[CarSensor_Data]
-;
-```
 
-> [!NOTE]
-> A query on an external table can fail with the error *"Query aborted-- the maximum reject threshold was reached while reading from an external source"*. This indicates that your external data contains *dirty* records. A data record is considered 'dirty' if the actual data types/number of columns do not match the column definitions of the external table or if the data doesn't conform to the specified external file format. To fix this, ensure that your external table and external file format definitions are correct and your external data conforms to these definitions. In case a subset of external data records are dirty, you can choose to reject these records for your queries by using the reject options in CREATE EXTERNAL TABLE DDL.
-> 
-> 
-
-## Load data from Azure blob storage
+## Load data with External Tables
 This example loads data from Azure blob storage to SQL Data Warehouse database.
 
 Storing data directly removes the data transfer time for queries. Storing data with a columnstore index improves query performance for analysis queries by up to 10x.
@@ -81,6 +69,12 @@ FROM   [ext].[CarSensor_Data]
 
 See [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)].
 
+> [!NOTE]
+> A load using an external table can fail with the error *"Query aborted-- the maximum reject threshold was reached while reading from an external source"*. This indicates that your external data contains *dirty* records. A data record is considered 'dirty' if the actual data types/number of columns do not match the column definitions of the external table or if the data doesn't conform to the specified external file format. To fix this, ensure that your external table and external file format definitions are correct and your external data conforms to these definitions. In case a subset of external data records are dirty, you can choose to reject these records for your queries by using the reject options in CREATE EXTERNAL TABLE DDL.
+> 
+> 
+
+
 ## Create Statistics on newly loaded data
 Azure SQL Data Warehouse does not yet support auto create or auto update statistics.  In order to get the best performance from your queries, it's important that statistics be created on all columns of all tables after the first load or any substantial changes occur in the data.  For a detailed explanation of statistics, see the [Statistics][Statistics] topic in the Develop group of topics.  Below is a quick example of how to create statistics on the tabled loaded in this example.
 
@@ -92,8 +86,8 @@ create statistics [Speed] on [Customer_Speed] ([Speed]);
 create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 ```
 
-## Export data to Azure blob storage
-This section shows how to export data from SQL Data Warehouse to Azure blob storage. This example uses CREATE EXTERNAL TABLE AS SELECT which is a highly performant Transact-SQL statement to export the data in parallel from all the compute nodes.
+## Export data with External Tables
+This section shows how to export data from SQL Data Warehouse to Azure blob storage using external tables. This example uses CREATE EXTERNAL TABLE AS SELECT which is a highly performant Transact-SQL statement to export the data in parallel from all the compute nodes.
 
 The following example creates an external table Weblogs2014 using column definitions and data from dbo.Weblogs table. The external table definition is stored in SQL Data Warehouse and the results of the SELECT statement are exported to the "/archive/log2014/" directory under the blob container specified by the data source. The data is exported in the specified text file format.
 
@@ -115,60 +109,36 @@ WHERE
     AND DateRequested > '12/31/2013'
     AND DateRequested < '01/01/2015';
 ```
+## Isolate Loading Users
+There is often a need to have multiple users that can load data into a SQL DW. Because the [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] requires CONTROL permissions of the database, you will end up with multiple users with control access over all schemas. To limit this, you can use the DENY CONTROL statement.
+
+Example:
+Consider database schemas schema_A for dept A, and schema_B for dept B 
+Let database users user_A and user_B be users for PolyBase loading in dept A and B, respectively. They both have been granted CONTROL database permissions.
+The creators of schema A and B now lock down their schemas using DENY:
+
+```sql
+   DENY CONTROL ON SCHEMA :: schema_A TO user_B;
+   DENY CONTROL ON SCHEMA :: schema_B TO user_A;
+```   
+ With this, user_A and user_B should now be locked out from the other dept’s schema.
+ 
+## PolyBase performance optimizations
+To achieve optimal loading performance with PolyBase we suggest the following:
+- Split large compressed files into smaller compressed files. The compression types supported today are not splittable. As a result, performance will be impacted by loading a single large file.
+- For fastest loading speed, load into a round_robin, heap staging table. This will be the most efficient way to move the data from storage layer to the data warehouse.
+- All file formats have different performance characteristics. For the fastest load, use compressed delimited text files. The difference between UTF-8 and UTF-16 performance is minimal.
+- Co-locate your storage layer and your data warehouse to minimize latency
+- Scale up your data warehouse if you expect a large loading job.
+
+## PolyBase Limitations
+PolyBase in SQL DW has the following limitations that need to be taken into consideration when designing a loading job:
+- A single row cannot be wider than 1,000,000 bytes. This is true regardless of the table schema defined, including (n)varchar(max) columns. This means for External Tables (n)varchar(max) columns can be at max 1,000,000 bytes wide, not the 2GB limit defined by the data type.
+- When exporting data into an ORC File Format from SQL Server or Azure SQL Data Warehouse text heavy columns can be limited to as few as 50 columns due to java out of memory errors. To work around this, export only a subset of the columns.
 
 
-## Working around the PolyBase UTF-8 requirement
-At present PolyBase supports loading data files that have been UTF-8 encoded. As UTF-8 uses the same character encoding as ASCII PolyBase will also support loading data that is ASCII encoded. However, PolyBase does not support other character encoding such as UTF-16 / Unicode or extended ASCII characters. Extended ASCII includes characters with accents such as the umlaut which is common in German.
 
-To work around this requirement the best answer is to re-write to UTF-8 encoding.
 
-There are several ways to do this. Below are two approaches using Powershell:
-
-### Simple example for small files
-Below is a simple one line Powershell script that creates the file.
-
-```PowerShell
-Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
-```
-
-However, whilst this is a simple way to re-encode the data it is by no means the most efficient. The io streaming example below is much, much faster and achieves the same result.
-
-### IO Streaming example for larger files
-The code sample below is more complex but as it streams the rows of data from source to target it is much more efficient. Use this approach for larger files.
-
-```PowerShell
-#Static variables
-$ascii = [System.Text.Encoding]::ASCII
-$utf16le = [System.Text.Encoding]::Unicode
-$utf8 = [System.Text.Encoding]::UTF8
-$ansi = [System.Text.Encoding]::Default
-$append = $False
-
-#Set source file path and file name
-$src = [System.IO.Path]::Combine("C:\input_file_path\","input_file_name.txt")
-
-#Set source file encoding (using list above)
-$src_enc = $ansi
-
-#Set target file path and file name
-$tgt = [System.IO.Path]::Combine("C:\output_file_path\","output_file_name.txt")
-
-#Set target file encoding (using list above)
-$tgt_enc = $utf8
-
-$read = New-Object System.IO.StreamReader($src,$src_enc)
-$write = New-Object System.IO.StreamWriter($tgt,$append,$tgt_enc)
-
-while ($read.Peek() -ne -1)
-{
-    $line = $read.ReadLine();
-    $write.WriteLine($line);
-}
-$read.Close()
-$read.Dispose()
-$write.Close()
-$write.Dispose()
-```
 
 ## Next steps
 To learn more about moving data to SQL Data Warehouse, see the [data migration overview][data migration overview].

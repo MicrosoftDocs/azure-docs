@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/10/2017
+ms.date: 06/29/2017
 ms.author: vturecek
 
 ---
@@ -107,7 +107,4 @@ static class Program
 
 
 ## Next steps
-* [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
-* [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [C# Sample code](https://github.com/Azure/servicefabric-samples)
-* [Java Sample code](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* Learn more about reentrancy in the [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)

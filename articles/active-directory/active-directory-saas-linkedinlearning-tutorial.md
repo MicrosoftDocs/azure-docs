@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 06/15/2017
 ms.author: jeedes
 
 ---
@@ -24,7 +24,7 @@ Integrating LinkedIn Learning with Azure AD provides you with the following bene
 
 - You can control in Azure AD who has access to LinkedIn Learning
 - You can enable your users to automatically get signed-on to LinkedIn Learning (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure Management portal
+- You can manage your accounts in one central location - the Azure portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -40,8 +40,8 @@ To configure Azure AD integration with LinkedIn Learning, you need the following
 
 To test the steps in this tutorial, you should follow these recommendations:
 
-- You should not use your production environment, unless this is necessary.
-- If you don't have an Azure AD trial environment, you can get an one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+- Do not use your production environment, unless it is necessary.
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 
@@ -55,7 +55,7 @@ To configure the integration of LinkedIn Learning into Azure AD, you need to add
 
 **To add LinkedIn Learning from the gallery, perform the following steps:**
 
-1. In the **[Azure Management Portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
 	![Active Directory][1]
 
@@ -88,15 +88,15 @@ To configure and test Azure AD single sign-on with LinkedIn Learning, you need t
 
 ### Configuring Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure Management portal and configure single sign-on in your LinkedIn Learning application.
+In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your LinkedIn Learning application.
 
 **To configure Azure AD single sign-on with LinkedIn Learning, perform the following steps:**
 
-1. In the Azure Management portal, on the **LinkedIn Learning** application integration page, click **Single sign-on**.
+1. In the Azure portal, on the **LinkedIn Learning** application integration page, click **Single sign-on**.
 
 	![Configure Single Sign-On][4]
 
-2. On the **Single sign-on** dialog, as **Mode** select **SAML-based Sign-on** to enable single sign on.
+2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
  
 	![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/tutorial-linkedin_01.png)
 
@@ -106,11 +106,11 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 	![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_linkedin_admin_01.png)
 
-5. Click on **OR Click Here to load and copy individual fields from the form** and copy **Entity Id** and **Assertion Consumer Access (ACS) Url**
+5. Click **OR Click Here to load and copy individual fields from the form** and copy **Entity Id** and **Assertion Consumer Access (ACS) Url**
 
 	![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_linkedin_admin_03.png)
 
-6. On Azure Portal, under **LinkedIn Learning Domain and URLs**, perform the following steps if you want to configure SSO in **IdP Initiated** mode
+6. On Azure portal, under **LinkedIn Learning Domain and URLs**, perform the following steps if you want to configure SSO in **IdP Initiated** mode
 
 	![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_linkedin_signon_01.png)
 
@@ -118,7 +118,7 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 	b. In the **Reply URL** textbox, enter the **Assertion Consumer Access (ACS) Url** copied from LinkedIn Portal
 
-7. If you want to configure SSO in **SP Initiated**, then click Show Advanced URL setting option in the configuration section and configure the sign on URL with the following pattern:
+7. If you want to configure SSO in **SP Initiated**, then click Show Advanced URL setting option in the configuration section and configure the sign-on URL with the following pattern:
 
 	`https://www.linkedin.com/checkpoint/enterprise/login/<AccountId>?application=learning&applicationInstanceId=<InstanceId>`
 
@@ -128,52 +128,71 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 	![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/updateusermail.png)
 	
-9. In **User Attributes** section, click **View and edit all other user attributes** and set the attributes. You need to add another claim named **department** and the value needs to be mapped to **user.department**.
+9. In **User Attributes** section, click **View and edit all other user attributes** and set the attributes. The user needs to add four claims named **email**, **department**, **firstname**, and **lastname** and the value is to be mapped with **user.mail**, **user.department**, **user.givenname**, and **user.surname** respectively
 
 	| Attribute Name | Attribute Value |
-	| --- | --- |    
+	| --- | --- |
+	| email| user.mail |    
 	| department| user.department |
+	| firstname| user.givenname |
+	| lastname| user.surname |
+	
+	![Creating an Azure AD test user](./media/active-directory-saas-linkedinlearning-tutorial/userattribute.png)
+	
+	a. Click **Add Attribute** to open the attribute dialog.
 
-   	![Creating an Azure AD test user](./media/active-directory-saas-linkedinlearning-tutorial/userattribute.png)
+	![Creating an Azure AD test user](./media/active-directory-saas-linkedinLearning-tutorial/tutorial_attribute_04.png)
 
-   	a. Click on Add attribute to open the attribute details page add the department attribute as shown below-
+	![Creating an Azure AD test user](./media/active-directory-saas-linkedinLearning-tutorial/tutorial_attribute_05.png)
+	
+	b. In the **Name** textbox, type the attribute name shown for that row.
+	
+	c. From the **Value** list, type the attribute value shown for that row.
+	
+	d. Click **Ok**
 
-   	![Creating an Azure AD test user](./media/active-directory-saas-linkedinLearning-tutorial/adduserattribute.png)
-   
-   	b. Click on **Ok** to save the attribute.
+10. Perform the following steps on the **name** attribute-
 
-10. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
+	a. Click on the attribute to open the **Edit Attribute** window.
+
+	![Configure Single Sign-On](./media/active-directory-saas-linkedinLearning-tutorial/url_update.png)
+
+	b. Delete the URL value from the **namespace**.
+	
+	c. Click **Ok** to save the setting.
+
+11. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/tutorial-linkedinlearning_certificate.png) 
 
-11. Click **Save**.
+12. Click **Save**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_general_400.png)
 
-12. Go to **LinkedIn Admin Settings** section. Upload the XML file you just downloaded from the Azure portal by clicking on the Upload XML file option.
+13. Go to **LinkedIn Admin Settings** section. Upload the XML file you downloaded from the Azure portal by clicking the Upload XML file option.
 
 	![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_linkedin_metadata_03.png)
 
-13. Click **On** to enable SSO. SSO status will change from **Not Connected** to **Connected**
+14. Click **On** to enable SSO. SSO status changes from **Not Connected** to **Connected**
 
 	![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_linkedin_admin_05.png)
 
 ### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure Management portal called Britta Simon.
+The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
 ![Create Azure AD User][100]
 
 **To create a test user in Azure AD, perform the following steps:**
 
-1. In the **Azure Management portal**, on the left navigation pane, click **Azure Active Directory** icon.
+1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
 
 	![Creating an Azure AD test user](./media/active-directory-saas-linkedinlearning-tutorial/create_aaduser_01.png) 
 
-2. Go to **Users and groups** and click **All users** to display the list of users.
+2. To display the list of users, go to **Users and groups** and click **All users**.
 	
 	![Creating an Azure AD test user](./media/active-directory-saas-linkedinlearning-tutorial/create_aaduser_02.png) 
 
-3. At the top of the dialog click **Add** to open the **User** dialog.
+3. To open the **User** dialog, click **Add** on the top of the dialog.
  
 	![Creating an Azure AD test user](./media/active-directory-saas-linkedinlearning-tutorial/create_aaduser_03.png) 
 
@@ -191,19 +210,19 @@ The objective of this section is to create a test user in the Azure Management p
 
 ### Creating a LinkedIn Learning test user
 
-Linked Learning Application supports Just in time user provisioning and after authentication users will be created in the application automatically. On the admin settings page on the LinkedIn Learning portal flip the switch **Automatically Assign licenses** to active to enable Just in time provisioning and this will also assign a license to the user.
+Linked Learning Application supports. Just in time user provisioning and after authentication users are created in the application automatically. On the admin settings page on the LinkedIn Learning portal flip the switch **Automatically Assign licenses** to active to enable Just in time provisioning and this will also assign a license to the user.
    
    ![Creating an Azure AD test user](./media/active-directory-saas-linkedinLearning-tutorial/LinkedinUserprovswitch.png)
 
 ### Assigning the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting her access to LinkedIn Learning.
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to LinkedIn Learning.
 
 ![Assign User][200] 
 
 **To assign Britta Simon to LinkedIn Learning, perform the following steps:**
 
-1. In the Azure Management portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
 	![Assign User][201] 
 
@@ -235,7 +254,6 @@ When you click the LinkedIn Learning tile in the Access Panel, you should get th
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
 
 <!--Image references-->
 

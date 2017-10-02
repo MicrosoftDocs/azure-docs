@@ -4,7 +4,7 @@ description: Learn how to use Azure services to send multi-platform push notific
 services: app-service\mobile
 documentationcenter: xamarin
 author: ysxu
-manager: adrianha
+manager: syntaxc4
 editor: ''
 
 ms.assetid: d9b1ba9a-b3f2-4d12-affc-2ee34311538b

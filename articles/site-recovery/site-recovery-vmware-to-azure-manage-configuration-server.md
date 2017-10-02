@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 2/14/2017
+ms.date: 06/29/2017
 ms.author: anoopkv
 ---
 
@@ -21,15 +21,19 @@ ms.author: anoopkv
 
 Configuration Server acts as a coordinator between the Site Recovery services and your on-premises infrastructure. This article describes how you can set up, configure, and manage the Configuration Server.
 
-## Prerequisites
-The following are the minimum hardware, software, and network configuration required to set up a Configuration Server.
-
 > [!NOTE]
 > [Capacity planning](site-recovery-capacity-planner.md) is an important step to ensure that you deploy the Configuration Server with a configuration that suites your load requirements. Read more about [Sizing requirements for a Configuration Server](#sizing-requirements-for-a-configuration-server).
+
+
+## Prerequisites
+The following are the minimum hardware, software, and network configuration required to set up a Configuration Server.
+> [!IMPORTANT]
+> When deploying a Configuration Server for protecting VMware virtual machines, we recommend that you deploy it as a **Highly Available (HA)** virtual machine.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 ## Downloading the Configuration Server software
+
 1. Log on to the Azure portal and browse to your Recovery Services Vault.
 2. Browse to **Site Recovery Infrastructure** > **Configuration Servers** (under For VMware & Physical Machines).
 
@@ -83,7 +87,7 @@ ProxyUserName="UserName"
 ProxyPassword="Password"
 ```
 ## Modifying proxy settings for Configuration Server
-1. Login to your Configuration Server.
+1. Log in to your Configuration Server.
 2. Launch the cspsconfigtool.exe using the shortcut on your.
 3. Click the **Vault Registration** tab.
 4. Download a new Vault Registration file from the portal and provide it as input to the tool.
@@ -102,9 +106,20 @@ ProxyPassword="Password"
   >[!WARNING]
   If you have Scale-out Process servers attached to this Configuration Server, you need to [fix the proxy settings on all the scale-out process servers](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#modifying-proxy-settings-for-scale-out-process-server) in your deployment.
 
+## Modify user accounts and passwords
+
+The CSPSConfigTool.exe is used to manage the user accounts used for **Automatic discovery of VMware virtual machines** and to perform **Push install  of Mobility Service on protected machines** . 
+
+1. Log in to your Configuration server.
+2. Launch the CSPSConfigtool.exe by clicking on the shortcut available on the desktop.
+3. Click on the **Manage Accounts** tab.
+4. Select the account for which the password needs to be modified and click on the **Edit** button.
+5. Enter the new password and click **OK**
+
+
 ## Re-register a Configuration Server with the same Recovery Services Vault
-  1. Login to your Configuration Server.
-  2. Launch the cspsconfigtool.exe using the shortcut on your.
+  1. Log in to your Configuration Server.
+  2. Launch the cspsconfigtool.exe using the shortcut on your desktop.
   3. Click the **Vault Registration** tab.
   4. Download a new Registration file from the portal and provide it as input to the tool.
         ![register-configuration-server](./media/site-recovery-vmware-to-azure-manage-configuration-server/register-csonfiguration-server.png)
@@ -123,13 +138,17 @@ ProxyPassword="Password"
   If you have Scale-out Process servers attached to this Configuration Server, you need to [re-register all the scale-out process servers](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#re-registering-a-scale-out-process-server) in your deployment.
 
 ## Registering a Configuration Server with a different Recovery Services Vault.
-1. Login to your Configuration Server.
+
+> [!WARNING]
+> The below set of steps disassociate the Configuration from the current vault, and the replication of all protected virtual machines under the Configuration server will be stopped.
+
+1. Log in to your Configuration Server.
 2. from an admin command prompt, run the command
 
-```
-reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
-net stop dra
-```
+    ```
+    reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
+    net stop dra
+    ```
 3. Launch the cspsconfigtool.exe using the shortcut on your.
 4. Click the **Vault Registration** tab.
 5. Download a new Registration file from the portal and provide it as input to the tool.
@@ -144,6 +163,17 @@ net stop dra
     net stop obengine
     net start obengine
     ```
+
+## Updating a Configuration Server
+
+> [!WARNING]
+> Updates are supported only up to the N-4th version. For example, if the latest version in the market is 9.11, then you can update from version 9.10, 9.9, 9.8, or 9.7 directly to 9.11. But if you are on any version less than or equal to 9.6 then you need to update to at least 9.7 before you can apply the latest updates on to your configuration server. Download links for previous version can be found under [Azure Site Recovery service updates](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)
+
+1. Download the update installer on your configuration server.
+2. Launch the installer by double clicking the installer.
+3. The installer detects the version of the Site Recovery components present on the machine and prompt for a confirmation. 
+4. Click on the OK button to provide the confirmation & continue with the upgrade.
+
 
 ## Decommissioning a Configuration Server
 Ensure the following before you start decommissioning your Configuration Server.
@@ -207,6 +237,17 @@ The SSL Certificate's validity for all installations that happened before May 20
 
   >[!TIP]
   If instead of a **Renew Now** button you see an **Upgrade Now** button. This means that there are some components in your environment that have not yet been upgraded to 9.4.xxxx.x or higher versions.
+
+## Revive a Configuration server if the Secure Socket Layer (SSL) certificate expired
+
+1. Update your Configuration Server to the [latest version](http://aka.ms/unifiedinstaller)
+2. If you have any Scale-out Process servers, Failback Master Target servers, Failback Process Servers update them to the latest version
+3. Update the Mobility Service on all the protected virtual machines to the latest version.
+4. Log in to the Configuration server and open a command prompt with administrator privileges.
+5. Browse to the folder %ProgramData%\ASR\home\svsystems\bin
+6. Run RenewCerts.exe to renew the SSL certificate on the Configuration Server.
+7. If the process succeeds, you should see the message "Certificate  renewal is Success"
+
 
 ## Sizing requirements for a Configuration Server
 

@@ -18,7 +18,7 @@ ms.author: sdanie
 
 ---
 # Use Azure DevTest Labs for training
-Azure DevTest Labs can be used to implement many key scenarios in addition to dev/test. One of those scenarios is to set up a lab for training. Azure DevTest Labs allows you to create a lab where you can provide custom templates that each trainee can use to create identical and isolated environments for training. You can ensure that training environments are available to each trainee only when they need them and contain enough resources - such as virtual machines - required for the training. Finally, you can easily share the lab with trainees, which they can access in one click.   
+Azure DevTest Labs can be used to implement many key scenarios in addition to dev/test. One of those scenarios is to set up a lab for training. Azure DevTest Labs allows you to create a lab where you can provide custom templates that each trainee can use to create identical and isolated environments for training. You can apply policies to ensure that training environments are available to each trainee only when they need them and contain enough resources - such as virtual machines - required for the training. Finally, you can easily share the lab with trainees, which they can access in one click.
 
 ![Use DevTest Labs for training](./media/devtest-lab-training-lab/devtest-lab-training.png)
 
@@ -75,7 +75,7 @@ In this article, you learn about various Azure DevTest Labs features that can be
    | Task | What you learn |
    | --- | --- |
    | [Define lab policies](devtest-lab-set-lab-policy.md) |Control costs by setting policies in the lab. |
-   | [Delete all the lab VMs using a PowerShell script](devtest-lab-faq.md#how-can-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Delete all the labs in one operation when the training is complete. |
+   | [Delete all the lab VMs using a PowerShell script](devtest-lab-faq.md#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Delete all the labs in one operation when the training is complete. |
 5. **Share the lab with each trainee**
    
     Labs can be directly accessed using a link that you share with your trainees. Your trainees don't even have to have an Azure account, as long as they have a [Microsoft account](devtest-lab-faq.md#what-is-a-microsoft-account). Trainees cannot see VMs created by other trainees.  
@@ -95,7 +95,7 @@ In this article, you learn about various Azure DevTest Labs features that can be
    
    | Task | What you learn |
    | --- | --- |
-   | [Create a lab using a Resource Manager template](devtest-lab-faq.md#how-do-i-create-a-lab-from-an-azure-resource-manager-template) |Create labs in Azure DevTest Labs using Resource Manager templates. |
+   | [Create a lab using a Resource Manager template](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Create labs in Azure DevTest Labs using Resource Manager templates. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

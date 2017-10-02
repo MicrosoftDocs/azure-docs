@@ -3,19 +3,19 @@ title: Connect to SQL Database using C and C++ | Microsoft Docs
 description: Use the sample code in this quick start to build a modern application with C++ and backed by a powerful relational database in the cloud with Azure SQL Database.
 services: sql-database
 documentationcenter: ''
-author: asthana86
-manager: danmoth
+author: edmacauley
+manager: jhubbard
 editor: ''
 
 ms.assetid: 07d9e0b1-3234-4f17-a252-a7559160a9db
 ms.service: sql-database
-ms.custom: development
+ms.custom: develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: cpp
 ms.topic: article
 ms.date: 03/06/2017
-ms.author: tobiast
+ms.author: edmacauley
 
 ---
 # Connect to SQL Database using C and C++
@@ -37,7 +37,7 @@ Azure currently has two options for hosting SQL server workloads: Azure SQL data
 Connecting to Azure SQL DB is no different and currently there are two ways to connect to databases: ODBC (Open Database connectivity) and OLE DB (Object Linking and Embedding database). In recent years, Microsoft has aligned with [ODBC for native relational data access](https://blogs.msdn.microsoft.com/sqlnativeclient/2011/08/29/microsoft-is-aligning-with-odbc-for-native-relational-data-access/). ODBC is relatively simple, and also much faster than OLE DB. The only caveat here is that ODBC does use an old C-style API. 
 
 ## <a id="Create"></a>Step 1:  Creating your Azure SQL Database
-See the [getting started page](sql-database-get-started.md) to learn how to create a sample database.  Alternatively, you can follow this [short two-minute video](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) to create an Azure SQL database using the Azure portal.
+See the [getting started page](sql-database-get-started-portal.md) to learn how to create a sample database.  Alternatively, you can follow this [short two-minute video](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) to create an Azure SQL database using the Azure portal.
 
 ## <a id="ConnectionString"></a>Step 2:  Get connection string
 After your Azure SQL database has been provisioned, you need to carry out the following steps to determine connection information and add your client IP for firewall access. 

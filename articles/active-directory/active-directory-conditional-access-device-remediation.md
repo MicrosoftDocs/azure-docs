@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting you can't get there from here on the Azure portal from a Windows device| Microsoft Docs
-description: Learn steps that you can take to resolve access issues with your organization's online resources.
+title: You can't get there from here on the Azure portal from a Windows device| Microsoft Docs
+description: Learn where you can't get there from here comes from and what you could check to avoid running into this dialog.
 services: active-directory
 keywords: device-based conditional access, device registration, enable device registration, device registration and MDM
 documentationcenter: ''
@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/04/2017
+ms.date: 07/05/2017
 ms.author: markvi
+ms.reviewer: jairoc
 
 ---
-# Troubleshooting you can't get there from here on a Windows device
+# You can't get there from here on a Windows device
 
 During an attempt to, for example, access your organization's SharePoint Online intranet you might run into a page that states that *you can't get there from here*. You are seeing this page, because your administrator has configured a conditional access policy that prevents access to your organization's resources under certain conditions. While it might be necessary to contact helpdesk or your administrator to get this problem solved, there are a few things you can try out yourself, first.
 
@@ -42,7 +43,7 @@ You can easily identify whether you can't access a resource due to an unsupporte
 
 !["You can't get there from here" message for unsupported browsers](./media/active-directory-conditional-access-device-remediation/02.png "Scenario")
 
-The only remediation is to use a browser that the application supports for your device platform. For a complete list of supported browsers, see [supported browsers](active-directory-conditional-access-supported-apps.md#supported-browsers).  
+The only remediation is to use a browser that the application supports for your device platform. For a complete list of supported browsers, see [supported browsers](active-directory-conditional-access-supported-apps.md).  
 
 
 ## Supported versions of Windows

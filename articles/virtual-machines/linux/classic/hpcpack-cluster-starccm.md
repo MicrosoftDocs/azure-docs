@@ -28,7 +28,7 @@ Microsoft HPC Pack provides features to run a variety of large-scale HPC and par
 ## Set up an HPC Pack cluster
 Download the HPC Pack IaaS deployment scripts from the [Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=44949) and extract them locally.
 
-Azure PowerShell is a prerequisite. If PowerShell is not configured on your local machine, please read the article [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Azure PowerShell is a prerequisite. If PowerShell is not configured on your local machine, please read the article [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 At the time of this writing, the Linux images from the Azure Marketplace (which contains the InfiniBand drivers for Azure) are for SLES 12, CentOS 6.5, and CentOS 7.1. This article is based on the usage of SLES 12. To retrieve the name of all Linux images that support HPC in the Marketplace, you can run the following PowerShell command:
 
@@ -115,7 +115,7 @@ Now that all nodes are up and running in the cluster, there are additional infra
 ## Set up an Azure File share for Windows and Linux nodes
 You can use the Azure File service to store scripts, application packages, and data files. Azure File provides CIFS capabilities on top of Azure Blob storage as a persistent store. Be aware that this is not the most scalable solution, but it is the simplest one and doesn’t require dedicated VMs.
 
-Create an Azure File share by following the instructions in the article [Get started with Azure File storage on Windows](../../../storage/storage-dotnet-how-to-use-files.md).
+Create an Azure File share by following the instructions in the article [Get started with Azure File storage on Windows](../../../storage/files/storage-dotnet-how-to-use-files.md).
 
 Keep the name of your storage account as **saname**, the file share name as **sharename**, and the storage account key as **sakey**.
 

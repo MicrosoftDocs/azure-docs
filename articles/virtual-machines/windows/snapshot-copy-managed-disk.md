@@ -2,7 +2,7 @@
 title: Create a copy of an Azure Managed Disk for back up | Microsoft Docs
 description: Learn how to create a copy of an Azure Managed Disk to use for back up or troubleshooting disk issues.
 documentationcenter: ''
-author: cwatsonMSFT
+author: cwatson-cat
 manager: timlt
 editor: ''
 tags: azure-resource-manager
@@ -18,7 +18,7 @@ ms.author: cwatson
 
 ---
 # Create a copy of a VHD stored as an Azure Managed Disk by using Managed Snapshots
-Take a snapshot of a Managed Disk for backup or create a Managed Disk from the snapshot and attach it to a test virtual machine to troubleshoot. A Managed Snapshot is a full point-in-time copy of a VM Managed Disk. It creates a read-only copy of your VHD and, by default, stores it as a Standard Managed Disk. For more information about Managed Disks, see [Azure Managed Disks overview](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+Take a snapshot of a Managed Disk for backup or create a Managed Disk from the snapshot and attach it to a test virtual machine to troubleshoot. A Managed Snapshot is a full point-in-time copy of a VM Managed Disk. It creates a read-only copy of your VHD and, by default, stores it as a Standard Managed Disk. For more information about Managed Disks, see [Azure Managed Disks overview](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 For information about pricing, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
@@ -28,7 +28,7 @@ If you use PowerShell, make sure that you have the latest version of the AzureRM
 ```
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
-For more information, see [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
+For more information, see [Azure PowerShell Versioning](/powershell/azure/overview).
 
 ## Copy the VHD with a snapshot
 Use either the Azure portal or PowerShell to take a snapshot of the Managed Disk.

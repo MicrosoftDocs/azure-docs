@@ -3,7 +3,7 @@ title: How to use App Passwords in Azure MFA? | Microsoft Docs
 description: This page will help users understand what app passwords are and what they are used for with regard to Azure MFA.
 services: multi-factor-authentication
 documentationcenter: ''
-author: kgremban
+author: barlanmsft
 manager: femila
 editor: yossib
 
@@ -13,9 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: kgremban
-
+ms.date: 05/15/2017
+ms.author: barlan
+ms.custom: end-user
+experimental: true
+experiment_id: 429acb56-5fd8-49
 ---
 # What are App Passwords in Azure Multi-Factor Authentication?
 Certain non-browser apps, such as the Apple native email client that uses Exchange Active Sync, currently do not support multi-factor authentication. Multi-factor authentication is enabled per user. This means that if a user has been enabled for multi-factor authentication and they are attempting to use non-browser apps, they will be unable to do so. An app password allows this to occur.
@@ -31,21 +33,21 @@ The following are some things to remember on how to use app passwords.
 
 * You don't create your own app passwords. Instead, they are automatically generated. Since you only have to enter the app password once per app, it's safer to use a more complex, automatically generated password rather than making one that you can remember.
 * Currently there is a limit of 40 passwords per user. If you attempt to create one after you have reached the limit, you will be prompted to delete one of your existing app passwords before you create a new one.
-* You should use one app password per device, not per application. For example, you can create one app password for your laptop and use that app password for all of your applications on that laptop. Then, create a second app password to use for all your apps on your desktop. 
+* You should use one app password per device, not per application. For example, you can create one app password for your laptop and use that app password for all of your applications on that laptop. Then, create a second app password to use for all your apps on your desktop.
 * You are given one app password the first time you register for two-step verification.  If you need additional ones, you can create them.
 
 
 
 ## Creating and deleting app passwords
-During your initial sign-in you are given an app password that you can use.  Additionally you can also create and delete app passwords later on.  How you do this depends on how you use multi-factor authentication. Answer the following questions to determine where you should go to manage app passwords: 
+During your initial sign-in you are given an app password that you can use.  Additionally you can also create and delete app passwords later on.  How you do this depends on how you use multi-factor authentication. Answer the following questions to determine where you should go to manage app passwords:
 
 1. Do you use two-step verification for your personal Microsoft account? If yes, you should refer to the [App passwords and two-step verification](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) article for help. If no, continue to question two.
 
-2. Ok, so you use two-step verification for your work or school account. Do you use it to sign in to Office 365 apps? If yes, you should refer to [Create an app password for Office 365](https://support.office.com/article/Create-an-app-password-for-Office-365-3e7c860f-bda4-4441-a618-b53953ee1183) for help. If no, continue to question three. 
+2. Ok, so you use two-step verification for your work or school account. Do you use it to sign in to Office 365 apps? If yes, you should refer to [Create an app password for Office 365](https://support.office.com/article/Create-an-app-password-for-Office-365-3e7c860f-bda4-4441-a618-b53953ee1183) for help. If no, continue to question three.
 
 3. Do you use two-step verification with Microsoft Azure? If yes, continue to the [Manage app passwords in the Azure portal](#manage-app-passwords-in-the-Azure-portal) section of this article. If no, continue to question four.
 
-4. Not sure where you use two-step verification? Continue to the [Manage app passwords with the MyApps portal](#manage-app-passwords-with-the-myapps-portal) section of this article. 
+4. Not sure where you use two-step verification? Continue to the [Manage app passwords with the MyApps portal](#manage-app-passwords-with-the-myapps-portal) section of this article.
 
 
 ## Manage app passwords in the Azure portal
@@ -60,6 +62,7 @@ If you use two-step verification with Azure, you want to create app passwords th
 6. Copy the app password to the clipboard and paste it into your app.
 
    ![Cloud](./media/multi-factor-authentication-end-user-app-passwords/app2.png)
+
 
 ### To delete app passwords in the Azure portal
 1. Sign in to the Azure classic portal.
@@ -77,17 +80,14 @@ If you are not sure how you use multi-factor authentication, then you can always
 1. Sign in to [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Click your name at the top right, and choose **Profile**.
 3. Select **Additional Security Verification**.
-
    ![Select additional security verification - screenshot](./media/multi-factor-authentication-end-user-manage/myapps1.png)
 
 4. Select **app passwords**.
-
    ![Select app passwords - screenshot](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
 
 5. Click **Create**.
 6. Enter a name for the app password and click **Next**.
 7. Copy the app password to the clipboard and paste it into your app.
-
    ![Create an app password](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
 
 ### To delete an app password using the Myapps portal
@@ -112,4 +112,4 @@ If you are not sure how you use multi-factor authentication, then you can always
 
 - [Manage your two-step verification settings](multi-factor-authentication-end-user-manage-settings.md)
 
-- Try out the [Microsoft Authenticator app](microsoft-authenticator-app-how-to.md) to verify your sign-ins with app notifications, instead of receiving texts or calls. 
+- Try out the [Microsoft Authenticator app](microsoft-authenticator-app-how-to.md) to verify your sign-ins with app notifications, instead of receiving texts or calls.

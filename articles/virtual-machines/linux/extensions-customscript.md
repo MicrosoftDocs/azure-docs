@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/22/2016
+ms.date: 04/26/2017
 ms.author: nepeters
 
 ---
@@ -29,6 +29,8 @@ The Custom Script Extension configuration specifies things like script location 
 ### Public Configuration
 Schema:
 
+**Note** - these property names are case sensitive. Use the names as seen below to avoid deployment issues.
+
 * **commandToExecute**: (required, string) the entry point script to execute
 * **fileUris**: (optional, string array) the URLs for files to be downloaded.
 * **timestamp** (optional, integer) use this field only to trigger a rerun of the script by changing value of this field.
@@ -42,6 +44,8 @@ Schema:
 
 ### Protected Configuration
 Schema:
+
+**Note** - these property names are case sensitive. Use the names as seen below to avoid deployment issues.
 
 * **commandToExecute**: (optional, string) the entry point script to execute. Use this field instead if your command contains secrets such as passwords.
 * **storageAccountName**: (optional, string) the name of storage account. If you specify storage credentials, all fileUris must be URLs for Azure Blobs.
@@ -59,33 +63,35 @@ Schema:
 When using the Azure CLI to run the Custom Script Extension, create a configuration file or files containing at minimum the file uri, and the script execution command.
 
 ```azurecli
-azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
-  --auto-upgrade-minor-version --public-config-path /script-config.json
+az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json
 ```
 
-Optionally, the command can be run using the `--public-config` and `--private-config` option, which allows the configuration to be specified during execution and without a separate configuration file.
+Optionally the settings can be specified in the command as a JSON formatted string. This allows the configuration to be specified during execution and without a separate configuration file.
 
 ```azurecli
-azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
-  --auto-upgrade-minor-version \
-  --public-config '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
+az vm extension set '
+  --resource-group exttest `
+  --vm-name exttest `
+  --name customScript `
+  --publisher Microsoft.Azure.Extensions `
+  --settings '{"fileUris": ["https://raw.githubusercontent.com/neilpeterson/test-extension/master/test.sh"],"commandToExecute": "./test.sh"}'
 ```
 
 ### Azure CLI Examples
+
 **Example 1** - Public configuration with script file.
 
 ```json
 {
-  "fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],
-  "commandToExecute": "./hello.sh"
+  "fileUris": ["https://raw.githubusercontent.com/neilpeterson/test-extension/master/test.sh"],
+  "commandToExecute": "./test.sh"
 }
 ```
 
 Azure CLI command:
 
 ```azurecli
-azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
-  --auto-upgrade-minor-version --public-config-path /public.json
+az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json
 ```
 
 **Example 2** - Public configuration with no script file.
@@ -99,8 +105,7 @@ azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensi
 Azure CLI command:
 
 ```azurecli
-azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
-  --auto-upgrade-minor-version --public-config-path /public.json
+az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json
 ```
 
 **Example 3** - A public configuration file is used to specify the script file URI, and a protected configuration file is used to specify the command to be executed.
@@ -109,7 +114,7 @@ Public configuration file:
 
 ```json
 {
-  "fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],
+  "fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"]
 }
 ```
 
@@ -124,8 +129,7 @@ Protected configuration file:
 Azure CLI command:
 
 ```azurecli
-azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
-  --auto-upgrade-minor-version --public-config-path ./public.json --private-config-path ./protected.json
+az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json --protected-settings ./protected-config.json
 ```
 
 ## Resource Manager Template
@@ -210,7 +214,7 @@ The Azure Script Extension produces a log, which can be found here.
 The execution state of the Custom Script Extension can also be retrieved with the Azure CLI.
 
 ```azurecli
-azure vm extension get myResourceGroup myVM
+az vm extension list -g myResourceGroup --vm-name myVM
 ```
 
 The output looks like the following text:

@@ -36,7 +36,7 @@ Enabling verbose monitoring increases your storage costs related to data storage
 Use the following procedures to configure verbose or minimal monitoring in the Azure classic portal. 
 
 ### Before you begin
-* Create a *classic* storage account to store the monitoring data. You can use different storage accounts for different roles. For more information, see [How to create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account).
+* Create a *classic* storage account to store the monitoring data. You can use different storage accounts for different roles. For more information, see [How to create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).
 * Enable Azure Diagnostics for your cloud service roles. See [Configuring Diagnostics for Cloud Services](cloud-services-dotnet-diagnostics.md).
 
 Ensure that the diagnostics connection string is present in the Role configuration. You cannot turn on verbose monitoring until you enable Azure Diagnostics and include a diagnostics connection string in the Role configuration.   

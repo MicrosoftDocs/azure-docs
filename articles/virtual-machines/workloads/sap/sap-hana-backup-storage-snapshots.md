@@ -3,9 +3,9 @@ title: SAP HANA Azure backup based on storage snapshots | Microsoft Docs
 description: There are two major backup possibilities for SAP HANA on Azure virtual machines, this article covers SAP HANA backup based on storage snapshots
 services: virtual-machines-linux
 documentationcenter: 
-author: v-derekg
+author: hermanndms
 manager: timlt
-editor: v-derekg
+editor: 
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -164,5 +164,5 @@ If it was possible to shut down SAP HANA before the blob snapshots, the procedur
 
 ## Next steps
 * [Backup guide for SAP HANA on Azure Virtual Machines](sap-hana-backup-guide.md) gives an overview and information on getting started.
-* [SAP HANA backup based on file level](sap-hana-backup-file-level.md) describes the storage snapshot-based backup option.
+* [SAP HANA backup based on file level](sap-hana-backup-file-level.md) covers the file-based backup option.
 * To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure (large instances), see [SAP HANA (large instances) high availability and disaster recovery on Azure](hana-overview-high-availability-disaster-recovery.md).
