@@ -19,7 +19,7 @@ ms.author: mimig
 ---
 # Azure Cosmos DB Graph .NET API: Download and release notes
 
-|   |   |
+|   |   |
 |---|---|
 |**SDK download**|[NuGet](https://aka.ms/acdbgraphnuget)|
 |**API documentation**|[.NET API reference documentation](https://aka.ms/acdbgraphapiref)|
@@ -50,12 +50,26 @@ ms.author: mimig
  `g.V().repeat(in()).times(2)` -> _throws a syntax error_  
  `g.V().repeat(__.in()).times(2)` -> _succeeds_
 
+### 0.1.0-preview
+* Initial preview release. 
+
 ## Release & Retirement dates
 Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
 
 New features and functionality and optimizations are only added to the current SDK, as such it is recommended that you always upgrade to the latest SDK version as early as possible. 
 
 Any request to Azure Cosmos DB using a retired SDK will be rejected by the service.
+
+<br/>
+
+| Version | Release Date | Retirement Date |
+| --- | --- | --- |
+| [0.3.0-preview](#0.3.0-preview) | |--- |
+| [0.2.4-preview](#0.2.4-preview) |August 4, 2017 |--- |
+| [0.2.2-preview](#0.2.2-preview) |June 23, 2017 |--- |
+| [0.2.1-preview](#0.2.2-preview) |June 8, 2017 |--- |
+| [0.2.0-preview](#0.2.2-preview) |May 10, 2017 |--- |
+| [0.1.0-preview](#0.2.2-preview) |May 8, 2017 |--- |
 
 ## See also
 To learn more about the Azure Cosmos DB Graph API, see [Introduction to Azure Cosmos DB: Graph API](graph-introduction.md). 
