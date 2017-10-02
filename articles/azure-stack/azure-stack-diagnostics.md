@@ -9,7 +9,7 @@ cloud: azure-stack
 
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/1/2017
+ms.date: 10/2/2017
 ms.author: adshar
 
 ---
