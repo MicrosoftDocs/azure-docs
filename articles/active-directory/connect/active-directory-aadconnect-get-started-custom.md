@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/27/2017
+ms.date: 10/02/2017
 ms.author: billmath
 
 ---
@@ -227,9 +227,12 @@ On a computer that has the Group Policy management tools.
 ## Configuring federation with AD FS
 Configuring AD FS with Azure AD Connect is simple with just a few clicks. The following is required before the configuration.
 
-* A Windows Server 2012 R2 server for the federation server with remote management enabled
-* A Windows Server 2012 R2 server for the Web Application Proxy server with remote management enabled
+* A Windows Server 2012 R2 or later server for the federation server with remote management enabled
+* A Windows Server 2012 R2 or later server for the Web Application Proxy server with remote management enabled
 * An SSL certificate for the federation service name you intend to use (for example sts.contoso.com)
+
+>[!NOTE]
+>You can update SSL certificate for your AD FS farm using Azure AD Connect even if you do not use it to manage your federation trust.
 
 ### AD FS configuration pre-requisites
 To configure your AD FS farm using Azure AD Connect, ensure WinRM is enabled on the remote servers. In addition, go through the ports requirement listed in [Table 3 - Azure AD Connect and Federation Servers/WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap).
@@ -240,6 +243,9 @@ You can use an existing AD FS farm or you can choose to create a new AD FS farm.
 ![AD FS Farm](./media/active-directory-aadconnect-get-started-custom/adfs1.png)
 
 If you choose to use an existing AD FS farm, you are taken directly to the configuring the trust relationship between AD FS and Azure AD screen.
+
+>[NOTE]
+>Azure AD Connect can be used to manage only one AD FS farm. If you have existing federation trust with Azure AD configured on the selected AD FS farm, the trust will be re-created again from scratch by Azure AD Connect.
 
 ### Specify the AD FS servers
 Enter the servers that you want to install AD FS on. You can add one or more servers based on your capacity planning needs. Join all servers to Active Directory before you perform this configuration. Microsoft recommends installing a single AD FS server for test and pilot deployments. Then add and deploy more servers to meet your scaling needs by running Azure AD Connect again after initial configuration.
