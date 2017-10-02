@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: storage-backup-recovery
-ms.date: 09/28/2017
+ms.date: 10/02/2017
 ms.author: iainfou
 ms.custom: mvc
 ---
@@ -27,14 +27,6 @@ This quick start enables backup on an existing Azure VM. If you need to create a
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 To install and use the CLI locally, you must run Azure CLI version 2.0.18 or later. To find the CLI version, run ༖༗. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
-
-
-## Register the Azure Backup resource provider
-The first time you use Azure Backup, you must register the Azure Recovery Service provider in your subscription with [az provider register](/cli/azure/provider?view=azure-cli-latest#az_provider_register).
-
-```azurecli-interactive
-az provider register --namespace Microsoft.RecoveryServices
-```
 
 
 ## Create a recovery services vault
