@@ -344,17 +344,18 @@ sudo reboot
 
 ## RDMA network for NC24r VMs
 
-RDMA network connectivity can be enabled on NC24r VMs deployed in the same availability set. The RDMA network supports Message Passing Interface (MPI) traffic for applications running with Intel MPI.
+RDMA network connectivity can be enabled on NC24r VMs deployed in the same availability set. The RDMA network supports Message Passing Interface (MPI) traffic for applications running with Intel MPI 5.x or a later version. Additional requirements follow:
 
-Following are requirements for RDMA-capable Linux VMs to access the Azure RDMA network:
+### Distributions
 
-* **Distribution** - Currently only Ubuntu Server 16.04 LTS from the Azure Marketplace supports RDMA on NC24r VMs
-
-* **MPI** - Intel MPI Library 5.x or later
+Deploy NC24r VMs from one of the following images in the Azure Marketplace that supports RDMA connectivity:
   
-RDMA configuration and MPI installation steps:
+* **Ubuntu** - Ubuntu Server 16.04 LTS. Configure RDMA drivers on the VM and register with Intel to download Intel MPI:
 
-[!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
+  [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
+
+* **CentOS-based HPC** - CentOS-based 7.3 HPC. RDMA drivers and Intel MPI 5.1 are installed on the VM. 
+
 
 ## Troubleshooting
 
