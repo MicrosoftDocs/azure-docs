@@ -256,7 +256,7 @@ except urllib2.HTTPError, error:
 
 ### R Sample
 
-To connect to an Azure Machine Learning Web Service, use the **RCurl** and **rjson** libraries to make the request and process the returned JSON response. You will pass ScoreData, which contains a FeatureVector, an n-dimensional vector of numerical features that represents the ScoreData. You authenticate to the Machine Learning service with an API key.
+To connect to a Machine Learning Web Service, use the **RCurl** and **rjson** libraries to make the request and process the returned JSON response. You will pass ScoreData, which contains a FeatureVector, an n-dimensional vector of numerical features that represents the ScoreData. You authenticate to the Machine Learning service with an API key.
 
 **Here is what a complete request will look like.**
 ```r
@@ -310,5 +310,46 @@ result = h$value()
 print(fromJSON(result))
 ```
 
-
 ### JavaScript Sample
+
+To connect to a Machine Learning Web Service, use the **request** npm package in your project. You will also use the `JSON` object to format your input and parse the result. Install using `npm install request --save`, or add `"request": "*"` to your package.json under `dependencies` and run `npm install`.
+
+**Here is what a complete request will look like.**
+```js
+let req = require("request");
+
+const uri = "<your-api-uri>";
+const apiKey = "<your-api-key>";
+
+let data = {
+    "Inputs": {
+        "input1":
+        [
+            {
+                'column1': "value1",
+                'column2': "value2",
+                'column3': "value3"
+            }
+        ],
+    },
+    "GlobalParameters": {}
+}
+
+const options = {
+    uri: uri,
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + apiKey,
+    },
+    body: JSON.stringify(data)
+}
+
+req(options, (err, res, body) => {
+    if (!err && res.statusCode == 200) {
+        console.log(body);
+    } else {
+        console.log("The request failed with status code: " + res.statusCode);
+    }
+});
+```
