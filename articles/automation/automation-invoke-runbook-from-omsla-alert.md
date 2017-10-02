@@ -19,7 +19,7 @@ ms.author: magoedte
 
 # Calling an Azure Automation runbook from an OMS Log Analytics alert
 
-If an alert is configured in Log Analytics to create an alert record when results matches criteria, such as a prolonged spike in processor utilization or an application process critical to the functionality of a business application fails and writes a corresponding event in the Windows event log, that alert can automatically run an Automation runbook in an attempt to auto-remediate the issue.  
+If an alert is configured in Log Analytics to create an alert record when results match criteria, such as a prolonged spike in processor utilization or an application process critical to the functionality of a business application fails and writes a corresponding event in the Windows event log, that alert can automatically run an Automation runbook in an attempt to auto-remediate the issue.  
 
 There are two options to call a runbook in the alert configuration, such as:
 
@@ -33,7 +33,7 @@ There are two options to call a runbook in the alert configuration, such as:
 
 ## Calling a runbook using a webhook
 
-A webhook allows you to start a particular runbook in Azure Automation through a single HTTP request.  Before configuring the [Log Analytics alert](../log-analytics/log-analytics-alerts.md#alert-rules) to call the runbook using a webhook as an alert action, you need to first create a webhook for the runbook that will be called using this method.  Review and follow the steps in the [create a webhook](automation-webhooks.md#creating-a-webhook) article and remember to record the webhook URL so that you can reference it while configuring the alert rule.   
+A webhook allows you to start a particular runbook in Azure Automation through a single HTTP request.  Before configuring the [Log Analytics alert](../log-analytics/log-analytics-alerts.md#alert-rules) to call the runbook using a webhook as an alert action, you need to first create a webhook for the runbook that will be called using this method.  Perform the steps in the [create a webhook](automation-webhooks.md#creating-a-webhook) article, and remember to record the webhook URL so you can reference it while configuring the alert rule.   
 
 ## Calling a runbook directly
 
@@ -62,7 +62,7 @@ Both methods for calling the runbook from the Log Analytics alert have different
 * When configuring an alert to call a Webhook, enter a webhook URL you created for a runbook, and click the **Test Webhook** button.  The resulting WebhookData sent to the runbook does not contain either *.SearchResult* or *.SearchResults*.
 
 *  After you save that alert, the alert triggers and calls the webhook and the WebhookData sent to the runbook contains *.SearchResult*.
-* If you create an alert, and configure it to call a runbook (which also creates a webhook), when the alert triggers it sends WebhookData to the runbook that contains *.SearchResults*.
+* If you create an alert, and configure it to call a runbook (which also creates a webhook), when the alert triggers it sends WebhookData to the runbook containing *.SearchResults*.
 
 Thus in the code example above, you need to get *.SearchResult* if the alert calls a webhook, and get *.SearchResults* if the alert calls a runbook directly.
 
