@@ -281,4 +281,5 @@ In this tutorial, you learned about searching semi-structured data using Azure s
 
 Follow this link to learn more about search.
 
-[!div class="nextstepaction"](https://docs.microsoft.com/en-us/azure/search/search-what-is-azure-search)
+> [!div class="nextstepaction"]
+> (https://docs.microsoft.com/en-us/azure/search/search-what-is-azure-search)
