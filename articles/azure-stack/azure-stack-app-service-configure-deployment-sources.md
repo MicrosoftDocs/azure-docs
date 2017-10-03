@@ -116,7 +116,7 @@ You must have a Microsoft Account linked to a OneDrive account to complete this 
 1. Browse to https://www.dropbox.com/developers/apps and Log in using your DropBox Account.
 2. Click **Create app**.
 
-![Dropbox applications][14]
+  ![Dropbox applications][14]
 
 3. Select **DropBox API**.
 4. Set the access level to **App Folder**.
