@@ -32,29 +32,31 @@ Before you start troubleshooting, verify that the user and device have been conf
 2. The device is Azure AD joined or hybrid Azure AD joined. For more information, see [how to get a device under the control of Azure AD](device-management-introduction.md).
 3. Ensure that **Enterprise State Roaming** is enabled for the tenant in Azure AD as described in [To enable Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-enable.md). You can enable roaming for all users or for only a selected group of users.
 4. The user must already be assigned an Azure Active Directory Premium license.  
-25. The device must be restarted, and the user must sign in to access Enterprise State Roaming features.
+25. The device must be restarted and the user must sign in again to access Enterprise State Roaming features.
 
 ## Information to include when you need help
 If you cannot solve your issue with the guidance below, you can contact our support engineers. When you contact them, include the following information:
 
-- **General description of the error** – Are there error messages seen by the user? If there was no error message, describe the unexpected behavior you noticed, in detail. What features are enabled for sync and what is the user expecting to sync? Are multiple features not syncing or is it isolated to one?
-- **Users affected** – Is sync working/failing for one user or multiple users? How many devices are involved per user? Are all of them not syncing or are some of them syncing and some not syncing?
-- **Information about the user** – What identity is the user using to log in to the device? How is the user logging in to the device? Are they part of a selected security group allowed to sync? 
-- **Information about the device** – Is this device Azure AD Joined or domain-joined? What build is the device on? What are the most recent updates?
+* **General description of the error**: Are there error messages seen by the user? If there was no error message, describe the unexpected behavior you noticed, in detail. What features are enabled for sync and what is the user expecting to sync? Are multiple features not syncing or is it isolated to one?
+* **Users affected** – Is sync working/failing for one user or multiple users? How many devices are involved per user? Are all of them not syncing or are some of them syncing and some not syncing?
+* **Information about the user** – What identity is the user using to sign in to the device? How is the user signing in to the device? Are they part of a selected security group allowed to sync? 
+* **Information about the device** – Is this device Azure AD-joined or domain-joined? What build is the device on? What are the most recent updates?
 - **Date / Time / Timezone** – What was the precise date and time you saw the error (include the timezone)?
-- Including this information helps us solve your problem as quickly as possible.
+
+Including this information helps us solve your problem as quickly as possible.
 
 ## Troubleshooting and diagnosing issues
 This section gives suggestions on how to troubleshoot and diagnose problems related to Enterprise State Roaming.
 
 ## Verify sync, and the “Sync your settings” settings page 
 
-1. After joining your Windows 10 PC to a domain that is configured to allow Enterprise State Roaming, logon with your work account. Go to **Settings** > **Accounts** > **Sync Your Settings** and confirm that sync and the individual settings are on, and that the top of the settings page indicates that you are syncing with your work account. Confirm the same account is also used as your login account in **Settings** > **Accounts** > **Your Info**. 
+1. After joining your Windows 10 PC to a domain that is configured to allow Enterprise State Roaming, sign on with your work account. Go to **Settings** > **Accounts** > **Sync Your Settings** and confirm that sync and the individual settings are on, and that the top of the settings page indicates that you are syncing with your work account. Confirm the same account is also used as your login account in **Settings** > **Accounts** > **Your Info**. 
 2. Verify that sync works across multiple machines by making some changes on the original machine, such as moving the taskbar to the right or top side of the screen. Watch the change propagate to the second machine within five minutes. 
- - Locking and unlocking the screen (Win + L) can help trigger a sync.
- - You must be using the same logon account on both PCs for sync to work – as Enterprise State Roaming is tied to the user account and not the machine account.
+  * Locking and unlocking the screen (Win + L) can help trigger a sync.
+  * You must be signing in with the same account on both PCs for sync to work – as Enterprise State Roaming is tied to the user account and not the machine account.
 
-**Potential Issue**: The settings page has the toggles grayed out, and instead of seeing an account, you see the text “Some Windows features are only available if you are using a Microsoft account or work account”. This issue may arise for devices that have been set up to be domain-joined and registered to Azure AD, but the device has not successfully authenticated to Azure AD. A possible cause is that the device policy must be applied, but this application happens asynchronously, and could be delayed by a few hours. To verify this issue, follow the steps in verify the device registration status to check if this is the case.
+> [!NOTE]
+> If the controls in the **Settings** page are not available, and you see the message “Some Windows features are only available if you are using a Microsoft account or work account.” This issue might arise for devices that are set up to be domain-joined and registered to Azure AD, but the device has not yet successfully authenticated to Azure AD. A possible cause is that the device policy must be applied, but this application happens asynchronously, and could be delayed by a few hours. 
 
 ### Verify the device registration status
 Enterprise State Roaming requires the device to be registered with Azure AD. Although not specific to Enterprise State Roaming, following the instructions below can help confirm that the Windows 10 Client is registered, and confirm thumbprint, Azure AD settings URL, NGC status, and other information.
