@@ -353,6 +353,8 @@ If you see this message in the portal, your workspace has not been upgraded. You
 
 Now let's open Operations Management Suite. From the Log Analytics Azure Portal, simply click **OMS Portal**. You can also open the portal by going to [Operations Management Suite](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite) page and clicking **Sign in**.
 
+![Log analytics upgrade notification](./media/logging/open-oms.png)
+
 Once data starts streaming into Operations Management Suite, you can view data from Azure Cosmos DB using the **Log Search** option on the left menu. Here are some common queries you can enter into the **Begin searching here...** box.  
 
 * All diagnostic logs for the specified time period.
