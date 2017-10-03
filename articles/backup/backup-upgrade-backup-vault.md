@@ -19,10 +19,7 @@ ms.author: trinadhk
 
 ---
 # Questions about Vault upgrade
-This article deals with overview of what Recovery Services vault provides, frequently asked questions about upgrading existing backup vault to Recovery Services vault and post upgrade steps. 
-
-## Recovery Services vaults overview
-A Recovery Services vault is the Azure Resource Manager equivalent of a Backup vault that houses your backup data. The data is typically copies of data, or configuration information for virtual machines (VMs), workloads, servers, or workstations, whether on-premises or in Azure.
+This article provides an overview of what Recovery Services vault provides, frequently asked questions about upgrading existing backup vault to Recovery Services vault, and post-upgrade steps. A Recovery Services vault is the Azure Resource Manager equivalent of a Backup vault that houses your backup data. The data is typically copies of data, or configuration information for virtual machines (VMs), workloads, servers, or workstations, whether on-premises or in Azure.
 
 ## What is a Recovery Services vault?
 A Recovery Services vault is an online storage entity in Azure used to hold data such as backup copies, recovery points, and backup policies. You can use Recovery Services vaults to hold backup data for various Azure services such as IaaS VMs (Linux or Windows) and Azure SQL databases. Recovery Services vaults support System Center DPM, Windows Server, Azure Backup Server, and more. Recovery Services vaults make it easy to organize your backup data, while minimizing management overhead.
@@ -65,7 +62,7 @@ When a Backup vault is upgraded to a Recovery Services vault, the security setti
 When the enhanced security is turned on, data is retained up to 14 days after the recovery point information has been deleted from the vault. Customers are billed for storage of this security data. Security data retention applies to recovery points taken for the Azure Backup agent, Azure Backup Server, and System Center Data Protection Manager. 
 
 ## Gather data on your vault
-Once you upgrade to a Recovery Services vault, configure reports for Azure Backup (for IaaS VMs and Microsoft Azure Recovery Services (MARS)), and use Power BI to access the reports. For additional information on gathering data, see the article, [Configure Azure Backup reports](backup-azure-configure-reports.md).
+Once you upgrade to a Recovery Services vault, configure reports for Azure Backup (for IaaS VMs and Microsoft Azure Recovery Services agent), and use Power BI to access the reports. For additional information on gathering data, see the article, [Configure Azure Backup reports](backup-azure-configure-reports.md).
 
 ## Frequently asked questions
 
@@ -77,8 +74,10 @@ You must update your existing automation or tooling to the Resource Manager depl
 
 **Can I roll back after upgrade?**</br>
 No. Rollback is not supported after the resources have been successfully upgraded.
+
 **Can I view my classic vault post upgrade?**</br>
 No. You cannot view or manage your classic vault post upgrade. You will only be able to use the new Azure portal for all management actions on the vault.
+
 **Why can’t I see servers protected by MARS agent in my upgraded vault?**</br>
 You need to install the latest MARS agent to see all the servers protected by MARS agent in your vault. You can download the latest version of the agent from [here]( http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
 
