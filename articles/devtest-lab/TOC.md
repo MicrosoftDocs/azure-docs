@@ -28,6 +28,7 @@
 ### [Set policies and schedules ](devtest-lab-set-lab-policy.md)
 ### [Configure cost management](devtest-lab-configure-cost-management.md)
 ### [Configure marketplace images](devtest-lab-configure-marketplace-images.md)
+### [Enable a licensed image](devtest-lab-enable-licensed-images.md)
 ### [Add tags to a lab](devtest-lab-add-tag.md)
 
 ## [Select custom image or formula](devtest-lab-comparing-vm-base-image-types.md)
@@ -36,7 +37,6 @@
 ### [Create custom image from a VM](devtest-lab-create-custom-image-from-vm-using-portal.md)
 ### [Create custom image from a VHD using the Azure portal](devtest-lab-create-template.md)
 ### [Create custom image from a VHD using PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
-### [Create custom image from a licensed image](devtest-lab-create-custom-image-from-licensed-image.md)
 ### [Upload VHD file using AzCopy](devtest-lab-upload-vhd-using-azcopy.md)
 ### [Upload VHD file using PowerShell](devtest-lab-upload-vhd-using-powershell.md)
 ### [Upload VHD file using Storage Explorer](devtest-lab-upload-vhd-using-storage-explorer.md)

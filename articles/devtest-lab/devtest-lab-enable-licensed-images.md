@@ -1,6 +1,6 @@
 ---
-title: Create an Azure DevTest Labs custom image from a licensed image | Microsoft Docs
-description: Learn how to create a custom image in Azure DevTest Labs from a licensed image using the Azure portal
+title: Enable a licensed image in your lab in Azure DevTest Labs | Microsoft Docs
+description: Learn how to enable a licensed image in Azure DevTest Labs using the Azure portal
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
@@ -18,7 +18,7 @@ ms.author: tarcher
 
 ---
 
-# Create a custom image from a licensed image
+# Enable a licensed image in your lab
 
 [!INCLUDE [devtest-lab-custom-image-definition](../../includes/devtest-lab-custom-image-definition.md)]
 
@@ -53,54 +53,22 @@ To make sure a licensed image is available to lab users, you must first accept t
 
 You can enable programmatic deployment for a licensed image by following these steps:
 
-1. In the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) on the list of **Marketplace images**, identify a licensed image for which you want users to have access but whose terms have not been accepted.
+1. In the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) on the list of **Marketplace images**, identify a licensed image for which you want users to have access but whose terms have not been accepted. For example, you might see a Data Science Virtual Machine that shows a status of either **Terms accepted** or **Terms review needed**.
 
-1. In the **OFFER STATUS** column for that image, select **Terms review needed**. 
+   	![Configure Programmatic Deployment window](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
 
-1. In the Configure Programmatic Deployment window, select **Enable**. 
+   Data Science VMs are Azure Virtual Machine images, pre-installed, configured and tested with several popular tools that are commonly used for data analytics, machine learning and AI training. [Introduction to Azure Data Science Virtual Machine for Linux and Windows](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) provides a great deal of information about DSVMs.
+
+1. In the **OFFER STATUS** column for the image, select **Terms review needed**.
+
+1. In the Configure Programmatic Deployment window, select **Enable**.
 
 	![Configure Programmatic Deployment window](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-enable-programmatic-deployment.png)
 
 1. Select **Save**. In the list of marketplace images, that image now shows **Terms accepted** and is available for users to create virtual machines.
 
-## Creating a custom image
+### Examples of Data Science images
 
-Users can create a custom image from a VM built from a licensed image and afterwards use that custom image to create identical VMs by following these steps:
-
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-
-1. Select **More services**, and then select **DevTest Labs** from the list.
-
-1. From the list of labs, select the desired lab.  
-
-1. On the left, select **My virtual machines**.
- 
-1. Under **My virtual machines**, select a VM that was created from a licensed image and from which you want to create a custom image. If the VM has not yet been created, you must first [create the VM](devtest-lab-add-vm.md) from the licensed image.
-
-1. Select **Create custom image (VHD)**.
-
-	![Create custom image menu item](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-create-custom-image.png)
-
-1. In the **Create custom image** window, enter a name and description for your custom image. This information is displayed in the list of bases when you create a VM.
-
-	![Create custom image window](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-create-custom-image-window.png)
-
-1. Select whether deprovision was run on the VM. If the deprovision was not run on the VM, specify whether you want deprovision run when a VM is created from this custom image.
-
-1. Select **OK** when finished to create the custom image.
-
-1. Close the VM's menu window.
-
-1. Select **Configuration and policies** – **Custom images** and select the custom image you just created.
-
-   In the Custom Image Details window, you can see the plan information – name, offer, and publisher – associated with the terms and conditions for this custom image. You can also see that the terms are accepted for this custom image.
-
-	![Custom Image Details window showing plan information](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-plan-info.png)
-
-	This plan information indicating **Terms accepted** will be passed on to any subsequent VMs created from this custom image.
-
-
-[!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## Related blog posts
 
