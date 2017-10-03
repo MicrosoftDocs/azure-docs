@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/28/2017
+ms.date: 10/3/2017
 ms.author: anwestg
 
 ---
@@ -115,7 +115,9 @@ You must have a Microsoft Account linked to a OneDrive account to complete this 
 
 1. Browse to https://www.dropbox.com/developers/apps and Log in using your DropBox Account.
 2. Click **Create app**.
+
 ![Dropbox applications][14]
+
 3. Select **DropBox API**.
 4. Set the access level to **App Folder**.
 5. Enter a **Name** for your application.
