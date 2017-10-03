@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/25/2017
+ms.date: 10/3/2017
 ms.author: anwestg
 
 ---
@@ -173,7 +173,7 @@ net share %WEBSITES_SHARE%=%WEBSITES_FOLDER% /grant:Everyone,full
 #### Provision the content share on a Failover cluster (Active Directory)
 
 On the Failover cluster, create the following UNC clustered resources:
-1.	WebSites
+- WebSites
 
 ### To enable WinRM, add the FileShareOwners group to the local Administrators group
 
