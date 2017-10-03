@@ -27,6 +27,8 @@ This article applies to StorSimple 8000 series devices running in Azure portal o
 
 The following sample scripts are available to automate various StorSimple jobs.
 
+#### Table of Azure Resource Manager SDK-based sample scripts
+
 | Azure Resource Manager Script                    | Description                                                                                                                                                                                                       |
 |--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Authorize-ServiceEncryptionRollover.ps1          | This script allows you to authorize your StorSimple device to change the service data encryption key.                                                                                                           |
@@ -56,43 +58,47 @@ Before you begin, ensure that you have:
 For more information about using Azure PowerShell, go to [Get started with using Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps?view=azurermps-4.4.0).
 
 ## Configure and run a sample script
+
 This section takes an example script and details the various steps required to run the script. The following script lists all the jobs on a StorSimple device. This includes the jobs that succeeded, failed, or are in progress.
 
 1. Launch PowerShell. Create a new folder and change directory to the new folder.
 
-```
-            mkdir C:\scripts\StorSimpleSDKTools
-            cd C:\scripts\StorSimpleSDKTools
+    ```
+                mkdir C:\scripts\StorSimpleSDKTools
+                cd C:\scripts\StorSimpleSDKTools
 
-```    
-2. [Download nuget CLI](http://www.nuget.org/downloads) under the folder created in previous step. There are various versions of _nuget.exe_. Choose the version corresponding to your SDK. Each download link points directly to an _.exe_ file. Be sure to right-click and save the file to your computer rather than running it from the browser. You can also run the following command to download and store the script in the same folder that you created earlier.
+    ```    
+2. [Download nuget CLI](http://www.nuget.org/downloads) under the folder created in the previous step. There are various versions of _nuget.exe_. Choose the version corresponding to your SDK. Each download link points directly to an _.exe_ file. Be sure to right-click and save the file to your computer rather than running it from the browser. You can also run the following command to download and store the script in the same folder that you created earlier.
 
-```
-            wget https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -Out C:\scripts\StorSimpleSDKTools\nuget.exe
+    ```
+                wget https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -Out C:\scripts\StorSimpleSDKTools\nuget.exe
 
-```    
+    ```    
 3. Download the dependent SDK.
 
-```
-            C:\scripts\StorSimpleSDKTools\nuget.exe install Microsoft.Azure.Management.Storsimple8000series
-            C:\scripts\StorSimpleSDKTools\nuget.exe install Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.28.3
-            C:\scripts\StorSimpleSDKTools\nuget.exe install Microsoft.Rest.ClientRuntime.Azure.Authentication -Version 2.2.9-preview
+    ```
+                C:\scripts\StorSimpleSDKTools\nuget.exe install Microsoft.Azure.Management.Storsimple8000series
+                C:\scripts\StorSimpleSDKTools\nuget.exe install Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.28.3
+                C:\scripts\StorSimpleSDKTools\nuget.exe install Microsoft.Rest.ClientRuntime.Azure.Authentication -Version 2.2.9-preview
 
-```    
+    ```    
 4. Download the script from the sample GitHub project.
 
-```
-            wget https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceJobs.ps1 -Out Get-DeviceJobs.ps1
-```
+    ```
+                wget https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceJobs.ps1 -Out Get-DeviceJobs.ps1
+
+    ```
 
 5. Run the script. When prompted to authenticate, provide your Azure credentials. This script should output a filtered list of all the jobs on your StorSimple device.
            
-```           
-            .\Get-StorSimpleJob.ps1 -SubscriptionId [subid] -TenantId [tenant id] -DeviceName [name of device] -ResourceGroupName [name of resource group] -ManagerName[name of device manager] -FilterByStatus [Filter for job status] -FilterByJobType [Filter for job type] -FilterByStartTime [Filter for start date time] -FilterByEndTime [Filter for end date time]
+    ```           
+                .\Get-StorSimpleJob.ps1 -SubscriptionId [subid] -TenantId [tenant id] -DeviceName [name of device] -ResourceGroupName [name of resource group] -ManagerName[name of device manager] -FilterByStatus [Filter for job status] -FilterByJobType [Filter for job type] -FilterByStartTime [Filter for start date time] -FilterByEndTime [Filter for end date time]
 
-```
+    ```
 
-Sample output
+#### Sample output
+
+The following output is presented when the sample script is run. 
 
 ```
 -----------------------------------------
