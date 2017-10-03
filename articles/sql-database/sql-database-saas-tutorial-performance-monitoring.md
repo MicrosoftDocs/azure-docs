@@ -1,6 +1,6 @@
 ---
 title: Monitor performance of many Azure SQL databases in a multi-tenant SaaS app  | Microsoft Docs
-description: "Monitor and manage performance of databases and pools in the Azure SQL Database Wingtip SaaS app"
+description: "Monitor and manage performance of Azure SQL databases and pools in a multi-tenant SaaS app"
 keywords: sql database tutorial
 services: sql-database
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.date: 07/26/2017
 ms.author: sstein
 
 ---
-# Monitor performance of the Wingtip SaaS application
+# Monitor and manage performance of Azure SQL databases and pools in a multi-tenant SaaS app
 
 In this tutorial, several key performance management scenarios used in SaaS applications are explored. Using a load generator to simulate activity across all tenant databases, the built-in monitoring and alerting features of SQL Database and elastic pools are demonstrated.
 
