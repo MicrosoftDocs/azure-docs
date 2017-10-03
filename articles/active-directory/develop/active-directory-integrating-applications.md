@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/20/2017
+ms.date: 10/03/2017
 ms.author: lenalepa
 ms.custom: aaddev
 ms.reviewer: luleon
@@ -236,12 +236,12 @@ Applications that your organization has registered show under the "My apps" filt
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. If your account gives you access to more than one, click your account in the top right corner, and set your portal session to the desired tenant.
 3. On the top menu, choose **Azure Active Directory**, click **App Registrations**, and then click the application you want to configure. You are taken to the application's main registration page, which opens up the **Settings** page for the application.
-4. From the **Settings** page, choose **Properties** and flip the **Multi-tenanted** switch to **No**. This converts your application to be single-tenant, but the application will remain in an organization who has already consented to it.
+4. From the **Settings** page, choose **Properties** and flip the **Multi-tenanted** switch to **No** to change your application to single-tenant. The application's service principal objects remain in the tenants of all organizations that have already consented to it.
 5. Click on the **Delete** button from the application page.
 6. Click **Yes** in the confirmation message.
 
 ### Removing a multi-tenant application authorized by another organization
-A subset of the applications that show under the "All apps" filter on your tenant's main "App registrations" page (excluding the "My apps" registrations), are multi-tenant applications. In technical terms, these are multi-tenant applications from another tenant, that were registered during the consent process. More specifically, they are represented by only a Service Principal object in your tenant. See [Application Objects and Service Principal Objects](active-directory-application-objects.md) for more information.
+A subset of the applications that show under the "All apps" filter (excluding the "My apps" registrations) on your tenant's main "App registrations" page, are multi-tenant applications. In technical terms, these multi-tenant applications are from another tenant, and were registered during the consent process. More specifically, they are represented by only a service principal object in your tenant. See [Application Objects and Service Principal Objects](active-directory-application-objects.md) for more information.
 
 In order to remove a multi-tenant application’s access to your directory (after having granted consent), the company administrator must have an Azure subscription to remove access through the Azure portal. Alternatively, the company administrator can use the [Azure AD PowerShell Cmdlets](http://go.microsoft.com/fwlink/?LinkId=294151) to remove access.
 
@@ -250,5 +250,5 @@ In order to remove a multi-tenant application’s access to your directory (afte
 * For more details on the relationship between an application's Application and Service Principal object(s), see [Application Objects and Service Principal Objects](active-directory-application-objects.md).
 * To learn more about the role the app manifest plays, see [Understanding the Azure Active Directory application manifest](active-directory-application-manifest.md)
 * See the [Azure AD developer glossary](active-directory-dev-glossary.md) for definitions of some of the core Azure Active Directory (AD) developer concepts.
-* Visit the [Active Directory developer's guide](active-directory-developers-guide.md) for an overview of all developer related content.
+* Visit the [Active Directory developer's guide](active-directory-developers-guide.md) for an overview of all developer-related content.
 
