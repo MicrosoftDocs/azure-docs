@@ -12,23 +12,24 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 10/03/2017
 ms.author: bwren
 
 ---
 # Analytics in Application Insights
-Analytics is the powerful search and query tool of [Application Insights](app-insights-overview.md). Analytics is a web tool, no setup is required. 
-If you've already configured Application Insights for one of your apps, you can easily analyze your app's data - simply open Analytics from your 
-app's [overview blade](app-insights-dashboards.md):
-![Open portal.azure.com, open your Application Insights resource, and click Analytics.](./media/app-insights-analytics-tour/001.png)
+Analytics is the powerful search and query tool of [Application Insights](app-insights-overview.md). Analytics is a web tool so no setup is required. 
+If you've already configured Application Insights for one of your apps then you can  analyze your app's data by opening Analytics from your 
+app's [overview blade](app-insights-dashboards.md).
 
-You can also use the Analytics [playground](https://go.microsoft.com/fwlink/?linkid=859557) - is a free demo environment with a lot of data.
+![Open portal.azure.com, open your Application Insights resource, and click Analytics.](./media/app-insights-analytics/001.png)
+
+You can also use the [Analytics playground](https://go.microsoft.com/fwlink/?linkid=859557) which is a free demo environment with a lot of sample data.
 
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 ## Query data in Analytics
-A typical query started with is a table name, followed by a series of *operators* separated by `|`.
+A typical query starts with a table name followed by a series of *operators* separated by `|`.
 For example, let's find out what how many requests our app received from different countries, during the last 3 hours:
 ```AIQL
 requests
@@ -37,10 +38,9 @@ requests
 | render piechart
 ```
 
-We start with the table name - *requests*, and add piped elements as need - first we define a time filter, to review only records from the last 3 hours.
-Next we count the number of records per country (that data is found in the column *client_CountryOrRegion*). To display the results clearly, we render a pie-chart.
+We start with the table name *requests* and add piped elements as needed.  First we define a time filter to review only records from the last 3 hours.
+We then count the number of records per country (that data is found in the column *client_CountryOrRegion*). Finally, we render the results in a pie chart.
 
-Looks like our app has been most popular in the United States during these 3 hours.
 
 The language has many attractive features:
 
@@ -48,13 +48,13 @@ The language has many attractive features:
 * [Join](https://docs.loganalytics.io/queryLanguage/query_language_joinoperator.html) multiple tables – correlate requests with page views, dependency calls, exceptions and log traces.
 * Powerful statistical [aggregations](https://docs.loganalytics.io/learn/tutorials/aggregations.html).
 * Immediate and powerful visualizations.
-* There's a [REST API](https://dev.applicationinsights.io/) that you can use to run queries programmatically, for example from Powershell.
+* [REST API](https://dev.applicationinsights.io/) that you can use to run queries programmatically, for example from Powershell.
 
 The [full language referece](https://go.microsoft.com/fwlink/?linkid=856079) details every command supported, and updates regularly.
 
 ## Next steps
-* [get started with the Analytics portal](https://go.microsoft.com/fwlink/?linkid=856587)
-* [get started with queries](https://go.microsoft.com/fwlink/?linkid=856078)
-* review the [SQL-users' cheat sheet](https://aka.ms/sql-analytics) for translations of the most common idioms.
+* Get started with the [Analytics portal](https://go.microsoft.com/fwlink/?linkid=856587)
+* Get started [writing queries](https://go.microsoft.com/fwlink/?linkid=856078)
+* Review the [SQL-users' cheat sheet](https://aka.ms/sql-analytics) for translations of the most common idioms.
 * Test drive Analytics on our [playground](https://analytics.applicationinsights.io/demo) if your app isn't sending data to Application Insights yet.
-* Watch the [introductory video](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)
+* Watch the [introductory video](https://applicationanalytics-media.azureedge.net/home_page_video.mp4).
