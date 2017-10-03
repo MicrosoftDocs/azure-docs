@@ -12,8 +12,7 @@ ms.topic: article
 ms.date: 09/29/2017
 ---
 # How to find runs with the best accuracy and lowest duration
-Given multiple runs, one use case is to find runs with best accuracy. One approach is to use CLI with a JMESPATH query.
-In the following example, four runs are created with accuracy values of 0, 0.98, 1, and 1. Runs are filtered if they are in the range [`MaxAccuracy-Threshold`, `MaxAccuracy`] where `Threshold = .03`.
+Given multiple runs, one use case is to find runs with best accuracy. One approach is to use CLI with a [JMESPath](http://jmespath.org/) query. For more information on using JMESPath in the Azure CLI, see [this article](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest). In the following example, four runs are created with accuracy values of 0, 0.98, 1, and 1. Runs are filtered if they are in the range [`MaxAccuracy-Threshold`, `MaxAccuracy`] where `Threshold = .03`.
 
 ## Sample data
 If you don't have existing run histories with `Accuracy` value, the steps below will generate run histories for querying:
