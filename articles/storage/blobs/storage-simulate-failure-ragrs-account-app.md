@@ -19,7 +19,7 @@ ms.custom: mvc
 
 # Simulate a failure in accessing read-access redundant storage
 
-This tutorial is part two of a series. In this tutorial, you inject a failed response with Fiddler for requests to your storage account to simulate a failure.
+This tutorial is part two of a series. In this tutorial, you inject a failed response with Fiddler for requests to a [read-access geo-redundant](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) storage account to simulate a failure and have the application read from the secondary endpoint.
 
 ![Scenario app](media/storage-simulate-failure-ragrs-account-app/scenario.png)
 
@@ -35,10 +35,9 @@ In part two of the series, you learn how to:
 To complete this tutorial:
 
 * Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
-  - **ASP.NET and web development**
   - **Azure development**
 
-  ![ASP.NET and web development and Azure development (under Web & Cloud)](media/storage-create-geo-redundant-storage/workloads.png)
+  ![Azure development (under Web & Cloud)](media/storage-simulate-failure-ragrs-account-app/workloads.png)
 
 * Download and install [Fiddler](https://www.telerik.com/download/fiddler)
 
@@ -48,9 +47,11 @@ To complete this tutorial, you must have completed the previous storage tutorial
 
 ## Launch fiddler
 
+Open Fiddler, select **Rules** and **Customize Rules**. The Fiddler ScriptEditor launches showing the **SampleRules.js** file. This file is used to customize Fiddler.
+
 ![Customize Fiddler rules](media/storage-simulate-failure-ragrs-account-app/figure1.png)
 
-Paste the following code sample under the `OnBeforeResponse` function. The new statement is commented out to ensure that the logic is not implemented immediately.
+Paste the following code sample in the `OnBeforeResponse` function. The new statement is commented out to ensure that the logic is not implemented immediately. Once complete select **File** and **Save** to save your changes.
 
 ```javascript
          // Simulate data center failure
@@ -68,6 +69,8 @@ Paste the following code sample under the `OnBeforeResponse` function. The new s
 
 ![Paste customized rule](media/storage-simulate-failure-ragrs-account-app/figure2.png)
 
+Requests to storage accounts using the client tools goes over HTTPS. For this reason, HTTPS decryption needs to be enabled in Fiddler so it can inject the `503 - Service Unavailable` error to simulate a failure, to learn how to do this visit [Configure Fiddler to Decrypt HTTPS Traffic](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
+ 
 ## Start and pause the application
 
 In Visual Studio, press **F5** or select **Play** to start debugging the application. Once the application begins reading from the primary endpoint, press **Pause** or press **Ctrl** + **Alt** + **Break** to pause the application.
@@ -112,3 +115,5 @@ Follow this link to see pre-built storage samples.
 
 > [!div class="nextstepaction"]
 > [Azure storage script samples](storage-samples-blobs-cli.md)
+
+[previous-tutorial]: storage-create-geo-redundant-storage.md
