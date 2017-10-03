@@ -137,7 +137,7 @@ If you have questions related to this SDK, post to [StackOverflow](http://stacko
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
-| [1.5.1](#1.5.1) |October 2, 2017 |--- | 
+| [1.5.1](#1.5.1) |October 2, 2017 |--- |
 | [1.5.0](#1.5.0) |August 10, 2017 |--- | 
 | [1.4.1](#1.4.1) |August 07, 2017 |--- |
 | [1.4.0](#1.4.0) |August 02, 2017 |--- |
