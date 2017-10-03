@@ -72,7 +72,7 @@ To create a block blob and upload data, use the **create\_blob\_from\_path**, **
 
 **create\_blob\_from\_path** uploads the contents of a file from the specified path, and **create\_blob\_from\_stream** uploads the contents from an already opened file/stream. **create\_blob\_from\_bytes** uploads an array of bytes, and **create\_blob\_from\_text** uploads the specified text value using the specified encoding (defaults to UTF-8).
 
-The following example uploads the contents of the **sunset.png** file into the **myblob** blob.
+The following example uploads the contents of the **sunset.png** file into the **myblockblob** blob.
 
 ```python
 from azure.storage.blob import ContentSettings
@@ -96,7 +96,7 @@ for blob in generator:
 ## Download blobs
 To download data from a blob, use **get\_blob\_to\_path**, **get\_blob\_to\_stream**, **get\_blob\_to\_bytes**, or **get\_blob\_to\_text**. They are high-level methods that perform the necessary chunking when the size of the data exceeds 64 MB.
 
-The following example demonstrates using **get\_blob\_to\_path** to download the contents of the **myblob** blob and store it to the **out-sunset.png** file.
+The following example demonstrates using **get\_blob\_to\_path** to download the contents of the **myblockblob** blob and store it to the **out-sunset.png** file.
 
 ```python
 block_blob_service.get_blob_to_path('mycontainer', 'myblockblob', 'out-sunset.png')
