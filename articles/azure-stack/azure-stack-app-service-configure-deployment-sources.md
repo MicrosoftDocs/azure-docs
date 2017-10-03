@@ -29,7 +29,7 @@ The Source Control Providers supported, in addition to local Git, are:
 * OneDrive
 * DropBox
 
-## View Deployment Sources in App Service Administration
+## View deployment sources in App Service administration
 
 1. Log in to the Azure Stack Admin Portal (https://adminportal.local.azurestack.external) as the service administrator.
 2. Browse to **Resource Providers** and select the **App Service Resource Provider Admin**.
