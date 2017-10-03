@@ -4,7 +4,7 @@ description: Describes how to back up StorSimple Virtual Array shares and volume
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: e3cdcd9e-33b1-424d-82aa-b369d934067e
@@ -13,10 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/21/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 ---
-# Back up your StorSimple Virtual Array
+# Back up shares or volumes on your StorSimple Virtual Array
 
 ## Overview
 

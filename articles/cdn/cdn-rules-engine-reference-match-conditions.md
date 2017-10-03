@@ -1,6 +1,6 @@
 ---
-title: Azure Content Delivery Network Rules Engine Match Conditions| Microsoft Docs
-description: This topic describes Rules engine match conditions and features
+title: Azure CDN rules engine match conditions | Microsoft Docs
+description: Reference documentation for Azure CDN rules engine match conditions and features.
 services: cdn
 documentationcenter: ''
 author: Lichard
@@ -13,12 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2016
+ms.date: 01/23/2017
 ms.author: rli
 
 ---
 
-#Match Conditions for Azure Content Delivery Network (CDN) Rules Engine
+# Azure CDN rules engine match conditions
 This topic lists detailed descriptions of the available Match Conditions for Azure Content Delivery Network (CDN) [Rules Engine](cdn-rules-engine.md).
 
 The second part of a rule is the match condition. A match condition identifies specific types of requests for which a set of features will be performed.

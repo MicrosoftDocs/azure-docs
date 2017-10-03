@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 07/12/2017
 ms.author: bwren
 
 ---
@@ -67,14 +67,24 @@ The following table provides different examples of log queries that retrieve IIS
 
 | Query | Description |
 |:--- |:--- |
-| Type=IISLog |All IIS log records. |
-| Type=IISLog EventLevelName=error |All Windows events with severity of error. |
+| Type=W3CIISLog |All IIS log records. |
+| Type=W3CIISLog scStatus=500 |All IIS log records with a return status of 500. |
 | Type=W3CIISLog &#124; Measure count() by cIP |Count of IIS log entries by client IP address. |
 | Type=W3CIISLog csHost="www.contoso.com" &#124; Measure count() by csUriStem |Count of IIS log entries by URL for the host www.contoso.com. |
 | Type=W3CIISLog &#124; Measure Sum(csBytes) by Computer &#124; top 500000 |Total bytes received by each IIS computer. |
+
+>[!NOTE]
+> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following.
+
+> | Query | Description |
+|:--- |:--- |
+| W3CIISLog |All IIS log records. |
+| W3CIISLog &#124; where scStatus==500 |All IIS log records with a return status of 500. |
+| W3CIISLog &#124; summarize count() by cIP |Count of IIS log entries by client IP address. |
+| W3CIISLog &#124; where csHost=="www.contoso.com" &#124; summarize count() by csUriStem |Count of IIS log entries by URL for the host www.contoso.com. |
+| W3CIISLog &#124; summarize sum(csBytes) by Computer &#124; take 500000 |Total bytes received by each IIS computer. |
 
 ## Next steps
 * Configure Log Analytics to collect other [data sources](log-analytics-data-sources.md) for analysis.
 * Learn about [log searches](log-analytics-log-searches.md) to analyze the data collected from data sources and solutions.
 * Configure alerts in Log Analytics to proactively notify you of important conditions found in IIS logs.
-

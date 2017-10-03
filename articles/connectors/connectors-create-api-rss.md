@@ -1,10 +1,10 @@
 ---
-title: RSS | Microsoft Docs
+title: RSS connector in Azure Logic Apps | Microsoft Docs
 description: Create Logic apps with Azure App service. RSS connector allows the users to publish and retrieve feed items. It also allows the users to trigger operations when a new item is published to the feed.
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: msftman
-manager: erikre
+author: MandiOhlinger
+manager: anneta
 editor: ''
 tags: connectors
 
@@ -15,106 +15,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
-ms.author: deonhe
+ms.author: mandia; ladocs
 
 ---
 # Get started with the RSS connector
 RSS is a popular web syndication format used to publish frequently updated content – like blog entries and news headlines.  Many content publishers provide an RSS feed to allow users to subscribe to it.  Use the RSS connector to retrieve feed information and trigger flows when new items are published in an RSS feed.
 
-> [!NOTE]
-> This version of the article applies to logic apps 2015-08-01-preview schema version. 
-> 
-> 
-
-You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
-
-## Triggers and actions
-The RSS connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
-
- The RSS connector has the following action(s) and/or trigger(s) available:
-
-### RSS actions
-You can take these action(s):
-
-| Action | Description |
-| --- | --- |
-| [ListFeedItems](connectors-create-api-rss.md#listfeeditems) |Get all RSS feed items. |
-
-### RSS triggers
-You can listen for these event(s):
-
-| Trigger | Description |
-| --- | --- |
-| When a new feed item published |Triggers a workflow when a new feed is published |
+You can get started by creating a Logic app now, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## Create a connection to RSS
 > [!INCLUDE [Steps to create a connection to an RSS feed](../../includes/connectors-create-api-rss.md)]
 > 
-> [!TIP]
-> You can use this connection in other logic apps.
-> 
-> 
 
-## Reference for RSS
-Applies to version: 1.0
+## Connector-specific details
 
-## OnNewFeed
-When a new feed item published: Triggers a workflow when a new feed is published 
+View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/rss/).
 
-```GET: /OnNewFeed``` 
-
-| Name | Data Type | Required | Located In | Default Value | Description |
-| --- | --- | --- | --- | --- | --- |
-| feedUrl |string |yes |query |none |Feed url |
-
-#### Response
-| Name | Description |
-| --- | --- |
-| 200 |OK |
-| 202 |Accepted |
-| 400 |Bad Request |
-| 401 |Unauthorized |
-| 403 |Forbidden |
-| 404 |Not Found |
-| 500 |Internal Server Error. Unknown error occured |
-| default |Operation Failed. |
-
-## ListFeedItems
-List all RSS feed items.: Get all RSS feed items. 
-
-```GET: /ListFeedItems``` 
-
-| Name | Data Type | Required | Located In | Default Value | Description |
-| --- | --- | --- | --- | --- | --- |
-| feedUrl |string |yes |query |none |Feed url |
-
-#### Response
-| Name | Description |
-| --- | --- |
-| 200 |OK |
-| 202 |Accepted |
-| 400 |Bad Request |
-| 401 |Unauthorized |
-| 403 |Forbidden |
-| 404 |Not Found |
-| 500 |Internal Server Error. Unknown error occured |
-| default |Operation Failed. |
-
-## Object definitions
-### TriggerBatchResponse[FeedItem]
-| Property Name | Data Type | Required |
-| --- | --- | --- |
-| value |array |No |
-
-### FeedItem
-| Property Name | Data Type | Required |
-| --- | --- | --- |
-| id |string |Yes |
-| title |string |Yes |
-| content |string |Yes |
-| links |array |No |
-| updatedOn |string |No |
-
-## Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
-
+## More connectors
+Go back to the [APIs list](apis-list.md).

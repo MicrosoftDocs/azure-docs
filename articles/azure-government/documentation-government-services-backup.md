@@ -1,20 +1,20 @@
 ---
 title: Azure Government Backup | Microsoft Docs
 description: This article provides an overview of the Azure Backup features available in Azure Government.
-services: backup
+services: azure-government
 documentationcenter: ''
 author: markgalioto
 manager: carmonm
 
 
 ms.assetid: a7622135-8790-4be4-a02a-7b9ac8a4996f
-ms.service: backup
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.workload: azure-government
 ms.date: 1/5/2017
-ms.author: markgal;
+ms.author: markgal, sogup;
 
 ---
 # Azure Government Backup
@@ -84,6 +84,10 @@ Azure Backup Server is an Azure Backup component that functions similarly to Sys
 ### Using Azure Backup Server in classic portal
 
 - [Azure Backup Server](../backup/backup-azure-microsoft-azure-backup-classic.md)
+
+### Upgrade a Backup vault to a Recovery Services vault
+
+- [Upgrade now](../backup/backup-azure-upgrade-backup-to-recovery-services.md)
 
 
 ## Next steps

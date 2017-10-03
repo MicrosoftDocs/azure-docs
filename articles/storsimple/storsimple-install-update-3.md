@@ -4,7 +4,7 @@ description: Explains how to install StorSimple 8000 Series Update 3 on your Sto
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: c6c4634d-4f3a-4bc4-b307-a22bf18664e1
@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 12/05/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 
 ---
-# Install Update 3 on your StorSimple device
+# Install Update 3 on your StorSimple 8000 series device
 
 ## Overview
 

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
-ms.author: markgal; trinadhk
+ms.author: trinadhk;markgal
 
 ---
 # Manage Azure virtual machine backups
@@ -92,7 +92,7 @@ In the previous procedure you opened the vault dashboard. To open the vault item
    * stop protecting virtual machines <br\>
    * resume protection of a virtual machine <br\>
    * delete a backup data (or recovery point) <br\>
-   * [restore a backup (or recovery point)](backup-azure-arm-restore-vms.md#restore-a-recovery-point)  <br\>
+   * [restore backup disks](backup-azure-arm-restore-vms.md#restore-backed-up-disks)  <br\>
 
 For the following procedures, the starting point is the vault item dashboard.
 
@@ -115,6 +115,11 @@ For the following procedures, the starting point is the vault item dashboard.
      For instructions on creating a backup policy, see [Defining a backup policy](backup-azure-manage-vms.md#defining-a-backup-policy).
 
 [!INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
+
+> [!NOTE]
+> While managing backup policies, make sure to follow the [best practices](backup-azure-vms-introduction.md#best-practices) for optimal backup performance
+>
+>
 
 ## On-demand backup of a virtual machine
 You can take an on-demand backup of a virtual machine once it is configured for protection. If the initial backup is pending, on-demand backup creates a full copy of the virtual machine in the Recovery Services vault. If the initial backup is completed, an on-demand backup will only send changes from the previous snapshot, to the Recovery Services vault. That is, subsequent backups are always incremental.

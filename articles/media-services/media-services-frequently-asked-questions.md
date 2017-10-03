@@ -1,10 +1,10 @@
 ---
-title: Frequently asked questions | Microsoft Docs
+title: Azure Media Services frequently asked questions | Microsoft Docs
 description: Frequently asked questions (FAQs)
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 5374f7f4-c189-43ef-8b7f-f2f4141e2748
@@ -13,19 +13,27 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 09/29/2017
 ms.author: juliako
 
 ---
 # Frequently asked questions
+
+This article addresses frequently asked questions raised by the Azure Media Services (AMS) user community.
+
 ## General AMS FAQs
+
+Q: How do you stream to Apple iOS devices
+
+A: add "(format=m3u8-aapl)" path to the "/Manifest" portion of the URL to tell the streaming origin server to return back HLS content for consumption on Apple iOS native devices (for details, see (delivering content)[media-services-deliver-content-overview.md]),
+
 Q: How do you scale indexing?
 
 A: The reserved units are the same for Encoding and Indexing tasks. Follow instructions on [How to Scale Encoding Reserved Units](media-services-scale-media-processing-overview.md). **Note** that Indexer performance is not affected by Reserved Unit Type.
 
 Q: I uploaded, encoded, and published a video. What would be the reason the video does not play when I try to stream it?
 
-A: One of the most common reasons is you do not have at least one reserved streaming unit allocated on the streaming endpoint from which you are trying to playback.  Follow instructions on [How to Scale Streaming Reserved Units](media-services-portal-scale-streaming-endpoints.md).
+A: One of the most common reasons is you do not have the streaming endpoint from which you are trying to playback in the **Running** state.  
 
 Q: Can I do compositing on a live stream?
 
@@ -49,11 +57,11 @@ A: Media Services uses the value of the IAssetFile.Name property when building U
 
 Q: How to connect using REST?
 
-A: After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Connecting to Media Services using REST API](media-services-rest-connect-programmatically.md).
+A: For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI. 
 
 Q: How can I rotate a video during the encoding process.
 
-A: The [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) supports rotation by angles of 90/180/270. The default behavior is "Auto", where it tries to detect the rotation metadata in the incoming MP4/MOV file and compensate for it. Include the following **Sources** element to one of the json presets defined [here](http://msdn.microsoft.com/library/azure/mt269960.aspx):
+A: The [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) supports rotation by angles of 90/180/270. The default behavior is "Auto", where it tries to detect the rotation metadata in the incoming MP4/MOV file and compensate for it. Include the following **Sources** element to one of the json presets defined [here](media-services-mes-presets-overview.md):
 
     "Version": 1.0,
     "Sources": [
@@ -67,8 +75,6 @@ A: The [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-
     "Codecs": [
 
     ...
-
-
 
 
 ## Media Services learning paths

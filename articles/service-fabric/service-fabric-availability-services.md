@@ -3,7 +3,7 @@ title: Availability of Service Fabric services | Microsoft Docs
 description: Describes fault detection, failover, and recovery for services
 services: service-fabric
 documentationcenter: .net
-author: appi101
+author: masnider
 manager: timlt
 editor: ''
 
@@ -13,41 +13,34 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/10/2016
-ms.author: aprameyr
+ms.date: 08/18/2017
+ms.author: masnider
 
 ---
+
 # Availability of Service Fabric services
-Azure Service Fabric services can be either stateful or stateless. This article gives an overview of how Service Fabric maintains availability of a service in the event of failures.
+This article gives an overview of how Service Fabric maintains availability of a service.
 
 ## Availability of Service Fabric stateless services
-A stateless service is an application service that does not have any [local persistent state](service-fabric-concepts-state.md).
+Azure Service Fabric services can be either stateful or stateless. A stateless service is an application service that does not have any [local state](service-fabric-concepts-state.md) that needs to be highly available or reliable.
 
-Creating a stateless service requires defining an instance count, which is the number of instances of the stateless service that should be running in the cluster. This is the number of copies of the application logic that will be instantiated in the cluster. Increasing the number of instances is the recommended way of scaling up a stateless service.
+Creating a stateless service requires defining an `InstanceCount`. The instance count defines the number of instances of the stateless service's application logic that should be running in the cluster. Increasing the number of instances is the recommended way of scaling out a stateless service.
 
-When a fault is detected on any instance of a stateless service, a new instance is created on some other eligible node in the cluster.
+When an instance of a stateless named service fails, a new instance is created on some eligible node in the cluster. For example, a stateless service instance might fail on Node1 and be recreated on Node5.
 
 ## Availability of Service Fabric stateful services
-A stateful service has some state associated with it. In Service Fabric, a stateful service is modeled as a set of replicas. Each replica is an instance of the code of the service that has a copy of the state. Read and write operations are performed at one replica (called the primary). Changes to state from write operations are *replicated* to multiple other replicas (called active secondaries). The combination of primary and active secondary replicas is the replica set of the service.
+A stateful service has some state associated with it. In Service Fabric, a stateful service is modeled as a set of replicas. Each replica is a running instance of the code of the service that also has a copy of the state for that service. Read and write operations are performed at one replica (called the Primary). Changes to state from write operations are *replicated* to the other replicas in the replica set (called Active Secondaries) and applied. 
 
-There can be only one primary replica servicing read and write requests, but there can be multiple active secondary replicas. The number of active secondary replicas is configurable, and a higher number of replicas can tolerate a greater number of concurrent software and hardware failures.
+There can be only one Primary replica, but there can be multiple Active Secondary replicas. The number of Active Secondary replicas is configurable, and a higher number of replicas can tolerate a greater number of concurrent software and hardware failures.
 
-In the event of a fault (when the primary replica goes down), Service Fabric makes one of the active secondary replicas the new primary replica. This active secondary replica already has the updated version of the state (via *replication*), and it can continue processing further read and write operations.
+If the Primary replica goes down, Service Fabric makes one of the Active Secondary replicas the new Primary replica. This Active Secondary replica already has the updated version of the state (via *replication*), and it can continue processing further read and write operations. This process is known as reconfiguration and is described further in [Reconfiguration](service-fabric-concepts-reconfiguration.md).
 
-This concept--of a replica being either a primary or active secondary--is known as the replica role.
-
-### Replica roles
-The role of a replica is used to manage the life cycle of the state being managed by that replica. A replica whose role is primary services read requests. It also services write requests by updating its state and replicating the changes to the active secondaries in its replica set. The role of an active secondary is to receive state changes that the primary replica has replicated and update its view of the state.
-
-> [!NOTE]
-> Higher-level programming models such as the [reliable actors framework](service-fabric-reliable-actors-introduction.md) abstract away the concept of replica role from the developer.
-> 
-> 
+This concept, of a replica being either a Primary or Active Secondary, is known as the Replica Role. These are described further in [Replicas and Instances](service-fabric-concepts-replica-lifecycle.md). 
 
 ## Next steps
-For more information on Service Fabric concepts, see the following:
+For more information on Service Fabric concepts, see the following articles:
 
-* [Scalability of Service Fabric services](service-fabric-concepts-scalability.md)
-* [Partitioning Service Fabric services](service-fabric-concepts-partitioning.md)
-* [Defining and managing state](service-fabric-concepts-state.md)
-
+- [Scaling Service Fabric services](service-fabric-concepts-scalability.md)
+- [Partitioning Service Fabric services](service-fabric-concepts-partitioning.md)
+- [Defining and managing state](service-fabric-concepts-state.md)
+- [Reliable Services](service-fabric-reliable-services-introduction.md)

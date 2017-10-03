@@ -13,12 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 01/11/2017
 ms.author: tomfitz
 
 ---
 # Throttling Resource Manager requests
-For each subscription and tenant, Resource Manager limits read requests to 15,000 per hour and write requests to 1,200 per hour. If your application or script reaches these limits, you need to throttle your requests. This topic shows you how to determine the remaining requests you have before reaching the limit, and how to respond when you have reached the limit.
+For each subscription and tenant, Resource Manager limits read requests to 15,000 per hour and write requests to 1,200 per hour. These limits apply to each Azure Resource Manager instance; there are multiple instances in every Azure region, and Azure Resource Manager is deployed to all Azure regions.  So, in practice, limits are effectively much higher than those listed above, as user requests are generally serviced by many different instances.
+
+If your application or script reaches these limits, you need to throttle your requests. This topic shows you how to determine the remaining requests you have before reaching the limit, and how to respond when you have reached the limit.
 
 When you reach the limit, you receive the HTTP status code **429 Too many requests**.
 
@@ -102,3 +104,7 @@ silly: returnObject
 ## Waiting before sending next request
 When you reach the request limit, Resource Manager returns the **429** HTTP status code and a **Retry-After** value in the header. The **Retry-After** value specifies the number of seconds your application should wait (or sleep) before sending the next request. If you send a request before the retry value has elapsed, your request is not processed and a new retry value is returned.
 
+## Next steps
+
+* For more information about limits and quotas, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
+* To learn about handling asynchronous REST requests, see [Track asynchronous Azure operations](resource-manager-async-operations.md).

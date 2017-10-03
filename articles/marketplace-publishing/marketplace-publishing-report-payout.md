@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2016
+ms.date: 06/16/2017
 ms.author: v-jeana; hascipio; v-dabosl
 
 ---
@@ -36,10 +36,10 @@ Reports are available 45 days after the close of the quarter and are calculated 
 ### Access payout reports in Dev Center
 1. Navigate to Dev Center at https://dev.windows.com/en-us.
 2. Click **Dashboard**.
-   
+
     ![LandingPageDashboardHighlight][1]
 3. Click **Payout Summary**.
-   
+
     ![DashboardPayoutSummary][2]
 
 ## View your payout reports in Dev Center
@@ -49,10 +49,10 @@ The payout report for each quarter records all transactions that occurred within
 * Click on the Upcoming payment or Most recent payment **View details** links to see a note about those payouts.
 * Click on **Payment Statements** to view the details under proceeds by app/product.
 * Click on the **View** link to see individual statements.
-  
+
     ![PayoutSummaryUpcomingMostRecentLinksStatement][3]
 * Use the **Proceeds Breakdown** filter at the bottom of the individual statement to view multiple apps/products if they exist.
-  
+
     ![PayoutSummaryPaymentStatementsFilterControl][4]
 
 ## View your payout reports in Publishing Portal
@@ -61,7 +61,7 @@ The payout report for each quarter records all transactions that occurred within
 1. Navigate to the publishing portal at https://publish.windowsazure.com.
 2. From the **Publishers** section, click **Payout Reports**.
 3. Click the drop-down to display all available quarterly payout reports.
-   
+
     ![accessingpayoutreport][5]
 
 ### Read your payout reports

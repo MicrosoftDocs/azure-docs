@@ -4,7 +4,7 @@ description: Use Azure Machine Learning to build a predictive machine learning m
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
-manager: barbkess
+manager: jhubbard
 editor: ''
 
 ms.assetid: 95635460-150f-4a50-be9c-5ddc5797f8a9
@@ -13,7 +13,8 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
+ms.custom: integrate
+ms.date: 03/02/2017
 ms.author: kevin;barbkess
 
 ---
@@ -29,7 +30,7 @@ ms.author: kevin;barbkess
 
 This tutorial uses Azure Machine Learning to build a predictive machine learning model based on data stored in Azure SQL Data Warehouse. Specifically, this builds a targeted marketing campaign for Adventure Works, the bike shop, by predicting if a customer is likely to buy a bike or not.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Integrating-Azure-Machine-Learning-with-Azure-SQL-Data-Warehouse/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Integrating-Azure-Machine-Learning-with-Azure-SQL-Data-Warehouse/player]
 > 
 > 
 
@@ -38,7 +39,7 @@ To step through this tutorial, you need:
 
 * A SQL Data Warehouse pre-loaded with AdventureWorksDW sample data. To provision this, see [Create a SQL Data Warehouse][Create a SQL Data Warehouse] and choose to load the sample data. If you already have a data warehouse but do not have sample data, you can [load sample data manually][load sample data manually].
 
-## 1. Get data
+## 1. Get the data
 The data is in the dbo.vTargetMail view in the AdventureWorksDW database. To read this data:
 
 1. Sign into [Azure Machine Learning studio][Azure Machine Learning studio] and click on my experiments.

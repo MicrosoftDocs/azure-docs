@@ -1,9 +1,9 @@
 ---
-title: Real-Time-Stats in Azure CDN | Microsoft Docs
-description: Real-Time Statistics provides real-time data about the performance of Azure CDN when delivering content to your clients.
+title: Real-time stats in Azure CDN | Microsoft Docs
+description: Real-time statistics provides real-time data about the performance of Azure CDN when delivering content to your clients.
 services: cdn
 documentationcenter: ''
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 
 ---
 # Real-time stats in Microsoft Azure CDN

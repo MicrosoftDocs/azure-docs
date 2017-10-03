@@ -1,5 +1,5 @@
 ---
-title: Authenticate client access to a cluster | Microsoft Docs
+title: Connect securely to an Azure Service Fabric cluster | Microsoft Docs
 description: Describes how to authenticate client access to a Service Fabric cluster and how to secure communication between clients and a cluster.
 services: service-fabric
 documentationcenter: .net
@@ -13,47 +13,61 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2016
+ms.date: 09/29/2017
 ms.author: ryanwi
 
 ---
 # Connect to a secure cluster
+
 When a client connects to a Service Fabric cluster node, the client can be authenticated and secure communication established using certificate security or Azure Active Directory (AAD). This authentication ensures that only authorized users can access the cluster and deployed applications and perform management tasks.  Certificate or AAD security must have been previously enabled on the cluster when the cluster was created.  For more information on cluster security scenarios, see [Cluster security](service-fabric-cluster-security.md). If you are connecting to a cluster secured with certificates, [set up the client certificate](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert) on the computer that connects to the cluster. 
 
 <a id="connectsecureclustercli"></a> 
 
-## Connect to a secure cluster using Azure CLI
-The following Azure CLI commands describe how to connect to a secure cluster. 
+## Connect to a secure cluster using Azure Service Fabric CLI (sfctl)
 
-### Connect to a secure cluster using a client certificate
-The certificate details must match a certificate on the cluster nodes. 
+There are a few different ways to connect to a secure cluster using the Service Fabric CLI (sfctl). When using a client
+certificate for authentication, the certificate details must match a certificate deployed to the cluster nodes. If your
+certificate has Certificate Authorities (CAs), you need to additionally specify the trusted CAs.
 
-If your certificate has Certificate Authorities (CAs), you need to add the parameter `--ca-cert-path` as shown in the following example: 
+You can connect to a cluster using the `sfctl cluster select` command.
 
-```
- azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 
-```
-If you have multiple CAs, use commas as the delimiter. 
+Client certificates can be specified in two different fashions, either as a cert and key pair, or as a single pem
+file. For password protected `pem` files, you will be prompted automatically to enter the password.
 
-If your Common Name in the certificate does not match the connection endpoint, you could use the parameter `--strict-ssl-false` to bypass the verification. 
+To specify the client certificate as a pem file, specify the file path in the `--pem` argument. For example:
 
-```
-azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 --strict-ssl-false 
+```azurecli
+sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
 ```
 
-If you would like to skip the CA verification, you could add the ``--reject-unauthorized-false`` parameter, like the following command:
+Password protected pem files will prompt for password prior to running any command.
 
-```
-azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --reject-unauthorized-false 
-```
+To specify a cert, key pair use the `--cert` and `--key` arguments to specify the file paths to each respective
+file.
 
-For connecting to a cluster secured with a self-signed certificate, use the following command removing both the CA verification and Common Name verification:
-
-```
-azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl-false --reject-unauthorized-false
+```azurecli
+sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
 ```
 
-After you connect, you should be able to [run other CLI commands](service-fabric-azure-cli.md) to interact with the cluster. 
+Sometimes certificates used to secure test or dev clusters fail certificate validation. To bypass certificate
+verification, specify the `--no-verify` option. For example:
+
+> [!WARNING]
+> Do not use the `no-verify` option when connecting to production Service Fabric clusters.
+
+```azurecli
+sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
+```
+
+In addition, you can specify paths to directories of trusted CA certs, or individual certs. To specify these
+paths, use the `--ca` argument. For example:
+
+```azurecli
+sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca
+```
+
+After you connect, you should be able to [run other sfctl commands](service-fabric-cli.md) to interact
+with the cluster.
 
 <a id="connectsecurecluster"></a>
 
@@ -100,11 +114,18 @@ Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azu
           -StoreLocation CurrentUser -StoreName My
 ```
 
+### Connect to a secure cluster using Windows Active Directory
+If your standalone cluster is deployed using AD security, connect to the cluster by appending the switch "WindowsCredential".
+
+```powershell
+Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
+          -WindowsCredential
+```
 
 <a id="connectsecureclusterfabricclient"></a>
 
 ## Connect to a cluster using the FabricClient APIs
-The Service Fabric SDK provides the [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) class for cluster management. 
+The Service Fabric SDK provides the [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) class for cluster management. To use the FabricClient APIs, get the Microsoft.ServiceFabric NuGet package.
 
 ### Connect to an unsecure cluster
 
@@ -122,9 +143,12 @@ FabricClient fabricClient = new FabricClient();
 
 ### Connect to a secure cluster using a client certificate
 
-The nodes in the cluster must have valid certificates whose common name or DNS name in SAN appears in the [RemoteCommonNames property](https://msdn.microsoft.com/library/azure/system.fabric.x509credentials.remotecommonnames.aspx) set on [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). Following this process enables mutual authentication between the client and the cluster nodes.
+The nodes in the cluster must have valid certificates whose common name or DNS name in SAN appears in the [RemoteCommonNames property](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials#System_Fabric_X509Credentials_RemoteCommonNames) set on [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient). Following this process enables mutual authentication between the client and the cluster nodes.
 
 ```csharp
+using System.Fabric;
+using System.Security.Cryptography.X509Certificates;
+
 string clientCertThumb = "71DE04467C9ED0544D021098BCD44C71E183414E";
 string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
 string CommonName = "www.clustername.westus.azure.com";
@@ -143,22 +167,15 @@ catch (Exception e)
     Console.WriteLine("Connect failed: {0}", e.Message);
 }
 
-...
-
 static X509Credentials GetCredentials(string clientCertThumb, string serverCertThumb, string name)
 {
-    var xc = new X509Credentials();
-
-    // Client certificate
+    X509Credentials xc = new X509Credentials();
     xc.StoreLocation = StoreLocation.CurrentUser;
-    xc.StoreName = "MY";
+    xc.StoreName = "My";
     xc.FindType = X509FindType.FindByThumbprint;
-    xc.FindValue = thumb;
-
-    // Server certificate
-    xc.RemoteCertThumbprints.Add(thumb);
+    xc.FindValue = clientCertThumb;
     xc.RemoteCommonNames.Add(name);
-
+    xc.RemoteCertThumbprints.Add(serverCertThumb);
     xc.ProtectionLevel = ProtectionLevel.EncryptAndSign;
     return xc;
 }
@@ -299,6 +316,8 @@ To reach [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) f
 
 The full URL is also available in the cluster essentials pane of the Azure portal.
 
+For connecting to a secure cluster on Windows or OS X using a browser, you can import the client certificate, and the browser will prompt you for the certificate to use for connecting to the cluster.  On Linux machines, the certificate will have to be imported using advanced browser settings (each browser has different mechanisms) and point it to tehe certificate location on disk.
+
 ### Connect to a secure cluster using Azure Active Directory
 
 To connect to a cluster that is secured with AAD, point your browser to:
@@ -336,8 +355,9 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 ```
 
 ## Next steps
+
 * [Service Fabric Cluster upgrade process and expectations from you](service-fabric-cluster-upgrade.md)
-* [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md).
+* [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 * [Service Fabric Health model introduction](service-fabric-health-introduction.md)
 * [Application Security and RunAs](service-fabric-application-runas-security.md)
-
+* [Getting started with Service Fabric CLI](service-fabric-cli.md)

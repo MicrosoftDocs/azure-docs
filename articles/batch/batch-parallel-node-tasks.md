@@ -1,5 +1,5 @@
 ---
-title: Maximize Batch node use with parallel tasks | Microsoft Docs
+title: Run tasks in parallel to use compute resources efficiently - Azure Batch | Microsoft Docs
 description: Increase efficiency and lower costs by using fewer compute nodes and running concurrent tasks on each node in an Azure Batch pool
 services: batch
 documentationcenter: .net
@@ -13,11 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 10/25/2016
+ms.date: 05/22/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 
 ---
-# Maximize Azure Batch compute resource usage with concurrent node tasks
+# Run tasks concurrently to maximize usage of Batch compute nodes 
+
 By running more than one task simultaneously on each compute node in your Azure Batch pool, you can maximize resource usage on a smaller number of nodes in the pool. For some workloads, this can result in shorter job times and lower cost.
 
 While some scenarios benefit from dedicating all of a node's resources to a single task, several situations benefit from allowing multiple tasks to share those resources:
@@ -30,7 +32,7 @@ While some scenarios benefit from dedicating all of a node's resources to a sing
 ## Example scenario
 As an example to illustrate the benefits of parallel task execution, let's say that your task application has CPU and memory requirements such that [Standard\_D1](../cloud-services/cloud-services-sizes-specs.md) nodes are sufficient. But, in order to finish the job in the required time, 1,000 of these nodes are needed.
 
-Instead of using Standard\_D1 nodes that have 1 CPU core, you could use [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) nodes that have 16 cores each, and enable parallel task execution. Therefore, *16 times fewer nodes* could be used--instead of 1,000 nodes, only 63 would be required. Additionally, if large application files or reference data are required for each node, job duration and efficiency are again improved since the data is copied to only 16 nodes.
+Instead of using Standard\_D1 nodes that have 1 CPU core, you could use [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) nodes that have 16 cores each, and enable parallel task execution. Therefore, *16 times fewer nodes* could be used--instead of 1,000 nodes, only 63 would be required. Additionally, if large application files or reference data are required for each node, job duration and efficiency are again improved since the data is copied to only 63 nodes.
 
 ## Enable parallel task execution
 You configure compute nodes for parallel task execution at the pool level. With the Batch .NET library, set the [CloudPool.MaxTasksPerComputeNode][maxtasks_net] property when you create a pool. If you are using the Batch REST API, set the [maxTasksPerNode][rest_addpool] element in the request body during pool creation.
@@ -56,7 +58,7 @@ This [Batch .NET][api_net] API code snippet shows a request to create a pool tha
 CloudPool pool =
     batchClient.PoolOperations.CreatePool(
         poolId: "mypool",
-        targetDedicated: 4
+        targetDedicatedComputeNodes: 4
         virtualMachineSize: "large",
         cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
 
@@ -77,7 +79,7 @@ This [Batch REST][api_rest] API snippet shows a request to create a pool that co
     "osFamily":"4",
     "targetOSVersion":"*",
   }
-  "targetDedicated":2,
+  "targetDedicatedComputeNodes":2,
   "maxTasksPerNode":4,
   "enableInterNodeCommunication":true,
 }

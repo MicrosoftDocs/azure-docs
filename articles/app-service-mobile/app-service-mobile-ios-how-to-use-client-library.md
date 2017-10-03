@@ -573,7 +573,7 @@ and allows for additional customization.
    replacements:
 
    * Replace **INSERT-AUTHORITY-HERE** with the name of the tenant in which you provisioned your application. The
-     format should be https://login.windows.net/contoso.onmicrosoft.com. This value can be copied from the Domain
+     format should be https://login.microsoftonline.com/contoso.onmicrosoft.com. This value can be copied from the Domain
      tab in your Azure Active Directory in the [Azure classic portal].
    * Replace **INSERT-RESOURCE-ID-HERE** with the client ID for your mobile app backend. You can obtain the
      client ID from the **Advanced** tab under **Azure Active Directory Settings** in the portal.
@@ -725,7 +725,7 @@ You can use Fabric for iOS to sign users into your application using Twitter. Cl
 preferable to using the `loginWithProvider:completion:` method, as it provides a more native UX feel and allows
 for additional customization.
 
-1. Configure your mobile app backend for Twitter sign-in by following the [How to configure App Service for Twitter login](app-service-mobile-how-to-configure-twitter-authentication.md) tutorial.
+1. Configure your mobile app backend for Twitter sign-in by following the [How to configure App Service for Twitter login](../app-service/app-service-mobile-how-to-configure-twitter-authentication.md) tutorial.
 2. Add Fabric to your project by following the [Fabric for iOS - Getting Started] documentation and setting up
    TwitterKit.
 
@@ -806,7 +806,7 @@ You can use the Google Sign-In SDK for iOS to sign users into your application u
 recently announced changes to their OAuth security policies.  These policy changes will require the use of the
 Google SDK in the future.
 
-1. Configure your mobile app backend for Google sign-in by following the [How to configure App Service for Google login](app-service-mobile-how-to-configure-google-authentication.md) tutorial.
+1. Configure your mobile app backend for Google sign-in by following the [How to configure App Service for Google login](../app-service/app-service-mobile-how-to-configure-google-authentication.md) tutorial.
 2. Install the Google SDK for iOS by following the [Google Sign-In for iOS - Start integrating](https://developers.google.com/identity/sign-in/ios/start-integrating)
    documentation. You may skip the "Authenticate with a Backend Server" section.
 3. Add the following to your delegate's `signIn:didSignInForUser:withError:` method, according to the language
@@ -915,7 +915,7 @@ Google SDK in the future.
 [Create a table]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
 [NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
+[CLI to manage Mobile Services tables]: /cli/azure/get-started-with-az-cli2
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
 [Fabric Dashboard]: https://www.fabric.io/home
@@ -926,7 +926,7 @@ Google SDK in the future.
 [4]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags
 [5]: http://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:
 [6]: https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h
-[7]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[7]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 [8]: ../active-directory/active-directory-devquickstarts-ios.md
-[9]: app-service-mobile-how-to-configure-facebook-authentication.md
+[9]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
 [10]: https://developers.facebook.com/docs/ios/getting-started

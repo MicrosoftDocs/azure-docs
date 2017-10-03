@@ -1,5 +1,5 @@
 ---
-title: Submit MapReduce jobs using HDInsight .NET SDK | Microsoft Docs
+title: Submit MapReduce jobs using HDInsight .NET SDK - Azure | Microsoft Docs
 description: Learn how to submit MapReduce jobs to Azure HDInsight Hadoop using HDInsight .NET SDK.
 editor: cgronlun
 manager: jhubbard
@@ -10,11 +10,12 @@ author: mumian
 
 ms.assetid: c85e44b0-85fd-4185-ad1c-c34a9fe5ef44
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 08/15/2017
 ms.author: jgao
 
 ---
@@ -29,10 +30,10 @@ Learn how to submit MapReduce jobs using HDInsight .NET SDK. HDInsight clusters 
 > 
 
 ## Prerequisites
-Before you begin this article, you must have the following:
+Before you begin this article, you must have the following items:
 
-* **A Hadoop cluster in HDInsight**. See [Get started using Linux-based Hadoop in HDInsight](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
-* **Visual Studio 2012/2013/2015**.
+* **A Hadoop cluster in HDInsight**. See [Get started using Linux-based Hadoop in HDInsight](./hdinsight-hadoop-linux-tutorial-get-started.md).
+* **Visual Studio 2013/2015/2017**.
 
 ## Submit MapReduce jobs using HDInsight .NET SDK
 The HDInsight .NET SDK provides .NET client libraries, which makes it easier to work with HDInsight clusters from .NET. 
@@ -40,7 +41,7 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
 **To Submit jobs**
 
 1. Create a C# console application in Visual Studio.
-2. From the Nuget Package Manager Console, run the following command.
+2. From the Nuget Package Manager Console, run the following command:
    
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 3. Use the following code:
@@ -52,28 +53,33 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
         using Microsoft.Azure.Management.HDInsight.Job;
         using Microsoft.Azure.Management.HDInsight.Job.Models;
         using Hyak.Common;
-   
+        using Microsoft.WindowsAzure.Storage;
+        using Microsoft.WindowsAzure.Storage.Blob;
+
         namespace SubmitHDInsightJobDotNet
         {
             class Program
             {
                 private static HDInsightJobManagementClient _hdiJobManagementClient;
    
-                private const string ExistingClusterName = "<Your HDInsight Cluster Name>";
-                private const string ExistingClusterUri = ExistingClusterName + ".azurehdinsight.net";
-                private const string ExistingClusterUsername = "<Cluster Username>";
-                private const string ExistingClusterPassword = "<Cluster User Password>";
+                private const string existingClusterName = "<Your HDInsight Cluster Name>";
+                private const string existingClusterUri = existingClusterName + ".azurehdinsight.net";
+                private const string existingClusterUsername = "<Cluster Username>";
+                private const string existingClusterPassword = "<Cluster User Password>";
    
-                private const string DefaultStorageAccountName = "<Default Storage Account Name>";
-                private const string DefaultStorageAccountKey = "<Default Storage Account Key>";
-                private const string DefaultStorageContainerName = "<Default Blob Container Name>";
+                private const string defaultStorageAccountName = "<Default Storage Account Name>"; //<StorageAccountName>.blob.core.windows.net
+                private const string defaultStorageAccountKey = "<Default Storage Account Key>";
+                private const string defaultStorageContainerName = "<Default Blob Container Name>";
+
+                private const string sourceFile = "/example/data/gutenberg/davinci.txt";  
+                private const string outputFolder = "/example/data/davinciwordcount";
    
                 static void Main(string[] args)
                 {
                     System.Console.WriteLine("The application is running ...");
    
-                    var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = ExistingClusterUsername, Password = ExistingClusterPassword };
-                    _hdiJobManagementClient = new HDInsightJobManagementClient(ExistingClusterUri, clusterCredentials);
+                    var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = existingClusterUsername, Password = existingClusterPassword };
+                    _hdiJobManagementClient = new HDInsightJobManagementClient(existingClusterUri, clusterCredentials);
    
                     SubmitMRJob();
    
@@ -93,7 +99,7 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
                     };
    
                     System.Console.WriteLine("Submitting the MR job to the cluster...");
-                    var jobResponse = _hdiJobManagementClient.JobManagement.SubmitHiveJob(parameters);
+                    var jobResponse = _hdiJobManagementClient.JobManagement.SubmitMapReduceJob(paras);
                     var jobId = jobResponse.JobSubmissionJsonResponse.Id;
                     System.Console.WriteLine("Response status code is " + jobResponse.StatusCode);
                     System.Console.WriteLine("JobId is " + jobId);
@@ -109,30 +115,63 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
                     }
    
                     // Get job output
-                    var storageAccess = new AzureStorageAccess(DefaultStorageAccountName, DefaultStorageAccountKey,
-                        DefaultStorageContainerName);
-                    var output = (jobDetail.ExitValue == 0)
-                        ? _hdiJobManagementClient.JobManagement.GetJobOutput(jobId, storageAccess) // fetch stdout output in case of success
-                        : _hdiJobManagementClient.JobManagement.GetJobErrorLogs(jobId, storageAccess); // fetch stderr output in case of failure
-   
                     System.Console.WriteLine("Job output is: ");
-   
-                    using (var reader = new StreamReader(output, Encoding.UTF8))
+                    var storageAccess = new AzureStorageAccess(defaultStorageAccountName, defaultStorageAccountKey,
+                        defaultStorageContainerName);
+        
+                    if (jobDetail.ExitValue == 0)
                     {
-                        string value = reader.ReadToEnd();
-                        System.Console.WriteLine(value);
+                        // Create the storage account object
+                        CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=" + 
+                            defaultStorageAccountName + 
+                            ";AccountKey=" + defaultStorageAccountKey);
+        
+                        // Create the blob client.
+                        CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+        
+                        // Retrieve reference to a previously created container.
+                        CloudBlobContainer container = blobClient.GetContainerReference(defaultStorageContainerName);
+        
+                        CloudBlockBlob blockBlob = container.GetBlockBlobReference(outputFolder.Substring(1) + "/part-r-00000");
+        
+                        using (var stream = blockBlob.OpenRead())
+                        {
+                            using (StreamReader reader = new StreamReader(stream))
+                            {
+                                while (!reader.EndOfStream)
+                                {
+                                    System.Console.WriteLine(reader.ReadLine());
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        // fetch stderr output in case of failure
+                        var output = _hdiJobManagementClient.JobManagement.GetJobErrorLogs(jobId, storageAccess); 
+        
+                        using (var reader = new StreamReader(output, Encoding.UTF8))
+                        {
+                            string value = reader.ReadToEnd();
+                            System.Console.WriteLine(value);
+                        }
+        
                     }
                 }
             }
         }
 4. Press **F5** to run the application.
 
+To run the job again, you must change the job output folder name, in the sample, it is "/example/data/davinciwordcount".
+
+When the job completes successfully, the application prints the content of the output file "part-r-00000".
+
 ## Next steps
 In this article, you have learned several ways to create an HDInsight cluster. To learn more, see the following articles:
 
-* For creating a cluster and submitting a Hive job, see [Get started with Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+* For submitting a Hive job, see [Run Hive queries using HDInsight .NET SDK](hdinsight-hadoop-use-hive-dotnet-sdk.md).
 * For creating HDInsight clusters, see [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
-* For managing HDInsight clusters, see [Manage Hadoop clusters in HDInsight](hdinsight-administer-use-management-portal.md).
+* For managing HDInsight clusters, see [Manage Hadoop clusters in HDInsight](hdinsight-administer-use-portal-linux.md).
 * For learning the HDInsight .NET SDK, see [HDInsight .NET SDK reference](https://msdn.microsoft.com/library/mt271028.aspx).
 * For non-interactive authenticate to Azure, see [Create non-interactive authentication .NET HDInsight applications](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 
