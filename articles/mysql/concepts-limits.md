@@ -8,15 +8,15 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 10/03/2017
 ---
 # Limitations in Azure Database for MySQL (Preview)
 The Azure Database for MySQL service is in public preview. The following sections describe capacity and functional limits in the database service.
 
 ## Service Tier Maximums
-Azure Database for MySQL has multiple service tiers you can choose from when creating a server. For more information, see [Understand what’s available in each service tier](concepts-service-tiers.md).  
+Azure Database for MySQL has multiple service tiers to choose from when creating a server. For more information, see [Understand what’s available in each service tier](concepts-service-tiers.md).  
 
-There is a maximum number of connections, compute units, and storage in each service tier during the service preview, as follows: 
+There is a maximum number of connections, Compute Units, and storage in each service tier during preview, as follows: 
 
 |                            |                   |
 | :------------------------- | :---------------- |
@@ -39,9 +39,9 @@ When too many connections are reached, you may receive the following error:
 
 ## Preview functional limitations:
 ### Scale operations:
-1.	Dynamic scaling of servers across service tiers is currently not supported. That is, switching between Basic and Standard service tiers.
-2.	Dynamic on-demand increase of storage on pre-created server is currently not supported.
-3.	Decreasing server storage size is not supported.
+- Dynamic scaling of servers across service tiers is currently not supported. That is, switching between Basic and Standard service tiers.
+- Dynamic on-demand increase of storage on pre-created server is currently not supported.
+- Decreasing server storage size is not supported.
 
 ### Server version upgrades:
 - Automated migration between major database engine versions is currently not supported.
@@ -50,8 +50,8 @@ When too many connections are reached, you may receive the following error:
 - Dynamically moving pre-created servers across subscription and resource group is currently not supported.
 
 ### Point-in-time-restore:
-1.	Restoring to different service tier and/or Compute Units and Storage size is not allowed.
-2.	Restoring a dropped server is not supported.
+- Restoring to different service tier and/or Compute Units and Storage size is not allowed.
+- Restoring a dropped server is not supported.
 
 ## Next Steps:
 [What’s available in each service tier](concepts-service-tiers.md)
