@@ -10,26 +10,31 @@ tags: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: develop databases
+ms.custom: develop databases, mvc
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 06/20/2017
+ms.date: 08/25/2017
 ms.author: genemi
 ---
 # Design an Azure SQL database and connect with C&#x23; and ADO.NET
 
-Azure SQL Database is a relational database-as-a service (DBaaS) in the Microsoft Cloud ("Azure"). In this tutorial, you learn how to to use the Azure portal and ADO.NET to: 
+Azure SQL Database is a relational database-as-a service (DBaaS) in the Microsoft Cloud ("Azure"). In this tutorial, you learn how to use the Azure portal and ADO.NET with Visual Studio to: 
 
 > [!div class="checklist"]
 > * Create a database in the Azure portal
 > * Set up a server-level firewall rule in the Azure portal
-> * Connect to the database with ADO.NET
+> * Connect to the database with ADO.NET and Visual Studio
 > * Create tables with ADO.NET
-> * Insert data with ADO.NET 
-> * Query that data ADO.NET
+> * Insert, update, and delete data with ADO.NET 
+> * Query data ADO.NET
 
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+
+## Prerequisites
+
+An installation of [Visual Studio Community 2017, Visual Studio Professional 2017, or Visual Studio Enterprise 2017](https://www.visualstudio.com/downloads/).
 
 <!-- The following included .md, sql-database-tutorial-portal-create-firewall-connection-1.md, is long.
 And it starts with a ## H2.
@@ -47,7 +52,17 @@ And it starts with a ## H2.
 
 ## Next steps
 
-The following next steps are available:
+In this tutorial, you learned basic database tasks such as create a database and tables, load and query data, and restore the database to a previous point in time. You learned how to:
+> [!div class="checklist"]
+> * Create a database
+> * Set up a firewall rule
+> * Connect to the database with [Visual Studio and C#](sql-database-connect-query-dotnet-visual-studio.md)
+> * Create tables
+> * Insert, update, and delete data
+> * Query data
 
-- [Use LINQ in your C# program for SQL queries](https://msdn.microsoft.com/library/bb425822.aspx)
-- [Migrate your SQL Server database to Azure SQL Database](sql-database-migrate-your-sql-server-database.md)
+Advance to the next tutorial to learn about migrating your data.
+
+> [!div class="nextstepaction"]
+>[Migrate your SQL Server database to Azure SQL Database](sql-database-migrate-your-sql-server-database.md)
+

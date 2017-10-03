@@ -92,7 +92,7 @@ The following snippet shows an example of the response:
 }
 ```
 
-## Diagnostic logs
+## <a name="diagnostic-logging"></a>Diagnostic logs
 
 You can use different types of logs in Azure to manage and troubleshoot application gateways. You can access some of these logs through the portal. All logs can be extracted from Azure Blob storage and viewed in different tools, such as [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Excel, and Power BI. You can learn more about the different types of logs from the following list:
 
@@ -118,7 +118,7 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
 
     ![Portal: resource ID for storage account](./media/application-gateway-diagnostics/diagnostics1.png)
 
-2. Note your application gateway's resource ID for which logging will be enabled. This value is of the form: /subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Network/applicationGateways/\<application gateway name\>. You can use the portal to find this information.
+2. Note your application gateway's resource ID for which logging is enabled. This value is of the form: /subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Network/applicationGateways/\<application gateway name\>. You can use the portal to find this information.
 
     ![Portal: resource ID for application gateway](./media/application-gateway-diagnostics/diagnostics2.png)
 

@@ -15,8 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 08/17/2017
 ms.author: curtand
+ms.reviewer: aaronsm
 
 ---
 # Integrate Azure Active Directory single sign-on with SaaS apps
@@ -29,6 +30,9 @@ ms.author: curtand
 [!INCLUDE [active-directory-sso-use-case-intro](../../includes/active-directory-sso-use-case-intro.md)]
 
 To get started setting up single sign-on for an app that you’re bringing into your organization, you will be using an existing directory in Azure Active Directory (Azure AD). You can use an Azure AD directory that you obtain through Microsoft Azure, Office 365, or Windows Intune. If you have two or more of these, see [Administer your Azure AD directory](active-directory-administer.md) to determine which one to use.
+
+> [!IMPORTANT]
+> Microsoft recommends that you manage Azure AD using the [Azure AD admin center](https://aad.portal.azure.com) in the Azure portal instead of using the Azure classic portal referenced in this article. For how to assign administrator roles in the Azure AD admin center, see [Assigning administrator roles in Azure Active Directory](active-directory-enterprise-apps-manage-sso.md).
 
 ## Authentication
 For applications that support the SAML 2.0, WS-Federation, or OpenID Connect protocols, Azure Active Directory uses signing certificates to establish trust relationships. For more information about this, see [Managing certificates for federated single sign-on](active-directory-sso-certs.md).
@@ -66,10 +70,9 @@ Another valuable resource is *Suppressing user consent* in the [Guiding develope
 ## Next steps
 For SaaS apps that you find in the App Gallery, Azure AD provides a number of [tutorials on how to integrate SaaS apps](active-directory-saas-tutorial-list.md).
 
-If app is not in App Gallery, you can [add it to the Azure AD App Gallery as a custom
-application](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
+If app is not in App Gallery, you can [add it to the Azure AD App Gallery as a custom application](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
 
 There is much more detail on all of these issues in the Azure.com library,
-beginning with [What is application access and single sign-on with Azure Active Directory.](active-directory-appssoaccess-whatis.md).
+beginning with [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 Plus, don't miss the [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md).

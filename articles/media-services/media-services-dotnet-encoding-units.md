@@ -4,7 +4,7 @@ description: Learn how to how to add encoding units with .NET
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 33f7625a-966a-4f06-bc09-bccd6e2a42b5
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 08/09/2017
 ms.author: juliako;milangada;
 
 ---

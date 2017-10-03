@@ -1,7 +1,7 @@
 ---
 
   title: What is group-based licensing in Azure Active Directory? | Microsoft Docs
-  description: Description of Azure Active Directory group-based licensing, how it works, how to get started, and best practices
+  description: Description of Azure Active Directory group-based licensing, how it works and best practices
   services: active-directory
   keywords: Azure AD licensing
   documentationcenter: ''
@@ -15,16 +15,17 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: identity
-  ms.date: 06/05/2017
+  ms.date: 06/29/2017
   ms.author: curtand
+  ms.reviewer: piotrci
 
-  ms.custom: H1Hack27Feb2017
+  ms.custom: H1Hack27Feb2017;it-pro
 
 ---
 
 # Group-based licensing basics in Azure Active Directory
 
-Microsoft cloud services, such as Office 365, Enterprise Mobility + Security, Dynamics CRM, and other similar products, require licenses. These licenses are assigned to each user who needs access to these services. To manage licenses, administrators use one of the management portals (Office or Azure) and PowerShell cmdlets. Azure Active Directory (Azure AD) is the underlying infrastructure that supports identity management for all Microsoft cloud services. Azure AD stores information about license assignment states for users.
+Using Microsoft paid cloud services, such as Office 365, Enterprise Mobility + Security, Dynamics CRM, and other similar products, requires licenses. These licenses are assigned to each user who needs access to these services. To manage licenses, administrators use one of the management portals (Office or Azure) and PowerShell cmdlets. Azure Active Directory (Azure AD) is the underlying infrastructure that supports identity management for all Microsoft cloud services. Azure AD stores information about license assignment states for users.
 
 Until now, licenses could only be assigned at the individual user level, which can make large-scale management difficult. For example, to add or remove user licenses based on organizational changes, such as users joining or leaving the organization or a department, an administrator often must write a complex PowerShell script. This script makes individual calls to the cloud service.
 
@@ -54,6 +55,7 @@ Here are the main features of group-based licensing:
 
 To learn more about other scenarios for license management through group-based licensing, see:
 
+* [Get started with licenses in Azure Active Directory](active-directory-licensing-get-started-azure-portal.md)
 * [Assigning licenses to a group in Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md)
 * [Identifying and resolving license problems for a group in Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
 * [How to migrate individual licensed users to group-based licensing in Azure Active Directory](active-directory-licensing-group-migration-azure-portal.md)

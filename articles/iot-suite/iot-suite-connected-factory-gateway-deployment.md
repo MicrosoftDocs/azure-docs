@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/22/2017
+ms.date: 07/24/2017
 ms.author: dobett
 
 ---
@@ -22,7 +22,7 @@ ms.author: dobett
 
 The software required to deploy a gateway for the connected factory preconfigured solution has two components:
 
-* The *OPC Proxy* establishes a connection to IoT Hub and waits for command and control messages from the integrated OPC Browser that runs in the connected factory solution portal.
+* The *OPC Proxy* establishes a connection to IoT Hub. The *OPC Proxy* then waits for command and control messages from the integrated OPC Browser that runs in the connected factory solution portal.
 * The *OPC Publisher* connects to existing on-premises OPC UA servers and forwards telemetry messages from them to IoT Hub.
 
 Both components are open-source and are available as source on GitHub and as Docker containers:
@@ -34,7 +34,7 @@ Both components are open-source and are available as source on GitHub and as Doc
 
 No public-facing IP address or holes in the gateway firewall are required for either component. The OPC Proxy and OPC Publisher use only outbound ports 443, 5671, and 8883.
 
-The steps in this article show you how to deploy a gateway using Docker on either Windows or Linux. The gateway enables connectivity to the connected factory preconfigured solution.
+The steps in this article show you how to deploy a gateway using Docker on either [Windows](#windows-deployment) or [Linux](#linux-deployment). The gateway enables connectivity to the connected factory preconfigured solution.
 
 > [!NOTE]
 > The gateway software that runs in the Docker container is [Azure IoT Edge].
@@ -68,33 +68,33 @@ You can also perform this step after installing docker from the **Settings** men
     `docker run -it --rm -v //D/docker:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db`
 
     * **&lt;ApplicationName&gt;** is the name to give to your OPC UA Publisher in the format **publisher.&lt;your fully qualified domain name&gt;**. For example, if your factory network is called **myfactorynetwork.com**, the **ApplicationName** value is **publisher.myfactorynetwork.com**.
-    * **&lt;IoTHubOwnerConnectionString&gt;** is the **iothubowner** connection string you copied in the previous step. This connection string is only used in this step and you don’t need it again.
+    * **&lt;IoTHubOwnerConnectionString&gt;** is the **iothubowner** connection string you copied in the previous step. This connection string is only used in this step, you don’t need it in the following steps:
 
-    The mapped D:\\docker folder (the `-v` argument) is used later to persist the two X.509 certificates used by the gateway modules.
+    You use the mapped D:\\docker folder (the `-v` argument) later to persist the two X.509 certificates that the gateway modules use.
 
 ### Run the gateway
 
 1. Restart the gateway using the following commands:
 
-    `docker run -it --rm -h <ApplicationName> --expose 62222 -p 62222:62222 -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/Logs -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v //D/docker:/shared -v //D/docker:/root/.dotnet/corefx/cryptography/x509stores -e \_GW\_PNFP="/shared/publishednodes.JSON" microsoft/iot-gateway-opc-ua:1.0.0 <ApplicationName>`
+    `docker run -it --rm -h <ApplicationName> --expose 62222 -p 62222:62222 -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/Logs -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v //D/docker:/shared -v //D/docker:/root/.dotnet/corefx/cryptography/x509stores -e _GW_PNFP="/shared/publishednodes.JSON" microsoft/iot-gateway-opc-ua:1.0.0 <ApplicationName>`
 
     `docker run -it --rm -v //D/docker:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -D /mapped/cs.db`
 
-1. For security reasons, the two X.509 certificates persisted in the D:\\docker folder contain the private key. Access to this folder must be limited to the credentials (typically **Administrators**) used to run the Docker container. Right-click the D:\\docker folder, choose **Properties**, then **Security**, and then **Edit**. Give **Administrators** full control and remove everyone else:
+1. For security reasons, the two X.509 certificates persisted in the D:\\docker folder contain the private key. Limit access to this folder to the credentials (typically **Administrators**) you use to run the Docker container. Right-click the D:\\docker folder, choose **Properties**, then **Security**, and then **Edit**. Give **Administrators** full control and remove everyone else:
 
     ![Grant permissions to Docker share][img-docker-share]
 
-1. Verify network connectivity. Try to ping your gateway. From a command prompt, enter the command `ping publisher.<your fully qualified domain name>`. If the destination is unreachable, add the IP address and name of your gateway to your hosts file on your gateway. The hosts file is located in the "Windows\\System32\\drivers\\etc" folder.
+1. Verify network connectivity. From a command prompt, enter the command `ping publisher.<your fully qualified domain name>` to ping your gateway. If the destination is unreachable, add the IP address and name of your gateway to the hosts file on your gateway. The hosts file is located in the **Windows\\System32\\drivers\\etc** folder.
 
-1. Next, try to connect to the publisher using a local OPC UA client running on the gateway. The OPC UA endpoint URL is `opc.tcp://publisher.<your fully qualified domain name>:62222`. If you don't have an OPC UA client, you can download an [open-source OPC UA client].
+1. Next, try to connect to the publisher using a local OPC UA client running on the gateway. The OPC UA endpoint URL is `opc.tcp://publisher.<your fully qualified domain name>:62222`. If you don't have an OPC UA client, you can download and use an [open-source OPC UA client].
 
-1. When you have successfully completed these local tests, browse to the **Connect your own OPC UA Server** page in the connected factory solution portal. Enter the publisher endpoint URL (`tcp://publisher.<your fully qualified domain name>:62222`) and click **Connect**. You get a certificate warning, then click **Proceed.** Next you get an error that the publisher doesn’t trust the UA Web Client. To resolve this error, copy the **UA Web Client** certificate from the "D:\\docker\\Rejected Certificates\\certs" folder to the "D:\\docker\\UA Applications\\certs" folder on the gateway. You do not need to restart of the gateway. Repeat this step. You can now connect to the gateway from the cloud, and you are ready to add OPC UA servers to the solution.
+1. When you have successfully completed these local tests, browse to the **Connect your own OPC UA Server** page in the connected factory solution portal. Enter the publisher endpoint URL (`tcp://publisher.<your fully qualified domain name>:62222`) and click **Connect**. You get a certificate warning, then click **Proceed.** Next you get an error that the publisher doesn’t trust the UA Web Client. To resolve this error, copy the **UA Web Client** certificate from the **D:\\docker\\Rejected Certificates\\certs** folder to the **D:\\docker\\UA Applications\\certs** folder on the gateway. You do not need to restart of the gateway. Repeat this step. You can now connect to the gateway from the cloud, and you are ready to add OPC UA servers to the solution.
 
 ### Add your OPC UA servers
 
 1. Browse to the **Connect your own OPC UA Server** page in the connected factory solution portal. Follow the same steps as in the preceding section to establish trust between the connected factory portal and the OPC UA server. This step establishes a mutual trust of the certificates from the connected factory portal and the OPC UA server and creates a connection.
 
-1. Browse the OPC UA nodes tree of your OPC UA server, right-click the OPC nodes, and select **publish**. For publishing to work this way, the OPC UA server and the publisher must be on the same network. In other words, if the fully qualified domain name of the publisher is **publisher.mydomain.com** then the fully qualified domain name of the OPC UA server must be, for example, **myopcuaserver.mydomain.com**. If your setup is different, you can manually add nodes to the publishesnodes.json file found in the D:\\docker folder. The publishesnodes.json is automatically generated on first successful publish of an OPC node.
+1. Browse the OPC UA nodes tree of your OPC UA server, right-click the OPC nodes, and select **publish**. For publishing to work this way, the OPC UA server and the publisher must be on the same network. In other words, if the fully qualified domain name of the publisher is **publisher.mydomain.com** then the fully qualified domain name of the OPC UA server must be, for example, **myopcuaserver.mydomain.com**. If your setup is different, you can manually add nodes to the publishesnodes.json file found in the **D:\\docker** folder. The publishesnodes.json file is automatically generated on the first successful publish of an OPC node.
 
 1. Telemetry now flows from the gateway device. You can view the telemetry in the **Factory Locations** view of the connected factory portal under **New Factory**.
 
@@ -120,9 +120,9 @@ You can also perform this step after installing docker from the **Settings** men
     `sudo docker run --rm -it -v /shared:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db`
 
     * **&lt;ApplicationName&gt;** is the name of the OPC UA application the gateway creates in the format **publisher.&lt;your fully qualified domain name&gt;**. For example, **publisher.microsoft.com**.
-    * **&lt;IoTHubOwnerConnectionString&gt;** is the **iothubowner** connection string you copied in the previous step. This connection string is only used in this step and you don’t need it again.
+    * **&lt;IoTHubOwnerConnectionString&gt;** is the **iothubowner** connection string you copied in the previous step. This connection string is only used in this step, you don’t need it in the following steps:
 
-    The mapped /shared folder (the `-v` argument) is used later to persist the two X.509 certificates used by the gateway modules.
+    You use the **/shared** folder (the `-v` argument) later to persist the two X.509 certificates that the gateway modules use.
 
 ### Run the gateway
 
@@ -132,19 +132,19 @@ You can also perform this step after installing docker from the **Settings** men
 
     `sudo docker run -it -v /shared:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -D /mapped/cs.db`
 
-1. For security reasons, the two X.509 certificates persisted in the /shared folder contain the private key. Access to this folder must be limited to the credentials used to run the Docker container. To set the permissions for **root** only, use the `chmod` shell command on the folder.
+1. For security reasons, the two X.509 certificates persisted in the **/shared** folder contain the private key. Limit access to this folder to the credentials you use to run the Docker container. To set the permissions for **root** only, use the `chmod` shell command on the folder.
 
-1. Verify network connectivity. Try to ping your gateway. From a shell, enter the command `ping publisher.<your fully qualified domain name>`. If the destination is unreachable, add the IP address and name of your gateway to your hosts file on your gateway. The hosts file is located in /etc.
+1. Verify network connectivity. From a shell, enter the command `ping publisher.<your fully qualified domain name>` to ping your gateway. If the destination is unreachable, add the IP address and name of your gateway to your hosts file on your gateway. The hosts file is located in the **/etc** folder.
 
-1. Next, try to connect to the publisher using a local OPC UA client running on the gateway. The OPC UA endpoint URL is `opc.tcp://publisher.<your fully qualified domain name>:62222`. If you don't have an OPC UA client, you can download an [open-source OPC UA client].
+1. Next, try to connect to the publisher using a local OPC UA client running on the gateway. The OPC UA endpoint URL is `opc.tcp://publisher.<your fully qualified domain name>:62222`. If you don't have an OPC UA client, you can download and use an [open-source OPC UA client].
 
-1. When you have successfully completed these local tests, browse to the **Connect your own OPC UA Server** page in the connected factory solution portal. Enter the publisher endpoint URL (`tcp://publisher.<your fully qualified domain name>:62222`) and click **Connect**. You get a certificate warning, then click **Proceed.** Next you get an error that the publisher doesn’t trust the UA Web Client. To resolve this error, copy the **UA Web Client** certificate from the "/shared/Rejected Certificates/certs" folder to the "/shared/UA Applications/certs" folder on the gateway. You do not need to restart of the gateway. Repeat this step. You can now connect to the gateway from the cloud, and you are ready to add OPC UA servers to the solution.
+1. When you have successfully completed these local tests, browse to the **Connect your own OPC UA Server** page in the connected factory solution portal. Enter the publisher endpoint URL (`tcp://publisher.<your fully qualified domain name>:62222`) and click **Connect**. You get a certificate warning, then click **Proceed.** Next you get an error that the publisher doesn’t trust the UA Web Client. To resolve this error, copy the **UA Web Client** certificate from the **/shared/Rejected Certificates/certs** folder to the **/shared/UA Applications/certs** folder on the gateway. You do not need to restart of the gateway. Repeat this step. You can now connect to the gateway from the cloud, and you are ready to add OPC UA servers to the solution.
 
 ### Add your OPC UA servers
 
 1. Browse to the **Connect your own OPC UA Server** page in the connected factory solution portal. Follow the same steps as in the preceding section to establish trust between the connected factory portal and the OPC UA server. This step establishes a mutual trust of the certificates from the connected factory portal and the OPC UA server and creates a connection.
 
-1. Browse the OPC UA nodes tree of your OPC UA server, right-click the OPC nodes, and select **publish**. For publishing to work this way, the OPC UA server and the publisher must be on the same network. In other words, if the fully qualified domain name of the publisher is **publisher.mydomain.com** then the fully qualified domain name of the OPC UA server must be, for example, **myopcuaserver.mydomain.com**. If your setup is different, you can manually add nodes to the publishesnodes.json file found in the /shared folder. The publishesnodes.json is automatically generated on first successful publish of an OPC node.
+1. Browse the OPC UA nodes tree of your OPC UA server, right-click the OPC nodes, and select **publish**. For publishing to work this way, the OPC UA server and the publisher must be on the same network. In other words, if the fully qualified domain name of the publisher is **publisher.mydomain.com** then the fully qualified domain name of the OPC UA server must be, for example, **myopcuaserver.mydomain.com**. If your setup is different, you can manually add nodes to the publishesnodes.json file found in the **/shared** folder. The publishesnodes.json is automatically generated on the first successful publish of an OPC node.
 
 1. Telemetry now flows from the gateway device. You can view the telemetry in the **Factory Locations** view of the connected factory portal under **New Factory**.
 

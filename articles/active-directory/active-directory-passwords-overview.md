@@ -6,7 +6,7 @@ services: active-directory
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
-editor: gahug
+ms.reviewer: sahenry
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
 
@@ -52,8 +52,8 @@ If you are ready, you can get started with Azure AD SSPR using our [quick start 
 
 Azure AD self-service password reset is available in three tiers depending on your subscription.
 
-* **Azure AD Free** – Cloud-only administrators can reset their own passwords
-* **Azure AD Basic** or any **Paid Office 365 Subscription** – Cloud-only users and cloud-only administrators can reset their own passwords
+* **Azure AD Free** – Cloud-only administrators can reset their own passwords.
+* **Azure AD Basic** or any **Paid Office 365 Subscription** – Cloud-only users can change their own passwords and cloud-only administrators can reset their own passwords.
 * **Azure AD Premium** – Any user or administrator, including cloud-only, federated, or password synchronized users, can reset their own passwords. On-premises passwords require password writeback to be enabled.
 
 ## Azure AD self-service password reset, a sum of the parts

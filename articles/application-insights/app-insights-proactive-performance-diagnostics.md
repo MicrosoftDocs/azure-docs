@@ -1,4 +1,4 @@
----
+﻿---
 title: Smart Detection - performance anomalies | Microsoft Docs
 description: Application Insights performs smart analysis of your app telemetry and warns you of potential problems. This feature needs no setup.
 services: application-insights
@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 5/04/2017
-ms.author: cfreeman
+ms.date: 05/04/2017
+ms.author: bwren
 
 ---
 # Smart Detection - Performance Anomalies
 
 [Application Insights](app-insights-overview.md) automatically analyzes the performance of your web application, and can warn you about potential problems. You might be reading this because you received one of our smart detection notifications.
 
-This feature requires no special setup, other than configuring your app for Application Insights (on [ASP.NET](app-insights-asp-net.md), Java(app-insights-java-get-started.md), or [Node.js](app-insights-nodejs.md), and in [web page code](app-insights-javascript.md)). It is active when your app generates enough telemetry.
+This feature requires no special setup, other than configuring your app for Application Insights (on [ASP.NET](app-insights-asp-net.md), [Java](app-insights-java-get-started.md), or [Node.js](app-insights-nodejs.md), and in [web page code](app-insights-javascript.md)). It is active when your app generates enough telemetry.
 
 ## When would I get a smart detection notification?
 

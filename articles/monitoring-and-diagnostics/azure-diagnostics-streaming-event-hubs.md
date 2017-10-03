@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/28/2017
+ms.date: 07/13/2017
 ms.author: robb
 
 ---
@@ -84,15 +84,15 @@ The Event Hubs sink must also be declared and defined in the **PrivateConfig** s
 
 ```XML
 <PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
-  <StorageAccount name="" key="" endpoint="" />
+  <StorageAccount name="{account name}" key="{account key}" endpoint="{optional storage endpoint}" />
   <EventHub Url="https://diags-mycompany-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="{base64 encoded key}" />
 </PrivateConfig>
 ```
 ```JSON
 {
-    "storageAccountName": "",
-    "storageAccountKey": "",
-    "storageAccountEndPoint": "",
+    "storageAccountName": "{account name}",
+    "storageAccountKey": "{account key}",
+    "storageAccountEndPoint": "{optional storage endpoint}",
     "EventHub": {
         "Url": "https://diags-mycompany-ns.servicebus.windows.net/diageventhub",
         "SharedAccessKeyName": "SendRule",
@@ -367,10 +367,10 @@ namespace EventHubListener
         </Sink>
       </SinksConfig>
     </WadCfg>
-    <StorageAccount />
+    <StorageAccount>ACCOUNT_NAME</StorageAccount>
   </PublicConfig>
   <PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
-    <StorageAccount name="" key="" endpoint="" />
+    <StorageAccount name="{account name}" key="{account key}" endpoint="{storage endpoint}" />
     <EventHub Url="https://diageventhub-py-ns.servicebus.windows.net/diageventhub-py" SharedAccessKeyName="SendRule" SharedAccessKey="YOUR_KEY_HERE" />
   </PrivateConfig>
   <IsEnabled>true</IsEnabled>
@@ -486,14 +486,14 @@ Equivalent Json based settings for virtual machines is as follows:
             ]
         }
     },
-    "StorageAccount": ""
+    "StorageAccount": "{account name}"
 }
 
 
 "protectedSettings": {
-    "storageAccountName": "",
-    "storageAccountKey": "",
-    "storageAccountEndPoint": "",
+    "storageAccountName": "{account name}",
+    "storageAccountKey": "{account key}",
+    "storageAccountEndPoint": "{storage endpoint}",
     "EventHub": {
         "Url": "https://diageventhub-py-ns.servicebus.windows.net/diageventhub-py",
         "SharedAccessKeyName": "SendRule",

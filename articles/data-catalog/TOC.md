@@ -20,18 +20,21 @@
 ## [Manage data assets](data-catalog-how-to-manage.md)
 ## [Save searches and pin data assets](data-catalog-how-to-save-pin.md)
 ## [Set up the business glossary](data-catalog-how-to-business-glossary.md)
+## [Secure access to data catalog](data-catalog-how-to-secure-catalog.md)
+## [View related data assets](data-catalog-how-to-view-related-data-assets.md) 
 
 # Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=data-catalog)
 ## [REST](/rest/api/datacatalog/)
 ## [Search syntax reference](/rest/api/datacatalog/data-catalog-search-syntax-reference)
 ## [Developer concepts](data-catalog-developer-concepts.md)
-## [Developer samples](data-catalog-samples.md)
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Keyboard shortcuts for Azure Data Catalog](data-catalog-keyboard-shortcuts.md)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
 ## [Pricing](https://azure.microsoft.com/pricing/details/data-catalog/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Release notes](data-catalog-whats-new.md)
 ## [Service updates](https://azure.microsoft.com/updates/?product=data-catalog)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-catalog)

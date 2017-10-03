@@ -1,9 +1,9 @@
-﻿---
+---
 title: Connector Version Release History | Microsoft Docs
 description: This topic lists all releases of the Connectors for Forefront Identity Manager (FIM) and Microsoft Identity Manager (MIM)
 services: active-directory
 documentationcenter: ''
-author: AndKjell
+author: fimguy
 manager: femila
 editor: ''
 
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/16/2017
-ms.author: billmath
+ms.date: 09/06/2017
+ms.author: fimguy
 
 ---
 # Connector Version Release History
 The Connectors for Forefront Identity Manager (FIM) and Microsoft Identity Manager (MIM) are updated frequently.
 
 > [!NOTE]
-> This topic is on FIM and MIM only. These Connectors are not supported on Azure AD Connect.
+> This topic is on FIM and MIM only. These Connectors are not supported for install on Azure AD Connect. Released Connectors are preinstalled on AADConnect when upgrading to specified Build.
 
 This topic list all versions of the Connectors that have been released.
 
@@ -34,30 +34,43 @@ Related links:
 * [PowerShell Connector](active-directory-aadconnectsync-connector-powershell.md) reference documentation
 * [Lotus Domino Connector](active-directory-aadconnectsync-connector-domino.md) reference documentation
 
-## 1.1.552.0 (AADConnect 1.1.553.0)
+
+## 1.1.604.0 (AADConnect 1.1.614.0)
+
 
 ### Fixed issues:
 
 * Generic Web Services:
-  * The Wsconfig tool did not convert correctly the Json array from "sample request" for the REST service method. Because of this, there were problems with serialization this Json array for the REST request.
-  * Web Service Connector Configuration Tool does not support usage of space symbols in JSON attribute names Substitution pattern can be added manually to the WSConfigTool.exe.config file, e.g. ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+  * Fixed an issue preventing a SOAP project from being created when there were two or more endpoints.
+* Generic SQL:
+  * In the operation of import the GSQL was not converting time correctly, when saved to connector space. The default date and time format for connector space of the GSQL was changed from 'yyyy-MM-dd hh:mm:ssZ' to 'yyyy-MM-dd HH:mm:ssZ'.
+
+## 1.1.551.0 (AADConnect 1.1.553.0)
+
+### Fixed issues:
+
+* Generic Web Services:
+  * The Wsconfig tool did not convert correctly the Json array from "sample request" for the REST service method. This caused problems with serialization this Json array for the REST request.
+  * Web Service Connector Configuration Tool does not support usage of space symbols in JSON attribute names 
+    * A Substitution pattern can be added manually to the WSConfigTool.exe.config file, e.g. ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
 
 * Lotus Notes:
-  * When the option **Allow custom certifiers for Organization/Organizational Units** is disabled then the connector fails during export (Update) After the export flow all attributes are exported to Domino but at the time of export a KeyNotFoundException is returned to Sync. This happens because the rename operation fails when it tries to change DN (UserName attribute) by changing one of the attributes below:  
-    - LastName
-    - FirstName
-    - MiddleInitial
-    - AltFullName
-    - AltFullNameLanguage
-    - ou
-    - altcommonname
+  * When the option **Allow custom certifiers for Organization/Organizational Units** is disabled then the connector fails during export (Update) After the export flow all attributes are exported to Domino but at the time of export a KeyNotFoundException is returned to Sync. 
+    * This happens because the rename operation fails when it tries to change DN (UserName attribute) by changing one of the attributes below:  
+      - LastName
+      - FirstName
+      - MiddleInitial
+      - AltFullName
+      - AltFullNameLanguage
+      - ou
+      - altcommonname
 
-  * When **Allow custom certifiers for Organization/Organizational Units** option is enabled, but required certifiers is still empty, then KeyNotFoundException occurs.
+  * When **Allow custom certifiers for Organization/Organizational Units** option is enabled, but required certifiers are still empty, then KeyNotFoundException occurs.
 
 ### Enhancements:
 
 * Generic SQL:
-  * **Scenario: Reimplemeted:** "*" feature
+  * **Scenario: redesigned Implemented:** "*" feature
   * **Solution description:** Changed approach for [multi-valued reference attributes handling](active-directory-aadconnectsync-connector-genericsql.md).
 
 
@@ -83,7 +96,7 @@ Released: 2017 March
 
 * Generic SQL:</br>
   **Scenario Symptoms:**  It is a well-known limitation with the SQL Connector where we only allow a reference to one object type and require cross reference with members. </br>
-  **Solution description:** In the processing step for references where "*" option is chosen, ALL combinations of object types will be returned back to the sync engine.
+  **Solution description:** In the processing step for references were "*" option is chosen, ALL combinations of object types will be returned back to the sync engine.
 
 >[!Important]
 - This will create many placeholders

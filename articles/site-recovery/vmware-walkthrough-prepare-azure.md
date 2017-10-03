@@ -1,6 +1,6 @@
 ---
-title: Prepare Azure resources to replicate on-premises machines to Azure using Azure Site Recovery| Microsoft Docs
-description: Describes what you need in place in Azure before you start replicating on-premises machines to Azure using Azure Site Recovery
+title: Prepare Azure resources to replicate on-premises VMware VMs to Azure using Azure Site Recovery | Microsoft Docs
+description: Describes what you need in place in Azure before you start replicating on-premises VMware VMs to Azure using Azure Site Recovery
 services: site-recovery
 documentationcenter: ''
 author: rayne-wiselman
@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 06/27/2017
 ms.author: raynew
 
 ---
@@ -49,9 +49,9 @@ Make sure you've read the [prerequisites](vmware-walkthrough-prerequisites.md)
 ## Set up an Azure storage account
 
 - Site Recovery replicates on-premises machines to Azure storage. Azure VMs are created from the storage after failover occurs.
-- Set up an [Azure storage account](../storage/storage-create-storage-account.md#create-a-storage-account) for replicated data.
+- Set up an [Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) for replicated data.
 - Site Recovery in the Azure portal can use storage accounts set up in Resource Manager, or in classic mode.
-- The storage account can be standard or [premium](../storage/storage-premium-storage.md).
+- The storage account can be standard or [premium](../storage/common/storage-premium-storage.md).
 - If you set up a premium account, you will also need an additional standard account for log data.
 
 

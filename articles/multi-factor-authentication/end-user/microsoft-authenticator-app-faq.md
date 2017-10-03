@@ -3,7 +3,7 @@ title: Microsoft Authenticator app help and support | Microsoft Docs
 description: Provides a list of frequently asked questions and answers related to the Microsoft Authentication app and Azure Multi-Factor Authentication.
 services: multi-factor-authentication
 documentationcenter: ''
-author: kgremban
+author: barlanmsft
 manager: femila
 
 ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
-ms.author: kgremban
+ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
 ---
@@ -43,9 +43,9 @@ If you don't get notifications at all, check the following cases:
 
 - Is your phone in Do Not Disturb or Quiet mode? That mode can keep apps from sending notifications.
 - Can you receive notifications from other apps? If not, there may be an issue with the network connections on your phone, or the notifications channel from Android or Apple. You can address the first option in your phone settings, but you may need to talk to your service provider for help with the second option.
-- Can you receive notifications for some accounts on the app, but not others? If yes, remove the problematic account from your app and add it again to enable push notifications. 
+- Can you receive notifications for some accounts on the app, but not others? If yes, remove the problematic account from your app and add it again to enable push notifications.
 
-If you tried these troubleshooting suggestions but are still having issues, send us your logs for diagnostics. Go to the app settings, then select **Help & feedback** and **Send logs**. Then, go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) and let us know what problem you're seeing and what steps you've tried so far. 
+If you tried these troubleshooting suggestions but are still having issues, send us your logs for diagnostics. Go to the app settings, then select **Help & feedback** and **Send logs**. Then, go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) and let us know what problem you're seeing and what steps you've tried so far.
 
 ### I'm already using the Microsoft Authenticator application for verification codes. How do I switch to one-click push notifications?
 Approving a sign-in through push notification is only available for personal Microsoft accounts or work and school Microsoft accounts, not for third-party accounts like Google or Facebook. If you have a work or school Microsoft account, your organization can choose to disable this option.
@@ -90,7 +90,7 @@ Here is a full list of permissions we may ask for, and how they are used in the 
 
 ### Why does the Microsoft Authenticator App allow you to approve a request without unlocking the device?
 
-You don't have to unlock your device to approve verification requests because all you need to prove is that you have your phone with you. Two-step verification requires proving two things – a thing you know, and a thing you have. The thing you know is your password. The thing you have is your phone (set up with the Microsoft Authenticator app and registered as an MFA proof.) Therefore, having the phone and approving the request meets the criteria for the second factor of authentication. 
+You don't have to unlock your device to approve verification requests because all you need to prove is that you have your phone with you. Two-step verification requires proving two things – a thing you know, and a thing you have. The thing you know is your password. The thing you have is your phone (set up with the Microsoft Authenticator app and registered as an MFA proof.) Therefore, having the phone and approving the request meets the criteria for the second factor of authentication.
 
 ### What does the lock icon in the account list mean?
 
@@ -106,4 +106,3 @@ If your question wasn't answered here, we want to hear from you. Go to the [Micr
 * [About two-step verification](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification) for Microsoft accounts
 * [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md) for your work or school account?
 * [Use the Microsoft Authenticator to sign in from your phone](microsoft-authenticator-app-phone-signin-faq.md)
-
