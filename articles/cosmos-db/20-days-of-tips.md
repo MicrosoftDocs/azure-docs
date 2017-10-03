@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 10/03/2017
 ms.author: mimig
 ms.custom: cda
 ---
@@ -153,6 +153,30 @@ Tip 17: Optimize cost by using Mongoose discriminators to store multiple entitie
 Blog:  [Using Mongoose Discriminators to Store Multiple Entities in a Single Cosmos DB Collection by Anthony Chu](https://aka.ms/M488jm)
 
 [![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913076502429933569)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318842474928443393)
+
+## Tip 18: Request units
+
+Tip 18: Learn what Request Units (RU) are and how to configure them in Azure #CosmosDB. More on docs at [https://aka.ms/Kt2nbn](https://aka.ms/Kt2nbn) 
+
+Article: [Request Units in Azure Cosmos DB](https://aka.ms/Kt2nbn)
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913449916026032128)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319223402796326912)
+
+## Tip 19: Partition! Partition! Partition! 
+
+Tip 19: Partition! Partition! Partition! The why and how in Azure #CosmosDB. Docs at [https://aka.ms/Ts5pon](https://aka.ms/Ts5pon)  
+
+> [!VIDEO https://www.youtube.com/embed/I_tVk3hKvSI]
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913773131499794433)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319541726637883392)
+
+## Tip 20: Cheatsheet
+
+Tip 20: Everyone loves a good old cheatsheet. Azure #CosmosDB has one too. Check it out at [https://aka.ms/Nt01nl](https://aka.ms/Nt01nl)
+
+Cheatsheet: [Azure Cosmos DB: DocumentDB API SQL query cheat sheet PDF](https://aka.ms/Nt01nl)
+
+[![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913793292474732544)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319559027986698241)
 
 ## Next steps
 
