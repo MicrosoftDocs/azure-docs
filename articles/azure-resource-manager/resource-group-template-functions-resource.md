@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 10/03/2017
 ms.author: tomfitz
 
 ---
@@ -230,7 +230,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 <a id="reference" />
 
 ## reference
-`reference(resourceName or resourceIdentifier, [apiVersion])`
+`reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
 
 Returns an object representing a resource's runtime state.
 
@@ -240,6 +240,7 @@ Returns an object representing a resource's runtime state.
 |:--- |:--- |:--- |:--- |
 | resourceName or resourceIdentifier |Yes |string |Name or unique identifier of a resource. |
 | apiVersion |No |string |API version of the specified resource. Include this parameter when the resource is not provisioned within same template. Typically, in the format, **yyyy-mm-dd**. |
+| 'Full' |No |string |Value that specifies whether to return the full resource object. If you do not specify `'Full'`, only the properties object of the resource is returned. The full object includes values such as the resource ID and location. |
 
 ### Return value
 
@@ -267,6 +268,32 @@ Typically, you use the **reference** function to return a particular value from 
     }
 }
 ```
+
+Use `'Full'` when you need resource values that are not part of the properties schema. For example, to set key vault access policies, get the identity properties for a virtual machine.
+
+```json
+{
+  "type": "Microsoft.KeyVault/vaults",
+  "properties": {
+    "tenantId": "[reference(concat('Microsoft.Compute/virtualMachines/', variables('vmName')), '2017-03-30', 'Full').identity.tenantId]",
+    "accessPolicies": [
+      {
+        "tenantId": "[reference(concat('Microsoft.Compute/virtualMachines/', variables('vmName')), '2017-03-30', 'Full').identity.tenantId]",
+        "objectId": "[reference(concat('Microsoft.Compute/virtualMachines/', variables('vmName')), '2017-03-30', 'Full').identity.principalId]",
+        "permissions": {
+          "keys": [
+            "all"
+          ],
+          "secrets": [
+            "all"
+          ]
+        }
+      }
+    ],
+    ...
+```
+
+For the complete example of the preceding template, see [Windows to Key Vault](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo08.msiWindowsToKeyvault.json). A similar example is available for [Linux](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo07.msiLinuxToArm.json).
 
 ### Example
 
