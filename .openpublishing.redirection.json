@@ -6226,6 +6226,16 @@
             "redirect_document_id": false
         },
         {
+          "source_path": "articles/iot-suite/iot-solution-build-system.md",
+          "redirect_url": "https://github.com/Azure-Samples/MyDriving/blob/master/docs/iot-solution-build-system.md",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-solution-get-started.md",
+          "redirect_url": "https://github.com/Azure-Samples/MyDriving/blob/master/docs/iot-solution-get-started.md",
+          "redirect_document_id": false
+        },
+        {
             "source_path": "articles/iot-hub/iot-hub-gateway-kit-c-sim-troubleshooting.md",
             "redirect_url": "/azure/iot-hub/iot-hub-gateway-kit-c-troubleshooting",
             "redirect_document_id": false
