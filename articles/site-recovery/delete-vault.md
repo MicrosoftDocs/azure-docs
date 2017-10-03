@@ -49,7 +49,7 @@ To delete the vault, follow the recommended steps for your scenario.
 
 3. Delete references to vCenter by following the steps in [Delete a vCenter](site-recovery-vmware-to-azure-manage-vCenter.md##delete-a-vcenter-in-azure-site-recovery).
 
-4. Delete the configuration server by following the steps in [Decommission a configuration server](site-recovery-vmware-to-azure-manage-configuration-server.md##decommissioning-a-configuration-server).
+4. Delete the configuration server by following the steps in [Decommission a configuration server](site-recovery-vmware-to-azure-manage-configuration-server.md##delete-or-unregister-a-configuration-server).
 
 5. Delete the vault.
 
