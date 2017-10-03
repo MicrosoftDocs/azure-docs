@@ -141,5 +141,5 @@ There are other kinds of alert records created by the [Alert Management solution
 ## Next steps
 * Install the [Alert Management solution](log-analytics-solution-alert-management.md) to analyze alerts created in Log Analytics along with alerts collected from System Center Operations Manager.
 * Read more about [log searches](log-analytics-log-searches.md) that can generate alerts.
-* Complete a walkthrough for [configuring a webook](log-analytics-alerts-webhooks.md) with an alert rule.  
+* Complete a walkthrough for [configuring a webhook](log-analytics-alerts-webhooks.md) with an alert rule.  
 * Learn how to write [runbooks in Azure Automation](https://azure.microsoft.com/documentation/services/automation) to remediate problems identified by alerts.
