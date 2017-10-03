@@ -52,10 +52,10 @@ The semantics for partition keys are slightly different to match the semantics o
 | Graph | Custom partition key property | Fixed `id` | 
 | Table | Fixed `PartitionKey` | Fixed `RowKey` | 
 
-Azure Cosmos DB uses hash-based partitioning. When you write an item, Azure Cosmos DB hashes the partition key value and uses the hashed result to determine which partition to store the item in. Azure Cosmos DB stores all items with the same partition key in the same physical partition. The choice of the partition key is an important decision that you have to make at design time. You must pick a property name that has a wide range of values and has even access patterns.
+The choice of the partition key is an important decision that you have to make at design time. You must pick a property name that has a wide range of values and has even access patterns.
 
 > [!NOTE]
-> It's a best practice to have a partition key with many distinct values (hundreds to thousands at a minimum).
+> It's a best practice to have a partition key with many distinct values (hundreds to thousands at a minimum). Remember! partition key is a logical concept and partitions are physical partitions. These are two different thing. For a 10 partition system, you can have tens of thousands of partition keys.
 >
 
 Azure Cosmos DB containers can be created as *fixed* or *unlimited*. Fixed-size containers have a maximum limit of 10 GB and 10,000 RU/s throughput. Some APIs allow the partition key to be omitted for fixed-size containers. To create a container as unlimited, you must specify a minimum throughput of 2,500 RU/s.
@@ -67,106 +67,6 @@ Azure Cosmos DB is designed for predictable performance. When you create a conta
 > To achieve the full throughput of the container, you must choose a partition key that allows you to evenly distribute requests among some distinct partition key values.
 > 
 > 
-
-<a name="designing-for-partitioning"></a>
-## Work with the Azure Cosmos DB APIs
-You can use the Azure portal or Azure CLI to create containers and scale them at any time. This section shows how to create containers and specify the throughput and partition key definition in each of the supported APIs.
-
-### Azure Cosmos DB API
-The following sample shows how to create a container (collection) by using the Azure Cosmos DB API. 
-
-```csharp
-DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
-await client.CreateDatabaseAsync(new Database { Id = "db" });
-
-DocumentCollection myCollection = new DocumentCollection();
-myCollection.Id = "coll";
-myCollection.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(
-    UriFactory.CreateDatabaseUri("db"),
-    myCollection,
-    new RequestOptions { OfferThroughput = 20000 });
-```
-
-You can read an item (document) by using the `GET` method in the REST API or by using `ReadDocumentAsync` in one of the SDKs.
-
-```csharp
-// Read document. Needs the partition key and the ID to be specified
-DeviceReading document = await client.ReadDocumentAsync<DeviceReading>(
-  UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
-  new RequestOptions { PartitionKey = new PartitionKey("XMS-0001") });
-```
-
-### MongoDB API
-With the MongoDB API, you can create a sharded collection through your favorite tool, driver, or SDK. In this example, we use the Mongo Shell for the collection creation.
-
-In the Mongo Shell:
-
-```
-db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )
-```
-    
-Results:
-
-```JSON
-{
-    "_t" : "ShardCollectionResponse",
-    "ok" : 1,
-    "collectionsharded" : "admin.people"
-}
-```
-
-### Table API
-
-With the Table API, you specify the throughput for tables in the appSettings configuration for your application.
-
-```xml
-<configuration>
-    <appSettings>
-      <!--Table creation options -->
-      <add key="TableThroughput" value="700"/>
-    </appSettings>
-</configuration>
-```
-
-Then you create a table by using the Azure Table storage SDK. The partition key is implicitly created as the `PartitionKey` value. 
-
-```csharp
-CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-
-CloudTable table = tableClient.GetTableReference("people");
-table.CreateIfNotExists();
-```
-
-You can retrieve a single entity by using the following snippet:
-
-```csharp
-// Create a retrieve operation that takes a customer entity.
-TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
-
-// Execute the retrieve operation.
-TableResult retrievedResult = table.Execute(retrieveOperation);
-```
-For more information, see [Develop with the Table API](tutorial-develop-table-dotnet.md).
-
-### Graph API
-
-With the Graph API, you must use the Azure portal or Azure CLI to create containers. Alternatively, because Azure Cosmos DB is multimodel, you can use one of the other models to create and scale your graph container.
-
-You can read any vertex or edge by using the partition key and ID in Gremlin. For example, for a graph with region ("USA") as the partition key and "Seattle" as the row key, you can find a vertex by using the following syntax:
-
-```
-g.V(['USA', 'Seattle'])
-```
-
-You can reference an edge by using the partition key and the row key.
-
-```
-g.E(['USA', 'I5'])
-```
-
-For more information, see [Gremlin support for Azure Cosmos DB](gremlin-support.md).
 
 
 <a name="designing-for-partitioning"></a>
@@ -187,7 +87,7 @@ In some use cases, like IoT and user profiles, the partition key might be the sa
 ### Partitioning and logging/time-series data
 One of the common use cases of Azure Cosmos DB is for logging and telemetry. It's important to pick a good partition key, because you might need to read/write vast volumes of data. The choice depends on your read-and-write rates and the kinds of queries you expect to run. Here are some tips on how to choose a good partition key:
 
-* If your use case involves a small rate of writes that accumulate over a long time and you need to query by ranges of time stamps and other filters, use a rollup of the time stamp. For example, a good approach is to use date as a partition key. With this approach, you can query over all the data for a date from a single partition. 
+* If your use case involves a small rate of writes that accumulate over a long time and you need to query by ranges of time stamps and other filters, use a rollup of the time stamp. For example, a good approach is to use date as a partition key. Remember, small rate of writes is the key decision factor here.  With this approach, you can query over all the data for a date from a single partition. 
 * If your workload is written heavy, which is more common, use a partition key that's not based on time stamp. With this approach, Azure Cosmos DB can distribute writes evenly across various partitions. Here a hostname, process ID, activity ID, or another property with high cardinality is a good choice. 
 * Another approach is a hybrid one where you have multiple containers, one for each day/month, and the partition key is a granular property like hostname. This approach has the benefit that you can set different throughput based on the time window. For example, the container for the current month is provisioned with higher throughput because it serves reads and writes. Previous months are provisioned with lower throughput because they only serve reads.
 
@@ -202,6 +102,7 @@ You can also use a combination/tiered approach that collocates small tenants and
 ## Next steps
 In this article, we provided an overview of concepts and best practices for partitioning with any Azure Cosmos DB API. 
 
+* Learn about [Creating Partition keys with Azure Cosmos DB API](parition-code.md).
 * Learn about [provisioned throughput in Azure Cosmos DB](request-units.md).
 * Learn about [global distribution in Azure Cosmos DB](distribute-data-globally.md).
 
