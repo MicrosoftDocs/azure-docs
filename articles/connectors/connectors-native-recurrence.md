@@ -1,5 +1,5 @@
 ---
-title: Schedule tasks and workflows that run regularly - Azure Logic Apps | Microsoft Docs
+title: Schedule tasks and regularly running workflows - Azure Logic Apps | Microsoft Docs
 description: Create and schedule regularly running tasks, actions, workflows, processes, and workloads with logic apps
 services: logic-apps
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.date: 09/25/2017
 ms.author: LADocs; estfan
 ---
 
-# Create workflows and schedule tasks that run regularly with logic apps
+# Schedule tasks and workflows that run regularly with logic apps
 
 To schedule tasks, actions, workloads, or processes that run regularly, 
 you can create a logic app workflow that starts with the 
