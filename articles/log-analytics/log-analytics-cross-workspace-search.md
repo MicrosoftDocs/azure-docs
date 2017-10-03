@@ -37,7 +37,7 @@ Identifying a workspace can be performed one of several ways:
     >[!NOTE]
     >Identifying a workspace by its name assumes it is unique across all accessible subscriptions. If you have multiple applications with the specified name, the query fails because of the ambiguity. In this case you must use one of the other identifiers.
 
-* Qualified Name - is the “full name” of the workspace, composed of the subscription name, resource group and component name in this format: */<subscriptionName>/<resourceGroup>/<componentName>*. 
+* Qualified Name - is the “full name” of the workspace, composed of the subscription name, resource group and component name in this format: */subscriptionName/resourceGroup/componentName*. 
 
     `workspace('contoso/contosoretail/development').requests | count `
 
@@ -49,7 +49,7 @@ Identifying a workspace can be performed one of several ways:
 
     `workspace("b438b4f6-912a-46d5-9cb1-b44069212ab4").Update | count`
 
-* Azure Resource ID – the Azure-defined unique identity of the workspace. You use this when the resource name is ambiguous.  For workspaces, the format is: */subscriptions/<subscriptionId>/resourcegroups/<resourceGroup>/providers/microsoft.OperationalInsights/workspaces/<componentName>*.  
+* Azure Resource ID – the Azure-defined unique identity of the workspace. You use this when the resource name is ambiguous.  For workspaces, the format is: */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/workspaces/componentName*.  
 
     For example:
     ``` 
