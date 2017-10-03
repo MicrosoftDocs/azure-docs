@@ -103,6 +103,7 @@ If the installation on Windows subsystem for Linux fails with incorrect folder p
 sudo pip3 install sfctl
 ```
 
+<a name = "cli-mac"></a>
 ### MacOS
 
 For MacOS, we recommend that you use the [HomeBrew package manager](https://brew.sh). If HomeBrew is not already installed, install it by running the following command:
