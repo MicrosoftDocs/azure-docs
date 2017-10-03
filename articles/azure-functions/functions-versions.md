@@ -32,17 +32,23 @@ To learn how to test your function apps locally against a specific runtime, see 
 
 You can add this application setting to your function app in several ways.
 
-## Require the Functions 2.x runtime in the portal
+## Set the runtime in the portal
 
+1. In the [Azure portal](https://portal.azure.com), navigate to your function app and choose the **Application settings** tab.
 
+2. Find the `FUNCTIONS_EXTENSION_VERSION` setting and change the value to `beta`. If this setting doesn't exist, click **+ Add new setting** to add it.   
 
-## Require the Functions 2.x runtime using the Azure CLI
+    ![](./media/functions-versions/add-update-app-setting.png)
 
- Add the application setting in the function app with the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) command.
+3. Click **Save** to save the application setting update. 
+
+## Set the runtime using Azure CLI
+
+ Using the Azure CLI, add the application setting in the function app with the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) command.
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <function_app> \
 --resource-group <my_resource_group> \
 --settings FUNCTIONS_EXTENSION_VERSION=beta
 ```
-In this code, replace `<function_app>` with the name of your function app and `<my_resource_group>` with the name of the resource group for your function app.  
+In this code, replace `<function_app>` with the name of your function app and `<my_resource_group>` with the name of the resource group for your function app. This example assumes that you are using [Azure Cloud Shell](../cloud-shell/overview.md). You can also choose to [install and use the Azure CLI locally](/cli/azure/install-azure-cli). In this case, you must first sign-in using the [az login](/cli/azure#az_login) command.
