@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/29/2017
+ms.date: 10/02/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 
@@ -309,7 +309,7 @@ Title: Overview and Architecture of SAP HANA on Azure (Large Instances)
 
 Summary: This Architecture and Technical Deployment Guide provides information to help you deploy SAP on the new SAP HANA on Azure (Large Instances) in Azure. It is not intended to be a comprehensive guide covering specific setup of SAP solutions, but rather useful information in your initial deployment and ongoing operations. It should not replace SAP documentation related to the installation of SAP HANA (or the many SAP Support Notes that cover the topic). It gives you an overview and provides the additional detail of installing SAP HANA on Azure (Large Instances).
 
-Updated: July 2017
+Updated: October 2017
 
 [This guide can be found here](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -336,7 +336,7 @@ Title: High Availability and Disaster Recovery of SAP HANA on Azure (Large Insta
 
 Summary: High Availability (HA) and Disaster Recovery (DR) are very important aspects of running your mission-critical SAP HANA on Azure (Large Instances) server(s). It's import to work with SAP, your system integrator, and/or Microsoft to properly architect and implement the right HA/DR strategy for you. Important considerations like Recovery Point Objective (RPO) and Recovery Time Objective (RTO), specific to your environment, must be considered.  This document explains your options for enabling your preferred level of HA and DR.
 
-Updated: December 2016
+Updated: October 2017
 
 [This document can be found here](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

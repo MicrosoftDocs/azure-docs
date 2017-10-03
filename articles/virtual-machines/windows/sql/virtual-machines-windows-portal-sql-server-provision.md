@@ -1,6 +1,6 @@
 ---
-title: Provision a SQL Server Virtual Machine | Microsoft Docs
-description: Create and connect to a SQL Server virtual machine in Azure using the portal. This tutorial uses the Resource Manager mode.
+title: Create a Linux SQL Server 2017 VM in Azure | Microsoft Docs
+description: This tutorial shows how to create a Windows SQL Server 2017 virtual machine in the Azure portal.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 08/14/2017
+ms.date: 10/02/2017
 ms.author: jroth
 ---
-# Provision a SQL Server virtual machine in the Azure portal
+# Provision a Windows SQL Server virtual machine in the Azure portal
+
 > [!div class="op_single_selector"]
 > * [Portal](virtual-machines-windows-portal-sql-server-provision.md)
 > * [PowerShell](virtual-machines-windows-ps-sql-create.md)
-> 
-> 
+> * [Linux](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
 
 This end-to-end tutorial shows you how to use the Azure portal to provision a virtual machine running SQL Server.
 

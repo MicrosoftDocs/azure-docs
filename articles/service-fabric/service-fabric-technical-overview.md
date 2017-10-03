@@ -45,6 +45,10 @@ There are two types of services:
 * **Stateless:** Use a stateless service when the service's persistent state is stored in an external storage service such as Azure Storage, Azure SQL Database, or Azure Cosmos DB. Use a stateless service when the service has no persistent storage at all. For example, a calculator service where values are passed to the service, a computation is performed using these values, and a result is returned.
 * **Stateful:** Use a stateful service when you want Service Fabric to manage your service's state via its Reliable Collections or Reliable Actors programming models. Specify how many partitions you want to spread your state over (for scalability) when creating a named service. Also specify how many times to replicate your state across nodes (for reliability). Each named service has a single primary replica and multiple secondary replicas. You modify your named service's state by writing to the primary replica. Service Fabric then replicates this state to all the secondary replicas keeping your state in sync. Service Fabric automatically detects when a primary replica fails and promotes an existing secondary replica to a primary replica. Service Fabric then creates a new secondary replica.  
 
+**Replicas or Instances** refer to code (and state for stateful services) of a service that is deployed and running. See [Replicas and Instances](service-fabric-concepts-replica-lifecycle.md)
+
+**Reconfiguration** refers to the process of any change in the replica set of a service. See [Reconfiguration](service-fabric-concepts-reconfiguration.md)
+
 **Service Package**: A disk directory containing the service type's `ServiceManifest.xml` file. This file references the code, static data, and configuration packages for the service type. The files in the service package directory are referenced by the application type's `ApplicationManifest.xml` file. For example, a service package could refer to the code, static data, and configuration packages that make up a database service.
 
 **Named Service**: After creating a named application, you can create an instance of one of its service types within the cluster by specifying the service type (using its name/version). Each service type instance is assigned a URI name scoped under its named application's URI. For example, if you create a "MyDatabase" named service within a "MyNamedApp" named application, the URI looks like: `"fabric:/MyNamedApp/MyDatabase"`. Within a named application, you can create several named services. Each named service can have its own partition scheme and instance/replica counts.
@@ -76,6 +80,8 @@ Read [Communicate with services](service-fabric-connect-and-communicate-with-ser
 Read [Understand the ImageStoreConnectionString setting](service-fabric-image-store-connection-string.md) for more information about the Image Store service.
 
 Read the [Deploy an application](service-fabric-deploy-remove-applications.md) article for more information on deploying applications to the Image store service.
+
+**Failover Manager Service (FM)**: Each Service Fabric cluster has a Failover Manager service which is responsible for performing functions related to high availability and consistency of services as well as orchestrating application and cluster upgrades and interacting with other system components.
 
 ## Built-in programming models
 There are .NET Framework programming models available for you to build Service Fabric services:
