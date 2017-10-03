@@ -204,7 +204,7 @@ The response should look like:
 }
 ```
 
-### Create an index
+### Create an indexer
 
 An indexer connects the data source to the target search index and optionally provides a schedule to automate the data refresh.
 
