@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/27/2016
+ms.date: 10/02/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 
@@ -109,7 +109,7 @@ The storage infrastructure underlying SAP HANA on Azure (Large Instances) suppor
 
 You can perform storage snapshots targeting three different classes of volumes:
 
-- A combined snapshot over /hana/data, /hana/log, and /hana/shared (includes /usr/sap). This snapshot requires the execution of an SAP HANA snapshot.
+- A combined snapshot over /hana/data, and /hana/shared (includes /usr/sap). This snapshot requires the creation of an SAP HANA snapshot as preparation for the storage snapshot. The SAP HANA snapshot will make sure that the database is in a consistent state from a storage point of view.
 - A separate snapshot over /hana/logbackups.
 - An OS partition (only for Type I of HANA Large Instances).
 

@@ -16,8 +16,9 @@
 # How to
 ## Join a managed domain
 ### [Join a Windows Server VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [Join a Windows Server VM using Azure PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
-### [Join a Linux VM](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+### [Join a Windows Server VM using PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [RedHat Enterprise Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+### [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
 ## Administer a managed domain
 ### [Administer a managed domain](active-directory-ds-admin-guide-administer-domain.md)
 ### [Administer DNS on a managed domain](active-directory-ds-admin-guide-administer-dns.md)
@@ -36,7 +37,6 @@
 ## Troubleshoot
 ### [FAQs](active-directory-ds-faqs.md)
 ### [Troubleshooting guide](active-directory-ds-troubleshooting.md)
-### [Enable the preview Azure portal experience](active-directory-ds-azure-portal-enable-preview-access.md)
 ### [Resolve mismatched tenant errors](active-directory-ds-mismatched-tenant-error.md)
 
 # Reference

@@ -15,15 +15,15 @@ ms.author: gitbeams
 # Custom Vision API C&#35; Tutorial
 Explore a basic Windows application that uses the Computer Vision API to create a project; add tags to it; upload images; train the project; obtain the default prediction endpoint URL for the project; and use the endpoint to programmatically test an image. You can use this open source example as a template for building your own app for Windows using the Custom Vision API.
 
-### <a name="Prerequisites">Prerequisites</a>
+## Prerequisites
 
-#### Platform requirements
+### Platform requirements
 This example has been developed for the .NET Framework using [Visual Studio 2015, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs). 
 
-#### Get the Custom Vision SDK
+### Get the Custom Vision SDK
 To build this example, you need the Custom Vision API, which you can find at [SDK](http://github.com/Microsoft/Cognitive-CustomVision-Windows/). 
 
-### <a name="Step1">Step 1: Create a console application and prepare the training key and the images needed for the example/a>
+## Step 1: Create a console application and prepare the training key and the images needed for the example
 
 Start Visual Studio 2015, Community Edition, create a new Console Application, and replace the contents of Program.cs with the following code. This code defines and calls two helper methods. The method called **GetTrainingKey** prepares the training key. The one called **LoadImagesFromDisk** loads two sets of images that this example uses to train the project, and one test image that the example loads to demonstrate the use of the default prediction endpoint.
 
@@ -91,7 +91,7 @@ namespace SmokeTester
 }
 ```
 
-### <a name="Step2">Step 2: Create a Custom Vision Service project</a>
+## Step 2: Create a Custom Vision Service project
 
 * To create a new Custom Vision Service project, add the following code in your **Main()** method after the call to **LoadImagesFromDisk()**.
 
@@ -101,7 +101,7 @@ namespace SmokeTester
             var project = trainingApi.CreateProject("My New Project");
 ```
 
-### <a name="Step3">Step 3: Add tags to your project</a>
+## Step 3: Add tags to your project
 
 * To add tags to your project, insert the following code after the call to **CreateProject()**
 
@@ -111,7 +111,7 @@ namespace SmokeTester
             var japaneseCherryTag = trainingApi.CreateTag(project.Id, "Japanese Cherry");
 ```
 
-### <a name="Step4">Step 4: Upload images to the project</a>
+## Step 4: Upload images to the project
 
 * To add the images we have in memory to the project, insert the following code at the end of the **Main()** method.
 
@@ -126,7 +126,7 @@ namespace SmokeTester
             trainingApi.CreateImagesFromData(project.Id, japaneseCherryImages, new List<Guid>() { japaneseCherryTag.Id });
 ```
 
-### <a name="Step5">Step 5: Train the project</a>
+## Step 5: Train the project
 
 * Now that we've added tags and images to the project, we can train it. Insert the following code at the end of **Main()**. This creates the first iteration in the project. We can then mark this iteration as the default iteration.
 
@@ -150,7 +150,7 @@ namespace SmokeTester
             Console.WriteLine("Done!\n");
 ```
 
-### <a name="Step6">Step 6: Get and use the default prediction endpoint</a>
+## Step 6: Get and use the default prediction endpoint
 
 * We are now ready to use the model for prediction. First we obtain the endpoint associated with the default iteration. Then we send a test image to the project using that endpoint. Insert the code below at the end of **Main()**.
 
@@ -178,6 +178,6 @@ namespace SmokeTester
             Console.ReadKey();
 ```
 
-### <a name="Step7">Step 7: Run the example</a>
+## Step 7: Run the example
 
 * Build and run the solution. The prediction results appear on the console.

@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/09/2017
+ms.date: 10/02/2017
 ms.author: donnam
 
 ---
@@ -46,14 +46,15 @@ When you build an Azure Functions project, a *function.json* file is created in 
 
 This conversion is performed by the NuGet package [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). The source is available in the GitHub repo [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 
-## Triggers and bindings
+## Triggers and bindings 
 
 The following table lists the triggers and bindings that are available in an Azure Functions class library project. All attributes are in the namespace `Microsoft.Azure.WebJobs`.
 
 | Binding | Attribute | NuGet package |
 |------   | ------    | ------        |
 | [Blob storage trigger, input, output](#blob-storage) | [BlobAttribute], [StorageAccountAttribute] | [Microsoft.Azure.WebJobs] | [Blob storage] |
-| [Cosmos DB input and output binding](#cosmos-db) | [DocumentDBAttribute] | [Microsoft.Azure.WebJobs.Extensions.DocumentDB] | 
+| [Cosmos DB trigger](#cosmos-db) | [CosmosDBTriggerAttribute] | [Microsoft.Azure.WebJobs.Extensions.DocumentDB] | 
+| [Cosmos DB input and output](#cosmos-db) | [DocumentDBAttribute] | [Microsoft.Azure.WebJobs.Extensions.DocumentDB] |
 | [Event Hubs trigger and output](#event-hub) | [EventHubTriggerAttribute], [EventHubAttribute] | [Microsoft.Azure.WebJobs.ServiceBus] |
 | [External file input and output](#api-hub) | [ApiHubFileAttribute] | [Microsoft.Azure.WebJobs.Extensions.ApiHub] |
 | [HTTP and webhook trigger](#http) | [HttpTriggerAttribute] | [Microsoft.Azure.WebJobs.Extensions.Http] |
@@ -68,7 +69,7 @@ The following table lists the triggers and bindings that are available in an Azu
 
 <a name="blob-storage"></a>
 
-### Blob storage trigger, input, and output bindings
+### Blob storage trigger, input bindings, and output bindings
 
 Azure Functions supports trigger, input, and output bindings for Azure Blob storage. For more information on binding expressions and metadata, see [Azure Functions Blob storage bindings](functions-bindings-storage-blob.md).
 
@@ -117,17 +118,30 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 
 <a name="cosmos-db"></a>
 
-### Cosmos DB input and output bindings
+### Cosmos DB trigger, input bindings, and output bindings
 
-Azure Functions supports input and output bindings for Cosmos DB. To learn more about the features of the Cosmos DB binding, see [Azure Functions Cosmos DB bindings](functions-bindings-documentdb.md).
+Azure Functions supports triggers and input and output bindings for Cosmos DB. To learn more about the features of the Cosmos DB binding, see [Azure Functions Cosmos DB bindings](functions-bindings-documentdb.md).
 
-To bind to a Cosmos DB document, use the attribute `[DocumentDB]` in the NuGet package [Microsoft.Azure.WebJobs.Extensions.DocumentDB]. The following example has a queue trigger and a DocumentDB API output binding:
+To trigger from a Cosmos DB document, use the attribute `[CosmosDBTrigger]` in the NuGet package [Microsoft.Azure.WebJobs.Extensions.DocumentDB]. The following example triggers from a specific `database` and `collection`. The setting `myCosmosDB` contains the connection to the Cosmos DB instance. 
+
+```csharp
+[FunctionName("DocumentUpdates")]
+public static void Run(
+    [CosmosDBTrigger("database", "collection", ConnectionStringSetting = "myCosmosDB")]
+IReadOnlyList<Document> documents, TraceWriter log)
+{
+        log.Verbose("Documents modified " + documents.Count);
+        log.Verbose("First document Id " + documents[0].Id);
+}
+```
+
+To bind to a Cosmos DB document, use the attribute `[DocumentDB]` in the NuGet package [Microsoft.Azure.WebJobs.Extensions.DocumentDB]. The following example has a queue trigger and a DocumentDB API output binding.
 
 ```csharp
 [FunctionName("QueueToDocDB")]        
 public static void Run(
     [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem, 
-    [DocumentDB("ToDoList", "Items", ConnectionStringSetting = "DocDBConnection")] out dynamic document)
+    [DocumentDB("ToDoList", "Items", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
 {
     document = new { Text = myQueueItem, id = Guid.NewGuid() };
 }
@@ -422,6 +436,7 @@ For more information on using Azure Functions in C# scripting, see [Azure Functi
 
 <!-- Links to source --> 
 [DocumentDBAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs
+[CosmosDBTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/Trigger/CosmosDBTriggerAttribute.cs
 [EventHubAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs
 [EventHubTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs
 [MobileTableAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs
