@@ -25,7 +25,7 @@ custom: it-pro
 ---
 
 # Get started with Azure AD
-Modern identity management requirements demand the ability to scale and provide consistent reliablity to ensure the availablity of highly available applications and services to only authenticated users. To adequately support the identity management needs of users, IT needs a way to provide access to approved, public software as a service (SaaS) apps, a way to host internal line of business apps, and even ways to enhance on-premises app development and usage. All of these requirements point to the need of a cloud-based identity management solution.      
+Modern identity management requires scaleable, consistent reliablity to ensure the availablity of applications and services to only authenticated users. To adequately support the identity management needs of users, IT needs a way to provide access to approved, public software as a service (SaaS) apps, a way to host internal line of business apps, and even ways to enhance on-premises app development and usage. All of these requirements point to the need of a cloud-based identity management solution.      
 
 Azure Active Directory (Azure AD) is Microsoft’s multi-tenant, cloud based directory and identity management service. Azure AD combines core directory services, advanced identity governance, and application access management. The multi-tenant, geo-distributed, high availability design of Azure AD means that you can rely on it for your most critical business needs.
 
@@ -98,7 +98,7 @@ You can use group-based license assignment to set up rules such as in the follow
 > Review enabled SSPR properties under **Azure Active Directory** > **Password reset** to ensure the proper user and group assignments have been made. 
 
 
-## Learn more
+### Learn more
 [Azure Active Directory Product Page](https://azure.microsoft.com/services/active-directory/)
 
 [Azure Active Directory pricing information page](https://azure.microsoft.com/pricing/details/active-directory/)
