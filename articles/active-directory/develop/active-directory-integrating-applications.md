@@ -40,8 +40,8 @@ Any application that wants to use the capabilities of Azure AD must first be reg
 - **Application type:** 
 - Select "Native" for [client applications](active-directory-dev-glossary.md#client-application) that are installed locally on a device. This setting is used for OAuth public [native clients](active-directory-dev-glossary.md#native-client).
 - Select "Web app / API" for [client applications](active-directory-dev-glossary.md#client-application) and [resource/API applications](active-directory-dev-glossary.md#resource-server) that are installed on a secure server. This setting is used for OAuth confidential [web clients](active-directory-dev-glossary.md#web-client) and public [user-agent-based clients](active-directory-dev-glossary.md#user-agent-based-client). The same application can also expose both a client and resource/API.
-- **Sign-On URL:** For "Web app / API" applications, provide the base URL of your app, e.g. `http://localhost:12345`. This also where users would go to sign in to a web client application. 
-- **Redirect URI:** For "Native" applications, provide the URI used by Azure AD return token responses. Enter a value specific to your application, .e.g `http://MyFirstAADApp`
+- **Sign-On URL:** For "Web app / API" applications, provide the base URL of your app, for example `http://localhost:12345`. Users would use this URL to sign in to a web client application. 
+- **Redirect URI:** For "Native" applications, provide the URI used by Azure AD return token responses. Enter a value specific to your application, for example `http://MyFirstAADApp`
 
     ![Register a new application - create](./media/active-directory-integrating-applications/add-app-registration-create.png)
 
@@ -125,7 +125,7 @@ Additionally, before a client can access a web API exposed by a resource applica
 
      ![Update an application's registration - permissions perms](./media/active-directory-integrating-applications/update-app-registration-settings-permissions-perms.png)
 
-6. When finished, click the **Select** button on "Enable Access" page, then the  **Done** button on the "Add API access" page. You'll be returned to the "Required permissions" page, where the new resource will be added to the list of APIs.
+6. When finished, click the **Select** button on "Enable Access" page, then the  **Done** button on the "Add API access" page. You are returned to the "Required permissions" page, where the new resource is added to the list of APIs.
 
    > [!NOTE]
    > Clicking the **Done** button also automatically sets the permissions for your application in your directory based on the permissions to other applications that you configured.  You can view these application permissions by looking at the application **Settings** page.
@@ -259,13 +259,13 @@ Applications that your organization has registered show under the "My apps" filt
 6. Click **Yes** in the confirmation message.
 
 ### Removing a multi-tenant application authorized by another organization
-A subset of the applications that show under the "All apps" filter (excluding the "My apps" registrations) on your tenant's main "App registrations" page, are multi-tenant applications. In technical terms, these multi-tenant applications are from another tenant, and were registered during the consent process. More specifically, they are represented by only a service principal object in your tenant. See [Application Objects and Service Principal Objects](active-directory-application-objects.md) for more information.
+A subset of the applications that show under the "All apps" filter (excluding the "My apps" registrations) on your tenant's main "App registrations" page, are multi-tenant applications. In technical terms, these multi-tenant applications are from another tenant, and were registered during the consent process. More specifically, they are represented by only a service principal object in your tenant. For more information, see [Application Objects and Service Principal Objects](active-directory-application-objects.md).
 
 In order to remove a multi-tenant application’s access to your directory (after having granted consent), the company administrator must have an Azure subscription to remove access through the Azure portal. Alternatively, the company administrator can use the [Azure AD PowerShell Cmdlets](http://go.microsoft.com/fwlink/?LinkId=294151) to remove access.
 
 ## Next steps
 * See the [Branding Guidelines for Integrated Apps](active-directory-branding-guidelines.md) for tips on visual guidance for your app.
-* For more details on the relationship between an application's Application and Service Principal object(s), see [Application Objects and Service Principal Objects](active-directory-application-objects.md).
+* For more information on the relationship between an application's Application and Service Principal object(s), see [Application Objects and Service Principal Objects](active-directory-application-objects.md).
 * To learn more about the role the app manifest plays, see [Understanding the Azure Active Directory application manifest](active-directory-application-manifest.md)
 * See the [Azure AD developer glossary](active-directory-dev-glossary.md) for definitions of some of the core Azure Active Directory (AD) developer concepts.
 * Visit the [Active Directory developer's guide](active-directory-developers-guide.md) for an overview of all developer-related content.
