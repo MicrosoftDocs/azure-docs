@@ -28,3 +28,7 @@
     href: glossary-of-terms.md
   - name: SDK
     href: http://github.com/Microsoft/Cognitive-CustomVision-Windows/
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/

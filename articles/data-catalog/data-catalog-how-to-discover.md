@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 05/15/2017
+ms.date: 08/15/2017
 ms.author: maroche
 
 ---
@@ -36,11 +36,11 @@ Although the default free text search is simple and intuitive, you can also use 
 
 | Technique | Use | Example |
 | --- | --- | --- |
-| Basic search |Basic search that uses one or more search terms. Results are any assets that match any property with one or more of the terms specified. |sales data |
-| Property scoping |Return only data sources where the search term is matched with the specified property. |name:finance |
-| Boolean operators |Broaden or narrow a search by using Boolean operations. |finance NOT corporate |
-| Grouping with parenthesis |Use parentheses to group parts of the query to achieve logical isolation, especially in conjunction with Boolean operators. |name:finance AND (tags:Q1 OR tags:Q2) |
-| Comparison operators |Use comparisons other than equality for properties that have numeric and date data types. |modifiedTime > "11/05/2014" |
+| Basic search |Basic search that uses one or more search terms. Results are any assets that match any property with one or more of the terms specified. |`sales data` |
+| Property scoping |Return only data sources where the search term is matched with the specified property. |`name:finance` |
+| Boolean operators |Broaden or narrow a search by using Boolean operations. |`finance NOT corporate` |
+| Grouping with parenthesis |Use parentheses to group parts of the query to achieve logical isolation, especially in conjunction with Boolean operators. |`name:finance AND (tags:Q1 OR tags:Q2)` |
+| Comparison operators |Use comparisons other than equality for properties that have numeric and date data types. |`modifiedTime > "11/05/2014"` |
 
 For more information about Data Catalog search, see the [Azure Data Catalog](https://msdn.microsoft.com/library/azure/mt267594.aspx) article.
 

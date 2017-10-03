@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 08/29/2017
 ms.author: arramac
 
 ---
@@ -49,7 +49,7 @@ The above logic can be shown in the following matrix:
 | TTL = n on document |Nothing to override at the document level. TTL on a document in un-interpreted by the system. |The document with TTL = n will expire after interval n, in seconds. Other documents will inherit interval of -1 and never expire. |The document with TTL = n will expire after interval n, in seconds. Other documents will inherit "n" interval from the collection. |
 
 ## Configuring TTL
-By default, time to live is disabled by default in all Cosmos DB collections and on all documents.
+By default, time to live is disabled by default in all Cosmos DB collections and on all documents. TTL can be set programmatically or in the Azure portal, in the **Settings** section for the collection. 
 
 ## Enabling TTL
 To enable TTL on a collection, or the documents within a collection, you need to set the DefaultTTL property of a collection to either -1 or a non-zero positive number. Setting the DefaultTTL to -1 means that by default all documents in the collection will live forever but the Cosmos DB service should monitor this collection for documents that have overridden this default.

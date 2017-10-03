@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/10/2017
+ms.date: 07/03/2017
 ms.author: jgao
 
 ---
 # Use Data Lake Store with Azure HDInsight clusters
 
-To analyze data in HDInsight cluster, you can store the data either in [Azure Storage](../storage/storage-introduction.md), [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md), or both. Both storage options enable you to safely delete HDInsight clusters that are used for computation without losing user data.
+To analyze data in HDInsight cluster, you can store the data either in [Azure Storage](../storage/common/storage-introduction.md), [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md), or both. Both storage options enable you to safely delete HDInsight clusters that are used for computation without losing user data.
 
 In this article, you learn how Data Lake Store works with HDInsight clusters. To learn how Azure Storage works with HDInsight clusters, see [Use Azure Storage with Azure HDInsight clusters](hdinsight-hadoop-use-blob-storage.md). For more information about creating an HDInsight cluster, see [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -99,6 +99,10 @@ Adding a Data Lake Store account as additional and adding more than one Data Lak
 
 To configure Data Lake store access from your HDInsight cluster, you must have an Azure Active directory (Azure AD) service principal. Only an Azure AD administrator can create a service principal. The service principal must be created with a certificate. For more information, see [Configure Data Lake Store access](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md#configure-data-lake-store-access), and [Create service principal with self-signed-certificate](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate).
 
+> [!NOTE]
+> If you are going to use Azure Data Lake Store as additional storage for HDInsight cluster, we strongly recommend that you do this while you create the cluster as described in this article. Adding Azure Data Lake Store as additional storage to an existing HDInsight cluster is a complicated process and prone to errors.
+>
+
 ## Access files from the cluster
 
 There are several ways you can access the files in Data Lake Store from an HDInsight cluster.
@@ -150,7 +154,7 @@ For more information, see:
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
 [blob-storage-restAPI]: http://msdn.microsoft.com/library/windowsazure/dd135733.aspx
-[azure-storage-create]: ../storage/storage-create-storage-account.md
+[azure-storage-create]:../storage/common/storage-create-storage-account.md
 
 [img-hdi-powershell-blobcommands]: ./media/hdinsight-hadoop-use-blob-storage/HDI.PowerShell.BlobCommands.png
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png

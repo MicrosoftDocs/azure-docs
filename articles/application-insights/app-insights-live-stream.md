@@ -1,4 +1,4 @@
----
+﻿---
 title: Live Metrics Stream with custom metrics and diagnostics in Azure Application Insights | Microsoft Docs
 description: Monitor your web app in real time with custom metrics, and diagnose issues with a live feed of failures, traces, and events.
 services: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
-ms.author: cfreeman
+ms.author: bwren
 ---
 
 # Live Metrics Stream: Monitor & Diagnose with 1-second latency 

@@ -1,6 +1,6 @@
 ---
 title: Azure portal keyboard shortcuts | Microsoft Docs
-description: This article will always be an up-to-date listing of the keyboard shortcuts that work throughout the Azure portal. Individual services might have their own specialized keyboard shortcuts.
+description: Learn about the keyboard shortcuts that work in the Azure portal. 
 services: azure-portal
 documentationcenter: ''
 author: flanakin
@@ -13,33 +13,33 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/07/2016
+ms.date: 08/24/2017
 ms.author: micflan
-
+ms.custom: accessibility
 ---
-# Azure portal keyboard shortcuts
-## Open hubs
-| Shortcut | Action |
+# Keyboard shortcuts in the Azure portal
+This article shows the keyboard shortcuts that work throughout the Azure portal. Individual services may have their own keyboard shortcuts.
+
+## Actions
+|To do this |Press |
 | --- | --- |
-| N |Notifications |
-| / |Browse services |
-| A |Active sessions |
-| B |Billing |
-| C |Create |
+|Create a new resource|G+N|
+|Open the 'More services' pane|G+B|
+|Search resources|G+/| 
+|Search resource menu items|CTRL+/ |
+|Move the selected left pane item up |ALT+Shift+Up Arrow|
+|Move the selected left pane item down |ALT+Shift+Down Arrow|
 
 ## Navigation
-| Shortcut | Action |
+|To do this |Press |
 | --- | --- |
-| H |Azure Start dashboard |
-| F |First open blade |
-| J |Previous open blade |
-| K |Next open blade |
-| L |Last open blade |
-| - |Minimize blade or restore from maximized |
-| + |Maximize blade or restore from minimized |
-| # |Close current blade |
-| ¦ |Close all blades |
-| , |Move focus to command bar |
-| . |Move focus to navigation bar |
-| ? |View keyboard shortcuts |
+|Move focus to command bar |G+, |
+|Toggle focus between top bar and side bar | G+. |
 
+## Go to
+|To do this |Press |
+| --- | --- |
+|Go to dashboard |G+D |
+|Go to all resources|G+A |
+|Go to resource groups|G+R |
+|Open the left pane item at this position |G+number|

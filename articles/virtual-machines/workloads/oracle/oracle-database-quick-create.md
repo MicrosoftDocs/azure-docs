@@ -1,9 +1,9 @@
 ---
-title: Create an Oracle Database 12c database in an Azure virtual machine | Microsoft Docs
+title: Create an Oracle database in an Azure VM | Microsoft Docs
 description: Quickly get an Oracle Database 12c database up and running in your Azure environment.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: tonyguid
+author: rickstercdn
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,41 +14,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/26/2017
+ms.date: 07/17/2017
 ms.author: rclaus
 ---
 
-# Create an Oracle Database 12c database in an Azure virtual machine
+# Create an Oracle Database in an Azure VM
 
-You can use Azure CLI to create and manage Azure resources at a command prompt or in scripts. In this article, we use scripts in Azure CLI to deploy an Oracle Database 12c database from an Azure Marketplace gallery image.
+This guide details using the Azure CLI to deploy an Azure virtual machine from the [Oracle marketplace gallery image](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleDatabase12102EnterpriseEdition?tab=Overview) in order to create an Oracle 12c database. Once the server is deployed, you will connect via SSH in order to configure the Oracle database. 
 
-Before you begin, make sure that Azure CLI is installed. For more information, see [the Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Sign in to Azure 
+[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-In Azure CLI, to sign in to your Azure subscription, use the [az login](/cli/azure/#login) command. Then, follow the on-screen instructions.
-
-```azurecli
-az login
-```
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Create a resource group
 
-To create a resource group, use the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
-The following example creates a resource group named `myResourceGroup` in the `westus` location:
+The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
-```azurecli
-az group create --name myResourceGroup --location westus
+```azurecli-interactive 
+az group create --name myResourceGroup --location eastus
 ```
-
-## Create a VM
+## Create virtual machine
 
 To create a virtual machine (VM), use the [az vm create](/cli/azure/vm#create) command. 
 
 The following example creates a VM named `myVM`. It also creates SSH keys, if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  
 
-```azurecli
+```azurecli-interactive 
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
@@ -78,7 +73,7 @@ After you create the VM, Azure CLI displays information similar to the following
 To create an SSH session with the VM, use the following command. Replace the IP address with the `publicIpAddress` value for your VM.
 
 ```bash 
-ssh azureuser@<publicIpAddress>
+ssh <publicIpAddress>
 ```
 
 ## Create the database
@@ -123,7 +118,7 @@ The Oracle software is already installed on the Marketplace image. Create a samp
 2.  Create the database:
 
     ```bash
-    $ dbca -silent \
+    dbca -silent \
            -createDatabase \
            -templateName General_Purpose.dbc \
            -gdbname cdb1 \
@@ -149,12 +144,12 @@ The Oracle software is already installed on the Marketplace image. Create a samp
 Before you connect, you need to set two environment variables: *ORACLE_HOME* and *ORACLE_SID*.
 
 ```bash
-$ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
-$ ORACLE_SID=cdb1; export ORACLE_SID
+ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
+ORACLE_SID=cdb1; export ORACLE_SID
 ```
-You also can add ORACLE_HOME and ORACLE_SID variables to the .bashrc file. This would saved the environment variables for future sign-ins. Adding the followings statements to the .bashrc file using editor of your choice.
+You also can add ORACLE_HOME and ORACLE_SID variables to the .bashrc file. This would save the environment variables for future sign-ins. Confirm the following statements have been added to the `~/.bashrc` file using editor of your choice.
 
-```
+```bash
 # Add ORACLE_HOME. 
 export ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1 
 # Add ORACLE_SID. 
@@ -168,32 +163,38 @@ For a GUI management tool that you can use to explore the database, set up Oracl
 1. Connect to your database using sqlplus:
 
     ```bash
-    $ sqlplus / as sysdba
+    sqlplus / as sysdba
     ```
 
 2. Once connected, set the port 5502 for EM Express
 
     ```bash
-    SQL> exec DBMS_XDB_CONFIG.SETHTTPSPORT(5502);
+    exec DBMS_XDB_CONFIG.SETHTTPSPORT(5502);
     ```
 
 3. Open the container PDB1 if not already opened, but first check the status:
 
     ```bash
-    SQL> select con_id, name, open_mode from v$pdbs;
- 
+    select con_id, name, open_mode from v$pdbs;
+    ```
+
+    The output is similar to the following:
+
+    ```bash
       CON_ID NAME                           OPEN_MODE 
       ----------- ------------------------- ---------- 
       2           PDB$SEED                  READ ONLY 
       3           PDB1                      MOUNT
     ```
 
-4. If the OPEN_MODE is not READ WRITE, then run the followings commands to open PDB1:
+4. If the OPEN_MODE for `PDB1` is not READ WRITE, then run the followings commands to open PDB1:
 
    ```bash
-    SQL> alter session set container=pdb1;
-    SQL> alter database open;
+    alter session set container=pdb1;
+    alter database open;
    ```
+
+You need to type `quit` to end the sqlplus session and type `exit` to logout of the oracle user.
 
 ## Automate database startup and shutdown
 
@@ -201,16 +202,16 @@ The Oracle database by default doesn't automatically start when you restart the 
 
 1. Sign on as root
     ```bash
-    $ sudo su -
+    sudo su -
     ```
 
-2.  Edit the file */etc/oratab* and change the default `N` to `Y`:
+2.  Using your favorite editor, edit the file `/etc/oratab` and change the default `N` to `Y`:
 
     ```bash
     cdb1:/u01/app/oracle/product/12.1.0/dbhome_1:Y
     ```
 
-3.  Create a file named */etc/init.d/dbora* and paste the following contents:
+3.  Create a file named `/etc/init.d/dbora` and paste the following contents:
 
     ```
     #!/bin/sh
@@ -244,22 +245,22 @@ The Oracle database by default doesn't automatically start when you restart the 
 4.  Change permissions on files with *chmod* as follows:
 
     ```bash
-    # chgrp dba /etc/init.d/dbora
-    # chmod 750 /etc/init.d/dbora
+    chgrp dba /etc/init.d/dbora
+    chmod 750 /etc/init.d/dbora
     ```
 
 5.  Create symbolic links for startup and shutdown as follows:
 
     ```bash
-    # ln -s /etc/init.d/dbora /etc/rc.d/rc0.d/K01dbora
-    # ln -s /etc/init.d/dbora /etc/rc.d/rc3.d/S99dbora
-    # ln -s /etc/init.d/dbora /etc/rc.d/rc5.d/S99dbora
+    ln -s /etc/init.d/dbora /etc/rc.d/rc0.d/K01dbora
+    ln -s /etc/init.d/dbora /etc/rc.d/rc3.d/S99dbora
+    ln -s /etc/init.d/dbora /etc/rc.d/rc5.d/S99dbora
     ```
 
 6.  To test your changes, restart the VM:
 
     ```bash
-    # reboot
+    reboot
     ```
 
 ## Open ports for connectivity
@@ -268,7 +269,7 @@ The final task is to configure some external endpoints. To set up the Azure Netw
 
 1.  To open the endpoint that you use to access the Oracle database remotely, create a Network Security Group rule with [az network nsg rule create](/cli/azure/network/nsg/rule#create) as follows: 
 
-    ```azurecli
+    ```azurecli-interactive
     az network nsg rule create \
         --resource-group myResourceGroup\
         --nsg-name myVmNSG \
@@ -280,7 +281,7 @@ The final task is to configure some external endpoints. To set up the Azure Netw
 
 2.  To open the endpoint that you use to access Oracle EM Express remotely, create a Network Security Group rule with [az network nsg rule create](/cli/azure/network/nsg/rule#create) as follows:
 
-    ```azurecli
+    ```azurecli-interactive
     az network nsg rule create \
         --resource-group myResourceGroup \
         --nsg-name myVmNSG \
@@ -292,7 +293,7 @@ The final task is to configure some external endpoints. To set up the Azure Netw
 
 3. If needed, obtain the public IP address of your VM again with [az network public-ip show](/cli/azure/network/public-ip#show) as follows:
 
-    ```azurecli
+    ```azurecli-interactive
     az network public-ip show \
         --resource-group myResourceGroup \
         --name myVMPublicIP \
@@ -300,26 +301,26 @@ The final task is to configure some external endpoints. To set up the Azure Netw
         --output tsv
     ```
 
-4.  Connect EM Express from your browser: 
+4.  Connect EM Express from your browser. Make sure your browser is compatible with EM Express (Flash install is required): 
 
     ```
     https://<VM ip address or hostname>:5502/em
     ```
 
-You can log in by using the *SYS* account, and check the *as sysdba* checkbox. Use the password *OraPasswd1* that you set during installation. Make sure your browser is compliable with EM Express (Flash install may be required)
+You can log in by using the **SYS** account, and check the **as sysdba** checkbox. Use the password **OraPasswd1** that you set during installation. 
 
 ![Screenshot of the Oracle OEM Express login page](./media/oracle-quick-start/oracle_oem_express_login.png)
 
-## Delete the VM
+## Clean up resources
 
-When you no longer need the VM, you can use the following command to remove the resource group, VM, and all related resources:
+Once you have finished exploring your first Oracle database on Azure and the VM is no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, VM, and all related resources.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 
 ## Next steps
 
-[Tutorial: Create highly available VMs](../../linux/create-cli-complete.md)
+Learn about other [Oracle solutions on Azure](oracle-considerations.md). 
 
-[Explore VM deployment Azure CLI samples](../../linux/cli-samples.md)
+Try the [Installing and Configuring Oracle Automated Storage Management](configure-oracle-asm.md) tutorial.

@@ -57,7 +57,7 @@ You can use the following tools to create or configure a VNet:
 * Azure CLI (for classic and Resource Manager VNets).
 
 ### What address ranges can I use in my VNets?
-You can use public IP address ranges and any IP address range defined in [RFC 1918](http://tools.ietf.org/html/rfc1918).
+Any IP address range defined in [RFC 1918](http://tools.ietf.org/html/rfc1918). For example, 10.0.0.0/16.
 
 ### Can I have public IP addresses in my VNets?
 Yes. For more information about public IP address ranges, see the [Public IP address space in a virtual network](virtual-networks-public-ip-within-vnet.md) article. Your public IP addresses will not be directly accessible from the Internet.
@@ -178,9 +178,9 @@ Yes. All VMs and Cloud Services role instances deployed within a VNet can connec
 ### Can I use Azure App Service Web Apps with a VNet?
 Yes. You can deploy Web Apps inside a VNet using an ASE (App Service Environment). All Web Apps can securely connect and access resources in your Azure VNet if you have a point-to-site connection configured for your VNet. For more information, see the following articles:
 
-* [Creating Web Apps in an App Service Environment](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md)
-* [Integrate your app with an Azure Virtual Network](../app-service-web/web-sites-integrate-with-vnet.md)
-* [Using VNet Integration and Hybrid Connections with Web Apps](../app-service-web/web-sites-integrate-with-vnet.md#hybrid-connections-and-app-service-environments)
+* [Creating Web Apps in an App Service Environment](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md)
+* [Integrate your app with an Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md)
+* [Using VNet Integration and Hybrid Connections with Web Apps](../app-service/web-sites-integrate-with-vnet.md#hybrid-connections-and-app-service-environments)
 
 ### Can I deploy Cloud Services with web and worker roles (PaaS) in a VNet?
 Yes. You can (optionally) deploy Cloud Services role instances within VNets. To do so, you specify the VNet name and the role/subnet mappings in the network configuration section of your service configuration. You do not need to update any of your binaries.

@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: ''
 author: kgremban
 manager: femila
-editor: ''
 
 ms.assetid: 2e97722b-eb4e-4078-b607-9fed210d8a0f
 ms.service: active-directory
@@ -13,11 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2017
+ms.date: 07/23/2017
 ms.author: kgremban
-
+ms.reviewer: harshja
+ms.custom: it-pro; oldportal
 ---
 # Working with conditional access in Azure AD Application Proxy
+
+>[!NOTE]
+>This article applies to the Azure classic portal, which is being retired. We recommend that you use the [Azure portal](https://portal.azure.com). In the Azure portal, Application Proxy apps have the same conditional access features as any other SaaS app. To learn more about conditional access, see [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+
 You can configure access rules to grant conditional access to applications published using Application Proxy. This enables you to:
 
 * Require multi-factor authentication per application

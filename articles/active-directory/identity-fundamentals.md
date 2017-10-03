@@ -2,13 +2,13 @@
 # required metadata
 
 title: Fundamentals of Azure identity management | Microsoft Docs
-description:
+description: Cloud-based identities are now the best way to maintain control over, and visibility into, how and when users access corporate applications and data.
 keywords:
 author: jeffgilb
 manager: femila
-editor: jsnow
+ms.reviewr: jsnow
 ms.author: jeffgilb
-ms.date: 6/6/2017
+ms.date: 07/05/2017
 ms.topic: article
 ms.prod:
 ms.service: azure
@@ -37,8 +37,7 @@ Watch this short video for a quick overview of Azure AD identity management and 
 
 Microsoft not only provides an identity that takes you everywhere, but also a set of tools to automate, help secure, and manage IT within your organization. Even after the advent of cloud computing, there is still demand to manage and control IT tasks like helpdesk calls to reset user passwords, user group management, and application requests. Complicating things further, employees are now bringing their personal devices to work and using readily available SaaS applications. This makes maintaining control over their applications across corporate datacenters and public cloud platforms a significant challenge.
 
-> [!Note]
-> The capabilities described in this article require an Azure Active Directory P1 or P2 subscription either purchased separately or as part of an [Enterprise Mobility + Security E3 or E5](https://docs.microsoft.com/enterprise-mobility-security/solutions/learn-about-ems) subscription.
+[!INCLUDE [identity](../../includes/azure-ad-licenses.md)]
 
 ## Connect on-premises Active Directory with Azure AD and Office 365
 Organizations that have made large investments in on-premises Active Directory can extend those investments to the cloud by integrating their on-premises directories with Azure AD into [hybrid identity management](https://docs.microsoft.com/azure/active-directory/active-directory-hybrid-identity-design-considerations-overview). Doing so makes your users more productive by providing a common identity for accessing resources regardless of location. Users and organizations can then use single sign on (SSO) to access both on-premises resources and cloud services such as Office 365.
@@ -80,3 +79,6 @@ With Azure identity management, you can:
 -   Improve user productivity with [self-service password reset](https://docs.microsoft.com/azure/active-directory/active-directory-passwords), and group and application access requests using the [MyApps portal](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-user-help).
 
 -   Take advantage of the [high-availability and reliability](https://docs.microsoft.com/azure/architecture/resiliency/high-availability-azure-applications) of a worldwide, enterprise-grade, cloud-based identity and access management solution.
+
+## Next steps
+[Learn more about Azure identity solutions](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions)

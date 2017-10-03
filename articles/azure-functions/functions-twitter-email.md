@@ -5,7 +5,7 @@ services: functions, logic-apps, cognitive-services
 keywords: workflow, cloud apps, cloud services, business processes, system integration, enterprise application integration, EAI
 documentationcenter: ''
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: glenga, riande
+ms.author: glenga
 ms.custom: mvc
 ---
 

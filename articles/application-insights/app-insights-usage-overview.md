@@ -1,4 +1,4 @@
----
+﻿---
 title: Usage analysis for web applications with Azure Application Insights | Microsoft docs
 description: Understand your users and what they do with your web app.
 services: application-insights
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: cfreeman
+ms.author: bwren
 ---
 
 # Usage analysis for web applications with Application Insights
@@ -36,11 +36,15 @@ The best experience is obtained by installing Application Insights both in your 
 
     Publish your app to monitor your app's performance and find out what your users are doing with your app.
 
+## Include user and session ID in your telemetry
+To track users over time, Application Insights requires a way to identify them. The Events tool is the only Usage tool that does not require a user ID or a session ID.
+
+Start sending user and session IDs using [this process](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context).
 
 ## Explore usage demographics and statistics
 Find out when people use your app, what pages they're most interested in, where your users are located, what browsers and operating systems they use. 
 
-The Users and Sessions reports filter your data by pages or custom events, and segment them by properties such as location, environment,and page. You can also add your own filters.
+The Users and Sessions reports filter your data by pages or custom events, and segment them by properties such as location, environment, and page. You can also add your own filters.
 
 ![Users](./media/app-insights-usage-overview/users.png)  
 
@@ -111,14 +115,13 @@ Or in the server side of the web app:
     tc.TrackEvent("CompletedPurchase");
 ```
 
-You can attach property values to these events, so that you can filter or split the events when you inspect them in the portal. In addition, a standard set of properties is attached to each event, such as anonymous user id, which allows you to trace the sequence of activities of an individual user.
+You can attach property values to these events, so that you can filter or split the events when you inspect them in the portal. In addition, a standard set of properties is attached to each event, such as anonymous user ID, which allows you to trace the sequence of activities of an individual user.
 
 Learn more about [custom events](app-insights-api-custom-events-metrics.md#trackevent) and [properties](app-insights-api-custom-events-metrics.md#properties).
 
 ### Slice and dice events
 
 In the Users, Sessions, and Events tools, you can slice and dice custom events by user, event name, and properties.
-
 ![Users](./media/app-insights-usage-overview/users.png)  
   
 ## Design the telemetry with the app
@@ -162,8 +165,9 @@ In the web app initializer such as Global.asax.cs:
 All new TelemetryClients automatically add the property value you specify. Individual telemetry events can override the default values.
 
 ## Next steps
-
-* [Users and sessions](app-insights-usage-segmentation.md)
-* [Retention](app-insights-usage-retention.md)
-* [Coding custom events](app-insights-api-custom-events-metrics.md)s
-
+   - [Users, Sessions, Events](app-insights-usage-segmentation.md)
+   - [Funnels](usage-funnels.md)
+   - [Retention](app-insights-usage-retention.md)
+   - [User Flows](app-insights-usage-flows.md)
+   - [Workbooks](app-insights-usage-workbooks.md)
+   - [Add user context](app-insights-usage-send-user-context.md)

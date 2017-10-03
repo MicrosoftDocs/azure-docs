@@ -188,7 +188,7 @@ To create the route table and route needed for the back-end subnet based on the 
 
 To enable IP forwarding in the NIC used by **FW1**, complete the following steps:
 
-1. Run the [az network nic show](/cli/az/network/nic#show) command with a JMESPATH filter to display the current **enable-ip-forwarding** value for **Enable IP forwarding**. It should be set to *false*.
+1. Run the [az network nic show](/cli/azure/network/nic#show) command with a JMESPATH filter to display the current **enable-ip-forwarding** value for **Enable IP forwarding**. It should be set to *false*.
 
 	```azurecli
 	az network nic show \

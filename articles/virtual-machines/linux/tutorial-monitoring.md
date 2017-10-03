@@ -1,6 +1,6 @@
 ---
-title: Monitor Linux virtual machines in Azure | Microsoft Docs
-description: Learn how to monitor boot diagnostics and performance metrics on a Linux virtual machine in Azure
+title: Monitor and update Linux virtual machines in Azure | Microsoft Docs
+description: Learn how to monitor boot diagnostics and performance metrics and manage package updates on a Linux virtual machine in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: davidmu1
@@ -11,16 +11,16 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: davidmu
 ms.custom: mvc
 ---
-# How to monitor a Linux virtual machine in Azure
+# How to monitor and update a Linux virtual machine in Azure
 
-To ensure your virtual machines (VMs) in Azure are running correctly, you can review boot diagnostics and performance metrics. In this tutorial, you learn how to:
+To ensure your virtual machines (VMs) in Azure are running correctly, you can review boot diagnostics, performance metrics and manage package updates. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Enable boot diagnostics on the VM
@@ -29,6 +29,7 @@ To ensure your virtual machines (VMs) in Azure are running correctly, you can re
 > * Enable diagnostics extension on the VM
 > * View VM metrics
 > * Create alerts based on diagnostic metrics
+> * Manage package updates
 > * Set up advanced monitoring
 
 
@@ -38,13 +39,13 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ## Create VM
 
-To see diagnostics and metrics in action, you need a VM. First, create a resource group with [az group create](/cli/azure/gropu#create). The following example creates a resource group named *myResourceGroupMonitor* in the *eastus* location.
+To see diagnostics and metrics in action, you need a VM. First, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named *myResourceGroupMonitor* in the *eastus* location.
 
 ```azurecli-interactive 
 az group create --name myResourceGroupMonitor --location eastus
 ```
 
-Now create a VM with [az vm create](https://docs.microsoft.com/cli/azure/vm#create). The following example creates a VM named *myVM*:
+Now create a VM with [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create). The following example creates a VM named *myVM*:
 
 ```azurecli-interactive 
 az vm create \
@@ -77,7 +78,7 @@ When enabling boot diagnostics, the URI to the blob storage container is needed.
 bloburi=$(az storage account show --resource-group myResourceGroupMonitor --name $storageacct --query 'primaryEndpoints.blob' -o tsv)
 ```
 
-Now enable boot diagnostics with [az vm boot-diagnostics enable](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#enable). The `--storage` value is the blob URI collected in the previous step.
+Now enable boot diagnostics with [az vm boot-diagnostics enable](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_enable). The `--storage` value is the blob URI collected in the previous step.
 
 ```azurecli-interactive 
 az vm boot-diagnostics enable \
@@ -101,7 +102,7 @@ Now start the VM with the [az vm start]( /cli/azure/vm#stop) command as follows:
 az vm start --resource-group myResourceGroupMonitor --name myVM
 ```
 
-You can get the boot diagnostic data for *myVM* with the [az vm boot-diagnostics get-boot-log](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#get-boot-log) command as follows:
+You can get the boot diagnostic data for *myVM* with the [az vm boot-diagnostics get-boot-log](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_get_boot_log) command as follows:
 
 ```azurecli-interactive 
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --name myVM
@@ -158,6 +159,93 @@ The following example creates an alert for average CPU usage.
 6. Optionally, check the box for *Email owners, contributors, and readers* to send email notification. The default action is to present a notification in the portal.
 7. Click the **OK** button.
 
+## Manage package updates
+
+By using Update management, you can manage package updates and patches for your Azure Linux VMs. Directly from your VM, you can quickly assess the status of available updates, schedule installation of required updates, and review deployment results to verify updates were applied successfully to the VM.
+
+For pricing information, see [Automation pricing for Update management](https://azure.microsoft.com/pricing/details/automation/)
+
+### Enable Update management (Preview)
+
+Enable Update management for your VM
+
+1. On the left-hand side of the screen, select **Virtual machines**.
+1. From the list, select a VM.
+1. On the VM screen, in the **Operations** section, click **Update management**. The **Enable Update management** screen opens.
+
+Validation is performed to determine if Update management is enabled for this VM. The validation includes checks for a Log Analytics workspace and linked Automation account, and if the solution is in the workspace.
+
+A Log Analytics workspace is used to collect data that is generated by features and services such as Update management. The workspace provides a single location to review and analyze data from multiple sources. To perform additional action on VMs that require updates, Azure Automation allows you to run scripts against VMs, such as to download and apply updates.
+
+The validation process also checks to see if the VM is provisioned with the Microsoft Monitoring Agent (MMA) and hybrid worker. This agent is used to communicate with the VM and obtain information about the update status. 
+
+If these prerequisites are not met, a banner appears that gives you the option to enable the solution.
+
+![Update Management onboard configuration banner](./media/tutorial-monitoring/manage-updates-onboard-solution-banner.png)
+
+Click the banner to enable the solution. If any of the following prerequisites were found to be missing after the validation, they will be automatically added:
+
+* [Log Analytics](../../log-analytics/log-analytics-overview.md) workspace
+* [Automation](../../automation/automation-offering-get-started.md)
+* A [Hybrid runbook worker](../../automation/automation-hybrid-runbook-worker.md) is enabled on the VM
+
+The **Enable Update Management** screen opens. Configure the settings, and click **Enable**.
+
+![Enable Update management solution](./media/tutorial-monitoring/manage-updates-update-enable.png)
+
+Enabling the solution can take up to 15 minutes, and during this time you should not close the browser window. After the solution is enabled, information about missing updates from the package manager on the VM flows to Log Analytics.
+It can take between 30 minutes and 6 hours for the data to be available for analysis.
+
+### View update assessment
+
+After the **Update management** solution is enabled, the **Update management** screen appears. You can see a list of missing updates on the **Missing updates** tab.
+
+![View update status](./media/tutorial-monitoring/manage-updates-view-status-linux.png)
+
+### Schedule an update deployment
+
+To install updates, schedule a deployment that follows your release schedule and maintenance window.
+
+Schedule a new Update Deployment for the VM by clicking **Schedule update deployment** at the top of the **Update management** screen. 
+In the **New update deployment** screen, specify the following information:
+
+* **Name** - Provide a unique name to identify the update deployment.
+* **Updates to exclude** - select this to enter names of packages to exclude from the update.
+* **Schedule settings** - You can either accept the default date and time, which is 30 minutes after current time, or specify a different time. You can also specify whether the deployment occurs once or set up a recurring schedule. Click the Recurring option under Recurrence to set up a recurring schedule.
+
+  ![Update Schedule Settings screen](./media/tutorial-monitoring/manage-updates-schedule-linux.png)
+
+* **Maintenance window (minutes)** - Specify the period of time you want the update deployment to occur within.  This helps ensure changes are performed within your defined maintenance windows. 
+
+After you have completed configuring the schedule, click **Create** button and you return to the status dashboard.
+Notice that the **Scheduled** table shows the deployment schedule you created.
+
+> [!WARNING]
+> The VM will be restarted automatically after updates are installed if there is enough time in the maintenance window.
+
+Update management uses the existing package manager on your VM to install packages.
+
+### View results of an update deployment
+
+After the scheduled deployment is started, you can see the status for that deployment on the **Update deployments** tab on the **Update management** screen.
+If it is currently running, it's status shows as **In progress**. After it completes, if successful, it changes to **Succeeded**.
+If there is a failure with one or more updates in the deployment, the status is **Failed**.
+Click the completed update deployment to see the dashboard for that update deployment.
+
+![Update Deployment status dashboard for specific deployment](./media/tutorial-monitoring/manage-updates-view-results.png)
+
+In **Update results** tile is a summary of the total number of updates and deployment results on the VM.
+In the table to the right is a detailed breakdown of each update and the installation results, which could be one of the following values:
+
+* **Not attempted** - the update was not installed because there was insufficient time available based on the maintenance window duration defined.
+* **Succeeded** - the update was successfully downloaded and installed on the VM
+* **Failed** - the update failed to download or install on the VM.
+
+Click **All logs** to see all log entries that the deployment created.
+
+Click the **Output** tile to see job stream of the runbook responsible for managing the update deployment on the target VM.
+
+Click **Errors** to see detailed information about any errors from the deployment.
 
 ## Advanced monitoring 
 
@@ -182,7 +270,7 @@ On the Log Search blade of the OMS portal, you should see *myVM* such as what is
 
 ## Next steps
 
-In this tutorial, you configured and reviewed VMs with Azure Security Center. You learned how to:
+In this tutorial, you configured, reviewed, and managed updates for a VM. You learned how to:
 
 > [!div class="checklist"]
 > * Enable boot diagnostics on the VM
@@ -191,9 +279,10 @@ In this tutorial, you configured and reviewed VMs with Azure Security Center. Yo
 > * Enable diagnostics extension on the VM
 > * View VM metrics
 > * Create alerts based on diagnostic metrics
+> * Manage package updates
 > * Set up advanced monitoring
 
-Advance to the next tutorial to learn about Azure security center.
+Advance to the next tutorial to learn about Azure Security Center.
 
 > [!div class="nextstepaction"]
 > [Manage VM security](./tutorial-azure-security.md)

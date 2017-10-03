@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/01/2016
+ms.date: 08/15/2017
 ms.author: owend
 
 ---
@@ -29,15 +29,7 @@ Microsoft client applications such as Power BI Desktop and Excel install all thr
 
 Client libraries for client connections are different from data providers required to connect from an Azure Analysis Services server to a data source. To learn more about datasource connections, see [Datasource connections](analysis-services-datasource.md).
 
-## Download the latest **preview** client libraries  
-Use the following client libraries to get the latest bug fixes and updates. 
-
-[MSOLAP (amd64) Preview](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.500.170/amd64/SQL_AS_OLEDB.msi)</br>
-[MSOLAP (x86) Preview](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.500.170/x86/SQL_AS_OLEDB.msi)</br>
-[AMO Preview](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.500.170/SQL_AS_AMO.msi)</br>
-[ADOMD Preview](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.500.170/SQL_AS_ADOMD.msi)</br>
-
-## Download the latest **RTM** client libraries  
+## Download the latest client libraries  
 Use the following client libraries if you are in a production environment and require fully released and supported versions.
 
 [MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)</br>
@@ -46,4 +38,5 @@ Use the following client libraries if you are in a production environment and re
 [ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)</br>
 
 ## Next steps
-[Connect to an Azure Analysis Services server](analysis-services-connect.md).
+[Connect with Excel](analysis-services-connect-excel.md)    
+[Connect with Power BI](analysis-services-connect-pbi.md)

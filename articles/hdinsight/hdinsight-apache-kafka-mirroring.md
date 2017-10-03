@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/13/2017
+ms.date: 09/07/2017
 ms.author: larryfr
 ---
 # Use MirrorMaker to replicate Apache Kafka topics with Kafka on HDInsight (preview)
@@ -67,6 +67,9 @@ While you can create an Azure virtual network and Kafka clusters manually, it's 
    
     The Azure Resource Manager template is located at **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json**.
 
+    > [!WARNING]
+    > To guarantee availability of Kafka on HDInsight, your cluster must contain at least three worker nodes. This template creates a Kafka cluster that contains three worker nodes.
+
 2. Use the following information to populate the entries on the **Custom deployment** blade:
     
     ![HDInsight custom deployment](./media/hdinsight-apache-kafka-mirroring/parameters.png)
@@ -89,12 +92,8 @@ While you can create an Azure virtual network and Kafka clusters manually, it's 
 
 4. Finally, check **Pin to dashboard** and then select **Purchase**. It takes about 20 minutes to create the clusters.
 
-Once the resources have been created, you are redirected to a blade for the resource group that contains the clusters and web dashboard.
-
-![Resource group blade for the vnet and clusters](./media/hdinsight-apache-kafka-mirroring/groupblade.png)
-
 > [!IMPORTANT]
-> Notice that the names of the HDInsight clusters are **source-BASENAME** and **dest-BASENAME**, where BASENAME is the name you provided to the template. You use these names in later steps when connecting to the clusters.
+> The name of the HDInsight clusters are **source-BASENAME** and **dest-BASENAME**, where BASENAME is the name you provided to the template. You use these names in later steps when connecting to the clusters.
 
 ## Create topics
 
@@ -108,10 +107,20 @@ Once the resources have been created, you are redirected to a blade for the reso
 
     For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Use the following command to find the Zookeeper hosts, set the `SOURCE_ZKHOSTS` variable, and then create several new topics named `testtopic`:
+2. Use the following commands to find the Zookeeper hosts for the source cluster:
 
     ```bash
-    SOURCE_ZKHOSTS=`grep -R zk /etc/hadoop/conf/yarn-site.xml | grep 2181 | grep -oPm1 "(?<=<value>)[^<]+"`
+    # Install jq if it is not installed
+    sudo apt -y install jq
+    # get the zookeeper hosts for the source cluster
+    export SOURCE_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    ```
+
+    Replace `$CLUSTERNAME` with the name of the source cluster. When prompted, enter the password for the cluster login (admin) account.
+
+3. To create a topic named `testtopic`, use the following command:
+
+    ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $SOURCE_ZKHOSTS
     ```
 
@@ -131,7 +140,7 @@ Once the resources have been created, you are redirected to a blade for the reso
 
     This returns information similar to the following text:
 
-    `zk0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk6-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181`
+    `zk0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181`
 
     Save this information. It is used in the next section.
 
@@ -147,7 +156,7 @@ Once the resources have been created, you are redirected to a blade for the reso
 
     For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Use the following command to create a `consumer.properties` file that describes how to communicate with the **source** cluster:
+2. A `consumer.properties` file is used to configure communication with the **source** cluster. To create the file, use the following command:
 
     ```bash
     nano consumer.properties
@@ -170,15 +179,17 @@ Once the resources have been created, you are redirected to a blade for the reso
 
     ```bash
     sudo apt -y install jq
-    DEST_BROKERHOSTS=`sudo bash -c 'ls /var/lib/ambari-agent/data/command-[0-9]*.json' | tail -n 1 | xargs sudo cat | jq -r '["\(.clusterHostInfo.kafka_broker_hosts[]):9092"] | join(",")'`
+    DEST_BROKERHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
     echo $DEST_BROKERHOSTS
     ```
 
-    These commands return information similar to the following:
+    Replace `$CLUSTERNAME` with the name of the destination cluster. When prompted, enter the password for the cluster login (admin) account.
+
+    The `echo` command returns information similar to the following text:
 
         wn0-dest.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn1-dest.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092
 
-4. Use the following to create a `producer.properties` file that describes how to communicate with the **destination** cluster:
+4. A `producer.properties` file is used to communicate the __destination__ cluster. To create the file, use the following command:
 
     ```bash
     nano producer.properties
@@ -213,7 +224,7 @@ Once the resources have been created, you are redirected to a blade for the reso
 
     * **--num.streams**: The number of consumer threads to create.
 
-    On startup, MirrorMaker returns information similar to the following text:
+ On startup, MirrorMaker returns information similar to the following text:
 
     ```json
     {metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-3, security.protocol=PLAINTEXT}{metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-0, security.protocol=PLAINTEXT}
@@ -224,22 +235,25 @@ Once the resources have been created, you are redirected to a blade for the reso
 2. From the SSH connection to the **source** cluster, use the following command to start a producer and send messages to the topic:
 
     ```bash
-    sudo apt -y install jq
-    SOURCE_BROKERHOSTS=`sudo bash -c 'ls /var/lib/ambari-agent/data/command-[0-9]*.json' | tail -n 1 | xargs sudo cat | jq -r '["\(.clusterHostInfo.kafka_broker_hosts[]):9092"] | join(",")'`
+    SOURCE_BROKERHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $SOURCE_BROKERHOSTS --topic testtopic
     ```
 
- When you arrive at a blank line with a cursor, type in a few text messages. These are sent to the topic on the **source** cluster. When done, use **Ctrl + C** to end the producer process.
+    Replace `$CLUSTERNAME` with the name of the source cluster. When prompted, enter the password for the cluster login (admin) account.
 
-3. From the SSH connection to the **destination** cluster, use **Ctrl + C** to end the MirrorMaker process. Then use the following commands to verify that the `testtopic` topic was created, and that data in the topic was replicated to this mirror:
+     When you arrive at a blank line with a cursor, type in a few text messages. The messages are sent to the topic on the **source** cluster. When done, use **Ctrl + C** to end the producer process.
+
+3. From the SSH connection to the **destination** cluster, use **Ctrl + C** to end the MirrorMaker process. To verify that the topic and messages were replicated to the destination, use the following commands:
 
     ```bash
-    DEST_ZKHOSTS=`grep -R zk /etc/hadoop/conf/yarn-site.xml | grep 2181 | grep -oPm1 "(?<=<value>)[^<]+"`
+    DEST_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $DEST_ZKHOSTS
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $DEST_ZKHOSTS --topic testtopic --from-beginning
     ```
 
-  The list of topics now includes `testtopic`, which is created when MirrorMaster mirrors the topic from the source cluster to the destination. The messages retrieved from the topic are the same as entered on the source cluster.
+    Replace `$CLUSTERNAME` with the name of the destination cluster. When prompted, enter the password for the cluster login (admin) account.
+
+    The list of topics now includes `testtopic`, which is created when MirrorMaster mirrors the topic from the source cluster to the destination. The messages retrieved from the topic are the same as entered on the source cluster.
 
 ## Delete the cluster
 

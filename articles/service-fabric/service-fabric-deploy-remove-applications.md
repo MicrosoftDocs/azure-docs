@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/01/2017
+ms.date: 09/29/2017
 ms.author: ryanwi
 
 ---
@@ -22,8 +22,7 @@ ms.author: ryanwi
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
 > * [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 > * [FabricClient APIs](service-fabric-deploy-remove-applications-fabricclient.md)
-> 
-> 
+> * [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 
 <br/>
 
@@ -61,12 +60,12 @@ The **Get-ImageStoreConnectionStringFromClusterManifest** cmdlet, which is part 
 Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\ServiceFabricSDK\ServiceFabricSDK.psm1"
 ```
 
-Suppose you build and package an application named *MyApplication* in Visual Studio 2015. By default, the application type name listed in the ApplicationManifest.xml is "MyApplicationType".  The application package, which contains the necessary application manifest, service manifests, and code/config/data packages, is located in *C:\Users\\<username\>\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug*. 
+Suppose you build and package an application named *MyApplication* in Visual Studio 2015. By default, the application type name listed in the ApplicationManifest.xml is "MyApplicationType".  The application package, which contains the necessary application manifest, service manifests, and code/config/data packages, is located in *C:\Users\<username\>\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug*. 
 
 The following command lists the contents of the application package:
 
 ```powershell
-PS C:\> $path = 'C:\Users\\<user\>\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug'
+PS C:\> $path = 'C:\Users\<user\>\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug'
 PS C:\> tree /f $path
 Folder PATH listing for volume OSDisk
 Volume serial number is 0459-2393
@@ -233,7 +232,7 @@ PS C:\> Get-ServiceFabricApplication
 ```
 
 ## Unregister an application type
-When a particular version of an application type is no longer needed, you should unregister the application type using the [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) cmdlet. Unregistering unused application types releases storage space used by the image store. An application type can be unregistered as long as no applications are instantiated against it and no pending application upgrades are referencing it.
+When a particular version of an application type is no longer needed, you should unregister the application type using the [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) cmdlet. Unregistering unused application types releases storage space used by the image store by removing application binaries. Unregistering an application type does not remove the application package. An application type can be unregistered as long as no applications are instantiated against it and no pending application upgrades are referencing it.
 
 Run [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) to see the application types currently registered in the cluster:
 

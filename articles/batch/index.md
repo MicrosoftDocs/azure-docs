@@ -2,7 +2,7 @@
 title: Azure Batch Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to use Batch to run large-scale parallel and high-performance computing applications efficiently. Tutorials, API references, and other documentation.
 services: batch
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -153,7 +153,7 @@ Learn how to use Batch to run large-scale parallel and high-performance computin
                         <h3>Languages</h3>
                         <p><a href="/dotnet/api/microsoft.azure.batch">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.batch">Java</a></p>
-                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-batch/latest.azure.batch">Node.js</a></p>
+                        <p><a href="http://azure.github.io/azure-sdk-for-node/">Node.js</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html">Python</a></p>
                     </div>
                 </div>

@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/30/2017
+ms.date: 09/27/2017
 ms.author: billmath
 
 ---
@@ -45,12 +45,12 @@ After installing the required components, you are asked to select your users sin
 
 | Single Sign On option | Description |
 | --- | --- |
-| Password Sync |Users are able to sign in to Microsoft cloud services, such as Office 365, using the same password they use in their on-premises network. The users passwords are synchronized to Azure AD as a password hash and authentication occurs in the cloud. See [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) for more information. |
-|Pass-through Authentication (Preview)|Users are able to sign in to Microsoft cloud services, such as Office 365, using the same password they use in their on-premises network.  The users password is passed through to the on-premises Active Directory controller to be validated.
+| Password Hash Sync |Users are able to sign in to Microsoft cloud services, such as Office 365, using the same password they use in their on-premises network. The users passwords are synchronized to Azure AD as a password hash and authentication occurs in the cloud. See [Password hash synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) for more information. |
+|Pass-through Authentication|Users are able to sign in to Microsoft cloud services, such as Office 365, using the same password they use in their on-premises network.  The users password is passed through to the on-premises Active Directory controller to be validated.
 | Federation with AD FS |Users are able to sign in to Microsoft cloud services, such as Office 365, using the same password they use in their on-premises network.  The users are redirected to their on-premises AD FS instance to sign in and authentication occurs on-premises. |
 | Do not configure |Neither feature is installed and configured. Choose this option if you already have a 3rd party federation server or another existing solution in place. |
 |Enable Single Sign on|This options is available with both password sync and Pass-through authentication and provides a single sign on experience for desktop users on the corporate network.  See [Single sign-on](active-directory-aadconnect-sso.md) for more information. </br>Note for AD FS customers this option is not available because AD FS already offers the same level of single sign on.</br>(if PTA is not released at the same time)
-|Sign On Option|This options is available for password sync customers and provides a single sign on experience for desktop users on the corporate network.  </br>See [Single sign-on](active-directory-aadconnect-sso.md) for more information. </br>Note for AD FS customers this option is not available because AD FS already offers the same level of single sign on.
+|Sign On Option|This options is available for password hash sync customers and provides a single sign on experience for desktop users on the corporate network.  </br>See [Single sign-on](active-directory-aadconnect-sso.md) for more information. </br>Note for AD FS customers this option is not available because AD FS already offers the same level of single sign on.
 
 
 ### Connect to Azure AD
@@ -122,10 +122,10 @@ The Matching across forests feature allows you to define how users from your AD 
 | Setting | Description |
 | --- | --- |
 | [Users are only represented once across all forests](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |All users are created as individual objects in Azure AD. The objects are not joined in the metaverse. |
-| [Mail attribute](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |This option joins users and contacts if the mail attribute has the same value in different forests. Use this option when your contacts have been created using GALSync. |
+| [Mail attribute](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |This option joins users and contacts if the mail attribute has the same value in different forests. Use this option when your contacts have been created using GALSync. If this option is chosen, User objects whose Mail attribute aren't populated will not be synchronized to Azure AD. |
 | [ObjectSID and msExchangeMasterAccountSID/ msRTCSIP-OriginatorSid](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |This option joins an enabled user in an account forest with a disabled user in a resource forest. In Exchange, this configuration is known as a linked mailbox. This option can also be used if you only use Lync and Exchange is not present in the resource forest. |
 | sAMAccountName and MailNickName |This option joins on attributes where it is expected the sign-in ID for the user can be found. |
-| A specific attribute |This option allows you to select your own attribute. **Limitation:** Make sure to pick an attribute that already can be found in the metaverse. If you pick a custom attribute (not in the metaverse), the wizard cannot complete. |
+| A specific attribute |This option allows you to select your own attribute. If this option is chosen, User objects whose (selected) attribute aren't populated will not be synchronized to Azure AD. **Limitation:** Make sure to pick an attribute that already can be found in the metaverse. If you pick a custom attribute (not in the metaverse), the wizard cannot complete. |
 
 #### Select how users should be identified with Azure AD - Source Anchor
 The attribute sourceAnchor is an attribute that is immutable during the lifetime of a user object. It is the primary key linking the on-premises user with the user in Azure AD.
@@ -164,7 +164,7 @@ This screen allows you to select the optional features for your specific scenari
 | Exchange Hybrid Deployment |The Exchange Hybrid Deployment feature allows for the co-existence of Exchange mailboxes both on-premises and in Office 365. Azure AD Connect is synchronizing a specific set of [attributes](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) from Azure AD back into your on-premises directory. |
 | Exchange Mail Public Folders | The Exchange Mail Public Folders feature allows you to synchronize mail-enabled Public Folder objects from your on-premises Active Directory to Azure AD. |
 | Azure AD app and attribute filtering |By enabling Azure AD app and attribute filtering, the set of synchronized attributes can be tailored. This option adds two more configuration pages to the wizard. For more information, see [Azure AD app and attribute filtering](#azure-ad-app-and-attribute-filtering). |
-| Password synchronization |If you selected federation as the sign-in solution, then you can enable this option. Password synchronization can then be used as a backup option. For additional information, see [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md). </br></br>If you selected Pass-through Authentication this option is enabled by default to ensure support for legacy clients and as a backup option. For additional information, see [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md).|
+| Password synchronization |If you selected federation as the sign-in solution, then you can enable this option. Password synchronization can then be used as a backup option. For additional information, see [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md). </br></br>If you selected Pass-through Authentication this option can also be enabled to ensure support for legacy clients and as a backup option. For additional information, see [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md).|
 | Password writeback |By enabling password writeback, password changes that originate in Azure AD is written back to your on-premises directory. For more information, see [Getting started with password management](../active-directory-passwords-getting-started.md). |
 | Group writeback |If you use the **Office 365 Groups** feature, then you can have these groups represented in your on-premises Active Directory. This option is only available if you have Exchange present in your on-premises Active Directory. For more information, see [Group writeback](active-directory-aadconnect-feature-preview.md#group-writeback). |
 | Device writeback |Allows you to writeback device objects in Azure AD to your on-premises Active Directory for conditional access scenarios. For more information, see [Enabling device writeback in Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md). |
@@ -275,6 +275,9 @@ The AD FS service requires a domain service account to authenticate users and lo
 
 If you selected Group Managed Service Account and this feature has never been used in Active Directory, you are prompted for Enterprise Admin credentials. These credentials are used to initiate the key store and enable the feature in Active Directory.
 
+> [!NOTE]
+> Azure AD Connect performs a check to detect if the AD FS service is already registered as a SPN in the domain.  AD DS will not allow duplicate SPN’s to be registered at once.  If a duplicate SPN is found, you will not be able to proceed further until the SPN is removed.
+
 ![AD FS Service Account](./media/active-directory-aadconnect-get-started-custom/adfs5.png)
 
 ### Select the Azure AD domain that you wish to federate
@@ -313,6 +316,15 @@ For more information, see [Staging mode](active-directory-aadconnectsync-operati
 
 ### Verify your federation configuration
 Azure AD Connect verifies the DNS settings for you when you click the Verify button.
+
+**Intranet connectivity checks**
+
+* Resolve federation FQDN: Azure AD Connect checks if the  federation FQDN can be resolved by DNS to ensure connectivity. If Azure AD Connect cannot resolve the FQDN, the verification will fail. Ensure that a DNS record is present for the federation service FQDN in order to successfully complete the verification.
+* DNS A record: Azure AD Connect checks if there is an A record for your federation service. In the absence of an A record, the verification will fail. Create an A record and not CNAME record for your federation FQDN in order to successfully complete the verification.
+
+**Extranet connectivity checks**
+
+* Resolve federation FQDN: Azure AD Connect checks if the  federation FQDN can be resolved by DNS to ensure connectivity.
 
 ![Complete](./media/active-directory-aadconnect-get-started-custom/completed.png)
 

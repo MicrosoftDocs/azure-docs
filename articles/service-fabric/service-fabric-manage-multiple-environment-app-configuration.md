@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/07/2017
+ms.date: 08/18/2017
 ms.author: mikkelhegn
 
 ---
@@ -50,7 +50,7 @@ Each of the named parameters must be defined within the Parameters element of th
 
 ```xml
     <Parameters>
-        <Parameter Name="Stateful1_MinReplicaSetSize" DefaultValue="2" />
+        <Parameter Name="Stateful1_MinReplicaSetSize" DefaultValue="3" />
         <Parameter Name="Stateful1_PartitionCount" DefaultValue="1" />
         <Parameter Name="Stateful1_TargetReplicaSetSize" DefaultValue="3" />
     </Parameters>
@@ -189,7 +189,7 @@ The Service Fabric application project can include one or more application param
 
     <Application Name="fabric:/Application1" xmlns="http://schemas.microsoft.com/2011/01/fabric">
         <Parameters>
-            <Parameter Name ="Stateful1_MinReplicaSetSize" Value="2" />
+            <Parameter Name ="Stateful1_MinReplicaSetSize" Value="3" />
             <Parameter Name="Stateful1_PartitionCount" Value="1" />
             <Parameter Name="Stateful1_TargetReplicaSetSize" Value="3" />
         </Parameters>

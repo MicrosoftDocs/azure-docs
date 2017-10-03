@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 07/12/2017
 ms.author: larryfr
 
 ---
@@ -42,7 +42,7 @@ Both Hive and Pig can pass data to external applications for processing. This pr
 
     * [Use Apache Pig with HDInsight](hdinsight-use-pig.md)
 
-* A Hadoop on HDInsight cluster. For more information on creating a cluster, see [Create an HDInsight cluster](hdinsight-provision-clusters.md).
+* A Hadoop on HDInsight cluster. For more information on creating a cluster, see [Create an HDInsight cluster](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## .NET on HDInsight
 
@@ -195,7 +195,7 @@ For more information on the version of the .NET framework and Mono included with
 
     ```hiveql
     -- Uncomment the following if you are using Azure Storage
-    -- add file wasbs:///HiveCSharp.exe;
+    -- add file wasb:///HiveCSharp.exe;
     -- Uncomment the following if you are using Azure Data Lake Store
     -- add file adl:///HiveCSharp.exe;
 

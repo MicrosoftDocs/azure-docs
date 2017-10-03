@@ -53,11 +53,13 @@
       href: https://github.com/Microsoft/Cognitive-Face-Windows
 - name: Resources
   items:
-    - name: Samples
-      href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face
-    - name: Glossary
-      href: Glossary.md
-    - name: FAQ
-      href: FAQ.md
-    - name: Release notes
-      href: ReleaseNotes.md
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Samples
+    href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face
+  - name: Glossary
+    href: Glossary.md
+  - name: FAQ
+    href: FAQ.md
+  - name: Release notes
+    href: ReleaseNotes.md

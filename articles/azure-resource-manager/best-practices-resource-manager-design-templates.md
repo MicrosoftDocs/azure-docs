@@ -29,7 +29,7 @@ Templates combine the benefits of the underlying Azure Resource Manager with the
 * Apply role-based access control (RBAC) to grant appropriate access to users, groups, and services.
 * Use tagging associations to streamline tasks such as billing rollups.
 
-This article provides details on consumption scenarios, architecture, and implementation patterns identified during our design sessions and real-world template implementations with Azure Customer Advisory Team (AzureCAT) customers. Far from academic, these approaches are proven practices informed by the development of templates for 12 of the top Linux-based OSS technologies, including: Apache Kafka, Apache Spark, Cloudera, Couchbase, Hortonworks HDP, DataStax Enterprise powered by Apache Cassandra, Elasticsearch, Jenkins, MongoDB, Nagios, PostgreSQL, Redis, and Nagios. 
+This article provides details on consumption scenarios, architecture, and implementation patterns identified during our design sessions and real-world template implementations with Azure Customer Advisory Team (AzureCAT) customers. Far from academic, these approaches are proven practices informed by the development of templates for 12 of the top Linux-based OSS technologies, including: Apache Kafka, Apache Spark, Cloudera, Couchbase, Hortonworks HDP, DataStax Enterprise powered by Apache Cassandra, Elasticsearch, Jenkins, MongoDB, PostgreSQL, Redis, and Nagios. 
 
 This article shares these proven practices to help you architect world class Azure Resource Manager templates.  
 

@@ -13,4 +13,3 @@
 ### [Get started with the app](microsoft-authenticator-app-how-to.md)
 ### [Sign in with your phone](microsoft-authenticator-app-phone-signin-faq.md)
 ### [FAQs](microsoft-authenticator-app-faq.md)
-

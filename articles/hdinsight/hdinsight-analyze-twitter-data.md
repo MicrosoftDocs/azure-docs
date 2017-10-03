@@ -26,7 +26,7 @@ In this tutorial, you will get tweets by using a Twitter streaming API, and then
 on Azure HDInsight to get a list of Twitter users who sent the most tweets that contained a certain word.
 
 > [!IMPORTANT]
-> The steps in this document require a Windows-based HDInsight cluster. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date). For steps specific
+> The steps in this document require a Windows-based HDInsight cluster. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). For steps specific
 > to a Linux-based cluster, see [Analyze Twitter data using Hive in HDInsight (Linux)](hdinsight-analyze-twitter-data-linux.md).
 
 ## Prerequisites
@@ -460,7 +460,7 @@ You have finished all the preparation work. Now, you can invoke the Hive script 
 Use the following Windows PowerShell script to run the Hive script. You will need to set the first variable.
 
 > [!NOTE]
-> To use the tweets and the HiveQL script you uploaded in the last two sections, set $hqlScriptFile to "/tutorials/twitter/twitter.hql". To use the ones that have been uploaded to a public blob for you, set $hqlScriptFile to "wasbs://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql".
+> To use the tweets and the HiveQL script you uploaded in the last two sections, set $hqlScriptFile to "/tutorials/twitter/twitter.hql". To use the ones that have been uploaded to a public blob for you, set $hqlScriptFile to "wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql".
 
 ```powershell
 #region variables and constants
@@ -469,7 +469,7 @@ $httpUserName = "admin"
 $httpUserPassword = "<HDInsight Cluster HTTP User Password>"
 
 #use one of the following
-$hqlScriptFile = "wasbs://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql"
+$hqlScriptFile = "wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql"
 $hqlScriptFile = "/tutorials/twitter/twitter.hql"
 
 $statusFolder = "/tutorials/twitter/jobstatus"

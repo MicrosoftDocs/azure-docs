@@ -4,7 +4,7 @@ description: Overview of the elastic query feature
 services: sql-database
 documentationcenter: ''
 manager: jhubbard
-author: torsteng
+author: MladjoA
 
 ms.assetid: a8bf0e2c-bc74-44d0-9b1e-bcc9a6aa2e33
 ms.service: sql-database
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2016
-ms.author: torsteng
+ms.author: mlandzic
 
 ---
 # Azure SQL Database elastic query overview (preview)
@@ -93,12 +93,15 @@ The following steps configure elastic database queries for vertical partitioning
 After running the DDL statements, you can access the remote table “mytable” as though it were a local table. Azure SQL Database automatically opens a connection to the remote database, processes your request on the remote database, and returns the results.
 
 ## Horizontal partitioning - sharding
-Using elastic query to perform reporting tasks over a sharded, i.e., horizontally partitioned, data tier requires an [elastic database shard map](sql-database-elastic-scale-shard-map-management.md) to represent the databases of the data tier . Typically, only a single shard map is used in this scenario and a dedicated database with elastic query capabilities serves as the entry point for reporting queries. Only this dedicated database needs access to the shard map. Figure 4 illustrates this topology and its configuration with the elastic query database and shard map. The databases in the data tier can be of any Azure SQL Database version or edition. For more information about the elastic database client library and creating shard maps, see [Shard map management](sql-database-elastic-scale-shard-map-management.md).
+Using elastic query to perform reporting tasks over a sharded, i.e., horizontally partitioned, data tier requires an [elastic database shard map](sql-database-elastic-scale-shard-map-management.md) to represent the databases of the data tier . Typically, only a single shard map is used in this scenario and a dedicated database with elastic query capabilities (head node) serves as the entry point for reporting queries. Only this dedicated database needs access to the shard map. Figure 4 illustrates this topology and its configuration with the elastic query database and shard map. The databases in the data tier can be of any Azure SQL Database version or edition. For more information about the elastic database client library and creating shard maps, see [Shard map management](sql-database-elastic-scale-shard-map-management.md).
 
 **Figure 4** Horizontal partitioning - Using elastic query for reporting over sharded data tiers
 
 ![Horizontal partitioning - Using elastic query for reporting over sharded data tiers][5]
 
+> [!NOTE]
+> Elastic Query Database (head node) can be separate database, or it can be the same database that hosts the shard map. 
+> Whatever configuration you choose, make sure that service and performance tier of that database is high enough to handle the expected  amount of login/query requests.
 
 The following steps configure elastic database queries for horizontal partitioning scenarios that require access to a set of table that are located on (typically) several remote SQL databases:
 
@@ -136,7 +139,7 @@ Elastic query is included into the cost of Azure SQL Database databases. Note th
 * Column statistics over external tables are currently not supported. Tables statistics are supported, but need to be created manually.
 
 ## Feedback
-Please share feedback on your experience with elastic queries with us on Disqus below, the MSDN forums, or on Stackoverflow. We are interested in all kinds of feedback about the service (defects, rough edges, feature gaps).
+Please share feedback on your experience with elastic queries with us on Livefyre below, the MSDN forums, or on Stackoverflow. We are interested in all kinds of feedback about the service (defects, rough edges, feature gaps).
 
 ## Next steps
 

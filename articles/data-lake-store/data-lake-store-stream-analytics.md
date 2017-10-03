@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/03/2017
+ms.date: 06/29/2017
 ms.author: nitinme
 
 ---
