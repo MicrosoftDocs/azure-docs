@@ -27,7 +27,7 @@ ms.author: asaxton
 ## What is Microsoft Power BI Workspace Collections?
 Power BI Workspace Collections is an Azure service that allows Application developers to embed stunning, fully interactive reports and visualizations in customer facing apps without the time and expense of having to build your own controls from the ground-up. We now have Power BI Workspace Collections available with SLA in 9 data centers worldwide. We have also enhanced functionalities in the service like support for data security via row-level security (RLS) in Power BI Workspace Collections for advanced filtering. We have also simplified and updated the Power BI Workspace Collections pricing model.
 
-## Who would want to use Microsoft Power BI Workspace C, and why?
+## Who would want to use Microsoft Power BI Workspace Collections, and why?
 Microsoft Power BI Workspace Collections are for Application developers that want to offer stunning and interactive data visualization experiences for their users across any of their devices without having to build it themselves. With Power BI Workspace Collections, developers can deliver always-up-to-date views with Direct Query. Developers can also programmatically deploy and manage automate Power BI with the Azure Resource Manager APIs and Power BI APIs. As with all things Power BI, the embedded service automatically scales to meet the usage and needs of your application. The Power BI Workspace Collections service features a Pay-as-you-go consumption based pricing model.
 
 ## How does Power BI Workspace Collections relate to the Power BI service?
