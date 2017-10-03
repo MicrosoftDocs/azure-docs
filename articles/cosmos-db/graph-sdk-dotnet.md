@@ -59,7 +59,7 @@ ms.author: mimig
 ### <a name="0.2.0-preview"/>0.2.0-preview
 
 ### <a name="0.1.0-preview"/>0.1.0-preview
-* Initial preview release. 
+* Initial preview release.
 
 ## Release & Retirement dates
 Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
