@@ -51,14 +51,14 @@ This guide uses [Azure PowerShell][azure-powershell]. When you start a new Power
 Sign in to your Azure account:
 
 ```powershell
-PS > Login-AzureRmAccount
+Login-AzureRmAccount
 ```
 
 Select your subscription:
 
 ```powershell
-PS > Get-AzureRmSubscription
-PS > Set-AzureRmContext -SubscriptionId <guid>
+Get-AzureRmSubscription
+Set-AzureRmContext -SubscriptionId <guid>
 ```
 
 ### Create a resource group
@@ -66,7 +66,7 @@ PS > Set-AzureRmContext -SubscriptionId <guid>
 Create a new resource group for your deployment. Give it a name and a location.
 
 ```powershell
-PS > New-AzureRmResourceGroup -Name <my-resource-group> -Location westus
+New-AzureRmResourceGroup -Name <my-resource-group> -Location westus
 ```
 
 ### Deploy the network topology
@@ -83,7 +83,7 @@ The [network.parameters.json][network-parameters-arm] parameters file contains t
  2. Use the following PowerShell command to deploy the Resource Manager template and parameter files for the network setup:
 
     ```powershell
-    PS > New-AzureRmResourceGroupDeployment -ResourceGroupName <my-resource-group> -TemplateFile .\network.json -TemplateParameterFile .\network.parameters.json -Verbose
+    New-AzureRmResourceGroupDeployment -ResourceGroupName <my-resource-group> -TemplateFile .\network.json -TemplateParameterFile .\network.parameters.json -Verbose
     ```
 
 ### Deploy the Service Fabric cluster
@@ -107,7 +107,7 @@ This step requires having a certificate in Key Vault for cluster security. For m
  3. Use the following PowerShell command to deploy the Resource Manager template and parameter files to create the Service Fabric cluster:
 
     ```powershell
-    PS > New-AzureRmResourceGroupDeployment -ResourceGroupName <my-resource-group> -TemplateFile .\cluster.json -TemplateParameterFile .\cluster.parameters.json -Verbose
+    New-AzureRmResourceGroupDeployment -ResourceGroupName <my-resource-group> -TemplateFile .\cluster.json -TemplateParameterFile .\cluster.parameters.json -Verbose
     ```
 
 ### Deploy API Management
@@ -126,7 +126,7 @@ For this tutorial, the API Management Resource Manager template is pre-configure
  3. Use the following PowerShell command to deploy the Resource Manager template and parameter files for API Management:
 
     ```powershell
-    PS > New-AzureRmResourceGroupDeployment -ResourceGroupName <my-resource-group> -TemplateFile .\apim.json -TemplateParameterFile .\apim.parameters.json -Verbose
+    New-AzureRmResourceGroupDeployment -ResourceGroupName <my-resource-group> -TemplateFile .\apim.json -TemplateParameterFile .\apim.parameters.json -Verbose
     ```
 
 ## Configure API Management
