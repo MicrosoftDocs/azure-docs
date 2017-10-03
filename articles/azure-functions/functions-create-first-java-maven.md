@@ -26,7 +26,7 @@ This quickstart guides through creating a serverless function project with Maven
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
-To develop functions app with Java you must have the following installed:
+To develop functions app with Java, you must have the following installed:
 
 -  [.NET Core](https://www.microsoft.com/net/core), latest version.
 -  [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 1.8.
