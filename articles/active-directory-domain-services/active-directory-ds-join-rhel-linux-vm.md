@@ -77,21 +77,18 @@ Now that the required packages are installed on the Linux virtual machine, the n
     ```
     sudo realm discover CONTOSO100.COM
     ```
-    ![Realm discover](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-realmd-discover.png)
 
     If **realm discover** is unable to find your managed domain, ensure that the domain is reachable from the virtual machine (try ping). Also ensure that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
 2. Initialize kerberos. In your SSH terminal, type the following command: Ensure that you specify a user who belongs to the 'AAD DC Administrators' group. Only these users can join computers to the managed domain.
     ```
     kinit bob@CONTOSO100.COM
     ```
-    ![Kinit](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-kinit.png)
 
     Ensure that you specify the domain name in capital letters, else kinit fails.
 3. Join the machine to the domain. In your SSH terminal, type the following command: Specify the same user you specified in the preceding step ('kinit').
     ```
     sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM'
     ```
-    ![Realm join](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-realmd-join.png)
 
 You should get a message ("Successfully enrolled machine in realm") when the machine is successfully joined to the managed domain.
 
