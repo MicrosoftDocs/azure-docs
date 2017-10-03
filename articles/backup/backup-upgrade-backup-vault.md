@@ -54,6 +54,7 @@ The first screen shows the vault dashboard that displays key entities for the va
 ![example of Recovery Services vault upgraded from a Backup vault](./media/backup-azure-upgrade-backup-to-recovery-services/upgraded-rs-vault-in-dashboard.png)
 
 The second screen shows the help links available to help you get started using the Recovery Services vault.
+
 ![help links in the Quick Start blade](./media/backup-azure-upgrade-backup-to-recovery-services/quick-start-w-help-links.png)
 
 ## Post-upgrade steps
