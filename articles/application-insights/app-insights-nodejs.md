@@ -23,7 +23,7 @@ ms.author: mbullwin
 
 To receive, store, and explore your monitoring data, include the SDK in your code, and then set up a corresponding Application Insights resource in Azure. The SDK sends data to that resource for further analysis and exploration.
 
-The Node.js SDK can automatically monitor incoming and outgoing HTTP requests, exceptions, and some system metrics. Beginning in version 0.20, the SDK also can monitor some common third-party packages, like `mongodb`, `mysql`, and `redis`. All events related to an incoming HTTP request are correlated for faster troubleshooting.
+The Node.js SDK can automatically monitor incoming and outgoing HTTP requests, exceptions, and some system metrics. Beginning in version 0.20, the SDK also can monitor some common third-party packages, like MongoDB, MySQL, and Redis. All events related to an incoming HTTP request are correlated for faster troubleshooting.
 
 You can use the TelemetryClient API to manually instrument and monitor additional aspects of your app and system. We describe the TelemetryClient API in more detail later in this article.
 
@@ -69,7 +69,7 @@ Include the SDK in your app, so it can gather data.
 
 3. Explicitly load the library in your code. Because the SDK injects instrumentation into many other libraries, load the library as early as possible, even before other `require` statements. 
 
-  1. At the top of your first .js file add the following code. The `setup` method configures the ikey (and thus, the Azure resource) to be used by default for all tracked items.
+  1. At the top of your first .js file, add the following code. The `setup` method configures the ikey (and thus, the Azure resource) to be used by default for all tracked items.
 
     ```javascript
     const appInsights = require("applicationinsights");
@@ -89,7 +89,7 @@ Include the SDK in your app, so it can gather data.
 
 The SDK automatically gathers telemetry about the Node.js runtime and about some common third-party modules. Use your application to generate some of this data.
 
-Then, in the [Azure portal][portal] go to the Application Insights resource that you created earlier. In the **Overview** timeline, look for your first few data points. To see more detailed data, select different components in the charts.
+Then, in the [Azure portal][portal] go to the Application Insights resource that you created earlier. In the **Overview timeline**, look for your first few data points. To see more detailed data, select different components in the charts.
 
 ![First data points](./media/app-insights-nodejs/12-first-perf.png)
 
