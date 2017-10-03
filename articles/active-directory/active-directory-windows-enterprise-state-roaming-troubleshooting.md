@@ -4,8 +4,8 @@ description: Provides answers to some questions IT administrators might have abo
 services: active-directory
 keywords: enterprise state roaming settings, windows cloud, frequently asked questions on enterprise state roaming
 documentationcenter: ''
-author: tanning
-manager: swadhwa
+author: MarkusVi
+manager: femila
 editor: ''
 
 ms.assetid: f45d0515-99f7-42ad-94d8-307bc0d07be5
@@ -14,25 +14,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 10/03/2017
 ms.author: markvi
+ms.reviewer: tanning
+ms.custom: it-pro
 
 ---
-#Troubleshooting Enterprise State Roaming settings in Azure Active Directory
+
+# Troubleshooting Enterprise State Roaming settings in Azure Active Directory
 
 This topic provides information on how to troubleshoot and diagnose issues with Enterprise State Roaming, and provides a list of known issues.
 
 ## Preliminary steps for troubleshooting 
-Before beginning troubleshooting verify that the user and device have been configured properly, and that all the requirements of Enterprise State Roaming are met by the device and the user. 
+Before you start troubleshooting, verify that the user and device have been configured properly, and that all the requirements of Enterprise State Roaming are met by the device and the user. 
 
 1. Windows 10, with the latest updates, and a minimum Version 1511 (OS Build 10586 or later) is installed on the device. 
-2. The device is Azure AD joined, or domain-joined and registered with Azure AD.
-3. In the Azure Active Directory portal, **Enterprise State Roaming** is enabled for the directory under **Configure** > **Devices** > **Users May Sync Settings and Enterprise App Data**. Either all users are selected, or the user is enabled for syncing through the selected option, and included in the security group.
-4. The user has an Azure Active Directory Premium subscription assigned to them.  
-5. The device has been restarted, and the user has logged in after Enterprise State Roaming has been enabled.
+2. The device is Azure AD joined or hybrid Azure AD joined. For more information, see [how to get a device under the control of Azure AD](device-management-introduction.md).
+3. Ensure that **Enterprise State Roaming** is enabled for the tenant in Azure AD as described in [To enable Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-enable.md). You can enable roaming for all users or for only a selected group of users.
+4. The user must already be assigned an Azure Active Directory Premium license.  
+25. The device must be restarted, and the user must sign in to access Enterprise State Roaming features.
 
 ## Information to include when you need help
-If you cannot solve your issue with the guidance below, you can contact our support engineers. When you contact them, it is recommended to include the following information:
+If you cannot solve your issue with the guidance below, you can contact our support engineers. When you contact them, include the following information:
 
 - **General description of the error** – Are there error messages seen by the user? If there was no error message, describe the unexpected behavior you noticed, in detail. What features are enabled for sync and what is the user expecting to sync? Are multiple features not syncing or is it isolated to one?
 - **Users affected** – Is sync working/failing for one user or multiple users? How many devices are involved per user? Are all of them not syncing or are some of them syncing and some not syncing?
