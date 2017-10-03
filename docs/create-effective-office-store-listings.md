@@ -137,11 +137,11 @@ Make your screenshots rich and informative. Help customers understand how your s
 |**Do**|**Don't**|
 |:------------|:--------------|
 |Use clear and simple captions to convey your add-in's value.|Don’t use callouts that obstruct important content.|
-|![Do basic screenshot example](../images/screenshot_do1.png)|![Don't basic screenshot example](../images/screenshot_dont1_2.png)|
+|![Screenshot of an add-in with a clear and simple caption](../images/screenshot_do1.png)|![Screenshot of an add-in with callouts that obstruct the text](../images/screenshot_dont1_2.png)|
 |When needed, make content legible with magnified close-ups.|Don't highlight more than one section.|
-|![Do highlight example](../images/highlight_do1.png)|![Do highlight example](../images/highlight_dont1.png)|
+|![Screenshot of an add-in with one magnified closeup](../images/highlight_do1.png)|![Screenshot of an add-in with two magnified closeups](../images/highlight_dont1.png)|
 |Incorporate recognizable brand elements like color or logo into screenshots.|Don't add unnecessary graphic elements that obstruct content.|
-|![Do highlight example](../images/brandColor_do1_2.png)|![Do highlight example](../images/brandColor_dont1_2.png)|
+|![Screenshot of an add-in with color and logo](../images/brandColor_do1_2.png)|![Screenshot of an add-in with multiple graphic elements](../images/brandColor_dont1_2.png)|
 
 ## Use ratings and reviews
 <a name="bk_ratings"> </a>
