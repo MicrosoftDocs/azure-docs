@@ -47,6 +47,10 @@ cd service-fabric-java-getting-started/Services/JenkinsDocker/
 sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
 ```
 
+> [!NOTE]
+> To mount cifs shares, you need to have the cifs-utils package installed in the cluster nodes. 
+>
+
 4. Update the placeholder values in the ```setupentrypoint.sh``` script with corresponding azure-storage details.
 ```sh
 vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh

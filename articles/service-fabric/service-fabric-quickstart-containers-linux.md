@@ -43,9 +43,9 @@ To deploy containers to Service Fabric, you need a set of manifest files (the ap
 In the cloud shell, use git to clone a copy of the application definition.
 
 ```azurecli-interactive
-git clone https://github.com/Azure-Samples/service-fabric-dotnet-containers.git
+git clone https://github.com/Azure-Samples/service-fabric-linux-container-quickstarts.git
 
-cd service-fabric-dotnet-containers/Linux/container-tutorial/Voting
+cd service-fabric-linux-container-quickstarts/container-python-redis/Voting
 ```
 
 ## Deploy the containers to a Service Fabric cluster in Azure
