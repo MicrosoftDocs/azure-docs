@@ -4,7 +4,7 @@ description: Presents a Python Flask code sample you can use to connect to and q
 services: cosmos-db
 documentationcenter: ''
 author: hshapiro
-manager: sramsay
+manager: dwashin
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 8/3/2017
+ms.date: 10/2/2017
 ms.author: hshapiro
 
 ---
