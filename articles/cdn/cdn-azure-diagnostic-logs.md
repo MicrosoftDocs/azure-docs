@@ -20,7 +20,7 @@ ms.author: v-deasim
 
 # Azure diagnostic logs
 
-Azure diagnostic logs is available for all CDN endpoints belonging to Verizon (Standard & Premium) and Akamai (Standard) CDN Profiles. For more information, see [Diagnostic Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+Azure diagnostic logs is available for all CDN endpoints belonging to Verizon (Standard and Premium) and Akamai (Standard) CDN Profiles. For more information, see [Diagnostic Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
 
 With this feature, you can view core analytics and save them into one or more destinations including:
 
@@ -28,21 +28,21 @@ With this feature, you can view core analytics and save them into one or more de
  - Azure Event Hubs
  - [OMS Log Analytics repository](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
- This feature is available for all CDN endpoints belonging to Verizon (Standard & Premium) and Akamai (Standard) CDN Profiles.
+This feature is available for all CDN endpoints belonging to Verizon (Standard and Premium) and Akamai (Standard) CDN Profiles.
 
 For more information about diagnostic logs, see [Diagnostic Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
 
 Azure diagnostics logs allow you to export basic usage metrics from your CDN endpoint to a variety of sources so that you can consume them in a customized way. For example, you can do the following types of data export:
 
-- Export data to blob storage, export to CSV, and generate graphs in excel.
-- Export data to event hubs and correlate with data from other azure services.
+- Export data to blob storage, export to CSV, and generate graphs in Excel.
+- Export data to Event Hubs and correlate with data from other Azure services.
 - Export data to log analytics and view data in your own OMS work space
 
-The following figure shows a typical CDN Core Analytics view into data.
+The following figure shows a typical CDN core analytics view into data.
 
 ![portal - Diagnostics logs](./media/cdn-diagnostics-log/01_OMS-workspace.png)
 
-*Figure 1 - CDN Core Analytics view*
+*Figure 1 - CDN core analytics view*
 
 The following walkthrough goes through the schema of the core analytics data, steps involved in enabling the feature and delivering them to various destinations, and consuming from these destinations.
 
@@ -51,7 +51,7 @@ The following walkthrough goes through the schema of the core analytics data, st
 > [!NOTE]
 > The diagnostics logs are turned **off** by default. 
 
-Follow the steps below to enable logging with CDN Core Analytics:
+Follow the steps below to enable logging with CDN core analytics:
 
 Sign in to the [Azure portal](http://portal.azure.com). If you don't already have CDN enabled for your workflow, [Enable Azure CDN](cdn-create-new-endpoint.md) before you continue.
 
@@ -112,7 +112,7 @@ To use OMS Log Analytics to store the logs, follow these steps:
 
     Your OMS repository is now ready to log data. In order to consume that data, you must use an [OMS Solution](#consuming-oms-log-analytics-data), covered later in this article.
 
-For more information about log data delays, go [here](#log-data-delays).
+For more information about log data delays, see [Log data delays](#log-data-delays).
 
 ## Enable logging with PowerShell
 
@@ -142,7 +142,7 @@ To Enable Diagnostics Logs in an OMS workspace, use this command:
 
 
 ## Consuming diagnostics logs from Azure Storage
-This section describes the schema of the CDN core analytics, how these are organized inside of an Azure Storage Account and provides sample code to download the logs in to a CSV file.
+This section describes the schema of the CDN core analytics, how these are organized inside of an Azure Storage Account and provides sample code to download the logs into a CSV file.
 
 ### Using Microsoft Azure Storage Explorer
 Before you can access the core analytics data from the Azure Storage Account, you first need a tool to access the contents in a storage account. While there are several tools available in the market, the one that we recommend is the Microsoft Azure Storage Explorer. You can download the tool from [here](http://storageexplorer.com/). After downloading and installing the software, configure it to use the same Azure Storage Account that was configured as a destination to the CDN Diagnostics Logs.
@@ -153,13 +153,13 @@ Before you can access the core analytics data from the Azure Storage Account, yo
 4.	Select the container named **“insights-logs-coreanalytics”** and double-click it
 5.	Results show up on the right-hand pane starting with the first level, which looks like **“resourceId=”**. Continue clicking all the way until you see the file **PT1H.json**. See the following note for explanation of the path.
 6.	Each blob **PT1H.json** represents the analytics logs for one hour for a specific CDN endpoint or its custom domain.
-7.	The schema of the contents of this JSON file is described in the section Schema of the Core Analytics Logs
+7.	The schema of the contents of this JSON file is described in the section Schema of the core analytics logs
 
 
 > [!NOTE]
 > **Blob path format**
 > 
-> Core Analytics logs are generated every hour. All data for an hour are collected and stored inside a single Azure Blob as a JSON payload. The path to this Azure Blob appears as if there is a hierarchical structure. This is because the Storage explorer tool interprets '/' as a directory separator and shows the hierarchy for convenience. Actually, the whole path just represents the blob name. This name of the blob follows the following naming convention	
+> Core analytics logs are generated every hour. All data for an hour are collected and stored inside a single Azure Blob as a JSON payload. The path to this Azure Blob appears as if there is a hierarchical structure. This is because the Storage explorer tool interprets '/' as a directory separator and shows the hierarchy for convenience. Actually, the whole path just represents the blob name. This name of the blob follows the following naming convention	
 	
 	resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y={Year}/m={Month}/d={Day}/h={Hour}/m={Minutes}/PT1H.json
 
@@ -176,9 +176,9 @@ Before you can access the core analytics data from the Azure Storage Account, yo
 |Day|	2 digit representation of the day of the month|
 |PT1H.json|	Actual JSON file where the analytics data is stored|
 
-### Exporting the Core Analytics Data to a CSV File
+### Exporting the core analytics data to a CSV file
 
-To make it easy to access the Core Analytics, we provide a sample code for a tool, which allows downloading the JSON files into a flat comma-separated file format, which can be used to easily create charts or other aggregations.
+To make it easy to access core analytics, we provide a sample code for a tool, which allows downloading the JSON files into a flat comma-separated file format, which can be used to easily create charts or other aggregations.
 
 Here is how you can use the tool:
 
@@ -201,7 +201,7 @@ To use Log Analytics, you must [enable logging](#enable-logging-with-azure-stora
 
 *Figure 3 - Log Analytics Repository*
 
-You can display the data in a variety of ways by using Management Solutions. You can obtain Management Solutions from the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions).
+You can display the data in a variety of ways by using Management Solutions. You can obtain Management Solutions from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions).
 
 You can install management solutions from Azure marketplace by clicking the **Get it now** link at the bottom of each solution.
 
@@ -289,21 +289,21 @@ Verizon log data delays | Akamai log data delays
 --- | ---
 Verizon log data is 1 hour delayed, and take up to 2 hours to start appearing after endpoint propagation completion. | Akamai log data is 24 hours delayed, and takes up to 2 hours to start appearing if it was created more than 24 hours ago. If it was recently created, it can take up to 25 hours for the logs to start appearing.
 
-## Diagnostic log types for CDN Core Analytics
+## Diagnostic log types for CDN core analytics
 
-We currently offer only Core Analytics logs, which contain metrics showing HTTP response statistics and egress statistics as seen from the CDN POPs/edges.
+We currently offer only core analytics logs, which contain metrics showing HTTP response statistics and egress statistics as seen from the CDN POPs/edges.
 
-### Core Analytics Metrics Details
-The following table shows a list of metrics available in the Core Analytics logs. Not all metrics are available from all providers, although such differences are minimal. The following table also shows if a given metric is available from a provider. Please note that the metrics are available for only those CDN endpoints that have traffic on them.
+### Core analytics metrics details
+The following table shows a list of metrics available in the core analytics logs. Not all metrics are available from all providers, although such differences are minimal. The following table also shows if a given metric is available from a provider. Note that the metrics are available for only those CDN endpoints that have traffic on them.
 
 
 |Metric                     | Description   | Verizon  | Akamai 
 |---------------------------|---------------|---|---|
 | RequestCountTotal         |Total number of request hits during this period| Yes  |Yes   |
-| RequestCountHttpStatus2xx |Count of all requests that resulted in a 2xx HTTP code (e.g. 200, 202)              | Yes  |Yes   |
-| RequestCountHttpStatus3xx | Count of all requests that resulted in a 3xx HTTP code (e.g. 300, 302)              | Yes  |Yes   |
-| RequestCountHttpStatus4xx |Count of all requests that resulted in a 4xx HTTP code (e.g. 400, 404)               | Yes   |Yes   |
-| RequestCountHttpStatus5xx | Count of all requests that resulted in a 5xx HTTP code (e.g. 500, 504)              | Yes  |Yes   |
+| RequestCountHttpStatus2xx |Count of all requests that resulted in a 2xx HTTP code (for example, 200, 202)              | Yes  |Yes   |
+| RequestCountHttpStatus3xx | Count of all requests that resulted in a 3xx HTTP code (for example, 300, 302)              | Yes  |Yes   |
+| RequestCountHttpStatus4xx |Count of all requests that resulted in a 4xx HTTP code (for example, 400, 404)               | Yes   |Yes   |
+| RequestCountHttpStatus5xx | Count of all requests that resulted in a 5xx HTTP code (for example, 500, 504)              | Yes  |Yes   |
 | RequestCountHttpStatusOthers |  Count of all other HTTP codes (outside of 2xx-5xx) | Yes  |Yes   |
 | RequestCountHttpStatus200 | Count of all requests that resulted in a 200 HTTP code response              |No   |Yes   |
 | RequestCountHttpStatus206 | Count of all requests that resulted in a 206 HTTP code response              |No   |Yes   |
@@ -330,7 +330,7 @@ The following table shows a list of metrics available in the Core Analytics logs
 *Outbound data transfer refers to traffic delivered from CDN POP servers to the client.
 
 
-### Schema of the Core Analytics Logs 
+### Schema of the core analytics logs 
 
 All logs are stored in JSON format and each entry has string fields following the below schema:
 
