@@ -156,8 +156,6 @@ See [dependency telemetry](app-insights-asp-net-dependencies.md) and [exception 
 ## No performance data
 Performance data (CPU, IO rate, and so on) is available for [Java web services](app-insights-java-collectd.md), [Windows desktop apps](app-insights-windows-desktop.md), [IIS web apps and services if you install status monitor](app-insights-monitor-performance-live-website-now.md), and [Azure Cloud Services](app-insights-azure.md). you'll find it under Settings, Servers.
 
-It isn't available for Azure websites.
-
 ## No (server) data since I published the app to my server
 * Check that you actually copied all the Microsoft. ApplicationInsights DLLs to the server, together with Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll
 * In your firewall, you might have to [open some TCP ports](app-insights-ip-addresses.md#data-access-api).
