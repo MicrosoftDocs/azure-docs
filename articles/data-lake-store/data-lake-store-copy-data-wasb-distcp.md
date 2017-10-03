@@ -67,7 +67,7 @@ An HDInsight cluster comes with the Distcp utility, which can be used to copy da
 
 ## Performance considerations while using DistCp
 
-Because DistCp’s lowest granularity is a single file, setting the maximum number of simultaneous copies is the most important parameter to optimize it against Data Lake Store. Number of simultaneoou copies is controlled by setting the number of mappers (‘m’) parameter on the command line. This parameter specifies the maximum number of mappers that are used to copy data. Default value is 20.
+Because DistCp’s lowest granularity is a single file, setting the maximum number of simultaneous copies is the most important parameter to optimize it against Data Lake Store. Number of simultaneous copies is controlled by setting the number of mappers (‘m’) parameter on the command line. This parameter specifies the maximum number of mappers that are used to copy data. Default value is 20.
 
 **Example**
 
