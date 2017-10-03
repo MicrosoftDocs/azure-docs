@@ -112,7 +112,7 @@ Http Functions:
 
 Trigger the function from the command line using curl in a new terminal:
 
-```bash
+```
 curl -w '\n' -d LocalFunction http://localhost:7071/api/hello
 ```
 
@@ -126,7 +126,7 @@ Use `Ctrl-C` in the terminal to stop the function code.
 
 The deploy process to Azure Functions uses account credentials from the Azure CLI. [Log in with the Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) and then deploy your code into a new Function app using the `azure-functions:deploy` Maven target.
 
-```bash
+```
 az login
 mvn azure-fuctions:deploy
 ```
@@ -143,7 +143,7 @@ When the deploy is complete, you see the URL you can use to access your Azure fu
 
 Test the function app running on Azure using curl:
 
-```bash
+```
 curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
 ```
 
