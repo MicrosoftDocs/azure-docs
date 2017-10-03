@@ -29,6 +29,7 @@ This quick start requires the Azure PowerShell module version 3.6 or later. Run 
 
 Finally, a public SSH key with the name *id_rsa.pub* needs to be stored in the *.ssh* directory of your Windows user profile. For detailed information on creating SSH keys for Azure, see [Create SSH keys for Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
+
 ## Log in to Azure
 
 Log in to your Azure subscription with the `Login-AzureRmAccount` command and follow the on-screen directions.

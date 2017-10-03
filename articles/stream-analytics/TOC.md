@@ -25,7 +25,6 @@
 ### [Integrate JavaScript UDFs](stream-analytics-javascript-user-defined-functions.md)
 ### [Integrate REST API & Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 ### [Create outputs](stream-analytics-define-outputs.md)
-### [Output to Azure Functions](stream-analytics-functions-redis.md)
 ### [Output to Data Lake Store](stream-analytics-data-lake-output.md)
 ### [Output to Cosmos DB](stream-analytics-documentdb-output.md)
 
@@ -39,7 +38,8 @@
 ### [Monitor jobs](stream-analytics-monitoring.md)
 ### [Monitor jobs programmatically](stream-analytics-monitor-jobs.md)
 ### [Monitor jobs with PowerShell](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
-### [Optimize Streaming Units](stream-analytics-streaming-unit-consumption.md)
+### [Understand and adjust Streaming Units](stream-analytics-streaming-unit-consumption.md)
+### [Leverage query parallelization](stream-analytics-parallelization.md)
 ### [Scale to increase throughput](stream-analytics-scale-jobs.md)
 ### [Scale for Machine Learning functions](stream-analytics-scale-with-machine-learning-functions.md)
 
