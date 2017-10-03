@@ -23,7 +23,7 @@ This article describes how Azure Resource Manager SDK-based scripts can be used 
 
 This article applies to StorSimple 8000 series devices running in Azure portal only.
 
-## Sample scripts to automate StorSimple jobs
+## Sample scripts
 
 The following sample scripts are available to automate various StorSimple jobs.
 
@@ -47,7 +47,13 @@ The following sample scripts are available to automate various StorSimple jobs.
 | [Verify-BackupScheduleAndBackup.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Verify-BackupScheduleAndBackup.ps1)               | This script highlights the missing backups after analyzing all the schedules associated with backup policies. It also verifies the backup catalog with the list of available backups.             |
 
 
-## Prerequisites
+
+
+## Configure and run a sample script
+
+This section takes an example script and details the various steps required to run the script.
+
+### Prerequisites
 
 Before you begin, ensure that you have:
 
@@ -57,18 +63,20 @@ Before you begin, ensure that you have:
 
 For more information about using Azure PowerShell, go to [Get started with using Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps?view=azurermps-4.4.0).
 
-## Configure and run a sample script
+### Run Azure PowerShell script
 
-This section takes an example script and details the various steps required to run the script. The following script lists all the jobs on a StorSimple device. This includes the jobs that succeeded, failed, or are in progress.
+The script used in this example lists all the jobs on a StorSimple device. This includes the jobs that succeeded, failed, or are in progress. Perform the following steps to download and run the script.
 
-1. Launch PowerShell. Create a new folder and change directory to the new folder.
+1. Launch Azure PowerShell. Create a new folder and change directory to the new folder.
 
     ```
                 mkdir C:\scripts\StorSimpleSDKTools
                 cd C:\scripts\StorSimpleSDKTools
 
     ```    
-2. [Download nuget CLI](http://www.nuget.org/downloads) under the folder created in the previous step. There are various versions of _nuget.exe_. Choose the version corresponding to your SDK. Each download link points directly to an _.exe_ file. Be sure to right-click and save the file to your computer rather than running it from the browser. You can also run the following command to download and store the script in the same folder that you created earlier.
+2. [Download nuget CLI](http://www.nuget.org/downloads) under the folder created in the previous step. There are various versions of _nuget.exe_. Choose the version corresponding to your SDK. Each download link points directly to an _.exe_ file. Be sure to right-click and save the file to your computer rather than running it from the browser.
+
+You can also run the following command to download and store the script in the same folder that you created earlier.
 
     ```
                 wget https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -Out C:\scripts\StorSimpleSDKTools\nuget.exe
@@ -96,7 +104,7 @@ This section takes an example script and details the various steps required to r
 
     ```
 
-#### Sample output
+### Sample output
 
 The following output is presented when the sample script is run. The output contains all the jobs that ran on a registered device that started on 9/25/2017 and completed by 10/02/2017.
 
