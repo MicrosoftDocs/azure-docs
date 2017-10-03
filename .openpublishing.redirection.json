@@ -6226,6 +6226,16 @@
             "redirect_document_id": false
         },
         {
+          "source_path": "articles/iot-suite/iot-solution-build-system.md",
+          "redirect_url": "https://github.com/Azure-Samples/MyDriving/blob/master/docs/iot-solution-build-system.md",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-solution-get-started.md",
+          "redirect_url": "https://github.com/Azure-Samples/MyDriving/blob/master/docs/iot-solution-get-started.md",
+          "redirect_document_id": false
+        },
+        {
             "source_path": "articles/iot-hub/iot-hub-gateway-kit-c-sim-troubleshooting.md",
             "redirect_url": "/azure/iot-hub/iot-hub-gateway-kit-c-troubleshooting",
             "redirect_document_id": false
@@ -11283,6 +11293,21 @@
         {
             "source_path": "articles/container-service/container-service-tutorial-kubernetes-scale.md",
             "redirect_url": "/azure/container-service/kubernetes/container-service-tutorial-kubernetes-scale",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/kubernetes/container-service-security.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-intro-kubernetes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/kubernetes/container-service-kubernetes-load-balancing.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-intro-kubernetes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/kubernetes/container-service-connect.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-kubernetes-walkthrough",
             "redirect_document_id": false
         },
         {

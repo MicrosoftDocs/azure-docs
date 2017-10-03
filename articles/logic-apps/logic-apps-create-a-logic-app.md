@@ -23,10 +23,10 @@ ms.author: LADocs; estfan
 Without writing code, you can integrate systems and services 
 by building and running automated workflows with 
 [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md). 
-This tutorial creates a basic logic app that checks an RSS feed 
-for new content on a website. For each new item in the feed, 
-the logic app sends an email. This tutorial walks you through 
-building this logic app:
+To show how easily you can automate tasks with a workflow, 
+this tutorial creates a basic logic app that checks an RSS feed 
+for new content on a website and sends an email for each new item 
+in the feed. 
 
 ![Overview - first logic app example](./media/logic-apps-create-a-logic-app/logic-app-overview.png)
 
@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 > * Create a blank logic app.
 > * Add a trigger for starting your logic app when an RSS feed item is published.
 > * Add an action for sending email with details about the RSS feed item.
-> * Run and check your logic app.
+> * Run and test your logic app.
 
 ## Prerequisites
 
@@ -80,7 +80,8 @@ Outlook.com, Gmail, or another supported provider. This tutorial uses Office 365
    | **Location** | *your-Azure-region* | Select the datacenter region for deploying your logic app. | 
    |||| 
 
-4. When you're ready, select **Pin to dashboard**, then choose **Create**.
+4. When you're ready, select **Pin to dashboard**, 
+then choose **Create**.
 
    You've now created an Azure resource for your logic app. 
    After Azure deploys your logic app, the Logic Apps Designer 
@@ -170,17 +171,13 @@ sign in with the username and password for your email account.
 4. Provide the details specified in the table and 
 choose the fields that you want included in the mail.
 
-   * To select fields available for your workflow, 
-   click in an edit box so that the **Dynamic content** list opens, 
-   or choose **Add dynamic content**. 
-   
-   * To view any other available fields, 
-   choose **See more** for each section in the **Dynamic content** list. 
-
-   * To add blank lines in your content, press Shift + Enter.
-   
-   * To close the **Dynamic content** list, 
-   choose **Add dynamic content**.
+   | To | Steps | 
+   | -- | ----- | 
+   | Select fields available for your workflow. | Click inside an edit box so that the **Dynamic content** list opens, or choose **Add dynamic content**. | 
+   | View other available fields. | In the **Dynamic content** list, choose **See more** for each section.  | 
+   | Add blank lines in an edit box. | Press Shift + Enter. | 
+   | Close the **Dynamic content** list. | Choose **Add dynamic content** again. | 
+   ||| 
 
    ![Select data to include in email](./media/logic-apps-create-a-logic-app/rss-action-setup.png)
 
@@ -203,7 +200,7 @@ choose the fields that you want included in the mail.
 
    To test your logic app now, continue to the next section.
 
-## 4. Run and test your logic app workflow
+## 4. Run and test your workflow
 
 1. To manually run your logic app for testing, 
 on the designer toolbar bar, choose **Run**. 
