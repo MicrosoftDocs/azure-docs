@@ -63,35 +63,11 @@ Here, 'contoso100.com' is the DNS domain name of your managed domain. 'contoso-r
 
 
 ## Install required packages on the Linux virtual machine
-After connecting to the virtual machine, the next task is to install packages required for domain join on the virtual machine. Perform the following steps:
+Next, install packages required for domain join on the virtual machine. In your SSH terminal, type the following command to install the required packages:
 
-1. **Install realmd:** The realmd package is used for domain join. In your SSH terminal, type the following command:
     ```
-    sudo yum install realmd
+    sudo yum install realmd sssd krb5-workstation krb5-libs
     ```
-    ![Install realmd](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-install-realmd.png)
-
-    After a few minutes, the realmd package should get installed on the virtual machine.
-
-    ![realmd installed](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-realmd-installed.png)
-2. **Install sssd:** The realmd package depends on sssd to perform domain join operations. In your SSH terminal, type the following command:
-    ```
-    sudo yum install sssd
-    ```
-    ![Install sssd](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-install-sssd.png)
-
-    After a few minutes, the sssd package should get installed on the virtual machine.
-
-    ![realmd installed](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-sssd-installed.png)
-3. **Install kerberos:** In your SSH terminal, type the following command:
-
-    sudo yum install krb5-workstation krb5-libs
-
-    ![Install kerberos](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-install-kerberos.png)
-
-    After a few minutes, the realmd package should get installed on the virtual machine.
-
-    ![Kerberos installed](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-kerberos-installed.png)
 
 
 ## Join the Linux virtual machine to the managed domain
@@ -104,14 +80,14 @@ Now that the required packages are installed on the Linux virtual machine, the n
     ![Realm discover](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-realmd-discover.png)
 
     If **realm discover** is unable to find your managed domain, ensure that the domain is reachable from the virtual machine (try ping). Also ensure that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
-2. Initialize kerberos. In your SSH terminal, type the following command. Ensure that you specify a user who belongs to the 'AAD DC Administrators' group. Only these users can join computers to the managed domain.
+2. Initialize kerberos. In your SSH terminal, type the following command: Ensure that you specify a user who belongs to the 'AAD DC Administrators' group. Only these users can join computers to the managed domain.
     ```
     kinit bob@CONTOSO100.COM
     ```
     ![Kinit](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-kinit.png)
 
     Ensure that you specify the domain name in capital letters, else kinit fails.
-3. Join the machine to the domain. In your SSH terminal, type the following command. Specify the same user you specified in the preceding step ('kinit').
+3. Join the machine to the domain. In your SSH terminal, type the following command: Specify the same user you specified in the preceding step ('kinit').
     ```
     sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM'
     ```
