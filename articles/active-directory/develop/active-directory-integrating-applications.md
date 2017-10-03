@@ -1,9 +1,9 @@
 ---
-title: Integrating Applications with Azure Active Directory | Microsoft Docs
-description: Details on how to add, update, or remove an application in Azure Active Directory (Azure AD).
+title: Integrating Applications with Azure Active Directory 
+description: How to add, update, or remove an application in Azure Active Directory (Azure AD).
 services: active-directory
 documentationcenter: ''
-author: lnalepa
+author: bryanla
 manager: mbaldwin
 editor: mbaldwin
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/03/2017
-ms.author: lenalepa
+ms.date: 10/04/2017
+ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
 ---
@@ -36,12 +36,12 @@ Any application that wants to use the capabilities of Azure AD must first be reg
 3. In the left-hand navigation pane, click the **Azure Active Directory** service, click **App Registrations**, and click **New application registration**.
    ![Register a new application](./media/active-directory-integrating-applications/add-app-registration.png)
 4. When the "Create" page appears, enter your application's registration information: 
-   - **Name:** Enter a meaningful application name
-   - **Application type:** 
-     - Select "Native" for [client applications](active-directory-dev-glossary.md#client-application) that are installed locally on a device. This setting is used for OAuth public [native clients](active-directory-dev-glossary.md#native-client).
-     - Select "Web app / API" for [client applications](active-directory-dev-glossary.md#client-application) and [resource/API applications](active-directory-dev-glossary.md#resource-server) that are installed on a secure server. This setting is used for OAuth confidential [web clients](active-directory-dev-glossary.md#web-client) and public [user-agent-based clients](active-directory-dev-glossary.md#user-agent-based-application). The same application can also expose both a client and resource/API.
-   - **Sign-On URL:** For "Web app / API" applications, provide the base URL of your app, e.g. `http://localhost:12345`. This also where users would go to sign in to a web client application. 
-   - **Redirect URI:** For "Native" applications, provide the URI used by Azure AD return token responses. Enter a value specific to your application, .e.g `http://MyFirstAADApp`
+- **Name:** Enter a meaningful application name
+- **Application type:** 
+- Select "Native" for [client applications](active-directory-dev-glossary.md#client-application) that are installed locally on a device. This setting is used for OAuth public [native clients](active-directory-dev-glossary.md#native-client).
+- Select "Web app / API" for [client applications](active-directory-dev-glossary.md#client-application) and [resource/API applications](active-directory-dev-glossary.md#resource-server) that are installed on a secure server. This setting is used for OAuth confidential [web clients](active-directory-dev-glossary.md#web-client) and public [user-agent-based clients](active-directory-dev-glossary.md#user-agent-based-client). The same application can also expose both a client and resource/API.
+- **Sign-On URL:** For "Web app / API" applications, provide the base URL of your app, e.g. `http://localhost:12345`. This also where users would go to sign in to a web client application. 
+- **Redirect URI:** For "Native" applications, provide the URI used by Azure AD return token responses. Enter a value specific to your application, .e.g `http://MyFirstAADApp`
 
     ![Register a new application - create](./media/active-directory-integrating-applications/add-app-registration-create.png)
 
