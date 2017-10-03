@@ -7,7 +7,7 @@
 ## [Install SAP HANA](hana-installation.md)
 ## [High availability and disaster recovery](hana-overview-high-availability-disaster-recovery.md)
 ## [Troubleshoot and monitor](troubleshooting-monitoring.md)
-## [How to]
+## How to
 ### [HA Setup with STONITH](HASetupWithStonith.md)
 # SAP HANA on Azure Virtual Machines
 ## [Single instance SAP HANA](hana-get-started.md)

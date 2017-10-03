@@ -41,9 +41,10 @@ To setup the High availability using SUSE clustering, the following pre-requisit
 - NTP setup on one of the HANA Large Instance node
 
 When customer setup HANA Large Instances with HSR, customer can request Microsoft Service Management team to setup STONITH. If you are already an existing customer who have HANA Large Instances provisioned, and need STONITH device setup for your existing blades, you need to provide the following information to Microsoft Service Management team in the service request form (SRF). You can request SRF from thru the Technical Account Manager or your Microsoft Contact for HANA Large Instance onboarding. The new customers can request STONITH device at the time of provisioning. The inputs are available in the provisioning request form.
-•	Server Name and Server IP address (e.g., myhanaserver1, 10.35.0.1)
-•	Location (e.g., US East)
-•	Customer Name (e.g., Microsoft)
+
+- Server Name and Server IP address (e.g., myhanaserver1, 10.35.0.1)
+- Location (e.g., US East)
+- Customer Name (e.g., Microsoft)
 
 Once the STONITH device is configured, Microsoft Service Management team does provide you the SBD device name and IP address of the iSCSI storage which you can use to configure STONITH setup. 
 
@@ -146,12 +147,18 @@ Add node names and then click “Add suggested files”
 Click “Turn csync2 ON”
 
 Click “Generate Pre-Shared-Keys”, it shows below popup
+
 ![yast-key-file.png](media/HowToHLI/HASetupWithStonith/yast-key-file.png)
+
 Click **OK**
+
 Authentication is performed using the IP addresses and pre-shared-keys in Csync2. The key file is generated with csync2 -k /etc/csync2/key_hagroup. The file key_hagroup should be copied to all members of the cluster manually after it's created. **Ensure to copy the file from node 1 to node2**.
+
 ![yast-cluster-conntrackd.png](media/HowToHLI/HASetupWithStonith/yast-cluster-conntrackd.png)
+
 Click **Next**
 ![yast-cluster-service.png](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)
+
 In default option, Booting was off, change it to “on” so pacemaker is started on boot. You can make choice based on your setup requirements.
 Click **Next** and setup is complete.
 
@@ -385,6 +392,7 @@ Package installation proceeds
 ![yast-performing-installation.png](media/HowToHLI/HASetupWithStonith/yast-performing-installation.png)
 
 Click Next
+
 ![yast-installation-report.png](media/HowToHLI/HASetupWithStonith/yast-installation-report.png)
 
 Click Finish
@@ -419,12 +427,15 @@ Select the patterns
 ![yast-pattern2.png](media/HowToHLI/HASetupWithStonith/yast-pattern2.png)
 
 Click **Accept**
+
 ![yast-changed-packages.png](media/HowToHLI/HASetupWithStonith/yast-changed-packages.png)
 
 Click **Continue**
+
 ![yast2-performing-installation.png](media/HowToHLI/HASetupWithStonith/yast2-performing-installation.png)
 
 Click **Next** when Installation is complete
+
 ![yast2-installation-report.png](media/HowToHLI/HASetupWithStonith/yast2-installation-report.png)
 
 ### Scenario 4: HANA Installation fails with gcc assemblies error
