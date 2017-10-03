@@ -20,7 +20,7 @@ ms.author: xshi
 ---
 # Save IoT hub messages that contain sensor data to your Azure blob storage
 
-![End-to-end diagram](media/iot-hub-get-started-e2e-diagram/3.png)
+![End-to-end diagram](media/iot-hub-store-data-in-azure-table-storage/1_route-to-storage.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
