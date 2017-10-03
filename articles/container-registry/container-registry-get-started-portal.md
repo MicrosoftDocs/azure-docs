@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 10/08/2017
 ms.author: marsma
 ms.custom:
 ---
@@ -40,7 +40,9 @@ Enter values for **Registry name** and **Resource group**. The registry name mus
 
 ![Creating a container registry in the Azure portal][qs-portal-03]
 
-Azure Container Registry is available in several SKUs: `Classic`, `Basic`, `Standard`, and `Premium`. Although `Basic`, `Standard`, and `Premium` provide advanced capabilities like managed storage and Webhooks, they're currently in preview, and are unavailable in some Azure regions. We select the `Classic` SKU in this quickstart due to its availability in all regions.
+In this quickstart, we create a *Basic* registry. Azure Container Registry is available in several different SKUs, described briefly in the following table. For extended details on each, see [Select a registry type](container-registry-intro.md).
+
+[!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
 When the **Deployment succeeded** message appears, select the container registry in the portal, then select **Access keys**.
 
