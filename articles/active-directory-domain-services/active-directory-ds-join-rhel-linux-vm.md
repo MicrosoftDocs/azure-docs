@@ -1,0 +1,152 @@
+---
+title: 'Azure Active Directory Domain Services: Join a RHEL VM to a managed domain | Microsoft Docs'
+description: Join a Red Hat Enterprise Linux virtual machine to Azure AD Domain Services
+services: active-directory-ds
+documentationcenter: ''
+author: mahesh-unnikrishnan
+manager: mahesh-unnikrishnan
+editor: curtand
+
+ms.assetid: d76ae997-2279-46dd-bfc5-c0ee29718096
+ms.service: active-directory-ds
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/04/2017
+ms.author: maheshu
+
+---
+# Join a Red Hat Enterprise Linux 7 virtual machine to a managed domain
+This article shows you how to join a Red Hat Enterprise Linux (RHEL) 7 virtual machine to an Azure AD Domain Services managed domain.
+
+## Before you begin
+To perform the tasks listed in this article, you need:  
+1. A valid **Azure subscription**.
+2. An **Azure AD directory** - either synchronized with an on-premises directory or a cloud-only directory.
+3. **Azure AD Domain Services** must be enabled for the Azure AD directory. If you haven't done so, follow all the tasks outlined in the [Getting Started guide](active-directory-ds-getting-started.md).
+4. Ensure that you have configured the IP addresses of the managed domain as the DNS servers for the virtual network. For more information, see [how to update DNS settings for the Azure virtual network](active-directory-ds-getting-started-dns.md)
+5. Complete the steps required to [synchronize passwords to your Azure AD Domain Services managed domain](active-directory-ds-getting-started-password-sync.md).
+
+
+## Provision a Red Hat Enterprise Linux virtual machine
+Provision a RHEL 7 virtual machine in Azure, using any of the following methods:
+* [Azure portal](../virtual-machines/linux/quick-create-portal.md)
+* [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
+* [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
+
+> [!IMPORTANT]
+> * Deploy the virtual machine into the **same virtual network in which you have enabled Azure AD Domain Services**.
+> * Pick a **different subnet** than the one in which you have enabled Azure AD Domain Services.
+>
+
+
+## Connect remotely to the newly provisioned Linux virtual machine
+The RHEL 7.2 virtual machine has been provisioned in Azure. The next task is to connect remotely to the virtual machine using the local administrator account created while provisioning the VM.
+
+Follow the instructions in the article [How to log on to a virtual machine running Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
+
+## Configure the hosts file on the Linux virtual machine
+In your SSH terminal, edit the /etc/hosts file and update your machine’s IP address and hostname.
+
+```
+sudo vi /etc/hosts
+```
+
+In the hosts file, enter the following value:
+
+```
+127.0.0.1 contoso-rhel.contoso100.com contoso-rhel
+```
+Here, 'contoso100.com' is the DNS domain name of your managed domain. 'contoso-rhel' is the hostname of the RHEL virtual machine you are joining to the managed domain.
+
+
+## Install required packages on the Linux virtual machine
+After connecting to the virtual machine, the next task is to install packages required for domain join on the virtual machine. Perform the following steps:
+
+1. **Install realmd:** The realmd package is used for domain join. In your PuTTY terminal, type the following command:
+    ```
+    sudo yum install realmd
+    ```
+    ![Install realmd](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-install-realmd.png)
+
+    After a few minutes, the realmd package should get installed on the virtual machine.
+
+    ![realmd installed](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-realmd-installed.png)
+2. **Install sssd:** The realmd package depends on sssd to perform domain join operations. In your PuTTY terminal, type the following command:
+    ```
+    sudo yum install sssd
+    ```
+    ![Install sssd](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-install-sssd.png)
+
+    After a few minutes, the sssd package should get installed on the virtual machine.
+
+    ![realmd installed](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-sssd-installed.png)
+3. **Install kerberos:** In your PuTTY terminal, type the following command:
+
+    sudo yum install krb5-workstation krb5-libs
+
+    ![Install kerberos](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-install-kerberos.png)
+
+    After a few minutes, the realmd package should get installed on the virtual machine.
+
+    ![Kerberos installed](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-kerberos-installed.png)
+
+
+## Join the Linux virtual machine to the managed domain
+Now that the required packages are installed on the Linux virtual machine, the next task is to join the virtual machine to the managed domain.
+
+1. Discover the AAD Domain Services managed domain. In your PuTTY terminal, type the following command:
+    ```
+    sudo realm discover CONTOSO100.COM
+    ```
+    ![Realm discover](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-realmd-discover.png)
+
+    If **realm discover** is unable to find your managed domain, ensure that the domain is reachable from the virtual machine (try ping). Also ensure that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
+2. Initialize kerberos. In your PuTTY terminal, type the following command. Ensure that you specify a user who belongs to the 'AAD DC Administrators' group. Only these users can join computers to the managed domain.
+    ```
+    kinit bob@CONTOSO100.COM
+    ```
+    ![Kinit](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-kinit.png)
+
+    Ensure that you specify the domain name in capital letters, else kinit fails.
+3. Join the machine to the domain. In your PuTTY terminal, type the following command. Specify the same user you specified in the preceding step ('kinit').
+    ```
+    sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM'
+    ```
+    ![Realm join](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-realmd-join.png)
+
+You should get a message ("Successfully enrolled machine in realm") when the machine is successfully joined to the managed domain.
+
+
+## Verify domain join
+You can quickly verify whether the machine has been successfully joined to the managed domain. Connect to the newly domain joined RHEL VM using SSH and a domain user account and then check to see if the user account is resolved correctly.
+
+1. In your PuTTY terminal, type the following command to connect to the newly domain joined RHEL virtual machine using SSH. Use a domain account that belongs to the managed domain (for example, 'bob@CONTOSO100.COM' in this case.)
+    ```
+    ssh -l bob@CONTOSO100.COM contoso-rhel.contoso100.com
+    ```
+2. In your PuTTY terminal, type the following command to see if the home directory was initialized correctly.
+    ```
+    pwd
+    ```
+3. In your PuTTY terminal, type the following command to see if the group memberships are being resolved correctly.
+    ```
+    id
+    ```
+
+A sample output of these commands follows:
+
+![Verify domain join](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-verify-domain-join.png)
+
+
+## Troubleshooting domain join
+Refer to the [Troubleshooting domain join](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshooting-domain-join) article.
+
+## Related Content
+* [Azure AD Domain Services - Getting Started guide](active-directory-ds-getting-started.md)
+* [Join a Windows Server virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
+* [How to log on to a virtual machine running Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* [Installing Kerberos](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
+* [Red Hat Enterprise Linux 7 - Windows Integration Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html)
