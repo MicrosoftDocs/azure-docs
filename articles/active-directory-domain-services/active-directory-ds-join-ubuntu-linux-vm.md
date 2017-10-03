@@ -31,42 +31,15 @@ To perform the tasks listed in this article, you need:
 
 
 ## Provision an Ubuntu Linux virtual machine
-Perform the following steps to provision an Ubuntu Server virtual machine using the Azure portal.
+Provision an Ubuntu Linux virtual machine in Azure, using any of the following methods:
+* [Azure portal](../virtual-machines/linux/quick-create-portal.md)
+* [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
+* [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Click **New** on the left pane and click **Compute**. Click **Ubuntu Server 16.04 LTS**. You can also type **Ubuntu** into the **Search the Marketplace** textbox to see all supported Ubuntu images in the Azure marketplace.
-
-    ![Select RHEL in results](./media/domain-join/ubuntu-join-azure-portal-find-image.png)
-3. In the **Basics** page of the **Create virtual machine** wizard:
-    * Enter the **Name** for the new virtual machine.
-    * Specify a local administrator user name in the **User name** field.
-    * Select password as the **Authentication type** and type a secure **Password**. You may also choose to use an SSH key to authenticate the local administrator user.
-    * Choose the Azure **Subscription** in which you have enabled Azure AD Domain Services.
-    * Create an existing **Resource group** or create a new one.
-    * Choose the Azure region in which you have enabled Azure AD Domain Services in the **Location** dropdown.
-
-    ![Create VM - basics page](./media/domain-join/ubuntu-join-azure-portal-create-vm-basic-details.png)
-4. In the **Size** page of the **Create virtual machine** wizard, select the size for the virtual machine.
-
-    ![Create VM - select size](./media/domain-join/ubuntu-join-azure-portal-select-vm-size.png)
-
-5. In the **Settings** page of the **Create virtual machine** wizard:
-    * Select the **Availability set** for the virtual machine and choose whether to **use managed disks**.
-    * In the **Network** section, select the **Virtual network** in which you have enabled Azure AD Domain Services.
-    * Pick a different **Subnet** than the one in which you have enabled Azure AD Domain Services.
-    * Configure the other settings on this page as desired.
-    * Click **OK** when you are done.
-
-    ![Create VM - configure VM settings](./media/domain-join/ubuntu-join-azure-portal-create-vm-settings.png)
-6. On the **Purchase** page of the **Create virtual machine** wizard, review, and click the **Purchase** button.
-
-    ![Create VM - purchase](./media/domain-join/ubuntu-join-azure-portal-create-vm-purchase.png)
-7. Deployment of the new virtual machine based on the Ubuntu image should start.
-
-    ![Create VM - deployment started](./media/domain-join/ubuntu-join-azure-portal-create-vm-deployment-started.png)
-8. After a few minutes, the virtual machine should be deployed successfully and ready for use. You can see the details of the newly provisioned VM on the **Overview** page.
-
-    ![Create VM - deployed](./media/domain-join/ubuntu-join-azure-portal-create-vm-deployed.png)
+> [!IMPORTANT]
+> * Deploy the virtual machine into the **same virtual network in which you have enabled Azure AD Domain Services**.
+> * Pick a **different subnet** than the one in which you have enabled Azure AD Domain Services.
+>
 
 
 ## Connect remotely to the Ubuntu Linux virtual machine
