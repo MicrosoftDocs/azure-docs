@@ -212,7 +212,7 @@ SKUs can take up to an hour to be visible in the portal. You cannot create a dat
 
 5. Create a login setting. The login setting can be reused or a new one created. This setting contains the user name and password for the database.
 
-
+    ![Create a new database login](./media/azure-stack-mysql-rp-deploy/create-new-login.png)
 
     The connections string includes the real database server name. Copy it from the portal.
 
