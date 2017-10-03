@@ -31,6 +31,8 @@ In the portal, the **Properties** section for the respective entity enables chan
 
 The portal only permits completely disabling queues. You can also disable the send and receive operations separately using the Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API in the .NET Framework SDK, or with an Azure Resource Manager template through Azure CLI or Azure PowerShell.
 
+## Suspension states
+
 The states that can be set for a queue are:
 
 -   **Active**: The queue is active.
