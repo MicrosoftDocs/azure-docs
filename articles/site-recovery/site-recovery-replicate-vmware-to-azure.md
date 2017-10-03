@@ -41,10 +41,10 @@ When replicating VMware virtual machines:
 * Environment changes on the virtual machine (such as VMware tools installation) can take 15 minutes or more to be updated in the portal.
 * You can check the last discovered time for VMware VMs in the **Last Contact At** field for the vCenter server/vSphere host, on the **Configuration Servers** page.
 * To add machines for replication without waiting for the scheduled discovery, highlight the configuration server (don’t click it), and click the **Refresh** button.
-* When you enable replication, if the machine is prepared, the process server automatically installs the Mobility service on it.
+* When you enable replication, if the machine is prepared, the process server automatically installs the Mobility Service on it.
 
 
-**Enable replication as follows**:
+### Enable replication as follows
 
 1. Click **Step 2: Replicate application** > **Source**. After you've enabled replication for the first time, click **+Replicate** in the vault to enable replication for additional machines.
 2. In the **Source** page > **Source**, select the configuration server.
@@ -55,20 +55,21 @@ When replicating VMware virtual machines:
     ![Enable replication source](./media/site-recovery-vmware-to-azure/enable-replication2.png)
 
 6. In **Target**, select the subscription and the resource group where you want to create the failed over virtual machines. Choose the deployment model that you want to use in Azure (classic or Azure Resource Manager) for the failed over virtual machines.
+
 7. Select the Azure Storage account you want to use for replicating data. 
 
     > [!NOTE]
 
     >   * You can select a premium or standard storage account. If you select a premium account, you need to specify an additional standard storage account for ongoing replication logs. Accounts must be in the same region as the Recovery Services vault.
-    >  * If you want to use a different storage account, you can [create one](../storage/common/storage-create-storage-account.md). To create a storage account using Resource Manager, click **Create new**. If you want to create a storage account using the classic model, do that in the Azure portal.
+    >   * If you want to use a different storage account, you can [create one](../storage/common/storage-create-storage-account.md). To create a storage account using Resource Manager, click **Create new**. If you want to create a storage account using the classic model, do that in the Azure portal.
 
-8. Select the Azure network and subnet to which Azure VMs will connect when they're spun up after failover. The network must be in the same region as the Recovery Services vault. Select **Configure now for selected machines** to apply the network setting to all machines you select for protection. Select **Configure later** to select the Azure network per machine. If you don't have a network, you need to [create one](#set-up-an-azure-network). To create a network using Resource Manager, click **Create new**. If you want to create a network using the classic model, do that [in the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Select a subnet if applicable. Then click **OK**.
+8. Select the Azure network and subnet to which Azure VMs will connect when they're spun up after failover. The network must be in the same region as the Recovery Services vault. Select **Configure now for selected machines** to apply the network setting to all machines you select for protection. Select **Configure later** to select the Azure network per machine. If you don't have a network, you need to [create one](#set-up-an-azure-network). To create a network using Resource Manager, click **Create new**. If you want to create a network using the classic model, do that [in the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Select a subnet if applicable, and then click **OK**.
 
     ![Enable replication target setting](./media/site-recovery-vmware-to-azure/enable-rep3.png)
 9. In **Virtual Machines** > **Select virtual machines**, select each machine you want to replicate. You can only select machines for which replication can be enabled. Then click **OK**.
 
     ![Enable replication select virtual machines](./media/site-recovery-vmware-to-azure/enable-replication5.png)
-10. In **Properties** > **Configure properties**, select the account used by the process server to automatically install the Mobility service on the machine.  
+10. In **Properties** > **Configure properties**, select the account used by the process server to automatically install the Mobility Service on the machine.  
 11. By default, all disks are replicated. To exclude disks from replication, click **All Disks** and clear any disks you don't want to replicate.  Then click **OK**. You can set additional properties later. [Learn more](site-recovery-exclude-disk.md) about excluding disks.
 
     ![Enable replication configure properties](./media/site-recovery-vmware-to-azure/enable-replication6.png)
@@ -76,16 +77,16 @@ When replicating VMware virtual machines:
 12. In **Replication settings** > **Configure replication settings**, verify that the correct replication policy is selected. You can modify replication policy settings in **Settings** > **Replication policies** > (policy name) > **Edit Settings**. Changes you apply to a policy also apply to replicating and new machines.
 13. Enable **Multi-VM consistency** if you want to gather machines into a replication group. Specify a name for the group, and then click **OK**. 
 
-> [!NOTE]
+    > [!NOTE]
 
->    * Machines in a replication group replicate together and have shared crash-consistent and app-consistent recovery points when they failover.
->    * Gather VMs and physical servers together so that they mirror your workloads. Enabling multi-VM consistency can impact workload performance. Use only if machines are running the same workload and you need consistency.
+    >    * Machines in a replication group replicate together and have shared crash-consistent and app-consistent recovery points when they failover.
+    >    * Gather VMs and physical servers together so that they mirror your workloads. Enabling multi-VM consistency can impact workload performance. Use only if machines are running the same workload and you need consistency.
 
     ![Enable replication](./media/site-recovery-vmware-to-azure/enable-replication7.png)
 14. Click **Enable Replication**. You can track progress of the **Enable Protection** job in **Settings** > **Jobs** > **Site Recovery Jobs**. After the **Finalize Protection** job runs, the machine is ready for failover.
 
 > [!NOTE]
-> If the machine is prepared for push installation, the Mobility service component installs when protection is enabled. After the component is installed on the machine, a protection job starts and fails. After the failure you need to manually restart each machine. After the restart, the protection job begins again and initial replication occurs.
+> If the machine is prepared for push installation, the Mobility Service component installs when protection is enabled. After the component is installed on the machine, a protection job starts and fails. After the failure, you need to manually restart each machine. After the restart, the protection job begins again and initial replication occurs.
 >
 >
 
@@ -93,9 +94,10 @@ When replicating VMware virtual machines:
 
 Next, you verify the properties of the source machine. Remember that the Azure VM name needs to conform with [Azure virtual machine requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
-1. Click **Settings** > **Replicated items** > and then select the machine. The **Essentials** page shows information about machine settings and status.
+1. Click **Settings** > **Replicated items** >, and then select the machine. The **Essentials** page shows information about machine settings and status.
 2. In **Properties**, you can view replication and failover information for the VM.
 3. In **Compute and Network** > **Compute properties**, you can specify the Azure VM name and target size. Modify the name to comply with Azure requirements if necessary.
+
     ![Compute and Network properties](./media/site-recovery-vmware-to-azure/vmproperties.png)
 
 4.  You can select a [resource group](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) from which a machine becomes part of a post failover. You can change this setting any time before failover. Post failover, if you migrate the machine to a different resource group, the protection settings for that machine break.
