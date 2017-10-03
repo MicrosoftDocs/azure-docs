@@ -31,7 +31,8 @@ This how-to article covers common operations using the management plane cmdlets 
 > * Protecting access to your storage account 
 > * Enabling Storage Analytics
 
-It also provides links to several other PowerShell articles for Storage, such as how to enable and access the Storage Analyics, how to use the Government Cloud and the China Cloud, and how to use the data plane cmdlets.
+It also provides links to several other PowerShell articles for Storage, such as how to enable and access the Storage Analyics, and how to use the data plane cmdlets.
+<!-- also how to access the china and government clouds  -->
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -231,7 +232,9 @@ This how-to article covers common operations using the management plane cmdlets 
 > * Protecting access to your storage account 
 > * Enabling Storage Analytics
 
-You also have links to several other articles, such as how to manage the data objects, how to enable the Storage Analytics, and how to access storage with PowerShell using the Government Cloud and the China Cloud. Here are some other related articles and resources for reference: 
+You also have links to several other articles, such as how to manage the data objects, how to enable the Storage Analytics. Here are some other related articles and resources for reference: 
+<!--, and how to access storage with PowerShell using the Government Cloud and the China Cloud.
+-->
 
 * [Azure Storage control plane PowerShell cmdlets](/powershell/module/AzureRM.Storage/)
 * [Azure Storage data plane PowerShell cmdlets](/powershell/module/azure.storage/)
