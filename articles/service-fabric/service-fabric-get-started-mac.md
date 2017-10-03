@@ -33,20 +33,22 @@ Service Fabric does not run natively on OS X. To run a local Service Fabric clus
 * [Docker](https://docs.docker.com/docker-for-mac/install/)
 
 ## Download and start the docker image.
-To start the docker image having a pre-configured 5-node Service Fabric cluster, perform the following steps:
+To start the docker image having a pre-configured 5-node Service Fabric cluster, perform the following steps. This docker image contains Service Fabric binaries installed on Ubuntu 16.04.
 
-1. Download and run the pre-configured docker image
+1. Download and run the base docker image
 
     ```bash
     sudo docker run -it -p 19080:19080 servicefabricoss/service-fabric-onebox bash
     ```
-    This steps downloads the the docker image and runs it.
+    This steps downloads the base Ubuntu 16.04 docker image and starts it.
 
 2. Setup the Service Fabric
 
     ```bash
     ./setup.sh
     ```
+    This script is provided for convenience for installing the Service Fabric runtime and the Service Fabric common SDK along with sfctl CLI. Running the script assumes you agree to the licenses for all the software dependencies that are being installed.
+
 3. Run the Service Fabric cluster
     ```bash
     ./run.sh
