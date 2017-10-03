@@ -20,7 +20,7 @@ ms.author: bryanla
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-Managed Service Identity (MSI) provides Azure services with an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity for any service that supports Azure AD authentication, without having credentials in your code. 
+Managed Service Identity (MSI) provides Azure services with an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
 In this article, you learn how to enable and remove MSI for an Azure VM, using an Azure Resource Manager deployment template.
 
@@ -30,7 +30,7 @@ In this article, you learn how to enable and remove MSI for an Azure VM, using a
 
 ## Enable MSI during creation of an Azure VM, or on an existing VM
 
-As with the Azure portal and scripting, Azure Resource Manager templates provide the ability to deploy new or modified resources defined by an Azure resource group. Several options are available for template editing and deployment, including:
+As with the Azure portal and scripting, Azure Resource Manager templates provide the ability to deploy new or modified resources defined by an Azure resource group. Several options are available for template editing and deployment, both local and portal-based, including:
 
    - Using a [custom template from the Azure Marketplace](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), which allows you to create a template from scratch, or base it on an existing common or [QuickStart template](https://azure.microsoft.com/documentation/templates/).
    - Deriving from an existing resource group, by exporting a template from either [the original deployment](../azure-resource-manager/resource-manager-export-template.md#view-template-from-deployment-history), or from the [current state of the deployment](../azure-resource-manager/resource-manager-export-template.md#export-the-template-from-resource-group).
@@ -89,7 +89,7 @@ Regardless of the option you choose, template syntax is the same during initial 
 
    ![Screenshot of template after update](./media/msi-qs-configure-template-windows-vm/template-file-after.png) 
 
-## Remove an MSI from an Azure VM
+## Remove MSI from an Azure VM
 
 If you have a VM that no longer needs an MSI:
 
@@ -97,7 +97,7 @@ If you have a VM that no longer needs an MSI:
 
 2. Remove the two elements that were added in the previous section: the VM's `"identity"` property and the `"Microsoft.Compute/virtualMachines/extensions"` resource.
 
-## Next steps
+## Related content
 
 - For a broader perspective about MSI, read the [Managed Service Identity overview](msi-overview.md).
 
