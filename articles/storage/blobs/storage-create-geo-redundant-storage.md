@@ -19,10 +19,9 @@ ms.custom: mvc
 
 # Make your application data highly available with Azure storage
 
-This tutorial is part one of a series. This tutorial shows you how to make your application data highly available in Azure. When you're finished, you have a console application that uploads a blob to a read access geo-redundant storage account and retrieves the image from a storage account. The application switches to secondary storage when a failure is simulated.
+This tutorial is part one of a series. This tutorial shows you how to make your application data highly available in Azure. When you're finished, you have a console application that uploads and retrieves a blob to a [read-access geo-redundant](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) storage account. The application uses the [Circuit Breaker](/azure/architecture/patterns/circuit-breaker.md) pattern to determine which endpoint to connect to. The application switches to secondary storage when a failure is simulated. RA-GRS works by replicating transactions from the primary to the secondary region. This replication process guarantees that the data in the secondary region is eventually consistent.
 
 ![Scenario app](media/storage-simulate-failure-ragrs-account-app/scenario.png)
-
 
 In part one of the series, you learn how to:
 
@@ -54,12 +53,12 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 A storage account provides a unique namespace to store and access your Azure storage data objects.
 
-Follow these steps to create a read only Geo-Redundant storage account:
+Follow these steps to create a read-only Geo-Redundant storage account:
 
 1. Select the **New** button found on the upper left-hand corner of the Azure portal.
 
 2. Select **Storage** from the **New** page, and select **Storage account - blob, file, table, queue** under **Featured**.
-3. Fill out the storage account form with the following information, as shown in the following image and select **Create** :
+3. Fill out the storage account form with the following information, as shown in the following image and select **Create**:
 
    | Setting       | Suggested value | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
@@ -86,13 +85,13 @@ The sample project contains a console application.
 
 Open the *storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs* console application in Visual Studio.
 
-Open the **App.config** file, under the **appSettings** node replace the value of the _StorageConnectionString_ with your storage connection string. This value is  retrieved by selecting **Access keys** under **Settings** in your storage account. Copy the **connection string** from the primary or secondary key and paste in in the **App.config** file. **Save** the file when complete.
+Open the **App.config** file, under the **appSettings** node replace the value of the _StorageConnectionString_ with your storage connection string. This value is retrieved by selecting **Access keys** under **Settings** in your storage account. Copy the **connection string** from the primary or secondary key and paste in the **App.config** file. **Save** the file when complete.
 
 ![app config file](media/storage-create-geo-redundant-storage/figure2.png)
 
 ## Run the console application
 
-In Visual Studio press **F5** or select **Play** to start debugging the application. A console windows launches at the application begins running. The application uploads the **HelloWorld.png** image to the storage account. It waits until the image has replicated to the secondary read access account and then begins downloading the image a defined number of times. This simulates an application reading data from a storage account.
+In Visual Studio, press **F5** or select **Play** to start debugging the application. A console window launches at the application begins running. The application uploads the **HelloWorld.png** image to the storage account. The application checks to ensure the image has replicated to the secondary RA-GRS account. It then begins downloading the image up to 999 times. This sample simulates an application reading data from a storage account.
 
 ![Console app running](media/storage-create-geo-redundant-storage/figure3.png)
 
@@ -100,7 +99,7 @@ In the sample code, the `RunCircuitBreakerAsync` task in the `Program.cs` file i
 
 ### Retry event handler
 
-The `Operation_context_Retrying` event handler is called when the download of the image fails and is set to rety. If the maximum number of retries are reached the [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) of the request is changed to `SecondaryOnly`. This forces the application to request the image from the secondary read access endpoint.
+The `Operation_context_Retrying` event handler is called when the download of the image fails and is set to rety. If the maximum number of retries are reached the [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) of the request is changed to `SecondaryOnly`. By configuring this value, the application is configured to request the image from the secondary RA-GRS endpoint.
 
 ```csharp
 private static void Operation_context_Retrying(object sender, RequestEventArgs e)
@@ -128,7 +127,7 @@ private static void Operation_context_Retrying(object sender, RequestEventArgs e
 
 ### Request completed event handler
 
-The `Operation_context_RequestCompleted` event handler is called when the download of the image is successful. The application continues to read from the secondary location for a predetermined number of times and if the requests are successful the [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) is set back to `PrimaryThenSecondary`. Requests will go to the primary node until failure.
+The `Operation_context_RequestCompleted` event handler is called when the download of the image is successful. The application continues to use the secondary location up to 20 times. If the requests are successful, the [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) is set back to `PrimaryThenSecondary`. Requests go to the primary node until failure.
 
 ```csharp
 private static void Operation_context_RequestCompleted(object sender, RequestEventArgs e)
@@ -157,7 +156,7 @@ In part one of the series, you learned about configuring a web app interacting w
 > * Set the connection string
 > * Run the console application
 
-Advance to part two of the series to learn how to simulate a failure and force your application to use the read access redundant storage.
+Advance to part two of the series to learn how to simulate a failure and force your application to use the RA-GRS storage account.
 
 > [!div class="nextstepaction"]
 > [Simulate a failure in connection to your primary storage account](storage-simulate-failure-ragrs-account-app.md)
