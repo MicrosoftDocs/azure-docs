@@ -43,21 +43,13 @@ Provision an Ubuntu Linux virtual machine in Azure, using any of the following m
 
 
 ## Connect remotely to the Ubuntu Linux virtual machine
-The Ubuntu virtual machine has been provisioned in Azure. The next task is to connect remotely to the virtual machine.
+The Ubuntu virtual machine has been provisioned in Azure. The next task is to connect remotely to the virtual machine using the local administrator account created while provisioning the VM.
 
 Follow the instructions in the article [How to log on to a virtual machine running Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-The rest of the steps assume you use the PuTTY SSH client to connect to the Ubuntu virtual machine. For more information, see the [PuTTY Download page](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
-
-1. Open the PuTTY program.
-2. Enter the **Host Name** for the newly created Ubuntu virtual machine. In this example, our virtual machine has the host name 'contoso-ubuntu'. If you are not sure of the host name of your VM, refer to the VM dashboard on the Azure portal.
-
-    ![PuTTY connect](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-connect.png)
-3. Log on to the virtual machine using the local administrator credentials you specified when the virtual machine was created. In this example, we used the local administrator account "mahesh".
-
 
 ## Configure the hosts file on the Linux virtual machine
-Edit the /etc/hosts file and update your machine’s IP address and hostname.
+In your SSH terminal, edit the /etc/hosts file and update your machine’s IP address and hostname.
 
 ```
 sudo vi /etc/hosts
@@ -72,9 +64,9 @@ Here, 'contoso100.com' is the DNS domain name of your managed domain. 'contoso-u
 
 
 ## Install required packages on the Linux virtual machine
-After connecting to the virtual machine, the next task is to install packages required for domain join on the virtual machine. Perform the following steps:
+Next, install packages required for domain join on the virtual machine. Perform the following steps:
 
-1.  In your PuTTY terminal, type the following command to download the package lists from the repositories. This command updates the package lists to get information on the newest versions of packages and their dependencies.
+1.  In your SSH terminal, type the following command to download the package lists from the repositories. This command updates the package lists to get information on the newest versions of packages and their dependencies.
 
     ```
     sudo apt-get update
@@ -119,7 +111,7 @@ sudo systemctl start ntp
 ## Join the Linux virtual machine to the managed domain
 Now that the required packages are installed on the Linux virtual machine, the next task is to join the virtual machine to the managed domain.
 
-1. Discover the AAD Domain Services managed domain. In your PuTTY terminal, type the following command:
+1. Discover the AAD Domain Services managed domain. In your SSH terminal, type the following command:
 
     ```
     sudo realm discover CONTOSO100.COM
@@ -133,7 +125,7 @@ Now that the required packages are installed on the Linux virtual machine, the n
         * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
       >
 
-2. Initialize Kerberos. In your PuTTY terminal, type the following command: 
+2. Initialize Kerberos. In your SSH terminal, type the following command: 
 
     > [!TIP] 
     > * Ensure that you specify a user who belongs to the 'AAD DC Administrators' group. 
@@ -144,7 +136,7 @@ Now that the required packages are installed on the Linux virtual machine, the n
     kinit bob@CONTOSO100.COM
     ```
 
-3. Join the machine to the domain. In your PuTTY terminal, type the following command: 
+3. Join the machine to the domain. In your SSH terminal, type the following command: 
 
     > [!TIP] 
     > Use the same user account you specified in the preceding step ('kinit').
@@ -158,7 +150,7 @@ You should get a message ("Successfully enrolled machine in realm") when the mac
 
 
 ## Update the SSSD configuration and restart the service
-1. In your PuTTY terminal, type the following command. Open the sssd.conf file and make the following change
+1. In your SSH terminal, type the following command. Open the sssd.conf file and make the following change
     ```
     sudo vi /etc/sssd/sssd.conf
     ```
@@ -189,17 +181,17 @@ session required pam_mkhomedir.so skel=/etc/skel/ umask=0077
 ## Verify domain join
 Verify whether the machine has been successfully joined to the managed domain. Connect to the domain joined Ubuntu VM using a different SSH connection. Use a domain user account and then check to see if the user account is resolved correctly.
 
-1. In your PuTTY terminal, type the following command to connect to the domain joined Ubuntu virtual machine using SSH. Use a domain account that belongs to the managed domain (for example, 'bob@CONTOSO100.COM' in this case.)
+1. In your SSH terminal, type the following command to connect to the domain joined Ubuntu virtual machine using SSH. Use a domain account that belongs to the managed domain (for example, 'bob@CONTOSO100.COM' in this case.)
     ```
     ssh -l bob@CONTOSO100.COM contoso-ubuntu.contoso100.com
     ```
 
-2. In your PuTTY terminal, type the following command to see if the home directory was initialized correctly.
+2. In your SSH terminal, type the following command to see if the home directory was initialized correctly.
     ```
     pwd
     ```
 
-3. In your PuTTY terminal, type the following command to see if the group memberships are being resolved correctly.
+3. In your SSH terminal, type the following command to see if the group memberships are being resolved correctly.
     ```
     id
     ```
@@ -208,7 +200,7 @@ Verify whether the machine has been successfully joined to the managed domain. C
 ## Grant the 'AAD DC Administrators' group sudo privileges
 You can grant members of the 'AAD DC Administrators' group administrative privileges on the Ubuntu VM. The sudo file is located at /etc/sudoers. The members of AD groups added in sudoers can perform sudo.
 
-1. In your PuTTY terminal, ensure you are logged in with superuser privileges. You can use the local administrator account you specified while creating the VM. Execute the following command:
+1. In your SSH terminal, ensure you are logged in with superuser privileges. You can use the local administrator account you specified while creating the VM. Execute the following command:
     ```
     sudo vi /etc/sudoers
     ```
