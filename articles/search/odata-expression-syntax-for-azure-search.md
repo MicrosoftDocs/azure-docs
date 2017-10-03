@@ -28,7 +28,10 @@ translation.priority.mt:
   - "zh-tw"
 ---
 # OData Expression Syntax for Azure Search
-  Azure Search supports a subset of the OData expression syntax for **$filter** and **$orderby** expressions.  
+
+Filters are used to reduce the scope of full text search, or to precisely select a subset of documents. Filter construction determines the behavior.
+
+Filters are composed of Odata expressions. Azure Search supports a subset of the OData expression syntax for **$filter** and **$orderby** expressions.  
 
 ## Filter syntax
 
