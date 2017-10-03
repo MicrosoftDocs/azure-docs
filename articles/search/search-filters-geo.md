@@ -43,6 +43,20 @@ How much of the huge file is useful for search??
 
  In Azure Search, geospatial queries that include 180-degree longitude will work as expected if the query shape is rectangular and your coordinates align to a grid layout along longitude and latitude (for example, `geo.intersects(location, geography'POLYGON((179 65,179 66,-179 66,-179 65,179 65))'`). Otherwise, for non-rectangular or unaligned shapes, consider the split polygon approach.  
 
+EXAMPLES
+
+This section gathers in one place all of the filter examples related to geo-search in Azure Search documentation.
+
+## portal example
+
+search=*&$count=true&$filter=geo.distance(location,geography'POINT(-122.121513 47.673988)') le 5+
+
+Geospatial search is supported through the edm.GeographyPoint data type2 on a field containing coordinates. Geosearch is a type of filter, specified in Filter OData syntax6.
+
+The example query filters all results for positional data, where results are less than 5 kilometers from a given point (specified as latitude and longitude coordinates). By adding $count, you can see how many results are returned when you change either the distance or the coordinates.
+
+Geospatial search is useful if your search application has a 'find near me' feature or uses map navigation. It is not full text search, however. If you have user requirements for searching on a city or country by name, add fields containing city or country names, in addition to coordinates.
+
 ## Filter examples
 
  Find all hotels within 10 kilometers of a given reference point (where location is a field of type Edm.GeographyPoint):  
