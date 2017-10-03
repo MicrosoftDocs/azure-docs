@@ -4,7 +4,7 @@ description: Get started with an app that's a comprehensive demonstration of how
 services: ''
 documentationcenter: .net
 suite: ''
-author: harikmenon
+author: dominicbetts
 manager: douge
 
 ms.assetid: f40ea71b-5721-4a6b-a886-53c2e9dffe8f
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/25/2016
-ms.author: harikm
+ms.author: dobett
 
 ---
 # MyDriving IoT system: Quick start
