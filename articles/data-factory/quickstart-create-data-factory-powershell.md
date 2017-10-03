@@ -278,8 +278,7 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
     ```
     Pipeline is running...status: InProgress
     Pipeline run finished. The status is:  Succeeded
-
-
+    
     ResourceGroupName : ADFTutorialResourceGroup
     DataFactoryName   : SPTestFactory0928
     RunId             : 0000000000-0000-0000-0000-0000000000000
