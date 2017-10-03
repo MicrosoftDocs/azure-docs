@@ -19,18 +19,18 @@ ms.author: alkohli
 
 # Use Azure Resource Manager SDK-based scripts to manage StorSimple devices
 
-This articles describes how Azure Resource Manager SDK-based scripts can be used to manage your StorSimple 8000 series device. A sample script is also included to walk you through the steps of configuring your environment to run these scripts.
+This article describes how Azure Resource Manager SDK-based scripts can be used to manage your StorSimple 8000 series device. A sample script is also included to walk you through the steps of configuring your environment to run these scripts.
 
 This article applies to StorSimple 8000 series devices running in Azure portal only.
 
 ## Resource Manager SDK-based sample scripts to automate StorSimple jobs
 
-The sample scripts available to automate various StorSimple jobs are tabulated below.
+The following sample scripts are available to automate various StorSimple jobs.
 
 | Azure Resource Manager Script                    | Description                                                                                                                                                                                                       |
 |--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Authorize-ServiceEncryptionRollover.ps1          | This script allows you to authorize your StorSimple device to change the service data encryption key.                                                                                                           |
-| Create-StorSimpleCloudAppliance.ps1              | This script creates an 8010 or an 8020 StorSimple Cloud Appliance that can then be configured and registered with your StorSimple Data Manager service.                                                       |
+| Create-StorSimpleCloudAppliance.ps1              | This script creates an 8010 or an 8020 StorSimple Cloud Appliance. The cloud appliance can then be configured and registered with your StorSimple Data Manager service.                                                       |
 | CreateOrUpdate-Volume.ps1                        | This script creates or modifies StorSimple volumes.                                                                                                                                                             |
 | Get-DeviceBackup.ps1                             | This script lists all the backups for a device registered with your StorSimple Device Manager service.                                                                                                          |
 | Get-DeviceBackupPolicy.ps1                       | This script all the backup policies for your StorSimple device.                                                                                                                                                 |
@@ -56,7 +56,7 @@ Before you begin, ensure that you have:
 For more information about using Azure PowerShell, go to [Get started with using Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps?view=azurermps-4.4.0).
 
 ## Configure and run a sample script
-This section takes an example script and details the various steps required to run the script.
+This section takes an example script and details the various steps required to run the script. The following script lists all the jobs on a StorSimple device. This includes the jobs that succeeded, failed, or are in progress.
 
 1. Launch PowerShell. Create a new folder and change directory to the new folder.
 
@@ -65,10 +65,10 @@ This section takes an example script and details the various steps required to r
             cd C:\scripts\StorSimpleSDKTools
 
 ```    
-2. [Download nuget CLI](http://www.nuget.org/downloads) under the folder created in previous step. There are various versions of _nuget.exe_. Choose the version corresponding to your SDK. Each download link points directly to an _.exe_ file, so be sure to right-click and save the file to your computer rather than running it from the browser.
+2. [Download nuget CLI](http://www.nuget.org/downloads) under the folder created in previous step. There are various versions of _nuget.exe_. Choose the version corresponding to your SDK. Each download link points directly to an _.exe_ file. Be sure to right-click and save the file to your computer rather than running it from the browser. You can also run the following command to download and store the script in the same folder that you created earlier.
 
 ```
-            wget https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -Out :\scripts\StorSimpleSDKTools\nuget.exe
+            wget https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -Out C:\scripts\StorSimpleSDKTools\nuget.exe
 
 ```    
 3. Download the dependent SDK.
