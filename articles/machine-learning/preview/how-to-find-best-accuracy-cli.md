@@ -45,18 +45,18 @@ Lastly, open command line through workbench. Then run command `python run.py` to
 
 ## Querying the run history
 The first command finds the max accuracy value.
-
-    az ml history list --query '@[?Accuracy != null] | max_by(@, &Accuracy).Accuracy'
-
+```powershell
+az ml history list --query '@[?Accuracy != null] | max_by(@, &Accuracy).Accuracy'
+```
 Using this accuracy value (`1`) and threshold value (`0.03`), the second command will filter runs using `Accuracy` then sort runs by `duration` ascending.
-
-    az ml history list --query '@[?Accuracy >= sum(`[1, -0.03]`)] | sort_by(@, &duration)'
-    
+```powershell
+az ml history list --query '@[?Accuracy >= sum(`[1, -0.03]`)] | sort_by(@, &duration)'
+```
 If you use powershell, the code below will use local variables to store threshold and max accuracy.
-
-     $threshold = 0.03
-     $max_accuracy_value = az ml history list --query '@[?Accuracy != null] | max_by(@, &Accuracy).Accuracy'
-     az ml history list --query '@[?Accuracy >= sum(`[{0}, -{1}]`)] | sort_by(@, &duration)' -f $max_accuracy_value, $threshold
-     
+```powershell
+$threshold = 0.03
+$max_accuracy_value = az ml history list --query '@[?Accuracy != null] | max_by(@, &Accuracy).Accuracy'
+az ml history list --query '@[?Accuracy >= sum(`[{0}, -{1}]`)] | sort_by(@, &duration)' -f $max_accuracy_value, $threshold
+```
 ## Next steps
 - For more information on logging, see [How to Use Run History and Model Metrics in Azure Machine Learning Workbench](how-to-use-run-history-model-metrics.md).    
