@@ -1,9 +1,9 @@
 ---
-title: Manage expiration of Azure Storage blob content in Azure CDN | Microsoft Docs
+title: Manage expiration of Azure Storage blobs in Azure CDN | Microsoft Docs
 description: Learn about the options for controlling time-to-live for blobs in Azure CDN caching.
 services: cdn
 documentationcenter: ''
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: ''
 
@@ -13,18 +13,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/15/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 
 ---
-# Manage expiration of Azure Storage blob content in Azure CDN
+# Manage expiration of Azure Storage blobs in Azure CDN
 > [!div class="op_single_selector"]
 > * [Azure Web Apps/Cloud Services, ASP.NET, or IIS](cdn-manage-expiration-of-cloud-service-content.md)
 > * [Azure Storage blob service](cdn-manage-expiration-of-blob-content.md)
 > 
 > 
 
-The [blob service](../storage/storage-introduction.md#blob-storage) in [Azure Storage](../storage/storage-introduction.md) is one of several Azure-based origins integrated with Azure CDN.  Any publicly accessible blob content can be cached in Azure CDN until its time-to-live (TTL) elapses.  The TTL is determined by the [*Cache-Control* header](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) in the HTTP response from Azure Storage.
+The [blob service](../storage/common/storage-introduction.md#blob-storage) in [Azure Storage](../storage/common/storage-introduction.md) is one of several Azure-based origins integrated with Azure CDN.  Any publicly accessible blob content can be cached in Azure CDN until its time-to-live (TTL) elapses.  The TTL is determined by the [*Cache-Control* header](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) in the HTTP response from Azure Storage.
 
 > [!TIP]
 > You may choose to set no TTL on a blob.  In this case, Azure CDN automatically applies a default TTL of seven days.
@@ -38,7 +38,7 @@ The [blob service](../storage/storage-introduction.md#blob-storage) in [Azure St
 This tutorial demonstrates several ways that you can set the TTL on a blob in Azure Storage.  
 
 ## Azure PowerShell
-[Azure PowerShell](/powershell/azureps-cmdlets-docs) is one of the quickest, most powerful ways to administer your Azure services.  Use the `Get-AzureStorageBlob` cmdlet to get a reference to the blob, then set the `.ICloudBlob.Properties.CacheControl` property. 
+[Azure PowerShell](/powershell/azure/overview) is one of the quickest, most powerful ways to administer your Azure services.  Use the `Get-AzureStorageBlob` cmdlet to get a reference to the blob, then set the `.ICloudBlob.Properties.CacheControl` property. 
 
 ```powershell
 # Create a storage context
@@ -60,7 +60,7 @@ $blob.ICloudBlob.SetProperties()
 > 
 
 ## Azure Storage Client Library for .NET
-To set a blob's TTL using .NET, use the [Azure Storage Client Library for .NET](../storage/storage-dotnet-how-to-use-blobs.md) to set the [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx) property.
+To set a blob's TTL using .NET, use the [Azure Storage Client Library for .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) to set the [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx) property.
 
 ```csharp
 class Program
@@ -95,7 +95,7 @@ class Program
 > 
 
 ## Other methods
-* [Azure Command-Line Interface](../xplat-cli-install.md)
+* [Azure Command-Line Interface](../cli-install-nodejs.md)
   
     When uploading the blob, set the *cacheControl* property using the `-p` switch.  This example sets the TTL to one hour (3600 seconds).
   

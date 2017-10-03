@@ -4,7 +4,7 @@ description: Describes the new features, issues, and workarounds for StorSimple 
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: 6c9aae87-6f77-44b8-b7fa-ebbdc9d8517c
@@ -13,11 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/18/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 
 ---
-# StorSimple 8000 Series Update 1.2 release notes
+# Update 1.2 release notes for your StorSimple 8000 series device
+
 ## Overview
 The following release notes describe the new features and identify the critical open issues for StorSimple 8000 Series Update 1.2. They also contain a list of the StorSimple software, driver and disk firmware updates included in this release. 
 
@@ -52,7 +54,7 @@ These features were first released with Update 1 that was made available to a li
 * **Availability in the Azure Government Portal** – StorSimple is now available in the Azure Government portal. See how to [deploy a StorSimple device in the Azure Government Portal](storsimple-deployment-walkthrough-gov.md).
 * **Support for other cloud service providers** – The other cloud service providers supported are Amazon S3, Amazon S3 with RRS, HP, and OpenStack (beta).
 * **Update to latest Storage APIs** – With this release, StorSimple has been updated to the latest Azure Storage service APIs. StorSimple 8000 series devices that are running pre-Update 1 software versions (Release, 0.1, 0.2, and 0.3) are using versions of the Azure Storage Service APIs older than July 17, 2009. As stated in the updated [announcement about removal of Storage service versions](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx), by August 1, 2016, these APIs will be deprecated. It is imperative that you apply the StorSimple 8000 Series Update 1 prior to August 1, 2016. If you fail to do so, StorSimple devices will stop functioning correctly.
-* **Support for Zone Redundant Storage (ZRS)** – With the upgrade to the latest version of the Storage APIs, the StorSimple 8000 series will support Zone Redundant Storage (ZRS) in addition to Locally Redundant Storage (LRS) and Geo-redundant Storage (GRS). Refer to this [article on Azure Storage redundancy options](../storage/storage-redundancy.md) for ZRS details.
+* **Support for Zone Redundant Storage (ZRS)** – With the upgrade to the latest version of the Storage APIs, the StorSimple 8000 series will support Zone Redundant Storage (ZRS) in addition to Locally Redundant Storage (LRS) and Geo-redundant Storage (GRS). Refer to this [article on Azure Storage redundancy options](../storage/common/storage-redundancy.md) for ZRS details.
 * **Enhanced initial deployment and update experience** – In this release, the installation and update processes have been enhanced. The installation through the setup wizard is improved to provide feedback to the user if the network configuration and firewall settings are incorrect. Additional diagnostic cmdlets have been provided to help you with troubleshooting networking of the device. See the [troubleshooting deployment article](storsimple-troubleshoot-deployment.md) for more information about the new diagnostic cmdlets used for troubleshooting.
 
 ## Issues fixed in Update 1.2

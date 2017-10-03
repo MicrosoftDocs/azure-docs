@@ -8,7 +8,7 @@ author: ddove
 
 ms.assetid: 204fd902-0397-4185-985a-dea3ed7c7d9f
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -147,7 +147,7 @@ The split-merge Service provides the **RequestStatus** table in the metadata sto
 * **Details**: An XML value that provides a more detailed progress report. The progress report is periodically updated as sets of rows are copied from source to target. In case of failures or exceptions, this column also includes more detailed information about the failure.
 
 ### Azure Diagnostics
-The split-merge service uses Azure Diagnostics based on Azure SDK 2.5 for monitoring and diagnostics. You control the diagnostics configuration as explained here: [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md). The download package includes two diagnostics configurations – one for the web role and one for the worker role. These diagnostics configurations for the service follow the guidance from [Cloud Service Fundamentals in Microsoft Azure](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649). It includes the definitions to log Performance Counters, IIS logs, Windows Event Logs, and split-merge application event logs. 
+The split-merge service uses Azure Diagnostics based on Azure SDK 2.5 for monitoring and diagnostics. You control the diagnostics configuration as explained here: [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md). The download package includes two diagnostics configurations - one for the web role and one for the worker role. These diagnostics configurations for the service follow the guidance from [Cloud Service Fundamentals in Microsoft Azure](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649). It includes the definitions to log Performance Counters, IIS logs, Windows Event Logs, and split-merge application event logs. 
 
 ## Deploy Diagnostics
 To enable monitoring and diagnostics using the diagnostic configuration for the web and worker roles provided by the NuGet package, run the following commands using Azure PowerShell: 

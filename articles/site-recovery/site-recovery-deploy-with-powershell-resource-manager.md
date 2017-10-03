@@ -1,6 +1,6 @@
 ---
-title: Protect servers to Azure by using Azure PowerShell with Azure Resource Manager | Microsoft Docs
-description: Automate protection of servers to Azure with Azure Site Recovery by using PowerShell and Azure Resource Manager.
+title: Replicate Hyper-V VMs with PowerShell and Azure Resource Manager | Microsoft Docs
+description: Automate the replication of Hyper-V VMs to Azure with Azure Site Recovery using PowerShell and Azure Resource Manager.
 services: site-recovery
 documentationcenter: ''
 author: bsiva
@@ -12,8 +12,8 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: backup-recovery
-ms.date: 09/27/2016
+ms.workload: storage-backup-recovery
+ms.date: 05/31/2017
 ms.author: bsiva
 
 ---
@@ -59,7 +59,7 @@ This article illustrates how to use Azure Powershell with Azure Resource Manager
 
 * A Hyper-V host running Windows Server 2012 R2 or Microsoft Hyper-V Server 2012 R2 containing one or more virtual machines.
 * Hyper-V servers connected to the Internet, either directly or through a proxy.
-* The virtual machines you want to protect should conform with [Virtual Machine prerequisites](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+* The virtual machines you want to protect should conform with [Virtual Machine prerequisites](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 ## Step 1: Sign in to your Azure account
 1. Open a PowerShell console and run this command to sign in to your Azure account. The cmdlet brings up a web page that will prompt you for your account credentials.

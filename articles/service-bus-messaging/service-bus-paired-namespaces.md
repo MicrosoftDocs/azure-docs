@@ -1,5 +1,5 @@
 ---
-title: Service Bus paired namespaces | Microsoft Docs
+title: Azure Service Bus paired namespaces | Microsoft Docs
 description: Paired namespace implementation details and cost
 services: service-bus-messaging
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2016
+ms.date: 08/30/2017
 ms.author: sethm
 
 ---
@@ -92,26 +92,26 @@ At least one executable program in the application should be actively running th
 4. Receive from the primary.
 
 ## Close/fault behavior
-Within an application that hosts the syphon, once the primary or secondary [MessagingFactory][MessagingFactory] faults or is closed without its partner also being faulted/closed and the syphon detects this state, the syphon acts. If the other [MessagingFactory][MessagingFactory] is not closed within 5 seconds, the syphon will fault the still open [MessagingFactory][MessagingFactory].
+Within an application that hosts the syphon, once the primary or secondary [MessagingFactory][MessagingFactory] faults or is closed without its partner also being faulted or closed and the syphon detects this state, the syphon acts. If the other [MessagingFactory][MessagingFactory] is not closed within 5 seconds, the syphon faults the still open [MessagingFactory][MessagingFactory].
 
 ## Next steps
 See [Asynchronous messaging patterns and high availability][Asynchronous messaging patterns and high availability] for a detailed discussion of Service Bus asynchronous messaging. 
 
-[PairNamespaceAsync]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.pairnamespaceasync.aspx
-[SendAvailabilityPairedNamespaceOptions]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.aspx
-[MessageSender]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx
-[MessagingFactory]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx
-[FailoverInterval]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.pairednamespaceoptions.failoverinterval.aspx
-[MessagingException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingexception.aspx
+[PairNamespaceAsync]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PairNamespaceAsync_Microsoft_ServiceBus_Messaging_PairedNamespaceOptions_
+[SendAvailabilityPairedNamespaceOptions]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions
+[MessageSender]: /dotnet/api/microsoft.servicebus.messaging.messagesender
+[MessagingFactory]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
+[FailoverInterval]: /dotnet/api/microsoft.servicebus.messaging.pairednamespaceoptions#Microsoft_ServiceBus_Messaging_PairedNamespaceOptions_FailoverInterval
+[MessagingException]: /dotnet/api/microsoft.servicebus.messaging.messagingexception
 [TimeoutException]: https://msdn.microsoft.com/library/azure/system.timeoutexception.aspx
-[BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
-[QueueDescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx
+[BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
+[QueueDescription]: /dotnet/api/microsoft.servicebus.messaging.queuedescription
 [TimeSpan]: https://msdn.microsoft.com/library/azure/system.timespan.aspx
-[PingPrimaryInterval]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.pingprimaryinterval.aspx
-[QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
-[TopicClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx
-[ContentType]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.contenttype.aspx
-[TimeToLive]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx
+[PingPrimaryInterval]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions#Microsoft_ServiceBus_Messaging_SendAvailabilityPairedNamespaceOptions_PingPrimaryInterval
+[QueueClient]: /dotnet/api/microsoft.servicebus.messaging.queueclient
+[TopicClient]: /dotnet/api/microsoft.servicebus.messaging.topicclient
+[ContentType]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ContentType
+[TimeToLive]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive
 [Asynchronous messaging patterns and high availability]: service-bus-async-messaging.md
 [0]: ./media/service-bus-paired-namespaces/IC673405.png
 [1]: ./media/service-bus-paired-namespaces/IC673406.png

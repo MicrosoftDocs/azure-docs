@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 01/06/2017
 ms.author: sdanie
 
 ---
@@ -41,7 +41,7 @@ To run the deployment automatically, click the following button:
 [!INCLUDE [cache-deploy-parameters](../../includes/cache-deploy-parameters.md)]
 
 ## Variables for names
-This template uses variables to construct names for the resources. It uses the [uniqueString](../azure-resource-manager/resource-group-template-functions.md#uniquestring) function to construct a value based on the
+This template uses variables to construct names for the resources. It uses the [uniqueString](../azure-resource-manager/resource-group-template-functions-string.md#uniquestring) function to construct a value based on the
 resource group id.
 
     "variables": {

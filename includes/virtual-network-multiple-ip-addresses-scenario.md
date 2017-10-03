@@ -1,11 +1,11 @@
 ## Scenario
 A VM with a single NIC is created and connected to a virtual network. The VM requires three different *private* IP addresses and two *public* IP addresses. The IP addresses are assigned to the following IP configurations:
 
-* **IPConfig-1:** Assigns a *dynamic* private IP address (default) and a *static* public IP address.
+* **IPConfig-1:** Assigns a *static* private IP address and a *static* public IP address.
 * **IPConfig-2:** Assigns a *static* private IP address and a *static* public IP address.
-* **IPConfig-3:** Assigns a *dynamic* private IP address and no public IP address.
+* **IPConfig-3:** Assigns a *static* private IP address and no public IP address.
   
-	![Multiple IP addresses](./media/virtual-network-multiple-ip-addresses-scenario/OneNIC-3IP.png)
+	![Multiple IP addresses](./media/virtual-network-multiple-ip-addresses-scenario/multiple-ipconfigs.png)
 
 The IP configurations are associated to the NIC when the NIC is created and the NIC is attached to the VM when the VM is created. The types of IP addresses used for the scenario are for illustration. You can assign whatever IP address and assignment types you require.
 

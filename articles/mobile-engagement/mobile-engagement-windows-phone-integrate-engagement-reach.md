@@ -4,7 +4,7 @@ description: How to Integrate Azure Mobile Engagement Reach with Windows Phone S
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: d3516a6b-db9f-4cdb-a475-4148edf81af1

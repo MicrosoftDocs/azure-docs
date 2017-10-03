@@ -3,7 +3,7 @@ title: Azure Active Directory audit API reference | Microsoft Docs
 description: How to get started with the Azure Active Directory audit API
 services: active-directory
 documentationcenter: ''
-author: dhanyahk
+author: MarkusVi
 manager: femila
 editor: ''
 
@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/16/2016
+ms.date: 07/05/2017
 ms.author: dhanyahk;markvi
+ms.reviewer: dhanyahk 
 
 ---
 # Azure Active Directory audit API reference
@@ -24,10 +25,17 @@ The scope of this topic is to provide you with reference information about the *
 
 See:
 
-* [Audit logs](active-directory-reporting-azure-portal.md#audit-logs)  for more conceptual information
+* [Audit logs](active-directory-reporting-azure-portal.md#activity-reports)  for more conceptual information
+
 * [Getting started with the Azure Active Directory Reporting API](active-directory-reporting-api-getting-started.md) for more information about the reporting API.
 
-For questions, issues or feedback, please contact [AAD Reporting Help](mailto:aadreportinghelp@microsoft.com).
+
+For:
+
+- Frequently asked questions, read our [FAQ](active-directory-reporting-faq.md) 
+
+- Issues, please [file a support ticket](active-directory-troubleshooting-support-howto.md) 
+
 
 ## Who can access the data?
 * Users in the Security Admin or Security Reader role
@@ -72,6 +80,8 @@ For sign-in API related data, the following filters are supported:
 To specify the type of records you care about, you can build a filter statement that can contain either one or a combination of the following filter fields:
 
 * [activityDate](#activitydate)  - defines a date or date range
+* [category](#category) - defines the category you want to filter on.
+* [activityStatus](#activitystatus) - defines the status of an activity
 * [activityType](#activitytype)  - defines the type of an activity
 * [activity](#activity) - defines the activity as string  
 * [actor/name](#actorname) -   defines the actor in form of the actor's name
@@ -94,6 +104,45 @@ To specify the type of records you care about, you can build a filter statement 
 datetime should be in UTC format
 
 - - -
+### category
+
+**Supported values**:
+
+| Category                         | Value     |
+| :--                              | ---       |
+| Core Directory                   | Directory |
+| Self-service Password Management | SSPR      |
+| Self-service Group Management    | SSGM      |
+| Account Provisioning             | Sync      |
+| Automated Password Rollover      | Automated Password Rollover |
+| Identity Protection              | IdentityProtection |
+| Invited Users                    | Invited Users |
+| MIM Service                      | MIM Service |
+
+
+
+**Supported operators**: eq
+
+**Example**:
+
+    $filter=category eq 'SSPR'
+- - -
+### activityStatus
+
+**Supported values**:
+
+| Activity Status | Value |
+| :--             | ---   |
+| Success         | 0     |
+| Failure         | - 1   |
+
+**Supported operators**: eq
+
+**Example**:
+
+    $filter=activityStatus eq -1    
+
+---
 ### activityType
 **Supported operators**: eq
 
@@ -136,6 +185,7 @@ case-insensitive
 **Example**:
 
     $filter=actor/objectId eq 'e8096343-86a2-4384-b43a-ebfdb17600ba'    
+
 
 - - -
 ### target/name

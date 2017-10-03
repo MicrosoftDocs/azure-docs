@@ -8,13 +8,14 @@ author: torsteng
 
 ms.assetid: 84c261f2-9edc-42f4-988c-cf2f251f5eff
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
+
 
 ---
 # Query across cloud databases with different schemas (preview)
@@ -27,7 +28,10 @@ Vertically-partitioned databases use different sets of tables on different datab
 * ALTER ANY EXTERNAL DATA SOURCE permissions are needed to refer to the underlying data source.
 
 ## Overview
-**NOTE**:  Unlike with horizontal partitioning, these DDL statements do not depend on defining a data tier with a shard map through the elastic database client library.
+
+> [!NOTE]
+> Unlike with horizontal partitioning, these DDL statements do not depend on defining a data tier with a shard map through the elastic database client library.
+>
 
 1. [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
 2. [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
@@ -42,7 +46,9 @@ The credential is used by the elastic query to connect to your remote databases.
     SECRET = '<password>'
     [;]
 
-**Note**    Ensure that the *<username>* does not include any *"@servername"* suffix. 
+> [!NOTE]
+> Ensure that the `<username>` does not include any **"@servername"** suffix. 
+>
 
 ## Create external data sources
 Syntax:
@@ -55,7 +61,9 @@ Syntax:
                 CREDENTIAL = <credential_name> 
                 ) [;] 
 
-**Important**   The TYPE parameter must be set to **RDBMS**. 
+> [!IMPORTANT]
+> The TYPE parameter must be set to **RDBMS**. 
+>
 
 ### Example
 The following example illustrates the use of the CREATE statement for external data sources. 
@@ -115,7 +123,7 @@ Using an external data source as outlined in the previous section, the syntax to
 
 The DATA_SOURCE clause defines the external data source (i.e. the remote database in case of vertical partitioning) that is used for the external table.  
 
-The SCHEMA_NAME and OBJECT_NAME clauses provide the ability to map the external table definition to a table in a different schema on the remote database, or to a table with a different name, respectively. This is useful if you want to define an external table to a catalog view or DMV on your remote database – or any other situation where the remote table name is already taken locally.  
+The SCHEMA_NAME and OBJECT_NAME clauses provide the ability to map the external table definition to a table in a different schema on the remote database, or to a table with a different name, respectively. This is useful if you want to define an external table to a catalog view or DMV on your remote database - or any other situation where the remote table name is already taken locally.  
 
 The following DDL statement drops an existing external table definition from the local catalog. It does not impact the remote database. 
 
@@ -170,9 +178,13 @@ You can use regular SQL Server connection strings to connect your BI and data in
 * Elastic query works best for queries where most of the computation can be done on the remote databases. You typically get the best query performance with selective filter predicates that can be evaluated on the remote databases or joins that can be performed completely on the remote database. Other query patterns may need to load large amounts of data from the remote database and may perform poorly. 
 
 ## Next steps
-To query horizontally partitioned databases (also known as sharded databases), see [Queries across sharded cloud databases (horizontally partitioned)](sql-database-elastic-query-horizontal-partitioning.md).
 
-[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+* For an overview of elastic query, see [Elastic query overview](sql-database-elastic-query-overview.md).
+* For a vertical partitioning tutorial, see [Getting started with cross-database query (vertical partitioning)](sql-database-elastic-query-getting-started-vertical.md).
+* For a horizontal partitioning (sharding) tutorial, see [Getting started with elastic query for horizontal partitioning (sharding)](sql-database-elastic-query-getting-started.md).
+* For syntax and sample queries for horizontally partitioned data, see [Querying horizontally partitioned data)](sql-database-elastic-query-horizontal-partitioning.md)
+* See [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) for a stored procedure that executes a Transact-SQL statement on a single remote Azure SQL Database or set of databases serving as shards in a horizontal partitioning scheme.
+
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-query-vertical-partitioning/verticalpartitioning.png

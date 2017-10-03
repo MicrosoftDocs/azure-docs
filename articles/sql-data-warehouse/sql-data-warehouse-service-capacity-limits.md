@@ -3,7 +3,7 @@ title: SQL Data Warehouse capacity limits | Microsoft Docs
 description: Maximum values for connections, databases, tables and queries for SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: kevinvngo
 manager: jhubbard
 editor: ''
 
@@ -13,8 +13,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: reference
 ms.date: 10/31/2016
-ms.author: barbkess;jrj
+ms.author: kevin;barbkess
 
 ---
 # SQL Data Warehouse capacity limits
@@ -54,7 +55,7 @@ The following tables contain the maximum values allowed for various components o
 ## Loads
 | Category | Description | Maximum |
 |:--- |:--- |:--- |
-| Polybase Loads |Bytes per row |32,768<br/><br/>Polybase loads are limited to loading rows both smaller than 32K and cannot load to VARCHR(MAX), NVARCHAR(MAX) or VARBINARY(MAX).  While this limit exists today, it will be removed fairly soon.<br/><br/> |
+| Polybase Loads |MB per row |1<br/><br/>Polybase loads are limited to loading rows both smaller than 1MB and cannot load to VARCHR(MAX), NVARCHAR(MAX) or VARBINARY(MAX).<br/><br/> |
 
 ## Queries
 | Category | Description | Maximum |
@@ -90,7 +91,7 @@ For more reference information, see [SQL Data Warehouse reference overview][SQL 
 <!--Image references-->
 
 <!--Article references-->
-[Data Warehouse Units (DWU)]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[Data Warehouse Units (DWU)]: ./sql-data-warehouse-overview-what-is.md
 [SQL Data Warehouse reference overview]: ./sql-data-warehouse-overview-reference.md
 [Workload management]: ./sql-data-warehouse-develop-concurrency.md
 [Tempdb]: ./sql-data-warehouse-tables-temporary.md

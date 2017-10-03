@@ -1,5 +1,5 @@
 ---
-title: Shard map management | Microsoft Docs
+title: Scale out an Azure SQL database | Microsoft Docs
 description: How to use the ShardMapManager, elastic database client library
 services: sql-database
 documentationcenter: ''
@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 0e9d647a-9ba9-4875-aa22-662d01283439
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -291,7 +291,7 @@ These methods work together as the building blocks available for modifying the o
     The server and database representing the target shard must already exist for these operations to execute. These methods do not have any impact on the databases themselves, only on metadata in the shard map.
 * To create or remove points or ranges that are mapped to the shards: use **[CreateRangeMapping](https://msdn.microsoft.com/library/azure/dn841993.aspx)**, **[DeleteMapping](https://msdn.microsoft.com/library/azure/dn824200.aspx)** of the [RangeShardMapping class](https://msdn.microsoft.com/library/azure/dn807318.aspx), and **[CreatePointMapping](https://msdn.microsoft.com/library/azure/dn807218.aspx)** of the [ListShardMap](https://msdn.microsoft.com/library/azure/dn842123.aspx)
   
-    Many different points or ranges can be mapped to the same shard. These methods only affect metadata – they do not affect any data that may already be present in shards. If data needs to be removed from the database in order to be consistent with **DeleteMapping** operations, you will need to perform those operations separately but in conjunction with using these methods.  
+    Many different points or ranges can be mapped to the same shard. These methods only affect metadata - they do not affect any data that may already be present in shards. If data needs to be removed from the database in order to be consistent with **DeleteMapping** operations, you will need to perform those operations separately but in conjunction with using these methods.  
 * To split existing ranges into two, or merge adjacent ranges into one: use **[SplitMapping](https://msdn.microsoft.com/library/azure/dn824205.aspx)** and **[MergeMappings](https://msdn.microsoft.com/library/azure/dn824201.aspx)**.  
   
     Note that split and merge operations **do not change the shard to which key values are mapped**. A split breaks an existing range into two parts, but leaves both as mapped to the same shard. A merge operates on two adjacent ranges that are already mapped to the same shard, coalescing them into a single range.  The movement of points or ranges themselves between shards needs to be coordinated by using **UpdateMapping** in conjunction with actual data movement.  You can use the **Split/Merge** service that is part of elastic database tools to coordinate shard map changes with data movement, when movement is needed. 

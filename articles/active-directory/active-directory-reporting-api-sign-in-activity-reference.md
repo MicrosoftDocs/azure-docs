@@ -3,7 +3,7 @@ title: Azure Active Directory sign-in activity report API reference | Microsoft 
 description: Reference for the Azure Active Directory sign-in activity report API
 services: active-directory
 documentationcenter: ''
-author: dhanyahk
+author: MarkusVi
 manager: femila
 editor: ''
 
@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/25/2016
+ms.date: 07/15/2017
 ms.author: dhanyahk;markvi
+ms.reviewer: dhanyahk 
 
 ---
 # Azure Active Directory sign-in activity report API reference
@@ -24,15 +25,23 @@ The scope of this topic is to provide you with reference information about the *
 
 See:
 
-* [Sign-in activities](active-directory-reporting-azure-portal.md#sign-in-activities) for more conceptual information
+* [Sign-in activities](active-directory-reporting-azure-portal.md#activity-reports) for more conceptual information
 * [Getting started with the Azure Active Directory Reporting API](active-directory-reporting-api-getting-started.md) for more information about the reporting API.
 
-For questions, issues or feedback, please contact [AAD Reporting Help](mailto:aadreportinghelp@microsoft.com).
 
 ## Who can access the API data?
-* Users in the Security Admin or Security Reader role
+* Users and Service Principals in the Security Admin or Security Reader role
 * Global Admins
 * Any app that has authorization to access the API (app authorization can be setup only based on Global Admin’s permission)
+
+To configure access for an application to access security APIs such as signin events, use the following PowerShell to add the applications Service Principal into the Security Reader role
+
+```PowerShell
+Connect-MsolService
+$servicePrincipal = Get-MsolServicePrincipal -AppPrincipalId "<app client id>"
+$role = Get-MsolRole | ? Name -eq "Security Reader"
+Add-MsolRoleMember -RoleObjectId $role.ObjectId -RoleMemberType ServicePrincipal -RoleMemberObjectId $servicePrincipal.ObjectId
+```
 
 ## Prerequisites
 To access this report through the reporting API, you must have:

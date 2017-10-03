@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/15/2016
+ms.date: 06/05/2017
 ms.author: nisoneji
 
 ---
@@ -67,7 +67,7 @@ We recommend you set up a single Hyper-V host as a recovery server, so that a du
 3. Set up authentication:
 
    * In **Authentication and ports**, select how to authenticate the primary server, and the authentication ports. If you use a certificate click **Select Certificate** to select one. Use Kerberos if the primary and recovery Hyper-V hosts are in the same domain, or in trusted domains. Use certificates for different domains, or for a workgroup deployment.
-   * In **Authorization and Storage**, allow **any** authenticated (primary) server to send replication data to this replica server. 
+   * In **Authorization and Storage**, allow **any** authenticated (primary) server to send replication data to this replica server.
 
      ![](./media/site-recovery-capacity-planning-for-hyper-v-replication/image1.png)
    * Run **netsh http show servicestate**, to check that the listener is running for the protocol/port you specified:  
@@ -130,5 +130,3 @@ After you've finished capacity planning you can start deploying Site Recovery:
 * [Replicate Hyper-V VMs in VMM clouds to Azure](site-recovery-vmm-to-azure.md)
 * [Replicate Hyper-V VMs (without VMM) to Azure](site-recovery-hyper-v-site-to-azure.md)
 * [Replicate Hyper-V VMs between VMM sites](site-recovery-vmm-to-vmm.md)
-* [Replicate Hyper-V VMs between VMM sites with SAN](site-recovery-vmm-san.md)
-* [Replicate hyper-V VMs on single VMM server](site-recovery-single-vmm.md)

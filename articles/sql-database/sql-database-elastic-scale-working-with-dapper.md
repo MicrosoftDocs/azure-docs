@@ -8,7 +8,7 @@ author: torsteng
 
 ms.assetid: 463d2676-3b19-47c2-83df-f8c50492c9d2
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -82,7 +82,7 @@ The call to the [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/d
 
 The shard map object creates a connection to the shard that holds the shardlet for the given sharding key. The elastic database client APIs also tag the connection to implement its consistency guarantees. Since the call to [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) returns a regular SQL Client connection object, the subsequent call to the **Execute** extension method from Dapper follows the standard Dapper practice.
 
-Queries work very much the same way – you first open the connection using [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) from the client API. Then you use the regular Dapper extension methods to map the results of your SQL query into .NET objects:
+Queries work very much the same way - you first open the connection using [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) from the client API. Then you use the regular Dapper extension methods to map the results of your SQL query into .NET objects:
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                     key: tenantId1, 

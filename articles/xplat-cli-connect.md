@@ -25,7 +25,7 @@ The Azure CLI is a set of open-source, cross-platform commands for working with 
 * Run the `azure login` CLI command to authenticate through Azure Active Directory. This method gives you access to CLI commands in both [command modes](#cli-command-modes). When you run the command without additional options, `azure login` prompts you to continue logging in interactively through a web portal. For additional `azure login` command options, see the scenarios in this article, or type `azure login --help`.
 * If you only need to use Azure Service Management mode CLI commands (not recommended for most new deployments), you can download and install a publish settings file on your computer.
 
-If you haven't already installed the CLI, see [Install the Azure CLI](xplat-cli-install.md). If you don't have an Azure subscription, you can create a [free account](http://azure.microsoft.com/free/) in just a couple of minutes.
+If you haven't already installed the CLI, see [Install the Azure CLI](cli-install-nodejs.md). If you don't have an Azure subscription, you can create a [free account](http://azure.microsoft.com/free/) in just a couple of minutes.
 
 For background about different account identities and Azure subscriptions, see [How Azure subscriptions are associated with Azure Active Directory](active-directory/active-directory-how-subscriptions-associated-directory.md).
 
@@ -159,6 +159,6 @@ To log out, use the following command:
 If the subscriptions associated with the account are only authenticated with Active Directory, logging out deletes the subscription information from the local profile. However, if a publish settings file was also imported for the subscriptions, logging out only deletes Active Directory related information from the local profile.
 
 ## Next steps
-* To use Azure CLI commands, see [Azure CLI commands in Resource Manager mode](virtual-machines/azure-cli-arm-commands.md) and [Azure CLI commands in Service Management mode](virtual-machines-command-line-tools.md).
+* To use Azure CLI commands, see [Azure CLI commands in Resource Manager mode](virtual-machines/azure-cli-arm-commands.md) and [Azure CLI commands in Service Management mode](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 * To learn more about the Azure CLI, download source code, report problems, or contribute to the project, visit the [GitHub repository for the Azure CLI](https://github.com/azure/azure-xplat-cli).
 * If you encounter problems using the Azure CLI, or Azure, visit the [Azure Forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting).

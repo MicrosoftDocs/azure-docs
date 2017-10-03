@@ -1,5 +1,5 @@
 ---
-title: DNS Zones and Records | Microsoft Docs
+title: DNS Zones and Records overview - Azure DNS | Microsoft Docs
 description: Overview of support for hosting DNS zones and records in Microsoft Azure DNS.
 services: dns
 documentationcenter: na
@@ -12,12 +12,13 @@ ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
+ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: jonatul
 ---
 
-# DNS zones and records
+# Overview of DNS zones and records
 
 This page explains the key concepts of domains, DNS zones, and DNS records and record sets, and how they are supported in Azure DNS.
 
@@ -61,9 +62,11 @@ These constraints arise from the DNS standards and are not limitations of Azure 
 
 ### NS records
 
-An NS record set is created automatically at the apex of each zone (name = '@'), and is deleted automatically when the zone is deleted (it cannot be deleted separately).  You can modify the TTL of this record set, but you cannot modify the records, which are pre-configured to refer to the Azure DNS name servers assigned to the zone.
+The NS record set at the zone apex (name '@') is created automatically with each DNS zone, and is deleted automatically when the zone is deleted (it cannot be deleted separately).
 
-You can create and delete other NS records within the zone, other than at the zone apex.  This allows you to configure child zones (see [Delegating sub-domains in Azure DNS](dns-domain-delegation.md#delegating-sub-domains-in-azure-dns).)
+This record set contains the names of the Azure DNS name servers assigned to the zone. You can add additional name servers to this NS record set, to support co-hosting domains with more than one DNS provider. You can also modify the TTL and metadata for this record set. However, you cannot remove or modify the pre-populated Azure DNS name servers. 
+
+Note that this applies only to the NS record set at the zone apex. Other NS record sets in your zone (as used to delegate child zones) can be created, modified and deleted without constraint.
 
 ### SOA records
 
@@ -73,11 +76,7 @@ You can modify all properties of the SOA record except for the 'host' property, 
 
 ### SPF records
 
-Sender Policy Framework (SPF) records are used to specifying which email servers are permitted to send email on behalf of a given domain name.  Correct configuration of SPF records is important to prevent recipients marking your email as 'junk'.
-
-The DNS RFCs originally introduced a new 'SPF' record type to support this scenario. To support older name servers, they also permitted the use of the TXT record type to specify SPF records.  This ambiguity led to confusion, which was resolved by [RFC 7208](http://tools.ietf.org/html/rfc7208#section-3.1).  This states that SPF records should only be created using the TXT record type, and that the SPF record type is deprecated.
-
-**SPF records are supported by Azure DNS and should be created using the TXT record type.** The obsolete SPF record type is not supported. When [importing a DNS zone file](dns-import-export.md), any SPF records using the SPF record type are converted to the TXT record type.
+[!INCLUDE [dns-spf-include](../../includes/dns-spf-include.md)]
 
 ### SRV records
 
@@ -94,7 +93,7 @@ The DNS standards permit a single TXT record to contain multiple strings, each o
 
 When calling the Azure DNS REST API, you need to specify each TXT string separately.  When using the Azure portal, PowerShell or CLI interfaces you should specify a single string per record, which is automatically divided into 254-character segments if necessary.
 
-The multiple strings in a DNS record should not be confused with the multiple TXT records in a TXT record set.  A TXT record set can contain multiple records, *each of which* can contain multiple strings.  Azure DNS supports a total string length of up to 1024 characters in each TXT record set (across all records combined). 
+The multiple strings in a DNS record should not be confused with the multiple TXT records in a TXT record set.  A TXT record set can contain multiple records, *each of which* can contain multiple strings.  Azure DNS supports a total string length of up to 1024 characters in each TXT record set (across all records combined).
 
 ## Tags and metadata
 
@@ -136,4 +135,3 @@ The following default limits apply when using Azure DNS:
 
 * To start using Azure DNS, learn how to [create a DNS zone](dns-getstarted-create-dnszone-portal.md) and [create DNS records](dns-getstarted-create-recordset-portal.md).
 * To migrate an existing DNS zone, learn how to [import and export a DNS zone file](dns-import-export.md).
-

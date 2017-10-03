@@ -4,7 +4,7 @@ description: This topic describes how to create filters so your client can use t
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 2f6894ca-fb43-43c0-9151-ddbb2833cafd
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 07/18/2016
+ms.date: 07/21/2017
 ms.author: juliako;cenkdin
 
 ---
@@ -35,10 +35,10 @@ Note if you update a filter, it can take up to 2 minutes for streaming endpoint 
 ## Types used to create filters
 The following types are used when creating filters: 
 
-* **IStreamingFilter**.  This type is based on the following REST API [Filter](http://msdn.microsoft.com/library/azure/mt149056.aspx)
-* **IStreamingAssetFilter**. This type is based on the following REST API [AssetFilter](http://msdn.microsoft.com/library/azure/mt149053.aspx)
-* **PresentationTimeRange**. This type is based on the following REST API [PresentationTimeRange](http://msdn.microsoft.com/library/azure/mt149052.aspx)
-* **FilterTrackSelectStatement** and **IFilterTrackPropertyCondition**. These types are based on the following REST APIs [FilterTrackSelect and FilterTrackPropertyCondition](http://msdn.microsoft.com/library/azure/mt149055.aspx)
+* **IStreamingFilter**.  This type is based on the following REST API [Filter](https://docs.microsoft.com/rest/api/media/operations/filter)
+* **IStreamingAssetFilter**. This type is based on the following REST API [AssetFilter](https://docs.microsoft.com/rest/api/media/operations/assetfilter)
+* **PresentationTimeRange**. This type is based on the following REST API [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
+* **FilterTrackSelectStatement** and **IFilterTrackPropertyCondition**. These types are based on the following REST APIs [FilterTrackSelect and FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
 
 ## Create/Update/Read/Delete global filters
 The following code shows how to use .NET to create, update,read, and delete asset filters.

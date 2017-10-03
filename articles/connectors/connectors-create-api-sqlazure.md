@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2016
-ms.author: mandia
+ms.author: mandia; ladocs
 
 ---
 # Get started with the Azure SQL Database connector
@@ -28,12 +28,7 @@ With SQL Database, you:
 
 This topic shows you how to use the SQL Database connector in a logic app, and also lists the actions.
 
-> [!NOTE]
-> This version of the article applies to Logic Apps general availability (GA). 
-> 
-> 
-
-To learn more about Logic Apps, see [What are logic apps](../app-service-logic/app-service-logic-what-are-logic-apps.md) and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+To learn more about Logic Apps, see [What are logic apps](../logic-apps/logic-apps-what-are-logic-apps.md) and [create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## Connect to Azure SQL Database
 Before your logic app can access any service, you first create a *connection* to the service. A connection provides connectivity between a logic app and another service. For example, to connect to SQL Database, you first create a SQL Database *connection*. To create a connection, you enter the credentials you normally use to access the service you are connecting to. So, in SQL Database, enter your SQL Database credentials to create the connection. 
@@ -44,10 +39,10 @@ Before your logic app can access any service, you first create a *connection* to
 > 
 
 ## Use a trigger
-This connector does not have any triggers. Use other triggers to start the logic app, such as a Recurrence trigger, an HTTP Webhook trigger, triggers available with other connectors, and more. [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md) provides an example.
+This connector does not have any triggers. Use other triggers to start the logic app, such as a Recurrence trigger, an HTTP Webhook trigger, triggers available with other connectors, and more. [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md) provides an example.
 
 ## Use an action
-An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
 
 1. Select the plus sign. You see several choices: **Add an action**, **Add a condition**, or one of the **More** options.
    
@@ -68,153 +63,10 @@ An action is an operation carried out by the workflow defined in a logic app. [L
    > 
 5. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
 
-## Technical Details
-## SQL Database actions
-An action is an operation carried out by the workflow defined in a logic app. The SQL Database connector includes the following actions. 
+## Connector-specific details
 
-| Action | Description |
-| --- | --- |
-| [ExecuteProcedure](connectors-create-api-sqlazure.md#execute-stored-procedure) |Executes a stored procedure in SQL |
-| [GetRow](connectors-create-api-sqlazure.md#get-row) |Retrieves a single row from a SQL table |
-| [GetRows](connectors-create-api-sqlazure.md#get-rows) |Retrieves rows from a SQL table |
-| [InsertRow](connectors-create-api-sqlazure.md#insert-row) |Inserts a new row into a SQL table |
-| [DeleteRow](connectors-create-api-sqlazure.md#delete-row) |Deletes a row from a SQL table |
-| [GetTables](connectors-create-api-sqlazure.md#get-tables) |Retrieves tables from a SQL database |
-| [UpdateRow](connectors-create-api-sqlazure.md#update-row) |Updates an existing row in a SQL table |
-
-### Action Details
-In this section, see the specific details about each action, including any required or optional input properties, and any corresponding output associated with the connector.
-
-#### Execute stored procedure
-Executes a stored procedure in SQL.  
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| procedure * |Procedure name |The name of the stored procedure you want to execute |
-| parameters * |Input parameters |The parameters are dynamic and based on the stored procedure you choose. <br/><br/> For example, if you're using the Adventure Works sample database, choose the *ufnGetCustomerInformation* stored procedure. The **Customer ID** input parameter is displayed. Enter "6" or one of the other customer IDs. |
-
-An asterisk (*) means the property is required.
-
-##### Output Details
-ProcedureResult: Carries result of stored procedure execution
-
-| Property Name | Data Type | Description |
-| --- | --- | --- |
-| OutputParameters |object |Output parameter values |
-| ReturnCode |integer |Return code of a procedure |
-| ResultSets |object |Result sets |
-
-#### Get row
-Retrieves a single row from a SQL table.  
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| table * |Table name |Name of SQL table |
-| id * |Row id |Unique identifier of the row to retrieve |
-
-An asterisk (*) means the property is required.
-
-##### Output Details
-Item
-
-| Property Name | Data Type |
-| --- | --- |
-| ItemInternalId |string |
-
-#### Get rows
-Retrieves rows from a SQL table.  
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| table* |Table name |Name of SQL table |
-| $skip |Skip Count |Number of entries to skip (default = 0) |
-| $top |Maximum Get Count |Maximum number of entries to retrieve (default = 256) |
-| $filter |Filter Query |An ODATA filter query to restrict the number of entries |
-| $orderby |Order By |An ODATA orderBy query for specifying the order of entries |
-
-An asterisk (*) means the property is required.
-
-##### Output Details
-ItemsList
-
-| Property Name | Data Type |
-| --- | --- |
-| value |array |
-
-#### Insert row
-Inserts a new row into a SQL table.  
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| table* |Table name |Name of SQL table |
-| item* |Row |Row to insert into the specified table in SQL |
-
-An asterisk (*) means the property is required.
-
-##### Output Details
-Item
-
-| Property Name | Data Type |
-| --- | --- |
-| ItemInternalId |string |
-
-#### Delete row
-Deletes a row from a SQL table.  
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| table* |Table name |Name of SQL table |
-| id* |Row id |Unique identifier of the row to delete |
-
-An asterisk (*) means the property is required.
-
-##### Output Details
-None.
-
-#### Get tables
-Retrieves tables from a SQL database.  
-
-There are no parameters for this call. 
-
-##### Output Details
-TablesList
-
-| Property Name | Data Type |
-| --- | --- |
-| value |array |
-
-#### Update row
-Updates an existing row in a SQL table.  
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| table* |Table name |Name of SQL table |
-| id* |Row id |Unique identifier of the row to update |
-| item* |Row |Row with updated values |
-
-An asterisk (*) means the property is required.
-
-##### Output Details
-Item
-
-| Property Name | Data Type |
-| --- | --- |
-| ItemInternalId |string |
-
-### HTTP Responses
-When making calls to the different actions, you may get certain responses. The following table outlines the responses and their descriptions:  
-
-| Name | Description |
-| --- | --- |
-| 200 |OK |
-| 202 |Accepted |
-| 400 |Bad Request |
-| 401 |Unauthorized |
-| 403 |Forbidden |
-| 404 |Not Found |
-| 500 |Internal Server Error. Unknown error occurred |
-| default |Operation Failed. |
+View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/sql/). 
 
 ## Next steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).
+[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).
 

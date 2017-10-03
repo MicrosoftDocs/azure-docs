@@ -1,10 +1,10 @@
 ---
-title: How to perform live streaming with on-premise encoders using the Azure portal | Microsoft Docs
+title: Live stream with on-premises encoders using the Azure portal | Microsoft Docs
 description: This tutorial walks you through the steps of creating a Channel that is configured for a pass-through delivery.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 6f4acd95-cc64-4dd9-9e2d-8734707de326
@@ -13,15 +13,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2016
+ms.date: 08/09/2017
 ms.author: juliako
 
 ---
-# How to perform live streaming with on-premise encoders using the Azure portal
+# How to perform live streaming with on-premises encoders using the Azure portal
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
-> * [REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+> * [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > 
 
@@ -31,18 +31,21 @@ This tutorial walks you through the steps of using the Azure portal to create a 
 The following are required to complete the tutorial:
 
 * An Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
-* A Media Services account.    To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
+* A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
 * A webcam. For example, [Telestream Wirecast encoder](http://www.telestream.net/wirecast/overview.htm).
 
 It is highly recommended to review the following articles:
 
 * [Azure Media Services RTMP Support and Live Encoders](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
 * [Overview of Live Steaming using Azure Media Services](media-services-manage-channels-overview.md)
-* [Live streaming with on-premise encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md)
+* [Live streaming with on-premises encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md)
 
 ## <a id="scenario"></a>Common live streaming scenario
 The following steps describe tasks involved in creating common live streaming applications that use channels that are configured for pass-through delivery. This tutorial shows how to create and manage a pass-through channel and live events.
 
+>[!NOTE]
+>Make sure the streaming endpoint from which you want to stream content is in the **Running** state. 
+	
 1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that outputs a multi-bitrate RTMP or Fragmented MP4 stream. For more information, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
    
     This step could also be performed after you create your Channel.
@@ -56,18 +59,14 @@ The following steps describe tasks involved in creating common live streaming ap
 5. Create a live event/program. 
    
     When using the Azure portal, creating a live event also creates an asset. 
-   
-   > [!NOTE]
-   > Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
-   > 
-   > 
+
 6. Start the event/program when you are ready to start streaming and archiving.
 7. Optionally, the live encoder can be signaled to start an advertisement. The advertisement is inserted in the output stream.
 8. Stop the event/program whenever you want to stop streaming and archiving the event.
 9. Delete the event/program (and optionally delete the asset).     
 
 > [!IMPORTANT]
-> Please review [Live streaming with on-premise encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md) to learn about concepts and considerations related to live streaming with on-premise encoders and pass-through channels.
+> Please review [Live streaming with on-premises encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md) to learn about concepts and considerations related to live streaming with on-premises encoders and pass-through channels.
 > 
 > 
 
@@ -75,28 +74,6 @@ The following steps describe tasks involved in creating common live streaming ap
 If you want to view notifications and errors produced by the Azure portal, click on the Notification icon.
 
 ![Notifications](./media/media-services-portal-passthrough-get-started/media-services-notifications.png)
-
-## Configure streaming endpoints
-Media Services provides dynamic packaging, which allows you to deliver your multi-bitrate MP4s in the following streaming formats: MPEG DASH, HLS, Smooth Streaming, without you having to repackage into these streaming formats. With dynamic packaging you only need to store and pay for the files in single storage format and Media Services builds and serves the appropriate response based on requests from a client.
-
-To take advantage of dynamic packaging, you need to get at least one streaming unit for the streaming endpoint from which you plan to delivery your content.  
-
-To create and change the number of streaming reserved units, do the following:
-
-1. Log in at the [Azure portal](https://portal.azure.com/).
-2. In the **Settings** window, click **Streaming endpoints**. 
-3. Click on the default streaming endpoint. 
-   
-    The **DEFAULT STREAMING ENDPOINT DETAILS** window appears.
-4. To specify the number of streaming units, slide the **Streaming units** slider.
-   
-    ![Streaming units](./media/media-services-portal-passthrough-get-started/media-services-streaming-units.png)
-5. Click the **Save** button to save your changes.
-   
-   > [!NOTE]
-   > The allocation of any new units can take up to 20 minutes to complete.
-   > 
-   > 
 
 ## Create and start pass-through channels and events
 A channel is associated with events/programs that enable you to control the publishing and storage of segments in a live stream. Channels manage events. 
@@ -120,7 +97,7 @@ If you do want to retain the archived content, but not have it available for str
 ### To use the portal to create a channel
 This section shows how to use the **Quick Create** option to create a pass-through channel.
 
-For more details about pass-through channels, see [Live streaming with on-premise encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md).
+For more details about pass-through channels, see [Live streaming with on-premises encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md).
 
 1. In the [Azure portal](https://portal.azure.com/), select your Azure Media Services account.
 2. In the **Settings** window, click **Live streaming**. 
@@ -154,7 +131,7 @@ To watch the event, click **Watch** in the Azure portal or copy the streaming UR
 Live event automatically get converted to on-demand content when stopped.
 
 ## Clean up
-For more details about pass-through channels, see [Live streaming with on-premise encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md).
+For more details about pass-through channels, see [Live streaming with on-premises encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md).
 
 * A channel can be stopped only when all events/programs on the channel have been stopped.  Once the Channel is stopped, it does not incur any charges. When you need to start it again, it will have the same ingest URL so you won't need to reconfigure your encoder.
 * A channel can be deleted only when all live events on the channel have been deleted.
