@@ -59,5 +59,5 @@ To learn more about Service Bus messaging, see the following topics:
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 * [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
-[1]: queue-disable.png
+[1]: ./media/entity-suspend/queue-disable.png
 
