@@ -24,7 +24,7 @@ app's [overview blade](app-insights-dashboards.md).
 ![Open portal.azure.com, open your Application Insights resource, and click Analytics.](./media/app-insights-analytics/001.png)
 
 You can also use the [Analytics playground](https://go.microsoft.com/fwlink/?linkid=859557) which is a free demo environment with a lot of sample data.
-
+<br>
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
