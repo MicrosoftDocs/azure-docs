@@ -32,12 +32,21 @@ Any application that wants to use the capabilities of Azure AD must first be reg
 
 ### To register a new application in the Azure portal
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. If your account gives you access to more than one, click your account in the top right corner, and set your portal session to the desired tenant.
-3. In the left-hand navigation pane, choose **More Services**, click **App Registrations**, and click **Add**.
-4. Follow the prompts and create a new application. If you'd like specific examples for web applications or native applications, check out our [quickstarts](active-directory-developers-guide.md).
-  * For Web Applications, provide the **Sign-On URL**, which is the base URL of your app, where users can sign in e.g `http://localhost:12345`.
-<!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->
-  * For Native Applications, provide a **Redirect URI**, which Azure AD uses to return token responses. Enter a value specific to your application, .e.g `http://MyFirstAADApp`
+2. If your account gives you access to more than one, click your account in the top right corner, and set your portal session to the desired Azure AD tenant.
+3. In the left-hand navigation pane, click the **Azure Active Directory** service, click **App Registrations**, and click **New application registration**.
+   ![Register a new application](./media/active-directory-integrating-applications/add-app-registration.png)
+4. When the "Create" page appears, enter your application's registration information: 
+   - **Name:** Enter a meaningful application name
+   - **Application type:** 
+     - Select "Native" for [client applications](active-directory-dev-glossary.md#client-application) that are installed locally on a device. This setting is used for OAuth public [native clients](active-directory-dev-glossary.md#native-client).
+     - Select "Web app / API" for [client applications](active-directory-dev-glossary.md#client-application) and [resource/API applications](active-directory-dev-glossary.md#resource-server) that are installed on a secure server. This setting is used for OAuth confidential [web clients](active-directory-dev-glossary.md#web-client) and public [user-agent-based clients](active-directory-dev-glossary.md#user-agent-based-application). The same application can also expose both a client and resource/API.
+   - **Sign-On URL:** For "Web app / API" applications, provide the base URL of your app, e.g. `http://localhost:12345`. This also where users would go to sign in to a web client application. 
+   - **Redirect URI:** For "Native" applications, provide the URI used by Azure AD return token responses. Enter a value specific to your application, .e.g `http://MyFirstAADApp`
+
+    ![Register a new application - create](./media/active-directory-integrating-applications/add-app-registration-create.png)
+
+   If you'd like specific examples for web applications or native applications, check out our [quickstarts](active-directory-developers-guide.md#get-started).
+
 5. Once you've completed registration, Azure AD assigns a unique Application ID to your application, and you're taken to your application's main registration page. Depending on whether your application is a web or native application, different options are provided to add additional capabilities to your application. See the next section for an overview of consent, and details on enabling additional configuration features in your application registration (credentials, permissions, enable sign-in for users from other tenants.)
 
    > [!NOTE]
@@ -87,27 +96,36 @@ In order for a web/confidential client application to be able to participate in 
 Additionally, before a client can access a web API exposed by a resource application (such as Microsoft Graph API), the consent framework ensures the client obtains the permission grant required, based on the permissions requested. By default, all applications can choose permissions from "Windows Azure Active Directory" (Graph API) and "Windows Azure Service Management API." The [Graph API “Sign-in and read user profile” permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) is also selected by default. If your client is being registered in a tenant with an Office 365 subscription, Web APIs and permissions for SharePoint and Exchange Online are available for selection. You can select from [two types of permissions](active-directory-dev-glossary.md#permissions) for each desired web API:
 
 * Application Permissions: Your client application needs to access the web API directly as itself (no user context). This type of permission requires administrator consent and is also not available for native client applications.
-* Delegated Permissions: Your client application needs to access the web API as the signed-in user, but with access limited by the selected permission. This type of permission can be granted by a user unless the permission is configured as requiring administrator consent. 
+* Delegated Permissions: Your client application needs to access the web API as the signed-in user, but with access limited by the selected permission. This type of permission can be granted by a user unless the permission requires administrator consent. 
 
    > [!NOTE]
-   > Adding a delegated permission to an application does not automatically grant consent to the users within the tenant, as it did in the Azure Classic Portal. The users must still manually consent for the added delegated permissions at runtime, unless the administrator clicks the **Grant Permissions** button from the **Required Permissions** section of the application page in the Azure portal. 
+   > Adding a delegated permission to an application does not automatically grant consent to the users within the tenant, as it did in the Azure classic portal. Users must still manually consent for the added delegated permissions at runtime, unless the administrator clicks the **Grant Permissions** button from the **Required Permissions** section of the application page in the Azure portal. 
 
-#### To add credentials, or permissions to access web APIs
+#### To add application credentials, or permissions to access web APIs
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. If your account gives you access to more than one, click your account in the top right corner, and set your portal session to the desired tenant.
-3. On the top menu, choose **Azure Active Directory**, click **App Registrations**, and then click the application you want to configure. You are taken to the application's main registration page, which opens up the **Settings** page for the application.
-4. To add a secret key for your web application's credentials, click the "Keys" section from the **Settings** page.  
+2. If your account gives you access to more than one, click your account in the top right corner, and set your portal session to the desired Azure AD tenant.
+3. In the left-hand navigation pane, click the **Azure Active Directory** service, click **App Registrations**, then click the application you want to configure.
+   ![Update an application's registration](./media/active-directory-integrating-applications/update-app-registration.png)
+4. You are taken to the application's main registration page, which opens up the **Settings** page for the application. To add a secret key for your web application's credentials:
+   - Click the **Keys** section on the Settings page.  
+   - Add a description for your key.
+   - Select either a one or two year duration.
+   - Click **Save**. The right-most column will contain the key value, after you save the configuration changes. **Be sure to copy the key** for use in your client application code, as it is not accessible once you leave this page.
+
+     ![Update an application's registration - keys](./media/active-directory-integrating-applications/update-app-registration-settings-keys.png)
+
+5. To add permission(s) to access resource APIs from your client
+   - Click the **Required Permissions** section on the Settings page. 
+   - Click the **Add** button.
+   - Click **Select an API** to select the type of resources you want to pick from.
+   - Browse through the list of available APIs or use the search box to select from the available resource applications in your directory that expose a web API. Click the resource you are interested in, then click **Select**.
+   - You're taken to **Select Permissions**, to select the "Application Permissions" and "Delegated Permissions" your application needs when accessing the API.
    
-   * Add a description for your key, select either a one or two year duration, then click **Save**. 
-   * The right-most column will contain the key value, after you save the configuration changes. Be sure to copy the key for use in your client application code, as it is not accessible once you leave this page.
-5. To add permission(s) to access resource APIs from your client, click the "Required Permissions" section from the **Settings** page. 
-   
-   * First, click the "Add" button.
-   * Click "Select an API" to select the type of resources you want to pick from.
-   * Browse through the list of available APIs or use the search box to select from the available resource applications in your directory that expose a web API. Click the resource you are interested in, then click **Select**.
-   * Once selected, you can move to the **Select Permissions** menu, where you can select the "Application Permissions" and "Delegated Permissions" for your application.
-   
-6. When finished, click the **Done** button.
+     ![Update an application's registration - permissions api](./media/active-directory-integrating-applications/update-app-registration-settings-permissions-api.png)
+
+     ![Update an application's registration - permissions perms](./media/active-directory-integrating-applications/update-app-registration-settings-permissions-perms.png)
+
+6. When finished, click the **Select** button on "Enable Access" page, then the  **Done** button on the "Add API access" page. You'll be returned to the "Required permissions" page, where the new resource will be added to the list of APIs.
 
    > [!NOTE]
    > Clicking the **Done** button also automatically sets the permissions for your application in your directory based on the permissions to other applications that you configured.  You can view these application permissions by looking at the application **Settings** page.
@@ -121,7 +139,7 @@ The following section shows you how to expose access scopes, by modifying the re
 
 #### Adding access scopes to your resource application
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. If your account gives you access to more than one, click your account in the top right corner, and set your portal session to the desired tenant.
+2. If your account gives you access to more than one, click your account in the top right corner, and set your portal session to the desired Azure AD tenant.
 3. On the top menu, choose **Azure Active Directory**, click **App Registrations**, and then click the application you want to configure. You are taken to the application's main registration page, which opens up the **Settings** page for the application.
 4. Click **Manifest** from the application page to open the inline manifest editor. 
 5. Replace “oauth2Permissions” node with the following JSON snippet. This snippet is an example of how to expose a scope known as "user impersonation", which allows a resource owner to give a client application a type of delegated access to a resource. Make sure that you change the text and values for your own application:
@@ -190,7 +208,7 @@ If you are writing an application that you want to make available to your custom
 To enable access to your app for external users: 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. If your account gives you access to more than one, click your account in the top right corner, and set your portal session to the desired tenant.
+2. If your account gives you access to more than one, click your account in the top right corner, and set your portal session to the desired Azure AD tenant.
 3. On the top menu, choose **Azure Active Directory**, click **App Registrations**, and then click the application you want to configure. You are taken to the application's main registration page, which opens up the **Settings** page for the application.
 4. From the **Settings** page, click **Properties** and flip the **Multi-tenanted** switch to **Yes**.
 
@@ -210,7 +228,7 @@ By default, OAuth 2.0 implicit Grant is disabled for applications. You can enabl
 
 #### To enable OAuth 2.0 implicit grant
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. If your account gives you access to more than one, click your account in the top right corner, and set your portal session to the desired tenant.
+2. If your account gives you access to more than one, click your account in the top right corner, and set your portal session to the desired Azure AD tenant.
 3. On the top menu, choose **Azure Active Directory**, click **App Registrations**, and then click the application you want to configure. You are taken to the application's main registration page, which opens up the **Settings** page for the application.
 4. From the application page, click **Manifest** to open the inline manifest editor.
    Locate and set the “oauth2AllowImplicitFlow” value to “true.” By default, it is “false.”
@@ -227,14 +245,14 @@ Applications that your organization has registered show under the "My apps" filt
 
 #### To remove a single-tenant application from your directory
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. If your account gives you access to more than one, click your account in the top right corner, and set your portal session to the desired tenant.
+2. If your account gives you access to more than one, click your account in the top right corner, and set your portal session to the desired Azure AD tenant.
 3. On the top menu, choose **Azure Active Directory**, click **App Registrations**, and then click the application you want to configure. You are taken to the application's main registration page, which opens up the **Settings** page for the application.
 4. From the application page, click **Delete**.
 5. Click **Yes** in the confirmation message.
 
 #### To remove a multi-tenant application from your directory
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. If your account gives you access to more than one, click your account in the top right corner, and set your portal session to the desired tenant.
+2. If your account gives you access to more than one, click your account in the top right corner, and set your portal session to the desired Azure AD tenant.
 3. On the top menu, choose **Azure Active Directory**, click **App Registrations**, and then click the application you want to configure. You are taken to the application's main registration page, which opens up the **Settings** page for the application.
 4. From the **Settings** page, choose **Properties** and flip the **Multi-tenanted** switch to **No** to change your application to single-tenant. The application's service principal objects remain in the tenants of all organizations that have already consented to it.
 5. Click on the **Delete** button from the application page.
