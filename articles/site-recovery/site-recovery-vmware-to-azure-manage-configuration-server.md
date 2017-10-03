@@ -179,7 +179,7 @@ The CSPSConfigTool.exe is used to manage the user accounts used for **Automatic 
 
 > [!WARNING]
 > Ensure the following before you start decommissioning your Configuration Server.
-> 1. [Disable protection](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server) for all virtual machines under this Configuration Server.
+> 1. [Disable protection](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) for all virtual machines under this Configuration Server.
 > 2. [Disassociate](site-recovery-setup-replication-settings-vmware.md#dissociate-a-configuration-server-from-a-replication-policy) and [Delete](site-recovery-setup-replication-settings-vmware.md#delete-a-replication-policy) all Replication policies from the Configuration Server.
 > 3. [Delete](site-recovery-vmware-to-azure-manage-vCenter.md#delete-a-vcenter-in-azure-site-recovery) all vCenters servers/vSphere hosts that are associated to the Configuration Server.
 
