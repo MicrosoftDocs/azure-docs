@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/3/2017
 ms.author: JeffGo
 
 ---
@@ -47,24 +47,25 @@ The system account must have the following privileges:
 
 ## Deploy the resource provider
 
-1. If you have not already done so, register your development kit and download the Windows Server 2016 EVAL image downloadable through Marketplace Management. You now have the option to use a Windows Server 2016 Core image. You can also use a script to create a [Windows Server 2016 image](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image). The .NET 3.5 runtime is no longer required.
+1. If you have not already done so, register your development kit and download the Windows Server 2016 Datacenter Core image downloadable through Marketplace Management. You must use a Windows Server 2016 Core image. You can also use a script to create a [Windows Server 2016 image](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image) - be sure to select the core option. The .NET 3.5 runtime is no longer required.
+
 
 2. Sign in to a host that can access the Privileged Endpoint VM.
-    a. On Azure Stack Development Kit (ASDK) installations, the host should be the physical host and you must sign in as the domain administrator (for example, AzureStack\AzureStackAdmin).
+    a. On Azure Stack Development Kit (ASDK) installations, sign in to the physical host.
     b. On multi-node systems, the host must be a system that can access the Privileged Endpoint.
 
 3. [Download the MySQL resource provider binaries file](https://aka.ms/azurestackmysqlrp) and extract it to a temporary directory.
 
-4. The Azure Stack root certificate is retrieved from the Emergency Console JEA endpoint. For ASDK, a self-signed certificate is created as part of this process. For multi-node, you must provide an appropriate certificate.
+4.  The Azure Stack root certificate is retrieved from the Privileged Endpoint. For ASDK, a self-signed certificate is created as part of this process. For multi-node, you must provide an appropriate certificate.
 
-    __Optional:__ If you need to provide your own, prepare the certificates and copy to a local directory if you wish to customize the certificates (passed to the installation script). You need the following certificate:
+    If you need to provide your own certificate, you need the following certificate:
 
-    A wildcard certificate for \*.dbadapter.\<region\>.\<external fqdn\>. This certificate must be trusted, such as would be issued by a certificate authority. That is, the chain of trust must exist without requiring intermediate certificates. A single site certificate can be used with the explicit VM name [SQLVM] used during install.
+    A wildcard certificate for \*.dbadapter.\<region\>.\<external fqdn\>. This certificate must be trusted, such as would be issued by a certificate authority. That is, the chain of trust must exist without requiring intermediate certificates. A single site certificate can be used with the explicit VM name [mysqladapter] used during install.
 
 
 5. Open a **new** elevated (administrative) PowerShell console and change to the directory where you extracted the files. Use a new window to avoid problems that may arise from incorrect PowerShell modules already loaded on the system.
 
-6. Install Azure PowerShell version 1.2.10 as described in ... .
+6. Install Azure PowerShell version 1.2.11 as described in ... .
 
 7. Run the DeploySqlProvider.ps1 script.
 
@@ -99,7 +100,7 @@ Install-Module -Name AzureRm.BootStrapper -Force
 
 # Install and imports the API Version Profile required by Azure Stack into the current PowerShell session.
 Use-AzureRmProfile -Profile 2017-03-09-profile
-Install-Module -Name AzureStack -RequiredVersion 1.2.10 -Force
+Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
 # Create the credentials needed for the deployment - local VM
 $vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
@@ -109,7 +110,7 @@ $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysq
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
-# and the cloud admin credential required for Emergency Console access
+# and the cloud admin credential required for Privleged Endpoint access
 $CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
 
@@ -132,13 +133,12 @@ You can specify these parameters in the command line. If you do not, or any para
 
 | Parameter Name | Description | Comment or Default Value |
 | --- | --- | --- |
-| **CloudAdminCredential** | The credential for the cloud administrator, necessary for accessing the Emergency Console. | _required_ |
+| **CloudAdminCredential** | The credential for the cloud administrator, necessary for accessing the Privleged Endpoint. | _required_ |
 | **AzCredential** | Provide the credentials for the Azure Stack Service Admin account. Use the same credentials as you used for deploying Azure Stack). | _required_ |
 | **VMLocalCredential** | Define the credentials for the local administrator account of the MySQL resource provider VM. | _required_ |
-| **PrivilegedEndpoint** | Provide the IP address or DNS Name of the Emergency Console. |  _required_ |
+| **PrivilegedEndpoint** | Provide the IP address or DNS Name of the Privleged Endpoint. |  _required_ |
 | **DependencyFilesLocalPath** | Path to a local share containing [mysql-connector-net-6.9.9.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.9.9.msi). If you provide one, the certificate file must be placed in this directory as well. | _optional_ (_mandatory_ for multi-node) |
 | **DefaultSSLCertificatePassword** | The password for the .pfx certificate | _required_ |
-| **Core** | Use a Windows Server 2016 Core image (must be downloaded using Marketplace Management) |  _optional_ |
 | **MaxRetryCount** | Define how many times you want to retry each operation if there is a failure.| 2 |
 | **RetryDuration** | Define the timeout between retries, in seconds. | 120 |
 | **Uninstall** | Remove the resource provider and all associated resources (see notes below) | No |
