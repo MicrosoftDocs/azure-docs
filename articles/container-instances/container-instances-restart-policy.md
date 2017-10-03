@@ -1,6 +1,6 @@
 ---
-title: Run to completion containers in Azure Container Instances
-description: Learn how to use Azure Container Instances for batch processes like build jobs and image rendering.
+title: Run containerized tasks in Azure Container Instances
+description: Learn how to use Azure Container Instances to execute tasks that run to completion, such as in build, test, or image rendering jobs.
 services: container-instances
 documentationcenter: ''
 author: mmacy
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2017
+ms.date: 10/08/2017
 ms.author: marsma
 ms.custom:
 ---
 
-# Run to completion containers in Azure Container Instances
+# Run a containerized task in Azure Container Instances
 
 The ease and speed of deploying containers in Azure Container Instances provides a compelling platform for executing run-once tasks like build, test, and image rendering in a container instance.
 
