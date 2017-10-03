@@ -27,6 +27,15 @@ ms.author: trinadhk;markgal;jpallavi;
 You can troubleshoot errors encountered while using Azure Backup with information listed in the table below.
 
 ## Backup
+
+### Error: The specified Disk Configuration is not supported
+
+Currently Azure Backup doesn’t support disk sizes [greater than 1023GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
+- If you have disks greater than 1 TB , [attach new disks](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) which are less than 1 TB <br>
+- Then, copy the data from disk greater than 1TB into newly created disk(s) of size less than 1TB. <br>
+- Ensure that all data has been copied and remove the disks greater than 1TB
+- Initiate the backup.
+
 | Error details | Workaround |
 | --- | --- |
 | Could not perform the operation as VM no longer exists. - Stop protecting virtual machine without deleting backup data. More details at http://go.microsoft.com/fwlink/?LinkId=808124 |This happens when the primary VM is deleted, but the backup policy continues looking for a VM to back up. To fix this error: <ol><li> Recreate the virtual machine with the same name and same resource group name [cloud service name],<br>(OR)</li><li> Stop protecting virtual machine with or without deleting the backup data. [More details](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |

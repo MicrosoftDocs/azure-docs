@@ -1,6 +1,6 @@
 ---
 title: Subscribe to an offer | Microsoft Docs
-description: As a tenant, learn how to subscribe to an offer.
+description: As a user, learn how to subscribe to an offer.
 services: azure-stack
 documentationcenter: ''
 author: ErikjeMS
@@ -18,9 +18,12 @@ ms.author: erikje
 
 ---
 # Subscribe to an offer
-Now that you've [created an offer](azure-stack-create-offer.md), test that your tenants can create a subscription.
 
-1. [Sign in](azure-stack-connect-azure-stack.md) to the Azure Stack tenant portal (https://portal.local.azurestack.external) and click **Get a Subscription**.
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+
+Now that you've [created an offer](azure-stack-create-offer.md), test that your users can create a subscription.
+
+1. [Sign in](azure-stack-connect-azure-stack.md) to the Azure Stack user portal (https://portal.local.azurestack.external) and click **Get a Subscription**.
 
    ![](media/azure-stack-subscribe-plan-provision-vm/image01.png)
 2. In the **Display Name** field, type a name for your subscription, click **Offer**, click one of the offers in the **Choose an offer** blade, and then click **Create**.
@@ -31,9 +34,9 @@ Now that you've [created an offer](azure-stack-create-offer.md), test that your 
 After you subscribe to an offer, refresh the portal to see which services are part of the new subscription.
 
 ## Subscribe to an add-on plan
-If the offer has an add-on plan, tenants can add them to their subscription at any time.  
+If the offer has an add-on plan, users can add them to their subscription at any time.  
 
-1. In the tenant portal, select **More services** > **Subscriptions**.
+1. In the user portal, select **More services** > **Subscriptions**.
 
 2. Click on the subscription > **Add Plan** button, and select the add-on plan.
 

@@ -8,18 +8,18 @@ editor: jasonwhowell
 manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 09/15/2017
 ---
 # Configure SSL connectivity in your application to securely connect to Azure Database for MySQL
 Azure Database for MySQL supports connecting your Azure Database for MySQL server to client applications using Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application.
 
-## Step 1: Obtain SSL Certificate
+## Step 1: Obtain SSL certificate
 Download the certificate needed to communicate over SSL with your Azure Database for MySQL server from [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) and save the certificate file to your local drive (with this tutorial, we used c:\ssl).
 **For Microsoft Internet Explorer and Microsoft Edge:** After the download has completed, rename the certificate to BaltimoreCyberTrustRoot.crt.pem.
 
 ## Step 2: Bind SSL
 ### Connecting to server using the MySQL Workbench over SSL
-Configure MySQL Workbench to connect securely over SSL. Navigate to the **SSL** tab in the MySQL Workbench on the Setup New Connection dialogue. Enter the file location of the **BaltimoreCyberTrustRoot.crt.pem** in the **SSL CA File:** field.
+Configure the MySQL Workbench to connect securely over SSL. in the MySQL Workbench on the Setup New Connection dialogue, navigate to the **SSL** tab. In the **SSL CA File:** field, enter the file location of the **BaltimoreCyberTrustRoot.crt.pem**.
 ![save customized tile](./media/howto-configure-ssl/mysql-workbench-ssl.png)
 
 ### Connecting to server using the MySQL CLI over SSL
@@ -29,22 +29,22 @@ mysql.exe -h mysqlserver4demo.mysql.database.azure.com -u Username@mysqlserver4d
 ```
 
 ## Step 3:  Enforcing SSL connections in Azure 
-### Using Azure portal
-Using the Azure portal, visit your Azure Database for MySQL server and click **Connection security**. Use the toggle button to enable or disable the **Enforce SSL connection** setting. Then click **Save**. Microsoft recommends to always enable **Enforce SSL connection** setting for enhanced security.
+### Using the Azure portal
+Using the Azure portal, visit your Azure Database for MySQL server, and then click **Connection security**. Use the toggle button to enable or disable the **Enforce SSL connection** setting, and then click **Save**. Microsoft recommends to always enable the **Enforce SSL connection** setting for enhanced security.
 ![enable-ssl](./media/howto-configure-ssl/enable-ssl.png)
 
 ### Using Azure CLI
-You can enable or disable the **ssl-enforcement** parameter using Enabled or Disabled values respectively in Azure CLI.
+You can enable or disable the **ssl-enforcement** parameter by using Enabled or Disabled values respectively in Azure CLI.
 ```azurecli-interactive
 az mysql server update --resource-group myresource --name mysqlserver4demo --ssl-enforcement Enabled
 ```
 
-## Step 4: Verify SSL Connection
+## Step 4: Verify the SSL connection
 Execute the mysql **status** command to verify that you have connected to your MySQL server using SSL:
 ```dos
 mysql> status
 ```
-Confirm the connection is encrypted by reviewing the output. It should show:  **SSL: Cipher in use is AES256-SHA** 
+Confirm the connection is encrypted by reviewing the output, which should show:  **SSL: Cipher in use is AES256-SHA** 
 
 ## Sample code
 ### PHP

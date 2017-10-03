@@ -24,7 +24,7 @@ ms.author: jgao
 
 Azure HDInsight provides a full-featured Hadoop distributed file system (HDFS) over Azure Storage and Azure Data Lake Store. Azure Storage and Data lake Store are designed as an HDFS extension to provide a seamless experience to customers. They enable the full set of components in the Hadoop ecosystem to operate directly on the data it manages. Azure Storage and Data Lake Store are distinct file systems that are optimized for storage of data and computations on that data. For information about the benefits of using Azure Storage, see [Use Azure Storage with HDInsight][hdinsight-storage] and [Use Data Lake Store with HDInsight](hdinsight-hadoop-use-data-lake-store.md).
 
-##Prerequisites
+## Prerequisites
 
 Note the following requirements before you begin:
 
@@ -155,7 +155,7 @@ The Hadoop command line is only useful for storing data into Azure storage blob 
 In order to use the Hadoop command, you must first connect to the headnode using one of the following methods:
 
 * **Windows-based HDInsight**: [Connect using Remote Desktop](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
-* **Linux-based HDInsight**: Connect using SSH ([the SSH command](hdinsight-hadoop-linux-use-ssh-unix.md) or [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md))
+* **Linux-based HDInsight**: Connect using [SSH or PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Once connected, you can use the following syntax to upload a file to storage.
 

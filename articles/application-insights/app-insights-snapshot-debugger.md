@@ -3,7 +3,7 @@ title: Azure Application Insights Snapshot Debugger for .NET apps | Microsoft Do
 description: Debug snapshots are automatically collected when exceptions are thrown in production .NET apps
 services: application-insights
 documentationcenter: ''
-author: qubitron
+author: pharring
 manager: carmonm
 
 ms.service: application-insights
@@ -64,26 +64,13 @@ Snapshot collection is available for:
 
 1. [Enable Application Insights in your ASP.NET Core web app](app-insights-asp-net-core.md), if you haven't done it yet.
 
+> [!NOTE]
+> Be sure that your application references version 2.1.1, or newer, of the Microsoft.ApplicationInsights.AspNetCore package.
+
 2. Include the [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package in your app.
 
-3. Modify the `ConfigureServices` method in your application's `Startup` class to add the Snapshot Collector's telemetry processor. The code you should add depends on the referenced version of the Microsoft.ApplicationInsights.ASPNETCore NuGet package.
+3. Modify the `ConfigureServices` method in your application's `Startup` class to add the Snapshot Collector's telemetry processor.
 
-   For Microsoft.ApplicationInsights.AspNetCore 2.1.0 add:
-   ```C#
-   using Microsoft.ApplicationInsights.SnapshotCollector;
-   ...
-   class Startup
-   {
-       // This method is called by the runtime. Use it to add services to the container.
-       public void ConfigureServices(IServiceCollection services)
-       {
-           services.AddSingleton<Func<ITelemetryProcessor, ITelemetryProcessor>>(next => new SnapshotCollectorTelemetryProcessor(next));
-           // TODO: Add any other services your application needs here.
-       }
-   }
-   ```
-
-   For Microsoft.ApplicationInsights.AspNetCore 2.1.1 add:
    ```C#
    using Microsoft.ApplicationInsights.SnapshotCollector;
    ...
@@ -171,7 +158,7 @@ The downloaded snapshot contains any symbol files that were found on your web ap
 
 ## How snapshots work
 
-When your application starts, a separate snapshot uploader process is created that monitors your application for snapshot requests. When a snapshot is requested, a shadow copy of the running process is made in about 10 to 20 minutes. The shadow process is then analyzed, and a snapshot is created while the main process continues to run and serve traffic to users. The snapshot is then uploaded to Application Insights along with any relevant symbol (.pdb) files that are needed to view the snapshot.
+When your application starts, a separate snapshot uploader process is created that monitors your application for snapshot requests. When a snapshot is requested, a shadow copy of the running process is made in about 10 to 20 milliseconds. The shadow process is then analyzed, and a snapshot is created while the main process continues to run and serve traffic to users. The snapshot is then uploaded to Application Insights along with any relevant symbol (.pdb) files that are needed to view the snapshot.
 
 ## Current limitations
 

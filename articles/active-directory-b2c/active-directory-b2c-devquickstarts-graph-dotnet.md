@@ -56,6 +56,11 @@ Now you need to configure your application to get all the required permissions t
 
 You now have an application that has permission to create, read and update users from your B2C tenant.
 
+> [!NOTE]
+> Granting permissions make take a few minutes to fully process.
+> 
+> 
+
 ## Configure delete permissions for your application
 Currently, the *Read and write directory data* permission does **NOT** include the ability to do any deletions such as deleting users. If you want to give your application the ability to delete users, you'll need to do these extra steps that involve PowerShell, otherwise, you can skip to the next section.
 

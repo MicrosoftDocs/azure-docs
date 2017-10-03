@@ -3,7 +3,7 @@ title: What to do in the event of an Azure Storage outage | Microsoft Docs
 description: What to do in the event of an Azure Storage outage
 services: storage
 documentationcenter: .net
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 1/19/2017
-ms.author: robinsh
+ms.author: tamram
 
 ---
 

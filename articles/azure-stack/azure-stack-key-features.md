@@ -13,11 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/10/2017
+ms.date: 09/25/2017
 ms.author: helaw
 
 ---
 # Key features and concepts in Azure Stack
+
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+
 If you’re new to Microsoft Azure Stack, these terms and feature descriptions might be helpful.
 
 ## Personas

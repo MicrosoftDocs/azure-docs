@@ -96,7 +96,7 @@ The nodes listed in Service Fabric Explorer are a reflection of what the Service
 
 In order to make sure that a node is removed when a VM is removed, you have two options:
 
-1) Choose a durability level of Gold or Silver (available soon) for the node types in your cluster, which gives you the infrastructure integration. Which will then automatically remove the nodes from our system services (FM) state when you scale down.
+1) Choose a durability level of Gold or Silver for the node types in your cluster, which gives you the infrastructure integration. Which will then automatically remove the nodes from our system services (FM) state when you scale down.
 Refer to [the details on durability levels here](service-fabric-cluster-capacity.md)
 
 2) Once the VM instance has been scaled down, you need to call the [Remove-ServiceFabricNodeState cmdlet](https://msdn.microsoft.com/library/mt125993.aspx).

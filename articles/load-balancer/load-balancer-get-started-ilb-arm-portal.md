@@ -3,7 +3,7 @@ title: Create an Internal load balancer - Azure portal | Microsoft Docs
 description: Learn how to create an Internal load balancer in Resource Manager using the Azure portal
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: ''
 tags: azure-service-management
@@ -14,17 +14,20 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: kumud
 ---
 
 # Create an Internal load balancer in the Azure portal
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [Azure portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Template](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
+
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
@@ -35,7 +38,7 @@ ms.author: kumud
 
 ## Get started creating an Internal load balancer using Azure portal
 
-Use the following steps to create an internal load balancer from the Azure Portal.
+Use the following steps to create an internal load balancer from the Azure portal.
 
 1. Open a browser, navigate to the [Azure portal](http://portal.azure.com), and sign in with your Azure account.
 2. In the upper left hand side of the screen, click **New** > **Networking** > **Load balancer**.
@@ -50,7 +53,7 @@ Use the following steps to create an internal load balancer from the Azure Porta
 7. Under **IP address assignment**, click either **Dynamic** or **Static**, depending on whether you want the IP address for the load balancer to be fixed (static) or not.
 
    > [!NOTE]
-   > If you select to use a static IP address, you will have to provide an address for the load balancer.
+   > If you select to use a static IP address, you have to provide an address for the load balancer.
 
 8. Under **Resource group** either specify the name of a new resource group for the load balancer, or click **select existing** and select an existing resource group.
 9. Click **Create**.
@@ -58,22 +61,22 @@ Use the following steps to create an internal load balancer from the Azure Porta
 ## Configure load balancing rules
 
 After the load balancer creation, navigate to the load balancer resource to configure it.
-You need to configure first a back-end address pool and a probe before configuring a load balancing rule.
+Configure a backend address pool and a probe before configuring a load balancing rule.
 
-### Step 1: Configure a back-end pool
+### Step 1: Configure a backend pool
 
-1. In the Azure portal, click **Browse** > **Load balancers**, and then click the load balancer you created above.
+1. In the Azure portal, click **Browse** > **Load balancers**, and then click the load balancer that you created earlier.
 2. In the **Settings** blade, click **Backend pools**.
 3. In the **Backend address pools** blade, click **Add**.
 4. In the **Add backend pool** blade, enter a **Name** for the backend pool, and then click **OK**.
 
 ### Step 2: Configure a probe
 
-1. In the Azure portal, click **Browse** > **Load balancers**, and then click the load balancer you created above.
+1. In the Azure portal, click **Browse** > **Load balancers**, and then click the load balancer that you created earlier.
 2. In the **Settings** blade, click **Probes**.
 3. In the **Probes**  blade, click **Add**.
 4. In the **Add probe** blade, enter a **Name** for the probe.
-5. Under **Protocol**, select **HTTP** (for web sites) or **TCP** (for other TCP based applications).
+5. Under **Protocol**, select **HTTP** (for web sites) or **TCP** (for other TCP-based applications).
 6. Under **Port**, specify the port to use when accessing the probe.
 7. Under **Path** (for HTTP probes only), specify the path to use as a probe.
 8. Under **Interval** specify how frequently to probe the application.
@@ -82,14 +85,14 @@ You need to configure first a back-end address pool and a probe before configuri
 
 ### Step 3: Configure load balancing rules
 
-1. In the Azure portal, click **Browse** > **Load balancers**, and then click the load balancer you created above.
+1. In the Azure portal, click **Browse** > **Load balancers**, and then click the load balancer that you created earlier.
 2. In the **Settings** blade, click **Load balancing rules**.
 3. In the **Load balancing rules** blade, click **Add**.
 4. In the **Add load balancing rule** blade, enter a **Name** for the rule.
-5. Under **Protocol**, select **HTTP** (for web sites) or **TCP** (for other TCP based applications).
+5. Under **Protocol**, select **HTTP** (for web sites) or **TCP** (for other TCP-based applications).
 6. Under **Port**, specify the port clients connect to in the load balancer.
 7. Under **Backend port**, specify the port to be used in the backend pool (usually, the load balancer port and the backend port are the same).
-8. Under **Backend pool**, select the backend pool you created above.
+8. Under **Backend pool**, select the backend pool you created earlier.
 9. Under **Session persistence**, select how you want sessions to persist.
 10. Under **Idle timeout (minutes)**, specify the idle timeout.
 11. Under **Floating IP (direct server return)**, click **Disabled** or **Enabled**.

@@ -66,18 +66,6 @@ Log in to the Azure portal at [http://portal.azure.com](http://portal.azure.com)
 
     You can see the creation progress in the notifications. (Click the "Bell" icon near the status bar at the upper right of your screen.) If you clicked **Pin to Startboard** while creating the cluster, you see **Deploying Service Fabric Cluster** pinned to the **Start** board.
 
-### View cluster status
-Once your cluster is created, you can inspect your cluster in the **Overview** blade in the portal. You can now see the details of your cluster in the dashboard, including the cluster's public endpoint and a link to Service Fabric Explorer.
-
-![Cluster status][cluster-status]
-
-### Visualize the cluster using Service Fabric explorer
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) is a good tool for visualizing your cluster and managing applications.  Service Fabric Explorer is a service that runs in the cluster.  Access it using a web browser by clicking the **Service Fabric Explorer** link of the cluster **Overview** page in the portal.  You can also enter the address directly into the browser: [http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer](http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer)
-
-The cluster dashboard provides an overview of your cluster, including a summary of application and node health. The node view shows the physical layout of the cluster. For a given node, you can inspect which applications have code deployed on that node.
-
-![Service Fabric Explorer][service-fabric-explorer]
-
 ### Connect to the cluster using PowerShell
 Verify that the cluster is running by connecting using PowerShell.  The ServiceFabric PowerShell module is installed with the [Service Fabric SDK](service-fabric-get-started.md).  The [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet establishes a connection to the cluster.   
 
@@ -108,7 +96,7 @@ Delete a resource group in the Azure portal:
     ![Delete the resource group][cluster-delete]
 
 
-## Use Azure Powershell to deploy a secure cluster
+## Use Azure Powershell to deploy a secure Windows cluster
 1. Download the [Azure Powershell module version 4.0 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) on your machine.
 
 2. Open a Windows PowerShell window, Run the following command. 
@@ -201,10 +189,6 @@ Run the following command to check that you are connected and the cluster is hea
 Get-ServiceFabricClusterHealth
 
 ```
-### Publish your apps to your cluster from Visual Studio
-
-Now that you have set up an Azure cluster, you can publish your applications to it from Visual Studio by following the [Publish to an cluster](service-fabric-publish-app-remote-cluster.md) document. 
-
 ### Remove the cluster
 A cluster is made up of other Azure resources in addition to the cluster resource itself. The simplest way to delete the cluster and all the resources it consumes is to delete the resource group. 
 
@@ -213,12 +197,62 @@ A cluster is made up of other Azure resources in addition to the cluster resourc
 Remove-AzureRmResourceGroup -Name $RGname -Force
 
 ```
+## Use Azure CLI to deploy a secure Linux cluster
+
+1. Install the [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest) on your computer.
+2. Login to Azure and select the subscription you want to create the cluster in.
+   ```azurecli
+   az login
+   az account set --subscription <GUID>
+   ```
+3. Run the [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) command to create a secure cluster.
+
+    ```azurecli
+    #!/bin/bash
+
+    # Variables
+    ResourceGroupName="aztestclustergroup" 
+    ClusterName="aztestcluster" 
+    Location="southcentralus" 
+    Password="q6D7nN%6ck@6" 
+    Subject="aztestcluster.southcentralus.cloudapp.azure.com" 
+    VaultName="aztestkeyvault" 
+    VaultGroupName="testvaultgroup"
+    VmPassword="Mypa$$word!321"
+    VmUserName="sfadminuser"
+
+    # Create resource groups
+    az group create --name $ResourceGroupName --location $Location 
+    az group create --name $VaultGroupName --location $Location
+
+    # Create secure five node Linux cluster. Creates a key vault in a resource group
+    # and creates a certficate in the key vault. The certificate's subject name must match 
+    # the domain that you use to access the Service Fabric cluster.  The certificate is downloaded locally.
+    az sf cluster create --resource-group $ResourceGroupName --location $Location --certificate-output-folder . \
+        --certificate-password $Password --certificate-subject-name $Subject --cluster-name $ClusterName \
+        --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName --vault-resource-group $VaultGroupName \
+        --vm-password $VmPassword --vm-user-name $VmUserName
+    ```
+    
+### Connect to the cluster
+Run the following CLI command to connect to the cluster using the certificate .  When using a client certificate for authentication, the certificate details must match a certificate deployed to the cluster nodes.  Use the `--no-verify` option for a self-signed certificate.
+
+```azurecli
+az sf cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.azure.com:19080 --pem ./linuxcluster201709161647.pem --no-verify
+```
+
+Run the following command to check that you are connected and the cluster is healthy.
+
+```azurecli
+az sf cluster health
+```
 
 ## Next steps
 Now that you have set up a development cluster, try the following:
-* [Create a secure cluster in the portal](service-fabric-cluster-creation-via-portal.md)
-* [Create a cluster from a template](service-fabric-cluster-creation-via-arm.md) 
+* [Visualize your cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
+* [Remove a cluster](service-fabric-cluster-delete.md) 
 * [Deploy apps using PowerShell](service-fabric-deploy-remove-applications.md)
+* [Deploy apps using CLI](service-fabric-application-lifecycle-sfctl.md)
 
 
 [cluster-setup-basics]: ./media/service-fabric-get-started-azure-cluster/basics.png

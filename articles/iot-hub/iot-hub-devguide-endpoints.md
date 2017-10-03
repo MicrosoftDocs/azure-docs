@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2017
+ms.date: 09/19/2017
 ms.author: dobett
 
 ---
@@ -47,8 +47,6 @@ The following list describes the endpoints:
 
     These endpoints are exposed using [MQTT v3.1.1][lnk-mqtt], HTTP 1.1, and [AMQP 1.0][lnk-amqp] protocols. AMQP is also available over [WebSockets][lnk-websockets] on port 443.
 
-    The device twins and methods endpoints are available only when you use the [MQTT v3.1.1][lnk-mqtt] protocol.
-
 * **Service endpoints**. Each IoT hub exposes a set of endpoints  for your solution back end to communicate with your devices. With one exception, these endpoints are only exposed using the [AMQP][lnk-amqp] protocol. The method invocation endpoint is exposed over the HTTP protocol.
   
   * *Receive device-to-cloud messages*. This endpoint is compatible with [Azure Event Hubs][lnk-event-hubs]. A back-end service can use it to read the [device-to-cloud messages][lnk-d2c] sent by your devices. You can create custom endpoints on your IoT hub in addition to this built-in endpoint.
@@ -67,6 +65,7 @@ You can link existing Azure services in your subscription to your IoT hub to act
 
 IoT Hub currently supports the following Azure services as additional endpoints:
 
+* Azure Storage containers
 * Event Hubs
 * Service Bus Queues
 * Service Bus Topics
@@ -75,10 +74,23 @@ IoT Hub needs write access to these service endpoints for message routing to wor
 
 If a message matches multiple routes that all point to the same endpoint, IoT Hub delivers message to that endpoint only once. Therefore, you do not need to configure deduplication on your Service Bus queue or topic. In partitioned queues, partition affinity guarantees message ordering.
 
-> [!NOTE]
-> Service Bus queues and topics used as IoT Hub endpoints must not have **Sessions** or **Duplicate Detection** enabled. If either of those options are enabled, the endpoint appears as **Unreachable** in the Azure portal.
-
 For the limits on the number of endpoints you can add, see [Quotas and throttling][lnk-devguide-quotas].
+
+### When using Azure Storage containers
+
+IoT Hub only supports writing data to Azure Storage containers as blobs in the [Apache Avro](http://avro.apache.org/) format. IoT Hub batches messages and writes data to a blob when it reaches either a certain size or after a certain amount of time has elapsed, whichever happens first. IoT Hub will not write an empty blob if there is no data to write.
+
+IoT Hub defaults to the following file naming convention:
+
+```
+{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
+```
+
+You may use whatever file naming convention you wish, however you must use all listed tokens.
+
+### When using Service Bus queues and topics
+
+Service Bus queues and topics used as IoT Hub endpoints must not have **Sessions** or **Duplicate Detection** enabled. If either of those options are enabled, the endpoint appears as **Unreachable** in the Azure portal.
 
 ## Field gateways
 
