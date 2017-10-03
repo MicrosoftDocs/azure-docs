@@ -28,7 +28,7 @@ To reference another workspace in your query, use the *workspace* identifier.  F
 
 
 ## Identifying resources
-Identifying a workspace can be done in several ways:
+Identifying a workspace can be performed one of several ways:
 
 * Resource name - is a human-readable name of the workspace, sometimes referred to as *component name*. 
 
@@ -45,11 +45,11 @@ Identifying a workspace can be done in several ways:
     >Because Azure subscription names are not unique, this identifier might be ambiguous. 
     >
 
-* workspace ID - is a GUID, the unique, immutable, public identifier of the  workspace.
+* workspace ID - A workspace ID is the unique, immutable, identifier assigned to each workspace represented as a globally unique identifier (GUID).
 
     `workspace("b438b4f6-912a-46d5-9cb1-b44069212ab4").Update | count`
 
-* Azure Resource ID – the Azure-defined identity of the workspace. For workspaces, the format is: `/subscriptions/<subscriptionId>/resourcegroups/<resourceGroup>/providers/microsoft.OperationalInsights/workspaces/<componentName>`.
+* Azure Resource ID – the Azure-defined unique identity of the workspace. You use this when the resource name is ambiguous.  For workspaces, the format is: `/subscriptions/<subscriptionId>/resourcegroups/<resourceGroup>/providers/microsoft.OperationalInsights/workspaces/<componentName>`.  
 
     For example:
     ``` 
