@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 10/04/2017
 ---
-# Limitations in Azure Database for MySQL (Preview)
+# Limitations in Azure Database for MySQL (preview)
 The Azure Database for MySQL service is in public preview. The following sections describe capacity and functional limits in the database service.
 
-## Service Tier Maximums
+## Service tier maximums
 Azure Database for MySQL has multiple service tiers to choose from when creating a server. For more information, see [Understand what’s available in each service tier](concepts-service-tiers.md).  
 
 There is a maximum number of connections, Compute Units, and storage in each service tier during preview, as follows: 
@@ -37,22 +37,22 @@ There is a maximum number of connections, Compute Units, and storage in each ser
 When too many connections are reached, you may receive the following error:
 > ERROR 1040 (08004): Too many connections
 
-## Preview functional limitations:
-### Scale operations:
+## Preview functional limitations
+### Scale operations
 - Dynamic scaling of servers across service tiers is currently not supported. That is, switching between Basic and Standard service tiers.
 - Dynamic on-demand increase of storage on pre-created server is currently not supported.
 - Decreasing server storage size is not supported.
 
-### Server version upgrades:
+### Server version upgrades
 - Automated migration between major database engine versions is currently not supported.
 
-### Subscription management:
+### Subscription management
 - Dynamically moving pre-created servers across subscription and resource group is currently not supported.
 
-### Point-in-time-restore:
+### Point-in-time-restore
 - Restoring to different service tier and/or Compute Units and Storage size is not allowed.
 - Restoring a dropped server is not supported.
 
-## Next Steps:
+## Next steps
 [What’s available in each service tier](concepts-service-tiers.md)
 [Supported MySQL Database Versions](concepts-supported-versions.md)
