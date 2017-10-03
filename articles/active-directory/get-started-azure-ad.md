@@ -7,7 +7,7 @@ author:
 manager: femila
 ms.author: jeffgilb
 ms.reviewer:
-ms.date: 10/4/17
+ms.date: 10/04/2017
 ms.topic: article
 ms.prod:
 ms.service: azure
