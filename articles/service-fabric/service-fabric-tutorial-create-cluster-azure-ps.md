@@ -26,18 +26,18 @@ This tutorial shows you how to create a Service Fabric cluster (Windows or Linux
 Before you begin this tutorial:
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Install the [Service Fabric SDK](service-fabric-get-started.md)
-- Install the [Azure Powershell module version 4.1 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (if needed, install Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview) )
+- Install the [Azure Powershell module version 4.1 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (if needed, install Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview))
 
 
 # Create a Service Fabric cluster
 
 This script creates a single-node preview Service Fabric cluster. The cluster is secured by a self-signed certificate that gets created along with the cluster and then placed in a key vault. Single-node clusters cannot be scaled beyond one virtual machine and preview clusters cannot be upgraded to newer versions.
 
-To calculate cost incurred by running a Service Fabric cluster in Azure use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
+To calculate cost incurred by running a Service Fabric cluster in Azure, use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
 For more information on creating Service Fabric clusters, see [Create a Service Fabric cluster by using Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
-## Login to Azure
-Open a PowerShell console, login to Azure, and select the subscription you want to deploy the cluster in:
+## Log in to Azure
+Open a PowerShell console, log in to Azure, and select the subscription you want to deploy the cluster in:
 
    ```powershell
    Login-AzureRmAccount
@@ -55,7 +55,7 @@ Open a PowerShell console, login to Azure, and select the subscription you want 
    | ResourceGroupName   | Name of the resource group in which to create the cluster. | *for example, myresourcegroup* |
    | VmSku  | Virtual Machine SKU to use for the nodes. | *Any valid Virtual Machine SKU* |
    | KeyVaultName | Name of the KeyVault to associate with the cluster. | *for example, mykeyvault* |
-   | ClusterSize | The number of virtual machines in your cluster (can be 1 or 3-99). | **1** | *For a preview cluster specify only one virtual machine* |
+   | ClusterSize | The number of virtual machines in your cluster (can be 1 or 3-99). | **1** | *Specify only one virtual machine for a preview cluster* |
    | CertificateSubjectName | The subject name of the certificate to be created. | *Follows the format <name>.<location>.cloudapp.azure.com* |
 
 
@@ -69,7 +69,7 @@ You can modify this script to include additional parameters. For more informatio
 >Before executing this command you must create a folder in which to output the cluster certificate.
 
 >[!NOTE]
->Virtual Machine settings are optional. If you don't specify them, the admin username defaults to "vmadmin" and you will be prompted for a Virtual Machine password before the cluster is created.
+>Virtual Machine settings are optional. If you don't specify them, the admin username defaults to "vmadmin" and PowerShell will prompt you for a Virtual Machine password before the cluster is created.
 
 ```powershell
 
@@ -111,7 +111,7 @@ Take note of the **ManagementEndpoint** URL for your cluster, which may be simil
 The creation process can take several minutes. Once the cluster is fully created, you can connect to it and view its health. There's multiple ways to connect, via Service Fabric Explorer or PowerShell.
 
 ### Service Fabric Explorer
-You can view the health of your cluster by opening Service Fabric Explorer. To do so, navigate to the **ManagementEndpoint** URL for your cluster using a web browser, and select the certificate that was saved on your machine.
+You can view the health of your cluster by opening Service Fabric Explorer. To do so, navigate to the **ManagementEndpoint** URL for your cluster using a web browser, then select the certificate saved on your machine.
 
 >[!NOTE]
 >When opening Service Fabric Explorer, you see a certificate error, as you are using a self-signed certificate. In Edge, you have to click *Details* and then the *Go on to the webpage* link. In Chrome, you have to click *Advanced* and then the *proceed* link.
