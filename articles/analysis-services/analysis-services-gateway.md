@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/21/2017
+ms.date: 09/20/2017
 ms.author: owend
 
 ---
@@ -96,17 +96,15 @@ You can force the gateway to communicate with Azure Service Bus by using HTTPS i
 ### General
 
 **Q**: Do I need a gateway for data sources in the cloud, such as Azure SQL Database? <br/>
-**A**: No. A gateway connects to on-premises data sources only.
+**A**: No. A gateway is necessary for connecting to on-premises data sources only.
 
 **Q**: Does the gateway have to be installed on the same machine as the data source? <br/>
-**A**: No. The gateway connects to the data source using the connection information that was provided. 
-Consider the gateway as a client application in this sense. 
-The gateway just needs the capability to connect to the server name that was provided, typically on the same network.
+**A**: No. The gateway just needs the capability to connect to the server, typically on the same network.
 
 <a name="why-azure-work-school-account"></a>
 
 **Q**: Why do I need to use a work or school account to sign in? <br/>
-**A**: You can only use an Azure work or school account when you install the on-premises data gateway. 
+**A**: You can only use an organizational work or school account when you install the on-premises data gateway. 
 Your sign-in account is stored in a tenant that's managed by Azure Active Directory (Azure AD). 
 Usually, your Azure AD account's user principal name (UPN) matches the email address.
 

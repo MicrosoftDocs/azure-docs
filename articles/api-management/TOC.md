@@ -6,13 +6,15 @@
 ## [Add caching to improve performance](api-management-howto-cache.md)
 ## [Frequently asked questions](api-management-faq.md)
 # How to
+## Set up an APIM service
+### [Create an APIM instance](get-started-create-service-instance.md)
+### [Upgrade and scale](upgrade-and-scale.md)
+### [Configure a custom domain](configure-custom-domain.md)
 ## Develop APIs
 ### [Add and publish an API Product](api-management-howto-add-products.md)
 ### [Add operations](api-management-howto-add-operations.md)
 ### [Create an API](api-management-howto-create-apis.md)
 ### [Import an API definition](api-management-howto-import-api.md)
-### [Get started with revisions](api-management-get-started-revise-api.md)
-### [Get started with versions](api-management-get-started-publish-versions.md)
 ## Secure your backend
 ### [Protect Web API backend with AAD](api-management-howto-protect-backend-with-aad.md)
 ### [Connect to a virtual network](api-management-using-with-vnet.md)
@@ -53,7 +55,7 @@
 #### [Quick start](../service-fabric/service-fabric-api-management-quick-start.md)
 
 # Reference
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [REST](/rest/api/apimanagement/)
 ## [REST (original)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
 ## [Policies](api-management-policies.md)

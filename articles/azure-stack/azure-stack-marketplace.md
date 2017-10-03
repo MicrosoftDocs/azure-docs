@@ -1,6 +1,6 @@
 ---
 title: Publish a custom marketplace item in Azure Stack (cloud operator) | Microsoft Docs
-description: As a cloud operator, learn how to publish a custom marketplace item in Azure Stack.
+description: As an Azure Stack operator, learn how to publish a custom marketplace item in Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: ErikjeMS
@@ -18,9 +18,12 @@ ms.author: erikje
 
 ---
 # The Azure Stack Marketplace overview
+
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+
 The Marketplace is a collection of services, applications, and resources customized for Azure Stack, like networks, virtual machines, storage, and so on. Users come here to create new resources and deploy new applications. Think of it as a shopping catalog where users can browse and choose the items they want to use. To use a Marketplace item, users must subscribe to an offer that grants them access to the item.
 
-As a cloud operator, you decide which items to add (publish) to the Marketplace. You can publish things like databases, App Services, and so on. This makes them visible to all your users. You can publish custom items that you create. You can also publish items from a growing [list of Azure Marketplace items](azure-stack-marketplace-azure-items.md). When you publish an item to the Marketplace, users can see it within five minutes.
+As an Azure Stack operator, you decide which items to add (publish) to the Marketplace. You can publish things like databases, App Services, and so on. This makes them visible to all your users. You can publish custom items that you create. You can also publish items from a growing [list of Azure Marketplace items](azure-stack-marketplace-azure-items.md). When you publish an item to the Marketplace, users can see it within five minutes.
 
 To open the Marketplace, click **New**.
 

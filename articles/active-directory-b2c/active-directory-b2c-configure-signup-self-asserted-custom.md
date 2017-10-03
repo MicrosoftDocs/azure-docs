@@ -31,7 +31,7 @@ Gathering initial data from your users is achieved via signup/signin.  Additiona
 
 
 ## Define the claim, its display name and the user input type
-Lets ask the user for their city.  Add the following element to the `<ClaimsSchema>` element in the TrustFrameWorkExtensions policy file:
+Lets ask the user for their city.  Add the following element to the `<ClaimsSchema>` element in the TrustFrameworkBase policy file:
 
 ```xml
 <ClaimType Id="city">

@@ -3,7 +3,7 @@ title: Create an application gateway by using URL routing rules - Azure CLI 2.0 
 description: This page provides instructions on how to create and configure an application gateway by using URL routing rules.
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
-ms.author: gwallace
+ms.author: davidmu
 
 ---
 # Create an application gateway by using path-based routing with Azure CLI 2.0
