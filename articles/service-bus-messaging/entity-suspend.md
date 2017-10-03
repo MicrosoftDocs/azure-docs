@@ -17,7 +17,7 @@ ms.author: sethm
 
 ---
 
-# Entity suspend and reactivate (disable)
+# Suspend and reactivate messaging entities (disable)
 
 Queues, topics, and subscriptions can be temporarily suspended. Suspension puts the entity into a disabled state, in which all messages are maintained in storage. However, messages cannot be removed or added, and the respective protocol operations yield errors.
 
