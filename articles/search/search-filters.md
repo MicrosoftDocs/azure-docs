@@ -19,7 +19,7 @@ ms.author: heidist
 ---
 # Filters in Azure Search 
 
-A *filter* reduces the surface area of an Azure Search query operation based on criteria you provide. Unfiltered search is open-ended and inclusive of all documents in the index. Filtered seach creates a subset of documents for a more focused query operation. For example, you could restrict full text search to just the Japanese strings in a multi-lingual search app.
+A *filter* reduces the surface area of an Azure Search query operation based on criteria you provide. Unfiltered search is open-ended and inclusive of all documents in the index. Filtered search creates a subset of documents for a more focused query operation. For example, you could restrict full text search to just the Japanese strings in a multi-lingual search app.
 
 In this article, we explain filter design patterns and general usage requirements for text and numeric filters.
 
@@ -50,9 +50,9 @@ Field attribute must be filterable.
 
 Numeric or text (https://docs.microsoft.com/en-us/rest/api/searchservice/supported-data-types)
 
-DateTimeOffset??  collection?? Complex model tyypes??
+DateTimeOffset??  collection?? Complex model types??
 
-For text filters based on contents within a string field, low cardinality fields are the best candidiates. Fields containing a relatively small number of values (such as a list of colors, countries, or brand names), and the number of conditions is also small (color eq ‘blue’ or color eq ‘yellow’). The performance benefit comes from caching, which Azure Search does for queries most likely to be repeated.
+For text filters based on contents within a string field, low cardinality fields are the best candidates. Fields containing a relatively small number of values (such as a list of colors, countries, or brand names), and the number of conditions is also small (color eq ‘blue’ or color eq ‘yellow’). The performance benefit comes from caching, which Azure Search does for queries most likely to be repeated.
 
 Possible reindex requirements if a non-filterable field suddenly becomes filterable. (see updateAndMerge documents)
 
@@ -67,19 +67,20 @@ Filters are foundational to several search experiences, including "find near me"
 
 At query time, filter criteria are added to the query tree first and evaluated first. 
 
-A filter provides criteria, and a document is either included or excluded based on evaluation.
+## When to use a filter
 
-1. Your use-case imposes a filter requirement:
+A filter provides criteria for shrinking the surface area of a search operation. Documents are either included or excluded based on the criteria.
+
+1. Use a filter if the search experience comes with a filter requirement:
 * Facets require a filter as the mechanism for classifying results on a per-facet basis.
 * Geo-search is implemented as a filter.
 * Security filters
 
-2. If you want to prioritize/sort/group on numeric data. Numeric fields aren't searchable or subject to full text search. If you need to manipulate results based on a numeric field (rather than rely on full text search and lexical analysis to do the right thing), use a filter.
+2. Use a filter to prioritize/sort/group on numeric data. Numeric fields aren't searchable or subject to full text search. If you need to manipulate results based on a numeric field (rather than rely on full text search and lexical analysis to do the right thing), use a filter.
 
 3. You need to use operands that are not available in a search string. A query string can include AND, OR, NOT, precedence -- but if you need 'between x and y', or 'greater than x', etc. you need a filter expression.
 
-4. From a code design standpoint, you want the query contructor to be simple and flexible, so you offload specialized logic to filters.
-
+4. From a code design standpoint, keep the base query constructor simple and flexible, so you offload specialized logic to filters.
 
 ## Text filters
 
@@ -106,7 +107,7 @@ There are two mechanisms in Azure Search for adding filters to search queries.
 
 | Approach | Description | Query parser requirement | Availability |
 |----------|-------------|--------------------------|--------------|
-| [search.in()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | An OData function passing a comma-delimted list of strings for text filtering | [Full Lucene parser](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) | In preview, [REST API](https://docs.microsoft.com/en-us/rest/api/searchservice/search-documents) only |
+| [search.in()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | An OData function passing a comma-delimited list of strings for text filtering | [Full Lucene parser](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) | In preview, [REST API](https://docs.microsoft.com/en-us/rest/api/searchservice/search-documents) only |
 | [$filter parameter](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | OData filter expression, one per request | [Simple parser](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) | Generally available, [REST](https://docs.microsoft.com/en-us/rest/api/searchservice/search-documents) and [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameterspayload.filter) |
 
 Use the **search.in** function if the filter is raw text to be matched on values in a given field, assuming it is searchable, retrievable, and not otherwise excluded from the query. This approach is designed for speed. You can expect sub-second response time for hundreds to thousands of values. While there is no explicit limit on the number of items you can pass to search.in, latency increases in proportion to the number of strings you provide.  
@@ -116,7 +117,7 @@ Use the **$filter** parameter for everything else. A filter expression is intend
 
 ## Numeric filters
 
-Numeric filters -- fast. Numeric fields are not searchable in the context of full text search. so if you have numeric data, the assumption is that you will use them for ranges, facets, sort, group. Documents that contain numeric fields (price, size, SKU, ID) will include the numeric values if the field is marked Returnable, but its not searchable (i.e., if enter $99.99 as a search term, you won't get all items priced at $99.99. Instead, you will get items that have 9s in string fields of the doucment)
+Numeric filters -- fast. Numeric fields are not searchable in the context of full text search. so if you have numeric data, the assumption is that you will use them for ranges, facets, sort, group. Documents that contain numeric fields (price, size, SKU, ID) will include the numeric values if the field is marked Returnable, but its not searchable (i.e., if enter $99.99 as a search term, you won't get all items priced at $99.99. Instead, you will get items that have 9s in string fields of the document)
 
 use $filter
 
@@ -143,7 +144,7 @@ The following articles offer comprehensive guidance for specific use cases.
 + ["Find near me" geo-filters](search-filters-geo.md)
 + [Language filters](search-filters-language.md)
 + [Range filters](search-filters-range.md)
-+ [Seurity filters using Active Directory](search-filters-security-aad.md)
++ [Security filters using Active Directory](search-filters-security-aad.md)
 + [Security filters (generic)](search-filters-security-generic.md) 
 
 ## See also
