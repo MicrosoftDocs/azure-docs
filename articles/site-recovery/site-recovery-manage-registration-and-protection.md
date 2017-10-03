@@ -41,7 +41,7 @@ If you replicate VMware VMs or Windows/Linux physical servers to Azure, you can 
 5. Run the cleanup script on any secondary VMM server.
 6. Run the  cleanup script on any other passive VMM cluster nodes that have the Provider installed.
 7. Uninstall the Provider manually on the VMM server. If you have a cluster, remove from all nodes.
-8. If you replicating to Azure, you need to uninstall the Microsoft Recovery Services agent from Hyper-V hosts in the deleted clouds.
+8. If your virtual machines were replicating to Azure, you need to uninstall the Microsoft Recovery Services agent from Hyper-V hosts in the deleted clouds.
 
 ## Unregister a Hyper-V host in a Hyper-V Site
 
@@ -145,19 +145,22 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
     - **Remove** - This option is  supposed to be used only if the source environment is deleted or not accessible (not connected). This removes the replicated item from Azure Site Recovery (billing is stopped). Replication configuration on the Configuration Server **will not** be cleaned up. 
 
 > [!NOTE]
-> In both the options mobility service will not be uninstalled from the protected servers, you need to uninstall it manually. If you plan to protect the server again using the same Configuration server you can skip uninstalling the mobility service.
+> In both the options mobility service will not be uninstalled from the protected servers, you need to uninstall it manually. If you plan to protect the server again using the same Configuration server, you can skip uninstalling the mobility service.
 
 ## Disable protection for a Hyper-V virtual machine (Hyper-V to Azure)
 
 > [!NOTE]
-> Use this procedure if you're replicating Hyper-V VMs to Azure without a VMM server. If your are replicating your virtual machines using the **System Center VMM to Azure** scenario the follow the instructions [Disable protection for a Hyper-V virtual machine replicating using the System Center VMM to Azure scenario](#disable-protection-for-a-hyper-v-virtual-machine-replicating-using-the-system-centet-vmm-to-azure-scenario)
+> Use this procedure if you're replicating Hyper-V VMs to Azure without a VMM server. If you are replicating your virtual machines using the **System Center VMM to Azure** scenario, then follow the instructions [Disable protection for a Hyper-V virtual machine replicating using the System Center VMM to Azure scenario](#disable-protection-for-a-hyper-v-virtual-machine-replicating-using-the-system-centet-vmm-to-azure-scenario)
 
 1. In **Protected Items** > **Replicated Items**, right-click the machine > **Disable replication**.
 2. In **Disable replication**, you can select the following options:
      - **Disable replication and remove (recommended)** -  This option remove the replicated item from Azure Site Recovery and the replication for the machine is stopped. Replication configuration on the on-premises virtual machine will be cleaned up and Site Recovery billing for this protected server is stopped.
-    - **Remove** - This option is  supposed to be used only if the source environment is deleted or not accessible (not connected). This removes the replicated item from Azure Site Recovery (billing is stopped). Replication configuration on the on-premises virtual machine **will not** be cleaned up. You need to run the below set of scripts to clean up the replication settings on-premises virtual machines.
+    - **Remove** - This option is  supposed to be used only if the source environment is deleted or not accessible (not connected). This removes the replicated item from Azure Site Recovery (billing is stopped). Replication configuration on the on-premises virtual machine **will not** be cleaned up. 
 
-3. If you selected **Remove**, run the below script on the source Hyper-V host server, to remove replication for the virtual machine. Replace SQLVM1 with the name of your virtual machine.
+> [!NOTE]
+> If you chose the **Remove** option then run the following set of scripts to clean up the replication settings on-premises Hyper-V Server.
+
+3. On the source Hyper-V host server, to remove replication for the virtual machine. Replace SQLVM1 with the name of your virtual machine and run the script from an administrative PowerShell
 
 
     ```
@@ -173,11 +176,12 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
 2. In **Disable replication**, select one of these options:
 
     - **Disable replication and remove (recommended)** -  This option remove the replicated item from Azure Site Recovery and the replication for the machine is stopped. Replication configuration on the on-premises virtual machine is cleaned up and Site Recovery billing for this protected server is stopped.
-    - **Remove** - This option is  supposed to be used only if the source environment is deleted or not accessible (not connected). This removes the replicated item from Azure Site Recovery (billing is stopped). Replication configuration on the on-premises virtual machine **will not** be cleaned up. You need to run the below set of scripts to clean up the replication settings on-premises virtual machines.
+    - **Remove** - This option is  supposed to be used only if the source environment is deleted or not accessible (not connected). This removes the replicated item from Azure Site Recovery (billing is stopped). Replication configuration on the on-premises virtual machine **will not** be cleaned up. 
 
-3. If you selected **Remove** and you replicate to Azure, run this script on the source VMM server, using PowerShell from the VMM console.
+> [!NOTE]
+> If you chose the **Remove** option, then tun the following scripts to clean up the replication settings on-premises VMM Server.
 
-3. If you selected **Remove** and you replicate to Azure, run this script on the source VMM server, using PowerShell from the VMM console.
+3. Run this script on the source VMM server, using PowerShell (administrator previleges required) from the VMM console. Replace the placeholder **SQLVM1** with the name of your virtual machine.
 
         ``$vm = get-scvirtualmachine -Name "SQLVM1"
         Set-SCVirtualMachine -VM $vm -ClearDRProtection``
@@ -198,8 +202,11 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
 2. In **Disable replication**, select one of these options:
 
     - **Disable replication and remove (recommended)** -  This option remove the replicated item from Azure Site Recovery and the replication for the machine is stopped. Replication configuration on the on-premises virtual machine is cleaned up and Site Recovery billing for this protected server is stopped.
-    - **Remove** - This option is  supposed to be used only if the source environment is deleted or not accessible (not connected). This removes the replicated item from Azure Site Recovery (billing is stopped). Replication configuration on the on-premises virtual machine **will not** be cleaned up. You need to run the below set of scripts to clean up the replication settings on-premises virtual machines.
-3. If you selected **Remove** and you replicating to a secondary site, run this script on the primary server to clean up the settings for the primary virtual machine. In the VMM console, click the PowerShell button to open the VMM PowerShell console. Replace SQLVM1 with the name of your virtual machine.
+    - **Remove** - This option is  supposed to be used only if the source environment is deleted or not accessible (not connected). This removes the replicated item from Azure Site Recovery (billing is stopped). Replication configuration on the on-premises virtual machine **will not** be cleaned up. Run the following set of scripts to clean up the replication settings on-premises virtual machines.
+> [!NOTE]
+> If you chose the **Remove** option, then tun the following scripts to clean up the replication settings on-premises VMM Server.
+
+3. Run this script on the source VMM server, using PowerShell (administrator previleges required) from the VMM console. Replace the placeholder **SQLVM1** with the name of your virtual machine.
 
          ``$vm = get-scvirtualmachine -Name "SQLVM1"
          Set-SCVirtualMachine -VM $vm -ClearDRProtection``
