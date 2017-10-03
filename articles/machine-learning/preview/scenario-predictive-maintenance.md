@@ -40,7 +40,7 @@ The business problem for this simulated data is to predict issues caused by comp
 * Intermediate results for use across Jupyter notebooks in this scenario are stored in an Azure Blob Storage container. Instructions for [setting up an Azure Storage account](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-python-how-to-use-blob-storage). 
 * For [operationalization](https://github.com/Azure/Machine-Learning-Operationalization) of the model, it is best if the user runs a [Docker engine](https://www.docker.com/) installed and running locally. If not, you can use the cluster option with an [Azure Container Service (ACS)](https://azure.microsoft.com/en-us/services/container-service/). This approach can often be expensive.
 
-This scenario assumes that the user is running Azure ML Workbench on a Windows 10 machine with the following minimum specification: Intel Core i7-4600U CPU @ 2.10 GHz, 8-GB RAM, 64-bit OS, x64-based processor with Docker Version 17.06.0-ce-win19 (12801). We do suggest using a Standard DS4 Ubuntu DSVM (8 virtual cpus, 28-GB memory) to run the notebook kernel.
+This scenario assumes that the user is running Azure ML Workbench on a Windows 10 machine with the following minimum specification: Intel Core i7-4600U CPU @ 2.10 GHz, 8-GB RAM, 64-bit OS, x64-based processor with Docker Version 17.06.0-ce-win19 (12801). We do suggest using a [Standard DS4 Ubuntu DSVM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) (8 virtual cpus, 28-GB memory) to run the notebook kernel.
 
 Model operationalization was done using version 0.1.0a22 of Azure ML CLI.
 
