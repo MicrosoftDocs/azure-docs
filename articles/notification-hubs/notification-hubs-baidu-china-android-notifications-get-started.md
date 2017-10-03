@@ -64,7 +64,7 @@ When you create a Baidu cloud push project, you receive your app ID, API key, an
    
     ![Registration - More](./media/notification-hubs-baidu-get-started/BaiduRegistrationMore.png)
 
-2. Scroll down in the **站长与开发者服务** (**Webmaster and Developer Services**) section and click **百度开放云平台** (**Baidu open cloud platform**).
+2. Scroll down in the **站长与开发者服务** (**Webmaster and Developer Services**) section and click **百度云推送** (**Baidu Cloud Push**).
    
     ![Baidu Open Cloud Platform](./media/notification-hubs-baidu-get-started/BaiduOpenCloudPlatform.png)
 
@@ -114,7 +114,7 @@ Make a note of the `DefaultListenSharedAccessSignature` and `DefaultFullSharedAc
 
     ![Azure Notification Hubs - Baidu New Project](./media/notification-hubs-baidu-get-started/AndroidNewProject.png)
 
-2.	Enter an Application Name and ensure that the Minimum Required SDK version is set to API 16: Android 4.1.
+2.	Enter an Application Name and ensure that the Minimum Required SDK version is set to API 16: Android 4.1. **Also please make sure your package name (应用包名) is the same as in the Baidu Cloud Push Portal**
 
     ![Azure Notification Hubs - Baidu Min SDK1](./media/notification-hubs-baidu-get-started/AndroidMinSDK.png)
     ![Azure Notification Hubs - Baidu Min SDK2](./media/notification-hubs-baidu-get-started/AndroidMinSDK2.png)
@@ -161,7 +161,11 @@ Make a note of the `DefaultListenSharedAccessSignature` and `DefaultFullSharedAc
 
     ![Azure Notification Hubs - Baidu SDK Libs](./media/notification-hubs-baidu-get-started/BaiduSDKLib.png)
 
-7. Open the **AndroidManifest.xml** file of your Android project and add the permissions that are required by the Baidu SDK.
+7. Right click on pushervice-x.y.z.jar file in libs folder, click Add as Library to including this lib into project.
+
+    ![Azure Notification Hubs - Baidu Add As A Library](./media/notification-hubs-baidu-get-started/BaiduAddAsALib.jpg)
+
+8. Open the **AndroidManifest.xml** file of your Android project and add the permissions that are required by the Baidu SDK. **Replace `YOURPACKAGENAME` with your package name.
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET" />
@@ -177,15 +181,9 @@ Make a note of the `DefaultListenSharedAccessSignature` and `DefaultFullSharedAc
     <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
     <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
     <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
-    !! <uses-permission android:name="baidu.push.permission.WRITE_PUSHINFOPROVIDER.yourbackagename" />
-    !!<permission android:name="baidu.push.permission.WRITE_PUSHINFOPROVIDER.yourbackagename"android:protectionLevel="normal" />
+    !! <uses-permission android:name="baidu.push.permission.WRITE_PUSHINFOPROVIDER.YOURPACKAGENAME" />
+    !!<permission android:name="baidu.push.permission.WRITE_PUSHINFOPROVIDER.YOURPACKAGENAME"android:protectionLevel="normal" />
 
-    ```
-
-8. Add the `android:name` property to your `application` element in `AndroidManifest.xml`, replacing *yourprojectname* (for example, `com.example.BaiduTest`). Make sure that this project name matches the one that you configured in the Baidu console.
-
-    ```xml
-    <application android:name="yourprojectname.DemoApplication"
     ```
 
 9. Add the following configuration within the application element after the `.MainActivity` activity element, replacing *yourprojectname* (for example, `com.example.BaiduTest`):
@@ -523,7 +521,7 @@ In this section, we show sending a notification using a .NET console app.
 
 To test this app with an actual phone, just connect the phone to your computer by using a USB cable. This action loads your app onto the attached phone.
 
-To test this app with the emulator, on the Eclipse top toolbar, click **Run**, and then select your app: it starts the emulator, loads, and runs the app.
+To test this app with the emulator, on the Android Studio top toolbar, click **Run**, and then select your app: it starts the emulator, loads, and runs the app.
 
 The app retrieves the `userId` and `channelId` from the Baidu Push notification service and registers with the notification hub.
 
