@@ -63,21 +63,19 @@ Include the SDK in your app, so it can gather data.
 
 2. Add the Node.js SDK library to your app's dependencies via package.json. From the root folder of your app, run:
 
-```bash
-npm install applicationinsights --save
-```
+  ```bash
+  npm install applicationinsights --save
+  ```
 
 3. Explicitly load the library in your code. Because the SDK injects instrumentation into many other libraries, load the library as early as possible, even before other `require` statements. 
 
-  1. At the top of your first .js file add:
+  1. At the top of your first .js file add the following code. The `setup` method configures the ikey (and thus, the Azure resource) to be used by default for all tracked items.
 
     ```javascript
     const appInsights = require("applicationinsights");
     appInsights.setup("<instrumentation_key>");
     appInsights.start();
     ```
-
-  The `setup` method configures the ikey (and thus, the Azure resource) to be used by default for all tracked items.
    
   2. To begin gathering and sending telemetry data, call `start` after configuration is finished.
 
