@@ -26,7 +26,7 @@ Developing powerful AI algorithms is a compute-intensive and iterative process. 
  
 ![Batch AI process](media/overview/batchai-context.png)
 
-Data scientists and AI researchers are experts in their field, and managing infrastructure at scale can get in the way. Developing AI at scale requires many infrastucture tasks: provisioning clusters of VMs, installing software and containers, queuing work, prioritizing and scheduling jobs, handing failures, distributing data, sharing results, scaling resources to manage costs, and integrating with tools and workflows. Batch AI handles these tasks. 
+Data scientists and AI researchers are experts in their field, yet managing infrastructure at scale can get in the way. Developing AI at scale requires many infrastucture tasks: provisioning clusters of VMs, installing software and containers, queuing work, prioritizing and scheduling jobs, handing failures, distributing data, sharing results, scaling resources to manage costs, and integrating with tools and workflows. Batch AI handles these tasks. 
  
 ## What is Batch AI? 
 
