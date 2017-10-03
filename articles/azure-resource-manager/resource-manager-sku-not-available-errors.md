@@ -60,9 +60,9 @@ virtualMachines      Standard_A2 southcentralus
 
 ### Solution 2
 
-- For the Azure CLI, use the `az vm list-skus` command. You can then use `grep` or a similar utility to filter the output.
+In the Azure CLI, use the `az vm list-skus` command. You can then use `grep` or a similar utility to filter the output.
 
-```
+```bash
 $ az vm list-skus --output table
 ResourceType      Locations           Name                    Capabilities                       Tier      Size           Restrictions
 ----------------  ------------------  ----------------------  ---------------------------------  --------  -------------  ---------------------------
