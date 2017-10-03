@@ -7,16 +7,18 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Get started
+    - name: Create first instance
       href: quick-start.md
-    - name: C#
-      href: call-endpoint-csharp.md
-    - name: Java
-      href: call-endpoint-java.md
-    - name: NodeJs
-      href: call-endpoint-nodejs.md 
-    - name: Python
-      href: call-endpoint-python.md 
+    - name: Call endpoints
+    - items:
+      - name: C#
+        href: call-endpoint-csharp.md
+      - name: Java
+        href: call-endpoint-java.md
+      - name: NodeJs
+        href: call-endpoint-nodejs.md 
+      - name: Python
+        href: call-endpoint-python.md 
 - name: How-to  
   items:        
     - name: Define your custom view
