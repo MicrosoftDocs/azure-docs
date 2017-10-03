@@ -57,6 +57,6 @@ After they are fully deployed and ready, the workers become available for users 
 >[!NOTE]
 > To scale out Management, Front End or Publisher roles add you must scale out the corresponding VM Scale set. We will add the ability to scale out these roles via the App Service management in a future release.
 
-## Next steps
+### Next steps
 
 [Configure deployment sources](azure-stack-app-service-configure-deployment-sources.md)
