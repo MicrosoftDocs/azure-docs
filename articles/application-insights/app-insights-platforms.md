@@ -23,9 +23,9 @@ These items are implementations of [Application Insights](app-insights-overview.
 * [C#|VB (.NET)](app-insights-asp-net.md)
 * [Java](app-insights-java-get-started.md)
 * [JavaScript web pages](app-insights-javascript.md)
+* [Node.JS](app-insights-nodejs.md)
 
 ## Languages - community-supported
-* [Node.JS](https://github.com/Microsoft/ApplicationInsights-node.js)
 * [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 * [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
 * [Ruby](https://rubygems.org/gems/application_insights)
