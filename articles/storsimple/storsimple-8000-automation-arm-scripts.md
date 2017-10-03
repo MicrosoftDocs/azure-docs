@@ -98,7 +98,7 @@ This section takes an example script and details the various steps required to r
 
 #### Sample output
 
-The following output is presented when the sample script is run. 
+The following output is presented when the sample script is run. The output contains all the jobs that ran on a registered device that started on 9/25/2017 and completed by 10/02/2017.
 
 ```
 -----------------------------------------
@@ -106,7 +106,7 @@ Windows PowerShell
 Copyright (C) 2016 Microsoft Corporation. All rights reserved.
 
 PS C:\Scripts\StorSimpleSDKTools> wget https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceJobs.ps1 -Out Get-DeviceJobs.ps1
-PS C:\Scripts\StorSimpleSDKTools> .\Get-DeviceJobs.ps1 -SubscriptionId 1234ab5c-678d-910e-9fc4-0accc9c0166e -ResourceGroupName Contoso -ManagerName ContosoDeviceMgr -DeviceName 8600-ABC1234567D89EF -TenantId 72f988bf-86f1-41af-91ab-2d7cd011db47
+PS C:\Scripts\StorSimpleSDKTools> .\Get-DeviceJobs.ps1 -SubscriptionId 1234ab5c-678d-910e-9fc4-0accc9c0166e -TenantId 12a345bc-67d8-91ef-01ab-2c7cd123ef45 -DeviceName 8600-ABC1234567D89EF -ResourceGroupName Contoso -ManagerName ContosoDeviceMgr -FilterByStartTime "09/25/2017 08:10:02" -FilterByEndTime "10/02/2017 08:10:02"
 
 
 Status            : Succeeded
@@ -119,13 +119,13 @@ DataStats         : Microsoft.Azure.Management.StorSimple8000Series.Models.DataS
 EntityLabel       : ss-asr-policy1
 EntityType        : Microsoft.StorSimple/managers/devices/backupPolicies
 JobStages         :
-DeviceId          : /subscriptions/2136cf2e-684f-487b-9fc4-0accc9c0166e/resourceGroups/Contoso/providers/Microsoft.Stor
+DeviceId          : /subscriptions/1234ab5c-678d-910e-9fc4-0accc9c0166e/resourceGroups/Contoso/providers/Microsoft.Stor
                     Simple/managers/ContosoDeviceMgr/devices/8600-SHG0997877L71FC
 IsCancellable     : True
 BackupType        : CloudSnapshot
 SourceDeviceId    :
 BackupPointInTime : 1/1/0001 12:00:00 AM
-Id                : /subscriptions/2136cf2e-684f-487b-9fc4-0accc9c0166e/resourceGroups/Contoso/providers/Microsoft.Stor
+Id                : /subscriptions/1234ab5c-678d-910e-9fc4-0accc9c0166e/resourceGroups/Contoso/providers/Microsoft.Stor
                     Simple/managers/ContosoDeviceMgr/devices/8600-SHG0997877L71FC/jobs/75905c48-b153-4af1-8b21-4b9a2ff9
                     825b
 Name              : 75905c48-b153-4af1-8b21-4b9a2ff9825b
@@ -144,14 +144,14 @@ DataStats         : Microsoft.Azure.Management.StorSimple8000Series.Models.DataS
 EntityLabel       : 8010 policy
 EntityType        : Microsoft.StorSimple/managers/devices/backupPolicies
 JobStages         :
-DeviceId          : /subscriptions/2136cf2e-684f-487b-9fc4-0accc9c0166e/resourceGroups/Contoso/providers/Microsoft.Stor
-                    Simple/managers/ContosoDeviceMgr/devices/8600-SHG0997877L71FC
+DeviceId          : /subscriptions/1234ab5c-678d-910e-9fc4-0accc9c0166e/resourceGroups/Contoso/providers/Microsoft.Stor
+                    Simple/managers/ContosoDeviceMgr/devices/8600-ABC1234567D89EF
 IsCancellable     : True
 BackupType        : CloudSnapshot
 SourceDeviceId    :
 BackupPointInTime : 1/1/0001 12:00:00 AM
-Id                : /subscriptions/2136cf2e-684f-487b-9fc4-0accc9c0166e/resourceGroups/Contoso/providers/Microsoft.Stor
-                    Simple/managers/ContosoDeviceMgr/devices/8600-SHG0997877L71FC/jobs/3cfd8108-db60-4e9a-a8da-6d8fe457
+Id                : /subscriptions/1234ab5c-678d-910e-9fc4-0accc9c0166e/resourceGroups/Contoso/providers/Microsoft.Stor
+                    Simple/managers/ContosoDeviceMgr/devices/8600-ABC1234567D89EF/jobs/3cfd8108-db60-4e9a-a8da-6d8fe457
                     8d2b
 Name              : 3cfd8108-db60-4e9a-a8da-6d8fe4578d2b
 Type              : Microsoft.StorSimple/managers/devices/jobs
