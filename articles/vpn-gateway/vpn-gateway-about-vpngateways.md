@@ -135,7 +135,7 @@ You can configure a Site-to-Site VPN as a secure failover path for ExpressRoute,
 
 ![ExpressRoute and VPN Gateway coexisting connections example](./media/vpn-gateway-about-vpngateways/expressroute-vpngateway-coexisting-connections-diagram.png)
 
-### Deployment models and methods for S2S and ExpressRoute
+### Deployment models and methods for S2S and ExpressRoute coexist
 
 [!INCLUDE [vpn-gateway-table-coexist](../../includes/vpn-gateway-table-coexist-include.md)]
 
