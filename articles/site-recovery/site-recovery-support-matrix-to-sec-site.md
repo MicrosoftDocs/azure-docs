@@ -1,3 +1,4 @@
+
 ---
 title: Support matrix for replication to a secondary site with Azure Site Recovery | Microsoft Docs
 description: Summarizes the supported operating systems and components for Azure Site Recovery
@@ -40,7 +41,7 @@ This article summarizes what's supported when you use Azure Site Recovery to rep
 
   >[!Note]
   > VMM 2016 clouds with a mixture of Windows Server 2016 and 2012 R2 hosts aren't currently supported.
-
+  > Configurations that include upgrade of an existing SCVMM 2012 R2 to 2016 is currently not supported.
 ### Host servers
 
 **Deployment** | **Support**

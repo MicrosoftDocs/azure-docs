@@ -23,7 +23,7 @@ ms.reviewer: spunukol
 
 Your employees use mobile devices for both personal and work tasks. While making sure your employees can be productive, you also want to prevent data loss. With Azure Active Directory (Azure AD) app-based conditional access, you can restrict access to your cloud apps to client apps that can protect your corporate data.  
 
-This topic explains how Azure AD app-based conditional access works.
+This topic explains how to configure Azure AD app-based conditional access.
 
 ## Overview
 
@@ -58,14 +58,8 @@ This topic assumes that you are familiar with:
 
 - How to [configure a conditional access policy](active-directory-conditional-access-azure-portal-get-started.md).
 
-- The migration considerations
+- The [migration of conditional access policies](active-directory-conditional-access-best-practices.md#policy-migration).
  
-
-
-Additionally, you might want to take a look at the [best practices for conditional access in Azure Active Directory
-](active-directory-conditional-access-best-practices.md).  
-
-
 
 ## Prerequisites
 

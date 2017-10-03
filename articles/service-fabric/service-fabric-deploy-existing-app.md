@@ -98,7 +98,7 @@ Visual Studio provides a Service Fabric service template to help you deploy a gu
 6. You can now use the package and publish action against your local cluster by debugging the solution in Visual Studio. When ready, you can publish the application to a remote cluster or check in the solution to source control.
 7. Go to the end of this article to see how to view your guest executable service running in Service Fabric Explorer.
 
-## Use Yoeman to package and deploy an existing executable on Linux
+## Use Yeoman to package and deploy an existing executable on Linux
 
 The procedure for creating and deploying a guest executable on Linux is the same as deploying a csharp or java application.
 

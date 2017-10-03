@@ -43,7 +43,7 @@ This article summarizes supported configurations and components for Azure Site R
 
   >[!Note]
   > A System Center Virtual Machine Manager 2016 cloud with a mixture of Windows Server 2016 and 2012 R2 hosts isn't currently supported.
-
+  > Configurations that include upgrade of an existing SCVMM 2012 R2 to 2016 is currently not supported.
 ### Host servers
 
 **Deployment** | **Support**

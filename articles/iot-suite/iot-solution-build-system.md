@@ -4,7 +4,7 @@ description: Build an app that's a comprehensive demonstration of how to archite
 services: ''
 documentationcenter: .net
 suite: ''
-author: harikmenon
+author: dominicbetts
 manager: douge
 
 ms.assetid: c2fcd6ee-3bbe-43d1-a066-dce52cc3a53d
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/30/2017
-ms.author: harikm
+ms.author: dobett
 
 ---
 # Build and deploy the MyDriving solution to your environment

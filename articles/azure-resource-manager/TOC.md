@@ -12,7 +12,7 @@
 
 # Samples
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
-## PowerShell
+## Azure PowerShell
 ### [Deploy template](resource-manager-samples-powershell-deploy.md)
 
 ## Azure CLI
@@ -35,7 +35,7 @@
 
 
 ## Deploy
-### PowerShell
+### Azure PowerShell
 #### [Deploy template](resource-group-template-deploy.md)
 #### [Deploy private template with SAS token](resource-manager-powershell-sas-token.md)
 #### [Export template and redeploy](resource-manager-export-template-powershell.md)
@@ -43,7 +43,7 @@
 #### [Deploy template](resource-group-template-deploy-cli.md)
 #### [Deploy private template with SAS token](resource-manager-cli-sas-token.md)
 #### [Export template and redeploy](resource-manager-export-template-cli.md)
-### Portal
+### Azure portal
 #### [Deploy resources](resource-group-template-deploy-portal.md)
 #### [Export template](resource-manager-export-template.md)
 ### [REST API](resource-group-template-deploy-rest.md)
@@ -52,9 +52,9 @@
 ### [Pass secure values during deployment](resource-manager-keyvault-parameter.md)
 
 ## Manage
-### [PowerShell](powershell-azure-resource-manager.md)
+### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
-### [Portal](resource-group-portal.md)
+### [Azure portal](resource-group-portal.md)
 ### [REST API](resource-manager-rest-api.md)
 ### [Use tags to organize resources](resource-group-using-tags.md)
 ### [Move resources to new group or subscription](resource-group-move-resources.md)
@@ -62,16 +62,16 @@
 
 ## Control Access
 ### Create service principal
-#### [PowerShell](resource-group-authenticate-service-principal.md)
-#### [Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+#### [Azure PowerShell](resource-group-authenticate-service-principal.md)
+#### [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [Azure CLI 1.0](resource-group-authenticate-service-principal-cli.md)
-#### [Portal](resource-group-create-service-principal-portal.md)
+#### [Azure portal](resource-group-create-service-principal-portal.md)
 ### [Authentication API to access subscriptions](resource-manager-api-authentication.md)
 ### [Lock resources](resource-group-lock-resources.md)
 
 ## Set resource policies
 ### [What are resource policies?](resource-manager-policy.md)
-### [Use portal to assign policy](resource-manager-policy-portal.md)
+### [Use Azure portal to assign policy](resource-manager-policy-portal.md)
 ### [Use scripts to assign policy](resource-manager-policy-create-assign.md)
 ### Examples
 #### [Tags](resource-manager-policy-tags.md)
@@ -95,10 +95,24 @@
 ## Troubleshoot
 ### [Common deployment errors](resource-manager-common-deployment-errors.md)
 ### [Understand deployment errors](resource-manager-troubleshoot-tips.md)
-### [RequestDisallowedByPolicy error](resource-manager-policy-requestdisallowedbypolicy-error.md)
+### Resolve errors
+#### [AccountNameInvalid](resource-manager-storage-account-name-errors.md)
+#### [InvalidTemplate](resource-manager-invalid-template-errors.md)
+#### [NoRegisteredProviderFound](resource-manager-register-provider-errors.md)
+#### [NotFound](resource-manager-not-found-errors.md)
+#### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
+#### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+#### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
+#### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
 ### Virtual Machine deployment errors
-#### [Linux](../virtual-machines/linux/troubleshoot-deploy-vm.md)
-#### [Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
+#### Linux
+##### [Deployment issues](../virtual-machines/linux/troubleshoot-deploy-vm.md)
+##### [Provisioning and allocation issues](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
+##### [Common error messages](../virtual-machines/linux/error-messages.md)
+#### Windows
+##### [Deployment issues](../virtual-machines/windows/troubleshoot-deploy-vm.md)
+##### [Provisioning and allocation issues](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
+##### [Common error messages](../virtual-machines/windows/error-messages.md)
 
 # Reference
 ## [Template format](/azure/templates/)

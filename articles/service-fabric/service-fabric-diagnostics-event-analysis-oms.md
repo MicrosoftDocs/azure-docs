@@ -88,7 +88,7 @@ This article covers the steps required to set up container monitoring for your c
 
 To set up the Container solution in your workspace, make sure you have the OMS agent deployed on your cluster's nodes by following the steps mentioned above. Once the cluster is ready, deploy a container to it. Bear in mind that the first time a container image is deployed to a cluster, it takes several minutes to download the image depending on its size.
 
-In Azure Marketplace, search for *Containers* and create a Containers resource (under the Monitoring + Management category).
+In Azure Marketplace, search for *Container Monitoring Solution* and create the **Container Monitoring Solution** result that should come up, under the Monitoring + Management category.
 
 ![Adding Containers solution](./media/service-fabric-diagnostics-event-analysis-oms/containers-solution.png)
 
