@@ -49,7 +49,7 @@ Learn how to use the WebHCat REST API to run MapReduce jobs on a Hadoop on HDIns
     curl -u admin -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
     ```
 
-    You should receive a response similar to the following JSON:
+    You receive a response similar to the following JSON:
 
         {"status":"ok","version":"v1"}
 
@@ -58,7 +58,7 @@ Learn how to use the WebHCat REST API to run MapReduce jobs on a Hadoop on HDIns
    * **-u**: Indicates the user name and password used to authenticate the request
    * **-G**: Indicates that this operation is a GET request
 
-     The beginning of the URI, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, is the same for all requests.
+   The beginning of the URI, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, is the same for all requests.
 
 2. To submit a MapReduce job, use the following command:
 
@@ -74,7 +74,7 @@ Learn how to use the WebHCat REST API to run MapReduce jobs on a Hadoop on HDIns
     * **class**: The class that contains the MapReduce logic
     * **arg**: The arguments to be passed to the MapReduce job. In this case, the input text file and the directory that are used for the output
 
-     This command should return a job ID that can be used to check the status of the job:
+   This command should return a job ID that can be used to check the status of the job:
 
        {"id":"job_1415651640909_0026"}
 

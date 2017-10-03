@@ -51,18 +51,18 @@ Learn how to use the WebHCat REST API to run Hive queries with Hadoop on Azure H
 
     The parameters used in this command are as follows:
 
-   * **-u** - The user name and password used to authenticate the request.
-   * **-G** - Indicates that this request is a GET operation.
+    * **-u** - The user name and password used to authenticate the request.
+    * **-G** - Indicates that this request is a GET operation.
 
-     The beginning of the URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, is the same for all requests. The path, **/status**, indicates that the request is to return a status of WebHCat (also known as Templeton) for the server. You can also request the version of Hive by using the following command:
+   The beginning of the URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, is the same for all requests. The path, **/status**, indicates that the request is to return a status of WebHCat (also known as Templeton) for the server. You can also request the version of Hive by using the following command:
 
     ```bash
     curl -u admin -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/version/hive
     ```
 
-     This request returns a response similar to the following text:
+    This request returns a response similar to the following text:
 
-       {"module":"hive","version":"0.13.0.2.1.6.0-2103"}
+        {"module":"hive","version":"0.13.0.2.1.6.0-2103"}
 
 2. Use the following to create a table named **log4jLogs**:
 
@@ -78,7 +78,8 @@ Learn how to use the WebHCat REST API to run Hive queries with Hadoop on Azure H
      * **execute** - The HiveQL statements to execute.
      * **statusdir** - The directory that the status for this job is written to.
 
-     These statements perform the following actions:
+   These statements perform the following actions:
+   
    * **DROP TABLE** - If the table already exists, it is deleted.
    * **CREATE EXTERNAL TABLE** - Creates a new 'external' table in Hive. External tables store only the table definition in Hive. The data is left in the original location.
 
@@ -99,7 +100,7 @@ Learn how to use the WebHCat REST API to run Hive queries with Hadoop on Azure H
      > [!NOTE]
      > The `%25` is the URL encoded form of %, so the actual condition is `like '%.log'`. The % has to be URL encoded, as it is treated as a special character in URLs.
 
-     This command should return a job ID that can be used to check the status of the job.
+   This command returns a job ID that can be used to check the status of the job.
 
        {"id":"job_1415651640909_0026"}
 
