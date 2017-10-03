@@ -65,7 +65,7 @@ Here, 'contoso100.com' is the DNS domain name of your managed domain. 'contoso-r
 ## Install required packages on the Linux virtual machine
 After connecting to the virtual machine, the next task is to install packages required for domain join on the virtual machine. Perform the following steps:
 
-1. **Install realmd:** The realmd package is used for domain join. In your PuTTY terminal, type the following command:
+1. **Install realmd:** The realmd package is used for domain join. In your SSH terminal, type the following command:
     ```
     sudo yum install realmd
     ```
@@ -74,7 +74,7 @@ After connecting to the virtual machine, the next task is to install packages re
     After a few minutes, the realmd package should get installed on the virtual machine.
 
     ![realmd installed](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-realmd-installed.png)
-2. **Install sssd:** The realmd package depends on sssd to perform domain join operations. In your PuTTY terminal, type the following command:
+2. **Install sssd:** The realmd package depends on sssd to perform domain join operations. In your SSH terminal, type the following command:
     ```
     sudo yum install sssd
     ```
@@ -83,7 +83,7 @@ After connecting to the virtual machine, the next task is to install packages re
     After a few minutes, the sssd package should get installed on the virtual machine.
 
     ![realmd installed](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-sssd-installed.png)
-3. **Install kerberos:** In your PuTTY terminal, type the following command:
+3. **Install kerberos:** In your SSH terminal, type the following command:
 
     sudo yum install krb5-workstation krb5-libs
 
@@ -97,21 +97,21 @@ After connecting to the virtual machine, the next task is to install packages re
 ## Join the Linux virtual machine to the managed domain
 Now that the required packages are installed on the Linux virtual machine, the next task is to join the virtual machine to the managed domain.
 
-1. Discover the AAD Domain Services managed domain. In your PuTTY terminal, type the following command:
+1. Discover the AAD Domain Services managed domain. In your SSH terminal, type the following command:
     ```
     sudo realm discover CONTOSO100.COM
     ```
     ![Realm discover](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-realmd-discover.png)
 
     If **realm discover** is unable to find your managed domain, ensure that the domain is reachable from the virtual machine (try ping). Also ensure that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
-2. Initialize kerberos. In your PuTTY terminal, type the following command. Ensure that you specify a user who belongs to the 'AAD DC Administrators' group. Only these users can join computers to the managed domain.
+2. Initialize kerberos. In your SSH terminal, type the following command. Ensure that you specify a user who belongs to the 'AAD DC Administrators' group. Only these users can join computers to the managed domain.
     ```
     kinit bob@CONTOSO100.COM
     ```
     ![Kinit](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-kinit.png)
 
     Ensure that you specify the domain name in capital letters, else kinit fails.
-3. Join the machine to the domain. In your PuTTY terminal, type the following command. Specify the same user you specified in the preceding step ('kinit').
+3. Join the machine to the domain. In your SSH terminal, type the following command. Specify the same user you specified in the preceding step ('kinit').
     ```
     sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM'
     ```
@@ -123,15 +123,15 @@ You should get a message ("Successfully enrolled machine in realm") when the mac
 ## Verify domain join
 You can quickly verify whether the machine has been successfully joined to the managed domain. Connect to the newly domain joined RHEL VM using SSH and a domain user account and then check to see if the user account is resolved correctly.
 
-1. In your PuTTY terminal, type the following command to connect to the newly domain joined RHEL virtual machine using SSH. Use a domain account that belongs to the managed domain (for example, 'bob@CONTOSO100.COM' in this case.)
+1. In your SSH terminal, type the following command to connect to the newly domain joined RHEL virtual machine using SSH. Use a domain account that belongs to the managed domain (for example, 'bob@CONTOSO100.COM' in this case.)
     ```
     ssh -l bob@CONTOSO100.COM contoso-rhel.contoso100.com
     ```
-2. In your PuTTY terminal, type the following command to see if the home directory was initialized correctly.
+2. In your SSH terminal, type the following command to see if the home directory was initialized correctly.
     ```
     pwd
     ```
-3. In your PuTTY terminal, type the following command to see if the group memberships are being resolved correctly.
+3. In your SSH terminal, type the following command to see if the group memberships are being resolved correctly.
     ```
     id
     ```
