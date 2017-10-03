@@ -199,7 +199,7 @@ By default, all function routes are prefixed with *api*. You can also customize 
 
 For detailed information on how to update the *host.json* file for your function, See, [How to update function app files](functions-reference.md#fileupdate). 
 
-For information on other properties you can configure in your *host.json* file, see [host.json reference](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
+For information on other properties you can configure in your *host.json* file, see [host.json reference](functions-host-json.md).
 
 
 <a name="keys"></a>

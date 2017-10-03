@@ -140,13 +140,13 @@ Supported shipping locations:
 
 When creating an import or export job, you will be provided a shipping address of one of the supported locations to ship your drives. The shipping address provided will depend on the location of your storage account, but it may not be the same as your storage account location.
 
-You can use carriers like FedEx, DHL, UPS, or the US Postal Service to ship your drives to the shipping address.
+FedEx, UPS or DHL can be used to ship your drives to the shipping address.
 
 **Shipping drives from the data center:**
 
 When creating an import or export job, you must provide a return address for Microsoft to use when shipping the drives back after your job is complete. Please make sure you provide a valid return address to avoid delays in processing.
 
-You can use a carrier of your choice in order to forward ship the hard disk. The carrier should have appropriate tracking in order to maintain chain of custody. You must also provide a valid FedEx or DHL carrier account number to be used by Microsoft for shipping the drives back. A FedEx account number is required for shipping drives back from the US and Europe locations. A DHL account number is required for shipping drives back from Asia and Australia locations. You can create a [FedEx](http://www.fedex.com/us/oadr/) (for US and Europe) or [DHL](http://www.dhl.com/) (Asia and Australia) carrier account if you do not have one. If you already have a carrier account number, please verify that it is valid.
+The carrier should have appropriate tracking in order to maintain chain of custody. You must provide a valid FedEx, UPS or DHL carrier account number to be used by Microsoft for shipping the drives back. A FedEx, UPS or DHL account number is required for shipping drives back from the US and Europe locations. A DHL account number is required for shipping drives back from Asia and Australia locations. You can create a [FedEx](http://www.fedex.com/us/oadr/) (for US and Europe) or [DHL](http://www.dhl.com/) (Asia and Australia) carrier account if you do not have one. If you already have a carrier account number, please verify that it is valid.
 
 In shipping your packages, you must follow the terms at [Microsoft Azure Service Terms](https://azure.microsoft.com/support/legal/services-terms/).
 

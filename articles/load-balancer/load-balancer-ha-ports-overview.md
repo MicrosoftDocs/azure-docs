@@ -18,9 +18,12 @@ ms.date: 09/26/2017
 ms.author: kumud
 ---
 
-# High Availability Ports Overview
+# High Availability Ports overview (Preview)
 
 The Standard SKU of Azure Load Balancer introduces high availability (HA) ports - a capability to distribute traffic from all ports, and for all supported protocols. While configuring an Internal Load Balancer, users can configure an HA Ports rule that can set the frontend and backend ports to **0** and protocol to **all**, and thus allow all the traffic to flow through the Internal Load Balancer.
+
+>[!NOTE]
+> High Availability Ports feature is currently in Preview. During preview, the feature may not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 The load balancing algorithm still remains the same and the destination is selected based in the five touples <Source IP Address, Source Port, Destination IP Address, Destination Port, Protocol>. But this configuration allows for a single LB rule to process all available traffic, and reduces configuration complexity as well as any limits imposed by the maximum number of Load Balancing rules that one can add.
 
