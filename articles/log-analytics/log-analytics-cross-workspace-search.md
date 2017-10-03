@@ -21,7 +21,7 @@ ms.author: magoedte
 
 Previously with Azure Log Analytics, you could only analyze data from within the current workspace and this limited your ability to query across multiple workspaces defined in your subscription.  
 
-Now you can query across multiple workspaces, providing a system-wide view of your data.  You can only perform this type of query in the [Advanced portal](log-analytics-log-search-portals#advanced-analytics-portal), not in the Azure portal.  
+Now you can query across multiple workspaces, providing a system-wide view of your data.  You can only perform this type of query in the [Advanced portal](log-analytics-log-search-portals.md#advanced-analytics-portal), not in the Azure portal.  
 
 ## Querying across Log Analytics workspaces
 To reference another workspace in your query, use the *workspace* identifier.  For example, the following query returns summarized counts of updates needed by their classification from the Update table from both the current workspace, and another workspace named *contosoretail-it*.  
@@ -30,21 +30,22 @@ To reference another workspace in your query, use the *workspace* identifier.  F
 ## Identifying resources
 Identifying a workspace can be done in several ways:
 
-* Resource name - this is a human-readable name of the workspace, sometimes referred to as *component name*. 
+* Resource name - is a human-readable name of the workspace, sometimes referred to as *component name*. 
 
     `workspace("contosoretail").Update | count`
  
     >[!NOTE]
-    >Identifying a workspace by its name assumes it is unique across all accessible subscriptions. If you have multiple applications with the specified name, the query will fail because of the ambiguity. In this case you must use one of the other identifiers.
+    >Identifying a workspace by its name assumes it is unique across all accessible subscriptions. If you have multiple applications with the specified name, the query fails because of the ambiguity. In this case you must use one of the other identifiers.
 
-* Qualified Name - this is the “full name” of the workspace, composed of the subscription name, resource group and component name in this format: *<subscriptionName>/<resourceGroup>/<componentName>*. 
+* Qualified Name - is the “full name” of the workspace, composed of the subscription name, resource group and component name in this format: *<subscriptionName>/<resourceGroup>/<componentName>*. 
 
     `workspace('contoso/contosoretail/development').requests | count `
 
-    >[!NOTE]Because Azure subscription names are not unique, this identifier might be ambiguous. 
+    >[!NOTE]
+    >Because Azure subscription names are not unique, this identifier might be ambiguous. 
     >
 
-* workspace ID - this is a GUID, the unique, immutable, public identifier of the  workspace.
+* workspace ID - is a GUID, the unique, immutable, public identifier of the  workspace.
 
     `workspace("b438b4f6-912a-46d5-9cb1-b44069212ab4").Update | count`
 
