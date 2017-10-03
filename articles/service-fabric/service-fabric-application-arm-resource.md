@@ -19,7 +19,7 @@ ms.author: dekapur
 ---
 # Managing applications and services as Azure Resource Manager resources
 
-Applications and services to be deployed and run on your Service Fabric cluster can be managed via Azure Resource Manager templates. This means that instead of deploying and managing applications via PowerShell or CLI after having to wait for the cluster to be ready, you can now express  applications and services in JSON and deploy them in the same Resource Manager template as your cluster. Based on the application The process of application registration, provisioning, and deployment all happens in one step.
+You can deploy applications and services onto your Service Fabric cluster via Azure Resource Manager. This means that instead of deploying and managing applications via PowerShell or CLI after having to wait for the cluster to be ready, you can now express  applications and services in JSON and deploy them in the same Resource Manager template as your cluster. Based on the application The process of application registration, provisioning, and deployment all happens in one step.
 
 This is the recommended way for you to deploy any setup, governance, or cluster management based applications that you require in your cluster. This includes the [Patch Orchestration Application](service-fabric-patch-orchestration-application.md), Watchdogs, or any applications that need to be running in your cluster before other applications or services are deployed. 
 
@@ -28,7 +28,7 @@ When applicable, manage your applications as Resource Manager resources to impro
 * Role-based access control (RBAC): managing access to clusters as well as applications deployed on the cluster can be done via the same Resource Manager template.
 * Azure Resource Manager (via Azure portal) becomes a one-stop-shop for managing your cluster and critical application deployments.
 
-This is achieved with the addition of a few resources that can be managed via a template, as described below:
+The following snippet shows the different kinds of resources that can be managed via a template:
 
 ```json
 {
@@ -61,9 +61,9 @@ This is achieved with the addition of a few resources that can be managed via a 
 ## Adding a new application to your Resource Manager template
 
 1. Prepare your cluster's Resource Manager template for deployment. See [Create a Service Fabric cluster by using Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) for more information on this.
-2. Think about some of the applications you plan on deploying in the cluster. Are there any that will always be running that other applications may take dependencies on? Do you plan on deploying any cluster governance or setup based applications? These sorts of applications are best managed via a Resource Manager template, as discussed above. 
-3. Once you have figured out what applications you want to be deployed as Resource Manager resources, the applications have to be packaged, zipped, and put on a file share. The share needs to be accessible through a REST endpoint for Azure Resource Manager to consume during deployment.
-4. In your Resource Manager template, below your cluster declaration, describe each application's properties. These properties include replica or instance count and any dependency chains between resources (other applications or services). For a list of comprehensive properties, see the [REST API Swagger Spec](https://github.com/Azure/azure-rest-api-specs/blob/current/specification/servicefabric/resource-manager/Microsoft.ServiceFabric/2017-07-01-preview/servicefabric.json). Note that this does not replace the Application or Service manifests, but rather describes some of what is in them, in JSON, as part of the cluster's Resource Manager template. Here is a sample template that includes deploying a stateless service *Service1* and a stateful service *Service2* as part of *Application1*:
+2. Think about some of the applications you plan on deploying in the cluster. Are there any that will always be running that other applications may take dependencies on? Do you plan on deploying any cluster governance or setup related applications? These sorts of applications are best managed via a Resource Manager template, as discussed above. 
+3. Once you have figured out what applications you want to be deployed this way, the applications have to be packaged, zipped, and put on a file share. The share needs to be accessible through a REST endpoint for Azure Resource Manager to consume during deployment.
+4. In your Resource Manager template, below your cluster declaration, describe each application's properties. These properties include replica or instance count and any dependency chains between resources (other applications or services). For a list of comprehensive properties, see the [REST API Swagger Spec](https://github.com/Azure/azure-rest-api-specs/blob/current/specification/servicefabric/resource-manager/Microsoft.ServiceFabric/2017-07-01-preview/servicefabric.json). Note that this does not replace the Application or Service manifests, but rather describes some of what is in them as part of the cluster's Resource Manager template. Here is a sample template that includes deploying a stateless service *Service1* and a stateful service *Service2* as part of *Application1*:
 
 ```json
 {
@@ -232,7 +232,7 @@ Note that the *apiVersion* must be set to `"2017-07-01-preview"`. This template 
 
 ## Managing an existing application via Resource Manager
 
-If your cluster is already up and some applications that you would like to manage as Resource Manager resources are already deployed on it, instead of removing the applications and re-deploying them, you can use a PUT call using the same APIs to have the applications get acknowledged as Resource Manager resources. 
+If your cluster is already up and some applications that you would like to manage as Resource Manager resources are already deployed on it, instead of removing the applications and redeploying them, you can use a PUT call using the same APIs to have the applications get acknowledged as Resource Manager resources. 
 
 
 ## Next steps
