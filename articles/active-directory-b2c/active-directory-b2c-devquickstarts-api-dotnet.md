@@ -15,6 +15,7 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: parakhj
+author: parakhj
 
 ---
 # Azure Active Directory B2C: Build a .NET web API

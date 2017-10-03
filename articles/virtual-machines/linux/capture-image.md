@@ -32,7 +32,7 @@ You can also use **Packer** to create your custom configuration. For more inform
 ## Before you begin
 Ensure that you meet the following prerequisites:
 
-* You need an Azure VM created in the Resource Manager deployment model using managed disks. If you haven't created a Linux VM, you can use the [portal](quick-create-portal.md), the [Azure CLI](quick-create-cli.md), or [Resource Manager templates](cli-deploy-templates.md). Configure the VM as needed. For example, [add data disks](add-disk.md), apply updates, and install applications. 
+* You need an Azure VM created in the Resource Manager deployment model using managed disks. If you haven't created a Linux VM, you can use the [portal](quick-create-portal.md), the [Azure CLI](quick-create-cli.md), or [Resource Manager templates](create-ssh-secured-vm-from-template.md). Configure the VM as needed. For example, [add data disks](add-disk.md), apply updates, and install applications. 
 
 * You also need to have the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and be logged in to an Azure account using [az login](/cli/azure/#login).
 

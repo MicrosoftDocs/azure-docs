@@ -62,7 +62,7 @@ With very minor modification, the following Ring Buffer code sample can be run o
 
 &nbsp;
 
-```tsql
+```sql
 GO
 ----  Transact-SQL.
 ---- Step set 1.
@@ -319,7 +319,7 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM tabEmployee;
 
 When you are done with your Ring Buffer, you can remove it and release its resources issuing an **ALTER** like the following:
 
-```tsql
+```sql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
     ON DATABASE
     DROP TARGET package0.ring_buffer;
@@ -329,7 +329,7 @@ GO
 
 The definition of your event session is updated, but not dropped. Later you can add another instance of the Ring Buffer to your event session:
 
-```tsql
+```sql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
     ON DATABASE
     ADD TARGET

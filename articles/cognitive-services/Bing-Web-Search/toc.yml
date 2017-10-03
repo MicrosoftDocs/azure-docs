@@ -27,8 +27,10 @@
     href: resize-and-crop-thumbnails.md
 - name: Tutorials
   items:
-  - name: C# Ranking Tutorial
+  - name: C# ranking tutorial
     href: csharp-ranking-tutorial.md
+  - name: Visual Search mobile app tutorial
+    href: computer-vision-web-search-tutorial.md 
 - name: Reference
   items:
   - name: REST v5

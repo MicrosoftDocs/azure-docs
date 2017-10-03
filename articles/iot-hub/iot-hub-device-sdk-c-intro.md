@@ -13,7 +13,7 @@ ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/20/2017
+ms.date: 08/25/2017
 ms.author: obloch
 
 ---
@@ -408,7 +408,7 @@ myWeather->DeviceId = "myFirstDevice";
 myWeather->WindSpeed = avgWindSpeed + (rand() % 4 + 2);
 ```
 
-The model you defined earlier enables you to set the values by setting members of a **struct**. Next, serialize the message you want to send and it:
+The model you defined earlier enables you to set the values by setting members of a **struct**. Next, serialize the message you want to send:
 
 ```c
 unsigned char* destination;

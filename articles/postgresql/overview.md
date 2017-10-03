@@ -7,9 +7,9 @@ ms.author: sukamat
 manager: jhubbard
 editor: jasonwhowell
 ms.custom: mvc
-ms.service: postgresql-database
+ms.service: postgresql
 ms.topic: overview
-ms.date: 07/05/2017
+ms.date: 08/01/2017
 ---
 # What is Azure Database for PostgreSQL?
 
@@ -43,7 +43,7 @@ Azure's industry leading 99.99% availability (not available in preview) service 
 ## Secure your data
 Azure database services have a tradition of data security that Azure Database for PostgreSQL upholds with features that limit access, protect data at-rest and in-motion, and help you monitor activity. Visit the [Azure Trust Center](https://www.microsoft.com/TrustCenter/Security/default.aspx) for information about Azure's platform security.
 
-The Azure Database for PostgreSQL service uses storage encryption for data at-rest. All the data, including backups, are encrypted on disk. The service uses AES 256-bit cipher that is included in Azure storage encryption, and the keys are system managed. Storage encryption is always on and cannot be disabled.
+The Azure Database for PostgreSQL service uses storage encryption for data at-rest. Data including backups are encrypted on disk (with the exception of temporary files created by the engine while running queries). The service uses AES 256-bit cipher that is included in Azure storage encryption, and the keys are system managed. Storage encryption is always on and cannot be disabled.
 
 By default, the Azure Database for PostgreSQL service is configured to require [SSL connection security](./concepts-ssl-connection-security.md) for data in-motion across the network. Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application.  Optionally, you can disable requiring SSL for connecting to your database service if your client application does not support SSL connectivity.
 

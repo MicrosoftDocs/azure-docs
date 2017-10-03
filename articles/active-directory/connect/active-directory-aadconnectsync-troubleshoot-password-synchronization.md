@@ -266,6 +266,10 @@ The status column can have the following values:
 | SourceConnectorNotPresent |No object found in the on-premises Active Directory connector space. |
 | TargetNotExportedToDirectory |The object in the Azure AD connector space has not yet been exported. |
 | MigratedCheckDetailsForMoreInfo |Log entry was created before build 1.0.9125.0 and is shown in its legacy state. |
+| Error |Service returned an unknown error. |
+| Unknown |An error occurred while trying to process a batch of password hashes.  |
+| MissingAttribute |Specific attributes (for example, Kerberos hash) required by Azure AD Domain Services are not available. |
+| RetryRequestedByTarget |Specific attributes (for example, Kerberos hash) required by Azure AD Domain Services were not available previously. An attempt to resynchronize the user's password hash is made. |
 
 ## Scripts to help troubleshooting
 

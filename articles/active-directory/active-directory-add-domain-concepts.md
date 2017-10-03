@@ -13,14 +13,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 07/25/2017
 ms.author: curtand
 
 ---
 # Conceptual overview of custom domain names in Azure Active Directory
-A domain name is an important part of the identifier for many directory resources: it is part of a user name or email address for a user, part of the address for a group, and can be part of the app ID URI for an application. A resource in Azure Active Directory (Azure AD) can include a domain name that is already verified to be owned by the directory that contains the resource. Only a global administrator can perform domain management tasks in Azure AD.
+A domain name can be an important identifier for many directory resources, as part of:
 
-Domain names in Azure AD are globally unique. A domain name can be used by a single Azure AD. If one Azure AD directory has verified a domain name, then no other Azure AD directory can verify or use that same domain name.
+* A user name or email address for a user
+* The address for a group
+* The app ID URI for an application
+
+A resource in Azure Active Directory (Azure AD) can include a domain name that is already verified to be owned by the directory that contains the resource. Only a global administrator can perform domain management tasks in Azure AD.
+
+> [!IMPORTANT]
+> Microsoft recommends that you manage Azure AD using the [Azure AD admin center](https://aad.portal.azure.com) in the Azure portal instead of using the Azure classic portal referenced in this article. For how to manage your domain names in the Azure AD admin center, see [Managing custom domain names in your Azure Active Directory](active-directory-domains-manage-azure-portal.md).
+
+Domain names in Azure AD are globally unique. A custom domain name can be used by only one Azure AD tenant at a time. If one Azure AD directory has verified a domain name, then no other Azure AD directory can verify or use that same domain name.
 
 ## Initial and custom domain names
 Every domain name in Azure AD is either an initial domain name, or a custom domain name.
@@ -44,7 +53,7 @@ A custom domain name in Azure AD can be configured to give users a federated sig
 Domains that are not federated are sometimes called managed domains. The initial domain for an Azure AD directory is implicitly evaluated as a managed domain.
 
 ## Primary domain names
-The primary domain name for a directory is the domain name that is pre-selected as the default value for the ‘domain’ portion of the user name, when an administrator creates a new user in the [Azure classic portal](https://manage.windowsazure.com/) or another portal such as the Office 365 admin portal. A directory can have only one primary domain name. An administrator can change the primary domain name to be any verified custom domain that is not federated, or to the initial domain.
+The primary domain name for a directory is the domain name that is pre-selected as the default value for the ‘domain’ portion of the user name, when an administrator creates a new user in the [Azure portal](https://portal.azure.com/), or another portal such as the Office 365 admin portal or the Microsoft Intune portal. A directory can have only one primary domain name. An administrator can change the primary domain name to be any verified custom domain that is not federated, or to the initial domain.
 
 ## Domain names in Azure AD and other Microsoft Online Services
 A domain name must be verified in Azure AD before it can be used by another Microsoft Online Service such as Exchange Online, SharePoint Online, and Intune. These other services typically require an administrator to add one or more DNS entries that are particular to the service.

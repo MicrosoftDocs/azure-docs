@@ -2,18 +2,19 @@
 title:  Jenkins and Azure
 description: Deploy and integrate Jenkins with Azure 
 services: multiple
-author: mlearned
-manager: douge
+author: czeumault
+manager: carolz
 layout: LandingPage
 ms.service: multiple
 ms.tgt_pltfrm: na
 ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/20/2017
-ms.author: mlearned
+ms.author: carolz
+ms.custom: Jenkins
 ---
 <div class="content">
-    <h1>Jenkins on Azure</h1>
+    <h1>Jenkins® on Azure</h1>
     <div class="introHolder" style="justify-content: space-between;">
        <div class="intro" style="min-width: 200px">
             <img src="media/Jenkins.png" align="right" alt="Jenkins Logo">
@@ -28,12 +29,15 @@ ms.author: mlearned
 <ol>
     <li><a href="https://www.visualstudio.com/docs/build/apps/jenkins/build-deploy-jenkins">CI/CD with Jenkins and Visual Studio Team Services</a></li>
     <li><a href="/azure/container-service/container-service-kubernetes-jenkins">Integrate Jenkins with GitHub, Docker, and Kubernetes</a></li>
-    <li><a href="/azure/jenkins/execute-cli-jenkins-pipeline">Deploy to Azure App Service</a></li>
+    <li><a href="/azure/jenkins/execute-cli-jenkins-pipeline">Execute Azure CLI with Jenkins</a></li>
     <li><a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Integrate Docker, GitHub, and Jenkins</a></li>
+    <li><a href="/azure/jenkins/deploy-Jenkins-app-service-plugin">Deploy to App Service with Jenkins Plugin</a></li>
 </ol>
 <h2 style="margin-top: 36px">Resources and Tools</h2>
 <p>See the following links for additional reference materials and tools for working with Jenkins on Azure.</p>
 <a href="https://plugins.jenkins.io/azure-vm-agents">Azure VM Agents plugin</a><br/>
 <a href="https://plugins.jenkins.io/windows-azure-storage">Azure Storage plugin</a><br/>
 <a href="https://jenkins.io">Learn about Jenkins</a><br/>
+<h4>      
+Jenkins® is a registered trademark of Software in the Public Interest, Inc. The [Jenkins® logo](https://wiki.jenkins.io/display/JENKINS/Logo) is licensed under [CC BY SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) from the [Jenkins project](https://jenkins.io).</h4>
 </div>

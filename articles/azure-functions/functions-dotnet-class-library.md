@@ -4,7 +4,7 @@ description: Learn how to author .NET class libraries for use with Azure Functio
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: ''
 tags: ''
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
@@ -27,12 +27,12 @@ In addition to script files, Azure Functions supports publishing a class library
 
 This article has the following prerequisites:
 
-- [Visual Studio 2017 15.3 Preview](https://www.visualstudio.com/vs/preview/). Install the workloads **ASP.NET and web development** and **Azure development**.
-- [Azure Function Tools for Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=AndrewBHall-MSFT.AzureFunctionToolsforVisualStudio2017)
+- [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/), or a later version.
+- Install the **Azure development** workload.
 
 ## Functions class library project
 
-From Visual Studio, create a new Azure Functions project. The new project template creates the files *host.json* and *local.settings.json*. You can [customize Azure Functions runtime settings in host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json). 
+From Visual Studio, create a new Azure Functions project. The new project template creates the files *host.json* and *local.settings.json*. You can [customize Azure Functions runtime settings in host.json](functions-host-json.md). 
 
 The file *local.settings.json* stores app settings, connection strings, and settings for Azure Functions Core Tools. To learn more about its structure, see [Code and test Azure functions locally](functions-run-local.md#local-settings).
 
@@ -42,7 +42,7 @@ The attribute [`FunctionNameAttribute`](https://github.com/Azure/azure-webjobs-s
 
 ### Conversion to function.json
 
-When an Azure Functions project is built, it produces a file `function.json` in the directory matching the function name defined by `[FunctionName]`. It specifies triggers and bindings and points to the project assembly file.
+When you build an Azure Functions project, a *function.json* file is created in the function's directory. The directory name is the same as the function name that the `[FunctionName]` attribute specifies. The *function.json* file contains triggers and bindings and points to the project assembly file.
 
 This conversion is performed by the NuGet package [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). The source is available in the GitHub repo [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 
@@ -72,7 +72,7 @@ The following table lists the triggers and bindings that are available in an Azu
 
 Azure Functions supports trigger, input, and output bindings for Azure Blob storage. For more information on binding expressions and metadata, see [Azure Functions Blob storage bindings](functions-bindings-storage-blob.md).
 
-A blob trigger is defined with the `[BlobTrigger]` attribute. You can use the attribute `[StorageAccount]` to define the storage account that is used by an entire function or class.
+A blob trigger is defined with the `[BlobTrigger]` attribute. You can use the attribute `[StorageAccount]` to define the app setting name that contains the connection string to the storage account that is used by an entire function or class.
 
 ```csharp
 [StorageAccount("AzureWebJobsStorage")]
@@ -228,7 +228,7 @@ Azure Functions supports an output binding for Notification Hubs. To learn more,
 
 Azure Functions supports trigger and output bindings for Azure queues. For more information, see [Azure Functions Queue Storage bindings](functions-bindings-storage-queue.md).
 
-The following example shows how to use the function return type with a queue output binding, using the `[Queue]` attribute. To define a queue trigger, use the `[QueueTrigger]` attribute.
+The following example shows how to use the function return type with a queue output binding, using the `[Queue]` attribute. 
 
 ```csharp
 [StorageAccount("AzureWebJobsStorage")]
@@ -242,7 +242,15 @@ public static class QueueFunctions
         log.Info($"C# function processed: {input.Text}");
         return input.Text;
     }
+}
 
+```
+
+To define a queue trigger, use the `[QueueTrigger]` attribute.
+```csharp
+[StorageAccount("AzureWebJobsStorage")]
+public static class QueueFunctions
+{
     // Queue trigger
     [FunctionName("QueueTrigger")]
     [StorageAccount("AzureWebJobsStorage")]
@@ -254,6 +262,7 @@ public static class QueueFunctions
 
 ```
 
+
 <a name="sendgrid"></a>
 
 ### SendGrid output
@@ -261,6 +270,30 @@ public static class QueueFunctions
 Azure Functions supports a SendGrid output binding for sending email programmatically. To learn more, see [Azure Functions SendGrid bindings](functions-bindings-sendgrid.md).
 
 The attribute `[SendGrid]` is defined in the NuGet package [Microsoft.Azure.WebJobs.Extensions.SendGrid].
+
+The following is an example of using a Service Bus queue trigger and a SendGrid output binding using `SendGridMessage`:
+
+```csharp
+[FunctionName("SendEmail")]
+public static void Run(
+    [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] OutgoingEmail email,
+    [SendGrid] out SendGridMessage message)
+{
+    message = new SendGridMessage();
+    message.AddTo(email.To);
+    message.AddContent("text/html", email.Body);
+    message.SetFrom(new EmailAddress(email.From));
+    message.SetSubject(email.Subject);
+}
+
+public class OutgoingEmail
+{
+    public string To { get; set; }
+    public string From { get; set; }
+    public string Subject { get; set; }
+    public string Body { get; set; }
+}
+```
 
 <a name="service-bus"></a>
 

@@ -4,7 +4,7 @@ description: This topic shows how to use .NET to perform live encoding with on-p
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 15908152-d23c-4d55-906a-3bfd74927db5

@@ -21,7 +21,7 @@ ms.author: raynew
 
 Welcome to the Azure Site Recovery service! This article provides a quick overview of the service.
 
-## Business continuity and disaster recovery (BDCR) with Azure Recovery Services
+## Business continuity and disaster recovery (BCDR) with Azure Recovery Services
 
 As an organization you need to figure out how you're going to keep your data safe, and apps/workloads running when planned and unplanned outages occur.
 

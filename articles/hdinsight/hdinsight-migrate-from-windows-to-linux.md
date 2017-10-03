@@ -82,7 +82,7 @@ Use the following steps to copy data from the production cluster to the test clu
 6. From the SSH session, use the following command to copy files from the linked storage account to the new default storage account. Replace CONTAINER with the container information returned by PowerShell. Replace __ACCOUNT__ with the account name. Replace the path to data with the path to a data file.
 
     ```bash
-    hdfs dfs -cp wasbs://CONTAINER@ACCOUNT.blob.core.windows.net/path/to/old/data /path/to/new/location
+    hdfs dfs -cp wasb://CONTAINER@ACCOUNT.blob.core.windows.net/path/to/old/data /path/to/new/location
     ```
 
     > [!NOTE]
@@ -254,8 +254,8 @@ Spark clusters were available on Windows-clusters during preview. Spark GA is on
 
 Azure Data Factory custom .NET activities are not currently supported on Linux-based HDInsight clusters. Instead, you should use one of the following methods to implement custom activities as part of your ADF pipeline.
 
-* Execute .NET activities on Azure Batch pool. See the Use Azure Batch linked service section of [Use custom activities in an Azure Data Factory pipeline](../data-factory/data-factory-use-custom-activities.md)
-* Implement the activity as a MapReduce activity. For more information, see [Invoke MapReduce Programs from Data Factory](../data-factory/data-factory-map-reduce.md).
+* Execute .NET activities on Azure Batch pool. See the Use Azure Batch linked service section of [Use custom activities in an Azure Data Factory pipeline](../data-factory/transform-data-using-dotnet-custom-activity.md)
+* Implement the activity as a MapReduce activity. For more information, see [Invoke MapReduce Programs from Data Factory](../data-factory/transform-data-using-hadoop-map-reduce.md).
 
 ### Line endings
 
@@ -278,9 +278,9 @@ If you know that the scripts do not contain strings with embedded CR characters,
 * **After uploading to the cluster**: Use the following command from an SSH session to the Linux-based cluster to modify the script.
 
     ```bash
-    hdfs dfs -get wasbs:///path/to/script.py oldscript.py
+    hdfs dfs -get wasb:///path/to/script.py oldscript.py
     tr -d '\r' < oldscript.py > script.py
-    hdfs dfs -put -f script.py wasbs:///path/to/script.py
+    hdfs dfs -put -f script.py wasb:///path/to/script.py
     ```
 
 ## Next Steps

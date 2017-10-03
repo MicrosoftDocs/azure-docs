@@ -13,12 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/08/2017
+ms.date: 07/25/2017
 ms.author: curtand
+
+ms.custom: oldportal;it-pro;
 
 ---
 # Manage the directory for your Office 365 subscription in Azure
 This article describes how to manage a directory that was created for an Office 365 subscription, using the Azure classic portal. You must be either the Service Administrator or a co-administrator of an Azure subscription to sign in to the Azure classic portal. If you don’t yet have an Azure subscription, you can sign up for a [free 30-day trial](https://azure.microsoft.com/trial/get-started-active-directory/) today and deploy your first cloud solution in under 5 minutes, using this link. Be sure to use the work or school account that you use to sign in to Office 365.
+
+> [!IMPORTANT]
+> Microsoft recommends that you manage Azure AD using the [Azure AD admin center](https://aad.portal.azure.com) in the Azure portal instead of using the Azure classic portal referenced in this article.
 
 After you complete the Azure subscription, you can sign in to the Azure classic portal and access Azure services. Click the Active Directory extension to manage the same directory that authenticates your Office 365 users.
 

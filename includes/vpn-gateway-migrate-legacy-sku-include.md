@@ -1,8 +1,9 @@
 > [!NOTE]
-> The VPN Gateway Public IP address will change when migrating from an old SKU to a new SKU.
+> * The VPN gateway Public IP address will change when migrating from an old SKU to a new SKU.
+> * You can't migrate classic VPN gateways to the new SKUs. Classic VPN gateways can only use the legacy (old) SKUs.
 > 
 
-You can't resize your Azure VPN gateways directly between the old SKUs and the new SKU families. If you have VPN gateways in the Resource Manager deployment model that are using the older version of the SKUs, you can migrate to the new SKUs. To migrate, you delete the existing VPN gateway for your virtual network, then create a new one.
+You can't resize your Azure VPN gateways between the old SKUs and the new SKU families. If you have VPN gateways in the Resource Manager deployment model that are using the older version of the SKUs, you can migrate to the new SKUs. To migrate, you delete the existing VPN gateway for your virtual network, then create a new one.
 
 Migration workflow:
 

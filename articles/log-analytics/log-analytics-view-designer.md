@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 07/17/2017
 ms.author: bwren
 
 ---
@@ -22,8 +22,11 @@ The View Designer in [Log Analytics](log-analytics-overview.md) allows you to cr
 
 Other articles available for View Designer are:
 
-* [Tile reference](log-analytics-view-designer-tiles.md) - Reference of the settings for each of the tiles available to use in your custom views. 
-* [Visualization part reference](log-analytics-view-designer-parts.md) - Reference of the settings for each of the tiles available to use in your custom views. 
+* [Tile reference](log-analytics-view-designer-tiles.md) - Reference of the settings for each of the tiles available to use in your custom views.
+* [Visualization part reference](log-analytics-view-designer-parts.md) - Reference of the settings for each of the tiles available to use in your custom views.
+
+>[!NOTE]
+> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then queries in all views must be written in the [new query language](https://go.microsoft.com/fwlink/?linkid=856078).  Any views that were created before the workspace was upgraded will be automtically converted.
 
 ## Concepts
 Views created with the View Designer contain the elements in the following table.
@@ -92,4 +95,3 @@ Views only have one row of visualization parts.  Rearrange existing parts in a v
 ## Next steps
 * Add [Tiles](log-analytics-view-designer-tiles.md) to your custom view.
 * Add [Visualization Parts](log-analytics-view-designer-parts.md) to your custom view.
-

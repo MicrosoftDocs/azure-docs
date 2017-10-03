@@ -67,7 +67,6 @@ Once you have modified your solution using the recommendations from the .NET Por
 
 For more information on accessing logs, see the following documents:
 
-* [Analyze HDInsight logs](hdinsight-debug-jobs.md)
 * [Access YARN application logs on Linux-based HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 
 ## Next steps

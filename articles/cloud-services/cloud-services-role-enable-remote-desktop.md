@@ -131,4 +131,4 @@ The [ServiceConfiguration.cscfg](cloud-services-model-and-package.md#cscfg) file
 
 ## Additional Resources
 [How to Configure Cloud Services](cloud-services-how-to-configure.md)
-[Cloud services FAQ - Remote Desktop](cloud-services-faq.md#remote-desktop)
+[Cloud services FAQ - Remote Desktop](cloud-services-faq.md)

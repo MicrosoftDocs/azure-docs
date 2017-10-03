@@ -1,25 +1,31 @@
 
-1. Click **App Services** > select your Mobile App backend > click **Quickstart** > your client platform (iOS, Android, Xamarin, Cordova).
+1. Click the **App Services** button, select your Mobile Apps back end, select **Quickstart**, and then select your client platform (iOS, Android, Xamarin, Cordova).
 
-![Azure Portal with Mobile Apps Quickstart highlighted][quickstart]
+    ![Azure portal with Mobile Apps Quickstart highlighted][quickstart]
 
-2. If the connection to the database is not configured, you must create one Data Connection.
+2. If a database connection is not configured, create one by doing the following:
 
-![Azure Portal with Mobile Apps Connect to BD][connect]
+    ![Azure portal with Mobile Apps Connect to database][connect]
 
-  * Create new SQL Database and server.
+    a. Create a new SQL database and server.
 
-  ![Azure Portal with Mobile Apps create new BD and server][server]
+    ![Azure portal with Mobile Apps create new database and server][server]
 
-  * Wait until the data connection is successfully created.
+    b. Wait until the data connection is successfully created.
 
-  ![Azure Portal with Mobile Apps notification on data connection create][notification]
+    ![Azure portal notification of successful creation of data connection][notification]
 
-  * Data connection must be successful.
+    c. Data connection must be successful.
 
-  ![Azure Portal with Mobile Apps notification on data connection create][already-connection]
+    ![Azure portal notification, "You already have a data connection"][already-connection]
 
-3. Under **2. Create a table API**, select Node.js for **Backend language**. Accept the acknowledgment and click **Create TodoItem table**. This creates a new *TodoItem* table in your database. Remember that switching an existing backend to Node.js will overwrite all contents! To create a .NET backend instead, [follow these instructions][instructions].
+3. Under **2. Create a table API**, select Node.js for **Backend language**. 
+ 
+4. Accept the acknowledgment, and then select **Create TodoItem table**.  
+    This action creates a new to-do item table in your database. 
+
+    >[!IMPORTANT]
+    > Switching an existing back end to Node.js overwrites all contents. To create a .NET back end instead, see [Work with the .NET back-end server SDK for Mobile Apps][instructions].
 
 <!-- Images. -->
 [quickstart]: ./media/app-service-mobile-configure-new-backend/quickstart.png

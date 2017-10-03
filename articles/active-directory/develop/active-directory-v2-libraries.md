@@ -13,18 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/01/2017
+ms.date: 08/22/2017
 ms.author: dastrock
 ms.custom: aaddev
 
 ---
 # Azure Active Directory v2.0 authentication libraries
-The Azure Active Directory (Azure AD) v2.0 endpoint supports the industry-standard OAuth 2.0 and OpenID Connect 1.0 protocols. You can use various libraries from Microsoft and other organizations with the v2.0 endpoint.
+The [Azure Active Directory (Azure AD) v2.0 endpoint](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-compare) supports the industry-standard OAuth 2.0 and OpenID Connect 1.0 protocols. You can use various libraries from Microsoft and other organizations with the v2.0 endpoint.
 
 When you build an application that uses the v2.0 endpoint, we recommend that you use libraries that are written by protocol domain experts who follow a Security Development Lifecycle (SDL) methodology, like [the one followed by Microsoft][Microsoft-SDL]. If you decide to hand-code support for the protocols, we recommend you follow SDL methodology and pay close attention to the security considerations in the standards specifications for each protocol.
 
+> [!NOTE]
+> Looking for the Azure AD v1.0 libraries (ADAL)? Checkout the [ADAL library guide](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-authentication-libraries). 
+> 
+> 
+
 ## Types of libraries
-Azure AD v2.0 works with two types of libraries:
+Azure AD v2.0 endpoint works with two types of libraries:
 
 * **Client libraries**. Native clients and servers use client libraries to get access tokens for calling a resource, such as Microsoft Graph.
 * **Server middleware libraries**. Web apps use server middleware libraries for user sign-in. Web APIs use server middleware libraries to validate tokens that are sent by native clients or by other servers.
