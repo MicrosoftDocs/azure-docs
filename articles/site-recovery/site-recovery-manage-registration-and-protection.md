@@ -30,7 +30,7 @@ If you replicate VMware VMs or Windows/Linux physical servers to Azure, you can 
 2. [Disassociate](site-recovery-setup-replication-settings-vmware.md#dissociate-a-configuration-server-from-a-replication-policy) and [delete](site-recovery-setup-replication-settings-vmware.md#delete-a-replication-policy) all Replication policies
 3. [Delete the configuration server](site-recovery-vmware-to-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server)
 
-### Unregister a VMM server
+## Unregister a VMM server
 
 1. Stop replicating virtual machines in clouds on the VMM server you want to remove.
 2. Delete any network mappings used by clouds on the VMM server that you want to delete. In **Site Recovery Infrastructure** > **For System Center VMM** > **Network Mapping**, right-click the network mapping > **Delete**.
