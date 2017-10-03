@@ -34,8 +34,7 @@ You learn how to create an Azure storage account and an Azure function app to st
 ## What you do
 
 - Create an Azure storage account.
-- Prepare your IoT hub connection to read messages.
-- Create and deploy an Azure function app.
+- Prepare your IoT hub to route messages to storage.
 
 ## What you need
 
@@ -60,7 +59,15 @@ You learn how to create an Azure storage account and an Azure function app to st
 
 3. Click **Create**.
 
-## Prepare your IoT hub connection to read messages
+## Prepare your IoT hub to route messages to storage
+
+IoT Hub natively supports routing messages to Azure storage as blobs.
+
+### Add storage as a custom endpoint
+
+
+
+
 
 IoT hub exposes a built-in event hub-compatible endpoint to enable applications to read IoT hub messages. Meanwhile, applications use consumer groups to read data from your IoT hub. Before you create an Azure function app to read data from your IoT hub, do the following:
 
