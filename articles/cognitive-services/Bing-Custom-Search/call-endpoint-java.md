@@ -14,47 +14,45 @@ ms.author: v-brapel
 
 # Call Bing Custom Search endpoint (Java)
 
-[!INCLUDE [call-bing-custom-search-endpoint](../../../includes/call-bing-custom-search-endpoint.md)]
+Call Bing Custom Search endpoint using Java by performing these steps:
+1. Get a subscription key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).
+2. Install [Java](https://www.java.com).
+3. Download apache [http components](http://hc.apache.org/httpcomponents-client-ga/) and place in your class path.
+4. Using your Java IDE of choice create a package called com.contoso.BingCustomSearch.
+5. Copy the code below.
+6. Replace **YOUR-SUBSCRIPTION-KEY** and **YOUR-CUSTOM-CONFIG-ID** with your key and configuration ID.
 
-```csharp
-using System;
-using System.Net.Http;
-using System.Web;
-using Newtonsoft.Json;
+``` Java
+package com.contoso.BingCustomSearch;
 
-namespace bing_custom_search_example_dotnet
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            var subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
-            var customConfigId = "YOUR-CUSTOM-CONFIG-ID";
-            var searchTerm = args.Length > 0 ? args[0]: "microsoft";            
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.HttpClientBuilder;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
-            var url = "https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?" +
+public class BingCustomSearch {
+    public static void main(String[] args) throws IOException {
+        String subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
+        String customConfigId = "YOUR-CUSTOM-CONFIG-ID";
+        String searchTerm = args.length > 0 ? args[0]: "microsoft";
+
+        String url = "https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?" +
                 "q=" + searchTerm +
                 "&customconfig=" + customConfigId;
 
-            var client = new HttpClient();
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-            var httpResponseMessage = client.GetAsync(url).Result;
-            var responseContent = httpResponseMessage.Content.ReadAsStringAsync().Result;
-            BingCustomSearchResponse response = JsonConvert.DeserializeObject<BingCustomSearchResponse>(responseContent);
-            
-            for(int i = 0; i < response.webPages.value.Length; i++)
-            {                
-                var webPage = response.webPages.value[i];
-                
-                Console.WriteLine("id: " + webPage.id);
-                Console.WriteLine("name: " + webPage.name);
-                Console.WriteLine("url: " + webPage.url);
-                Console.WriteLine("urlPingSuffix: " + webPage.urlPingSuffix);
-                Console.WriteLine("displayUrl: " + webPage.displayUrl);
-                Console.WriteLine("snippet: " + webPage.snippet);
-                Console.WriteLine("dateLastCrawled: " + webPage.dateLastCrawled);
-                Console.WriteLine();
-            }            
+        HttpClient client = HttpClientBuilder.create().build();
+        HttpGet request = new HttpGet(url);
+        request.addHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
+
+        HttpResponse response = client.execute(request);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+
+        String line = "";
+        while ((line = reader.readLine()) != null) {
+            System.out.println(line);
         }
     }
 }

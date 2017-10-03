@@ -5416,6 +5416,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cognitive-services/Bing-Custom-Search/rank-results.md",
+            "redirect_url": "/azure/cognitive-services/Bing-Custom-Search/define-your-custom-view",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cognitive-services/Bing-Image-Search/index.md",
             "redirect_url": "/azure/cognitive-services/Bing-Image-Search/search-the-web",
             "redirect_document_id": false
