@@ -86,7 +86,7 @@ After Mobility Service is installed, in the Azure portal, select the **+Replicat
 ## Update Mobility Service
 
 > [!WARNING]
-> Ensure that the Configuration Server, Scale-out Process Servers and any Master Target servers that are a part of your deployment is updated before you start updating the Mobility Service on the protected servers. Read more on [How to update your Configuration Server](site-recovery-vmware-to-azure-manage-configuration-server.md#updating-a-configuration-server) and [How to update your Scale-out Process servers](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#upgrading-a-scale-out-process-server)
+> Ensure that the Configuration Server, Scale-out Process Servers and any Master Target servers that are a part of your deployment is updated before you start updating the Mobility Service on the protected servers. Read more on [How to update your Configuration Server](site-recovery-vmware-to-azure-manage-configuration-server.md#upgrading-a-configuration-server) and [How to update your Scale-out Process servers](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#upgrading-a-scale-out-process-server)
 
 1. On the Azure portal browse to <Your Vault> -> Replicated Items view.
 2. If the **Configuration server** has already been updated to the latest version, then you should see a notification that reads *New Site recovery replication agent update is available. Click to install*
