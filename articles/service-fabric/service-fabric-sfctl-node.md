@@ -33,8 +33,6 @@ Manage the nodes that form a cluster.
 |    remove-state  | Notifies Service Fabric that the persisted state on a node has been   permanently removed or lost.|
 |    report-health | Sends a health report on the Service Fabric node.|
 |    restart       | Restarts a Service Fabric cluster node.|
-|    start         | Starts a Service Fabric cluster node.|
-|    stop          | Stops a Service Fabric cluster node.|
 |    transition    | Starts or stops a cluster node.|
 |    transition-status| Gets the progress of an operation started using StartNodeTransition.|
 
@@ -199,53 +197,6 @@ Restarts a Service Fabric cluster node that is already started.
 | --node-name [Required]| The name of the node.|
 | --create-fabric-dump  | Specify True to create a dump of the fabric node process. This is case-sensitive.  Default: False.|
 | --node-instance-id | The instance ID of the target node. If instance ID is specified the node        is restarted only if it matches with the current instance of the node. A        default value of "0" would match any instance ID. The instance ID can be        obtained using get node query.  Default: 0.|
-| --timeout -t       | Server timeout in seconds.  Default: 60.|
-
-### Global Arguments
-
-|Argument|Description|
-| --- | --- |
-| --debug            | Increase logging verbosity to show all debug logs.|
-| --help -h          | Show this help message and exit.|
-| --output -o        | Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.|
-| --query            | JMESPath query string. For more information and examples, see http://jmespath.org/.|
-| --verbose          | Increase logging verbosity. Use --debug for full debug logs.|
-
-## sfctl node start
-Starts a Service Fabric cluster node.
-
-Starts a Service Fabric cluster node that is already stopped.
-
-### Arguments
-
-|Argument|Description|
-| --- | --- |
-| --node-name [Required]| The name of the node.|
-| --node-instance-id | The instance ID of the node that is stopped. If instance ID is specified,        the node is started only if it matches with the current instance of the        stopped node. A default value of "0" would match any instance ID. The        instance ID can be obtained using get node query.  Default: 0.|
-| --timeout -t       | Server timeout in seconds.  Default: 60.|
-
-### Global Arguments
-
-|Argument|Description|
-| --- | --- |
-| --debug            | Increase logging verbosity to show all debug logs.|
-| --help -h          | Show this help message and exit.|
-| --output -o        | Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.|
-| --query            | JMESPath query string. For more information and examples, see http://jmespath.org/.|
-| --verbose          | Increase logging verbosity. Use --debug for full debug logs.|
-
-## sfctl node stop
-Stops a Service Fabric cluster node.
-
-Stops a Service Fabric cluster node that is in a started state. The node stays down
-        until start node is called.
-
-### Arguments
-
-|Argument|Description|
-| --- | --- |
-| --node-name [Required]| The name of the node.|
-| --node-instance-id | The instance ID of the target node. If instance ID is specified the node        is stopped only if it matches with the current instance of the node. A        default value of "0" would match any instance ID. The instance ID can be        obtained using get node query.  Default: 0.|
 | --timeout -t       | Server timeout in seconds.  Default: 60.|
 
 ### Global Arguments

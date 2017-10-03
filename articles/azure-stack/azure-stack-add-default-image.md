@@ -137,7 +137,7 @@ To ensure that the Windows Server 2016 VM image has the latest cumulative update
 |New-AzsServer2016VMImage parameters|Required?|Description|
 |-----|-----|------|
 |ISOPath|Yes|The fully qualified path to the downloaded Windows Server 2016 ISO.|
-|Net35|No|This parameter allows you to install the .NET 3.5 runtime on the Windows Server 2016 image. By default, this value is set to true. It is mandatory that the image contains the .NET 3.5 runtime to install the SQL and MYSQL resource providers. |
+|Net35|No|This parameter allows you to install the .NET 3.5 runtime on the Windows Server 2016 image. By default, this value is set to true.|
 |Version|No|This parameter allows you to choose whether to add a **Core** or **Full** or **Both** Windows Server 2016 images. By default, this value is set to "Full."|
 |VHDSizeInMB|No|Sets the size (in MB) of the VHD image to be added to your Azure Stack environment. By default, this value is set to 40960 MB.|
 |CreateGalleryItem|No|Specifies if a Marketplace item should be created for the Windows Server 2016 image. By default, this value is set to true.|

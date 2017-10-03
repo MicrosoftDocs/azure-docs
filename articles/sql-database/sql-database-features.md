@@ -100,7 +100,7 @@ The following table lists the major features of SQL Server and provides informat
 | [Server configuration settings](https://docs.microsoft.com/sql/database-engine/configure-windows/server-configuration-options-sql-server) | No |
 | [Set statements](https://docs.microsoft.com/sql/t-sql/statements/set-statements-transact-sql) | Most - see individual statements 
 | [Spatial](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) | Yes |
-| [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | Nos- see [Elastic jobs](sql-database-elastic-jobs-getting-started.md) |
+| [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | No - see [Elastic jobs](sql-database-elastic-jobs-getting-started.md) |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | No - see [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) |
 | [SQL Server Auditing](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | No - see [SQL Database auditing](sql-database-auditing.md) |
 | [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | No - see [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) |

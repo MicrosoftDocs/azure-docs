@@ -233,6 +233,7 @@ Remove-AzureRmResourceGroup -Name $RGname -Force
         --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName --vault-resource-group $VaultGroupName \
         --vm-password $VmPassword --vm-user-name $VmUserName
     ```
+    
 ### Connect to the cluster
 Run the following CLI command to connect to the cluster using the certificate .  When using a client certificate for authentication, the certificate details must match a certificate deployed to the cluster nodes.  Use the `--no-verify` option for a self-signed certificate.
 
