@@ -26,7 +26,7 @@ Microsoft Azure SQL Database provides a relational database service for Azure an
 
 #### Virtual netowrk rules as alternatives to IP rules
 
-In addition to IP rules, the firewall also manages *virtual network rules*. Virtual netowrk rules are based on Virtual Network service endpoints. Virtual network rules might be preferable to IP rules in some cases. To learn more, see [Virtual Network service endpoints and rules for Azure SQL Database](sql-database-vnet-service-endpoint-rule-overview.md).
+In addition to IP rules, the firewall also manages *virtual network rules*. Virtual network rules are based on Virtual Network service endpoints. Virtual network rules might be preferable to IP rules in some cases. To learn more, see [Virtual Network service endpoints and rules for Azure SQL Database](sql-database-vnet-service-endpoint-rule-overview.md).
 
 ## Overview
 

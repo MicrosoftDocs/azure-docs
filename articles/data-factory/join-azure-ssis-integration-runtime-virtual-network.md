@@ -12,16 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 09/27/2017
 ms.author: spelluru
 
 ---
 
 # Join an Azure-SSIS integration runtime to a virtual network
-If you use an Azure SQL Managed Instance (Private Preview) to host the SQL Server Integration Services (SSIS) catalog inside a virtual network (VNet), you must also join your Azure-SSIS integration runtime to the same virtual network. Azure Data Factory version 2 (Preview) lets you join your Azure-SSIS integration runtime to a classic VNet. Currently, Azure Resource Manager VNet is not supported yet. However, you can work it around by doing the following steps: 
+You must join Azure-SSIS integration runtime (IR) to an Azure virtual network (VNet) if one of the following conditions is true: 
 
-1. Create a [classic VNet](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) for your Azure-SSIS integration runtime to join. 
-2. Configure a connection between your class VNet and Azure Resource Manager VNet. For more information, see [Connect virtual networks from different deployment models using the portal](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md). 
+- You are hosting the SSIS Catalog database on a SQL Server Managed Instance (private preview) that is part of a VNet.
+- You want to connect to on-premises data stores from SSIS packages running on an Azure-SSIS integration runtime.
+
+ Azure Data Factory version 2 (Preview) lets you join your Azure-SSIS integration runtime to a classic VNet. Currently, Azure Resource Manager VNet is not supported yet. However, you can work it around as shown in the following section. 
+
+If SSIS packages access only public cloud data stores, you don't need to join Azure-SSIS IR to a VNet. If SSIS packages access on-premises data stores, you must join Azure-SSIS IR to a VNet that is connected to the on-premises network. If the SSIS Catalog is hosted in Azure SQL Database that is not in the VNet, you need to open appropriate ports. If the SSIS Catalog is hosted in Azure SQL Managed Instance that is in a classic VNet, you can join Azure-SSIS IR to the same classic VNet (or) a different classic VNet that has a class-to-classic VNet connection with the one that has the Azure SQL Managed Instance. The following sections provide more details.  
 
 ## Access on-premises data stores
 If your SSIS packages access on-premises data stores, join your Azure-SSIS integration runtime to a VNet that is connected to your on-premises network. Here are a few important points to note: 
@@ -88,12 +92,8 @@ Running the script is the easiest way to configure VNet. If you do not have acce
 ## Next steps
 For more information about Azure-SSIS runtime, see the following topics: 
 
-- [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime)
-- [Manage Azure-SSIS Integration Runtime](manage-azure-ssis-integration-runtime.md)
-- [Provision an Azure-SSIS integration runtime](tutorial-deploy-ssis-packages-azure.md).
-
-
-
-
-
-
+- [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). This article provides conceptual information about integration runtimes in general including the Azure-SSIS IR. 
+- [Tutorial: deploy SSIS packages to Azure](tutorial-deploy-ssis-packages-azure.md). This article provides step-by-step instructions to create an Azure-SSIS IR and uses an Azure SQL database to host the SSIS catalog. 
+- [How to: Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md). This article expands on the tutorial and provides instructions on using Azure SQL Managed Instance (private preview) and joining the IR to a VNet. 
+- [Monitor an Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). This article shows you how to retrieve information about an Azure-SSIS IR and descriptions of statuses in the returned information. 
+- [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). This article shows you how to stop, start, or remove an Azure-SSIS IR. It also shows you how to scale out your Azure-SSIS IR by adding more nodes to the IR. 

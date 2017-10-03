@@ -164,7 +164,7 @@ Name your application (for example, "mycontainer").
 
 Provide the URL for the container image in a container registry (for example, "myregistry.azurecr.io/samples/helloworldapp"). 
 
-This image has a workload entry-point defined, so need to explicitly specify input commands (commands run inside the container, which will keep the container running after startup). 
+Since this image has a workload entry-point defined, you don't need to explicitly specify input commands (commands run inside the container, which will keep the container running after startup). 
 
 Specify an instance count of "1".
 
@@ -206,7 +206,6 @@ The Service Fabric Yeoman templates include a build script for [Gradle](https://
 
 ```bash
 cd mycontainer
-gradle
 ```
 
 ## Deploy the application

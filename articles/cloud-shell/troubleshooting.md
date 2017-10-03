@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/2/2017
 ms.author: damaerte
 ---
 
@@ -58,3 +58,7 @@ Known resolutions for issues in Azure Cloud Shell include:
  ``` Powershell
  Get-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup | Set-AzureRmVMCustomScriptExtension -VMName MyVM1 -FileUri https://mystorageaccount.blob.core.windows.net/mycontainer/addfirerule.ps1 -Run 'addfirerule.ps1' -Name myextension
  ```
+
+ ### `dir` caches the result in Azure drive
+ - **Details**: The result of `dir` is cached in Azure drive.
+ - **Resolution**: After you create or remove a resource in the Azure drive view, run `dir -force` to update.
