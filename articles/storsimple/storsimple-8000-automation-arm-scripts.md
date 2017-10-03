@@ -76,12 +76,13 @@ The script used in this example lists all the jobs on a StorSimple device. This 
     ```    
 2. [Download nuget CLI](http://www.nuget.org/downloads) under the folder created in the previous step. There are various versions of _nuget.exe_. Choose the version corresponding to your SDK. Each download link points directly to an _.exe_ file. Be sure to right-click and save the file to your computer rather than running it from the browser.
 
-You can also run the following command to download and store the script in the same folder that you created earlier.
+    You can also run the following command to download and store the script in the same folder that you created earlier.
+
+    
+    ```
+                    wget https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -Out C:\scripts\StorSimpleSDKTools\nuget.exe
 
     ```
-                wget https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -Out C:\scripts\StorSimpleSDKTools\nuget.exe
-
-    ```    
 3. Download the dependent SDK.
 
     ```
