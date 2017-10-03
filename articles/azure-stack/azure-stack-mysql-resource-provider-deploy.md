@@ -65,7 +65,7 @@ The system account must have the following privileges:
 
 5. Open a **new** elevated (administrative) PowerShell console and change to the directory where you extracted the files. Use a new window to avoid problems that may arise from incorrect PowerShell modules already loaded on the system.
 
-6. [Install Azure PowerShell version 1.2.11](azure-stack-powershell-install).
+6. [Install Azure PowerShell version 1.2.11](azure-stack-powershell-install.md).
 
 7. Run the DeploySqlProvider.ps1 script.
 
