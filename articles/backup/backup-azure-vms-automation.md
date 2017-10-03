@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/28/2017
+ms.date: 08/30/2017
 ms.author: markgal;trinadhk
 ms.custom: H1Hack27Feb2017
 
@@ -376,13 +376,8 @@ After you have restored the disks, use these steps to create and configure the v
    PS C:\> $vm = New-AzureRmVMConfig -VMSize $obj.'properties.hardwareProfile'.vmSize -VMName "testrestore"
     ```
 
-4. Attach the OS disk and data disks. Depending on the configuration of your VMs, click on the relevant link to view respective cmdlets: 
-    - [Non-managed, non-encrypted VMs](#non-managed-non-encrypted-vms)
-    - [Non-managed, encrypted VMs (BEK only)](#non-managed-encrypted-vms-bek-only)
-    - [Non-managed, encrypted VMs (BEK and KEK)](#non-managed-encrypted-vms-bek-and-kek)
-    - [Managed, non-encrypted VMs](#managed-non-encrypted-vms)
-    - [Managed, encrypted VMs (BEK and KEK)](#managed-encrypted-vms-bek-and-kek)
-    
+4. Attach the OS disk and data disks. Depending on the configuration of your VMs, refer to the relevant section to view respective cmdlets:
+
     #### Non-managed, non-encrypted VMs
 
     Use the following sample for non-managed, non-encrypted VMs.

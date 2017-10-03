@@ -3,7 +3,7 @@ title: Azure Advisor Security Recommendations | Microsoft Docs
 description: Use Azure Advisor to help improve the security of your Azure deployments.
 services: advisor
 documentationcenter: NA
-author: kumudd
+author: KumudD
 manager: carmonm
 editor: ''
 

@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/21/2017
+ms.date: 09/21/2017
 ms.author: larryfr
 
 ---
@@ -30,9 +30,6 @@ Learn how to connect HDInsight to your on-premises network by using Azure Virtua
 * Ports provided by HDInsight on the virtual network.
 
 ## Create the Virtual network configuration
-
-> [!IMPORTANT]
-> If you are looking for step by step guidance on connecting HDInsight to your on-premises network using an Azure Virtual Network, see the [Connect HDInsight to your on-premise network](connect-on-premises-network.md) document.
 
 Use the following documents to learn how to create an Azure Virtual Network that is connected to your on-premises network:
     
@@ -70,7 +67,10 @@ In the following diagram, green lines are requests for resources that end in the
 To create a Linux VM that uses the [Bind](https://www.isc.org/downloads/bind/) DNS software, use the following steps:
 
 > [!NOTE]
-> The following steps use the [Azure portal](https://portal.azure.com) to create an Azure Virtual Machine. For other ways to create a virtual machine, see the [Create VM - Azure CLI](../virtual-machines/linux/quick-create-cli.md) and [Create VM - Azure PowerShell](../virtual-machines/linux/quick-create-portal.md) documents.
+> The following steps use the [Azure portal](https://portal.azure.com) to create an Azure Virtual Machine. For other ways to create a virtual machine, see the following documents:
+>
+> * [Create VM - Azure CLI](../virtual-machines/linux/quick-create-cli.md)
+> * [Create VM - Azure PowerShell](../virtual-machines/linux/quick-create-portal.md)
 
 1. From the [Azure portal](https://portal.azure.com), select __+__, __Compute__, and __Ubuntu Server 16.04 LTS__.
 
@@ -296,6 +296,8 @@ Use the steps in the [Create an HDInsight cluster using the Azure portal](./hdin
 ## Connecting to HDInsight
 
 Most documentation on HDInsight assumes that you have access to the cluster over the internet. For example, that you can connect to the cluster at https://CLUSTERNAME.azurehdinsight.net. This address uses the public gateway, which is not available if you have used NSGs or UDRs to restrict access from the internet.
+
+Some documentation also references `headnodehost` when connecting to the cluster from an SSH session. This address is only available from nodes within a cluster, and is not usable on clients connected over the virtual network.
 
 To directly connect to HDInsight through the virtual network, use the following steps:
 

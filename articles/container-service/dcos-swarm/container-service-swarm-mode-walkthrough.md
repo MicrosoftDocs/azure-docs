@@ -65,6 +65,8 @@ The following example creates a cluster named *mySwarmCluster* with one Linux ma
 az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-group myResourceGroup --generate-ssh-keys
 ```
 
+In some cases, such as with a limited trial, an Azure subscription has limited access to Azure resources. If the deployment fails due to limited available cores, reduce the default agent count by adding `--agent-count 1` to the [az acs create](/cli/azure/acs#create) command. 
+
 After several minutes, the command completes and returns json formatted information about the cluster.
 
 ## Connect to the cluster

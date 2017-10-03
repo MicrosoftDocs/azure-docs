@@ -12,29 +12,32 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 08/31/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
 ---
 
-# Silently install the Azure AD Application Proxy Connector
-You want to be able to send an installation script to multiple Windows servers or to Windows Servers that don't have user interface enabled. This topic helps you create a Windows PowerShell script that enables unattended installation and registration for your Azure AD Application Proxy Connector.
+# Create an unattended installation script for the Azure AD Application Proxy connector
+
+This topic helps you create a Windows PowerShell script that enables unattended installation and registration for your Azure AD Application Proxy connector.
 
 This capability is useful when you want to:
 
-* Install the connector on machines with no UI layer or when you cannot RDP to the machine.
+* Install the connector on Windows servers that don't have user interface enabled, or that you can't access with Remote Desktop.
 * Install and register many connectors at once.
 * Integrate the connector installation and registration as part of another procedure.
 * Create a standard server image that contains the connector bits but is not registered.
 
-Application Proxy works by installing a slim Windows Server service called the Connector inside your network. For the Application Proxy Connector to work it has to be registered with your Azure AD directory using a global administrator and password. Ordinarily this information is entered during Connector installation in a pop-up dialog box. However, you can use Windows PowerShell to create a credential object to enter your registration information. Or you can create your own token and use it to enter your registration information.
+For the [Application Proxy connector](application-proxy-understand-connectors.md) to work, it has to be registered with your Azure AD directory using a global administrator and password. Ordinarily this information is entered during Connector installation in a pop-up dialog box, but you can use PowerShell to automate this process instead.
+
+There are two steps for an unattended installation. First, install the connector. Second, register the connector with Azure AD. 
 
 ## Install the connector
-Install the Connector MSIs without registering the Connector as follows:
+Use the following steps to install the connector without registering it:
 
 1. Open a command prompt.
-2. Run the following command in which the /q means quiet installation - the installation doesn't prompt you to accept the End-User License Agreement.
+2. Run the following command, in which the /q means quiet installation. A quiet installation doesn't prompt you to accept the End-User License Agreement.
    
         AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
 
@@ -45,18 +48,18 @@ There are two methods you can use to register the connector:
 * Register the connector using a token created offline
 
 ### Register the connector using a Windows PowerShell credential object
-1. Create the Windows PowerShell Credentials object by running this command. Replace *\<username\>* and *\<password\>* with the username and password for your directory:
+1. Create a Windows PowerShell Credentials object `$cred` that contains an administrative username and password for your directory. Run the following command, replacing *\<username\>* and *\<password\>*:
    
         $User = "<username>"
         $PlainPassword = '<password>'
         $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
         $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
-2. Go to **C:\Program Files\Microsoft AAD App Proxy Connector** and run the script using the PowerShell credentials object you created. Replace *$cred* with the name of the PowerShell credentials object you created:
+2. Go to **C:\Program Files\Microsoft AAD App Proxy Connector** and run the following script using the `$cred` object that you created:
    
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred
 
 ### Register the connector using a token created offline
-1. Create an offline token using the AuthenticationContext class using the values in the code snippet:
+1. Create an offline token using the AuthenticationContext class using the values in this code snippet:
 
         using System;
         using System.Diagnostics;

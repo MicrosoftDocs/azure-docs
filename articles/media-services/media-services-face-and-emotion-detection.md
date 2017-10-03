@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 09/18/2017
 ms.author: milanga;juliako;
 
 ---
@@ -150,7 +150,7 @@ When creating a task with **Azure Media Face Detector**, you must specify a conf
 #### Aggregate defaults
 Below are recommended values for the aggregate window and interval settings. AggregateEmotionWindowMs should be longer than AggregateEmotionIntervalMs.
 
-|| Defaults(s) | Min(s) | Max(s) |
+|| Defaults(s) | Max(s) | Min(s) |
 |--- | --- | --- | --- |
 | AggregateEmotionWindowMs |0.5 |2 |0.25|
 | AggregateEmotionIntervalMs |0.5 |1 |0.25|

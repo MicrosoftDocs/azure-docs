@@ -16,7 +16,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 08/28/2017
 ms.author: nitinme
 
 ---
@@ -363,17 +363,7 @@ The parameters in the file **inputHive.txt** are defined as follows:
 
 The parameters are similar to what you specified for the text output, in the previous steps. Again, you do not need to create the output folders (EventCheckpoint, EventCount/EventCount10) or the output Hive table (EventHiveTable10) that are used as parameters. The streaming application creates them for you. Note that the **jars** and **files** option includes paths to the .jar files and the hive-site.xml that you copied over to the storage account.
 
-To verify that the hive table was successfully created, you can SSH into the cluster and run Hive queries. For instructions, see [Use Hive with Hadoop in HDInsight with SSH](hdinsight-hadoop-use-hive-ssh.md). Once you are connected using SSH, you can run the following command to verify that the Hive table, **EventHiveTable10**, is created.
-
-    show tables;
-
-You should see an output similar to the following:
-
-    OK
-    eventhivetable10
-    hivesampletable
-
-You can also run a SELECT query to view the contents of the table.
+To verify that the hive table was successfully created, use the [Ambari Hive view](hdinsight-hadoop-use-hive-ambari-view.md). You can run a SELECT query there, to view the contents of the table.
 
     SELECT * FROM eventhivetable10 LIMIT 10;
 
