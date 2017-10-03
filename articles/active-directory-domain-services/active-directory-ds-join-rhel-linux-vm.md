@@ -97,24 +97,22 @@ You should get a message ("Successfully enrolled machine in realm") when the mac
 
 
 ## Verify domain join
-You can quickly verify whether the machine has been successfully joined to the managed domain. Connect to the newly domain joined RHEL VM using SSH and a domain user account and then check to see if the user account is resolved correctly.
+Verify whether the machine has been successfully joined to the managed domain. Connect to the domain joined RHEL VM using a different SSH connection. Use a domain user account and then check to see if the user account is resolved correctly.
 
-1. In your SSH terminal, type the following command to connect to the newly domain joined RHEL virtual machine using SSH. Use a domain account that belongs to the managed domain (for example, 'bob@CONTOSO100.COM' in this case.)
+1. In your SSH terminal, type the following command to connect to the domain joined RHEL virtual machine using SSH. Use a domain account that belongs to the managed domain (for example, 'bob@CONTOSO100.COM' in this case.)
     ```
     ssh -l bob@CONTOSO100.COM contoso-rhel.contoso100.com
     ```
+
 2. In your SSH terminal, type the following command to see if the home directory was initialized correctly.
     ```
     pwd
     ```
+
 3. In your SSH terminal, type the following command to see if the group memberships are being resolved correctly.
     ```
     id
     ```
-
-A sample output of these commands follows:
-
-![Verify domain join](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-verify-domain-join.png)
 
 
 ## Troubleshooting domain join
