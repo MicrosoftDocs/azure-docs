@@ -51,4 +51,4 @@ az functionapp config appsettings set --name <function_app> \
 --resource-group <my_resource_group> \
 --settings FUNCTIONS_EXTENSION_VERSION=beta
 ```
-In this code, replace `<function_app>` with the name of your function app and `<my_resource_group>` with the name of the resource group for your function app. This example assumes that you are using [Azure Cloud Shell](../cloud-shell/overview.md). You can also choose to [install and use the Azure CLI locally](/cli/azure/install-azure-cli). In this case, you must first sign-in using the [az login](/cli/azure#az_login) command.
+In this code, replace `<function_app>` with the name of your function app. Also replace `<my_resource_group>` with the name of the resource group for your function app. This example assumes that you are using [Azure Cloud Shell](../cloud-shell/overview.md). You can also choose to [install and use the Azure CLI locally](/cli/azure/install-azure-cli). In this case, you must sign in using the [az login](/cli/azure#az_login) command.
