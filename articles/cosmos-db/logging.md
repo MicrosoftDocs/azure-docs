@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/03/2017
 ms.author: mimig
 
 ---
@@ -37,7 +37,7 @@ To complete this tutorial, you must have the following resources:
 
 * An existing Azure Cosmos DB account, database, and container. For instructions on creating these resources, see [Create a database account using the Azure portal](create-documentdb-dotnet.md#create-a-database-account), [CLI samples](cli-samples.md), or [PowerShell samples](powershell-samples.md).
 
-
+<a id="#turn-on"></a>
 ## Turn on logging in the Azure portal
 
 1. In the [Azure portal](https://portal.azure.com), in your Azure Cosmos DB account, click **Diagnostic logs** in the left navigation, and then click **Turn on diagnostics**.
@@ -50,7 +50,7 @@ To complete this tutorial, you must have the following resources:
 
     * **Archive to a storage account**. To use this option, you need an existing storage account to connect to. To create a new storage account in the portal, see [Create a storage account](../storage/common/storage-create-storage-account.md) and follow instructions to create a Resource Manager, general-purpose account. Then return to this page in the portal to select your storage account. It may take a few minutes for newly created storage accounts to appear in the drop-down menu.
     * **Stream to an event hub**. To use this option, you need an existing Event Hub namespace and event hub to connect to. To create an Event Hubs namespace, see [Create an Event Hubs namespace and an event hub using the Azure portal](../event-hubs/event-hubs-create.md). Then return to this page in the portal to select the Event Hub namespace and policy name.
-    * **Send to Log Analytics**. To use this option, either use one of the existing workspaces or create a new Operations Management Suite workspace by following the prompts in the portal.
+    * **Send to Log Analytics**. To use this option, either use one of the existing workspaces or create a new Operations Management Suite workspace by following the prompts in the portal. For more information on viewing your logs in Operations Management Suite, see [View logs in Operations Management Suite](#view-in-oms).
     * **Log DataPlaneRequests**. If you are archiving to a storage account, you can select the retention period for the diagnostic logs by selecting **DataPlaneRequests** and choosing the number of days to retain logs. Logs are autodeleted after the retention period expires. 
 
 3. Click **Save**.
@@ -338,6 +338,52 @@ Logs are made available in your account two hours from the time the Azure Cosmos
 * Delete logs that you no longer want to keep in your storage account.
 * The retention period for data plane requests archived to a 
 Storage account is configured in the portal when **Log DataPlaneRequests** is selected. To change that setting, see [Turn on logging in the Azure portal](#turn-on-logging-in-the-azure-portal).
+
+
+<a id="#view-in-oms"></a>
+## View diagnostic logs in Operations Management Suite
+
+If you selected **Send to Log Analytics** option when you turned on logging, diagnostic data from your collection gets pushed to Operations Management Suite within two hours, so if you look at Operations Management Suite immediately after turning on logging, you won't see any data. 
+
+Before viewing your logs, you'll want to check and see if your Log Analytics workspace has been upgraded to use the most recent Log Analytics query language. To check this, open the [Azure portal](https://portal.azure.com), click **Log Analytics** on the far left side, and select the workspace name. 
+
+If you see this message in the portal, your workspace has not been upgraded. You can either click the error to upgrade your workspace (recommended), or you can use the modified query syntax provided in the table below. For more information about the upgrade, see [Upgrade your Azure Log Analytics workspace to new log search](../log-analytics/log-analytics-log-search-upgrade.md).
+
+![Log analytics upgrade notification](./media/logging/upgrade-notification.png)
+
+Now let's open Operations Management Suite. From the Log Analytics Azure Portal, simply click **OMS Portal**. You can also open the portal by going to [Operations Management Suite](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite) page and clicking **Sign in**.
+
+Once data starts streaming into Operations Management Suite, you can view data from Azure Cosmos DB using the **Log Search** option on the left menu. Here are some common queries you can enter into the **Begin searching here...** box.  
+
+* All diagnostic logs for the specified time period.
+    * New: `AzureDiagnostics`
+    * Old: `(Type=AzureDiagnostics)`
+* Ten most recent events.
+    * New: `AzureDiagnostics | take 10`
+    * Old: TBD
+* All operations, grouped by operation type.
+    * New: `AzureDiagnostics | summarize count() by OperationName`
+    * Old: TBD
+* All operations, grouped by Resource.
+    * New: `AzureDiagnostics | summarize count() by Resource`
+    * Old: TBD 
+* User activity, grouped by resource. Note that this is an activity log, not a diagnostic log.
+    * New: `AzureActivity | where Caller == "test@company.com"
+| summarize count() by Resource`
+    * Old: TBD
+* Operations that take longer than 3 milliseconds.
+    * New: `AzureDiagnostics
+| where toint(duration_s) > 3000
+| summarize count() by clientIpAddress_s, TimeGenerated`
+    * Old: TBD
+* What kind of agent is running which operations.
+    * New: `AzureDiagnostics | summarize count() by OperationName, userAgent_s`
+    * Old: TBD
+* When were long running operations performed.
+    * New: `AzureDiagnostics | project TimeGenerated , toint(duration_s)/1000 | render timechart`
+    * Old: TBD
+
+For additional information on using Log Search, see [Getting Started with Queries](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-queries).
 
 ## Next steps
 
