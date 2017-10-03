@@ -85,7 +85,7 @@ Navigate to Fiddler and select **Rules** and **Customize Rules...**.  Uncomment 
 
 In Visual Studio, select **Continue** or press **F5** to resume debugging.
 
-Once the application starts running again, the requests to the primary endpoint begin to fail. The application attempts to reconnect to the primary endpoint 5 times. After the threshold, it retrieves the image from the secondary read-only endpoint. After the application successfully retrieves the image 20 times from the secondary endpoint, the application attempts to connect to the primary endpoint. If the primary endpoint is still unreachable, the application resumes reading from the secondary endpoint.
+Once the application starts running again, the requests to the primary endpoint begin to fail. The application attempts to reconnect to the primary endpoint 5 times. After the threshold, it retrieves the image from the secondary read-only endpoint. After the application successfully retrieves the image 20 times from the secondary endpoint, the application attempts to connect to the primary endpoint. If the primary endpoint is still unreachable, the application resumes reading from the secondary endpoint. RA-GRS  
 
 ![Paste customized rule](media/storage-simulate-failure-ragrs-account-app/figure3.png)
 
