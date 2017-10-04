@@ -3,7 +3,7 @@ title: Choose between Flow, Logic Apps, Functions, and WebJobs | Microsoft Docs
 description: Compare and contrast the for cloud integration services from Microsoft and decide which service(s) you should use.
 services: functions,app-service\logic
 documentationcenter: na
-author: cephalin
+author: ggailey777
 manager: wpickett
 tags: ''
 keywords: microsoft flow, flow, logic apps, azure functions, functions, azure webjobs, webjobs, event processing, dynamic compute, serverless architecture
