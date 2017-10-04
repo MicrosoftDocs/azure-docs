@@ -14,6 +14,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/08/2017
 ms.author: magoedte
+ROBOTS: NOINDEX
+redirect_url: https://docs.microsoft.com/en-us/azure/log-analytics
+redirect_document_id: TRUE
 
 ---
 # Get started with a Log Analytics workspace

@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 10/04/2017
 ms.author: magoedte
 
 ---
@@ -55,4 +55,7 @@ Identifying a workspace can be performed one of several ways:
     ``` 
     `workspace("/subscriptions/e427267-5645-4c4e-9c67-3b84b59a6982/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail").Event | count
     ```
-    
+
+## Next steps
+
+Review the [Log Analytics log search reference](https://docs.loganalytics.io/docs/Language-Reference) to view all of the query syntax options available in Log Analytics.    
