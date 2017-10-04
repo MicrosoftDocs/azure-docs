@@ -17,7 +17,7 @@ ms.author: sethm
 
 ---
 
-# Geo-disaster recovery
+# Azure Service Bus Geo-disaster recovery (Preview)
 
 When regional data centers experience outages, it is critical for data processing to continue to operate in a different region or datacenter. As such, *Geo-disaster recovery* and *Geo-replication* are important features for any enterprise. Azure Service Bus supports both Geo-disaster recovery and Geo-replication, at the namespace level. 
 
@@ -73,7 +73,7 @@ This section describes how to build your own Service Bus Geo-disaster recovery c
     using Microsoft.Rest;
     ```
 
-4. Modify your `main` method to add two premium namespaces:
+4. Modify your `main()` method to add two premium namespaces:
 
     ```csharp
     // 1. Create primary namespace (optional).
@@ -140,7 +140,7 @@ This section describes how to build your own Service Bus Geo-disaster recovery c
     var aliasSecondaryConnectionString = accessKeys.AliasPrimaryConnectionString;
     ```
 
-You have successfully set up two paired namespaces. Now you can create a few entities to observe the metadata synchronization. If you want to perform a failover immediately afterwards, you should allow some time for the metadata to synchronize. You can add a short sleep time, for example:
+You have successfully set up two paired namespaces. Now you can create entities to observe the metadata synchronization. If you want to perform a failover immediately afterwards, you should allow some time for the metadata to synchronize. You can add a short sleep time, for example:
 
 ```csharp
 client.Topics.CreateOrUpdate(resourceGroupName, geoDRPrimaryNS, "myTopic", new SBTopic());
