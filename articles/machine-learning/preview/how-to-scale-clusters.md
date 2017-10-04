@@ -19,7 +19,7 @@ ms.date: 10/04/2017
 
 Scaling the Azure Container Service (ACS) cluster is an effective way to optimize the service throughput while keeping the cluster size to a minimum to reduce cost. 
 
-To better understand autoscaling, consider the following example of a cluster running three web services in a cluster:
+To better understand autoscaling, consider the following example of a cluster running three web services:
 
 ![Example: Three services on a cluster](media/how-to-scale-clusters/three-services.png)
 
@@ -70,13 +70,13 @@ Autoscale is active by default when the service is created, and in most situatio
 
 ##### Autoscale
 
-The following command enables auto-scale, and sets the minimum and maximum number of repclicas for the service.
+The following command enables auto-scale, and sets the minimum and maximum number of replicas for the service.
 
 ```
 az ml service update realtime -i <service id> --autoscale-enabled true --autoscale-min-replicas <positive number> --autoscale-max-replicas <positive number>
 ```
 
-For example, setting the autoscale-min-replicas to 5 will create 5 replcias. To arrive at an optimum number for the web service, set the number to values such as 10, and monitor the number of 503 error messages. Then adjust the number accordingly.
+For example, setting `autoscale-min-replicas` to 5 will create five replicas. To arrive at an optimum number for the web service, set the number to values such as 10 and monitor the number of 503 error messages. Then adjust the number accordingly.
 
 
 | Parameter name | Type | Description |
@@ -94,7 +94,7 @@ Autoscale works to ensure the following two conditions:
 
 Services in a cluster compete for cluster resources. An autoscaled service will increase its cluster resource usage as its requests per second (RPS) increases, and will slowly release resources as the RPS decreases. Cluster resources will be acquired on demand as long as such resources exist for the service to acquire.
 
-For more information on using the autoscale parameters, see the [Model Management Command Line Interface Reference](aml-cli-reference.md) documentation.
+For more information on using the autoscale parameters, see the [Model Management Command Line Interface Reference](model-management-cli-reference.md) documentation.
 
 ##### Static scale
 
@@ -153,7 +153,7 @@ Once you have started the dashboard server, open a browser and enter the followi
 127.0.0.1:<port number>/ui
 ```
 
-From the dashboard main screen, click **Deployments** on the left navigation bar. If the navigation pane does not display, select this icon ![Menu consisting of three short horizontal lines](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/images/hamburger-icon.jpg) on the upper left.
+From the dashboard main screen, click **Deployments** on the left navigation bar. If the navigation pane does not display, select this icon ![Menu consisting of three short horizontal lines](media/menu.png) on the upper left.
 
 Locate the deployment to modify and click this icon ![Menu icon consisting of three vertical dots](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/images/kebab-icon.jpg) on the right and then click **View/edi YAML**.
 
