@@ -172,6 +172,8 @@ When an application upgrade is in progress, the status can be retrieved using th
 Finally, if an upgrade is in progress and needs to be canceled, you can use
 the `sfctl application upgrade-rollback` to roll back the upgrade.
 
+NOTE - We recommend using sfctl for cluster management, howerver, for ARM, SF CLI - https://docs.microsoft.com/en-us/cli/azure/sf/cluster?view=azure-cli-latest (az sf) can still be used. 
+
 ## Next steps
 
 * [Service Fabric CLI basics](service-fabric-cli.md)
