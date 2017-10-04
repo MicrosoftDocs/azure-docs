@@ -13527,7 +13527,12 @@
         },
         {
             "source_path": "articles/azure-functions/functions-java-refernece.md",
-            "redirect_url": "/azure/azure-functions/functions-java-reference",
+            "redirect_url": "/azure/azure-functions/functions-reference-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/functions-java-reference.md",
+            "redirect_url": "/azure/azure-functions/functions-reference-java",
             "redirect_document_id": false
         }
     ]
