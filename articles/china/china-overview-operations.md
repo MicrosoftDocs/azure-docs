@@ -63,7 +63,7 @@ The service price structure of Microsoft Azure China 21Vianet differs from globa
 
 Unlike global Azure, which has multiple purchasing channels, in China, there are two purchase programs:
 - [Online Service Standard Agreement](https://www.azure.cn/offers/ms-mc-arz-33p-en/) (OSSA) is for either individuals or enterprises who want self-service online purchasing. You can purchase Azure services or get a trial subscription. Conditions apply.
-- Online Service Premium Agreement (OSPA) is designed for enterprises that want to purchase Azure through a contractual process with a three-year contract period and minimum annual commitment. OSPA can also be purchased through a certified China partner (called Indirect OSPA). For help with the purchasing process or to ask questions, please send email to [21Vianet](mailto:customerserive@oe.21vianet.com).
+- Online Service Premium Agreement (OSPA) is designed for enterprises that want to purchase Azure through a contractual process with a three-year contract period and minimum annual commitment. OSPA can also be purchased through a certified China partner (called Indirect OSPA). For help with the purchasing process or to ask questions, please visit [21Vianet](http://www.ch.21vianet.com/).
 
 Both plans must be paid up front before using the service. For planning purposes, we recommended estimating the required costs. For more information, see the [service price list](https://www.azure.cn/pricing/overview/) (in Chinese, or see the [English translation](https://translate.google.com.hk/translate?hl=zh-CN&sl=zh-CN&tl=en&u=https%3A%2F%2Fwww.azure.cn%2Fpricing%2Foverview%2F)). 
 
