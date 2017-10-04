@@ -1,5 +1,5 @@
 ---
-title: SQL Server on Azure Virtual Machines FAQ | Microsoft Docs
+title: SQL Server on Windows Azure Virtual Machines FAQ | Microsoft Docs
 description: This article provides answers to frequently asked questions about running SQL Server on Azure VMs.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.date: 10/04/2017
 ms.author: v-shysun
 ms.custom: H1Hack27Feb2017
 ---
-# Frequently asked questions for SQL Server on Azure Virtual Machines
+# Frequently asked questions for SQL Server on Windows Azure Virtual Machines
 
 > [!div class="op_single_selector"]
 > * [Windows](virtual-machines-windows-sql-server-iaas-faq.md)
@@ -103,6 +103,6 @@ This topic provides answers to some of the most common questions about running [
 **Linux VMs**:
 
 * [Overview of SQL Server on a Linux VM](../../linux/sql/sql-server-linux-virtual-machines-overview.md)
-* [Provision a SQL Server Linux VM](../../linux/provision-sql-server-linux-virtual-machine.md)
+* [Provision a SQL Server Linux VM](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
 * [FAQ (Linux)](../../linux/sql/sql-server-linux-faq.md)
 * [SQL Server on Linux documentation](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
