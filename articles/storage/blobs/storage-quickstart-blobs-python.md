@@ -191,19 +191,11 @@ block_blob_service.delete_container(container_name)
 In this quickstart, you learned how to transfer files between a local disk and Azure Blob storage using Python. To learn more about working with Blob storage, continue to the Blob storage How-to.
 
 > [!div class="nextstepaction"]
-> [Blob Storage Operations How-To](storage-python-how-to-use-blobs.md)
+> [Blob Storage Operations How-To](storage-python-how-to-use-blob_storage.md)
  
 
 For more information about the Storage Explorer and Blobs, see [Manage Azure Blob storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 
-## Back up contents for my personal use
-
- <!-- Configure your application to access Blob storage
-Add the following import statement to the top of the Python file where you want to use the Azure Storage APIs to access blobs. -->
-
-```Python
-from azure.storage.blob import BlockBlobService # Configures the application to access Blob storage. 
-```
 
 
