@@ -164,22 +164,24 @@ The CSPSConfigTool.exe is used to manage the user accounts used for **Automatic 
     net start obengine
     ```
 
-## Updating a Configuration Server
+## Upgrading a Configuration Server
 
 > [!WARNING]
-> Updates are supported only up to the N-4th version. For example, if the latest version in the market is 9.11, then you can update from version 9.10, 9.9, 9.8, or 9.7 directly to 9.11. But if you are on any version less than or equal to 9.6 then you need to update to at least 9.7 before you can apply the latest updates on to your configuration server. Download links for previous version can be found under [Azure Site Recovery service updates](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)
+> Updates are supported only up to the N-4th version. For example, if the latest version in the market is 9.11, then you can update from version 9.10, 9.9, 9.8, or 9.7 directly to 9.11. But if you are on any version less than or equal to 9.6 then you need to update to at least 9.7 before you can apply the latest updates on to your Configuration Server. Download links for previous version can be found under [Azure Site Recovery service updates](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)
 
-1. Download the update installer on your configuration server.
+1. Download the update installer on your Configuration Server.
 2. Launch the installer by double clicking the installer.
 3. The installer detects the version of the Site Recovery components present on the machine and prompt for a confirmation. 
 4. Click on the OK button to provide the confirmation & continue with the upgrade.
 
 
-## Decommissioning a Configuration Server
-Ensure the following before you start decommissioning your Configuration Server.
-1. Disable protection for all virtual machines under this Configuration Server.
-2. Disassociate all Replication policies from the Configuration Server.
-3. Delete all vCenters servers/vSphere hosts that are associated to the Configuration Server.
+## Delete or Unregister a Configuration Server
+
+> [!WARNING]
+> Ensure the following before you start decommissioning your Configuration Server.
+> 1. Disable protection for all virtual machines under this Configuration Server.
+> 2. Disassociate all Replication policies from the Configuration Server.
+> 3. Delete all vCenters servers/vSphere hosts that are associated to the Configuration Server.
 
 ### Delete the Configuration Server from Azure portal
 1. In Azure portal, browse to **Site Recovery Infrastructure** > **Configuration Servers** from the Vault menu.
