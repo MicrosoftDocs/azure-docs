@@ -60,6 +60,11 @@ Azure Cosmos DB uses hash-based partitioning. When you write an item, Azure Cosm
 
 Azure Cosmos DB containers can be created as *fixed* or *unlimited*. Fixed-size containers have a maximum limit of 10 GB and 10,000 RU/s throughput. Some APIs allow the partition key to be omitted for fixed-size containers. To create a container as unlimited, you must specify a minimum throughput of 2,500 RU/s.
 
+Is is a good idea to check how  your data is distributed in partitions. To check this in portal, go to your Cosmos account and click on 'Metrics' in 'Monitoring' section and then on right hand side click on 'storage' tab to see how your data is partitioned in different physical partition.
+
+![Resource partitioning](./media/partition-data/partitionkey-example.png)
+
+The above left picture is showing a bad partition key and the right image is showing a result of a good partition key. In left image, you can see the data is not evenly distributed among partitions. You should strive to distribtute your data so you can see a graph like right image.
 
 ## Partitioning and provisioned throughput
 Azure Cosmos DB is designed for predictable performance. When you create a container, you reserve throughput in terms of *[request units](request-units.md) (RU) per second*. Each request is assigned a RU charge that is proportionate to the amount of system resources like CPU, memory, and IO consumed by the operation. A read of a 1-KB document with session consistency consumes 1 RU. A read is 1 RU regardless of the number of items stored or the number of concurrent requests running at the same time. Larger items require higher RUs depending on the size. If you know the size of your entities and the number of reads you need to support for your application, you can provision the exact amount of throughput required for your application's read needs. 
@@ -68,9 +73,6 @@ Azure Cosmos DB is designed for predictable performance. When you create a conta
 > To achieve the full throughput of the container, you must choose a partition key that allows you to evenly distribute requests among some distinct partition key values.
 > 
 > 
-
-![Resource partitioning](./media/partition-data/partitionkey-example.png)
-
 
 <a name="designing-for-partitioning"></a>
 ## Work with the Azure Cosmos DB APIs
