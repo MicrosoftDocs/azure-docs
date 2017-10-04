@@ -156,7 +156,7 @@ This tutorial directed you to create a Red Hat Enterprise Linux (RHEL) VM. If yo
 
 1. [Connect](#connect) to your RHEL VM.
 
-1. In the BASH shell, run the following commmands:
+1. In the BASH shell, run the following commands:
 
    ```bash
    sudo firewall-cmd --zone=public --add-port=1433/tcp --permanent
