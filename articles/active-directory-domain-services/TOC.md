@@ -15,9 +15,9 @@
 
 # How to
 ## Join a managed domain
-### [Join a Windows Server VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [Join a Windows Server VM using PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
-### [RedHat Enterprise Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+### [Windows Server VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)
+### [Windows Server VM using PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [RedHat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
 ### [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
 ## Administer a managed domain
 ### [Administer a managed domain](active-directory-ds-admin-guide-administer-domain.md)

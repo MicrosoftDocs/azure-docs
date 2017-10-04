@@ -67,6 +67,8 @@ To participate in the Preview of the HA ports feature in Load Balancer Standard 
     ```cli
     az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network 
     ```  
+
+
 >[!NOTE]
 >Registration of the Load Balancer Standard feature may take up to an hour.
 
