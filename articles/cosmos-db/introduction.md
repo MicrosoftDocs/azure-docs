@@ -20,15 +20,12 @@ ms.custom: mvc
 
 # Welcome to Azure Cosmos DB
 
-Azure Cosmos DB is Microsoft's globally distributed, multi-model database. With the click of a button, Azure Cosmos DB enables you to elastically and independently scale throughput and storage across any number of Azure's geographic regions. It offers throughput, latency, availability, and consistency guarantees with comprehensive [service level agreements](https://aka.ms/acdbsla) (SLAs), something no other database service can offer.
+Azure Cosmos DB is Microsoft's globally distributed, multi-model database. With the click of a button, Azure Cosmos DB enables you to elastically and independently scale throughput and storage across any number of Azure's geographic regions. It offers throughput, latency, availability, and consistency guarantees with comprehensive [service level agreements](https://aka.ms/acdbsla) (SLAs), something no other database service can offer. You can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments.
 
 ![Azure Cosmos DB is Microsoft's globally distributed database service with elastic scale out, guaranteed low latency, five consistency models, and comprehensive guaranteed SLAs](./media/introduction/azure-cosmos-db.png)
 
-You can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments.
-
-## Solutions that benefit from Azure Cosmos DB
-
-Any [web, mobile, gaming, and IoT applications](use-cases.md) that need to handle massive amounts of reads and writes on a [global](distribute-data-globally.md) scale with low response times for a variety of data will benefit from Azure Cosmos DB's [guaranteed](https://azure.microsoft.com/support/legal/sla/cosmos-db/) availability, high throughput, low latency, and tunable consistency.
+> [!div class="nextstepaction"]
+> [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/)
 
 ## Key capabilities
 As a globally distributed database service, Azure Cosmos DB provides the following capabilities to help you build scalable, highly responsive applications:
@@ -40,11 +37,11 @@ As a globally distributed database service, Azure Cosmos DB provides the followi
 * **Multiple data models and popular APIs for accessing and querying data**
     * The atom-record-sequence (ARS) based data model that Azure Cosmos DB is built on natively supports multiple data models, including but not limited to document, graph, key-value, table, and columnar data models.
     * APIs for the following data models are supported with SDKs available in multiple languages:
-        * [DocumentDB API](documentdb-introduction.md)
-        * [MongoDB API](mongodb-introduction.md)
-        * [Table API](table-introduction.md)
-        * [Graph (Gremlin) API](graph-introduction.md)
-        * Additional data models coming soon 
+        * [DocumentDB API](documentdb-introduction.md): A schema-less JSON database engine with SQL querying capabilities. [Learn more about DocumentDB API](documentdb-index.md).
+        * [MongoDB API](mongodb-introduction.md): A MongoDB database service built on top of Cosmos DB. Compatible with existing Mongo drivers, tools and applications. [Learn more about MongoDB API](mongodb-index.md).
+        * [Table API](table-introduction.md): A key-value storage database service built to provide premium capabilities for Azure Table storage applications. [Learn more about Table API](table-index.md).
+        * [Graph (Gremlin) API](graph-introduction.md): A graph database service built following the [Apache TinkerPop specification](http://tinkerpop.apache.org/). [Learn more about Graph API](graph-index.md).
+        * Additional data models coming soon!
 
 * **Elastically scale throughput and storage on demand, worldwide**
     * Easily scale database throughput at a [per second](request-units.md) granularity, and change it anytime you want. 
@@ -87,6 +84,12 @@ Azure Cosmos DB provides the best capabilities of relational and non-relational 
 | Data model + API | Relational + SQL | Multi-model + OSS API | Multi-model + SQL + OSS API (more coming soon) |
 | SLAs | Yes | No | Yes, comprehensive SLAs for latency, throughput, consistency, availability |
 
+## Solutions that benefit from Azure Cosmos DB
+
+Any [web, mobile, gaming, and IoT applications](use-cases.md) that need to handle massive amounts of reads and writes on a [global](distribute-data-globally.md) scale with low response times for a variety of data will benefit from Azure Cosmos DB's [guaranteed](https://azure.microsoft.com/support/legal/sla/cosmos-db/) availability, high throughput, low latency, and tunable consistency. Learn about how CosmosDB can be applied to [IoT and telematics](use-cases.md#iot-and-telematics), [Retail and marketing](use-cases.md#retail-and-marketing), [Gaming](use-cases.md#gaming) and [Web and mobile applications](use-cases.md#web-and-mobile-applications).
+
+> [!div class="nextstepaction"]
+> [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/)
 
 ## Next steps
 Get started with Azure Cosmos DB with one of our quickstarts:
