@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/4/2017
 ms.author: erikje
 
 ---
@@ -61,28 +61,24 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack -Force
 
 > [!NOTE]
 >All these steps must be completed on the host computer.
+>
 
-1. Sign in to the Azure Stack POC host computer as an Azure Stack administrator (e.g. AzureStack\AzureStackAdmin).
-2. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md). 
-3. Copy the [RegisterWithAzure.ps1 script](https://go.microsoft.com/fwlink/?linkid=842959) to a folder (such as C:\Temp).
-4. Start PowerShell ISE as an administrator.
-5. Run the RegisterWithAzure.ps1 script. Make sure to change the values for *YourAccountName* (the owner of the Azure subscription), *YourID*, and *YourDirectory* to match your Azure subscription.
-
+1. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md). 
+2. Copy the [RegisterWithAzure.psm1 script](https://go.microsoft.com/fwlink/?linkid=842959) to a folder (such as C:\Temp).
+3. Start PowerShell ISE as an administrator and import the RegisterWithAzure module.    
+4. From the RegisterWithAzure.psm1 script, run the Add-AzsRegistration module. Replace the following placeholders: 
+    - *YourCloudAdminCredential* is a PowerShell object that contains the credential information (user name and password) for the owner of the Azure subscription identified by the *AzureSubscriptionID* parameter.
+    - *YourAzureSubscriptionID* is the ID of the Azure subscription that you want to use to register Azure Stack.
+    - *YourAzureDirectoryTenantName* is the name of the Azure tenant directory in which you want to create your registration resource.
+    - *YourPrivilegedEndpoint* is the name of the Just-Enough-Access Computer, also known as the Emergency Console VM.
 
     ```powershell
-    RegisterWithAzure.ps1 -azureSubscriptionId YourID -azureDirectoryTenantName YourDirectory -azureAccountId YourAccountName
+    Add-AzsRegistration -CloudAdminCredential $YourCloudAdminCredential -AzureDirectoryTenantName $YourAzureDirectoryTenantName  -AzureSubscriptionId $YourAzureSubscriptionId -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Development 
     ```
-    
-    For example:
-    
-    ```powershell
-    C:\temp\RegisterWithAzure.ps1 -azureSubscriptionId "5e0ae55d-0b7a-47a3-afbc-8b372650abd3" `
-    -azureDirectoryTenantName "contoso.onmicrosoft.com" `
-    -azureAccountId serviceadmin@contoso.onmicrosoft.com
-    ```
-    
-6. At the two prompts, press Enter.
-7. In the pop-up log in window, enter your Azure subscription credentials.
+ 
+5. At the two prompts, press Enter.
+6. In the pop-up login window, enter your Azure subscription credentials.
+
 
 
 ## Verify the registration
