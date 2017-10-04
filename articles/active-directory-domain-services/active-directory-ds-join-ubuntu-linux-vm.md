@@ -31,60 +31,25 @@ To perform the tasks listed in this article, you need:
 
 
 ## Provision an Ubuntu Linux virtual machine
-Perform the following steps to provision an Ubuntu Server virtual machine using the Azure portal.
+Provision an Ubuntu Linux virtual machine in Azure, using any of the following methods:
+* [Azure portal](../virtual-machines/linux/quick-create-portal.md)
+* [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
+* [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Click **New** on the left pane and click **Compute**. Click **Ubuntu Server 16.04 LTS**. You can also type **Ubuntu** into the **Search the Marketplace** textbox to see all supported Ubuntu images in the Azure marketplace.
-
-    ![Select RHEL in results](./media/domain-join/ubuntu-join-azure-portal-find-image.png)
-3. In the **Basics** page of the **Create virtual machine** wizard:
-    * Enter the **Name** for the new virtual machine.
-    * Specify a local administrator user name in the **User name** field.
-    * Select password as the **Authentication type** and type a secure **Password**. You may also choose to use an SSH key to authenticate the local administrator user.
-    * Choose the Azure **Subscription** in which you have enabled Azure AD Domain Services.
-    * Create an existing **Resource group** or create a new one.
-    * Choose the Azure region in which you have enabled Azure AD Domain Services in the **Location** dropdown.
-
-    ![Create VM - basics page](./media/domain-join/ubuntu-join-azure-portal-create-vm-basic-details.png)
-4. In the **Size** page of the **Create virtual machine** wizard, select the size for the virtual machine.
-
-    ![Create VM - select size](./media/domain-join/ubuntu-join-azure-portal-select-vm-size.png)
-
-5. In the **Settings** page of the **Create virtual machine** wizard:
-    * Select the **Availability set** for the virtual machine and choose whether to **use managed disks**.
-    * In the **Network** section, select the **Virtual network** in which you have enabled Azure AD Domain Services.
-    * Pick a different **Subnet** than the one in which you have enabled Azure AD Domain Services.
-    * Configure the other settings on this page as desired.
-    * Click **OK** when you are done.
-
-    ![Create VM - configure VM settings](./media/domain-join/ubuntu-join-azure-portal-create-vm-settings.png)
-6. On the **Purchase** page of the **Create virtual machine** wizard, review, and click the **Purchase** button.
-
-    ![Create VM - purchase](./media/domain-join/ubuntu-join-azure-portal-create-vm-purchase.png)
-7. Deployment of the new virtual machine based on the Ubuntu image should start.
-
-    ![Create VM - deployment started](./media/domain-join/ubuntu-join-azure-portal-create-vm-deployment-started.png)
-8. After a few minutes, the virtual machine should be deployed successfully and ready for use. You can see the details of the newly provisioned VM on the **Overview** page.
-
-    ![Create VM - deployed](./media/domain-join/ubuntu-join-azure-portal-create-vm-deployed.png)
+> [!IMPORTANT]
+> * Deploy the virtual machine into the **same virtual network in which you have enabled Azure AD Domain Services**.
+> * Pick a **different subnet** than the one in which you have enabled Azure AD Domain Services.
+>
 
 
 ## Connect remotely to the Ubuntu Linux virtual machine
-The Ubuntu virtual machine has been provisioned in Azure. The next task is to connect remotely to the virtual machine.
+The Ubuntu virtual machine has been provisioned in Azure. The next task is to connect remotely to the virtual machine using the local administrator account created while provisioning the VM.
 
 Follow the instructions in the article [How to log on to a virtual machine running Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-The rest of the steps assume you use the PuTTY SSH client to connect to the Ubuntu virtual machine. For more information, see the [PuTTY Download page](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
-
-1. Open the PuTTY program.
-2. Enter the **Host Name** for the newly created Ubuntu virtual machine. In this example, our virtual machine has the host name 'contoso-ubuntu'. If you are not sure of the host name of your VM, refer to the VM dashboard on the Azure portal.
-
-    ![PuTTY connect](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-connect.png)
-3. Log on to the virtual machine using the local administrator credentials you specified when the virtual machine was created. In this example, we used the local administrator account "mahesh".
-
 
 ## Configure the hosts file on the Linux virtual machine
-Edit the /etc/hosts file and update your machine’s IP address and hostname.
+In your SSH terminal, edit the /etc/hosts file and update your machine’s IP address and hostname.
 
 ```
 sudo vi /etc/hosts
@@ -99,9 +64,9 @@ Here, 'contoso100.com' is the DNS domain name of your managed domain. 'contoso-u
 
 
 ## Install required packages on the Linux virtual machine
-After connecting to the virtual machine, the next task is to install packages required for domain join on the virtual machine. Perform the following steps:
+Next, install packages required for domain join on the virtual machine. Perform the following steps:
 
-1.  In your PuTTY terminal, type the following command to download the package lists from the repositories. This command updates the package lists to get information on the newest versions of packages and their dependencies.
+1.  In your SSH terminal, type the following command to download the package lists from the repositories. This command updates the package lists to get information on the newest versions of packages and their dependencies.
 
     ```
     sudo apt-get update
@@ -146,7 +111,7 @@ sudo systemctl start ntp
 ## Join the Linux virtual machine to the managed domain
 Now that the required packages are installed on the Linux virtual machine, the next task is to join the virtual machine to the managed domain.
 
-1. Discover the AAD Domain Services managed domain. In your PuTTY terminal, type the following command:
+1. Discover the AAD Domain Services managed domain. In your SSH terminal, type the following command:
 
     ```
     sudo realm discover CONTOSO100.COM
@@ -160,7 +125,7 @@ Now that the required packages are installed on the Linux virtual machine, the n
         * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
       >
 
-2. Initialize Kerberos. In your PuTTY terminal, type the following command: 
+2. Initialize Kerberos. In your SSH terminal, type the following command: 
 
     > [!TIP] 
     > * Ensure that you specify a user who belongs to the 'AAD DC Administrators' group. 
@@ -171,7 +136,7 @@ Now that the required packages are installed on the Linux virtual machine, the n
     kinit bob@CONTOSO100.COM
     ```
 
-3. Join the machine to the domain. In your PuTTY terminal, type the following command: 
+3. Join the machine to the domain. In your SSH terminal, type the following command: 
 
     > [!TIP] 
     > Use the same user account you specified in the preceding step ('kinit').
@@ -185,7 +150,7 @@ You should get a message ("Successfully enrolled machine in realm") when the mac
 
 
 ## Update the SSSD configuration and restart the service
-1. In your PuTTY terminal, type the following command. Open the sssd.conf file and make the following change
+1. In your SSH terminal, type the following command. Open the sssd.conf file and make the following change
     ```
     sudo vi /etc/sssd/sssd.conf
     ```
@@ -216,17 +181,17 @@ session required pam_mkhomedir.so skel=/etc/skel/ umask=0077
 ## Verify domain join
 Verify whether the machine has been successfully joined to the managed domain. Connect to the domain joined Ubuntu VM using a different SSH connection. Use a domain user account and then check to see if the user account is resolved correctly.
 
-1. In your PuTTY terminal, type the following command to connect to the domain joined Ubuntu virtual machine using SSH. Use a domain account that belongs to the managed domain (for example, 'bob@CONTOSO100.COM' in this case.)
+1. In your SSH terminal, type the following command to connect to the domain joined Ubuntu virtual machine using SSH. Use a domain account that belongs to the managed domain (for example, 'bob@CONTOSO100.COM' in this case.)
     ```
     ssh -l bob@CONTOSO100.COM contoso-ubuntu.contoso100.com
     ```
 
-2. In your PuTTY terminal, type the following command to see if the home directory was initialized correctly.
+2. In your SSH terminal, type the following command to see if the home directory was initialized correctly.
     ```
     pwd
     ```
 
-3. In your PuTTY terminal, type the following command to see if the group memberships are being resolved correctly.
+3. In your SSH terminal, type the following command to see if the group memberships are being resolved correctly.
     ```
     id
     ```
@@ -235,7 +200,7 @@ Verify whether the machine has been successfully joined to the managed domain. C
 ## Grant the 'AAD DC Administrators' group sudo privileges
 You can grant members of the 'AAD DC Administrators' group administrative privileges on the Ubuntu VM. The sudo file is located at /etc/sudoers. The members of AD groups added in sudoers can perform sudo.
 
-1. In your PuTTY terminal, ensure you are logged in with superuser privileges. You can use the local administrator account you specified while creating the VM. Execute the following command:
+1. In your SSH terminal, ensure you are logged in with superuser privileges. You can use the local administrator account you specified while creating the VM. Execute the following command:
     ```
     sudo vi /etc/sudoers
     ```

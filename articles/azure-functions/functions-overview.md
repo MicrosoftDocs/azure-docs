@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 10/03/2017
 ms.author: glenga
 
 ms.custom: H1Hack27Feb2017, mvc
@@ -46,6 +46,7 @@ Functions provides templates to get you started with key scenarios, including th
 * **TimerTrigger** - Execute cleanup or other batch tasks on a predefined schedule. For an example, see [Create a function triggered by a timer](functions-create-scheduled-function.md).
 * **GitHub webhook** - Respond to events that occur in your GitHub repositories. For an example, see [Create a function triggered by a GitHub webhook](functions-create-github-webhook-triggered-function.md).
 * **Generic webhook** - Process webhook HTTP requests from any service that supports webhooks. For an example, see [Create a function triggered by a generic webhook](functions-create-generic-webhook-triggered-function.md).
+* **CosmosDBTrigger** - Process Azure Cosmos DB documents when they are added or updated in collections in a NoSQL database. For an example, see [Create a function triggered by Azure Cosmos DB](functions-create-cosmos-db-triggered-function.md).
 * **BlobTrigger** - Process Azure Storage blobs when they are added to containers. You might use this function for image resizing. For more information, see [Blob storage bindings](functions-bindings-storage-blob.md).
 * **QueueTrigger** - Respond to messages as they arrive in an Azure Storage queue. For an example, see [Create a function that connects to other Azure services](functions-create-an-azure-connected-function.md).
 * **EventHubTrigger** -  Respond to events delivered to an Azure Event Hub. Particularly useful in application instrumentation, user experience or workflow processing, and Internet of Things (IoT) scenarios. For more information, see [Event Hubs bindings](functions-bindings-event-hubs.md).
