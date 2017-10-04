@@ -33,15 +33,7 @@ Azure AD includes a full suite of identity management capabilities including the
 
 ![Azure AD ](./media/get-started-azure-ad/Azure_Active_Directory.png)
 
-### How to get started with Azure AD
-The rest of this article is divided into the following sections that tell you how to get started with Azure AD:
-
-- **Sign up for Azure Active Directory Premium**. This section describes how to purchase Azure AD licenses and associate them with your Azure subscription. 
-- **Add a custom domain name to Azure AD**. Adding custom domain names to Azure AD allows you to assign user names in the directory that are familiar to your users, such as ‘alice@contoso.com.’ instead of 'alice@.onmicrosoft.com'. 
-- **Add company branding to your sign-in page in Azure AD**. Azure AD provides allows you to customize the appearance of the sign-in page with your company logo and custom color schemes to provide a consistent look and feel across all company websites and services in use. 
-- **Add new users to Azure AD**. You can add new users to your organization's Azure AD one at a time using the Azure portal or by synchronizing your on-premises Windows Server AD user account data. 
-- **License users in Azure Active Directory**. Your subscription information, including the number of assigned or available licenses, is available through the Azure portal under Azure Active Directory by opening the Licenses tile. The Licenses blade is also the best place to manage your license assignments.
-- **Configure Azure AD self-service password reset**. Self-service password reset (SSPR) offers a simple means for IT administrators to enable users to reset or unlock their passwords or accounts. The system includes detailed reporting to track when users use the system along with notifications to alert you to misuse or abuse.
+The rest of this article tells you how to get started with Azure AD. 
 
 ## Sign up for Azure Active Directory Premium
 To [get started with Azure Active Directory (Azure AD) Premium](active-directory-get-started-premium.md), you can purchase licenses and associate them with your Azure subscription. If you create a new Azure subscription, you will also need to activate your licensing plan and Azure AD service access. 
