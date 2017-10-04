@@ -40,7 +40,7 @@ The following sample scripts are available to automate various StorSimple jobs.
 | [Get-DeviceUpdateAvailability.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceUpdateAvailability.ps1)                 | This script scans the Update server and lets you know if updates are available to install on your StorSimple device.                                                                                          |
 | [Install-DeviceUpdate.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Install-DeviceUpdate.ps1)                         | This script installs the available updates on your StorSimple device.                                                                                                                                           |
 | [Manage-CloudSnapshots.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Manage-CloudSnapshots.ps1)                        | This script starts a manual cloud snapshot and deletes cloud snapshots older than specified retention days.                                                                                                   |
-| [Monitor-Backups.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Monitor-Backups.ps1)                              | This Azure Automation Runbook powershell script reports the status of all backup jobs.                                                                                                              |
+| [Monitor-Backups.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Monitor-Backups.ps1)                              | This Azure Automation Runbook PowerShell script reports the status of all backup jobs.                                                                                                              |
 | [Remove-DeviceBackup.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Remove-DeviceBackup.ps1)                          | This script deletes a single backup object.                                                                                                                                                           |
 | [Start-DeviceBackupJob.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Start-DeviceBackupJob.ps1)                        | This script starts a manual backup on your StorSimple device.                                                                                                                                       |
 | [Update-CloudApplianceServiceEncryptionKey.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Update-CloudApplianceServiceEncryptionKey.ps1)    | This script updates the service data encryption key for all the 8010/8020 StorSimple Cloud Appliances registered with your StorSimple Device Manager service.                                     |
@@ -57,8 +57,8 @@ This section takes an example script and details the various steps required to r
 
 Before you begin, ensure that you have:
 
-*	Azure Powershell installed. To install Azure PowerShell modules:
-    * In a Windows environment, follow the steps in [Install and configure Azure Powershell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0). You can install Azure PowerShell on your Windows Server host for your StorSimple if using one.
+*	Azure PowerShell installed. To install Azure PowerShell modules:
+    * In a Windows environment, follow the steps in [Install and configure Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0). You can install Azure PowerShell on your Windows Server host for your StorSimple if using one.
     * In a Linux or MacOS environment, follow the steps in [Install and configure Azure PowerShell on MacOS or Linux](https://docs.microsoft.com/en-us/powershell/azure/install-azurermps-maclinux?view=azurermps-4.4.0).
 
 For more information about using Azure PowerShell, go to [Get started with using Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps?view=azurermps-4.4.0).
@@ -73,7 +73,7 @@ The script used in this example lists all the jobs on a StorSimple device. This 
         mkdir C:\scripts\StorSimpleSDKTools
         cd C:\scripts\StorSimpleSDKTools
     ```    
-2. [Download nuget CLI](http://www.nuget.org/downloads) under the folder created in the previous step. There are various versions of _nuget.exe_. Choose the version corresponding to your SDK. Each download link points directly to an _.exe_ file. Be sure to right-click and save the file to your computer rather than running it from the browser.
+2. [Download NuGet CLI](http://www.nuget.org/downloads) under the folder created in the previous step. There are various versions of _nuget.exe_. Choose the version corresponding to your SDK. Each download link points directly to an _.exe_ file. Be sure to right-click and save the file to your computer rather than running it from the browser.
 
     You can also run the following command to download and store the script in the same folder that you created earlier.
     
@@ -103,7 +103,7 @@ The script used in this example lists all the jobs on a StorSimple device. This 
 
 ### Sample output
 
-The following output is presented when the sample script is run. The output contains all the jobs that ran on a registered device that started on 9/25/2017 and completed by 10/02/2017.
+The following output is presented when the sample script is run. The output contains all the jobs that ran on a registered device that started on September 25, 2017 and completed by October 2, 2017.
 
 ```
 -----------------------------------------
