@@ -268,7 +268,7 @@ Test the running **irisapp** web service by feeding it with a JSON encoded recor
 2. To test the service, execute the returned service run command.
 
    ```azurecli
-   az ml service run realtime -i irisapp -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}
+   az ml service run realtime -i irisapp -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
    ```
    The output is **"2",** which is the predicted class. (Your result might be different.) 
 
