@@ -17,51 +17,55 @@ ms.author: cgillum
 ---
 
 # Stateful singletons in Durable Functions - Counter example
-Stateful singletons are long-running (potentially eternal) orchestrator functions which store state and can be invoked and queried by other functions in your application. Stateful singletons are similar in spirit to the [Actor model](https://en.wikipedia.org/wiki/Actor_model) in distributed computing.
 
-While not a proper "actor" implementation, orchestrator functions have many of the same runtime characteristics (stateful, reliable, single-threaded, location transparent, globally addressable, etc.) that make real actor implementations especially useful, but without the need for a separate framework. The below example is a simple *counter* singleton object which supports *increment* and *decrement* operations and updates its internal state accordingly.
+Stateful singletons are long-running (potentially eternal) orchestrator functions that can store state and be invoked and queried by other functions. Stateful singletons are similar to the [Actor model](https://en.wikipedia.org/wiki/Actor_model) in distributed computing.
+
+While not a proper "actor" implementation, orchestrator functions have many of the same runtime characteristics. For example, they are stateful, reliable, single-threaded, location-transparent, and globally addressable. These are characteristics that make real actor implementations especially useful, but without the need for a separate framework.
+
+This article shows how to run the *counter* sample. The sample demonstrates a singleton object that supports *increment* and *decrement* operations and updates its internal state accordingly.
 
 ## Prerequisites
 
 * Follow the instructions in [Install Durable Functions](durable-functions-install.md) to set up the sample.
+* This article assumes you have already gone through the [Hello Sequence](durable-functions-sequence.md) sample walkthrough.
 
 ## The sample function
 
-This article will specifically walk through the following function in the sample app:
+This article walks through the following function in the sample app:
 
 * **E3_Counter**
 
-> [!NOTE]
-> This walkthrough assumes you have already gone through the [Hello Sequence](./sequence.md) sample walkthrough. If you haven't done so already, it is recommended to first go through that walkthrough before starting this one.
-
 ## Scenario overview
-The counter scenario is very simple to understand, but surprisingly difficult to implement using regular stateless functions. One of the main challenges you have is managing **concurrency**. Operations like *increment* and *decrement* need to be atomic or else there could be race conditions that cause operations to overwrite each other.
 
-Using a single VM to host the counter data is one option, but this is expensive and managing **reliability** can be a challenge since a single VM could be periodically rebooted. You could alternatively use a distributed platform with synchronization tools like blob leases to help manage concurrency, but this introduces a great deal of **complexity**.
+The counter scenario is surprisingly difficult to implement using regular stateless functions. One of the main challenges you have is managing **concurrency**. Operations like *increment* and *decrement* need to be atomic or else there could be race conditions that cause operations to overwrite each other.
 
-Durable Functions makes this kind of scenario trivial to implement because orchestration instances are affinitized to a single VM and orchestrator function execution is always single-threaded. Not only that, but they are long-running, stateful, and can react to external events. The sample code below will demonstrate how to implement such a counter as a long-running orchestrator function.
+Using a single VM to host the counter data is one option, but this is expensive, and managing **reliability** can be a challenge since a single VM could be periodically rebooted. You could alternatively use a distributed platform with synchronization tools like blob leases to help manage concurrency, but this introduces a great deal of **complexity**.
+
+Durable Functions makes this kind of scenario trivial to implement because orchestration instances are affinitized to a single VM and orchestrator function execution is always single-threaded. Not only that, but they are long-running, stateful, and can react to external events. The sample code below demonstrates how to implement such a counter as a long-running orchestrator function.
 
 ## The counter orchestration
-Here is the code which implements the orchestrator function:
+
+Here is the code that implements the orchestrator function:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Counter.cs)]
 
 This orchestrator function essentially does the following:
 
-1. Listens for an external event named *operation* using <xref:Microsoft.Azure.WebJobs.DurableOrchestrationContext.WaitForExternalEvent*>.
+1. Listens for an external event named *operation* using [WaitForExternalEvent]().
 2. Increments or decrements the `counterState` local variable depending on the operation requested.
-3. Restarts the orchestrator using the <xref:Microsoft.Azure.WebJobs.DurableOrchestrationContext.ContinueAsNew*> method, setting the latest value of `counterState` as the new input.
+3. Restarts the orchestrator using the [ContinueAsNew]() method, setting the latest value of `counterState` as the new input.
 4. Continues running forever or until an *end* message is received.
 
-This is an example of an *eternal orchestration* - i.e. one that potentially never ends. It responds to messages sent to it using the <xref:Microsoft.Azure.WebJobs.DurableOrchestrationClient.RaiseEventAsync*> method, which can be called by any non-orchestrator function.
+This is an example of an *eternal orchestration* &mdash that is, one that potentially never ends. It responds to messages sent to it by the [RaiseEventAsync]() method, which can be called by any non-orchestrator function.
 
-One unique characteristic of this orchestrator function is that it effectively has no history: the <xref:Microsoft.Azure.WebJobs.DurableOrchestrationContext.ContinueAsNew*> method will reset the history after each processed event. This is the preferred way to implement an orchestrator which has an arbitrary lifetime. Using a `while` loop could cause the orchestrator function's history to grow unbounded, resulting in unnecessarily high memory usage.
+One unique characteristic of this orchestrator function is that it effectively has no history: the `ContinueAsNew` method resets the history after each processed event. This is the preferred way to implement an orchestrator which has an arbitrary lifetime. Using a `while` loop could cause the orchestrator function's history to grow unbounded, resulting in unnecessarily high memory usage.
 
 > [!NOTE]
-> The <xref:Microsoft.Azure.WebJobs.DurableOrchestrationContext.ContinueAsNew*> method has other interesting use-cases besides just eternal orchestrations. See the [Eternal Orchestrations](../topics/eternal-orchestrations.md) topic guide for more information.
+> The `ContinueAsNew` method has other use-cases besides eternal orchestrations. For more information, see the [Eternal Orchestrations](durable-functions-eternal-orchestrations.md) topic.
 
 ## Running the sample
-Using the HTTP-triggered functions included in the sample, you can start the orchestration using the below HTTP POST request. We don't include any content in this request, which allows `counterState` to start at zero (the default value for `int`).
+
+Using the HTTP-triggered functions included in the sample, you can start the orchestration using the following HTTP POST request. To allow `counterState` to start at zero (the default value for `int`), there is no content in this request.
 
 ```plaintext
 POST http://{host}/orchestrators/E3_Counter HTTP/1.1
@@ -77,7 +81,7 @@ Location: http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb50
 {"id":"bcf6fb5067b046fbb021b52ba7deae5a","statusQueryGetUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","sendEventPostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","terminatePostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}"}
 ```
 
-The **E3_Counter** instance starts and then immediately waits for an event to be sent to it using <xref:Microsoft.Azure.WebJobs.DurableOrchestrationClient.RaiseEventAsync*> or using the **sendEventUrl** HTTP POST webhook referenced in the 202 response above. Valid `eventName` values include *incr*, *decr*, and *end*.
+The **E3_Counter** instance starts and then immediately waits for an event to be sent to it using `RaiseEventAsync` or using the **sendEventUrl** HTTP POST webhook referenced in the 202 response. Valid `eventName` values include *incr*, *decr*, and *end*.
 
 ```plaintext
 POST http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/raiseEvent/operation?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey} HTTP/1.1
@@ -100,7 +104,7 @@ You can see the results of the "incr" operation by looking at the function logs 
 2017-06-29T18:58:11.518 Current counter state is 1. Waiting for next operation.
 ```
 
-Similarly, if you check the orchestrator status, you should see the `input` field has been set to the updated value (1).
+Similarly, if you check the orchestrator status, you see the `input` field has been set to the updated value (1).
 
 ```plaintext
 GET http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey} HTTP/1.1
@@ -115,11 +119,17 @@ Location: http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb50
 {"runtimeStatus":"Running","input":1,"output":null,"createdTime":"2017-06-29T18:58:01Z","lastUpdatedTime":"2017-06-29T18:58:11Z"}
 ```
 
-You can continue sending new operations to this instance and observe its state gets updated accordingly. If you wish to kill the instance, you can do so by sending an *end* operation.
+You can continue sending new operations to this instance and observe that its state gets updated accordingly. If you wish to kill the instance, you can do so by sending an *end* operation.
 
 > [!WARNING]
-> At the time of writing, there are known race conditions when calling <xref:Microsoft.Azure.WebJobs.DurableOrchestrationContext.ContinueAsNew*> while concurrently processing messages, such external events or termination requests. For the latest information on these race conditions, see this [GitHub issue](https://github.com/Azure/azure-functions-durable-extension/issues/67).
+> At the time of writing, there are known race conditions when calling `ContinueAsNew` while concurrently processing messages, such as external events or termination requests. For the latest information on these race conditions, see this [GitHub issue](https://github.com/Azure/azure-functions-durable-extension/issues/67).
 
 ## Wrapping up
-At this point, you should have a better understanding of some of the advanced capabilities of Durable Functions, notably <xref:Microsoft.Azure.WebJobs.DurableOrchestrationContext.WaitForExternalEvent*> and <xref:Microsoft.Azure.WebJobs.DurableOrchestrationContext.ContinueAsNew*>. These tools should enable you to write various flavors of "stateful singletons" like counters, aggregators, etc.
+
+At this point, you have a better understanding of some of the advanced capabilities of Durable Functions, notably `WaitForExternalEvent` and `ContinueAsNew`. These tools enable you to write various forms of "stateful singletons," such as counters and aggregators.
+
+> [!div class="nextstepaction"]
+> [Run a sample that shows how to handle human interaction](durable-functions-phone-verification.md)
+
+
 

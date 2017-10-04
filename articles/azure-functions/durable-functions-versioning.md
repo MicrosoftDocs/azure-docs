@@ -140,4 +140,4 @@ we recommend that you deploy the new version of the function app to a new [Deplo
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to handle performance and scale issues](durable-functions-performance-and-scale.md)
+> [Learn how to handle performance and scale issues](durable-functions-perf-and-scale.md)

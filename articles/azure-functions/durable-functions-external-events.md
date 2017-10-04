@@ -114,7 +114,7 @@ public static async Task Run(
 Internally, `RaiseEventAsync` enqueues a message that gets picked up by the waiting orchestrator function.
 
 > [!WARNING]
-> If there is no orchestration instance with the specified *instance ID* or if the instance is not waiting on the specified *event name*, the event message is discarded.
+> If there is no orchestration instance with the specified *instance ID* or if the instance is not waiting on the specified *event name*, the event message is discarded. For more information about this behavior, see the [GitHub issue](https://github.com/Azure/azure-functions-durable-extension/issues/29).
 
 ## Next steps
 
