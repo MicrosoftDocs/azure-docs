@@ -22,12 +22,12 @@ The requirements in this Section 3 apply to the Search APIs.
 
 **A. Internet search experience.** All data returned in responses may only be used in internet search experiences. An internet search experience means the content displayed, as applicable:
 
-- is relevant and responsive to the end user's direct query or other indication of the user's search interest and intent (e.g., user-indicated search query); 
-- helps users find and navigate to the sources of data (e.g., the provided URLs are implemented as hyperlinks so the content or attribution is a clickable link conspicuously displayed with the data); or, in the case of Bing Entity Search API, visibly link to the bing.com URL provided in the response that enables the user to navigate to the search results for the relevant query on bing.com;
-- includes multiple results for the end user to select from (e.g., several results from the news answer are displayed, or all results if fewer than several are returned); 
-- is limited to an amount appropriate to serve the search purpose (e.g., image thumbnails are thumbnail-sized in proportion to the user's display); 
-- includes visible indication to the end user that the content is Internet search results (e.g., a statement that the content is "From the web"); and
-- includes any other combination of measures appropriate to ensure your use of data received from the Search APIs does not violate any applicable laws or third-party rights (e.g., if relying on a Creative Commons license, complying with the applicable license terms). Please consult your legal advisors to determine what measures may be appropriate.
+- is relevant and responsive to the end user's direct query or other indication of the user's search interest and intent (for example, user-indicated search query); 
+- helps users find and navigate to the sources of data (for example, the provided URLs are implemented as hyperlinks so the content or attribution is a clickable link conspicuously displayed with the data); or, in the case of Bing Entity Search API, visibly link to the bing.com URL provided in the response that enables the user to navigate to the search results for the relevant query on bing.com;
+- includes multiple results for the end user to select from (for example, several results from the news answer are displayed, or all results if fewer than several are returned); 
+- is limited to an amount appropriate to serve the search purpose (for example, image thumbnails are thumbnail-sized in proportion to the user's display); 
+- includes visible indication to the end user that the content is Internet search results (for example, a statement that the content is "From the web"); and
+- includes any other combination of measures appropriate to ensure your use of data received from the Search APIs does not violate any applicable laws or third-party rights (for example, if relying on a Creative Commons license, complying with the applicable license terms). Consult your legal advisors to determine what measures may be appropriate.
 
 The only exception to the internet search experience requirement is for URL discovery as described in Section 3E (Non-display URL discovery) below.
 
@@ -49,8 +49,8 @@ The only exception to the internet search experience requirement is for URL disc
 - Transferred responses must:
     - Consist of content that is unmodified from the content of the responses displayed to the transferring user (formatting changes are permissible);
     -	Not include any data in metadata form;
-    -	For responses from the Bing Web, Image, News, and Video APIs, display language indicating the response was obtained through an internet search experience powered by Bing (e.g., "Powered by Bing," "Learn more about this image on Bing," or using the Bing logo);
-    -	For responses from the Bing Custom Search API, display language indicating the response was obtained through an internet search experience (e.g., "Learn more about this search result”);
+    -	For responses from the Bing Web, Image, News, and Video APIs, display language indicating the response was obtained through an internet search experience powered by Bing (for example, "Powered by Bing," "Learn more about this image on Bing," or using the Bing logo);
+    -	For responses from the Bing Custom Search API, display language indicating the response was obtained through an internet search experience (for example, "Learn more about this search result”);
     -	Prominently display the full query used to generate the response; and
     -	Include a prominent link or similar attribution to the underlying source of the response, either directly or through the search engine (bing.com, m.bing.com or your custom search service, as applicable).
 -	You may not automate the transfer of responses. A transfer must be initiated by a user action clearly evidencing an intent to transfer a response.
@@ -60,8 +60,8 @@ The only exception to the internet search experience requirement is for URL disc
 
 **Device.** You may enable an end user to retain results on a device for the lesser of (i) 24 hours from the time of the query or (ii) until an end user submits another query for updated results, provided that retained results may be used only:
 
--	to enable the end user to access results previously returned to that end user on that device (e.g., in case of service interruption); or
--	to store results returned for your proactive query personalized in anticipation of the end user's needs based on that end user's signals (e.g., in case of anticipated service interruption).
+-	to enable the end user to access results previously returned to that end user on that device (for example, in case of service interruption); or
+-	to store results returned for your proactive query personalized in anticipation of the end user's needs based on that end user's signals (for example, in case of anticipated service interruption).
 
 **Server.** You may retain results specific to a single end user securely on a server you control and display the retained results only:
 
