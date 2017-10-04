@@ -16,23 +16,23 @@ ms.date: 09/29/2017
 ms.author: cgillum
 ---
 
-# Timers in Durable Functions
-Durable timers can be used in orchestrator functions to delay for specific durations of time or to implement timeouts on other supported async actions. Durable timers should be used in orchestrator functions instead of `Thread.Sleep` or `Task.Delay`.
+# Timers in Durable Functions - Azure Functions
+
+[Durable Functions](durable-functions-overview.md) provides *durable timers* for use in orchestrator functions to implement delays or to set up timeouts on async actions. Durable timers should be used in orchestrator functions instead of `Thread.Sleep` or `Task.Delay`.
 
 ## Remarks
-A durable timer can be created using the <xref:Microsoft.Azure.WebJobs.DurableOrchestrationContext.CreateTimer*> API. The API returns a task which will be resumed on the specified deadline (i.e. a `DateTime`).
 
-These timers are "durable" because they are internally backed by scheduled messages in Azure Storage. For example, if you create a timer that will expire at 4:30pm, the underlying Durable Task Framework will enqueue a message which becomes visible only at 4:30pm. When running in the Azure Functions consumption plan, the newly visible timer message will ensure that the function app gets activated on an appropriate VM.
+You create a durable timer by calling [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_). The method returns a task which will be resumed on the specified deadline, which you specify as a `DateTime` value.
 
-> [!WARNING]
-> Durable timers cannot last longer than 7 days due to limitations in Azure Storage.
-> [This GitHub issue](https://github.com/Azure/azure-functions-durable-extension/issues/14) tracks extending timers beyond 7 days.
+These timers are "durable" because they are internally backed by scheduled messages in Azure Storage. For example, if you create a timer that expires at 4:30 pm, the underlying Durable Task Framework enqueues a message which becomes visible only at 4:30 pm. When running in the Azure Functions consumption plan, the newly visible timer message will ensure that the function app gets activated on an appropriate VM.
 
 > [!WARNING]
-> Always make sure to use <xref:Microsoft.Azure.WebJobs.DurableOrchestrationContext.CurrentUtcDateTime> instead of `DateTime.UtcNow` as shown in the examples below when computing a relative deadline of a durable timer.
+> * Durable timers cannot last longer than 7 days due to limitations in Azure Storage. We are working on a [feature request to extend timers beyond 7 days]((https://github.com/Azure/azure-functions-durable-extension/issues/14).
+> * Always use [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) instead of `DateTime.UtcNow` as shown in the examples below when computing a relative deadline of a durable timer.
 
 ## Delay Usage
-The following example illustrates how to use durable timers for delaying execution. The specific example is issuing a billing notification every day for ten days.
+
+The following example illustrates how to use durable timers for delaying execution. The example is issuing a billing notification every day for ten days.
 
 ```csharp
 [FunctionName("BillingIssuer")]
@@ -49,10 +49,11 @@ public static async Task Run(
 ```
 
 > [!WARNING]
-> Infinite loops have the potential to create significant performance problems for orchestrator functions and should be avoided. See the [Eternal Orchestrations](./eternal-orchestrations.md) topic for details on how to safely and efficiently implement infinite loops.
+> Avoid infinite loops in orchestrator functions. For information about how to safely and efficiently implement infinite loop scenarios, see the [Eternal Orchestrations](durable-functions-eternal-orchestrations.md) topic 
 
 ## Timeout Usage
-This next example illustrates how to use durable timers to implement timeouts.
+
+This example illustrates how to use durable timers to implement timeouts.
 
 ```csharp
 [FunctionName("TryGetQuote")]
@@ -84,9 +85,16 @@ public static async Task<bool> Run(
 ```
 
 > [!WARNING]
-> Make sure to use a `CancellationTokenSource` to cancel a durable timer if your code will not wait for it to complete. The Durable Task Framework will not change an orchestration's status to "completed" until all outstanding tasks are completed or cancelled.
+> Use a `CancellationTokenSource` to cancel a durable timer if your code will not wait for it to complete. The Durable Task Framework will not change an orchestration's status to "completed" until all outstanding tasks are completed or cancelled.
 
-Note that this mechanism does not actually terminate in-progress activity function execution. Rather, it simply allows the orchestrator function to ignore the result and move on. If running in the Consumption plan, you will still be billed for any time and memory consumed by the abandoned activity function. By default functions running in the Consumption plan have a configurable timeout of 5 minutes. If this is exceeded, the Azure Functions host will be recycled to forcefully stop all execution and prevent a runaway billing situation.
+Note that this mechanism does not actually terminate in-progress activity function execution. Rather, it simply allows the orchestrator function to ignore the result and move on. If your function app uses the Consumption plan, you will still be billed for any time and memory consumed by the abandoned activity function. By default, functions running in the Consumption plan have a timeout of 5 minutes. If this is exceeded, the Azure Functions host will be recycled to forcefully stop all execution and prevent a runaway billing situation. The [function timeout is configurable](functions-host-json.md#functiontimeout).
 
-For a more in-depth example of how to implement timeouts in orchestrator functions, see the [Human Interaction & Timeouts - Phone Verification](../samples/phone-verification.md) walk-through.
+For a more in-depth example of how to implement timeouts in orchestrator functions, see the [Human Interaction & Timeouts - Phone Verification](durable-functions-phone-verification.md) walkthrough.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Learn how to handle external events](durable-functions-external-events.md)
+
+
 

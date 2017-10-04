@@ -17,15 +17,11 @@ ms.author: cgillum
 ---
 
 # Handling external events in Durable Functions
-Orchestrator functions have the ability to wait and listen for external events, which is often useful for handling human interaction or other external triggers.
 
-The following samples make use of external events. Feel free to reference these as possible use-cases:
-
-* [Stateful Actor - Counter](../samples/counter.md)
-* [Human Interaction & Timeouts - Phone Verification](../samples/phone-verification.md)
+Orchestrator functions have the ability to wait and listen for external events. This feature of [Durable Functions](durable-functions-overview.md) is often useful for handling human interaction or other external triggers.
 
 ## Waiting For Events
-The <xref:Microsoft.Azure.WebJobs.DurableOrchestrationContext.WaitForExternalEvent*> method allows an orchestrator function to asynchronously wait and listen for an external event. When using this operation, the caller declares the *name* of the event and the *shape of the data* it expects to receive.
+The [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) method allows an orchestrator function to asynchronously wait and listen for an external event. The caller declares the *name* of the event and the *shape of the data* it expects to receive.
 
 ```csharp
 [FunctionName("BudgetApproval")]
@@ -44,7 +40,9 @@ public static async Task Run(
 }
 ```
 
-The preceding example listened for a single event and took action when it was received. It's also possible to listen for multiple events concurrently, like in the following example which waits for one of three possible event notifications.
+The preceding example listens for a single event and takes action when it's received.
+
+You can listen for multiple events concurrently, like in the following example, which waits for one of three possible event notifications.
 
 ```csharp
 [FunctionName("Select")]
@@ -71,7 +69,7 @@ public static async Task Run(
 }
 ```
 
-The previous example showed listening to *one* of many possible events. It's also possible to wait for *all* events to arrive.
+The previous example listens for *any* of multiple events. It's also possible to wait for *all* events.
 
 ```csharp
 [FunctionName("NewBuildingPermit")]
@@ -87,19 +85,21 @@ public static async Task Run(
     // all three departments must grant approval before a permit can be issued
     await Task.WhenAll(gate1, gate2, gate3);
 
-    await context.CallFunctionAsync("IssueBuildingPermit", applicationId);
+    await context.CallActivityAsync("IssueBuildingPermit", applicationId);
 }
 ```
 
-<xref:Microsoft.Azure.WebJobs.DurableOrchestrationContext.WaitForExternalEvent*> waits indefinitely for some input and the function app can be safely unloaded while waiting. If and when an event arrives for this orchestration instance, it will be woken up automatically and will immediately process the event.
+[WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) waits indefinitely for some input.  The function app can be safely unloaded while waiting. If and when an event arrives for this orchestration instance, it is awakened automatically and immediately processes the event.
 
 > [!NOTE]
-> No billing charges are incurred if an orchestrator function is awaiting on a task from <xref:Microsoft.Azure.WebJobs.DurableOrchestrationContext.WaitForExternalEvent*>, no matter how long it waits.
+> No billing charges are incurred while an orchestrator function is awaiting a task from `WaitForExternalEvent`, no matter how long it waits.
 
-If they event payload cannot be converted into the expected type `T`, an exception will be thrown.
+If the event payload cannot be converted into the expected type `T`, an exception is thrown.
 
 ## Sending Events
-The <xref:Microsoft.Azure.WebJobs.DurableOrchestrationClient.RaiseEventAsync*> method of the <xref:Microsoft.Azure.WebJobs.DurableOrchestrationClient> class is used to send events that resume orchestrator functions that are waiting using <xref:Microsoft.Azure.WebJobs.DurableOrchestrationContext.WaitForExternalEvent*>. <xref:Microsoft.Azure.WebJobs.DurableOrchestrationClient.RaiseEventAsync*> takes an *event name* and an *event payload* as data types. The event payload must be JSON-serializable.
+The [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) method of the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) class sends the events that `WaitForExternalEvent` waits for.  The `RaiseEventAsync` method takes *eventName* and *eventData* as parameters. The event data must be JSON-serializable.
+
+Below is an example queue-triggered function that sends an "Approval" event to an orchestrator function instance. The orchestration instance ID comes from the body of the queue message.
 
 ```csharp
 [FunctionName("ApprovalQueueProcessor")]
@@ -111,7 +111,19 @@ public static async Task Run(
 }
 ```
 
-Internally, <xref:Microsoft.Azure.WebJobs.DurableOrchestrationClient.RaiseEventAsync*> enqueues a message that gets picked up by the waiting orchestrator function.
+Internally, `RaiseEventAsync` enqueues a message that gets picked up by the waiting orchestrator function.
 
 > [!WARNING]
-> If there is no orchestration instance with the specified *instance ID* or if the instance is not waiting on the specified *event name*, then the event message will get discarded.
+> If there is no orchestration instance with the specified *instance ID* or if the instance is not waiting on the specified *event name*, the event message is discarded.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Run a sample that waits for external events](durable-functions-counter.md)
+
+> [!div class="nextstepaction"]
+> [Run a sample that waits for human interaction](durable-functions-phone-verification.md)
+
+> [!div class="nextstepaction"]
+> [Learn how to set up eternal orchestrations](durable-functions-eternal-orchestrations.md)
+
