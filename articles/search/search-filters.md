@@ -13,61 +13,119 @@ ms.devlang:
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/03/2017
+ms.date: 10/04/2017
 ms.author: heidist
 
 ---
 # Filters in Azure Search 
 
-A *filter* reduces the surface area of an Azure Search query operation through selection criteria applied to content in your index. Unfiltered search is open-ended and inclusive of all documents in the index. Filtered search creates a subset of documents for a more focused query operation. For example, a filter could restrict full text search to just products having a specific brand or color, at price points above a specified threshold.
 
-This article explains filtering in Azure Search, including when and how to use a filter in both text and numeric contexts.
+A *filter* is a criterion-based expression used to select documents includde in an Azure Search query. Unfiltered search is open-ended and inclusive of all documents in the index. Filtered search creates a subset of documents for a more focused query operation. For example, a filter could restrict full text search to just those products having a specific brand or color, at price points above a specified threshold.
+
+Some search experiences impose filter requirements as part of the implementation, but you can use filters anytime you want to slice an index by *data values* in the index: restaurants, at this location, casual dining. If you want to slice by data structure, targeting specific fields, Azure Search offers alternative methods to make that objective very simple.
+
+## When to use a filter
+
+A filter expression is intended for static filtering in your search application, where you control the user interaction model. For example, when you know whether the search page is for a specific city or product category, or whether the user made selections in a faceted navigation structure.
+
+Filters are foundational to several search experiences, including "find near me", faceted navigation, and security filters that only show documents a user is allowed to see. If you implement any one of these experiences, a filter is required. It's the filter attached to the query structure that provides the geo.location coordinates, the facet category selected by the user, or the security ID of the requestor.
+
+1. Use a filter if the search experience comes with a filter requirement:
+
+ * Facets require a filter as the mechanism for classifying results on a per-facet basis.
+ * Geo-coordinates of the current location are passed as filter criteria in "find near me" apps. 
+ * Security identifiers are provided as filter criteria, where a match in the index serves as a proxy for access rights to the document.
+
+2. Use a filter to slice your index based on data values in the index. Given a schema with city, housing type, and amenities, you can create a filter to explicitly select documents that satisfy your criteria (in Seattle, condos, waterfront). You can make criteria so expressive that it returns a single match.
+
+  A full text search with the same inputs is likely to produce similar results, but a filter offers precision and can be defined by the developer. In a custom application, you might want to build filters to create a context for the search experience you are offering.
+
+3. Use a filter to prioritize, sort, group, or order by numeric data. 
+
+  Numeric fields are retrievable in the document and can appear in search results, but they are not searchable (subject to full text search) individually. If you need selection criteria based on numeric data, use a filter.
+
+### Alternative methods for reducing scope
+
+If you want a narrowing effect in your search results, filters are not your only choice. These alternatives could be a better fit depending on your objectives:
+
+ + `searchFields` query parameter pegs search to specific fields. If your index provides separate fields for English and Spanish descriptions, you can use searchFields to target which fields to use for full text search. 
+
++ `$select` parameter is used to reformulate a result set, effectively trimming the response before sending it to the calling application. This parameter does not refine the query or reduce the document collection, but if a granular response is your goal, this parameter is an option to consider. 
+
+For more information about either parameter, see [Search Documents > Request > Query parameters](https://docs.microsoft.com/rest/api/searchservice/search-documents#request).
 
 ## Filter definition and design patterns
 
-Filters are OData expressions articulated as an **$filter** argument. You can specify one filter for each  **search** operation, but the filter itself can include multiple fields and multiple criteria.
+Filters are OData expressions articulated using a subset of OData syntax, as specified in [OData expression syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
-The maximum limit on the filter expression is the maximum limit on the request: 16 MB for POST, 8 KB for GET.
+You can specify one filter for each **search** operation, but the filter itself can include multiple fields, multiple criteria, and if you use an **ismatch** function, multiple expressions. The maximum limit on the filter expression is the maximum limit on the request: 16 MB for POST, 8 KB for GET.
 
+```REST 
+# Use $filter for GET
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2016-09-01
+
+# Use filter for POST and pass it in the header
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
+{
+    "search": "*",
+    "filter": "baseRate lt 150",
+    "select": "hotelId,description"
+}
 ```
-$filter=[string] (optional)
+
+```Csharp
+    parameters =
+        new SearchParameters()
+        {
+            Filter = "baseRate lt 150",
+            Select = new[] { "hotelId", "description" }
+        };
+
 ```
 
 The following examples illustrate simple and complex filters. For more detail, see [OData expression syntax > Examples](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#bkmk_examples).
 
 + Standalone **$filter**, without a query string, useful when the filter expression is able to fully qualify documents of interest. Without a query string, there is no lexical or linguistic analysis, no scoring, and no ranking.
 
-+ Combination of query string and **$filter**, where the filter creates the subset and the query string provides the input for full text search over the filtered subset. Using a filter with a query string is the most common code pattern.
+   ```
+   $filter= 
+   ```
 
-> [!Note]
-> When calling via POST, this parameter is named filter instead of $filter. 
++ Combination of query string and **$filter**, where the filter creates the subset, and the query string provides the input for full text search over the filtered subset. Using a filter with a query string is the most common code pattern.
 
-### Alternative methods for reducing scope
+   ```
+   $filter= 
+   ```
 
-If you want a narrowing effect in your search results, filters are not your only choice. These alternatives could be a better fit depending on your objectives:
++ "Contains" filters. Filters come with precision requirements. If you want to filter on a term that appears in a description, you can use the search.ismatch function to relax some of these restrictions.
 
- + `searchFields` query parameter pegs search to specific fields. If your index provides separate fields for English and Spanish descriptions, you can use searchFields to target specific fields to use for full text search. 
+  ```
+  # The search.ismatch filter looks for 'water' in every field.
+  # Returns 376 documents. The term 'water frontage' is in tags and description
+   search=*&$count=true&$select=description,city,postCode,tags&$filter=search.ismatch('water')
 
-+ `$select` parameter is used to reformulate a result set, effectively trimming the response before sending it to the calling application. This parameter does not refine the query or reduce the document collection, but if a granular response is your goal, this parameter is an option to consider. 
+  # Contrast with a standard filter, which requires the field (tags) and exact articulation
+  # Returns all documents. The tag was not exact so the filter was ineffective.
+  # search string is empty so all documents come back.
+   search=*&$count=true&$select=description,city,postCode,tags&$filter=tags/any(t: t eq 'water') 
+  ```
 
-For more information about either parameter, see [Search Documents > Request > Query parameters](https://docs.microsoft.com/rest/api/searchservice/search-documents#request).
++ Multiple expressions, evaluated individually, with results from each one combined into a single response. The search.ismatch function is a query-plus-filter structure that can be replicated into one query for disjoint documents. You can use the non-scored version (search.ismatch) or the scored version (search.ismatchscoring).
 
+   ```
+   $filter=search.ismatchscoring('hostel') and rating ge 4 or search.ismatchscoring('motel') and rating eq 5
+   ```
 
-## When to use a filter
+Follow up with these articles for comprehensive guidance on specific use cases:
 
-A filter expression is intended for static filtering, where you control the user interaction model. For example, knowing whether the search page is for a given language, or whether the user made selections in a faceted navigation structure.
++ [Date filters](search-filters-dates.md)
++ [Facet filters](search-filters-facets.md)
++ ["Find near me" geo-filters](search-filters-geo.md)
++ [Language filters](search-filters-language.md)
++ [Range filters](search-filters-range.md)
++ [Security filters using Active Directory](search-filters-security-aad.md)
++ [Security filters (generic)](search-filters-security-generic.md) 
 
-Filters are foundational to several search experiences, including "find near me", faceted navigation, and security filters that only show documents a user is allowed to see. If you implement any one of these experiences, a filter is required. It's the filter on the query string that provides the geo.location coordinates, the facet category selected by the user, or the security ID of the requestor.
-
-1. Use a filter if the search experience comes with a filter requirement:
-
- * Facets require a filter as the mechanism for classifying results on a per-facet basis.
- * Geo-search is implemented as a filter.
- * Security identifiers can be provided as filter criteria, with a match as proxy for access rights to the document.
-
-2. Use a filter to prioritize, sort, group, or order by numeric data. Numeric fields are retrievable in the document and can appear in search results, but they are not searchable (subject to full text search) individually. If you need selection criteria based on numeric data, use a filter.
-
-3. Use a filter to slice your index based on data values in the index. Given a schema with city, housing type, and amenities, you can create a filter to explicitly select documents that satisfy your criteria (Seattle, condos, waterfront). A full text search with the same inputs is likely to produce similar results, but a filter offers precision and can be defined by the developer. In a custom application, you might want to build filters to create a context for the search experience you are offering.
 
 ## How filters are used
 
@@ -92,48 +150,54 @@ Rebuilding individual fields can be fast, requiring only a merge operation that 
 
 Text filters are valid for string fields, from which you want to pull some arbitrary collection of documents based on values within the field.
 
-For text filters based on contents within a string field, low cardinality fields are the best candidates. Fields containing a relatively small number of values (such as a list of colors, countries, or brand names), and the number of conditions is also small (color eq ‘blue’ or color eq ‘yellow’). The performance benefit comes from caching, which Azure Search does for queries most likely to be repeated.
+For text filters based on contents within a string field, low cardinality fields are the best candidates. Choose fields containing a relatively small number of values (such as a list of colors, countries, or brand names), and the number of conditions is also small (color eq ‘blue’ or color eq ‘yellow’). The performance benefit comes from caching, which Azure Search does for queries most likely to be repeated.
 
 For text filters composed of strings, there is no lexical analysis or word-breaking, so comparisons are for exact matches only. For example, assume a field *f* contains "sunny day", `$filter=f eq 'sunny'`does not match, but `$filter=f eq 'sunny day'` will. Similarly, in a filter, text strings are case-sensitive. There is no lower-casing of upper-cased words.
 
-There are two mechanisms in Azure Search for creating text filters. 
+There are several mechanisms in Azure Search for creating text filters. 
 
 | Approach | Description | Query parser requirement | 
 |----------|-------------|--------------------------|
 | [search.in()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | A comma-delimited list of strings for a given field. The strings comprise the filter criteria, which are applied to every field in scope for the query.<br/><br/>We recommend the **search.in** function if the filter is raw text to be matched on values in a given field, assuming it is searchable, retrievable, and not otherwise excluded from the query. This approach is designed for speed. You can expect sub-second response time for hundreds to thousands of values. While there is no explicit limit on the number of items you can pass to the function, latency increases in proportion to the number of strings you provide. | [Full Lucene parser](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) | 
-| [$filter parameter](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | OData filter expression, one per request | [Simple parser](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) |  
+| [$filter=<field> <operator> <string>](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) |  | [Simple parser](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) |  
 
 
 ## Numeric filter fundamentals
 
 Numeric fields are not `searchable` in the context of full text search. Only strings are subject to full text search. For example, if you enter 99.99 as a search term, you won't get back items priced at $99.99. Instead, you would see items that have the number 9 in string fields of the document. Thus, if you have numeric data, the assumption is that you will use them for filters, including ranges, facets, groups, and so forth. 
 
-Documents that contain numeric fields (price, size, SKU, ID) provide those values in search results if the field is marked `retreivable`. It's just that full text search itself is not applicable to numeric data types.
+Documents that contain numeric fields (price, size, SKU, ID) provide those values in search results if the field is marked `retreivable`. The point here is that full text search itself is not applicable to numeric data types.
 
 ## Next steps
 
-First, try **Search explorer** in the portal to submit queries with **$filter** parameters. The [real-estate-sample index](search-get-started-portal.md) provides interesting results for the following filtered queries:
+First, try **Search explorer** in the portal to submit queries with **$filter** parameters. The [real-estate-sample index](search-get-started-portal.md) provides interesting results for the following filtered queries when you paste them into the search bar:
 
-+ ``
-+ ``
-+ ``
+    ```
+    # Geo-filter returning documents within 5 kilometers of Redmond, Washington state
+    # Use count to get a number of hits returned by the query
+    # Use select to trim results, showing values for named fields only
+    # Use search=* for an empty query string. The filter is the sole input
+    search=*&$count=true&$select=description,city,postCode&$filter=geo.distance(location,geography'POINT(-122.121513 47.673988)') le 5
+    
+    # Numeric filters use comparison like greater than (gt), less than (lt), not equal (ne)
+    # Include "and" to filter on multiple fields (baths and bed)
+    # Full text search is on John Leclerc, matching on John or Leclerc
+    
+    search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=baths gt 3 and beds gt 4
+    
+    # Text filters can also use comparison operators
+    # Wrap text in single or double quotes and use the correct case
+    # Full text search is on John Leclerc, matching on John or Leclerc
+    
+    search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=city gt 'Seattle'
+    ```
 
 To work with more examples, see [OData Filter Expression Syntax > Examples](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#bkmk_examples).
-
-Follow up with these articles for comprehensive guidance on specific use cases:
-
-+ [Date filters](search-filters-dates.md)
-+ [Facet filters](search-filters-facets.md)
-+ ["Find near me" geo-filters](search-filters-geo.md)
-+ [Language filters](search-filters-language.md)
-+ [Range filters](search-filters-range.md)
-+ [Security filters using Active Directory](search-filters-security-aad.md)
-+ [Security filters (generic)](search-filters-security-generic.md) 
 
 ## See also
 
 + [How full text search works in Azure Search](search-lucene-query-architecture.md)
-+ [Search Documents REST API]()
-+ [Simple query syntax]()
-+ [Lucene query syntax]()
++ [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)
++ [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
++ [Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
 + [Supported data types](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)

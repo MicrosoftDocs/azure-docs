@@ -33,6 +33,20 @@ Filters are used to reduce the scope of full text search, or to precisely select
 
 Filters are composed of Odata expressions. Azure Search supports a subset of the OData expression syntax for **$filter** and **$orderby** expressions.  
 
+## Filter requirements
+
+Filters can reference field names only. A field definition must be attributed as `filterable` to be used in filter expressions.  
+
+###  <a name="bkmk_unsupported"></a> Unsupported features of OData filters  
+
++ Arithmetic expressions  
++ Functions other than the ones specifically listed in this document
+
+-   `any/all` with arbitrary lambda expressions  
+
+###  <a name="bkmk_limits"></a> Filter size limitations  
+ There are limits to the size and complexity of filter expressions that you can send to Azure Search. The limits are based roughly on the number of clauses in your filter expression. A good rule of thumb is that if you have hundreds of clauses, you are at risk of running into the limit. We recommend designing your application in such a way that it does not generate filters of unbounded size.  
+
 ## Filter syntax
 
 ### Operators  
@@ -43,8 +57,6 @@ Filters are composed of Odata expressions. Azure Search supports a subset of the
 
 -   Constants of the supported [Entity Data Model](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) (EDM) types (see [Supported data types &#40;Azure Search&#41;](supported-data-types.md) for a list of supported types). Constants of collection types are not supported.  
 
--   References to field names. Only `filterable` fields can be used in filter expressions.  
-
 -   `any` with no parameters. This tests whether a field of type `Collection(Edm.String)` contains any elements.  
 
 -   `any` and `all` with limited lambda expression support. 
@@ -54,6 +66,9 @@ Filters are composed of Odata expressions. Azure Search supports a subset of the
 	-	`any` can only be used with simple equality expressions or with a `search.in` function. Simple expressions consist of a comparison between a single field and a literal value, e.g. `Title eq 'Magna Carta'`.
 	
 	-	`all` can only be used with simple inequality expressions or with a `not search.in`.   
+
+
+### Functions
 
 -   Geospatial functions `geo.distance` and `geo.intersects`. The `geo.distance` function returns the distance in kilometers between two points, one being a field and one being a constant passed as part of the filter. The `geo.intersects` function returns true if a given point is within a given polygon, where the point is a field and the polygon is specified as a constant passed as part of the filter.  
 
@@ -77,16 +92,6 @@ Filters are composed of Odata expressions. Azure Search supports a subset of the
 
  In Azure Search, geospatial queries that include 180-degree longitude will work as expected if the query shape is rectangular and your coordinates align to a grid layout along longitude and latitude (for example, `geo.intersects(location, geography'POLYGON((179 65,179 66,-179 66,-179 65,179 65))'`). Otherwise, for non-rectangular or unaligned shapes, consider the split polygon approach.  
 
-###  <a name="bkmk_unsupported"></a> Unsupported features of OData filters  
-
--   Arithmetic expressions  
-
--   Functions (except the distance and intersects geospatial functions)  
-
--   `any/all` with arbitrary lambda expressions  
-
-###  <a name="bkmk_limits"></a> Filter size limitations  
- There are limits to the size and complexity of filter expressions that you can send to Azure Search. The limits are based roughly on the number of clauses in your filter expression. A good rule of thumb is that if you have hundreds of clauses, you are at risk of running into the limit. We recommend designing your application in such a way that it does not generate filters of unbounded size.  
 
 ## Order-by syntax
 
