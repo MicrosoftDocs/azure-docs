@@ -124,7 +124,7 @@ If the service name that you specify in a Compose file is a fully qualified doma
 
 For example, if the specified application name is `fabric:/SampleApp/MyComposeApp`, `<ServiceName>.MyComposeApp.SampleApp` would be the registered DNS name.
 
-## Differences between Compose deployment (instance definition) and Service Fabric application model (type definition)
+## Compose deployment (instance definition) versus Service Fabric app model (type definition)
 
 A docker-compose.yml file describes a deployable set of containers, including their properties and configurations.
 For example, the file can contain environment variables and ports. You can also specify deployment parameters, such as placement constraints, resource limits, and DNS names, in the docker-compose.yml file.
