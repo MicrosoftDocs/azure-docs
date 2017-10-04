@@ -61,15 +61,13 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack -Force
 
 > [!NOTE]
 >All these steps must be completed on the host computer.
->
 
-1. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md). 
-2. Copy the [RegisterWithAzure.ps1 script](https://go.microsoft.com/fwlink/?linkid=842959) to a folder (such as C:\Temp).
-3. Start PowerShell ISE as an administrator.    
-4. Run the RegisterWithAzure.ps1 script, replacing the following placeholders:
-    - *YourAccountName* is the owner of the Azure subscription
-    - *YourID* is the Azure subscription ID that you want to use to register Azure Stack
-    - *YourDirectory* is the name of your Azure Active Directory tenant that your Azure subscription is a part of.
+1. Sign in to the Azure Stack POC host computer as an Azure Stack administrator (e.g. AzureStack\AzureStackAdmin).
+2. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md). 
+3. Copy the [RegisterWithAzure.ps1 script](https://go.microsoft.com/fwlink/?linkid=842959) to a folder (such as C:\Temp).
+4. Start PowerShell ISE as an administrator.
+5. Run the RegisterWithAzure.ps1 script. Make sure to change the values for *YourAccountName* (the owner of the Azure subscription), *YourID*, and *YourDirectory* to match your Azure subscription.
+
 
     ```powershell
     RegisterWithAzure.ps1 -azureSubscriptionId YourID -azureDirectoryTenantName YourDirectory -azureAccountId YourAccountName
@@ -83,8 +81,9 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack -Force
     -azureAccountId serviceadmin@contoso.onmicrosoft.com
     ```
     
-5. At the two prompts, press Enter.
-6. In the pop-up login window, enter your Azure subscription credentials.
+6. At the two prompts, press Enter.
+7. In the pop-up log in window, enter your Azure subscription credentials.
+
 
 ## Verify the registration
 
