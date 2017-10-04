@@ -50,7 +50,7 @@ az ml history list --query '@[?Accuracy != null] | max_by(@, &Accuracy).Accuracy
 
 Using this max accuracy value of `1` and a threshold value of `0.03`, the second command will filter runs using `Accuracy` then sort runs by `duration` ascending.
 ```powershell
-az ml history list --query '@[?Accuracy >= sum(`[1, -0.03]`) && ?Accuracy <= `1`] | sort_by(@, &duration)'
+az ml history list --query '@[?Accuracy >= sum(`[1, -0.03]`) && Accuracy <= `1`] | sort_by(@, &duration)'
 ```
 
 If you use Powershell, the code below will use local variables to store threshold and max accuracy.
