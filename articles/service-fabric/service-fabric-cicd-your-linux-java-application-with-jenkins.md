@@ -69,7 +69,7 @@ This installs a Jenkins container on the cluster, and can be monitored by using 
 1. From your browser, go to ``http://PublicIPorFQDN:8081``. It provides the path of the initial admin password required to sign in. You can continue to use Jenkins as an admin user. Or you can create and change the user, after you sign in with the initial admin account.
 
    > [!NOTE]
-   > Ensure that the 8081 port is specified as the application endpoint port while you are creating the cluster.
+   > Ensure that the 8081 port is specified as the application endpoint port while you are creating the application (and the port is open in the cluster).
    >
 
 2. Get the container instance ID by using ``docker ps -a``.
