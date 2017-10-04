@@ -20,7 +20,7 @@ ms.author: shlo
 This article applies to version 2 of the Azure Data Factory service. It provides answers to frequently asked questions about Data Factory.  
 
 ## What is Azure Data Factory? 
-Data Factory is a fully managed, cloud-based data integration service that automates the movement and transformation of data. Like a factory that runs equipment to transform raw materials into finished goods, Azure Data Factory orchestrates existing services that collect raw data and transform it into ready-to-use information. 
+Data Factory is a fully managed, cloud-based, data-integration service that automates the movement and transformation of data. Like a factory that runs equipment to transform raw materials into finished goods, Azure Data Factory orchestrates existing services that collect raw data and transform it into ready-to-use information. 
 
 By using Azure Data Factory, you can create data-driven workflows to move data between on-premises and cloud data stores. And you can process and transform data by using compute services such as Azure HDInsight, Azure Data Lake Analytics, and SQL Server Integration Services (SSIS) integration runtime. 
 
@@ -38,7 +38,7 @@ As data pipelines are becoming a more critical part of a business analytics stra
 
 With version 2, you can also migrate existing SSIS packages to the cloud. This action lifts and shifts SSIS as an Azure service that's managed within Data Factory, which utilizes a new feature of integration runtime. By spinning-up an SSIS integration runtime in version 2, you can execute, manage, monitor, and build SSIS packages in the cloud.
 
-### Control flow and scale 
+### Control flows and scale 
 To support the diverse integration flows and patterns in the modern data warehouse, Data Factory has enabled a new, flexible, data pipeline model that is no longer tied to time-series data. With this release, you can model conditionals, branch in the control flow of a data pipeline, and explicitly pass parameters within and across these flows.
 
 You now have the freedom to model any flow style that's required for data integration and that can be dispatched on demand or repeatedly on a schedule. A few common flows now enabled that were previously not possible are:   
@@ -58,7 +58,7 @@ You now have the freedom to model any flow style that's required for data integr
 - Delta flows:
 	- Use parameters and define your high-water mark for delta copy while moving dimension or reference tables from a relational store, either on-premises or in the cloud, to load the data into the lake. 
 
-For more information, see [Tutorial: Control flow](tutorial-control-flow.md).
+For more information, see [Tutorial: Control flows](tutorial-control-flow.md).
 
 ### Deploy SSIS packages to Azure 
 If you want to move your SSIS workloads, you can create a Data Factory version 2 and provision an Azure-SSIS integration runtime. The Azure-SSIS integration runtime is a fully managed cluster of Azure VMs (nodes) that are dedicated to run your SSIS packages in the cloud. For step-by-step instructions, see the [Deploy SSIS packages to Azure](tutorial-deploy-ssis-packages-azure.md) tutorial. 
