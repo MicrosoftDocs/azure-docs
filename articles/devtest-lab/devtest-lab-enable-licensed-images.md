@@ -18,7 +18,7 @@ ms.author: tarcher
 
 ---
 
-# Enable a licensed image in your lab
+# Enable a licensed image in your lab in Azure DevTest Labs
 
 In Azure DevTest Labs, a licensed image is one that includes terms and conditions – typically from a third-party – that must be accepted before the image is accessible to users in the lab. The following sections describe how to work with licensed images so that they are available to use for creating virtual machines.
 
