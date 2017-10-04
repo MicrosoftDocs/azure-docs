@@ -19,7 +19,13 @@ ms.author: sethm
 
 # Azure Service Bus Geo-disaster recovery (Preview)
 
-When regional datacenters experience outages, it is critical for data processing to continue to operate in a different region or datacenter. As such, *Geo-disaster recovery* and *Geo-replication* are important features for any enterprise. Azure Service Bus supports both Geo-disaster recovery and Geo-replication, at the namespace level. 
+When regional datacenters experience downtime, it is critical for data processing to continue to operate in a different region or datacenter. As such, *Geo-disaster recovery* and *Geo-replication* are important features for any enterprise. Azure Service Bus supports both Geo-disaster recovery and Geo-replication, at the namespace level. 
+
+The [Best practices for insulating applications against Service Bus outages and disasters](service-bus-outages-disasters.md) article makes a distinction between "outages" and "disasters," which is important to note. An *outage* is the temporary unavailability of Azure Service Bus, and can affect some components of the service, such as a messaging store, or even the entire datacenter. However, after the problem has been fixed, Service Bus becomes available again. Typically, an outage does not cause the loss of messages or other data. An example of such an outage might be a power failure in the datacenter.
+
+A *disaster*, however, is defined as the permanent loss of a Service Bus [scale unit](service-bus-architecture.md#service-bus-scale-units) or datacenter. The datacenter may or may not become available again, or may be down for hours or days. A disaster typically causes the loss of some or all messages or other data. Examples of such disasters are fire, flooding, or earthquake.
+
+The Geo-disaster recovery feature of Azure Service Bus is a disaster recovery solution. The concepts and workflow described in this article apply to disaster scenarios, and not to transient outages.  
 
 ## Basic concepts and terms
 
