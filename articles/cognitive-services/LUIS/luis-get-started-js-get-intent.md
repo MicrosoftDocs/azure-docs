@@ -54,7 +54,7 @@ You can use JavaScript to access to the same results you saw in the browser wind
 <script type="text/javascript">
     $(function() {
         var params = {
-            // Request parameters
+            // These are optional request parameters. They are set to their default values.
             "timezoneOffset": "0",
             "verbose": "false",
             "spellCheck": "false",
@@ -68,10 +68,11 @@ You can use JavaScript to access to the same results you saw in the browser wind
                 xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","YOUR SUBSCRIPTION KEY");
             },
             type: "GET",
-            // Request body
+            // The request body may be empty for a GET request
             data: "{body}",
         })
         .done(function(data) {
+            // Display a popup containing the top intent
             alert("Detected the following intent: " + data.topScoringIntent.intent);
         })
         .fail(function() {
