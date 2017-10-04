@@ -4160,6 +4160,11 @@
             "redirect_url": "/azure/operations-management-suite/oms-solution-update-management",
             "redirect_document_id": false
         },
+		{
+            "source_path": "articles/log-analytics/log-analytics-get-started.md",
+            "redirect_url": "https://docs.microsoft.com/en-us/azure/log-analytics",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/machine-learning/machine-learning-apps-text-analytics.md",
             "redirect_url": "../cognitive-services/cognitive-services-text-analytics-quick-start",
