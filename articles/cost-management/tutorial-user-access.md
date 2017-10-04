@@ -74,7 +74,7 @@ In this tutorial, you learned how to:
 > * Create a user with user access
 > * Create entities
 
-Advance to the Cloudyn documentation to learn more getting started with Cloudyn and using its features.
+Advance to the next tutorial to learn how to forecast spending using historical data.
 
 > [!div class="nextstepaction"]
-> [Cloudyn documentation](https://support.cloudyn.com/hc/)
+> [Forecast future spending](tutorial-forecast-spending.md)

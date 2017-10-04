@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/02/2017
 ms.author: bwren
 
 ---
@@ -44,7 +44,7 @@ An example query to create a new computer group that includes an imported Active
 ## Dashboards
 
 ### Question: Can I still use dashboards in an upgraded workspace?
-You can continue to use any tiles that you added to **My Dashboard** before your workspace was upgraded, but you cannot edit those tiles or add new ones.  You can continue to create and edit views with [View Designer](log-analytics-view-designer.md) and also create dashboards in the Azure portal.
+With the upgrade, we are beginning the process of depracating **My Dashboard**.  You can continue to use any tiles that you added to the dashboard before your workspace was upgraded, but you cannot edit those tiles or add new ones.  You can continue to create and edit views with [View Designer](log-analytics-view-designer.md), which has a richer feature set, and also create dashboards in the Azure portal.
 
 
 ## Log searches
@@ -54,6 +54,9 @@ You can use the language converter tool in the log search page to convert each o
 
 ### Question: Why are my query results not sorted?
 Results are not sorted by default in the new query language.  Use the [sort operator](https://go.microsoft.com/fwlink/?linkid=856079) to sort your results by one or more properties.
+
+### Question: Where did the metrics view go after I upgraded?
+The metrics view gave a graphical representation of performance data from a log search.  This view is no longer available after upgrade.
 
 ### Question: Where did minify go after I upgraded?
 Minify is a feature that gives a summarized view of your search results.  After you upgrade, the Minify option no longer appears in the Log Search portal.  You can get similar functionality with the new search language using [reduce](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/reduce-operator) or [autocluster_v2](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/evaluate-operator/autocluster). 

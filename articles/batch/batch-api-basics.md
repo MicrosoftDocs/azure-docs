@@ -13,8 +13,8 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 09/26/2017
-ms.author: tamram
+ms.date: 010/04/2017
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -383,27 +383,15 @@ A combined approach is typically used for handling a variable, but ongoing, load
 
 ## Virtual network (VNet) and firewall configuration 
 
-When you provision a pool of compute nodes in Azure Batch, you can associate the pool with a subnet of an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md). To learn more about creating a VNet with subnets, see [Create an Azure virtual network with subnets](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). 
+When you provision a pool of compute nodes in Batch, you can associate the pool with a subnet of an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md). To learn more about creating a VNet with subnets, see [Create an Azure virtual network with subnets](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). 
 
- * The VNet associated with a pool must be:
+VNet requirements:
 
-   * In the same Azure **region** as the Azure Batch account.
-   * In the same **subscription** as the Azure Batch account.
+* The virtual network must be in the same Azure **region** and **subscription** as the Azure Batch account.
 
+* For pools created with a virtual machine configuration, only Azure Resource Manager (ARM)-based virtual networks are supported. For pools created with a cloud services xonfiguration, both ARM and classic virtual networks are supported. 
 
-* You must provide permissions for the Batch service principal to access the VNet. The VNet must assign the [Classic Virtual Machine Contributor Role-Based Access Control (RBAC)](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/#classic-virtual-machine-contributor) role to the Batch service principal. If the specified RBAC role is not provided, the Batch service returns 400 (Bad Request). To add the role in the Azure portal:
-
-    1. Select the **VNet**, then **Access control (IAM)** > **Roles** > **Virtual Machine Contributor** > **Add**.
-    2. On the **Add permissions** blade, select the **Virtual Machine Contributor** role.
-    3. On the **Add permissions** blade, search for the Batch API. Search for each of these strings in turn until you find the API:
-        1. **MicrosoftAzureBatch**.
-        2. **Microsoft Azure Batch**. Newer Azure AD tenants may use this name.
-        3. **ddbf3205-c6bd-46ae-8127-60eb93363864** is the ID for the Batch API. 
-    3. Select the Batch API service principal. 
-    4. Click **Save**.
-
-        ![Assign VM Contributor role to Batch service principal](./media/batch-api-basics/iam-add-role.png)
-
+* To use an ARM-based network, the Batch client API must use [Azure Active Directory authentication](batch-aad-auth.md). To use a classic virtual network, the 'MicrosoftAzureBatch' service principal must have the 'Classic Virtual Machine Contributor' Role-Based Access Control (RBAC) role for the specified virtual network. 
 
 * The specified subnet should have enough free **IP addresses** to accommodate the total number of target nodes; that is, the sum of the `targetDedicatedNodes` and `targetLowPriorityNodes` properties of the pool. If the subnet doesn't have enough free IP addresses, the Batch service partially allocates the compute nodes in the pool and returns a resize error.
 

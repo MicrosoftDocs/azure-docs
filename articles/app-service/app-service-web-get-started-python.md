@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 03/17/2017
 ms.author: cfowler
-ms.custom: mvc
+ms.custom: mvc, devcenter
 ---
 # Create a Python web app in Azure
 
