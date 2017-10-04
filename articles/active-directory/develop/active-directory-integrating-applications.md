@@ -39,16 +39,16 @@ Any application that wants to use the capabilities of Azure AD must first be reg
 
 4. When the "Create" page appears, enter your application's registration information: 
 
- - **Name:** Enter a meaningful application name
- - **Application type:** 
- - Select "Native" for [client applications](active-directory-dev-glossary.md#client-application) that are installed locally on a device. This setting is used for OAuth public [native clients](active-directory-dev-glossary.md#native-client).
- - Select "Web app / API" for [client applications](active-directory-dev-glossary.md#client-application) and [resource/API applications](active-directory-dev-glossary.md#resource-server) that are installed on a secure server. This setting is used for OAuth confidential [web clients](active-directory-dev-glossary.md#web-client) and public [user-agent-based clients](active-directory-dev-glossary.md#user-agent-based-client). The same application can also expose both a client and resource/API.
- - **Sign-On URL:** For "Web app / API" applications, provide the base URL of your app, for example `http://localhost:12345`. Users would use this URL to sign in to a web client application. 
- - **Redirect URI:** For "Native" applications, provide the URI used by Azure AD return token responses. Enter a value specific to your application, for example `http://MyFirstAADApp`
+- **Name:** Enter a meaningful application name
+- **Application type:** 
+- Select "Native" for [client applications](active-directory-dev-glossary.md#client-application) that are installed locally on a device. This setting is used for OAuth public [native clients](active-directory-dev-glossary.md#native-client).
+- Select "Web app / API" for [client applications](active-directory-dev-glossary.md#client-application) and [resource/API applications](active-directory-dev-glossary.md#resource-server) that are installed on a secure server. This setting is used for OAuth confidential [web clients](active-directory-dev-glossary.md#web-client) and public [user-agent-based clients](active-directory-dev-glossary.md#user-agent-based-client). The same application can also expose both a client and resource/API.
+- **Sign-On URL:** For "Web app / API" applications, provide the base URL of your app, for example `http://localhost:12345`. Users would use this URL to sign in to a web client application. 
+- **Redirect URI:** For "Native" applications, provide the URI used by Azure AD return token responses. Enter a value specific to your application, for example `http://MyFirstAADApp`
 
-    ![Register a new application - create](./media/active-directory-integrating-applications/add-app-registration-create.png)
+  ![Register a new application - create](./media/active-directory-integrating-applications/add-app-registration-create.png)
 
-   If you'd like specific examples for web applications or native applications, check out our [quickstarts](active-directory-developers-guide.md#get-started).
+  If you'd like specific examples for web applications or native applications, check out our [quickstarts](active-directory-developers-guide.md#get-started).
 
 5. Once you've completed registration, Azure AD assigns a unique Application ID to your application, and you're taken to your application's main registration page. Depending on whether your application is a web or native application, different options are provided to add additional capabilities to your application. See the next section for an overview of consent, and details on enabling additional configuration features in your application registration (credentials, permissions, enable sign-in for users from other tenants.)
 
@@ -86,7 +86,7 @@ The following steps show you how the consent experience works for both the appli
 4. After the user has signed in, Azure AD will determine if the user needs to be shown a consent page. This determination is based on whether the user (or their organization’s administrator) has already granted the application consent. If consent has not already been granted, Azure AD prompts the user for consent and displays the required permissions it needs to function. The set of permissions that is displayed in the consent dialog are the same as what was selected in the Delegated Permissions in the Azure portal.
    
     ![User consent experience](./media/active-directory-integrating-applications/consent.png)
-    
+
 5. After the user grants consent, an authorization code is returned to your application, which can be redeemed to acquire an access token and refresh token. For more information about this flow, see the [web Application to web API section](active-directory-authentication-scenarios.md#web-application-to-web-api) in [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md).
 
 6. As an administrator, you can also consent to an application's delegated permissions on behalf of all the users in your tenant. Administrative consent prevents the consent dialog from appearing for every user in the tenant, and is done your application page in the [Azure portal](https://portal.azure.com). From the **Settings** page for your application, click **Required Permissions** and click on the **Grant Permissions** button. 
