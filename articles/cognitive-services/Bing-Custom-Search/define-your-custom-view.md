@@ -14,7 +14,7 @@ ms.author: v-brapel
 
 # Define a custom search instance
 A Custom Search instance lets you tailor the search experience to include content only from websites that your users care about. Instead of performing a web-wide search, Bing searches only the slice of the web that interests you.
-To create your custom view of the web, use the Bing Custom Search portal. For information about logging in to the portal, see Get stared. The portal lets you create a search instance that specifies the domains, subsites, and webpages that you want Bing to search, and those that you don’t want it to search. In addition to specifying the URLs of the content that you know about, you can also ask the portal to suggest content that you may want to add to your view. 
+To create your custom view of the web, use the Bing Custom Search [portal](https://customsearch.ai). For information about logging in to the portal, see [Your first Bing Custom Search instance](https://review.docs.microsoft.com/en-us/azure/cognitive-services/bing-custom-search/quick-start?branch=release-bing-v7-merge#create-a-custom-search-instance). The portal lets you create a search instance that specifies the domains, subsites, and webpages that you want Bing to search, and those that you don’t want it to search. In addition to specifying the URLs of the content that you know about, you can also ask the portal to suggest content that you may want to add to your view. 
 The following are the ways that you can define a slice of the web: 
 
 1.	Domain. A domain slice includes all content found within. For example, www.microsoft.com. Omitting 'www' causes Bing to also search the domain’s subdomains. For example, if you specify microsoft.com, Bing also returns results from support.microsoft.com or technet.microsoft.com.
@@ -86,13 +86,11 @@ To pin a webpage to the top of the search results for a specific query, choose o
 
 You can track your pins in the Pinned tab. The pins are shown as '<query>, <webpage>' pairs. 
 
-To activate your pins, you must click Push Pins. The webpage is pinned only if the user’s query exactly matches your query and you clicked Push Pins. 
+Changes are automatically saved and reflect instantly against your custom search instance. 
 
 Please note the following restrictions when working with pins: 
 
-- For a specific query, you can pin a maximum of one webpage to the top of the results. 
-- Although the results in the Preview pane reflect added and deleted pins immediately, it may take up 15 minutes after you click Push Pins to see the pins reflected in search results using the custom search API. 
-- Bing currently supports pins only in the en-US market. 
+- For a specific query, you can pin a maximum of one webpage to the top of the results.
 
 ## Use Bing to specify slices
 There are a couple of ways to specify the slices of the web that make up your custom search. If you know the slices you want to include in your instance, simply add them to your instance’s Active list. For information about adding items to the Active list yourself, see Define your custom instance.
