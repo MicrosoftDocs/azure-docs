@@ -2,12 +2,12 @@
 
 **Deployment model/method** | **Azure portal** | **PowerShell** |
 |---|---|---|
-| **Resource Manager** | [Article](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) | [Article](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)|
-| **Classic** | [Article](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md) | Supported |
+| Resource Manager | [Article](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) | [Article](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)|
+| Classic | [Article](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md) | Supported |
 
 **RADIUS authentication**
 
 **Deployment model/method** | **Azure portal** | **PowerShell** |
 |---|---|---|
-| **Resource Manager** | Supported | [Article](../articles/vpn-gateway/point-to-site-how-to-radius-ps.md)|
-| **Classic** | Not Supported | Not Supported |
+| Resource Manager | Supported | [Article](../articles/vpn-gateway/point-to-site-how-to-radius-ps.md)|
+| Classic | Not Supported | Not Supported |
