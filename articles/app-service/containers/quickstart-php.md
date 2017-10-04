@@ -1,6 +1,6 @@
 ---
-title: Create a PHP web app in a Linux container in Azure | Microsoft Docs
-description: Deploy your first PHP Hello World in Azure App Service Web Apps in minutes.
+title: Create a PHP web app and deploy to App Service on Linux | Microsoft Docs
+description: Deploy your first PHP Hello World in App Service on Linux in minutes.
 services: app-service\web
 documentationcenter: ''
 author: syntaxc4
@@ -19,7 +19,7 @@ ms.custom: mvc
 ---
 # Create a PHP web app in a Linux container in Azure
 
-[Web App for Containers](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart tutorial shows how to deploy a PHP app to Azure Web App for Containers. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell, and you use Git to deploy the PHP code to the web app.
+[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart tutorial shows how to deploy a PHP app to Azure App Service on Linux. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell, and you use Git to deploy the PHP code to the web app.
 
 ![Sample app running in Azure]](media/quickstart-php/hello-world-in-browser.png)
 

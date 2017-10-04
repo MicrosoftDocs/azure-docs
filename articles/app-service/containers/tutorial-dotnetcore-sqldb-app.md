@@ -1,6 +1,6 @@
 ---
-title: Build a .NET Core and SQL Database web app in Azure Web App for Containers | Microsoft Docs 
-description: Learn how to get a .NET Core app working in Azure Web App for Containers, with connection to a SQL Database.
+title: Build a .NET Core and SQL Database web app in Azure App Service on Linux | Microsoft Docs 
+description: Learn how to get a .NET Core app working in Azure App Service on Linux, with connection to a SQL Database.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -17,11 +17,11 @@ ms.date: 08/31/2017
 ms.author: cephalin
 ms.custom: mvc
 ---
-# Build a .NET Core and SQL Database web app in Azure Web App for Containers
+# Build a .NET Core and SQL Database web app in Azure App Service on Linux
 
-[Web App for Containers](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a .NET Core web app and connect it to a SQL Database. When you're done, you'll have a .NET Core MVC app running in Web App for Containers. 
+[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a .NET Core web app and connect it to a SQL Database. When you're done, you'll have a .NET Core MVC app running in App Service on Linux.
 
-![app running in Web App for Containers](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
+![app running in App Service on Linux](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
 What you learn how to:
 
@@ -48,7 +48,7 @@ In this step, you set up the local .NET Core project.
 
 ### Clone the sample application
 
-In the terminal window, `cd` to a working directory.  
+In the terminal window, `cd` to a working directory.
 
 Run the following commands to clone the sample repository and change to its root.
 
@@ -73,7 +73,7 @@ Navigate to `http://localhost:5000` in a browser. Select the **Create New** link
 
 ![connects successfully to SQL Database](./media/tutorial-dotnetcore-sqldb-app/local-app-in-browser.png)
 
-To stop .NET Core at any time, press `Ctrl+C` in the terminal. 
+To stop .NET Core at any time, press `Ctrl+C` in the terminal.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -146,7 +146,7 @@ This is the connection string for your .NET Core app. Copy it for use later.
 
 ## Deploy app to Azure
 
-In this step, you deploy your SQL Database-connected .NET Core application to Web App for Containers.
+In this step, you deploy your SQL Database-connected .NET Core application to App Service on Linux.
 
 ### Configure local git deployment 
 
@@ -246,9 +246,9 @@ http://<app_name>.azurewebsites.net
 
 Add a few to-do items.
 
-![app running in Web App for Containers](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
+![app running in App Service on Linux](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
-**Congratulations!** You're running a data-driven .NET Core app in Web App for Containers.
+**Congratulations!** You're running a data-driven .NET Core app in App Service on Linux.
 
 ## Update locally and redeploy
 

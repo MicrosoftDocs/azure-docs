@@ -1,6 +1,6 @@
 ---
-title: Create a Ruby App with Azure Web Apps on Linux | Microsoft Docs
-description: Learn to create Ruby apps with Azure web wpp on Linux.
+title: Create a Ruby App and deploy to App Service on Linux | Microsoft Docs
+description: Learn to create Ruby apps with App Service on Linux.
 keywords: azure app service, linux, oss, ruby
 services: app-service
 documentationcenter: ''
@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 # Create a Ruby App with Web Apps on Linux
 
-[Azure Web Apps](../app-service-web-overview.md) provides a highly scalable, self-patching web hosting service. This quickstart shows you how to create a basic Ruby on Rails application you then deploy it to Azure as a Web App on Linux.
+[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service. This quickstart shows you how to create a basic Ruby on Rails application you then deploy it to Azure as a Web App on Linux.
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
@@ -166,4 +166,4 @@ http://<app name>.azurewebsites.net
 
 ## Next steps
 
-[Azure App Service Web App on Linux FAQ](app-service-linux-faq.md)
+[Azure App Service on Linux FAQ](https://docs.microsoft.com/azure/app-service-web/app-service-linux-faq.md)

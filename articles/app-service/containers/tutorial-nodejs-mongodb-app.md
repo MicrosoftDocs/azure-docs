@@ -1,6 +1,6 @@
 ---
-title: Build a Node.js and MongoDB web app in Azure Web App for Containers | Microsoft Docs 
-description: Learn how to get a Node.js app working in Azure Web App for Containers, with connection to a Cosmos DB database with a MongoDB connection string.
+title: Build a Node.js and MongoDB web app in Azure App Service on Linux | Microsoft Docs 
+description: Learn how to get a Node.js app working in Azure App Service on Linux, with connection to a Cosmos DB database with a MongoDB connection string.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -17,9 +17,9 @@ ms.date: 08/31/2017
 ms.author: cephalin
 ms.custom: mvc
 ---
-# Build a Node.js and MongoDB web app in Azure Web App for Containers
+# Build a Node.js and MongoDB web app in Azure App Service on Linux
 
-[Web App for Containers](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a Node.js web app and connect it to a MongoDB database. When you're done, you'll have a MEAN application (MongoDB, Express, AngularJS, and Node.js) running in Web App for Containers. For simplicity, the sample application uses the [MEAN.js web framework](http://meanjs.org/).
+[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a Node.js web app and connect it to a MongoDB database. When you're done, you'll have a MEAN application (MongoDB, Express, AngularJS, and Node.js) running in App Service on Linux. For simplicity, the sample application uses the [MEAN.js web framework](http://meanjs.org/).
 
 ![MEAN.js app running in Azure App Service](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -239,9 +239,9 @@ In this step, you deploy your MongoDB-connected Node.js application to Azure App
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)] 
 
-### Create a web app
+### Create a linux based web app
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-linux-nodejs-no-h.md)] 
+[!INCLUDE [Create a linux based web app](../../../includes/app-service-web-create-web-app-linux-nodejs-no-h.md)] 
 
 ### Configure an environment variable
 

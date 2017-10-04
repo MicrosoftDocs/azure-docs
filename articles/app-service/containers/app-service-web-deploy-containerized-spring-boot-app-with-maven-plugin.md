@@ -1,6 +1,6 @@
 ---
-title: How to use the Maven Plugin for Azure Web Apps to deploy a containerized Spring Boot app to Azure
-description: Learn how to use the Maven Plugin for Azure Web Apps to deploy a Spring Boot app to Azure.
+title: How to use the Maven Plugin for Web Apps for Containers to deploy a containerized Spring Boot app to Azure
+description: Learn how to use the Maven Plugin for Web Apps for Containers to deploy a Spring Boot app to Azure.
 services: app-service\web
 documentationcenter: java
 author: rmcmurray
@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 08/07/2017
 ms.author: robmcm;kevinzha
 ---
-
-# How to use the Maven Plugin for Azure Web Apps to deploy a containerized Spring Boot app to Azure
+# How to use the Maven Plugin for Web Apps for Containers to deploy a containerized Spring Boot app to Azure
 
 The [Maven Plugin for Azure Web Apps](https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin) for [Apache Maven](http://maven.apache.org/) provides seamless integration of Azure App Service  into Maven projects, and streamlines the process for developers to deploy web apps to Azure App Service .
 
-This article demonstrates using the Maven Plugin for Azure Web Apps to deploy a sample Spring Boot application in a Docker container to Azure App Services.
+This article demonstrates using the Maven Plugin for Azure Web Apps to deploy a sample Spring Boot application in a Docker container to Web Apps for Containers.
 
 > [!NOTE]
 >
@@ -44,7 +43,7 @@ In order to complete the steps in this tutorial, you need to have the following 
 > Due to the virtualization requirements of this tutorial, you cannot follow the steps in this article on a virtual machine; you must use a physical computer with virtualization features enabled.
 >
 
-## Clone the sample Spring Boot on Docker web app
+## Clone the sample Spring Boot on Web App for Containers
 
 In this section, you clone a containerized Spring Boot application and test it locally.
 
@@ -178,7 +177,7 @@ If you have a Docker account, you can build your Docker container image locally 
       mvn clean package docker:build
       docker push
       ```
-   
+
    * If you have the [Docker plugin for Maven] installed, you can automatically build and your container image to Docker Hub by using the `-DpushImage` parameter:
       ```shell
       mvn clean package docker:build -DpushImage
@@ -249,7 +248,7 @@ Maven will deploy your web app to Azure; if the web app does not already exist, 
 >
 > If the region which you specify in the `<region>` element of your *pom.xml* file does not have enough servers available when you start your deployment, you might see an error similar to the following example:
 >
-> ```
+> ```bash
 > [INFO] Start deploying to Web App maven-linux-app-20170804...
 > [INFO] ------------------------------------------------------------------------
 > [INFO] BUILD FAILURE
@@ -304,7 +303,7 @@ For more information about the various technologies discussed in this article, s
 
 * [Log in to Azure from the Azure CLI](/azure/xplat-cli-connect)
 
-* [How to use the Maven Plugin for Azure Web Apps to deploy a Spring Boot app to Azure App Service ](../app-service-web-deploy-spring-boot-app-with-maven-plugin.md)
+* [How to use the Maven Plugin for Azure Web Apps to deploy a Spring Boot app to Azure App Service](../app-service-web-deploy-spring-boot-app-with-maven-plugin.md)
 
 * [Create an Azure service principal with Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli)
 

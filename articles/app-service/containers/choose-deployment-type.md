@@ -1,6 +1,6 @@
 ---
-title: Azure Web App on Linux Deployment - Custom image or built-in platform image?  | Microsoft Docs
-description: How to decide between custom Docker container deployment and a built-in application framework
+title: Azure App Service on Linux Deployment - Custom image or built-in platform image?  | Microsoft Docs
+description: How to decide between custom Docker container deployment and a built-in application framework for App Service on Linux
 keywords: azure app service, web app, linux, oss
 services: app-service
 documentationCenter: ''

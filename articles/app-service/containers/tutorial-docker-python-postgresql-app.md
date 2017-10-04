@@ -19,9 +19,9 @@ ms.custom: mvc
 ---
 # Build a Docker Python and PostgreSQL web app in Azure
 
-Azure Web Apps provides a highly scalable, self-patching web hosting service. This tutorial shows how to create a basic Docker Python web app in Azure. You'll connect this app to a PostgreSQL database. When you're done, you'll have a Python Flask application running within a Docker container on [Azure App Service Web Apps](../app-service-web-overview.md).
+Web App for Containers provides a highly scalable, self-patching web hosting service. This tutorial shows how to create a basic Docker Python web app in Azure. You'll connect this app to a PostgreSQL database. When you're done, you'll have a Python Flask application running within a Docker container on [App Service on Linux](app-service-linux-intro.md).
 
-![Docker Python Flask app in Azure App Service](./media/tutorial-docker-python-postgresql-app/docker-flask-in-azure.png)
+![Docker Python Flask app in App Service on Linux](./media/tutorial-docker-python-postgresql-app/docker-flask-in-azure.png)
 
 You can follow the steps below on macOS. Linux and Windows instructions are the same in most cases, but the differences are not detailed in this tutorial.
  
@@ -120,7 +120,7 @@ In this step, you create a PostgreSQL database in Azure. When your app is deploy
 
 ### Log in to Azure
 
-You are now going to use the Azure CLI 2.0 to create the resources needed to host your Python application in Azure App Service.  Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions. 
+You are now going to use the Azure CLI 2.0 to create the resources needed to host your Python application in Web App for Containers.  Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions. 
 
 ```azurecli
 az login 
@@ -414,7 +414,7 @@ When the App Service plan is created, the Azure CLI shows information similar to
 
 Create a web app in the *myAppServicePlan* App Service plan with the [az webapp create](/cli/azure/webapp#create) command. 
 
-The web app gives you a hosting space to deploy your code and provides a URL for you to view the deployed application. Use  to create the web app. 
+The web app gives you a hosting space to deploy your code and provides a URL for you to view the deployed application. Use  to create the web app.
 
 In the following command, replace the *\<app_name>* placeholder with a unique app name. This name is part of the default URL for the web app, so the name needs to be unique across all apps in Azure App Service. 
 
@@ -548,5 +548,5 @@ By default, the portal shows your web app's **Overview** page. This page gives y
 
 Advance to the next tutorial to learn how to map a custom DNS name to your web app.
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Map an existing custom DNS name to Azure Web Apps](../app-service-web-tutorial-custom-domain.md)

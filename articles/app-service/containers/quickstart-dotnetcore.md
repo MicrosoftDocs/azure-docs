@@ -1,6 +1,6 @@
 ---
-title: Create a .NET Core web app in a Linux container in Azure | Microsoft Docs
-description: Deploy your first .NET Core Hello World app to Web App for Containers in minutes.
+title: Create a .NET Core web app and deploy to App Service on Linux | Microsoft Docs
+description: Deploy your first .NET Core Hello World app to App Service on Linux in minutes.
 keywords: azure app service, web app, dotnet, core, linux, oss
 services: app-service
 documentationCenter: ''
@@ -20,11 +20,11 @@ ms.custom: mvc
 ---
 # Create a .NET Core web app in a Linux container in Azure
 
-[Web App for Containers](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to create a [.NET Core](https://docs.microsoft.com/aspnet/core/) app on Azure Web App for Containers. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy the .NET Core code to the web app.
+[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to create a [.NET Core](https://docs.microsoft.com/aspnet/core/) app on App Service on Linux. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy the .NET Core code to the web app.
 
 ![Sample app running in Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
-You can follow the steps below using a Mac, Windows, or Linux machine. 
+You can follow the steps below using a Mac, Windows, or Linux machine.
 
 ## Prerequisites
 
@@ -35,20 +35,20 @@ To complete this quickstart:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## Create the app locally ##
+## Create the app locally
 
-In a terminal window on your machine, create a directory named `hellodotnetcore` and change the current directory to it. 
+In a terminal window on your machine, create a directory named `hellodotnetcore` and change the current directory to it.
 
 ```bash
 md hellodotnetcore
 cd hellodotnetcore
-``` 
+```
 
 Create a new .NET Core web app.
 
 ```bash
 dotnet new web
-``` 
+```
 
 ## Run the app locally
 
@@ -180,4 +180,4 @@ The left menu provides different pages for configuring your app.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Build a .NET Core and SQL Database web app in Azure Web App for Containers](tutorial-dotnetcore-sqldb-app.md)
+> [Build a .NET Core and SQL Database web app in Azure App Service on Linux](tutorial-dotnetcore-sqldb-app.md)
