@@ -38,7 +38,9 @@ Once the installation fails, review the installer.log to determine the cause.
 > The agent installation will fail if you select to use Microsoft Update and the Windows Update service is not running.
 
 ## Cloud Endpoint creation fails with the following error: "The specified Azure FileShare is already in use by a different CloudEndpoint"
-This issue occurs if the Azure File share is already in use by another Cloud Endpoint. If you're receiving this error and the Azure File share is not currently in use by a Cloud Endpoint, perform the following steps below to clear the Azure File Sync metadata on the Azure File share:
+This error occurs if the Azure File share is already in use by another Cloud Endpoint. 
+
+If you're receiving this error and the Azure File share is not currently in use by a Cloud Endpoint, perform the following steps below to clear the Azure File Sync metadata on the Azure File share:
 
 > [!Warning]  
 > Deleting the metadata on an Azure File share that is currently in use by a Cloud endpoint will cause Azure File Sync operations to fail. 
@@ -66,7 +68,7 @@ Reset-StorageSyncServer
 ```
 
 > [!Note]  
-> If the server is part of a cluster, there is an optional Reset-StorageSyncServer -CleanClusterRegistration parameter that will also remove the cluster registration. This switch should be used when the last node in the clstuer is unregistered.
+> If the server is part of a cluster, there is an optional `Reset-StorageSyncServer -CleanClusterRegistration` parameter that will also remove the cluster registration. This switch should be used when the last node in the cluster is unregistered.
 
 ## How to troubleshoot sync not working on a server
 If sync is failing on a server, perform the following:
