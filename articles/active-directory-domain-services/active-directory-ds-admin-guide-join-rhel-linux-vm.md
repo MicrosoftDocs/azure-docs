@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory Domain Services: Join a RHEL VM to a managed domain | Microsoft Docs'
-description: Join a Red Hat Enterprise Linux virtual machine to Azure AD Domain Services
+title: 'Azure Active Directory Domain Services: Join a RHEL or CentOS VM to a managed domain | Microsoft Docs'
+description: Join a Red Hat Enterprise Linux or CentOS virtual machine to Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
@@ -17,8 +17,8 @@ ms.date: 03/06/2017
 ms.author: maheshu
 
 ---
-# Join a Red Hat Enterprise Linux 7 virtual machine to a managed domain
-This article shows you how to join a Red Hat Enterprise Linux (RHEL) 7 virtual machine to an Azure AD Domain Services managed domain.
+# Join a Red Hat Enterprise Linux 7 and CentOS 7 virtual machine to a managed domain
+This article shows you how to join a Red Hat Enterprise Linux (RHEL) 7 or a CentOS 7.3 virtual machine to an Azure AD Domain Services managed domain or into an existing Active Directory Domain.
 
 ## Provision a Red Hat Enterprise Linux virtual machine
 Perform the following steps to provision a RHEL 7 virtual machine using the Azure portal.
@@ -89,7 +89,9 @@ After connecting to the virtual machine, the next task is to install packages re
 
     ![Install sssd](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-install-sssd.png)
 
-    After a few minutes, the sssd package should get installed on the virtual machine.
+
+
+After a few minutes, the sssd package should get installed on the virtual machine.
 
     ![realmd installed](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-sssd-installed.png)
 3. **Install kerberos:** In your PuTTY terminal, type the following command:
@@ -98,7 +100,8 @@ After connecting to the virtual machine, the next task is to install packages re
 
     ![Install kerberos](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-install-kerberos.png)
 
-    After a few minutes, the realmd package should get installed on the virtual machine.
+
+After a few minutes, the kerberos related packages should get installed on the virtual machine.
 
     ![Kerberos installed](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-kerberos-installed.png)
 
@@ -112,6 +115,7 @@ Now that the required packages are installed on the Linux virtual machine, the n
     ![Realm discover](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-realmd-discover.png)
 
     If **realm discover** is unable to find your managed domain, ensure that the domain is reachable from the virtual machine (try ping). Also ensure that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
+    
 2. Initialize kerberos. In your PuTTY terminal, type the following command. Ensure that you specify a user who belongs to the 'AAD DC Administrators' group. Only these users can join computers to the managed domain.
 
     kinit bob@CONTOSO100.COM
@@ -143,6 +147,11 @@ You can quickly verify whether the machine has been successfully joined to the m
 A sample output of these commands follows:
 
 ![Verify domain join](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-verify-domain-join.png)
+
+## CentOS
+This procedure can work with CentOS 7.3 as well, we just need to install some extra required dependencies with the following command:
+
+   sudo yum install oddjob oddjob-mkhomedir samba-common-tools 
 
 ## Troubleshooting domain join
 Refer to the [Troubleshooting domain join](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshooting-domain-join) article.
