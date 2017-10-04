@@ -164,7 +164,7 @@ public static Task<string> Run(WorkItem input, TraceWriter log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
     log.Info($"C# script processed queue message. Item={json}");
-    return json;
+    return Task.FromResult(json);
 }
 ```
 
