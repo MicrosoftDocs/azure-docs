@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/07/2017
+ms.date: 10/03/2017
 ms.author: glenga
 ms.custom: mvc
 ---
@@ -96,10 +96,12 @@ The following table summarizes the differences between Functions and WebJobs:
 | PowerShell |experimental |supported |
 | C# |supported |supported |
 | F# |supported |not supported |
+| JavaScript |supported |supported |
 | Bash |experimental |supported |
+| Java |supported | not supported |
 | PHP |experimental |supported |
 | Python |experimental |supported |
-| JavaScript |supported |supported |
+
 
 Whether to use Functions or WebJobs ultimately depends on what you're already doing with App Service. If you have an App Service 
 app for which you want to run code snippets, and you want to manage them together in the same DevOps environment, use WebJobs. In the following scenarios, use Functions.

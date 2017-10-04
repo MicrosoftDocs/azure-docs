@@ -267,8 +267,6 @@ For more information, see the following resources:
 * [F# Guide](/dotnet/articles/fsharp/index)
 * [Best Practices for Azure Functions](functions-best-practices.md)
 * [Azure Functions developer reference](functions-reference.md)
-* [Azure Functions C# developer reference](functions-reference-csharp.md)
-* [Azure Functions NodeJS developer reference](functions-reference-node.md)
 * [Azure Functions triggers and bindings](functions-triggers-bindings.md)
 * [Azure Functions testing](functions-test-a-function.md)
 * [Azure Functions scaling](functions-scale.md)
