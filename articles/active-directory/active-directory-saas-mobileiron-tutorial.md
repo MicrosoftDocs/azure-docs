@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/2/2017
+ms.date: 10/9/2017
 ms.author: jeedes
 
 ---
@@ -131,7 +131,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 8. Go to **Admin** > **Identity**.
 
-	a. Select **AAD** option in the **Info on Cloud IDP Setup** field.
+   * Select **AAD** option in the **Info on Cloud IDP Setup** field.
 
     ![Configure Single Sign-On Admin button](./media/active-directory-saas-mobileiron-tutorial/tutorial_mobileiron_admin.png)
 
@@ -201,7 +201,7 @@ In the case of MobileIron, provisioning is a manual task.
 
 	c. In **Last Name** text box, enter the last name of user like Simon.
 	
-	e. Click **Done**.	
+	d. Click **Done**.	
 
 ### Assign the Azure AD test user
 
