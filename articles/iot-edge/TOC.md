@@ -1,6 +1,6 @@
 # Overview
-## [Azure and IoT](../iot-hub/iot-hub-what-is-azure-iot.md)
-## [What is Azure IoT Edge?](iot-hub-what-is-iot-hub.md)
+## Azure and IoT
+## What is Azure IoT Edge?
 
 # Quick start
 ## Analyze data on the edge
