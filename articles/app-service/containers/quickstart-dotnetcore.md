@@ -81,7 +81,7 @@ git commit -m "first commit"
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)] 
 
-## Create a web app
+## Create a web app with built-in image
 
 Create a [web app](../app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#create) command. Don't forget to replace `<app name>` with a unique app name.
 
@@ -91,11 +91,11 @@ The runtime in the following command is set to `DOTNETCORE|1.1`. To see all supp
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --runtime "DOTNETCORE|1.1" --deployment-local-git
 ```
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-result.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-result.md)]
 
 ![Empty web app page](media/quickstart-dotnetcore/dotnet-browse-created.png)
 
-You’ve created an empty new web app in a Linux container, with git deployment enabled.
+You’ve created an empty new web app with built-in image, with git deployment enabled.
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -136,11 +136,11 @@ Browse to the deployed application using your web browser.
 http://<app_name>.azurewebsites.net
 ```
 
-The Node.js sample code is running in an Azure App Service web app.
+The Node.js sample code is running in an web app with built-in image.
 
 ![Sample app running in Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
-**Congratulations!** You've deployed your first Node.js app to App Service.
+**Congratulations!** You've deployed your first Node.js app to App Service on Linux.
 
 ## Update and redeploy the code
 
