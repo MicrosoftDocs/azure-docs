@@ -40,7 +40,7 @@ for value in accuracy_values:
     os.system('az ml experiment submit -c local ./log_accuracy.py {}'.format(value))
 ```
 
-Lastly, open the CLI through workbench, and run command `python run.py` which will submit four experiments. After the script finishes, you should see four more runs in the `Run History` tab.
+Lastly, open the CLI through workbench and run command `python run.py` which will submit four experiments. After the script finishes, you should see four more runs in the `Run History` tab.
 
 ## Querying the run history
 The first command finds the max accuracy value.
@@ -57,7 +57,8 @@ If you use Powershell, the code below will use local variables to store threshol
 ```powershell
 $threshold = 0.03
 $max_accuracy_value = az ml history list --query '@[?Accuracy != null] | max_by(@, &Accuracy).Accuracy'
-az ml history list --query '@[?Accuracy >= sum(`[{0}, -{1}]`) && ?Accuracy <= `{0}`] | sort_by(@, &duration)' -f $max_accuracy_value, $threshold
+$find_runs_query = '@[?Accuracy >= sum(`[{0}, -{1}]`) && Accuracy < `{0}`] | sort_by(@, &duration)' -f $max_accuracy_value, $threshold
+az ml history list --query $find_runs_query
 ```
 
 ## Next steps
