@@ -40,6 +40,9 @@
 ### [Weibo](active-directory-b2c-setup-weibo-app.md)
 ### [QQ](active-directory-b2c-setup-qq-app.md)
 ### [WeChat](active-directory-b2c-setup-wechat-app.md)
+## [Set up self-service password reset](active-directory-b2c-reference-sspr.md)
+## [Customizing the UI](active-directory-b2c-reference-ui-customization.md)
+### [Helper tool for customization](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Use the Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md)
 ## [Obtain access tokens](active-directory-b2c-access-tokens.md)
 ## [Disable email verification](active-directory-b2c-reference-disable-ev.md)
@@ -47,11 +50,9 @@
 ## [Enable MFA](active-directory-b2c-reference-mfa.md)
 ## [Use custom attributes](active-directory-b2c-reference-custom-attr.md)
 ## [Customize password](active-directory-b2c-reference-password-complexity.md)
-## [Customizing the UI](active-directory-b2c-reference-ui-customization.md)
-### [Helper tool for customization](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Language customization](active-directory-b2c-reference-language-customization.md)
 ## [Use the reporting API](active-directory-b2c-reference-usage-reporting-api.md)
-## [Set up self-service password reset](active-directory-b2c-reference-sspr.md)
+## [Migrate Users](active-directory-b2c-user-migration)
 
 # Identity Experience Framework
 ## [Custom policies](active-directory-b2c-overview-custom.md)
@@ -76,6 +77,7 @@
 #### [Configure user input](active-directory-b2c-configure-signup-self-asserted-custom.md)
 #### [Custom attributes](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [Customize UI](active-directory-b2c-ui-customization-custom.md)
+#### [Customize UI Dynamically](active-directory-b2c-ui-customization-custom-dynamic.md)
 #### [Customize tokens](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
 #### [Password complexity](active-directory-b2c-reference-password-complexity-custom.md)
 
