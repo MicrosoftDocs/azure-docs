@@ -137,7 +137,7 @@ This section describes how to build your own Service Bus Geo-disaster recovery c
 
     var accessKeys = client.Namespaces.ListKeys(resourceGroupName, geoDRPrimaryNS, "RootManageSharedAccessKey");
     var aliasPrimaryConnectionString = accessKeys.AliasPrimaryConnectionString;
-    var aliasSecondaryConnectionString = accessKeys.AliasPrimaryConnectionString;
+    var aliasSecondaryConnectionString = accessKeys.AliasSecondaryConnectionString;
     ```
 
 You have successfully set up two paired namespaces. Now you can create entities to observe the metadata synchronization. If you want to perform a failover immediately afterwards, you should allow some time for the metadata to synchronize. You can add a short sleep time, for example:
