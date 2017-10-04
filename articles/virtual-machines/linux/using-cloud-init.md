@@ -4,7 +4,7 @@ description: How to use cloud-init to customize a Linux VM during creation with 
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -18,8 +18,8 @@ ms.date: 10/03/2017
 ms.author: iainfou
 
 ---
-# Use cloud-init to customize a Linux VM in Azure during creation
-This article shows you how to make a cloud-init script to set the hostname, update installed packages, and manage user accounts with the Azure CLI 2.0. The cloud-init scripts are called when you create a virtual machine (VM) from Azure CLI. For a more in-depth overview on installing applications, writing configuration files, and injecting keys from Key Vault, see [this tutorial](tutorial-automate-vm-deployment.md). You can also perform these steps with the [Azure CLI 1.0](using-cloud-init-nodejs.md).
+# Use cloud-init to customize a Linux VM in Azure
+This article shows you how to use [cloud-init](https://cloudinit.readthedocs.io) to set the hostname, update packages, and manage user accounts on a virtual machine (VM) in Azure. These cloud-init scripts run on boot when you create a VM with the Azure CLI 2.0. For a more in-depth overview on how to install applications, write configuration files, and inject keys from Key Vault, see [this tutorial](tutorial-automate-vm-deployment.md). You can also perform these steps with the [Azure CLI 1.0](using-cloud-init-nodejs.md).
 
 
 ## Cloud-init overview
@@ -39,7 +39,7 @@ We are working with our partners to get cloud-init included and working in the i
 ## Set the hostname with cloud-init
 Cloud-init files are written in [YAML](http://www.yaml.org). To run a cloud-init script when you create a VM in Azure with [az vm create](/cli/azure/vm#create), specify the cloud-init file with the `--custom-data` switch. Let's look at some examples of what you can configure with a cloud-init file. A common scenario is to set the hostname of a VM. By default, the hostname is the same as the VM name. 
 
-First, create a resource group to launch VMs into with [az group create](/cli/azure/group#create). The following example creates the resource group named *myResourceGroup* in the *eastus* location:
+First, create a resource group with [az group create](/cli/azure/group#create). The following example creates the resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -57,7 +57,7 @@ Now, create a VM with [az vm create](/cli/azure/vm#create) and specify the cloud
 ```azurecli
 az vm create \
     --resource-group myResourceGroup \
-    --name myVM \
+    --name myVMHostname \
     --image UbuntuLTS \
     --admin-username azureuser \
     --generate-ssh-keys \
@@ -79,11 +79,11 @@ hostname
 The VM should report the hostname as that value set in the cloud-init file, as shown in the following example output:
 
 ```bash
-$ myservername
+myhostname
 ```
 
 ## Update a VM with cloud-init
-For security purposes, you may configure a VM to apply the latest updates on the first boot. As cloud-init works across different Linux distros, you don't specify `apt` or `yum` for the package manager. Instead, you define `package_upgrade` and let the cloud-init process determine the appropriate mechanism for the distro that you use. This workflow allows you to use the same cloud-init scripts across distros.
+For security purposes, you may want to configure a VM to apply the latest updates on first boot. As cloud-init works across different Linux distros, there is no need to specify `apt` or `yum` for the package manager. Instead, you define `package_upgrade` and let the cloud-init process determine the appropriate mechanism for the distro in use. This workflow allows you to use the same cloud-init scripts across distros.
 
 To see upgrade process in action, create a cloud-init file named *cloud_init_upgrade.txt* and paste the following configuration:
 
@@ -97,7 +97,7 @@ Now, create a VM with [az vm create](/cli/azure/vm#create) and specify the cloud
 ```azurecli
 az vm create \
     --resource-group myResourceGroup \
-    --name myVM \
+    --name myVMUpgrade \
     --image UbuntuLTS \
     --admin-username azureuser \
     --generate-ssh-keys \
@@ -123,20 +123,18 @@ Reading package lists... Done
 Building dependency tree
 Reading state information... Done
 Calculating upgrade... Done
-The following packages have been kept back:
-  linux-generic linux-headers-generic linux-image-generic
 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
 ```
 
 ## Add a user to a VM with cloud-init
-One of the first tasks on any new Linux VM is to add a user for yourself or to avoid using *root*. SSH keys are best practice for security and for usability and they are added to the *~/.ssh/authorized_keys* file with this cloud-init script.
+One of the first tasks on any new Linux VM is to add a user for yourself to avoid the use of *root*. SSH keys are best practice for security and usability. Keys are added to the *~/.ssh/authorized_keys* file with this cloud-init script.
 
-To add a user to a Linux VM, create a cloud-init file named *cloud_init_add_user.txt* and paste the following configuration. Provide your own public key (such as the contents of *~/.ssh/id_rsa.pub) for *ssh-authorized-keys*:
+To add a user to a Linux VM, create a cloud-init file named *cloud_init_add_user.txt* and paste the following configuration. Provide your own public key (such as the contents of *~/.ssh/id_rsa.pub*) for *ssh-authorized-keys*:
 
 ```yaml
 #cloud-config
 users:
-  - name: myAdminUser
+  - name: myadminuser
     groups: sudo
     shell: /bin/bash
     sudo: ['ALL=(ALL) NOPASSWD:ALL']
@@ -149,7 +147,7 @@ Now, create a VM with [az vm create](/cli/azure/vm#create) and specify the cloud
 ```azurecli
 az vm create \
     --resource-group myResourceGroup \
-    --name myVM \
+    --name myVMUser \
     --image UbuntuLTS \
     --admin-username azureuser \
     --generate-ssh-keys \
@@ -159,7 +157,7 @@ az vm create \
 SSH to the public IP address of your VM shown in the output from the preceding command. Enter your own public IP address as follows:
 
 ```bash
-ssh azureuser@publicIpAddress
+ssh myadminuser@publicIpAddress
 ```
 
 To confirm your user was added to the VM and the specified groups, view the contents of the */etc/group* file as follows:
@@ -173,9 +171,9 @@ The following example output shows the user from the *cloud_init_add_user.txt* f
 ```bash
 root:x:0:
 <snip />
-sudo:x:27:myAdminUser
+sudo:x:27:myadminuser
 <snip />
-myAdminUser:x:1000:
+myadminuser:x:1000:
 ```
 
 ## Next steps
