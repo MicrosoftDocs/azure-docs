@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2017
+ms.date: 10/09/2017
 ms.author: jeedes
 
 ---
@@ -106,20 +106,16 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Schoox Domain and URLs single sign-on information](./media/active-directory-saas-schoox-tutorial/tutorial_schoox_url.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.schoox.com/saml/adfsmetadata`
-
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<subdomain>.schoox.com/saml/SAML2/POST`
+    In the **Identifier** textbox, type a URL : `https://saml.schoox.com/saml/adfsmetadata`
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
 	![Schoox Domain and URLs single sign-on information](./media/active-directory-saas-schoox-tutorial/tutorial_schoox_url1.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.schoox.com/saml/login?idpUrl=<entityID>`
-	 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [Schoox Client support team](https://www.schoox.com/help/) to get these values. 
-
-
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://saml.schoox.com/saml/login?idpUrl=<entityID>`
+	
+	> [!Note]
+	> `<entityID>` is the SAML Entity ID of the IdP. 
 
 5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
