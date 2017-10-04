@@ -64,7 +64,7 @@ It is a good idea to check how your data is distributed in partitions. To check 
 
 ![Resource partitioning](./media/partition-data/partitionkey-example.png)
 
-The above left picture is showing a bad partition key and the right image is showing a result of a good partition key. In left image, you can see the data is not evenly distributed among partitions. You should strive to distribtute your data so graph loosk similar to right image.
+The above left picture is showing a bad partition key and the right image is showing a result of a good partition key. In left image, you can see the data is not evenly distributed among partitions. You should strive to distribtute your data so graph looks similar to right image.
 
 ## Partitioning and provisioned throughput
 Azure Cosmos DB is designed for predictable performance. When you create a container, you reserve throughput in terms of *[request units](request-units.md) (RU) per second*. Each request is assigned a RU charge that is proportionate to the amount of system resources like CPU, memory, and IO consumed by the operation. A read of a 1-KB document with session consistency consumes 1 RU. A read is 1 RU regardless of the number of items stored or the number of concurrent requests running at the same time. Larger items require higher RUs depending on the size. If you know the size of your entities and the number of reads you need to support for your application, you can provision the exact amount of throughput required for your application's read needs. 
