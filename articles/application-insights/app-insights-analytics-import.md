@@ -363,4 +363,4 @@ Use this code for each blob.
 ## Next steps
 
 * [Tour of the Log Analytics query language](app-insights-analytics-tour.md)
-* [Use *Logstash* to send data to Application Insights](https://github.com/Microsoft/logstash-output-application-insights)
+* If you're using Logstash, use the [Logstash pluggin to send data to Application Insights](https://github.com/Microsoft/logstash-output-application-insights)

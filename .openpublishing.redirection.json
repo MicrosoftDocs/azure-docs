@@ -11306,6 +11306,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/container-service/kubernetes/container-service-connect.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-kubernetes-walkthrough",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cosmos-db/request-units-per-minute.md",
             "redirect_url": "/azure/cosmos-db/request-units",
             "redirect_document_id": false
@@ -13518,6 +13523,11 @@
         {
             "source_path": "articles/power-bi-embedded-whats-new.md",
             "redirect_url": "/azure/power-bi-workspace-collections/whats-new",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/functions-java-refernece.md",
+            "redirect_url": "/azure/azure-functions/functions-java-reference",
             "redirect_document_id": false
         }
     ]
