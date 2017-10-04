@@ -66,7 +66,7 @@ Use Windows PowerShell for StorSimple to apply maintenance mode updates to your 
 
     `Start-HcsUpdate`
 
-    You will be prompted for confirmation. After you confirm the updates, they will be installed on the controller that you are currently accessing. After the updates are installed, the controller will restart.
+    You will be prompted for confirmation. After you confirm the updates, they are installed on the controller that you are currently accessing. After the updates are installed, the controller restarts.
 
 4. Monitor the status of updates. Type:
 
@@ -76,11 +76,20 @@ Use Windows PowerShell for StorSimple to apply maintenance mode updates to your 
 
 5. When the update is installed on the current controller and it has restarted, connect to the other controller and repeat steps 1 through 4.
 
-4. Exit the maintenance mode. To do so, type the following command for each device controller:
+6. Exit the maintenance mode. To do so, type the following command for each device controller:
 
     `Exit-HcsMaintenanceMode`
 
-    The controllers restart when you exit maintenance mode. After the disk firmware updates are successfully applied and the device has exited maintenance mode, return to the Azure portal. Note that the portal might not show that you installed the maintenance mode updates for 24 hours.
+    The controllers restart when you exit maintenance mode. 
+
+7. After the disk firmware updates are successfully applied and the device has exited maintenance mode, log in as option 1 with full access and verify the disk firmware version. Type:
+
+    `Get-HcsFirmwareVersion`
+   
+    The expected disk firmware versions are:
+    `XMGJ, XGEG, KZ50, F6C2, VR08, N003, 0107`
+    
+8. Return to the Azure portal. Note that the portal might not show that you installed the maintenance mode updates for 24 hours.
 
 ## Install Update 5 as a hotfix
 
