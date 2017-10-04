@@ -290,7 +290,7 @@ Listing the images in the registry confirms that `mydockerimage` is in the regis
 
 ## Create Web App for Containers
 
-You can host native Linux applications in the cloud by using Azure Web Apps. To create a Web App for Containers, you must run Azure CLI commands that create a group, then a service plan, and finally the web app itself. First, run the [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) command, and pass in a location and unique name.
+You can host native Linux applications in the cloud by using Web App for Containers. To create a Web App for Containers, you must run Azure CLI commands that create a group, then a service plan, and finally the web app itself. First, run the [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) command, and pass in a location and unique name.
 
 ```azurecli-interactive
 az group create --location "West Europe" --name myResourceGroup
@@ -439,7 +439,7 @@ A successful configuration change returns general information about the containe
 
 ## [Private Registry](#tab/private-registry)
 
-You can configure web apps on Linux so that they run a container stored in the Azure Container Registry. Using the Azure Container Registry is just like using any private registry, so if you need to use your own private registry, the steps to complete this task will be similar.
+You can configure Web App for Containers so that they run a container stored in the Azure Container Registry. Using the Azure Container Registry is just like using any private registry, so if you need to use your own private registry, the steps to complete this task will be similar.
 
 The [az acr credential show](https://docs.microsoft.com/cli/azure/acr/credential#az_acr_credential_show) command displays the passwords for the container registry. Copy the username and one of the passwords so you can use it to configure the web app in the next step.
 
@@ -542,7 +542,7 @@ SSH enables secure communication between a container and a client. In order for 
 * A [COPY](https://docs.docker.com/engine/reference/builder/#copy) instruction that instructs the Docker engine to copy the [sshd_config](http://man.openbsd.org/sshd_config) file to the */etc/ssh/* directory. Your configuration file should be based on our [sshd_config file](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config) in the Azure-App-Service GitHub repository.
 
     > [!NOTE]
-    > The *sshd_config* file must include the following items: 
+    > The *sshd_config* file must include the following items:
     > * `Ciphers` must include at least one item in this list: `aes128-cbc,3des-cbc,aes256-cbc`.
     > * `MACs` must include at least one item in this list: `hmac-sha1,hmac-sha1-96`.
 

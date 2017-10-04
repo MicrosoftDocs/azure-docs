@@ -67,7 +67,7 @@ In this step, you set up the local Python Flask project.
 
 ### Clone the sample application
 
-Open the terminal window, and `CD` to a working directory.  
+Open the terminal window, and `CD` to a working directory.
 
 Run the following commands to clone the sample repository and go to the *0.1-initialapp* release.
 
