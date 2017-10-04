@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/15/2017
+ms.date: 10/04/2017
 ms.author: terrylan
 
 ---
@@ -58,7 +58,7 @@ Select the **Just in time VM access** tile and **Just in time VM access** opens.
 **Just in time VM access** provides information on the state of your VMs:
 
 - **Configured** - VMs that have been configured to support just in time VM access. The data presented is for the last week and includes for each VM the number of approved requests, last access date and time, and last user.
-- **Recommended** - VMs that can support just in time VM access but have not been configured to. We recommend that you enable just in time VM access control for these VMs. See [Enable just in time VM access](#enable-just-in-time-vm-access).
+- **Recommended** - VMs that can support just in time VM access but have not been configured to. We recommend that you enable just in time VM access control for these VMs. See [Configuring a just in time access policy](#configuring-a-just-in-time-access-policy).
 - **No recommendation** - Reasons that can cause a VM not to be recommended are:
   - Missing NSG - The just in time solution requires an NSG to be in place.
   - Classic VM - Security Center just in time VM access currently supports only VMs deployed through Azure Resource Manager. A classic deployment is not supported by the just in time solution.
