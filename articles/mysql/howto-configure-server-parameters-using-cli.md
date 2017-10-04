@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 10/03/2017
 ---
 # Customize server configuration parameters using Azure CLI
-You can list, show, and update configuration parameters for an Azure MySQL server using Azure CLI, the Azure command line utility. A subset of engine configurations is exposed at server-level and can be modified. 
+You can list, show, and update configuration parameters for an Azure MySQL server using Azure CLI, the Azure command-line utility. A subset of engine configurations is exposed at server-level and can be modified. 
 
 ## Prerequisites
 To step through this how-to guide, you need:
 - A server and database [Create an Azure Database for MySQL](quickstart-create-server-database-azure-cli.md)
-- [Azure CLI 2.0](/cli/azure/install-azure-cli) command line utility or use the Azure Cloud Shell in the browser.
+- [Azure CLI 2.0](/cli/azure/install-azure-cli) command-line utility or use the Azure Cloud Shell in the browser.
 
 ## List server configuration parameters for Azure Database for MySQL server
 To list all modifiable parameters in a server and their values, run the [az mysql server configuration list](/cli/azure/mysql/server/configuration#list) command.
