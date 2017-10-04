@@ -119,10 +119,14 @@ The following examples illustrate simple and complex filters. For more detail, s
    search=*&$filter=tags/any(t: t eq 'ocean') 
   ```
 
-+ Multiple expressions, evaluated individually, with results from each one combined into a single response. The search.ismatch function is a query-plus-filter structure that can be replicated into one query for disjoint documents. You can use the non-scored version (search.ismatch) or the scored version (search.ismatchscoring).
++ Multiple OR'd expressions, evaluated individually, with responses from each one combined into a single result. The search.ismatch function is a query-plus-filter structure that can be repeated multiple times in one query. You can use the non-scored version (search.ismatch) or the scored version (search.ismatchscoring).
 
    ```
+   # Match on hostels rated higher than 4 OR 5-star motels
    $filter=search.ismatchscoring('hostel') and rating ge 4 or search.ismatchscoring('motel') and rating eq 5
+
+   # Match on 'luxury' or 'high-end' in the description field OR on category exactly equal to 'Luxury'
+   $filter=search.ismatchscoring('luxury | high-end', 'description') or category eq 'Luxury'
    ```
 
 Follow up with these articles for comprehensive guidance on specific use cases:
