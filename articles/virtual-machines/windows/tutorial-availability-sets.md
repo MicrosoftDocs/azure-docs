@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 10/03/2017
 ms.author: cynthn
 ms.custom: mvc
 ---
@@ -156,6 +156,10 @@ for ($i=1; $i -le 2; $i++)
 ```
 
 It takes a few minutes to create and configure both VMs. When finished, you'll have 2 virtual machines distributed across the underlying hardware. 
+
+If you look at the availability set in the portal by going to Resource Groups > myResourceGroupAvailability > myAvailabilitySet you should see how the VMs are distributed across the 2 fault and update domains.
+
+![Availability set in the portal](../media/tutorial-availability-sets/fd-ud.png)
 
 ## Check for available VM sizes 
 

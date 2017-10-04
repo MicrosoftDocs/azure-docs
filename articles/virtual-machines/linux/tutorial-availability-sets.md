@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/29/2017
+ms.date: 10/03/2017
 ms.author: cynthn
 ms.custom: mvc
 ---
@@ -88,6 +88,10 @@ done
 ```
 
 We now have two virtual machines within our newly created availability set. Because they are in the same availability set, Azure ensures that the VMs and all their resources (including data disks) are distributed across isolated physical hardware. This distribution helps ensure much higher availability of our overall VM solution.
+
+If you look at the availability set in the portal by going to Resource Groups > myResourceGroupAvailability > myAvailabilitySet you should see how the VMs are distributed across the 2 fault and update domains.
+
+![Availability set in the portal](../media/tutorial-availability-sets/fd-ud.png)
 
 ## Check for available VM sizes 
 
