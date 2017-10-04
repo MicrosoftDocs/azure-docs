@@ -135,4 +135,4 @@ If you'd like more information about how the Durable Task Framework executes orc
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about instance management](durable-functions-instance management.md)
+> [Learn about instance management](durable-functions-instance-management.md)

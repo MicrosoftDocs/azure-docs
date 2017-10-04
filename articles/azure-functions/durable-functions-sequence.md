@@ -20,7 +20,9 @@ ms.author: cgillum
 
 Function chaining refers to the pattern of executing a sequence of functions in a particular order. Often the output of one function needs to be applied to the input of another function. This article explains a sample that uses [Durable Functions](durable-functions-overview.md) to implement function chaining.
 
-[!INCLUDE [durable-functions-sample-setup](../../includes/durable-functions-sample-setup.md)]
+## Prerequisites
+
+* Follow the instructions in [Install Durable Functions](durable-functions-install.md) to set up the sample.
 
 ## The functions
 
@@ -31,7 +33,7 @@ This article explains the following functions in the sample app:
 
 Here's the content of the *function.json* file for the orchestrator function. Most orchestrator *function.json* files look almost exactly like this.
 
-[!code-json[Main](samples-durable-functions/samples/csx/E1_HelloSequence/function.json)]
+[!code-json[Main](~/samples-durable-functions/samples/csx/E1_HelloSequence/function.json)]
 
 The important thing is the `orchestrationTrigger` binding type. All orchestrator functions must use this trigger type.
 

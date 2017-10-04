@@ -21,23 +21,11 @@ This sample demonstrates how to build a function orchestration that involves hum
 
 This sample in particular implements an SMS-based phone verification system. These types of flows are often used when verifying a customer's phone number of when incorporating multi-factor authentication (MFA) into an online authentication system. This is a powerful example because the entire implementation is done using a couple small functions and does not require any external data store, like a database.
 
-## Before you begin
-If you haven't done so already, make sure to read the [overview](~/articles/overview.md) before jumping into samples. It will really help ensure everything you read below makes sense.
+## Prerequisites
 
-All samples are combined into a single function app package. To get started with the samples, follow the setup steps below that are relevant for your development environment:
+* Follow the instructions in [Install Durable Functions](durable-functions-install.md) to set up the sample.
 
-### For Visual Studio Development (Windows Only)
-1. Download the [VSDFSampleApp.zip](~/files/VSDFSampleApp.zip) package, unzip the contents, and open in Visual Studio 2017 (version 15.3).
-2. Install and run the [Azure Storage Emulator](https://docs.microsoft.com/en-us/azure/storage/storage-use-emulator). Alternatively, you can update the `local.appsettings.json` file with real Azure Storage connection strings.
-3. The sample can now be run locally via F5. It can also be published directly to Azure and run in the cloud (note that you'll need to manually replicate your local Twilio app settings to Azure).
-
-### For Azure Portal Development
-1. Create a new function app at https://functions.azure.com/signin.
-2. Follow the [installation instructions](~/articles/installation.md) to configure Durable Functions.
-3. Download the [DFSampleApp.zip](~/files/DFSampleApp.zip) package.
-4. Unzip the sample package file into `D:\home\site\wwwroot` using Kudu or FTP.
-
-The code snippets and binding references below are specific to the portal experience, but have a direct mapping to the equivalent Visual Studio development experience.
+## The functions
 
 This article will specifically walk through the following function in the sample app:
 

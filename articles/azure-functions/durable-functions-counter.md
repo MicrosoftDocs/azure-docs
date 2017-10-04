@@ -21,23 +21,11 @@ Stateful singletons are long-running (potentially eternal) orchestrator function
 
 While not a proper "actor" implementation, orchestrator functions have many of the same runtime characteristics (stateful, reliable, single-threaded, location transparent, globally addressable, etc.) that make real actor implementations especially useful, but without the need for a separate framework. The below example is a simple *counter* singleton object which supports *increment* and *decrement* operations and updates its internal state accordingly.
 
-## Before you begin
-If you haven't done so already, make sure to read the [overview](~/articles/overview.md) before jumping into samples. It will really help ensure everything you read below makes sense.
+## Prerequisites
 
-All samples are combined into a single function app package. To get started with the samples, follow the setup steps below that are relevant for your development environment:
+* Follow the instructions in [Install Durable Functions](durable-functions-install.md) to set up the sample.
 
-### For Visual Studio Development (Windows Only)
-1. Download the [VSDFSampleApp.zip](~/files/VSDFSampleApp.zip) package, unzip the contents, and open in Visual Studio 2017 (version 15.3).
-2. Install and run the [Azure Storage Emulator](https://docs.microsoft.com/en-us/azure/storage/storage-use-emulator). Alternatively, you can update the `local.appsettings.json` file with real Azure Storage connection strings.
-3. The sample can now be run locally via F5. It can also be published directly to Azure and run in the cloud.
-
-### For Azure Portal Development
-1. Create a new function app at https://functions.azure.com/signin.
-2. Follow the [installation instructions](~/articles/installation.md) to configure Durable Functions.
-3. Download the [DFSampleApp.zip](~/files/DFSampleApp.zip) package.
-4. Unzip the sample package file into `D:\home\site\wwwroot` using Kudu or FTP.
-
-The code snippets and binding references below are specific to the portal experience, but have a direct mapping to the equivalent Visual Studio development experience.
+## The sample function
 
 This article will specifically walk through the following function in the sample app:
 
@@ -56,7 +44,7 @@ Durable Functions makes this kind of scenario trivial to implement because orche
 ## The counter orchestration
 Here is the code which implements the orchestrator function:
 
-[!code-csharp[Main](~/../samples/precompiled/Counter.cs)]
+[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Counter.cs)]
 
 This orchestrator function essentially does the following:
 

@@ -295,9 +295,12 @@ Lastly, table storage is used to store the execution history for orchestrator ac
 > [!WARNING]
 > While it's easy and convenient to see execution history in table storage, you should avoid taking any dependency on this table, as the specifics of its usage may change prior to the general availability of the Durable Functions extension.
 
+## Known issues and FAQ
+
+In general, all known issues should be tracked in the [GitHub issues](https://github.com/Azure/azure-functions-durable-extension/issues) list. If you run into a problem and can't find the issue in GitHub, open a new issue and include a detailed description of the problem. Even if you simply want to ask a question, feel free to open a GitHub issue and tag it as a question.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Install the Durable Functions extension](durable-functions-install.md)
-
 

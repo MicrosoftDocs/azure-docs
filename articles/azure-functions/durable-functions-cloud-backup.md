@@ -20,10 +20,10 @@ ms.author: cgillum
 
 Fan-in/fan-out refers to the pattern of executing multiple functions concurrently and then performing some aggregation on the results. This article explains a sample that uses [Durable Functions](durable-functions-overview.md) to implement a fan-in/fan-out scenario. The sample is a durable function that backs up all or some of an app's site content into Azure Storage.
 
-[!INCLUDE [durable-functions-sample-setup](../../includes/durable-functions-sample-setup.md)]
+## Prerequisites
 
-> [!NOTE]
-> This article assumes you have already gone through the [Hello Sequence](durable-functions-sequence.md) sample walkthrough.
+* Follow the instructions in [Install Durable Functions](durable-functions-install.md) to set up the sample.
+* This article assumes you have already gone through the [Hello Sequence](durable-functions-sequence.md) sample walkthrough.
 
 ## Scenario overview
 

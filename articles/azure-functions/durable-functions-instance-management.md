@@ -17,19 +17,21 @@ ms.author: cgillum
 ---
 
 # Manage instances in Durable Functions
-Durable Function orchestration instances can be started, terminated, queried, and sent notification events. All instance management is done using the orchestration client binding. More details on this binding can be found in the [Bindings](./bindings.md) topic. This article goes into the details of each of the instance management operations.
+
+[Durable Functions](durable-functions-overview.md) orchestration instances can be started, terminated, queried, and sent notification events. All instance management is done using the orchestration client binding. This article goes into the details of each instance management operation.
 
 ## Starting instances
-The <xref:Microsoft.Azure.WebJobs.DurableOrchestrationClient.StartNewAsync*> method on the <xref:Microsoft.Azure.WebJobs.DurableOrchestrationClient> class can be used to start a new instances of an orchestrator function. Instances of this class can be acquired using the `orchestrationClient` binding. Internally, this method will enqueue a message into the control queue, which will then trigger the start of a function with the specified name which uses the `orchestrationTrigger` trigger binding.
 
-The supported parameters are as follows:
+The [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) method on the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) starts a new instance of an orchestrator function. Instances of this class can be acquired using the `orchestrationClient` binding. Internally, this method enqueues a message into the control queue, which then triggers the start of a function with the specified name that uses the `orchestrationTrigger` trigger binding.
+
+The parameters are as follows:
+
 * **Name**: The name of the orchestrator function to schedule.
 * **Input**: Any JSON-serializable data which should be passed as the input to the orchestrator function.
 * **InstanceId**: (Optional) The unique ID of the instance. If not specified, a random instance ID will be generated.
 
 Here is a simple C# example:
 
-__C# example__
 ```csharp
 [FunctionName("HelloWorldManualStart")]
 public static Task Run(
@@ -44,7 +46,6 @@ public static Task Run(
 
 For non-.NET languages, the function output binding can be used to start new instances as well. In this case, any JSON-serializable object which has the above three parameters as fields can be used. For example, consider the following Node.js function:
 
-__Node.js example__
 ```js
 module.exports = function (context, input) {
     var id = generateSomeUniqueId();
@@ -59,10 +60,11 @@ module.exports = function (context, input) {
 ```
 
 > [!NOTE]
-> It is generally recommended that you use a random identifier for the instance ID. This will help ensure an equal load distribution when scaling orchestrator functions across multiple VMs.
+> It is generally recommended that you use a random identifier for the instance ID. This will help ensure an equal load distribution when scaling orchestrator functions across multiple VMs. The proper time to use non-random instance IDs is when the ID must come from an external source or when implementing the [singleton orchestrator](durable-functions-singletons.md) pattern.
 
 ## Querying instances
-The <xref:Microsoft.Azure.WebJobs.DurableOrchestrationClient.GetStatusAsync*> method on the <xref:Microsoft.Azure.WebJobs.DurableOrchestrationClient> class can be used to query the status of an orchestration instance. It takes an `instanceId` as a parameter and returns an object with the following properties:
+
+The [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_) method on the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) class queries the status of an orchestration instance. It takes an `instanceId` as a parameter and returns an object with the following properties:
 
 * **Name**: The name of the orchestrator function.
 * **InstanceId**: The instance ID of the orchestration (should be the same as the `instanceId` input).
@@ -79,7 +81,6 @@ The <xref:Microsoft.Azure.WebJobs.DurableOrchestrationClient.GetStatusAsync*> me
     
 This method returns `null` if the instance either doesn't exist or has not yet started running.
 
-__C# example__
 ```csharp
 [FunctionName("GetStatus")]
 public static async Task Run(
@@ -95,9 +96,9 @@ public static async Task Run(
 > Instance query is currently only supported for C# functions.
 
 ## Terminating instances
-A running instance can be terminated using the <xref:Microsoft.Azure.WebJobs.DurableOrchestrationClient.TerminateAsync*> method of the <xref:Microsoft.Azure.WebJobs.DurableOrchestrationClient> class. The two parameters are an `instanceId` and a `reason` string, which will be written to logs and to the instance status. A terminated instance will stop running as soon as it reaches the next `await` point, or will terminate immediately if it is already on an `await`.
 
-__C# example__
+A running instance can be terminated using the [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) method of the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) class. The two parameters are an `instanceId` and a `reason` string, which will be written to logs and to the instance status. A terminated instance will stop running as soon as it reaches the next `await` point, or it will terminate immediately if it is already on an `await`.
+
 ```csharp
 [FunctionName("TerminateInstance")]
 public static Task Run(
@@ -113,13 +114,13 @@ public static Task Run(
 > Instance termination is currently only supported for C# functions.
 
 ## Sending events to instances
-Event notifications can be sent to running instances using the <xref:Microsoft.Azure.WebJobs.DurableOrchestrationClient.RaiseEventAsync*> method of the <xref:Microsoft.Azure.WebJobs.DurableOrchestrationClient> class. Instances that can handle these events are those are awaiting on a call to <xref:Microsoft.Azure.WebJobs.DurableOrchestrationContext.WaitForExternalEvent*. The inputs are:
+
+Event notifications can be sent to running instances using the [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) method of the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) class. Instances that can handle these events are those that are awaiting a call to [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_). The inputs are:
 
 * **InstanceId**: The unique ID of the instance.
 * **EventName**: The name of the event to send.
 * **EventData**: A JSON-serializable payload to send to the instance.
 
-__C# example__
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
 
@@ -137,4 +138,12 @@ public static Task Run(
 > Raising events is currently only supported for C# functions.
 
 > [!WARNING]
-> Instances can only process events when they are awaiting on a call to <xref:Microsoft.Azure.WebJobs.DurableOrchestrationContext.WaitForExternalEvent*>. If an instance is not waiting on this call, then the event will be dropped. [This GitHub issue](https://github.com/Azure/azure-functions-durable-extension/issues/29) tracks this current behavior.
+> If there is no orchestration instance with the specified *instance ID* or if the instance is not waiting on the specified *event name*, the event message is discarded. For more information about this behavior, see the [GitHub issue](https://github.com/Azure/azure-functions-durable-extension/issues/29).
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Learn more about the orchestration client binding](durable-functions-bindings.md)
+
+> [!div class="nextstepaction"]
+> [Learn how to handle errors](durable-functions-error-handling.md)

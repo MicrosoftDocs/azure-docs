@@ -115,7 +115,7 @@ If you're using the Azure portal for development, the activity trigger is define
 ```
 
 * `activity` is the name of the activity. This is the value that orchestrator functions use to invoke this activity function. This property is optional. If not specified, the name of the function is used.
-* `version` is a version label of the activity. Orchestrator functions that invoke an activity must include the matching version label. This property is optional. If not specified, the empty string is used. For more information on versioning, see the [Versioning](durable-functons-versioning.md) topic.
+* `version` is a version label of the activity. Orchestrator functions that invoke an activity must include the matching version label. This property is optional. If not specified, the empty string is used. For more information on versioning, see the [Versioning](durable-functions-versioning.md) topic.
 
 > [!NOTE]
 > Setting values for `activity` or `version` properties is not recommended at this time.
@@ -279,7 +279,7 @@ module.exports = function (context, input) {
 };
 ```
 
-More details on starting instances can be found in the [Instance Management](./instance-management.md) topic.
+More details on starting instances can be found in the [Instance Management](durable-functions-instance-management.md) topic.
 
 ## Next steps
 

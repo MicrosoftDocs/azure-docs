@@ -22,7 +22,7 @@ There are several options for diagnosing issues with [Durable Functions](durable
 
 ## Application Insights
 
-[Application Insights](../application-insights/app-insights-overview.md) is the recommended way to do diagnostics and monitoring in Azure Functions. The same applies to Durable Functions. For an overview of how to leverage Application Insights in your function app, see [Monitor Azure Functions](functions-monitoring).
+[Application Insights](../application-insights/app-insights-overview.md) is the recommended way to do diagnostics and monitoring in Azure Functions. The same applies to Durable Functions. For an overview of how to leverage Application Insights in your function app, see [Monitor Azure Functions](functions-monitoring.md).
 
 The Azure Functions Durable Extension also emits *tracking events* which allow you to trace the end-to-end execution of an orchestration. These can be found and queried using the [Application Insights Analytics](../application-insights/app-insights-analytics.md) tool in the Azure portal.
 
@@ -64,11 +64,11 @@ The verbosity of tracking data emitted to Application Insights can be configured
 By default, all tracking events are emitted. The volume of data can be reduced by setting `Host.Triggers.DurableTask` to `"Warning"` or `"Error"` in which case tracking events will only be emitted for exceptional situations.
 
 > [!WARNING]
-> By default, Application Insights telemetry is sampled by the Azure Functions runtime to avoid emitting data too frequently. This can cause tracking information to be lost when many lifecycle events occur in a short period of time. See the [Configure sampling](functions-monitoring#configure-sampling) section of the Azure Functions Monitoring topic to learn how this behavior can be configured.
+> By default, Application Insights telemetry is sampled by the Azure Functions runtime to avoid emitting data too frequently. This can cause tracking information to be lost when many lifecycle events occur in a short period of time. See the [Configure sampling](functions-monitoring.md#configure-sampling) section of the Azure Functions Monitoring topic to learn how this behavior can be configured.
 
 ### Single Instance Query
 
-The following query shows historical tracking data for a single instance of the [Hello Sequence](~/articles/samples/sequence.md) function orchestration. It's written using the [Application Insights Query Language (AIQL)](https://docs.loganalytics.io/docs/Language-Reference). It filters out replay execution so that only the *logical* execution path is shown.
+The following query shows historical tracking data for a single instance of the [Hello Sequence](durable-functions-sequence.md) function orchestration. It's written using the [Application Insights Query Language (AIQL)](https://docs.loganalytics.io/docs/Language-Reference). It filters out replay execution so that only the *logical* execution path is shown.
 
 ```AIQL
 let targetInstanceId = "bf71335b26564016a93860491aa50c7f";
