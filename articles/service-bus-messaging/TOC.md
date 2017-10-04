@@ -51,7 +51,9 @@
 ### [Message sequencing and timestamps](message-sequencing.md)
 ### [Message browsing](message-browsing.md)
 ### [Message transfers, locks, and settlement](message-transfers-locks-settlement.md)
-### [Message expiration (Time to Live)](message-expiration.md) 
+### [Message expiration (Time to Live)](message-expiration.md)
+### [Topic filters and actions](topic-filters.md)
+### [Suspend and reactivate messaging entities](entity-suspend.md)
 ### AMQP
 #### [AMQP overview](service-bus-amqp-overview.md)
 #### [.NET](service-bus-amqp-dotnet.md)
