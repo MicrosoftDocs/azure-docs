@@ -1,4 +1,4 @@
-| **Deployment Model/Method** | **Azure Portal** | **PowerShell** | **CLI** |
+| **Deployment Model/Method** | **Azure Portal** | **PowerShell** | **Azure CLI** |
 | --- | --- | --- | --- |
 | Classic |[Article*](../articles/vpn-gateway/vpn-gateway-howto-vnet-vnet-portal-classic.md)|Supported | Not Supported|
 | Resource Manager |[Article+](../articles/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) |Not Supported |[Article](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) |[Article](../articles/vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md)
