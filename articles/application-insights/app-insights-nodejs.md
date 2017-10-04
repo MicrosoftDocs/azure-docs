@@ -69,16 +69,14 @@ Include the SDK in your app, so it can gather data.
 
 3. Explicitly load the library in your code. Because the SDK injects instrumentation into many other libraries, load the library as early as possible, even before other `require` statements. 
 
-  1. At the top of your first .js file, add the following code. The `setup` method configures the ikey (and thus, the Azure resource) to be used by default for all tracked items.
+  At the top of your first .js file, add the following code. The `setup` method configures the ikey (and thus, the Azure resource) to be used by default for all tracked items.
 
-    ```javascript
-    const appInsights = require("applicationinsights");
-    appInsights.setup("<instrumentation_key>");
-    appInsights.start();
-    ```
+  ```javascript
+  const appInsights = require("applicationinsights");
+  appInsights.setup("<instrumentation_key>");
+  appInsights.start();
+  ```
    
-  2. To begin gathering and sending telemetry data, call `start` after configuration is finished.
-
   You also can provide an ikey via the environment variable APPINSIGHTS\_INSTRUMENTATIONKEY, instead of passing it manually to  `setup()` or `new appInsights.TelemetryClient()`. This practice lets you keep ikeys out of committed source code, and you can specify different ikeys for different environments.
 
   For additional configuration options, see the following sections.
@@ -139,7 +137,7 @@ You can track any request, event, metric, or exception by using the Application 
 
 ```javascript
 let appInsights = require("applicationinsights");
-appInsights.setup().start(); // Assumes ikey is in env var.
+appInsights.setup().start(); // assuming ikey is in env var
 let client = appInsights.defaultClient;
 
 client.trackEvent({name: "my custom event", properties: {customProperty: "custom property value"}});
@@ -151,7 +149,7 @@ client.trackRequest({name:"GET /customers", url:"http://myserver/customers", dur
 
 let http = require("http");
 http.createServer( (req, res) => {
-  client.trackNodeHttpRequest({request: req, response: res}); // Place at the beginning of your request handler.
+  client.trackNodeHttpRequest({request: req, response: res}); // Place at the beginning of your request handler
 });
 ```
 
@@ -217,3 +215,4 @@ server.on("listening", () => {
 
 [portal]: https://portal.azure.com/
 [FAQ]: app-insights-troubleshoot-faq.md
+
