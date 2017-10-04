@@ -150,7 +150,7 @@ The following example shows the pivot suggestions for *Microsoft Surface*.
             "text" : "OtterBox Surface",  
             "displayText" : "OtterBox",  
             "webSearchUrl" : "https:\/\/www.bing.com\/images\/search?q=OtterBox+Surface&FORM=IRQBPS",  
-            "searchLink" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/images\/search?q=OtterBox...",  
+            "searchLink" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/images\/search?q=OtterBox...",  
                     "searchLink" : "https:\/\/api.cognitive.microsoft.com\/api...",
             "thumbnail" : {  
                 "thumbnailUrl" : "https:\/\/tse3.mm.bing.net\/th?q=OtterBox+Surface..."  
@@ -160,7 +160,7 @@ The following example shows the pivot suggestions for *Microsoft Surface*.
             "text" : "Sony Surface",  
             "displayText" : "Sony",  
             "webSearchUrl" : "https:\/\/www.bing.com\/images\/search?q=Sony+Surface&FORM=IRQBPS",  
-            "searchLink" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/images\/search?q=...",  
+            "searchLink" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/images\/search?q=...",  
             "thumbnail" : {  
                 "thumbnailUrl" : "https:\/\/tse3.mm.bing.net\/th?q=Sony+Surface&pid=Ap..."  
             }  
@@ -174,7 +174,7 @@ The following example shows the pivot suggestions for *Microsoft Surface*.
             "text" : "Microsoft Surface4",  
             "displayText" : "Surface2",  
             "webSearchUrl" : "https:\/\/www.bing.com\/images\/search?q=Microsoft+Surface...",  
-            "searchLink" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/images\/search?...",  
+            "searchLink" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/images\/search?...",  
             "thumbnail" : {  
                 "thumbnailUrl" : "https:\/\/tse4.mm.bing.net\/th?q=Microsoft..."  
             }  
@@ -183,7 +183,7 @@ The following example shows the pivot suggestions for *Microsoft Surface*.
             "text" : "Microsoft Tablet",  
             "displayText" : "Tablet",  
             "webSearchUrl" : "https:\/\/www.bing.com\/images\/search?q=Microsoft+Tablet&FORM=IRQBPS",  
-            "searchLink" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/images\/search?...",  
+            "searchLink" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/images\/search?...",  
             "thumbnail" : {  
                 "thumbnailUrl" : "https:\/\/tse3.mm.bing.net\/th?q=Microsoft+Tablet..."  
             }  
@@ -226,7 +226,7 @@ The following example shows the expanded queries for *Microsoft Surface*.
         "text" : "Microsoft Surface Pro 3",  
         "displayText" : "Pro 3",  
         "webSearchUrl" : "https:\/\/www.bing.com\/images\/search?q=Microsoft+Surface+Pro+3...",  
-        "searchLink" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/images\/search?q=Microsoft...",  
+        "searchLink" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/images\/search?q=Microsoft...",  
         "thumbnail" : {  
             "thumbnailUrl" : "https:\/\/tse4.mm.bing.net\/th?q=Microsoft+Surface+Pro+3..."  
         }  
@@ -235,7 +235,7 @@ The following example shows the expanded queries for *Microsoft Surface*.
         "text" : "Microsoft Surface RT",  
         "displayText" : "RT",  
         "webSearchUrl" : "https:\/\/www.bing.com\/images\/search?q=Microsoft+Surface+RT...",  
-        "searchLink" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/images\/search?q=...",  
+        "searchLink" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/images\/search?q=...",  
         "thumbnail" : {  
             "thumbnailUrl" : "https:\/\/tse4.mm.bing.net\/th?q=Microsoft+Surface+RT..."  
         }  
@@ -244,7 +244,7 @@ The following example shows the expanded queries for *Microsoft Surface*.
         "text" : "Microsoft Surface Phone",  
         "displayText" : "Phone",  
         "webSearchUrl" : "https:\/\/www.bing.com\/images\/search?q=Microsoft+Surface+Phone",  
-        "searchLink" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/images\/search?q=...",  
+        "searchLink" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/images\/search?q=...",  
         "thumbnail" : {  
             "thumbnailUrl" : "https:\/\/tse4.mm.bing.net\/th?q=Microsoft+Surface+Phone..."  
         }  

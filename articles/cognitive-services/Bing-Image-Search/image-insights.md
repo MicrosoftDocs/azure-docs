@@ -69,7 +69,7 @@ Host: api.cognitive.microsoft.com
 To request all insights of an image, set the [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) query parameter to All. To get related searches, the request must include the user's query string. This example shows using the [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken) to specify the image.  
   
 ```  
-GET https://api.cognitive.microsoft.com/bing/v5.0/images/search?q=digital+camera&insightsToken=mid_D6426898706EC7193...&modulesRequested=All&mkt=en-us HTTP/1.1  
+GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=digital+camera&insightsToken=mid_D6426898706EC7193...&modulesRequested=All&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)  
 X-Search-ClientIP: 999.999.999.999  
