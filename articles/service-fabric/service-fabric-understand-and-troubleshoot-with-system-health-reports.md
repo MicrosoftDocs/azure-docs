@@ -28,7 +28,7 @@ Azure Service Fabric components provide system health reports on all entities in
 System health reports provide visibility into cluster and application functionality, and flag problems. For applications and services, system health reports verify that entities are implemented and are behaving correctly from the Service Fabric perspective. The reports don't provide any health monitoring of the business logic of the service or detection of hung processes. User services can enrich the health data with information specific to their logic.
 
 > [!NOTE]
-> Watchdog's health reports are visible only *after* the system components create an entity. When an entity is deleted, the health store automatically deletes all the health reports associated with it. The same is true when a new instance of the entity is created, for example, when a new stateful persisted service replica instance is created. All reports associated with the old instance are deleted and cleaned up from the store.
+> Health reports sent by user watchdogs are visible only *after* the system components create an entity. When an entity is deleted, the health store automatically deletes all the health reports associated with it. The same is true when a new instance of the entity is created, for example, when a new stateful persisted service replica instance is created. All reports associated with the old instance are deleted and cleaned up from the store.
 > 
 > 
 
@@ -37,7 +37,7 @@ The system component reports are identified by the source, which starts with the
 Let's look at some system reports to understand what triggers them and to learn how to correct the potential problems they represent.
 
 > [!NOTE]
-> Service Fabric continues to add reports on conditions of interest that improve visibility into what is happening in the cluster and the application. Existing reports can be enhanced with more details to help troubleshoot the problem faster.
+> Service Fabric continues to add reports on conditions of interest that improve visibility into what is happening in the cluster and the applications Existing reports can be enhanced with more details to help troubleshoot the problem faster.
 > 
 > 
 
@@ -188,9 +188,9 @@ Other notable events include a warning when the reconfiguration takes longer tha
 * **Property**: State.
 * **Next steps**: If the health state is not OK, it's possible that some replicas have not been created, opened, or promoted to primary or secondary correctly. 
 
-If the description describes quorum loss, then examining the detailed health report for replicas that are down and bringing them back up will help to bring the partition back online.
+If the description describes quorum loss, then examining the detailed health report for replicas that are down and bringing them back up helps to bring the partition back online.
 
-If the description describes a partition stuck in [reconfiguration](service-fabric-concepts-reconfiguration.md), then the health report on the primary replica will provide additional information.
+If the description describes a partition stuck in [reconfiguration](service-fabric-concepts-reconfiguration.md), then the health report on the primary replica provides additional information.
 
 For other System.FM health reports, there would be reports on the replicas or the partition or service from other system components. 
 
@@ -343,7 +343,7 @@ For each replica, the health report contains:
 - Node on which the replica is running
 - Replica ID
 
-In a case like the example, further investigation is needed. Investigate the health of each individual replica starting with the replicas marked as primary (131482789658160654 and 131482789688598467) in the previous example.
+In a case like the example, further investigation is needed. Investigate the health of each individual replica starting with the replicas marked as `Primary` and `Secondary` (131482789658160654 and 131482789688598467) in the previous example.
 
 ### Replica constraint violation
 **System.PLB** reports a warning if it detects a replica constraint violation and can't place all partition replicas. The report details show which constraints and properties prevent the replica placement.
@@ -383,9 +383,9 @@ HealthEvents          :
 ```
 
 ### ReplicaOpenStatus, ReplicaCloseStatus, ReplicaChangeRoleStatus
-This property is used to indicate warnings or failures when attempting to open a replica, close a replica, or transition a replica from one role to another. For more information, see [Replica lifecycle](service-fabric-concepts-replica-lifecycle.md). The failures might be exceptions thrown from the API calls or crashes of the service host process during this time. For failures due to API calls from C# code, Service Fabric will add the exception and stack trace to the health report.
+This property is used to indicate warnings or failures when attempting to open a replica, close a replica, or transition a replica from one role to another. For more information, see [Replica lifecycle](service-fabric-concepts-replica-lifecycle.md). The failures might be exceptions thrown from the API calls or crashes of the service host process during this time. For failures due to API calls from C# code, Service Fabric adds the exception and stack trace to the health report.
 
-These health warnings are raised after retrying the action locally some number of times (depending on policy). Service Fabric will continue to retry the action up to a maximum threshold. After the maxiumum threshold is reached, it might try to act to correct the situation. This attempt can cause these warnings to get cleared as it gives up on the action on this node. For example, if a replica is failing to open on a node, Service Fabric will raise a health warning. If the replica continues to fail to open, Service Fabric will act to self-repair. This action might involve trying the same operation on another node. This will cause the warning raised for this replica to be cleared. 
+These health warnings are raised after retrying the action locally some number of times (depending on policy). Service Fabric retries the action up to a maximum threshold. After the maxiumum threshold is reached, it might try to act to correct the situation. This attempt can cause these warnings to get cleared as it gives up on the action on this node. For example, if a replica is failing to open on a node, Service Fabric raises a health warning. If the replica continues to fail to open, Service Fabric acts to self-repair. This action might involve trying the same operation on another node. This causes the warning raised for this replica to be cleared. 
 
 * **SourceId**: System.RA
 * **Property**: **ReplicaOpenStatus**, **ReplicaCloseStatus**, and **ReplicaChangeRoleStatus**.
@@ -479,7 +479,7 @@ The reconfiguration can be stuck for one of the following reasons:
 
 - An action on the local replica, the same replica as the one performing the reconfiguration, is not completing. In this case, investigating the health reports on this replica from other components, System.RAP or System.RE, might provide additional information.
 
-- An action is not completing on a remote replica. Replicas for which actions are pending will be listed in the health report. Further investigation should be done on health reports for those remote replicas. There might also be communication problems between this node and the remote node.
+- An action is not completing on a remote replica. Replicas for which actions are pending are listed in the health report. Further investigation should be done on health reports for those remote replicas. There might also be communication problems between this node and the remote node.
 
 In rare cases, the reconfiguration can be stuck due to communication or other problems between this node and the Failover Manager service.
 
