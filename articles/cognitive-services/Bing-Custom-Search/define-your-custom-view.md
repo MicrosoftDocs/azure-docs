@@ -86,13 +86,11 @@ To pin a webpage to the top of the search results for a specific query, choose o
 
 You can track your pins in the Pinned tab. The pins are shown as '<query>, <webpage>' pairs. 
 
-To activate your pins, you must click Push Pins. The webpage is pinned only if the user’s query exactly matches your query and you clicked Push Pins. 
+Changes are automatically saved and reflect instantly against your custom search instance. 
 
 Please note the following restrictions when working with pins: 
 
-- For a specific query, you can pin a maximum of one webpage to the top of the results. 
-- Although the results in the Preview pane reflect added and deleted pins immediately, it may take up 15 minutes after you click Push Pins to see the pins reflected in search results using the custom search API. 
-- Bing currently supports pins only in the en-US market. 
+- For a specific query, you can pin a maximum of one webpage to the top of the results.
 
 ## Use Bing to specify slices
 There are a couple of ways to specify the slices of the web that make up your custom search. If you know the slices you want to include in your instance, simply add them to your instance’s Active list. For information about adding items to the Active list yourself, see Define your custom instance.
