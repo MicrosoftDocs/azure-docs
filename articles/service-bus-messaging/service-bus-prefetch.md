@@ -51,4 +51,11 @@ If you need high throughout and message processing is commonly cheap, prefetch y
 
 The maximum prefetch count and the lock duration configured on the queue or subscription need to be balanced such that the lock timeout at least exceeds the cumulative expected message processing time for the maximum size of the prefetch buffer, plus one message. At the same time, the lock timeout ought not to be so long that messages can exceed their maximum [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) when they are accidentally dropped, thus requiring their lock to expire before being redelivered.
 
+## Next steps
 
+To learn more about Service Bus messaging, see the following topics:
+
+* [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
+* [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
+* [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
+* [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
