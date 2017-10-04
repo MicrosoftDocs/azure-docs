@@ -128,6 +128,8 @@ You can continue sending new operations to this instance and observe that its st
 
 At this point, you have a better understanding of some of the advanced capabilities of Durable Functions, notably `WaitForExternalEvent` and `ContinueAsNew`. These tools enable you to write various forms of "stateful singletons," such as counters and aggregators.
 
+## Next steps
+
 > [!div class="nextstepaction"]
 > [Run a sample that shows how to handle human interaction](durable-functions-phone-verification.md)
 

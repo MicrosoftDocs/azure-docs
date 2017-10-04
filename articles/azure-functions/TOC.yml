@@ -99,8 +99,6 @@
       href: durable-functions-versioning.md
     - name: Performance and scale
       href: durable-functions-perf-and-scale.md
-    - name: Known issues
-      href: durable-functions-known-issues.md
 - name: How-to guides
   items:
   - name: Develop
