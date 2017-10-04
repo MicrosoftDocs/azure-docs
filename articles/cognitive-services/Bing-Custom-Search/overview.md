@@ -12,7 +12,7 @@ ms.date: 09/29/2017
 ms.author: v-brapel
 ---
 
-# Search your custom view of the web
+# Customize your view of the web
 Bing Custom Search enables you to create tailored search experiences for topics that you care about. For example, if you own a bicycle website that provides a search experience, you can specify the domains, subsites, and webpages that Bing searches. Your users see search results that are tailored to the content they care about instead of having to page through general search results that may contain irrelevant content. 
 
 To create your custom view of the web, use the Bing Custom Search [portal](https://customsearch.ai). The portal lets you create a search instance that specifies the domains, subsites, and webpages that you want Bing to search, and those that you don’t want it to search. In addition to specifying the URLs of the content that you know about, you can also ask the portal to suggest content that you may want to add to your view. 
