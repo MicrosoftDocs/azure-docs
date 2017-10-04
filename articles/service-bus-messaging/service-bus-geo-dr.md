@@ -147,7 +147,7 @@ client.Topics.CreateOrUpdate(resourceGroupName, geoDRPrimaryNS, "myTopic", new S
 client.Subscriptions.CreateOrUpdate(resourceGroupName, geoDRPrimaryNS, "myTopic", "myTopic-Sub1", new SBSubscription());
 
 // sleeping to allow metadata to sync across primary and secondary
-Thread.Sleep(1000 \* 60);
+Thread.Sleep(1000 * 60);
 ```
 
 At this point you can add entities via the portal or via Azure Resource Manager, and see how they synchronize. Unless your plan is to failover manually, you should create an app that monitors your primary namespace and initiates failover if it becomes unavailable. 
