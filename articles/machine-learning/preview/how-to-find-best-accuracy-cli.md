@@ -57,7 +57,7 @@ If you use Powershell, the code below will use local variables to store threshol
 ```powershell
 $threshold = 0.03
 $max_accuracy_value = az ml history list --query '@[?Accuracy != null] | max_by(@, &Accuracy).Accuracy'
-$find_runs_query = '@[?Accuracy >= sum(`[{0}, -{1}]`) && Accuracy < `{0}`] | sort_by(@, &duration)' -f $max_accuracy_value, $threshold
+$find_runs_query = '@[?Accuracy >= sum(`[{0}, -{1}]`) && Accuracy <= `{0}`] | sort_by(@, &duration)' -f $max_accuracy_value, $threshold
 az ml history list --query $find_runs_query
 ```
 
