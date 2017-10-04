@@ -62,9 +62,12 @@ The StorSimple service move is independent of the management of the VMs for the 
 
 Yes. The VMs associated with existing 8010/8020 cloud appliances can be managed from the Azure portal.
 
-If you have created StorSimple Cloud appliances model 8010/8020 running Update 3.0 and above, you are not impacted by your service moving to the new Azure portal. You should be able to fully manage your cloud appliances without any issues. If you have cloud appliances running versions prior to Update 3.0 in the classic portal, then you only have limited functionality available.
+If you have created StorSimple Cloud appliances model 8010/8020 running Update 3.0 and above, you are not impacted by your service moving to the new Azure portal. You should be able to fully manage your cloud appliances without any issues. 
 
-For more information, go to the [list of unsupported operations for devices running versions prior to Update 3](storsimple-8000-manage-service.md#move-a-service-to-azure-portal).
+If you have cloud appliances running versions prior to Update 3.0 in the classic portal, then you only have limited functionality available. For more information, go to the [list of unsupported operations for devices running versions prior to Update 3](storsimple-8000-manage-service.md#move-a-service-to-azure-portal).
+
+You cannot update a cloud appliance. Use the latest version of software to create a new cloud appliance and then fail over the existing volume containers to the new cloud appliance created. For more information, go to [Fail over to the cloud appliance](storsimple-8000-cloud-appliance-u2.md#fail-over-to-the-cloud-appliance)
+
 
 ### My StorSimple 8000 series device is running Update 2.0. I migrated my service to new Azure portal. My device connected successfully but it seems that I am not able to fully manage my device. How do I resolve this behavior?
 
