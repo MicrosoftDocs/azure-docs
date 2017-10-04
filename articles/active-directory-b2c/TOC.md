@@ -61,12 +61,17 @@
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
 #### [Microsoft Account](active-directory-b2c-custom-setup-msa-idp.md)
 #### [Google+](active-directory-b2c-custom-setup-goog-idp.md)
+#### [LinkedIn](active-directory-b2c-custom-setup-li-idp.md)
+#### [Twitter](active-directory-b2c-custom-setup-twitt-idp.md)
 ### Configure SAML providers
 #### [ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md)
 #### [Salesforce](active-directory-b2c-setup-sf-app-custom.md)
 ### Integrate RESTful APIs
-#### [Validate user input](active-directory-b2c-rest-api-validation-custom.md)
-#### [Obtain additional claims](active-directory-b2c-rest-api-step-custom.md)
+#### [Validate user input using Azure Functions](active-directory-b2c-rest-api-validation-custom.md)
+#### [Obtain additional claims using Azure Functions](active-directory-b2c-rest-api-step-custom.md)
+#### [Add your own RESTful API to your policies](active-directory-b2c-custom-rest-api-netfw.md)
+#### [Add secure RESTful APIs with basic auth](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
+#### [Add secure RESTful APIs with certificate based auth](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
 ### User flows
 #### [Configure user input](active-directory-b2c-configure-signup-self-asserted-custom.md)
 #### [Custom attributes](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
