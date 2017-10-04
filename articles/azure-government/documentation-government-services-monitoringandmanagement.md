@@ -31,7 +31,7 @@ For more information, see [Azure Government Backup](documentation-government-ser
 
 ## Resource Policy
 
-[Azure resource policies](../azure-resource-manager/resource-manager-policy.md) are not available in Azure Government.
+[Azure resource policies](../azure-resource-manager/resource-manager-policy.md) is generally available in Azure Government.
 
 ## Site Recovery
 Azure Site Recovery is generally available in Azure Government.
