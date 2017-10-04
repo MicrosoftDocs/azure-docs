@@ -633,7 +633,7 @@ Other API calls that can get stuck are on the **IReplicator** interface. For exa
 When a Naming operation takes longer than expected, the operation is flagged with a warning report on the primary replica of the Naming service partition that serves the operation. If the operation completes successfully, the warning is cleared. If the operation completes with an error, the health report includes details about the error.
 
 * **SourceId**: System.NamingService
-* **Property**: Starts with prefix **Duration_** and identifies the slow operation and the Service Fabric name on which the operation is applied. For example, if create service at name **fabric:/MyApp/MyService** takes too long, the property is **Duration_AOCreateService.fabric:/MyApp/MyService**. "AO" points to the role of the Naming partition for this name and operation.
+* **Property**: Starts with prefix "**Duration_**" and identifies the slow operation and the Service Fabric name on which the operation is applied. For example, if create service at name **fabric:/MyApp/MyService** takes too long, the property is **Duration_AOCreateService.fabric:/MyApp/MyService**. "AO" points to the role of the Naming partition for this name and operation.
 * **Next steps**: Check to see why the Naming operation fails. Each operation can have different root causes. For example, the delete service might be stuck. The service could be stuck because the application host keeps crashing on a node due to a user bug in the service code.
 
 The following example shows a create service operation. The operation took longer than the configured duration. "AO" retries and sends work to "NO." "NO" completed the last operation with TIMEOUT. In this case, the same replica is primary for both the "AO" and "NO" roles.
