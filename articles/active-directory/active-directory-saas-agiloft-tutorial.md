@@ -74,7 +74,7 @@ To configure the integration of Agiloft into Azure AD, you need to add Agiloft f
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with Agiloft based on a test user called "Britta Simon".
+In this section, you configure and test Azure AD single sign-on with Agiloft based on a test user called "Britta Simon."
 
 For single sign-on to work, Azure AD needs to know what the counterpart user in Agiloft is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Agiloft needs to be established.
 
@@ -149,7 +149,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Agiloft Configuration](./media/active-directory-saas-agiloft-tutorial/setup1.png) 
 
-10. Click on   the button **“Configure SAML 2.0 Single Sign-On“**. 
+10. Click on   the button **“Configure SAML 2.0 Single Sign-On.“ 
 	
 	![Agiloft Configuration](./media/active-directory-saas-agiloft-tutorial/setup2.png) 
 
