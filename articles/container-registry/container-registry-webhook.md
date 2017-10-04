@@ -36,7 +36,7 @@ For more background and concepts, see [About Azure Container Registry](./contain
 
 2. In the container blade, select **Webhooks** under **SERVICES**.
 
-3. Select **Add** from the webhook blade toolbar.
+3. Select **Add** in the webhook blade toolbar.
 
 4. Complete the *Create webhook* form with the following information:
 
@@ -91,7 +91,7 @@ az acr webhook list-events --registry mycontainerregistry08 --name myacrwebhook0
 
 ### Azure portal
 
-Each webhook can be deleted by selecting the webhook and then the **Delete** button on the Azure portal.
+Each webhook can be deleted by selecting the webhook and then the **Delete** button in the Azure portal.
 
 ### Azure CLI
 
