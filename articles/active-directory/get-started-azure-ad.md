@@ -3,16 +3,17 @@
 title: Get started with Azure Active Directory | Microsoft Docs
 description:
 keywords:
-author:
+author: jeffgilb
 manager: femila
 ms.author: jeffgilb
-ms.reviewer:
+ms.reviewer: jsnow
 ms.date: 10/04/2017
 ms.topic: article
 ms.prod:
 ms.service: azure
 ms.technology:
 ms.assetid:
+service: active-directory
 custom: it-pro
 
 # optional metadata
