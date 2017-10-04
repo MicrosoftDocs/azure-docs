@@ -27,8 +27,8 @@ For more background and concepts, see [About Azure Container Registry](./contain
 
 ## Prerequisites
 
-- Azure container managed registry - Create a managed container registry in your Azure subscription. For example, use the Azure portal or the Azure CLI 2.0.
-- Docker CLI - To set up your local computer as a Docker host and access the Docker CLI commands, install Docker Engine.
+- Azure container managed registry - Create a managed container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI](container-registry-get-started-azure-cli.md).
+- Docker CLI - To set up your local computer as a Docker host and access the Docker CLI commands, install [Docker Engine](https://docs.docker.com/engine/installation/).
 
 ## Create webhook Azure portal
 
@@ -65,11 +65,11 @@ az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --act
 
 ### Azure portal
 
-Prior to using the webhook on container image push and delete actions, you can test it with the **Ping** button. Ping sends a generic POST request to the specified endpoint and logs the response. This is helpful to verify that the webhook has been configured correctly.
+Prior to using the webhook on container image push and delete actions, you can test it with the **Ping** button. Ping sends a generic POST request to the specified endpoint and logs the response. This can help you verify you've correctly configured the webhook.
 
 1. Select the webhook you want to test.
 2. In the top toolbar, select **Ping**.
-3. Check the endpoint's response value in the **HTTP STATUS** column.
+3. Check the endpoint's response in the **HTTP STATUS** column.
 
 ![ACR webhook creation UI in the Azure portal](./media/container-registry-webhook/webhook-02.png)
 
