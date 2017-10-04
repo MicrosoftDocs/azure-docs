@@ -256,7 +256,7 @@ After adding the XML snippets, your `TechnicalProfile` should look like:
 
 ## Step 5: Upload the policy to your tenant
 
-1.  In the [Azure portal](https://portal.azure.com), switch into the [context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context), and open **Azure AD B2C**.
+1.  In the [Azure portal](https://portal.azure.com), switch into the [context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md), and open **Azure AD B2C**.
 2.  Select **Identity Experience Framework**
 3.  Select **All Policies** 
 4.  Select **Upload Policy**

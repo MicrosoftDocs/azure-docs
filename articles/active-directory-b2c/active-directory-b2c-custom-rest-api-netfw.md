@@ -51,7 +51,7 @@ The demo involves:
 *   Adding the loyalty number to the JSON web token (JWT)
 
 ## Prerequisites
-Complete the steps in the [Getting started with custom policies](active-directory-b2c-get-started-custom) article.
+Complete the steps in the [Getting started with custom policies](active-directory-b2c-get-started-custom.md) article.
 
 ## Step 1: Create an ASP.NET web API
 1.  In Visual Studio, create a project by selecting **File > New > Project**.
@@ -294,9 +294,9 @@ After you add the new claim, the `RelyingParty` looks like this:
 </TrustFrameworkPolicy>
 ```
 ## Step 7: Upload the policy to your tenant
-1.  In the [Azure portal](https://portal.azure.com), switch into the [context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context), and open the **Azure AD B2C** blade.
-2.  Select **Identity Experience Framework**.
-3.  Open the **All Policies** blade.
+1.  In the [Azure portal](https://portal.azure.com), switch into the [context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md), and open the **Azure AD B2C**
+2.  Select **Identity Experience Framework**
+3.  Open **All Policies** 
 4.  Select **Upload Policy**
 5.  Check **Overwrite the policy if it exists** box.
 6.  **Upload** TrustFrameworkExtensions.xml and ensure that it does not fail the validation

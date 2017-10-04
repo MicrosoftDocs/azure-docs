@@ -22,7 +22,7 @@ In the [previous step](active-directory-b2c-custom-rest-api-netfw.md), we create
 
 > [!NOTE]
 >
->Also you can secure your RESTful service [using HTTP basic authentication](aadb2c-ief-rest-api-netfw-secure-basic.md). However you should know that HTTP Basic Authentication is considered less secure over client certificate. Our recommendation is to secure the RESTful service using client certificate authentication as described in this article.
+>Also you can secure your RESTful service [using HTTP basic authentication](active-directory-b2c-custom-rest-api-netfw-secure-basic.md). However you should know that HTTP Basic Authentication is considered less secure over client certificate. Our recommendation is to secure the RESTful service using client certificate authentication as described in this article.
 
 This article details how to:
 1. Set up your web app to use client certificate authentication
@@ -83,7 +83,7 @@ After adding the XML snippets, your `TechnicalProfile` should look like:
 
 ## Step 5: Upload the policy to your tenant
 
-1.  In the [Azure Portal](https://portal.azure.com), switch into the [context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context), and open **Azure AD B2C** 
+1.  In the [Azure Portal](https://portal.azure.com), switch into the [context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md), and open **Azure AD B2C** 
 2.  Select **Identity Experience Framework**
 3.  Open the **All Policies** 
 4.  Select **Upload Policy**
