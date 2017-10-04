@@ -34,7 +34,7 @@
     tocHref: /azure/app-service/
     topicHref: /azure/app-service/
     items:
-    - name: Web App for Containers
+    - name: App Service on Linux
       tocHref: /azure/app-service/containers/
       topicHref: /azure/app-service/containers/
     - name: App Service Environments
