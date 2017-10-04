@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 10/04/2017
 ms.author: bwren
 
 ---
@@ -40,7 +40,9 @@ requests
 
 We start with the table name *requests* and add piped elements as needed.  First we define a time filter to review only records from the last 3 hours.
 We then count the number of records per country (that data is found in the column *client_CountryOrRegion*). Finally, we render the results in a pie chart.
+<br>
 
+![Query results](./media/app-insights-analytics/030.png)
 
 The language has many attractive features:
 
