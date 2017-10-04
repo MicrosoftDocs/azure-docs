@@ -150,6 +150,19 @@ If you need to remotely connect to SQL Server on the Azure VM, you must configur
 
 1. Click **OK** to save the rule for your VM.
 
+### Open the firewall on RHEL
+
+This tutorial directed you to create a Red Hat Enterprise Linux (RHEL) VM. If you want to connect remotely to RHEL VMs, you also have to open up port 1433 on the Linux firewall.
+
+1. [Connect](#connect) to your RHEL VM.
+
+1. In the BASH shell, run the following commmands:
+
+   ```bash
+   sudo firewall-cmd --zone=public --add-port=1433/tcp --permanent
+   sudo firewall-cmd –reload
+   ```
+
 ## Next steps
 
 Now that you have a SQL Server 2017 virtual machine in Azure, you can connect locally with **sqlcmd** to run Transact-SQL queries.
