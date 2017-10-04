@@ -159,7 +159,7 @@ It takes a few minutes to create and configure both VMs. When finished, you'll h
 
 If you look at the availability set in the portal by going to Resource Groups > myResourceGroupAvailability > myAvailabilitySet, you should see how the VMs are distributed across the 2 fault and update domains.
 
-![Availability set in the portal](../media/tutorial-availability-sets/fd-ud.png)
+![Availability set in the portal](./media/tutorial-availability-sets/fd-ud.png)
 
 ## Check for available VM sizes 
 
