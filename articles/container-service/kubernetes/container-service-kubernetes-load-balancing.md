@@ -3,7 +3,7 @@ title: Load balance Kubernetes containers in Azure | Microsoft Docs
 description: Connect externally and load balance across multiple containers in a Kubernetes cluster in Azure Container Service.
 services: container-service
 documentationcenter: ''
-author: dlepow
+author: v-thepet
 manager: timlt
 editor: ''
 tags: acs, azure-container-service
