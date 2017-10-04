@@ -364,32 +364,32 @@ Now enter a query in the search box. For example, the following image shows how 
 <a id="#queries"></a>
 ### Queries
 
-Here are some additional queries you can enter into the **Log search** box to help you monitor your containers. Queries marked New are for accounts that have been upgraded, queries marked Current are for accounts that have not been upgraded. 
+Here are some additional queries you can enter into the **Log search** box to help you monitor your Azure Cosmos DB containers. Queries marked New are for accounts that have been upgraded, queries marked Current are for accounts that have not been upgraded. 
 
-* All diagnostic logs for the specified time period.
-    * New: `AzureDiagnostics`
-    * Current: `(Type=AzureDiagnostics)`
+* All diagnostic logs from Azure Cosmos DB for the specified time period.
+    * New: `AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"`
+    * Current: `(Type=AzureDiagnostics) (ResourceProvider="MICROSOFT.DOCUMENTDB" AND Category="DataPlaneRequests")`
 * Ten most recent events.
-    * New: `AzureDiagnostics | take 10`
-    * Current: `(Type=AzureDiagnostics)| top 10`
+    * New: `AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | take 10`
+    * Current: `(Type=AzureDiagnostics)(ResourceProvider="MICROSOFT.DOCUMENTDB" AND Category="DataPlaneRequests") top 10`
 * All operations, grouped by operation type.
-    * New: `AzureDiagnostics | summarize count() by OperationName`
-    * Current: `(Type=AzureDiagnostics) | Measure count() by OperationName`
+    * New: `AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by OperationName`
+    * Current: `(Type=AzureDiagnostics)(ResourceProvider="MICROSOFT.DOCUMENTDB" AND Category="DataPlaneRequests") | Measure count() by OperationName`
 * All operations, grouped by Resource.
-    * New: `AzureDiagnostics | summarize count() by Resource`
-    * Current: `(Type=AzureDiagnostics) | Measure count() by Resource` 
+    * New: `AzureActivity | where Caller == "test@company.com" and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by Resource`
+    * Current: `(Type=AzureDiagnostics)(ResourceProvider="MICROSOFT.DOCUMENTDB" AND Category="DataPlaneRequests") | Measure count() by Resource` 
 * User activity, grouped by resource. Note that this is an activity log, not a diagnostic log.
-    * New: `AzureActivity | where Caller == "test@company.com" | summarize count() by Resource`
-    * Current (not correct): `(Type=AzureActivity) | Measure count() by Resource | where Caller = "test@company.com"`
+    * New: `AzureActivity | where Caller == "test@company.com" and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by Resource`
+    * Current (not correct): `(Type=AzureActivity)(ResourceProvider="MICROSOFT.DOCUMENTDB" AND Category="DataPlaneRequests") | Measure count() by Resource | where Caller = "test@company.com"`
 * Operations that take longer than 3 milliseconds.
-    * New: `AzureDiagnostics | where toint(duration_s) > 3000 | summarize count() by clientIpAddress_s, TimeGenerated`
-    * Current (not correct): `(Type=AzureDiagnostics) | Measure count() by clientIpAddress_s, TimeGenerated | Where toint (duration_s) > 3000`
+    * New: `AzureDiagnostics | where toint(duration_s) > 3000 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by clientIpAddress_s, TimeGenerated`
+    * Current (not correct): `(Type=AzureDiagnostics)(ResourceProvider="MICROSOFT.DOCUMENTDB" AND Category="DataPlaneRequests") | Measure count() by clientIpAddress_s, TimeGenerated | Where toint (duration_s) > 3000`
 * What kind of agent is running which operations.
-    * New: `AzureDiagnostics | summarize count() by OperationName, userAgent_s`
-    * Current (not correct): `(Type=AzureDiagnostics)s | Measure count() by OperationName, userAgent_s`
+    * New: `AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by OperationName, userAgent_s`
+    * Current (not correct): `(Type=AzureDiagnostics)(ResourceProvider="MICROSOFT.DOCUMENTDB" AND Category="DataPlaneRequests") | Measure count() by OperationName, userAgent_s`
 * When were long running operations performed.
-    * New: `AzureDiagnostics | project TimeGenerated , toint(duration_s)/1000 | render timechart`
-    * Current (not correct): `(Type=AzureDiagnostics) | project TimeGenerated , toint(duration_s)/1000 | render timechart`
+    * New: `AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | project TimeGenerated , toint(duration_s)/1000 | render timechart`
+    * Current (not correct): `(Type=AzureDiagnostics)(ResourceProvider="MICROSOFT.DOCUMENTDB" AND Category="DataPlaneRequests") | project TimeGenerated , toint(duration_s)/1000 | render timechart`
 
 For additional information on using the new Log Search language, see [Getting Started with Queries](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-queries). 
 
