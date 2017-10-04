@@ -70,7 +70,7 @@ To use Batch AI, you define and manage *clusters* and *jobs*. 
 * AI framework-specific configuration or the command line and parameters to start the job 
  
 
-Get started using Batch AI  with the [Azure CLI](/cli/azure/overview) and configuration files for clusters and jobs. Use this approach to quickly create your cluster when needed and run jobs to experiment with network design or hyper-parameters.  
+Get started using Batch AI with the [Azure CLI](/cli/azure/overview) and configuration files for clusters and jobs. Use this approach to quickly create your cluster when needed and run jobs to experiment with network design or hyper-parameters.  
  
 
 Batch AI makes it easy to work in parallel with multiple GPUs. When jobs need to scale across multiple GPUs, Batch AI sets up secure network connectivity between the VMs. When InfiniBand is used, Batch AI configures the drivers and starts MPI across the nodes in a job.  
