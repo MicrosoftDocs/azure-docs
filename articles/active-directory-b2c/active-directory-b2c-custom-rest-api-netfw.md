@@ -341,8 +341,8 @@ After you add the new claim, the `RelyingParty` looks like this:
 ```
 
 ## [Optional] Download the complete policy files and code
-* We recommend you build your scenario using your own Custom policy files after completing the Getting Started with Custom Policies walk through instead of using these sample files.  [Sample policy files for reference](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/active-directory-b2c-custom-setup-amzn-app)
-* You can download the complete code  here [Sample visual studio solution for reference](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/active-directory-b2c-custom-setup-amzn-app)
+* We recommend you build your scenario using your own Custom policy files after completing the Getting Started with Custom Policies walk through instead of using these sample files.  [Sample policy files for reference](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw)
+* You can download the complete code  here [Sample visual studio solution for reference](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/Contoso.AADB2C.API)
 	
 ## Next step
 1.  [Secure your Restful API with basic authentication (username and password)](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
