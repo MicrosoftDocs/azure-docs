@@ -54,21 +54,30 @@ Host: api.cognitive.microsoft.com
 
 The request returns a JSON response that limits the results to the content found in your custom search instance.   
 
-The following shows the answers that the JSON response may contain.
+The following shows a subset of the answers that the JSON response may contain.  For a list of all response objects see [Response objects](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#response-objects).
  
 ```
 { 
-    "_type" : "SearchResponse", 
-    "queryContext" : {...}, 
+    "_type" : "SearchResponse",  
     "webPages" : {
         "webSearchUrl": "https://www.bing.com/search?q=<SEARCH-TERM>",
         "totalEstimatedMatches": 667000000,
         "value": [
-            ...           
+            {
+            "id": "https://cognitivegblppe.azure-api.net/api/v7/#WebPages.0",
+            "name": "Contosos - Official Home Page",
+            "url": "http://www.contoso.com/en-us",
+            "displayUrl": ...,
+            "snippet": "At contoso our mission and values ...",            
+            "dateLastCrawled": "2017-09-29T22:32:00",
             "openGraphImage": {
-              "contentUrl": "http://mw2.wsj.net/mw5/content/logos/mw_logo_social.png",
-              "width": 0,
-              "height": 0
+                "contentUrl": ...,
+                "width": 0,
+                "height": 0
+            }
+            },
+            {
+                ...
             }            
         ]
     }     
