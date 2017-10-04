@@ -1,4 +1,4 @@
-﻿---
+---
 title: Virtual machines in an Azure Resource Manager template | Microsoft Azure
 description: Learn more about how the virtual machine resource is defined in an Azure Resource Manager template.
 services: virtual-machines-windows
@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 07/18/2017
 ms.author: davidmu
 
 ---
@@ -43,7 +43,7 @@ This example shows a typical resource section of a template for creating a speci
     ], 
     "properties": { 
       "hardwareProfile": { 
-        "vmSize": "Standard_DS1_v2" 
+        "vmSize": "Standard_DS1" 
       }, 
       "osProfile": { 
         "computername": "[concat('myVM', copyindex())]", 
@@ -58,10 +58,10 @@ This example shows a typical resource section of a template for creating a speci
           "version": "latest" 
         }, 
         "osDisk": { 
-          "name": "[concat('myOSDisk', copyindex())]" 
+          "name": "[concat('myOSDisk', copyindex())]",
           "caching": "ReadWrite", 
           "createOption": "FromImage" 
-        }
+        },
         "dataDisks": [
           {
             "name": "[concat('myDataDisk', copyindex())]",
@@ -75,15 +75,14 @@ This example shows a typical resource section of a template for creating a speci
         "networkInterfaces": [ 
           { 
             "id": "[resourceId('Microsoft.Network/networkInterfaces',
-              concat('myNIC', copyindex())]" 
+              concat('myNIC', copyindex()))]" 
           } 
         ] 
-      }
+      },
       "diagnosticsProfile": {
         "bootDiagnostics": {
           "enabled": "true",
-          "storageUri": "[concat('https://', variables('storageName'), 
-            '.blob.core.windows.net"
+          "storageUri": "[concat('https://', variables('storageName'), '.blob.core.windows.net')]"
         }
       } 
     },
@@ -162,7 +161,7 @@ Use these opportunities for getting the latest API versions:
 
 - REST API - [List all resource providers](https://docs.microsoft.com/rest/api/resources/providers#Providers_List)
 - PowerShell - [Get-AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider)
-- Azure CLI 2.0 - [az provider show](https://docs.microsoft.com/cli/azure/provider#show)
+- Azure CLI 2.0 - [az provider show](https://docs.microsoft.com/cli/azure/provider#az_provider_show)
 
 ## Parameters and variables
 
@@ -228,7 +227,7 @@ Also, notice in the example that the loop index is used when specifying some of 
 
 ```
 "osDisk": { 
-  "name": "[concat('myOSDisk', copyindex())]" 
+  "name": "[concat('myOSDisk', copyindex())]",
   "caching": "ReadWrite", 
   "createOption": "FromImage" 
 }
@@ -268,7 +267,7 @@ How do you know if a dependency is required? Look at the values you set in the t
     "id": "[resourceId('Microsoft.Network/networkInterfaces',
       concat('myNIC', copyindex())]" 
   } ] 
-}
+},
 ```
 
 To set this property, the network interface must exist. Therefore, you need a dependency. You also need to set a dependency when one resource (a child) is defined within another resource (a parent). For example, the diagnostic settings and custom script extensions are both defined as child resources of the virtual machine. They cannot be created until the virtual machine exists. Therefore, both resources are marked as dependent on the virtual machine.
@@ -278,14 +277,14 @@ To set this property, the network interface must exist. Therefore, you need a de
 Several profile elements are used when defining a virtual machine resource. Some are required and some are optional. For example, the hardwareProfile, osProfile, storageProfile, and networkProfile elements are required, but the diagnosticsProfile is optional. These profiles define settings such as:
    
 - [size](sizes.md)
-- [name](../linux/infrastructure-naming-guidelines.md) and credentials
+- [name](/architecture/best-practices/naming-conventions) and credentials
 - disk and [operating system settings](cli-ps-findimage.md)
 - [network interface](../../virtual-network/virtual-networks-multiple-nics.md) 
 - boot diagnostics
 
 ## Disks and images
    
-In Azure, vhd files can represent [disks or images](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). When the operating system in a vhd file is specialized to be a specific VM, it is referred to as a disk. When the operating system in a vhd file is generalized to be used to create many VMs, it is referred to as an image.   
+In Azure, vhd files can represent [disks or images](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). When the operating system in a vhd file is specialized to be a specific VM, it is referred to as a disk. When the operating system in a vhd file is generalized to be used to create many VMs, it is referred to as an image.   
     
 ### Create new virtual machines and new disks from a platform image
 
@@ -318,7 +317,7 @@ Configuration settings for the operating system disk are assigned with the osDis
   "name": "[concat('myOSDisk', copyindex())]",
   "caching": "ReadWrite", 
   "createOption": "FromImage" 
-}
+},
 ```
 
 ### Create new virtual machines from existing managed disks
@@ -333,7 +332,7 @@ If you want to create virtual machines from existing disks, remove the imageRefe
   }, 
   "caching": "ReadWrite",
   "createOption": "Attach" 
-}
+},
 ```
 
 ### Create new virtual machines from a managed image
@@ -351,7 +350,7 @@ If you want to create a virtual machine from a managed image, change the imageRe
     "caching": "ReadWrite", 
     "createOption": "FromImage" 
   }
-}
+},
 ```
 
 ### Attach data disks
@@ -367,7 +366,7 @@ You can optionally add data disks to the VMs. The [number of disks](sizes.md) de
     "caching": "ReadWrite",
     "createOption": "Empty"
   }
-]
+],
 ```
 
 ## Extensions

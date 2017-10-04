@@ -5,7 +5,7 @@ services: functions, logic-apps, cognitive-services
 keywords: workflow, cloud apps, cloud services, business processes, system integration, enterprise application integration, EAI
 documentationcenter: ''
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: glenga, riande
+ms.author: glenga
 ms.custom: mvc
 ---
 
@@ -207,7 +207,7 @@ The last part of the workflow is to trigger an email when the sentiment is score
 
 4. In the **Send an email** action, use the email settings as specified in the table. 
 
-    ![Configure the email for the send an email action.](media/functions-twitter-email/sendemail.png)
+    ![Configure the email for the send an email action.](media/functions-twitter-email/sendEmail.png)
 
     | Setting      |  Suggested value   | Description  |
     | ----------------- | ------------ | ------------- |

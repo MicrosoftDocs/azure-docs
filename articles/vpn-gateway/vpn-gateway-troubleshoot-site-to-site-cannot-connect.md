@@ -10,10 +10,10 @@ tags: ''
 
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/21/2017
+ms.date: 09/13/2017
 ms.author: genli
 ---
 
@@ -39,9 +39,9 @@ Check the type of the Azure VPN gateway.
 
 ### Step 1. Check whether the on-premises VPN device is validated
 
-1. Check whether you are using a [validated VPN device and operating system version](vpn-gateway-about-vpn-devices.md#a-namedevicetableavalidated-vpn-devices-and-device-configuration-guides). If the device is not a validated VPN device, you might have to contact the device manufacturer to see if there is a compatibility issue.
+1. Check whether you are using a [validated VPN device and operating system version](vpn-gateway-about-vpn-devices.md#devicetable). If the device is not a validated VPN device, you might have to contact the device manufacturer to see if there is a compatibility issue.
 
-2. Make sure that the VPN device is correctly configured. For more information, see [Edit device configuration samples](/vpn-gateway-about-vpn-devices.md#editing).
+2. Make sure that the VPN device is correctly configured. For more information, see [Edit device configuration samples](vpn-gateway-about-vpn-devices.md#editing).
 
 ### Step 2. Verify the shared key
 

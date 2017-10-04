@@ -179,6 +179,6 @@ Now that you've built a working application that creates an event hub and sends 
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [Event Hubs Programming Guide]: event-hubs-programming-guide.md
-[Azure Storage account]: ../storage/storage-create-storage-account.md
+[Azure Storage account]:../storage/common/storage-create-storage-account.md
 [Event Processor Host]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
 [Azure portal]: https://portal.azure.com

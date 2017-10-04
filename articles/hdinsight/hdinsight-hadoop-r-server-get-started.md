@@ -14,7 +14,7 @@ ms.devlang: R
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 06/28/2017
+ms.date: 08/14/2017
 ms.author: bradsev
 
 ---
@@ -339,37 +339,37 @@ Note also that the newly added users do not have root privileges in Linux system
 
 2. You should see output similar to the following:
 	
-	R version 3.2.2 (2015-08-14) -- "Fire Safety"
-	Copyright (C) 2015 The R Foundation for Statistical Computing
-	Platform: x86_64-pc-linux-gnu (64-bit)
+		R version 3.2.2 (2015-08-14) -- "Fire Safety"
+		Copyright (C) 2015 The R Foundation for Statistical Computing
+		Platform: x86_64-pc-linux-gnu (64-bit)
 
-	R is free software and comes with ABSOLUTELY NO WARRANTY.
-	You are welcome to redistribute it under certain conditions.
-	Type 'license()' or 'licence()' for distribution details.
+		R is free software and comes with ABSOLUTELY NO WARRANTY.
+		You are welcome to redistribute it under certain conditions.
+		Type 'license()' or 'licence()' for distribution details.
 
 	Natural language support but running in an English locale
 
-	R is a collaborative project with many contributors.
-	Type 'contributors()' for more information and
-	'citation()' on how to cite R or R packages in publications.
+		R is a collaborative project with many contributors.
+		Type 'contributors()' for more information and
+		'citation()' on how to cite R or R packages in publications.
 
-	Type 'demo()' for some demos, 'help()' for on-line help, or
-	'help.start()' for an HTML browser interface to help.
-	Type 'q()' to quit R.
+		Type 'demo()' for some demos, 'help()' for on-line help, or
+		'help.start()' for an HTML browser interface to help.
+		Type 'q()' to quit R.
 
-	Microsoft R Server version 8.0: an enhanced distribution of R
-	Microsoft packages Copyright (C) 2016 Microsoft Corporation
+		Microsoft R Server version 8.0: an enhanced distribution of R
+		Microsoft packages Copyright (C) 2016 Microsoft Corporation
 
 	Type 'readme()' for release notes.
 	>
 
 3. From the `>` prompt, you can enter R code. R server includes packages that allow you to easily interact with Hadoop and run distributed computations. For example, use the following command to view the root of the default file system for the HDInsight cluster:
 
-	rxHadoopListFiles("/")
+		rxHadoopListFiles("/")
 
 4. You can also use the WASB style addressing.
 
-	rxHadoopListFiles("wasbs:///")
+		rxHadoopListFiles("wasb:///")
 
 
 ## Using R Server on HDI from a remote instance of Microsoft R Server or Microsoft R Client
@@ -644,10 +644,17 @@ First, ssh into the Edge node. For example,
 
 	ssh -L USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
-After using ssh, change directory to the following directory and sudo the dotnet dll:
+After using ssh, change directory for the relevant version and sudo the dotnet dll: 
 
-	cd /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil
-	sudo dotnet Microsoft.DeployR.Utils.AdminUtil.dll
+- For Microsoft R Server 9.1:
+
+	cd /usr/lib64/microsoft-r/rserver/o16n/9.1.0
+	sudo dotnet Microsoft.RServer.Utils.AdminUtil/Microsoft.RServer.Utils.AdminUtil.dll
+
+- For Microsoft R Server 9.0:
+
+	cd /usr/lib64/microsoft-deployr/9.0.1
+	sudo dotnet Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
 To configure Microsoft R Server operationalization with a One-box configuration do the following:
 
@@ -667,6 +674,26 @@ As an optional step you can perform Diagnostic checks by running a diagnostic te
 6. Exit SSH
 
 ![Diagnostic for op](./media/hdinsight-hadoop-r-server-get-started/admin-util-diagnostics.png)
+
+
+>[!NOTE]
+>**Long delays when consuming web service on Spark**
+>
+>If you encounter long delays when trying to consume a web service created with mrsdeploy functions in a Spark compute context, you may need to add some missing folders. The Spark application belongs to a user called '*rserve2*' whenever it is invoked from a web service using mrsdeploy functions. To work around this issue:
+
+	# Create these required folders for user 'rserve2' in local and hdfs:
+
+	hadoop fs -mkdir /user/RevoShare/rserve2
+	hadoop fs -chmod 777 /user/RevoShare/rserve2
+
+	mkdir /var/RevoShare/rserve2
+	chmod 777 /var/RevoShare/rserve2
+
+
+	# Next, create a new Spark compute context:
+ 
+	rxSparkConnect(reset = TRUE)
+
 
 At this stage, the configuration for Operationalization is complete. Now you can use the ‘mrsdeploy’ package on your RClient to connect to the Operationalization on edge node and start using its features like [remote execution](https://msdn.microsoft.com/microsoft-r/operationalize/remote-execution) and [web-services](https://msdn.microsoft.com/microsoft-r/mrsdeploy/mrsdeploy-websrv-vignette). Depending on whether your cluster is set up on a virtual network or not, you may need to set up port forward tunneling through SSH login. The following sections explain how to set up this tunnel.
 

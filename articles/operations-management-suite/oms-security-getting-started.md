@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2017
+ms.date: 07/18/2017
 ms.author: yurid
 
 ---
@@ -68,6 +68,8 @@ Incident response and forensics investigation scenarios will directly benefit fr
 ![Security records over time](./media/oms-security-getting-started/oms-getting-started-fig2.JPG)
 
 When you click on this tile, the **Search** blade will open, showing a query result for **Security Events** (Type=SecurityEvents) with data based on the last seven days, as shown below:
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Security records over time](./media/oms-security-getting-started/oms-getting-started-fig3.JPG)
 

@@ -265,7 +265,7 @@ The PowerShell script printed a few named values when it ended. You must edit th
 
 ### Transact-SQL code
 
-```tsql
+```sql
 ---- TODO: First, run the PowerShell portion of this two-part code sample.
 ---- TODO: Second, find every 'TODO' in this Transact-SQL file, and edit each.
 
@@ -461,7 +461,7 @@ GO
 
 If the target fails to attach when you run, you must stop and restart the event session:
 
-```tsql
+```sql
 ALTER EVENT SESSION ... STATE = STOP;
 GO
 ALTER EVENT SESSION ... STATE = START;
@@ -539,7 +539,7 @@ Suppose you wanted to run the preceding Transact-SQL sample on Microsoft SQL Ser
 
 For more info about accounts and containers in the Azure Storage service, see:
 
-* [How to use Blob storage from .NET](../storage/storage-dotnet-how-to-use-blobs.md)
+* [How to use Blob storage from .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 * [Naming and Referencing Containers, Blobs, and Metadata](http://msdn.microsoft.com/library/azure/dd135715.aspx)
 * [Working with the Root Container](http://msdn.microsoft.com/library/azure/ee395424.aspx)
 * [Lesson 1: Create a stored access policy and a shared access signature on an Azure container](http://msdn.microsoft.com/library/dn466430.aspx)

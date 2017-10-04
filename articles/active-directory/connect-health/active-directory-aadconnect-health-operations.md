@@ -4,17 +4,15 @@ description: This article describes additional operations that can be performed 
 services: active-directory
 documentationcenter: ''
 author: karavar
-manager: samueld
-editor: curtand
-
+manager: femila
 ms.assetid: 86cc3840-60fb-43f9-8b2a-8598a9df5c94
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/31/2017
-ms.author: vakarand
+ms.date: 07/18/2017
+ms.author: billmath
 
 ---
 # Azure Active Directory Connect Health operations

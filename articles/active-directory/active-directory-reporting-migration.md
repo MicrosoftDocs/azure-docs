@@ -4,7 +4,7 @@ title: Find activity reports in the Azure portal | Microsoft Docs
 description: Learn how to find Azure Active Directory activity reports in the Azure portal.
 services: active-directory
 documentationcenter: ''
-author: dhanyahk
+author: MarkusVi
 manager: femila
 editor: ''
 
@@ -14,8 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/19/2017
 ms.author: dhanyahk;markvi
+ms.reviewer: dhanyahk 
 
 ---
 # Find activity reports in the Azure portal
@@ -149,3 +150,7 @@ To view the **Application Usage** report, on the **Azure Active Directory** blad
 
 
 ![Enterprise Applications Sign-Ins report](./media/active-directory-reporting-migration/199.png "Enterprise Applications Sign-Ins report")
+
+## Next steps
+
+For an overview of reporting, see the [Azure Active Directory reporting](active-directory-reporting-azure-portal.md).

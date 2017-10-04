@@ -4,7 +4,7 @@ description: Understand how to use Azure Storage bindings in Azure Functions.
 services: functions
 documentationcenter: na
 author: christopheranderson
-manager: erikre
+manager: cfowler
 editor: ''
 tags: ''
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture

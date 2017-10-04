@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 01/12/2017-->
+<!--author=alkohli last changed: 07/19/2017-->
 
 #### To create a volume
 1. From the tabular listing of the devices in the **Devices** blade, select your device. Click **+ Add volume**.
@@ -11,7 +11,7 @@
 
    2. From the drop-down list, select the volume container where you need to add a volume. 
 
-   3.  Type a **Name** for your volume.
+   3.  Type a **Name** for your volume. You cannot rename a volume once the volume is created.
 
    4. On the drop-down list, select the **Type** for your volume. For workloads that require local guarantees, low latencies, and higher performance, select a **Locally pinned** volume. For all other data, select a **Tiered** volume. If you are using this volume for archival data, check **Use this volume for less frequently accessed archival data**.
       

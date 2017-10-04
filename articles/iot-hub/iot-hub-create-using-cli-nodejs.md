@@ -90,6 +90,8 @@ azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u
 * **sku-name**. The name of the sku, one of: [F1, S1, S2, S3]. For the latest full list, refer to the pricing page for IoT Hub.
 * **units**. The number of provisioned units. Range: F1 [1-1] : S1, S2 [1-200] : S3 [1-10]. IoT Hub units are based on your total message count and the number of devices you want to connect.
 
+[!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+
 To see all the parameters available for creation, you can use the help command in command prompt:
 
 ```azurecli

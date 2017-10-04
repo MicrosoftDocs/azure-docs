@@ -52,6 +52,7 @@ The following snippet goes into the Resource section of the template.
                   "protectedSettings": {
                       "configurationUrlSasToken": "[parameters('_artifactsLocationSasToken')]"
                   }
+              }
 
 ```
 
@@ -85,6 +86,7 @@ A VMSS node has a "properties" section with the "VirtualMachineProfile", "extens
                     }
                 }
             ]
+        }
 ```
 
 ## Detailed Settings Information

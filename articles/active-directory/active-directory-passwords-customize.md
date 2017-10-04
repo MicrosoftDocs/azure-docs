@@ -6,7 +6,7 @@ keywords:
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
-ms.reviewer: gahug
+ms.reviewer: sahenry
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/30/2017
+ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
 
@@ -33,6 +33,8 @@ Even if SSPR is not enabled users still a "contact your administrator" link on t
 
 In all cases, a maximum of 100 recipients are notified.
 
+To find out more about the different administrator roles and how to assign them see the document [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md)
+
 ### Disable contact your administrator emails
 
 If your organization does not want administrators notified about password reset requests, the following configuration can be enabled
@@ -47,7 +49,7 @@ ADFS Administrators can add a link to their sign-in page using the guidance foun
 
 Using the command that follows on your ADFS server adds a link to the ADFS login page allowing users to enter the self-service password reset workflow directly.
 
-``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href=’https://passwordreset.microsoftonline.com’>Can’t access your account?<A/></p>" ```
+``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href=’https://passwordreset.microsoftonline.com’>Can’t access your account?</A></p>" ```
 
 ## Customize the sign-in and access panel look and feel
 

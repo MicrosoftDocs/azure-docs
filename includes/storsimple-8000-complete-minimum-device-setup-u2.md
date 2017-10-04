@@ -1,7 +1,10 @@
-<!--author=alkohli last changed: 01/12/17-->
+<!--author=alkohli last changed: 09/28/17-->
 
 #### To complete the minimum StorSimple device setup
 
+   > [!NOTE]
+   > You cannot change the device name once the minimum device setup is completed.
+   
 1. From the tabular listing of devices in the **Devices** blade, select and click your device. The device is in a **Ready to set up** state. The **Configure device** blade opens up.
 
      ![StorSimple minimum device setup network interfaces](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig1.png)
@@ -18,16 +21,13 @@
 
             ![StorSimple minimum device setup network interfaces](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig2.png)
 
-            The fixed IP addresses for the controller are used for servicing the updates to the device. Therefore, the fixed IPs must be routable and able to connect to the Internet. You can check that your fixed controller IPs are routable by using the [Test-HcsmConnection][Test] cmdlet. The following example shows fixed controller IPs are routed to the Internet and can access the Microsoft Update servers.
+            The fixed IP addresses for the controller are used for servicing the updates to the device and for garbage collection. Therefore, the fixed IPs must be routable and able to connect to the Internet. You can check that your fixed controller IPs are routable by using the [Test-HcsmConnection][Test] cmdlet. The following example shows fixed controller IPs are routed to the Internet and can access the Microsoft Update servers.
 
             ![Test-HcsmConnection showing routable IPs](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig3.png)
 
 1. Click **OK**. The device configuration starts. When the device configuration is complete, you are notified. The device status changes to **Online** in the **Devices** blade.
 
     ![StorSimple minimum device setup network interfaces](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig4.png)
-
-   > [!NOTE]
-   > You can modify all the other device settings at any time by accessing the **Device Settings** blade.
 
 <!--Link reference-->
 [Test]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx

@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: Java
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 07/17/2017
 ms.author: piyushjo;ricksal
 
 ---
@@ -49,6 +49,10 @@ You can add these features:
 [How to use the advanced Mobile Engagement tagging API in your Android app](mobile-engagement-android-use-engagement-api.md)
 
 ## Release notes
+
+### 4.3.1 (07/17/2017)
+* Fix a crash that could rarely happen when calling `EngagementAgentUtils.isInDedicatedEngagementProcess`, which is also used by the `EngagementApplication` class.
+
 ### 4.3.0 (06/27/2017)
 * Android 8 support (previous versions of the SDK will not work on Android 8).
 * No more dependency on support library.
