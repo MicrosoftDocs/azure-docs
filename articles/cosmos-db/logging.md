@@ -383,7 +383,7 @@ Once data starts streaming into your Operations Management Suite workspace, you 
     * Current (not correct): `(Type=AzureDiagnostics) | Measure count() by clientIpAddress_s, TimeGenerated | Where toint (duration_s) > 3000`
 * What kind of agent is running which operations.
     * New: `AzureDiagnostics | summarize count() by OperationName, userAgent_s`
-    * Current (not correct): `(Type=AzureDiagnostics)s | summarize count() by OperationName, userAgent_s`
+    * Current (not correct): `(Type=AzureDiagnostics)s | Measure count() by OperationName, userAgent_s`
 * When were long running operations performed.
     * New: `AzureDiagnostics | project TimeGenerated , toint(duration_s)/1000 | render timechart`
     * Current (not correct): `(Type=AzureDiagnostics) | project TimeGenerated , toint(duration_s)/1000 | render timechart`
