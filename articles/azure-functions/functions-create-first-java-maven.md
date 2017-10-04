@@ -128,7 +128,7 @@ The deploy process to Azure Functions uses account credentials from the Azure CL
 
 ```
 az login
-mvn azure-fuctions:deploy
+mvn azure-functions:deploy
 ```
 
 When the deploy is complete, you see the URL you can use to access your Azure function app:
