@@ -143,7 +143,7 @@ The Intelligent Insights performance log can be used with [Azure Log Analytics](
 - Learn about [Intelligent Insights](sql-database-intelligent-insights.md) concepts.
 - Learn how to [troubleshoot Azure SQL Database performance issues with Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 - Learn how to [monitor Azure SQL Database by using Azure SQL Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql).
-- [Collect and consume log data from your Azure resources](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+- Learn how to [collect and consume log data from your Azure resources](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
 
 
 

@@ -142,7 +142,7 @@ The Server Configuration Option MAXDOP on SQL Database is used to control how ma
 
 The diagnostics log outputs query hashes related to queries for which the duration of execution increased because they were parallelized more than they should have been. The log also outputs CXP wait times. This time represents the time a single organizer/coordinator thread (thread 0) is waiting for all other threads to finish before merging the results and moving ahead. In addition, the diagnostics log outputs the wait times that the poor-performing queries were waiting in execution overall. You can use this information as the basis for troubleshooting.
 
-First, optimize or simplify complex queries. Good practice is to break up long batch jobs into smaller ones. In addition, ensure that you created indexes to support your queries. You can also manually enforce the maximum degree of parallelism (MAXDOP) for a particular query that was flagged as poor performing. To configure this operation by using T-SQL, see [Configure the max degree of parallelism server configuration option](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option).
+First, optimize or simplify complex queries. Good practice is to break up long batch jobs into smaller ones. In addition, ensure that you created indexes to support your queries. You can also manually enforce the maximum degree of parallelism (MAXDOP) for a query that was flagged as poor performing. To configure this operation by using T-SQL, see [Configure the max degree of parallelism server configuration option](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option).
 
 Setting the server configuration option MAXDOP to zero (0) as a default value denotes that SQL Database can use all available logical CPU cores to parallelize threads by executing a single query. Setting MAXDOP to one (1) denotes that only one core can be used for a single query execution. In practical terms, this means that parallelism is turned off. Depending on the case-per-case basis, available cores to the database, and diagnostic log information, you can tune the MAXDOP option to the number of cores for parallel query execution that resolved the issue in your case.
 
@@ -236,7 +236,7 @@ For more information, see [Introduction to memory-optimized tables](https://docs
 
 This detectable performance pattern indicates a degradation in the current database workload performance compared to the past seven-day baseline. It's due to the shortage of available DTUs in the elastic pool of your subscription. 
 
-Resources on SQL Database are typically referred to as [DTU resources](sql-database-what-is-a-dtu.md), which consist of a blended measure of CPU and I/O (data and transaction log I/O) resources. [Azure elastic pool resources](sql-database-elastic-pool.md) are used as a pool of available eDTU resources shared between multiple databases for scaling purposes. When available eDTU resources in your elastic pool aren't sufficiently large to support all of the databases in the pool, an elastic pool DTU shortage performance issue is detected by the system.
+Resources on SQL Database are typically referred to as [DTU resources](sql-database-what-is-a-dtu.md), which consist of a blended measure of CPU and I/O (data and transaction log I/O) resources. [Azure elastic pool resources](sql-database-elastic-pool.md) are used as a pool of available eDTU resources shared between multiple databases for scaling purposes. When available eDTU resources in your elastic pool aren't sufficiently large to support all the databases in the pool, an elastic pool DTU shortage performance issue is detected by the system.
 
 ### Troubleshooting
 
@@ -292,7 +292,7 @@ For more information on optimizing database-scoped configuration and T-SQL synta
 
 ### What is happening
 
-This detectable performance pattern indicates a condition in which the client using the SQL Database can't consume the output from the database as fast as the database sends the results. Because SQL Database isn't storing results of the executed queries in a buffer, it slows down and waits for the client to consume the transmitted query outputs before proceeding. This condition  also might be related to a network that isn't sufficiently fast enough to transmit outputs from the SQL Database to the consuming client.
+This detectable performance pattern indicates a condition in which the client using the SQL Database can't consume the output from the database as fast as the database sends the results. Because SQL Database isn't storing results of the executed queries in a buffer, it slows down and waits for the client to consume the transmitted query outputs before proceeding. This condition also might be related to a network that isn't sufficiently fast enough to transmit outputs from the SQL Database to the consuming client.
 
 This condition is generated only if a performance regression is detected compared to the past seven-day database workload behavior. This performance issue is detected only if a statistically significant performance degradation occurs compared to previous performance behavior.
 
