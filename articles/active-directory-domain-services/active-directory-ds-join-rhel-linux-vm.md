@@ -74,18 +74,36 @@ Next, install packages required for domain join on the virtual machine. In your 
 Now that the required packages are installed on the Linux virtual machine, the next task is to join the virtual machine to the managed domain.
 
 1. Discover the AAD Domain Services managed domain. In your SSH terminal, type the following command:
+
     ```
     sudo realm discover CONTOSO100.COM
     ```
 
-    If **realm discover** is unable to find your managed domain, ensure that the domain is reachable from the virtual machine (try ping). Also ensure that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
-2. Initialize kerberos. In your SSH terminal, type the following command: Ensure that you specify a user who belongs to the 'AAD DC Administrators' group. Only these users can join computers to the managed domain.
+      > [!NOTE] 
+      > **Troubleshooting:**
+      > If *realm discover* is unable to find your managed domain:
+        * Ensure that the domain is reachable from the virtual machine (try ping).
+        * Check that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
+        * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
+      >
+
+2. Initialize Kerberos. In your SSH terminal, type the following command: 
+
+    > [!TIP] 
+    > * Ensure that you specify a user who belongs to the 'AAD DC Administrators' group. 
+    > * Specify the domain name in capital letters, else kinit fails.
+    >
+
     ```
     kinit bob@CONTOSO100.COM
     ```
 
-    Ensure that you specify the domain name in capital letters, else kinit fails.
-3. Join the machine to the domain. In your SSH terminal, type the following command: Specify the same user you specified in the preceding step ('kinit').
+3. Join the machine to the domain. In your SSH terminal, type the following command: 
+
+    > [!TIP] 
+    > Use the same user account you specified in the preceding step ('kinit').
+    >
+
     ```
     sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM'
     ```
