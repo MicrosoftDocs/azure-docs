@@ -58,7 +58,7 @@ You now have the freedom to model any flow style that's required for data integr
 - Delta flows:
 	- Use parameters and define your high-water mark for delta copy while moving dimension or reference tables from a relational store, either on-premises or in the cloud, to load the data into the lake. 
 
-For more information, see [Tutorial: control flow](tutorial-control-flow.md).
+For more information, see [Tutorial: Control flow](tutorial-control-flow.md).
 
 ### Deploy SSIS packages to Azure 
 If you want to move your SSIS workloads, you can create a Data Factory version 2 and provision an Azure-SSIS integration runtime. The Azure-SSIS integration runtime is a fully managed cluster of Azure VMs (nodes) that are dedicated to run your SSIS packages in the cloud. For step-by-step instructions, see the [Deploy SSIS packages to Azure](tutorial-deploy-ssis-packages-azure.md) tutorial. 
