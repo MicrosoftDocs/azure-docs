@@ -29,7 +29,7 @@ With Data Factory, you can execute your data processing either on an Azure-based
 ## What’s different in version 2?
 Azure Data Factory version 2 builds upon the original Azure Data Factory data movement and transformation service, extending to a broader set of cloud-first data integration scenarios. Azure Data Factory version 2 offers the following capabilities:
 
-- Control flow and scale
+- Control flows and scale
 - Deploy and run SSIS packages in Azure
 
 Following the version 1 release, we recognized that customers need to design complex, hybrid data-integration scenarios that require both data movement and processing in the cloud, on-premises, and on cloud virtual machines. These requirements bring a need to transfer and process data within secured virtual network environments and to scale out with on-demand processing power.
