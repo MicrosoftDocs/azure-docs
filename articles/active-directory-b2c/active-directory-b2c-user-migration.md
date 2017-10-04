@@ -1,6 +1,6 @@
 ﻿---
 title: 'Azure Active Directory B2C: User migration approaches'
-description: 'TBD'
+description: Discuss core and advanced concepts on user migration using Graph API and optionally using Azure AD B2C custom policies.
 services: active-directory-b2c
 documentationcenter: ''
 author: yoelhor
@@ -18,10 +18,10 @@ ms.author: yoelh
 ---
 
 # Azure Active Directory B2C: User migration
-When you plan to migrate your identity provider to Azure AD B2C, you may also need to migrate the users account as well. This article explains how to migrate existing user accounts, from any identity provider to Azure AD B2C. This article is not meant to be prescriptive, but rather describes two of several different approaches.  The developer is responsible for suitability.]]
+When you plan to migrate your identity provider to Azure AD B2C, you may also need to migrate the users account as well. This article explains how to migrate existing user accounts, from any identity provider to Azure AD B2C. This article is not meant to be prescriptive, but rather describes two of several different approaches.  The developer is responsible for suitability.
 
 ## User migration flows
-Azure AD B2C allows you to migrate uses through [Graph API](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). User migration process falls into two flows:
+Azure AD B2C allows you to migrate users through [Graph API](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). User migration process falls into two flows:
 
 * **Pre-migration** - This flow fits when you have access to user credentials (user name and password) in a clear text. Or the credentials are encrypted, but you are able to decrypt them. The process involves: reading the users from old identity provider and create new accounts in Azure AD B2C directory.
 
@@ -227,7 +227,7 @@ To get the link to your password reset policy:
 
 ## Step 4. [Optional] Change your policy to check and set user migration status
 
-When users try to sign-in without resetting the password first, your policy should return friendly error message. For example: Your password expired, to reset your password, click on reset password link.
+When users try to sign-in without resetting the password first, your policy should return friendly error message. For example: Your password expired, to reset your password, click on reset password link.  This optional step requires the use of Azure AD B2C using custom policies as described in the [Getting started with custom policies](active-directory-b2c-get-started-custom.md) article.
 
 In this section, you change the policy to check the migration status on sign-in. If user didn't change the password, return HTTP 409 error message, asking the user to click on "Forgot your password?" link. To track the password change, you use Azure Table. Running the pre-migration process with command-line parameter `2`, creates user entity in Azure Table. Your service:
 
