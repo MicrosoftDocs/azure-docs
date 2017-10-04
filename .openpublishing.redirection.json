@@ -13529,6 +13529,11 @@
             "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-join-rhel-linux-vm.md",
             "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-join-rhel-linux-vm",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/functions-java-refernece.md",
+            "redirect_url": "/azure/azure-functions/functions-java-reference",
+            "redirect_document_id": false
         }
     ]
 }
