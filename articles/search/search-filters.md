@@ -20,9 +20,9 @@ ms.author: heidist
 # Filters in Azure Search 
 
 
-A *filter* is a criterion-based expression used to select documents includde in an Azure Search query. Unfiltered search is open-ended and inclusive of all documents in the index. Filtered search creates a subset of documents for a more focused query operation. For example, a filter could restrict full text search to just those products having a specific brand or color, at price points above a specified threshold.
+A *filter* provides criteria for selecting documents used in an Azure Search query. Unfiltered search is open-ended and inclusive of all documents in the index. Filtered search creates a slice or subset of documents for a more focused query operation. For example, a filter could restrict full text search to just those products having a specific brand or color, at price points above a certain threshold.
 
-Some search experiences impose filter requirements as part of the implementation, but you can use filters anytime you want to slice an index by *data values* in the index: restaurants, at this location, casual dining. If you want to slice by data structure, targeting specific fields, Azure Search offers alternative methods to make that objective very simple.
+Some search experiences impose filter requirements as part of the implementation, but you can use filters anytime you want selection based on content: *restaurants starting with S, near this attraction, casual dining*. If you want to select data structures (for example, targeting specific fields), Azure Search offers alternative methods to make that objective very simple.
 
 ## When to use a filter
 
@@ -30,13 +30,15 @@ A filter expression is intended for static filtering in your search application,
 
 Filters are foundational to several search experiences, including "find near me", faceted navigation, and security filters that only show documents a user is allowed to see. If you implement any one of these experiences, a filter is required. It's the filter attached to the query structure that provides the geo.location coordinates, the facet category selected by the user, or the security ID of the requestor.
 
+The following conditions point to a filter solution:
+
 1. Use a filter if the search experience comes with a filter requirement:
 
- * Facets require a filter as the mechanism for classifying results on a per-facet basis.
- * Geo-coordinates of the current location are passed as filter criteria in "find near me" apps. 
- * Security identifiers are provided as filter criteria, where a match in the index serves as a proxy for access rights to the document.
+ * [Faceted navigation](search-faceted-navigation.md) uses a filter to pass back the facet category selected by the user.
+ * [Geo-search](search-filters-geo.md) uses a filter to pass cooridnates of the current location in "find near me" apps. 
+ * [Security filters](search-filters-security-generic.md) pass security identifiers as filter criteria, where a match in the index serves as a proxy for access rights to the document.
 
-2. Use a filter to slice your index based on data values in the index. Given a schema with city, housing type, and amenities, you can create a filter to explicitly select documents that satisfy your criteria (in Seattle, condos, waterfront). You can make criteria so expressive that it returns a single match.
+2. Use a filter to slice your index based on data values in the index. Given a schema with city, housing type, and amenities, you might create a filter to explicitly select documents that satisfy your criteria (in Seattle, condos, waterfront). You can make criteria so expressive that it returns a single match.
 
   A full text search with the same inputs is likely to produce similar results, but a filter offers precision and can be defined by the developer. In a custom application, you might want to build filters to create a context for the search experience you are offering.
 
@@ -54,13 +56,22 @@ If you want a narrowing effect in your search results, filters are not your only
 
 For more information about either parameter, see [Search Documents > Request > Query parameters](https://docs.microsoft.com/rest/api/searchservice/search-documents#request).
 
+
+## How filters are used
+
+Criteria provided in a filter qualifies a document for inclusion or exclusion in a downstream processing operation (namely, evaluating content for relevance, scoring, ranking, and returning results to the calling application). 
+
+At query time, filter criteria are added to a filter tree that is evaluated before the query. In a complex expression with multiple parts, each part resolves to an atomic instruction in a filter tree. 
+
 ## Filter definition and design patterns
 
-Filters are OData expressions articulated using a subset of OData syntax, as specified in [OData expression syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+Filters are OData expressions, articulated using a [subset of OData syntax supported in Azure Search](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 You can specify one filter for each **search** operation, but the filter itself can include multiple fields, multiple criteria, and if you use an **ismatch** function, multiple expressions. The maximum limit on the filter expression is the maximum limit on the request: 16 MB for POST, 8 KB for GET.
 
-```REST 
+The following examples represent prototypical filters in several APIs.
+
+```http
 # Use $filter for GET
 GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2016-09-01
 
@@ -73,7 +84,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 }
 ```
 
-```Csharp
+```csharp
     parameters =
         new SearchParameters()
         {
@@ -88,26 +99,24 @@ The following examples illustrate simple and complex filters. For more detail, s
 + Standalone **$filter**, without a query string, useful when the filter expression is able to fully qualify documents of interest. Without a query string, there is no lexical or linguistic analysis, no scoring, and no ranking.
 
    ```
-   $filter= 
+   $filter=(baseRate ge 60 and baseRate lt 300) and accommodation eq 'Hotel' and city eq 'Nogales'
    ```
 
 + Combination of query string and **$filter**, where the filter creates the subset, and the query string provides the input for full text search over the filtered subset. Using a filter with a query string is the most common code pattern.
 
    ```
-   $filter= 
+   search=hotels ocean$filter=(baseRate ge 60 and baseRate lt 300) or city eq 'Los Angeles'
    ```
 
 + "Contains" filters. Filters come with precision requirements. If you want to filter on a term that appears in a description, you can use the search.ismatch function to relax some of these restrictions.
 
   ```
-  # The search.ismatch filter looks for 'water' in every field.
-  # Returns 376 documents. The term 'water frontage' is in tags and description
-   search=*&$count=true&$select=description,city,postCode,tags&$filter=search.ismatch('water')
+  # The search.ismatch filter looks for 'ocean' in every field.
+   search=*&$filter=search.ismatch('ocean')
 
-  # Contrast with a standard filter, which requires the field (tags) and exact articulation
-  # Returns all documents. The tag was not exact so the filter was ineffective.
-  # search string is empty so all documents come back.
-   search=*&$count=true&$select=description,city,postCode,tags&$filter=tags/any(t: t eq 'water') 
+  # Contrast with a standard filter, which requires a field (such as tags) and exact articulation
+  # If the tag is Ocean or ocean-front instead of 'ocean' the filter is ignored 
+   search=*&$filter=tags/any(t: t eq 'ocean') 
   ```
 
 + Multiple expressions, evaluated individually, with results from each one combined into a single response. The search.ismatch function is a query-plus-filter structure that can be replicated into one query for disjoint documents. You can use the non-scored version (search.ismatch) or the scored version (search.ismatchscoring).
@@ -126,12 +135,6 @@ Follow up with these articles for comprehensive guidance on specific use cases:
 + [Security filters using Active Directory](search-filters-security-aad.md)
 + [Security filters (generic)](search-filters-security-generic.md) 
 
-
-## How filters are used
-
-Criteria provided in a filter qualifies a document for inclusion or exclusion in a downstream processing operation (namely, evaluating content for relevance, scoring, ranking, and returning results to the calling application). 
-
-At query time, filter criteria are added to the query tree first and evaluated first. In a complex expression with multiple parts, each part resolves to an atomic instruction in a query tree. 
 
 ## Field requirements
 
