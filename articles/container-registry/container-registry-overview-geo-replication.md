@@ -33,13 +33,13 @@ A geo-replicated registry provides the following benefits:
 * Single management of a registry across multiple regions
 
 ## Example use case
-Contoso runs a public presence websites located across the US, Canada and Europe. To serve these markets with local and network-close content, Contoso runs an ACS-Kubernetes clusters in West US, East US, Canada Central and West Europe. The website code, deployed as a Docker image, utilizes the same code and image across all regions. Content, local to that region, is retrieved from a database which is provisioned uniquely in each region. Each regional deployment has its unique configuration for resources like the local database. 
+Contoso runs a public presence website located across the US, Canada and Europe. To serve these markets with local and network-close content, Contoso runs ACS-Kubernetes clusters in West US, East US, Canada Central, and West Europe. The website code, deployed as a Docker image, utilizes the same code and image across all regions. Content, local to that region, is retrieved from a database, which is provisioned uniquely in each region. Each regional deployment has its unique configuration for resources like the local database. 
 
 The development team is located in Redmond, utilizing the West US data center.
 
 ![Pushing to multiple registries](media/container-registry-overview-geo-replication\before-geo-replicate.png)
 
-Prior to using the geo-replication features of the Azure Container Registry, Consoso might have had a US based registry in West US, with an additional registry in West Europe. To serve these different regions, the development team had to push images to two different registries.
+Prior to using the geo-replication features of the Azure Container Registry, Contoso may have had a US-based registry in West US, with an additional registry in West Europe. To serve these different regions, the development team had to push images to two different registries.
 
 ```
 docker push contoso.azurecr.io/pubic/products/web:1.2
@@ -49,7 +49,7 @@ contosowesteu.azurecr.io/pubic/products/web:1.2
 
 Typical challenges of multiple registries include:
 
-* The East US, West US and Canada Central clusters all pull from the West US registry, incurring egress fees as each of these remote cotnainer hosts pull images from West US data centers. 
+* The East US, West US, and Canada Central clusters all pull from the West US registry, incurring egress fees as each of these remote container hosts pull images from West US data centers. 
 * The development team must push images to West US and West Europe registries
 * The development team had to configure and maintain each regional deployment with image names referencing the local registry
 * Registry access must be configured for each region
@@ -97,14 +97,14 @@ To configure a replica, select a green hexagon, then select **Create** under *Cr
 
 To configure additional replicas, select the green hexagons for other regions, then click **Create**.
 
-ACR will begin syncing images across the configured replicas. Once complete, the portal will reflect ready. 
-Note: the status doesn't automatically update. Use the refresh button to see the udpated status.
+ACR begins syncing images across the configured replicas. Once complete, the portal reflects ready. 
+Note: the status doesn't automatically update. Use the refresh button to see the updated status.
 
 ## Geo-replication pricing
 
 Geo-replication is a feature of the Premium SKU of the Azure Container Registry. When you replicate a registry to your desired regions, you incur Premium registry fees for each region.
 
-In the preceding example, Contoso consolidated two registries down to one, adding replicas to East US, Canada Central and West Europe. Contoso would pay four times Premium per month, with no additional configuration or management. Each region now pulls their images locally, improving performance, reliability without network egress fees from West US to Canada and East US. 
+In the preceding example, Contoso consolidated two registries down to one, adding replicas to East US, Canada Central, and West Europe. Contoso would pay four times Premium per month, with no additional configuration or management. Each region now pulls their images locally, improving performance, reliability without network egress fees from West US to Canada and East US. 
 
 ## Summary
 
