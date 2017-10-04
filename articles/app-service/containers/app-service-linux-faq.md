@@ -1,6 +1,6 @@
 ---
-title: Azure App Service Web App for Containers FAQ | Microsoft Docs
-description: Azure App Service Web App for Containers FAQ.
+title: Azure App Service on Linux FAQ | Microsoft Docs
+description: Azure App Service on Linux FAQ.
 keywords: azure app service, web app, faq, linux, oss
 services: app-service
 documentationCenter: ''
@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
 ---
-# Azure App Service Web App for Containers FAQ
+# Azure App Service on Linux FAQ
 
-With the release of Web App for Containers, we're working on adding features and making improvements to our platform. This article provides answers to questions that our customers have been asking us recently.
+With the release of App Service on Linux, we're working on adding features and making improvements to our platform. This article provides answers to questions that our customers have been asking us recently.
 
 If you have a question, comment on the article and we'll answer it as soon as possible.
 
@@ -130,6 +130,6 @@ You can submit your idea at the [Web Apps feedback forum](https://aka.ms/webapps
 
 ## Next steps
 
-* [What is Azure Web App for Containers?](app-service-linux-intro.md)
+* [What is Azure App Service on Linux?](app-service-linux-intro.md)
 * [Set up staging environments in Azure App Service](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Continuous Deployment with Azure Web App for Containers](./app-service-linux-ci-cd.md)
