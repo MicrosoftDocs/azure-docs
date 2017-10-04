@@ -36,9 +36,9 @@ This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` G
 
 An Availability Set is a logical grouping capability that you can use in Azure to ensure that the VM resources you place within it are isolated from each other when they are deployed within an Azure datacenter. Azure ensures that the VMs you place within an Availability Set run across multiple physical servers, compute racks, storage units, and network switches. In the event of a hardware or Azure software failure, only a subset of your VMs are impacted, and your overall application stays up and continues to be available to your customers. Availability Sets are an essential capability when you want to build reliable cloud solutions.
 
-Let’s consider a typical VM-based solution where you might have 4 front-end web servers and use 2 back-end VMs that host a database. With Azure, you’d want to define two availability sets before you deploy your VMs: one availability set for the “web” tier and one availability set for the “database” tier. When you create a new VM you can then specify the availability set as a parameter to the az vm create command, and Azure automatically ensures that the VMs you create within the available set are isolated across multiple physical hardware resources. This means that if the physical hardware that one of your Web Server or Database Server VMs is running on has a problem, you know that the other instances of your Web Server and Database VMs remain running because they are on different hardware.
+Let’s consider a typical VM-based solution where you might have 4 front-end web servers and use 2 back-end VMs that host a database. With Azure, you’d want to define two availability sets before you deploy your VMs: one availability set for the web tier and one availability set for the database tier. When you create a new VM you can then specify the availability set as a parameter to the az vm create command, and Azure automatically ensures that the VMs you create within the available set are isolated across multiple physical hardware resources. If the physical hardware that one of your Web Server or Database Server VMs is running on has a problem, you know that the other instances of your Web Server and Database VMs remain running because they are on different hardware.
 
-You should always use Availability Sets when you want to deploy reliable VM-based solutions in Azure.
+Use Availability Sets when you want to deploy reliable VM-based solutions in Azure.
 
 ## Create an availability set
 
@@ -157,7 +157,7 @@ for ($i=1; $i -le 2; $i++)
 
 It takes a few minutes to create and configure both VMs. When finished, you'll have 2 virtual machines distributed across the underlying hardware. 
 
-If you look at the availability set in the portal by going to Resource Groups > myResourceGroupAvailability > myAvailabilitySet you should see how the VMs are distributed across the 2 fault and update domains.
+If you look at the availability set in the portal by going to Resource Groups > myResourceGroupAvailability > myAvailabilitySet, you should see how the VMs are distributed across the 2 fault and update domains.
 
 ![Availability set in the portal](../media/tutorial-availability-sets/fd-ud.PNG)
 
