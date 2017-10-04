@@ -22,15 +22,15 @@ ms.author: mandia; ladocs
 > [!TIP]
 > [Connector details](/connectors/) lists any triggers and actions defined in the swagger, and also lists any limits for each connector.
 
-Connectors are an integral part when creating logic apps. Using these connectors, you can really expand your on-premises and cloud applications to do a variety of things with data that you create, and data you already have. The connectors are available as either built-in actions or managed connectors.
+Connectors are an integral part when creating logic apps. Using these connectors, you can expand your on-premises and cloud applications to do various things with data that you create, and data you already have. The connectors are available as either built-in actions or managed connectors.
 
-**Built-in actions**: Part of the underlying Logic Apps engine that provide built-in connectivity or functionality. Some examples include calling HTTP endpoints, Azure Functions, and Azure API Management operations as well as data operations and variables.
+**Built-in actions**: Part of the underlying Logic Apps engine that provides built-in connectivity or functionality. Some examples include calling HTTP endpoints, Azure Functions, and Azure API Management operations as well as data operations and variables.
 
 **Managed connectors**: Provide API connectivity to services and require creating an API connection that is hosted and managed by the Logic Apps service. Managed connectors are available in the following categories:
 
 * **Standard connectors**: Automatically available and included when you use logic apps. Some examples include Service Bus, Power BI, OneDrive, and many more.
 
-* **On-premises connectors**: Connect to server applications on-premises utilizing the [on-premises data gateway][gatewaydoc]. On-premises connectors include connectivity to server applications such as SharePoint Server, SQL Server, Oracle DB, File shares and others.
+* **On-premises connectors**: Connect to server applications on-premises utilizing the [on-premises data gateway][gatewaydoc]. On-premises connectors include connectivity to server applications such as SharePoint Server, SQL Server, Oracle DB, File shares, and others.
 
 * **Integration account connectors**: Available when you purchase an integration account. Using these connectors, you can transform and validate XML, process business-to-business messages with AS2 / X12 / EDIFACT, and encode and decode flat files. If you work with BizTalk Server, then these connectors are a good fit to expand your BizTalk workflows into Azure.  
 
@@ -50,7 +50,7 @@ The Logic Apps engine provides actions that can manipulate data, communicate ove
 | --- | --- | --- | --- |
 | [![API Icon][HTTPicon]<br/>**HTTP**][httpdoc] | Use logic apps to communicate with any endpoint over HTTP.| [![API Icon][Azure-Functionsicon]<br/>**Azure Functions**][azure-functionsdoc] | Create functions that run custom snippets of C# or node.js, and then use these functions in your logic apps.  |
 | [![API Icon][HTTP-Requesticon]<br/>**Request**][HTTP-Requestdoc] | Provides a callable HTTPS URL typically used as a webhook in other applications. When the logic app receives a request to this URL, the logic app starts. | [![API Icon][Schedule-icon]<br/>**Schedule**][recurrencedoc] | Start logic apps based on simple or complex recurrence schedules. For example, create schedules from as simple as recur every day to recur hourly on the last Friday of every month between 9:00 am and 5:00 pm. |
-| [![API Icon][CallLogicApp-icon]<br/>**Call<br/>Logic App**][nested-logic-appdoc] | Call a nested logic app. Any logic app with a request trigger can be called as a nested logic app.| [![API Icon][AppServices-icon]<br/>**API App**][api/web-appdoc] | Call an App Service API App. API Apps with with swagger will render just like other first class actions.|
+| [![API Icon][CallLogicApp-icon]<br/>**Call<br/>Logic App**][nested-logic-appdoc] | Call a nested logic app. Any logic app with a request trigger can be called as a nested logic app.| [![API Icon][AppServices-icon]<br/>**API App**][api/web-appdoc] | Call an App Service API App. API Apps with swagger renders just like other first class actions.|
 
 ## Standard connectors
 The following table lists the most popular and some favorites with our users:
@@ -65,7 +65,7 @@ The following table lists the most popular and some favorites with our users:
 
 ## On-premises connectors 
 
-On-premises connectors provides access to data in on-premises servers.  To create a connection to a server on-premises requires an [on-premises data gateway][gatewaydoc] that provides a secure communication channel without needed to configure network infrastructure.  Some of the connectors include:
+On-premises connectors provide access to data in on-premises servers.  Creating a connection to a server on-premises requires an [on-premises data gateway][gatewaydoc] that provides a secure communication channel without needed to configure network infrastructure.  Some of the connectors include:
 
 |  |  |  |  |
 | --- | --- | --- | --- |
@@ -129,7 +129,7 @@ Logic apps include built-in actions that can change or manipulate your payload d
 
 ## Custom connectors and Azure certification 
 
-To call into APIs that run custom code or aren't available as connectors, you can  extend the Logic Apps platform by [creating REST-based API Apps that can be called from a logic app](../logic-apps/logic-apps-create-api-app.md). You can also create your own [custom connectors](../logic-apps/custom-connector-overview.md) that can be made available to any logic app in your subscription.
+To call into APIs that run custom code or aren't available as connectors, you can  extend the Logic Apps platform by [creating REST-based API Apps](../logic-apps/logic-apps-create-api-app.md). You can also create your own [custom connectors](../logic-apps/custom-connector-overview.md) that can be made available to any logic app in your subscription.
 
 If you want to make your custom API Apps public and available to use in Azure, then you can [submit your connectors for Microsoft certification](../logic-apps/custom-connector-submit-certification.md).
 
@@ -170,7 +170,7 @@ Are we missing a connector topic, or any details you think are important? If yes
 [sapconnector]: ../logic-apps/logic-apps-using-sap-connector.md "Connect to an on-premises SAP system"
 [service-busdoc]: ./connectors-create-api-servicebus.md "Send messages from Service Bus Queues and Topics and receive messages from Service Bus Queues and Subscriptions"
 [sharepointdoc]: ./connectors-create-api-sharepointonline.md "Connect to SharePoint Online. Manage documents, list items, and more"
-[sharepointserver]: ./connectors-create-api-sharepointserver.md "Connect to SharePoint On premise server. Manage documents, list items, and more"
+[sharepointserver]: ./connectors-create-api-sharepointserver.md "Connect to SharePoint on-premises server. Manage documents, list items, and more"
 [sql-serverdoc]: ./connectors-create-api-sqlazure.md "Connect to Azure SQL Database or SQL server. Create, update, get, and delete entries in a SQL database table."
 [twitterdoc]: ./connectors-create-api-twitter.md "Connect to Twitter. Get timelines, post tweets, and more"
 [webhookdoc]: ./connectors-native-webhook.md "Add Webhook actions and triggers to your logic apps"
