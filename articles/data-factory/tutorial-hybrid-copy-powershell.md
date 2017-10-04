@@ -214,12 +214,12 @@ In this section, you can create a Self-hosted integration runtime and associate 
 		"name": "SqlServerLinkedService"
 	}
    ```
-2. To encrypt the sensitive data from the JSON payload on the on-premise self-hosted integration runtime, we can run **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential** and pass on the above JSON payload. This encryption ensures the credentials are encrypted using Data Protection Application Programming Interface (DPAPI) and stored on the self-hosted integration runtime node locally. The output payload can be redirected to another JSON file (in this case 'encryptedLinkedService.json') which contains encrypted credentials. 
+2. To encrypt the sensitive data from the JSON payload on the on-premise self-hosted integration runtime, we can run **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** and pass on the above JSON payload. This encryption ensures the credentials are encrypted using Data Protection Application Programming Interface (DPAPI) and stored on the self-hosted integration runtime node locally. The output payload can be redirected to another JSON file (in this case 'encryptedLinkedService.json') which contains encrypted credentials. 
 
     Replace **&lt;integration runtime name&gt;** with the name of your integration runtime before running the command.
 
    ```powershell
-   New-AzureRmDataFactoryV2LinkedServiceEncryptCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName <integration runtime name> -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
+   New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName <integration runtime name> -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
    ```
 
 3. Run the following command by using JSON from the previous step to create the **SqlServerLinkedService**:

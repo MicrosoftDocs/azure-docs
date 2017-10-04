@@ -139,7 +139,7 @@ $ az vm start -g <resource group name> -n <vm name>
 ```
 
 ## Expand the DSVM OS disk
-Linux VM in Azure typically comes with a 30-GB operating system disk. When used as compute target for Azure ML, it can be eaten up quickly by Docker engine pulling down Docker images and building conda layers on top of it. It is a good idea to expand the OS disk to a larger size (such as 200 GB) to void the "disk full" error while you are in the middle of an execution. Reference [How to expand virtual hard disks on a Linux VM with the Azure CLI](../../virtual-machines/linux/expand-disks.md) to learn how to do this easily from azure-cli. 
+Linux VM in Azure typically comes with a 30-GB operating system disk. When used as compute target for Azure ML, it can be eaten up quickly by Docker engine pulling down Docker images and building conda layers on top of it. It is a good idea to expand the OS disk to a larger size (such as 200 GB) to avoid the "disk full" error while you are in the middle of an execution. Reference [How to expand virtual hard disks on a Linux VM with the Azure CLI](../../virtual-machines/linux/expand-disks.md) to learn how to do this easily from azure-cli. 
 
 ## Create an Apache Spark for Azure HDInsight cluster in Azure portal
 

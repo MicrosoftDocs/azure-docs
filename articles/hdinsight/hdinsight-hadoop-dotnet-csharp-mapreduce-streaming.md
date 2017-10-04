@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/04/2017
 ms.author: larryfr
 
 ---
@@ -52,7 +52,7 @@ For more information on streaming, see [Hadoop Streaming (https://hadoop.apache.
 
 * A way to upload .exe files to the cluster. The steps in this document use the Data Lake Tools for Visual Studio to upload the files to primary storage for the cluster.
 
-* Azure PowerShell or a SSH client.
+* Azure PowerShell or an SSH client.
 
 * A Hadoop on HDInsight cluster. For more information on creating a cluster, see [Create an HDInsight cluster](hdinsight-provision-clusters.md).
 
@@ -176,7 +176,7 @@ After creating the application, build it to produce the `/bin/Debug/reducer.exe`
 
 1. Use SSH to connect to the HDInsight cluster. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Use one of the following command to start the MapReduce job:
+2. Use one of the following commands to start the MapReduce job:
 
     * If using __Data Lake Store__ as default storage:
 
@@ -223,7 +223,7 @@ Use the following PowerShell script to run a MapReduce job and download the resu
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/use-csharp-mapreduce/use-csharp-mapreduce.ps1?range=5-87)]
 
-This script prompts you for the cluster login account name and password, along with the HDInsight cluster name. Once the job completes, the output is downloaded to the `output.txt` file in the directory the script is ran from. The following text is an example of the data in the `output.txt` file:
+This script prompts you for the cluster login account name and password, along with the HDInsight cluster name. Once the job completes, the output is downloaded to a file named `output.txt`. The following text is an example of the data in the `output.txt` file:
 
     you     1128
     young   38
@@ -239,6 +239,6 @@ This script prompts you for the cluster login account name and password, along w
 
 For more information on using MapReduce with HDInsight, see [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md).
 
-For information on using C# with Hive and Pig, see [Use a C# user defined function with Hive and Pig](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md).
+For information on using C# with Hive and Pig, see [Use a C# user-defined function with Hive and Pig](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md).
 
 For information on using C# with Storm on HDInsight, see [Develop C# topologies for Storm on HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md).
