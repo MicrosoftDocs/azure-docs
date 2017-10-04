@@ -39,12 +39,12 @@ Any application that wants to use the capabilities of Azure AD must first be reg
 
 4. When the "Create" page appears, enter your application's registration information: 
 
-- **Name:** Enter a meaningful application name
-- **Application type:** 
-- Select "Native" for [client applications](active-directory-dev-glossary.md#client-application) that are installed locally on a device. This setting is used for OAuth public [native clients](active-directory-dev-glossary.md#native-client).
-- Select "Web app / API" for [client applications](active-directory-dev-glossary.md#client-application) and [resource/API applications](active-directory-dev-glossary.md#resource-server) that are installed on a secure server. This setting is used for OAuth confidential [web clients](active-directory-dev-glossary.md#web-client) and public [user-agent-based clients](active-directory-dev-glossary.md#user-agent-based-client). The same application can also expose both a client and resource/API.
-- **Sign-On URL:** For "Web app / API" applications, provide the base URL of your app, for example `http://localhost:12345`. Users would use this URL to sign in to a web client application. 
-- **Redirect URI:** For "Native" applications, provide the URI used by Azure AD return token responses. Enter a value specific to your application, for example `http://MyFirstAADApp`
+  - **Name:** Enter a meaningful application name
+  - **Application type:** 
+  - Select "Native" for [client applications](active-directory-dev-glossary.md#client-application) that are installed locally on a device. This setting is used for OAuth public [native clients](active-directory-dev-glossary.md#native-client).
+  - Select "Web app / API" for [client applications](active-directory-dev-glossary.md#client-application) and [resource/API applications](active-directory-dev-glossary.md#resource-server) that are installed on a secure server. This setting is used for OAuth confidential [web clients](active-directory-dev-glossary.md#web-client) and public [user-agent-based clients](active-directory-dev-glossary.md#user-agent-based-client). The same application can also expose both a client and resource/API.
+  - **Sign-On URL:** For "Web app / API" applications, provide the base URL of your app, for example `http://localhost:12345`. Users would use this URL to sign in to a web client application. 
+  - **Redirect URI:** For "Native" applications, provide the URI used by Azure AD return token responses. Enter a value specific to your application, for example `http://MyFirstAADApp`
 
   ![Register a new application - create](./media/active-directory-integrating-applications/add-app-registration-create.png)
 
@@ -52,10 +52,10 @@ Any application that wants to use the capabilities of Azure AD must first be reg
 
 5. Once you've completed registration, Azure AD assigns a unique Application ID to your application, and you're taken to your application's main registration page. Depending on whether your application is a web or native application, different options are provided to add additional capabilities to your application. See the next section for an overview of consent, and details on enabling additional configuration features in your application registration (credentials, permissions, enable sign-in for users from other tenants.)
 
-   > [!NOTE]
-   > By default, the newly registered application is configured to allow **only** users from the same tenant to sign in to your application.
-   > 
-   > 
+  > [!NOTE]
+  > By default, the newly registered application is configured to allow **only** users from the same tenant to sign in to your application.
+  > 
+  > 
 
 ## Updating an application
 Once your application has been registered with Azure AD, it may need to be updated to provide access to web APIs, be made available in other organizations, and more. This section describes various ways in which you may need to configure your application further. First we start with an overview of the Consent Framework, which is important to understand when building applications that need to be used by other users or applications.
@@ -76,25 +76,25 @@ The following steps show you how the consent experience works for both the appli
 
 1. On your web client application’s configuration page in the Azure portal, set the permissions your application requires by using the menus in the Required Permissions section.
    
-    ![Permissions to other applications](./media/active-directory-integrating-applications/requiredpermissions.png)
+  ![Permissions to other applications](./media/active-directory-integrating-applications/requiredpermissions.png)
     
 2. Consider that your application’s permissions have been updated, the application is running, and a user is about to use it for the first time. First the application needs to obtain an authorization code from Azure AD’s authorization endpoint. The authorization code can then be used to acquire a new access and refresh token.
 3. If the user is not already authenticated, Azure AD's authorization endpoint prompts for sign-in.
    
-    ![User or administrator sign-in to Azure AD](./media/active-directory-integrating-applications/usersignin.png)
+  ![User or administrator sign-in to Azure AD](./media/active-directory-integrating-applications/usersignin.png)
 
 4. After the user has signed in, Azure AD will determine if the user needs to be shown a consent page. This determination is based on whether the user (or their organization’s administrator) has already granted the application consent. If consent has not already been granted, Azure AD prompts the user for consent and displays the required permissions it needs to function. The set of permissions that is displayed in the consent dialog are the same as what was selected in the Delegated Permissions in the Azure portal.
    
-    ![User consent experience](./media/active-directory-integrating-applications/consent.png)
+  ![User consent experience](./media/active-directory-integrating-applications/consent.png)
 
 5. After the user grants consent, an authorization code is returned to your application, which can be redeemed to acquire an access token and refresh token. For more information about this flow, see the [web Application to web API section](active-directory-authentication-scenarios.md#web-application-to-web-api) in [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md).
 
 6. As an administrator, you can also consent to an application's delegated permissions on behalf of all the users in your tenant. Administrative consent prevents the consent dialog from appearing for every user in the tenant, and is done your application page in the [Azure portal](https://portal.azure.com). From the **Settings** page for your application, click **Required Permissions** and click on the **Grant Permissions** button. 
 
-    ![Grant permissions for explicit admin consent](./media/active-directory-integrating-applications/grantpermissions.png)
+  ![Grant permissions for explicit admin consent](./media/active-directory-integrating-applications/grantpermissions.png)
     
-   > [!NOTE]
-   > Granting explicit consent using the **Grant Permissions** button is currently required for single page applications (SPA) that use ADAL.js. Otherwise, the application fails when the access token is requested.   
+  > [!NOTE]
+  > Granting explicit consent using the **Grant Permissions** button is currently required for single page applications (SPA) that use ADAL.js. Otherwise, the application fails when the access token is requested.   
 
 ### Configuring a client application to access web APIs
 In order for a web/confidential client application to be able to participate in an authorization grant flow that requires authentication (and obtain an access token), it must establish secure credentials. The default authentication method supported by the Azure portal is Client ID + secret key. This section covers the configuration steps required to provide the secret key your client's credentials.
@@ -104,39 +104,41 @@ Additionally, before a client can access a web API exposed by a resource applica
 * Application Permissions: Your client application needs to access the web API directly as itself (no user context). This type of permission requires administrator consent and is also not available for native client applications.
 * Delegated Permissions: Your client application needs to access the web API as the signed-in user, but with access limited by the selected permission. This type of permission can be granted by a user unless the permission requires administrator consent. 
 
-   > [!NOTE]
-   > Adding a delegated permission to an application does not automatically grant consent to the users within the tenant, as it did in the Azure classic portal. Users must still manually consent for the added delegated permissions at runtime, unless the administrator clicks the **Grant Permissions** button from the **Required Permissions** section of the application page in the Azure portal. 
+  > [!NOTE]
+  > Adding a delegated permission to an application does not automatically grant consent to the users within the tenant, as it did in the Azure classic portal. Users must still manually consent for the added delegated permissions at runtime, unless the administrator clicks the **Grant Permissions** button from the **Required Permissions** section of the application page in the Azure portal. 
 
 #### To add application credentials, or permissions to access web APIs
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. If your account gives you access to more than one, click your account in the top right corner, and set your portal session to the desired Azure AD tenant.
 3. In the left-hand navigation pane, click the **Azure Active Directory** service, click **App Registrations**, then click the application you want to configure.
-   ![Update an application's registration](./media/active-directory-integrating-applications/update-app-registration.png)
-4. You are taken to the application's main registration page, which opens up the **Settings** page for the application. To add a secret key for your web application's credentials:
-   - Click the **Keys** section on the Settings page.  
-   - Add a description for your key.
-   - Select either a one or two year duration.
-   - Click **Save**. The right-most column will contain the key value, after you save the configuration changes. **Be sure to copy the key** for use in your client application code, as it is not accessible once you leave this page.
 
-     ![Update an application's registration - keys](./media/active-directory-integrating-applications/update-app-registration-settings-keys.png)
+   ![Update an application's registration](./media/active-directory-integrating-applications/update-app-registration.png)
+
+4. You are taken to the application's main registration page, which opens up the **Settings** page for the application. To add a secret key for your web application's credentials:
+  - Click the **Keys** section on the Settings page.  
+  - Add a description for your key.
+  - Select either a one or two year duration.
+  - Click **Save**. The right-most column will contain the key value, after you save the configuration changes. **Be sure to copy the key** for use in your client application code, as it is not accessible once you leave this page.
+
+  ![Update an application's registration - keys](./media/active-directory-integrating-applications/update-app-registration-settings-keys.png)
 
 5. To add permission(s) to access resource APIs from your client
-   - Click the **Required Permissions** section on the Settings page. 
-   - Click the **Add** button.
-   - Click **Select an API** to select the type of resources you want to pick from.
-   - Browse through the list of available APIs or use the search box to select from the available resource applications in your directory that expose a web API. Click the resource you are interested in, then click **Select**.
-   - You're taken to **Select Permissions**, to select the "Application Permissions" and "Delegated Permissions" your application needs when accessing the API.
+  - Click the **Required Permissions** section on the Settings page. 
+  - Click the **Add** button.
+  - Click **Select an API** to select the type of resources you want to pick from.
+  - Browse through the list of available APIs or use the search box to select from the available resource applications in your directory that expose a web API. Click the resource you are interested in, then click **Select**.
+  - You're taken to **Select Permissions**, to select the "Application Permissions" and "Delegated Permissions" your application needs when accessing the API.
    
-     ![Update an application's registration - permissions api](./media/active-directory-integrating-applications/update-app-registration-settings-permissions-api.png)
+  ![Update an application's registration - permissions api](./media/active-directory-integrating-applications/update-app-registration-settings-permissions-api.png)
 
-     ![Update an application's registration - permissions perms](./media/active-directory-integrating-applications/update-app-registration-settings-permissions-perms.png)
+  ![Update an application's registration - permissions perms](./media/active-directory-integrating-applications/update-app-registration-settings-permissions-perms.png)
 
 6. When finished, click the **Select** button on "Enable Access" page, then the  **Done** button on the "Add API access" page. You are returned to the "Required permissions" page, where the new resource is added to the list of APIs.
 
-   > [!NOTE]
-   > Clicking the **Done** button also automatically sets the permissions for your application in your directory based on the permissions to other applications that you configured.  You can view these application permissions by looking at the application **Settings** page.
-   > 
-   > 
+  > [!NOTE]
+  > Clicking the **Done** button also automatically sets the permissions for your application in your directory based on the permissions to other applications that you configured.  You can view these application permissions by looking at the application **Settings** page.
+  > 
+  > 
 
 ### Configuring a resource application to expose web APIs
 You can develop a web API and make it available to client applications by exposing access [scopes](active-directory-dev-glossary.md#scopes) and [roles](active-directory-dev-glossary.md#roles). A correctly configured web API is made available just like the other Microsoft web APIs, including the Graph API and the Office 365 APIs. Access scopes and roles are exposed through your [application's manifest](active-directory-dev-glossary.md#application-manifest), which is a JSON file that represents your application’s identity configuration.  
@@ -149,39 +151,42 @@ The following section shows you how to expose access scopes, by modifying the re
 3. On the top menu, choose **Azure Active Directory**, click **App Registrations**, and then click the application you want to configure. You are taken to the application's main registration page, which opens up the **Settings** page for the application.
 4. Click **Manifest** from the application page to open the inline manifest editor. 
 5. Replace “oauth2Permissions” node with the following JSON snippet. This snippet is an example of how to expose a scope known as "user impersonation", which allows a resource owner to give a client application a type of delegated access to a resource. Make sure that you change the text and values for your own application:
+
+  ```json   
+  "oauth2Permissions": [
+  {
+      "adminConsentDescription": "Allow the application full access to the Todo List service on behalf of the signed-in user",
+      "adminConsentDisplayName": "Have full access to the Todo List service",
+      "id": "b69ee3c9-c40d-4f2a-ac80-961cd1534e40",
+      "isEnabled": true,
+      "type": "User",
+      "userConsentDescription": "Allow the application full access to the todo service on your behalf",
+      "userConsentDisplayName": "Have full access to the todo service",
+      "value": "user_impersonation"
+      }
+  ],
+  ```
    
-        "oauth2Permissions": [
-        {
-            "adminConsentDescription": "Allow the application full access to the Todo List service on behalf of the signed-in user",
-            "adminConsentDisplayName": "Have full access to the Todo List service",
-            "id": "b69ee3c9-c40d-4f2a-ac80-961cd1534e40",
-            "isEnabled": true,
-            "type": "User",
-            "userConsentDescription": "Allow the application full access to the todo service on your behalf",
-            "userConsentDisplayName": "Have full access to the todo service",
-            "value": "user_impersonation"
-            }
-        ],
+  The "id" value must be a new generated GUID that you create by using a [GUID generation tool](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx) or programmatically. It represents a unique identifier for the permission that is exposed by the web API. Once a client is appropriately configured to request access to your web API and permissions, it is issued an OAuth2.0 access token by Azure AD. When the client calls the web API, it presents the access token with the scope (scp) claim set to "user_impersonation."
    
-    The "id" value must be a new generated GUID that you create by using a [GUID generation tool](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx) or programmatically. It represents a unique identifier for the permission that is exposed by the web API. Once a client is appropriately configured to request access to your web API and permissions, it is issued an OAuth2.0 access token by Azure AD. When the client calls the web API, it presents the access token with the scope (scp) claim set to "user_impersonation."
-   
-   > [!NOTE]
-   > You can expose additional scopes later as necessary. Consider that your web API might expose multiple scopes associated with a variety of different functions. Now you can control access to the web API by using the scope (scp) claim in the received OAuth 2.0 JWT token.
-   > 
-   > 
+  > [!NOTE]
+  > You can expose additional scopes later as necessary. Consider that your web API might expose multiple scopes associated with a variety of different functions. Now you can control access to the web API by using the scope (scp) claim in the received OAuth 2.0 JWT token.
+  > 
+  > 
+
 6. Click **Save** to save the manifest. Now your web API is configured for use by other applications in your directory.
 
 #### To verify the web API is exposed to other applications in your directory
 1. On the top menu, click **App Registrations**, select the desired client application you want to configure access to the web API and navigate to the **Settings** page.
 2. From the **Required Permissions** section, select the web API that you just exposed a permission for. From the Delegated Permissions drop-down menu, select the new permission.
 
-   ![Todo List permissions are shown](./media/active-directory-integrating-applications/todolistpermissions.png)
+  ![Todo List permissions are shown](./media/active-directory-integrating-applications/todolistpermissions.png)
 
 #### More on the application manifest
 The application manifest actually serves as a mechanism for updating the Application entity, which defines all attributes of an Azure AD application's identity configuration, including the API access scopes we discussed. For more information on the Application entity, see the [Graph API Application entity documentation](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity). The article contains complete reference information on the Application entity members used to specify permissions for your API:  
 
-* the appRoles member, which is a collection of [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type) entities that can be used to define the **Application Permissions** for a web API  
-* the oauth2Permissions member, which is a collection of  [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type) entities that can be used to define the **Delegated Permissions** for a web API
+- the appRoles member, which is a collection of [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type) entities that can be used to define the **Application Permissions** for a web API  
+- the oauth2Permissions member, which is a collection of  [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type) entities that can be used to define the **Delegated Permissions** for a web API
 
 For more information on application manifest concepts in general, see [Understanding the Azure Active Directory application manifest](active-directory-application-manifest.md).
 
@@ -200,8 +205,8 @@ When adding an application to Azure AD, you may want your application to be acce
 
 It’s important to note the differences between a single-tenant and multi-tenant application:  
 
-* A single-tenant application is intended for use in one organization. They are typically a line-of-business (LoB) application written by an enterprise developer. A single-tenant application only needs to be accessed by users in one directory, and as a result, it only needs to be provisioned in one directory.
-* A multi-tenant application intended for use in many organizations. They are a software-as-a-service (SaaS) web application typically written by an independent software vendor (ISV). Multi-tenant applications must be provisioned in each directory where they are used, requiring user or administrator consent to register them, supported via the Azure AD consent framework. Note that native client applications are multi-tenant by default as they are installed on the resource owner's device. See the preceding Overview of the Consent Framework section for details on the consent framework.
+- A single-tenant application is intended for use in one organization. They are typically a line-of-business (LoB) application written by an enterprise developer. A single-tenant application only needs to be accessed by users in one directory, and as a result, it only needs to be provisioned in one directory.
+- A multi-tenant application intended for use in many organizations. They are a software-as-a-service (SaaS) web application typically written by an independent software vendor (ISV). Multi-tenant applications must be provisioned in each directory where they are used, requiring user or administrator consent to register them, supported via the Azure AD consent framework. Note that native client applications are multi-tenant by default as they are installed on the resource owner's device. See the preceding Overview of the Consent Framework section for details on the consent framework.
 
 #### Enabling external users to grant your application access to their resources
 If you are writing an application that you want to make available to your customers or partners outside of your organization, you need to update the application definition in the Azure portal.
@@ -239,9 +244,11 @@ By default, OAuth 2.0 implicit Grant is disabled for applications. You can enabl
 4. From the application page, click **Manifest** to open the inline manifest editor.
    Locate and set the “oauth2AllowImplicitFlow” value to “true.” By default, it is “false.”
    
-    `"oauth2AllowImplicitFlow": true,`
-5. Save the updated manifest. Once saved, your web API is now configured to use OAuth 2.0 Implicit Grant to authenticate users.
+  ```json
+  "oauth2AllowImplicitFlow": true,
+  ```
 
+5. Save the updated manifest. Once saved, your web API is now configured to use OAuth 2.0 Implicit Grant to authenticate users.
 
 ## Removing an application
 This section describes how to remove an application from your Azure AD tenant.
@@ -270,9 +277,9 @@ A subset of the applications that show under the "All apps" filter (excluding th
 In order to remove a multi-tenant application’s access to your directory (after having granted consent), the company administrator must have an Azure subscription to remove access through the Azure portal. Alternatively, the company administrator can use the [Azure AD PowerShell Cmdlets](http://go.microsoft.com/fwlink/?LinkId=294151) to remove access.
 
 ## Next steps
-* See the [Branding Guidelines for Integrated Apps](active-directory-branding-guidelines.md) for tips on visual guidance for your app.
-* For more information on the relationship between an application's Application and Service Principal object(s), see [Application Objects and Service Principal Objects](active-directory-application-objects.md).
-* To learn more about the role the app manifest plays, see [Understanding the Azure Active Directory application manifest](active-directory-application-manifest.md)
-* See the [Azure AD developer glossary](active-directory-dev-glossary.md) for definitions of some of the core Azure Active Directory (AD) developer concepts.
-* Visit the [Active Directory developer's guide](active-directory-developers-guide.md) for an overview of all developer-related content.
+- See the [Branding Guidelines for Integrated Apps](active-directory-branding-guidelines.md) for tips on visual guidance for your app.
+- For more information on the relationship between an application's Application and Service Principal object(s), see [Application Objects and Service Principal Objects](active-directory-application-objects.md).
+- To learn more about the role the app manifest plays, see [Understanding the Azure Active Directory application manifest](active-directory-application-manifest.md)
+- See the [Azure AD developer glossary](active-directory-dev-glossary.md) for definitions of some of the core Azure Active Directory (AD) developer concepts.
+- Visit the [Active Directory developer's guide](active-directory-developers-guide.md) for an overview of all developer-related content.
 
