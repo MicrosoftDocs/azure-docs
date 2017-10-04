@@ -20,12 +20,10 @@ ms.author: tarcher
 
 # Enable a licensed image in your lab
 
-[!INCLUDE [devtest-lab-custom-image-definition](../../includes/devtest-lab-custom-image-definition.md)]
-
-A licensed image is one that includes terms and conditions – typically from a third-party – that must be accepted before the image is accessible to users in the lab. The following sections describe how to work with licensed images so that they are available to use for creating virtual machines.
+In Azure DevTest Labs, a licensed image is one that includes terms and conditions – typically from a third-party – that must be accepted before the image is accessible to users in the lab. The following sections describe how to work with licensed images so that they are available to use for creating virtual machines.
 
 ## Determining whether a licensed image is available to users
-The first step to allowing users to create custom images from a licensed image is to make sure that the terms and conditions have been accepted for the licensed image. The following steps show how you can view the offer status of a licensed image and, if necessary, accept its terms and conditions.
+The first step to allowing users to create VMs from a licensed image is to make sure that the terms and conditions have been accepted for the licensed image. The following steps show how you can view the offer status of a licensed image and, if necessary, accept its terms and conditions.
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
@@ -57,7 +55,10 @@ You can enable programmatic deployment for a licensed image by following these s
 
    	![Configure Programmatic Deployment window](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
 
-   Data Science VMs are Azure Virtual Machine images, pre-installed, configured and tested with several popular tools that are commonly used for data analytics, machine learning and AI training. [Introduction to Azure Data Science Virtual Machine for Linux and Windows](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) provides a great deal of information about DSVMs.
+   > [!NOTE]
+   > Data Science VMs are Azure Virtual Machine images, pre-installed, configured and tested with several popular tools that are commonly used for data analytics, machine learning and AI training. [Introduction to Azure Data Science Virtual Machine for Linux and Windows](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) provides a great deal of information about DSVMs.
+   >
+   >
 
 1. In the **OFFER STATUS** column for the image, select **Terms review needed**.
 
@@ -66,9 +67,6 @@ You can enable programmatic deployment for a licensed image by following these s
 	![Configure Programmatic Deployment window](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-enable-programmatic-deployment.png)
 
 1. Select **Save**. In the list of marketplace images, that image now shows **Terms accepted** and is available for users to create virtual machines.
-
-### Examples of Data Science images
-
 
 ## Related blog posts
 
