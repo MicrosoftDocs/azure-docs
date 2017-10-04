@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2017
+ms.date: 10/03/2017
 ms.author: magoedte
 
 ---
@@ -37,7 +37,7 @@ Identifying a workspace can be performed one of several ways:
     >[!NOTE]
     >Identifying a workspace by its name assumes it is unique across all accessible subscriptions. If you have multiple applications with the specified name, the query fails because of the ambiguity. In this case you must use one of the other identifiers.
 
-* Qualified Name - is the “full name” of the workspace, composed of the subscription name, resource group and component name in this format: */subscriptionName/resourceGroup/componentName*. 
+* Qualified Name - is the “full name” of the workspace, composed of the subscription name, resource group and component name in this format: *subscriptionName/resourceGroup/componentName*. 
 
     `workspace('contoso/contosoretail/development').requests | count `
 
