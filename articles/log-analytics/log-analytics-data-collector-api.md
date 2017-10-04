@@ -17,6 +17,9 @@ ms.date: 07/13/2017
 ms.author: bwren
 
 ---
+>[!NOTE]
+> The Log Analytics HTTP Data Collector API is in Public Preview.
+
 # Send data to Log Analytics with the HTTP Data Collector API
 This article shows you how to use the HTTP Data Collector API to send data to Log Analytics from a REST API client.  It describes how to format data collected by your script or application, include it in a request, and have that request authorized by Log Analytics.  Examples are provided for PowerShell, C#, and Python.
 
