@@ -83,9 +83,7 @@ for i in `seq 1 2`; do
      --image Canonical:UbuntuServer:14.04.4-LTS:latest \
      --admin-username azureuser \
      --generate-ssh-keys \
-	 --vnet-name myVnet
-	 --subnet mySubnet$i
-     --no-wait
+	 --no-wait
 done 
 ```
 
