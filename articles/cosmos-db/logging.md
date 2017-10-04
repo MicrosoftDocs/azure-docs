@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 10/04/2017
 ms.author: mimig
 
 ---
@@ -340,28 +340,31 @@ Logs are made available in your account two hours from the time the Azure Cosmos
 Storage account is configured in the portal when **Log DataPlaneRequests** is selected. To change that setting, see [Turn on logging in the Azure portal](#turn-on-logging-in-the-azure-portal).
 
 
-<a id="#view-in-oms"></a>
-## View diagnostic logs in Operations Management Suite
+<a id="#view-in-loganalytics"></a>
+## View diagnostic logs in Log Analytics
 
-If you selected **Send to Log Analytics** option when you turned on logging, diagnostic data from your collection gets pushed to Operations Management Suite within two hours. This means that if you look at Operations Management Suite immediately after turning on logging, you won't see any data. Just wait two hours and try again. 
+If you selected **Send to Log Analytics** option when you turned on logging, diagnostic data from your collection gets pushed to Log Analytics and Operations Management Suite within two hours. This means that if you look at Log Analytics immediately after turning on logging, you won't see any data. Just wait two hours and try again. 
 
 Before viewing your logs, you'll want to check and see if your Log Analytics workspace has been upgraded to use the most recent Log Analytics query language. To check this, open the [Azure portal](https://portal.azure.com), click **Log Analytics** on the far left side, select the workspace name, and go to the **OMS Workspace** page as shown in the following image. 
 
 ![Log analytics upgrade notification](./media/logging/azure-portal.png)
 
-If you see the following message in the portal, your workspace has not been upgraded to use the new language. You can either click the error to upgrade your workspace (recommended), or you can use the queries marked "Current" in the table below. For more information about the impact of the upgrade, see [Upgrade your Azure Log Analytics workspace to new log search](../log-analytics/log-analytics-log-search-upgrade.md).
+If you see the following message in the portal, your workspace has not been upgraded to use the new language. You can either click the error to upgrade your workspace (recommended), or you can leave your account as-is and use the queries marked "Current" in the list below. For more information about the impact of the upgrade, see [Upgrade your Azure Log Analytics workspace to new log search](../log-analytics/log-analytics-log-search-upgrade.md). 
 
 ![Log analytics upgrade notification](./media/logging/upgrade-notification.png)
 
-Now let's open Operations Management Suite. From the Log Analytics Azure Portal, click one of the **OMS Portal** links as shown in the following diagram, or go to the [Operations Management Suite](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite) page and then click **Sign in**.
+To view your diagnostic data in Log Analytics, open the Log Search page from the left menu or the Management area of the page, as shown in the following image.
 
-![Log analytics upgrade notification](./media/logging/open-oms.png)
+![Log analytics upgrade notification](./media/logging/log-analytics-open-log-search.png)
 
-Once data starts streaming into your Operations Management Suite workspace, you can view data from Azure Cosmos DB using the **Log Search** option on the left menu. The following query shows how to display the ten most recent logs.
+Now enter a query in the search box. For example, the following image shows how to display the ten most recent logs using the `AzureDiagnostics | take 10` query. Note that this query uses the new query language. 
 
-![Introductory query in OMS](./media/logging/query-oms.png)
+![Log analytics upgrade notification](./media/logging/log-analytics-query.png)
 
- Here are some additional queries you can enter into the **Log search** box to help you monitor your collection. Queries marked New are for accounts that have been upgraded, queries marked current are for accounts that have not been upgraded. 
+<a id="#queries"></a>
+### Queries
+
+Here are some additional queries you can enter into the **Log search** box to help you monitor your containers. Queries marked New are for accounts that have been upgraded, queries marked Current are for accounts that have not been upgraded. 
 
 * All diagnostic logs for the specified time period.
     * New: `AzureDiagnostics`
@@ -390,7 +393,24 @@ Once data starts streaming into your Operations Management Suite workspace, you 
 
 For additional information on using the new Log Search language, see [Getting Started with Queries](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-queries). 
 
-For information on using the current Log Search language, see [Find data using log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md).
+For information on using the current Log Search language, see [Find data using log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md)
+
+<a id="#view-in-oms"></a>
+## View diagnostic logs in Operations Management Suite
+
+If you selected **Send to Log Analytics** option when you turned on logging, diagnostic data from your collection gets pushed to Operations Management Suite within two hours. This means that if you look at Operations Management Suite immediately after turning on logging, you won't see any data. Just wait two hours and try again. 
+
+If you're already in the [Azure portal](https://portal.azure.com), the easiest way to open Operations Management Suite is to click one of the **OMS Portal** links as shown in the following diagram.
+
+![Open OMS from the Azure portal](./media/logging/open-oms.png)
+
+You can also go to the [Operations Management Suite](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite) page and then click **Sign in**, however if you're working multiple with shared subscriptions the Azure portal path provides more visibility into all of your subscriptions. 
+
+Once data starts streaming into your Operations Management Suite workspace you can view data from Azure Cosmos DB by clicking the the **Log Search** icon ![Log search icon](./media/logging/log-search-icon.png) on the left menu and entering a query into the search box. For example, the following image shows how to display the ten most recent logs using the `AzureDiagnostics | take 10` query.
+
+![Introductory query in OMS](./media/logging/query-oms.png)
+
+See the [Queries](#queries) section in this article for additional sample queries. The query language used by Log Analytics and Operations Management Suite is the same.
 
 ## Next steps
 
