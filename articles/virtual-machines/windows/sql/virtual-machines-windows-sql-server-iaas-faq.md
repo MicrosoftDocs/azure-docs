@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/23/2017
+ms.date: 10/04/2017
 ms.author: v-shysun
 ms.custom: H1Hack27Feb2017
 ---
@@ -24,7 +24,10 @@ ms.custom: H1Hack27Feb2017
 > * [Windows](virtual-machines-windows-sql-server-iaas-faq.md)
 > * [Linux](../../linux/sql/sql-server-linux-faq.md)
 
-This topic provides answers to some of the most common questions about running [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/).
+This topic provides answers to some of the most common questions about running [SQL Server on Windows Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/).
+
+> [!NOTE]
+> This topic focuses on issues specific to SQL Server on Windows VMs. If you are running SQL Server on Linux VMs, see the [Linux FAQ](../../linux/sql/sql-server-linux-faq.md).
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
@@ -88,12 +91,18 @@ This topic provides answers to some of the most common questions about running [
 
 ## Resources
 
-For an overview of SQL Server on Azure Virtual Machines, watch the video [Azure VM is the best platform for SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016). You can also get a good introduction in the topic, [SQL Server on Azure Virtual Machines overview](virtual-machines-windows-sql-server-iaas-overview.md).
+**Windows VMs**:
 
-Other resources include:
-
-* [Provision a SQL Server virtual machine in the Azure Portal](virtual-machines-windows-portal-sql-server-provision.md)
+* [Overview of SQL Server on a Windows VM](virtual-machines-windows-sql-server-iaas-overview.md).
+* [Provision a SQL Server Windows VM](virtual-machines-windows-portal-sql-server-provision.md)
 * [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-migrate-sql.md)
 * [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md)
 * [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md)
-* [Application Patterns and Development Strategies for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md) 
+* [Application Patterns and Development Strategies for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
+
+**Linux VMs**:
+
+* [Overview of SQL Server on a Linux VM](../../linux/sql/sql-server-linux-virtual-machines-overview.md)
+* [Provision a SQL Server Linux VM](../../linux/provision-sql-server-linux-virtual-machine.md)
+* [FAQ (Linux)](../../linux/sql/sql-server-linux-faq.md)
+* [SQL Server on Linux documentation](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)

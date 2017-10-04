@@ -22,13 +22,13 @@ ms.author: jroth
 This topic provides answers to some of the most common questions about running [SQL Server on Linux Azure Virtual Machines](sql-server-linux-virtual-machines-overview.md).
 
 > [!NOTE]
-> This topic focusses on issues specific to SQL Server on Linux VMs. If you are running SQL Server on Windows VMs, see the [Windows FAQ](../../windows/sql/virtual-machines-windows-sql-server-iaas-faq.md).
+> This topic focuses on issues specific to SQL Server on Linux VMs. If you are running SQL Server on Windows VMs, see the [Windows FAQ](../../windows/sql/virtual-machines-windows-sql-server-iaas-faq.md).
 
-If your Azure issue is not addressed in this article, visit the Azure forums on [MSDN and Stack Overflow](https://azure.microsoft.com/support/forums). You can post your issue in these forums, or post to [@AzureSupport on Twitter](https://twitter.com/AzureSupport). You also can submit an Azure support request. To submit a support request, on the [Azure support](https://azure.microsoft.com/support/options) page, select Get support.
+[!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
 ## Frequently Asked Questions
 
-1. **How do I create an Linux Azure virtual machine with SQL Server?**
+1. **How do I create a Linux Azure virtual machine with SQL Server?**
 
    The easiest solution is to create a Linux Virtual Machine that includes SQL Server. For a tutorial on signing up for Azure and creating a SQL VM from the portal, see [Provision a Linux SQL Server virtual machine in the Azure portal](provision-sql-server-linux-virtual-machine.md). You also have the option of manually installing SQL Server on a VM with either a freely licensed edition (Developer or Express) or by reusing an on-premises license. If you bring your own license, you must have [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility).
 
@@ -38,15 +38,15 @@ If your Azure issue is not addressed in this article, visit the Azure forums on 
 
 1. **How can I install my licensed copy of SQL Server on an Azure VM?**
 
-   There are two ways to do this. You can provision one of the virtual machine images that supports licenses. Another option is to copy the SQL Server installation media to a Windows Server VM, and then install SQL Server on the VM. For licensing reasons, you must have [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/).
-
-1. **Can I change a VM to use my own SQL Server license if it was created from one of the pay-as-you-go gallery images?**
-
-   No. You can not switch from pay-per-minute licensing to using your own license. You must create a new Linux VM, install SQL Server, and migrate your data. See the previous question for more details about bringing your own license.
+   First, create a Linux OS-only virtual machine. Then run the [SQL Server installation steps](https://docs.microsoft.com/sql/linux/sql-server-linux-setup#platforms) for your Linux distribution. Unless you are installing one of the freely licensed editions of SQL Server, you must also have a SQL Server license and [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/).
 
 1. **Are there Bring-Your-Own-License (BYOL) Linux virtual machine images for SQL Server?**
 
    At this time, there are no BYOL Linux virtual machine images for SQL Server. However, you can manually install SQL Server on a Linux-only VM as discussed in the previous questions.
+
+1. **Can I change a VM to use my own SQL Server license if it was created from one of the pay-as-you-go gallery images?**
+
+   No. You cannot switch from pay-per-minute licensing to using your own license. You must create a new Linux VM, install SQL Server, and migrate your data. See the previous question for more details about bringing your own license.
 
 1. **What related SQL Server packages are also installed?**
 
@@ -58,6 +58,14 @@ If your Azure issue is not addressed in this article, visit the Azure forums on 
 
 ## Resources
 
-[Overview of SQL Server on a Linux VM](sql-server-linux-virtual-machines-overview.md)
-[Provision a SQL Server Linux VM](provision-sql-server-linux-virtual-machine.md)
-[SQL Server on Linux documentation](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
+**Linux VMs**:
+
+* [Overview of SQL Server on a Linux VM](sql-server-linux-virtual-machines-overview.md)
+* [Provision a SQL Server Linux VM](provision-sql-server-linux-virtual-machine.md)
+* [SQL Server on Linux documentation](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
+
+**Windows VMs**:
+
+* [Overview of SQL Server on a Windows VM](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
+* [Provision a SQL Server Windows VM](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md)
+* [FAQ (Windows)](../../windows/sql/virtual-machines-windows-sql-server-iaas-faq.md)
