@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus prefetch messages | Microsoft Docs
-description: Prefetch Azure Service Bus messages.
+description: Improve performance by prefetching Azure Service Bus messages.
 services: service-bus-messaging
 documentationcenter: ''
 author: clemensv
@@ -17,7 +17,7 @@ ms.author: sethm
 
 ---
 
-# Prefetch
+# Prefetch Azure Service Bus messages
 
 When *Prefetch* is enabled in any of the official Service Bus clients, the receiver quietly acquires more messages, up to the [PrefetchCount](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount#Microsoft_Azure_ServiceBus_QueueClient_PrefetchCount) limit, beyond what the application initially asked for.
 
