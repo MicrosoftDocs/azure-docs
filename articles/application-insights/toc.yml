@@ -92,7 +92,7 @@
       - name: Profiler
         href: app-insights-profiler.md
       - name: Enable the Profiler
-        href: enable-profiler-cloud-services.md
+        href: enable-profiler-compute.md
       - name: Diagnostics
         href: app-insights-azure-diagnostics.md
       - name: Previews
