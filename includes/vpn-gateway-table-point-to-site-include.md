@@ -1,4 +1,4 @@
-**Certificate authentication - Azure native**
+**Azure native certificate authentication**
 
 **Deployment model/method** | **Azure portal** | **PowerShell** |
 |---|---|---|
