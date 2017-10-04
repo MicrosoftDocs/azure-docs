@@ -32,7 +32,7 @@ Azure Data Factory version 2 builds upon the original Azure Data Factory data mo
 - Control flow and scale
 - Deploy and run SSIS packages in Azure
 
-Following the version 1 release, we recognized that customers need to design complex, hybrid data-integration scenarios that require both data movement and processing in the cloud, on-premises, and in cloud VMs. These requirements bring a need to transfer and process data within secured virtual network environments and to scale out with on-demand processing power.
+Following the version 1 release, we recognized that customers need to design complex, hybrid data-integration scenarios that require both data movement and processing in the cloud, on-premises, and on cloud virtual machines. These requirements bring a need to transfer and process data within secured virtual network environments and to scale out with on-demand processing power.
 
 As data pipelines are becoming a more critical part of a business analytics strategy, we have observed that these activities require flexible scheduling to support incremental data loads and event-triggered executions. As the complexity increases, so too does the requirement for the service to support common workflow paradigms that include branching, looping, and conditional processing.
 
