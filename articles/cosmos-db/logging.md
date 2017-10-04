@@ -343,49 +343,57 @@ Storage account is configured in the portal when **Log DataPlaneRequests** is se
 <a id="#view-in-oms"></a>
 ## View diagnostic logs in Operations Management Suite
 
-If you selected **Send to Log Analytics** option when you turned on logging, diagnostic data from your collection gets pushed to Operations Management Suite within two hours, so if you look at Operations Management Suite immediately after turning on logging, you won't see any data. 
+If you selected **Send to Log Analytics** option when you turned on logging, diagnostic data from your collection gets pushed to Operations Management Suite within two hours. This means that if you look at Operations Management Suite immediately after turning on logging, you won't see any data. Just wait two hours and try again. 
 
-Before viewing your logs, you'll want to check and see if your Log Analytics workspace has been upgraded to use the most recent Log Analytics query language. To check this, open the [Azure portal](https://portal.azure.com), click **Log Analytics** on the far left side, and select the workspace name. 
+Before viewing your logs, you'll want to check and see if your Log Analytics workspace has been upgraded to use the most recent Log Analytics query language. To check this, open the [Azure portal](https://portal.azure.com), click **Log Analytics** on the far left side, select the workspace name, and go to the OMS Workspace page. 
 
-If you see this message in the portal, your workspace has not been upgraded. You can either click the error to upgrade your workspace (recommended), or you can use the modified query syntax provided in the table below. For more information about the upgrade, see [Upgrade your Azure Log Analytics workspace to new log search](../log-analytics/log-analytics-log-search-upgrade.md).
+![Log analytics upgrade notification](./media/logging/azure-portal.png)
+
+If you see the following message in the portal, your workspace has not been upgraded to use the new language. You can either click the error to upgrade your workspace (recommended), or you can use the queries marked "Current" in the table below. For more information about the upgrade, see [Upgrade your Azure Log Analytics workspace to new log search](../log-analytics/log-analytics-log-search-upgrade.md).
 
 ![Log analytics upgrade notification](./media/logging/upgrade-notification.png)
 
-Now let's open Operations Management Suite. From the Log Analytics Azure Portal, simply click **OMS Portal**. You can also open the portal by going to [Operations Management Suite](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite) page and clicking **Sign in**.
+Now let's open Operations Management Suite. From the Log Analytics Azure Portal, click one of the **OMS Portal** links as shown in the following diagram, or go to the [Operations Management Suite](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite) page and then click **Sign in**.
 
 ![Log analytics upgrade notification](./media/logging/open-oms.png)
 
-Once data starts streaming into Operations Management Suite, you can view data from Azure Cosmos DB using the **Log Search** option on the left menu. Here are some common queries you can enter into the **Begin searching here...** box.  
+Once data starts streaming into your Operations Management Suite workspace, you can view data from Azure Cosmos DB using the **Log Search** option on the left menu. The following query shows how to display the ten most recent logs.
+
+![Introductory query in OMS](./media/logging/query-oms.png)
+
+ Here are some additional queries you can enter into the **Log search.** box.
 
 * All diagnostic logs for the specified time period.
     * New: `AzureDiagnostics`
-    * Old: `(Type=AzureDiagnostics)`
+    * Current: `(Type=AzureDiagnostics)`
 * Ten most recent events.
     * New: `AzureDiagnostics | take 10`
-    * Old: TBD
+    * Current: `(Type=AzureDiagnostics)| top 10`
 * All operations, grouped by operation type.
     * New: `AzureDiagnostics | summarize count() by OperationName`
-    * Old: TBD
+    * Current: `(Type=AzureDiagnostics) | Measure count() by OperationName`
 * All operations, grouped by Resource.
     * New: `AzureDiagnostics | summarize count() by Resource`
-    * Old: TBD 
+    * Current: `(Type=AzureDiagnostics) | Measure count() by Resource` 
 * User activity, grouped by resource. Note that this is an activity log, not a diagnostic log.
     * New: `AzureActivity | where Caller == "test@company.com"
 | summarize count() by Resource`
-    * Old: TBD
+    * Current (not correct): `(Type=AzureActivity) | Measure count() by Resource | where Caller = "test@company.com"`
 * Operations that take longer than 3 milliseconds.
     * New: `AzureDiagnostics
 | where toint(duration_s) > 3000
 | summarize count() by clientIpAddress_s, TimeGenerated`
-    * Old: TBD
+    * Current (not correct): `(Type=AzureDiagnostics) | Measure count() by clientIpAddress_s, TimeGenerated | Where toint (duration_s) > 3000`
 * What kind of agent is running which operations.
     * New: `AzureDiagnostics | summarize count() by OperationName, userAgent_s`
-    * Old: TBD
+    * Current (not correct): `(Type=AzureDiagnostics)s | summarize count() by OperationName, userAgent_s`
 * When were long running operations performed.
     * New: `AzureDiagnostics | project TimeGenerated , toint(duration_s)/1000 | render timechart`
-    * Old: TBD
+    * Current (not correct): `(Type=AzureDiagnostics) | project TimeGenerated , toint(duration_s)/1000 | render timechart`
 
-For additional information on using Log Search, see [Getting Started with Queries](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-queries).
+For additional information on using the new Log Search language, see [Getting Started with Queries](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-queries). 
+
+For information on using the current Log Search language, see [Find data using log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md).
 
 ## Next steps
 
