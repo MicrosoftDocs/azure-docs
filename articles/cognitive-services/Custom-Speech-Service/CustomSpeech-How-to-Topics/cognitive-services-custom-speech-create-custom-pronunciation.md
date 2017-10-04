@@ -43,7 +43,7 @@ The spoken form is the phonetic sequence of the display form. It is composed of 
 A display form can only be a custom word, term, acronym, or compound words that combine existing words. You can also enter alternative pronunciations for common words. 
 
 >[!NOTE]
-Be careful not to misuse this feature by badly reformulating common words, or by making mistakes in the spoken form. It is better to run the decoder to see if some unusual words (such as abbreviations, technical words, and foreign words) are not correctly decoded. If they are, add them to the custom pronunciation file.
+We do not recomend using this feature to reformulate common words or to modify the spoken form. It is better to run the decoder to see if some unusual words (such as abbreviations, technical words, and foreign words) are not correctly decoded. If they are, add them to the custom pronunciation file. In the Langauge Model you should always and only use the display form of a word. 
 
 ## Requirements for the file size
 The size of the .txt file containing the pronunciation entries is limited to 1 MB. Typically, you won't need to upload large amounts of data through this file. Most custom pronunciation files are likely to be just a few KBs in size, and some may be even smaller than that.
