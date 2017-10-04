@@ -1,4 +1,4 @@
-﻿---
+---
 title: Monitor Node.js services with Azure Application Insights | Microsoft Docs
 description: Monitor performance and diagnose problems in Node.js services with Application Insights.
 services: application-insights
