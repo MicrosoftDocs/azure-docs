@@ -18,7 +18,7 @@ ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
 ---
-# Create a .NET Core web app in a Linux container in Azure
+# Create a .NET Core web app in App Service on Linux
 
 [App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to create a [.NET Core](https://docs.microsoft.com/aspnet/core/) app on App Service on Linux. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy the .NET Core code to the web app.
 
