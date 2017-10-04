@@ -54,10 +54,10 @@ az acr create --name myContainerRegistry007 --resource-group myResourceGroup --a
 
 When the registry is created, the output is similar to the following:
 
-```azurecli
+```json
 {
   "adminUserEnabled": true,
-  "creationDate": "2017-09-08T22:32:13.175925+00:00",
+  "creationDate": "2017-10-04T17:15:43.659380+00:00",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry007",
   "location": "eastus",
   "loginServer": "myContainerRegistry007.azurecr.io",
@@ -66,11 +66,9 @@ When the registry is created, the output is similar to the following:
   "resourceGroup": "myResourceGroup",
   "sku": {
     "name": "Basic",
-    "tier": "Basic"
+    "tier": "Managed"
   },
-  "storageAccount": {
-    "name": "mycontainerregistr223140"
-  },
+  "storageAccount": null,
   "tags": {},
   "type": "Microsoft.ContainerRegistry/registries"
 }
@@ -82,7 +80,7 @@ Throughout the rest of this quickstart, we use `<acrname>` as a placeholder for 
 
 Before pushing and pulling container images, you must log in to the ACR instance. To do so, use the [az acr login](/cli/azure/acr#login) command.
 
-```azurecli-interactive
+```azurecli
 az acr login --name <acrname>
 ```
 
@@ -98,19 +96,19 @@ docker pull microsoft/aci-helloworld
 
 The image needs to be tagged with the ACR login server name. Run the following command to return the login server name of the ACR instance.
 
-```bash
+```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
 Tag the image using the [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) command. Replace *<acrLoginServer>* with the login server name of your ACR instance.
 
-```
+```bash
 docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
 Finally, use [docker push](https://docs.docker.com/engine/reference/commandline/push/) to push the image to the ACR instance. Replace *<acrLoginServer>* with the login server name of your ACR instance.
 
-```
+```bash
 docker push <acrLoginServer>/aci-helloworld:v1
 ```
 
@@ -124,7 +122,7 @@ az acr repository list -n <acrname> -o table
 
 Output:
 
-```json
+```bash
 Result
 ----------------
 aci-helloworld
@@ -138,7 +136,8 @@ az acr repository show-tags -n <acrname> --repository aci-helloworld -o table
 
 Output:
 
-```Result
+```bash
+Result
 --------
 v1
 ```
