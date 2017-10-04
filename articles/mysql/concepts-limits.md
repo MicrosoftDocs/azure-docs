@@ -38,6 +38,7 @@ When too many connections are reached, you may receive the following error:
 > ERROR 1040 (08004): Too many connections
 
 ## Preview functional limitations
+
 ### Scale operations
 - Dynamic scaling of servers across service tiers is currently not supported. That is, switching between Basic and Standard service tiers.
 - Dynamic on-demand increase of storage on pre-created server is currently not supported.
@@ -54,5 +55,5 @@ When too many connections are reached, you may receive the following error:
 - Restoring a dropped server is not supported.
 
 ## Next steps
-[What’s available in each service tier](concepts-service-tiers.md)
-[Supported MySQL Database Versions](concepts-supported-versions.md)
+- [What’s available in each service tier](concepts-service-tiers.md)
+- [Supported MySQL database versions](concepts-supported-versions.md)
