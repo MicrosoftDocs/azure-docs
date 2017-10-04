@@ -16,7 +16,7 @@ You can list, show, and update configuration parameters for an Azure MySQL serve
 
 ## Prerequisites
 To step through this how-to guide, you need:
-- A server and database [Create an Azure Database for MySQL](quickstart-create-server-database-azure-cli.md)
+- A server and database [Create an Azure Database for MySQL](quickstart-create-mysql-server-database-using-azure-cli.md)
 - [Azure CLI 2.0](/cli/azure/install-azure-cli) command-line utility or use the Azure Cloud Shell in the browser.
 
 ## List server configuration parameters for Azure Database for MySQL server
@@ -50,4 +50,3 @@ This code resets the **slow\_query\_log** configuration to the default value **O
 
 ## Next steps
 - How to configure [server parameters in Azure portal](howto-server-parameters.md)
-- Learn more about [Server Logs in Azure Database for MySQL](concepts-server-logs.md)
