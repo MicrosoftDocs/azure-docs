@@ -33,13 +33,13 @@ A geo-replicated registry provides the following benefits:
 * Single management of a registry across multiple regions
 
 ## Example use case
-Contoso runs a public presence website located across the US, Canada and Europe. To serve these markets with local and network-close content, Contoso runs ACS-Kubernetes clusters in West US, East US, Canada Central, and West Europe. The website code, deployed as a Docker image, utilizes the same code and image across all regions. Content, local to that region, is retrieved from a database, which is provisioned uniquely in each region. Each regional deployment has its unique configuration for resources like the local database. 
+Contoso runs a public presence website located across the US, Canada, and Europe. To serve these markets with local and network-close content, Contoso runs ACS-Kubernetes clusters in West US, East US, Canada Central, and West Europe. The website code, deployed as a Docker image, utilizes the same code and image across all regions. Content, local to that region, is retrieved from a database, which is provisioned uniquely in each region. Each regional deployment has its unique configuration for resources like the local database. 
 
 The development team is located in Redmond, utilizing the West US data center.
 
 ![Pushing to multiple registries](media/container-registry-overview-geo-replication\before-geo-replicate.png)
 
-Prior to using the geo-replication features of the Azure Container Registry, Contoso may have had a US-based registry in West US, with an additional registry in West Europe. To serve these different regions, the development team had to push images to two different registries.
+Prior to using the geo-replication features, Contoso may have had a US-based registry in West US, with an additional registry in West Europe. To serve these different regions, the development team had to push images to two different registries.
 
 ```
 docker push contoso.azurecr.io/pubic/products/web:1.2
@@ -73,7 +73,7 @@ Configuring geo-replication is as easy as clicking regions on a map.
 az acr update -n myregistry --sku Premium
 ```
 or
-through the Azure Portal, using the overview blade:
+through the Azure portal, using the overview blade:
 ![Pulling from multiple registries](media/container-registry-overview-geo-replication\update-registry-sku.png)
 > 
 
@@ -91,7 +91,7 @@ A map is displayed showing all current Azure Regions:
 * Green hexagons represent possible replica regions
 * Gray hexagons represent Azure regions not yet available for replication
 
-To configure a replica, select a green hexagon, then select **Create** under *Create replication*:
+To configure a replica, select a green hexagon, then select **Create**:
 
  ![Create replication UI in the Azure portal](media/container-registry-overview-geo-replication\create-replication.png)
 
