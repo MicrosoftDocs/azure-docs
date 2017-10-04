@@ -7,6 +7,7 @@
 ## [FAQs](active-directory-faq.md)
 
 # Get started
+## [Get started with Azure AD](get-started-azure-ad.md)
 ## [Sign up for Azure AD Premium](active-directory-get-started-premium.md)
 ## [Add a custom domain name](add-custom-domain.md)
 ## [Configure company branding](customize-branding.md)
