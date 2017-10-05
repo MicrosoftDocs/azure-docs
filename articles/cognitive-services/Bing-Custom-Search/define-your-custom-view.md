@@ -21,7 +21,7 @@ The following are the ways that you can define a slice of the web:
 2.	Subsite. A subsite slice includes all content found in the subsite and paths below it. You may specify a maximum of two subsites in the path. For example, www.microsoft.com/en-us/windows/ 
 3.	Webpage. A webpage slice includes only that webpage in your custom search. For example, https://www.microsoft.com/en-us/store/b/home. Specify the full URL of the webpage, If you do not include the HTTP protocol, the service treats it as a domain or subsite.
 
-All domains, subsites, and webpages that you specify must be public and indexed by Bing. If you own a public site that you want to include in the search, and Bing hasn’t indexed it, see the Bing webmaster documentation for details about getting Bing to index it. Also, see the webmaster documentation for details about getting Bing to update your crawled site if the index is out of date.
+All domains, subsites, and webpages that you specify must be public and indexed by Bing. If you own a public site that you want to include in the search, and Bing hasn’t indexed it, see the Bing [webmaster documentation](https://www.bing.com/webmaster/help/webmaster-guidelines-30fba23a) for details about getting Bing to index it. Also, see the webmaster documentation for details about getting Bing to update your crawled site if the index is out of date.
 
 
 ## Adding slices to your custom search
