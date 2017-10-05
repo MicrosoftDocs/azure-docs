@@ -326,7 +326,5 @@ For more information, see the following resources:
 
 * [Best practices for Azure Functions](functions-best-practices.md)
 * [Azure Functions developer reference](functions-reference.md)
-* [Azure Functions C# developer reference](functions-reference-csharp.md)
-* [Azure Functions F# developer reference](functions-reference-fsharp.md)
 * [Azure Functions triggers and bindings](functions-triggers-bindings.md)
 
