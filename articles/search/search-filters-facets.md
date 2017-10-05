@@ -23,7 +23,8 @@ ms.author: heidist
 Faceted navigation is used for self-directed filtering in a search app, where the application offers UI controls for scoping search to product categories, brands, or price ranges. In this article, quickly learn basic steps for creating a faceted navigation structure to back the search experience provided in your app. 
 
 > [!div class="checklist"]
-> * Choose fields and add facet structures to an index<br/>&nbsp;
+> * Choose fields for filtering and faceting<br/>&nbsp;
+> * Set attributes on the field<br/>&nbsp;
 > * Build the index and load data<br/>&nbsp;
 > * Add facet filters to a query<br/>&nbsp;
 > * Handle results <br/>&nbsp;
@@ -38,11 +39,11 @@ New to faceted navigation and want more detail? See [How to implement faceted na
 > [!Tip]
 > If you want to initialize a page with facets in place, you can send a query as part of page initialization to seed the page with an initial facet structure.
 
-## Choose fields for faceting and filtering
+## Choose fields
 
 Facets can be based on simple or complex field types in Azure Search. Fields that work best in faceted navigation have low cardinality: a small number of distinct values that repeat throughout documents in your search corpus.
 
-Faceting is enabled on a field-by-field basis when you create the index, setting the following attributes to TRUE: `filterable`, `facetable`.
+Faceting is enabled on a field-by-field basis when you create the index, setting the following attributes to TRUE: `filterable`, `facetable`. Only filterable fields can be facted.
 
 All [field types](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) that could possibly be used in faceted navigation are Facetable by default:
 
@@ -54,14 +55,15 @@ All [field types](https://docs.microsoft.com/rest/api/searchservice/supported-da
 
 You cannot use Edm.GeographyPoint in faceted navigation. Facets are constructed from human readable text or numbers. As such, facets are not supported for geo-coordinates. You would need a city or region field to facet by location.
 
+## Set attributes
+
+Index attributes that control how a field is used are added to individual field definitions in the index. In the following eample, fields with low cardinality, useful for faceting, include category (hotel, motel, hostel), amenities, and ratings. 
+
 Because faceting and filtering are enabled by default, explicitly setting the attributes is not required unless you want to turn faceting off. We include the attributions in our example for instructional purposes.
 
 > [!Tip]
 > As a best practice for performance and storage optimization, turn faceting off for fields that should never be used as a facet. In particular, string fields for singleton values, such as an ID or product name, should be set to "Facetable": false to prevent their accidental (and ineffective) use in faceted navigation.
 
-### Example index definition
-
-Index attributes that control how a field is used are added to individual field definitions in the index. Fields with low cardinality, useful for faceting, include category (hotel, motel, hostel, inn), amenities, and ratings. 
 
     ```Http
     {
@@ -102,7 +104,7 @@ STEPS TBD
 
 <a name="facet-complex-fields"></a>
 
-## How to facet complex data types
+## Facet complex data types
 
 If you are [modeling complex data types](search-howto-complex-data-types.md), you can use them in a facet navigation structure.
 
