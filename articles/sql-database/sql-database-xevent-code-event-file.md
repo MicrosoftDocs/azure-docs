@@ -15,7 +15,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 10/05/2017
 ms.author: genemi
 
 ---
@@ -65,7 +65,6 @@ The script starts with commands to clean up after a possible previous run, and i
    * If you rerun the script without disrupting your session, you have the convenient option of commenting out the **Add-AzureAccount** command.
 
 ![PowerShell ISE, with Azure module installed, ready to run script.][30_powershell_ise]
-;
 
 ### PowerShell code
 
