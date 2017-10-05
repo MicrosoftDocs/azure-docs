@@ -1,10 +1,10 @@
 ﻿---
-title: Manage VMs in a Virtual Machine Scale Set | Microsoft Docs
-description: Manage virtual machines in a virtual machine scale set using Azure PowerShell.
+title: Manage Virtual Machine Scale Sets with Azure PowerShell | Microsoft Docs
+description: Common Azure PowerShell cmdlets to manage Virtual Machine Scale Sets, such as how to start and stop an instance, or change the scale set capacity.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: Thraka
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
-ms.author: adegeo
+ms.date: 10/05/2017
+ms.author: iainfou
 
 ---
 # Manage virtual machines in a virtual machine scale set
@@ -25,126 +25,80 @@ Most of the tasks that involve managing a virtual machine in a scale set require
 
 See [How to install and configure Azure PowerShell](/powershell/azure/overview) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
 
-## Display information about a scale set
-You can get general information about a scale set, which is also referred to as the instance view. Or, you can get more specific information, such as information about the resources in the scale set.
 
-Replace the quoted values with the name or your resource group and scale set and then run the command:
+## View information about a scale set
+To view the overall information about a scale set, use [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss). The following example gets information about the scale set named *myScaleSet* in the *myResourceGroup* resource group. Enter your own names as follows:
 
-    Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
+```powershell
+Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
+```
 
-It returns something like this:
+The output is similar to the following example:
 
-    Id                                          : /subscriptions/{sub-id}/resourceGroups/myrg1/providers/Microsoft.Compute/virtualMachineScaleSets/myvmss1
-    Name                                        : myvmss1
-    Type                                        : Microsoft.Compute/virtualMachineScaleSets
-    Location                                    : centralus
-    Sku                                         :
-      Name                                      : Standard_A0
-      Tier                                      : Standard
-      Capacity                                  : 3
-    UpgradePolicy                               :
-      Mode                                      : Manual
-    VirtualMachineProfile                       :
-      OsProfile                                 :
-        ComputerNamePrefix                      : vmss1
-        AdminUsername                           : admin1
-        WindowsConfiguration                    :
-          ProvisionVMAgent                      : True
-          EnableAutomaticUpdates                : True
-    StorageProfile                              :
-      ImageReference                            :
-        Publisher                               : MicrosoftWindowsServer
-        Offer                                   : WindowsServer
-        Sku                                     : 2012-R2-Datacenter
-        Version                                 : latest
-      OsDisk                                    :
-        Name                                    : vmssosdisk
-        Caching                                 : ReadOnly
-        CreateOption                            : FromImage
-        VhdContainers[0]                        : https://astore.blob.core.windows.net/vmss
-        VhdContainers[1]                        : https://gstore.blob.core.windows.net/vmss
-        VhdContainers[2]                        : https://mstore.blob.core.windows.net/vmss
-        VhdContainers[3]                        : https://sstore.blob.core.windows.net/vmss
-        VhdContainers[4]                        : https://ystore.blob.core.windows.net/vmss
-    NetworkProfile                              :
-      NetworkInterfaceConfigurations[0]         :
-        Name                                    : mync1
-        Primary                                 : True
-        IpConfigurations[0]                     :
-          Name                                  : ip1
-          Subnet                                :
-            Id                                  : /subscriptions/{sub-id}/resourceGroups/myrg1/providers/Microsoft.Network/virtualNetworks/myvn1/subnets/mysn1
-          LoadBalancerBackendAddressPools[0]    :
-            Id                                  : /subscriptions/{sub-id}/resourceGroups/myrg1/providers/Microsoft.Network/loadBalancers/mylb1/backendAddressPools/bepool1
-        LoadBalancerInboundNatPools[0]          :
-            Id                                  : /subscriptions/{sub-id}/resourceGroups/myrg1/providers/Microsoft.Network/loadBalancers/mylb1/inboundNatPools/natpool1
-    ExtensionProfile                            :
-      Extensions[0]                             :
-        Name                                    : Microsoft.Insights.VMDiagnosticsSettings
-        Publisher                               : Microsoft.Azure.Diagnostics
-        Type                                    : IaaSDiagnostics
-        TypeHandlerVersion                      : 1.5
-        AutoUpgradeMinorVersion                 : True
-        Settings                                : {"xmlCfg":"...","storageAccount":"astore"}
-    ProvisioningState                           : Succeeded
+```
+```
 
-Replace the quoted values with the name of your resource group and scale set. Replace *#* with the instance identifier of the virtual machine that you want to get information about and then run it:
+## View VMs in a scale set
+To view information about a specific VM instance in a scale set, use [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm). The following example gets information about instance *2* in the scale set named *myScaleSet* and in the *myResourceGroup* resource group. Provide your own values for these names:
 
-    Get-AzureRmVmssVM -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
+```powershell
+Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "2"
+```
 
-It returns something like this example:
+The output is similar to the following example:
 
-    Id                            : /subscriptions/{sub-id}/resourceGroups/myrg1/providers/Microsoft.Compute/
-                                    virtualMachineScaleSets/myvmss1/virtualMachines/0
-    Name                          : myvmss1_0
-    Type                          : Microsoft.Compute/virtualMachineScaleSets/virtualMachines
-    Location                      : centralus
-    InstanceId                    : 0
-    Sku                           :
-      Name                        : Standard_A0
-      Tier                        : Standard
-    LatestModelApplied            : True
-    StorageProfile                :
-      ImageReference              :
-        Publisher                 : MicrosoftWindowsServer
-        Offer                     : WindowsServer
-        Sku                       : 2012-R2-Datacenter
-        Version                   : 4.0.20160617
-      OsDisk                      :
-        OsType                    : Windows
-        Name                      : vmssosdisk-os-0-e11cad52959b4b76a8d9f26c5190c4f8
-        Vhd                       :
-          Uri                     : https://astore.blob.core.windows.net/vmss/vmssosdisk-os-0-e11cad52959b4b76a8d9f26c5190c4f8.vhd
-        Caching                   : ReadOnly
-        CreateOption              : FromImage
-    OsProfile                     :
-      ComputerName                : myvmss1-0
-      AdminUsername               : admin1
-      WindowsConfiguration        :
-        ProvisionVMAgent          : True
-        EnableAutomaticUpdates    : True
-    NetworkProfile                :
-      NetworkInterfaces[0]        :
-        Id                        : /subscriptions/{sub-id}/resourceGroups/myrg1/providers/Microsoft.Compute/virtualMachineScaleSets/
-                                    myvmss1/virtualMachines/0/networkInterfaces/mync1
-    ProvisioningState             : Succeeded
-    Resources[0]                  :
-      Id                          : /subscriptions/{sub-id}/resourceGroups/myrg1/providers/Microsoft.Compute/virtualMachines/
-                                    myvmss1_0/extensions/Microsoft.Insights.VMDiagnosticsSettings
-      Name                        : Microsoft.Insights.VMDiagnosticsSettings
-      Type                        : Microsoft.Compute/virtualMachines/extensions
-      Location                    : centralus
-      Publisher                   : Microsoft.Azure.Diagnostics
-      VirtualMachineExtensionType : IaaSDiagnostics
-      TypeHandlerVersion          : 1.5
-      AutoUpgradeMinorVersion     : True
-      Settings                    : {"xmlCfg":"...","storageAccount":"astore"}
-      ProvisioningState           : Succeeded
+```
+```
 
-## Start a virtual machine in a scale set
-Replace the quoted values with the name of your resource group and scale set. Replace *#* with the identifier of the virtual machine that you want to start and then run it:
+To view a list of all VMs in a scale set, you can combine [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) and [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm). The following example gets the information about a scale set named *myScaleSet* in *myResourceGroup), then loops through the number of instances and displays information on each:
 
-    Start-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
+```powershell
+# Get current scale set
+$scaleset = Get-AzureRmVmss `
+  -ResourceGroupName myResourceGroup `
+  -VMScaleSetName myScaleSet
+
+# Loop through the instanaces in your scale set
+for ($i=1; $i -le ($scaleset.Sku.Capacity - 1); $i++) {
+    Get-AzureRmVmssVM -ResourceGroupName myResourceGroup `
+      -VMScaleSetName myScaleSet `
+      -InstanceId $i
+}
+```
+
+
+## Stop and start VMs in a scale set
+To stop one or more VMs in a scale set, use [Stop-AzureRmVmss](powershell/module/azurerm.compute/stop-azurermvmss). The `-InstanceId` parameter allows you to specify one or more VMs to stop. If you do not specify an instance ID, all VMs in the scale set are stopped. To stop multiple VMs, separate each instance ID with a comma.
+
+The following example stops instances *1* and *3* in the scale set named *myScaleSet* and the *myResourceGroup* resource group. Provide your values as follows:
+
+```powershell
+Stop-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "1","3"
+```
+
+By default, stopped VMs are deallocated and do not incur compute charges. If you wish the VM to remain in a provisioned state when stopped, add the `-StayProvisioned` parameter to the preceding command. Stopped VMs that remain provisioned incur regular compute charges.
+
+In Resource Explorer, we can see that the status of the instance is **deallocated**:
+
+    "statuses": [
+      {
+        "code": "ProvisioningState/succeeded",
+        "level": "Info",
+        "displayStatus": "Provisioning succeeded",
+        "time": "2016-03-15T01:25:17.8792929+00:00"
+      },
+      {
+        "code": "PowerState/deallocated",
+        "level": "Info",
+        "displayStatus": "VM deallocated"
+      }
+    ]
+
+
+
+```powershell
+Start-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
+```
 
 In Resource Explorer, we can see that the status of the instance is **running**:
 
@@ -167,25 +121,7 @@ You can start all the virtual machines in the scale set by not using the -Instan
 ## Stop a virtual machine in a scale set
 Replace the quoted values with the name of your resource group and scale set. Replace *#* with the identifier of the virtual machine that you want to stop and then run it:
 
-    Stop-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
-
-In Resource Explorer, we can see that the status of the instance is **deallocated**:
-
-    "statuses": [
-      {
-        "code": "ProvisioningState/succeeded",
-        "level": "Info",
-        "displayStatus": "Provisioning succeeded",
-        "time": "2016-03-15T01:25:17.8792929+00:00"
-      },
-      {
-        "code": "PowerState/deallocated",
-        "level": "Info",
-        "displayStatus": "VM deallocated"
-      }
-    ]
-
-To stop a virtual machine and not deallocate it, use the -StayProvisioned parameter. You can stop all the virtual machines in the set by not using the -InstanceId parameter.
+    
 
 ## Restart a virtual machine in a scale set
 Replace the quoted values with the name of your resource group and the scale set. Replace *#* with the identifier of the virtual machine that you want to restart and then run it:
