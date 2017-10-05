@@ -18,8 +18,7 @@ ms.author: tamram
 
 ---
 
-Azure Files Share Snapshot Overview
-
+#Azure Files Share Snapshot Overview
 
 Azure Storage provides the capability to take snapshots of file share. Snapshots
 capture the share state at that point in time. In this article, we will describe
@@ -28,15 +27,13 @@ what are the capabilities share snapshots provide and how one can leverage them 
 
 ## Use-Cases - When should I use snapshot?
 
-
 ### Protection against application error - Protection against data corruption
 -------------------------------------------------------------------------
 
-Application using Azure fileshare performs various operations such as writing, reading, storage, transmission, or processing. If the application gets misconfigured
+Application using Azure file share perform various operations such as writing, reading, storage, transmission, or processing. If the application gets misconfigured
 or an unintentional bug is introduced which causes accidental overwrite or
-damage to a few blocks. In this case, the need arises for going back to a
-previous version of the data. Fileshare snapshot when taken periodically, helps
-maintain previous versions of data in a file share.
+damage to a few blocks. You can take a snapshot before deploying new application code and in case of a bug or application error is introduced with new deployment, you can go back to a
+previous version of the data. 
 
 ### Protection against human error - Protection against accidental deletions or unintended changes
 ----------------------------------------------------------------------------------------------
@@ -51,14 +48,11 @@ you have to view the previous version of the containing folder.
 ---------------------------
 
 After creating an Azure File share, you can periodically create a snapshot of
-the file share to use it for data backup. If you make periodic snapshots of a
-file share, the snapshots are incremental so that only the data on the share
-that have changed after your last snapshot are saved in the new snapshot.
+the file share to use it for data backup. Fileshare snapshot when taken periodically, helps maintain previous versions of data in a file share that can be used to retrieve data in case of audit requirement or disaster revoery.
 
 ## Snapshot Capabilities
 
-
-One can create, delete snapshots using REST API. Same capabilities are also available in Client Library, CLI and Azure portal. Powershell integration for snapshot is also coming soon. One can view snapshots of a share, file or directory using both REST API and SMB. SMB experience is similar to that of VSS, where customers can retrieve the list of versions of directory or file, and they can also mount a specific version directly as a drive. Once a snapshot has been created, it can be read, copied, or deleted, but not
+Snapshot is a point in time read-only copy of your data. One can create, delete snapshots using REST API. Same capabilities are also available in Client Library, CLI and Azure portal. Powershell integration for snapshot is also coming soon. One can view snapshots of a share, file or directory using both REST API and SMB. SMB experience is similar to that of VSS, where customers can retrieve the list of versions of directory or file, and they can also mount a specific version directly as a drive. Once a snapshot has been created, it can be read, copied, or deleted, but not
 modified. Note that you can't copy a whole snapshot to another storage account, you have to do that file by file using azcopy or other copying mechanisms.
 
 Snapshot capability is provided at the file share level, while
@@ -117,7 +111,6 @@ consume.
 
 ## Copy data back to share from Snapshot
 
-
 Copy operations involving files and snapshots follow these rules:
 
 You can copy an individual files in a file share snapshot over its base share or
@@ -132,7 +125,6 @@ snapshots associated with the original destination file remain intact.
 
 ## General Best Practices 
 
-
 When running infrastructure on the Azure, automate backups for data recovery
 whenever possible. Automated actions are more reliable than manual processes,
 helping to improve data protection and recoverability. 
@@ -146,10 +138,10 @@ Snapshots provides only file level protection and any fat finger deletes on file
 Consider using Azure Backup which is in Limited public preview at this time to automate the scheduling retention and management of your periodic backups.
 
 ## Next Steps
-
-* [Azure File Share Snapshot FAQ](storage-files-faq.md)
+* [Create Snapshot using .Net SDK](storage-dotnet-how-to-use-files.md#snapshots)
 * [How to create a file share snapshot](storage-snapshots-create.md)
-* [How to list snapshots of a share ](storage-snapshots-list.md)
-* [How to browse snapshot](storage-snapshots-browse.md)
-* [How to restore from snapshots](storage-snapshots-restore.md)    
+* [How to list and browse snapshot](storage-snapshots-list-browse.md)
+* [How to delete snapshot](storage-snapshots-delete.md)
+* [Snapshot Overview](storage-snapshots-files.md)
+* [Snapshot FAQ](storage-files-faq.md#snapshots)
 
