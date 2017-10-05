@@ -22,7 +22,7 @@ ms.author: kumud
 The Azure Load Balancer Standard SKU and Public IP Standard SKU together enable you to build highly scalable and reliable architectures.  Applications using Load Balancer Standard can take advantage of new capabilities in addition to low latency, high throughput, and scale for millions of flows for all TCP and UDP applications.
 
 >[!NOTE]
-> Load Balancer Standard SKU is currently in Preview. During preview, the feature may not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use the Generally Available [Load Balancer Basic SKU](load-balancer-overview.md) for your production services.  Features associated with this preview, [Availability Zones](https://aka.ms/availabilityzones) and [HA Ports](https://aka.ms/haports), a require separate opt-in at this time. Please follow the respective instructions for sign-up in addition to Load Balancer [Standard Preview](#preview-sign-up).
+> Load Balancer Standard SKU is currently in Preview. During preview, the feature may not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use the Generally Available [Load Balancer Basic SKU](load-balancer-overview.md) for your production services.  Features associated with this preview, [Availability Zones](https://aka.ms/availabilityzones) and [HA Ports](https://aka.ms/haports), a require separate sign-up at this time. Please follow the respective instructions for sign-up in addition to Load Balancer [Standard Preview](#preview-sign-up).
 
 ## Why use Load Balancer Standard
 
@@ -371,7 +371,7 @@ To participate in the Preview for Load Balancer Standard SKU and its companion P
 >Registration of the Load Balancer Standard feature may take up to an hour.
 
 >[!NOTE]
->If you wish to use Availability Zones with Load Balancer and Public IP, you need to register your subscription for the Availability Zones Preview as well.
+>If you wish to use Load Balancer Standard with [Availability Zones](https://aka.ms/availabilityzones) and [HA Ports](https://aka.ms/haports), a separate sign-up is required for these preview.  Please follow the respective instructions.
 
 ## Pricing
 
