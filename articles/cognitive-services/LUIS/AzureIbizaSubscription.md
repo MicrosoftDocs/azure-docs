@@ -35,3 +35,5 @@ To create your key, follow these steps:
 
 ## Using Luis access keys in Luis.ai
 In order to use the access keys  step 4, you need to change from the StarterKey to one of the new access keys as part of [publishing your app](./PublishApp.md).
+
+Please see [Manage your keys](./Manage-Keys.md) for more information about how to manage your Azure Luis subscription keys in your **[Luis.ai account](https://www.luis.ai)**. 
