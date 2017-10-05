@@ -118,7 +118,7 @@ In Visual Studio, select **Continue** or press **F5** to resume debugging.
 
 ### Disable HTTPS decryption
 
-Visit [Configure Fiddler to Decrypt HTTPS Traffic](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
+Once you are done testing, HTTPS decryption should be disabled visit: [Configure Fiddler to Decrypt HTTPS Traffic](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS) to find steps to disable HTTPS decryption in Fiddler.
 
 ## Next steps
 
