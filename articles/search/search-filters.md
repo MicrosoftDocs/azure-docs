@@ -22,13 +22,13 @@ ms.author: heidist
 
 A *filter* provides criteria for selecting documents used in an Azure Search query. Unfiltered search is open-ended and inclusive of all documents in the index. Filtered search creates a slice or subset of documents for a more focused query operation. For example, a filter could restrict full text search to just those products having a specific brand or color, at price points above a certain threshold.
 
-Some search experiences impose filter requirements as part of the implementation, but you can use filters anytime you want to scope a query based on criteria you can pull from your search corpus (for example, a search on *restaurants starting with S, near this attraction, casual dining*).
+Some search experiences impose filter requirements as part of the implementation, but you can use filters anytime you want to scope a query based on criteria pulled from your search corpus.
 
-To target search on specific data structures (for example, a comments field), Azure Search offers alternative methods to filtering for making that objective simple to achieve. Alternative methods are covered below.
+If your goal is instead to target search on specific data structures (for example, a comments field), there are alternative methods, covered below.
 
 ## When to use a filter
 
-A filter expression is intended for static filtering in your search application, where you control the user interaction model. For example, when you know whether the search page is for a specific city or product category, or whether the user made selections in a faceted navigation structure.
+A filter expression is intended for static filtering in your search application, where you control the user interaction model. For example, when you know whether the search page is for a specific city or product category, or whether the user has made a selection in a faceted navigation structure.
 
 Filters are foundational to several search experiences, including "find near me", faceted navigation, and security filters that only show documents a user is allowed to see. If you implement any one of these experiences, a filter is required. It's the filter attached to the query structure that provides the geo.location coordinates, the facet category selected by the user, or the security ID of the requestor.
 
@@ -42,7 +42,7 @@ The following conditions point to a filter solution:
 
 2. Use a filter to slice your index based on data values in the index. Given a schema with city, housing type, and amenities, you might create a filter to explicitly select documents that satisfy your criteria (in Seattle, condos, waterfront). You can make criteria so expressive that it returns a single match.
 
-  A full text search with the same inputs is likely to produce similar results, but a filter offers precision and can be defined by the developer. In a custom application, you might want to build filters to create a context for the search experience you are offering.
+  A full text search with the same inputs is likely to produce similar results, but a filter offers precision and can be defined by the developer. In a custom application, you might want to build filter pages to create a context for the search experience you are offering.
 
 3. Use a filter to prioritize, sort, group, or order by numeric data. 
 
@@ -50,7 +50,7 @@ The following conditions point to a filter solution:
 
 ### Alternative methods for reducing scope
 
-If you want a narrowing effect in your search results, filters are not your only choice. These alternatives could be a better fit depending on your objectives:
+If you want a narrowing effect in your search results, filters are not your only choice. These alternatives could be a better fit, depending on your objective:
 
  + `searchFields` query parameter pegs search to specific fields. If your index provides separate fields for English and Spanish descriptions, you can use searchFields to target which fields to use for full text search. 
 
@@ -98,32 +98,32 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 
 ## Filter design patterns
 
-The following examples illustrate simple and complex filters. For more detail, see [OData expression syntax > Examples](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#bkmk_examples).
+The following examples illustrate several design patterns for filter scenarios. For more ideas, see [OData expression syntax > Examples](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#bkmk_examples).
 
-+ Standalone **$filter**, without a query string, useful when the filter expression is able to fully qualify documents of interest. Without a query string, there is no lexical or linguistic analysis, no scoring, and no ranking.
++ Standalone **$filter**, without a query string, useful when the filter expression is able to fully qualify documents of interest. Without a query string, there is no lexical or linguistic analysis, no scoring, and no ranking. The search string is empty.
 
    ```
-   $filter=(baseRate ge 60 and baseRate lt 300) and accommodation eq 'Hotel' and city eq 'Nogales'
+   search=*&$filter=(baseRate ge 60 and baseRate lt 300) and accommodation eq 'Hotel' and city eq 'Nogales'
    ```
 
-+ Combination of query string and **$filter**, where the filter creates the subset, and the query string provides the input for full text search over the filtered subset. Using a filter with a query string is the most common code pattern.
++ Combination of query string and **$filter**, where the filter creates the subset, and the query string provides the term inputs for full text search over the filtered subset. Using a filter with a query string is the most common code pattern.
 
    ```
    search=hotels ocean$filter=(baseRate ge 60 and baseRate lt 300) or city eq 'Los Angeles'
    ```
 
-+ "Contains" filters. Filters come with precision requirements. If you want to filter on a term that appears in a description, you can use the search.ismatch function to relax some of these restrictions.
++ "Contains" filters. Filters come with precision requirements for fully qualified terms. If you want to filter on a term that appears in a description, you can use the search.ismatch function to relax some of these restrictions.
 
   ```
-   # The search.ismatch filter looks for 'ocean' in every field.
-   search=*&$filter=search.ismatch('ocean')
+   # search.ismatch selects documents where 'ocean' appears in any field, for a search on white sand.
+   search=white sand&$filter=search.ismatch('ocean')
 
    # Contrast with a standard filter, which requires a field (such as tags) and exact articulation.
    # If the tag is Ocean or ocean-front instead of 'ocean', the filter is ignored.
-   search=*&$filter=tags/any(t: t eq 'ocean') 
+   search=white sand&$filter=tags/any(t: t eq 'ocean') 
   ```
 
-+ Multiple OR'd expressions, evaluated individually, with responses from each one combined into a single result. The search.ismatch function is a query-plus-filter structure that can be repeated multiple times in one query. You can use the non-scored version (search.ismatch) or the scored version (search.ismatchscoring).
++ Multiple OR'd expressions, evaluated individually, with responses from each one combined into one result. The search.ismatch function is a query-plus-filter structure that can be repeated multiple times in one query. You can use the non-scored version (search.ismatch) or the scored version (search.ismatchscoring).
 
    ```
    # Match on hostels rated higher than 4 OR 5-star motels.
@@ -159,7 +159,7 @@ Rebuilding individual fields can be fast, requiring only a merge operation that 
 
 ## Text filter fundamentals
 
-Text filters are valid for string fields, from which you want to pull some arbitrary collection of documents based on values within the field.
+Text filters are valid for string fields, from which you want to pull some arbitrary collection of documents based on values within search corpus.
 
 For text filters based on contents within a string field, low cardinality fields are the best candidates. Choose fields containing a relatively small number of values (such as a list of colors, countries, or brand names), and the number of conditions is also small (color eq ‘blue’ or color eq ‘yellow’). The performance benefit comes from caching, which Azure Search does for queries most likely to be repeated.
 
@@ -170,7 +170,7 @@ There are several mechanisms in Azure Search for creating text filters.
 | Approach | Description | Parser | 
 |----------|-------------|--------------------------|
 | [search.in()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | A function providing comma-delimited list of strings for a given field. The strings comprise the filter criteria, which are applied to every field in scope for the query.<br/><br/>We recommend the **search.in** function if the filter is raw text to be matched on values in a given field, assuming it is searchable, retrievable, and not otherwise excluded from the query. This approach is designed for speed. You can expect subsecond response time for hundreds to thousands of values. While there is no explicit limit on the number of items you can pass to the function, latency increases in proportion to the number of strings you provide. | [Full Lucene parser](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) | 
-| [search.ismatch()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | A function providing a query-plus-filter structure that can be replicated multiple times. It allows you to send multiple query-filter pairs in one request. You can also use it for *contains* filters to filter on a partial string within a larger string. | [Full Lucene parser](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) |  
+| [search.ismatch()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | A function providing a multi-instance, query-plus-filter structure for OR'd queries. It allows you to send multiple query-filter pairs in one request. You can also use it for a *contains* filter to filter on a partial string within a larger string. | [Full Lucene parser](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) |  
 | [$filter=field operator string](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | A user-defined expression composed of fields, operators, and values. | [Simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) or [Full](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)|  
 
 ## Numeric filter fundamentals
