@@ -12,16 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2017
+ms.date: 10/05/2017
 ms.author: magoedte;bwren
 
 ---
 
-# Azure Log Analytics upgraded log search
+# Azure Log Analytics upgrade to new log search
 
-Azure Log Analytics recently upgraded its query language.  If you had a workspace prior to the upgrade then by now you either upgraded the workspace on your own or it's now been upgraded for you.  This article describes the advantages of the new language and XXX.
-
-This article provides details on the new language and the upgrade process.
+The new Log Analytics query language is here, and your workspace needs to be upgraded to take advantage of it.  You can either upgrade your workspace yourself or wait for it to be automatically upgraded during the roll out period that starts in late October and goes through the end of the year.  This article describes the advantages of the new language and how to convert your workspace.  
 
 ## Why the new language?
 We understand that there’s pain in any transition, and we aren’t just changing the query language for the fun of it.  There are several reasons that this change will provide significant value to our Log Analytics customers.
@@ -38,20 +36,34 @@ We understand that there’s pain in any transition, and we aren’t just changi
 - **Much more.** Refer to the [Azure Log Analytics Query Language](https://docs.loganalytics.io) site for complete details and tutorials on the new language.
 
 
-## What happened when my workspace was upgraded?
-When your workspace was converted, any saved searches, alert rules, and views that you’ve created with the View Designer are automatically converted to the new language.  Searches included in solutions are not automatically converted, but they’re instead converted on the fly when you open them.  This is completely transparent to you.
+## When can I upgrade?
+The upgrade will be rolled out across all Azure regions so it may be available in some regions before others.  You'll know when your workspace is available to be upgraded when you see a banner across the top of your workspace inviting you to upgrade.
 
-## Can I go back after I upgrade?
-When you upgrade, a complete backup of your workspace is taken that includes a snapshot of all saved searches, alert rule, and views.  This allows you to restore your old workspace if you should later desire.
+![Upgrade 1](media/log-analytics-log-search-upgrade/upgrade-01a.png)
+
+If your workspace is automatically upgraded, then you will a banner indicating that is upgraded with a summary identifying whether any issues were encountered.
+
+ ![Automatic upgrade](media/log-analytics-log-search-upgrade/auto-upgrade.png)
+
+## What happens after the upgrade?
+The following changes are made to your workspace when it's converted:
+
+- Any saved searches, alert rules, and views that you’ve created with the View Designer are automatically converted to the new language.  Searches included in solutions are not automatically converted, but they’re instead converted on the fly when you open them.  This is completely transparent to you.
+- [My dashboard](log-analytics-dashboards.md) is being deprecated in favor of [View Designer](log-analytics-view-designer.md) and [Azure Dashboards](https://docs.microsoft.com/en-us/azure/azure-portal/azure-portal-dashboards.md).  Tiles that you added to My Dashboard will still be available, but they will be read only.
+- [Power BI integration](log-analytics-power-bi.md) is replaced with a new process.  Any existing Power BI schedules that you created will be disabled, and you'll need to replace them with the new process.
+- Responses from [alert actions](log-analytics-alerts-actions.md) using webhooks and runbooks have a new format, and you may need to update your alert rules accordingly.
+
+## Can I go back after upgrading?
+When you upgrade, a complete backup of your workspace is taken that includes a snapshot of all saved searches, alert rule, and views.  This allows you to restore your old workspace if you should later desire.  Once your region has been upgraded though, then your old workspace will no longer be available.
 
 To restore your legacy workspace, go to **Settings** in your workspace and then **Upgrade Summary**.  You can then select the option to **Restore legacy workspace**.  
 
 ![Restore legacy](media/log-analytics-log-search-upgrade/restore-legacy-b.png)
 
 ## How do I perform the upgrade?
-You can upgrade your workspace when you see the purple banner at the top of the portal.  
+You can upgrade your workspace when you see the banner at the top of the portal.  
 
-1.	Start the upgrade process by clicking on the purple banner that says **Learn more and upgrade**.<br>![Upgrade 2](media/log-analytics-log-search-upgrade/upgrade-01a.png)<br>
+1.	Start the upgrade process by clicking on the banner that says **Learn more and upgrade**.<br>![Upgrade 2](media/log-analytics-log-search-upgrade/upgrade-01a.png)<br>
 2.	Read through the additional information about the upgrade on the upgrade information page.<br>![Upgrade 2](media/log-analytics-log-search-upgrade/upgrade-03.png)<br>
 3.	Click **Upgrade Now** to start the upgrade.<br>![Upgrade 4](media/log-analytics-log-search-upgrade/upgrade-04.png)<br>A notification box in the upper right corner shows the status.<br>![Upgrade 5](media/log-analytics-log-search-upgrade/upgrade-05.png)
 4.	That’s it!  Go over to the Log Search page to have a look at your upgraded workspace.<br>![Upgrade 6](media/log-analytics-log-search-upgrade/upgrade-06.png)<br>
