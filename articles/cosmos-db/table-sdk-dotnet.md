@@ -22,7 +22,7 @@ ms.author: mimig
 
 |   |   |
 |---|---|
-|**SDK download**|[NuGet](https://aka.ms/acdbtablenuget)|
+|**SDK download**|[NuGet](https://www.nuget.org/packages/microsoft.azure.cosmosdb.tables)|
 |**API documentation**|[.NET API reference documentation](https://aka.ms/acdbtableapiref)|
 |**Quickstart**|[Azure Cosmos DB: Build an app with .NET and the Table API](https://aka.ms/acdbtnetqs)|
 |**Tutorial**|[Azure CosmosDB: Create a container with the Graph API](tutorial-develop-graph-dotnet.md)|
