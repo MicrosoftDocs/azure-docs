@@ -30,7 +30,7 @@ You can also use the [Analytics playground](https://go.microsoft.com/fwlink/?lin
 
 ## Query data in Analytics
 A typical query starts with a table name followed by a series of *operators* separated by `|`.
-For example, let's find out what how many requests our app received from different countries, during the last 3 hours:
+For example, let's find out how many requests our app received from different countries, during the last 3 hours:
 ```AIQL
 requests
 | where timestamp > ago(3h)
@@ -50,9 +50,9 @@ The language has many attractive features:
 * [Join](https://docs.loganalytics.io/queryLanguage/query_language_joinoperator.html) multiple tables – correlate requests with page views, dependency calls, exceptions and log traces.
 * Powerful statistical [aggregations](https://docs.loganalytics.io/learn/tutorials/aggregations.html).
 * Immediate and powerful visualizations.
-* [REST API](https://dev.applicationinsights.io/) that you can use to run queries programmatically, for example from Powershell.
+* [REST API](https://dev.applicationinsights.io/) that you can use to run queries programmatically, for example from PowerShell.
 
-The [full language referece](https://go.microsoft.com/fwlink/?linkid=856079) details every command supported, and updates regularly.
+The [full language reference](https://go.microsoft.com/fwlink/?linkid=856079) details every command supported, and updates regularly.
 
 ## Next steps
 * Get started with the [Analytics portal](https://go.microsoft.com/fwlink/?linkid=856587)
