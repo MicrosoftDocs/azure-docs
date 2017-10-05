@@ -115,7 +115,7 @@ If you want to use an identity system other than the ones provided here, you can
 ### Web applications
 The following tutorials show how to add authentication to a web application:
 
-* [Get started with Azure App Service - Part 2][web-getstarted]
+* `fix this link` [Get started with Azure App Service - Part 2][web-getstarted] `it's not rending`
 
 ### Mobile applications
 The following tutorials show how to add authentication to your mobile clients by using the server-directed flow:
