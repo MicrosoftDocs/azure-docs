@@ -206,6 +206,7 @@ The Service Fabric Yeoman templates include a build script for [Gradle](https://
 
 ```bash
 cd mycontainer
+gradle
 ```
 
 ## Deploy the application
