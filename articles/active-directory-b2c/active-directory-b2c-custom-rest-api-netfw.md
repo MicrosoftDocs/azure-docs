@@ -40,7 +40,7 @@ The integration with the RESTful services can be designed as a claims exchange o
    * Send back output claims
 
 ## RESTful demo
-In this demo, you develop a .NET framework web API that validates the user input and provide user loyalty number. For example, your application can grant access to "platinum benefits"based on the loyalty number.
+In this walkthrough, you develop a .NET framework web API that validates the user input and provide user loyalty number. For example, your application can grant access to "platinum benefits"based on the loyalty number.
 
 The demo involves:
 *   Developing the RESTful service (.NET framework Web API)
@@ -77,46 +77,52 @@ The models represent the input claims and output claims data in your RESTful ser
     ![Add model](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-model.png)
 
 2.  Name the class `InputClaimsModel` and add the following properties to the `InputClaimsModel` class
-```C
-namespace Contoso.AADB2C.API.Models
-{
-    public class InputClaimsModel
-    {
-        public string email { get; set; }
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-    }
-}
-```
-3.  Create new model `OutputClaimsModel` and add the following properties to the `OutputClaimsModel` class
-```C
-namespace Contoso.AADB2C.API.Models
-{
-    public class OutputClaimsModel
-    {
-        public string loyaltyNumber { get; set; }
-    }
-}
-```
-4.  Create one more model `B2CResponseContent`. This model uses to throw input validation error messages. Add the following properties to the `B2CResponseContent` class, provide the missing references, and save the file. 
-```C
-namespace Contoso.AADB2C.API.Models
-{
-    public class B2CResponseContent
-    {
-        public string version { get; set; }
-        public int status { get; set; }
-        public string userMessage { get; set; }
 
-        public B2CResponseContent(string message, HttpStatusCode status)
+    ```C#
+    namespace Contoso.AADB2C.API.Models
+    {
+        public class InputClaimsModel
         {
-            this.userMessage = message;
-            this.status = (int)status;
-            this.version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-        }    
+            public string email { get; set; }
+            public string firstName { get; set; }
+            public string lastName { get; set; }
+        }
     }
-}
-```
+    ```
+
+3.  Create new model `OutputClaimsModel` and add the following properties to the `OutputClaimsModel` class
+
+    ```C#
+    namespace Contoso.AADB2C.API.Models
+    {
+        public class OutputClaimsModel
+        {
+            public string loyaltyNumber { get; set; }
+        }
+    }
+    ```
+
+4.  Create one more model `B2CResponseContent`. This model uses to throw input validation error messages. Add the following properties to the `B2CResponseContent` class, provide the missing references, and save the file.
+
+    ```C#
+    namespace Contoso.AADB2C.API.Models
+    {
+        public class B2CResponseContent
+        {
+            public string version { get; set; }
+            public int status { get; set; }
+            public string userMessage { get; set; }
+
+            public B2CResponseContent(string message, HttpStatusCode status)
+            {
+                this.userMessage = message;
+                this.status = (int)status;
+                this.version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            }    
+        }
+    }
+    ```
+
 ### Step 2.2: Add a Controller
 In Web API, a _controller_ is an object that handles HTTP requests. We add a controller that returns output claims, or, if the first name is not valid, throws Conflict HTTP error message.
 
@@ -135,56 +141,57 @@ In Web API, a _controller_ is an object that handles HTTP requests. We add a con
     The scaffolding creates a file named IdentityController.cs in the Controllers folder.
 
 4.  If this file is not open already, double-click the file to open it. Replace the code in this file with the following lines of code:
-```C
-using Contoso.AADB2C.API.Models;
-using Newtonsoft.Json;
-using System;
-using System.NET;
-using System.Web.Http;
 
-namespace Contoso.AADB2C.API.Controllers
-{
-    public class IdentityController: ApiController
+    ```C#
+    using Contoso.AADB2C.API.Models;
+    using Newtonsoft.Json;
+    using System;
+    using System.NET;
+    using System.Web.Http;
+
+    namespace Contoso.AADB2C.API.Controllers
     {
-        [HttpPost]
-        public IHttpActionResult SignUp()
+        public class IdentityController: ApiController
         {
-            // If not data came in, then return
-            if (this.Request.Content == null) throw new Exception();
-
-            // Read the input claims from the request body
-            string input = Request.Content.ReadAsStringAsync().Result;
-
-            // Check input content value
-            if (string.IsNullOrEmpty(input))
+            [HttpPost]
+            public IHttpActionResult SignUp()
             {
-                return Content(HttpStatusCode.Conflict, new B2CResponseContent("Request content is empty", HttpStatusCode.Conflict));
+                // If not data came in, then return
+                if (this.Request.Content == null) throw new Exception();
+
+                // Read the input claims from the request body
+                string input = Request.Content.ReadAsStringAsync().Result;
+
+                // Check input content value
+                if (string.IsNullOrEmpty(input))
+                {
+                    return Content(HttpStatusCode.Conflict, new B2CResponseContent("Request content is empty", HttpStatusCode.Conflict));
+                }
+
+                // Convert the input string into InputClaimsModel object
+                InputClaimsModel inputClaims = JsonConvert.DeserializeObject(input, typeof(InputClaimsModel)) as InputClaimsModel;
+
+                if (inputClaims == null)
+                {
+                    return Content(HttpStatusCode.Conflict, new B2CResponseContent("Can not deserialize input claims", HttpStatusCode.Conflict));
+                }
+
+                // Run input validation
+                if (inputClaims.firstName.ToLower() == "test")
+                {
+                    return Content(HttpStatusCode.Conflict, new B2CResponseContent("Test name is not valid, please provide a valid name", HttpStatusCode.Conflict));
+                }
+
+                // Create output claims object and set the loyalty number with random value
+                OutputClaimsModel outputClaims = new OutputClaimsModel();
+                outputClaims.loyaltyNumber = new Random().Next(100, 1000).ToString();
+
+                // Return the output claim(s)
+                return Ok(outputClaims);
             }
-
-            // Convert the input string into InputClaimsModel object
-            InputClaimsModel inputClaims = JsonConvert.DeserializeObject(input, typeof(InputClaimsModel)) as InputClaimsModel;
-
-            if (inputClaims == null)
-            {
-                return Content(HttpStatusCode.Conflict, new B2CResponseContent("Can not deserialize input claims", HttpStatusCode.Conflict));
-            }
-
-            // Run input validation
-            if (inputClaims.firstName.ToLower() == "test")
-            {
-                return Content(HttpStatusCode.Conflict, new B2CResponseContent("Test name is not valid, please provide a valid name", HttpStatusCode.Conflict));
-            }
-
-            // Create output claims object and set the loyalty number with random value
-            OutputClaimsModel outputClaims = new OutputClaimsModel();
-            outputClaims.loyaltyNumber = new Random().Next(100, 1000).ToString();
-
-            // Return the output claim(s)
-            return Ok(outputClaims);
         }
     }
-}
-```
+    ```
 
 ## Step 3: Publish to Azure
 1.  In the **Solution Explorer**, right-click the **Contoso.AADB2C.API** project and select **Publish**.
@@ -210,6 +217,7 @@ namespace Contoso.AADB2C.API.Controllers
 
 ## Step 4: Add the new claim `loyaltyNumber` to the schema of your TrustFrameworkExtensions.xml file
 The claim `loyaltyNumber` is not yet defined anywhere in our schema. So, add a definition inside the element `<BuildingBlocks>`. You can find this element at the beginning of the TrustFrameworkExtensions.xml file.
+
 ```xml
 <BuildingBlocks>
     <ClaimsSchema>
@@ -232,12 +240,13 @@ Following XML snippet contains `ClaimsProvider` node with two `TechnicalProfile`
 * `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">`  adds validation technical profile to existing technical profile (defined in base policy). During sign up journey, the validation technical profile invokes the above technical profile. If RESTful service returns HTTP error 409 (conflic), the error message presentes to the user. 
 
 Locate the `<ClaimsProviders>` node and add following XML snippet under `<ClaimsProviders>` node:
+
 ```xml
 <ClaimsProvider>
     <DisplayName>REST APIs</DisplayName>
     <TechnicalProfiles>
     
-    <!-- Custom RESTful service -->
+    <!-- Custom Restful service -->
     <TechnicalProfile Id="REST-API-SignUp">
         <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
         <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -270,10 +279,12 @@ Locate the `<ClaimsProviders>` node and add following XML snippet under `<Claims
     </TechnicalProfiles>
 </ClaimsProvider>
 ```
+
 ## Step 6: Add the claim `city` to your relying party policy file so the claim is sent to your application
 Edit your SignUpOrSignIn.xml relying party (RP) file and modify the `<TechnicalProfile Id="PolicyProfile">` element to add the following: `<OutputClaim ClaimTypeReferenceId="loyaltyNumber" />`.
 
 After you add the new claim, the `RelyingParty` looks like this:
+
 ```xml
 <RelyingParty>
     <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
@@ -321,6 +332,7 @@ After you add the new claim, the `RelyingParty` looks like this:
     ![Test your policy](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-test.png)
 
 4.  Try to enter a name (other than "test") in the **Given Name** field. B2C signs up the user and then send loyaltyNumber to your application. Note the number in this JWT.
+
 ```
 {
   "typ": "JWT",
