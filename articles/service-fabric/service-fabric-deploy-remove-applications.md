@@ -179,7 +179,7 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```
 
 ## Remove an application package from the image store
-It's recommended that you remove the application package after the application is successfully registered.  Deleting application packages from the image store frees up system resources.  Keeping unused application packages consumes disk storage and leads to performance issues, which may cause the cluster to become non-functional.
+It's recommended that you remove the application package after the application is successfully registered.  Deleting application packages from the image store frees up system resources.  Keeping unused application packages consume disk storage and leads to performance issues, which may cause the cluster to become non-functional.
 
 ```powershell
 PS C:\>Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore MyApplicationV1 -ImageStoreConnectionString (Get-ImageStoreConnectionStringFromClusterManifest(Get-ServiceFabricClusterManifest))
