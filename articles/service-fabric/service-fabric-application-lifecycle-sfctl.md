@@ -64,7 +64,7 @@ The value for `application-type-build-path` is the name of the directory where y
 
 ### Delete the application package
 
-It's recommended that you remove the application package after the application is successfully registered.  Deleting application packages from the image store frees up system resources.  Keeping unused application packages consume disk storage and leads to performance issues, which may cause the cluster to become non-functional. 
+It's recommended that you remove the application package after the application is successfully registered.  Deleting application packages from the image store frees up system resources.  Keeping unused application packages consumes disk storage and leads to application performance issues. 
 
 To delete the application package from the image store, use the following command:
 
