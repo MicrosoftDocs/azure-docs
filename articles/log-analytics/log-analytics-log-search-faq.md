@@ -154,7 +154,7 @@ The legacy log search will be deprecated in the coming months. Workspaces that a
 Another admin of this workspace could have upgraded the workspace. Please note that all workspaces will be automatically upgraded when the new language reaches general availability.  
 
 ### Question: I have upgraded by mistake and now need to cancel it and restore everything back. What should I do?!  
-No problem.  We create a snapshot of your workspace before upgrade, so you can restore it. Keep in mind that searches, alerts or views you saved after the upgrade will be lost though.  To restore your workspace environment, follow the procedure at [Can I go back after I upgrade?](log-analytics-log-search-upgrade.md#can-i-go-back-after-i-upgrade)
+No problem.  We create a snapshot of your workspace before upgrade, so you can restore it. Keep in mind that searches, alerts or views you saved after the upgrade will be lost though.  To restore your workspace environment, follow the procedure at [Can I go back after I upgrade?](log-analytics-log-search-upgrade.md#can-i-go-back-after-upgrading)
 
 
 ## Views

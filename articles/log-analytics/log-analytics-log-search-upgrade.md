@@ -19,7 +19,7 @@ ms.author: magoedte;bwren
 
 # Azure Log Analytics upgrade to new log search
 
-The new Log Analytics query language is here, and your workspace needs to be upgraded to take advantage of it.  You can either upgrade your workspace yourself or wait for it to be automatically upgraded during the roll out period that starts in late October and goes through the end of the year.  This article describes the advantages of the new language and how to convert your workspace.  
+The new Log Analytics query language is here, and your workspace needs to be upgraded to take advantage of it.  You can either upgrade your workspace yourself or wait for it to be automatically upgraded during the rollout period that starts in late October and goes through the end of the year.  This article describes the advantages of the new language and how to convert your workspace.  
 
 ## Why the new language?
 We understand that there’s pain in any transition, and we aren’t just changing the query language for the fun of it.  There are several reasons that this change will provide significant value to our Log Analytics customers.
@@ -37,20 +37,20 @@ We understand that there’s pain in any transition, and we aren’t just changi
 
 
 ## When can I upgrade?
-The upgrade will be rolled out across all Azure regions so it may be available in some regions before others.  You'll know when your workspace is available to be upgraded when you see a banner across the top of your workspace inviting you to upgrade.
+The upgrade will be rolled out across all Azure regions so it may be available in some regions before others.  You know when your workspace is available to be upgraded when you see a banner across the top of your workspace inviting you to upgrade.
 
 ![Upgrade 1](media/log-analytics-log-search-upgrade/upgrade-01a.png)
 
-If your workspace is automatically upgraded, then you will a banner indicating that is upgraded with a summary identifying whether any issues were encountered.
+If your workspace is automatically upgraded, then you will see a banner indicating that is upgraded with a summary identifying whether any issues were encountered.
 
  ![Automatic upgrade](media/log-analytics-log-search-upgrade/auto-upgrade.png)
 
 ## What happens after the upgrade?
 The following changes are made to your workspace when it's converted:
 
-- Any saved searches, alert rules, and views that you’ve created with the View Designer are automatically converted to the new language.  Searches included in solutions are not automatically converted, but they’re instead converted on the fly when you open them.  This is completely transparent to you.
-- [My dashboard](log-analytics-dashboards.md) is being deprecated in favor of [View Designer](log-analytics-view-designer.md) and [Azure Dashboards](https://docs.microsoft.com/en-us/azure/azure-portal/azure-portal-dashboards.md).  Tiles that you added to My Dashboard will still be available, but they will be read only.
-- [Power BI integration](log-analytics-power-bi.md) is replaced with a new process.  Any existing Power BI schedules that you created will be disabled, and you'll need to replace them with the new process.
+- Any saved searches, alert rules, and views that you’ve created with the View Designer are automatically converted to the new language.  Searches included in solutions are not automatically converted, but they’re instead converted on the fly when you open them.  
+- [My dashboard](log-analytics-dashboards.md) is being deprecated in favor of [View Designer](log-analytics-view-designer.md) and [Azure Dashboards](https://docs.microsoft.com/en-us/azure/azure-portal/azure-portal-dashboards.md).  Tiles that you added to My Dashboard are still available, but they're read only.
+- [Power BI integration](log-analytics-powerbi.md) is replaced with a new process.  Any existing Power BI schedules that you created will be disabled, and you need to replace them with the new process.
 - Responses from [alert actions](log-analytics-alerts-actions.md) using webhooks and runbooks have a new format, and you may need to update your alert rules accordingly.
 
 ## Can I go back after upgrading?
@@ -71,7 +71,7 @@ You can upgrade your workspace when you see the banner at the top of the portal.
 If you encounter an issue that causes the upgrade to fail, you can go to the [discussion forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) and post your question or [create a support request](../azure-supportability/how-to-create-azure-support-request.md) from the Azure portal.
 
 ## How do I learn the new language?
-Since it's used by multiple services we've created an [external site to host the documentation](https://docs.loganalytics.io/) for the new language.  This includes tutorials, samples, and a complete reference to help you come up to speed. You can walk through a tutorial of the new language at [Getting Started with Queries](https://go.microsoft.com/fwlink/?linkid=856078) and access the language reference at [Log Analytics query langauge](https://go.microsoft.com/fwlink/?linkid=856079).  
+Since it's used by multiple services we've created an [external site to host the documentation](https://docs.loganalytics.io/) for the new language.  This includes tutorials, samples, and a complete reference to help you come up to speed. You can walk through a tutorial of the new language at [Getting Started with Queries](https://go.microsoft.com/fwlink/?linkid=856078) and access the language reference at [Log Analytics query language](https://go.microsoft.com/fwlink/?linkid=856079).  
 
 If you're already familiar with the legacy Log Analytics query language though, then you can use the language converter which is added to your workspace as part of the upgrade.
 
