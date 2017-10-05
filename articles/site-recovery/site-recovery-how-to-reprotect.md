@@ -25,10 +25,13 @@ ms.author: ruturajd
 This article describes how to reprotect Azure virtual machines from Azure to an on-premises site. Follow the instructions in this article when you're ready to fail back your VMware virtual machines or Windows/Linux physical servers after they've failed over from the on-premises site to Azure (as described in [Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery](site-recovery-failover.md)).
 
 > [!WARNING]
-> You cannot fail back after you [complete migration](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), move a virtual machine to another resource group, or delete an Azure virtual machine.
+> You cannot failback after you have either [completed migration](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), moved a virtual machine to another resource group, or deleted the Azure virtual machine. If you disable protection of the virtual machine, you cannot failback.
 
 
 After reprotection finishes and the protected virtual machines are replicating, you can initiate a failback on the virtual machines to bring them to the on-premises site.
+
+> [!NOTE]
+> You can only reprotect and failback to an ESXi host. You cannot failback the virtual machine to Hyper-v hosts, or VMware workstations, or any other virtualization platform.
 
 Post comments or questions at the end of this article or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
@@ -37,6 +40,11 @@ For a quick overview, watch the following video about how to fail over from Azur
 
 
 ## Prerequisites
+
+> [!IMPORTANT]
+> During failover to Azure, the on-premises site may not be accessible and hence the configuration server may be either un-available or shutdown. During reprotect and failback, the on-premises configuration server should be running and in a connected OK state.
+
+
 When you prepare to reprotect virtual machines, take or consider the following prerequisite actions:
 
 * If a vCenter server manages the virtual machines that you want to fail back to, make sure that you have the [required permissions](site-recovery-vmware-to-azure-classic.md) for discovery of virtual machines on vCenter servers.
@@ -89,13 +97,15 @@ However, if you have only an S2S VPN, we recommend deploying the process server 
  ![Architecture diagram for VPN](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.png)
 
 
-Remember that replication happens only over the S2S VPN or the private peering of your ExpressRoute network. Ensure that enough bandwidth is available over that network channel.
+Remember that replication from Azure to on-premises can happen only over the S2S VPN or the private peering of your ExpressRoute network. Ensure that enough bandwidth is available over that network channel.
 
 For information about installing an Azure-based process server, see [Manage a process server running in Azure](site-recovery-vmware-setup-azure-ps-resource-manager.md).
 
 > [!TIP]
 > We recommend using an Azure-based process server during failback. The replication performance is higher if the process server is closer to the replicating virtual machine (the failed-over machine in Azure). However, during your proof of concept (POC) or demonstration, you can use the on-premises process server along with ExpressRoute with private peering to complete the POC faster.
 
+> [!NOTE]
+> Replication from on-premises to Azure can happen only over internet or ExpressRoute with public peering. Replication from Azure to on-premises can happen only over S2S VPN or ExpressRoute with private peering
 
 
 #### What ports should I open on different components so that reprotection can work?
@@ -244,7 +254,7 @@ This can happen due to two reasons
 1. The virtual machine you are reprotecting is a Windows Server 2016. Curently this operating system is not supported for failback, but will be supported very soon.
 2. There already exists a virtual machine with the same name on the Master target server you are failing back to.
 
-To resolve this issue you can select a different master target server on a different host, so that the reprotect will create the machine on a different host, where the names do not collide. You can also vMotion the master target to a different host where the name collision will not happen.
+To resolve this issue you can select a different master target server on a different host, so that the reprotect will create the machine on a different host, where the names do not collide. You can also vMotion the master target to a different host where the name collision will not happen. If the existing virtual machine is a stray machine, you can just rename it so that the new virtual machine can get created on the same ESXi host.
 
 ### Error code 78093
 
@@ -252,5 +262,9 @@ To resolve this issue you can select a different master target server on a diffe
 
 To reprotect a failed over virtual machine back to on-premises, you need the Azure virtual machine running. This is so that the mobility service registers with the configuration server on-premises and can start replicating by communicating with the process server. If the machine is on an incorrect network or in not running (hung state or shutdown), then the configuration server cannot reach the mobility service in the virtual machine to begin the reprotect. You can restart the virtual machine so that it can start communicating back on-premises. Restart the reprotect job after starting the Azure virtual machine
 
+### Error code 8061
 
+*The datastore is not accessible from ESXi host.*
+
+Refer to the [master target pre-requisites](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server) and the [support datastores](site-recovery-how-to-reprotect.md#what-datastore-types-are-supported-on-the-on-premises-esxi-host-during-failback) for failback
 

@@ -45,7 +45,7 @@ Our systems provide continuous intrusion detection and prevention, service attac
 
 The Microsoft Azure IoT Suite takes advantage of the security and privacy built into the Azure platform along with our SDL and OSA processes for secure development and operation of all Microsoft software. These procedures provide infrastructure protection, network protection, and identity and management features fundamental to the security of any solution. 
 
-The [Azure IoT Hub](../iot-hub/iot-hub-what-is-iot-hub.md) within the [IoT Suite](iot-suite-what-is-azure-iot.md) offers a fully-managed service that enables reliable and secure bi-directional communication between IoT devices and Azure services such as [Azure Machine Learning](../machine-learning/machine-learning-what-is-machine-learning.md) and [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) by using per-device security credentials and access control.
+The [Azure IoT Hub](../iot-hub/iot-hub-what-is-iot-hub.md) within the [IoT Suite](iot-suite-what-is-azure-iot.md) offers a fully-managed service that enables reliable and secure bi-directional communication between IoT devices and Azure services such as [Azure Machine Learning](../machine-learning/studio/what-is-machine-learning.md) and [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) by using per-device security credentials and access control.
 
 To best communicate security and privacy features built into the Azure IoT Suite, we’ve broken down the suite into the three primary security areas. 
 
