@@ -21,14 +21,14 @@ ms.author: tamram
 #How to delete Azure Files Share Snapshot
 ==============================
 
-You can delete file share snapshot using Portal, Powershell, CLI, REST or any Storage SDK.Following article will tell you how to delete snapshot using Portal, CLI and Powershell. To learn more about snapshot please look at [snapshot overview](storage-snapshots-files.md) or [snapshot FAQ](storage-files-faq.md).
+You can delete file share snapshot using Portal, Powershell, CLI, REST or any Storage SDK. Following article will tell you how to delete snapshot using Portal, CLI and Powershell. To learn more about snapshot please look at [snapshot overview](storage-snapshots-files.md) or [snapshot FAQ](storage-files-faq.md).
 
-You will be able to browse snapshots and diff two snapshots using any tool like windiff to determine which snapshot you would like to delete. 
+You are able to browse snapshots and diff two snapshots using any tool like windiff to determine which snapshot you want to delete. 
 
-You cannot delete a share that has snapshot. If a file share has snapshots, you will first have to delete all its snapshot in order to be able to delete a share.
+You cannot delete a share that has snapshot. If a file share has snapshots, you first have to delete all its snapshot in order to be able to delete a share.
 
 ## Delete snapshot using portal  
-You can simply hit `delete` button in portal to delete one or more snapshots.
+You can hit `delete` button in portal to delete one or more snapshots.
 
 >   ![./media/storage-snapshots-delete/portal-snapshots-delete.png](./media/storage-snapshots-delete/portal-snapshots-delete.png)
 
@@ -52,12 +52,12 @@ You can create a share snapshot by using the `Remove-AzureStorageShare -Share` c
 
 ```powershell
 $connectionstring="DefaultEndpointsProtocol=http;FileEndpoint=http:<Storage Account Name>.file.core.windows.net /;AccountName=:<Storage Account Name>;AccountKey=:<Storage Account Key>"
-$sharename=":<FileShareName>"
+$sharename=":<file share name>"
 
 $ctx = New-AzureStorageContext -ConnectionString $connectionstring
 
 ##create snapshot
-$share=Get-AzureStorageShare -Context $ctx -Name <FileShareName>
+$share=Get-AzureStorageShare -Context $ctx -Name <file share name>
 $share.Properties.LastModified
 $share.IsSnapshot
 $snapshot=$share.Snapshot()

@@ -20,7 +20,7 @@ ms.author: tamram
 
 #How to create Azure Files Share Snapshot
 
-You can create file share snapshot using Portal, Powershell, CLI, REST or any Storage SDK.Following article will tell you how to create snapshot using Portal, CLI and Powershell. To learn more about snapshot please look at [snapshot overview](storage-snapshots-files.md) or [snapshot FAQ](storage-files-faq.md)
+You can create file share snapshot using Portal, Powershell, CLI, REST or any Storage SDK.Following article will tell you how to create snapshot using Portal, CLI and Powershell. To learn more about snapshot, please look at [snapshot overview](storage-snapshots-files.md) or [snapshot FAQ](storage-files-faq.md)
 
 You can take a snapshot of file share while it is in-use. However, snapshots
 only capture data that has been already written to Azure File share at the time
@@ -59,12 +59,12 @@ You can create a share snapshot by using the `$share.Snapshot()` command:
 
 ```powershell
 $connectionstring="DefaultEndpointsProtocol=http;FileEndpoint=http:<Storage Account Name>.file.core.windows.net /;AccountName=:<Storage Account Name>;AccountKey=:<Storage Account Key>"
-$sharename=":<FileShareName>"
+$sharename=":<file share name>"
 
 $ctx = New-AzureStorageContext -ConnectionString $connectionstring
 
 ##create snapshot
-$share=Get-AzureStorageShare -Context $ctx -Name <FileShareName>
+$share=Get-AzureStorageShare -Context $ctx -Name <file share name>
 $share.Properties.LastModified
 $share.IsSnapshot
 $snapshot=$share.Snapshot()

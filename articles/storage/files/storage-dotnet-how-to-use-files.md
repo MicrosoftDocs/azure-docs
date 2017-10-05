@@ -27,7 +27,7 @@ ms.author: renash
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
 ## About this tutorial
-This tutorial will demonstrate the basics of using .NET to develop applications or services that use Azure Files to store file data. In this tutorial, we will create a simple console application and show how to perform basic actions with .NET and Azure Files:
+This tutorial will demonstrate the basics of using .NET to develop applications or services that use Azure Files to store file data. In this tutorial, we create a simple console application and show how to perform basic actions with .NET and Azure Files:
 
 * Get the contents of a file
 * Set the quota (maximum size) for the file share.
@@ -133,7 +133,7 @@ if (share.Exists())
 Run the console application to see the output.
 
 ## Set the maximum size for a file share
-Beginning with version 5.x of the Azure Storage Client Library, you can set set the quota (or maximum size) for a file share, in gigabytes. You can also check to see how much data is currently stored on the share.
+Beginning with version 5.x of the Azure Storage Client Library, you can set the quota (or maximum size) for a file share, in gigabytes. You can also check to see how much data is currently stored on the share.
 
 By setting the quota for a share, you can limit the total size of the files stored on the share. If the total size of files on the share exceeds the quota set on the share, then clients will be unable to increase the size of existing files or create new files, unless those files are empty.
 
@@ -325,7 +325,7 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 You can copy a blob to a file in the same way. If the source object is a blob, then create a SAS to authenticate access to that blob during the copy operation.
 ## Snapshots
 
-Beginning with version 8.5 of the Azure Storage Client Library, you can create a file share snapshot for a file share. You can also list or broswe snapshots and delete snapshots. Snapshots are read-only so no write operations are allowed on snapshots.
+Beginning with version 8.5 of the Azure Storage Client Library, you can create a file share snapshot for a file share. You can also list or browse snapshots and delete snapshots. Snapshots are read-only so no write operations are allowed on snapshots.
 
 **Create Snapshots**
 
@@ -340,7 +340,7 @@ var snapshotShare = myShare.Snapshot();
 ```
 **List Snapshots**
 
-The following example lists the snapshots on a shares
+The following example lists the snapshots on a share
 
 ```csharp
 var shares = fClient.ListShares(baseShareName, ShareListingDetails.All);
@@ -358,7 +358,7 @@ var items = rootDirectory.ListFilesAndDirectories();
 
 ** Restore files/fileshare by using snapshots** 
 
-By using snapshots on file shares, one can create point in time snapshots of their file storage and later on recover any file from an earlier snapshot. One can achieve this by first querying for snapshots of a file share and then retrieving a file that belongs to a particular snapshot and using that snapshotted version to either directly read and compare or to restore. Snapshots contain all of the information needed to browse and restore your data (from the time the snapshot was taken) to original or alternate location. The restore can be done at item-level.
+By using snapshots on file shares, one can create point in time snapshots of their file storage and later on recover any file from an earlier snapshot. One can achieve this by first querying for snapshots of a file share and then retrieving a file that belongs to a particular snapshot and using that version to either directly read and compare or to restore. Snapshots contain all of the information needed to browse and restore your data (from the time the snapshot was taken) to original or alternate location. The restore can be done at item-level.
 
 ```csharp
 CloudFileShare liveShare = fClient.GetShareReference(baseShareName);
