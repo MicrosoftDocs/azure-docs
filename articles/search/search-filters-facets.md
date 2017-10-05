@@ -30,7 +30,7 @@ Faceted navigation is used for self-directed filtering on query results in a sea
 > * Handle results
 > * Facet navigation for complex objects 
 
-Facets are dynamic and returned on a query. Search results bring with them the facet categories used to navigate the results. The following example is an illustration of a facet navigation structure.
+Facets are dynamic and returned on a query. Search responses bring with them the facet categories used to navigate the results. The following example is an illustration of a facet navigation structure.
 
   ![](./media/search-filters/facet-nav.png)
 
@@ -65,32 +65,32 @@ Because faceting and filtering are enabled by default, explicitly setting the at
 > As a best practice for performance and storage optimization, turn faceting off for fields that should never be used as a facet. In particular, string fields for singleton values, such as an ID or product name, should be set to "Facetable": false to prevent their accidental (and ineffective) use in faceted navigation.
 
 
-    ```Http
-    {
-        "name": "hotels",  
-        "fields": [
-            {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false, "sortable": false, "facetable": false},
-            {"name": "baseRate", "type": "Edm.Double"},
-            {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-            {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene"},
-            {"name": "hotelName", "type": "Edm.String", "facetable": false},
-            {"name": "category", "type": "Edm.String", "filterable": true, "facetable": true},
-            {"name": "tags", "type": "Collection(Edm.String)", "filterable": true, "facetable": true},
-            {"name": "parkingIncluded", "type": "Edm.Boolean",  "filterable": true, "facetable": true, "sortable": false},
-            {"name": "smokingAllowed", "type": "Edm.Boolean", "filterable": true, "facetable": true, "sortable": false},
-            {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
-            {"name": "rating", "type": "Edm.Int32", "filterable": true, "facetable": true},
-            {"name": "location", "type": "Edm.GeographyPoint"}
-        ]
-    }
-    ```
+```http
+{
+    "name": "hotels",  
+    "fields": [
+        {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false, "sortable": false, "facetable": false},
+        {"name": "baseRate", "type": "Edm.Double"},
+        {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
+        {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene"},
+        {"name": "hotelName", "type": "Edm.String", "facetable": false},
+        {"name": "category", "type": "Edm.String", "filterable": true, "facetable": true},
+        {"name": "tags", "type": "Collection(Edm.String)", "filterable": true, "facetable": true},
+        {"name": "parkingIncluded", "type": "Edm.Boolean",  "filterable": true, "facetable": true, "sortable": false},
+        {"name": "smokingAllowed", "type": "Edm.Boolean", "filterable": true, "facetable": true, "sortable": false},
+        {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
+        {"name": "rating", "type": "Edm.Int32", "filterable": true, "facetable": true},
+        {"name": "location", "type": "Edm.GeographyPoint"}
+    ]
+}
+```
 
 > [!Note]
-> This index definition is copied from [Create an Azure Search index using the REST API](https://docs.microsoft.com/azure/search/search-create-index-rest-api). It is functionally equivalent, except that filterable and facetable attributes for category, tags, parkingIncluded, smokingAllowed, and rating are explicitly marked in this version for instructional purposes. In practice, you get filterable and facetable for free on Edm.String, Edm.Boolean, and Edm.Int32 field types.
+> This index definition is copied from [Create an Azure Search index using the REST API](https://docs.microsoft.com/azure/search/search-create-index-rest-api). It is identical except for superficial differences in the fild definitions. Filterable and facetable attributes are explicitly added on category, tags, parkingIncluded, smokingAllowed, and rating fields. In practice, you get filterable and facetable for free on Edm.String, Edm.Boolean, and Edm.Int32 field types, so this change is for instructional purposes only.
 
-## Build the index and load data
+## Build and load an index
 
-An intermediate (and perhaps obvious) step is that you have to build and populate the index on your Azure Search service as a prerequisite to submitting the query. We mention this step here for completeness. If you can see your index in the Azure portal and view the index definition, you can take that as proof that this step is complete.
+An intermediate (and perhaps obvious) step is that you have to [build and populate the index](https://docs.microsoft.com/azure/search/search-create-index-dotnet#create-the-index) on your Azure Search service as a prerequisite to submitting the query. We mention this step here for completeness. If you can see your index in the [Azure portal](https://portal.azure.com) and view the index definition, you can accept that as proof this step is complete.
 
 ## Add facet filters to a query
 
