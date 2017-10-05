@@ -62,6 +62,26 @@ PowerShell in Azure Cloud Shell could take up to 60 seconds to initialize during
 ### No $Home directory persistence
 Data written to $Home by any application (such as: git, vim, and others) does not persist across PowerShell sessions.  For a workaround [see here](troubleshooting.md#powershell-resolutions).
 
+### Error if AzureRM module is updated from PowerShellGallery
+If you update the AzureRM modules to the latest version (4.4.0), you may see following error on Cloudshell startup.
+``` powershell
+VERBOSE: Authenticating to Azure ...
+Import-Module : Method 'RemoveUser' in type 'Microsoft.Azure.PSCloudConsole.ADAuth.ADAuthFactory' from assembly 'Microsoft.Azure.PSCloudConsole.ADAuth, Version=0.0.0.0,
+Culture=neutral, PublicKeyToken=null' does not have an implementation.
+At C:\Program Files\WindowsPowerShell\Modules\PSCloudShellADAuth\PSCloudShellADAuth.psm1:12 char:1
++ Import-Module -Name $AdAuthModulePath -PassThru -Force
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Import-Module], TypeLoadException
+    + FullyQualifiedErrorId : System.TypeLoadException,Microsoft.PowerShell.Commands.ImportModuleCommand
+
+Unable to find type [Microsoft.Azure.PSCloudConsole.ADAuth.ADAuthFactory].
+At C:\Users\ContainerAdministrator\PSCloudShellStartup.ps1:94 char:9
++         [Microsoft.Azure.PSCloudConsole.ADAuth.ADAuthFactory]::Update ...
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (Microsoft.Azure...h.ADAuthFactory:TypeName) [], RuntimeException
+    + FullyQualifiedErrorId : TypeNotFound
+```
+
 ## Next steps
 [Troubleshooting Cloud Shell](troubleshooting.md) <br>
 [Quickstart for Bash](quickstart.md) <br>

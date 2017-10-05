@@ -92,6 +92,8 @@
       items:
       - name: Regular expressions
         href: log-analytics-log-searches-regex.md
+      - name: Cross-workspace searches
+        href: log-analytics-cross-workspace-search.md
     - name: Take action from search results
       href: log-analytics-log-search-takeaction.md
     - name: Computer groups
