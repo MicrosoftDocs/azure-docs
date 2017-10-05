@@ -149,7 +149,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Agiloft Configuration](./media/active-directory-saas-agiloft-tutorial/setup1.png) 
 
-10. Click on   the button **“Configure SAML 2.0 Single Sign-On.“ 
+10. Click on   the button **“Configure SAML 2.0 Single Sign-On“**. 
 	
 	![Agiloft Configuration](./media/active-directory-saas-agiloft-tutorial/setup2.png) 
 
