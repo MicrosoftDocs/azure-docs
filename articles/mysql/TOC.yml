@@ -119,6 +119,8 @@
     href: /rest/api/mysql
 - name: Resources
   items:
+  - name: ARM Templates
+    href: https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Dbformysql
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=databases
   - name: Pricing
