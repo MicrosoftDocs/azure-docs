@@ -38,9 +38,9 @@ To get started writing some code and running some samples, see the [Get started 
 
 You may also be interested in [Azure IoT Suite][lnk-iot-suite], which is a collection of preconfigured solutions. IoT Suite enables you to get started quickly and scale IoT projects to address common IoT scenarios--such as remote monitoring, asset management, and predictive maintenance.
 
-[lnk-getstarted]: iot-hub-csharp-csharp-getstarted.md
+[lnk-getstarted]: ../iot-hub/iot-hub-csharp-csharp-getstarted.md
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
-[lnk-iot-hub]: iot-hub-what-is-iot-hub.md
+[lnk-iot-hub]: ../iot-hub/iot-hub-what-is-iot-hub.md
 [lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
-[lnk-device-management]: iot-hub-device-management-overview.md
+[lnk-device-management]: ../iot-hub/iot-hub-device-management-overview.md
