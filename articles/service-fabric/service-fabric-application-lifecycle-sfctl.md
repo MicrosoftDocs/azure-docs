@@ -152,6 +152,7 @@ To perform an upgrade, first provision the next version of the application using
 ```azurecli
 sfctl application upload --path ~/app_package_dir_2
 sfctl application provision --application-type-build-path app_package_dir_2
+sfctl store delete --content-path app_package_dir_2
 ```
 
 It is recommended then to perform a monitored automatic upgrade, launch the upgrade by running the following command:
