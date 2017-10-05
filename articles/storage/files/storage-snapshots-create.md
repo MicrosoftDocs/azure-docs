@@ -19,7 +19,6 @@ ms.author: tamram
 ---
 
 #How to create Azure Files Share Snapshot
-==============================
 
 You can create file share snapshot using Portal, Powershell, CLI, REST or any Storage SDK.Following article will tell you how to create snapshot using Portal, CLI and Powershell. To learn more about snapshot please look at [snapshot overview](storage-snapshots-files.md) or [snapshot FAQ](storage-files-faq.md)
 
