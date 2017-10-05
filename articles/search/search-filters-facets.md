@@ -81,7 +81,8 @@ Index attributes that control how a field is used are added to individual field 
             {"name": "location", "type": "Edm.GeographyPoint"}
         ]
     }
-```
+    ```
+
 > [!Note]
 > This index definition is copied from [Create an Azure Search index using the REST API](https://docs.microsoft.com/azure/search/search-create-index-rest-api). It is functionally equivalent, except that filterable and facetable attributes for category, tags, parkingIncluded, smokingAllowed, and rating are explicitly marked in this version for instructional purposes. In practice, you get filterable and facetable for free on Edm.String, Edm.Boolean, and Edm.Int32 field types.
 
