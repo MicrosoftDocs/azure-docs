@@ -12,6 +12,9 @@
   - name: Run training job - Python
     href: quickstart-python.md
 - name: Tutorials
+  items:
+  - name: Training recipes
+    href: https://github.com/Azure/BatchAI
 - name: Reference
   items:
   - name: Azure CLI
