@@ -182,7 +182,7 @@ System.FM reports as OK when the partition has been created and is healthy. It d
 
 If the partition is below the minimum replica count, it reports an error. If the partition is not below the minimum replica count, but it's below the target replica count, it reports a warning. If the partition is in quorum loss, System.FM reports an error.
 
-Other notable events include a warning when the reconfiguration takes longer than expected and when the build takes longer than expected. The expected times for the build and reconfiguration are configurable based on the service scenarios. For example, if a service has a terabyte of state, such as an Azure SQL Database, the build takes longer than for a service with a small amount of state.
+Other notable events include a warning when the reconfiguration takes longer than expected and when the build takes longer than expected. The expected times for the build and reconfiguration are configurable based on the service scenarios. For example, if a service has a terabyte of state, such as Azure SQL Database, the build takes longer than for a service with a small amount of state.
 
 * **SourceId**: System.FM
 * **Property**: State.
