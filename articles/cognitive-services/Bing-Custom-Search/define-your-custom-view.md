@@ -96,7 +96,6 @@ Please note the following restrictions when working with pins:
 There are a couple of ways to specify the slices of the web that make up your custom search. If you know the slices you want to include in your instance, simply add them to your instance’s Active list. For information about adding items to the Active list yourself, see Define your custom instance.
 But if you’re not sure which slices to include, you can run Bing queries in the Preview pane and see what Bing returns. You can then select the slices that you want to include in your custom search. You likely need to run multiple query terms to make sure you identify all the slices that you want for your instance. 
 
-If you don’t know which domains, subsites, or webpages to include in your instance, you can run a Bing query in the Preview pane and see what Bing returns. You can then select the slices that you want to include in your custom search. You would need to search multiple query terms to make sure you identify all the slices that you want for your instance. 
 Follow these steps to use Bing to add slices to your Custom Search instance. 
 1.	Sign in to Bing Custom Search [portal](https://customsearch.ai).
 2.	Create an instance or select an instance to update .
