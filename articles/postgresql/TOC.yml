@@ -107,6 +107,8 @@
     href: /rest/api/postgresql
 - name: Resources
   items:
+  - name: ARM Templates
+    href: https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Dbforpostgresql
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=databases
   - name: Pricing
