@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 10/05/2017
 ms.author: cynthn
 ms.custom: mvc
 ---
@@ -50,13 +50,14 @@ Create a resource group.
 New-AzureRmResourceGroup -Name myResourceGroupAvailability -Location EastUS
 ```
 
+Create a managed availability set using [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset) with the **-sku aligned** parameter.
 
 ```azurepowershell-interactive
 New-AzureRmAvailabilitySet `
    -Location EastUS `
    -Name myAvailabilitySet `
    -ResourceGroupName myResourceGroupAvailability `
-   -Managed `
+   -sku aligned `
    -PlatformFaultDomainCount 2 `
    -PlatformUpdateDomainCount 2
 ```
@@ -67,9 +68,9 @@ VMs must be created within the availability set to make sure they are correctly 
 
 The hardware in a location is divided in to multiple update domains and fault domains. An **update domain** is a group of VMs and underlying physical hardware that can be rebooted at the same time. VMs in the same **fault domain** share common storage as well as a common power source and network switch. 
 
-When you create a VM configuration using [New-AzureRMVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) you specify the availability set using the `-AvailabilitySetId` parameter to specify the ID of the availability set.
+When you create a VM configuration using [New-AzureRMVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) you use the `-AvailabilitySetId` parameter to specify the ID of the availability set.
 
-Create 2 VMs with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) in the availability set.
+Create two VMs with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) in the availability set.
 
 ```azurepowershell-interactive
 $availabilitySet = Get-AzureRmAvailabilitySet `
@@ -129,11 +130,12 @@ for ($i=1; $i -le 2; $i++)
         -AvailabilitySetId $availabilitySet.Id
 
    $vm = Set-AzureRmVMOperatingSystem `
-        -VM $vm `
-        -Windows -ComputerName myVM$i `   
+        -ComputerName myVM$i `
         -Credential $cred `
-        -ProvisionVMAgent `
-        -EnableAutoUpdate
+        -VM $vm `
+        -Windows `
+        -EnableAutoUpdate `
+        -ProvisionVMAgent
    $vm = Set-AzureRmVMSourceImage `
         -VM $vm `
         -PublisherName MicrosoftWindowsServer `
@@ -155,7 +157,7 @@ for ($i=1; $i -le 2; $i++)
 
 ```
 
-It takes a few minutes to create and configure both VMs. When finished, you'll have 2 virtual machines distributed across the underlying hardware. 
+It takes a few minutes to create and configure both VMs. When finished, you'll have two virtual machines distributed across the underlying hardware. 
 
 If you look at the availability set in the portal by going to Resource Groups > myResourceGroupAvailability > myAvailabilitySet, you should see how the VMs are distributed across the 2 fault and update domains.
 
