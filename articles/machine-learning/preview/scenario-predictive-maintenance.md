@@ -3,7 +3,7 @@ title: 'Predictive Maintenance Real World Scenario| Microsoft Docs'
 description: Predictive Maintenance Real World Scenario using PySpark 
 services: machine-learning 
 author: jehrling
-ms.author: jaymathe, jehrling
+ms.author: jehrling
 manager: jhubbard 
 ms.reviewer: garyericson, jasonwhowell, mldocs 
 ms.service: machine-learning 
