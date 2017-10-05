@@ -18,21 +18,20 @@ ms.author: tamram
 
 ---
 
-# How to list shapshots, browse snapshot contents and restore from snapshots
+# How to list snapshots, browse snapshot contents and restore from snapshots
 
 You can enumerate the snapshots associated with your file share using
-“previous-version” integration in Windows, through REST, Client Library, PowerShell
-and Portal. Once the Azure File share is mounted, you can view all the previous
+“previous-version” integration in Windows, through REST, Client Library, PowerShell, and Portal. Once the Azure File share is mounted, you can view all the previous
 versions of the file using SMB “Previous Versions” integration. Once the Azure
 File share is mounted, you can view all the previous versions of the directory
-using SMB “Previous Versions” integration.To learn more about snapshot please look at [snapshot overview](storage-snapshots-files.md) or [snapshot FAQ](storage-files-faq.md).
+using SMB “Previous Versions” integration. To learn more about snapshot please look at [snapshot overview](storage-snapshots-files.md) or [snapshot FAQ](storage-files-faq.md).
 
 ## File share snapshot operations in portal
 
 You can look at all your snapshots for a file share in portal and browse the snapshot to view its content
 
 **Step 1**
-Click on **View Snapshot** from File Share Blade
+Click on **View Snapshot** from file share blade
 
 ![./media/storage-snapshots-list-browse/snapshot-view-portal.png](./media/storage-snapshots-list-browse/snapshot-view-portal.png)
 
@@ -41,7 +40,7 @@ View the list of snapshots and then browse its content directly by clicking the 
 
 ![./media/storage-snapshots-list-browse/snapshot-browsefiles-portal.png](./media/storage-snapshots-list-browse/snapshot-browsefiles-portal.png)
 
-You can also click "Connect Button" on snapshot blade to get the `net use` command and the directory path to a particular snapshot which you can directly browse into.
+You can also click "Connect Button" on snapshot blade to get the `net use` command and the directory path to a particular snapshot, which you can directly browse into.
 ![./media/storage-snapshots-list-browse/snapshot-download-restore-portal.png](./media/storage-snapshots-list-browse/snapshot-download-restore-portal.png)
 
 **Step 3**
@@ -50,10 +49,10 @@ from within portal, download or restore the desired file from a snapshot.
 
 
 ## File share snapshot operations in Windows
-When you have already taken snapshots of your file share, you can view previous versions of a share, directory or a particular file from your mounted Azure file share on Windows. As an example, Here is how you can use the "Previous Versions" feature to view and restore a previous version of a  particular directory in Windows.:
+When you have already taken snapshots of your file share, you can view previous versions of a share, directory, or a particular file from your mounted Azure file share on Windows. As an example, here is how you can use the "Previous Versions" feature to view and restore a previous version of a  particular directory in Windows.:
 
 > [!Note]  
-> Same operations can be done on share level as well as file level. Only version that contains changes for that directory or file are shown in the list. If a particular directory or file has not changed between two snapshots, the snapshot will only show up in the share-level previous version list but not in the directory's or file's previous version list.
+> Same operations can be done on share level as well as file level. Only version that contains changes for that directory or file are shown in the list. If a particular directory or file has not changed between two snapshots, the snapshot only shows up in the share-level previous version list but not in the directory's or file's previous version list.
 
 **Step 1**
 First mount the file share using the net use command.
@@ -71,7 +70,7 @@ Right-click and select “Properties” from the menu
 
 
 **Step 5** 
-Click on “**Previous Versions”** to see the list of snapshots for this directory. This may take a few seconds to load depending on the network speed and number of snapshots.
+Click on “**Previous Versions”** to see the list of snapshots for this directory. Listing may take a few seconds to load depending on the network speed and number of snapshots.
  ![./media/storage-snapshots-list-browse/snapshot-windows-list.png](./media/storage-snapshots-list-browse/snapshot-windows-list.png)
 
 **Step 6**
@@ -130,7 +129,7 @@ az storage share list --include-snapshots
 ```
 
 ### Browse Snapshots
-You may also browse into a particular snapshot to view its content using `az storage file list`. One has to specify the share name `--share-name` and the timestamp which we want to browse into `--snapshot '2017-10-04T19:45:18.0000000Z'`
+You may also browse into a particular snapshot to view its content using `az storage file list`. One has to specify the share name `--share-name` and the timestamp, which we want to browse into `--snapshot '2017-10-04T19:45:18.0000000Z'`
 
 ```cli
 az storage file list --share-name sharesnapshotdefs --snapshot '2017-10-04T19:45:18.0000000Z' -otable
