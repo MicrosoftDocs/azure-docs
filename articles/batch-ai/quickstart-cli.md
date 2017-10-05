@@ -20,14 +20,13 @@ ms.author: danlep
 
 # Run a CNTK training job using the Azure CLI
 
-The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This Quickstart details using the Azure CLI to run a Microsoft Cognitive Toolkit (CNTK) training job using the Batch AI service. 
-In this example, you use the MNIST database of handwritten images to train a convolutional neural network (CNN) on a single-node GPU cluster.  
+This quickstart details using the Azure command-line interface (CLI) to run a Microsoft Cognitive Toolkit (CNTK) training job using the Batch AI service. The Azure CLI is used to create and manage Azure resources from the command line or in scripts.
+
+In this example, you use the MNIST database of handwritten images to train a convolutional neural network (CNN) on a single-node GPU cluster managed by Batch AI.  
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-If you choose to install and use the CLI locally, this quickstart requires that you are running the latest Azure CLI version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+This quickstart requires that you are running the latest Azure CLI version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Create a resource group
 
@@ -47,7 +46,7 @@ az configure --defaults group=myResourceGroup
 
 This quickstart uses an Azure storage account to host data and scripts for the training job. Create a storage account with the [az storage account create](/cli/azure/storage/account#create) command.
 
-```azure-cli-interactive
+```azure-cli
 az storage account create \
     --name mystorageaccount \
     --sku Standard_LRS 
@@ -57,7 +56,7 @@ For later commands, set default storage account environment variables:
 
 * **Linux**
 
-  ```azure-cli-interactive
+  ```azure-cli
   export AZURE_STORAGE_ACCOUNT=mystorageaccount
 
   export AZURE_STORAGE_KEY=$(az storage account keys list --account-name mystorageaccount -o tsv --query [0].value)
@@ -65,7 +64,7 @@ For later commands, set default storage account environment variables:
 
 * **Windows**
 
-  ```azure-cli-interactive
+  ```azure-cli
   set AZURE_STORAGE_ACCOUNT=mystorageaccount
 
   az storage account keys list --account-name mystorageaccount -o tsv --query [0].value > temp.txt
@@ -79,18 +78,18 @@ For later commands, set default storage account environment variables:
 
 For illustration purposes, this quickstart uses an Azure file share to host the training data and scripts for the learning job. Create a file share named *batchaiquickstart* using the [az storage share create](/cli/azure/storage/share#az_storage_share_create) command.
 
-```azure-cli-interactive
+```azure-cli
 az storage share create --name batchaiquickstart
 ```
 Create a directory in the share named *mnistcntksample* using the [az storage directory create](/cli/azure/storage/directory#az_storage_directory_create) command.
 
-```azure-cli-interactive
+```azure-cli
 az storage directory create --share-name batchaisample --name mnistcntksample
 ```
 
 Download the [sample package](https://batchaisamples.blob.core.windows.net/samples/BatchAIQuickStart.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=b&sig=hrAZfbZC%2BQ%2FKccFQZ7OC4b%2FXSzCF5Myi4Cj%2BW3sVZDo%3D), unzip, and upload the contents to the directory using the [az storage file upload](/cli/azure/storage/file#az_storage_file_upload) command.
 
-```azure-cli-interactive
+```azure-cli
 wget -O BatchAIQuickStart.zip "https://batchaisamples.blob.core.windows.net/samples/BatchAIQuickStart.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=b&sig=hrAZfbZC%2BQ%2FKccFQZ7OC4b%2FXSzCF5Myi4Cj%2BW3sVZDo%3D" 
 
 unzip BatchAIQuickStart.zip
@@ -102,13 +101,11 @@ az storage file upload --share-name batchaiquickstart --source Test-28x28_cntk_t
 az storage file upload --share-name batchaiquickstart --source ConvNet_MNIST.cntk --path mnistcntksample
 
 
-```azure-cli-interactive
-
 ```
 
 
 ## Create GPU cluster
-Use the [az bachai cluster create](/cli/azure/batchai/cluster#create) command to create a Batch AI cluster. In this example, the cluster consists of a single STANDARD_NC6 VM node. This VM size has one NVIDIA K80 GPU. Mount the file share at a folder named *azurefileshare*. The full path of this folder on the GPU compute node is $AZ_BATCHAI_MOUNT_ROOT/azurefileshare. 
+Use the [az bachai cluster create](/cli/azure/batchai/cluster#az_batchai_cluster_create) command to create a Batch AI cluster. In this example, the cluster consists of a single STANDARD_NC6 VM node. This VM size has one NVIDIA K80 GPU. Mount the file share at a folder named *azurefileshare*. The full path of this folder on the GPU compute node is $AZ_BATCHAI_MOUNT_ROOT/azurefileshare. 
 
 ```
 az batchai cluster create --name mycluster... [provide complete command line]
@@ -186,10 +183,10 @@ After the cluster is created, output is similar to the following:
 ```
 ### Monitor cluster creation
 
-To monitor the cluster state, run the [az batchai cluster show](/cli/azure/batchai/cluster#show) command:
+To monitor the cluster state, run the [az batchai cluster show](/cli/azure/batchai/cluster#az_batchai_cluster_show) command:
 
-```azure-cli-interactive
-az batchai cluster show  --cluster-name mycluster
+```azure-cli
+az batchai cluster show --name mycluster
 ```
 
 This command returns the properties shown previously. The cluster is ready when the nodes are allocated and finished preparation (see the `nodeStateCounts` attribute). If something went wrong, the `errors` attribute contains the error description.
@@ -228,10 +225,10 @@ After the cluster is ready, configure and submit the learning job.
     }
   }
   ```
-2. Create a job named *myjob* to run on the cluster with the [az batchai job create](/cli/azure/batchai/job#create) command:
+2. Create a job named *myjob* to run on the cluster with the [az batchai job create](/cli/azure/batchai/job#az_batchai_job_create) command:
 
-  ```azure-cli-interactive
-  az batchai job create --cluster-name mycluster -n myjob -c job.json
+  ```azure-cli
+  az batchai job create --name mycluster -n myjob -c job.json
   ```
 
 Output is similar to the following:
@@ -311,10 +308,10 @@ Output is similar to the following:
 
 ## Monitor job
 
-Use the [az batchai job show](/cli/azure/batchai/job#create) command to inspect the job state:
+Use the [az batchai job show](/cli/azure/batchai/job#az_batchai_job_show) command to inspect the job state:
 
-```azure-cli-interactive
-az batchai job show --job-name myjob
+```azure-cli
+az batchai job show --name myjob
 ```
 
 The `executionState` contains the current execution state of the job:
@@ -324,9 +321,9 @@ The `executionState` contains the current execution state of the job:
 
 
 ## List stdout and stderr output
-Use the [az batchai job list-files](/cli/azure/batchai/job#list-files) command view to links to the stdout and stderr log files:
+Use the [az batchai job list-files](/cli/azure/batchai/job#az_batchai_job_list_filess) command view to links to the stdout and stderr log files:
 
-```azure-cli-interactive
+```azure-cli
 az batchai job list-files -n myjob --output-directory-id stdouterr
 ```
 
@@ -352,20 +349,40 @@ Output is similar to the following:
 
 ## Observe output files
 
-You can stream or tail a job's output files while the job is executing. The following example uses the [az batchai job stream-file](/cli/azure/batchai/job#stream-file) command to stream the stderr.txt log:
+You can stream or tail a job's output files while the job is executing. The following example uses the [az batchai job stream-file](/cli/azure/batchai/job#az_batchai_job_stream_file) command to stream the stderr.txt log:
 
-```azure-cli-interactive
-az batchai job stream-file --job-name myjob --output-directory-id stdouterr -n stderr.txt
+```azure-cli
+az batchai job stream-file --name myjob --output-directory-id stdouterr -n stderr.txt
 ```
 
+Output is similar to the following:
 
-## Delete job
+```azure-cli
+…
+Finished Epoch[2 of 40]: [Training] loss = 0.104846 * 60000, metric = 3.00% * 60000 3.849s (15588.5 samples/s);
+Finished Epoch[3 of 40]: [Training] loss = 0.077043 * 60000, metric = 2.23% * 60000 3.902s (15376.7 samples/s);
+Finished Epoch[4 of 40]: [Training] loss = 0.063050 * 60000, metric = 1.82% * 60000 3.811s (15743.9 samples/s);
+…
+
+```
 
 ## Delete resources
 
+Use the [az batchai job delete](/cli/azure/batchai/job#az_batchai_job_delete) command to delete the job:
+
+```azure-cli
+az batchai job delete --name myjob
+```
+## Delete resources
+
+Use the [az batchai cluster delete](/cli/azure/batchai/cluster#az_batchai_cluster_delete) command to delete the cluster:
+
+```azure-cli
+az batchai cluster delete --name mycluster
+```
+
 ## Next steps
 
-In this Quickstart, you learned how to 
+In this quickstart, you learned how to run a CNTK training job on a Batch AI cluster, using the Azure CLI. To learn more about using Batch AI with different toolkits, see the [training recipes]().
 
-> [!div class="nextstepaction"]
-> 
+
