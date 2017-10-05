@@ -50,4 +50,4 @@ Developers can choose either [REST APIs](GetStarted/GetStartedREST.md) or [Clien
 
 ### What's next
 
-- Get started to use Microsoft Text to Speech service: [Text to Speech API Reference]((api-reference-rest/bingvoiceoutput.md). For the full list of languages and voices supported by Text to Speech, see [Supported Locales and Voice Fonts](api-reference-rest/bingvoiceoutput.md#SupLocales).
+- Get started to use Microsoft Text to Speech service: [Text to Speech API Reference](api-reference-rest/bingvoiceoutput.md). For the full list of languages and voices supported by Text to Speech, see [Supported Locales and Voice Fonts](api-reference-rest/bingvoiceoutput.md#SupLocales).
