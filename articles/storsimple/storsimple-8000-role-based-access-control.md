@@ -4,7 +4,7 @@ description: Describes how to use Azure Role-based Access Control (RBAC) in the 
 services: storsimple
 documentationcenter: ''
 author: alkohli
-manager: timlt
+manager: jconnoc
 editor: ''
 
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
+ms.date: 10/05/2017
 ms.author: alkohli
 
 ---
@@ -29,14 +29,10 @@ RBAC can be assigned based on the roles. There are two types of roles that StorS
 
 * **Built-in roles** - The built-in roles ensure certain permission levels based on the available resources in the environment. The following built-in roles are included (but not limited to) in Azure:
 
-    * Owner  - They can manage everything, including access.
-    * Contributor - They can do anything the owner can do except assign access. Someone with this role can view and regenerate the service registration keys. With the serivce registration keys, they can register new devices with a StorSimple Device Manager service.
-    * Reader - They can view information about everything. For instance the device network, general, and security settings. But they can't make any changes to those settings. 
-    * User Access Administrator  - They can manage user access to the storage account. For example, they can grant Reader access to a specific user.
-    * Log Analytics Contributor
-    * Log Analytics Reader
-    * Monitoring Contributor
-    * Monitoring Reader
+    * **Owner**  - They can manage everything, including access.
+    * **Contributor** - They can do anything the owner can do except assign access. Someone with this role can view and regenerate the service registration keys. With the serivce registration keys, they can register new devices with a StorSimple Device Manager service.
+    * **Reader** - They can view information about everything. For instance the device network, general, and security settings. But they can't make any changes to those settings.
+    * **User Access Administrator**  - They can manage user access to the storage account. For example, they can grant Reader access to a specific user.
 
     For more information, refer to [Built-in roles for Azure Role-based Access Control](../active-directory/role-based-access-built-in-roles.md).
 
@@ -44,7 +40,7 @@ RBAC can be assigned based on the roles. There are two types of roles that StorS
 
     For more information, refer to [Create custom roles for Role-based Access Control](../active-directory/role-based-access-control-custom-roles.md).
 
-To view the different roles available for a StorSimple device user in the Azure portal, go to **Access control (IAM) > Roles**.
+To view the different roles available for a StorSimple device user in the Azure portal, go to your StorSimple Device Manager service and then go to **Access control (IAM) > Roles**.
 
 ![View RBAC roles](./media/storsimple-8000-role-based-access-control/rbac-role-types.png)
 
@@ -52,7 +48,7 @@ To view the different roles available for a StorSimple device user in the Azure 
 
 A StorSimple Infrastructure Admin (StorSimple Infra Admin) can manage the infrastructre management for the StorSimple devices. The following examples walks you through the process of creating a custom role for a StorSimple Infrastructure Admin.
 
-In this example, we will start with the built-in role **Reader** which allows users to view all the resource scopes but not to edit them or create new ones.
+In this example, we will start with the built-in role **Reader** which allows users to view all the resource scopes but not to edit them or create new ones. We will then edit this role to create a new custom role for StorSimple.
 
 1. Run Windows PowerShell as an administrator.
 
@@ -107,7 +103,7 @@ In this example, we will start with the built-in role **Reader** which allows us
 
                     ],
         "AssignableScopes":  [
-                                "/subscriptions/2136cf2e-684f-487b-9fc4-0accc9c0166e/"
+                                "/subscriptions/1234ab5c-678d-910e-1fg2-3abcd4e5678f/"
                             ]
     }
     ```
@@ -130,8 +126,8 @@ PS C:\WINDOWS\system32> Login-AzureRMAccount
 
 Environment           : AzureCloud
 Account               : alkohli@microsoft.com
-TenantId              : 72f988bf-86f1-41af-91ab-2d7cd011db47
-SubscriptionId        : 2136cf2e-684f-487b-9fc4-0accc9c0166e
+TenantId              : 12a345bc-67d8-90ef-12ab-3c4de567fg78
+SubscriptionId        : 1234ab5c-678d-910e-1fg2-3abcd4e5678f
 SubscriptionName      : Internal Consumption
 CurrentStorageAccount :
 
@@ -159,7 +155,7 @@ Actions          : {Microsoft.StorSimple/managers/alerts/read,
                    Microsoft.StorSimple/managers/devices/jobs/read,
                    Microsoft.StorSimple/managers/devices/alertSettings/read...}
 NotActions       : {}
-AssignableScopes : {/subscriptions/2136cf2e-684f-487b-9fc4-0accc9c0166e/}
+AssignableScopes : {/subscriptions/1234ab5c-678d-910e-1fg2-3abcd4e5678f/}
 
 PS C:\WINDOWS\system32>
 ```
