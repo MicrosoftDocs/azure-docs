@@ -2,8 +2,8 @@
 title: 'Predictive Maintenance Real World Scenario| Microsoft Docs' 
 description: Predictive Maintenance Real World Scenario using PySpark 
 services: machine-learning 
-author: jaymathe
-ms.author: jaymathe
+author: jaymathe, jehrling
+ms.author: jaymathe, jehrling
 manager: jhubbard 
 ms.reviewer: garyericson, jasonwhowell, mldocs 
 ms.service: machine-learning 
@@ -37,10 +37,9 @@ The business problem for this simulated data is to predict issues caused by comp
 
 * An [Azure account](https://azure.microsoft.com/en-us/free/) (free trials are available).
 * An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) following the [quick start installation guide](./quickstart-installation.md) to install the program and create a workspace.
-* Intermediate results for use across Jupyter notebooks in this scenario are stored in an Azure Blob Storage container. Instructions for [setting up an Azure Storage account](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-python-how-to-use-blob-storage). 
-* For [operationalization](https://github.com/Azure/Machine-Learning-Operationalization) of the model, it is best if the user runs a [Docker engine](https://www.docker.com/) installed and running locally. If not, you can use the cluster option with an [Azure Container Service (ACS)](https://azure.microsoft.com/en-us/services/container-service/). This approach can often be expensive.
+* Azure Machine Learning Operationalization requires a local deployment environment and a [model management account](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-overview)
 
-This scenario assumes that the user is running Azure ML Workbench on a Windows 10 machine with the following minimum specification: Intel Core i7-4600U CPU @ 2.10 GHz, 8-GB RAM, 64-bit OS, x64-based processor with Docker Version 17.06.0-ce-win19 (12801). We do suggest using a [Standard DS4 Ubuntu DSVM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) (8 virtual cpus, 28-GB memory) to run the notebook kernel.
+This example can be run on any AML Workbench compute context. However, it is recommended to run it with at least of 16-GB memory. This scenario was built and tested on a Windows 10 machine running a remote DS4_V2 standard [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
 
 Model operationalization was done using version 0.1.0a22 of Azure ML CLI.
 
