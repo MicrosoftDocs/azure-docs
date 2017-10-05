@@ -183,6 +183,9 @@ The CSPSConfigTool.exe is used to manage the user accounts used for **Automatic 
 > 2. [Disassociate](site-recovery-setup-replication-settings-vmware.md#dissociate-a-configuration-server-from-a-replication-policy) and [Delete](site-recovery-setup-replication-settings-vmware.md#delete-a-replication-policy) all Replication policies from the Configuration Server.
 > 3. [Delete](site-recovery-vmware-to-azure-manage-vCenter.md#delete-a-vcenter-in-azure-site-recovery) all vCenters servers/vSphere hosts that are associated to the Configuration Server.
 
+> [!TIP]
+> If the above set of steps fail
+
 ### Delete the Configuration Server from Azure portal
 1. In Azure portal, browse to **Site Recovery Infrastructure** > **Configuration Servers** from the Vault menu.
 2. Click the Configuration Server that you want to decommission.
@@ -190,7 +193,6 @@ The CSPSConfigTool.exe is used to manage the user accounts used for **Automatic 
 
   ![delete-configuration-server](./media/site-recovery-vmware-to-azure-manage-configuration-server/delete-configuration-server.PNG)
 4. Click **Yes** to confirm the deletion of the server.
-
 
 ### Uninstall the Configuration Server software and its dependencies
   > [!TIP]
@@ -209,6 +211,29 @@ The CSPSConfigTool.exe is used to manage the user accounts used for **Automatic 
   ```
   reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
   ```
+
+## Delete or Unregister a Configuration Server (PowerShell)
+
+1. [Install](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell module
+2. Login to your Azure account using the command
+    
+    `Login-AzureRmAccount`
+3. Select the subscription under which the vault is present
+
+     `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
+3.  Now setup your vault context
+    ```
+    $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
+    Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
+    ```
+ 4. Get select your configuration server
+
+    `$fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
+ 6. Delete the Configuration Server
+    `Remove-AzureRmSiteRecoveryFabric -Fabric $fabric [-Force]`
+
+> [!NOTE]
+> The **-Force** option in the Remove-AzureRmSiteRecoveryFabric can be used to force the removal/deletion of the Configuration server.
 
 ## Renew Configuration Server Secure Socket Layer(SSL) Certificates
 The Configuration Server has an inbuilt webserver, which orchestrates the activities of the Mobility Service, Process Servers, and Master Target servers connected to the Configuration Server. The Configuration Server's webserver uses an SSL certificate to authenticate its clients. This certificate has an expiry of three years and can be renewed at any time using the following method:
