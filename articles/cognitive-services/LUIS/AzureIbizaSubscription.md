@@ -23,17 +23,17 @@ To create your key, follow these steps:
 1. Sign in to the **[Microsoft Azure portal](https://ms.portal.azure.com/)** 
 2. Click the green **+** sign in the upper left-hand panel and search for “LUIS” in the marketplace, then click on **Language Understanding Intelligent Service (preview)** and follow the **create experience** to create a LUIS subscription account. 
 
-    ![Azure Search](./Images/azure_search.png) 
+    ![Azure Search](./media/luis-azure-subscription/azure-search.png) 
 
 3. Configure the subscription with settings including account name, pricing tiers, etc. 
 
-    ![Azure API Choice](./Images/azure_apiChoice.png) 
+    ![Azure API Choice](./media/luis-azure-subscription/azure-api-choice.png) 
 
-4. Once you have created the LUIS subscription account, you can view the access keys generated in the **Resource Management->Keys** blade. Test your access keys in your **[Luis.ai account](https://www.luis.ai)**, or by following the LUIS documentation to create a new endpoint application. 
+4. Once you have created the LUIS subscription account, you can view the access keys generated in the **Resource Management->Keys** blade. Test your access keys in your **[luis.ai account](https://www.luis.ai)**, or by following the LUIS documentation to create a new endpoint application. 
 
-    ![Azure Keys](./Images/azure_keys.png)
+    ![Azure Keys](./media/luis-azure-subscription/azure-keys.png)
 
-## Using LUIS access keys in Luis.ai
+## Using LUIS access keys in luis.ai
 In order to use the access keys  step 4, you need to change from the StarterKey to one of the new access keys as part of [publishing your app](./PublishApp.md).
 
-Please see [Manage your keys](./Manage-Keys.md) for more information about how to manage your Azure LUIS subscription keys in your **[Luis.ai account](https://www.luis.ai)**. 
+Please see [Manage your keys](./Manage-Keys.md) for more information about how to manage your Azure LUIS subscription keys in your **[luis.ai account](https://www.luis.ai)**. 
