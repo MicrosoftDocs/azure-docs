@@ -33,7 +33,7 @@ New to faceted navigation and want more detail? See [How to implement faceted na
 
 ## Choose fields for faceting and filtering
 
-Facets can based on simple and complex field types in Azure Search. Fields that work best in faceted navigation are those that have low cardinality: a small number of distinct values that repeat throughout documents in your search corpus.
+Facets can be based on simple or complex field types in Azure Search. Fields that work best in faceted navigation have low cardinality: a small number of distinct values that repeat throughout documents in your search corpus.
 
 Faceting is enabled on a field-by-field basis when you create the index, setting the following attributes to TRUE: `filterable`, `facetable`.
 
@@ -42,12 +42,12 @@ All [field types](https://docs.microsoft.com/rest/api/searchservice/supported-da
 + Edm.String
 + Edm.DateTimeOffset
 + Edm.Boolean
-+ Edm.Collections (see [How to facet complex data types](#facet-complex-fields) below.)
++ Edm.Collections (see [How to facet complex data types](#facet-complex-fields) later in this article.)
 + Numeric field types: Edm.Int32, Edm.Int64, Edm.Double
 
 You cannot use Edm.GeographyPoint in faceted navigation. Facets are constructed from human readable text or numbers. As such, facets are not supported for geo-coordinates. You would need a city or region field to facet by location.
 
-Because faceting and filtering are enabled by default, explicitly setting the attributes is not required unless you want to turn faceting off. We include the attributions below for instructional purposes.
+Because faceting and filtering are enabled by default, explicitly setting the attributes is not required unless you want to turn faceting off. We include the attributions in our example for instructional purposes.
 
 > [!Tip]
 > As a best practice for performance and storage optimization, turn faceting off for fields that should never be used as a facet. In particular, string fields for singleton values, such as an ID or product name, should be set to "Facetable": false to prevent their accidental (and ineffective) use in faceted navigation.
