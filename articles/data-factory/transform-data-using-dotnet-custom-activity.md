@@ -291,24 +291,24 @@ namespace SampleApp
   ```
 
   > [!IMPORTANT]
-  > - The activity.json, linkedServices.json, and datasets.json are stored in the runtime folder of the Bath task. For this example, the activity.json, linkedServices.json, and datasets.json are stored in "https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/" path. You need to clean it up separately if needed. 
+  > - The activity.json, linkedServices.json, and datasets.json are stored in the runtime folder of the Bath task. For this example, the activity.json, linkedServices.json, and datasets.json are stored in "https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/" path. If needed, you need to clean them up separately. 
   > - For Linked Services uses Self-Hosted Integration Runtime, the sensitive information like keys or passwords are encrypted by the Self-Hosted Integration Runtime to ensure credential stays in customer defined private network environment. Some sensitive fields could be missing when referenced by your custom application code in this way. Use SecureString in extendedProperties instead of using Linked Service reference if needed. 
 
 ## Difference between Custom Activity in Azure Data Factory V1 and V2
 
-  In Azure Data Factory V1, you implement custom activity code by creating a .Net Class Library project with a class that implements the Execute method of the IDotNetActivity interface. The Linked Services, Datasets and Extended Properties in Custom Activity JSON payload are passed to the Execution Method as strong typed objects. For details, refer to [Custom activities in V1](v1/data-factory-use-custom-activities.md). Because of that, your custom code needs to be written in .Net Framework 4.5.2 and be executed on Windows based Azure Batch Pool nodes. 
+  In Azure Data Factory V1, you implement custom activity code by creating a .Net Class Library project with a class that implements the Execute method of the IDotNetActivity interface. The Linked Services, Datasets and Extended Properties in Custom Activity JSON payload are passed to the Execution Method as strong typed objects. For details, refer to [Custom activities in V1](v1/data-factory-use-custom-activities.md). Because of that, your custom code needs to be written in .Net Framework 4.5.2 and be executed on Windows-based Azure Batch Pool nodes. 
 
   In Custom Activity of Azure Data Factory V2, you are not required to implement a .Net interface. You can now directly run a command natively supported by Azure Batch Pool nodes using the Command property. Or, run your own custom code complied as executable file by specifying the Command property together with the folderPath property. Custom Activity uploads the executable and dependencies in folderpath and executes the command for you. 
 
-  The Linked Services, Datasets (defined in referenceObjects) and Extended Properties defined in JSON payload of Azure Data Factory V2 Custom Activity can be accessed by your executable as JSON files. You can access the required properties using JSON serializer as shown in above SampleApp.exe code sample. 
+  The Linked Services, Datasets (defined in referenceObjects), and Extended Properties defined in JSON payload of Azure Data Factory V2 Custom Activity can be accessed by your executable as JSON files. You can access the required properties using JSON serializer as shown in preceding SampleApp.exe code sample. 
 
   With the changes introduced in Azure Data Factory V2 Custom Activity, you are free to write your custom code logic in your preferred language and execute them on Windows and Linux Operation Systems supported by Azure Batch. 
 
-  If you have existing .Net code written for Azure Data Factory V1 Custom Activity, you will need to modify your code for them to work with Azure Data Factory V2 Custom Activity with the following high level guidelines:  
+  If you have existing .Net code written for Azure Data Factory V1 Custom Activity, you need to modify your code for them to work with Azure Data Factory V2 Custom Activity with the following high-level guidelines:  
 
   > - Change the project from a .Net Class Library to a Console App. 
   > - Start your application with the Main method, the Execute method of the IDotNetActivity interface is no longer required. 
-  > - Read and parse the Linked Services, Datasets and Activity with JSON serializer instead of as strong typed objects, and pass the values of required properties to your main custom code logic. Refer to above SampleApp.exe code as a sample. 
+  > - Read and parse the Linked Services, Datasets and Activity with JSON serializer instead of as strong typed objects, and pass the values of required properties to your main custom code logic. Refer to preceding SampleApp.exe code as a sample. 
   > - Logger object is no longer supported, you can directly print the messages to console and get them in stdout.txt. 
   > - Microsoft.Azure.Management.DataFactories NuGet package is no longer required. 
   > - Compile your code, upload executable and dependencies to Azure Storage and define the path in folderPath property. 
