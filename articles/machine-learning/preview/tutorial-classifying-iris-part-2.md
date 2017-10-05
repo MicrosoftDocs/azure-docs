@@ -50,7 +50,7 @@ You should complete the first part of this tutorial series. Follow the [Prepare 
    - Loads the data prep package **iris.dprep** to create a [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html). 
 
         >[!NOTE]
-        >We are using the `iris.dprep` data prep package that comes with the sample project, which should be the same as teh `iris-1.dprep` file you built in part 1 of this tutorial.
+        >We are using the `iris.dprep` data prep package that comes with the sample project, which should be the same as the `iris-1.dprep` file you built in part 1 of this tutorial.
 
    - Adds random features to make the problem more difficult to solve. (Randomness is necessary because Iris is a small dataset that can be easily classified with near 100% accuracy.)
 
