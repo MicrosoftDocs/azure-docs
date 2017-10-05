@@ -94,7 +94,7 @@ For more information on custom alerting and monitoring development by using Micr
 
 ## Set up Intelligent Insights with Storage
 
-- To configure Intelligent Insights to be stored with Storage, see [Stream into Azure Storage](sql-database-metrics-diag-logging.md#stream-into-azure-storage).
+- To configure Intelligent Insights to be stored with Storage, see [Stream into Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage).
 
 ## Detection metrics
 
