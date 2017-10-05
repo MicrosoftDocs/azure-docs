@@ -98,8 +98,8 @@ ms.author: renash
 
 
 ## Snapshots
-Snapshots - General
--------
+
+### Snapshots - General
 
 * **Q. Where are my snapshots stored?**
     
@@ -109,28 +109,24 @@ Snapshots - General
     
      Snapshots do not have any performance overhead.
 
-* **Q. How much does snapshots cost?**
-    
-     Snapshots transaction is not charged but standard storage cost will still apply. Snapshots are incremental in nature. The base snapshot is the share itself. All the subsequent snapshots are incremental and will only store the diff from the previous snapshot. Only the blocks that have changed after your last snapshot are saved, and you are billed only for the changed blocks. If you have a device with 100 GB of data but only 5 GB has changed after your last snapshot, a subsequent snapshot consumes only 5 additional GB and you are billed only for the additional 5 GB of snapshot storage, even though both the earlier and later snapshots appear to be complete. See [Pricing page](https://azure.microsoft.com/en-us/pricing/details/storage/files/) for more information. You will be able to view the size of the snapshot using x-ms-share-quota from REST API or on Azure Portal. When you delete a snapshot, you remove only the data not needed by any other snapshot. All active snapshots contain all the information needed to restore the volume to the instant at which that snapshot was taken. The time to restore changed data to the working volume is the same for all snapshots.
 
 * **Q. Are snapshots App Consistent?**
     
-     No. Snapshots are not App consistent.User will have to flush the writes from the App before taking the snapshot.
+     No. Snapshots are not App consistent. User will have to flush the writes from the App before taking the snapshot.
 
 * **Q. Are snapshots geo-redundant?**
     
-     Like Azure Files, snapshots also have GRS, LRS tiers of redundancy. Redundancy tier will be same as the base Azure File Share.
+     Like Azure Files, snapshots also have GRS, LRS tiers of redundancy. Redundancy tier or snapshot will be same as the base Azure File Share. If you have a GRS account your snapshot will also be stored redundantly in a different geo.
 
 * **Q. Are there any limits on the number of snapshots?**
     
-     There is a limit of 200 snapshots that Azure Files can retain. After 200 snapshots, older snapshots will have to be deleted in order to create new snapshots. There is no limit to the simultaneous calls for create snapshot.
+     There is a limit of 200 snapshots that Azure Files can retain. Snapshots do not count towards the share quota so there is no per share limit on the total space utilized by all the snapshot.Storage account limits still apply. After 200 snapshots, older snapshots will have to be deleted in order to create new snapshots. There is no limit to the simultaneous calls for create snapshot.
 
-Create Snapshots
-------
+### Create Snapshots
 
 * **Q. Can I create snapshots of Encrypted fileshare?**
     
-     You can take snapshot of Azure File shares which have Encryption at rest enabled. You can restore files from a snapshot to an encrypted file share. Your snapshot will also be encrypted.
+     You can take snapshot of Azure File shares which have Encryption at rest enabled. You can restore files from a snapshot to an encrypted file share. If your share is encrypted, your snapshot will also be encrypted.
 
 * **Q. How can I take app-consistent snapshots?**
     
@@ -140,27 +136,21 @@ Create Snapshots
 
 * **Q. Can I create snapshot of individual files?**
     
-     No. Snapshots are only at Share level. You can restore individual files from the file-share snapshot but you cannot create file-level snapshots.
+     You cannot create snapshots for individual files. Snapshots are only at file share level. You can restore individual files from the file-share snapshot but you cannot create file-level snapshots. However, if you have taken a share level snapshot and you want to list snapshots where a particular file has changed, you can do so from "Previous Versions" experience on a Windows mounted share.
 
-Manage and Share Snapshots
-----------------
+### Manage and Share Snapshots
 
-* **Q. Can I share a previous version of my file using SAS key from my snapshot with other users?**
-    
-     Snapshot also has file level SAS key. 
-   
-     However, Snapshot is a read-only copy of the file, so only read operations will work on the file even if you generate a read-write SAS key.
 
 * **Q. Can I browse my snapshots from Linux?**
     
-     One can use Azure CLI 2.0 to create, list, browse and restore on Linux. One can browse for "Previous Versions in Windows but Linux does not have same functionality. 
+     One can use Azure CLI 2.0 to create, list, browse and restore on Linux. One can browse for "Previous Versions" in Windows but Linux does not have same functionality. 
 
 * **Q. Can I copy the snapshots to a different storage account?**
     
     One can copy files from snapshots to another location but not the snapshots themselves.
 
-Restore from Snapshot
--------
+### Restore from Snapshot
+
 
 * **Q. Can I restore data from my snapshot to a different storage account?**
     
@@ -171,8 +161,8 @@ Restore from Snapshot
     Yes. Files from a snapshot can be copied to an alternate location which includes same/different storage account in same or different regions. Also you can restore files to on-premises or any other cloud.
     
     
-Snapshot - Cleanup
--------
+### Snapshot - Cleanup
+
 
 * **Q. Can I delete my share but not share-snapshots?**
     
@@ -187,6 +177,14 @@ share.
 * **Q. Does the network traffic between an Azure VM and a file share count as external bandwidth that is charged to the subscription?**
    
     If the file share and VM are in the same Azure region, the traffic between them is free. If they are in different regions, the traffic between them will be charged as external bandwidth.
+
+* **Q. How much does snapshots cost?**
+    
+     During Public Preview snapshot capacity wont be charged. Standard Storage egress and transaction costs sill apply. After GA, both capacity and transactions on snapshot will be charged.
+     
+     Snapshots are incremental in nature. The base snapshot is the share itself. All the subsequent snapshots are incremental and will only store the diff from the previous snapshot. Only the blocks that have changed after your last snapshot are saved to the snapshot, and you are billed only for the changed blocks. If you have a share with 100 GB of data but only 5 GB has changed after your last snapshot, a subsequent snapshot consumes only 5 additional GB and you are billed only for the additional 5 GB of snapshot storage, even though both the earlier and later snapshots appear to be complete. See [Pricing page](https://azure.microsoft.com/en-us/pricing/details/storage/files/) for more information on transaction and standard egress charges. 
+     
+     When you delete a snapshot, you remove only the data not needed by any other snapshot. All active snapshots contain all the information needed to restore the share to the instant at which that snapshot was taken.
 
 ## Backup
 
