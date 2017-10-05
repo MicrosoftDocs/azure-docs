@@ -189,7 +189,7 @@ After the cluster is created, output is similar to the following:
 To monitor the cluster state, run the [az batchai cluster show](/cli/azure/batchai/cluster#show) command:
 
 ```azure-cli-interactive
-az batchai cluster show  --name mycluster
+az batchai cluster show  --cluster-name mycluster
 ```
 
 This command returns the properties shown previously. The cluster is ready when the nodes are allocated and finished preparation (see the `nodeStateCounts` attribute). If something went wrong, the `errors` attribute contains the error description.
@@ -314,7 +314,7 @@ Output is similar to the following:
 Use the [az batchai job show](/cli/azure/batchai/job#create) command to inspect the job state:
 
 ```azure-cli-interactive
-az batchai job show --name myjob
+az batchai job show --job-name myjob
 ```
 
 The `executionState` contains the current execution state of the job:
@@ -327,7 +327,7 @@ The `executionState` contains the current execution state of the job:
 Use the [az batchai job list-files](/cli/azure/batchai/job#list-files) command view to links to the stdout and stderr log files:
 
 ```azure-cli-interactive
-az batchai job list-files --name --output-directory-id stdouterr
+az batchai job list-files -n myjob --output-directory-id stdouterr
 ```
 
 Output is similar to the following:
@@ -350,9 +350,14 @@ Output is similar to the following:
 ```
 
 
-Use the 
+## Observe output files
 
-## Monitor output files
+You can stream or tail a job's output files while the job is executing. The following example uses the [az batchai job stream-file](/cli/azure/batchai/job#stream-file) command to stream the stderr.txt log:
+
+```azure-cli-interactive
+az batchai job stream-file --job-name myjob --output-directory-id stdouterr -n stderr.txt
+```
+
 
 ## Delete job
 
