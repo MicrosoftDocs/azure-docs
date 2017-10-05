@@ -1,11 +1,10 @@
 ---
-title: Silent install Azure AD Application Proxy Connector | Microsoft Docs
+title: Silent install Azure AD App Proxy connector | Microsoft Docs
 description: Covers how to perform an unattended installation of Azure AD Application Proxy Connector to provide secure remote access to your on-premises apps.
 services: active-directory
 documentationcenter: ''
 author: kgremban
 manager: femila
-editor: harshja
 
 ms.assetid: 3aa1c7f2-fb2a-4693-abd5-95bb53700cbb
 ms.service: active-directory
@@ -13,50 +12,54 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 08/31/2017
 ms.author: kgremban
-
+ms.reviewer: harshja
+ms.custom: it-pro
 ---
-# How to silently install the Azure AD Application Proxy Connector
-You want to be able to send an installation script to multiple Windows servers or to Windows Servers that don't have user interface enabled. This topic explains how to create a Windows PowerShell script that enables unattended installation to install and register your Azure AD Application Proxy Connector.
+
+# Create an unattended installation script for the Azure AD Application Proxy connector
+
+This topic helps you create a Windows PowerShell script that enables unattended installation and registration for your Azure AD Application Proxy connector.
 
 This capability is useful when you want to:
 
-* Install the connector on machines with no UI layer or when you cannot RDP to the machine.
+* Install the connector on Windows servers that don't have user interface enabled, or that you can't access with Remote Desktop.
 * Install and register many connectors at once.
 * Integrate the connector installation and registration as part of another procedure.
 * Create a standard server image that contains the connector bits but is not registered.
 
-## Enabling Access
-Application Proxy works by installing a slim Windows Server service called the Connector inside your network. For the Application Proxy Connector to work it has to be registered with your Azure AD directory using a global administrator and password. Ordinarily this information is entered during Connector installation in a pop-up dialog box. Alternatively, you can use Windows PowerShell to create a credential object to enter your registration information, or you can create your own token and use it to enter your registration information.
+For the [Application Proxy connector](application-proxy-understand-connectors.md) to work, it has to be registered with your Azure AD directory using a global administrator and password. Ordinarily this information is entered during Connector installation in a pop-up dialog box, but you can use PowerShell to automate this process instead.
 
-## Step 1:  Install the Connector without registration
-Install the Connector MSIs without registering the Connector as follows:
+There are two steps for an unattended installation. First, install the connector. Second, register the connector with Azure AD. 
+
+## Install the connector
+Use the following steps to install the connector without registering it:
 
 1. Open a command prompt.
-2. Run the following command in which the /q means quiet installation - the installation will not prompt you to accept the End-User License Agreement.
+2. Run the following command, in which the /q means quiet installation. A quiet installation doesn't prompt you to accept the End-User License Agreement.
    
         AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
 
-## Step 2: Register the Connector with Azure Active Directory
-This can be accomplished using either of the following methods:
+## Register the connector with Azure AD
+There are two methods you can use to register the connector:
 
-* Register the Connector using a Windows PowerShell credential object
-* Register the Connector using a token created offline
+* Register the connector using a Windows PowerShell credential object
+* Register the connector using a token created offline
 
-### Register the Connector using a Windows PowerShell credential object
-1. Create the Windows PowerShell Credentials object by running the following, where \<username\> and \<password\> should be replaced with the username and password for your directory:
+### Register the connector using a Windows PowerShell credential object
+1. Create a Windows PowerShell Credentials object `$cred` that contains an administrative username and password for your directory. Run the following command, replacing *\<username\>* and *\<password\>*:
    
         $User = "<username>"
         $PlainPassword = '<password>'
         $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
         $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
-2. Go to **C:\Program Files\Microsoft AAD App Proxy Connector** and run the script using the PowerShell credentials object you created, where $cred is the name of the PowerShell credentials object you created:
+2. Go to **C:\Program Files\Microsoft AAD App Proxy Connector** and run the following script using the `$cred` object that you created:
    
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred
 
-### Register the Connector using a token created offline
-1. Create an offline token using the AuthenticationContext class using the values in the code snippet:
+### Register the connector using a token created offline
+1. Create an offline token using the AuthenticationContext class using the values in this code snippet:
 
         using System;
         using System.Diagnostics;
@@ -68,7 +71,7 @@ This can be accomplished using either of the following methods:
         /// <summary>
         /// The AAD authentication endpoint uri
         /// </summary>
-        static readonly Uri AadAuthenticationEndpoint = new Uri("https://login.windows.net/common/oauth2/token?api-version=1.0");
+        static readonly Uri AadAuthenticationEndpoint = new Uri("https://login.microsoftonline.com/common/oauth2/token?api-version=1.0");
 
         /// <summary>
         /// The application ID of the connector in AAD

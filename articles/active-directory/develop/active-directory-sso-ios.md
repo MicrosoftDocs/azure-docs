@@ -3,7 +3,7 @@ title: How to enable cross-app SSO on iOS using ADAL | Microsoft Docs
 description: 'How to use the features of the ADAL SDK to enable Single Sign On across your applications. '
 services: active-directory
 documentationcenter: ''
-author: xerners
+author: brandwe
 manager: mbaldwin
 editor: ''
 
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 04/07/2017
-ms.author: xerners
+ms.author: brandwe
+ms.custom: aaddev
 
 ---
 # How to enable cross-app SSO on iOS using ADAL

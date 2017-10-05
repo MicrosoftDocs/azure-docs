@@ -20,12 +20,12 @@ ms.author: cherylmc
 ---
 # Connect a virtual network to an ExpressRoute circuit
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
-> * [Resource Manager - PowerShell](expressroute-howto-linkvnet-arm.md)
-> * [Classic - PowerShell](expressroute-howto-linkvnet-classic.md)
+> * [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-linkvnet-arm.md)
+> * [Azure CLI](howto-linkvnet-cli.md)
 > * [Video - Azure portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
+> * [PowerShell (classic)](expressroute-howto-linkvnet-classic.md)
 > 
->  
 
 This article helps you link virtual networks (VNets) to Azure ExpressRoute circuits by using the Resource Manager deployment model and the Azure portal. Virtual networks can either be in the same subscription, or they can be part of another subscription.
 
@@ -72,7 +72,7 @@ You can share an ExpressRoute circuit across multiple subscriptions. The figure 
 
 - Each of the smaller clouds within the large cloud is used to represent subscriptions that belong to different departments within an organization.
 - Each of the departments within the organization can use their own subscription for deploying their services, but they can share a single ExpressRoute circuit to connect back to your on-premises network.
-- A single department (in this example: IT) can own the ExpressRoute circuit. Other subscriptions within the organization can use the ExpressRoute circuit.
+- A single department (in this example: IT) can own the ExpressRoute circuit. Other subscriptions within the organization can use the ExpressRoute circuit and authorizations associated to the circuit, including subscriptions linked to other Azure Active Directory tenants and Enterprise Agreement enrollments. 
 
 	> [!NOTE]
 	> Connectivity and bandwidth charges for the dedicated circuit will be applied to the ExpressRoute circuit owner. All virtual networks share the same bandwidth.

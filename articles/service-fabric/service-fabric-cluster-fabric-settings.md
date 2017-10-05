@@ -14,24 +14,24 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/15/2017
+ms.date: 06/15/2017
 ms.author: chackdan
 
 ---
 # Customize Service Fabric cluster settings and Fabric Upgrade policy
-This document tells you how to customize the various fabric settings and the fabric upgrade policy for your Service Fabric cluster. You can customize them on the portal or using an Azure Resource Manager template.
+This document tells you how to customize the various fabric settings and the fabric upgrade policy for your Service Fabric cluster. You can customize them through the [Azure portal](https://portal.azure.com) or using an Azure Resource Manager template.
 
 > [!NOTE]
-> Not all settings may be available via the portal. In case a setting listed below is not available via the portal customize it using an Azure Resource Manager template.
+> Not all settings are available in the portal. In case a setting listed below is not available via the portal customize it using an Azure Resource Manager template.
 > 
 
-## Customizing Service Fabric cluster settings using Azure Resource Manager templates
+## Customize cluster settings using Resource Manager templates
 The steps below illustrate how to add a new setting *MaxDiskQuotaInMB* to the *Diagnostics* section.
 
 1. Go to https://resources.azure.com
-2. Navigate to your subscription by expanding subscriptions -> resource groups -> Microsoft.ServiceFabric -> Your Cluster Name
-3. In the top right corner, select "Read/Write"
-4. Select Edit and update the `fabricSettings` JSON element and add a new element
+2. Navigate to your subscription by expanding **subscriptions** -> **resource groups** -> **Microsoft.ServiceFabric** -> **\<Your Cluster Name>**
+3. In the top right corner, select **Read/Write.**
+4. Select **Edit** and update the `fabricSettings` JSON element and add a new element:
 
 ```
       {
@@ -45,10 +45,9 @@ The steps below illustrate how to add a new setting *MaxDiskQuotaInMB* to the *D
       }
 ```
 
-## Fabric settings that you can customize
-Here are the Fabric settings that you can customize:
+The following is a list of Fabric settings that you can customize, organized by section.
 
-### Section Name: Diagnostics
+## Diagnostics
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | ConsumerInstances |String |The list of DCA consumer instances. |
@@ -62,12 +61,12 @@ Here are the Fabric settings that you can customize:
 | EnableTelemetry |Bool, default is true |This is going to enable or disable telemetry. |
 | EnableCircularTraceSession |Bool, default is false |Flag indicates whether circular trace sessions should be used. |
 
-### Section Name: Trace/Etw
+## Trace/Etw
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | Level |Int, default is 4 |Trace etw level can take values 1, 2, 3, 4. To be supported you must keep the trace level at 4 |
 
-### Section Name: PerformanceCounterLocalStore
+## PerformanceCounterLocalStore
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | IsEnabled |Bool, default is true |Flag indicates whether performance counter collection on local node is enabled. |
@@ -76,7 +75,7 @@ Here are the Fabric settings that you can customize:
 | MaxCounterBinaryFileSizeInMB |Int, default is 1 |Maximum size (in MB) for each performance counter binary file. |
 | NewCounterBinaryFileCreationIntervalInMinutes |Int, default is 10 |Maximum interval (in seconds) after which a new performance counter binary file is created. |
 
-### Section Name: Setup
+## Setup
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | FabricDataRoot |String |Service Fabric data root directory. Default for Azure is d:\svcfab |
@@ -85,7 +84,7 @@ Here are the Fabric settings that you can customize:
 | ServiceStartupType |String |The startup type of the fabric host service. |
 | SkipFirewallConfiguration |Bool, default is false |Specifies if firewall settings need to be set by the system or not. This applies only if you are using windows firewall. If you are using third party firewalls, then you must open the ports for the system and applications to use |
 
-### Section Name: TransactionalReplicator
+## TransactionalReplicator
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | MaxCopyQueueSize |Uint, default is 16384 |This is the maximum value defines the initial size for the queue which maintains replication operations. Note that it must be a power of 2. If during runtime the queue grows to this size operations will be throttled between the primary and secondary replicators. |
@@ -109,7 +108,7 @@ Here are the Fabric settings that you can customize:
 | SlowApiMonitoringDuration |Time in seconds, default is 300 | Specify duration for api before warning health event is fired.|
 | MinLogSizeInMB |Int, default is 0 |Minimum size of the transactional log. The log will not be allowed to truncate to a size below this setting. 0 indicates that the replicator will determine the minimum log size according to other settings. Increasing this value increases the possibility of doing partial copies and incremental backups since chances of relevant log records being truncated is lowered. |
 
-### Section Name: FabricClient
+## FabricClient
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | NodeAddresses |string, default is "" |A collection of addresses (connection strings) on different nodes that can be used to communicate with the the Naming Service. Initially the Client connects selecting one of the addresses randomly. If more than one connection string is supplied and a connection fails because of a communication or timeout error; the Client switches to use the next address sequentially. See the Naming Service Address retry section for details on retries semantics. |
@@ -123,38 +122,38 @@ Here are the Fabric settings that you can customize:
 | RetryBackoffInterval |Time in seconds, default is 3 |Specify timespan in seconds. The back-off interval before retrying the operation. |
 | MaxFileSenderThreads |Uint, default is 10 |The max number of files that are transferred in parallel. |
 
-### Section Name: Common
+## Common
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | PerfMonitorInterval |Time in seconds, default is 1 |Specify timespan in seconds. Performance monitoring interval. Setting to 0 or negative value disables monitoring. |
 
-### Section Name: HealthManager
+## HealthManager
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | EnableApplicationTypeHealthEvaluation |Bool, default is false |Cluster health evaluation policy: enable per application type health evaluation. |
 
-### Section Name: FabricNode
+## FabricNode
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | StateTraceInterval |Time in seconds, default is 300 |Specify timespan in seconds. The interval for tracing node status on each node and up nodes on FM/FMM. |
 
-### Section Name: NodeDomainIds
+## NodeDomainIds
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | UpgradeDomainId |string, default is "" |Describes the upgrade domain a node belongs to. |
 | PropertyGroup |NodeFaultDomainIdCollection |Describes the fault domains a node belongs to. The fault domain is defined through a URI that describes the location of the node in the datacenter.  Fault Domain URIs are of the format fd:/fd/ followed by a URI path segment.|
 
-### Section Name: NodeProperties
+## NodeProperties
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | PropertyGroup |NodePropertyCollectionMap |A collection of string key-value pairs for node properties. |
 
-### Section Name: NodeCapacities
+## NodeCapacities
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | PropertyGroup |NodeCapacityCollectionMap |A collection of node capacities for different metrics. |
 
-### Section Name: FabricNode
+## FabricNode
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | StartApplicationPortRange |Int, default is 0 |Start of the application ports managed by hosting subsystem. Required if EndpointFilteringEnabled is true in Hosting. |
@@ -176,12 +175,12 @@ Here are the Fabric settings that you can customize:
 | UserRoleClientX509FindValue |string, default is "" |Search filter value used to locate certificate for default user role FabricClient. |
 | UserRoleClientX509FindValueSecondary |string, default is "" |Search filter value used to locate certificate for default user role FabricClient. |
 
-### Section Name: Paas
+## Paas
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | ClusterId |string, default is "" |X509 certificate store used by fabric for configuration protection. |
 
-### Section Name: FabricHost
+## FabricHost
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | StopTimeout |Time in seconds, default is 300 |Specify timespan in seconds. The timeout for hosted service activation; deactivation and upgrade. |
@@ -194,7 +193,7 @@ Here are the Fabric settings that you can customize:
 | EnableRestartManagement |Bool, default is false |This is to enable server restart. |
 
 
-### Section Name: FailoverManager
+## FailoverManager
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | UserReplicaRestartWaitDuration |Time in seconds, default is 60.0 * 30 |Specify timespan in seconds. When a persisted replica goes down; Windows Fabric waits for this duration for the replica to come back up before creating new replacement  replicas (which would require a copy of the state). |
@@ -202,7 +201,7 @@ Here are the Fabric settings that you can customize:
 | UserStandByReplicaKeepDuration |Time in seconds, default is 3600.0 * 24 * 7 |Specify timespan in seconds. When a persisted replica come back from a down state; it may have already been replaced. This timer determines how long the FM will keep the standby replica before discarding it. |
 | UserMaxStandByReplicaCount |Int, default is 1 |The default max number of StandBy replicas that the system keeps for user services. |
 
-### Section Name: NamingService
+## NamingService
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | TargetReplicaSetSize |Int, default is 7 |The number of replica sets for each partition of the Naming Service store. Increasing the number of replica sets increases the level of reliability for the information in the Naming Service Store; decreasing the change that the information will be lost as a result of node failures; at a cost of increased load on Windows Fabric and the amount of time it takes to perform updates to the naming data.|
@@ -224,42 +223,43 @@ Here are the Fabric settings that you can customize:
 | GatewayServiceDescriptionCacheLimit |Int, default is 0 |The maximum number of entries maintained in the LRU service description cache at the Naming Gateway (set to 0 for no limit). |
 | PartitionCount |Int, default is 3 |The number of partitions of the Naming Service store to be created. Each partition owns a single partition key that corresponds to its index; so partition keys [0; PartitionCount) exist. Increasing the number of Naming Service partitions increases the scale that the Naming Service can perform at by decreasing the average amount of data held by any backing replica set; at a cost of increased utilization of resources (since PartitionCount*ReplicaSetSize service replicas must be maintained).|
 
-### Section Name: RunAs
+## RunAs
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | RunAsAccountName |string, default is "" |Indicates the RunAs account name. This is only needed for "DomainUser" or "ManagedServiceAccount" account type. Valid values are "domain\user" or "user@domain". |
 |RunAsAccountType|string, default is "" |Indicates the RunAs account type. This is needed for any RunAs section Valid values are "DomainUser/NetworkService/ManagedServiceAccount/LocalSystem".|
 |RunAsPassword|string, default is "" |Indicates the RunAs account password. This is only needed for "DomainUser" account type. |
 
-### Section Name: RunAs_Fabric
+## RunAs_Fabric
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | RunAsAccountName |string, default is "" |Indicates the RunAs account name. This is only needed for "DomainUser" or "ManagedServiceAccount" account type. Valid values are "domain\user" or "user@domain". |
 |RunAsAccountType|string, default is "" |Indicates the RunAs account type. This is needed for any RunAs section Valid values are "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
 |RunAsPassword|string, default is "" |Indicates the RunAs account password. This is only needed for "DomainUser" account type. |
 
-### Section Name: RunAs_HttpGateway
+## RunAs_HttpGateway
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | RunAsAccountName |string, default is "" |Indicates the RunAs account name. This is only needed for "DomainUser" or "ManagedServiceAccount" account type. Valid values are "domain\user" or "user@domain". |
 |RunAsAccountType|string, default is "" |Indicates the RunAs account type. This is needed for any RunAs section Valid values are "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
 |RunAsPassword|string, default is "" |Indicates the RunAs account password. This is only needed for "DomainUser" account type. |
 
-### Section Name: RunAs_DCA
+## RunAs_DCA
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | RunAsAccountName |string, default is "" |Indicates the RunAs account name. This is only needed for "DomainUser" or "ManagedServiceAccount" account type. Valid values are "domain\user" or "user@domain". |
 |RunAsAccountType|string, default is "" |Indicates the RunAs account type. This is needed for any RunAs section Valid values are "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
 |RunAsPassword|string, default is "" |Indicates the RunAs account password. This is only needed for "DomainUser" account type. |
 
-### Section Name: HttpGateway
+## HttpGateway
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 |IsEnabled|Bool, default is false | Enables/Disables the httpgateway. Httpgateway is disabled by default and this config needs to be set to enable it. |
 |ActiveListeners |Uint, default is 50 | Number of reads to post to the http server queue. This controls the number of concurrent requests that can be satisfied by the HttpGateway. |
 |MaxEntityBodySize |Uint, default is 4194304 |  Gives the maximum size of the body that can be expected from a http request. Default value is 4MB. Httpgateway will fail a request if it has a body of size > this value. Minimum read chunk size is 4096 bytes. So this has to be >= 4096. |
+|HttpGatewayHealthReportSendInterval |Time in seconds, default is 30 | Specify timespan in seconds. The interval at which the Http Gateway sends accumulated health reports to Health Manager. |
 
-### Section Name: KtlLogger
+## KtlLogger
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 |AutomaticMemoryConfiguration |Int, default is 1 | Flag that indicates if the memory settings should be automatically and dynamically configured. If zero then the memory configuration settings are used directly and do not change based on system conditions. If one then the memory settings are configured automatically and may change based on system conditions. |
@@ -270,21 +270,21 @@ Here are the Fabric settings that you can customize:
 |SharedLogId |string, default is "" |Unique guid for shared log container. Use "" if using default path under fabric data root. |
 |SharedLogSizeInMB |Int, default is 8192 | The number of MB to allocate in the shared log container. |
 
-### Section Name: ApplicationGateway/Http
+## ApplicationGateway/Http
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 |IsEnabled |Bool, default is false | Enables/Disables the HttpApplicationGateway. HttpApplicationGateway is disabled by default and this config needs to be set to enable it. |
-|NumberOfParallelOperations | Uint, default is 1000 | Number of reads to post to the http server queue. This controls the number of concurrent requests that can be satisfied by the HttpGateway. |
-|DefaultHttpRequestTimeout |Time in seconds. default is 60 |Specify timespan in seconds.  Gives the default request timeout for the http requests being processed in the http app gateway. |
+|NumberOfParallelOperations | Uint, default is 5000 | Number of reads to post to the http server queue. This controls the number of concurrent requests that can be satisfied by the HttpGateway. |
+|DefaultHttpRequestTimeout |Time in seconds. default is 120 |Specify timespan in seconds.  Gives the default request timeout for the http requests being processed in the http app gateway. |
 |ResolveServiceBackoffInterval |Time in seconds, default is 5 |Specify timespan in seconds.  Gives the default back-off interval before retrying a failed resolve service operation. |
-|BodyChunkSize |Uint, default is 4096 |  Gives the size of for the chunk in bytes used to read the body. |
+|BodyChunkSize |Uint, default is 16384 |  Gives the size of for the chunk in bytes used to read the body. |
 |GatewayAuthCredentialType |string, default is "None" | Indicates the type of security credentials to use at the http app gateway endpoint Valid values are "None/X509. |
 |GatewayX509CertificateStoreName |string, default is "My" | Name of X.509 certificate store that contains certificate for http app gateway. |
 |GatewayX509CertificateFindType |string, default is "FindByThumbprint" | Indicates how to search for certificate in the store specified by GatewayX509CertificateStoreName Supported value: FindByThumbprint; FindBySubjectName. |
 |GatewayX509CertificateFindValue | string, default is "" | Search filter value used to locate the http app gateway certificate. This certificate is configured on the https endpoint and can also be used to verify the identity of the app if needed by the services. FindValue is looked up first; and if that doesnt exist; FindValueSecondary is looked up. |
 |GatewayX509CertificateFindValueSecondary | string, default is "" |Search filter value used to locate the http app gateway certificate. This certificate is configured on the https endpoint and can also be used to verify the identity of the app if needed by the services. FindValue is looked up first; and if that doesnt exist; FindValueSecondary is looked up.|
 
-### Section Name: Management
+## Management
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | ImageStoreConnectionString |SecureString | Connection string to the Root for ImageStore. |
@@ -296,7 +296,7 @@ Here are the Fabric settings that you can customize:
 |DisableChecksumValidation | Bool, default is false | This configuration allows us to enable or disable checksum validation during application provisioning. |
 |DisableServerSideCopy | Bool, default is false | This configuration enables or disables server side copy of application package on the ImageStore during application provisioning. |
 
-### Section Name: HealthManager/ClusterHealthPolicy
+## HealthManager/ClusterHealthPolicy
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | ConsiderWarningAsError |Bool, default is false |Cluster health evaluation policy: warnings are treated as errors. |
@@ -305,7 +305,7 @@ Here are the Fabric settings that you can customize:
 |MaxPercentDeltaUnhealthyNodes | Int, default is 10 |Cluster upgrade health evaluation policy: maximum percent of delta unhealthy nodes allowed for the cluster to be healthy. |
 |MaxPercentUpgradeDomainDeltaUnhealthyNodes | Int, default is 15 |Cluster upgrade health evaluation policy: maximum percent of delta of unhealthy nodes in an upgrade domain allowed for the cluster to be healthy.|
 
-### Section Name: FaultAnalysisService
+## FaultAnalysisService
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | TargetReplicaSetSize |Int, default is 0 |NOT_PLATFORM_UNIX_START The TargetReplicaSetSize for FaultAnalysisService. |
@@ -318,7 +318,7 @@ Here are the Fabric settings that you can customize:
 | CompletedActionKeepDurationInSeconds | Int, default is 604800 | This is approximately how long to keep actions that are in a terminal state.  This also depends on StoredActionCleanupIntervalInSeconds; since the work to cleanup is only done on that interval. 604800 is 7 days. |
 | StoredChaosEventCleanupIntervalInSeconds | Int, default is 3600 |This is how often the store will be audited for cleanup; if the number of events is more than 30000; the cleanup will kick in. |
 
-### Section Name: FileStoreService
+## FileStoreService
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | NamingOperationTimeout |Time in seconds, default is 60 |Specify timespan in seconds. The timeout for performing naming operation. |
@@ -344,7 +344,7 @@ Here are the Fabric settings that you can customize:
 | SecondaryAccountNTLMX509StoreName | string, default is "MY" |The store name of the X509 certificate used to generate HMAC on the SecondaryAccountNTLMPasswordSecret  when using NTLM authentication. |
 | SecondaryAccountNTLMX509Thumbprint | string, default is ""| The thumbprint of the X509 certificate used to generate HMAC on the SecondaryAccountNTLMPasswordSecret  when using NTLM authentication. |
 
-### Section Name: ImageStoreService
+## ImageStoreService
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | Enabled |Bool, default is false |The Enabled flag for ImageStoreService. |
@@ -360,7 +360,7 @@ Here are the Fabric settings that you can customize:
 | ClientListTimeout | Time in seconds, default is 600 | Specify timespan in seconds. Timeout value for top-level list request to Image Store Service. |
 | ClientDefaultTimeout | Time in seconds, default is 180 | Specify timespan in seconds. Timeout value for all non-upload/non-download requests (e.g. exists; delete) to Image Store Service. |
 
-### Section Name: ImageStoreClient
+## ImageStoreClient
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | ClientUploadTimeout |Time in seconds, default is 1800 | Specify timespan in seconds. Timeout value for top-level upload request to Image Store Service. |
@@ -369,12 +369,12 @@ Here are the Fabric settings that you can customize:
 |ClientListTimeout | Time in seconds, default is 600 |Specify timespan in seconds. Timeout value for top-level list request to Image Store Service. |
 |ClientDefaultTimeout | Time in seconds, default is 180 | Specify timespan in seconds. Timeout value for all non-upload/non-download requests (e.g. exists; delete) to Image Store Service. |
 
-### Section Name: TokenValidationService
+## TokenValidationService
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | Providers |string, default is "DSTS" |Comma separated list of token validation providers to enable (valid providers are: DSTS; AAD). Currently only a single provider can be enabled at any time. |
 
-### Section Name: UpgradeOrchestrationService
+## UpgradeOrchestrationService
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | TargetReplicaSetSize |Int, default is 0 |The TargetReplicaSetSize for UpgradeOrchestrationService. |
@@ -386,7 +386,7 @@ Here are the Fabric settings that you can customize:
 | AutoupgradeEnabled | Bool, default is true | Automatic polling and upgrade action based on a goal-state file. |
 | UpgradeApprovalRequired | Bool, default is false | Setting to make code upgrade require administrator approval before proceeding. |
 
-### Section Name: UpgradeService
+## UpgradeService
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | PlacementConstraints |string, default is "" |The PlacementConstraints for Upgrade service. |
@@ -403,14 +403,14 @@ Here are the Fabric settings that you can customize:
 | OnlyBaseUpgrade | Bool, default is false | OnlyBaseUpgrade for UpgradeService. |
 | TestCabFolder | string, default is "" | TestCabFolder for UpgradeService. |
 
-### Section Name: Security/ClientAccess
+## Security/ClientAccess
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | CreateName |string, default is "Admin" |Security configuration for Naming URI creation. |
 | DeleteName |string, default is "Admin" |Security configuration for Naming URI deletion. |
 | PropertyWriteBatch |string, default is "Admin" |Security configuration for Naming property write operations. |
 | CreateService |string, default is "Admin" | Security configuration for service creation. |
-| CreateServiceFromTemplate |string, default is "Admin" |Security configuration for service creatin from template. |
+| CreateServiceFromTemplate |string, default is "Admin" |Security configuration for service creation from template. |
 | UpdateService |string, default is "Admin" |Security configuration for service updates. |
 | DeleteService  |string, default is "Admin" |Security configuration for service deletion. |
 | ProvisionApplicationType |string, default is "Admin" | Security configuration for application type provisioning. |
@@ -490,7 +490,7 @@ Here are the Fabric settings that you can customize:
 | GetClusterConfigurationUpgradeStatus | string, default is "Admin\|\|User" | Induces GetClusterConfigurationUpgradeStatus on a partition. |
 | GetClusterConfiguration | string, default is "Admin\|\|User" | Induces GetClusterConfiguration on a partition. |
 
-### Section Name: ReconfigurationAgent
+## ReconfigurationAgent
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | ApplicationUpgradeMaxReplicaCloseDuration | Time in seconds, default is 900 |Specify timespan in seconds. The duration for which the system will wait before terminating service hosts that have replicas that are stuck in close. |
@@ -501,7 +501,7 @@ Here are the Fabric settings that you can customize:
 | FabricUpgradeMaxReplicaCloseDuration | Time in seconds, default is 900 | Specify timespan in seconds. The maximum duration RA will wait before terminating service host of replica that is not closing. |
 | IsDeactivationInfoEnabled | Bool, default is true | Determines whether RA will use deactivation info for performing primary re-election For new clusters this configuration should be set to true For existing clusters that are being upgraded please see the release notes on how to enable this. |
 
-### Section Name: PlacementAndLoadBalancing
+## PlacementAndLoadBalancing
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | TraceCRMReasons |Bool, default is true |Specifies whether to trace reasons for CRM issued movements to the operational events channel. |
@@ -553,12 +553,12 @@ Here are the Fabric settings that you can customize:
 |PartiallyPlaceServices | Bool, default is true | Determines if all service replicas in cluster will be placed "all or nothing" given limited suitable nodes for them.|
 |InterruptBalancingForAllFailoverUnitUpdates | Bool, default is false | Determines if any type of failover unit update should interrupt fast or slow balancing run. With specified "false" balancing run will be interrupted if FailoverUnit:  is created/deleted; has missing replicas; changed primary replica location or changed number of replicas. Balancing run will NOT be interrupted in other cases - if FailoverUnit:  has extra replicas; changed any replica flag; changed only partition version or any other case. |
 
-### Section Name: Security
+## Security
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | ClusterProtectionLevel |None or EncryptAndSign |None (default) for unsecured clusters, EncryptAndSign for secure clusters. |
 
-### Section Name: Hosting
+## Hosting
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | ServiceTypeRegistrationTimeout |Time in Seconds, default is 300 |Maximum time allowed for the ServiceType to be  registered with fabric |
@@ -567,18 +567,18 @@ Here are the Fabric settings that you can customize:
 | ActivationMaxRetryInterval |Time in seconds, default is 300 |On every continuous activation failure, the system retries the activation for up to ActivationMaxFailureCount. ActivationMaxRetryInterval specifies Wait time interval before retry after every activation failure |
 | ActivationMaxFailureCount |Whole number, default is 10 |Number of times system retries failed activation before giving up |
 
-### Section Name: FailoverManager
+## FailoverManager
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | PeriodicLoadPersistInterval |Time in seconds, default is 10 |This determines how often the FM check for new load reports |
 
-### Section Name: Federation
+## Federation
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | LeaseDuration |Time in seconds, default is 30 |Duration that a lease lasts between a node and its neighbors. |
 | LeaseDurationAcrossFaultDomain |Time in seconds, default is 30 |Duration that a lease lasts between a node and its neighbors across fault domains. |
 
-### Section Name: ClusterManager
+## ClusterManager
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | UpgradeStatusPollInterval |Time in seconds, default is 60 |The frequency of polling for application upgrade status. This value determines the rate of update for any GetApplicationUpgradeProgress call |

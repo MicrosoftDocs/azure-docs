@@ -1,10 +1,10 @@
 ---
 title: Create recovery plans for failover and recovery in Azure Site Recovery | Microsoft Docs
-description: Describes how to create and customize recovery plans to fail over and recover VMs and physical servers in Azure Site Recovery
+description: Describes how to create and customize recovery plans in Azure Site Recovery, to fail over and recover VMs and physical servers
 services: site-recovery
 documentationcenter: ''
 author: rayne-wiselman
-manager: jwhit
+manager: carmonm
 editor: ''
 
 ms.assetid: 72408c62-fcb6-4ee2-8ff5-cab1218773f2
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/14/2017
+ms.date: 09/25/2017
 ms.author: raynew
 
 ---
 # Create recovery plans
 
 
-This article provides information about creating and customizing recovery plans in [Azure Site Recovery?](site-recovery-overview.md).
+This article provides information about creating and customizing recovery plans in [Azure Site Recovery](site-recovery-overview.md).
 
 Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
- Recovery plans do the following:
+ Create recovery plans to do the following:
 
 * Define groups of machines that fail over together, and then start up together.
 * Model dependencies between machines, by grouping them together into a recovery plan group. For example, to fail over and bring up a specific application, you group all of the VMs for that application into the same recovery plan group.
-* Fail over. You can run a test, planned, or unplanned failover on a recovery plan.
+* Run a failover. You can run a test, planned, or unplanned failover on a recovery plan.
 
 
 ## Create a recovery plan
@@ -40,6 +40,7 @@ Post any comments or questions at the bottom of this article, or on the [Azure R
     - For VMM to Azure, select **Source Type** > **VMM**.  Select the source VMM server, and **Azure** as the target.
     - For Hyper-V replication to Azure (without VMM), select **Source Type** > **Hyper-V site**. Select the site as the source, and **Azure** as the target.
     - For a VMware VM or a physical on-premises server to Azure, select a configuration server as the source, and **Azure** as the target.
+    - For a Azure to Azure recovery plan, select a Azure region as the source, and a secondary Azure region as the target. The secondary Azure regions are only those to which virtual machines are protected.
 2. In **Select virtual machines**, select the virtual machines (or replication group) that you want to add to the default group (Group 1) in the recovery plan.
 
 ## Customize and extend recovery plans
@@ -67,15 +68,18 @@ You can use PowerShell scripts in your recovery plans.
 If you're using VMM in your deployment:
 
 * Scripts in a recovery plan run in the context of the VMM Service account. Make sure this account has Read permissions for the remote share on which the script is located. Test the script to run at the VMM service account privilege level.
-* VMM cmdlets are delivered in a Windows PowerShell module. The module is installed when you install the VMM console. It can be loaded into your script, using the following command in the script: 
+* VMM cmdlets are delivered in a Windows PowerShell module. The module is installed when you install the VMM console. It can be loaded into your script, using the following command in the script:
    - Import-Module -Name virtualmachinemanager. [Learn more](https://technet.microsoft.com/library/hh875013.aspx).
 * Ensure you have at least one library server in your VMM deployment. By default, the library share path for a VMM server is located locally on the VMM server, with the folder name MSCVMMLibrary.
     * If your library share path is remote (or local but not shared with MSCVMMLibrary), configure the share as follows (using \\libserver2.contoso.com\share\ as an example):
       * Open the Registry Editor and navigate to **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**.
-      * Edit the value **ScriptLibraryPath** and place it as \\libserver2.contoso.com\share\. Specify the full FQDN. Provide permissions to the share location.
+      * Edit the value **ScriptLibraryPath** and place it as \\libserver2.contoso.com\share\. Specify the full FQDN. Provide permissions to the share location. Note that this is the root node of the share. **To check this, you can open the browse the library at the root node in VMM. The path that opens will be the root of the path - the one you will need to use in the variable**.
       * Ensure that you test the script with a user account that has the same permissions as the VMM service account. This checks that standalone tested scripts run in the same way as they will in recovery plans. On the VMM server, set the execution policy to bypass as follows:
-        * Open the 64-bit Windows PowerShell console using elevated privileges.
+        * Open the **64-bit Windows PowerShell** console using elevated privileges.
         * Type: **Set-executionpolicy bypass**. [Learn more](https://technet.microsoft.com/library/ee176961.aspx).
+
+> [!IMPORTANT]
+> You should set execution policy to Bypass on the 64-bit powershell only. If you have set it for the 32-bit powershell, the scripts will not exeute.
 
 ## Add a script or manual action to a plan
 
@@ -89,7 +93,7 @@ You can add a script to the default recovery plan group after you've added VMs o
 6. Do a failover of the recovery plan, to make sure the script works as expected.
 
 
-### VMM script
+### Add a VMM script
 
 If you have a VMM source site, you can create a script on the VMM server, and include it in your recovery plan.
 

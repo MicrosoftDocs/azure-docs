@@ -1,6 +1,6 @@
-﻿---
-title: How to use the Microsoft Azure Marketplace Seller Insights Portal | Microsoft Docs
-description: As a seller on the Azure Marketplace, understand how to use the Azure Marketplace Seller Insights Portal.
+---
+title: How to use the Azure Marketplace Seller Insights portal | Microsoft Docs
+description: As a seller on the Azure Marketplace, understand how to use the Azure Marketplace Seller Insights portal.
 services: marketplace publishing
 documentationcenter: na
 author: DavidBosland
@@ -13,335 +13,365 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 06/16/2017
 ms.author: v-dabosl
 
 ---
-# How to use the Microsoft Azure Marketplace Seller Insights Portal
-##Onboarding
+# How to use the Azure Marketplace Seller Insights portal
+
+This article discusses how administrators access the Seller Insights portal, add or delete users, and set permissions for users.
+
+## Onboard users
+
+This section discusses how administrators access the Seller Insights portal for the first time. The tasks in this section are reserved for administrators. 
+
+
+### Overview of roles
+
+The Seller Insights portal administrator adds users, edits users, and delete users.
+
+A Seller Insights portal user can view all data that is available to your organization.
+
+Administrators and users are required to authenticate by using a valid [Microsoft account](http://signup.live.com), or your organizations's work or school account. Ensure that the new account ID is associated with a monitored mailbox.
+
+![Type of account][5]
+
+
+
+### Invitation to activate your account
+
+Before signing in to the Seller Insights portal, the administrator should identify the accounts of the individuals they want to set up as users. Set up users with a work or school account, or a Microsoft account.
+
+To activate your service, the administrator should go to the [URL address](https://reports.azure.com) that appears in the invitation email.
 
 >[!NOTE]
->Administrators only
+>If the administrator email is listed as a Microsoft account, and you have not created a Microsoft account that's associated with the email address from which you received the invitation, you need to [create the account](https://signup.live.com) before you sign in.
 
-This section will show you how to access the Seller Insights Portal for the first time.
 
-###Overview of roles
+### Administrator sign-in to the Seller Insights portal
 
-![type of account][5]
+1. Sign in to the Seller Insights portal by clicking the URL in the email that is sent to you.
+2. Enter the administrator email address and password.
+3. Click the **Sign In** button.
+4. Begin to administer your account. Add users, set permissions, and edit users.
+5. Ensure your users have the URL for the Seller Insights portal.
 
-The Seller Insights Portal Administrator has the ability to add users, edit users, and delete users.
+    ![Sign-in page][6]
 
-A Seller Insights Portal User has the ability to view all data which is available to your organization.
+## User sign-in to the portal
 
-Both Administrators and Users are required to authenticate using a valid Microsoft Account (LiveID http://signup.live.com) or your company’s account. Please ensure that the ID entered is associated with a monitored mailbox.
-
-###Invitation to activate your account
-
-Ideally, before logging into the Seller Insights Portal, the Administrator should identify the accounts of the individuals they want to set up as users. Accounts can be Microsoft Accounts or Company Accounts.
-
-To activate your service, the Administrator should navigate to the URL listed in the invitation email (https://reports.azure.com)
+Your administrator should notify you through email that your account is created, and share the [URL address](https://reports.azure.com) for the Seller Insights portal with you.
 
 >[!NOTE]
->If the Administrator email is listed as a Microsoft Account and you have not created a Microsoft Account associated with the email address from which you received the invitation, you will need to do so before sign on by navigating to https://signup.live.command, utilizing this email address when creating your Microsoft Account.
-
-###Sign in to the Portal
-
-1. Sign in to the Seller Insights Portal by clicking on the URL in the email sent to you.
-2. Enter the Administrator email address and password.
-3. Click the Sign In button.
-4. Begin administering your account – add Users, set permissions, and edit Users.
-5. Be sure to provide your Users with the URL for the Portal.
-
-![sign in page][6]
-
-##Signing in
-
-Your Administrator should advise you via email that your account has been created, and share the URL for the Seller Insights Portal with you (https://reports.azure.com).
-
->[!NOTE]
->The administrator is the owner of the account that actually publishes solutions to the Azure Marketplace.  The owner of this account can provide access to others.  If you have access to Publishing Portal as a Co-administrator you can find the administrator address by following these steps:
->1. Log in to Publishng Portal
->2. Click on the Publishers tab
->3. Open the publisher in question (usually there is just one)
->4. Click on "Administrators" on the lower left
->5. The administrator email address that you are looking for is labeled, "Owner."
+>The administrator is the owner of the account that publishes solutions to the Azure Marketplace. The owner of this account can provide access to others.  If you have access to the publishing portal as a co-administrator, you can find the administrator address by following these steps:
+>1. Sign in to the publishing portal.
+>2. Click the **Publishers** tab.
+>3. Open the publisher in question (usually there is just one).
+>4. Click **Administrators** on the lower left.
+>5. The administrator email address that you're looking for is labeled *Owner*.
 
 
-You can log in to the Seller Insights Portal using a personal Microsoft account or using a company account depending upon which account your Administrator has used when setting up your profile.  Your Administrator should advise you which account to use.
+You can sign in to the Seller Insights portal by using a personal Microsoft account, or by using a work or school account. The kind of account depends on what your administrator sets up in your profile. Your administrator should advise you about the account you use.
 
-![type of account][1]
+![Type of account][1]
 
 
 
-***Welcome to the Seller Insights Portal!***
+**Welcome to the Seller Insights portal!**
 
-1. Once you've logged in you will land on the 'Summary' page.
-2. Please take a few minutes to read the Privacy Policy.
-3. You can 'Contact Us' at any time, via email, with questions you may have related to the Seller Insights Portal.
-4. You can navigate the Seller Insights Portal using the tabs at the top of the page.  Look out for the tabs at the top of the pages in this guide to help orient you in the Seller Insights Portal.
-5. Click on the smiley at any time to send feedback related to the Seller Insights Portal.
-6. Click on your name in the top right corner to sign out of the Seller Insights Portal at any time.
+1. After you've signed in, you land on the **Summary** page.
+2. Take a few minutes to read the Privacy Policy.
+3. You can **Contact Us** at any time, via email, with questions you may have that are related to the Seller Insights portal.
+4. You can move around in the Seller Insights portal by using the tabs at the top of the page.  Look out for the tabs at the top of the pages in this guide to help orient you in the Seller Insights portal.
+5. Click the smile icon at any time to send feedback that is related to the Seller Insights portal.
+6. To sign out of the Seller Insights portal, click your name in the upper-right corner.
 
-![default landing page][2]
+    ![Default landing page][2]
 
 
-##Summary view
+## Summary view
 
-1. Select the ‘Summary’ tab.
-2. Enter the Start Date of the period you are interested in here, and click ‘Apply’. 3 months data will be shown.
-3. New Orders trend data for the 3 month period you have selected is shown here.
-4. New Orders for the selected period will be shown here by Channel and Offer Type.
-5. Select a view of your Top 5 Markets, Top 5 Performing Offers, or Top 5 Customers from this panel.
-6. ayout trend for the selected period will be shown here for paid offers. If you have only BYOL or 1st Party offers, this panel will not be shown.
 
-![summary view][7]
+1. Select the **Summary** tab.
+2. Enter the **Start Date** of the time period you're interested in here, and then click **Apply**. Three months of data are shown.
+3. New order trend data for the three-month time period you've selected is shown here.
+4. New orders for the selected time period are shown here by channel and offer type.
+5. Select a view from this panel. **Top 5 Market**, **Top 5 Performing Offers**, or **Top 5 Customers**.
+6. Payout trend for the selected time period is shown here for paid offers. If you only have BYOL or 1st-Party offers, this panel is not shown.
 
-##Orders and usage
-###Overview
+    ![Summary view][7]
 
-A. In *Panel A* you can select the 'Orders and Usage' tab.  From here you can select 'Orders' or 'Usage' from the 'Report Type' tabs, and use the sliders to select the data of interest.
+## Orders and usage
+### Overview
 
-B. In *Panel B* you can select your monthly data - either 'Orders' or 'Usage' depending on your selection in 'Report Type' in Panel A.  The data presented will reflect the dates you enter and filters you have applied using the sliders in Panel A.
+In *Panel A*, you can select the **Orders and Usage** tab.  From here you can select **Orders** or **Usage** from **Report Type**, and then use the sliders to select the data of interest.
 
-C. In *Panel C* you can select your 3-month trend data - either 'Orders' or 'Usage' depending upon your selection in 'Report Type' in Panel A.  The data presented will reflect the dates you enter and the filters you have applied using the sliders in Panel A.
+In *Panel B*, you can select your monthly data. Select **Orders** or **Usage** depending on your selection in **Report Type** in Panel A.  The data that appears reflects the dates you enter and the filters that you applied by using the sliders in Panel A.
 
-D. *Panel D*: this panel provides data relating to each individual subscription.  Data is downloadable from this panel in Excel or csv format.
+In *Panel C*, you can select your three-month trend data. Select **Orders** or **Usage** depending on your selection in **Report Type** in Panel A.  The data that appears reflects the dates you enter and the filters you applied by using the sliders in Panel A.
+
+In *Panel D*, the subscription data for each individual is listed.  Data is downloadable from this panel in Excel or CSV format.
 
 ![Orders overview][8]
 ![Orders overview map][9]
 
-###Orders
-####Monthly view - Panel A
 
-![Panel map a][10]
+### Orders
+#### Monthly view: Panel A
 
-  1. Select the ‘Orders and usage’ tab from the top row to access your orders and usage data.
-  2. Select 'Orders' from the 'Report Type' tab.
-  3. Use the 'filter' symbol to show or hide the slicers shown ('Advanced Filter').  Use these slicers to filter the data you wish to view by Azure License Type, Marketplace License Type, Market, Offer Type, and Preview Status.  See the 'Help' tab for definitions of these terms.
-  4. Select the start date you are interest in and click 'Go'.
+![Panel Map A][10]
 
-![Orders monthly view panel a][14]
+  1. Select the **Orders and Usage** tab from the top row to access your orders and usage data.
+  2. Select **Orders** from **Report Type**.
+  3. Use the filter symbol to show or hide the slicer options.  Use these slicers to filter the data that you want to view by **Azure License Type**, **Marketplace License Type**, **Market**, **Offer Type**, and **Preview** status.  See the **Help** tab for definitions of these terms.
+  4. Select the start date you are interested in, and then click **Go**.
 
-####Monthly view - Panel B
+  ![Orders monthly view Panel A][14]
 
-  ![Panel map b][11]
+#### Monthly view: Panel B
 
-  1. Select 'Monthly View'.
-  2. Order Summary Details are shown by channel - CSP, Direct Enterprise, Indirect Enterprise, and Web Direct.
-  3. For the 'Monthly View', the 'Order Summary' panel provides chart views of:
-    - Top 10 Orders by Market
-    - Top 10 Orders by Offer Type
-    - Orders by Azure License Type
-    - Orders by Marketplace License Type
+  ![Panel Map B][11]
 
-![Orders monthly view panel b][15]
+  1. Select **Monthly View**.
+  2. Order summary details are shown by channel: CSP, Direct Enterprise, Indirect Enterprise, and Web Direct.
+  3. For the **Monthly View**, the **Orders Summary Details** panel provides the following chart views:
 
-####Trend view - Panel C
-
-  ![Panel map c][12]
-
-  1. Select 'Trend View'.
-  2. Select the items you want to view from the 'Subject Area' dropdown; click 'Apply'.  Default is 'Select All'.
-
-  ![Orders monthly view panel c subject area dropdown][17]
-  3. Use the filter symbol to select 'All' data or 'Top 10' for all of your selections.  Default is 'Top 10'.
-
-  ![Orders monthly view panel c filter symbol][18]
-  4. Roll-over each bar in the charts you have selected to reveal the underlying data.
-  5. Toggle the '+' symbol to show data beneath each of the charts you have selected to view.
-
-![Orders trend view panel c][16]
+* Orders By Market (Top 10)
+* Orders By Offer Title (Top 10)
+* Orders By Azure License Type)
+* Orders By Marketplace License Type
 
 
-####Detailed orders data - Panel D
+![Orders monthly view Panel B][15]
 
-  ![Panel map d][13]
+#### Trend view: Panel C
 
-  1. The Order Detail panel presents detailed order data.
-  2. Use the filters at the top of each column to filter the data using a wide range of commands and values.
+  ![Panel Map C][12]
 
-  ![Orders monthly view panel d filters][20]
-  3. Select the number of items per page you wish to view - 10, 20, or 50.
-  4. Download the data in Excel or csv format for offline analysis.
+  1. Select **Trend View**.
+  2. Select the items you want to view from the **Subject Area** list, and then click **Apply**. The default is **Select All**.
 
-![Orders detailed orders view panel d][19]
+  ![Orders monthly view Panel C Subject Area list][17]
 
-###Usage
-####Monthly view - Panel A
+  3. Use the filter symbol to select **All** data or **Top 10** for all your selections. The default is **Top 10**.
 
-  ![Panel map a][10]
+  ![Orders monthly view Panel C filter symbol][18]
 
-  1. Select the ‘Orders and usage’ tab from the top row to access your orders and usage data.
-  2. Select 'Usage' from the 'Report Type' tab.
-  3. Use the 'filter' symbol to show or hide the slicers shown ('Advanced Filter').  Use these slicers to filter the data you wish to view by Azure License Type, Marketplace License Type, Market, Offer Type, and Preview Status.  See the 'Help' tab for definitions of these terms.
-  4. Select the start date you are interest in and click 'Go'.
+  4. Point to each bar in the charts you've selected to reveal the underlying data.
+  5. Use the **+** symbol to switch to a mode where the data beneath each of the charts you've selected appears.
 
-![Usage monthly view panel a][21]
+  ![Orders trend view Panel C][16]
 
-####Monthly view - Panel B
 
-![Panel map b][11]
 
-  1. Select 'Monthly View'.
-  2. Usage Summary Details are shown, in hours.
-  3. For the 'Monthly View', the 'Usage Summary' panel provides chart views of:
-    - Top 10 Usage by Market
-    - Top 10 Usage by Offer Type
-    - Usage by Azure License Type
-    - Usage by Marketplace License Type
+#### Detailed orders data: Panel D
+
+  ![Panel Map D][13]
+
+  1. The **Order Detail** panel shows detailed order data.
+  2. Use the filters at the top of each column to filter the data by using a range of commands and values.
+
+  ![Orders monthly view Panel D filters][20]
+
+  3. Select the number of items per page that you want to view. 10, 20, or 50 items per page are available.
+  4. Download the data in Excel or CSV format for offline analysis.
+
+  ![Orders detailed orders view of Panel D][19]
+
+
+### Usage
+#### Monthly view: Panel A
+
+  ![Panel Map A][10]
+
+
+  1. To access your orders and usage data, select the **Orders and Usage** tab.
+  2. Select **Usage** from **Report Type**.
+  3. Use the filter symbol to show or hide the slicer options.  Use these slicers to filter the data that you want to view by **Azure License Type**, **Marketplace License Type**, **Market**, **Offer Type**, **Preview** status, and **Usage Type**.  See the **Help** tab for definitions of these terms.
+  4. Select the start date you are interested in, and then click **Go**.
+
+  ![Usage monthly view Panel A][21]
+
+#### Monthly view: Panel B
+
+![Panel Map B][11]
+
+  1. Select **Monthly View**.
+  2. Usage summary details are shown, in hours.
+  3. For the **Monthly View**, the **Orders Summary Details** panel provides the following chart views:
+
+* Orders By Market (Top 10)
+* Orders By Offer Title (Top 10)
+* Orders By Azure License Type
+* Orders By Marketplace License Type
+
 
 >[!NOTE]
->Data shown will reflect filters applied using the slicers in Panel A - for instance, charts are shown for Normalized Usage.
+>The slicers in Panel A are used to filter the data that appears in Panel B. For example, the charts are set up for **Normalized Usage**.
 
-![Usage monthly view panel b][22]
+![Usage monthly view Panel B][22]
 
-####Trend view - Panel C
+#### Trend view: Panel C
 
-  ![Panel map c][12]
+  ![Panel Map C][12]
 
-  1. Select Trend View.
-  2. Select the items you want to view from the 'Subject Area' dropdown; click Apply'.  Default is 'Select All'.
-
-  ![Usage monthly view panel c subject area dropdown][17]
-  3. Use the filter symbol to select 'All' data or 'Top 10' for all of your selections.  Default is 'Top 10'.
-
-  ![Usage monthly view panel c filter symbol][18]
-  4. Roll-over each bar in the charts you have selected to reveal the underlying data.
-  5. Toggle the '+' symbol to show data beneath each of the charts you have selected to view.
-
-![Usage trend view panel c][23]
+  1. Select **Trend View**.
+  2. Select the items that you want to view from the **Subject Area** list, and then click **Apply**. The default is **Select All**.
 
 
-####Detailed usage data - Panel D
+  ![Usage monthly view Panel C Subject Area list][17]
 
-  ![Panel map d][13]
+  3. Use the filter symbol to select **All** data or **Top 10** for all your selections. The default is **Top 10**.
 
-  1. The Usage Detail panel presents detailed order data.
-  2. Use the filters at the top of each column to filter the data using a wide range of commands and values.
+  ![Usage monthly view Panel C filter symbol][18]
 
-  ![Usage monthly view panel d filters][20]
-  3. Select the number of items per page you wish to view - 10, 20, or 50.
-  4. Download the data in Excel or csv format for offline analysis.
+  4. Point to each bar in the charts that you've selected to reveal the underlying data.
+  5. Use the **+** symbol to show data beneath each of the charts that you've selected to view.
 
-![Usage monthly view panel d][24]
-![Usage monthly view panel d - download result][25]
-
-###Accessing detailed customer data
-
-  1. From the Order Detail panel under 'Orders' or 'Usage' click on the Azure subscription ID which you are interested in.  Note that only non-BYOL Marketplace License Types will be clickable, and BYOL subscription ID's will be hashed out for security reasons.
-
-  ![Orders and usage customer detail panel detail][26]
-  2. You will be redirected to the 'Customer' tab and detailed data for the customer with whom the subscription ID is associated will be retrieved.
-  3. You can download the data in Excel or csv format.
+  ![Usage trend view Panel C][23]
 
 
-![Orders and usage customer detail panel][27]
-
-###Customer data
-
-  1. Select the Customer tab.
-  2. Use the slicers to filter the data you wish to view by Azure Licence Type or Marketplace License Type.
-  3. Select the 'Start Date' and 'End Date' for the time period of interest.
-  4. Customer Summary Details by Marketplace License Type are shown.
-  5. Use the filters at the top of each column to filter the data using a wide range of commands and values.
-  6. Download the data in Excel or csv format.
-
-![Customer data panel][28]
+#### Detailed usage data: Panel D
 
 
-##User management
+  ![Panel Map D][13]
 
->[!NOTE]
->Administrators only
+  1. The **Usage Detail** panel shows detailed order data.
+  2. Use the filters at the top of each column to filter the data by using various commands and values.
 
-This section will show you how to add new users or change their permissions in the Seller Insights Portal.
+  ![Usage monthly view Panel D filters][20]
 
-###Add user
-
-1. Select the 'User Management' tab.
-2. To add a user navigate to 'User Management' then 'Add User'.
-3. Add a user by entering the email address associated with their Microsoft Account or Company Account and click 'Continue'.
-4. As an Administrator you can assign read-only report access to Users.
-5. Enter the user details - First Name, Last Name, and Email - and click 'Continue'.
-6. Click on the permissions that you want to allocate to the user and click 'Continue'.
-7. Verify the information you have entered and click 'Save' to continue.  You have successfully added a User.
-
-![Add a user panel][29]
+  3. Select the number of items per page that you want to view. 10, 20, or 50 items per page are available.
+  4. Download the data in Excel or CSV format for offline analysis.
 
 
-###Edit user
+  ![Usage monthly view Panel D][24]
+  ![Usage monthly view Panel D download result][25]
 
-1. Select the 'User Management' tab and then 'Edit Users'.
-2. Find the user whose permissions you wish to modify.  Note you can also 'Add Users' from here.
-3. Click the permissions you with to remove for the user.  Note you can also 'Delete User' from here.
-4. Click 'Save' to continue.  You have successfully edited the user's permissions.
+### Accessing detailed customer data
 
-![Edit a user panel][30]
+  1. From the **Order Detail** panel, click the Azure subscription ID that you're interested in.  You can only click the non-BYOL Marketplace License Type IDs. BYOL subscription IDs are hashed out for security reasons.
 
-##Help
+  ![Orders and usage customer data panel][26]
 
-##Support requests
+  2. You are redirected to the **Customers Detailed Data** panel. The data for the customer is retrieved.
+  3. You can download the data in Excel or CSV format.
 
+  ![Orders and usage customer data panel][27]
 
-###Access the support request format
+### Customer data
 
-1. Select the 'Help' tab.
-2. Select 'Support & Documentation' and 'Start Request'.
-3. You can also submit a support request from the 'Contact Us' link at the foot of each screen in the application.
-4. A new tab will open where you can submit a support request.
+  1. Select the **Customer** tab.
+  2. Use the slicers to filter the data that you want to view by **Azure License Type** or **Marketplace License Type**.
+  3. Select the **Start Date** and **End Date** for the time period of interest.
+  4. Customer summary details by **Marketplace License Type** are shown.
+  5. Use the filters at the top of each column to filter the data by using various commands and values.
+  6. Download the data in Excel or CSV format.
 
-![Access the support form][31]
-
-###Review helpful information
-
-1. To submit a support request related to your reports, select 'Reports and Insights' from 'Problem Type'.
-2. Select a category.  Options are 'Questions related to reports' and 'Other'.
-3. Some helpful links are displayed which may provide an answer to your query.  Check these before submitting your support request.
-4. If you still need to submit a support request select 'Start Request'.
-
-![Edit a user panel][32]
+  ![Customer data panel][28]
 
 
-###Fill out and submit the request
+## User management
 
-1. Enter your contact information, time zone, region, and language preferences and select 'Continue'.
-2. Give your incident a title and provide as much informaiton as possible.  You can also upload supporting files with screenshots, etc., and select 'Submit'.
-3. You will receive a confirmation that your support request has been successfully submitted.
+The tasks in this section are reserved for administrators. Use the following procedures to add users, change permissions, or delete users from the Seller Insights portal.
+
+
+### Add user
+
+This section shows you how to add new users or change their permissions in the Seller Insights portal.
+
+
+1. Select the **User Management** tab.
+2. To add a user, select **Add User**.
+3. Enter the email address that is associated with their Microsoft account, or their work or school account. Then click **Continue**.
+4. As an administrator, you can assign read-only report access to users.
+5. Enter the user details, **First Name**, **Last Name**, and **Email**, and then click **Continue**.
+6. Select the permissions that you want to allocate to the user, and then click **Continue**.
+7. Ensure the information you've entered is correct, and then click **Save** to continue.  You've successfully added a user.
+
+  ![Add a user panel][29]
+
+
+### Edit user
+
+1. Select the **User Management** tab, and then select **Edit Users**.
+2. Find the user whose permissions you want to modify.  You can also add new users. Click **Add Users**.
+3. Click the permissions you want to remove for the user.  You can also delete a user. Click **Delete User**.
+4. Click **Save** to continue.  You've successfully edited the user's permissions.
+
+  ![Edit a user panel][30]
+
+## Help support requests
+
+
+### Access the support request format
+
+1. Select the **Help** tab.
+2. Select **Support & Documentation**, and then select **Start Request**.
+3. You can also submit a support request from the **Contact Us** link. This link appears at the bottom of each page in the application.
+4. A new tab opens where you can submit a support request.
+
+  ![Access the support form][31]
+
+### Review helpful information
+
+1. To submit a support request that is related to your reports, select **Reports and Insights** from **Problem type**.
+2. Select a category.  The options are **Questions related to reports** and **Other**.
+3. Some helpful links are displayed, which may provide an answer to your query.  Check these links before you submit your support request.
+4. If you still need to submit a support request, select **Start Request**.
+
+  ![Edit a user panel][32]
+
+
+### Enter information and submit the request
+
+1. Enter your contact information, time zone, region, and language preferences, and then select **Continue**.
+2. Give your incident a title and provide as much information as possible.  You can also upload supporting files like a screenshot, and then select **Submit**.
+3. You receive a confirmation that your support request is successful.
 4. You can check the status of your support request at any time.
 
-![Access the support form][33]
+  ![Access the support form][33]
 
 
-##Resetting a password
+## Reset a password
 
-***Account and password validation***
+**Account and password validation**
 
-1. ***Validate that the account you're using is registered and the password does not work.*** If you enter an account that has been registered in the Azure Active Directory, it will automatically prompt you to choose how to login with the account - either a Work or School (Organizational account) or a Personal LiveID account.
-2. Navigate to https://reports.azure.com and log out of any account you may be logged in with, or open it within a private window to ensure no other accounts are logged in.
-3. Enter the Publisher email address without entering a password. It will redirect to ***Step 4*** if it's been registered in Azure Active Directory (Admin accounts are registered, as are any Organizational accounts setup by the Admin account).
-4. Choose "Work or school account“. Work or school accounts (‘Organizational accounts’) are setup by companies that have registered with Azure; Personal accounts (‘LiveID’) accounts are personal accounts that have been registered with Microsoft.
- * Note that it is possible that a user previously setup a LiveID account using their company email address, the company later onboarded to Azure, and the same email address was registered as an Organizational account. This means this user can have a LiveID account with the password they used to create the LiveID, and an Organizational account with a separate password used by the company.
-5. For the Seller Insights Portal, when selecting "Work or school account“ please ensure you are using your Organizational Account/Password combination and not a LiveID/Password combination.
-6. For an Organizational Account, this will re-direct to the Publisher login page.
-7. From here, validate that the password for the Organizational account works or does not work. If it does not work, continue to ***Password reset***.
+1. *Validate that the account you're using is registered and the password doesn't work.* If you enter an account that is registered in Azure Active Directory, it automatically prompts you to choose how to sign in with the account. You use a work or school account, or a Microsoft account that serves as your personal account.
+2. Go to [https://reports.azure.com](https://reports.azure.com) and sign out of any account that you may be signed in with. You can also open it within a private window to ensure no other accounts are signed in.
+3. Enter the publisher's email address, but don't enter a password. If it's registered in Azure Active Directory, it will redirect to step 4.
 
-***Password reset***
+    >[!NOTE]
+    >Administrator accounts are registered. Work or school accounts that are set up by the administrator account are also registered.
 
-Try to reset your password by using the Self-Service Password Reset wizard following the links below.
+4. Choose **Work or school account**. Work or school accounts are set up by companies that are registered with Azure. 
+
+    >[!NOTE]
+    >It's possible that a user set up a Microsoft account by using their organization's email address. In this scenario, the organization later onboards to Azure, and the same email address is registered as a work or school account. This user can have a Microsoft account with the same password that they used to create the work or school account. This user can also have a work or school account with a separate password that is used by their organization.
+
+5. For the Seller Insights portal, when you select **Work or school account**, ensure that you use your work or school account password, and not a Microsoft account password.
+6. A work or school account redirects you to the publisher's page to sign in.
+7. From here, validate that the password for the work or school account works. If it doesn't work, continue to the "Password reset" section of this article.
+
+
+
+**Password reset**
+
+Use the following Microsoft and work or school accounts to reset your password.
 
 >[!NOTE]
->Note: For Organizational accounts setup by Administrator account, if the Admin turned on the capability to let you to reset your own password, you will be able to reset your own password. Otherwise, the password reset form gives you the option to contact your Admin.
+>For work or school accounts that are set up by the administrator account, if the administrator turned on the capability to let you reset your own password, you can reset your own password. Otherwise, the password reset form gives you the option to contact your administrator.
 
-****Microsoft account (Live ID): https://account.live.com/ResetPassword.aspx****
-![password reset Microsoft account][3]
+* [Microsoft account](https://account.live.com/ResetPassword.aspx)
+![Password reset Microsoft account][3]
 
-****Work or school account (Organization ID): https://passwordreset.microsoftonline.com/****
-![password reset work or school account][4]
+* [Work or school account](https://passwordreset.microsoftonline.com/)
+![Password reset work or school account][4]
 
 
-##Have other feedback?
+## Send feedback to improve the Seller Insights portal
 
-  1. You can click on the smiley at any time to provide feedback.
+  You can click the smile icon at any time to provide feedback.
 
 
   ![Feedback form][34]
@@ -382,3 +412,4 @@ Try to reset your password by using the Self-Service Password Reset wizard follo
 [32]: ./media/marketplace-publishing-report-seller-insights-user-guide/support-information.png
 [33]: ./media/marketplace-publishing-report-seller-insights-user-guide/support-fill-out-and-submit.png
 [34]: ./media/marketplace-publishing-report-seller-insights-user-guide/feedback-form.png
+[35]: ./media/marketplace-publishing-report-seller-insights-user-guide/help.png

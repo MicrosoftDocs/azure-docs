@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Privileged Identity Management Approval workflows | Microsoft Docs
 description: Learn about approval workflows in Privileged Identity Management (PIM)
 services: active-directory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/28/2017
 ms.author: barclayn
-
+ms.custom: pim
 ---
 
 # Approvals (Preview)

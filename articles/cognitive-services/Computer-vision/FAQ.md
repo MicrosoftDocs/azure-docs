@@ -25,7 +25,7 @@ ms.author: juliakuz
 
 **Question**: *Can Computer Vision be used locally without an internet connection?*
 
-**Answer**: We currently do not offer an on-premise or local solution.
+**Answer**: We currently do not offer an on-premises or local solution.
 
 -----
 

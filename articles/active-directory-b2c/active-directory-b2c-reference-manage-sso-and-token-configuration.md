@@ -55,6 +55,7 @@ If you would like to set a sliding window lifetime to your refresh token, modify
 ```XML
 <Item Key="allow_infinite_rolling_refresh_token">True</Item>
 ```
+
 **Issuer (iss) claim**
 If you want to change the Issuer (iss) claim, modify the value inside the `<Item>` with the Key="IssuanceClaimPattern".  The applicable values are `AuthorityAndTenantGuid` and `AuthorityWithTfp`.
 
@@ -91,7 +92,9 @@ To change your session behavior and SSO configurations, you need to add a `<User
 ```
 **Single sign-on (SSO) configuration**
 To change the single sign-on configuration, you need to modify the value of `<SingleSignOn>`.  The applicable values are `Tenant`, `Application`, `Policy` and `Disabled`. 
+
 **Web app session lifetime (minutes)**
 To change the the web app session lifetime, you need to modify value of the `<SessionExpiryInSeconds>` element.  The default value in built-in policies is 86400 seconds (1440 minutes).
+
 **Web app session timeout**
 To change the web app session timeout, you need to modify the value of `<SessionExpiryType>`.  The applicable values are `Absolute` and `Rolling`.

@@ -2,7 +2,7 @@
 title: Azure Resource Manager Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to use Resource Manager to deploy and manage solution resources as a group and to create templates for consistent and repeatable resource deployment.
 services: azure-resource-manager
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -138,6 +138,8 @@ Learn how to use Resource Manager to deploy, monitor, and manage solution resour
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html">Python</a></p>
                         <p><a href="/azure/templates/">Template format</a></p>
 	                    <p><a href="/azure/resource-group-template-functions">Template functions</a></p>
+                        <p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-functions">UI definition functions</a></p>
+                        <p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-elements">UI definition elements</a></p>
                     </div>
                 </div>
             </div>

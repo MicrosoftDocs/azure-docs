@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Active Directory FAQ | Microsoft Docs
 description: Azure Active Directory FAQ answers questions about how to access Azure and Azure Active Directory, password management, and application access.
 services: active-directory
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/24/2017
+ms.date: 08/16/2017
 ms.author: markvi
 
 ---
@@ -24,7 +24,7 @@ For more information, see [What is Azure Active Directory?](active-directory-wha
 
 
 ## Access Azure and Azure Active Directory
-**Q: Why do I get “No subscriptions found” when I try to access Azure AD in the Azure classic portal (https://manage.windowsazure.com)?**
+**Q: Why do I get “No subscriptions found” when I try to access Azure AD in the Azure classic portal?**
 
 **A:** To access the Azure classic portal, each user needs permissions with an Azure subscription. If you have a paid Office 365 or Azure AD subscription, go to [http://aka.ms/accessAAD](http://aka.ms/accessAAD) for a one-time activation step. Otherwise, you will need to activate a free [Azure account](https://azure.microsoft.com/pricing/free-trial/) or a paid subscription.
 
@@ -208,4 +208,4 @@ For more information, see [Automate user provisioning and deprovisioning to SaaS
 - - -
 **Q:  Can I set up a secure LDAP connection with Azure AD?**
 
-**A:**  No.  Azure AD does not support the LDAP protocol.
+**A:**  No. Azure AD does not support the LDAP protocol.

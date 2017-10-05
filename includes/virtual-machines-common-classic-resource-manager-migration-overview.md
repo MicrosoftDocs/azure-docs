@@ -76,7 +76,9 @@ The following features are not currently supported. You can optionally remove th
 | Compute |Unassociated virtual machine disks. | The VHD blobs behind these disks will get migrated when the Storage Account is migrated |
 | Compute |Virtual machine images. | The VHD blobs behind these disks will get migrated when the Storage Account is migrated |
 | Network |Endpoint ACLs. | Remove Endpoint ACLs and retry migration. |
-| Network |ExpressRoute with authorization links (see FAQ), Application Gateway | Remove the Gateway before beginning migration and then recreate once migration is complete. |
+| Network |Virtual network with both ExpressRoute Gateway and VPN Gateway  | Remove the VPN Gateway before beginning migration and then recreate the VPN Gateway once migration is complete. Learn more about [ExpressRoute migration](../articles/expressroute/expressroute-migration-classic-resource-manager.md).|
+| Network |ExpressRoute with authorization links  | Remove the ExpressRoute circuit to virtaul network connection before beginning migration and then recreate the connection once migration is complete. Learn more about [ExpressRoute migration](../articles/expressroute/expressroute-migration-classic-resource-manager.md). |
+| Network |Application Gateway | Remove the Application Gateway before beginning migration and then recreate the Application Gateway once migration is complete. |
 | Network |Virtual networks using VNet Peering. | Migrate Virtual Network to Resource Manager, then peer. Learn more about [VNet Peering](../articles/virtual-network/virtual-network-peering-overview.md). | 
 
 ### Unsupported configurations

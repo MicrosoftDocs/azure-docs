@@ -3,7 +3,7 @@ title: App Registration Portal Help Topics | Microsoft Docs
 description: A description of various features in the Microsoft app registration portal.
 services: active-directory
 documentationcenter: ''
-author: dstrockis
+author: lnalepa
 manager: mbaldwin
 editor: ''
 
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2016
-ms.author: dastrock
+ms.author: lenalepa
+ms.custom: aaddev
 
 ---
 # App registration reference

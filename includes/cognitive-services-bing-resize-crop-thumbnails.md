@@ -1,4 +1,10 @@
-Some Bing responses include URLs to thumbnail images served by Bing. You may resize and crop the thumbnail images. To resize an image, include the w (width) and h (height) query parameters in the thumbnail’s URL. Specify the width and height in pixels. For example:  
+Some Bing responses include URLs to thumbnail images served by Bing. You may resize and crop the thumbnail images. 
+
+> [!NOTE]
+> Ensure the size and cropping of the thumbnail provide a search scenario and respect third party rights, as required by [Search API Use and Display Requirements](/useanddisplayrequirements.md).
+
+
+To resize an image, include the w (width) and h (height) query parameters in the thumbnail’s URL. Specify the width and height in pixels. For example:  
   
 `https://<host>/th?id=JN.5l3yzwy%2f%2fHj59U6XhssIQ&pid=Api&w=200&h=200`  
   

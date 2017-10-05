@@ -12,8 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 07/31/2017
 ms.author: markvi
+ms.reviewer: asteen
 
 ---
 # Article Index for Application Management in Azure Active Directory
@@ -134,7 +135,7 @@ Automate the creation, maintenance, and removal of user identities in SaaS appli
 | Learn about how it works and find answers to common questions |[Automate User Provisioning & Deprovisioning to SaaS Apps](active-directory-saas-app-provisioning.md) |
 | Configure how information is mapped between Azure AD and your SaaS app |[Customizing Attribute Mappings](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Writing Expressions for Attribute Mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
 | How to enable automated provisioning to any app that supports the SCIM protocol |[Set up Automated User Provisioning to any SCIM-Enabled App](active-directory-scim-provisioning.md) |
-| Get notified of provisioning failures |[Provisioning Notifications](active-directory-saas-account-provisioning-notifications.md) |
+| How to report on and troubleshoot user provisioning |[Reporting on automatic user provisioning](active-directory-saas-provisioning-reporting.md)<br><br>[Provisioning notifications](active-directory-saas-account-provisioning-notifications.md)<br><br>[Troubleshooting user provisioning](active-directory-application-provisioning-content-map.md) |
 | Limit who gets provisioned to an application based on their attribute values |[Scoping Filters](active-directory-saas-scoping-filters.md) |
 
 Automated user provisioning is available for all editions of Azure AD for up to ten apps per user. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) supports unlimited applications. If your organization has [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) or [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), then you can [use groups to manage which users get provisioned](#managing-access-to-applications).
@@ -164,16 +165,16 @@ To help you manage who should have access to which resources, Azure Active Direc
 Group-based application access management is available for [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) and [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/). Self-service group management, self-service application management, and dynamic groups are [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) features.
 
 ### B2B Collaboration: Enable partner access to applications
-If your business has partnered with other companies, it's likely that you need to manage partner access to your corporate applications. Azure Active Directory B2B Collaboration provides an easy and secure way to share your apps with partners. This feature is currently in preview.
+If your business has partnered with other companies, it's likely that you need to manage partner access to your corporate applications. Azure Active Directory B2B Collaboration provides an easy and secure way to share your apps with partners.
 
 | Article Guide |  |
 |:---:| --- |
 | An overview of different Azure AD features that can help you manage external users such as partners, customers, etc. |[Comparing Capabilities for Managing External Identities in Azure AD](active-directory-b2b-compare-external-identities.md) |
-| An introduction to B2B Collaboration preview and how to get started |[Simple, Secure, Cloud Partner Integration with Azure AD](active-directory-b2b-what-is-azure-ad-b2b.md)<br /><br />[Azure Active Directory B2B Collaboration](active-directory-b2b-collaboration-overview.md) |
-| A deeper dive into Azure AD B2B Collaboration and how to use it |[B2B Collaboration: How it works](active-directory-b2b-how-it-works.md)<br /><br />[Current Limitations of Azure AD B2B Collaboration Preview](active-directory-b2b-current-preview-limitations.md)<br /><br />[Detailed walkthrough of using Azure AD B2B Collaboration Preview](active-directory-b2b-detailed-walkthrough.md) |
+| An introduction to B2B Collaboration and how to get started |[Simple, Secure, Cloud Partner Integration with Azure AD](active-directory-b2b-what-is-azure-ad-b2b.md)<br /><br />[Azure Active Directory B2B Collaboration](active-directory-b2b-collaboration-overview.md) |
+| A deeper dive into Azure AD B2B Collaboration and how to use it |[B2B Collaboration: How it works](active-directory-b2b-how-it-works.md)<br /><br />[Current Limitations of Azure AD B2B Collaboration](active-directory-b2b-current-limitations.md)<br /><br />[Detailed walkthrough of using Azure AD B2B Collaboration](active-directory-b2b-detailed-walkthrough.md) |
 | Reference articles with technical details on how Azure AD B2B Collaboration works |[CSV File Format for Adding Partner Users](active-directory-b2b-references-csv-file-format.md)<br /><br />[User Attributes Affected by Azure AD B2B Collaboration](active-directory-b2b-references-external-user-object-attribute-changes.md)<br /><br />[User Token Format for Partner Users](active-directory-b2b-references-external-user-token-format.md) |
 
-The B2B Collaboration preview is currently available for [all editions of Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+B2B Collaboration is currently available for [all editions of Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ### Access Panel: A portal for accessing apps and self-service features
 The Azure AD Access Panel is where end-users can launch their apps and access the self-service features that allow them to manage their apps and group memberships. In addition to the Access Panel, other options for accessing SSO-enabled apps are included in the list below.
@@ -198,7 +199,7 @@ Azure Active Directory provides several reports and alerts to help you monitor y
 | Track changes made to who can access a particular application |[Azure Active Directory Audit Report Events](active-directory-reporting-audit-events.md) |
 | Export the data of these reports to your preferred tools using the Reporting API |[Getting Started with the Azure AD Reporting API](active-directory-reporting-api-getting-started.md) |
 
-To see which reports are included with different editions of Azure Active Directory, [click here](active-directory-view-access-usage-reports.md#report-editions).
+To see which reports are included with different editions of Azure Active Directory, [click here](active-directory-view-access-usage-reports.md).
 
 ## See also
 [What is Azure Active Directory?](active-directory-whatis.md)

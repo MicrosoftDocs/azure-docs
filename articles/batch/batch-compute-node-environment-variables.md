@@ -11,7 +11,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 04/26/2017
+ms.date: 05/05/2017
 ms.author: tamram
 ---
 
@@ -55,7 +55,7 @@ The command lines executed by tasks on compute nodes do not run under a shell. T
 | AZ_BATCH_MASTER_NODE            | The IP address and port of the compute node on which the primary task of a [multi-instance task][multi_instance] runs. | Multi-instance primary and subtasks. | `10.0.0.4:6000`|
 | AZ_BATCH_TASK_SHARED_DIR | A directory path that is identical for the primary task and every subtask of a [multi-instance task][multi_instance]. The path exists on every node on which the multi-instance task runs, and is read/write accessible to the task commands running on that node (both the [coordination command][coord_cmd] and the [application command][app_cmd]). Subtasks or a primary task that execute on other nodes do not have remote access to this directory (it is not a “shared” network directory). | Multi-instance primary and subtasks. | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask |
 | AZ_BATCH_IS_CURRENT_NODE_MASTER | Specifies whether the current node is the master node for a [multi-instance task][multi_instance]. Possible values are `true` and `false`.| Multi-instance primary and subtasks. | `true` |
-
+| AZ_BATCH_NODE_IS_DEDICATED | If `true`, the current node is a dedicated node. If `false`, it is a [low-priority node](batch-low-pri-vms.md). | All tasks. | `true` |
 
 [files_dirs]: https://azure.microsoft.com/documentation/articles/batch-api-basics/#files-and-directories
 [multi_instance]: https://azure.microsoft.com/documentation/articles/batch-mpi/

@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 07/12/2017
 ms.author: billmath
 
 ---
@@ -25,8 +25,8 @@ Before you install Azure AD Connect, there are a few things that you need.
 
 ### Azure AD
 * An Azure subscription or an [Azure trial subscription](https://azure.microsoft.com/pricing/free-trial/). This subscription is only required for accessing the Azure portal and not for using Azure AD Connect. If you are using PowerShell or Office 365, then you do not need an Azure subscription to use Azure AD Connect. If you have an Office 365 license, then you can also use the Office 365 portal. With a paid Office 365 license, you can also get into the Azure portal from the Office 365 portal.
-  * You can also use the Azure AD preview functionality in the [Azure portal](https://portal.azure.com). This portal does not require an Azure license.
-* [Add and verify the domain](../active-directory-add-domain.md) you plan to use in Azure AD. For example, if you plan to use contoso.com for your users then make sure this domain has been verified and you are not only using the contoso.onmicrosoft.com default domain.
+  * You can also use the [Azure portal](https://portal.azure.com). This portal does not require an Azure AD license.
+* [Add and verify the domain](../active-directory-domains-add-azure-portal.md) you plan to use in Azure AD. For example, if you plan to use contoso.com for your users then make sure this domain has been verified and you are not only using the contoso.onmicrosoft.com default domain.
 * An Azure AD tenant allows by default 50k objects. When you verify your domain, the limit is increased to 300k objects. If you need even more objects in Azure AD, then you need to open a support case to have the limit increased even further. If you need more than 500k objects, then you need a license, such as Office 365, Azure AD Basic, Azure AD Premium, or Enterprise Mobility and Security.
 
 ### Prepare your on-premises data
@@ -49,6 +49,7 @@ Before you install Azure AD Connect, there are a few things that you need.
 * If you plan to use the feature **password synchronization**, then the Azure AD Connect server must be on Windows Server 2008 R2 SP1 or later.
 * If you plan to use a **group managed service account**, then the Azure AD Connect server must be on Windows Server 2012 or later.
 * The Azure AD Connect server must have [.NET Framework 4.5.1](#component-prerequisites) or later and [Microsoft PowerShell 3.0](#component-prerequisites) or later installed.
+* The Azure AD Connect server must not have PowerShell Transcription Group Policy enabled.
 * If Active Directory Federation Services is being deployed, the servers where AD FS or Web Application Proxy are installed must be Windows Server 2012 R2 or later. [Windows remote management](#windows-remote-management) must be enabled on these servers for remote installation.
 * If Active Directory Federation Services is being deployed, you need [SSL Certificates](#ssl-certificate-requirements).
 * If Active Directory Federation Services is being deployed, then you need to configure [name resolution](#name-resolution-for-federation-servers).
@@ -57,7 +58,7 @@ Before you install Azure AD Connect, there are a few things that you need.
 ### SQL Server used by Azure AD Connect
 * Azure AD Connect requires a SQL Server database to store identity data. By default a SQL Server 2012 Express LocalDB (a light version of SQL Server Express) is installed. SQL Server Express has a 10GB size limit that enables you to manage approximately 100,000 objects. If you need to manage a higher volume of directory objects, you need to point the installation wizard to a different installation of SQL Server.
 * If you use a separate SQL Server, then these requirements apply:
-  * Azure AD Connect supports all flavors of Microsoft SQL Server from SQL Server 2008 (with latest Service Pack) to SQL Server 2016. Microsoft Azure SQL Database is **not supported** as a database.
+  * Azure AD Connect supports all flavors of Microsoft SQL Server from SQL Server 2008 (with latest Service Pack) to SQL Server 2016 SP1. Microsoft Azure SQL Database is **not supported** as a database.
   * You must use a case-insensitive SQL collation. These collations are identified with a \_CI_ in their name. It is **not supported** to use a case-sensitive collation, identified by \_CS_ in their name.
   * You can only have one sync engine per SQL instance. It is **not supported** to share a SQL instance with FIM/MIM Sync, DirSync, or Azure AD Sync.
 
@@ -71,7 +72,8 @@ Before you install Azure AD Connect, there are a few things that you need.
 * If you have firewalls on your Intranet and you need to open ports between the Azure AD Connect servers and your domain controllers, then see [Azure AD Connect Ports](active-directory-aadconnect-ports.md) for more information.
 * If your proxy or firewall limit which URLs can be accessed, then the URLs documented in [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) must be opened.
   * If you are using the Microsoft Cloud in Germany or the Microsoft Azure Government cloud, then see [Azure AD Connect sync service instances considerations](active-directory-aadconnect-instances.md) for URLs.
-* Azure AD Connect is by default using TLS 1.0 to communicate with Azure AD. You can change this to TLS 1.2 by following the steps in [Enable TLS 1.2 for Azure AD Connect](#enable-tls-12-for-azure-ad-connect).
+* Azure AD Connect (version 1.1.614.0 and after) by default uses TLS 1.2 for encrypting communication between the sync engine and Azure AD. If TLS 1.2 isn't available on the underlying operating system, Azure AD Connect incrementally falls back to older protocols (TLS 1.1 and TLS 1.0). For example, Azure AD Connect running on Windows Server 2008 uses TLS 1.0 because Windows Server 2008 does not support TLS 1.1 or TLS 1.2.
+* Prior to version 1.1.614.0, Azure AD Connect by default uses TLS 1.0 for encrypting communication between the sync engine and Azure AD. To change to TLS 1.2, follow the steps in [Enable TLS 1.2 for Azure AD Connect](#enable-tls-12-for-azure-ad-connect).
 * If you are using an outbound proxy for connecting to the Internet, the following setting in the **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** file must be added for the installation wizard and Azure AD Connect sync to be able to connect to the Internet and Azure AD. This text must be entered at the bottom of the file. In this code, &lt;PROXYADRESS&gt; represents the actual proxy IP address or host name.
 
 ```
@@ -100,6 +102,8 @@ Before you install Azure AD Connect, there are a few things that you need.
     </system.net>
 ```
 
+* When Azure AD Connect sends a web request to Azure AD as part of directory synchronization, Azure AD can take up to 5 minutes to respond. It is common for proxy servers to have connection idle timeout configuration. Please ensure the configuration is set to at least 6 minutes or more.
+
 For more information, see MSDN about the [default proxy Element](https://msdn.microsoft.com/library/kd3cf2ex.aspx).  
 For more information when you have problems with connectivity, see [Troubleshoot connectivity problems](active-directory-aadconnect-troubleshoot-connectivity.md).
 
@@ -121,7 +125,7 @@ Azure AD Connect depends on Microsoft PowerShell and .NET Framework 4.5.1. You n
   * .NET Framework 4.5.1 and later releases are available on [Microsoft Download Center](http://www.microsoft.com/downloads).
 
 ### Enable TLS 1.2 for Azure AD Connect
-Azure AD Connect is using TLS 1.0 by default for encrypting the communication between the sync engine server and Azure AD. You can change this by configuring .Net applications to use TLS 1.2 by default on the server. More information about TLS 1.2 can be found in [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358).
+Prior to version 1.1.614.0, Azure AD Connect by default uses TLS 1.0 for encrypting the communication between the sync engine server and Azure AD. You can change this by configuring .Net applications to use TLS 1.2 by default on the server. More information about TLS 1.2 can be found in [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358).
 
 1. TLS 1.2 cannot be enabled on Windows Server 2008. You need Windows Server 2008R2 or later. Make sure you have the .Net 4.5.1 hotfix installed for your operating system, see [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358). You might have this hotfix or a later release installed on your server already.
 2. If you use Windows Server 2008R2, then make sure TLS 1.2 is enabled. On Windows Server 2012 server and later versions, TLS 1.2 should already be enabled.
@@ -147,8 +151,8 @@ When using Azure AD Connect to deploy Active Directory Federation Services or th
   * On the target machine (WAP machine):
     * Ensure the winrm (Windows Remote Management / WS-Management) service is running via the Services snap-in
     * In an elevated PSH command window, use command `Enable-PSRemoting –force`
-      * On the machine on which the wizard is running (if the target machine is non-domain joined or untrusted domain):
-      * In an elevated PSH command window, use the command `Set-Item WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate`
+  * On the machine on which the wizard is running (if the target machine is non-domain joined or untrusted domain):
+    * In an elevated PSH command window, use the command `Set-Item WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate`
     * In Server Manager:
       * add DMZ WAP host to machine pool (server manager -> Manage -> Add Servers...use DNS tab)
       * Server Manager All Servers tab: right click WAP server and choose Manage As..., enter local (not domain) creds for the WAP machine

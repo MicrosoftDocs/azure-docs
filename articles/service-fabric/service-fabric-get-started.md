@@ -1,6 +1,6 @@
 ---
-title: Set up a development environment for Azure microservices | Microsoft Docs
-description: Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you will be ready to build applications.
+title: Set up a Windows development environment for Azure microservices | Microsoft Docs
+description: Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you will be ready to build applications on Windows.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -13,11 +13,11 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/22/2017
+ms.date: 09/25/2017
 ms.author: ryanwi, mikhegn
 
 ---
-# Prepare your development environment
+# Prepare your development environment on Windows
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started.md) 
 > * [Linux](service-fabric-get-started-linux.md)
@@ -25,7 +25,7 @@ ms.author: ryanwi, mikhegn
 > 
 > 
 
- To build and run [Azure Service Fabric applications][1] on your development machine, install the runtime, SDK, and tools. You also need to enable execution of the Windows PowerShell scripts included in the SDK.
+ To build and run [Azure Service Fabric applications][1] on your Windows development machine, install the runtime, SDK, and tools. You also need to enable execution of the Windows PowerShell scripts included in the SDK.
 
 ## Prerequisites
 ### Supported operating system versions
@@ -58,17 +58,12 @@ For Visual Studio 2015, Service Fabric tools are installed together with the SDK
 If you only need the SDK, you can install this package:
 * [Install the Microsoft Azure Service Fabric SDK][core-sdk]
 
-> [!WARNING]
-> Customers have reported errors during installation when using these launch links, or when these links were used in Chrome browser. These errors are known issues in Web Platform Installer which are being addressed.  Try the following workarounds:
->- Launch the preceding links in Internet Explorer or Edge browsers, or
->- Launch Web Platform Installer from the Start menu, search for "Service Fabric", and install the SDK
-> 
-> We apologize for the inconvenience. 
-
 The current versions are:
-* Service Fabric SDK 2.5.216
-* Service Fabric runtime 5.5.216
-* Visual Studio 2015 tools 1.5.50311.1
+* Service Fabric SDK 2.8.211
+* Service Fabric runtime 6.0.211
+* Service Fabric Tools for Visual Studio 2015 1.7.50721
+* Visual Studio 2017 Update 3 includes Service Fabric Tools for Visual Studio 1.7.20170817
+* Visual Studio 2017 Update 4 Preview 1 (15.4.0 Preview 1.0) includes Service Fabric Tools for Visual Studio 1.7.20170721
 
 For a list of supported versions, see [Service Fabric support](service-fabric-support.md)
 

@@ -29,6 +29,8 @@ The Custom Script Extension configuration specifies things like script location 
 ### Public Configuration
 Schema:
 
+**Note** - these property names are case sensitive. Use the names as seen below to avoid deployment issues.
+
 * **commandToExecute**: (required, string) the entry point script to execute
 * **fileUris**: (optional, string array) the URLs for files to be downloaded.
 * **timestamp** (optional, integer) use this field only to trigger a rerun of the script by changing value of this field.
@@ -42,6 +44,8 @@ Schema:
 
 ### Protected Configuration
 Schema:
+
+**Note** - these property names are case sensitive. Use the names as seen below to avoid deployment issues.
 
 * **commandToExecute**: (optional, string) the entry point script to execute. Use this field instead if your command contains secrets such as passwords.
 * **storageAccountName**: (optional, string) the name of storage account. If you specify storage credentials, all fileUris must be URLs for Azure Blobs.
@@ -110,7 +114,7 @@ Public configuration file:
 
 ```json
 {
-  "fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],
+  "fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"]
 }
 ```
 
@@ -125,7 +129,7 @@ Protected configuration file:
 Azure CLI command:
 
 ```azurecli
-az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json --protected-settings
+az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json --protected-settings ./protected-config.json
 ```
 
 ## Resource Manager Template

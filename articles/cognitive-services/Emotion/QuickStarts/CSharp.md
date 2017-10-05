@@ -8,7 +8,7 @@ manager: yutkuo
 ms.service: cognitive-services
 ms.technology: emotion
 ms.topic: article
-ms.date: 02/20/2017
+ms.date: 05/23/2017
 ms.author: anroth
 ---
 
@@ -17,9 +17,11 @@ This article provides information and a code sample to help you quickly get star
 
 ## Prerequisites
 * Get the Microsoft Cognitive Emotion API Windows SDK [here](https://www.nuget.org/packages/Microsoft.ProjectOxford.Emotion/)
-* Get your free Subscription Key [here](https://www.microsoft.com/cognitive-services/en-us/sign-up)
+* Get your free Subscription Key [here](https://azure.microsoft.com/en-us/try/cognitive-services/)
 
 ## Emotion Recognition C# Example Request
+
+Create a new Console solution in Visual Studio, then replace Program.cs with the following code. Change the `string uri` to use the region where you obtained your subscription keys, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key.
 
 ```c#
 using System;
@@ -53,9 +55,12 @@ namespace CSHttpClientSample
         {
             var client = new HttpClient();
 
-            // Request headers
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "40d7576afa7e4f82b38315516d55cb5e");
+            // Request headers - replace this example key with your valid key.
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "13hc77781f7e4b19b5fcdd72a8df7156");
 
+            // NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
+            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+            //   URI below with "westcentralus".
             string uri = "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize?";
             HttpResponseMessage response;
             string responseContent;

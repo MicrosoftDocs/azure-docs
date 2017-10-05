@@ -114,10 +114,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-mobilexpense-tutorial/tutorial_mobilexpense_url22.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern:: `https://<sub domain>.mobilexpense.com/<customername>`
-	 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Reply URL and Sign-On URL. Contact [MobileXpense Client support team](http://www.mobilexpense.net/contact) to get these values. 
+In the **Sign-on URL** textbox, type a URL using the following pattern:: `https://<sub domain>.mobilexpense.com/<customername>`
+
+> [!NOTE] 
+> These values are not real. Update these values with the actual Reply URL and Sign-On URL. Contact [MobileXpense Client support team](http://www.mobilexpense.net/contact) to get these values. 
 
 5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 

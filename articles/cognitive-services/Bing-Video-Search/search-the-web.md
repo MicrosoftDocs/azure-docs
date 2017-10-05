@@ -13,31 +13,19 @@ ms.date: 04/15/2017
 ms.author: scottwhi
 ---
 
-# Searching the Web for Videos
+# Searching the web for videos
 
 The Videos Search API provides a similar (but not exact) experience to Bing.com/Videos. The API lets you send a search query to Bing and get back a list of relevant videos.  
 
 If you're building a videos-only search results page to find videos that are relevant to the user's search query, call this API instead of calling the more general [Web Search API](../bing-web-search/search-the-web.md). If you want videos and other types of content such as webpages, news, and images, then call the Web Search API
 
-## Search Query Term
+## Search query term
 
-If you're requesting videos from Bing, your user experience must provide a search box where the user enters a search query term. You can determine the maximum term length that you allow, but the maximum length of all your query parameters should be less than 1,500 characters.
+If you provide a search box where the user enters their search term, use the [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md) to improve the experience. The API returns suggested query strings based on partial search terms as the user types.
 
-After the user enters their query term, you need to URL encode the term before setting the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#query) query parameter. For example, if the user entered *sailing dinghies*, you would set `q` to *sailing+dinghies* or *sailing%20dinghies*.
-
-If the query term contains a spelling mistake, the response includes a [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#querycontext) object. The object shows the original spelling and the corrected spelling that Bing used for the search.  
-
-```
-  "queryContext":{  
-    "originalQuery":"sialing dingies",  
-    "alteredQuery":"sailing dinghies",  
-    "alterationOverrideQuery":"+sialing dingies"  
-  },  
-```
-
-You could use `originalQuery` and `alteredQuery` to let the user know the actual query term that Bing used.
+After the user enters their query term, URL encode the term before setting the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference#query) query parameter. For example, if the user enters *sailing dinghies*, set `q` to *sailing+dinghies* or *sailing%20dinghies*.
   
-## Getting Videos
+## Getting videos
 
 To get videos related to the user's search term from the web, send the following GET request:
 
@@ -46,19 +34,19 @@ GET https://api.cognitive.microsoft.com/bing/v5.0/videos/search?q=sailing+dinghi
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)  
 X-Search-ClientIP: 999.999.999.999  
-X-Search-Location: lat:47.60357,long:-122.3295,re:100  
+X-Search-Location: lat:47.60357;long:-122.3295;re:100  
 X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 Host: api.cognitive.microsoft.com  
 ```  
 
 > [!NOTE]
-> Version 7 Preview request:
+> V7 Preview request:
 >
 > ```  
 > GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghies&mkt=en-us HTTP/1.1  
 > Ocp-Apim-Subscription-Key: 123456789ABCDE  
 > X-MSEdge-ClientIP: 999.999.999.999  
-> X-Search-Location: lat:47.60357,long:-122.3295,re:100  
+> X-Search-Location: lat:47.60357;long:-122.3295;re:100  
 > X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 > Host: api.cognitive.microsoft.com  
 > ```  
@@ -133,7 +121,7 @@ As the user hovers over the thumbnail you can use [motionThumbnailUrl](https://d
 
 If the user clicks the thumbnail, the following are the video viewing options:
 
-- Use [hostPageUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#video-hostpageurl) to view the video on the host website (for example, Youtube)  
+- Use [hostPageUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#video-hostpageurl) to view the video on the host website (for example, YouTube)  
   
 - Use [webSearchUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#video-websearchurl) to view the video in the Bing video browser  
 
@@ -144,7 +132,7 @@ Be sure to use the publisher and creator to attribute the video when you play it
 For details about using [videoId](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#video-videoid) to get insights about the video, see [Video Insights](./video-insights.md).
 
 
-## Filtering Videos
+## Filtering videos
 
 By default, the Video Search API returns all videos that are relevant to the query. If you only want free videos or videos less than five minutes in length, you'd use the following filter query parameters:  
   
@@ -168,24 +156,24 @@ GET https://api.cognitive.microsoft.com/bing/v5.0/videos/search?q=sailing+dinghi
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)  
 X-MSEdge-ClientIP: 999.999.999.999  
-X-Search-Location: lat:47.60357,long:-122.3295,re:100  
+X-Search-Location: lat:47.60357;long:-122.3295;re:100  
 X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 Host: api.cognitive.microsoft.com  
 ```  
 
 > [!NOTE]
-> Version 7 Preview request:
+> V7 Preview request:
 >
 > ```  
 > GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghies+site:contososailing.com&pricing=free&freshness=month&resolution=720p&mkt=en-us HTTP/1.1  
 > Ocp-Apim-Subscription-Key: 123456789ABCDE  
 > X-MSEdge-ClientIP: 999.999.999.999  
-> X-Search-Location: lat:47.60357,long:-122.3295,re:100  
+> X-Search-Location: lat:47.60357;long:-122.3295;re:100  
 > X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 > Host: api.cognitive.microsoft.com  
 > ```  
 
-## Expanding the Query  
+## Expanding the query  
 
 If Bing can expand the query to narrow the original search, the [Videos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#videos) object contains the `queryExpansions` field. For example, if the query was *Cleaning Gutters*, the expanded queries might be: Gutter Cleaning **Tools**, Cleaning Gutters **From the Ground**, Gutter Cleaning **Machine**, and **Easy** Gutter Cleaning.  
 
@@ -217,7 +205,7 @@ The following example shows the expanded queries for *Cleaning Gutters*.
 The `queryExpansions` field contains a list of [Query](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#query_obj) objects. The `text` field contains the expanded query and the `displayText` field contains the expansion term. You can use the text and thumbnail fields to display the expanded query strings to the user in case the expanded query string is really what they're looking for. Make the thumbnail and text clickable using the `webSearchUrl` URL or `searchLink` URL. Use `webSearchUrl` to send the user to the Bing search results, or `searchLink` if you provide your own results page.
 
 
-## Pivoting the Query
+## Pivoting the query
 
 If Bing can segment the original search query, the [Videos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#videos) object contains the `pivotSuggestions` field. For example, if the original query was *Cleaning Gutters*, Bing might segment the query into *Cleaning* and *Gutters*. 
 
@@ -272,12 +260,12 @@ You can use the `text` and `thumbnail` fields to display the expanded query stri
 
 
 
-## Throttling Requests
+## Throttling requests
 
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
 
 
-## Next Steps
+## Next steps
 
 To get started quickly with your first request, see [Making Your First Request](./quick-start.md).
 

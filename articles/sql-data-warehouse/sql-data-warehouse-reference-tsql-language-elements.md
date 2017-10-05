@@ -3,7 +3,7 @@ title: SQL Data Warehouse Transact-SQL language elements | Microsoft Docs
 description: List of links to reference content for the Transact-SQL language elements used for SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: kevinvngo
 manager: jhubbard
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
 ms.date: 10/31/2016
-ms.author: barbkess
+ms.author: kevin;barbkess
 
 ---
 # Language elements

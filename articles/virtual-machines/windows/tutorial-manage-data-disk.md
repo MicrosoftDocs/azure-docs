@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage Azure disks with the Azure PowerShell | Microsoft Docs
 description: Tutorial - Manage Azure disks with the Azure PowerShell 
 services: virtual-machines-windows
@@ -16,13 +16,23 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
+ms.custom: mvc
 ---
 
 # Manage Azure disks with PowerShell
 
-Azure virtual machines use disks to store the VMs operating system, applications, and data. When creating a VM it is important to choose a disk size and configuration appropriate to the expected workload. This tutorial covers deploying and managing VM disks.
+Azure virtual machines use disks to store the VMs operating system, applications, and data. When creating a VM it is important to choose a disk size and configuration appropriate to the expected workload. This tutorial covers deploying and managing VM disks. You learn about:
 
-This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+> [!div class="checklist"]
+> * OS disks and temporary disks
+> * Data disks
+> * Standard and Premium disks
+> * Disk performance
+> * Attaching and preparing data disks
+
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+
+If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure. 
 
 ## Default Azure disks
 
@@ -34,7 +44,7 @@ When an Azure virtual machine is created, two disks are automatically attached t
 
 ### Temporary disk sizes
 
-| Type | VM Size | Max temp disk size |
+| Type | VM Size | Max temp disk size (GB) |
 |----|----|----|
 | [General purpose](sizes-general.md) | A and D series | 800 |
 | [Compute optimized](sizes-compute.md) | F series | 800 |
@@ -86,31 +96,31 @@ To complete the example in this tutorial, you must have an existing virtual mach
 
 Create the initial configuration with [New-AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig). The following example configures a disk that is 128 gigabytes in size.
 
-```powershell
+```azurepowershell-interactive
 $diskConfig = New-AzureRmDiskConfig -Location EastUS -CreateOption Empty -DiskSizeGB 128
 ```
 
 Create the data disk with the [New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk) command.
 
-```powershell
+```azurepowershell-interactive
 $dataDisk = New-AzureRmDisk -ResourceGroupName myResourceGroup -DiskName myDataDisk -Disk $diskConfig
 ```
 
 Get the virtual machine that you want to add the data disk to with the [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) command.
 
-```powershell
+```azurepowershell-interactive
 $vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
 ```
 
 Add the data disk to the virtual machine configuration with the [Add-AzureRmVMDataDisk](/powershell/module/azurerm.compute/add-azurermvmdatadisk) command.
 
-```powershell
+```azurepowershell-interactive
 $vm = Add-AzureRmVMDataDisk -VM $vm -Name myDataDisk -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun 1
 ```
 
 Update the virtual machine with the [Update-AzureRmVM](/powershell/module/azurerm.compute/add-azurermvmdatadisk) command.
 
-```powershell
+```azurepowershell-interactive
 Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm
 ```
 
@@ -122,7 +132,7 @@ Once a disk has been attached to the virtual machine, the operating system needs
 
 Create an RDP connection with the virtual machine. Open up PowerShell and run this script.
 
-```powershell
+```azurepowershell-interactive
 Get-Disk | Where partitionstyle -eq 'raw' | `
 Initialize-Disk -PartitionStyle MBR -PassThru | `
 New-Partition -AssignDriveLetter -UseMaximumSize | `
@@ -131,6 +141,16 @@ Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
 
 ## Next steps
 
-In this tutorial, you have learned about VM disks. Advance to the next tutorial to learn about automating VM configuration.
+In this tutorial, you learned about VM disks topics such as:
 
-[Automate VM configuration](./tutorial-automate-vm-deployment.md)
+> [!div class="checklist"]
+> * OS disks and temporary disks
+> * Data disks
+> * Standard and Premium disks
+> * Disk performance
+> * Attaching and preparing data disks
+
+Advance to the next tutorial to learn about automating VM configuration.
+
+> [!div class="nextstepaction"]
+> [Automate VM configuration](./tutorial-automate-vm-deployment.md)

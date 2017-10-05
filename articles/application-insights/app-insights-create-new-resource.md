@@ -1,10 +1,10 @@
----
+﻿---
 title: Create a new Azure Application Insights resource | Microsoft Docs
 description: Manually set up Application Insights monitoring for a new live application.
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 
 ms.assetid: 878b007e-161c-4e36-8ab2-3d7047d8a92d
 ms.service: application-insights
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
-ms.author: awills
+ms.author: bwren
 
 ---
 # Create an Application Insights resource
-Azure Application Insights displays data about your application in a Microsoft Azure *resource*. Creating a new resource is therefore part of [setting up Application Insights to monitor a new application][start]. In many cases, this can be done automatically by the IDE, and that's the recommended way where it's available. But in some cases, you create a resource manually - for example, to have separate resources for development and production builds of your application.
+Azure Application Insights displays data about your application in a Microsoft Azure *resource*. Creating a new resource is therefore part of [setting up Application Insights to monitor a new application][start]. In many cases, creating a resource can be done automatically by the IDE. But in some cases, you create a resource manually - for example, to have separate resources for development and production builds of your application.
 
-After you have created the resource, you get its instrumentation key and use that to configure the SDK in the application. This sends the telemetry to the resource.
+After you have created the resource, you get its instrumentation key and use that to configure the SDK in the application. The resource key links the telemetry to the resource.
 
 ## Sign up to Microsoft Azure
 If you haven't got a [Microsoft account, get one now](http://live.com). (If you use services like Outlook.com, OneDrive, Windows Phone, or XBox Live, you already have a Microsoft account.)
 
-You'll also need a subscription to [Microsoft Azure](http://azure.com). If your team or organization has an Azure subscription, the owner can add you to it, using your Windows Live ID. You're only charged for what you use, and the default basic plan allows for a certain amount of experimental use free of charge.
+You also need a subscription to [Microsoft Azure](http://azure.com). If your team or organization has an Azure subscription, the owner can add you to it, using your Windows Live ID. You're only charged for what you use. The default basic plan allows for a certain amount of experimental use free of charge.
 
-When you've got access to a subscription, login to Application Insights at [http://portal.azure.com](https://portal.azure.com), and use your Live ID to login.
+When you've got access to a subscription, log in to Application Insights at [http://portal.azure.com](https://portal.azure.com), and use your Live ID to login.
 
 ## Create an Application Insights resource
 In the [portal.azure.com](https://portal.azure.com), add an Application Insights resource:
@@ -39,12 +39,12 @@ In the [portal.azure.com](https://portal.azure.com), add an Application Insights
 * **Location** is where we keep your data.
 * **Pin to dashboard** puts a quick-access tile for your resource on your Azure Home page. Recommended.
 
-When your app has been created, a new blade opens. This is where you'll see performance and usage data about your app. 
+When your app has been created, a new blade opens. This blade is where you see performance and usage data about your app. 
 
-To get back to it next time you login to Azure, look for your app's quick-start tile on the start board (home screen). Or click Browse to find it.
+To get back to it next time you log in to Azure, look for your app's quick-start tile on the start board (home screen). Or click Browse to find it.
 
 ## Copy the instrumentation key
-The instrumentation key identifies the resource that you created. You'll need it to give to the SDK.
+The instrumentation key identifies the resource that you created. You need it to give to the SDK.
 
 ![Click Essentials, click the Instrumentation Key, CTRL+C](./media/app-insights-create-new-resource/02-props.png)
 
@@ -58,9 +58,9 @@ The SDK includes standard modules that send telemetry without you having to writ
 ## <a name="monitor"></a>See telemetry data
 Close the quick start blade to return to your application blade in the Azure portal.
 
-Click the Search tile to see [Diagnostic Search][diagnostic], where the first events will appear. 
+Click the Search tile to see [Diagnostic Search][diagnostic], where the first events appear. 
 
-Click Refresh after a few seconds if you're expecting more data.
+If you're expecting more data, click **Refresh** after a few seconds  .
 
 ## Creating a resource automatically
 You can write a [PowerShell script](app-insights-powershell.md) to create a resource automatically.

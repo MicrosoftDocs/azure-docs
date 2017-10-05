@@ -3,7 +3,7 @@ title: Smart diagnostics of web app performance changes in Azure Application Ins
 description: Automatic diagnosis of spikes or steps in performance telemetry from your web app.
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.service: application-insights
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2017
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Diagnose sudden changes in your app telemetry
@@ -57,7 +57,7 @@ Armed with the knowledge that a particular page of your website has a problem on
 
 ## How it works
 
-Smart Diagnostics uses an advanced unsupervised machine learning algorithm based on the [DiffPatterns](app-insights-analytics-reference.md#evaluate-diffpatterns) operation. It looks for candidate patterns that might explain the data change. It analyses the impact of each candidate on the metric, and shows the pattern that best correlates with the change.
+Smart Diagnostics uses an advanced unsupervised machine learning algorithm based on the [DiffPatterns](app-insights-analytics-reference.md) operation. It looks for candidate patterns that might explain the data change. It analyses the impact of each candidate on the metric, and shows the pattern that best correlates with the change.
 
 ## No diagnostic points?
 
@@ -77,4 +77,3 @@ Smart Diagnostics only works when the following criteria are satisfied:
 
  * [Analytics tutorial](app-insights-analytics-tour.md)
  * [Smart detection](app-insights-proactive-diagnostics.md) automatically alerts you to performance issues.
-S

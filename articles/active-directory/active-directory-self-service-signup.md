@@ -13,8 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/13/2017
+ms.date: 08/28/2017
 ms.author: curtand
+ms.reviewer: elkuzmen
+ms.custom: it-pro
 
 ---
 # What is Self-Service Signup for Azure?

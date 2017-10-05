@@ -218,8 +218,6 @@ azure network dns record-set add-record MyResourceGroup contoso.com www A -a 5.6
 azure network dns record-set delete-record MyResourceGroup contoso.com www A -a 1.2.3.4
 ```
 
-You cannot add, remove, or modify the records in the automatically created NS record set at the zone apex (`-Name "@"`, including quote marks). For this record set, the only changes permitted are to modify the record set TTL and metadata.
-
 ### To modify a CNAME record
 
 To modify a CNAME record, use `azure network dns record-set add-record` to add the new record value. Unlike other record types, a CNAME record set can only contain a single record. Therefore, the existing record is *replaced* when the new record is added, and does not need to be deleted separately.  You will be prompted to accept this replacement.
@@ -238,6 +236,21 @@ The following example shows how to set the 'email' property of the SOA record fo
 
 ```azurecli
 azure network dns record-set set-soa-record rg1 contoso.com --email admin.contoso.com
+```
+
+
+### To modify NS records at the zone apex
+
+The NS record set at the zone apex is automatically created with each DNS zone. It contains the names of the Azure DNS name servers assigned to the zone.
+
+You can add additional name servers to this NS record set, to support co-hosting domains with more than one DNS provider. You can also modify the TTL and metadata for this record set. However, you cannot remove or modify the pre-populated Azure DNS name servers.
+
+Note that this applies only to the NS record set at the zone apex. Other NS record sets in your zone (as used to delegate child zones) can be modified without constraint.
+
+The following example shows how to add an additional name server to the NS record set at the zone apex:
+
+```azurecli
+azure network dns record-set add-record MyResourceGroup contoso.com "@" --nsdname ns1.myotherdnsprovider.com 
 ```
 
 ### To modify the TTL of an existing record set
