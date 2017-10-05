@@ -1,5 +1,5 @@
 ---
-title: Create a Linux SQL Server 2017 VM in Azure | Microsoft Docs
+title: Create a Windows SQL Server 2017 VM in Azure | Microsoft Docs
 description: This tutorial shows how to create a Windows SQL Server 2017 virtual machine in the Azure portal.
 services: virtual-machines-windows
 documentationcenter: na
@@ -22,18 +22,16 @@ ms.author: jroth
 > * [PowerShell](virtual-machines-windows-ps-sql-create.md)
 > * [Linux](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
 
-This end-to-end tutorial shows you how to use the Azure portal to provision a virtual machine running SQL Server.
-
-The Azure virtual machine (VM) gallery includes several images that contain Microsoft SQL Server. With a few clicks, you can select one of the SQL VM images from the gallery and provision it in your Azure environment.
+In this quick start tutorial, you use the Azure portal to create a Windows virtual machine with SQL Server installed.
 
 In this tutorial, you will:
 
-* [Select a SQL VM image from the gallery](#select-a-sql-vm-image-from-the-gallery)
-* [Configure and create the VM](#configure-the-vm)
-* [Open the VM with Remote Desktop](#open-the-vm-with-remote-desktop)
-* [Connect to SQL Server remotely](#connect-to-sql-server-remotely)
+* [Select a SQL VM image from the gallery](#select)
+* [Configure and create the VM](#configure)
+* [Open the VM with Remote Desktop](#remotedesktop)
+* [Connect to SQL Server remotely](#connect)
 
-## Select a SQL VM image from the gallery
+## <a id="select"></a> Select a SQL VM image from the gallery
 
 1. Log in to the [Azure portal](https://portal.azure.com) using your account.
 
@@ -70,7 +68,7 @@ In this tutorial, you will:
 
     ![Create SQL VM with Resource Manager](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
-## Configure the VM
+## <a id="configure"></a> Configure the VM
 There are five windows for configuring a SQL Server virtual machine.
 
 | Step | Description |
@@ -271,7 +269,7 @@ You can monitor the deployment from the Azure portal. The **Notifications** butt
 > [!NOTE]
 > To provide you with an idea on deployment times, I deployed a SQL VM to the East US region with default settings. This test deployment took a total of 26 minutes to complete. But you might experience a faster or slower deployment time based on your region and selected settings.
 
-## Open the VM with Remote Desktop
+## <a id="remotedesktop"></a> Open the VM with Remote Desktop
 
 Use the following steps to connect to the SQL Server virtual machine with Remote Desktop:
 
@@ -289,7 +287,7 @@ The following steps use **SQL Server Configuration Manager** to enable the TCP/I
 
 > [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
 
-## Connect to SQL Server remotely
+## <a id="connect"></a> Connect to SQL Server remotely
 
 In this tutorial, we selected **Public** access for the virtual machine and **SQL Server Authentication**. These settings automatically configured the virtual machine to allow SQL Server connections from any client over the internet (assuming they have the correct SQL login).
 

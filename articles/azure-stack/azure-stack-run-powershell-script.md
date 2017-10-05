@@ -145,6 +145,9 @@ To make sure that the password for the development kit host doesn't expire too s
 
 
 ## Next steps
+
+[Install PowerShell](azure-stack-powershell-configure-quickstart.md)
+
 [Register Azure Stack with your Azure subscription](azure-stack-register.md)
 
 [Connect to Azure Stack](azure-stack-connect-azure-stack.md)
