@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2017
+ms.date: 10/05/2017
 ms.author: terrylan
 
 ---
@@ -113,7 +113,7 @@ If the workspace row:
   ![Upgrade to Standard tier][12]
 
 ## Next steps
-In this article you learned how to use Security Center’s Event Processed dashboard. To learn more about how the dashboard works and to write your own event queries, see:
+In this article you learned how to use Security Center’s Event dashboard. To learn more about how the dashboard works and to write your own event queries, see:
 
 - [What is Log Analytics?](../log-analytics/log-analytics-overview.md) – Overview on Log Analytics
 - [Understanding log searches in Log Analytics](../log-analytics/log-analytics-log-search-new.md) - Describes how log searches are used in Log Analytics and provides concepts that should be understood before creating a log search
