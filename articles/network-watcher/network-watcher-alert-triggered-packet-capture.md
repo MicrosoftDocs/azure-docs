@@ -1,9 +1,9 @@
-﻿---
+---
 title: Use packet capture to do proactive network monitoring with alerts and Azure Functions | Microsoft Docs
 description: This article describes how to create an alert triggered packet capture with Azure Network Watcher
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 
 ---
 # Use packet capture for proactive network monitoring with alerts and Azure Functions
@@ -358,7 +358,7 @@ After the criteria for the alert triggers, a packet capture is created. Go to Ne
 
 If the capture file is stored locally, you can retrieve it by signing in to the virtual machine.
 
-For instructions about downloading files from Azure storage accounts, see [Get started with Azure Blob storage using .NET](../storage/storage-dotnet-how-to-use-blobs.md). Another tool you can use is [Storage Explorer](http://storageexplorer.com/).
+For instructions about downloading files from Azure storage accounts, see [Get started with Azure Blob storage using .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Another tool you can use is [Storage Explorer](http://storageexplorer.com/).
 
 After your capture has been downloaded, you can view it by using any tool that can read a **.cap** file. Following are links to two of these tools:
 
@@ -367,7 +367,8 @@ After your capture has been downloaded, you can view it by using any tool that c
 
 ## Next steps
 
-Learn how to view your packet captures by visiting [Packet capture analysis with Wireshark](network-watcher-alert-triggered-packet-capture.md).
+Learn how to view your packet captures by visiting [Packet capture analysis with Wireshark](network-watcher-deep-packet-inspection.md).
+
 
 [1]: ./media/network-watcher-alert-triggered-packet-capture/figure1.png
 [1-1]: ./media/network-watcher-alert-triggered-packet-capture/figure1-1.png

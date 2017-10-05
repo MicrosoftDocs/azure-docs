@@ -12,7 +12,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
+ms.date: 08/08/2017
 ms.author: dobett
 
 ---
@@ -25,7 +25,7 @@ ms.author: dobett
 You can use Azure PowerShell cmdlets to create and manage Azure IoT hubs. This tutorial shows you how to create an IoT hub with PowerShell.
 
 > [!NOTE]
-> Azure has two different deployment models for creating and working with resources:  [Azure Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md).  This article covers using the Azure Resource Manager deployment model.
+> Azure has two different deployment models for creating and working with resources: [Azure Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Azure Resource Manager deployment model.
 
 To complete this tutorial, you need the following:
 
@@ -82,7 +82,7 @@ New-AzureRmIotHub `
     -Location "East US"
 ```
 
-Note that the name of the IoT hub must be unique.
+The name of the IoT hub must be unique.
 
 [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 

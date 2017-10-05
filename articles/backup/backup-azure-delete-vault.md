@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/21/2017
+ms.date: 08/11/2017
 ms.author: markgal;trinadhk
 
 ---
@@ -30,7 +30,7 @@ The Azure Backup service has two types of vaults - the Backup vault and the Reco
 >
 
 > [!IMPORTANT]
-> You can now upgrade your Backup vaults to Recovery Services vaults. For details, see the article [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft encourages you to upgrade your Backup vaults to Recovery Services vaults.<br/> **Starting November 1, 2017**:
+> You can now upgrade your Backup vaults to Recovery Services vaults. For details, see the article [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft encourages you to upgrade your Backup vaults to Recovery Services vaults.<br/> **October 15, 2017**, you will no longer be able to use PowerShell to create Backup vaults. <br/> **Starting November 1, 2017**:
 >- Any remaining Backup vaults will be automatically upgraded to Recovery Services vaults.
 >- You won't be able to access your backup data in the classic portal. Instead, use the Azure portal to access your backup data in Recovery Services vaults.
 >

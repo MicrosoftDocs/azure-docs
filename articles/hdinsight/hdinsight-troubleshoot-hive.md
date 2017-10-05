@@ -1,6 +1,6 @@
 ---
-title: HIVE troubleshooting - Azure HDInsight | Microsoft Docs
-description: Use the Hive FAQ for answers to common questions on Hive on Azure HDInsight platform.
+title: Troubleshoot Hive by using Azure HDInsight | Microsoft Docs
+description: Get answers to common questions about working with Apache Hive and Azure HDInsight.
 keywords: Azure HDInsight, Hive, FAQ, troubleshooting guide, common questions
 services: Azure HDInsight
 documentationcenter: na
@@ -19,173 +19,160 @@ ms.author: dharmeshkakadia
 
 ---
 
-# HIVE troubleshooting
+# Troubleshoot Hive by using Azure HDInsight
 
-This article describes the top issues and their resolutions for working with HIVE payloads in Apache Ambari.
+Learn about the top questions and their resolutions when working with Apache Hive payloads in Apache Ambari.
+
 
 ## How do I export a Hive metastore and import it on another cluster
 
-### Issue:
 
-Need to export Hive metastore and import it on another HDInsight cluster.  
+### Resolution steps
 
-### Resolution Steps: 
+1. Connect to the HDInsight cluster by using a Secure Shell (SSH) client. For more information, see [Additional reading](#additional-reading-end).
 
-1. Connect to the HDInsight cluster with a Secure Shell (SSH) client (check Further Reading section below).
-1. Run the following command on the HDInsight cluster where from you want to export the metastore:
+2. Run the following command on the HDInsight cluster from which you want to export the metastore:
 
-```apache
-for d in `hive -e "show databases"`; do echo "create database $d; use $d;" >> alltables.sql ; for t in `hive --database $d -e "show tables"` ; do ddl=`hive --database $d -e "show create table $t"`; echo "$ddl ;" >> alltables.sql ; echo "$ddl" | grep -q "PARTITIONED\s*BY" && echo "MSCK REPAIR TABLE $t ;" >> alltables.sql ; done; done
-```
+    ```apache
+    for d in `hive -e "show databases"`; do echo "create database $d; use $d;" >> alltables.sql ; for t in `hive --database $d -e "show tables"` ; do ddl=`hive --database $d -e "show create table $t"`; echo "$ddl ;" >> alltables.sql ; echo "$ddl" | grep -q "PARTITIONED\s*BY" && echo "MSCK REPAIR TABLE $t ;" >> alltables.sql ; done; done
+    ```
 
-This will generate a file named `allatables.sql`.
+  This command generates a file named allatables.sql.
 
-- Copy the file `alltables.sql` to the new HDInsight cluster and run the following command:
+3. Copy the file alltables.sql to the new HDInsight cluster, and then run the following command:
 
-```apache
-hive -f alltables.sql
-```
+  ```apache
+  hive -f alltables.sql
+  ```
 
-This code assumes that data paths on new cluster are same as on old. If not, you can manually edit the generated  
-`alltables.sql`  file to reflect any changes.
+The code in the resolution steps assumes that data paths on the new cluster are the same as the data paths on the old cluster. If the data paths are different, you can manually edit the generated alltables.sql file to reflect any changes.
 
-### Further Reading:
+### Additional reading
 
-- [Connect to HDInsight Cluster using SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
+- [Connect to an HDInsight cluster by using SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## How do locate Hive logs on a cluster
+## How do I locate Hive logs on a cluster
 
-### Issue:
+### Resolution steps
 
-Need to find the Hive client, metastore and hiveserver logs on HDInsight cluster.  
+1. Connect to the HDInsight cluster by using SSH. For more information, see **Additional reading**.
 
-### Resolution Steps: 
+2. To view Hive client logs, use the following command:
 
-- Connect to the HDInsight cluster with a Secure Shell (SSH) client (check Further Reading section below).
-- Hive client logs can be found at:
+  ```apache
+  /tmp/<username>/hive.log 
+  ```
 
-```apache
-/tmp/<username>/hive.log 
-```
+3. To view Hive metastore logs, use the following command:
 
-- Hive metastore logs can be found at:
+  ```apache
+  /var/log/hive/hivemetastore.log 
+  ```
 
-```apache
-/var/log/hive/hivemetastore.log 
-```
+4. To view Hiveserver logs, use the following command:
 
-- Hiveserver logs can be found at:
+  ```apache
+  /var/log/hive/hiveserver2.log 
+  ```
 
-```apache
-/var/log/hive/hiveserver2.log 
-```
+### Additional reading
 
-### Further Reading:
+- [Connect to an HDInsight cluster by using SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-- [Connect to HDInsight Cluster using SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
 
-## How do I launch Hive shell with specific configurations on a cluster
+## How do I launch the Hive shell with specific configurations on a cluster
 
-### Issue:
+### Resolution steps
 
-Need to override or specify Hive shell configurations at launch time on HDInsight clusters.  
+1. Specify a configuration key-value pair when you start the Hive shell. For more information, see [Additional reading](#additional-reading-end).
 
-### Resolution Steps: 
+  ```apache
+  hive -hiveconf a=b 
+  ```
 
-- Specify a configuration key value pair while starting Hive shell (check Further Reading section below):
+2. To list all effective configurations on Hive shell, use the following command:
 
-```apache
-hive -hiveconf a=b 
-```
+  ```apache
+  hive> set;
+  ```
 
-- List all effective configurations on Hive shell with the following command:
+  For example, use the following command to start Hive shell with debug logging enabled on the console:
 
-```apache
-hive> set;
-```
+  ```apache
+  hive -hiveconf hive.root.logger=ALL,console 
+  ```
 
-For example, use the following command to start hive shell with debug logging enabled on console:
-             
-```apache
-hive -hiveconf hive.root.logger=ALL,console 
-```
-
-### Further Reading:
+### Additional reading
 
 - [Hive configuration properties](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)
 
 
-## How do I analyze Tez DAG data on a cluster critical path
+## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>How do I analyze Tez DAG data on a cluster-critical path
 
-### Issue:
 
-Need to analyze Tez Directed Acyclic Graph (DAG) information particularly the critical path on HDInsight cluster
-
-### Resolution Steps:
+### Resolution steps
  
-- Connect to the HDInsight cluster with a Secure Shell (SSH) client (check Further Reading section below).
+1. To analyze an Apache Tez directed acyclic graph (DAG) on a cluster-critical graph, connect to the HDInsight cluster by using SSH. For more information, see [Additional reading](#additional-reading-end).
 
-- Run the following command at the command prompt:
+2. At a command prompt, run the following command:
    
-```apache
-hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar CriticalPath --saveResults --dagId <DagId> --eventFileName <DagData.zip> 
-```
+  ```apache
+  hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar CriticalPath --saveResults --dagId <DagId> --eventFileName <DagData.zip> 
+  ```
 
-- List other analyzers that can be used for analyzing Tez DAG with the following command:
+3. To list other analyzers that can be used to analyze Tez DAG, use the following command:
 
-```apache
-hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar
-```
+  ```apache
+  hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar
+  ```
 
-An example program must be given as the first argument.
+  You must provide an example program as the first argument.
 
-Valid program names are:
-  ContainerReuseAnalyzer: Print container reuse details in a DAG
-  CriticalPath: Find the critical path of a DAG
-  LocalityAnalyzer: Print locality details in a DAG
-  ShuffleTimeAnalyzer: Analyze the shuffle time details in a DAG
-  SkewAnalyzer: Analyze the skew details in a DAG
-  SlowNodeAnalyzer: Print node details in a DAG
-  SlowTaskIdentifier: Print slow task details in a DAG
-  SlowestVertexAnalyzer: Print slowest vertex details in a DAG
-  SpillAnalyzer: Print spill details in a DAG
-  TaskConcurrencyAnalyzer: Print the task concurrency details in a DAG
-  VertexLevelCriticalPathAnalyzer: Find critical path at vertex level in a DAG
+  Valid program names include:
+    - **ContainerReuseAnalyzer**: Print container reuse details in a DAG
+    - **CriticalPath**: Find the critical path of a DAG
+    - **LocalityAnalyzer**: Print locality details in a DAG
+    - **ShuffleTimeAnalyzer**: Analyze the shuffle time details in a DAG
+    - **SkewAnalyzer**: Analyze the skew details in a DAG
+    - **SlowNodeAnalyzer**: Print node details in a DAG
+    - **SlowTaskIdentifier**: Print slow task details in a DAG
+    - **SlowestVertexAnalyzer**: Print slowest vertex details in a DAG
+    - **SpillAnalyzer**: Print spill details in a DAG
+    - **TaskConcurrencyAnalyzer**: Print the task concurrency details in a DAG
+    - **VertexLevelCriticalPathAnalyzer**: Find the critical path at vertex level in a DAG
 
 
-### Further Reading:
+### Additional reading
 
-- [Connect to HDInsight Cluster using SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
-
+- [Connect to an HDInsight cluster by using SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
 ## How do I download Tez DAG data from a cluster
 
-#### Issue:
 
-Need to download Tez Directed Acyclic Graph (DAG) information from HDInsight cluster.
+#### Resolution steps
 
-#### Resolution Steps:
+There are two ways to collect the Tez DAG data:
 
-There are two ways to collect the Tez DAG data.
-
-- From commandline:
+- From the command line:
  
-    Connect to the HDInsight cluster with a Secure Shell (SSH) client. Run the following command at the command prompt:
+    Connect to the HDInsight cluster by using SSH. At the command prompt, run the following command:
+
+  ```apache
+  hadoop jar /usr/hdp/current/tez-client/tez-history-parser-*.jar org.apache.tez.history.ATSImportTool -downloadDir . -dagId <DagId> 
+  ```
+
+- Use the Ambari Tez view:
    
-```apache
-hadoop jar /usr/hdp/current/tez-client/tez-history-parser-*.jar org.apache.tez.history.ATSImportTool -downloadDir . -dagId <DagId> 
-```
+  1. Go to Ambari. 
+  2. Go to Tez view (under the tiles icon in the upper-right corner). 
+  3. Select the DAG you want to view.
+  4. Select **Download data**.
 
-- Or you can use the Ambari Tez view:
-   
-Go to Ambari --> Go to Tez view (hidden under tiles icon in upper right corner) --> Click on the dag you are interested in --> Click on Download data.
+### <a name="additional-reading-end"></a>Additional reading
 
-#### Further Reading:
-
-1) [Connect to HDInsight Cluster using SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
-
+[Connect to an HDInsight cluster by using SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
 

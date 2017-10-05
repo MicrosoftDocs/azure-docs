@@ -1,4 +1,4 @@
----
+﻿---
 title: Filtering and preprocessing in the Azure Application Insights SDK | Microsoft Docs
 description: Write Telemetry Processors and Telemetry Initializers for the SDK to filter or add properties to the data before the telemetry is sent to the Application Insights portal.
 services: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/23/2016
-ms.author: cfreeman
+ms.author: bwren
 
 ---
 # Filtering and preprocessing telemetry in the Application Insights SDK
@@ -338,8 +338,8 @@ What's the difference between telemetry processors and telemetry initializers?
 * [ASP.NET reference](https://msdn.microsoft.com/library/dn817570.aspx)
 
 ## SDK Code
-* [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
-* [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5)
+* [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
+* [ASP.NET SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
 
 ## <a name="next"></a>Next steps

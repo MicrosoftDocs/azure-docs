@@ -15,7 +15,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/23/2017
+ms.date: 08/02/2017
 ms.author: larryfr
 
 ---
@@ -116,6 +116,9 @@ The Data Lake tools for Visual Studio provide the following templates:
 | Storm HBase Writer Sample |How to write to HBase on HDInsight clusters. |
 | Storm Hybrid Sample |How to use a Java component. |
 | Storm Sample |A basic word count topology. |
+
+> [!WARNING]
+> Not all templates will work with Linux-based HDInsight. Nuget packages used by the templates may not be compatible with Mono. Check the [Mono compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) document and use the [.NET Portability Analyzer](hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis) to identify potential problems.
 
 In the steps in this document, you use the basic Storm Application project type to create a topology.
 

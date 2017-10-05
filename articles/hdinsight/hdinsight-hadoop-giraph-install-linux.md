@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 07/31/2017
 ms.author: larryfr
 
 ---
@@ -93,19 +93,21 @@ Once the cluster has been created, use the following steps to run the SimpleShor
 
 1. Connect to the HDInsight cluster using SSH:
 
-        ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    ```bash
+    ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    ```
 
     For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Use the following command to create a file named **tiny_graph.txt**:
 
-    ```
+    ```bash
     nano tiny_graph.txt
     ```
 
     Use the following text as the contents of this file:
 
-    ```
+    ```text
     [0,0,[[1,1],[3,3]]]
     [1,0,[[0,1],[2,2],[3,1]]]
     [2,0,[[1,2],[4,4]]]
@@ -123,13 +125,13 @@ Once the cluster has been created, use the following steps to run the SimpleShor
 
 4. Use the following to store the data into primary storage for your HDInsight cluster:
 
-    ```
+    ```bash
     hdfs dfs -put tiny_graph.txt /example/data/tiny_graph.txt
     ```
 
 5. Run the SimpleShortestPathsComputation example using the following command:
 
-    ```
+    ```bash
     yarn jar /usr/hdp/current/giraph/giraph-examples.jar org.apache.giraph.GiraphRunner org.apache.giraph.examples.SimpleShortestPathsComputation -ca mapred.job.tracker=headnodehost:9010 -vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat -vip /example/data/tiny_graph.txt -vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat -op /example/output/shortestpaths -w 2
     ```
 
@@ -151,7 +153,7 @@ Once the cluster has been created, use the following steps to run the SimpleShor
 
 6. Once the job has finished, the results are stored in the **/example/out/shotestpaths** directory. The output file names begin with **part-m-** and end with a number indicating the first, second, etc. file. Use the following command to view the output:
 
-    ```
+    ```bash
     hdfs dfs -text /example/output/shortestpaths/*
     ```
 

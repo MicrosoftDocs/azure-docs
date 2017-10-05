@@ -2,43 +2,32 @@
   href: ../index.md
 - name: Overview
   items: 
-  - name: Learn about the Content Moderator API
+  - name: About Content Moderator
     href: overview.md
-- name: Get started
+- name: Quickstarts
   items: 
-  - name: Get started with Content Moderator
+  - name: Review tool
     href: quick-start.md
-- name: How to
-  items: 
-  - name: Review tool user guide
-    items:
-    - name: Human in the loop
-      href: Review-Tool-User-Guide/human-in-the-loop.md
-    - name: Settings
-      href: Review-Tool-User-Guide/Configure.md
-    - name: Team and subteams
-      href: Review-Tool-User-Guide/SubTeams.md
-    - name: About Tags
-      href: Review-Tool-User-Guide/Tags.md
-    - name: Image reviews
-      href: Review-Tool-User-Guide/Review-Moderated-Images.md
-    - name: Text reviews
-      href: Review-Tool-User-Guide/Text-Reviews.md
-    - name: Verifying credentials
-      href: Review-Tool-User-Guide/Credentials.md
-    - name: About Connectors
-      href: Review-Tool-User-Guide/Connectors.md
-    - name: Using workflows
-      href: Review-Tool-User-Guide/Workflows.md
-    - name: View dashboard
-      href: Review-Tool-User-Guide/View-Dashboard.md
-- name: Reference
-  items: 
-  - name: API Reference Guide  
-    href: api-reference.md
-    items:
+  - name: Moderation APIs
+    items: 
+    - name: Image API
+      href: try-image-api.md
+    - name: Image list API
+      href: try-image-list-api.md
+    - name: Text API
+      href: try-text-api.md
+    - name: Term list API
+      href: try-terms-list-api.md
   - name: Review APIs
-    href: review-api.md
+    items: 
+    - name: Jobs
+      href: try-review-api-job.md
+    - name: Reviews
+      href: try-review-api-review.md
+    - name: Workflows
+      href: try-review-api-workflow.md
+- name: Concepts
+  items: 
   - name: Image moderation
     href: image-moderation-api.md
   - name: Text moderation
@@ -47,6 +36,42 @@
     href: Text-Moderation-API-Languages.md
   - name: Video moderation
     href: video-moderation-api.md
+  - name: Review APIs
+    href: review-api.md
+- name: How-to guides
+  items:
+  - name: Review tool
+    items:
+    - name: Human in the loop
+      href: Review-Tool-User-Guide/human-in-the-loop.md
+    - name: Use settings
+      href: Review-Tool-User-Guide/Configure.md
+    - name: Manage team
+      href: Review-Tool-User-Guide/SubTeams.md
+    - name: Use tags
+      href: Review-Tool-User-Guide/Tags.md
+    - name: Review images
+      href: Review-Tool-User-Guide/Review-Moderated-Images.md
+    - name: Review text
+      href: Review-Tool-User-Guide/Text-Reviews.md
+    - name: Verify credentials
+      href: Review-Tool-User-Guide/Credentials.md
+    - name: Use connectors
+      href: Review-Tool-User-Guide/Connectors.md
+    - name: Use workflows
+      href: Review-Tool-User-Guide/Workflows.md
+    - name: View dashboard
+      href: Review-Tool-User-Guide/View-Dashboard.md
+- name: Tutorials
+  items:
+  - name: Facebook post moderation
+    href: facebook-post-moderation.md
+  - name: eCommerce catalog moderation
+    href: ecommerce-retail-catalog-moderation.md
+- name: API References
+  items: 
+  - name: All APIs  
+    href: api-reference.md 
 - name: Resources
   items:  
   - name: Azure Roadmap
@@ -54,6 +79,6 @@
   - name: Windows SDK
     href: https://github.com/MicrosoftContentModerator/Microsoft.CognitiveServices.ContentModerator-Windows/
   - name: Samples
-    href: https://azure.microsoft.com/resources/samples/?service=cognitive-services
+    href: https://github.com/MicrosoftContentModerator
   - name: FAQ
     href: FAQs.md

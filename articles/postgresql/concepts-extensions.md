@@ -6,20 +6,20 @@ author: SaloniSonpal
 ms.author: salonis
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
+ms.service: postgresql
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 09/26/2017
 ---
-# PostgreSQL Extensions in Azure Database for PostgreSQL
-PostgreSQL provides the ability to extend the functionality of your database using extensions. Extensions allow for multiple related SQL objects to be bundled together in a single package and can be loaded or removed from your database with a single command. Extensions once loaded into the database can function just like features that are built in. For more information on PostgreSQL extensions, see [Packaging Related Objects into an Extension](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
+# PostgreSQL extensions in Azure Database for PostgreSQL
+PostgreSQL provides the ability to extend the functionality of your database using extensions. Extensions allow for bundling multiple related SQL objects together in a single package that can be loaded or removed from your database with a single command. After being loaded in the database, extensions can function as do built-in features. For more information on PostgreSQL extensions, see [Packaging Related Objects into an Extension](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
 
-## How to use PostgreSQL extensions?
-PostgreSQL extensions need to be installed for your database before you can use them. To install a particular extension, run the [CREATE EXTENSION](https://www.postgresql.org/docs/9.6/static/sql-createextension.html) command from psql tool to load the packaged objects into your database.
+## How to use PostgreSQL extensions
+PostgreSQL extensions must be installed for your database before you can use them. To install a particular extension, run the [CREATE EXTENSION](https://www.postgresql.org/docs/9.6/static/sql-createextension.html) command from psql tool to load the packaged objects into your database.
 
-Azure Database for PostgreSQL supports a subset of key extensions as listed here. Beyond the ones listed, other extensions are not supported. You cannot create your own extension with Azure Database for PostgreSQL service.
+Azure Database for PostgreSQL supports a subset of key extensions as listed here. Extensions beyond the ones listed are not supported; you cannot create your own extension with Azure Database for PostgreSQL service.
 
 ## Extensions supported by Azure Database for PostgreSQL
-The following tables list the standard PostgreSQL extensions that are currently supported by Azure Database for PostgreSQL. You can also obtain this information by querying pg\_available\_extensions. 
+The following tables list the standard PostgreSQL extensions that are currently supported by Azure Database for PostgreSQL. This information is also available by querying pg\_available\_extensions.
 
 ### Data types extensions
 
@@ -27,7 +27,7 @@ The following tables list the standard PostgreSQL extensions that are currently 
 | **Extension** | **Description** |
 |---|---|
 | [citext](https://www.postgresql.org/docs/9.6/static/citext.html) | Provides a case-insensitive character string type |
-| [hstore](https://www.postgresql.org/docs/9.6/static/hstore.html) | Provides data type for storing sets of key/value pairs |
+| [hstore](https://www.postgresql.org/docs/9.6/static/hstore.html) | Provides a data type for storing sets of key/value pairs |
 
 ### Functions extensions
 
@@ -36,12 +36,12 @@ The following tables list the standard PostgreSQL extensions that are currently 
 |---|---|
 | [fuzzystrmatch](https://www.postgresql.org/docs/9.6/static/fuzzystrmatch.html) | Provides several functions to determine similarities and distance between strings. |
 | [intarray](https://www.postgresql.org/docs/9.6/static/intarray.html) | Provides functions and operators for manipulating null-free arrays of integers. |
-| [pgcrypto](https://www.postgresql.org/docs/9.6/static/pgcrypto.html) | Provides cryptographic functions |
-| [pg\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Manages partitioned tables by time or ID |
-| [pg\_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) | Provides functions and operators for determining the similarity of alphanumeric text based on trigram matching |
-| [uuid-ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | Generate universally unique identifiers (UUIDs) |
+| [pgcrypto](https://www.postgresql.org/docs/9.6/static/pgcrypto.html) | Provides cryptographic functions. |
+| [pg\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Manages partitioned tables by time or ID. |
+| [pg\_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) | Provides functions and operators for determining the similarity of alphanumeric text based on trigram matching. |
+| [uuid-ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | Generates universally unique identifiers (UUIDs). |
 
-### Full-text Search extensions
+### Full-text search extensions
 
 > [!div class="mx-tableFixed"]
 | **Extension** | **Description** |
@@ -71,7 +71,7 @@ The following tables list the standard PostgreSQL extensions that are currently 
 | [pg\_buffercache](https://www.postgresql.org/docs/9.6/static/pgbuffercache.html) | Provides a means for examining what's happening in the shared buffer cache in real time. |
 | [pg\_prewarm](https://www.postgresql.org/docs/9.6/static/pgprewarm.html) | Provides a way to load relation data into the buffer cache. |
 | [pg\_stat\_statements](https://www.postgresql.org/docs/9.6/static/pgstatstatements.html) | Provides a means for tracking execution statistics of all SQL statements executed by a server. |
-| [postgres\_fdw](https://www.postgresql.org/docs/9.6/static/postgres-fdw.html) | Foreign-data wrapper used to access data stored in external PostgreSQL servers |
+| [postgres\_fdw](https://www.postgresql.org/docs/9.6/static/postgres-fdw.html) | Foreign-data wrapper used to access data stored in external PostgreSQL servers. |
 
 ### PostGIS
 
@@ -80,7 +80,7 @@ The following tables list the standard PostgreSQL extensions that are currently 
 |---|---|
 | [PostGIS](http://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | Spatial and geographic objects for PostgreSQL. |
 | address\_standardizer, address\_standardizer\_data\_us | Used to parse an address into constituent elements. Used to support geocoding address normalization step. |
-| [pgrouting](http://pgrouting.org/) | Extends the PostGIS / PostgreSQL geospatial database to provide geospatial routing functionality. |
+| [grouting](http://pgrouting.org/) | Extends the PostGIS / PostgreSQL geospatial database to provide geospatial routing functionality. |
 
 ## Next steps
-Don't see an extension you'd like to use? Please let us know. Vote for existing requests or create new feedback and wishes in our [Customer feedback forum](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
+If you don't see an extension that you'd like to use, let us know. Vote for existing requests or create new feedback and requests in our [Customer feedback forum](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).

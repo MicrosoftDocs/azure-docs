@@ -29,13 +29,12 @@ This document provides an overview of VM extensions, prerequisites for using Azu
 Several different Azure VM extensions are available, each with a specific use case. Some examples are:
 
 - Apply PowerShell Desired State configurations to a virtual machine using the DSC extension for Linux. For more information, see [Azure Desired State configuration extension](https://github.com/Azure/azure-linux-extensions/tree/master/DSC).
-- Configure monitoring of a virtual machine with the Microsoft Monitoring Agent VM extension. For more information, see [Enable or disable VM monitoring](vm-monitoring.md).
+- Configure monitoring of a virtual machine with the Microsoft Monitoring Agent VM extension. For more information, see [How to monitor a Linux VM](tutorial-monitoring.md).
 - Configure monitoring of your Azure infrastructure with the Datadog extension. For more information, see the [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 - Configure a Docker host on an Azure virtual machine using the Docker VM extension. For more information, see [Docker VM extension](dockerextension.md).
 
 In addition to process-specific extensions, a Custom Script extension is available for both Windows and Linux virtual machines. The Custom Script extension for Linux allows any Bash script to be run on a virtual machine. Custom scripts are useful for designing Azure deployments that require configuration beyond what native Azure tooling can provide. For more information, see [Linux VM Custom Script extension](extensions-customscript.md).
 
-To work through an example where a VM extension is used in an end-to-end application deployment, see [Automating application deployments to Azure virtual machines](../linux/dotnet-core-1-landing.md).
 
 ## Prerequisites
 
@@ -126,7 +125,7 @@ For more information, see the full [Resource Manager template](https://github.co
 }
 ```
 
-For more information, see [Authoring Azure Resource Manager templates with Linux VM extensions](../linux/extensions-authoring-templates.md).
+For more information, see [Authoring Azure Resource Manager templates](../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#extensions).
 
 ## Secure VM extension data
 

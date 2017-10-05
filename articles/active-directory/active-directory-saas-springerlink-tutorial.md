@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 08/03/2017
 ms.author: jeedes
 
 ---
@@ -84,9 +84,8 @@ To configure and test Azure AD single sign-on with Springer Link, you need to co
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a Springer Link test user](#create-a-springer-link-test-user)** - to have a counterpart of Britta Simon in Springer Link that is linked to the Azure AD representation of user.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+3. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+4. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -102,22 +101,25 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Single sign-on dialog box](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_samlbase.png)
 
-3. On the **Springer Link Domain and URLs** section, perform the following steps:
+3. On the **Springer Link Domain and URLs** section,  If you wish to configure the application in **IDP** initiated mode:
 
-	![Springer Link Domain and URLs single sign-on information](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_url.png)
+	![Springer Link Domain and URLs single sign-on information](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_url1.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.live.cf.public.springer.com/athens-shibboleth-login?previousUrl=https%3A%2F%2Fcore-qa.live.cf.public.springer.com%2F`
+    a. In the **Identifier** textbox, type the URL: `https://fsso.springer.com`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.springer.com`
+    b. In the **Reply URL** textbox, type the URL: `https://fsso-qa1.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`    
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Springer Link Client support team](https://www.springer.com/gp/help/contact) to get these values. 
+4. Check **Show advanced URL settings**. If you wish to configure the application in **SP** initiated mode:
 
-4. Click **Save** button.
+    ![Springer Link Domain and URLs single sign-on information](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_url.png)
+
+    In the **Sign-on URL** textbox, type the URL : `https://fsso.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`    
+
+5. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-springerlink-tutorial/tutorial_general_400.png)
 
-5. To generate the **Metadata** url, perform the following steps:
+6. To generate the **Metadata** url, perform the following steps:
 
     a. Click **App registrations**.
     
@@ -137,11 +139,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     e. Generate the **Metadata URL** using the following pattern: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
 
-6. To configure single sign-on on **Springer Link** side, you need to send the generated **Metadata URL** to [Springer Link support team](http://www.springer.com/gp/help/contact).
+7. To configure single sign-on on **Springer Link** side, you need to send the generated **Metadata URL** to [Springer Link support team](mailto:identity@springernature.com).
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+
 
 ### Create an Azure AD test user
 
@@ -175,10 +177,6 @@ The objective of this section is to create a test user in the Azure portal calle
 
     d. Click **Create**.
  
-### Create a Springer Link test user
-
-In this section, you create a user called Britta Simon in Springer Link. Work with [Springer Link support team](http://www.springer.com/gp/help/contact) to add the users in the Springer Link platform. Users must be created and activated before you use single sign-on. 
-
 ### Assign the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Springer Link.

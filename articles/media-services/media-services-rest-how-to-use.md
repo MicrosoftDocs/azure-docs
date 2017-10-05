@@ -1,10 +1,10 @@
 ---
-title: Media Services Operations REST API overview | Microsoft Docs
+title: Media Services operations REST API overview | Microsoft Docs
 description: Media Services REST API overview
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: a5f1c5e7-ec52-4e26-9a44-d9ea699f68d9
@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 08/10/2017
 ms.author: juliako
 
 ---
-# Media Services Operations REST API overview
+# Media Services operations REST API overview
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
 The **Media Services Operations REST** API is used for creating jobs, assets, access policies, and other operations on objects in a Media Service account. For more information, see [Media Services Operations REST API reference](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
@@ -99,13 +99,14 @@ The following is a complete list of HTTP verbs that can be used when making HTTP
 | MERGE |Updates an existing object with named property changes. |
 | HEAD |Returns metadata of an object for a GET response. |
 
-## Limitation
-When querying entities, there is a limit of 1000 entities returned at one time because public REST v2 limits query results to 1000 results. You need to use **Skip** and **Take** (.NET)/ **top** (REST) as described in [this .NET example](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) and [this REST API example](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
-
-## Discovering Media Services model
+## Discover Media Services model
 To make Media Services entities more discoverable, the $metadata operation can be used. It allows you to retrieve all valid entity types, entity properties, associations, functions, actions, and so on. The following example shows how to construct the URI: https://media.windows.net/API/$metadata.
 
 You should append "?api-version=2.x" to the end of the URI if you want to view the metadata in a browser, or do not include the x-ms-version header in your request.
+
+## Connect to Media Services
+
+For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI.
 
 ## Next steps
 

@@ -28,7 +28,7 @@ The Standard tier of Azure Event Hubs provides features beyond what is available
 * Longer event retention
 * Additional brokered connections, with an overage charge for more than the number included
 * More than a single Consumer Group
-* [Capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview)
+* [Capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)
 
 For more information about pricing tiers, including Event Hubs Dedicated, see the [Event Hubs pricing details](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -54,7 +54,7 @@ There is a default quota of 20 throughput units per namespace. You can request a
 Yes, as long as all the event hubs are in the same namespace.
 
 ### What is the maximum retention period for events?
-Event Hubs Standard tier currently supports a maximum retention period of 7 days. Note that event hubs are not intended as a permanent data store. Retention periods greater than 24 hours are intended for scenarios in which it is convenient to replay an event stream into the same systems; for example, to train or verify a new machine learning model on existing data. If you need message retention beyond 7 days, enabling [Event Hubs Capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview) on your event hub pulls the data from your event hub to the storage of your choosing. Enabling Capture incurs a charge based on your purchased Throughput Unit.
+Event Hubs Standard tier currently supports a maximum retention period of 7 days. Note that event hubs are not intended as a permanent data store. Retention periods greater than 24 hours are intended for scenarios in which it is convenient to replay an event stream into the same systems; for example, to train or verify a new machine learning model on existing data. If you need message retention beyond 7 days, enabling [Event Hubs Capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) on your event hub pulls the data from your event hub to the Storage account or Azure Data Lake Service account of your choosing. Enabling Capture incurs a charge based on your purchased Throughput Unit.
 
 ### Where is Azure Event Hubs available?
 Azure Event Hubs is available in all supported Azure regions. For a list, visit the [Azure regions](https://azure.microsoft.com/regions/) page.  

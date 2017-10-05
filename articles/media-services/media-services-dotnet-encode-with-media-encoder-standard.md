@@ -4,7 +4,7 @@ description: This topic shows how to use .NET to encode an asset using Media Enc
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 03431b64-5518-478a-a1c2-1de345999274
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 07/31/2017
 ms.author: juliako;anilmur
 
 ---
@@ -185,7 +185,7 @@ Set up your development environment and populate the app.config file with connec
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## See Also
+## Next steps
 [How to generate thumbnail using Media Encoder Standard with .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
 [Media Services Encoding Overview](media-services-encode-asset.md)
 

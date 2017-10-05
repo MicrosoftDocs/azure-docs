@@ -4,7 +4,7 @@ description: Understand how to use Azure Service Bus triggers and bindings in Az
 services: functions
 documentationcenter: na
 author: christopheranderson
-manager: erikre
+manager: cfowler
 editor: ''
 tags: ''
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
@@ -16,7 +16,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
-ms.author: chrande; glenga
+ms.author: glenga
 
 ---
 # Azure Functions Service Bus bindings

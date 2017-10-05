@@ -32,7 +32,7 @@ To change the number of agent nodes, run the `az acs scale` command and supply t
 For example, to change the number of agents in the previous cluster to 10, type the following command:
 
 ```azurecli
-azure acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
+az acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
 ```
 
 The Azure CLI 2.0 returns a JSON string representing the new configuration of the container service, including the new agent count.

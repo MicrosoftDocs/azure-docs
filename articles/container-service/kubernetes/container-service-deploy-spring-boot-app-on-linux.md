@@ -1,34 +1,35 @@
 ---
 title: Deploy a Spring Boot Web App on Linux in Azure Container Service | Microsoft Docs
 description: This tutorial walks you though the steps to deploy a Spring Boot application as a Linux web app on Microsoft Azure.
-services: ''
+services: container-service
 documentationcenter: java
 author: rmcmurray
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 
-ms.service: multiple
+ms.service: container-service
 ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 06/21/2017
+ms.date: 08/04/2017
 ms.author: asirveda;robmcm
+ms.custom: mvc
 
 ---
 
 # Deploy a Spring Boot application on Linux in the Azure Container Service
 
-The **[Spring Framework]** is an open-source solution which helps Java developers create enterprise-level applications. One of the more-popular projects which is built on top of that platform is [Spring Boot], which provides a simplified approach for creating stand-alone Java applications.
+The **[Spring Framework]** is an open-source solution that helps Java developers create enterprise-level applications. One of the more-popular projects that is built on top of that platform is [Spring Boot], which provides a simplified approach for creating stand-alone Java applications.
 
-**[Docker]** is open-source solutions which helps developers automate the deployment, scaling, and management of their applications which are running in containers.
+**[Docker]** is open-source solutions that helps developers automate the deployment, scaling, and management of their applications that are running in containers.
 
 This tutorial walks you through using Docker to develop and deploy a Spring Boot application to a Linux host in the [Azure Container Service (ACS)].
 
 ## Prerequisites
 
-In order to complete the steps in this tutorial, you need to have the following:
+In order to complete the steps in this tutorial, you need to have the following prerequisites:
 
 * An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
 * The [Azure Command-Line Interface (CLI)].
@@ -67,28 +68,6 @@ The following steps walk you through the steps that are required to create a sim
    cd gs-spring-boot-docker/complete
    ```
 
-1. Optional Step: If you want to run the embedded Tomcat server to run on port 80 instead of the default port of 8080, (for example if you are going to be testing your Spring Boot project locally), you can configure the port by using the following steps:
-
-   a. Change directory to the resources directory; for example:
-   ```
-   cd src/main/resources
-   ```
-
-   b. Open the *application.yml* file in a text editor.
-
-   c. Modify the **server:** setting so that the server will run on port 80; for example:
-   ```
-   server:
-      port: 80
-   ```
-
-   d. Save and close the *application.yml* file.
-
-   e. Change directory back to the root folder for the completed project; for example:
-   ```
-   cd ../../..
-   ```
-
 1. Build the JAR file using Maven; for example:
    ```
    mvn package
@@ -118,9 +97,9 @@ The following steps walk you through using the Azure portal to create an Azure C
 > If you want to use the Azure CLI instead of the Azure portal, follow the steps in [Create a private Docker container registry using the Azure CLI 2.0](../../container-registry/container-registry-get-started-azure-cli.md).
 >
 
-1. Browse to the [Azure portal] and log in.
+1. Browse to the [Azure portal] and sign in.
 
-   Once you have logged into your account on the Azure portal, you can follow the steps in the [Create a private Docker container registry using the Azure portal] article, which are paraphrased in the following steps for the sake of expediency.
+   Once you have signed in to your account on the Azure portal, you can follow the steps in the [Create a private Docker container registry using the Azure portal] article, which are paraphrased in the following steps for the sake of expediency.
 
 1. Click the menu icon for **+ New**, then click **Containers**, and then click **Azure Container Registry**.
    
@@ -130,7 +109,7 @@ The following steps walk you through using the Azure portal to create an Azure C
 
    ![Create a new Azure Container Registry][AR02]
 
-1. When the **Create container registry** blade is displayed, enter your **Registry name** and **Resource group**, choose **Enable** for the **Admin user**, and then click **Create**.
+1. When the **Create container registry** page is displayed, enter your **Registry name** and **Resource group**, choose **Enable** for the **Admin user**, and then click **Create**.
 
    ![Configure Azure Container Registry settings][AR03]
 
@@ -154,7 +133,7 @@ The following steps walk you through using the Azure portal to create an Azure C
    </servers>
    ```
 
-1. Navigate to the completed project directory for your Spring Boot application, (e.g. "*C:\SpringBoot\gs-spring-boot-docker\complete*" or "*/users/robert/SpringBoot/gs-spring-boot-docker/complete*"), and open the *pom.xml* file with a text editor.
+1. Navigate to the completed project directory for your Spring Boot application, (for example: "*C:\SpringBoot\gs-spring-boot-docker\complete*" or "*/users/robert/SpringBoot/gs-spring-boot-docker/complete*"), and open the *pom.xml* file with a text editor.
 
 1. Update the `<properties>` collection in the *pom.xml* file with the login server value for your Azure Container Registry from the previous section of this tutorial; for example:
 
@@ -202,7 +181,7 @@ The following steps walk you through using the Azure portal to create an Azure C
 >
 > * `[ERROR] Failed to execute goal com.spotify:docker-maven-plugin:0.4.11:build (default-cli) on project gs-spring-boot-docker: Exception caught: Incomplete Docker registry authorization credentials. Please provide all of username, password, and email or none.`
 >
-> If this happens, you may need to log into Azure from the Docker command line; for example:
+> If this happens, you may need to sign in to your Azure account from the Docker command line; for example:
 >
 > `docker login -u wingtiptoysregistry -p "AbCdEfGhIjKlMnOpQrStUvWxYz" wingtiptoysregistry.azurecr.io`
 >
@@ -213,13 +192,13 @@ The following steps walk you through using the Azure portal to create an Azure C
 
 ## Create a web app on Linux on Azure App Service using your container image
 
-1. Browse to the [Azure portal] and log in.
+1. Browse to the [Azure portal] and sign in.
 
 1. Click the menu icon for **+ New**, then click **Web + Mobile**, and then click **Web App on Linux**.
    
    ![Create a new web app in the Azure portal][LX01]
 
-1. When the **Web App on Linux** blade is displayed, enter the following information:
+1. When the **Web App on Linux** page is displayed, enter the following information:
 
    a. Enter a unique name for the **App name**; for example: "*wingtiptoyslinux*."
 
@@ -235,7 +214,7 @@ The following steps walk you through using the Azure portal to create an Azure C
 
       * **Server URL**: Specify your registry URL from earlier; for example: "*https://wingtiptoysregistry.azurecr.io*"
 
-      * **Login username** and **Password**: Specify your login credentials from your **Access Keys** which you used in previous steps.
+      * **Login username** and **Password**: Specify your login credentials from your **Access Keys** that you used in previous steps.
    
    e. Once you have entered all of the above information, click **OK**.
 
@@ -245,9 +224,9 @@ The following steps walk you through using the Azure portal to create an Azure C
 
 > [!NOTE]
 >
-> Azure will automatically map Internet requests to embedded Tomcat server which is running on the standard ports of 80 or 8080. However, if you configured your embedded Tomcat server to run on a custom port, you will need to add an environment variable to your web app which defines the port for your embedded Tomcat server. To do so, use the following steps:
+> Azure will automatically map Internet requests to embedded Tomcat server that is running on the standard ports of 80 or 8080. However, if you configured your embedded Tomcat server to run on a custom port, you need to add an environment variable to your web app that defines the port for your embedded Tomcat server. To do so, use the following steps:
 >
-> 1. Browse to the [Azure portal] and log in.
+> 1. Browse to the [Azure portal] and sign in.
 > 
 > 2. Click the icon for **App Services**. (See item #1 in the image below.)
 >
@@ -262,15 +241,33 @@ The following steps walk you through using the Azure portal to create an Azure C
 > ![Saving a custom port number in the Azure portal][LX03]
 >
 
+<!--
+##  OPTIONAL: Configure the embedded Tomcat server to run on a different port
+
+The embedded Tomcat server in the sample Spring Boot application is configured to run on port 8080 by default. However, if you want to run the embedded Tomcat server to run on a different port, such as port 80 for local testing, you can configure the port by using the following steps.
+
+1. Go to the *resources* directory (or create the directory if it does not exist); for example:
+   ```shell
+   cd src/main/resources
+   ```
+
+1. Open the *application.yml* file in a text editor if it exists, or create a new YAML file if it does not exist.
+
+1. Modify the **server** setting so that the server runs on port 80; for example:
+   ```yaml
+   server:
+      port: 80
+   ```
+
+1. Save and close the *application.yml* file.
+-->
+
 ## Next steps
 
 For more information about using Spring Boot applications on Azure, see the following articles:
 
 * [Deploy a Spring Boot Application to the Azure App Service](../../app-service/app-service-deploy-spring-boot-web-app-on-azure.md)
-
-* [Running a Spring Boot Application on a Kubernetes Cluster in the Azure Container Service](container-service-deploy-spring-boot-app-on-kubernetes.md)
-
-## Additional resources
+* [Deploy a Spring Boot Application on a Kubernetes Cluster in the Azure Container Service](container-service-deploy-spring-boot-app-on-kubernetes.md)
 
 For more information about using Azure with Java, see the [Azure Java Developer Center] and the [Java Tools for Visual Studio Team Services].
 

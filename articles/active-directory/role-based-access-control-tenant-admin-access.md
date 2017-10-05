@@ -3,7 +3,7 @@ title: Tenant admin elevate access - Azure AD | Microsoft Docs
 description: This topic describes the built in roles for role-based access control (RBAC).
 services: active-directory
 documentationcenter: ''
-author: kgremban
+author: andredm7
 manager: femila
 editor: rqureshi
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
-ms.author: kgremban
+ms.author: andredm
 
 ---
 # Elevate access as a tenant admin with Role-Based Access Control
@@ -23,7 +23,18 @@ Role-based Access Control helps tenant administrators get temporary elevations i
 
 This feature is important because it allows the tenant admin to see all the subscriptions that exist in an organization. It also allows for automation apps (like invoicing and auditing) to access all the subscriptions and provide an accurate view of the state of the organization for billing or asset management.  
 
-## How to use elevateAccess to give tenant access
+## How to use elevateAccess for tenant access with Azure AD admin center
+
+In the [Azure Active Directory admin center](https://aad.portal.azure.com) you can invoke this feature from **Properties**.
+The feature is called **Global admin can manage Azure Subscriptions**. The impression is that this is a Global Property for Azure Active Directory, however, it functions on a per-user basis for the currently logged on user. When you have Global Administrator rights in Azure Active Directory, you can invoke the elevateAccess feature for the user which you are currently logged into Azure Active Directory Admin Center.
+
+Selecting **Yes** and then **Save**: This **Assigns** the **User Access Administrator** role at the Root "/" (Root Scope) for the user with which you are currently logged into the Portal.
+
+Selecting **No** and then **Save**: This **Removes**  the **User Access Administrator** role at the Root "/" (Root Scope) for the user with which you are currently logged into the Portal.
+
+![Azure AD Admin Center - Properties - Globaladmin can manage Azure Subscription - screenshot](./media/role-based-access-control-tenant-admin-access/aad-azure-portal-global-admin-can-manage-azure-subscriptions.png)
+
+## How to use elevateAccess to give tenant access with the REST API
 
 The basic process works with the following steps:
 
@@ -52,7 +63,7 @@ The basic process works with the following steps:
 4. Revoke your User Access Admin privileges until they're needed again.
 
 
-## How to undo the elevateAccess action
+## How to undo the elevateAccess action with the REST API
 
 When you call *elevateAccess* you create a role assignment for yourself, so to revoke those privileges you need to delete the assignment.
 

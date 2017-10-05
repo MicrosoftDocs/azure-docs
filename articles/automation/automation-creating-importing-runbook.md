@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2016
+ms.date: 08/07/2017
 ms.author: magoedte;bwren
 
 ---
@@ -33,7 +33,7 @@ You can only work with [PowerShell Workflow runbooks](automation-runbook-types.m
 
 ### To create a new Azure Automation runbook with the Azure portal
 1. In the Azure portal, open your Automation account.
-2. Click on the **Runbooks** tile to open the list of runbooks.
+2. From the Hub, select **Runbooks** to open the list of runbooks.
 3. Click on the **Add a runbook** button and then **Create a new runbook**.
 4. Type a **Name** for the runbook and select its [Type](automation-runbook-types.md). The runbook name must start with a letter and can have letters, numbers, underscores, and dashes.
 5. Click **Create** to create the runbook and open the editor.
@@ -72,7 +72,7 @@ You can use the following procedure to import a script file into Azure Automatio
 > 
 
 1. In the Azure portal, open your Automation account.
-2. Click on the **Runbooks** tile to open the list of runbooks.
+2. From the Hub, select **Runbooks** to open the list of runbooks.
 3. Click on the **Add a runbook** button and then **Import**.
 4. Click **Runbook file** to select the file to import
 5. If the **Name** field is enabled, then you have the option to change it.  The runbook name must start with a letter and can have letters, numbers, underscores, and dashes.

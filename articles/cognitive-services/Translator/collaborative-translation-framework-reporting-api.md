@@ -47,11 +47,9 @@ These methods enable you to:
 
 This method retrieves the translations that are created by the user. It provides the translations grouped by the uriPrefix, from, to, user, and minrating and maxRating request parameters. 
 
-Syntax 
+**Signature C#**
 
-**C#**
-
-UserTranslation[] GetUserTranslations (
+UserTranslation[] **GetUserTranslations** (
             string appId,
             string uriPrefix,
             string from,
@@ -112,9 +110,6 @@ The result set contains array of the **UserTranslation**. Each UserTranslation h
 >The quota will adjust to ensure fairness among all users of the service. 
 
 **Example**
-**C#**
-**PHP**
-
 **C#**
 ```
 using System;
@@ -225,13 +220,11 @@ namespace CtfReporting
         }
     }
 }
-``                                            
+```                                           
 
 **PHP**
-
+```
 <?php
-```
-```
 class AccessTokenAuthentication {
     /*
      * Get the access token.
@@ -405,18 +398,16 @@ try {
 } catch (Exception $e) {
     echo "Exception: " . $e->getMessage() . PHP_EOL;
 }
-```                                       
+```                                      
 
 
 ## GetUserTranslationCounts Method
 
 This method gets the count of translations that are created by the user. It provides the list of translation counts grouped by the uriPrefix, from, to, user, minRating, and maxRating request parameters. 
 
-**Syntax**
+**Signature C#**
 
-## C###
-
-UserTranslationCount[]GetUserTranslationCounts(
+UserTranslationCount[] **GetUserTranslationCounts**(
             string appId,
             string uriPrefix,
             string from,
@@ -473,9 +464,6 @@ The result set contains array of the **UserTranslationCount**. Each UserTranslat
 >The quota will adjust to ensure fairness among all users of the service.
 
 ### **Example** ###
-**C#
-PHP**
-
 **C#**
 ```
 using System;
@@ -585,9 +573,9 @@ namespace CtfReporting
         }
     }
 }
-                                           
+```                                        
 **PHP**
-
+```
 <?php
 
 class AccessTokenAuthentication {

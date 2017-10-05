@@ -3,7 +3,7 @@ title: Find next hop with Azure Network Watcher Next Hop - PowerShell | Microsof
 description: This article will describe how you can find what the next hop type is and ip address using Next Hop using PowerShell.
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 
 ---
 

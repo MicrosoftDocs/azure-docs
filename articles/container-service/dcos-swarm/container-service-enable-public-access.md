@@ -9,7 +9,6 @@ editor: ''
 tags: acs, azure-container-service
 keywords: Docker, Containers, Micro-services, Mesos, Azure
 
-ms.assetid: 5dea3c4d-a687-4024-93ea-f7a9a7243ab4
 ms.service: container-service
 ms.devlang: na
 ms.topic: article
@@ -17,6 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: saudas
+ms.custom: mvc
 
 ---
 # Enable public access to an Azure Container Service application

@@ -1,5 +1,5 @@
 1. In a new window, sign in to the [Azure portal](https://portal.azure.com/).
-2. In the left menu, click **New**, click **Databases**, and then click **Azure Cosmos DB**.
+2. In the left menu, click **New**, click **Databases**, and then under **Azure Cosmos DB**, click **Create**.
    
    ![Screen shot of the Azure portal, highlighting More Services, and Azure Cosmos DB](./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-1.png)
 
@@ -16,7 +16,7 @@
     Setting|Suggested value|Description
     ---|---|---
     ID|*Unique value*|A unique name you choose to identify the Azure Cosmos DB account. *documents.azure.com* is appended to the ID you provide to create your URI, so use a unique but identifiable ID. The ID may contain only lowercase letters, numbers, and the '-' character, and must be between 3 and 50 characters.
-    API|MongoDB|We'll be programming against the [MongoDB API](../articles/documentdb/documentdb-protocol-mongodb.md) later in this article.|
+    API|MongoDB|We'll be programming against the [MongoDB API](../articles/cosmos-db/mongodb-introduction.md) later in this article.|
     Subscription|*Your subscription*|The Azure subscription that you want to use for the Azure Cosmos DB account. 
     Resource Group|*The same value as ID*|The new resource group name for your account. For simplicity, you can use the same name as your ID. 
     Location|*The region closest to your users*|The geographic location in which to host your Azure Cosmos DB account. Choose the location closest to your users to give them the fastest access to the data.
@@ -28,4 +28,4 @@
 
 6.  When the deployment is complete, open the new account from the All Resources tile. 
 
-    ![DocumentDB account on the All Resources tile](./media/cosmos-db-create-dbaccount-mongodb/azure-documentdb-all-resources.png)
+    ![Azure Cosmos DB account on the All Resources tile](./media/cosmos-db-create-dbaccount-mongodb/azure-documentdb-all-resources.png)

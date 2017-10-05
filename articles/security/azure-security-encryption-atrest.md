@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/24/2017
+ms.date: 07/25/2017
 ms.author: yurid
 
 ---
@@ -33,7 +33,7 @@ Encryption at Rest refers to the cryptographic encoding (encryption) of data whe
 The above describes the common high-level elements of Encryption at Rest. In practice, key management and control scenarios, as well as scale and availability assurances, require additional constructs. Microsoft Azure Encryption at Rest concepts and components are described below.
 
 ## The purpose of encryption at rest
-Encryption at Rest is intended to provide data protection for data at-rest (as described above.) Attacks against data at-rest include attempts to obtain physical access to the hardware on which the data is stored, and then compromise the contained data. In such an attack, a server’s hard drive may have been mishandled during maintenance allowing an attacker to remove the hard drive. Later the attacker would put the hard drive into a computer under their control to attempt to access the data. 
+Encryption at rest is intended to provide data protection for data at-rest (as described above.) Attacks against data at-rest include attempts to obtain physical access to the hardware on which the data is stored, and then compromise the contained data. In such an attack, a server’s hard drive may have been mishandled during maintenance allowing an attacker to remove the hard drive. Later the attacker would put the hard drive into a computer under their control to attempt to access the data. 
 
 Encryption at rest is designed to prevent the attacker from accessing the unencrypted data by ensuring the data is encrypted when on disk. If an attacker were to obtain a hard drive with such encrypted data, and no access to the encryption keys, the attacker would not compromise the data without great difficulty. In such a scenario, an attacker would have to attempt attacks against encrypted data which are much more complex and resource consuming than accessing unencrypted data on a hard drive. For this reason, encryption at rest is highly recommended and is a high priority requirement for many organizations. 
 
@@ -119,7 +119,7 @@ For many customers, the essential requirement is to ensure that the data is encr
 
 Server-side encryption using service managed keys therefore quickly addresses the need to have encryption at rest with low overhead to the customer. When available a customer typically opens the Azure portal for the target subscription and resource provider and checks a box indicating they would like the data to be encrypted. In some Resource Managers server-side encryption with service managed keys is on by default. 
 
-Server-side encryption with Microsoft managed keys does imply the service has full access to store and manages the keys. While some customers may want to manage the keys because they feel they can ensure greater security, the cost and risk associated with a custom key storage solution should be considered when evaluating this model. In many cases an organization may determine that resource constraints or risks of an on-premises solution may greater than the risk of cloud management of the encryption at rest keys.  However, this model might not be sufficient for organizations that have requirements to control the creation or lifecycle of the encryption keys or to have different personnel manage a service’s encryption keys than those managing the service (i.e. segregation of key management from classic deployment model).
+Server-side encryption with Microsoft managed keys does imply the service has full access to store and manages the keys. While some customers may want to manage the keys because they feel they can ensure greater security, the cost and risk associated with a custom key storage solution should be considered when evaluating this model. In many cases an organization may determine that resource constraints or risks of an on-premises solution may greater than the risk of cloud management of the encryption at rest keys.  However, this model might not be sufficient for organizations that have requirements to control the creation or lifecycle of the encryption keys or to have different personnel manage a service’s encryption keys than those managing the service (i.e., segregation of key management from the overall management model for the service).
 
 ##### Key access
 
@@ -134,7 +134,7 @@ When Server-side encryption with Service Managed keys is used, the key creation,
 **Disadvantages**
 
 - No customer control over the encryption keys (key specification, lifecycle, revocation, etc.)
-- No ability to segregate key management from classic deployment model
+- No ability to segregate key management from overall management model for the service
 
 #### Server-side encryption using customer managed keys in Azure Key Vault 
 
@@ -156,7 +156,7 @@ To obtain a key for use in encrypting or decrypting data at rest the service ide
 
 - Full control over the keys used – encryption keys are managed in the customer’s Key Vault under the customer’s control.
 - Ability to encrypt multiple services to one master
-- Can segregate key management from classic deployment model
+- Can segregate key management from overall management model for the service
 - Can define service and key location across regions
 
 **Disadvantages**
@@ -177,7 +177,7 @@ When server-side encryption using service managed keys in customer controlled ha
 
 - Full control over the root key used – encryption keys are managed by a customer provided store
 - Ability to encrypt multiple services to one master
-- Can segregate key management from classic deployment model
+- Can segregate key management from overall management model for the service
 - Can define service and key location across regions
 
 **Disadvantages**
@@ -269,8 +269,8 @@ Client-side encryption of SQL Azure data is supported through the [Always Encryp
 | Power BI                         |                | Yes                 | -                            | -                            | -      |
 | **IoT Services**                     |                |                     |                              |                              |        |
 | IoT Hub                          |                | -                   | -                            | -                            | Yes    |
-| Service Bus                      |                | Jun-17              | -                            | -                            | Yes    |
-| Event Hubs                       |                | Jun-17              | -                            | -                            | -      |
+| Service Bus                      |                | Yes (Premium tier)              | -                            | -                            | Yes    |
+| Event Hubs                       |                | Yes             | -                            | -                            | -      |
 
 
 ## Conclusion

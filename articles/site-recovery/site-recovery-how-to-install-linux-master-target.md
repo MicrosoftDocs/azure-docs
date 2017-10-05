@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:
-ms.date: 02/13/2017
+ms.date: 08/11/2017
 ms.author: ruturajd
 
 ---
@@ -46,6 +46,15 @@ Create the master target in accordance with the following sizing guidelines:
 - **OS disk size**: 100 GB or more (to install CentOS6.6)
 - **Additional disk size for retention drive**: 1 TB
 - **CPU cores**: 4 cores or more
+
+The following supported Ubuntu kernels are supported.
+
+
+|Kernel Series  |Support up to  |
+|---------|---------|
+|4.4      |4.4.0-81-generic         |
+|4.8      |4.8.0-56-generic         |
+|4.10     |4.10.0-24-generic        |
 
 
 ## Deploy the master target server
@@ -196,9 +205,9 @@ To enable this parameter, take the following steps:
 
 #### Disable kernel upgrades
 
-Because the Azure Site Recovery master target server requires a very specific version of the Ubuntu, ensure that the kernel upgrades are disabled for the virtual machine.
+Azure Site Recovery master target server requires a very specific version of the Ubuntu, ensure that the kernel upgrades are disabled for the virtual machine.
 
- If kernel upgrades are enabled, then any regular upgrades cause the master target server to malfunction.
+If kernel upgrades are enabled, then any regular upgrades cause the master target server to malfunction.
 
 #### Download and install additional packages
 

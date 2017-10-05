@@ -3,7 +3,7 @@ title: Manage Role-Based Access Control (RBAC) with Azure CLI | Microsoft Docs
 description: Learn how to manage Role-Based Access Control (RBAC) with the Azure command-line interface by listing roles and role actions and by assigning roles to the subscription and application scopes.
 services: active-directory
 documentationcenter: ''
-author: kgremban
+author: andredm7
 manager: femila
 
 ms.assetid: 3483ee01-8177-49e7-b337-4d5cb14f5e32
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
-ms.author: kgremban
+ms.author: andredm
 ms.reviewer: rqureshi
 ---
 # Manage Role-Based Access Control with the Azure command-line interface
@@ -146,7 +146,7 @@ The example then removes the role assignment from a group on the subscription.
 ## Create a custom role
 To create a custom role, use:
 
-    azure role create --inputfile <file path>
+    azure role definition create --role-definition <file path>
 
 The following example creates a custom role called *Virtual Machine Operator*. This custom role grants access to all read operations of *Microsoft.Compute*, *Microsoft.Storage*, and *Microsoft.Network* resource providers and grants access to start, restart, and monitor virtual machines. This custom role can be used in two subscriptions. This example uses a JSON file as an input.
 
@@ -155,9 +155,9 @@ The following example creates a custom role called *Virtual Machine Operator*. T
 ![RBAC Azure command line - azure role create - screenshot](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-2.png)
 
 ## Modify a custom role
-To modify a custom role, first use the `azure role show` command to retrieve role definition. Second, make the desired changes to the role definition file. Finally, use `azure role set` to save the modified role definition.
+To modify a custom role, first use the `azure role definition list` command to retrieve role definition. Second, make the desired changes to the role definition file. Finally, use `azure role definition update` to save the modified role definition.
 
-    azure role set --inputfile <file path>
+    azure role definition update --role-definition <file path>
 
 The following example adds the *Microsoft.Insights/diagnosticSettings/* operation to the **Actions**, and an Azure subscription to the **AssignableScopes** of the Virtual Machine Operator custom role.
 
@@ -166,7 +166,7 @@ The following example adds the *Microsoft.Insights/diagnosticSettings/* operatio
 ![RBAC Azure command line - azure role set - screenshot](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set2.png)
 
 ## Delete a custom role
-To delete a custom role, first use the `azure role show` command to determine the **ID** of the role. Then, use the `azure role delete` command to delete the role by specifying the **ID**.
+To delete a custom role, first use the `azure role definition list` command to determine the **ID** of the role. Then, use the `azure role definition delete` command to delete the role by specifying the **ID**.
 
 The following example removes the *Virtual Machine Operator* custom role.
 
@@ -178,7 +178,7 @@ To list the roles that are available for assignment at a scope, use the `azure r
 The following command lists all roles that are available for assignment in the selected subscription.
 
 ```
-azure role list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'
+azure role definition list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'
 ```
 
 ![RBAC Azure command line - azure role list - screenshot](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list1.png)
@@ -186,7 +186,7 @@ azure role list --json | jq '.[] | {"name":.properties.roleName, type:.propertie
 In the following example, the *Virtual Machine Operator* custom role isn’t available in the *Production4* subscription because that subscription isn’t in the **AssignableScopes** of the role.
 
 ```
-azure role list --json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'
+azure role definition list --json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'
 ```
 
 ![RBAC Azure command line - azure role list for custom roles - screenshot](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list2.png)

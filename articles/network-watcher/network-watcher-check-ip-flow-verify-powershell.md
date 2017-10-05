@@ -3,7 +3,7 @@ title: verify traffic with Azure Network Watcher IP flow verify - PowerShell | M
 description: This article describes how to check if traffic to or from a virtual machine is allowed or denied using PowerShell
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 
 ---
 # Check if traffic is allowed or denied to or from a VM with IP flow verify a component of Azure Network Watcher

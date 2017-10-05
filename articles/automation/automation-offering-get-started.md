@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 08/31/2017
 ms.author: magoedte
 ---
 
@@ -62,8 +62,8 @@ When designating a computer to run hybrid runbook jobs, this computer must have 
 ### Permissions required to create Automation account
 To create or update an Automation account, you must have the following specific privileges and permissions required to complete this topic.   
  
-* In order to create an Automation account, your AD user account needs to be added to a role with permissions equivalent to the Contributor role for Microsoft.Automation resources as outlined in article [Role-based access control in Azure Automation](automation-role-based-access-control.md#contributor-role-permissions).  
-* Non-admin users in your Azure AD tenant can [register AD applications](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions) if the App registrations setting is set to **Yes**.  If the app registrations setting is set to **No**, the user performing this action must be a global administrator in Azure AD. 
+* In order to create an Automation account, your AD user account needs to be added to a role with permissions equivalent to the Owner role for Microsoft.Automation resources as outlined in article [Role-based access control in Azure Automation](automation-role-based-access-control.md).  
+* If the App registrations setting is set to **Yes**, non-admin users in your Azure AD tenant can [register AD applications](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions).  If the app registrations setting is set to **No**, the user performing this action must be a global administrator in Azure AD. 
 
 If you are not a member of the subscription’s Active Directory instance before you are added to the global administrator/co-administrator role of the subscription, you are added to Active Directory as a guest. In this situation, you receive a “You do not have permissions to create…” warning on the **Add Automation Account** blade. Users who were added to the global administrator/co-administrator role first can be removed from the subscription's Active Directory instance and re-added to make them a full User in Active Directory. To verify this situation, from the **Azure Active Directory** pane in the Azure portal, select **Users and groups**, select **All users** and, after you select the specific user, select **Profile**. The value of the **User type** attribute under the users profile should not equal **Guest**.
 
@@ -165,8 +165,7 @@ The recommended method to onboard Automation is by selecting the Automation & Co
    - Specify a name for the new **OMS Workspace**.
    - Select a **Subscription** to link to by selecting from the drop-down list if the default selected is not appropriate.
    - For **Resource Group**, you can create a resource group or select an existing resource group.  
-   - Select a **Location**.  Currently the only locations available are **Australia Southeast**, **East US**, **Southeast Asia**, **West Central US**, and **West Europe**.
-   - Select a **Pricing tier**.  The solution is offered in two tiers: free and Per Node (OMS) tier.  The free tier has a limit on the amount of data collected daily, retention period, and runbook job runtime minutes.  The Per Node (OMS) tier does not have a limit on the amount of data collected daily.  
+   - Select a **Location**.  For additional information, see which [regions Azure Automation is available in](https://azure.microsoft.com/regions/services/).  Solutions are offered in two tiers: free and Per Node (OMS) tier.  The free tier has a limit on the amount of data collected daily, retention period, and runbook job runtime minutes.  The Per Node (OMS) tier does not have a limit on the amount of data collected daily.  
    - Select **Automation Account**.  If you are creating a new OMS workspace, you are required to also create an Automation account that is associated with the new OMS workspace specified earlier, including your Azure subscription, resource group, and region.  You can select **Create an Automation account** and on the **Automation Account** blade, provide the following: 
   - In the **Name** field, enter the name of the Automation account.
 

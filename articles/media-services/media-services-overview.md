@@ -4,7 +4,7 @@ description: This topic gives an overview of Azure Media Services
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 7a5e9723-c379-446b-b4d6-d0e41bd7d31f
