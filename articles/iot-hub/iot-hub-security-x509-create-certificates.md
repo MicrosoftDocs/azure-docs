@@ -16,7 +16,7 @@ ms.date: 10/09/2017
 ms.author: dkshir
 
 ---
-# Create CA-signed X.509 certificates and certificate chains.
+# Create CA-signed X.509 certificates and certificate chains
 
 The X.509 certificate-based security in the IoT Hub requires you to start with an [X.509 certificate chain](https://en.wikipedia.org/wiki/X.509#Certificate_chains_and_cross-certification), which includes the root certificate as well as any intermediate certificates up until the leaf certificate. This *How to* guide walks you through an example script using PowerShell and [OpenSSL](https://www.openssl.org/) to create X.509 certificates and certificate chains. You can use these certificates to simulate a test environment that secures your Azure IoT hub using the *X.509 Certificate Authentication*. The steps in this guide create certificates locally on your Windows machine. 
 
