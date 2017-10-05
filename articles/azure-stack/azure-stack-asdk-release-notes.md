@@ -13,12 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 09/25/2017
 ms.author: helaw
 
 ---
 
 # Azure Stack Development Kit release notes
+
+*Applies to: Azure Stack Development Kit*
+
 These release notes provide information on new features and known issues.
 
 ## Release Build 20170627.1

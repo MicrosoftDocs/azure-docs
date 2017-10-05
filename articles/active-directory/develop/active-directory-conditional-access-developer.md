@@ -28,7 +28,7 @@ For more information on the full capabilities of conditional access, see [Condit
 
 In this article, we focus on what conditional access means to developers building apps for Azure AD.  It assumes knowledge of [single](active-directory-integrating-applications.md) and [multi-tenant](active-directory-devhowto-multi-tenant-overview.md) apps and [common authentication patterns](active-directory-authentication-scenarios.md).
 
-We'll dive into the impact of accessing resources you don't have control over that may have conditional access policies applied.  Moreover, we explore the implications of conditional access in the on-behalf-of flow, web apps, accessing the Microsoft Graph, and calling APIs.
+We'll dive into the impact of accessing resources you don't have control over that may have conditional access policies applied.  Moreover, we explore the implications of conditional access in the on-behalf-of flow, web apps, accessing Microsoft Graph, and calling APIs.
 
 ## How does conditional access impact an app?
 
@@ -38,7 +38,7 @@ In most common cases, conditional access does not change an app's behavior or re
 
 Specifically, the following scenarios require code to handle conditional access "challenges": 
 
-* Apps accessing the Microsoft Graph
+* Apps accessing Microsoft Graph
 * Apps performing the on-behalf-of flow
 * Apps accessing multiple services/resources
 * Single page apps using ADAL.js
@@ -52,14 +52,14 @@ Depending on the scenario, an enterprise customer can apply and remove condition
 Some scenarios require code changes to handle conditional access whereas others work as is.  Here are a few scenarios using conditional access to do multi-factor authentication that gives some insight into the difference.
 
 * You are building a single-tenant iOS app and apply a conditional access policy.  The app signs in a user and doesn't request access to an API.  When the user signs in, the policy is automatically invoked and the user needs to perform multi-factor authentication (MFA). 
-* You are building a multi-tenant web app that uses the Microsoft Graph to access Exchange, among other services.  An enterprise customer who adopts this app sets a policy on SharePoint Online.  When the web app requests a token for MS Graph, a policy on any Microsoft Service is applied (specifically services that can be accessed through graph).  This end-user is prompted for MFA. In the case, the end-user is signed in with valid tokens, a claims "challenge" is returned to the web app.  
-* You are building a native app that uses a middle tier service to access the Microsoft Graph.  An enterprise customer at the company using this app applies a policy to Exchange Online.  When an end-user signs in, the native app requests access to the middle tier and sends the token.  The middle tier performs on-behalf-of flow to request access to the MS Graph.  At this point, a claims "challenge" is presented to the middle tier. The middle tier sends the challenge back to the native app, which needs to comply with the conditional access policy.
+* You are building a multi-tenant web app that uses Microsoft Graph to access Exchange, among other services.  An enterprise customer who adopts this app sets a policy on SharePoint Online.  When the web app requests a token for MS Graph, a policy on any Microsoft Service is applied (specifically services that can be accessed through graph).  This end-user is prompted for MFA. In the case, the end-user is signed in with valid tokens, a claims "challenge" is returned to the web app.  
+* You are building a native app that uses a middle tier service to access Microsoft Graph.  An enterprise customer at the company using this app applies a policy to Exchange Online.  When an end-user signs in, the native app requests access to the middle tier and sends the token.  The middle tier performs on-behalf-of flow to request access to the MS Graph.  At this point, a claims "challenge" is presented to the middle tier. The middle tier sends the challenge back to the native app, which needs to comply with the conditional access policy.
 
 ### Complying with a conditional access policy
 
 For several different app topologies, a conditional access policy is evaluated when the session is established.  As a conditional access policy operates on the granularity of apps and services, the point at which it is invoked depends heavily on the scenario you're trying to accomplish.
 
-When your app attempts to access a service with a conditional access policy, it may encounter a conditional access challenge.  This challenge is encoded in the `claims` parameter that comes in a response from Azure AD or the Microsoft Graph.  Here's an example of this challenge parameter: 
+When your app attempts to access a service with a conditional access policy, it may encounter a conditional access challenge.  This challenge is encoded in the `claims` parameter that comes in a response from Azure AD or Microsoft Graph.  Here's an example of this challenge parameter: 
 
 ```
 claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
@@ -77,22 +77,22 @@ Azure AD conditional access is a feature included in [Azure AD Premium](../activ
 
 The following information only applies in these conditional access scenarios:
 
-* Apps accessing the Microsoft Graph
+* Apps accessing Microsoft Graph
 * Apps performing the on-behalf-of flow
 * Apps accessing multiple services/resources
 * Single page apps using ADAL.js
 
-In the following sections, we'll get into common scenarios in which are more complex.  The core operating principle is conditional access policies are evaluated at the time the token is requested for the service that has a conditional access policy applied unless it's being accessed through the Microsoft Graph.
+In the following sections, we'll get into common scenarios in which are more complex.  The core operating principle is conditional access policies are evaluated at the time the token is requested for the service that has a conditional access policy applied unless it's being accessed through Microsoft Graph.
 
-### Scenario: App accessing the Microsoft Graph
+### Scenario: App accessing Microsoft Graph
 
-In this scenario, we walk through the case when a web app requests access to the Microsoft Graph. The conditional access policy in this case could be assigned to SharePoint, Exchange, or some other service that is accessed as a workload through the Microsoft Graph.  In this example, let's assume there's a conditional access policy on Sharepoint Online.
+In this scenario, we walk through the case when a web app requests access to Microsoft Graph. The conditional access policy in this case could be assigned to SharePoint, Exchange, or some other service that is accessed as a workload through Microsoft Graph.  In this example, let's assume there's a conditional access policy on Sharepoint Online.
 
-![App accessing the Microsoft Graph flow diagram](media/active-directory-conditional-access-developer/app-accessing-microsoft-graph-scenario.png)
+![App accessing Microsoft Graph flow diagram](media/active-directory-conditional-access-developer/app-accessing-microsoft-graph-scenario.png)
 
-The app first requests authorization to the Microsoft Graph which requires accessing a downstream workload without conditional access.  The request succeeds without invoking any policy and the app receives tokens for Microsoft Graph.  At this point, the app may use the access token in a bearer request for the endpoint requested. Now, the app needs to access a Sharepoint Online endpoint of Microsoft Graph, for example: `https://graph.microsoft.com/v1.0/me/mySite`
+The app first requests authorization to Microsoft Graph which requires accessing a downstream workload without conditional access.  The request succeeds without invoking any policy and the app receives tokens for Microsoft Graph.  At this point, the app may use the access token in a bearer request for the endpoint requested. Now, the app needs to access a Sharepoint Online endpoint of Microsoft Graph, for example: `https://graph.microsoft.com/v1.0/me/mySite`
 
-The app already has a valid token for the Microsoft Graph, so it can perform the new request without being issued a new token. This request fails and a claims challenge is issued from Microsoft Graph in the form of an HTTP 403 Forbidden with a ```WWW-Authenticate``` challenge.
+The app already has a valid token for Microsoft Graph, so it can perform the new request without being issued a new token. This request fails and a claims challenge is issued from Microsoft Graph in the form of an HTTP 403 Forbidden with a ```WWW-Authenticate``` challenge.
 Here's an example of the response: 
 
 ```

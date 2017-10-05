@@ -13,39 +13,33 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2017
+ms.date: 09/18/2017
 ms.author: barclayn
 ms.custom: pim 
 ---
 # What is Azure AD Privileged Identity Management?
 
-With Azure Active Directory (AD) Privileged Identity Management, you can manage, control, and monitor access within your organization. This includes access to resources in Azure AD, Azure Resources (Preview), and other Microsoft online services like Office 365 or Microsoft Intune.
+With Azure Active Directory (AD) Privileged Identity Management, you can manage, control, and monitor access within your organization. This includes access to resources in Azure AD, Azure Resources (Preview), and other Microsoft Online Services like Office 365 or Microsoft Intune.
 
 > [!NOTE]
 > Privileged Identity Management is available to your entire organization when you license your Administrators with the Premium P2 edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
 
-Organizations want to minimize the number of people who have access to secure information or resources, because that reduces the chance of a malicious user getting that access. However, users still need to carry out privileged operations in Azure, Office 365, or SaaS apps. Organizations give users privileged access to Azure resources like Subscriptions, and in Azure AD without monitoring what those users are doing with their admin privileges. Azure AD Privileged Identity Management helps to resolve this risk.
+Organizations want to minimize the number of people who have access to secure information or resources, because that reduces the chance of a malicious user getting that access, or an authorized user inadvertently impacting a sensitive resource.  However, users still need to carry out privileged operations in Azure AD, Azure, Office 365, or SaaS apps. Organizations can give users privileged access to Azure resources like Subscriptions, and Azure AD. There is a need for oversight for what those users are doing with their admin privileges. Azure AD Privileged Identity Management helps to mitigate the risk of excessive, unnecessary or misused access rights.
 
-Azure AD Privileged Identity Management helps you:
+Azure AD Privileged Identity Management helps your organization:
 
-- See which users are assigned privileged roles to Azure resources (Preview), as well as administrative roles in Azure AD
-- Enable on-demand, "just in time" administrative access to Microsoft Online Services like Office 365 and Intune, and Azure resources (Preview) like Subscriptions, Resource Groups, and individual resources such as Virtual Machines 
-- Get reports about administrator access history, a view of resource activity during a JIT operation for Azure resources (Preview), and changes in administrator assignments 
-- Get alerts about access to a privileged role
-- Require approval to activate Azure AD privileged admin roles (Preview) Azure AD Privileged Identity Management can manage the built-in Azure AD organizational roles, as well as built-in and custom Azure Resource (RBAC) roles, including (but not limited to): 
-  - Global Administrator (Azure AD) 
-  - Owner (Azure RBAC) 
-  - Billing Administrator (Azure AD) 
-  - Contributor (Azure RBAC) 
-  - Service Administrator (Azure AD) 
-  - User Access Administrator (Azure RBAC) 
-  - User Administrator (Azure AD) 
-  - Security Admin (Azure RBAC) 
-  - Password Administrator (Azure AD) 
+- See which users are assigned privileged roles to manage Azure resources (Preview), as well as which users are assigned administrative roles in Azure AD
+- Enable on-demand, "just in time" administrative access to Microsoft Online Services like Office 365 and Intune, and to Azure resources (Preview) of subscriptions, resource groups, and individual resources such as Virtual Machines 
+-	See a history of administrator activation, including what changes administrators made to Azure resources (Preview)
+- Get alerts about changes in administrator assignments
+- Require approval to activate Azure AD privileged admin roles (Preview) 
+- Review membership of administrative roles and require users to provide a justification for continued membership
+
+In Azure AD, Azure AD Privileged Identity Management can manage the users assigned to the built-in Azure AD organizational roles, such as Global Administrator. In Azure, Azure AD Privileged Identity Management can manage the users and groups assigned via Azure RBAC roles, including Owner or Contributor.
 
 ## Just in time administrator access
 
-Historically, you could assign a user to an admin role through the Azure classic portal or Windows PowerShell. As a result, that user becomes a **permanent admin**, always active in the assigned role. Azure AD Privileged Identity Management introduces the concept of an **eligible admin**. Eligible admins should be users that need privileged access now and then, but not all-day, every day. The role is inactive until the user needs access, then they complete an activation process and become an active admin for a predetermined amount of time. More and more organizations are choosing to use this approach for reducing or eliminating “standing admin access” to privileged roles.
+Historically, you could assign a user to an admin role through the Azure portal, other Microsoft Online Services portals, or the Azure AD cmdlets in Windows PowerShell. As a result, that user becomes a **permanent admin**, always active in the assigned role. Azure AD Privileged Identity Management introduces the concept of an **eligible admin**. Eligible admins should be users that need privileged access now and then, but not all-day, every day. The role is inactive until the user needs access, then they complete an activation process and become an active admin for a predetermined amount of time. More and more organizations are choosing to use this approach for reducing or eliminating “standing admin access” to privileged roles.
 
 ## Enable Privileged Identity Management for your directory
 
@@ -61,11 +55,10 @@ You can start using Azure AD Privileged Identity Management in the [Azure portal
 
 If you're the first person to use Azure AD Privileged Identity Management in your directory and you navigate to Azure AD directory roles,  aand you navigate to Azure AD directory roles,  a [security wizard](active-directory-privileged-identity-management-security-wizard.md) walks you through the initial assignment experience. After that you automatically become the first **Security administrator** and **Privileged role administrator** of the directory.
 
-Only a privileged role administrator can manage access for other administrators of Azure AD roles. You can [give other users the ability to manage directory roles in PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md).
->[!NOTE]
-Only Global Administrators (that enable subscription management in Azure), Subscription Admins, Resource Owners, and Resource User Access Administrators can manage PIM for Azure Resources (Preview). 
+For Azure AD roles, only a user who is in the Privileged Role Administrator role can manage assignments for other administrators in Azure AD PIM. You can [give other users the ability to manage directory roles in PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md). Global Administrators, Security Administrators and Security Readers can view assignments to Azure AD roles in Azure AD PIM.
+For Azure RBAC roles, only a subscription administrator, a resource owner, or a resource user access administrator can manage assignments for other administrators in Azure AD PIM.  Users who are Privileged Role Administrators, Security Administrators or Security Readers do not by default have access to view assignments to Azure RBAC roles in Azure AD PIM.
 
-## Privileged Identity Management Overview (Entry Point) 
+## Privileged Identity Management Overview (Entry Point)
 
 Azure AD Privileged Identity Management supports administration of Azure AD directory roles, and roles for Azure Resources (Preview). The function of roles for Azure resources differ from administrative roles in Azure AD. Azure resource roles provide granular permissions for the resource at which they are assigned, and all subordinate resources in the resource hierarchy (known as inheritance). [Learn more about RBAC, resource hierarchy and inheritance](role-based-access-control-configure.md). PIM for both Azure AD directory roles, and Azure Resources (Preview) can be administered by accessing the appropriate link under the Manage section of the PIM Overview entry point left navigation menu.
 
@@ -148,9 +141,8 @@ The second option is to set up regular [access reviews](active-directory-privile
 
 ## Azure AD PIM at subscription expiration
 
-Prior to reaching general availability Azure AD PIM was in preview and there were no license checks for a tenant to preview Azure AD PIM.  Now that Azure AD PIM has reached general availability, trial or paid licenses must be assigned to the administrators of the tenant to continue using PIM.  If your organization does not purchase Azure AD Premium P2 or your trial expires, mostly all of the Azure AD PIM features will no longer be available in your tenant.  You can read more in the [Azure AD PIM subscription requirements](./privileged-identity-management/subscription-requirements.md)
-
-PIM for Azure Resources is now in preview and does not require an Azure AD Premium 2 license at this time. When PIM for Azure Resource roles reaches General Availability, administrators will need to obtain an Azure AD Premium 2 license.
+A tenant must have an Azure AD Premium P2 (or EMS E5) trial or paid subscription in their tenant before using Azure AD PIM.  Furthermore, licenses must be assigned to the administrators of the tenant.  Specifically, licenses must be assigned to administrators in Azure AD roles managed through Azure AD PIM, administrators in Azure RBAC roles managed through Azure AD PIM, and any non-administrator users who perform access reviews.
+If your organization does not renew Azure AD Premium P2 or your trial expires, the Azure AD PIM features will no longer be available in your tenant, eligible role assignments will be removed and users will no longer be able to activate roles. You can read more in the  [Azure AD PIM subscription requirements](./privileged-identity-management/subscription-requirements.md)
 
 ## Next steps
 

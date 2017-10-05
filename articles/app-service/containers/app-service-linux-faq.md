@@ -52,7 +52,7 @@ You need to set the **reserved** field of the app service to *true*.
 
 **My web app still uses an old Docker container image after I've updated the image on Docker Hub. Do you support continuous integration and deployment of custom containers?**
 
-To set up continuous integration and deployment for Azure Container Registry or Docker Hub images, see [Continuous deployment with Azure Web App for Containers](./app-service-linux-ci-cd.md). For private registries, you can refresh the container by stopping and then starting your web app. Or you can change or add a dummy application setting to force a refresh of your container.
+**A:** To set up continuous integration/deployment for Azure Container Registry or DockerHub images by check the following article [Continuous Deployment with Azure Web App for Containers](./app-service-linux-ci-cd.md). For private registries, you can refresh the container by stopping and then starting your web app. Or you can change or add a dummy application setting to force a refresh of your container.
 
 **Do you support staging environments?**
 
@@ -132,5 +132,5 @@ You can submit your idea at the [Web Apps feedback forum](https://aka.ms/webapps
 ## Next steps
 
 * [What is Azure Web App for Containers?](app-service-linux-intro.md)
-* [Set up staging environments in Azure App Service](../../app-service-web/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Continuous deployment with Azure Web App for Containers](./app-service-linux-ci-cd.md)
+* [Set up staging environments in Azure App Service](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+* [Continuous Deployment with Azure Web App for Containers](./app-service-linux-ci-cd.md)
