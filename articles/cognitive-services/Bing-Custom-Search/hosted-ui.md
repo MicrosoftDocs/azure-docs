@@ -23,9 +23,11 @@ Use the following instructions to configure a hosted UI to include in your web a
 4.	Choose a layout
     - Search bar and results (default) &mdash; Display a search box and search results
     - Results only &mdash; Don't display a search box, show only results
-      > [!IMPORTANT]
-      > Be sure to include the query parameter when selecting this layout.
     - Pop-over &mdash; Don't display a search box, show only results in a sliding overlay
+    
+> [!IMPORTANT]
+> Be sure to include the query parameter when selecting the **Results only** layout.
+
 5.	Select a color theme
 6.	Under **Additional Configurations**, provide values as appropriate for your app. These settings are optional. To see the effect of applying or removing them, click Save All Changes.  Available configuration options are:
     - Page title &mdash;  The title text
