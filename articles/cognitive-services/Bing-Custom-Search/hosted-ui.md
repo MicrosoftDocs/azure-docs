@@ -52,7 +52,7 @@ To consume the hosted UI, either:
             
                 <script type="text/javascript">
                         var customConfigId = '<YOUR-CUSTOM-CONFIG-ID>';
-                        var javasriptResourceUrl = 'https://rapuxserviceppe.cloudapp.net/api/ux/render?customConfig=' + customConfigId;                
+                        var javasriptResourceUrl = 'https://ui.customsearch.ai/api/ux/render?customConfig=' + customConfigId;                
                         var s = document.createElement('script');                
                         s.setAttribute('type', 'text/javascript');                
                         s.id = 'bcs_js_snippet';                
@@ -66,7 +66,7 @@ To consume the hosted UI, either:
     ```
 
 - Use the URL provided    
-`https://rapuxserviceppe.cloudapp.net/hosted?customConfig=YOUR-CUSTOM-CONFIG-ID`
+`https://ui.customsearch.ai/hosted?customConfig=YOUR-CUSTOM-CONFIG-ID`
     
 
 ## Next steps
