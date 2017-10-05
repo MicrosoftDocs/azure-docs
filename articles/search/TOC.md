@@ -1,4 +1,4 @@
-# Overview
+# [Overview](search-what-is-azure-search.md)
 ## [What is Azure Search?](search-what-is-azure-search.md)
 # Get Started
 ## [Choose a SKU](search-sku-tier.md)
@@ -38,7 +38,7 @@
 ## Manage
 ### Administer Azure Search
 #### [Azure portal](search-manage.md)
-#### Azure [Azure PowerShell](search-manage-powershell.md)
+#### [Azure PowerShell](search-manage-powershell.md)
 ### [Monitor usage and statistics](search-monitor-usage.md)
 ### [Search traffic analytics](search-traffic-analytics.md)
 ### [Performance and optimization](search-performance-optimization.md)
@@ -58,11 +58,11 @@
 #### [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
 #### [Lucene query syntax ](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
 #### [Lucene query examples](search-query-lucene-examples.md)
-### Analyzers in Azure Search
+### [Analyzers in Azure Search](search-analyzers.md)
 #### [Overview](search-analyzers.md)
 #### [Language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support)
 #### [Custom analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
-### Filters in Azure Search
+### [Filters in Azure Search](search-filters.md)
 #### [Overview](search-filters.md)
 #### [Facet filters](search-filters-facets.md)
 #### [Date filters](search-filters-dates.md)
