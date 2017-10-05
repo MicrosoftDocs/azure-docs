@@ -37,7 +37,7 @@ Contoso runs a public presence website located across the US, Canada, and Europe
 
 The development team is located in Seattle WA, utilizing the West US data center.
 
-![Pushing to multiple registries](media/container-registry-overview-geo-replication\before-geo-replicate.png)
+![Pushing to multiple registries](media/container-registry-geo-replication\before-geo-replicate.png)
 
 Prior to using the geo-replication features, Contoso may have had a US-based registry in West US, with an additional registry in West Europe. To serve these different regions, the development team had to push images to two different registries.
 
@@ -45,7 +45,7 @@ Prior to using the geo-replication features, Contoso may have had a US-based reg
 docker push contoso.azurecr.io/pubic/products/web:1.2
 contosowesteu.azurecr.io/pubic/products/web:1.2
 ```
-![Pulling from multiple registries](media/container-registry-overview-geo-replication\before-geo-replicate-pull.png)
+![Pulling from multiple registries](media/container-registry-geo-replication\before-geo-replicate-pull.png)
 
 Typical challenges of multiple registries include:
 
@@ -56,7 +56,7 @@ Typical challenges of multiple registries include:
 
 ### Benefits of ACR Geo-Replication
 
-![Pulling from multiple registries](media/container-registry-overview-geo-replication\after-geo-replicate-pull.png)
+![Pulling from multiple registries](media/container-registry-geo-replication\after-geo-replicate-pull.png)
 
 * Manage a single registry across all regions: `contoso.azurecr.io`
 * Managed a single configuration of image deployments as all regions used the same image URL
@@ -74,18 +74,18 @@ az acr update -n myregistry --sku Premium
 ```
 or
 through the Azure portal:
-![Pulling from multiple registries](media/container-registry-overview-geo-replication\update-registry-sku.png)
+![Pulling from multiple registries](media/container-registry-geo-replication\update-registry-sku.png)
 > 
 
 To configure geo-replication, log in to the Azure portal at http://portal.azure.com
 
 Navigate to your Azure Container Registry, and select **Replications**:
 
-![Replications in the Azure portal Container registry UI](media/container-registry-overview-geo-replication\registry-services.png)
+![Replications in the Azure portal Container registry UI](media/container-registry-geo-replication\registry-services.png)
 
 A map is displayed showing all current Azure Regions:
 
- ![Region map in the Azure portal](media/container-registry-overview-geo-replication\registry-geo-map.png)
+ ![Region map in the Azure portal](media/container-registry-geo-replication\registry-geo-map.png)
 
 * Blue hexagons represent current replicas
 * Green hexagons represent possible replica regions
@@ -93,7 +93,7 @@ A map is displayed showing all current Azure Regions:
 
 To configure a replica, select a green hexagon, then select **Create**:
 
- ![Create replication UI in the Azure portal](media/container-registry-overview-geo-replication\create-replication.png)
+ ![Create replication UI in the Azure portal](media/container-registry-geo-replication\create-replication.png)
 
 To configure additional replicas, select the green hexagons for other regions, then click **Create**.
 
