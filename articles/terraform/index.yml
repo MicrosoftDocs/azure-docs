@@ -1,0 +1,65 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Terraform on Azure Documentation
+metadata:
+  title: Terraform on Azure Documentation - Tutorials and refere3nce
+  meta.description: Learn how to use Terraform to reliably provision virtual machines and other infrastructure on Azure.
+  services: terraform
+  author: rloutlaw  
+  manager: justhe
+  ms.service: terraform
+  ms.tgt_pltfrm: na
+  ms.devlang: devops
+  ms.topic: landing-page
+  ms.date: 09/21/2017
+  ms.author: routlaw
+abstract:
+  description: Use Terraform to reliably version and create infrasturcture on Azure. Learn how to create resources, use Azure Terraform modules, and maintain your infrastructure with code using our quikstarts and tutorials.
+  aside:
+    image:
+      alt: Terraform logo.
+      height: 110
+      src: media/Terraform_VerticalLogo_FullColor.svg
+      width: 250  
+sections:
+- title: Quickstarts
+  items:
+  - type: paragraph
+    text: 'Configure Terraform to create infrastructure in Azure and use it to create a Linux VM.'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/media/index/azure_dev-9.svg
+      text: Install and configure Terraform
+      href: https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/media/index/VirtualMachine.svg
+      text: Create a Linux VM
+      href: https://docs.microsoft.com/azure/virtual-machines/linux/terraform-create-complete-vm
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to reliably create Azure infrastructure from code using Terraform.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/terraform/terraform-create-load-balanced-vm-cluster">Create a Linux VM cluster with a load balancer</a>.
+    - html: <a href="/azure/terraform/terraform-create-vm-scaleset-network-disks">Configure a VM scale set with networking and storage.</a>
+- title: Samples
+  items:
+  - type: paragraph
+    text: Sample configuration templates for common deployment tasks.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples">GitHub</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Azure Terraform modules
+      html: <p><a href="https://registry.terraform.io/modules/Azure/database/azurerm">Azure RM for Database</a></p><p><a href="https://registry.terraform.io/modules/Azure/loadbalancer">Azure RM for Load Balancer</a></p><p><a href="https://registry.terraform.io/modules/Azure/computegroup">Azure RM Compute Group</a></p><p><a href="https://registry.terraform.io/modules/Azure/network">Azure RM Network</a></p><p><a href="https://registry.terraform.io/modules/Azure/compute">Azure RM Compute</a></p>
