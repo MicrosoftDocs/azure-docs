@@ -35,7 +35,7 @@ This article explains how to restore a VM to a new VM or restore all backed-up d
 ![Three ways to restore from VM backup](./media/backup-azure-arm-restore-vms/azure-vm-backup-restore.png)
 
 > [!NOTE]
-> Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article provides the information and procedures used to restore deployed VMs by using the Resource Manager model.
+> Azure has two deployment models for creating and working with resources: [Azure Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article provides the information and procedures used to restore deployed VMs by using the Resource Manager model.
 >
 >
 
@@ -51,7 +51,7 @@ Restoring a VM or all disks from VM backup involves two steps:
 
     ![Recovery Services vault](./media/backup-azure-arm-restore-vms/open-recovery-services-vault.png)
 
-    The list of vaults in the subscription displays.
+    The list of vaults in the subscription is displayed.
 
     ![List of Recovery Services vaults](./media/backup-azure-arm-restore-vms/list-of-rs-vaults.png)
 3. From the list, select the vault associated with the VM you want to restore. When you select the vault, its dashboard opens.
@@ -80,7 +80,7 @@ Restoring a VM or all disks from VM backup involves two steps:
 
     By default, the dialog box displays all the restore points from the last 30 days. Use the **Filter** to alter the time range of the restore points displayed. By default, restore points of all consistencies are displayed. Modify the **All restore points** filter to select a specific restore point consistency. For more information about each type of restoration point, see [Data consistency](backup-azure-vms-introduction.md#data-consistency).
 
-    a. Restore point consistency options:
+    Restore point consistency options:
 
      * Crash consistent restore points
      * Application consistent restore points
@@ -103,9 +103,9 @@ After you select the restore point, choose a VM restore configuration. To config
     ![Restore configuration wizard](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard-recovery-type.png)
 2. On the **Restore configuration** blade, you have two choices:
 
-   a. **Create virtual machine**
+   * **Create virtual machine**
 
-   b. **Restore disks**
+   * **Restore disks**
 
 The portal provides a **Quick Create** option for a restored VM. To customize the VM configuration or the names of the resources created as part of creating a new VM choice, use PowerShell or the portal to restore backed-up disks. Use PowerShell commands to attach them to your choice of VM configuration. Or you can use the template that comes with restored disks to customize the restored VM. For information on how to restore a VM that has multiple NICs or is under a load balancer, see [Restore a VM with special network configurations](#restore-a vm-with-special-network-configurations). If your Windows VM uses [HUB licensing](../virtual-machines/windows/hybrid-use-benefit-licensing.md), restore disks and use PowerShell/Template as specified in this article to create the VM. Make sure that you specify the **License Type** as "Windows_Server" while you create the VM to avail HUB benefits on the restored VM. 
  
@@ -161,7 +161,7 @@ To view the operation while it's processing, or to view it when it's finished, o
 
     ![Open Recovery Services vault](./media/backup-azure-arm-restore-vms/open-recovery-services-vault.png)
 
-    The list of vaults in the subscription displays.
+    The list of vaults in the subscription is displayed.
 
     ![List of Recovery Services vaults](./media/backup-azure-arm-restore-vms/list-of-rs-vaults.png)
 2. From the list, select the vault associated with the VM you restored. When you select the vault, its dashboard opens.
@@ -209,7 +209,7 @@ To get the template that was generated as part of the restore disks option:
 If you restored a VM to the same resource group with the same name as the originally backed-up VM, backup continues on the VM post restore. If you restored the VM to a different resource group or you specified a different name for the restored VM, the VM is treated as if it's a new VM. You need to set up backup for the restored VM.
 
 ## Restore a VM during an Azure datacenter disaster
-Azure Backup allows restoring backed-up VMs to the paired datacenter in case the primary datacenter where VMs are running experiences a disaster and you configured the backup vault to be geo-redundant. During such scenarios, select a storage account, which is present in a paired datacenter. The rest of the restore process remains the same. Backup uses the compute service from the paired geo to create the restored VM. For more information, see [Azure datacenter resiliency](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md)
+Azure Backup allows restoring backed-up VMs to the paired datacenter in case the primary datacenter where VMs are running experiences a disaster and you configured the backup vault to be geo-redundant. During such scenarios, select a storage account, which is present in a paired datacenter. The rest of the restore process remains the same. Backup uses the compute service from the paired geo to create the restored VM. For more information, see [Azure datacenter resiliency](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md).
 
 ## Restore domain controller VMs
 Backup of domain controller (DC) VMs is a supported scenario with Backup. However, you must be careful during the restore process. The correct restore process depends on the structure of the domain. In the simplest case, you have a single DC in a single domain. More commonly for production loads, you have a single domain with multiple DCs, perhaps with some DCs on-premises. Finally, you might have a forest with multiple domains. 
@@ -223,7 +223,7 @@ The VM can be restored (like any other VM) from the Azure portal or by using Pow
 When other DCs of the same domain can be reached over the network, the DC can be restored like any VM. If it's the last remaining DC in the domain, or a recovery in an isolated network is performed, a forest recovery procedure must be followed.
 
 ### Multiple domains in one forest
-When other DCs of the same domain can be reached over the network, the DC can be restored like any VM. In all other cases, a forest recovery is recommended.
+When other DCs of the same domain can be reached over the network, the DC can be restored like any VM. In all other cases, we recommend a forest recovery.
 
 ## Restore VMs with special network configurations
 It's possible to back up and restore VMs with the following special network configurations. However, these configurations require some special consideration while going through the restore process:
