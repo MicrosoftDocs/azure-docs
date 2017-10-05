@@ -1,6 +1,6 @@
 ---
-title: Bindngs for Durable Functions - Azure Functions
-description: How to use triggers and bindings for the Durable Functons extension for Azure Functions.
+title: Singletons for Durable Functions - Azure Functions
+description: How to use singletons in the Durable Functons extension for Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
@@ -56,4 +56,4 @@ The implementation details of the orchestrator function do not actually matter. 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to handle errors](durable-functions-error-handling.md)
+> [Learn how to call sub-orchestrations](durable-functions-sub-orchestrations.md)

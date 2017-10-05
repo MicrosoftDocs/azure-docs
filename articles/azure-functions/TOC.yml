@@ -85,6 +85,8 @@
       href: durable-functions-instance-management.md
     - name: Singletons
       href: durable-functions-singletons.md
+    - name: Sub-orchestrations
+      href: durable-functions-sub-orchestrations.md
     - name: Error handling
       href: durable-functions-error-handling.md
     - name: Diagnostics
