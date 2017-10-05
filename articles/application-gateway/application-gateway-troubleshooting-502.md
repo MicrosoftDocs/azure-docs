@@ -27,7 +27,7 @@ Learn how to troubleshoot bad gateway (502) errors received when using applicati
 
 After configuring an application gateway, one of the errors that users may encounter is "Server Error: 502 - Web server received an invalid response while acting as a gateway or proxy server". This error may happen due to the following main reasons:
 
-* [NSG, UDR or Custom DNS](Network-Security-Group,-User-Defined-Route,-or-Custom-DNS-issue.md) is blocking access to backend pool members.
+* NSG, UDR or Custom DNS is blocking access to backend pool members.
 * Back-end VMs or instances of virtual machine scale set are [not responding to the default health probe](#problems-with-default-health-probe.md).
 * Invalid or improper [configuration of custom health probes](#problems-with-custom-health-probe.md).
 * Azure Application Gateway's [back-end pool is not configured or empty](#empty-backendaddresspool).
