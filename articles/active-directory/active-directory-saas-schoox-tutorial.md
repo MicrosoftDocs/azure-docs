@@ -102,7 +102,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Single sign-on dialog box](./media/active-directory-saas-schoox-tutorial/tutorial_schoox_samlbase.png)
 
-3. On the **Schoox Domain and URLs** section, perform the following steps if you wish to configure the application in IDP initiated mode:
+3. On the **Schoox Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
 	![Schoox Domain and URLs single sign-on information](./media/active-directory-saas-schoox-tutorial/tutorial_schoox_url.png)
 
@@ -115,7 +115,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://saml.schoox.com/saml/login?idpUrl=<entityID>`
 	
 	> [!Note]
-	> `<entityID>` is the SAML Entity ID of the IdP. 
+	> `<entityID>` is the SAML Entity ID copied from the Quick Reference section, described later in tutorial. 
 
 5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -125,7 +125,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-schoox-tutorial/tutorial_general_400.png)
 
-7. To configure single sign-on on **Schoox** side, you need to send the downloaded **Metadata XML** to [Schoox support team](https://www.schoox.com/help/). They set this setting to have the SAML SSO connection set properly on both sides.
+7. On the **Schoox Configuration** section, click **Configure Schoox** to open **Configure sign-on** window. Copy the **SAML Entity ID** from the **Quick Reference section** and use it to complete **Sign-on URL** in **Schoox Domain and URLs** section. 
+
+	![Schoox Configuration](./media/active-directory-saas-schoox-tutorial/config.png)
+
+8. To configure single sign-on on **Schoox** side, you need to send the downloaded **Metadata XML** to [Schoox support team](https://www.schoox.com/help/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
