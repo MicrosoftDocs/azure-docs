@@ -25,7 +25,7 @@ When you use the Azure Files service, any connection without encryption fails wh
 By default, the "Secure transfer required" option is disabled.
 
 > [!NOTE]
-> Because Azure Storage doesn't support HTTPS for custom domain names, this option is not applied when you're using a custom domain name.
+> Because Azure Storage doesn't support HTTPS for custom domain names, this option is not applied when you're using a custom domain name. And classic storage accounts are not supported.
 
 ## Enable "Secure transfer required" in the Azure portal
 
