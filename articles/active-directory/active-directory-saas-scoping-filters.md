@@ -19,7 +19,7 @@ ms.custom: H1Hack27Feb2017
 
 ---
 # Attribute-based application provisioning with scoping filters
-The objective of this section is to explain how to use scoping filters to define attribute-based rules that determine which users are provisioned to an application.
+The objective of this article is to explain how to use scoping filters to define attribute-based rules that determine which users are provisioned to an application.
 
 ## Scoping filter use cases
 
