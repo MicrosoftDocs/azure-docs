@@ -225,7 +225,8 @@ The following snippet shows the different kinds of resources that can be managed
   }
   ```
 
-  [!NOTE] The *apiVersion* must be set to `"2017-07-01-preview"`. This template can also be deployed independently of the cluster, as long as the cluster has already been deployed.
+  > [!NOTE] 
+  > The *apiVersion* must be set to `"2017-07-01-preview"`. This template can also be deployed independently of the cluster, as long as the cluster has already been deployed.
 
 5. Deploy! 
 
