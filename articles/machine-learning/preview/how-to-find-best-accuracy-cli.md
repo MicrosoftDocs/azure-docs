@@ -52,8 +52,8 @@ Using this max accuracy value of `1` and a threshold value of `0.03`, the second
 ```powershell
 az ml history list --query '@[?Accuracy >= sum(`[1, -0.03]`)] | sort_by(@, &duration)'
 ```
-
-Note: If you want a strict upper bound check, the query format will be ``@[?Accuracy >= sum(`[$max_accuracy_value, -$threshold]`) && Accuracy <= `$max_accuracy_value`]``
+> [!NOTE]
+> If you want a strict upper bound check, the query format will be ``@[?Accuracy >= sum(`[$max_accuracy_value, -$threshold]`) && Accuracy <= `$max_accuracy_value`]``
 
 If you use Powershell, the code below will use local variables to store threshold and max accuracy.
 ```powershell
