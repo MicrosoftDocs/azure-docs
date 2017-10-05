@@ -371,7 +371,7 @@ To participate in the Preview for Load Balancer Standard SKU and its companion P
 >Registration of the Load Balancer Standard feature may take up to an hour.
 
 >[!NOTE]
->If you wish to use Load Balancer Standard with [Availability Zones](https://aka.ms/availabilityzones) and [HA Ports](https://aka.ms/haports), a separate sign-up is required for these preview.  Please follow the respective instructions.
+>If you wish to use Load Balancer Standard with [Availability Zones](https://aka.ms/availabilityzones) and [HA Ports](https://aka.ms/haports), a separate sign-up is required for these previews.  Please follow the respective instructions.
 
 ## Pricing
 
