@@ -21,8 +21,6 @@ ms.author: skwan
 Identity and access management for cloud resources is a critical function for any organization that is using the cloud. Azure Active Directory (Azure AD) is the identity and access system for Microsoft Azure.  
 > [!VIDEO https://www.youtube.com/embed/FKBoWWKRnvI]
 
-## Feature areas
-
 Azure AD provides the following capabilities for managing access to Azure resources:
 
 |||
