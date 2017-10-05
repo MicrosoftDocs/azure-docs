@@ -105,6 +105,12 @@ Follow these steps to use Bing to add slices to your Custom Search instance.
 6.	Select **Entire Site**, **Subsite**, or **Exact URL** in the **What do you want to add**? window.
 7.	Click the **Ok** button.
 
+## Understanding Quota
+- For each custom search instance, the maximum number of ranking adjustments that you may make to **Active** and **Blocked** slices is limited to 400.
+- Adding a slice to the Active or Blocked tabs counts as one ranking adjustment.
+- Boosting and demoting count as two ranking adjustments.
+- For each custom search instance, the maximum number of pins that you may make is limited to 200.
+
 ## Next steps
 - [Configure and consume custom hosted UI](./hosted-ui.md)
 - [Use decoration markers to highlight text](./hit-highlighting.md)
