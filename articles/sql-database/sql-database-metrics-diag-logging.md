@@ -50,7 +50,7 @@ You can provision a new Azure resource or select an existing resource. After sel
 - [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): Contains information about the query wait statistics, which tells you what your queries waited on, such as CPU, LOG, and LOCKING.
 - [Errors](sql-database-metrics-diag-logging.md#errors-dataset): Contains information about SQL errors that happened on this database.
 - [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-waits-dataset): Contains information about how much time a database spent waiting on different waiting types.
-- [Timeouts](sql-database-metrics-diag-logging.md#timeouts-dataset): Contains information about how much time a database spent waiting on different waiting types.
+- [Time-outs](sql-database-metrics-diag-logging.md#timeouts-dataset): Contains information about how much time a database spent waiting on different waiting types.
 - [Blockings](sql-database-metrics-diag-logging.md#blockings-dataset): Contains information about blocking events that happened on a database.
 - [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): Contains Intelligent Insights. [Learn more about Intelligent Insights](sql-database-intelligent-insights.md).
 
@@ -400,7 +400,7 @@ Learn more about [SQL Server error messages](https://msdn.microsoft.com/en-us/li
 
 Learn more about [database wait statistics](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
 
-### Timeouts dataset
+### Time-outs dataset
 
 |Property|Description|
 |---|---|
