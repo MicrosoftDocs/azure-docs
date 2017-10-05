@@ -17,12 +17,9 @@ ms.author: magoedte;bwren
 
 ---
 
-# Upgrade your Azure Log Analytics workspace to new log search
+# Azure Log Analytics upgraded log search
 
-> [!NOTE]
-> Upgrade to the new Log Analytics query language is currently optional giving you time to [ramp up on the new language](https://go.microsoft.com/fwlink/?linkid=856078).  
-
-The new Log Analytics query language is here, and you need to upgrade your workspace to take advantage of it.  This article describes the advantages of the new language and how to convert your workspace.  If you don't choose to upgrade now, then your workspace will continue to operate just like it always did, but it will be automatically converted at a later date.  You will receive significant time and notification when that date is set.
+Azure Log Analytics recently upgraded its query language.  If you had a workspace prior to the upgrade then by now you either upgraded the workspace on your own or it's now been upgraded for you.  This article describes the advantages of the new language and XXX.
 
 This article provides details on the new language and the upgrade process.
 
@@ -41,13 +38,8 @@ We understand that there’s pain in any transition, and we aren’t just changi
 - **Much more.** Refer to the [Azure Log Analytics Query Language](https://docs.loganalytics.io) site for complete details and tutorials on the new language.
 
 
-## When can I upgrade?
-The upgrade will be rolled out across all Azure regions so it may be available in some regions before others.  You'll know when your workspace is available to be upgraded when you see the purple banner across the top of your workspace inviting you to upgrade.
-
-![Upgrade 1](media/log-analytics-log-search-upgrade/upgrade-01a.png)
-
-## What happens when I upgrade?
-When you convert your workspace, any saved searches, alert rules, and views that you’ve created with the View Designer are automatically converted to the new language.  Searches included in solutions are not automatically converted, but they’re instead converted on the fly when you open them.  This is completely transparent to you.
+## What happened when my workspace was upgraded?
+When your workspace was converted, any saved searches, alert rules, and views that you’ve created with the View Designer are automatically converted to the new language.  Searches included in solutions are not automatically converted, but they’re instead converted on the fly when you open them.  This is completely transparent to you.
 
 ## Can I go back after I upgrade?
 When you upgrade, a complete backup of your workspace is taken that includes a snapshot of all saved searches, alert rule, and views.  This allows you to restore your old workspace if you should later desire.
