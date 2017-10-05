@@ -256,6 +256,7 @@ Publish your API service to Azure App Services. For more information, see: [Depl
 2. Find the `<ClaimsProviders>` section
 3. Add following XML snippet under the `ClaimsProviders` element
 4. Change the value of `ServiceUrl` to point to your endpoint URL 
+
 ```XML
 <ClaimsProvider>
     <DisplayName>REST APIs</DisplayName>
@@ -311,6 +312,7 @@ Publish your API service to Azure App Services. For more information, see: [Depl
     </TechnicalProfiles>
 </ClaimsProvider>
 ```
+
 The technical profile defines one input claim: `signInName` (send as email). On sign-in, the claim sends to your Restful endpoint.
 
 After you define the technical profile for your Restful API, tell your Azure AD B2C policy to call that technical profile. The XML snippet overrides the `SelfAsserted-LocalAccountSignin-Email`, which is defined in the base policy. The XML snippet also adds `ValidationTechnicalProfile` with ReferenceId pointing to your technical profile `LocalAccountUserMigration`. 

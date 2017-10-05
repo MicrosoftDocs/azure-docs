@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory B2C: Customize the Azure AD B2C user interface (UI) using Custom policies'
-description: 
+title: 'Azure Active Directory B2C: Customize the Azure AD B2C user interface (UI) dynamically using Custom policies'
+description: How to support multiple branding experiences with HTML/CSS content that changes dynamically at runtime
 services: active-directory-b2c
 documentationcenter: ''
 author: yoelhor
@@ -16,8 +16,8 @@ ms.devlang: na
 ms.date: 09/20/2017
 ms.author: yoelh
 ---
-# Azure Active Directory B2C: Configure UI customization with dynamic content in a custom policy
-With custom policy, you can also customize the look and feel for your user, dynamically. B2C custom policy allows you to send through a parameter in a query string. That parameter  passes on to your HTML endpoint and can dynamically change the page content. For example, you can change the B2C sign-up or sign in background image, based on a parameter you pass from your web/mobile application. 
+# Azure Active Directory B2C: Configure the UI with dynamic content using Custom policies
+Azure AD B2C custom policies allow you to send through a parameter in a query string. That parameter passes on to your HTML endpoint and can dynamically change the page content. For example, you can change the B2C sign-up or sign in background image, based on a parameter you pass from your web/mobile application. 
 
 ## Prerequisites
 This article focuses on how to customize the Azure AD B2C user interface with **dynamic content** using custom policies. To get started with custom policy UI customization, read [UI customization in a custom policy](active-directory-b2c-ui-customization-custom.md) article. 
@@ -116,7 +116,7 @@ After adding the _unified_ method, your code should look like:
 
 Debug your web app, and make sure _unified_ page is accessible. For example, `http://localhost:<Port number>/Home/unified`
 
-## Step 2.5: Publish to Azure
+## Step 2.5 Publish to Azure
 1.  In the **Solution Explorer**, right-click the **Contoso.AADB2C.UI** project and select **Publish**.
 
     ![Publish to Microsoft Azure App Service](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-publish1.png)
@@ -139,7 +139,7 @@ Debug your web app, and make sure _unified_ page is accessible. For example, `ht
 
 4.  Once the wizard completes, it publishes the ASP.NET web app to Azure, and then launches the app in the default browser, copy the URL of the _unified_ page. for example, _https://<app_name>.azurewebsites.net/home/unified_
 
-## Step 3. configure CORS in Azure App Service
+## Step 3: Configure CORS in Azure App Service
 1. In a browser, navigate to the [Azure portal](https://portal.azure.com/)
 
 2. Click **App Services**, and then click the name of your API app.
@@ -159,7 +159,7 @@ Or enter an asterisk (*) to specify that all origin domains are accepted.
 
 After you click Save, the API app will accept JavaScript calls from the specified URLs. 
 
-## Step 4. HTML5 template validation
+## Step 4: HTML5 template validation
 You HTML5 templated is ready to use.  However, it is not available in any of the `ContentDefinition`. Before we add the `ContentDefinition` to your custom policy, you must:
 * Ensure your content is HTML5 compliant and accessible
 * Ensure your content server is enabled for CORS.
@@ -171,7 +171,7 @@ You HTML5 templated is ready to use.  However, it is not available in any of the
 * Served content is secure over **HTTPS**.
 * Use **absolute URLS** such as https://yourdomain/content for all links and CSS content and images.
 
-## Step 5. Configure your content definition
+## Step 5: Configure your content definition
 To configure the `ContentDefinition`
 1.  Open the base file of your policy (for example, TrustFrameworkBase.xml).
 2.  Find the `<ContentDefinitions>` element and copy the entire content of `<ContentDefinitions>` node.
@@ -182,7 +182,7 @@ To configure the `ContentDefinition`
 Your custom policy should look like:
 ![Your content definition](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-content-definition.png)
 
-## Step 6. Upload the policy to your tenant
+## Step 6: Upload the policy to your tenant
 1.  In the [Azure portal](https://portal.azure.com), switch into the [context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md), and open the **Azure AD B2C**
 2.  Select **Identity Experience Framework**.
 3.  Open the **All Policies**.
@@ -190,7 +190,7 @@ Your custom policy should look like:
 5.  Check **Overwrite the policy if it exists** box.
 6.  **Upload** TrustFrameworkExtensions.xml and ensure that it does not fail the validation
 
-## Step 7. Test the custom policy by using Run Now
+## Step 7: Test the custom policy by using Run Now
 1.  Open **Azure AD B2C Settings** and go to **Identity Experience Framework**.
 
     >[!NOTE]
@@ -203,7 +203,7 @@ Your custom policy should look like:
 3.  You should be able to see your custom HTML5 with the background you created earlier
 ![Your sign-up or sign-in policy](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo1.png)
 
-## Step 8. Adding dynamic content
+## Step 8: Adding dynamic content
 In this section, we change the background based on query string parameter named _campaignId_. Your relying party application (web/mobile apps) sends the parameter to AAD B2C. Your policy reads the parameter and sends its value to your HTML5 template 
 
 
@@ -265,7 +265,7 @@ In this section, we modify the HomeController _unified_ method to accept campaig
 7. Now, change the value to *Tokyo*  and press **Enter**. The page presents the Tokyo background
 ![Change the page background](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo3.png)
 
-## Step 9. Change the rest of the user journey
+## Step 9: Change the rest of the user journey
 If you navigate to sign in page, and click on **Sign-up now** link, you see the default background, not the one you defined. This behavior is because you only changed the sign-up or sign-in page, however you need to change also the rest of the  Self-Assert content definitions. To do so, go through steps:
 * In Step #2:
     * Download the **selfasserted** file.

@@ -83,7 +83,8 @@ Define LinkedIn as a claims provider, by adding `<ClaimsProvider>` node in your 
 
 1.  Open the extension policy file (TrustFrameworkExtensions.xml) from your working directory. If you need an XML editor, [try Visual Studio Code](https://code.visualstudio.com/download), a lightweight cross-platform editor.
 2.  Find the `<ClaimsProviders>` section
-3.  Add following XML snippet under the `<ClaimsProviders>` node:  
+3.  Add following XML snippet under the `<ClaimsProviders>` node:
+
 ```xml
 <ClaimsProvider>
   <Domain>linkedin.com</Domain>
@@ -128,8 +129,8 @@ Define LinkedIn as a claims provider, by adding `<ClaimsProvider>` node in your 
   </TechnicalProfiles>
 </ClaimsProvider>
 ```
-4.  Replace `client_id` value with your LinkedIn application client ID
-5.  Save the file.
+1.  Replace `client_id` value with your LinkedIn application client ID
+2.  Save the file.
 
 ## Register the LinkedIn account claims provider to Sign up or Sign in user journey
 At this point, the identity provider has been set up. However, it is not available in any of the sign-up/sign-in screens. Now you need to add the LinkedIn account identity provider to your user `SignUpOrSignIn` user journey. To make it available, we create a duplicate of an existing template user journey. Then we add the LinkedIn identity provider:
@@ -176,11 +177,6 @@ Now that you have a button in place, you need to link it to an action. The actio
 
 ## Test the custom policy by using Run Now
 1.  Open **Azure AD B2C Settings** and go to **Identity Experience Framework**.
-
-> [!NOTE]
->
->**Run now** requires at least one application to be preregistered on the tenant. To learn how to register applications, see the Azure AD B2C [Get started](active-directory-b2c-get-started.md) article or the [Application registration](active-directory-b2c-app-registration.md) article.
-
 2.  Open **B2C_1A_signup_signin**, the relying party (RP) custom policy that you uploaded. Select **Run now**.
 3.  You should be able to sign in using LinkedIn account.
 

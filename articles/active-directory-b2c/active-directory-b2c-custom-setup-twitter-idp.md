@@ -1,6 +1,6 @@
 ﻿---
 title: 'Azure Active Directory B2C: Add Twitter as an OAuth1 identity provider using Custom policies'
-description: Sample usign Twitter as identity provider using OAuth1 protocol
+description: Sample using Twitter as identity provider using OAuth1 protocol
 services: active-directory-b2c
 documentationcenter: ''
 author: yoelhor
@@ -38,16 +38,16 @@ To use Twitter as an identity provider in Azure Active Directory (Azure AD) B2C,
 
 1.  Navigate to the [Twitter Developers](https://apps.twitter.com/) website, sign in with your Twitter account credentials, and click **Create New App**.
 
-    ![Twitter account - Create new app](media/active-directory-b2c-custom-setup-twitt-idp/adb2c-ief-setup-twitt-idp-new-app1.png)
+    ![Twitter account - Create new app](media/active-directory-b2c-custom-setup-twitter-idp/adb2c-ief-setup-twitter-idp-new-app1.png)
 
 2.  Type in the **Name** and a **Description** for your new app. Paste in `https://login.microsoftonline.com` for the **Website** value. Then, for the **Callback URL**, paste the `https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp`. Replace {tenant} with your tenant's name (for example, contosob2c.onmicrosoft.com). and make sure that you are using the HTTPS scheme. At the bottom the page, read and accept the terms. Then click **Create your Twitter application**.
 
-    ![Twitter account - Add a new app](media/active-directory-b2c-custom-setup-twitt-idp/adb2c-ief-setup-twitt-idp-new-app2.png)
+    ![Twitter account - Add a new app](media/active-directory-b2c-custom-setup-twitter-idp/adb2c-ief-setup-twitter-idp-new-app2.png)
 
 3.  Click the **Settings** tab, check **Allow this application to be used to sign in with Twitter**, then click **Update Settings**.
 4.  Select the **Keys and Access Tokens** tab. Make a note of the values of **Consumer Key (API Key)** and **Consumer secret (API Secret)**.
 
-    ![Twitter account - Set application properties](media/active-directory-b2c-custom-setup-twitt-idp/adb2c-ief-setup-twitt-idp-new-app3.png)
+    ![Twitter account - Set application properties](media/active-directory-b2c-custom-setup-twitter-idp/adb2c-ief-setup-twitter-idp-new-app3.png)
 
 > [!NOTE]
 >
@@ -76,6 +76,7 @@ Define Twitter as a claims provider, by adding `<ClaimsProvider>` node in your e
 1.  Open the extension policy file (TrustFrameworkExtensions.xml) from your working directory. If you need an XML editor, [try Visual Studio Code](https://code.visualstudio.com/download), a lightweight cross-platform editor.
 2.  Find the `<ClaimsProviders>` section
 3.  Add following XML snippet under the `<ClaimsProviders>` node:  
+
 ```xml
 <ClaimsProvider>
     <Domain>twitter.com</Domain>
@@ -115,7 +116,7 @@ Define Twitter as a claims provider, by adding `<ClaimsProvider>` node in your e
     </TechnicalProfiles>
 </ClaimsProvider>
 ```
-4.  Replace `client_id` value with your Twitter account application's consumer key
+1.  Replace `client_id` value with your Twitter account application's consumer key
 
 5.  Save the file.
 
@@ -164,11 +165,6 @@ Now that you have a button in place, you need to link it to an action. The actio
 ## Test the custom policy by using Run Now
 
 1.  Open **Azure AD B2C Settings** and go to **Identity Experience Framework**.
-
-> [!NOTE]
->
->**Run now** requires at least one application to be preregistered on the tenant. To learn how to register applications, see the Azure AD B2C [Get started](active-directory-b2c-get-started.md) article or the [Application registration](active-directory-b2c-app-registration.md) article.
-
 2.  Open **B2C_1A_signup_signin**, the relying party (RP) custom policy that you uploaded. Select **Run now**.
 3.  You should be able to sign in using Twitter account.
 
@@ -197,4 +193,4 @@ You may want to add the Twitter account identity provider also to your user `Pro
 3.  You should be able to sign in using Twitter account.
 
 ## Download the complete policy files
-Optional: We recommend you build your scenario using your own Custom policy files after completing the Getting Started with Custom Policies walk through instead of using these sample files.  [Sample policy files for reference](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-twitt-app)
+Optional: We recommend you build your scenario using your own Custom policy files after completing the Getting Started with Custom Policies walk through instead of using these sample files.  [Sample policy files for reference](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-twitter-app)

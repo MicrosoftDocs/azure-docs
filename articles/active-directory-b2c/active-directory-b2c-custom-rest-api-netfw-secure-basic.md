@@ -1,5 +1,5 @@
 ﻿---
-title: 'Azure Active Directory B2C: Secure your Restful services using HTTP basic authentication'
+title: 'Azure Active Directory B2C: Secure your RESTful services using HTTP basic authentication'
 description: Sample how to secure your custom REST API claims exchanges in your Azure AD B2C using HTTP basic authentication
 services: active-directory-b2c
 documentationcenter: ''
@@ -17,8 +17,8 @@ ms.date: 08/04/2017
 ms.author: yoelh
 ---
 
-# Azure Active Directory B2C: Secure your Restful services using HTTP basic authentication
-In the [previous step](active-directory-b2c-custom-rest-api-netfw.md), we created a Restful service (Web API) that integrates into Azure AD B2C user journey. The Web API in that example was not secured.  This article shows how to add HTTP basic authentication to your Restful service.  You will learn how to set the user credentials (app ID & app secret) in your Azure AD B2C custom policy for secure access to the API. 
+# Azure Active Directory B2C: Secure your RESTful services using HTTP basic authentication
+In the [previous step](active-directory-b2c-custom-rest-api-netfw.md), we created a RESTful service (Web API) that integrates into Azure AD B2C user journey. The Web API in that example was not secured.  This article shows how to add HTTP basic authentication to your RESTful service.  You will learn how to set the user credentials (app ID & app secret) in your Azure AD B2C custom policy for secure access to the API. 
 
 > [!NOTE]
 >
@@ -208,10 +208,10 @@ Open Controllers\IdentityController.cs and add the `[Authorize]` tag to the cont
 ## Step 2 Publish to Azure
 In the **Solution Explorer**, right-click the **Contoso.AADB2C.API** project and select **Publish**.
 
-## Step 3 Add the Restful services app ID & app secret to Azure AD B2C
-After your Restful service is protected by client ID (username) and client secrete, you need to store the credentials in your Azure AD B2C tenant. Your custom policy  provides the credentials while invoking your Restful services.  
+## Step 3 Add the RESTful services app ID & app secret to Azure AD B2C
+After your RESTful service is protected by client ID (username) and client secrete, you need to store the credentials in your Azure AD B2C tenant. Your custom policy  provides the credentials while invoking your RESTful services.  
 
-### Add Restful services client ID
+### Add RESTful services client ID
 1.  Go to your Azure AD B2C tenant, and select **B2C Settings** > **Identity Experience Framework**
 2.  Select **Policy Keys** to view the keys available in your tenant.
 3.  Click **+Add**.
@@ -223,7 +223,7 @@ After your Restful service is protected by client ID (username) and client secre
 8.  Click **Create**
 9.  Confirm that you've created the key `B2C_1A_B2cRestClientId`.
 
-### Add Restful services client secret
+### Add RESTful services client secret
 1.  Go to your Azure AD B2C tenant, and select **B2C Settings** > **Identity Experience Framework**
 2.  Select **Policy Keys** to view the keys available in your tenant.
 3.  Click **+Add**.
@@ -278,8 +278,8 @@ After adding the XML snippets, your `TechnicalProfile` should look like:
 
 4.  Try to enter a name (other than "test") in the **Given Name** field. B2C signs up the user and send a loyaltyNumber to your application in a JWT.
 
-## Read more:
-* [Secure your Restful API with client certificate](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
+## Next steps
+* [Secure your RESTful API with client certificate](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
 
 ## [Optional] Download the complete policy files and code
 * We recommend you build your scenario using your own Custom policy files after completing the Getting Started with Custom Policies walk through instead of using these sample files.  [Sample policy files for reference](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw-secure-basic)

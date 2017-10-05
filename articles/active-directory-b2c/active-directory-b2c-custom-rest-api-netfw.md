@@ -21,16 +21,16 @@ ms.author: yoelh
 The Identity Experience Framework (IEF) that underlies Azure Active Directory B2C (Azure AD B2C) enables you to integrate with a RESTful API in a user journey. In this walkthrough, we are going to show you how B2C interacts with .NET framework RESTful services (Web API).
 
 ## Introduction
-Azure AD B2C allows you to add your own business logic into a user journey by calling your own Restful service. The Identity Experience Framework sends data to Restful service in **Input claims** collection and receives data back from Restful in **Output claims** collection. With Restful service integration, you can:
+Azure AD B2C allows you to add your own business logic into a user journey by calling your own RESTful service. The Identity Experience Framework sends data to RESTful service in **Input claims** collection and receives data back from RESTful in **Output claims** collection. With RESTful service integration, you can:
 
-* Validate user input data, preventing malformed data from persisting into Azure AD. If the value from the user is not valid, your Restful service returns error message that instructs the user to provide a entry. For example, you may verify that the email address provided by the user exits in your customers database.
+* Validate user input data, preventing malformed data from persisting into Azure AD. If the value from the user is not valid, your RESTful service returns error message that instructs the user to provide a entry. For example, you may verify that the email address provided by the user exits in your customers database.
 * Overwrite input claims. For instance, if user enters the first name in lower case or upper case, you can format the name and capitalize only the first letter
 * Enrich user data by further integrating with corporate line-of-business application. Your RESTful service may receive the user email address, query customers database, and return user's loyalty number back to B2C. The return claims may be stored in the user AAD account, evaluated in  the next **Orchestration Steps**, or included in the access token.
 * Run custom business logic: send push notifications, update corporate's databases, run user migration process, permission management, auditing, and more.
 
-The integration with the Restful services can be designed as a claims exchange or as a Validation technical profile:
+The integration with the RESTful services can be designed as a claims exchange or as a Validation technical profile:
 
-* **Validation technical profile** The call to the Restful service happens inside ValidationTechnicalProfile of a given TechnicalProfile. The validation technical profile validates the user provided data before user journey moves forward. With validation technical profile you can:
+* **Validation technical profile** The call to the RESTful service happens inside ValidationTechnicalProfile of a given TechnicalProfile. The validation technical profile validates the user provided data before user journey moves forward. With validation technical profile you can:
   * Send input claims
   * Validate the input claims and throw custom error messages
   * Send back output claims
@@ -39,12 +39,12 @@ The integration with the Restful services can be designed as a claims exchange o
    * Send input claims
    * Send back output claims
 
-## Restful demo
+## RESTful demo
 In this demo, you develop a .NET framework web API that validates the user input and provide user loyalty number. For example, your application can grant access to "platinum benefits"based on the loyalty number.
 
 The demo involves:
-*   Developing the Restful service (.NET framework Web API)
-*   Using the Restful service in the user journey
+*   Developing the RESTful service (.NET framework Web API)
+*   Using the RESTful service in the user journey
 *   Sending input claims and read them in your code
 *   Validating the user first name
 *   Sending back loyalty number 
@@ -185,6 +185,7 @@ namespace Contoso.AADB2C.API.Controllers
     }
 }
 ```
+
 ## Step 3: Publish to Azure
 1.  In the **Solution Explorer**, right-click the **Contoso.AADB2C.API** project and select **Publish**.
 
@@ -197,7 +198,6 @@ namespace Contoso.AADB2C.API.Controllers
     This opens the **Create App Service** dialog, which helps you create all the necessary Azure resources to run the ASP.NET web app in Azure.
 
 > [!NOTE]
->
 >For more information how to publish, see: [Create an ASP.NET web app in Azure](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure)
 
 3.  In **Web App Name**, type a unique app name (valid characters are `a-z`, `0-9`, and `-`). The URL of the web app is `http://<app_name>.azurewebsites.NET`, where `<app_name>` is your web app name. You can accept the automatically generated name, which is unique.
@@ -221,14 +221,15 @@ The claim `loyaltyNumber` is not yet defined anywhere in our schema. So, add a d
     </ClaimsSchema>
 </BuildingBlocks>
 ```
+
 ## Step 5: Adding claims provider 
 Every claims provider must have one or more technical profiles which determines the endpoints and the protocols needed to communicate with that claims provider. 
 A claims provider can have multiple technical profiles for various reasons. For example, multiple technical profiles may be defined because the considered claims provider supports multiple protocols, various endpoints with different capabilities, or releases different claims at different assurance levels. It may be acceptable to release sensitive claims in one user journey, but not in another one. 
 
 Following XML snippet contains `ClaimsProvider` node with two `TechnicalProfile`:
-* `<TechnicalProfile Id="REST-API-SignUp">` defines your Restful service. The `Proprietary` is described as protocol for a Restful based provider. The `InputClaims` element defines the claims that will be sent from the B2C to the REST service. In this example, the content of the claim `givenName` sends to the REST service as `firstName`, the content of the claim `surename` sends to the REST service as `lastName`, the `email` sends as is. The `OutputClaims` element defines the claims that retrieve back from Restful service back to B2C.
+* `<TechnicalProfile Id="REST-API-SignUp">` defines your RESTful service. The `Proprietary` is described as protocol for a RESTful based provider. The `InputClaims` element defines the claims that will be sent from the B2C to the REST service. In this example, the content of the claim `givenName` sends to the REST service as `firstName`, the content of the claim `surename` sends to the REST service as `lastName`, the `email` sends as is. The `OutputClaims` element defines the claims that retrieve back from RESTful service back to B2C.
 
-* `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">`  adds validation technical profile to existing technical profile (defined in base policy). During sign up journey, the validation technical profile invokes the above technical profile. If Restful service returns HTTP error 409 (conflic), the error message presentes to the user. 
+* `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">`  adds validation technical profile to existing technical profile (defined in base policy). During sign up journey, the validation technical profile invokes the above technical profile. If RESTful service returns HTTP error 409 (conflic), the error message presentes to the user. 
 
 Locate the `<ClaimsProviders>` node and add following XML snippet under `<ClaimsProviders>` node:
 ```xml
@@ -236,7 +237,7 @@ Locate the `<ClaimsProviders>` node and add following XML snippet under `<Claims
     <DisplayName>REST APIs</DisplayName>
     <TechnicalProfiles>
     
-    <!-- Custom Restful service -->
+    <!-- Custom RESTful service -->
     <TechnicalProfile Id="REST-API-SignUp">
         <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
         <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -293,6 +294,7 @@ After you add the new claim, the `RelyingParty` looks like this:
     </RelyingParty>
 </TrustFrameworkPolicy>
 ```
+
 ## Step 7: Upload the policy to your tenant
 1.  In the [Azure portal](https://portal.azure.com), switch into the [context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md), and open the **Azure AD B2C**
 2.  Select **Identity Experience Framework**
@@ -344,6 +346,6 @@ After you add the new claim, the `RelyingParty` looks like this:
 * We recommend you build your scenario using your own Custom policy files after completing the Getting Started with Custom Policies walk through instead of using these sample files.  [Sample policy files for reference](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw)
 * You can download the complete code  here [Sample visual studio solution for reference](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/Contoso.AADB2C.API)
 	
-## Next step
-1.  [Secure your Restful API with basic authentication (username and password)](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
-2.  [Secure your Restful API with client certificate](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
+## Next steps
+1.  [Secure your RESTful API with basic authentication (username and password)](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
+2.  [Secure your RESTful API with client certificate](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
