@@ -40,9 +40,6 @@ Use the following instructions to configure a hosted UI to include in your web a
 > [!NOTE]
 > As you make changes to the custom hosted UI configuration, the pane on the right provides a visual reference for the changes made. The displayed search results are not actual results for your instance
 
-> [!Note]
-> The page cannot display your privacy statement or other notices and terms.  Suitability for your production environment may vary.
-
 ## Consume custom UI
 To consume the hosted UI, either: 
 
@@ -66,9 +63,11 @@ To consume the hosted UI, either:
     </html>
     ```
 
-- Use the URL provided    
-`https://ui.customsearch.ai/hosted?customConfig=YOUR-CUSTOM-CONFIG-ID`
-    
+- Use the URL provided 
+  > [!IMPORTANT]
+  > The page cannot display your privacy statement or other notices and terms. Suitability for your use may vary.
+
+  `https://ui.customsearch.ai/hosted?customConfig=YOUR-CUSTOM-CONFIG-ID`
 
 ## Next steps
 - [Hit highlighting](./hit-highlighting.md)
