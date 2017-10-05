@@ -40,7 +40,7 @@ View the list of snapshots and then browse its content directly by selecting the
 
 ![./media/storage-snapshots-list-browse/snapshot-browsefiles-portal.png](./media/storage-snapshots-list-browse/snapshot-browsefiles-portal.png)
 
-You can also select **Connect** Button on yout list snapshot view to get the `net use` command and the directory path to a particular snapshot, which you can directly browse into.
+You can also select **Connect** Button on your list snapshot view to get the `net use` command and the directory path to a particular snapshot, which you can directly browse into.
 
 ![./media/storage-snapshots-list-browse/snapshot-download-restore-portal.png](./media/storage-snapshots-list-browse/snapshot-download-restore-portal.png)
 
@@ -77,7 +77,7 @@ You can select **Open** to browse a particular snapshot
 
  ![./media/storage-snapshots-list-browse/snapshot-browse-windows.png](./media/storage-snapshots-list-browse/snapshot-browse-windows.png)
 
-### Restore from a Previous versions
+### Restore from a Previous Version
 **Restore** to copy contents of the entire directory recursively at the snapshot creation time to original location.
  ![./media/storage-snapshots-list-browse/snapshot-windows-previous-versions.png](./media/storage-snapshots-list-browse/snapshot-windows-restore.png)
 
@@ -164,7 +164,7 @@ az storage file download --path IMG_0966.JPG --share-name sharesnapshotdefs --sn
 
 ### Sample Output
 
-You see that the content of the downloaded file and its properties are identical to the content and properties at the point in time that snapshot was created.
+You see that the contents of the downloaded file and its properties are identical to the content and properties at the point in time that snapshot was created.
 
 ```json
 {
@@ -198,7 +198,7 @@ You see that the content of the downloaded file and its properties are identical
 
 
 ## Next Steps
-You just learnt how use snapshot for listing, browsing, and restoring pervious versions using Windows, portal and Azure CLI. Click the link below to learn more
+You just learned how use snapshot for listing, browsing, and restoring pervious versions using Windows, portal and Azure CLI. Click the link below to learn more
 
 * [How to delete snapshot](storage-snapshots-delete.md)
 * [Snapshot Overview](storage-snapshots-files.md)
