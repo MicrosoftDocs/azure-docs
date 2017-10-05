@@ -12,8 +12,8 @@ ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.devlang: java
 ms.workload: na
-ms.date: 09/12/2017
-ms.author: routlaw
+ms.date: 10/03/2017
+ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
 ---
 
@@ -128,7 +128,7 @@ The deploy process to Azure Functions uses account credentials from the Azure CL
 
 ```
 az login
-mvn azure-fuctions:deploy
+mvn azure-functions:deploy
 ```
 
 When the deploy is complete, you see the URL you can use to access your Azure function app:

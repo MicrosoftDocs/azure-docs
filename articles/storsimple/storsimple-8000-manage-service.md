@@ -59,7 +59,7 @@ For each StorSimple Device Manager service, the following attributes exist:
 StorSimple 8000 series can be now managed in the Azure portal. If you have an existing service to manage the StorSimple devices, we recommend that you move your service to the Azure portal. The Azure classic portal for the StorSimple Manager service is not supported after September 30, 2017. If you want to move to the new Azure portal, refer [Considerations for transition](#considerations-for-transition). 
 
 > [!NOTE]
-> Starting October 5, 2017, your classic StorSimple device managers will automatically move to the new Azure portal. This is a phased rollout, and we will update you about the move via email and portal notifications. If you have any questions, see [FAQ: Move to Azure portal]().
+> Starting October 5, 2017, your classic StorSimple device managers will automatically move to the new Azure portal. This is a phased rollout, and we will update you about the move via email and portal notifications. If you have any questions, see [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md).
 
 ### Considerations for transition
 

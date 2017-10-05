@@ -191,7 +191,7 @@ This scenario has two pipelines:
           "type": "AzureStorage",
           "typeProperties": {
             "connectionString": {
-              "value": "DefaultEndpointsProtocol=https;AccountName=*****"
+              "value": "DefaultEndpointsProtocol=https;AccountName=*****",
               "type": "SecureString"
             }
           }
