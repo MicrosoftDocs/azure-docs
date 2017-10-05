@@ -126,7 +126,7 @@ private static void Operation_context_Retrying(object sender, RequestEventArgs e
 
 ### Request completed event handler
 
-The `Operation_context_RequestCompleted` event handler is called when the download of the image is successful. If the application is using the secondary endpoint, the application continues to use this endpoint up to 20 times. If the requests are successful, the [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) is set back to `PrimaryThenSecondary`. Requests go to the primary endpoint again until failure.
+The `Operation_context_RequestCompleted` event handler is called when the download of the image is successful. If the application is using the secondary endpoint, the application continues to use this endpoint up to 20 times. If the requests are successful, the [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) is set back to `PrimaryThenSecondary`. Requests go to the primary endpoint first until another failure.
 
 ```csharp
 private static void Operation_context_RequestCompleted(object sender, RequestEventArgs e)

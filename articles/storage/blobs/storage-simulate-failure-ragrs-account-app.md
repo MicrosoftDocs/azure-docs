@@ -28,7 +28,7 @@ In part two of the series, you learn how to:
 > [!div class="checklist"]
 > * Run and pause the application
 > * Simulate a failure
-> * Resume the application
+> * Simulate primary endpoint restoration
 
 ## Prerequisites
 
@@ -47,11 +47,11 @@ To complete this tutorial, you must have completed the previous storage tutorial
 
 ## Launch fiddler
 
-Open Fiddler, select **Rules** and **Customize Rules**. The Fiddler ScriptEditor launches showing the **SampleRules.js** file. This file is used to customize Fiddler.
+Open Fiddler, select **Rules** and **Customize Rules**.
 
 ![Customize Fiddler rules](media/storage-simulate-failure-ragrs-account-app/figure1.png)
 
-Paste the following code sample in the `OnBeforeResponse` function. The new statement is commented out to ensure that the logic is not implemented immediately. Once complete select **File** and **Save** to save your changes.
+The Fiddler ScriptEditor launches showing the **SampleRules.js** file. This file is used to customize Fiddler. Paste the following code sample in the `OnBeforeResponse` function. The new code is commented out to ensure that the logic it creates is not implemented immediately. Once complete select **File** and **Save** to save your changes.
 
 ```javascript
          // Simulate data center failure
@@ -61,7 +61,7 @@ Paste the following code sample in the `OnBeforeResponse` function. The new stat
          // When you're ready to stop sending back errors, comment these lines of script out again 
          //     and save the changes.
 
-         // if ((oSession.hostname == "contosoragrs.blob.core.windows.net") 
+         // if ((oSession.hostname == "STORAGEACCOUNTNAME.blob.core.windows.net") 
          // && (oSession.PathAndQuery.Contains("HelloWorld"))) {
          // oSession.responseCode = 503;  
          // }
@@ -69,38 +69,56 @@ Paste the following code sample in the `OnBeforeResponse` function. The new stat
 
 ![Paste customized rule](media/storage-simulate-failure-ragrs-account-app/figure2.png)
 
-Requests to storage accounts using the client tools goes over HTTPS. For this reason, HTTPS decryption needs to be enabled in Fiddler so it can inject the `503 - Service Unavailable` error to simulate a failure, to learn how to do this visit [Configure Fiddler to Decrypt HTTPS Traffic](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
+### Configure HTTPS decryption
+
+Requests to storage accounts using the client libraries use HTTPS. For this reason, HTTPS decryption needs to be enabled in Fiddler so it can inject the `503 - Service Unavailable` error to simulate a failure, to learn how to do this visit [Configure Fiddler to Decrypt HTTPS Traffic](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
  
 ## Start and pause the application
 
-In Visual Studio, press **F5** or select **Play** to start debugging the application. Once the application begins reading from the primary endpoint, press **Pause** or press **Ctrl** + **Alt** + **Break** to pause the application.
+In Visual Studio, press **F5** or select **Start** to start debugging the application. Once the application begins reading from the primary endpoint, press **Pause** or press **Ctrl** + **Alt** + **Break** to pause the application.
 
 ## Simulate failure
 
-Navigate to Fiddler and select **Rules** and **Customize Rules...**.  Uncomment out the following lines and select **File** and **Save**.
+With the application paused you can now uncomment the custom rule we saved in Fiddler a preceding step.  This code sample looks for requests to the RA-GRS storage account and if the path contains the name of the image, `HelloWorld`, it returns a response code of `503 - Service Unavailable`.
+
+Navigate to Fiddler and select **Rules** and **Customize Rules...**.  Uncomment out the following lines and select **File** and **Save**. Replace `STORAGEACCOUNTNAME` with the name of your storage account.
 
 ```javascript
-         if ((oSession.hostname == "contosoragrs.blob.core.windows.net") 
+         if ((oSession.hostname == "STORAGEACCOUNTNAME.blob.core.windows.net")
          && (oSession.PathAndQuery.Contains("HelloWorld"))) {
-         oSession.responseCode = 503;  
+         oSession.responseCode = 503;
          }
 ```
 
 In Visual Studio, select **Continue** or press **F5** to resume debugging.
 
-Once the application starts running again, the requests to the primary endpoint begin to fail. The application attempts to reconnect to the primary endpoint 5 times. After the threshold, it retrieves the image from the secondary read-only endpoint. After the application successfully retrieves the image 20 times from the secondary endpoint, the application attempts to connect to the primary endpoint. If the primary endpoint is still unreachable, the application resumes reading from the secondary endpoint. RA-GRS  
+Once the application starts running again, the requests to the primary endpoint begin to fail. The application attempts to reconnect to the primary endpoint 5 times. After the failure threshold of five attempts, it requests the image from the secondary read-only endpoint. After the application successfully retrieves the image 20 times from the secondary endpoint, the application attempts to connect to the primary endpoint. If the primary endpoint is still unreachable, the application resumes reading from the secondary endpoint. This pattern is the [Circuit Breaker](/azure/architecture/patterns/circuit-breaker.md) pattern described in the previous tutorial.
 
 ![Paste customized rule](media/storage-simulate-failure-ragrs-account-app/figure3.png)
 
-## Remove simulated error
+## Simulate primary endpoint restoration
 
-In Visual Studio, press **F5** or select **Play** to start debugging the application. Once the application begins reading from the primary endpoint, press **Pause** or press **Ctrl** + **Alt** + **Break** to pause the application.
+With the Fiddler custom rule set in the preceding step, requests to the primary endpoint fail. In order to simulate the primary endpoint functioning again, you remove the logic to inject the `503` error.
 
-Navigate to Fiddler and select **Rules** and **Customize Rules...**.  Comment or remove the custom logic in the `OnBeforeResponse` function and select **File** and **Save**.
+### Stop debugging
 
-Select **Continue** or press **F5** to resume debugging.
+In Visual Studio, press **Pause** or press **Ctrl** + **Alt** + **Break** to pause the application.
 
-![Remove customized rule](media/storage-simulate-failure-ragrs-account-app/figure4.png)
+### Remove the custom rule
+
+Navigate to Fiddler and select **Rules** and **Customize Rules...**.  Comment or remove the custom logic in the `OnBeforeResponse` function, leaving the default function. Select **File** and **Save** to save the changes.
+
+![Remove customized rule](media/storage-simulate-failure-ragrs-account-app/figure5.png)
+
+### Resume debugging
+
+In Visual Studio, select **Continue** or press **F5** to resume debugging.
+
+![Resume application](media/storage-simulate-failure-ragrs-account-app/figure4.png)
+
+### Disable HTTPS decryption
+
+Visit [Configure Fiddler to Decrypt HTTPS Traffic](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
 
 ## Next steps
 
@@ -109,7 +127,7 @@ In part two of the series, you learned about simulating a failure to test read a
 > [!div class="checklist"]
 > * Run and pause the application
 > * Simulate a failure
-> * Resume the application
+> * Simulate primary endpoint restoration
 
 Follow this link to see pre-built storage samples.
 

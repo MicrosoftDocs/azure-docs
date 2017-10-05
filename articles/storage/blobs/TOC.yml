@@ -32,7 +32,7 @@
     items:
       - name: Make your application highly available
         href: storage-create-geo-redundant-storage.md
-      - name: Simulate a failure
+      - name: Simulate a failure with RA-GRS storage
         href: storage-simulate-failure-ragrs-account-app.md
 - name: Samples
   items:
