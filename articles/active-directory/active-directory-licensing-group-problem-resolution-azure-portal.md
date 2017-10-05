@@ -105,7 +105,7 @@ You can assign more than one product license to a group. For example, you can as
 
 Azure AD attempts to assign all licenses that are specified in the group to each user. If Azure AD can't assign one of the products because of business logic problems, it won't assign the other licenses in the group either. An example, is if there aren't enough licenses for all or if there are conflicts with other services that are enabled on the user.
 
-You are able to see the users who failed to get assigned and check which products are affected by this problem.
+You can see the users who failed to get assigned and check which products are affected by this problem.
 
 ## How do you manage licenses for products with prerequisites?
 
