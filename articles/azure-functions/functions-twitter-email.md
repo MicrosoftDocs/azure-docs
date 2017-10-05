@@ -129,7 +129,9 @@ Now you have a function that categorizes sentiment scores. Next, you create a lo
     | **Resource group** | myResourceGroup | Choose the same existing resource group as before. |
     | **Location** | East US | Choose a location close to you. |    
 
-4. Choose **Pin to dashboard**, and then click **Create** to create your logic app. After the app is created, click your new logic app pinned to the dashboard. Then in the Logic Apps Designer, scroll down and click the **Blank Logic App** template. 
+4. Choose **Pin to dashboard**, and then click **Create** to create your logic app. 
+
+5. After the app is created, click your new logic app pinned to the dashboard. Then in the Logic Apps Designer, scroll down and click the **Blank Logic App** template. 
 
     ![Blank Logic Apps template](media/functions-twitter-email/blank.png)
 
