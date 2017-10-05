@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 09/26/2017
 ms.author: jingwang
 
 robots: noindex
@@ -65,6 +65,10 @@ A linked service links a data store to a data factory. You create a linked servi
 | --- | --- | --- | --- |
 | accessKeyID |ID of the secret access key. |string |Yes |
 | secretAccessKey |The secret access key itself. |Encrypted secret string |Yes |
+
+>[!NOTE]
+>This connector requires access keys for IAM account to copy data from Amazon S3. [Temporary Security Credential](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) is not supported.
+>
 
 Here is an example:
 

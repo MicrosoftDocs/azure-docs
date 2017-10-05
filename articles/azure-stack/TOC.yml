@@ -19,6 +19,8 @@
     href: azure-stack-tutorial-app-service.md
 - name: Concepts
   items:
+  - name: Planning considerations
+    href: azure-stack-planning-considerations.md
   - name: Servicing policy
     href: azure-stack-servicing-policy.md
   - name: Release notes
@@ -37,6 +39,8 @@
       href: azure-stack-deploy.md
     - name: Deploy
       href: azure-stack-run-powershell-script.md
+    - name: Install PowerShell
+      href: azure-stack-powershell-configure-quickstart.md
     - name: Register
       href: azure-stack-register.md
     - name: Connect to Azure Stack

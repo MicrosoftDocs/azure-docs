@@ -1,6 +1,6 @@
 ---
-title: Create a Service Fabric cluster in Azure | Microsoft Docs
-description: Learn how to create a Windows cluster in Azure using a template.
+title: Create a Windows Service Fabric cluster in Azure | Microsoft Docs
+description: Learn how to deploy a Windows Service Fabric cluster into an existing Azure virtual network using PowerShell.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -13,27 +13,27 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/06/2017
+ms.date: 09/26/2017
 ms.author: ryanwi
 
 ---
 
-# Deploy a secure Service Fabric Windows cluster into an Azure virtual network
-This tutorial is part one of a series. You will learn how to create a Service Fabric cluster (Windows) running in Azure and deploy it into an existing virtual network (VNET) and subnet. When you're finished, you have a cluster running in the cloud that you can deploy applications to.  To create a Linux cluster, see [Create a secure Linux cluster on Azure using a template](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+# Deploy a Service Fabric Windows cluster into an Azure virtual network
+This tutorial is part one of a series. You will learn how to deploy a Windows Service Fabric cluster into an existing Azure virtual network (VNET) and sub-net using PowerShell. When you're finished, you have a cluster running in the cloud that you can deploy applications to.  To create a Linux cluster using Azure CLI, see [Create a secure Linux cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a VNET in Azure using a template
+> * Create a VNET in Azure using PowerShell
 > * Create a key vault and upload a certificate
-> * Create a secure Service Fabric cluster in Azure using a template
+> * Create a secure Service Fabric cluster in Azure PowerShell
 > * Secure the cluster with an X.509 certificate
 > * Connect to the cluster using PowerShell
 > * Remove a cluster
 
 In this tutorial series you learn how to:
 > [!div class="checklist"]
-> * Create a secure cluster on Azure using a template
+> * Create a secure cluster on Azure
 > * [Deploy API Management with Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## Prerequisites
@@ -42,10 +42,7 @@ Before you begin this tutorial:
 - Install the [Service Fabric SDK and PowerShell module](service-fabric-get-started.md)
 - Install the [Azure Powershell module version 4.1 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
 
-The following procedures create a five-node Service Fabric cluster. The cluster is secured by a self-signed certificate placed in a key vault. 
-
-To calculate cost incurred by running a Service Fabric cluster in Azure use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
-For more information on creating Service Fabric clusters, see [Create a Service Fabric cluster by using Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
+The following procedures create a five-node Service Fabric cluster. To calculate cost incurred by running a Service Fabric cluster in Azure use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
 
 ## Sign-in to Azure and select your subscription
 This guide uses Azure PowerShell. When you start a new PowerShell session, sign in to your Azure account and select your subscription before you execute Azure commands.
@@ -177,33 +174,17 @@ Write-Host "Certificate Thumbprint: " $output.CertificateThumbprint
 ```
 
 ## Deploy the Service Fabric cluster
-Once the network resources have finished deploying and you've uploaded a certificate to a key vault, the next step is to deploy a Service Fabric cluster to the VNET in the subnet and NSG designated for the Service Fabric cluster. For this tutorial, the Service Fabric Resource Manager template is pre-configured to use the names of the VNET, subnet, and NSG that you set up in a previous step.
-
-Download the following Resource Manager template and parameters file:
+Once the network resources have finished deploying, the next step is to deploy a Service Fabric cluster to the VNET in the subnet and NSG designated for the Service Fabric cluster. Deploying a cluster to an existing VNET and subnet (deployed previously in this article) requires a Resource Manager template.  For more information, see [Create a cluster by using Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). For this tutorial series, the template is pre-configured to use the names of the VNET, subnet, and NSG that you set up in a previous step.  Download the following Resource Manager template and parameters file:
 - [cluster.json][cluster-arm]
 - [cluster.parameters.json][cluster-parameters-arm]
 
-Fill in the empty parameters in the `cluster.parameters.json` file for your deployment, including the [Key Vault information](service-fabric-cluster-creation-via-arm.md#set-up-a-key-vault) for your cluster certificate.
+Fill in the empty **clusterName**, **adminUserName**, **adminPassword**, **certificateThumbprint**, **certificateUrlValue**, and **sourceVaultValue** parameters in the *cluster.parameters.json* file for your deployment.  If you have an existing certificate previously uploaded to a key vault, fill in the **certificateThumbprint**, **certificateUrlValue**, and **sourceVaultValue** values for that certificate.
 
 Use the following PowerShell command to deploy the Resource Manager template and parameter files to create the Service Fabric cluster:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile .\cluster.json -TemplateParameterFile .\cluster.parameters.json -Verbose
 ```
-
-## Modify the certificate & access Service Fabric Explorer 
-
-1. Double-click the certificate to open the Certificate Import Wizard.
-
-2. Use default settings, but make sure to check the **Mark this key as exportable.** check box, in the **private key protection** step. Visual Studio needs to export the certificate when configuring Azure Container Registry to Service Fabric Cluster authentication later in this tutorial.
-
-3. You can now open Service Fabric Explorer in a browser. To do so, navigate to the **ManagementEndpoint** URL for your cluster using a web browser, and select the certificate that was saved on your machine.
-
->[!NOTE]
->When opening Service Fabric Explorer, you see a certificate error, as you are using a self-signed certificate. In Edge, you have to click *Details* and then the *Go on to the webpage* link. In Chrome, you have to click *Advanced* and then the *proceed* link.
-
->[!NOTE]
->If the cluster creation fails, you can always rerun the command, which updates the resources already deployed. If a certificate was created as part of the failed deployment, a new one is generated. To troubleshoot cluster creation, see [Create a Service Fabric cluster by using Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
 ## Connect to the secure cluster
 Connect to the cluster using the Service Fabric PowerShell module installed with the Service Fabric SDK.  First, install the certificate into the Personal (My) store of the current user on your computer.  Run the following PowerShell command:
@@ -233,13 +214,8 @@ Check that you are connected and the cluster is healthy using the [Get-ServiceFa
 Get-ServiceFabricClusterHealth
 ```
 
-```azurecli
-sfctl cluster health
-```
-
 ## Clean up resources
-
-A cluster is made up of other Azure resources in addition to the cluster resource itself. The simplest way to delete the cluster and all the resources it consumes is to delete the resource group.
+The other articles in this tutorial series use the cluster you just created. If you're not immediately moving on to the next article, you might want to delete the cluster to avoid incurring charges. The simplest way to delete the cluster and all the resources it consumes is to delete the resource group.
 
 Log in to Azure and select the subscription ID with which you want to remove the cluster.  You can find your subscription ID by logging in to the [Azure portal](http://portal.azure.com). Delete the resource group and all the cluster resources using the [Remove-AzureRMResourceGroup cmdlet](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup).
 
@@ -255,14 +231,14 @@ Remove-AzureRmResourceGroup -Name $ResourceGroupName -Force
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Create a VNET in Azure using a template
+> * Create a VNET in Azure using PowerShell
 > * Create a key vault and upload a certificate
-> * Create a secure Service Fabric cluster in Azure using a template
+> * Create a secure Service Fabric cluster in Azure using PowerShell
 > * Secure the cluster with an X.509 certificate
 > * Connect to the cluster using PowerShell
 > * Remove a cluster
 
-Next, advance to the following tutorial to learn how to deploy an existing application.
+Next, advance to the following tutorial to learn how to deploy API Management with Service Fabric.
 > [!div class="nextstepaction"]
 > [Deploy API Managment](service-fabric-tutorial-deploy-api-management.md)
 

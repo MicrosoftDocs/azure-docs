@@ -21,7 +21,7 @@ ms.author: kumud
 # Azure DDoS Protection Standard overview
 
 >[!IMPORTANT]
->Azure DDoS Protection Standard is currently in preview. A limited number of Azure resources support DDoS Protection Standard, and in a select number of regions. You need to [register for the service](http://aka.ms/ddosprotection) during the limited preview to get DDoS Protection Standard enabled for your subscription. You are contacted by the Azure DDoS team upon registration to guide you through the enablement process. DDoS Protection Standard is available in US East, US West, and US Central regions. During preview, you are not charged for using the service.
+>Azure DDoS Protection Standard is currently in preview. A limited number of Azure resources support DDoS Protection Standard, and in a select number of regions. You need to [register for the service](http://aka.ms/ddosprotection) during the limited preview to get DDoS Protection Standard enabled for your subscription. You are contacted by the Azure DDoS team upon registration to guide you through the enablement process. DDoS Protection Standard is available in US East, US West, and West Central US regions. During preview, you are not charged for using the service.
 
 Distributed Denial of Service (DDoS) attacks are one of the largest availability and security concerns facing customers moving their applications to the cloud. A DDoS attack attempts to exhaust an application’s resources making the application unavailable to legitimate users. DDoS attacks can be targeted at any endpoint that is publicly reachable through the Internet.
 

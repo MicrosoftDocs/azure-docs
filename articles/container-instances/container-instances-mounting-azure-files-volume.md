@@ -198,5 +198,5 @@ You can use a tool like the [Microsoft Azure Storage Explorer](http://storageexp
 
 ## Next steps
 
-- Deploy for your first container using the Azure Container Instances [quick start](container-instances-quickstart.md)
+- Deploy for your first container using the Azure Container Instances [quickstart](container-instances-quickstart.md)
 - Learn about the [relationship between Azure Container Instances and container orchestrators](container-instances-orchestrator-relationship.md)

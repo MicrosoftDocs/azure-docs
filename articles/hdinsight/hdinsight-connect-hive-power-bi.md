@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 09/26/2017
 ms.author: jgao
 
 ---
@@ -66,5 +66,5 @@ In this article, you learned how to visualize data from HDInsight using Power BI
 * [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver](./hdinsight-connect-excel-hive-odbc-driver.md).
 * [Connect Excel to Hadoop by using Power Query](./hdinsight-connect-excel-power-query.md).
 * [Connect to Azure HDInsight and run Hive queries using Data Lake Tools for Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md).
-* [Use Visual Studio Code for Hive, LLAP or pySpark](hdinsight-for-vscode.md).
+* [Use Azure HDInsight Tool for Visual Studio Code](hdinsight-for-vscode.md).
 * [Upload Data to HDInsight](./hdinsight-upload-data.md).

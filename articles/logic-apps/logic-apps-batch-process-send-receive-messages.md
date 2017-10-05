@@ -103,7 +103,7 @@ and specify criteria for releasing the batch, for example:
 4. Add another action that sends an email when the batch trigger fires. 
 Each time the batch has five items or its past 5 minutes, the logic app sends an email.
 
-   1. Under the batch trigger, choose **+ New Step** > **Add an action**.
+   1. Under the batch trigger, choose **+ New step** > **Add an action**.
 
    2. In the search box, enter "email" as your filter.
    Based on your email provider, select an email connector.

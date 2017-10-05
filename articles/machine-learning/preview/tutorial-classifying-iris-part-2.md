@@ -96,7 +96,7 @@ Let's prepare to run the **iris_sklearn.py** script for the first time. This scr
 
 8. Click on the word **Completed** in job status text in the Jobs panel. A pop-up window opens and displays the standard output (stdout) text of the running script. To close the stdout text, click **X** button on the upper right of the popup.
 
-9. In the same job status in the Jobs panel, click on the blue text **iris_sklearn.py [1]** just above the **Completed** status and the start time. The **Run Properties** page opens and shows the Run Properties information, **Outputs** files, any **Visualizations**,  and **Logs** from that particular run. 
+9. In the same job status in the Jobs panel, click on the blue text **iris_sklearn.py [n]** (_n_ is the run number) just above the **Completed** status and the start time. The **Run Properties** page opens and shows the Run Properties information, **Outputs** files, any **Visualizations**,  and **Logs** from that particular run. 
 
    When the run is completed, the pop-up window shows the following results:
 

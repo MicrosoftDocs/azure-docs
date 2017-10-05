@@ -44,7 +44,9 @@
   - name: Configure compute environment
     items: 
     - name: Configure execution targets
-      href: experiment-execution-configuration.md
+      href: experiment-execution-configuration.md    
+    - name: Create DSVM and HDI Spark cluster
+      href: how-to-create-dsvm-hdi.md
     - name: Train with GPUs
       href: how-to-use-gpu.md    
   - name: Acquire and understand data
@@ -71,6 +73,8 @@
       href: tutorial-iris-azure-cli.md
     - name: Track run history and model metrics
       href: how-to-use-run-history-model-metrics.md    
+    - name: How to find runs with the best accuracy and lowest duration
+      href: how-to-find-best-accuracy-cli.md
     - name: Read and write files
       href: how-to-read-write-files.md
     - name: MMLSpark library
@@ -79,6 +83,8 @@
     items:
     - name: Set up Model Management
       href: deployment-setup-configuration.md
+    - name: Scale clusters and services
+      href: how-to-scale-clusters.md
     - name: Deploy a web service
       href: model-management-service-deploy.md
     - name: Consume a web service
@@ -141,6 +147,8 @@
     items:
     - name: Execution configuration
       href: experiment-execution-configuration-reference.md
+    - name: Logging API
+      href: reference-logging-api.md
   - name: Model Management
     items:
     - name: Model Management API
