@@ -71,22 +71,24 @@ The consent framework is built on OAuth 2.0 and its various flows, such as autho
 For more information about using the consent framework with OAuth2.0 authorization grants, see [Authorize access to web applications using OAuth 2.0 and Azure AD](active-directory-protocols-oauth-code.md) and[Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md). For information about getting authorized access to Office 365 via Microsoft Graph, see [App authentication with Microsoft Graph](https://graph.microsoft.io/docs/authorization/auth_overview).
 
 #### Example of the consent experience
+
 The following steps show you how the consent experience works for both the application developer and user.
 
-1. On your web client application’s configuration page in the Azure portal, set the permissions your application requires by using the menus in the Required Permissions section.
+1. Assume you have a web client application that needs to request specific permissions to access a resource/API. You'll learn how to do this in the next section, but essentially the Azure portal is used to declare these permission requests at configuration time. Like other configuration settings, they become part of the application's Azure AD registration:
    
   ![Permissions to other applications](./media/active-directory-integrating-applications/requiredpermissions.png)
     
 2. Consider that your application’s permissions have been updated, the application is running, and a user is about to use it for the first time. First the application needs to obtain an authorization code from Azure AD’s `/authorize` endpoint. The authorization code can then be used to acquire a new access and refresh token.
+
 3. If the user is not already authenticated, Azure AD's `/authorize` endpoint prompts for sign-in.
    
   ![User or administrator sign in to Azure AD](./media/active-directory-integrating-applications/usersignin.png)
 
-4. After the user has signed in, Azure AD will determine if the user needs to be shown a consent page. This determination is based on whether the user (or their organization’s administrator) has already granted the application consent. If consent has not already been granted, Azure AD prompts the user for consent and displays the required permissions it needs to function. The set of permissions that is displayed in the consent dialog are the same as what was selected in the Delegated Permissions in the Azure portal.
+4. After the user has signed in, Azure AD will determine if the user needs to be shown a consent page. This determination is based on whether the user (or their organization’s administrator) has already granted the application consent. If consent has not already been granted, Azure AD prompts the user for consent and displays the required permissions it needs to function. The set of permissions that are displayed in the consent dialog match the ones selected in the Delegated Permissions in the Azure portal.
    
   ![User consent experience](./media/active-directory-integrating-applications/consent.png)
 
-5. After the user grants consent, an authorization code is returned to your application, which can be redeemed to acquire an access token and refresh token. For more information about this flow, see the [web Application to web API section](active-directory-authentication-scenarios.md#web-application-to-web-api) in [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md).
+5. After the user grants consent, an authorization code is returned to your application, which is redeemed to acquire an access token and refresh token. For more information about this flow, see the [web Application to web API section in Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md#web-application-to-web-api).
 
 6. As an administrator, you can also consent to an application's delegated permissions on behalf of all the users in your tenant. Administrative consent prevents the consent dialog from appearing for every user in the tenant, and is done your application page in the [Azure portal](https://portal.azure.com). From the **Settings** page for your application, click **Required Permissions** and click on the **Grant Permissions** button. 
 
