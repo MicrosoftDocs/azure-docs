@@ -18,7 +18,7 @@ ms.author: cgillum
 
 # Checkpoints and replay in Durable Functions
 
-One of the key attributes of Durable Functions is **reliable execution**. Orchestrator functions and activity functions may be running on different VMs within a data center, and those VMs or the underlying networking infrastructure is not guaranteed to be 100% reliable.
+One of the key attributes of Durable Functions is **reliable execution**. Orchestrator functions and activity functions may be running on different VMs within a data center, and those VMs or the underlying networking infrastructure is not 100% reliable.
 
 In spite of this, Durable Functions ensures reliable execution of orchestrations. It does so by using storage queues to drive function invocation and by periodically checkpointing execution history into storage tables (using a cloud design pattern known as [Event Sourcing](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing)). That history can then be replayed to automatically rebuild the in-memory state of an orchestrator function.
 
@@ -55,9 +55,9 @@ Generally speaking, the Durable Task Framework does the following at each checkp
 Once the checkpoint is complete, the orchestrator function is free to be removed from memory until there is more work for it to do.
 
 > [!NOTE]
-> Azure Storage does not provide any transactional guarantees between saving data into table storage and queues. To account for this, the Durable Functions storage provider uses *eventual consistency* patterns to ensure that no data is lost if there is a crash or loss of connectivity in the middle of a checkpoint.
+> Azure Storage does not provide any transactional guarantees between saving data into table storage and queues. To handle failures, the Durable Functions storage provider uses *eventual consistency* patterns. These patterns ensure that no data is lost if there is a crash or loss of connectivity in the middle of a checkpoint.
 
-Upon completion, the history of the above function looks something like the following in Azure Table Storage (abbreviated for illustration purposes):
+Upon completion, the history of the function shown earlier looks something like the following in Azure Table Storage (abbreviated for illustration purposes):
 
 | PartitionKey (InstanceId)                     | EventType             | Timestamp               | Input | Name             | Result                                                    | Status | 
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|---------------------| 
@@ -89,7 +89,7 @@ A few notes on the column values:
     * **TimerFired**: A durable timer expired.
     * **EventRaised**: An external event was sent to the orchestration instance. The `Name` column captures the name of the event and the `Input` column captures the payload of the event.
     * **OrchestratorCompleted**: The orchestrator function awaited.
-    * **ContinueAsNew**: The orchestrator function completed and restarted itself with new state. The `Result` column contains the value, which will be used as the input in the restarted instance.
+    * **ContinueAsNew**: The orchestrator function completed and restarted itself with new state. The `Result` column contains the value, which is used as the input in the restarted instance.
     * **ExecutionCompleted**: The orchestrator function ran to completion (or failed). The outputs of the function or the error details are stored in the `Result` column.
 * **Timestamp**: The UTC timestamp of the history event.
 * **Name**: The name of the function that was invoked.
@@ -99,7 +99,7 @@ A few notes on the column values:
 > [!WARNING]
 > While it's useful as a debugging tool, you should not take any dependency on the existence or the format of this table as the specifics of its usage may change as the Durable Functions extension evolves.
 
-Every time the function resumes from an `await`, the Durable Task Framework reruns the orchestrator function from scratch. On each re-run it consults the execution history to determine whether the current async operation has taken place and, if so, replays the output of that operation immediately and moves on to the next `await`. This continues until the entire history has been replayed, at which point all the local variables in the orchestrator function should be restored to their previous values.
+Every time the function resumes from an `await`, the Durable Task Framework reruns the orchestrator function from scratch. On each rerun it consults the execution history to determine whether the current async operation has taken place.  If the operation took place, the framework replays the output of that operation immediately and moves on to the next `await`. This process continues until the entire history has been replayed, at which point all the local variables in the orchestrator function are restored to their previous values.
 
 ## Code Constraints
 

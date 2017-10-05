@@ -83,8 +83,8 @@
       href: durable-functions-checkpointing-and-replay.md
     - name: Instance management
       href: durable-functions-instance-management.md
-    - name: HTTP API
-      href: durable-functions-http-api.md
+    - name: Singletons
+      href: durable-functions-singletons.md
     - name: Error handling
       href: durable-functions-error-handling.md
     - name: Diagnostics

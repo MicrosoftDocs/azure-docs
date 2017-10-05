@@ -146,4 +146,4 @@ public static Task Run(
 > [Learn more about the orchestration client binding](durable-functions-bindings.md)
 
 > [!div class="nextstepaction"]
-> [Learn how to handle errors](durable-functions-error-handling.md)
+> [Learn how to set up singletons](durable-functions-singletons.md)
