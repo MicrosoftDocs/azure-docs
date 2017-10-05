@@ -61,7 +61,7 @@ In general, orchestrator functions are intended to be lightweight and should not
 
 ## Auto-scale
 
-As with all Azure Functions running in the Consumption plan, Durable Functions support auto-scale via the [Azure Functions scale-controller](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale#runtime-scaling). The Scale Controller monitors the length of the work-item queue and each of the control queues, adding or removing VM resources accordingly. If the control queue lengths are increasing over time, the scale controller will continue adding instances until it reaches the control queue partition count. If work item queue lengths are increasing over time, the scale controller will continue adding VM resources until it can match the load, regardless of the control queue partition count.
+As with all Azure Functions running in the Consumption plan, Durable Functions support auto-scale via the [Azure Functions scale-controller](https://docs.microsoft.com/azure/azure-functions/functions-scale#runtime-scaling). The Scale Controller monitors the length of the work-item queue and each of the control queues, adding or removing VM resources accordingly. If the control queue lengths are increasing over time, the scale controller will continue adding instances until it reaches the control queue partition count. If work item queue lengths are increasing over time, the scale controller will continue adding VM resources until it can match the load, regardless of the control queue partition count.
 
 ## Thread usage
 

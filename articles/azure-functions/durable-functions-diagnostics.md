@@ -189,7 +189,7 @@ Azure Functions supports debugging function code directly, and that same support
 
 ## Storage
 
-By default, Durable Functions stores state in Azure Storage. This means you can inspect the state of your orchestrations using tools such as [Microsoft Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+By default, Durable Functions stores state in Azure Storage. This means you can inspect the state of your orchestrations using tools such as [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
 ![Azure Storage Explorer screen shot](media/durable-functions-diagnostics/storage-explorer.png)
 
