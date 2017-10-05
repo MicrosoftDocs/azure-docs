@@ -107,7 +107,7 @@ System.CM reports as OK when the application has been created or updated. It inf
 
 * **SourceId**: System.CM
 * **Property**: State.
-* **Next steps**: If the application has been created or updated, it should include the Cluster Manager health report. Otherwise, check the state of the application by issuing a query, for example, the PowerShell cmdlet **Get-ServiceFabricApplication -ApplicationName *applicationName***.
+* **Next steps**: If the application has been created or updated, it should include the Cluster Manager health report. Otherwise, check the state of the application by issuing a query, for example, the PowerShell cmdlet **Get-ServiceFabricApplication -ApplicationName** *applicationName*.
 
 The following example shows the state event on the **fabric:/WordCount** application:
 
@@ -725,7 +725,7 @@ HealthEvents                       :
 System.Hosting reports an error if the application package download fails.
 
 * **SourceId**: System.Hosting
-* **Property**: **Download:*RolloutVersion***.
+* **Property**: **Download:***RolloutVersion*.
 * **Next steps**: Investigate why the download failed on the node.
 
 ## DeployedServicePackage system health reports
@@ -742,7 +742,7 @@ System.Hosting reports as OK if the service package activation on the node is su
 System.Hosting reports as OK for each code package if the activation is successful. If the activation fails, it reports a warning as configured. If **CodePackage** fails to activate or terminates with an error greater than the configured **CodePackageHealthErrorThreshold**, hosting reports an error. If a service package contains multiple code packages, an activation report is generated for each one.
 
 * **SourceId**: System.Hosting
-* **Property**: Uses the prefix **CodePackageActivation** and contains the name of the code package and the entry point as **CodePackageActivation:*CodePackageName*:*SetupEntryPoint/EntryPoint***. For example, **CodePackageActivation:Code:SetupEntryPoint**.
+* **Property**: Uses the prefix **CodePackageActivation** and contains the name of the code package and the entry point as **CodePackageActivation:***CodePackageName*:*SetupEntryPoint/EntryPoint*. For example, **CodePackageActivation:Code:SetupEntryPoint**.
 
 ### Service type registration
 System.Hosting reports as OK if the service type has been registered successfully. It reports an error if the registration wasn't done in time, as configured by using **ServiceTypeRegistrationTimeout**. If the runtime is closed, the service type is unregistered from the node and hosting reports a warning.
@@ -803,7 +803,7 @@ HealthEvents               :
 System.Hosting reports an error if the service package download fails.
 
 * **SourceId**: System.Hosting
-* **Property**: **Download:*RolloutVersion***.
+* **Property**: **Download:***RolloutVersion*.
 * **Next steps**: Investigate why the download failed on the node.
 
 ### Upgrade validation
