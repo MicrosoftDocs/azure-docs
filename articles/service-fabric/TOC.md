@@ -341,8 +341,8 @@
 # Reference
 ## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
-## [Azure CLI](/cli/azure/sf)
-## [Service Fabric CLI](service-fabric-sfctl.md)
+## [Azure CLI (az sf)](/cli/azure/sf)
+## [Service Fabric CLI (sfctl)](service-fabric-sfctl.md)
 ### [sfctl application](service-fabric-sfctl-application.md)
 ### [sfctl chaos](service-fabric-sfctl-chaos.md)
 ### [sfctl cluster](service-fabric-sfctl-cluster.md)
