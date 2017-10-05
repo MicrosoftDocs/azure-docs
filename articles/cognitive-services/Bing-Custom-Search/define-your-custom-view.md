@@ -84,7 +84,7 @@ To pin a webpage to the top of the search results for a specific query, choose o
 1.	In the Pinned tab, enter the URL of the webpage to pin to the top of the results and the exact query that will trigger the pinning. 
 2.	In the Preview pane, enter a query term and click search. Next, identify the webpage in the results that you want to pin to the top of the results if the user enters the same query. Then, click Pin to top. The service adds the webpage and query to the Pinned list. 
 
-You can track your pins in the Pinned tab. The pins are shown as '<query>, <webpage>' pairs. 
+You can track your pins in the Pinned tab. The pins are shown as '\<query\>, \<webpage\>' pairs. 
 
 Changes are automatically saved and reflect instantly against your custom search instance. 
 
