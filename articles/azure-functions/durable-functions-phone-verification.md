@@ -27,13 +27,6 @@ This sample implements an SMS-based phone verification system. These types of fl
 * Follow the instructions in [Install Durable Functions](durable-functions-install.md) to set up the sample.
 * This article assumes you have already gone through the [Hello Sequence](durable-functions-sequence.md) sample walkthrough.
 
-## The functions
-
-This article walks through the following functions in the sample app:
-
-* **E4_SmsPhoneVerification**
-* **E4_SendSmsChallenge**
-
 ## Scenario overview
 
 Phone verification is a used to verify that end users of your application are not spammers and that they are who they say they are. Multi-factor authentication is a common use case for protecting user accounts from hackers. The challenge with implementing your own phone verification is that it requires a **stateful interaction** with a human being. An end user is typically provided some code (e.g. a 4-digit number) and must respond **in a reasonable amount of time**.
@@ -54,6 +47,15 @@ The first thing you you need is a Twilio account. You can create one free at htt
 | **TwilioAuthToken**   | The Auth token for your Twilio account |
 | **TwilioPhoneNumber** | The phone number associated with your Twilio account. This is used to send SMS messages. |
 
+## The functions
+
+This article walks through the following functions in the sample app:
+
+* **E4_SmsPhoneVerification**
+* **E4_SendSmsChallenge**
+
+The following sections explain the configuration and code that are used for Azure portal development. The code for Visual Studio development is shown at the end of the article.
+ 
 ## The SMS verification orchestration
 
 The **E4_SmsPhoneVerification** function uses the standard *function.json* for orchestrator functions.

@@ -43,6 +43,8 @@ This article explains the following functions in the sample app:
 * `E2_GetFileList`
 * `E2_CopyFileToBlob`
 
+The following sections explain the configuration and code that are used for Azure portal development. The code for Visual Studio development is shown at the end of the article.
+
 ## The cloud backup orchestration
 
 The `E2_BackupSiteContent` function uses the standard *function.json* for orchestrator functions.

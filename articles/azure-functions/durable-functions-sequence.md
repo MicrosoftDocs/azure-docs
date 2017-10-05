@@ -31,7 +31,11 @@ This article explains the following functions in the sample app:
 * `E1_HelloSequence`: An orchestrator function that calls `E1_SayHello` multiple times in a sequence. It stores the outputs from the `E1_SayHello` calls and records the results.
 * `E1_SayHello`: An activity function that prepends a string with "Hello".
 
-Here's the content of the *function.json* file for the orchestrator function. Most orchestrator *function.json* files look almost exactly like this.
+The following sections explain the configuration and code that are used for Azure portal development. The code for Visual Studio development is shown at the end of the article.
+ 
+## function.json file
+
+If you use the Azure portal for development, here's the content of the *function.json* file for the orchestrator function. Most orchestrator *function.json* files look almost exactly like this.
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E1_HelloSequence/function.json)]
 
@@ -39,6 +43,8 @@ The important thing is the `orchestrationTrigger` binding type. All orchestrator
 
 > [!WARNING]
 > To abide by the "no I/O" rule of orchestrator functions, don't use any input or output bindings when using the `orchestrationTrigger` trigger binding.  If other input or output bindings are needed, they should instead be used in the context of `activityTrigger` functions.
+
+## C# script
 
 Here is the source code:
 

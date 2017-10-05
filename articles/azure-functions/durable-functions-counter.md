@@ -29,12 +29,6 @@ This article shows how to run the *counter* sample. The sample demonstrates a si
 * Follow the instructions in [Install Durable Functions](durable-functions-install.md) to set up the sample.
 * This article assumes you have already gone through the [Hello Sequence](durable-functions-sequence.md) sample walkthrough.
 
-## The sample function
-
-This article walks through the following function in the sample app:
-
-* **E3_Counter**
-
 ## Scenario overview
 
 The counter scenario is surprisingly difficult to implement using regular stateless functions. One of the main challenges you have is managing **concurrency**. Operations like *increment* and *decrement* need to be atomic or else there could be race conditions that cause operations to overwrite each other.
@@ -42,6 +36,14 @@ The counter scenario is surprisingly difficult to implement using regular statel
 Using a single VM to host the counter data is one option, but this is expensive, and managing **reliability** can be a challenge since a single VM could be periodically rebooted. You could alternatively use a distributed platform with synchronization tools like blob leases to help manage concurrency, but this introduces a great deal of **complexity**.
 
 Durable Functions makes this kind of scenario trivial to implement because orchestration instances are affinitized to a single VM and orchestrator function execution is always single-threaded. Not only that, but they are long-running, stateful, and can react to external events. The sample code below demonstrates how to implement such a counter as a long-running orchestrator function.
+
+## The sample function
+
+This article walks through the following function in the sample app:
+
+* **E3_Counter**
+
+The following sections explain the code that is used for Visual Studio development. The code for Azure portal development is similar.
 
 ## The counter orchestration
 
