@@ -101,7 +101,7 @@ For examples, see [C#](./call-endpoint-csharp.md) | [Java](./call-endpoint-java.
 
 
 ## Next steps
-- [Hosted UI](./hosted-ui.md)
+- [Configure and consume custom hosted UI](./hosted-ui.md)
 - [Define your custom view](./define-your-custom-view.md)
-- [Hit highlighting](./hit-highlighting.md)
+- [Use decoration markers to highlight text](./hit-highlighting.md)
 - [Page webpages](./page-webpages.md)

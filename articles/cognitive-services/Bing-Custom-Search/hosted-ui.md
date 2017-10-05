@@ -70,5 +70,5 @@ To consume the hosted UI, either:
   `https://ui.customsearch.ai/hosted?customConfig=YOUR-CUSTOM-CONFIG-ID`
 
 ## Next steps
-- [Hit highlighting](./hit-highlighting.md)
+- [Use decoration markers to highlight text](./hit-highlighting.md)
 - [Page webpages](./page-webpages.md)

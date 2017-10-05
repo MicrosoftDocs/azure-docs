@@ -106,4 +106,6 @@ Follow these steps to use Bing to add slices to your Custom Search instance.
 7.	Click the **Ok** button.
 
 ## Next steps
-- [Hosted UI](./hosted-ui.md)
+- [Configure and consume custom hosted UI](./hosted-ui.md)
+- [Use decoration markers to highlight text](./hit-highlighting.md)
+- [Page webpages](./page-webpages.md)
