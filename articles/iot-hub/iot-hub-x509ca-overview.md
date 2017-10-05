@@ -46,6 +46,14 @@ Regardless of how you obtain your X.509 CA certifcate, make sure to keep it's co
 
 Learn how to create a self-signed CA certificate which you can use for experimentation throughout this feature description. <<todo: link to tutorial on creating CA cert>>
 
+## Sign devices into the certificate chain of trust
+
+The owner of an X.509 CA certificate can cryptographically sign an intermediate CA who can in turn sign another intermediate CA and so on until the last intermediate CA terminates this process by signing a device. The result is a cascaded chain of certificates known as a certificate chain of trust. In real life this plays out as delegation of trust towards signing devices. This delegation is important because it establishes a cryptographically veriable chain of custody and avoids sharing of signing keys.
+
+![img-generic-cert-chain-of-trust](./media/generic-cert-chain-of-trust.png)
+
+Learn here how to create a certificate chain as done when signing devices.  <<todo:  link to tutorial on signing devices>>
+
 ## How to register the X.509 CA certificate to IoT Hub
 
 Register your X.509 CA certificate to IoT Hub where it will be used to authenticate your devices during registration and connection.  Registering the X.509 CA certificate is a two-step process that comprise certificate file upload and proof of possesion.
@@ -56,13 +64,11 @@ The proof of possession step involves a cryptographic challenge and response pro
 
 Learn here how to register your CA certificate.  <<todo: link to tutorial on uploading CA>>
 
-## Sign devices into the certificate chain of trust
+## How to create a device on IoT Hub
 
-The owner of an X.509 CA certificate can cryptographically sign an intermediate CA who can in turn sign another intermediate CA and so on until the last intermediate CA terminates this process by signing a device. The result is a cascaded chain of certificates known as a certificate chain of trust. In real life this plays out as delegation of trust towards signing devices. This delegation is important because it establishes a cryptographically veriable chain of custody and avoids sharing of signing keys.
+To preclude device impersonation, IoT Hub requires you to let it know what devices to expect.  You do this by creating a device entry in the IoT Hub's device registry.  This process is automated when using IoT Hub [Device Provisioning Service](https://azure.microsoft.com/en-us/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/) (DPS). 
 
-![img-generic-cert-chain-of-trust](./media/generic-cert-chain-of-trust.png)
-
-Learn here how to create a certificate chain as done when signing devices.  <<todo:  link to tutorial on signing devices>>
+Learn here how to manually create a device in IoT Hub  <<todo: link to device creation section>> 
 
 ## Authenticating devices signed with X.509 CA certificates
 
@@ -75,3 +81,5 @@ Learn here how to complete this device connection step <<todo: link to connectio
 ## Next Steps
 
 Learn about [the value of X.509 CA authentication](iot-hub-x509ca-concept.md)  in IoT.
+Get started with IoT Hub [Device Provisioning Service](https://docs.microsoft.com/en-us/azure/iot-dps/)
+
