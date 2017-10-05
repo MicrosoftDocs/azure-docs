@@ -31,8 +31,8 @@ By reassigning pods in the cluster -- that is, by rescaling -- to meet the curre
 
 Scaling the number of pods is a relatively fast operation, requiring less than a minute, so the service's responsiveness is not seriously impacted.
 
->[Note!]
->Scaling a cluster will not help with request latency issues. For operationalization purposes, scaling up should increase the number of successes and decrease Service Unavailable errors. 
+> [!NOTE]
+> Scaling a cluster will not help with request latency issues. For operationalization purposes, scaling up should increase the number of successes and decrease Service Unavailable errors. 
 
 ## How to scale web services on your ACS cluster
 
