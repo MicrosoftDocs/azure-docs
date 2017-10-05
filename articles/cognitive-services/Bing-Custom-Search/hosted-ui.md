@@ -35,6 +35,7 @@ Use the following instructions to configure a hosted UI to include in your web a
     - Highlight words &mdash; Display results with search terms in bold
     - Search box text placeholder &mdash; Text displayed in the search box prior to input
     - Results per page &mdash; The number of results to display at a time
+7.  Specify your subscription key.
 
 > [!NOTE]
 > As you make changes to the custom hosted UI configuration, the pane on the right provides a visual reference for the changes made. The displayed search results are not actual results for your instance
