@@ -207,7 +207,7 @@ The last part of the workflow is to trigger an email when the sentiment is score
 
 4. In the **Send an email** action, use the email settings as specified in the table. 
 
-    ![Configure the email for the send an email action.](media/functions-twitter-email/sendemail.png)
+    ![Configure the email for the send an email action.](media/functions-twitter-email/sendEmail.png)
 
     | Setting      |  Suggested value   | Description  |
     | ----------------- | ------------ | ------------- |
