@@ -20,19 +20,19 @@ ms.author: heidist
 
 # How to build a facet filter in Azure Search 
 
-Faceted navigation is used for self-directed filtering in a search app, where the application offers UI controls for scoping search to product categories, brands, or price ranges. In this article, quickly learn basic steps for creating a faceted navigation structure to back the search experience provided in your app. 
+Faceted navigation is used for self-directed filtering on query results in a search app, where the application offers UI controls for scoping search to product categories, brands, or price ranges. In this article, quickly learn basic steps for creating a faceted navigation structure to back the search experience you want to create. 
 
 > [!div class="checklist"]
-> * Choose fields for filtering and faceting<br/>&nbsp;
-> * Set attributes on the field<br/>&nbsp;
-> * Build the index and load data<br/>&nbsp;
-> * Add facet filters to a query<br/>&nbsp;
-> * Handle results <br/>&nbsp;
+> * Choose fields for filtering and faceting
+> * Set attributes on the field
+> * Build the index and load data
+> * Add facet filters to a query
+> * Handle results
 > * Facet navigation for complex objects 
 
 Facets are dynamic and returned on a query. Search results bring with them the facet categories used to navigate the results. The following example is an illustration of a facet navigation structure.
 
-![](./media/search-faceted-navigation/Facet-8-appbike.png)
+  ![](./media/search-filters/facet-nav.png)
 
 New to faceted navigation and want more detail? See [How to implement faceted navigation in Azure Search](search-faceted-navigation.md).
 
@@ -43,7 +43,7 @@ New to faceted navigation and want more detail? See [How to implement faceted na
 
 Facets can be based on simple or complex field types in Azure Search. Fields that work best in faceted navigation have low cardinality: a small number of distinct values that repeat throughout documents in your search corpus.
 
-Faceting is enabled on a field-by-field basis when you create the index, setting the following attributes to TRUE: `filterable`, `facetable`. Only filterable fields can be facted.
+Faceting is enabled on a field-by-field basis when you create the index, setting the following attributes to TRUE: `filterable`, `facetable`. Only filterable fields can be faceted.
 
 All [field types](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) that could possibly be used in faceted navigation are Facetable by default:
 
