@@ -18,7 +18,7 @@ ms.author: yoelh
 ---
 
 # Azure Active Directory B2C: Secure your RESTful services using HTTP basic authentication
-In the [previous step](active-directory-b2c-custom-rest-api-netfw.md), we have created RESTful service (Web API) that integrates into Azure AD B2C user journey. The Web API is created with authentication set to No Authentication, allowing everyone access the Restful service without identification. This article shows how to add HTTP basic authentication to your RESTful service. With HTTP basic authentication, you set the user credentials (app ID & app secret) in your custom policy to use the credentials. After you complete this course, only verified user can access your service.
+In a [related article](active-directory-b2c-custom-rest-api-netfw.md), we created a RESTful service (Web API) that integrates into Azure AD B2C user journeys without authentication. This article shows how to add HTTP basic authentication to your RESTful service so only verified users, including B2C, can access your API. With HTTP basic authentication, you set the user credentials (app ID & app secret) in your custom policy to use the credentials. 
 
 > [!NOTE]
 >
@@ -305,8 +305,8 @@ After adding the XML snippets, your `TechnicalProfile` should look like:
 }
 ```
 
-## Read more:
-* [Secure your RESTful API with client certificate](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
+## Next steps
+* [Use client certificates to secure your RESTful API](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
 
 ## [Optional] Download the complete policy files and code
 * We recommend you build your scenario using your own Custom policy files after completing the Getting Started with Custom Policies walk through instead of using these sample files.  [Sample policy files for reference](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw-secure-basic)

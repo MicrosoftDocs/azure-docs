@@ -1,6 +1,6 @@
 ﻿---
-title: 'Azure Active Directory B2C: Secure your RESTful services using Client Certificate'
-description: Sample how to secure your custom REST API claims exchanges in your Azure AD B2C using Client Certificate
+title: 'Azure Active Directory B2C: Secure your RESTful services using client certificates'
+description: Sample how to secure your custom REST API claims exchanges in your Azure AD B2C using client certificates
 services: active-directory-b2c
 documentationcenter: ''
 author: yoelhor
@@ -17,8 +17,8 @@ ms.date: 09/25/2017
 ms.author: yoelh
 ---
 
-# Azure Active Directory B2C: Secure your RESTful services using Client Certificate
-In the [previous step](active-directory-b2c-custom-rest-api-netfw.md), we have created RESTful service (Web API) that integrates into Azure AD B2C user journey. The Web API is created with authentication set to No Authentication, allowing everyone access the RESTful service without identification. However it is important to  restrict access to your Azure web app (RESTful API) by using a client certificate. This mechanism is called TLS mutual authentication or **client certificate authentication**.
+# Azure Active Directory B2C: Secure your RESTful services using client certificates
+After [creating a RESTful service](active-directory-b2c-custom-rest-api-netfw.md) to interact with Azure AD B2C, we will show  how to restrict access to your Azure web app (RESTful API) by using a client certificate. This mechanism is called TLS mutual authentication or **client certificate authentication**.  Only services, like Azure AD B2C with the proper certificate will be able to access your service.
 
 > [!NOTE]
 >
@@ -139,7 +139,7 @@ After adding the XML snippets, your `TechnicalProfile` should look like:
    > [!NOTE]
    >If you get above error message, it means Azure AD B2C successfully called your RESTful service while presenting the client certificate. The next step is to validate the certificate.
 
-## Step 6: Adding Certificate Validation
+## Step 6: Adding certificate validation
 The client certificate that Azure AD B2C sends to your RESTful service does not go through any validation by the Azure Web Apps platform (Except for checking that the certificate exists). Validating the certificate is the responsibility of the web app. Here is sample ASP.NET code that validates certificate properties for authentication purposes.
 
 > [!NOTE]
@@ -260,7 +260,7 @@ In the preceding **example**, we only accept the certificate as a valid if all t
 
 > [!IMPORTANT]
 >
->We strongly recommend you to add more validations. For example: Testing if the certificate chains to a Trusted Root Authority, Issuer organization name validation and so on.
+>Depending on the sensitivity of your service, you may need to add more validations. For example: Testing if the certificate chains to a Trusted Root Authority, Issuer organization name validation and so on.
 
 ### 6.3 Add IsValidClientCertificate function
 Open Controllers\IdentityController.cs at the beginning of `SignUp()` function add following lines of code. 
@@ -276,7 +276,7 @@ After adding the code snippets, your `Identity` controller should look like:
 
 ![Add certificate validation code](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-code.png)
 
-## Step 7 Publish to Azure and test
+## Step 7: Publish to Azure and test
 1. In the **Solution Explorer**, right-click the **Contoso.AADB2C.API** project and select **Publish**.
 2. Repeat step 6 and test your custom policy (again) with the certificate validation. Try to run the policy and make sure everything works after you add the validation
 3. Now, in your web.config file, change the value of `ClientCertificate:Subject` to **invalid** value. Run the policy again and you should see error message.

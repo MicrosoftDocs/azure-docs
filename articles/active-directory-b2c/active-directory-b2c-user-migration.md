@@ -41,7 +41,7 @@ If the accounts that you want to migrate uses lower password strength than the [
 "passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"
 ```
 
-## Step 1. Using Graph API to migrate users
+## Step 1: Using Graph API to migrate users
 You create the Azure AD B2C user account via Graph API (with the password or with random password). This section describes the process how to create user accounts in Azure AD B2C directory, using Graph API.
 
 ### Step 1.1 Register your application in your tenant
@@ -124,7 +124,7 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
 
 Change the `$AppId` value with your Azure AD **Application ID**
 
-## Step 2. Pre-migration application sample
+## Step 2: Pre-migration application sample
 Download the sample code and get it running. You can [download the sample code as a .zip](http://www.github.com) file.
 
 ### Step 2.1 Edit the migration data file
@@ -201,7 +201,7 @@ If you want to clean up your Azure AD tenant and remove the users from Azure AD 
 ### Step 2.6 Sing in with migrated users (with password)
 After you run the pre-migration process with users' password, the accounts are ready to use, and users able to sign in to your application, using Azure AD B2C. If you don't have access to users' password, continue to the next section.
 
-## Step 3. Password reset
+## Step 3: Password reset
 In case you migrate users with random password, users need to reset their password. To reset the password:
 * Send a welcome email with link to reset password
 * [Optional] Change your policy to handle the case when user doesn't reset the password and try to sign in. On sign-in, your policy checks the migration status. If user did not change the password, throw friendly error message, asking the user to click on "Forgot your password?"
@@ -225,7 +225,7 @@ To get the link to your password reset policy:
 
     ![Set diagnostics logs](media/active-directory-b2c-user-migration/pre-migration-policy-uri.png)
 
-## Step 4. [Optional] Change your policy to check and set user migration status
+## Step 4: [Optional] Change your policy to check and set user migration status
 
 When users try to sign-in without resetting the password first, your policy should return friendly error message. For example: Your password expired, to reset your password, click on reset password link.  This optional step requires the use of Azure AD B2C using custom policies as described in the [Getting started with custom policies](active-directory-b2c-get-started-custom.md) article.
 
@@ -318,7 +318,7 @@ The technical profile defines one input claim: `signInName` (send as email). On 
 After you define the technical profile for your Restful API, tell your Azure AD B2C policy to call that technical profile. The XML snippet overrides the `SelfAsserted-LocalAccountSignin-Email`, which is defined in the base policy. The XML snippet also adds `ValidationTechnicalProfile` with ReferenceId pointing to your technical profile `LocalAccountUserMigration`. 
 
 ### Step 4.4 Upload the policy to your tenant
-1.  In the [Azure portal](https://portal.azure.com), switch into the [context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context), and click on  **Azure AD B2C**.
+1.  In the [Azure portal](https://portal.azure.com), switch into the [context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md), and click on  **Azure AD B2C**.
 2.  Select **Identity Experience Framework**.
 3.  Click on **All Policies**.
 4.  Select **Upload Policy**
@@ -349,7 +349,7 @@ You can monitor and see logging information in near-real time.
 For more information, see: [Streaming Logs and the Console](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-streaming-logs-and-console)
 
 > [!IMPORTANT]
-> You can use __diagnostics logs__ only in NONE production environment. The Restful API output contains confidential information, NEVER print out user any private data!
+> The __diagnostics logs__ should be used only during development and testing. The  RESTful API output may contain confidential information that should not be exposed in production.
 >
 
 ## Download the complete policy files
