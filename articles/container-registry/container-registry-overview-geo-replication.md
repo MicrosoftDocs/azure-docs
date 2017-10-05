@@ -73,7 +73,7 @@ Configuring geo-replication is as easy as clicking regions on a map.
 az acr update -n myregistry --sku Premium
 ```
 or
-through the Azure portal, using the overview blade:
+through the Azure portal:
 ![Pulling from multiple registries](media/container-registry-overview-geo-replication\update-registry-sku.png)
 > 
 
