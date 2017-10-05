@@ -13,23 +13,40 @@ manager: carmonm
 
 # Start analyzing your mobile app with Mobile Center and Application Insights
 
-With Azure Application Insights, you can easily monitor your web application for availability, performance, and usage. You can also quickly identify and diagnose errors in your application without waiting for a user to report them. With the Application Insights Java SDK, you can monitor common third-party packages including MongoDB, MySQL, and Redis.
-
-This quickstart guides you through adding the Application Insights SDK to an existing Java Dynamic Web Project.
+This quickstart guides you through connecting your app's Mobile Center instance to Application Insights so you can query, segment, filter, and analyze your telemetry with more powerful tools.
 
 ## Prerequisites
 
-To complete this quickstart:
+To complete this quickstart, you need:
 
-- Install TBD
+- An Azure subscription
+- An iOS or Android app.
  
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-## Log in to the Azure portal
+## Onboard your app to Mobile Center
+
+TBD
+
+## Track events in your app with the Mobile Center SDK
+
+TBD
+
+## Create an Application Insights resource in the Azure Portal
 
 Log in to the [Azure portal](https://portal.azure.com/).
+
+TBD
+
+## Start exporting your Mobile Center data into the Application Insights resource
+
+TBD - make sure to explain the continuous nature of this export
+
+## Query, segment, filter, and analyze your app's telemetry
+
+TBD
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Find and diagnose performance problems](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics)
+> [Understand how customers are using your app](app-insights-tutorial-users.md)
