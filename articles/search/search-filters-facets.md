@@ -22,14 +22,21 @@ ms.author: heidist
 
 Faceted navigation is used for self-directed filtering in a search app, where the application offers UI controls for scoping search to product categories, brands, or price ranges. In this article, quickly learn basic steps for creating a faceted navigation structure to back the search experience provided in your app. 
 
-Add facet structures to an index
-Build the index and load data
-Add facet filters to a query
-Handle results
+> [!div class="checklist"]
+> * Choose fields and add facet structures to an index<br/>&nbsp;
+> * Build the index and load data<br/>&nbsp;
+> * Add facet filters to a query<br/>&nbsp;
+> * Handle results <br/>&nbsp;
+> * Facet navigation for complex objects 
 
-Facets are dynamic and returned on a query. Search results bring with them the facet categories used to navigate the results. If you want to initialize a page with facets in place, you can send a query as part of page initialization to seed the page with an initial facet structure.
+Facets are dynamic and returned on a query. Search results bring with them the facet categories used to navigate the results. The following example is an illustration of a facet navigation structure.
+
+![](./media/search-faceted-navigation/Facet-8-appbike.png)
 
 New to faceted navigation and want more detail? See [How to implement faceted navigation in Azure Search](search-faceted-navigation.md).
+
+> [!Tip]
+> If you want to initialize a page with facets in place, you can send a query as part of page initialization to seed the page with an initial facet structure.
 
 ## Choose fields for faceting and filtering
 
