@@ -153,8 +153,8 @@ Once you have started the dashboard server, open a browser and enter the followi
 127.0.0.1:<port number>/ui
 ```
 
-From the dashboard main screen, click **Deployments** on the left navigation bar. If the navigation pane does not display, select this icon ![Menu consisting of three short horizontal lines](media/icon-hamburger.png) on the upper left.
+From the dashboard main screen, click **Deployments** on the left navigation bar. If the navigation pane does not display, select this icon ![Menu consisting of three short horizontal lines](media/how-to-scale-clusters/icon-hamburger.png) on the upper left.
 
-Locate the deployment to modify and click this icon ![Menu icon consisting of three vertical dots](media/icon-kebab.png) on the right and then click **View/edi YAML**.
+Locate the deployment to modify and click this icon ![Menu icon consisting of three vertical dots](media/how-to-scale-clusters/icon-kebab.png) on the right and then click **View/edi YAML**.
 
 On the Edit deployment screen, locate the *spec* node, modify the *replicas* value, and click **Update**.
