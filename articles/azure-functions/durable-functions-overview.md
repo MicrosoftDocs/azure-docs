@@ -128,9 +128,6 @@ Content-Type: application/json
 
 Because the state is managed by the Durable Functions runtime, you don't have to implement your own status tracking mechanism.
 
-> [!NOTE]
-> More information on the HTTP APIs exposed by the Durable Functions extension can be found in the [HTTP APIs](durable-functions-http-api.md) topic.
-
 Even though the Durable Functions extension has built-in webhooks for managing long-running orchestrations, you can implement this pattern yourself using your own function triggers (such as HTTP, queue, or Event Hub) and the `orchestrationClient` binding.
 
 ```cs
