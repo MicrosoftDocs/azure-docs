@@ -39,6 +39,8 @@
       href: azure-stack-deploy.md
     - name: Deploy
       href: azure-stack-run-powershell-script.md
+    - name: Install PowerShell
+      href: azure-stack-powershell-configure-quickstart.md
     - name: Register
       href: azure-stack-register.md
     - name: Connect to Azure Stack
