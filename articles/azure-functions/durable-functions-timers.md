@@ -1,5 +1,5 @@
 ---
-title: Timers in Durable Functions for Azure Functions
+title: Timers in Durable Functions - Azure
 description: Learn how to implement durable timers in the Durable Functions extension for Azure Functions.
 services: functions
 author: cgillum
@@ -16,21 +16,21 @@ ms.date: 09/29/2017
 ms.author: cgillum
 ---
 
-# Timers in Durable Functions - Azure Functions
+# Timers in Durable Functions (Azure Functions)
 
 [Durable Functions](durable-functions-overview.md) provides *durable timers* for use in orchestrator functions to implement delays or to set up timeouts on async actions. Durable timers should be used in orchestrator functions instead of `Thread.Sleep` or `Task.Delay`.
 
-## Remarks
-
 You create a durable timer by calling [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_). The method returns a task that resumes on a specified date and time.
 
-These timers are "durable" because they are internally backed by scheduled messages in Azure Storage. For example, if you create a timer that expires at 4:30 pm, the underlying Durable Task Framework enqueues a message which becomes visible only at 4:30 pm. When running in the Azure Functions consumption plan, the newly visible timer message will ensure that the function app gets activated on an appropriate VM.
+## Timer limitations
+
+you create a timer that expires at 4:30 pm, the underlying Durable Task Framework enqueues a message which becomes visible only at 4:30 pm. When running in the Azure Functions consumption plan, the newly visible timer message will ensure that the function app gets activated on an appropriate VM.
 
 > [!WARNING]
 > * Durable timers cannot last longer than 7 days due to limitations in Azure Storage. We are working on a [feature request to extend timers beyond 7 days]((https://github.com/Azure/azure-functions-durable-extension/issues/14).
 > * Always use [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) instead of `DateTime.UtcNow` as shown in the examples below when computing a relative deadline of a durable timer.
 
-## Delay Usage
+## Usage for delay
 
 The following example illustrates how to use durable timers for delaying execution. The example is issuing a billing notification every day for ten days.
 
@@ -51,7 +51,7 @@ public static async Task Run(
 > [!WARNING]
 > Avoid infinite loops in orchestrator functions. For information about how to safely and efficiently implement infinite loop scenarios, see the [Eternal Orchestrations](durable-functions-eternal-orchestrations.md) topic 
 
-## Timeout Usage
+## Usage for timeout
 
 This example illustrates how to use durable timers to implement timeouts.
 
@@ -94,7 +94,5 @@ For a more in-depth example of how to implement timeouts in orchestrator functio
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to handle external events](durable-functions-external-events.md)
-
-
+> [Learn how to raise and handle external events](durable-functions-external-events.md)
 

@@ -1,5 +1,5 @@
 ---
-title: Checkpoints and replay in Durable Functions for Azure Functions
+title: Checkpoints and replay in Durable Functions - Azure
 description: Learn how checkpointing and reply works in the Durable Functions extension for Azure Functions.
 services: functions
 author: cgillum
@@ -16,7 +16,7 @@ ms.date: 09/29/2017
 ms.author: cgillum
 ---
 
-# Checkpoints and replay in Durable Functions
+# Checkpoints and replay in Durable Functions (Azure Functions)
 
 One of the key attributes of Durable Functions is **reliable execution**. Orchestrator functions and activity functions may be running on different VMs within a data center, and those VMs or the underlying networking infrastructure is not 100% reliable.
 
@@ -101,7 +101,7 @@ A few notes on the column values:
 
 Every time the function resumes from an `await`, the Durable Task Framework reruns the orchestrator function from scratch. On each rerun it consults the execution history to determine whether the current async operation has taken place.  If the operation took place, the framework replays the output of that operation immediately and moves on to the next `await`. This process continues until the entire history has been replayed, at which point all the local variables in the orchestrator function are restored to their previous values.
 
-## Code Constraints
+## Code constraints
 
 With this replay behavior in mind, there are constraints on the type of code that can be written in an orchestrator function:
 * Orchestrator code **must be deterministic** since it is going to be replayed multiple times. This means there cannot be any direct calls to get the current date/time, get random numbers, generate random GUIDs, or call into remote endpoints.
@@ -116,7 +116,7 @@ If the runtime is replaying the orchestrator code and detects that the replay is
 > [!NOTE]
 > All the rules mentioned above apply only to functions triggered by the `orchestrationTrigger` binding. Activity functions triggered by the `activityTrigger` binding and functions which use the `orchestrationClient` binding have no such limitations.
 
-## Durable Tasks
+## Durable tasks
 
 > [!NOTE]
 > This section describes internal implementation details of the Durable Task Framework. You can use Durable Functions without knowing this information. It is intended only to help you understand the replay behavior.

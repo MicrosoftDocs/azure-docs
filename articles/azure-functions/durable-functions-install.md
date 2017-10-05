@@ -1,5 +1,5 @@
 ---
-title: Install the Durable Functions extension for Azure Functions
+title: Install the Durable Functions extension and samples - Azure
 description: Learn how to install the Durable Functions extension for Azure Functions, for portal development or Visual Studio development.
 services: functions
 author: cgillum
@@ -16,7 +16,7 @@ ms.date: 09/29/2017
 ms.author: cgillum
 ---
 
-# Install the Durable Functions extension
+# Install the Durable Functions extension and samples (Azure Functions)
 
 The [Durable Functions](durable-functions-overview.md) extension for Azure Functions is provided in the NuGet package [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask). This article shows how to install the package and a set of samples for the following development environments:
 

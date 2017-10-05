@@ -1,5 +1,5 @@
 ---
-title: HTTP APIs in Durable Functions for Azure Functions
+title: HTTP APIs in Durable Functions - Azure
 description: Learn how to implement HTTP APIs in the Durable Functions extension for Azure Functions.
 services: functions
 author: cgillum
@@ -16,4 +16,4 @@ ms.date: 09/29/2017
 ms.author: cgillum
 ---
 
-# HTTP APIs in Durable Functions
+# HTTP APIs in Durable Functions (Azure Functions)

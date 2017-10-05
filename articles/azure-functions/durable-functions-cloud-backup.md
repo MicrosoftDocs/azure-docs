@@ -1,5 +1,5 @@
 ---
-title: Fan-out/fan-in scenarios in Durable Functions for Azure Functions
+title: Fan-out/fan-in scenarios in Durable Functions - Azure
 description: Learn how to implement a fan-out-fan-in scenario in the Durable Functions extension for Azure Functions.
 services: functions
 author: cgillum
@@ -16,7 +16,7 @@ ms.date: 09/29/2017
 ms.author: cgillum
 ---
 
-# Fan-out/fan-in scenarios in Durable Functions for Azure Functions - Cloud backup example
+# Fan-out/fan-in scenario in Durable Functions - Cloud backup example
 
 Fan-in/fan-out refers to the pattern of executing multiple functions concurrently and then performing some aggregation on the results. This article explains a sample that uses [Durable Functions](durable-functions-overview.md) to implement a fan-in/fan-out scenario. The sample is a durable function that backs up all or some of an app's site content into Azure Storage.
 

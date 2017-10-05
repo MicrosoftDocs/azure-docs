@@ -1,5 +1,5 @@
 ---
-title: Human interaction and timeouts in Durable Functions for Azure Functions
+title: Human interaction and timeouts in Durable Functions - Azure
 description: Learn how to handle human interaction and timeouts in the Durable Functions extension for Azure Functions.
 services: functions
 author: cgillum
@@ -16,7 +16,7 @@ ms.date: 09/29/2017
 ms.author: cgillum
 ---
 
-# Human interaction and timeouts in Durable Functions - Phone verification example
+# Human interaction in Durable Functions - Phone verification sample
 
 This sample demonstrates how to build a [Durable Functions](durable-functions-overview.md) orchestration that involves human interaction. Whenever a real person is involved in an automated process, the process must be able to send notifications to the person and receive responses asynchronously. It must also allow for the possibility that the person is unavailable. (This last part is where timeouts become important.)
 

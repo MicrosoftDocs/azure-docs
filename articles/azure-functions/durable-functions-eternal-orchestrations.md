@@ -1,5 +1,5 @@
 ---
-title: Eternal orchestrations in Durable Functions for Azure Functions
+title: Eternal orchestrations in Durable Functions - Azure
 description: Learn how to implement eternal orchestrations by using the Durable Functions extension for Azure Functions.
 services: functions
 author: cgillum
@@ -16,7 +16,7 @@ ms.date: 09/29/2017
 ms.author: cgillum
 ---
 
-# Eternal orchestrations in Durable Functions
+# Eternal orchestrations in Durable Functions (Azure Functions)
 
 *Eternal orchestrations* are orchestrator functions that never end. They are useful when you want to use [Durable Functions](durable-functions-overview.md) for aggregators and any scenario that requires an infinite loop.
 
@@ -89,7 +89,7 @@ If an orchestrator function is in an infinite loop and needs to be stopped, use 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Run a sample eternal orchestration](durable-functions-counter.md)
+> [Learn how to handle versioning](durable-functions-versioning.md)
 
 > [!div class="nextstepaction"]
-> [Learn how to handle versioning](durable-functions-versioning.md)
+> [Run a sample eternal orchestration](durable-functions-counter.md)

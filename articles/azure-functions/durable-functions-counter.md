@@ -1,5 +1,5 @@
 ---
-title: Stateful singletons in Durable Functions for Azure Functions
+title: Stateful singletons in Durable Functions - Azure
 description: Learn how to implement a stateful singleton in the Durable Functions extension for Azure Functions.
 services: functions
 author: cgillum
@@ -16,7 +16,7 @@ ms.date: 09/29/2017
 ms.author: cgillum
 ---
 
-# Stateful singletons in Durable Functions - Counter example
+# Stateful singletons in Durable Functions - Counter sample
 
 Stateful singletons are long-running (potentially eternal) orchestrator functions that can store state and be invoked and queried by other functions. Stateful singletons are similar to the [Actor model](https://en.wikipedia.org/wiki/Actor_model) in distributed computing.
 

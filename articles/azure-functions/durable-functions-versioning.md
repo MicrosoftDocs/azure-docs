@@ -1,5 +1,5 @@
 ---
-title: Versioning in Durable Functions for Azure Functions
+title: Versioning in Durable Functions - Azure
 description: Learn how to implement versioning in the Durable Functions extension for Azure Functions.
 services: functions
 author: cgillum
@@ -16,7 +16,7 @@ ms.date: 09/29/2017
 ms.author: cgillum
 ---
 
-# Versioning in Durable Functions
+# Versioning in Durable Functions (Azure Functions)
 
 It is inevitable that functions will be added, removed, and changed over the lifetime of an application. [Durable Functions](durable-functions-overview.md) allows chaining functions together in ways that weren't previously possible, and this chaining affects how you can handle versioning.
 
@@ -87,7 +87,7 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 
 This change adds a new function call to **SendNotification** between **Foo** and **Bar**. There are no signature changes. The problem arises when an existing instance resumes from the call to **Bar**. During replay, if the original call to **Foo** returned `true`, then the orchestrator replay will call into **SendNotification** which is not in its execution history. As a result, the Durable Task Framework fails with a `NonDeterministicOrchestrationException` because it encountered a call to **SendNotification** when it expected to see a call to **Bar**.
 
-## Mitigation Strategies
+## Mitigation strategies
 
 Here are some of the strategies for dealing with versioning challenges:
 
@@ -116,7 +116,7 @@ The most fail-proof way to ensure that breaking changes are deployed safely is b
 * Deploy all the updates as a new function app with a different storage account.
 * Deploy a new copy of the function app but with an updated `TaskHub` name. This is the recommended technique.
 
-### How to change TaskHub name
+### How to change task hub name
 
 The task hub can be configured in the *host.json* file as follows:
 

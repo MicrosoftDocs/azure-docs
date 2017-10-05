@@ -1,5 +1,5 @@
 ---
-title: Performance and scale in Durable Functions for Azure Functions
+title: Performance and scale in Durable Functions - Azure
 description: Introduction to the Durable Functions extension for Azure Functions.
 services: functions
 author: cgillum
@@ -16,7 +16,7 @@ ms.date: 09/29/2017
 ms.author: cgillum
 ---
 
-# Performance and scale in Durable Functions
+# Performance and scale in Durable Functions (Azure Functions)
 
 To optimize performance and scalability, it's important to understand the unique scaling characteristics of [Durable Functions](durable-functions-overview.md).
 
@@ -72,4 +72,4 @@ Activity functions have all the same behaviors as regular queue-triggered functi
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Install the Durable Functions extension](durable-functions-install.md)
+> [Install the Durable Functions extension and samples](durable-functions-install.md)

@@ -1,5 +1,5 @@
 ---
-title: Handling errors in Durable Functions - Azure Functions
+title: Handling errors in Durable Functions - Azure
 description: Learn how to handle errors in the Durable Functions extension for Azure Functions.
 services: functions
 author: cgillum
@@ -16,7 +16,7 @@ ms.date: 09/29/2017
 ms.author: cgillum
 ---
 
-# Handling errors in Durable Functions
+# Handling errors in Durable Functions (Azure Functions)
 
 Durable Function orchestrations are implemented in code and can use the error-handling capabilities of the programming language. With this in mind, there really aren't any new concepts you need to learn about when incorporating error handling and compensation into your orchestrations. However, there are a few behaviors that you should be aware of.
 
@@ -133,5 +133,5 @@ If an orchestrator function fails with an unhandled exception, the details of th
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about diagnostics](durable-functions-diagnostics.md)
+> [Learn how to diagnose problems](durable-functions-diagnostics.md)
 

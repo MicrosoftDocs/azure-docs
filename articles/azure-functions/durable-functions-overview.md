@@ -1,5 +1,5 @@
 ---
-title: Durable Functions Overview - Azure Functions
+title: Durable Functions Overview - Azure
 description: Introduction to the Durable Functions extension for Azure Functions.
 services: functions
 author: cgillum
@@ -16,7 +16,7 @@ ms.date: 09/29/2017
 ms.author: cgillum
 ---
 
-# Durable Functions Overview
+# Durable Functions Overview (Azure Functions))
 
 ## What are Durable Functions?
 

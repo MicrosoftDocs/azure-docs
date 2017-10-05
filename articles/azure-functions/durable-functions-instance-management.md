@@ -1,5 +1,5 @@
 ---
-title: Manage instances in Durable Functions for Azure Functions
+title: Manage instances in Durable Functions - Azure
 description: Learn how to manage instances in the Durable Functions extension for Azure Functions.
 services: functions
 author: cgillum
@@ -16,9 +16,9 @@ ms.date: 09/29/2017
 ms.author: cgillum
 ---
 
-# Manage instances in Durable Functions
+# Manage instances in Durable Functions (Azure Functions)
 
-[Durable Functions](durable-functions-overview.md) orchestration instances can be started, terminated, queried, and sent notification events. All instance management is done using the orchestration client binding. This article goes into the details of each instance management operation.
+[Durable Functions](durable-functions-overview.md) orchestration instances can be started, terminated, queried, and sent notification events. All instance management is done using the [orchestration client binding](durable-functions-bindings.md). This article goes into the details of each instance management operation.
 
 ## Starting instances
 
@@ -135,7 +135,7 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> Raising events is currently only supported for C# functions.
+> Raising events is currently supported only for C# functions.
 
 > [!WARNING]
 > If there is no orchestration instance with the specified *instance ID* or if the instance is not waiting on the specified *event name*, the event message is discarded. For more information about this behavior, see the [GitHub issue](https://github.com/Azure/azure-functions-durable-extension/issues/29).
@@ -143,7 +143,4 @@ public static Task Run(
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about the orchestration client binding](durable-functions-bindings.md)
-
-> [!div class="nextstepaction"]
-> [Learn how to set up singletons](durable-functions-singletons.md)
+> [Learn how to work with singletons](durable-functions-singletons.md)

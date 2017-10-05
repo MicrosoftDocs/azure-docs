@@ -1,5 +1,5 @@
 ---
-title: Function chaining in Durable Functions for Azure Functions
+title: Function chaining in Durable Functions - Azure
 description: Learn how to run a Durable Functions sample that executes a sequence of functions.
 services: functions
 author: cgillum
@@ -16,7 +16,7 @@ ms.date: 09/29/2017
 ms.author: cgillum
 ---
 
-# Function chaining in Durable Functions for Azure Functions - Hello sequence sample
+# Function chaining in Durable Functions - Hello sequence sample
 
 Function chaining refers to the pattern of executing a sequence of functions in a particular order. Often the output of one function needs to be applied to the input of another function. This article explains a sample that uses [Durable Functions](durable-functions-overview.md) to implement function chaining.
 

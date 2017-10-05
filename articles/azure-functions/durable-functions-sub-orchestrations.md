@@ -1,5 +1,5 @@
 ---
-title: Sub-orchestrations for Durable Functions - Azure Functions
+title: Sub-orchestrations for Durable Functions - Azure
 description: How to call orchestrations from orchestrations in the Durable Functions extension for Azure Functions.
 services: functions
 author: cgillum
@@ -16,7 +16,7 @@ ms.date: 09/29/2017
 ms.author: cgillum
 ---
 
-# Sub-Orchestrations in Durable Functions - Azure Functions
+# Sub-Orchestrations in Durable Functions (Azure Functions)
 
 In addition to calling activity functions, orchestrator functions can  call other orchestrator functions. For example, you can build a larger orchestration out of a library of orchestrator functions. Or you can run multiple instances of an orchestrator function in parallel.
 

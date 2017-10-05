@@ -1,5 +1,5 @@
 ---
-title: Singletons for Durable Functions - Azure Functions
+title: Singletons for Durable Functions - Azure
 description: How to use singletons in the Durable Functons extension for Azure Functions.
 services: functions
 author: cgillum
@@ -16,11 +16,11 @@ ms.date: 09/29/2017
 ms.author: cgillum
 ---
 
-# Singleton Orchestrators in Durable Functions - Azure Functions
+# Singleton orchestrators in Durable Functions (Azure Functions)
 
 For background jobs or actor-style orchestrations, you often need to ensure that only one instance of a particular orchestrator runs at a time. This can be done in [Durable Functions](durable-functions-overview.md) by assigning a specific instance ID to an orchestrator when creating it.
 
-## Singleton Trigger Example
+## Singleton example
 
 The following C# example shows an HTTP-trigger function that creates a singleton background job orchestration. It uses a well-known instance ID to ensure that only one instance exists.
 
@@ -57,3 +57,6 @@ The implementation details of the orchestrator function do not actually matter. 
 
 > [!div class="nextstepaction"]
 > [Learn how to call sub-orchestrations](durable-functions-sub-orchestrations.md)
+
+> [!div class="nextstepaction"]
+> [Run a sample singleton](durable-functions-counter.md)

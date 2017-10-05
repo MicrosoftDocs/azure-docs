@@ -1,5 +1,5 @@
 ---
-title: Diagnostics in Durable Functions for Azure Functions
+title: Diagnostics in Durable Functions - Azure
 description: Learn how to diagnose problems with the Durable Functions extension for Azure Functions.
 services: functions
 author: cgillum
@@ -16,7 +16,7 @@ ms.date: 09/29/2017
 ms.author: cgillum
 ---
 
-# Diagnostics in Durable Functions - Azure Functions
+# Diagnostics in Durable Functions (Azure Functions)
 
 There are several options for diagnosing issues with [Durable Functions](durable-functions-overview.md). Some of these options are the same for regular functions and some of them are unique to Durable Functions.
 
@@ -201,4 +201,4 @@ This is useful for debugging because you see exactly what state an orchestration
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about durable timers](durable-functions-timers.md)
+> [Learn how to use durable timers](durable-functions-timers.md)
