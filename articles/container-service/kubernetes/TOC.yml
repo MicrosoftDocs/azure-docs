@@ -37,9 +37,9 @@
     href: container-service-kubernetes-ui.md
   - name: Use Helm charts
     href: container-service-kubernetes-helm.md
-  - name: Run Jenkins 
+  - name: Use Jenkins with ACS
     href: container-service-kubernetes-jenkins.md
-  - name: Use Draft
+  - name: Use Draft with ACS
     href: container-service-draft-up.md
   - name: Scale cluster
     href: container-service-scale.md
@@ -53,6 +53,14 @@
       href: container-service-kubernetes-sysdig.md
     - name: Monitor with CoScale
       href: container-service-kubernetes-coscale.md
+  - name: Deploy Spring Boot apps		
+    items:		
+    - name: Deploy a Spring Boot Application on Linux in the Azure Container Service		
+      href: container-service-deploy-spring-boot-app-on-linux.md		
+    - name: Deploy a Spring Boot Application on a Kubernetes Cluster in the Azure Container Service		
+      href: container-service-deploy-spring-boot-app-on-kubernetes.md		
+    - name: Deploy a Spring Boot app using the fabric8 Maven plugin		
+      href: container-service-deploy-spring-boot-app-using-fabric8-maven-plugin.md
 - name: Reference
   items:
   - name: Azure CLI
