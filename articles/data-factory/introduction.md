@@ -25,7 +25,7 @@ In the world of big data, raw, unorganized data is often stored in relational, n
 
 Big data requires service that can orchestrate and operationalize processes to refine these enormous stores of raw data into actionable business insights. Azure Data Factory is a managed cloud service that's built for these complex hybrid extract-transform-load (ETL), extract-load-transform (ELT), and data integration projects.
 
-For example, imagine a gaming company that collects petabytes of game logs that are produced by games in the cloud. It wants to analyze these logs to gain insights into customer preferences, demographics, and usage behavior. The company wants to identify up-sell and cross-sell opportunities, develop new compelling features, drive business growth, and provide a better experience to its customers.
+For example, imagine a gaming company that collects petabytes of game logs that are produced by games in the cloud. It wants to analyze these logs to gain insights into customer preferences, demographics, and usage behavior. The company wants to identify up-sell and cross-sell opportunities, develop compelling new features, drive business growth, and provide a better experience to its customers.
 
 To analyze these logs, the company needs to use reference data such as customer information, game information, and marketing campaign information that is in an on-premises data store. The company wants to utilize this data from the on-premises data store, combining it with additional log data that it has in a cloud data store. 
 
@@ -49,7 +49,7 @@ The pipelines (data-driven workflows) in Azure Data Factory typically perform th
 
 Enterprises have data of various types that are located in disparate sources on-premises, in the cloud, structured, unstructured, and semi-structured, all arriving at different intervals and speeds. 
 
-The first step in building an information production system is to connect to all the required sources of data and processing, such as software-as-a-service (SaaS) services, databases, file shares, FTP web services. The next step is to move the data as needed to a centralized location for subsequent processing.
+The first step in building an information production system is to connect to all the required sources of data and processing, such as software-as-a-service (SaaS) services, databases, file shares, and FTP web services. The next step is to move the data as needed to a centralized location for subsequent processing.
 
 Without Data Factory, enterprises must build custom data movement components or write custom services to integrate these data sources and processing. It's expensive and hard to integrate and maintain such systems. In addition, they often lack the enterprise-grade monitoring, alerting, and the controls that a fully managed service can offer.
 
@@ -59,7 +59,7 @@ With Data Factory, you can use the [Copy Activity](copy-activity-overview.md) in
 After data is present in a centralized data store in the cloud, process or transform the collected data by using compute services such as HDInsight Hadoop, Spark, Data Lake Analytics, and Machine Learning. You want to reliably produce transformed data on a maintainable and controlled schedule to feed production environments with trusted data.
 
 ### Publish
-After the raw data has been refined into a business-ready consumable form, load the data into Azure Data Warehouse, Azure SQL Database, Azure CosmosDB, or whichever analytics engine that your business users can point to from their business intelligence tools.
+After the raw data has been refined into a business-ready consumable form, load the data into Azure Data Warehouse, Azure SQL Database, Azure CosmosDB, or whichever analytics engine your business users can point to from their business intelligence tools.
 
 ### Monitor
 After you have successfully built and deployed your data integration pipeline, providing business value from refined data, monitor the scheduled activities and pipelines for success and failure rates. Azure Data Factory has built-in support for pipeline monitoring via Azure Monitor, API, PowerShell, Microsoft Operations Management Suite (OMS), and health panels on the Azure portal.
@@ -74,7 +74,7 @@ Following the version 1 release, we recognized that customers need to design com
 
 As data pipelines become a critical part of a business analytics strategy, we've seen that these critical data activities require flexible scheduling to support incremental data loads and event-triggered executions. Finally, as as these operations become more complex, so does the requirement for the service to support common workflow paradigms including branching, looping and conditional processing.
 
-With version 2, you can also migrate existing SQL Server Integration Services (SSIS) packages to the cloud. You can lift and shift SSIS as an Azure service that's managed within ADF, utilizing a new feature of “Integration Runtimes” (IR). By spinning-up an SSIS IR in version 2, you have the ability to execute, manage, monitor, and build SSIS packages in the cloud.
+With version 2, you can also migrate existing SQL Server Integration Services (SSIS) packages to the cloud. You can lift and shift SSIS as an Azure service that's managed within ADF, utilizing the new feature “Integration Runtimes” (IR). By spinning-up an SSIS IR in version 2, you have the ability to execute, manage, monitor, and build SSIS packages in the cloud.
 
 ### Control flow and scale 
 To support the diverse integration flows and patterns in the modern data warehouse, Data Factory has enabled a new flexible data pipeline model that is no longer tied with time-series data. With this release, you can model conditionals and branching in the control flow of a data pipeline, and explicitly pass parameters within and across these flows.
@@ -85,7 +85,7 @@ You now have the freedom to model any flow style that's required for data integr
 	- Chaining activities in a sequence within a pipeline
 	- Branching activities within a pipeline
 	- Parameters
-		- Parameters can be defined at the pipeline level and arguments can be passed while you're invoking the pipeline on demand or from a trigger.
+		- Parameters can be defined at the pipeline level and arguments can be passed while you're invoking the pipeline on-demand or from a trigger.
 		- Activities can consume the arguments that are passed to the pipeline.
 	- Custom state passing
 		- Activity outputs including state can be consumed by a subsequent activity in the pipeline.
@@ -94,12 +94,12 @@ You now have the freedom to model any flow style that's required for data integr
 - Trigger-based flows
 	- Pipelines can be triggered by on-demand or wall-clock time.
 - Delta flows
-	- Use parameters and define your high-water mark for delta copy while moving dimension or reference tables from a relational store either on-premises or in the cloud to load the data into the lake. 
+	- Use parameters and define your high-water mark for delta copy, while moving dimension or reference tables from a relational store either on-premises or in the cloud to load the data into the lake. 
 
-For more information, see [Tutorial: Control flow](tutorial-control-flow.md).
+For more information, see [Branching and chaining activities in a Data Factory pipeline](tutorial-control-flow.md).
 
 ### Deploy SSIS packages to Azure 
-If you want to move your SSIS workloads, you can create a data factory version 2, and provision an Azure-SSIS Integration Runtime (IR). The Azure-SSIS IR is a fully-managed cluster of Azure VMs (nodes) that are dedicated to running your SSIS packages in the cloud. For step-by-step instructions, see the tutorial: [Deploy SSIS packages to Azure](tutorial-deploy-ssis-packages-azure.md). 
+If you want to move your SSIS workloads, you can create a data factory version 2, and provision an Azure-SSIS Integration Runtime (IR). The Azure-SSIS IR is a fully-managed cluster of Azure VMs (nodes) that are dedicated to running your SSIS packages in the cloud. For step-by-step instructions, see the tutorial: [Deploy SQL Server Integration Services packages to Azure](tutorial-deploy-ssis-packages-azure.md). 
  
 
 ### SDKs
@@ -141,7 +141,7 @@ Linked services are used for two purposes in Data Factory:
 
 - To represent a **data store** that includes, but isn't limited to, an on-premises SQL Server, Oracle database, file share, or Azure Blob storage account. For a list of supported data stores, see the [copy activity](copy-activity-overview.md) article.
 
-- To represent a **compute resource** that can host the execution of an activity. For example, the HDInsightHive activity runs on an HDInsight Hadoop cluster. For a list of transformation activities and supported compute environments, See the [transform data](transform-data.md) article.
+- To represent a **compute resource** that can host the execution of an activity. For example, the HDInsightHive activity runs on an HDInsight Hadoop cluster. For a list of transformation activities and supported compute environments, see the [transform data](transform-data.md) article.
 
 ### Triggers
 Triggers represent the unit of processing that determines when a pipeline execution needs to be kicked off. There are different types of triggers for different types of events. For preview, we support the wall-clock scheduler trigger. 
