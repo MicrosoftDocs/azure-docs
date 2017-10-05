@@ -12,7 +12,7 @@ ms.date: 09/28/2017
 ms.author: v-brapel
 ---
 
-# Your first Bing Custom Search instance
+# Create your first Bing Custom Search instance
 To use Bing Custom Search, you need to create a custom search instance that defines your view or slice of the web. The instance contains settings that specify the public domains, subsites, and webpages that you want Bing to search, and any ranking adjustments. To create the instance, use the Bing Custom Search [portal](https://customsearch.ai). 
 
 ## Create a custom search instance
