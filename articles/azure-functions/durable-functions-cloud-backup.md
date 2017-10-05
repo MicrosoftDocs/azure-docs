@@ -147,6 +147,7 @@ Content-Type: application/json; charset=utf-8
 Now you can see that the orchestration is complete and approximately how much time it took to complete. You also see a value for the `output` field, which indicates that around 450 KB of logs were uploaded.
 
 ## Full Sample Code
+
 Here is the full orchestration as a single C# file using the Visual Studio project syntax:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs)]

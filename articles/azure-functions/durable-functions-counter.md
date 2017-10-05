@@ -39,9 +39,7 @@ Durable Functions makes this kind of scenario trivial to implement because orche
 
 ## The sample function
 
-This article walks through the following function in the sample app:
-
-* **E3_Counter**
+This article walks through the **E3_Counter** function in the sample app.
 
 The following sections explain the code that is used for Visual Studio development. The code for Azure portal development is similar.
 
