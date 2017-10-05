@@ -54,7 +54,7 @@ Host: api.cognitive.microsoft.com
 
 The request returns a JSON response that limits the results to the content found in your custom search instance.   
 
-The following shows a subset of the answers that the JSON response may contain.  For a list of all response objects see [Response objects](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#response-objects).
+The following shows the answers that the JSON response may contain.  For a list of all response objects see [Response objects](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#response-objects).
  
 ```
 { 
