@@ -135,9 +135,9 @@ If you have a Virtual Machine that no longer needs an MSI, you can use the `Remo
 
 1. Use the `-Name "ManagedIdentityExtensionForWindows"` switch with the [Remove-AzureRmVMExtension](/powershell/module/azurerm.compute/remove-azurermvmextension) cmdlet:
 
-```powershell
-Remove-AzureRmVMExtension -ResourceGroupName myResourceGroup -Name "ManagedIdentityExtensionForWindows" -VMName myVM
-```
+   ```powershell
+   Remove-AzureRmVMExtension -ResourceGroupName myResourceGroup -Name "ManagedIdentityExtensionForWindows" -VMName myVM
+   ```
 
 ## Related content
 

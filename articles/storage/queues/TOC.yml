@@ -22,6 +22,8 @@
       href: storage-python-how-to-use-queue-storage.md
     - name: Ruby
       href: storage-ruby-how-to-use-queue-storage.md
+    - name: PowerShell
+      href: storage-powershell-how-to-use-queues.md
 - name: How to
   items:
   - name: Plan and design

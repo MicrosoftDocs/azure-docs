@@ -10310,11 +10310,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/container-service/kubernetes/container-service-kubernetes-service-principal.md",
-            "redirect_url": "/azure/container-service/kubernetes/container-service-kubernetes-walkthrough",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/virtual-machines/linux/planned-maintenance.md",
             "redirect_url": "/azure/virtual-machines/linux/maintenance-and-updates",
             "redirect_document_id": false
@@ -10813,7 +10808,7 @@
             "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-create-group.md",
             "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started",
             "redirect_document_id": false
-        },            
+        },
         {
             "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-enableaadds.md",
             "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started",
@@ -10972,6 +10967,16 @@
         {
             "source_path": "articles/virtual-machines/windows/containers.md",
             "redirect_url": "https://azure.microsoft.com/overview/containers/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/terraform-install-configure.md",
+            "redirect_url": "/azure/virtual-machines/linux/terraform-install-configure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/terraform-create-complete-vm.md",
+            "redirect_url": "/azure/virtual-machines/linux/terraform-create-complete-vm",
             "redirect_document_id": false
         },
         {

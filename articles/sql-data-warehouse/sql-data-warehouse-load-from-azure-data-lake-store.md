@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
-ms.date: 09/06/2017
+ms.date: 09/15/2017
 ms.author: cakarst;barbkess
 
 
@@ -167,7 +167,7 @@ During load, if the reject value is reached, the load fails. The most common cau
 For example, if a column is incorrectly given the schema of int when the data in the file is a string, every row will fail to load.
 
 The Location specifies the topmost directory that you want to read data from.
-In this case, if there were subdirectories under /DimProduct/ PolyBase would import all the data within the subdirectories.
+In this case, if there were subdirectories under /DimProduct/ PolyBase would import all the data within the subdirectories. Azure Data Lake store uses Role Based Access Control (RBAC) to control access to the data. This means that the Service Principal must have read permissions to the directories defined in the location parameter and to the children of the final directory and files. This enables PolyBase to authenticate and load read that data. 
 
 ## Load the data
 To load data from Azure Data Lake Store use the [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] statement. Loading with CTAS uses the strongly typed external table you have created.

@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 09/15/2017
 ms.author: maheshu
 
 ---
@@ -30,6 +30,11 @@ The next configuration task is to create an Azure virtual network and a dedicate
 1. Click **Virtual network** to select a virtual network.
 2. On the **Choose virtual network** blade, you see all existing virtual networks. You see only the virtual networks that belong to the resource group and Azure location you have selected on the **Basics** wizard page.
 3. Choose the virtual network in which Azure AD Domain Services should be enabled. You can either pick an existing virtual network or create a new one.
+
+  > [!TIP]
+  > **You cannot move your managed domain to a different virtual network after you enable Azure AD Domain Services.** Pick the right virtual network to enable your managed domain. After you create a managed domain, you cannot move it to a different virtual network, without deleting the managed domain. We recommend reviewing the [networking considerations for Azure Active Directory Domain Services](active-directory-ds-networking.md) before you proceed.  
+  >
+
 4. **Create virtual network:** Click **Create new** to create a new virtual network. We highly recommend using a dedicated subnet for Azure AD Domain Services. For example, create a subnet with the name 'DomainServices', making it easy for other administrators to understand what is deployed within the subnet. Click **OK** when you're done.
 
     ![Pick virtual network](./media/getting-started/domain-services-blade-network-pick-vnet.png)
@@ -45,7 +50,7 @@ The next configuration task is to create an Azure virtual network and a dedicate
   3. Ensure that the subnet you've selected has sufficient available address space - at least 3-5 available IP addresses.
   >
 
-6. When you are done, click **OK** to move on to the **Administrator group** page of the wizard.
+6. When you are done, click **OK** to proceed to the **Administrator group** page of the wizard.
 
 
 ## Next step
