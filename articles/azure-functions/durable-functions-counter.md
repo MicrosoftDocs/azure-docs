@@ -56,7 +56,7 @@ This orchestrator function essentially does the following:
 3. Restarts the orchestrator using the [ContinueAsNew](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_ContinueAsNew_) method, setting the latest value of `counterState` as the new input.
 4. Continues running forever or until an *end* message is received.
 
-This is an example of an *eternal orchestration* &mdash that is, one that potentially never ends. It responds to messages sent to it by the [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) method, which can be called by any non-orchestrator function.
+This is an example of an *eternal orchestration* &mdash; that is, one that potentially never ends. It responds to messages sent to it by the [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) method, which can be called by any non-orchestrator function.
 
 One unique characteristic of this orchestrator function is that it effectively has no history: the `ContinueAsNew` method resets the history after each processed event. This is the preferred way to implement an orchestrator which has an arbitrary lifetime. Using a `while` loop could cause the orchestrator function's history to grow unbounded, resulting in unnecessarily high memory usage.
 

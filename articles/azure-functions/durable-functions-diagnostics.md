@@ -86,7 +86,7 @@ traces
 ```
 The result is a list of tracking events that show the execution path of the orchestration, including any activity functions.
 
-![Application Insights query](media/durable-functions-diagnostics/app-insights-single-instance-query.png"/>
+![Application Insights query](media/durable-functions-diagnostics/app-insights-single-instance-query.png)
 
 > [!NOTE]
 > Some of these tracking events may be out of order due to the lack of precision in the `timestamp` column. This is being tracked in GitHub as [issue #71](https://github.com/Azure/azure-functions-durable-extension/issues/71).

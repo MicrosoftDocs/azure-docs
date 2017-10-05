@@ -50,7 +50,7 @@ Generally speaking, the Durable Task Framework does the following at each checkp
 
 1. Saves execution history into Azure Storage tables.
 2. Enqueues messages for functions the orchestrator wants to invoke.
-3. Enqueues messages for the orchestrator itself &mdash for example, durable timer messages.
+3. Enqueues messages for the orchestrator itself &mdash; for example, durable timer messages.
 
 Once the checkpoint is complete, the orchestrator function is free to be removed from memory until there is more work for it to do.
 
