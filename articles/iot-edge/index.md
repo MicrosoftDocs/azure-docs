@@ -1,7 +1,7 @@
 ---
 title: Azure IoT Edge Documentation - Tutorials, API Reference | Microsoft Docs
-description: Learn how to use IoT Edge.
-services: iot-edge
+description: Learn how to use IoT Hub to connect, monitor, and control billions of Internet of Things assets. Tutorials, API references, videos and other documentation.
+services: iot-hub
 author: czeumault
 manager: carolz
 layout: LandingPage
@@ -10,11 +10,11 @@ ms.service: iot-hub
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 10/23/2017
+ms.date: 01/23/2017
 ms.author: carolz
 ---
 
-# IoT Edge documentation 
+# IoT Edge Documentation 
 
 Learn how to use IoT Edge. 
 
@@ -37,6 +37,79 @@ Learn how to use IoT Edge.
         </div>
         </a>
     </li>
+    <li>
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=iot-hub">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/media/common/i_video.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Azure IoT Hub Video Library</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/iot-hub/iot-hub-get-started-simulated">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/media/common/i_get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get started with a simulated device</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/iot-hub/iot-hub-get-started-physical">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/media/common/i_get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get started with a physical device</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/iot-hub/iot-hub-devguide">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/media/common/i_road-map.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Read the developer guide</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 ---
  
