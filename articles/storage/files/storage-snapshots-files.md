@@ -52,8 +52,7 @@ the file share to use it for data backup. Fileshare snapshot when taken periodic
 
 ## Snapshot Capabilities
 
-Snapshot is a point in time read-only copy of your data. One can create, delete snapshots using REST API. Same capabilities are also available in Client Library, CLI and Azure portal. Powershell integration for snapshot is also coming soon. One can view snapshots of a share, file or directory using both REST API and SMB. SMB experience is similar to that of VSS, where customers can retrieve the list of versions of directory or file, and they can also mount a specific version directly as a drive. Once a snapshot has been created, it can be read, copied, or deleted, but not
-modified. Note that you can't copy a whole snapshot to another storage account, you have to do that file by file using azcopy or other copying mechanisms.
+Snapshot is a point in time read-only copy of your data. One can create, delete snapshots using REST API. Same capabilities are also available in Client Library, CLI and Azure portal. Powershell integration for snapshot is also coming soon. One can view snapshots of a share, file or directory using both REST API and SMB. SMB experience is similar to that of VSS, where customers can retrieve the list of versions of directory or file, and they can also mount a specific version directly as a drive. Once a snapshot has been created, it can be read, copied, or deleted, but not modified. Note that you can't copy a whole snapshot to another storage account, you have to do that file by file using azcopy or other copying mechanisms.
 
 Snapshot capability is provided at the file share level, while
 retrieval is provided it at the file level to allow for restoring individual

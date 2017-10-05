@@ -1,6 +1,6 @@
 ---
 title: How to create Azure Files Share Snapshot | Microsoft Docs
-description: Create zure Files Share Snapshot. File Share Snapshots provide a point in time state of the contents of a cloud file share. Only the incremental changes to individual files in the share will be written to the Snapshot.
+description: Create Azure Files Share Snapshot. File Share Snapshots provide a point in time state of the contents of a cloud file share. Only the incremental changes to individual files in the share will be written to the Snapshot.
 services: storage
 documentationcenter: .net
 author: renash
@@ -73,7 +73,7 @@ $snapshot=$share.Snapshot()
 ```
 
 ## Next Steps
-* [Create Snapshot using .Net SDK](storage-dotnet-how-to-use-files.md#snapshots)
+* [Create and manage Snapshot using .Net SDK](storage-dotnet-how-to-use-files.md#snapshots)
 * [How to list and browse snapshot](storage-snapshots-list-browse.md)
 * [How to delete snapshot](storage-snapshots-delete.md)
 * [Snapshot Overview](storage-snapshots-files.md)
