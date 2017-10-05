@@ -24,9 +24,7 @@ The Python Client Library for Azure Storage is used to create and manage Azure r
 
 To complete this quickstart: 
 
-* Install [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python).
-<!-- (https://azure.microsoft.com/en-us/develop/python/)
-which makes it easy to consume Microsoft Azure Storage services.  -->
+* Install [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python). 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -186,8 +184,7 @@ block_blob_service.delete_container(container_name)
 ```
 
 ## Next steps
-
-<!-- To Dos  - make sure the href links to the correct md file, ensure you follow the name you stated below.  -->
+ 
 In this quickstart, you learned how to transfer files between a local disk and Azure Blob storage using Python. To learn more about working with Blob storage, continue to the Blob storage How-to.
 
 > [!div class="nextstepaction"]
