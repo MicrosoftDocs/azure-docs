@@ -88,6 +88,8 @@ You can track your pins in the Pinned tab. The pins are shown as '\<query\>,
 
 Changes are automatically saved and reflect instantly against your custom search instance. 
 
+The webpage is pinned only if the user’s query exactly matches your query. 
+
 Please note the following restrictions when working with pins: 
 
 - For a specific query, you can pin a maximum of one webpage to the top of the results.
