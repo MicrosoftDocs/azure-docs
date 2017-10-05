@@ -53,6 +53,7 @@
 ### [Message browsing](message-browsing.md)
 ### [Message transfers, locks, and settlement](message-transfers-locks-settlement.md)
 ### [Message expiration (Time to Live)](message-expiration.md)
+### [Prefetch messages](service-bus-prefetch.md)
 ### [Topic filters and actions](topic-filters.md)
 ### [Suspend and reactivate messaging entities](entity-suspend.md)
 ### AMQP
