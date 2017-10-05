@@ -63,7 +63,7 @@
 ## [Analyze Application gateway logs in Azure Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
 ## Packet capture
 ### [Find anomalies](network-watcher-deep-packet-inspection.md)
-### [Poactive network monitoring with Azure Functions](network-watcher-alert-triggered-packet-capture.md)
+### [Proactive network monitoring with Azure Functions](network-watcher-alert-triggered-packet-capture.md)
 ### [Perform intrusion detection using open source tools](network-watcher-intrusion-detection-open-source-tools.md)
 ### [Visualize network traffic patterns using open source tools](network-watcher-using-open-source-tools.md)
 ## Analyze NSG flow logs
