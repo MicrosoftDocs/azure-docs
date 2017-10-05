@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 10/04/2017
 ms.author: bwren
 
 ---
@@ -363,4 +363,4 @@ Use this code for each blob.
 ## Next steps
 
 * [Tour of the Log Analytics query language](app-insights-analytics-tour.md)
-* [Use *Logstash* to send data to Application Insights](https://github.com/Microsoft/logstash-output-application-insights)
+* If you're using Logstash, use the [Logstash plugin to send data to Application Insights](https://github.com/Microsoft/logstash-output-application-insights)
