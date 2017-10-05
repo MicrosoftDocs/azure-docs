@@ -1,6 +1,6 @@
 ---
 title: Build an Azure Cosmos DB .NET application using the Graph API | Microsoft Docs
-description: Presents a .NET code sample you can use to connect to and query Azure Cosmos DB
+description: Presents a .NET Framework and Core code sample you can use to connect to and query Azure Cosmos DB
 services: cosmos-db
 documentationcenter: ''
 author: dennyglee
