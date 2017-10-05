@@ -13524,6 +13524,21 @@
             "source_path": "articles/power-bi-embedded-whats-new.md",
             "redirect_url": "/azure/power-bi-workspace-collections/whats-new",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-join-rhel-linux-vm.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-join-rhel-linux-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/functions-java-refernece.md",
+            "redirect_url": "/azure/azure-functions/functions-reference-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/functions-java-reference.md",
+            "redirect_url": "/azure/azure-functions/functions-reference-java",
+            "redirect_document_id": false
         }
     ]
 }
