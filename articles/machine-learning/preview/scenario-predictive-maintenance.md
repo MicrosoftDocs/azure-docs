@@ -1,5 +1,5 @@
 --- 
-title: 'Predictive Maintenance Real World Scenario| Microsoft Docs' 
+title: 'Predictive Maintenance Real World Scenario | Microsoft Docs' 
 description: Predictive Maintenance Real World Scenario using PySpark 
 services: machine-learning 
 author: ehrlinger
@@ -10,10 +10,10 @@ ms.service: machine-learning
 ms.workload: data-services 
 ms.topic: article 
 ms.custom: mvc 
-ms.date: 09/25/2017 
+ms.date: 10/05/2017 
 --- 
 
-# Predictive Maintenance Real World Scenario
+# Predictive maintenance real-world scenario.
 
 The impact of unscheduled equipment downtime can be detrimental for any business. It is critical to therefore keep field equipment running in order to maximize utilization and performance and by minimizing costly, unscheduled downtime. Early identification of issues can help allocate limited maintenance resources in a cost-effective way and enhance quality and supply chain processes. 
 
@@ -115,4 +115,6 @@ This use case has been previously developed on multiple platforms:
 * [Predictive Maintenance Modeling Guide Python Notebook](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
 * [Predictive Maintenance using PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
 
+# Next steps
 
+There are many other example scenarios available within the Azure Machine Learning workbench that demonstrate additional features of the product. 
