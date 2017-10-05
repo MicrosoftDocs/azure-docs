@@ -23,7 +23,7 @@ When regional datacenters experience downtime, it is critical for data processin
 
 ## Outages and disasters
 
-The [Best practices for insulating applications against Service Bus outages and disasters](service-bus-outages-disasters.md) article makes a distinction between "outages" and "disasters," which is important to note. An *outage* is the temporary unavailability of Azure Event Hubs, and can affect some components of the service, such as a messaging store, or even the entire datacenter. However, after the problem has been fixed, Event Hubs becomes available again. Typically, an outage does not cause the loss of events or other data. An example of such an outage might be a power failure in the datacenter.
+The [Best practices for insulating applications against Service Bus outages and disasters](../service-bus-messaging/service-bus-outages-disasters.md) article makes a distinction between "outages" and "disasters," which is important to note. An *outage* is the temporary unavailability of Azure Event Hubs, and can affect some components of the service, such as a messaging store, or even the entire datacenter. However, after the problem has been fixed, Event Hubs becomes available again. Typically, an outage does not cause the loss of events or other data. An example of such an outage might be a power failure in the datacenter.
 
 A *disaster*, however, is defined as the permanent loss of an Event Hubs resource or datacenter. The datacenter may or may not become available again, or may be down for hours or days. A disaster typically causes the loss of some or all events or other data. Examples of such disasters are fire, flooding, or earthquake.
 
