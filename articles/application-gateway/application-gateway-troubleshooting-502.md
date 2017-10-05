@@ -27,11 +27,48 @@ Learn how to troubleshoot bad gateway (502) errors received when using applicati
 
 After configuring an application gateway, one of the errors that users may encounter is "Server Error: 502 - Web server received an invalid response while acting as a gateway or proxy server". This error may happen due to the following main reasons:
 
+* NSG, UDR or Custom DNS is blocking access to backend pool members
 * Azure Application Gateway's [back-end pool is not configured or empty](#empty-backendaddresspool).
 * None of the VMs or instances in [VM Scale Set are healthy](#unhealthy-instances-in-backendaddresspool).
 * Back-end VMs or instances of VM Scale Set are [not responding to the default health probe](#problems-with-default-health-probe.md).
 * Invalid or improper [configuration of custom health probes](#problems-with-custom-health-probe.md).
 * [Request time out or connectivity issues](#request-time-out) with user requests.
+
+## Network Security Group, User Defined Route or Custom DNS issue
+
+### Cause
+
+If access to backend is blocked due to presence of NSG, UDR or custom DNS, Application Gateway instances will not be able to reach the backend pool and would result in probe failures causing 502 errors. Please note that the NSG/UDR could be present either in Application Gateway subnet or the subnet where the application VMs are deployed. Similarly presence of custom DNS in the VNET could also cause issues if FQDN is used for backend pool members and is not resolved correctly by the user configured DNS server for the VNET.
+
+### Solution
+
+Validate NSG, UDR and DNS configuration by going through the following steps.
+* Check NSGs associated with Application Gateway subnet. Ensure that communication to backend is not blocked.
+* Check UDR associated with Application Gateway subnet. Ensure that UDR is not directing traffic away from backend subnet - for example check for routing to network virtual appliances or default routes being advertised to Application Gateway subnet via ExpressRoute/VPN.
+
+```powershell
+	$vnet = Get-AzureRmVirtualNetwork -Name vnetName -ResourceGroupName rgName
+	Get-AzureRmVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
+```
+
+* Check effective NSG and route with the backend VM
+
+```powershell
+	Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName nic1 -ResourceGroupName testrg
+	Get-AzureRmEffectiveRouteTable -NetworkInterfaceName nic1 -ResourceGroupName testrg
+```
+
+* Check presence of custom DNS in the VNet. This can be done by looking at details of the VNet properties in the output.
+
+```json
+Get-AzureRmVirtualNetwork -Name vnetName -ResourceGroupName rgName 
+DhcpOptions            : {
+                           "DnsServers": [
+                             "x.x.x.x"
+                           ]
+                         }
+```
+If present, please ensure that the DNS server is able to resolve backend pool member's FQDN correctly.
 
 ## Empty BackendAddressPool
 
