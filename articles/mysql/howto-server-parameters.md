@@ -23,7 +23,7 @@ Log in to the Azure portal, then click your Azure Database for MySQL server name
 
 ## List of configurable server parameters
 
-The list of supported server parameters are constantly growing. Use the server parameters tab in Azure portal to get the definition and configure server parameters based on your application requirements. 
+The list of supported server parameters is constantly growing. Use the server parameters tab in Azure portal to get the definition and configure server parameters based on your application requirements. 
 
 ## Nonconfigurable server parameters
 
