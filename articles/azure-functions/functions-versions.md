@@ -1,7 +1,7 @@
 ---
 title: How to target Azure Functions runtime versions | Microsoft Docs
-description: Learn how to chose your .
-services: ''
+description: Functions supports multiple versions of the runtime. Learn how to specify the runtime version of an Azure hosted function app.
+services: functions
 documentationcenter: 
 author: ggailey777
 manager: cfowler
@@ -11,7 +11,7 @@ ms.service: functions
 ms.workload: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 10/04/2017
 ms.author: glenga
 
 ---
@@ -51,4 +51,4 @@ az functionapp config appsettings set --name <function_app> \
 --resource-group <my_resource_group> \
 --settings FUNCTIONS_EXTENSION_VERSION=beta
 ```
-In this code, replace `<function_app>` with the name of your function app. Also replace `<my_resource_group>` with the name of the resource group for your function app. This example assumes that you are using [Azure Cloud Shell](../cloud-shell/overview.md). You can also choose to [install and use the Azure CLI locally](/cli/azure/install-azure-cli). In this case, you must sign in using the [az login](/cli/azure#az_login) command.
+In this code, replace `<function_app>` with the name of your function app. Also replace `<my_resource_group>` with the name of the resource group for your function app. You can run this command from the [Azure Cloud Shell] by choosing **Try it** in the preceding code sample. You can also use the [Azure CLI locally](/cli/azure/install-azure-cli) to execute this command after executing [az login](/cli/azure#az_login) to sign in.
