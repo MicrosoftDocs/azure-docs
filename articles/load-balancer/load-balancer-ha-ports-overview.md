@@ -35,6 +35,8 @@ Azure customers rely heavily on the network virtual appliances (NVAs) for securi
 
 HA ports reduce the complexity of NVA HA scenario by eliminating the need for more complex solutions like zookeeper, and increases the reliability by quicker failover and scale-out options. You can now achieve NVA HA by adding NVAs in the backend pool of the Azure internal Load Balancer, and then configuring the HA port Load Balancer rule.
 
+Sessions between two different IPs with traffic forced in both directions to go through the Load Balancer through usage of user defined routes, will go to the same firewall in both directions. This happens because of the way that the session affinity is handled by the Load Balancer. 
+
 The following example presents a hub-and-spoke virtual network deployment, with the spokes forcing their traffic to the hub virtual network with the use of User Defined Routes and via the NVA before leaving the trusted space. The NVAs are behind an Internal Load Balancer with HA Ports configuration, thus can process all the traffic and forward accordingly. 
 
 ![ha ports example](./media/load-balancer-ha-ports-overview/nvaha.png)
