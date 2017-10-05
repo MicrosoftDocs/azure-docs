@@ -3,8 +3,8 @@ title: Service to Meter mapping for Free account - Azure | Microsoft Docs
 description: Understand service to meter mapping for services included with free account.
 services: ''
 documentationcenter: ''
-author: amberb
-manager: ''
+author: amberbhargava
+manager: amberb
 editor: ''
 tags: billing
 

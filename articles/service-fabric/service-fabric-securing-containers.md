@@ -33,13 +33,13 @@ You can secure your container services by specifying a certificate. The certific
 
 For windows clusters, when starting the application, the runtime reads the certificates and generates a PFX file and password for each certificate. This PFX file and password are accessible inside the container using the following environment variables: 
 
-* **Certificate_[ServicePackageName]_[CodePackageName]_[CertName]_PFX**
-* **Certificate_[ServicePackageName]_[CodePackageName]_[CertName]_Password**
+* **Certificate_ServicePackageName_CodePackageName_CertName_PFX**
+* **Certificate_ServicePackageName_CodePackageName_CertName_Password**
 
 For Linux clusters, the certificates(PEM) are simply copied over from the store specified by X509StoreName onto the container. The corresponding environment variables on linux are:
 
-* **Certificate_[ServicePackageName]_[CodePackageName]_[CertName]_PEM**
-* **Certificate_[ServicePackageName]_[CodePackageName]_[CertName]_PrivateKey**
+* **Certificate_ServicePackageName_CodePackageName_CertName_PEM**
+* **Certificate_ServicePackageName_CodePackageName_CertName_PrivateKey**
 
 Alternatively, if you already have the certificates in the required form and would simply want to access it inside the container, you can create a data package inside your app package and specify the following inside your application manifest:
 
@@ -61,7 +61,7 @@ The container service or process is responsible for importing the certificate fi
     store.Add(cert);
     store.Close();
 ```
-This PFX certificate can be used for authenticating the application or service or secure commmunication with other services. By default, the files are ACLed only to SYSTEM. You can ACL it to other accounts as required by the service.
+This PFX certificate can be used for authenticating the application or service or secure communication with other services. By default, the files are ACLed only to SYSTEM. You can ACL it to other accounts as required by the service.
 
 
 ## Set up gMSA for Windows containers

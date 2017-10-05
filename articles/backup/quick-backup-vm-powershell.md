@@ -136,4 +136,4 @@ Remove-AzureRmResourceGroup -Name "myResourceGroup"
 In this quick start, you created a Recovery Services vault, enabled protection on a VM, and created the initial recovery point. To learn more about Azure Backup and Recovery Services, continue to the tutorials.
 
 > [!div class="nextstepaction"]
-> [Backup tutorials](./tutorial-backup-azure-vm.md)
+> [Back up multiple Azure VMs](./tutorial-backup-vm-at-scale.md)

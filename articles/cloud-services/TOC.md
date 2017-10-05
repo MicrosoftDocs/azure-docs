@@ -108,8 +108,14 @@
 
 # Reference
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=cloud-services)
-## [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)
-## [.cscfg XMLSchema](https://msdn.microsoft.com/library/azure/ee758710)
+## [.csdef XML Schema](schema-csdef-file.md)
+### [LoadBalancerProbe Schema](schema-csdef-loadbalancerprobe.md)
+### [WebRole Schema](schema-csdef-webrole.md)
+### [WorkerRole Schema](schema-csdef-workerrole.md)
+### [NetworkTrafficRules Schema](schema-csdef-networktrafficrules.md)
+## [.cscfg XML Schema](schema-cscfg-file.md)
+### [Role Schema](schema-cscfg-role.md)
+### [NetworkConfiguration Schema](schema-cscfg-networkconfiguration.md)
 ## [REST](https://msdn.microsoft.com/library/azure/ee460812)
 
 # Resources

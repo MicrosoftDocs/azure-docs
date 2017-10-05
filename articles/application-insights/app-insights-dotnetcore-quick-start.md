@@ -8,7 +8,7 @@ ms.author: mbullwin
 ms.date: 09/15/2017
 ms.service: application-insights
 ms.custom: mvc
-ms.topic: hero-article
+ms.topic: quickstart
 manager: carmonm
 ---
 

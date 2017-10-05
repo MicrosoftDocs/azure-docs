@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/21/2017
+ms.date: 09/28/2017
 ms.author: kumud
 ---
 
@@ -146,6 +146,8 @@ Since VNets and subnets are never zone constrained, all you need to do is define
 #### Zonal deployments
 
 Optionally, you can also align the frontend to a specific zone by defining a zonal frontend.  A zonal frontend is served by the designated single Availability Zone only and when combined with zonal VM instances, you can align resources to specific zones.
+
+A Public IP address created in a specific zone will always exist in that zone only.  It is not possible to change the zone of a Public IP address.  If you wish to have a Public IP address which can attached to resources in multiple zones, you should create a zone-redundant Public IP instead.
 
 Create a zonal Public IP address in Availability Zone 1 with the following (add "zones" and "sku" to any existing Resource Manager template):
 
@@ -285,11 +287,11 @@ Public IP Standard SKU is a new offer and currently in Preview. The 2017-08-01 A
 
 Unlike Public IP Basic that offers multiple allocation methods, Public IP Standard is always Static allocation.
 
-When used in a region that also offers Availability Zones, Public IP Standard is automatically zone resilient unless it has been declared to be zonal.
+When used in a region that also offers Availability Zones, Public IP Standard is automatically zone resilient unless it has been declared to be zonal.  A zonal Public IP cannot be changed from one zone to another.
 
 ## Migration between SKUs
 
-If you wish to move from one resource SKU to the other, follow these steps:
+SKUs are not mutable.  If you wish to move from one resource SKU to the other, follow these steps:
 
 ### Migrating from Basic to Standard SKU
 
@@ -364,6 +366,9 @@ To participate in the Preview for Load Balancer Standard SKU and its companion P
     ```cli
     az feature register --name AllowLBPreview --namespace Microsoft.Network
     ```
+
+>[!NOTE]
+>Registration of the Load Balancer Standard feature may take up to an hour.
 
 >[!NOTE]
 >If you wish to use Availability Zones with Load Balancer and Public IP, you need to register your subscription for the Availability Zones Preview as well.

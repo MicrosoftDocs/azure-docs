@@ -8,6 +8,7 @@
 # Get Started
 
 ## [Beginner tutorial](sql-data-warehouse-get-started-tutorial.md)
+## [Elastic Query tutorial](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ## [Best practices](sql-data-warehouse-best-practices.md)
 ## [Manage](sql-data-warehouse-overview-manage.md)
 
@@ -79,6 +80,8 @@
 ### [Power BI](sql-data-warehouse-integrate-power-bi.md)
 ### [Power BI visualization](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 ### [Stream Analytics](sql-data-warehouse-integrate-azure-stream-analytics.md)
+
+### [Elastic Query with SQL Database and SQL Data Warehouse](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
 ## Load
 

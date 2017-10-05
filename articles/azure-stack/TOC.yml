@@ -19,6 +19,8 @@
     href: azure-stack-tutorial-app-service.md
 - name: Concepts
   items:
+  - name: Planning considerations
+    href: azure-stack-planning-considerations.md
   - name: Servicing policy
     href: azure-stack-servicing-policy.md
   - name: Release notes

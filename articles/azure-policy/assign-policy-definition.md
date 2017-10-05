@@ -4,9 +4,9 @@ description: This article walks you through the steps to create a policy definit
 services: azure-policy 
 keywords: 
 author: niniikhena
-ms.author: nini; jimpark
+ms.author: jimpark
 ms.date: 09/18/2017
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
 ---
@@ -16,17 +16,13 @@ The first step in understanding compliance in Azure is knowing where you stand w
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Log in to Azure
-
-Log in to the Azure portal at http://portal.azure.com.
-
 ## Opt in to Azure Policy
 
 Azure Policy is now available in Limited Preview, so you need to register to request access.
 
-1. Launch the Azure Policy service in the Azure portal by searching for and selecting  **Policy** in the left pane.
+1. Go to Azure Policy at https://aka.ms/getpolicy and select **Sign Up** in the left pane.
 
-   ![Search for policy](media/assign-policy-definition/search-policy.png)
+   ![Search for policy](media/assign-policy-definition/sign-up.png)
 
 2. Opt-in to Azure Policy by selecting the subscriptions in the **Subscription** list you would like to work with. Then select **Register**.
 

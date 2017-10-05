@@ -62,6 +62,12 @@
       href: Review-Tool-User-Guide/Workflows.md
     - name: View dashboard
       href: Review-Tool-User-Guide/View-Dashboard.md
+- name: Tutorials
+  items:
+  - name: Facebook post moderation
+    href: facebook-post-moderation.md
+  - name: eCommerce catalog moderation
+    href: ecommerce-retail-catalog-moderation.md
 - name: API References
   items: 
   - name: All APIs  
@@ -73,6 +79,6 @@
   - name: Windows SDK
     href: https://github.com/MicrosoftContentModerator/Microsoft.CognitiveServices.ContentModerator-Windows/
   - name: Samples
-    href: https://azure.microsoft.com/resources/samples/?service=cognitive-services
+    href: https://github.com/MicrosoftContentModerator
   - name: FAQ
     href: FAQs.md

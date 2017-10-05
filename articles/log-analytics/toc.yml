@@ -23,14 +23,22 @@
     href: powershell-samples.md
 - name: Concepts
   items:
-  - name: FAQ
+  - name: Log Analytics FAQ
     href: log-analytics-faq.md
   - name: Data Consumption
     href: log-analytics-usage.md
   - name: Manage access
     href: log-analytics-manage-access.md
   - name: Features for Service providers
-    href: log-analytics-service-providers.md
+    href: log-analytics-service-providers.md 
+  - name: Log Search
+    items:
+       - name: Log Search FAQ
+         href: log-analytics-log-search-faq.md
+       - name: Log searches overview
+         href: log-analytics-log-search-new.md   
+       - name: Log search portals
+         href: log-analytics-log-search-portals.md   
 - name: How To
   items:
   - name: Collect data
@@ -92,15 +100,6 @@
     items:
     - name: Upgrade your workspace
       href: log-analytics-log-search-upgrade.md
-    - name: FAQ
-      href: log-analytics-log-search-faq.md
-    - name: Log searches overview
-      href: log-analytics-log-search-new.md
-    - name: Log search portals
-      href: log-analytics-log-search-portals.md
-      items:
-      - name: Use the log search portal
-        href: log-analytics-log-search-log-search-portal.md
     - name: Transitioning from legacy language
       href: log-analytics-log-search-transition.md
     - name: Flow connector

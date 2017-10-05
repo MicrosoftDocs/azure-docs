@@ -82,6 +82,8 @@
   items:
   - name: Disaster recovery
     items:
+    - name: To Azure for VMware VMs with multi-tenant support
+      href: site-recovery-multi-tenant-support-vmware-using-csp.md
     - name: To Azure for Hyper-V VMs
       href: tutorial-hyper-v-to-azure.md
     - name: To Azure for physical servers

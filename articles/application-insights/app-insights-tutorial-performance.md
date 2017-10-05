@@ -8,7 +8,7 @@ ms.author: bwren
 ms.date: 09/18/2017
 ms.service: application-insights
 ms.custom: mvc
-ms.topic: article
+ms.topic: tutorial
 manager: carmonm
 ---
 

@@ -23,7 +23,7 @@ Virtual Network (VNet) service endpoints allow you to secure Azure service resou
 
 This article provides steps to enable and disable service endpoints. Once endpoints are enabled on a subnet to an Azure service, you can secure specific service resources to a virtual network.
 
-Service endpoints can be configured using [Azure portal](#Azure%20portal), [Azure PowerShell](#Azure%20Powershell), [Azure command-line interface](#cli), or an Azure Resource Manager [template](#template).
+Service endpoints can be configured using [Azure portal](#azure-portal), [Azure PowerShell](#azure-powershell), [Azure command-line interface](#azure-cli), or an Azure Resource Manager [template](#resource-manager-template).
 
 >[!NOTE]
 During preview, Vnet service endpoints feature is supported for specific regions. For the list of supported regions, refer to  the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
@@ -357,7 +357,6 @@ You can secure specific Azure resources to your virtual network through service 
 Download the sample [Resource Manager template](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) to secure a storage account to a subnet in a VNet.
 
 The template creates a VNet with 2 subnets, a VM with a NIC in each of the subnets. Enables endpoint on one subnet and secures a storage account to that subnet.
-The template also adds a sample IP firewall rule. 
 
 You can download the template and modify parts of it to fit your scenario.
 
@@ -380,15 +379,11 @@ To secure the service resource to this subnet again, you need to:
 
 ## Provisioning
 
-Service endpoints can be configured on Virtual networks independently, by network administrators. A user with read-write access to Virtual network automatically inherits these rights. 
+Service endpoints can be configured on virtual networks independently, by a user with write access to virtual network.
 
-To secure Azure service resources to a VNet, below minimum access rights are required: 
+To secure Azure service resources to a VNet, the user must have permission to "Microsoft.Network/JoinServicetoaSubnet" for the subnets being added. This permission is included in the built-in service administrator roles, by default and can be modified by creating custom roles.
 
-Service  | Role | Permissions
----------|------|----------------
-Storage | StorageAdministrator |Microsoft.Network/virtualnetworks/JoinservicetoVnet
-
-Learn more about built-in roles and assigning specific permissions to custom roles.
+Learn more about [built-in roles](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) and assigning specific permissions to [custom roles](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-custom-roles).
 
 VNets and Azure service resources can be in the same or different subscriptions. If these are in different subscriptions, the resources should be under the same Active Directory (AD) tenant, at the time of this preview.
 

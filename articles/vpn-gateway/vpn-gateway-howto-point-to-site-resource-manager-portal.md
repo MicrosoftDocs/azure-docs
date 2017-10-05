@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/19/2017
+ms.date: 09/25/2017
 ms.author: cherylmc
 
 ---
@@ -33,7 +33,7 @@ A Point-to-Site (P2S) VPN gateway lets you create a secure connection to your vi
 
 Connecting clients can use the following authentication methods:
 
-* RADIUS server
+* RADIUS server - Currently in Preview
 * VPN Gateway native Azure certificate authentication
 
 This article helps you configure a P2S configuration with authentication using the native Azure certificate authentication. If you want to use RADIUS to authenticate connecting users, see [P2S using RADIUS authentication](point-to-site-how-to-radius-ps.md).
@@ -44,7 +44,7 @@ Point-to-Site connections do not require a VPN device or a public-facing IP addr
 
 * SSTP is an SSL-based VPN tunnel that is supported only on Windows client platforms. It can penetrate firewalls, which makes it an ideal option to connect to Azure from anywhere. On the server side, we support SSTP versions 1.0, 1.1, and 1.2. The client decides which version to use. For Windows 8.1 and above, SSTP uses 1.2 by default.
 
-* IKEv2 P2S tunnels are supported on both Windows and Mac platforms. If you have a mix of devices in your organization, IKEv2 is the option you should go with. Both Windows and Mac use the native IKEv2 VPN client.
+* IKEv2 VPN, a standards-based IPsec VPN solution. IKEv2 VPN can be used to connect from Mac devices (OSX versions 10.11 and above). IKEv2 is currently in Preview.
 
 Point-to-Site native Azure certificate authentication connections require the following:
 

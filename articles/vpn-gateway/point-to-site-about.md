@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/19/2017
+ms.date: 09/25/2017
 ms.author: cherylmc
 
 ---
@@ -28,9 +28,13 @@ Point-to-site VPN can use one of the following protocols:
 
 * Secure Socket Tunneling Protocol (SSTP), a proprietary SSL-based VPN protocol. An SSL VPN solution can penetrate firewalls, since most firewalls open TCP port 443, which SSL uses. SSTP is only supported on Windows devices. Azure supports all versions of Windows that have SSTP (Windows 7 and later).
 
-* IKEv2 VPN, a standards-based IPsec VPN solution. IKEv2 VPN can be used to connect from Mac devices (OSX versions 10.11 and above). Azure does not support IKEv2 VPN with Windows. 
+* IKEv2 VPN, a standards-based IPsec VPN solution. IKEv2 VPN can be used to connect from Mac devices (OSX versions 10.11 and above).
 
 If you have a mixed client environment consisting of Windows and Mac devices, configure both SSTP and IKEv2.
+
+>[!NOTE]
+>IKEv2 for P2S is currently in Preview.
+>
 
 ## <a name="authentication"></a>How are P2S VPN clients authenticated?
 
@@ -52,6 +56,10 @@ The RADIUS server can also integrate with AD certificate services. This lets you
 
 A RADIUS server can also integrate with other external identity systems. This opens up plenty of authentication options for P2S VPN, including multi-factor options.
 
+>[!NOTE]
+>RADIUS authentication for P2S is currently in Preview.
+>
+
 ![point-to-site]](./media/point-to-site-about/p2s.png "Point-to-Site")
 
 ### Configuration requirements for client devices
@@ -71,11 +79,11 @@ The zip file also provides the values of some of the important settings on the A
 * Pricing information can be found on the Pricing page 
 * SLA (Service Level Agreement) information can be found on the SLA page.
 
-## <a name="faqcert"></a>P2S FAQ for Azure certificate authentication
+## <a name="faqcert"></a>FAQ for native Azure certificate authentication
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
-## <a name="faqradius"></a>P2S FAQ for RADIUS authentication
+## <a name="faqradius"></a>FAQ for RADIUS authentication
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 

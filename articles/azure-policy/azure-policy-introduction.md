@@ -4,11 +4,12 @@ description: Azure Policy is a service in Azure, that you use to create, assign 
 services: azure-policy 
 keywords: 
 author: niniikhena
-ms.author: nini; jimpark
+ms.author: jimpark
 ms.date: 09/19/2017
 ms.topic: overview
 ms.service: azure-policy
 manager: jochan
+ms.custom: mvc
 ---
 
 # What is Azure Policy?
@@ -42,7 +43,7 @@ Parameters are defined/created when creating a policy definition. When a paramet
 For more information about policy parameters, see [Resource Policy Overview - Parameters](../azure-resource-manager/resource-manager-policy.md#parameters).
 
 ## Initiative definition
-An initiative definition is collection of policy definitions that are tailored towards achieving a singular overarching goal. For example, you could creative an initiative titled **Enable Monitoring in Azure Security Center**, with a goal to monitor all the available security recommendations in your Azure Security Center.
+An initiative definition is collection of policy definitions that are tailored towards achieving a singular overarching goal. For example, you could create an initiative titled **Enable Monitoring in Azure Security Center**, with a goal to monitor all the available security recommendations in your Azure Security Center.
 
 Under this initiative, you would have policy definitions such as:
 

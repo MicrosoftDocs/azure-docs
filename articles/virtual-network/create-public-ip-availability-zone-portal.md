@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
-ms.date: 09/21/2017
+ms.date: 09/25/2017
 ms.author: jdial
 ms.custom: 
 ---
@@ -52,6 +52,9 @@ Log in to the Azure portal at https://portal.azure.com.
     The settings appear in the portal, as shown in the following picture:
 
     ![Create zonal public IP address](./media/create-public-ip-availability-zone-portal/public-ip-address.png) 
+
+> [!NOTE]
+> When you assign a standard SKU public IP address to a virtual machine’s network interface, you must explicitly allow the intended traffic with a [network security group](security-overview.md#network-security-groups). Communication with the resource fails until you create and associate a network security group and explicitly allow the desired traffic.
 
 ## Next steps
 

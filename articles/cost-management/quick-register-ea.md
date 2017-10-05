@@ -7,7 +7,7 @@ keywords:
 author: bandersmsft
 ms.author: banders
 ms.date: 09/14/2017
-ms.topic: hero-article
+ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
