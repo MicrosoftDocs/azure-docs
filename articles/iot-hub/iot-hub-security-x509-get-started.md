@@ -32,7 +32,7 @@ This tutorial requires that you have the following resources ready:
 
 <a id="getcerts"></a>
 
-## Get X.509 certificates
+## Get X.509 CA certificates
 The X.509 certificate-based security in the IoT Hub requires you to start with an [X.509 certificate chain](https://en.wikipedia.org/wiki/X.509#Certificate_chains_and_cross-certification), which includes the root certificate as well as any intermediate certificates up until the leaf certificate. 
 
 You may choose either of the following ways to get your certificates:
