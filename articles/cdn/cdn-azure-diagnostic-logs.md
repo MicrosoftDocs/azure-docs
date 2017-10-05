@@ -20,17 +20,13 @@ ms.author: v-deasim
 
 # Azure diagnostic logs
 
-Azure diagnostic logs is available for all CDN endpoints belonging to Verizon (Standard and Premium) and Akamai (Standard) CDN Profiles. For more information, see [Diagnostic Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
-
-With this feature, you can view core analytics and save them into one or more destinations including:
+With Azure diagnostic logs, you can view core analytics and save them into one or more destinations including:
 
  - Azure Storage account
  - Azure Event Hubs
  - [OMS Log Analytics repository](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
-This feature is available for all CDN endpoints belonging to Verizon (Standard and Premium) and Akamai (Standard) CDN Profiles.
-
-For more information about diagnostic logs, see [Diagnostic Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+This feature is available for all CDN endpoints belonging to Verizon (Standard and Premium) and Akamai (Standard) CDN Profiles. 
 
 Azure diagnostics logs allow you to export basic usage metrics from your CDN endpoint to a variety of sources so that you can consume them in a customized way. For example, you can do the following types of data export:
 
@@ -44,6 +40,7 @@ The following figure shows a typical CDN core analytics view of data.
 
 *Figure 1 - CDN core analytics view*
 
+For more information about diagnostic logs, see [Diagnostic Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
 
 ## Enable logging with Azure portal
 
@@ -62,7 +59,8 @@ Sign in to the [Azure portal](http://portal.azure.com). If you don't already hav
 
 ### Enable logging with Azure Storage
 	
-To use Azure Storage to store the logs, select **Archive to a storage account**, **CoreAnalytics**, and choose the number of retention days under **Retention (days)**.
+1. To use Azure storage to store the logs, select **Archive to a storage account**, select **CoreAnalytics**, and then choose the number of retention days under **Retention (days)**. A retention of zero days stores the logs indefinitely. 
+2. Enter a name for your setting, then click **Storage account**. After you have selected a storage account, click **Save**.
 
 ![portal - Diagnostics logs](./media/cdn-diagnostics-log/04_Diagnostics-logs-storage.png)
 
@@ -76,7 +74,7 @@ To use OMS Log Analytics to store the logs, follow these steps:
 
     ![portal - Diagnostics logs](./media/cdn-diagnostics-log/05_Ready-to-Configure.png)    
 
-2. Click **Configure** to configure log analytics logging. In the resulting dialog box, you can select a previous workspace or create a new one.
+2. Click **Configure** to configure log analytics logging. In the OMS Workspaces dialog box, you can select a previous workspace or create a new one.
 
     ![portal - Diagnostics logs](./media/cdn-diagnostics-log/06_Choose-workspace.png)
 
@@ -84,7 +82,8 @@ To use OMS Log Analytics to store the logs, follow these steps:
 
     ![portal - Diagnostics logs](./media/cdn-diagnostics-log/07_Create-new.png)
 
-4. Enter a new OMS workspace name. An OMS workspace name must be unique and contain only letters, numbers, and hyphens; spaces and underscores are not allowed. Next, select an existing subscription, resource group (new or existing), location, and pricing tier. You also have the option of pinning this configuration to your dashboard. Click **OK** to complete the configuration.
+4. Enter a new OMS workspace name. An OMS workspace name must be unique and contain only letters, numbers, and hyphens; spaces and underscores are not allowed. 
+5. Next, select an existing subscription, resource group (new or existing), location, and pricing tier. You also have the option of pinning this configuration to your dashboard. Click **OK** to complete the configuration.
 
     ![portal - Diagnostics logs](./media/cdn-diagnostics-log/08_Workspace-resource.png)
 
@@ -132,7 +131,7 @@ To Enable Diagnostics Logs in an OMS workspace, use this command:
 
 
 ## Consuming diagnostics logs from Azure Storage
-This section describes the schema of CDN core analytics, how it is organized inside of an Azure storage account, and provides sample code to download the logs into a CSV file.
+This section describes the schema of CDN core analytics, how it is organized inside of an Azure storage account, and provides sample code to download the logs in a CSV file.
 
 ### Using Microsoft Azure Storage Explorer
 Before you can access the core analytics data from the Azure Storage Account, you first need a tool to access the contents in a storage account. While there are several tools available in the market, the one that we recommend is the Microsoft Azure Storage Explorer. To download the tool, see [Azure Storage Explorer](http://storageexplorer.com/). After downloading and installing the software, configure it to use the same Azure storage account that was configured as a destination to the CDN Diagnostics Logs.
