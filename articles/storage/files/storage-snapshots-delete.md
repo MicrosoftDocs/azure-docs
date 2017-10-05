@@ -19,7 +19,6 @@ ms.author: tamram
 ---
 
 #How to delete Azure Files Share Snapshot
-==============================
 
 You can delete file share snapshot using Portal, Powershell, CLI, REST or any Storage SDK. Following article will tell you how to delete snapshot using Portal, CLI and Powershell. To learn more about snapshot please look at [snapshot overview](storage-snapshots-files.md) or [snapshot FAQ](storage-files-faq.md).
 
