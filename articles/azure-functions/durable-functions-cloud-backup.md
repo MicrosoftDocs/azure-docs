@@ -156,6 +156,6 @@ Here is the full orchestration as a single C# file using the Visual Studio proje
 At this point, you should have a greater understanding of the core orchestration capabilities of Durable Functions. Subsequent samples will go into more advanced features and scenarios.
 
 > [!div class="nextstepaction"]
-> [Examine and run a stateful singleton sample](durable-functions-counter.md)
+> [Run the stateful singleton sample](durable-functions-counter.md)
 
 

@@ -133,7 +133,7 @@ At this point, you have a better understanding of some of the advanced capabilit
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Run a sample that shows how to handle human interaction](durable-functions-phone-verification.md)
+> [Run the human interaction sample](durable-functions-phone-verification.md)
 
 
 

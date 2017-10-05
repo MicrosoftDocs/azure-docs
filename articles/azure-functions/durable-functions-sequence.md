@@ -119,4 +119,4 @@ Here is the full orchestration as a single C# file using the Visual Studio proje
 At this point, you have a basic understanding of the core mechanics for Durable Functions. This sample was trivial and only showed a few of the features available. Subsequent samples are more "real world" and display a greater breadth of functionality.
 
 > [!div class="nextstepaction"]
-> [Examine and run a fan-out-fan-in sample](durable-functions-cloud-backup.md)
+> [Run the fan out, fan in sample](durable-functions-cloud-backup.md)

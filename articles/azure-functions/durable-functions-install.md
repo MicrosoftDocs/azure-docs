@@ -40,7 +40,7 @@ Visual Studio currently provides the best experience for developing apps that us
 
 ### Start with an empty project
  
-Follow the same directions as for starting with the sample, but do the following steps instead of downloading the .zip file:
+Follow the same directions as for starting with the sample, but do the following steps instead of downloading the *.zip* file:
 
 1. Create a Function App project.
 2. Add the following NuGet package reference to your *.csproj* file:
@@ -56,7 +56,7 @@ If you prefer, you can use the Azure portal for Durable Functions development.
 ### Create an orchestrator function
 
 1. Create a new function app at [functions.azure.com](https://functions.azure.com/signin).
-2. create a new function and select the **Durable Orchestration Trigger - C#** template. This template downloads the extension from NuGet.org and creates a new orchestrator function.
+2. Create a new function and select the **Durable Orchestration Trigger - C#** template. This template downloads the extension from NuGet.org and creates a new orchestrator function.
 
 ### Copy sample code to the function app
 
