@@ -14,14 +14,14 @@ ms.author: cahann
 
 # Creating Subscription Keys on Azure
 
-For unlimited traffic to your HTTP endpoint, you must create an Azure subscription for the Luis service. The Azure subscription creates metered access keys to your endpoint following a payment plan. See [Cognitive Services Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) for pricing information. 
+For unlimited traffic to your HTTP endpoint, you must create an Azure subscription for the LUIS service. The Azure subscription creates metered access keys to your endpoint following a payment plan. See [Cognitive Services Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) for pricing information. 
 
-The metered plan allows requests to your Luis account at a specific rate. If the rate of requests is higher than the allowed rate of your metered account per minute or per month, requests receive an http error of "429: Too Many Requests." 
+The metered plan allows requests to your LUIS account at a specific rate. If the rate of requests is higher than the allowed rate of your metered account per minute or per month, requests receive an http error of "429: Too Many Requests." 
 
 To create your key, follow these steps: 
 
 1. Sign in to the **[Microsoft Azure portal](https://ms.portal.azure.com/)** 
-2. Click the green **+** sign in the upper left-hand panel and search for “Luis” in the marketplace, then click on **Language Understanding Intelligent Service (preview)** and follow the **create experience** to create a Luis subscription account. 
+2. Click the green **+** sign in the upper left-hand panel and search for “LUIS” in the marketplace, then click on **Language Understanding Intelligent Service (preview)** and follow the **create experience** to create a LUIS subscription account. 
 
     ![Azure Search](./Images/azure_search.png) 
 
@@ -29,11 +29,11 @@ To create your key, follow these steps:
 
     ![Azure API Choice](./Images/azure_apiChoice.png) 
 
-4. Once you have created the Luis subscription account, you can view the access keys generated in the **Resource Management->Keys** blade. Test your access keys in your **[Luis.ai account](https://www.luis.ai)**, or by following the Luis documentation to create a new endpoint application. 
+4. Once you have created the LUIS subscription account, you can view the access keys generated in the **Resource Management->Keys** blade. Test your access keys in your **[Luis.ai account](https://www.luis.ai)**, or by following the LUIS documentation to create a new endpoint application. 
 
     ![Azure Keys](./Images/azure_keys.png)
 
-## Using Luis access keys in Luis.ai
+## Using LUIS access keys in Luis.ai
 In order to use the access keys  step 4, you need to change from the StarterKey to one of the new access keys as part of [publishing your app](./PublishApp.md).
 
-Please see [Manage your keys](./Manage-Keys.md) for more information about how to manage your Azure Luis subscription keys in your **[Luis.ai account](https://www.luis.ai)**. 
+Please see [Manage your keys](./Manage-Keys.md) for more information about how to manage your Azure LUIS subscription keys in your **[Luis.ai account](https://www.luis.ai)**. 
