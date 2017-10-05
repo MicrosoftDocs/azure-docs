@@ -110,9 +110,7 @@ To use this example, you must:
     insertDocument(db, function() {
         findFamilies(db, function() {
         updateFamilies(db, function() {
-            removeFamilies(db, function() {
                 db.close();
-            });
         });
         });
     });
