@@ -21,3 +21,35 @@ ms.author: tamram
 How to create Azure Files Share Snapshot
 ==============================
 
+Create: How to create a file share snapshot.
+--------------------------------------------
+
+You can take a snapshot of file share while it is in-use. However, snapshots
+only capture data that has been already written to Azure File share at the time
+the snapshot command is issued. This might exclude any data that has been cached
+by any applications or the operating system.
+
+### Powershell
+```Powershell
+| \$connectionstring="DefaultEndpointsProtocol=http;FileEndpoint=http://**\<Storage Account Name\>.**file.core.windows.net /;AccountName=://**\<Storage Account Name\>**;AccountKey=://**\<Storage Account Key\>**" \$sharename="://**\<FileShareName\>**" \$ctx = New-AzureStorageContext -ConnectionString \$connectionstring \#\#create snapshot \$share=Get-AzureStorageShare -Context \$ctx -Name **\<FileShareName\>** \$share.Properties.LastModified \$share.IsSnapshot \$snapshot=\$share.Snapshot() |
+```
+
+### Client Library
+
+```
+| storageAccount = CloudStorageAccount.Parse(ConnectionString); fClient = storageAccount.CreateCloudFileClient(); string baseShareName = "myazurefileshare"; CloudFileShare myShare = fClient.GetShareReference(baseShareName); var snapshotShare = myShare.Snapshot(); |
+
+```
+
+
+### Portal
+
+>   [./media/storage-snapshots-create/portal-create-snapshot.png](./media/storage-snapshots-create/portal-create-snapshot.png)
+
+## Next Steps
+* [Snapshot Overview](storage-snapshots-files.md)
+* [Snapshot FAQ](storage-files-faq.md)
+* [How to create a file share snapshot](storage-snapshots-create.md)
+* [How to list snapshots of a share ](storage-snapshots-list.md)
+* [How to browse snapshot](storage-snapshots-browse.md)
+* [How to restore from snapshots](storage-snapshots-restore.md)  
