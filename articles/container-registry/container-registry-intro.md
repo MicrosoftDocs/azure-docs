@@ -5,7 +5,7 @@ services: container-registry
 documentationcenter: ''
 author: stevelas
 manager: balans
-editor: dlepow
+editor: mmacy
 tags: ''
 keywords: ''
 
@@ -17,7 +17,6 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: stevelas
-ms.custom: H1Hack27Feb2017
 ---
 # Introduction to private Docker container registries in Azure
 

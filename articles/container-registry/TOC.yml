@@ -23,8 +23,6 @@
   items:
   - name: Geo-replication
     href: container-registry-geo-replication.md
-  - name: Tooling Registry Creation
-    href: container-registry-tooling-selectioncreation.md
 - name: How-to guides
   items:
   - name: Push and pull an image
