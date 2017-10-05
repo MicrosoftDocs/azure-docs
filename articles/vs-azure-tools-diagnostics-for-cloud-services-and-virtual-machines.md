@@ -36,7 +36,7 @@ The following changes apply to Azure SDK 2.6 and later projects in Visual Studio
 The connection string works differently in Azure SDK 2.6 and later than in Azure SDK 2.4 and earlier in some key ways:
 
 * In Azure SDK 2.4 and earlier, the connection string is used as a runtime by the diagnostics plug-in to get the storage account information for transferring diagnostics logs.
-* In Azure SDK 2.6 and later, Visual Studio uses the diagnostics connection string to configure the diagnostics extension with the appropriate storage account information during publishing. You can use the connection string to define different storage accounts for different service configurations that Visual Studio uses during publishing. However, because the diagnostics plug-in is no longer available (after Azure SDK 2.5), the .cscfg file by itself can't enable the diagnostics extension. You have to enable the extension separately by using tools like Visual Studio or PowerShell.
+* In Azure SDK 2.6 and later, Visual Studio uses the diagnostics connection string to configure the diagnostics extension with the appropriate storage account information during publishing. You can use the connection string to define different storage accounts for different service configurations that Visual Studio uses during publishing. However, because the diagnostics plug-in is no longer available (after Azure SDK 2.5), the .cscfg file by itself can't enable the diagnostics extension. You must enable the extension separately by using tools like Visual Studio or PowerShell.
 * To simplify the process of configuring the diagnostics extension with PowerShell, the package output from Visual Studio includes the public configuration XML for the diagnostics extension for each role. Visual Studio uses the diagnostics connection string to populate the storage account information in the public configuration. The public config files are created in the Extensions folder and follow the pattern PaaSDiagnostics.&lt;role name\>.PubConfig.xml. Any PowerShell-based deployments can use this pattern to map each configuration to a role.
 * The [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) uses the connection string in the .cscfg file to access the diagnostics data. The data appears on the **Monitoring** tab. The connection string is required to configure the service to show verbose monitoring data in the portal.
 
@@ -54,12 +54,12 @@ The check box for **Update development storage connection strings for Diagnostic
 For example, if you select this check box and the diagnostics connection string specifies `UseDevelopmentStorage=true`, when you publish the project to Azure, Visual Studio automatically updates the diagnostics connection string with the storage account that you specified in the Publish wizard. However, if a real storage account was specified as the diagnostics connection string, that account is used instead.
 
 ## Diagnostics functionality differences between Azure SDK 2.4 and earlier and Azure SDK 2.5 and later
-If you're upgrading your project from Azure SDK 2.4 to Azure SDK 2.5 or later, you should bear in mind the following diagnostics functionality differences.
+If you're upgrading your project from Azure SDK 2.4 to Azure SDK 2.5 or later, keep in mind the following diagnostics functionality differences:
 
-* **Configuration APIs are deprecated**. Programmatic configuration of diagnostics is available in Azure SDK 2.4 and earlier, but is deprecated in Azure SDK 2.5 and later. If your diagnostics configuration currently is defined in code, you'll need to reconfigure those settings from scratch in the migrated project for diagnostics to keep working. The diagnostics configuration file for Azure SDK 2.4 is diagnostics.wadcfg. The diagnostics configuration file for Azure SDK 2.5 and later is diagnostics.wadcfgx.
+* **Configuration APIs are deprecated**. Programmatic configuration of diagnostics is available in Azure SDK 2.4 and earlier, but is deprecated in Azure SDK 2.5 and later. If your diagnostics configuration currently is defined in code, you must reconfigure those settings from scratch in the migrated project for diagnostics to keep working. The diagnostics configuration file for Azure SDK 2.4 is diagnostics.wadcfg. The diagnostics configuration file for Azure SDK 2.5 and later is diagnostics.wadcfgx.
 * **Diagnostics for cloud service applications can be configured only at the role level, and not at the instance level**.
 * **Every time you deploy your app, the diagnostics configuration is updated**. This can cause parity issues if you change your diagnostics configuration from Visual Studio Server Explorer and then redeploy your app.
-* **In Azure SDK 2.5 and later, crash dumps are configured in the diagnostics configuration file, and not in code**. If you have crash dumps configured in code, you'll have to manually transfer the configuration from code to the configuration file. Crash dumps aren't transferred during the migration to Azure SDK 2.6.
+* **In Azure SDK 2.5 and later, crash dumps are configured in the diagnostics configuration file, and not in code**. If you have crash dumps configured in code, you must manually transfer the configuration from code to the configuration file. Crash dumps aren't transferred during the migration to Azure SDK 2.6.
 
 ## Enable diagnostics in cloud service projects before you deploy them
 In Visual Studio, you can collect diagnostics data for roles that run in Azure when you run the service in the emulator before deployment. All changes to diagnostics settings in Visual Studio are saved in the diagnostics.wadcfgx configuration file. These settings specify the storage account where diagnostics data is saved when you deploy your cloud service.
@@ -72,7 +72,7 @@ In Visual Studio, you can collect diagnostics data for roles that run in Azure w
 2. In the **Diagnostics** section, make sure that the **Enable Diagnostics** check box is selected.
    
     ![Access the Enable Diagnostics option](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796660.png)
-3. Select the ellipsis (…) button to specify the storage account for the diagnostics data.
+3. To specify the storage account for the diagnostics data, select the ellipsis (…) button.
    
     ![Specify the storage account to use](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796661.png)
 4. In the **Create Storage Connection String** dialog box, specify whether you want to connect by using the Azure Storage Emulator, an Azure subscription, or manually entered credentials.
@@ -82,12 +82,12 @@ In Visual Studio, you can collect diagnostics data for roles that run in Azure w
    * If you select **Microsoft Azure Storage Emulator**, the connection string is set to `UseDevelopmentStorage=true`.
    * If you select **Your subscription**, you can select the Azure subscription you want to use, and enter an account name. To manage your Azure subscriptions, select **Manage Accounts**.
    * If you select **Manually entered credentials**, enter the name and key of the Azure account you want to use.
-5. To view the **Diagnostics configuration** dialog box, select **Configure** . Except for **General** and **Log Directories**, each tab represents a diagnostics data source that you can collect. The default tab, **General**, offers the following diagnostics data collection options: **Errors only**, **All information**, and **Custom plan**. The default **Errors only** option uses the least amount of storage, because it doesn’t transfer warnings or tracing messages. The **All information** option transfers the most information, uses the most storage, and therefore, is the most expensive option.
+5. To view the **Diagnostics configuration** dialog box, select **Configure**. Except for **General** and **Log Directories**, each tab represents a diagnostics data source that you can collect. The default tab, **General**, offers the following diagnostics data collection options: **Errors only**, **All information**, and **Custom plan**. The default **Errors only** option uses the least amount of storage, because it doesn’t transfer warnings or tracing messages. The **All information** option transfers the most information, uses the most storage, and therefore, is the most expensive option.
    
     ![Enable Azure diagnostics and configuration](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758144.png)
 6. For this example, select the **Custom plan** option, so you can customize the collected data.
 7. The **Disk Quota in MB** box specifies how much space you want to allocate in your storage account for diagnostics data. You can change the default value if you want.
-8. On each tab of diagnostics data that you want to collect, select the **Enable Transfer of \<log type\>** check box. For example, if you want to collect application logs, on the **Application Logs** tab, select the **Enable transfer of Application Logs** check box. Also, specify any other information required by each diagnostics data type. See the section **Configure diagnostics data sources** later in this topic for configuration information on each tab.
+8. On each tab of diagnostics data that you want to collect, select the **Enable Transfer of \<log type\>** check box. For example, if you want to collect application logs, on the **Application Logs** tab, select the **Enable transfer of Application Logs** check box. Also, specify any other information required by each diagnostics data type. See the section **Configure diagnostics data sources** later in this article for configuration information on each tab.
 9. After you’ve enabled collection of all the diagnostics data you want, select **OK**.
 10. Run your Azure cloud service project in Visual Studio as usual. As you use your application, the log information that you enabled is saved to the Azure storage account you specified.
 
@@ -101,7 +101,7 @@ In Visual Studio, you can collect diagnostics data for Azure virtual machines.
 3. On the shortcut menu for the virtual machine you want, select **Configure**. The virtual machine configuration dialog box appears.
    
     ![Configure an Azure virtual machine](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796663.png)
-4. If it's not already installed, add the Microsoft Monitoring Agent Diagnostics extension. With this extension, you can gather diagnostics data for the Azure virtual machine. In the **Installed Extensions** list, in theh **Select an available extension** drop-down list, sekect **Microsoft Monitoring Agent Diagnostics**.
+4. If it's not already installed, add the Microsoft Monitoring Agent Diagnostics extension. With this extension, you can gather diagnostics data for the Azure virtual machine. In the **Installed Extensions** list, in then **Select an available extension** drop-down list, select **Microsoft Monitoring Agent Diagnostics**.
    
     ![Install an Azure virtual machine extension](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC766024.png)
    
@@ -109,7 +109,7 @@ In Visual Studio, you can collect diagnostics data for Azure virtual machines.
    > Other diagnostics extensions are available for your virtual machines. For more information, see Azure VM Extensions and Features.
    > 
    > 
-5. Sselect **Add** to add the extension and view its **Diagnostics configuration** dialog box.
+5. Select **Add** to add the extension and view its **Diagnostics configuration** dialog box.
 6. Select **Configure** to specify a storage account, and then select **OK**.
    
     Each tab (except for **General** and **Log Directories**) represents a diagnostics data source that you can collect.
@@ -121,11 +121,11 @@ In Visual Studio, you can collect diagnostics data for Azure virtual machines.
 8. The **Disk Quota in MB** box specifies how much space you want to allocate in your storage account for diagnostics data. You can change the default value if you want.
 9. On each tab of diagnostics data you want to collect, select its **Enable Transfer of \<log type\>** check box.
    
-    For example, if you want to collect application logs, select the **Enable transfer of Application Logs** check box on the **Application Logs** tab. Also, specify any other information that's required for each diagnostics data type. See the section **Configure diagnostics data sources** later in this topic for configuration information on each tab.
+    For example, if you want to collect application logs, select the **Enable transfer of Application Logs** check box on the **Application Logs** tab. Also, specify any other information that's required for each diagnostics data type. See the section **Configure diagnostics data sources** later in this article for configuration information on each tab.
 10. After you’ve enabled collection of all the diagnostics data that you want, select **OK**.
 11. Save the updated project.
     
-    You'll see a message in the **Microsoft Azure Activity Log** window that the virtual machine has been updated.
+    A message in the **Microsoft Azure Activity Log** window indicates that the virtual machine has been updated.
 
 ## Configure diagnostics data sources
 After you enable diagnostics data collection, you can choose exactly what data sources you want to collect, and what information is collected. The next sections describe the tabs in the **Diagnostics configuration** dialog box and what each configuration option means.
@@ -153,7 +153,7 @@ If you're using Azure SDK 2.5 and want to specify a custom data source, you can 
 </WindowsEventLog>
 ```
 ### Performance counters
-Performance counter information can help you locate system bottlenecks and fine-tune system and application performance. For more information, see [Create and use performance dounters in an Azure application](https://msdn.microsoft.com/library/azure/hh411542.aspx). To capture performance counters, select the **Enable transfer of Performance Counters** check box. To increase or decrease the number of minutes when the event logs are transferred to your storage account, change the **Transfer Period (min)** value. Select the check boxes for the performance counters that you want to track.
+Performance counter information can help you locate system bottlenecks and fine-tune system and application performance. For more information, see [Create and use performance counters in an Azure application](https://msdn.microsoft.com/library/azure/hh411542.aspx). To capture performance counters, select the **Enable transfer of Performance Counters** check box. To increase or decrease the number of minutes when the event logs are transferred to your storage account, change the **Transfer Period (min)** value. Select the check boxes for the performance counters that you want to track.
 
 ![Performance counters](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758147.png)
 
@@ -262,7 +262,7 @@ On each virtual machine instance, quotas limit how much diagnostics data can be 
 
 **What is the transfer period, and how long should it be?**
 
-The transfer period is the amount of time that elapses between data captures. After each transfer period, data is moved from the local file system on a virtual machine to tables in your storage account. If the amount of data that's collected exceeds the quota before the end of a transfer period, older data is discarded. You might want to decrease the transfer period if you're losing data because your data exceeds the buffer size or the overall quota.
+The transfer period is the amount of time that elapses between data captures. After each transfer period, data is moved from the local file system on a virtual machine to tables in your storage account. If the amount of data that's collected exceeds the quota before the end of a transfer period, older data is discarded. If you are losing data because your data exceeds the buffer size or the overall quota, you might want to decrease the transfer period.
 
 **What time zone are the time stamps in?**
 
@@ -274,7 +274,7 @@ Time stamps are in the local time zone of the datacenter that hosts your cloud s
 
 **How do I manage costs when collecting diagnostic information?**
 
-The default settings (**Log level** set to **Error**, and **Transfer period** set to **1 minute**) are designed to minimize costs. Your compute costs will increase if you collect more diagnostics data or if you decrease the transfer period. Don’t collect more data than you need, and don’t forget to disable data collection when you no longer need it. You can always enable it again, even at run time, as described in the preceding section.
+The default settings (**Log level** set to **Error**, and **Transfer period** set to **1 minute**) are designed to minimize costs. Your compute costs increase when you collect more diagnostics data or if you decrease the transfer period. Don’t collect more data than you need, and don’t forget to disable data collection when you no longer need it. You can always enable it again, even at run time, as described in the preceding section.
 
 **How do I collect failed-request logs from IIS?**
 
