@@ -6,6 +6,7 @@
 
 # Get Started
 ## [Create a namespace](service-bus-create-namespace-portal.md)
+### [Queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 ## Use queues
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
 ### [Java](service-bus-java-how-to-use-queues.md)
@@ -32,9 +33,6 @@
 ### [Handling outages and disasters](service-bus-outages-disasters.md)
 
 ## Develop
-### [Queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
-### [Apps that use queues](service-bus-create-queues.md)
-### [Apps that use topics/subscriptions](service-bus-create-topics-subscriptions.md)
 ### Message handling
 #### [Messages, payloads, and serialization](service-bus-messages-payloads.md)
 #### [Message transfers, locks, and settlement](message-transfers-locks-settlement.md)
