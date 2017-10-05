@@ -44,7 +44,7 @@ If you want to reset the value of a configuration parameter, you simply choose t
 ```azurecli-interactive
 az postgres server configuration set --name log_min_messages --resource-group myresourcegroup --server mypgserver-20170401
 ```
-This resets the **log\_min\_messages** configuration to the default value **WARNING**. For further details on server configuration and permissible values, see PostgreSQL documentation on [Server Configuration](https://www.postgresql.org/docs/9.6/static/runtime-config.html).
+This command resets the **log\_min\_messages** configuration to the default value **WARNING**. For more information on server configuration and permissible values, see PostgreSQL documentation on [Server Configuration](https://www.postgresql.org/docs/9.6/static/runtime-config.html).
 
 ## Next steps
 - To configure and access server logs, see [Server Logs in Azure Database for PostgreSQL](concepts-server-logs.md)
