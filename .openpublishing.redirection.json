@@ -5156,6 +5156,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/service-bus-messaging/service-bus-create-queues.md",
+            "redirect_url": "/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/service-bus-messaging/service-bus-create-topics-subscriptions.md",
+            "redirect_url": "/azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions",
+            "redirect_document_id": false
+        },        
+        {
             "source_path": "articles/service-bus-messaging/service-bus-dotnet-advanced-message-queuing.md",
             "redirect_url": "/azure/service-bus-messaging/service-bus-amqp-dotnet",
             "redirect_document_id": false
