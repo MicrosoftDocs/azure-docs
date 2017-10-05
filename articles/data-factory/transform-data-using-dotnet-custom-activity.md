@@ -222,7 +222,7 @@ namespace SampleApp
 }
 ```
 
-  ####Retrieve execution outputs
+## Retrieve execution outputs
 
   You can start a pipeline run using the following PowerShell command: 
 
