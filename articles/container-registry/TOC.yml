@@ -34,7 +34,7 @@
   - name: Authenticate with a registry
     href: container-registry-authentication.md
   - name: Use ACR webhooks
-    href: ./container-registry-webhook.md
+    href: container-registry-webhook.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -45,8 +45,8 @@
     href: /powershell/module/azurerm.containerregistry
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+  - name: Registry roadmap
+    href: https://aka.ms/acr/roadmap
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/container-registry/
   - name: Region availability
