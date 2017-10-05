@@ -97,6 +97,8 @@ The following section describes the steps for performing Geo-disaster recovery i
 
 5.  Once the namespaces are paired with an alias, the metadata is replicated periodically in both namespaces.
 
+	![][1]
+
 ### Step 2: Initiate a failover
 
 After this step, the secondary namespace becomes the primary namespace.
@@ -105,6 +107,8 @@ After this step, the secondary namespace becomes the primary namespace.
 4. Senders and receivers still connect to the event hubs using the alias. The failover does not disrupt the connection.
 5. Because the pairing is broken, the old primary namespace no longer has a replication status associated with it.
 6. The metadata synchronization between the primary and secondary namespaces also stops.
+
+	![][2]
 
 ### Step 3: Other operations (optional)
 
@@ -119,3 +123,6 @@ For more information about Event Hubs, visit the following links:
 * Get started with an [Event Hubs tutorial](event-hubs-dotnet-standard-getstarted-send.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
 * [Sample applications that use Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
+
+[1]:./media/event-hubs-geo-dr/eh-geodr1.png
+[2]:./media/event-hubs-geo-dr/eh-geodr2.png
