@@ -64,12 +64,11 @@ This section describes how to build your own Service Bus Geo-disaster recovery c
 
 1.  Create a new **Console App(.Net Framework)** project in Visual Studio and give it a name; for example, **SBGeoDR**.
 
-2.  Install the following Nuget packages:
+2.  Install the following NuGet packages:
     1.  Microsoft.IdentityModel.Clients.ActiveDirectory
     2.  Microsoft.Azure.Management.ServiceBus
-    3.  Microsoft.Rest.ClientRuntime
-    4.  Microsoft.Rest.ClientRuntime.Azure
-    5.  Newtonsoft.Json
+
+3. Make sure that the version of the Newtonsoft.Json NuGet package you are using is version 10.0.3.
 
 3.  Add the following `using` statements to your code:
 
@@ -139,13 +138,7 @@ This section describes how to build your own Service Bus Geo-disaster recovery c
         alias);
 
         Thread.CurrentThread.Join(TimeSpan.FromSeconds(30));
-    }
-    
-    // 4. Get alias connection string and create Service Bus
-
-    var accessKeys = client.Namespaces.ListKeys(resourceGroupName, geoDRPrimaryNS, "RootManageSharedAccessKey");
-    var aliasPrimaryConnectionString = accessKeys.AliasPrimaryConnectionString;
-    var aliasSecondaryConnectionString = accessKeys.AliasSecondaryConnectionString;
+    }  
     ```
 
 You have successfully set up two paired namespaces. Now you can create entities to observe the metadata synchronization. If you want to perform a failover immediately afterwards, you should allow some time for the metadata to synchronize. You can add a short sleep time, for example:
@@ -197,15 +190,32 @@ After a failover, perform the following two steps:
 1.  Create a new passive secondary namespace. The code is shown in a previous section.
 2.  Remove the remaining messages from your queue.
 
+## Alias connection string and test code
+
+If you want to test the failover process, you can write a sample application that pushes messages to the primary namespace using the alias. To do so, make sure that you obtain the alias connection string from an active namespace. With the current preview release, there is no other interface to directly obtain the connection string. The following example code connects before and after the failover:
+
+```csharp
+var accessKeys = client.Namespaces.ListKeys(resourceGroupName, geoDRPrimaryNS, "RootManageSharedAccessKey");
+var aliasPrimaryConnectionString = accessKeys.AliasPrimaryConnectionString;
+var aliasSecondaryConnectionString = accessKeys.AliasSecondaryConnectionString;
+
+if(aliasPrimaryConnectionString == null)
+{
+    accessKeys = client.Namespaces.ListKeys(resourceGroupName, geoDRSecondaryNS, "RootManageSharedAccessKey");
+    aliasPrimaryConnectionString = accessKeys.AliasPrimaryConnectionString;
+    aliasSecondaryConnectionString = accessKeys.AliasSecondaryConnectionString;
+}
+```
+
 ## Next steps
 
-To learn more about Service Bus messaging, see the following topics:
+To learn more about Service Bus messaging, see the following articles:
 
 * [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
-* [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md) 
- 
+* [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+* [Rest API](/rest/api/servicebus/) 
 
 [1]: ./media/service-bus-geo-dr/geo1.png
 [2]: ./media/service-bus-geo-dr/geo2.png
