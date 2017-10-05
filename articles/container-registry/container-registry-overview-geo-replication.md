@@ -33,9 +33,9 @@ A geo-replicated registry provides the following benefits:
 * Single management of a registry across multiple regions
 
 ## Example use case
-Contoso runs a public presence website located across the US, Canada, and Europe. To serve these markets with local and network-close content, Contoso runs ACS-Kubernetes clusters in West US, East US, Canada Central, and West Europe. The website code, deployed as a Docker image, utilizes the same code and image across all regions. Content, local to that region, is retrieved from a database, which is provisioned uniquely in each region. Each regional deployment has its unique configuration for resources like the local database. 
+Contoso runs a public presence website located across the US, Canada, and Europe. To serve these markets with local and network-close content, Contoso runs ACS-Kubernetes clusters in West US, East US, Canada Central, and West Europe. The website application, deployed as a Docker image, utilizes the same code and image across all regions. Content, local to that region, is retrieved from a database, which is provisioned uniquely in each region. Each regional deployment has its unique configuration for resources like the local database. 
 
-The development team is located in Redmond, utilizing the West US data center.
+The development team is located in Seattle WA, utilizing the West US data center.
 
 ![Pushing to multiple registries](media/container-registry-overview-geo-replication\before-geo-replicate.png)
 
@@ -67,7 +67,7 @@ Typical challenges of multiple registries include:
 Configuring geo-replication is as easy as clicking regions on a map.
 
 > [!NOTE]
-> Geo-replication is a feature of Premium registries. If your registry isn't yet Premium, you can change from Basic and Standard to Premium with the following [Azure CLI](/cli/azure/install-azure-cli) command:
+> Geo-replication is a feature of Premium registries. If your registry isn't yet Premium, you can change from Basic and Standard to Premium with the following [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) command:
 
 ```azurecli-interactive
 az acr update -n myregistry --sku Premium
