@@ -1,5 +1,5 @@
 ---
-title: Azure container registry webhooks
+title: Azure Container Registry webhooks
 description:  Learn how to use webhooks to trigger events when certain actions occur in your registry repositories.
 services: container-registry
 documentationcenter: ''
