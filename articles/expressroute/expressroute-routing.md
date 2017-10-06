@@ -73,10 +73,14 @@ The Azure public peering path enables you to connect to all services hosted in A
 > All Azure PaaS services are also accessible through Microsoft peering. We recommend you to create Microsoft peering and connect to Azure PaaS services over Microsoft peering.  
 >   
 
+
+A Private AS Number is allowed with Public Peering.
+
 ### Microsoft peering
 The Microsoft peering path lets you connect to all Microsoft cloud services hosted on public IP addresses. The list of services include Office 365, Dynamics 365 and Microsoft Azure PaaS services. Microsoft supports bi-directional connectivity on the Microsoft peering. Traffic destined to Microsoft cloud services must use valid public IPv4 / IPv6 addresses before they enter the Microsoft network.
 
 Make sure that your IP address and AS number are registered to you in one of the following registries:
+
 
 * [ARIN](https://www.arin.net/)
 * [APNIC](https://www.apnic.net/)
@@ -85,6 +89,10 @@ Make sure that your IP address and AS number are registered to you in one of the
 * [RIPENCC](https://www.ripe.net/)
 * [RADB](http://www.radb.net/)
 * [ALTDB](http://altdb.net/)
+
+If your prefixes and AS number are not assigned to you in the above registries, you will need to open a support case for manual validation of your prefixes and ASN. Support will require documentation, such as a Letter of Authorization, that proves you are allowed to use the resources.
+
+A Private AS Number is allowed with Microsoft Peering but will also require manual validation.
 
 > [!IMPORTANT]
 > Public IP addresses advertised to Microsoft over ExpressRoute must not be advertised to the Internet. This may break connectivity to other Microsoft services. However, Public IP addresses used by servers in your network that communicate with O365 endpoints within Microsoft may be advertised over ExpressRoute. 
