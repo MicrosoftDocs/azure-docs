@@ -33,7 +33,7 @@ sections:
       href: quickstart-python.md
 - title: Samples
   items:
- - type: list
+  - type: list
     style: unordered
     className: spaced noBullet
     items:
