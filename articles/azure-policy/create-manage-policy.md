@@ -3,7 +3,7 @@ title: Use Azure Policy to create and manage policies to enforce organizational 
 description: Use Azure Policy to enforce standards, meet regulatory compliance and audit requirements, control costs, maintain security and performance consistency, and impose enterprise wide design principles.
 services: azure-policy 
 keywords: 
-author: niniikhena
+author: Jim-Parker
 ms.author: jimpark
 ms.date: 10/06/2017
 ms.topic: tutorial
