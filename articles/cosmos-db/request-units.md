@@ -36,7 +36,7 @@ After reading this article, you'll be able to answer the following questions:
 * How do I estimate my application's request unit needs?
 * What happens if I exceed request unit capacity for a collection?
 
-As Azure Cosmos DB is a multi-model database, it is important to note that we will refer to a collection/document for a document API, a graph/node for a graph API and a table/entity for table API. Throughput this document we will generalize to the concepts of container/item.
+As Azure Cosmos DB is a multi-model database, it is important to note that we will refer to a collection/document for a document API, a graph/node for a graph API and a table/entity for table API. Throughout this document we will generalize to the concepts of container/item.
 
 ## Request units and request charges
 Azure Cosmos DB delivers fast, predictable performance by *reserving* resources to satisfy your application's throughput needs.  Because application load and access patterns change over time, Azure Cosmos DB allows you to easily increase or decrease the amount of reserved throughput available to your application.
