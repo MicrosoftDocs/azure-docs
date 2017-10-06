@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 10/05/2017
 ms.author: terrylan
 
 ---
@@ -45,15 +45,15 @@ The **Events dashboard** provides an overview of the number of events processed 
  - **All events by type** shows the event types that are being received and a count for each type. Examples of event type are SecurityEvent, CommonSecurityLog, WindowsFirewall and W3CIISLog.
 
 > [!NOTE]
-> Notable events include [web baseline assessment](https://docs.microsoft.com/azure/operations-management-suite/oms-security-web-baseline-assessment). The goal of the Web Baseline assessment is to find potentially vulnerable web server settings. 
+> Notable events include [web baseline assessment](https://docs.microsoft.com/azure/operations-management-suite/oms-security-web-baseline-assessment). The goal of the Web Baseline assessment is to find potentially vulnerable web server settings.
 
 ## View processed event details
-1. Under the **Security Center** main menu, select **Events Processed**.
-2. The **Events Processed** workspace selector may open. If you have only one workspace, this workspace selector does not appear. If you have more than one workspace, you need to select a workspace to view its processed event details. Select a workspace from the list if you have more than one workspace.
+1. Under the **Security Center** main menu, select **Events**.
+2. The **Events dashboard** workspace selector may open. If you have only one workspace, this workspace selector does not appear. If you have more than one workspace, you need to select a workspace to view its processed event details. Select a workspace from the list if you have more than one workspace.
 
   ![Workspace list][3]
 
-3. The **Events Processed** dashboard opens showing you event details for the selected workspace. You can view the notable events and all events by type.  In this example, we selected **Notable events**.
+3. The **Events dashboard** opens showing you event details for the selected workspace. You can view the notable events and all events by type.  In this example, we selected **Notable events**.
 
   ![Notable event][4]
 
@@ -66,7 +66,7 @@ The **Events dashboard** provides an overview of the number of events processed 
   ![Log search][6]
 
 ## Add a notable event
-Security Center provides out-of-the-box notable events. You can add notable events based on your own query using the [Log Analytics query language](../log-analytics/log-analytics-search-reference.md). We’ll return to the **Events Processed** dashboard to add a notable event.
+Security Center provides out-of-the-box notable events. You can add notable events based on your own query using the [Log Analytics query language](../log-analytics/log-analytics-search-reference.md). We’ll return to the **Events dashboard** to add a notable event.
 
 1. Select **Add Notable Event**.
 
@@ -79,7 +79,7 @@ Security Center provides out-of-the-box notable events. You can add notable even
 4. Select **OK**.
 
 ## Update your workspace for events processing
-Your workspace must be running Log Analytics version 2 and be on Security Center’s Standard tier to use event processing in Security Center. The **Events** workspace selector identifies workspaces that do not meet these requirements.
+Your workspace must be running Log Analytics version 2 and be on Security Center’s Standard tier to use event processing in Security Center. The **Events dashboard** workspace selector identifies workspaces that do not meet these requirements.
 
 ![Workspace does not meet requirements][9]
 
@@ -90,7 +90,7 @@ If the workspace row:
 - Is blank - your workspace meets requirements and selecting a workspace takes you to the dashboard
 
 > [!NOTE]
-> Under **Events**, the **EVENTS** column indicates amount of events in each workspace.  This column is blank for some workspaces because Security Center’s Free tier is applied to that workspace. Under the Free tier, Security Center will collect events but the events are not saved in Log Analytics and are not available in the dashboard.
+> Under **Events dashboard**, the **EVENTS** column indicates amount of events in each workspace.  This column is blank for some workspaces because Security Center’s Free tier is applied to that workspace. Under the Free tier, Security Center will collect events but the events are not saved in Log Analytics and are not available in the dashboard.
 >
 >
 
@@ -102,7 +102,7 @@ If the workspace row:
 
 ## Upgrade to Security Center’s Standard tier
 1. Select a workspace with **UPGRADE PLAN**.
-2. **Events dashboard** opens. Select **Try the Events Processed dashboard**.
+2. **Events dashboard** opens. Select **Try Events dashboard**.
 
   ![Try dashboard][11]
 
@@ -113,7 +113,7 @@ If the workspace row:
   ![Upgrade to Standard tier][12]
 
 ## Next steps
-In this article you learned how to use Security Center’s Event Processed dashboard. To learn more about how the dashboard works and to write your own event queries, see:
+In this article you learned how to use Security Center’s Event dashboard. To learn more about how the dashboard works and to write your own event queries, see:
 
 - [What is Log Analytics?](../log-analytics/log-analytics-overview.md) – Overview on Log Analytics
 - [Understanding log searches in Log Analytics](../log-analytics/log-analytics-log-search-new.md) - Describes how log searches are used in Log Analytics and provides concepts that should be understood before creating a log search
