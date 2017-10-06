@@ -14,7 +14,7 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/15/2017
+ms.date: 10/06/2017
 ms.author: larryfr
 
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
@@ -40,7 +40,7 @@ Apache Storm is a scalable, fault-tolerant, distributed, real-time computation s
 
 Use the following steps to create a Storm on HDInsight cluster:
 
-1. From the [Azure portal](https://portal.azure.com), select **+ NEW**, **Intelligence + Analytics**, and then select **HDInsight**.
+1. From the [Azure portal](https://portal.azure.com), select **+ NEW**, **Data + Analytics**, and then select **HDInsight**.
 
     ![Create a HDInsight cluster](./media/hdinsight-apache-storm-tutorial-get-started-linux/create-hdinsight.png)
 
@@ -75,7 +75,7 @@ Use the following steps to create a Storm on HDInsight cluster:
 
     ![Set the storage account settings for HDInsight](./media/hdinsight-apache-storm-tutorial-get-started-linux/set-hdinsight-storage-account.png)
 
-6. From the **Summary** blade, review the configuration for the cluster. Use the __Edit__ links to change any settings that are incorrect. Finally, use the__Create__ button to create the cluster.
+6. From the **Summary** blade, review the configuration for the cluster. Use the __Edit__ links to change any settings that are incorrect. Finally, use the__Select__ button to create the cluster.
 
     ![Cluster configuration summary](./media/hdinsight-apache-storm-tutorial-get-started-linux/hdinsight-configuration-summary.png)
 
@@ -88,7 +88,11 @@ Use the following steps to create a Storm on HDInsight cluster:
 
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
-    If you used a password to secure your SSH user account, you are prompted to enter it. If you used a public key, you may need use the `-i` parameter to specify the matching private key. For example, `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
+    > [!TIP]
+    > Your SSH client may say that the authenticity of the host can't be established. If so, enter `yes` to continue.
+
+    > [!NOTE]
+    > If you used a password to secure your SSH user account, you are prompted to enter it. If you used a public key, you may need use the `-i` parameter to specify the matching private key. For example, `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
 
     For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
