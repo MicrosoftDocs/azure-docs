@@ -14,7 +14,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/28/2017
+ms.date: 10/5/2017
 ms.author: v-ruogun
 ---
 #  Transfer objects to/from Azure Blob storage using Python
@@ -24,7 +24,7 @@ The Python Client Library for Azure Storage is used to create and manage Azure r
 
 To complete this quickstart: 
 
-* Install [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python). 
+* Download and install [Azure Storage SDK for Python](storage-python-how-to-use-blob-storage.md#download-and-install-azure-storage-sdk-for-python). 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -46,7 +46,7 @@ First, create a new general-purpose storage account to use for this quickstart.
 12. Select the `Location` to use for your storage account.
 13. Check **Pin to dashboard** and click **Create** to create your storage account. 
 
-After your storage account is created, it is pinned to the dashboard. Click on it to open it. Under SETTINGS, click **Access keys**. Select a key and copy the CONNECTION STRING to the clipboard, then paste it into Notepad for later use.
+After your storage account is created, it is pinned to the dashboard. Click on it to open it. Under **SETTINGS**, click **Access keys**. Select a key and copy the storage account name to the clipboard, then paste it into Notepad for later use.
 
 ## Download the sample application
 The sample application used in this quickstart is a basic python application.  
@@ -54,13 +54,13 @@ The sample application used in this quickstart is a basic python application.
 Use [git](https://git-scm.com/) to download a copy of the application to your development environment. 
 
 ```bash
-git clone https://github.com/Azure-Samples/storage-blobs-python-quickstart.git
+git clone https://github.com/Azure-Samples/storage-blobs-python-quickstart.git 
 ```
 
- This command clones the repository to your local git folder. To open the python program, look for storage-blobs-python-quickstart folder.  
+This command clones the repository to your local git folder. To open the python program, look for storage-blobs-python-quickstart folder, and example.py file.  
 
 ## Configure your storage connection string
-In the application, you must provide your storage account name and account key to create a BlockBlobService object. Open the `example.py` file from the Solution Explorer in your IDE. Replace **accountname** and **accountkey** with your account name and key. 
+In the application, you must provide your storage account name and account key to create a ```BlockBlobService``` object. Open the `example.py` file from the Solution Explorer in your IDE. Replace the **accountname** and **accountkey** values with your account name and key. 
 
 ```python
 account_name = 'accountname'
@@ -69,9 +69,9 @@ storage_account = CloudStorageAccount(account_name, account_key)
 ```
 
 ## Run the sample
-This sample creates a test file in the 'Documents' folder, uploads it to Blob storage, lists the blobs in the container, then downloads the file with a new name so you can compare the old and new files. 
+This sample creates a test file in the 'Documents' folder. The sample program uploads the test file to Blob storage, lists the blobs in the container, and downloads the file with a new name. 
 
-Run the sample. It shows the output on the console similar to the following: 
+Run the sample. The following output is an example of the output returned when running the application:
   
 ```
 Temp file = C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt
@@ -83,7 +83,7 @@ List blobs in the container
 
 Downloading blob to C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078_DOWNLOADED.txt
 ```
-When you press any key to continue, it deletes the storage container and the files. Before you continue, check your 'Documents' for the two files -- you can open them and see they are identical.
+When you press any key to continue, the sample program deletes the storage container and the files. Before you continue, check your 'Documents' for the two files -- you can open them and see they are identical.
 
 You can also use a tool such as the [Azure Storage Explorer](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information. 
 
@@ -98,7 +98,7 @@ The first thing to do is create the references to the objects used to access and
 
 * Instantiate the **CloudBlobContainer** object, which represents the container you are accessing. Containers are used to organize your blobs like you use folders on your computer to organize your files.
 
-Once you have the Cloud Blob Container, you can instantiate the **CloudBlockBlob** object that points to the specific  blob in which you are interested, and perform an upload, download, copy, etc. operation.
+Once you have the Cloud Blob container, you can instantiate the **CloudBlockBlob** object that points to the specific blob in which you are interested, and perform operations such as upload, download, and copy.
 
 In this section, you instantiate the objects, create a new container, and then set permissions on the container so the blobs are public. The container is called **quickstartblobs**. 
 
@@ -121,11 +121,14 @@ block_blob_service.set_container_acl(container_name, public_access=PublicAccess.
 ```
 ## Upload blobs to the container
 
-Blob storage supports block blobs, append blobs, and page blobs. Block blobs are the most commonly used, and that's what is used in this quickstart. 
+Blob storage supports block blobs, append blobs, and page blobs. Block blobs are the most commonly used, and that is what is used in this quickstart. 
 
-To upload a file to a blob, use the get a reference to the blob in the target container. Once you have the blob reference, you can upload data to it by using **create\_blob\_from\_path**. This operation creates the blob if it doesn't already exist, and overwrites it if it does already exist.
 
-The sample code creates a local file to be used for the upload and download, storing the file to be uploaded as **file\_path\_to\_file** and the name of the blob in **local\_file\_name**. The following example uploads the file to your container called **quickstartblobs**.
+        #Get full path on drive to file_to_upload by joining the fully qualified directory name and file name on the local drive
+
+To upload a file to a blob, get the full path on drive to the created file by joining the directory name and the file name on your local drive. You can then upload the file to the specified path using the **create\_blob\_from\_path** method. 
+
+The sample code creates a local file to be used for the upload and download, storing the file to be uploaded as **file\_path\_to\_file** and the name of the blob as **local\_file\_name**. The following example uploads the file to your container called **quickstartblobs**.
 
 ```python
  # Create a file in Documents to test the upload and download.
@@ -151,7 +154,7 @@ Block blobs can be as large as 4.7 TB, and can be anything from Excel spreadshee
 
 ## List the blobs in a container
 
-Get a list of files in the container using **list_blobs** method. This method returns a generator. The following code retrieves the list of blobs, then loops through them, showing the names of the blobs found in a container.  
+Get a list of files in the container using the **list_blobs** method. This method returns a generator. The following code retrieves the list of blobs, then loops through them, showing the names of the blobs found in a container.  
 
 ```python
 # List the blobs in the container
@@ -163,8 +166,8 @@ print("\nList blobs in the container")
 
 ## Download the Blobs
 
-Download blobs to your local disk using **get\_blob\_to\_path** method. 
-The following code downloads the blob uploaded in a previous section, adding a suffix of "_DOWNLOADED" to the blob name so you can see both files on local disk. 
+Download blobs to your local disk using the **get\_blob\_to\_path** method. 
+The following code downloads the blob uploaded in a previous section. "_DOWNLOADED" is added as a suffix to the blob name so you can see both files on local disk. 
 
 ```python
 # Download the blob(s).
@@ -175,7 +178,7 @@ block_blob_service.get_blob_to_path(container_name, local_file_name, full_path_t
 ```
 
 ## Clean up resources
-If you no longer need the blobs uploaded in this quickstart, you can delete the entire container using **delete\_blob** method. Also delete the files created if they are no longer needed.
+If you no longer need the blobs uploaded in this quickstart, you can delete the entire container using the **delete\_container**. If the files created are no longer needed, you use the **delete\_blob** method to delete the files.
 
 ```python
 # Clean up resources. This includes the container and the temp files
