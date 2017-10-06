@@ -21,9 +21,10 @@
     href: tutorial-user-access.md
   - name: 3 - Forecast spending
     href: tutorial-forecast-spending.md
-
 - name: Resources
   items:
+  - name: Cost Management videos
+    href: ref-videos.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing
