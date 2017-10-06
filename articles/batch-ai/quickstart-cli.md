@@ -3,8 +3,8 @@ title: Azure Quickstart - CNTK training with Batch AI - Azure CLI | Microsoft Do
 description: Quickly learn to run a CNTK training job with Batch AI using the Azure CLI
 services: batch-ai
 documentationcenter: na
-author: dlepow
-manager: timlt
+author: AlexanderYukhanov
+manager: Vaman.Bedekar
 editor: tysonn
 
 ms.assetid:
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: CLI
 ms.topic: quickstart
 ms.date: 10/06/2017
-ms.author: danlep
+ms.author: Alexander.Yukhanov
 ---
 
 # Run a CNTK training job using the Azure CLI
@@ -34,12 +34,14 @@ Batch AI clusters and jobs are Azure resources and must be placed in an Azure re
 
 Create a resource group with the [az group create](/cli/azure/group#az_group_create) command.
 
-The following example creates a resource group named *myResourceGroup* in the *eastus* location. It then uses the [az configure](/cli/azure#az_configure) command to set this resource group as the default.
+The following example creates a resource group named *myResourceGroup* in the *eastus* location. It then uses the [az configure](/cli/azure#az_configure) command to set this resource group and location as the default.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 
 az configure --defaults group=myResourceGroup 
+
+az configure --defaults location=eastus 
 ```
 
 ## Create a storage account
@@ -60,6 +62,11 @@ For later commands, set default storage account environment variables:
   export AZURE_STORAGE_ACCOUNT=mystorageaccount
 
   export AZURE_STORAGE_KEY=$(az storage account keys list --account-name mystorageaccount -o tsv --query [0].value)
+
+  export AZURE_BATCHAI_STORAGE_ACCOUNT=mystorageaccount
+
+  export AZURE_BATCHAI_STORAGE_KEY=$(az storage account keys list --account-name mystorageaccount -o tsv --query [0].value)
+
   ```
 
 * **Windows**
@@ -70,6 +77,10 @@ For later commands, set default storage account environment variables:
   az storage account keys list --account-name mystorageaccount -o tsv --query [0].value > temp.txt
 
   set /p AZURE_STORAGE_KEY=< temp.txt
+
+  set AZURE_BATCHAI_STORAGE_ACCOUNT=mystorageaccount
+
+  set /p AZURE_BATCHAI_STORAGE_KEY=< temp.txt
 
   del temp.txt
   ```
@@ -86,7 +97,7 @@ For illustration purposes, this quickstart uses an Azure file share to host the 
 2. Create a directory in the share named *mnistcntksample* using the [az storage directory create](/cli/azure/storage/directory#az_storage_directory_create) command.
 
   ```azurecli
-  az storage directory create --share-name batchaisample --name mnistcntksample
+  az storage directory create --share-name batchaiquickstart  --name mnistcntksample
   ```
 
 3. Download the [sample package](https://batchaisamples.blob.core.windows.net/samples/BatchAIQuickStart.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=b&sig=hrAZfbZC%2BQ%2FKccFQZ7OC4b%2FXSzCF5Myi4Cj%2BW3sVZDo%3D) and unzip. Upload the contents to the directory using the [az storage file upload](/cli/azure/storage/file#az_storage_file_upload) command:
@@ -101,16 +112,20 @@ For illustration purposes, this quickstart uses an Azure file share to host the 
 
 
 ## Create GPU cluster
-Use the [az bachai cluster create](/cli/azure/batchai/cluster#az_batchai_cluster_create) command to create a Batch AI cluster. In this example, the cluster consists of a single STANDARD_NC6 VM node. This VM size has one NVIDIA K80 GPU. Mount the file share at a folder named *azurefileshare*. The full path of this folder on the GPU compute node is $AZ_BATCHAI_MOUNT_ROOT/azurefileshare. 
+Use the [az bachai cluster create](/cli/azure/batchai/cluster#az_batchai_cluster_create) command to create a Batch AI cluster consisting of a single GPU VM node. In this example, the VM node run the default Ubuntu LTS image. Specify `image=UbuntuDSVM` to run the Data Science Virtual Machine on the cluster, which supports additional training frameworks. The NC6 size has one NVIDIA K80 GPU. Mount the file share at a folder named *azurefileshare*. The full path of this folder on the GPU compute node is $AZ_BATCHAI_MOUNT_ROOT/azurefileshare. 
+
 
 ```azurecli
 az batchai cluster create --name mycluster  \
-    --vm-size "STANDARD_NC6"  \
+    --vm-size STANDARD_NC6  \
+    --image=UbuntuLTS \
+    --min 1 --max 1 \
     --afs-name batchaiquickstart \
     --nfs-mount-path azurefileshare \
     --user-name <admin_username> \ 
     --password <admin_password> 
 ```
+
 
 After the cluster is created, output is similar to the following:
 
@@ -147,6 +162,7 @@ After the cluster is created, output is similar to the following:
   },
   "nodeStateCounts": {
     "idleNodeCount": 0,
+    "leavingNodeCount": 0,
     "preparingNodeCount": 0,
     "runningNodeCount": 0,
     "unusableNodeCount": 0
@@ -193,9 +209,9 @@ az batchai cluster list -o table
 Output is similar to the following:
 
 ```azurecli
-Name      Resource Group    VM Size       State      Idle    Running    Preparing    Unusable
--------   ----------------  --------      -------    ------  ---------  -----------  ----------
-mycluster myresourcegroup   STANDARD_NC6  steady     1       0          0            0
+Name      Resource Group    VM Size       State      Idle    Running    Preparing    Unusable    Leaving
+-------   ----------------  --------      -------    ------  ---------  -----------  ----------  ----------
+mycluster myresourcegroup   STANDARD_NC6  steady     1       0          0            0            0
 ``` 
 
 For more detail, run the [az batchai cluster show](/cli/azure/batchai/cluster#az_batchai_cluster_show) command. It returns all the cluster properties shown after cluster creation.
@@ -210,7 +226,6 @@ After the cluster is ready, configure and submit the learning job.
 
   ```JSON
   {
-    "location": "eastus",
     "properties": {
         "stdOutErrPathPrefix": "$AZ_BATCHAI_MOUNT_ROOT/azurefileshare",
        "inputDirectories": [{
@@ -322,7 +337,7 @@ Output is similar to the following:
 Use the [az batchai job list](/cli/azure/batchai/job#az_batchai_job_list) command to get an overview of the job status:
 
 ```azurecli
-az batchai cluster list -o table
+az batchai job list -o table
 ```
 
 Output is similar to the following:
@@ -375,10 +390,10 @@ Output is similar to the following:
 You can stream or tail a job's output files while the job is executing. The following example uses the [az batchai job stream-file](/cli/azure/batchai/job#az_batchai_job_stream_file) command to stream the stderr.txt log:
 
 ```azurecli
-az batchai job stream-file --name myjob --output-directory-id stdouterr -n stderr.txt
+az batchai job stream-file --job-name myjob --output-directory-id stdouterr --name stderr.txt
 ```
 
-Output is similar to the following:
+Output is similar to the following. Interrupt the output by pressing [Ctrl][C].
 
 ```azurecli
 …
