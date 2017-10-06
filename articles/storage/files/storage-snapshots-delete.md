@@ -20,11 +20,11 @@ ms.author: tamram
 
 #How to delete Azure Files Share Snapshot
 
-You can delete file share snapshot using Portal, Powershell, CLI, REST or any Storage SDK. Following article will tell you how to delete snapshot using Portal, CLI and Powershell. To learn more about snapshot please look at [snapshot overview](storage-snapshots-files.md) or [snapshot FAQ](storage-files-faq.md).
+You can delete file share snapshots using the Azure portal, PowerShell, CLI, REST API, or any Storage SDK. The following article will tell you how to delete snapshots using Azure portal, CLI, and Powershell. To learn more about snapshot please look at the [snapshot overview](storage-snapshots-files.md) or [snapshot FAQ](storage-files-faq.md).
 
-You are able to browse snapshots and diff two snapshots using any tool like windiff to determine which snapshot you want to delete. 
+You are able to browse snapshots and view differences between the two snapshots using any comparison tool to determine which snapshot you want to delete. 
 
-You cannot delete a share that has snapshot. If a file share has snapshots, you first have to delete all its snapshot in order to be able to delete a share.
+You cannot delete a share that has snapshot. You must first delete all its snapshots in order to be able to delete the share.
 
 ## Delete snapshot using portal  
 You can hit `delete` button in portal to delete one or more snapshots.
@@ -32,10 +32,10 @@ You can hit `delete` button in portal to delete one or more snapshots.
 >   ![./media/storage-snapshots-delete/portal-snapshots-delete.png](./media/storage-snapshots-delete/portal-snapshots-delete.png)
 
 
-## Delete snapshot using CLI 2.0
-You can delete a share snapshot by using the `az storage share delete` command by providing `--snapshot` parameter with snapshot timestamp:
+## Delete a snapshot using Azure CLI 2.0
+You can delete a share snapshot by using the `[az storage share delete]` command by providing `--snapshot` parameter with snapshot timestamp:
 
-```cli
+```azurecli-interactive
 az storage share delete -n <share name> --snapshot '2017-10-04T23:28:35.0000000Z' 
 ```
 
@@ -46,7 +46,7 @@ Sample Output
 }
 ```
 
-## Delete snapshot using Powershell
+## Delete a snapshot using PowerShell
 You can create a share snapshot by using the `Remove-AzureStorageShare -Share` command:
 
 ```powershell
@@ -67,6 +67,7 @@ Remove-AzureStorageShare -Share $snapshot
 ```
 
 ## Next Steps
+You just learned how delete snapshot using portal, and Azure CLI. Click the link below to learn more about
 * [How to create a file share snapshot](storage-snapshots-create.md)
 * [How to list and browse snapshot](storage-snapshots-list-browse.md)
 * [Snapshot Overview](storage-snapshots-files.md)
