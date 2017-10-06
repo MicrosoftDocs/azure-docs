@@ -24,7 +24,7 @@ The following transformations are typical during analysis:
 + Non-essential words (stopwords) and punctuation are removed.
 + Phrases and hyphenated words are broken down into component parts.
 + Upper-case words are lower-cased.
-+ Words are reduced to forms so that a match can be found regardless of tense.
++ Words are reduced to root forms so that a match can be found regardless of tense.
 
 Azure Search provides a default analyzer. You can override it on a field-by-field basis with an alternative analyzer. The purpose of this article is to describe the range of choices and provide best practices for customizing the process of lexical analysis for a given field. It also shows example configurations for key scenarios.
 

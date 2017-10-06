@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
+ms.date: 09/26/2017
 ms.author: seanmck
 ms.custom: mvc
 ---
@@ -36,7 +36,7 @@ If you choose to install and use the CLI locally, this quick start requires that
 
 Azure Container Instances are Azure resources and must be placed in an Azure resource group, a logical collection into which Azure resources are deployed and managed.
 
-Create a resource group with the [az group create](/cli/azure/group#create) command.
+Create a resource group with the [az group create][az-group-create] command.
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
@@ -46,13 +46,13 @@ az group create --name myResourceGroup --location eastus
 
 ## Create a container
 
-You can create a container by providing a name, a Docker image, and an Azure resource group. You can optionally expose the container to the internet with a public IP address. In this case, we'll use a container that hosts a very simple web app written in [Node.js](http://nodejs.org).
+You can create a container by providing a name, a Docker image, and an Azure resource group to the [az container create][az-container-create] command. You can optionally expose the container to the internet with a public IP address. In this case, we'll use a container that hosts a very simple web app written in [Node.js](http://nodejs.org).
 
 ```azurecli-interactive
 az container create --name mycontainer --image microsoft/aci-helloworld --resource-group myResourceGroup --ip-address public
 ```
 
-Within a few seconds, you should get a response to your request. Initially, the container will be in a **Creating** state, but it should start within a few seconds. You can check the status using the `show` command:
+Within a few seconds, you should get a response to your request. Initially, the container will be in a **Creating** state, but it should start within a few seconds. You can check the status using the [az container show][az-container-show] command:
 
 ```azurecli-interactive
 az container show --name mycontainer --resource-group myResourceGroup
@@ -82,7 +82,7 @@ Once the container moves to the **Succeeded** state, you can reach it in your br
 
 ## Pull the container logs
 
-You can pull the logs for the container you created using the `logs` command:
+You can pull the logs for the container you created using the [az container logs][az-container-logs] command:
 
 ```azurecli-interactive
 az container logs --name mycontainer --resource-group myResourceGroup
@@ -98,7 +98,7 @@ listening on port 80
 
 ## Delete the container
 
-When you are done with the container, you can remove it using the `delete` command:
+When you are done with the container, you can remove it using the [az container delete][az-container-delete] command:
 
 ```azurecli-interactive
 az container delete --name mycontainer --resource-group myResourceGroup
@@ -114,6 +114,13 @@ All of the code for the container used in this quick start is available [on GitH
 
 <!-- LINKS -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git
+[az-group-create]: /cli/azure/group?view=azure-cli-latest#az_group_create
+[az-container-create]: /cli/azure/container?view=azure-cli-latest#az_container_create
+[az-container-delete]: /cli/azure/container?view=azure-cli-latest#az_container_delete
+[az-container-list]: /cli/azure/container?view=azure-cli-latest#az_container_list
+[az-container-logs]: /cli/azure/container?view=azure-cli-latest#az_container_logs
+[az-container-show]: /cli/azure/container?view=azure-cli-latest#az_container_show
+
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png

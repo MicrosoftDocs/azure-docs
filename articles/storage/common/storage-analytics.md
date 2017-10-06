@@ -34,7 +34,7 @@ Storage Analytics logs detailed information about successful and failed requests
 
 Log entries are created only if there is storage service activity. For example, if a storage account has activity in its Blob service but not in its Table or Queue services, only logs pertaining to the Blob service will be created.
 
-Storage Analytics Logging is not available for Azure File storage.
+Storage Analytics Logging is not available for Azure Files.
 
 ### Logging authenticated requests
 The following types of authenticated requests are logged:

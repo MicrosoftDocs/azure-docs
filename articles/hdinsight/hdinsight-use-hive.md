@@ -28,7 +28,7 @@ Hive allows you to project structure on largely unstructured data. After you def
 
 HDInsight provides several cluster types, which are tuned for specific workloads. The following cluster types are most often used for Hive queries:
 
-* __Interactive Hive__: A Hadoop cluster that provides [Low Latency Analytical Processing (LLAP)](https://cwiki.apache.org/confluence/display/Hive/LLAP) functionality to improve response times for interactive queries. For more information, see the [Start with Interactive Hive in HDInsight](hdinsight-hadoop-use-interactive-hive.md) document.
+* __Interactive Query__: A Hadoop cluster that provides [Low Latency Analytical Processing (LLAP)](https://cwiki.apache.org/confluence/display/Hive/LLAP) functionality to improve response times for interactive queries. For more information, see the [Start with Interactive Query in HDInsight](hdinsight-hadoop-use-interactive-hive.md) document.
 
 * __Hadoop__: A Hadoop cluster that is tuned for batch processing workloads. For more information, see the [Start with Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) document.
 
@@ -190,7 +190,7 @@ To aid in debugging jobs ran using Tez, HDInsight provides the following web UIs
 
 [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) (sometimes known as Live Long and Process) is a new feature in Hive 2.0 that allows in-memory caching of queries. LLAP makes Hive queries much faster, up to [26x faster than Hive 1.x in some cases](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
 
-HDInsight provides LLAP in the Interactive Hive cluster type. For more information, see the [Start with Interactive Hive](hdinsight-hadoop-use-interactive-hive.md) document.
+HDInsight provides LLAP in the Interactive Query cluster type. For more information, see the [Start with Interactive Query](hdinsight-hadoop-use-interactive-hive.md) document.
 
 ## Hive jobs and SQL Server Integration Services
 

@@ -3,7 +3,7 @@ title: Configure Load Balancer distribution mode | Microsoft Docs
 description: How to configure Azure load balancer distribution mode to support source IP affinity
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 
 ms.assetid: 7df27a4d-67a8-47d6-b73e-32c0c6206e6e
@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
 ---
 
 # Configure the distribution mode for load balancer
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 ## Hash-based distribution mode
 
@@ -154,7 +156,7 @@ The value of LoadBalancerDistribution can be sourceIP for 2-tuple affinity, sour
     x-ms-request-id: 9c7bda3e67c621a6b57096323069f7af
     Date: Thu, 16 Oct 2014 22:49:21 GMT
 
-## Next Steps
+## Next steps
 
 [Internal load balancer overview](load-balancer-internal-overview.md)
 

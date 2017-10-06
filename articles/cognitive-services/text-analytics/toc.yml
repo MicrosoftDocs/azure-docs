@@ -5,6 +5,8 @@
   items:
   - name: About Text Analytics
     href: overview.md
+  - name: Supported languages
+    href: text-analytics-supported-languages.md
 - name: Quickstarts
   items:
   - name: C#

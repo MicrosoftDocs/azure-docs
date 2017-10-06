@@ -22,12 +22,14 @@ This article helps you find troubleshooting information about common issues rega
 
 ## Known issues
 
+- In a few cases, enabling Seamless SSO can take up to 30 minutes.
+- Edge browser support is not available.
+- License activation on Office clients, especially in shared computer scenarios, causes extra sign-in prompts for users.
+- Seamless SSO doesn't work in private browsing mode on Firefox. And 
+- Seamless SSO doesn't work in Internet Explorer when Enhanced Protection mode is turned on.
+- Seamless SSO doesn't work on mobile browsers on iOS and Android.
 - If you are synchronizing 30 or more AD forests, you can't enable Seamless SSO using Azure AD Connect. As a workaround, you can [manually enable](#manual-reset-of-azure-ad-seamless-sso) the feature on your tenant.
 - Adding Azure AD service URLs (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) to the "Trusted sites" zone instead of the "Local intranet" zone **blocks users from signing in**.
-- Seamless SSO doesn't work in private browsing mode on Firefox and Edge. And also on Internet Explorer when Enhanced Protection mode is turned on.
-
->[!IMPORTANT]
->We recently rolled back support for Edge to investigate customer-reported issues.
 
 ## Check status of the feature
 

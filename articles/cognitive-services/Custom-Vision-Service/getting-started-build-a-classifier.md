@@ -49,9 +49,6 @@ There are several domains available, and each one optimizes the classifier for a
 |Landmarks|Optimized for recognizable landmarks, both natural and artificial. This domain works best when the landmark is clearly visible in the photograph, even if the landmark is slightly obstructed by a group of people posing in front of it.|
 |Retail|Optimized for images found in a shopping catalog or shopping website. If you want high precision classifying between dresses, pants, and shirts, use this domain.|
 |Adult|Optimized to better define between adult content and non-adult content. For example, if you want to block images of people in bathing suits, this domain allows you to build a custom classifier to do that.|
-|Generic (compact)|This is a general domain which has been optimized for the constraints of real-time classification on mobile devices. Models built with a compact domain can be exported to run locally on device (currently iOS only.) |
-|
-
 
 You can change the domain later if you wish.
 

@@ -3,7 +3,7 @@ title: Advanced scenarios with Azure MFA and third-party VPNs
 description: Step-by-step configuration guides for Azure MFA to integrate with Cisco, Citrix, and Juniper.
 services: multi-factor-authentication
 documentationcenter: ''
-author: MicrosoftGuyJFlo
+author: kgremban
 manager: femila
 editor: yossib
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
-ms.author: joflore
+ms.author: kgremban
 ---
 
 # Advanced scenarios with Azure Multi-Factor Authentication and third-party VPN solutions

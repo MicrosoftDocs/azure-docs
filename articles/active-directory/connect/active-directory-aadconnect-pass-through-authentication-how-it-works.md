@@ -12,14 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 09/20/2017
 ms.author: billmath
 ---
 
 # Azure Active Directory Pass-through Authentication: Technical deep dive
-
->[!IMPORTANT]
->Azure AD Pass-through Authentication is currently in preview. 
 
 ## How does Azure Active Directory Pass-through Authentication work?
 
@@ -42,7 +39,7 @@ The following diagram illustrates all the components and the steps involved.
 ![Pass-through Authentication](./media/active-directory-aadconnect-pass-through-authentication/pta2.png)
 
 ## Next steps
-- [**Current limitations**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - This feature is currently in preview. Learn which scenarios are supported and which ones are not.
+- [**Current limitations**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - Learn which scenarios are supported and which ones are not.
 - [**Quick Start**](active-directory-aadconnect-pass-through-authentication-quick-start.md) - Get up and running Azure AD Pass-through Authentication.
 - [**Frequently Asked Questions**](active-directory-aadconnect-pass-through-authentication-faq.md) - Answers to frequently asked questions.
 - [**Troubleshoot**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) - Learn how to resolve common issues with the feature.

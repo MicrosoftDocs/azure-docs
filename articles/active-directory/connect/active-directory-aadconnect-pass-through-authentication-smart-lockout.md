@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ---
 
@@ -73,7 +73,7 @@ Follow these steps to set your tenant’s Smart Lockout values (for the first ti
 1. Sign into Graph Explorer as a Global Administrator of your tenant. If prompted, grant access for the requested permissions.
 2. Click “Modify permissions” and select the “Directory.ReadWrite.All” permission.
 3. Configure the Graph API request as follows: Set version to “BETA”, request type to “POST” and URL to `https://graph.microsoft.com/beta/<your-tenant-domain>/settings`.
-4. Copy and paste the following JSON request into the "Request Body" field. Change the Smart Lockout values as appropriate and use a random GUID for `templateId`.
+4. Copy and paste the following JSON request into the "Request Body" field.
 5. Click "Run Query" to set your tenant's Smart Lockout values.
 
 ```

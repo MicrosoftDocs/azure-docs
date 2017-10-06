@@ -4,7 +4,7 @@ description: This article discusses integrating your Remote Desktop Gateway infr
 services: active-directory
 keywords: Azure MFA, integrate Remote Desktop Gateway, Azure Active Directory, Network Policy Server extension
 documentationcenter: ''
-author: MicrosoftGuyJFlo
+author: kgremban
 manager: femila
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
-ms.author: joflore
+ms.author: kgremban
 ms.reviewer: jsnow
 ms.custom: it-pro
 ---

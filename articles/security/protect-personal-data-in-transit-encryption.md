@@ -192,4 +192,4 @@ The company can accomplish its goal of protecting personal data and the privacy 
 
 - [VPN Gateway FAQ](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vpn-faq)
 
-- [Buy and configure an SSL Certificate for your Azure App Service](https://docs.microsoft.com/azure/app-service-web/web-sites-purchase-ssl-web-site)
+- [Buy and configure an SSL Certificate for your Azure App Service](https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site)

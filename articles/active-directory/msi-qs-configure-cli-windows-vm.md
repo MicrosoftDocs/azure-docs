@@ -22,7 +22,7 @@ ms.author: bryanla
 
 Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
-In this article, you will learn how to enable and remove MSI for an Azure Windows VM, using  Azure CLI.
+In this article, you will learn how to enable and remove MSI for an Azure VM, using Azure CLI.
 
 ## Prerequisites
 
@@ -38,9 +38,9 @@ To run the CLI script examples, you have three options:
 
 ## Enable MSI during creation of an Azure VM
 
-A new MSI-enabled Windows Virtual Machine resource is created in a new resource group, using the specified configuration parameters. Also note that many these functions may run for several seconds/minutes before returning.
+To create an MSI-enabled VM:
 
-1. If you're not using Azure Cloud Shell from the Azure portal, first sign in to Azure using [az login](/cli/azure/#login). Use an account that is associated with the Azure subscription under which you would like to deploy the VM:
+1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/#login). Use an account that is associated with the Azure subscription under which you would like to deploy the VM:
 
    ```azurecli-interactive
    az login
@@ -62,7 +62,7 @@ A new MSI-enabled Windows Virtual Machine resource is created in a new resource 
 
 If you need to enable MSI on an existing Virtual Machine:
 
-1. If you're not using Azure Cloud Shell from the Azure portal, first sign in to Azure using [az login](/cli/azure/#login). Use an account that is associated with the Azure subscription under which you would like to deploy the VM:
+1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/#login). Use an account that is associated with the Azure subscription that contains the VM. Also make sure your account belongs to a role that gives you write permissions on the VM, such as “Virtual Machine Contributor”:
 
    ```azurecli-interactive
    az login
@@ -78,13 +78,13 @@ If you need to enable MSI on an existing Virtual Machine:
 
 If you have a Virtual Machine that no longer needs an MSI:
 
-1. If you're not using Azure Cloud Shell from the Azure portal, first sign in to Azure using [az login](/cli/azure/#login). Use an account that is associated with the Azure subscription under which you would like to deploy the VM:
+1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/#login). Use an account that is associated with the Azure subscription that contains the VM. Also make sure your account belongs to a role that gives you write permissions on the VM, such as “Virtual Machine Contributor”:
 
    ```azurecli-interactive
    az login
    ```
 
-2. Use the `-n ManagedIdentityExtensionForWindows` switch with [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/#assign-identity) to remove the MSI:
+2. Use the `-n ManagedIdentityExtensionForWindows` or `-n ManagedIdentityExtensionForLinux` switch (depending on the type of VM) with [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/#assign-identity) to remove the MSI:
 
    ```azurecli-interactive
    az vm extension delete --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
@@ -93,7 +93,10 @@ If you have a Virtual Machine that no longer needs an MSI:
 ## Related content
 
 - [Managed Service Identity overview](msi-overview.md)
-- This article is adapted from the [Create a Windows virtual machine with CLI](../virtual-machines/windows/quick-create-cli.md) QuickStart, modified to include MSI-specific instructions. 
+- For the full Azure VM creation Quickstarts, see: 
+
+  - [Create a Windows virtual machine with CLI](../virtual-machines/windows/quick-create-cli.md)  
+  - [Create a Linux virtual machine with CLI](../virtual-machines/linux/quick-create-cli.md) 
 
 Use the following comments section to provide feedback and help us refine and shape our content.
 
