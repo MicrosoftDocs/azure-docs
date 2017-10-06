@@ -64,33 +64,21 @@ Azure services that support Managed Service Identity can use MSI to authenticate
 
 The following Azure services support Managed Service Identity.
 
-| Service | Status | Date | Configure VM quickstart | Assign access to resource quickstart |
-| ------- | ------ | ---- | -------------------- | ------------------------ |
-| Azure Virtual Machines | Preview | September 2017 | [Azure portal](msi-qs-configure-portal-windows-vm.md) | [Azure portal](msi-howto-assign-access-portal.md) |
-|                        |         |                | [PowerShell](msi-qs-configure-powershell-windows-vm.md) | [PowerShell](msi-howto-assign-access-powershell.md)|
-|                        |         |                | [Azure CLI](msi-qs-configure-cli-windows-vm.md) | [Azure CLI](msi-howto-assign-access-CLI.md) |
-|                        |         |                | [Azure Resource Manager templates](msi-qs-configure-template-windows-vm.md) | |
-| Azure App Service | Preview | September 2017 | | |
-| Azure Functions | Preview | September 2017 | | |
-
-The following Azure services support Managed Service Identity.
-
-| Service | Status | Date | Azure portal quickstart | PowerShell quickstart | Azure CLI quickstart | Template quickstart |
-| ------- | ------ | ---- | ----------------------- | --------------------- | -------------------- | ------------------- |
-| Azure Virtual Machines | Preview | September 2017 | [Configure VM](msi-qs-configure-portal-windows-vm.md) | [Configure VM](msi-qs-configure-powershell-windows-vm.md) | [Configure VM](msi-qs-configure-cli-windows-vm.md) | [Configure VM](msi-qs-configure-template-windows-vm.md) |
-|                        |         |                | [Assign access to resource](msi-howto-assign-access-portal.md)  | [Assign access to resource](msi-howto-assign-access-powershell.md)| [Assign access to resource](msi-howto-assign-access-CLI.md) | |
-| Azure App Service | Preview | September 2017 | | |
-| Azure Functions | Preview | September 2017 | | |
+| Service | Status | Date | Configure | 
+| ------- | ------ | ---- | --------- | 
+| Azure Virtual Machines | Preview | September 2017 | [Azure portal](msi-qs-configure-portal-windows-vm.md)<br>[PowerShell](msi-qs-configure-powershell-windows-vm.md)<br>[Azure CLI](msi-qs-configure-cli-windows-vm.md)<br>[Azure Resource Manager templates](msi-qs-configure-template-windows-vm.md) | 
+| Azure App Service | Preview | September 2017 | [Azure portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager template](/azure/app-service/app-service-managed-service-identity##using-an-azure-resource-manager-template) | 
+| Azure Functions | Preview | September 2017 | [Azure portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager template](/azure/app-service/app-service-managed-service-identity##using-an-azure-resource-manager-template) | 
 
 ### Azure services that support Azure AD authentication
 
 The following services support Azure AD authentication, and have been tested with client services that use Managed Service Identity.
 
-| Service | Resource ID | Status | Date |
-| --- | --- | --- | --- |
-| Azure Resource Manager | https://management.azure.com/ | Available | September 2017 |
-| Azure Key Vault | https://vault.azure.net/ | Available | September 2017 |
-| Azure Data Lake | https://datalake.azure.net/ | Available | September 2017 |
+| Service | Resource ID | Status | Date | Assign access |
+| ------- | ----------- | ------ | ---- | ------------- |
+| Azure Resource Manager | https://management.azure.com/ | Available | September 2017 | [Azure portal](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[Azure CLI](msi-howto-assign-access-CLI.md) |
+| Azure Key Vault | https://vault.azure.net/ | Available | September 2017 | |
+| Azure Data Lake | https://datalake.azure.net/ | Available | September 2017 | |
 
 ## How much does Managed Service Identity cost?
 
