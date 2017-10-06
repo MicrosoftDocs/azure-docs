@@ -25,10 +25,13 @@ Use the following instructions to configure a hosted UI to include in your web a
     - Results only &mdash; Don't display a search box, show only results
     - Pop-over &mdash; Don't display a search box, show only results in a sliding overlay
     
-> [!IMPORTANT]
-> Be sure to include the query parameter when selecting the **Results only** layout.
+   > [!IMPORTANT]
+   > Be sure to include the query parameter when selecting the **Results only** layout.
 
 5.	Select a color theme
+    - Bing Theme (default)
+    - Dark Theme
+    - Sky-blue Theme
 6.	Under **Additional Configurations**, provide values as appropriate for your app. These settings are optional. To see the effect of applying or removing them, click Save All Changes.  Available configuration options are:
     - Page title &mdash;  The title text
     - Title link url &mdash;  The target for the title link
