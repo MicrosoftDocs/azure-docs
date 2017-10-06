@@ -53,7 +53,7 @@ Use the following steps to create a Storm on HDInsight cluster:
     * **Resource Group**: The resource group to create the cluster in.
     * **Location**: The Azure region to create the cluster in.
 
-    ![Select subscription](./media/hdinsight-apache-storm-tutorial-get-started-linux/hdinsight-basic-configuration.png)
+   ![Select subscription](./media/hdinsight-apache-storm-tutorial-get-started-linux/hdinsight-basic-configuration.png)
 
 3. Select **Cluster type**, and then set the following values on the **Cluster configuration** blade:
 
@@ -65,7 +65,7 @@ Use the following steps to create a Storm on HDInsight cluster:
 
     * **Cluster Tier**: Standard
 
-    Finally, use the **Select** button to save settings.
+   Finally, use the **Select** button to save settings.
 
     ![Select cluster type](./media/hdinsight-apache-storm-tutorial-get-started-linux/set-hdinsight-cluster-type.png)
 
