@@ -4,14 +4,14 @@
   items:
   - name: What is Batch AI?
     href: overview.md
-- name: Quickstarts
+- name: Get started
   expanded: true
   items:
   - name: Run training job - CLI
     href: quickstart-cli.md
   - name: Run training job - Python
     href: quickstart-python.md
-- name: Tutorials
+- name: Samples
   items:
   - name: Training recipes
     href: https://github.com/Azure/BatchAI
@@ -31,5 +31,5 @@
     href: https://azure.microsoft.com/pricing/details/batchai
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: Region availability
+  - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
