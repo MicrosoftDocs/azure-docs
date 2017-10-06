@@ -262,34 +262,6 @@ files = client.jobs.list_output_files(resource_group_name, job_name, models.Jobs
 for file in list(files):
      print('file: {0}, download url: {1}'.format(file.name, file.download_url)) 
 ```
-##  Observe output
-
-
-You can stream or tail a job's output files while the job is executing. The following command streams the stderr.txt log:
-
-```Python
-files = client.jobs.list_output_files(
-     resource_group_name, job_name, models.JobsListOutputFilesOptions('stdouterr')) 
- 
-file_name = 'stdout.txt' 
- 
-for f in list(files):
-     if f.name == file_name:
-         url = f.download_url
-         r = requests.get(url, headers={'Range': 'bytes={0}-'.format(downloaded)})
-         if int(r.status_code / 100) == 2:
-             print(r.content.decode(), end='') 
-```
-
-Output is similar to the following:
-
-```Shell
-...
-Finished Epoch[2 of 40]: [Training] loss = 0.104920 * 60000, metric = 3.08% * 60000 3.972s (15105.7 samples/s); 
-Finished Epoch[3 of 40]: [Training] loss = 0.077001 * 60000, metric = 2.21% * 60000 3.871s (15499.9 samples/s); 
-...
-```
-
 ## Delete resources
 
 Use the following command to delete the job:
