@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/05/2017
+ms.date: 06/15/2017
 ms.author: tomfitz
 
 ---
@@ -85,7 +85,7 @@ If you set `resourceGroup` to the name of a resource group that does not exist, 
 
 ## Deploy the template
 
-To deploy the example template, you can use either Azure PowerShell or Azure CLI. You must use a release of Azure PowerShell or Azure CLI from May 2017 or later. Currently, the portal does not support cross resource group deployment. The examples assume you have saved the template locally as a file named **crossrgdeployment.json**.
+To deploy the example template, you can use the portal, Azure PowerShell, or Azure CLI. For Azure PowerShell or Azure CLI, you must use a release from May 2017 or later. The examples assume you have saved the template locally as a file named **crossrgdeployment.json**.
 
 For PowerShell:
 

@@ -4,14 +4,14 @@ description: Use Azure Functions to create a serverless function that is invoked
 services: azure-functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: ''
 tags: ''
 
 ms.assetid: d6bff41c-a624-40c1-bbc7-80590df29ded
 ms.service: functions
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/31/2017
@@ -55,7 +55,7 @@ Next, you create a function in the new function app.
     |---|---|---|
     | **Path**   | mycontainer/{name}    | Location in Blob storage being monitored. The file name of the blob is passed in the binding as the _name_ parameter.  |
     | **Storage account connection** | AzureWebJobStorage | You can use the storage account connection already being used by your function app, or create a new one.  |
-    | **Name your function** | Unique in your function app | Name of this queue triggered function. |
+    | **Name your function** | Unique in your function app | Name of this blob triggered function. |
 
 3. Click **Create** to create your function.
 

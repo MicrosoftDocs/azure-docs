@@ -5,13 +5,10 @@ services: postgresql
 author: SaloniSonpal
 ms.author: salonis
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
-ms.service: postgresql-database
+editor: jasonwhowell
+ms.service: postgresql
 ms.custom: tutorial, mvc
-ms.tgt_pltfrm: portal
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/10/2017
 ---
 # Design your first Azure Database for PostgreSQL using the Azure portal

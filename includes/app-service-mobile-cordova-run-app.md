@@ -1,7 +1,8 @@
 
 1. Visit the [Azure portal].
-2. Click **Browse All** > **Mobile Apps** > the backend that you created.
+2. Click **App Services** > the backend that you created.
 3. In the mobile app settings, click **Quickstart** > **Cordova**.
+![Azure Portal with Mobile Apps Quickstart highlighted][quickstart]
 4. Under **Configure your client application**, select **Create a New App**, then click **Download**.
 2. Unpack the downloaded ZIP file to a directory on your hard drive, navigate to the solution file (.sln) and
     open it using Visual Studio.
@@ -18,8 +19,10 @@ The backend inserts data from the request into the TodoItem table in the SQL Dat
 information about the newly stored items back to the mobile app. The mobile app displays this data in
 the list.
 
-![](./media/app-service-mobile-cordova-quickstart/quickstart-startup.png)
-
 You can repeat steps 3 through 5 for other platforms.
 
+<!-- Images. -->
+[quickstart]: ./media/app-service-mobile-configure-new-backend/quickstart.png
+
+<!-- URLs -->
 [Azure portal]: https://portal.azure.com/

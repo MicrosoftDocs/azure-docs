@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: ''
 author: kgremban
 manager: femila
-editor: harshja
 
 ms.assetid: b283796a-9679-4c79-b703-802bb850f65d
 ms.service: active-directory
@@ -13,9 +12,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2017
+ms.date: 07/23/2017
 ms.author: kgremban
-
+ms.reviewer: harshja
+ms.custom: it-pro; oldportal
 ---
 # Publish applications on separate networks and locations using connector groups
 > [!div class="op_single_selector"]

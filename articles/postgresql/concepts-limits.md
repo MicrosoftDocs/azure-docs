@@ -6,9 +6,7 @@ author: kamathsun
 ms.author: sukamat
 manager: jhubbard
 editor: jasonwhowell
-ms.assetid:
-ms.service: postgresql-database
-ms.tgt_pltfrm: portal
+ms.service: postgresql
 ms.custom: mvc
 ms.topic: article
 ms.date: 06/01/2017
