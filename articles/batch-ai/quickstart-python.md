@@ -8,7 +8,7 @@ manager: timlt
 editor: tysonn
 
 ms.assetid:
-ms.custom: mvc
+ms.custom: 
 ms.service: batch-ai
 ms.workload: 
 ms.tgt_pltfrm: na
@@ -20,7 +20,7 @@ ms.author: danlep
 
 # Run a CNTK training job using the Azure Python SDK
 
-This Quickstart details using the Azure Python SDK to run a Microsoft Cognitive Toolkit (CNTK) training job using the Batch AI service. 
+This quickstart details using the Azure Python SDK to run a Microsoft Cognitive Toolkit (CNTK) training job using the Batch AI service. 
 
 In this example, you use the MNIST database of handwritten images to train a convolutional neural network (CNN) on a single-node GPU cluster. 
 
@@ -49,7 +49,7 @@ subscription_id = 'my_subscription_id'
 storage_account_name = 'my_storage_account_name'
 storage_account_key = 'my_storage_account_key'
 
-# specify the credentials used to remote-login your GPU node
+# specify the credentials used to remote login your GPU node
 admin_user_name = 'my_admin_user_name'
 admin_user_password = 'my_admin_user_password'
 ```
@@ -69,19 +69,8 @@ creds = ServicePrincipalCredentials(
 client = batchai.BatchAIManagementClient(credentials=creds,
                                          subscription_id=subscription_id
 )
-A resource group need to be created before using BatchAI
-
-from azure.mgmt.resource import ResourceManagementClient
-
-resource_group_name = 'quickstartrg'
-
-client = ResourceManagementClient(
-        credentials=creds, subscription_id=subscription_id)
-
-resource = client.resource_groups.create_or_update(
-        resource_group_name, {'location': 'eastus'})
-
 ```
+
 # Create a resource group
 
 Batch AI clusters and jobs are Azure resources and must be placed in an Azure resource group, a logical collection into which Azure resources are deployed and managed. The following snippet creates a resource group:
@@ -136,26 +125,30 @@ Create a Batch AI cluster. In this example, the cluster consists of a single STA
 ```Python
 cluster_name = 'mycluster' 
  
-parameters = models.ClusterCreateParameters(     # Location where the cluster will physically be deployed
-     location='eastus', 
+parameters = models.ClusterCreateParameters(
+    # Location where the cluster will physically be deployed
+    location='eastus', 
  
     # VM size. Use NC or NV series for GPU
-     vm_size='STANDARD_NC6', 
+    vm_size='STANDARD_NC6', 
  
     # Configure the ssh users
-     user_account_settings=models.UserAccountSettings(         admin_user_name=admin_user_name,         admin_user_password=admin_user_password), 
+    user_account_settings=models.UserAccountSettings(         admin_user_name=admin_user_name,         admin_user_password=admin_user_password), 
  
     # Number of VMs in the cluster
-     scale_settings=models.ScaleSettings(         manual=models.ManualScaleSettings(target_node_count=1)
+    scale_settings=models.ScaleSettings(         manual=models.ManualScaleSettings(target_node_count=1)
      ), 
  
     # Configure each node in the cluster
-     node_setup=models.NodeSetup( 
+    node_setup=models.NodeSetup( 
  
         # Mount shared volumes to the host
          mount_volumes=models.MountVolumes(
              azure_file_shares=[
-                 models.AzureFileShareReference(                     account_name=storage_account_name,                     credentials=models.AzureStorageCredentialsInfo(                         account_key=storage_account_key),         azure_file_url='https://{0}.file.core.windows.net/{1}'.format(   storage_account_name, mnist_dataset_directory),                     relative_mount_path = 'azurefileshare')],         ), 
+                 models.AzureFileShareReference(                     account_name=storage_account_name,                     credentials=models.AzureStorageCredentialsInfo(                         account_key=storage_account_key),
+         azure_file_url='https://{0}.file.core.windows.net/{1}'.format(
+               storage_account_name, mnist_dataset_directory),  relative_mount_path = 'azurefileshare')],
+         ), 
     ), 
 ) 
 client.clusters.create(resource_group_name, cluster_name, parameters).result() 
@@ -238,16 +231,52 @@ The `executionState` contains the current execution state of the job:
 * `succeeded` (or `failed`) : the job is completed and `executionInfo` contains details about the result
  
 ## List stdout and stderr output
+Use the following command to list links to the stdout and stderr log files:
 
-## Monitor output files
+```Python
+files = client.jobs.list_output_files(resource_group_name, job_name, models.JobsListOutputFilesOptions("stdouterr")) 
+ 
+for file in list(files):
+     print('file: {0}, download url: {1}'.format(file.name, file.download_url)) 
+```
+##  Observe output
 
-## Delete job
+
+You can stream or tail a job's output files while the job is executing. The following command streams the stderr.txt log:
+
+```Python
+files = client.jobs.list_output_files(     resource_group_name, job_name, models.JobsListOutputFilesOptions('stdouterr')) 
+ 
+file_name = 'stdout.txt' 
+ 
+for f in list(files):
+     if f.name == file_name:
+         url = f.download_url
+         r = requests.get(url, headers={'Range': 'bytes={0}-'.format(downloaded)})
+         if int(r.status_code / 100) == 2:
+             print(r.content.decode(), end='') 
+```
+
+Output is similar to the following
+
+```Shell
+...
+Finished Epoch[2 of 40]: [Training] loss = 0.104920 * 60000, metric = 3.08% * 60000 3.972s (15105.7 samples/s); 
+Finished Epoch[3 of 40]: [Training] loss = 0.077001 * 60000, metric = 2.21% * 60000 3.871s (15499.9 samples/s); 
+...
+```
 
 ## Delete resources
 
+Use the following command to delete the job:
+```Python
+client.jobs.delete(resource_group_name, job_name) 
+```
+
+Use the following command to delete the cluster:
+```Python
+client.clusters.delete(resource_group_name, cluster_name)
+```
 ## Next steps
 
-In this Quickstart, you learned how to 
-
-> [!div class="nextstepaction"]
-> 
+In this quickstart, you learned how to run a CNTK training job on a Batch AI cluster, using the Azure Python SDK. To learn more about using Batch AI with different toolkits, see the [training recipes](https://github.com/Azure/BatchAI).

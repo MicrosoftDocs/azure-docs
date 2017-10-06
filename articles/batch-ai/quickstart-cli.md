@@ -8,7 +8,7 @@ manager: timlt
 editor: tysonn
 
 ms.assetid:
-ms.custom: mvc
+ms.custom: 
 ms.service: batch-ai
 ms.workload: 
 ms.tgt_pltfrm: na
@@ -104,7 +104,12 @@ For illustration purposes, this quickstart uses an Azure file share to host the 
 Use the [az bachai cluster create](/cli/azure/batchai/cluster#az_batchai_cluster_create) command to create a Batch AI cluster. In this example, the cluster consists of a single STANDARD_NC6 VM node. This VM size has one NVIDIA K80 GPU. Mount the file share at a folder named *azurefileshare*. The full path of this folder on the GPU compute node is $AZ_BATCHAI_MOUNT_ROOT/azurefileshare. 
 
 ```
-az batchai cluster create --name mycluster... [provide complete command line]
+az batchai cluster create --name mycluster  \
+    --vm-size "STANDARD_NC6"  \
+    --afs-name batchaiquickstart \
+    --nfs-mount-path azurefileshare \
+    --user-name <admin_username> \ 
+    --password <admin_password> 
 ```
 
 After the cluster is created, output is similar to the following:
@@ -116,9 +121,9 @@ After the cluster is created, output is similar to the following:
   "creationTime": "2017-10-05T02:09:01.998000+00:00",
   "currentNodeCount": 0,
   "errors": null,
-  "id": "/subscriptions/10d0b7c6-9243-4713-xxxx-xxxxxxxxxxxx/resourceGroups/demo/providers/Microsoft.BatchAI/clusters/mycluster",
+  "id": "/subscriptions/10d0b7c6-9243-4713-xxxx-xxxxxxxxxxxx/resourceGroups/demo/providers/Microsoft.BatchAI/clusters/cluster",
   "location": "eastus",
-  "name": "cluster",
+  "name": "mycluster",
   "nodeSetup": {
     "mountVolumes": {
       "azureBlobFileSystems": null,
@@ -148,7 +153,7 @@ After the cluster is created, output is similar to the following:
   },
   "provisioningState": "succeeded",
   "provisioningStateTransitionTime": "2017-10-05T02:09:02.857000+00:00",
-  "resourceGroup": "demo",
+  "resourceGroup": "myresourcegroup",
   "scaleSettings": {
     "autoScale": null,
     "manual": {
@@ -179,13 +184,23 @@ After the cluster is created, output is similar to the following:
 ```
 ## Get cluster status
 
-To monitor the cluster state, run the [az batchai cluster show](/cli/azure/batchai/cluster#az_batchai_cluster_show) command:
+To get an overview of the cluster status, run the [az batchai cluster list](/cli/azure/batchai/cluster#az_batchai_cluster_list) command:
 
 ```azure-cli
-az batchai cluster show --name mycluster
+az batchai cluster list -o table
 ```
 
-This command returns the properties shown previously. The cluster is ready when the nodes are allocated and finished preparation (see the `nodeStateCounts` attribute). If something went wrong, the `errors` attribute contains the error description.
+Output is similar to the following:
+
+```azure-cli
+Name     Resource Group    VM Size       State      Idle    Running    Preparing    Unusable
+-------  ----------------  ---------------     -------    ------  ---------  -----------  ---------- 
+mycluster         sample        STANDARD_NC6  steady        1          0            0              0 
+``` 
+
+For more detail, run the [az batchai cluster show](/cli/azure/batchai/cluster#az_batchai_cluster_show) command. It returns all the cluster properties shown after cluster creation.
+
+The cluster is ready when the nodes are allocated and finished preparation (see the `nodeStateCounts` attribute). If something went wrong, the `errors` attribute contains the error description.
 
 ## Create training job
 
@@ -304,11 +319,22 @@ Output is similar to the following:
 
 ## Monitor job
 
-Use the [az batchai job show](/cli/azure/batchai/job#az_batchai_job_show) command to inspect the job state:
+Use the [az batchai job list](/cli/azure/batchai/job#az_batchai_job_list) command to get an overview of the job status:
 
 ```azure-cli
-az batchai job show --name myjob
+az batchai cluster list -o table
 ```
+
+Output is similar to the following:
+
+```azure-cli
+Name        Resource Group    Cluster    Cluster RG      Nodes  State        Exit code 
+-----------  ----------------  ---------  ------------  -------  ---------  ----------- 
+myjob        mygroup              mycluster     sample        1        running 
+
+```
+
+For more detail, run the [az batchai job show](/cli/azure/batchai/job#az_batchai_job_show) command. 
 
 The `executionState` contains the current execution state of the job:
 •	`queued`: the job is waiting for the cluster nodes to become available
@@ -317,10 +343,10 @@ The `executionState` contains the current execution state of the job:
 
 
 ## List stdout and stderr output
-Use the [az batchai job list-files](/cli/azure/batchai/job#az_batchai_job_list_filess) command view to links to the stdout and stderr log files:
+Use the [az batchai job list-files](/cli/azure/batchai/job#az_batchai_job_list_files) command to list links to the stdout and stderr log files:
 
 ```azure-cli
-az batchai job list-files -n myjob --output-directory-id stdouterr
+az batchai job list-files --name myjob --output-directory-id stdouterr
 ```
 
 Output is similar to the following:
@@ -377,6 +403,6 @@ az batchai cluster delete --name mycluster
 
 ## Next steps
 
-In this quickstart, you learned how to run a CNTK training job on a Batch AI cluster, using the Azure CLI. To learn more about using Batch AI with different toolkits, see the [training recipes]().
+In this quickstart, you learned how to run a CNTK training job on a Batch AI cluster, using the Azure CLI. To learn more about using Batch AI with different toolkits, see the [training recipes](https://github.com/Azure/BatchAI).
 
 

@@ -3,7 +3,7 @@ title: Overview of Azure Batch AI service | Microsoft Docs
 description: Learn about using the managed Azure Batch AI service to train artificial intelligence (AI) and other machine learning models on clusters of GPUs and CPUs. 
 services: batch-ai
 documentationcenter: ''
-author: dlepow
+author: alexsuttonms
 manager: timlt
 editor: ''
 
