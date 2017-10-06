@@ -18,10 +18,10 @@ ms.author: mazha
 
 ---
 # Getting started with Azure CDN
-This topic walks through enabling Azure CDN by creating a new CDN profile and endpoint.
+This article describes how to enable Azure CDN by creating a new CDN profile and endpoint.
 
 > [!IMPORTANT]
-> For an introduction to how CDN works, as well as a list of features, see the [CDN Overview](cdn-overview.md).
+> For an introduction to CDN and a list of features, see [CDN Overview](cdn-overview.md).
 > 
 > 
 
@@ -36,7 +36,7 @@ A CDN profile is a collection of CDN endpoints.  Each profile contains one or mo
 >
 > For information about CDN subscription limits, see [CDN limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#cdn-limits).
 >
-> CDN pricing is applied at the CDN profile level. If you wish to use a mix of Azure CDN pricing tiers, you will need multiple CDN profiles.
+> CDN pricing is applied at the CDN profile level. If you wish to use a mix of Azure CDN pricing tiers, create multiple CDN profiles.
 > 
 > 
 
@@ -61,7 +61,7 @@ A CDN profile is a collection of CDN endpoints.  Each profile contains one or mo
 4. In the **Origin type** dropdown, select your origin type.  Select **Storage** for an Azure Storage account, **Cloud service** for an Azure Cloud Service, **Web App** for an Azure Web App, or **Custom origin** for any other publicly accessible web server origin (hosted in Azure or elsewhere).
    
     ![CDN origin type](./media/cdn-create-new-endpoint/cdn-origin-type.png)
-5. In the **Origin hostname** dropdown, select or type your origin domain.  The dropdown lists all available origins of the type you specified in step 4.  If you selected *Custom origin* as your **Origin type**, you will type in the domain of your custom origin.
+5. In the **Origin hostname** dropdown, select or type your origin domain.  The dropdown lists all available origins of the type you specified in step 4.  If you selected *Custom origin* as your **Origin type**, you must enter the domain of your custom origin.
 6. In the **Origin path** text box, enter the path to the resources you want to cache, or leave blank to allow cache any resource at the domain you specified in step 5.
 7. In the **Origin host header**, enter the host header you want the CDN to send with each request, or leave the default.
    
@@ -74,25 +74,25 @@ A CDN profile is a collection of CDN endpoints.  Each profile contains one or mo
    > [!NOTE]
    > The **Origin port** only affects what port the endpoint uses to retrieve information from the origin.  The endpoint itself is only available to end clients on the default HTTP and HTTPS ports (80 and 443), regardless of the **Origin port**.  
    > 
-   > **Azure CDN from Akamai** endpoints do not allow the full TCP port range for origins.  For a list of origin ports that are not allowed, see [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx).  
+   > Endpoints created with **Azure CDN from Akamai** do not allow the full TCP port range for origins. For a list of origin ports that are not allowed, see [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx).  
    > 
    > Accessing CDN content using HTTPS has the following constraints:
    > 
    > * You must use the SSL certificate provided by the CDN. Third-party certificates are not supported.
    > * HTTPS support for Azure CDN custom domains is available only with **Azure CDN from Verizon** products (Standard and Premium). It is not supported on **Azure CDN from Akamai**. For more information, see [Enable HTTPS on an Azure CDN custom domain](cdn-custom-ssl.md).
 
-Use the CDN-provided domain (`<endpointname>.azureedge.net`) to access HTTPS content. HTTPS support is not available for custom domain names (CNAMEs) since the CDN does not support custom certificates at this time.
-   > 
-   > 
+   Use the CDN-provided domain (`<endpointname>.azureedge.net`) to access HTTPS content. For Azure CDN from Verizon products only, HTTPS support is available for custom domain names (CNAMEs). For more information, see [Enable or disable HTTPS on an Azure Content Delivery Network custom domain](cdn-custom-ssl).
+
 9. Click the **Add** button to create the new endpoint.
-10. Once the endpoint is created, it appears in a list of endpoints for the profile. The list view shows the URL to use to access cached content, as well as the origin domain.
+   
+   After the endpoint is created, it appears in a list of endpoints for the profile. The list view shows the original domain and the URL to use to access cached content.
     
-    ![CDN endpoint][cdn-endpoint-success]
+   ![CDN endpoint][cdn-endpoint-success]
     
-    > [!IMPORTANT]
-    > The endpoint will not immediately be available for use, as it takes time for the registration to propagate through the CDN.  For <b>Azure CDN from Akamai</b> profiles, propagation will usually complete within one minute.  For <b>Azure CDN from Verizon</b> profiles, propagation will usually complete within 90 minutes, but in some cases can take longer.
+   > [!IMPORTANT]
+   > Because it takes time for the registration to propagate, the endpoint will not be immediately available for use.  For <b>Azure CDN from Akamai</b> profiles, propagation usually completes within one minute. For <b>Azure CDN from Verizon</b> profiles, propagation usually completes within 90 minutes, but in some cases can take longer.
     > 
-    > Users who try to use the CDN domain name before the endpoint configuration has propagated to the POPs will receive HTTP 404 response codes.  If it's been several hours since you created your endpoint and you're still receiving 404 responses, please see [Troubleshooting CDN endpoints returning 404 statuses](cdn-troubleshoot-endpoint.md).
+    > Users who try to use the CDN domain name before the endpoint configuration has propagated to the POPs can receive HTTP 404 response codes.  If it's been several hours since you created your endpoint and you're still receiving 404 responses, see [Troubleshooting CDN endpoints returning 404 statuses](cdn-troubleshoot-endpoint.md).
     > 
     > 
 
