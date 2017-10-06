@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/10/2017
 ms.author: JeffGo
 
 ---
@@ -28,7 +28,7 @@ You can use SQL instances on VMs inside of your [Azure Stack](azure-stack-poc.md
 * Network traffic from the RP to SQL uses port 1433, and cannot be changed.
 * The RP and users such as Web Apps use the user network, so connectivity to the SQL instance on this network is required. This requirement typically means the IP for your SQL instances must be on a public network.
 * Management of the SQL instances and their hosts is up to you; the RP does not perform patching, backup, credential rotation, etc.
-* SKUs can be used to create different classes of SQL abilities, such as performance, AlwaysOn, etc.
+* SKUs can be used to create different classes of SQL abilities, such as performance, Always On, etc.
 
 
 
@@ -44,7 +44,7 @@ There are other options for deploying SQL VMs, including templates in the [Azure
 
 You can create a new administrative user with less than full sysadmin privileges. The specific operations that need to be allowed are:
 
-- Database: Create, Alter, With Containment (AlwaysOn only), Drop, Backup
+- Database: Create, Alter, With Containment (Always On only), Drop, Backup
 - Availability Group: Alter, Join, Add/Remove Database
 - Login: Create, Select, Alter, Drop, Revoke
 - Select Operations: \[master\].\[sys\].\[availability_group_listeners\] (AlwaysOn), sys.availability_replicas (AlwaysOn), sys.databases, \[master\].\[sys\].\[dm_os_sys_memory\], SERVERPROPERTY, \[master\].\[sys\].\[availability_groups\] (AlwaysOn), sys.master_files
@@ -88,13 +88,13 @@ To add a standalone hosting server that is already provisioned, follow these ste
 >[!NOTE]
 SKUs can take up to an hour to be visible in the portal. You cannot create a database until the SKU is fully created.
 
-## Provide capacity using SQL AlwaysOn instances
-Configuring SQL AlwaysOn instances requires additional steps and involves at least three VMs (or physical machines).
+## Provide capacity using SQL Always On Availability Groups
+Configuring SQL Always On instances requires additional steps and involves at least three VMs (or physical machines).
 
 > [!NOTE]
-> The SQL adapter RP _only_ supports SQL 2016 SP1 Enterprise or later instances for AlwaysOn, as it requires new SQL features such as automatic seeding. In addition to the preceding common list of requirements:
+> The SQL adapter RP _only_ supports SQL 2016 SP1 Enterprise or later instances for Always On, as it requires new SQL features such as automatic seeding. In addition to the preceding common list of requirements:
 
-* You must provide a file server in addition to the SQL AlwaysOn computers. There is an [Azure Stack Quickstart template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sql-2016-ha) that can create this environment for you. It also can serve as a guide to building your own instance.
+* You must provide a file server in addition to the SQL Always On computers. There is an [Azure Stack Quickstart template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sql-2016-ha) that can create this environment for you. It also can serve as a guide to building your own instance.
 
 * You must set up the SQL servers. Specifically, you must enable [Automatic Seeding](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) on each availability group for each instance of SQL Server.
 
@@ -114,7 +114,7 @@ GO
 
 
 
-To add SQL AlwaysOn hosting servers, follow these steps:
+To add SQL Always On hosting servers, follow these steps:
 
 1. Sign in to the Azure Stack admin portal as a service admin
 
@@ -123,15 +123,13 @@ To add SQL AlwaysOn hosting servers, follow these steps:
 	The **SQL Hosting Servers** blade is where you can connect the SQL Server Resource Provider to actual instances of SQL Server that serve as the resource provider’s backend.
 
 
-3. Fill the form with the connection details of your SQL Server instance. Provide the account information for the account you configured with system admin privileges.
+3. Fill the form with the connection details of your SQL Server instance, being sure to use the FQDN or IPv4 address of the Always On Listener. Provide the account information for the account you configured with system admin privileges.
 
-4. Check this box to enable support for SQL AlwaysOn instances.
+4. Check this box to enable support for SQL Always On Availability Group instances.
 
-	![Hosting Servers](./media/azure-stack-sql-rp-deploy/alwayson.PNG)
+	![Hosting Servers](./media/azure-stack-sql-rp-deploy/AlwaysOn.PNG)
 
-5. Provide the information for the file server share. The RP requires a share that allows read/write access for the SQL instance administrative account. The share is used during database creation; user data is not stored here.
-
-6. Add the SQL AlwaysOn instance to a SKU. You cannot mix standalone servers with AlwaysOn instances in the same SKU. That will be determined when adding the first hosting server. Attempting to mix types afterwards will result in an error.
+5. Add the SQL Always On instance to a SKU. You cannot mix standalone servers with Always On instances in the same SKU. That will be determined when adding the first hosting server. Attempting to mix types afterwards will result in an error.
 
 
 ## Making SQL databases available to users
