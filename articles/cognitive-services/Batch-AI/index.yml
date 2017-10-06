@@ -5,7 +5,7 @@ metadata:
   title: Batch AI Documentation (Preview)
   meta.description: Azure Batch AI helps you develop your AI models in parallel using any framework and then train them in parallel and at scale across GPU and CPU clusters. Learn how to use Batch AI with our quickstarts and samples.
   services: batch-ai
-  author: Dan Lepow
+  author: danlep
   manager: carolz
   layout: LandingPage
   ms.assetid: 
@@ -14,7 +14,7 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 10/5/2017
-  ms.author: Dan Lepow
+  ms.author: danlep
 abstract:
   description: Azure Batch AI helps you develop your AI models in parallel using any framework and then train them in parallel and at scale across GPU and CPU clusters. Learn how to use Batch AI with our quickstarts and samples.
 sections:
