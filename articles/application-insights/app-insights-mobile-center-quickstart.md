@@ -81,9 +81,35 @@ Remember to repeat this process for each platform your app supports.
 
 Once export is set up, each custom event received by Mobile Center will be copied into Application Insights. It can take several minutes for events to reach Application Insights, so if they don't show up immediately, wait a bit before diagnosing further.
 
-## Query, segment, filter, and analyze your app's telemetry
+## Start monitoring your app in the Azure portal
 
-TBD
+Application Insights can query, segment, filter, and analyze the custom event telemetry from your apps, beyond the analytics tools Mobile Center provides.
+
+1. **Query your custom event telemetry.** From the Application Insights **Overview** page, choose **Analytics**. 
+
+   ![Analytics button in Application Insights](./media/app-insights-mobile-center-quickstart/analytics.png)
+
+   This will take you to the Application Insights Analytics portal for your Application Insights resource. The Analytics portal lets you directly query your data using the Log Analytics query language, so you can ask arbitrarily complex questions about your app and its users.
+   
+   Open a new tab in the Analytics portal, then paste in the following query, which shows how many users have sent each custom event from your app.
+
+   ```AIQL
+   customEvents
+   | where timestamp >= ago(24h)
+   | summarize dcount(user_Id) by name 
+   | order by dcount_user_Id desc 
+   ```
+
+   Click anywhere on the query in the text editor to highlight it. Then click **Go** to run the query. 
+
+   ![Analytics portal](./media/app-insights-mobile-center-quickstart/analytics-portal.png)
+
+   Learn more about [Application Insights Analytics](app-insights-analytics.md) and the [Log Analytics query language](https://docs.loganalytics.io/docs/Language-Reference).
+
+
+2. **Segment and filter your custom event telemetry.** TBD
+
+3. **Analyze conversion, retention, and navigation patterns in your app.** TBD
 
 ## Next steps
 
