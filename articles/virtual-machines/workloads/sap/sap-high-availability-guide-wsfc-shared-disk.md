@@ -191,7 +191,7 @@ Make sure to review these documents before starting with this document:
 
 Windows Server Failover Clustering is the foundation of a high-availability SAP ASCS/SCS installation and DBMS in Windows.
 
-A failover cluster is a group of 1+n independent servers (nodes) that work together to increase the availability of applications and services. If a node failure occurs, Windows Server Failover Clustering calculates the number of failures that can occur while maintaining a healthy cluster to provide applications and services. You can choose from different quorum modes to achieve failover clustering.
+A failover cluster is a group of 1+n-independent servers (nodes) that work together to increase the availability of applications and services. If a node failure occurs, Windows Server Failover Clustering calculates the number of failures that can occur while maintaining a healthy cluster to provide applications and services. You can choose from different quorum modes to achieve failover clustering.
 
 ## Windows Server Failover Clustering in Azure
 
@@ -204,26 +204,26 @@ The Azure cloud platform doesn't offer the option to configure virtual IP addres
 ![Figure 2: Windows Server Failover Clustering configuration in Azure without a shared disk][sap-ha-guide-figure-1001]
 
 ### SAP (A)SCS HA with Cluster Shared Disks
-On **Windows**, an **SAP (A)SCS** instance contains not only **SAP central services**, e.g. **SAP message server** and **equeue server processes**, but also **SAP GLOBAL HOST** files used to store central files for the whole SAP system.
+On **Windows**, an **SAP (A)SCS** instance contains not only **SAP central services**, **SAP message server** and **enqueue server processes**, but also **SAP GLOBAL HOST** files used to store central files for the whole SAP system.
 
 Therefore, we have following two components of an SAP (A)SCS instance:
 
 * **SAP central services** with:
-    * Two **processes** e.g. message and enqueue server and **<(A)SCSVirtualHostName>** used to accessed these two processes
+    * Two **processes**, message and enqueue server and **<(A)SCSVirtualHostName>** used to accessed these two processes
     * **File structure** S:\usr\sap\&lt;SID&gt;\(A)SCS<InstanceNumber>
 
 
 * **SAP GLOBAL HOST** files with **sapmnt file share**:
     * **File structure** S:\usr\sap\&lt;SID&gt;\SYS\...
-    * **sapmnt file share** which enables access to these global S:\usr\sap\&lt;SID&gt;\SYS\.. files using UNC path \\\<(A)SCSVirtualHostName>\sapmnt\&lt;SID&gt;\SYS\...
+    * **sapmnt file share**, which enables access to these global S:\usr\sap\&lt;SID&gt;\SYS\.. files using UNC path \\\<(A)SCSVirtualHostName>\sapmnt\&lt;SID&gt;\SYS\...
 
 
 
 
 
-![Figure: Processes, file structure and GLOBAL host sapmnt file share of an SAP (A)SCS instance][sap-ha-guide-figure-8001]
+![Figure: Processes, file structure, and GLOBAL host sapmnt file share of an SAP (A)SCS instance][sap-ha-guide-figure-8001]
 
-_**Figure:** Processes, file structure and GLOBAL host sapmnt file share of an SAP (A)SCS instance_
+_**Figure:** Processes, file structure, and GLOBAL host sapmnt file share of an SAP (A)SCS instance_
 
 In high-availability setting, we are clustering SAP (A)SCS instances. We are using **clustered shared disks** (S:\ drive in our example), to place files of SAP (A)SCS and SAP GLOBAL HOST files.
 
@@ -246,7 +246,9 @@ _**Figure:** SAP (A)SCS HA architecture with shared disk_
 
 You need cluster shared storage for a high-availability SAP ASCS/SCS instance.
 
-You can use third-party software SIOS DataKeeper Cluster Edition to create a mirrored storage that simulates cluster shared storage. The SIOS solution provides real-time synchronous data replication. This is how you can create a shared disk resource for a cluster:
+You can use third-party software SIOS DataKeeper Cluster Edition to create a mirrored storage that simulates cluster shared storage. The SIOS solution provides real-time synchronous data replication.
+
+You can create a shared disk resource for a cluster following these steps:
 
 1. Attach an additional disk to each of the virtual machines (VMs) in a Windows cluster configuration.
 2. Run SIOS DataKeeper Cluster Edition on both virtual machine nodes.

@@ -38,7 +38,7 @@ ms.custom: H1Hack27Feb2017
 
 
 [sap-net-weaver-ports]:https://help.sap.com/viewer/ports
-[sap-net-weaver-ports-ascs-scs-ports]:sap-high-availability-infrastructure-wsfc-shared-disk#ASCS-SCS-Ports
+[sap-net-weaver-ports-ascs-scs-ports]:sap-high-availability-infrastructure-wsfc-shared-disk#0f3ee255-b31e-4b8a-a95a-d9ed6200468b
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 

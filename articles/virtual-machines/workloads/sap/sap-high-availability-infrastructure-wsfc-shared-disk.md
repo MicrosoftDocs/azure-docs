@@ -313,7 +313,7 @@ The template deploys one Azure Load Balancer instance, which supports multiple S
 
 The load balancer contains 1 (2 for Linux) VIP(s), 1x VIP for ASCS/SCS and 1x VIP for ERS (Linux only).
 
-#### <a name="ASCS-SCS-Ports"></a> SAP ASCS / SCS Ports
+#### <a name="0f3ee255-b31e-4b8a-a95a-d9ed6200468b"></a> SAP ASCS / SCS Ports
 The following list contains all load balancing rules (where x is the number of the SAP system, for example, 1, 2, 3...):
 - Windows-specific ports for every SAP system: 445, 5985
 - ASCS ports (instance number x0): 32x0, 36x0, 39x0, 81x0, 5x013, 5x014, 5x016

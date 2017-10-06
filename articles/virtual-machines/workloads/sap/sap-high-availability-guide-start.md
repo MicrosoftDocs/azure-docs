@@ -45,7 +45,7 @@ ms.custom: H1Hack27Feb2017
 
 [sap-hana-ha]:sap-hana-high-availability.md
 [sap-suse-ascs-ha]:high-availability-guide-suse.md
-[sap-suse-ascs-ha-setting-ha-nfs]:high-availability-guide-suse.md#sap-high-availability-infrastructure-wsfc-file-share
+[sap-suse-ascs-ha-setting-ha-nfs]:high-availability-guide-suse.md#setting-up-a-highly-available-nfs-server
 [sap-suse-ascs-ha-sap-installation]:high-availability-guide-suse.md#prepare-for-sap-netweaver-installation
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
