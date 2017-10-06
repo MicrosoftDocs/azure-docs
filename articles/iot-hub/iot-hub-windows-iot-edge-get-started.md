@@ -13,7 +13,7 @@ ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/07/2017
+ms.date: 09/29/2017
 ms.author: andbuc
 ms.custom: H1Hack27Feb2017
 
@@ -28,7 +28,7 @@ ms.custom: H1Hack27Feb2017
 
 The **build.cmd** script generates its output in the **build** folder in your local copy of the **iot-edge** repository. This output includes the two IoT Edge modules used in this sample.
 
-The build script places **logger.dll** in the **build\\modules\\logger\\Debug** folder and **hello\_world.dll** in the **build\\modules\\hello_world\\Debug** folder. Use these paths for the **module path** values as shown in the following JSON settings file.
+The build script places **logger.dll** in the **build\\modules\\logger\\Debug** folder and **hello\_world.dll** in the **build\\modules\\hello_world\\Debug** folder. Use these paths for the **module path** values as shown in the example JSON settings file.
 
 The hello\_world\_sample process takes the path to a JSON configuration file as a command-line argument. The following example JSON file is provided in the SDK repository at **samples\\hello\_world\\src\\hello\_world\_win.json**. This configuration file works as is unless you modify the build script to place the IoT Edge modules or sample executables in non-default locations.
 

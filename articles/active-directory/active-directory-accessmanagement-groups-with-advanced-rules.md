@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 09/29/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: oldportal
@@ -275,7 +275,7 @@ You can also create a rule that selects device objects for membership in a group
 |-------------------------|---------------------------------|-------------------------------------------------------------|
 | accountEnabled          | true false                      | (device.accountEnabled -eq true)                            |
 | displayName             | any string value                | (device.displayName -eq "Rob Iphone”)                       |
-| deviceOSType            | any string value                | (device.deviceOSType -eq "IOS")                             |
+| deviceOSType            | any string value                | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")   |
 | deviceOSVersion         | any string value                | (device.OSVersion -eq "9.1")                                |
 | deviceCategory          | a valid device category name    | (device.deviceCategory -eq "BYOD")                          |
 | deviceManufacturer      | any string value                | (device.deviceManufacturer -eq "Microsoft")                 |

@@ -198,7 +198,6 @@
 ### Build a Reliable Actors service
 #### Get started
 ##### [C# on Windows](service-fabric-reliable-actors-get-started.md)
-##### [Java on Linux](service-fabric-reliable-actors-get-started-java.md)
 ##### [Java Actor on Linux](service-fabric-create-your-first-linux-application-with-java.md)
 #### [Send notifications](service-fabric-reliable-actors-events.md)
 #### [Set timers and reminders](service-fabric-reliable-actors-timers-reminders.md)

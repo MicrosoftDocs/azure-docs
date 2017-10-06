@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 09/29/2017
 ms.author: billmath
 ---
 
@@ -124,9 +124,11 @@ If you plan to deploy Pass-through Authentication in a production environment, y
 >You can also download the Authentication Agent from [here](https://aka.ms/getauthagent). Ensure that you review and accept the Authentication Agent's [Terms of Service](https://aka.ms/authagenteula) _before_ installing it.
 
 ## Next steps
+- [**Smart Lockout**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) - Configure Smart Lockout capability on your tenant to protect user accounts.
 - [**Current limitations**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - Learn which scenarios are supported and which ones are not.
 - [**Technical Deep Dive**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) - Understand how this feature works.
 - [**Frequently Asked Questions**](active-directory-aadconnect-pass-through-authentication-faq.md) - Answers to frequently asked questions.
 - [**Troubleshoot**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) - Learn how to resolve common issues with the feature.
+- [**Security Deep Dive**](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) - Additional deep technical information on the feature.
 - [**Azure AD Seamless SSO**](active-directory-aadconnect-sso.md) - Learn more about this complementary feature.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - For filing new feature requests.

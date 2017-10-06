@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 09/29/2017
 ms.author: shlo
 
 ---
@@ -54,10 +54,10 @@ Once data is present in a centralized data store in the cloud, you want the coll
 Now that the raw data has been refined into business-ready consumable form, you load the data into Azure Data Warehouse, Azure SQL DB, Azure CosmosDB, or whichever analytics engine that your business users can point to from their business intelligence tools.
 
 ### Monitor
-After you have successfully built and deployed your data integration pipeline, providing business value from refined data, you want to monitor the scheduled activities and pipelines for success & failure rates. Azure Data Factory has built-in support for pipeline monitoring via Azure Monitor, API, PowerShell, OMS, and health panels on the Azure portal.
+After you have successfully built and deployed your data integration pipeline, providing business value from refined data, you want to monitor the scheduled activities and pipelines for success & failure rates. Azure Data Factory has built-in support for pipeline monitoring via Azure Monitor, API, PowerShell, Microsoft Operations Management Suite (OMS), and health panels on the Azure portal.
 
 ## What’s different in version 2?
-Azure Data Factory version 2 builds upon the original Azure Data Factory data movement and transformation service, extending to a broader set of cloud-first data integration scenarios. Azure Data Factory V2 brings the following capabilities:
+Azure Data Factory version 2 builds upon the original Azure Data Factory data movement and transformation service, extending to a broader set of cloud-first data integration scenarios. Azure Data Factory Version 2 brings the following capabilities:
 
 - Control Flow and Scale
 - Deploy and run SSIS packages in Azure
@@ -94,17 +94,21 @@ For more information, see [tutorial: control flow](tutorial-control-flow.md).
 If you want to move your SSIS workloads, you can create a data factory version 2, and provision an Azure-SSIS Integration Runtime (IR). The Azure-SSIS IR is a fully managed cluster of Azure VMs (nodes) dedicated to run your SSIS packages in the cloud. For step-by-step instructions, see the tutorial: [deploy SSIS packages to Azure](tutorial-deploy-ssis-packages-azure.md). 
  
 
-## Rich cross-platform SDKs
+### SDKs
 If you are an advanced user and looking for a programmatic interface, version 2 provides a rich set of SDKs that can be used to author, manage, monitor pipelines using your favorite IDE.
 
-- .NET SDK
-- PowerShell
-- Python SDK
+- .NET SDK - The .NET SDK is updated for version 2. 
+- PowerShell - The PowerShell cmdlets are updated for version 2. The version 2 cmdlets have **DataFactoryV2** in the name. For example: Get-AzureRmDataFactoryV2. 
+- Python SDK - This SDK is new to version 2.
+- REST API - The REST API is updated for version 2.  
 
-You can also use REST APIs to create data factories. 
+The SDKs that are updated for version 2 are not backward compatible with version 1 clients. 
+
+### Monitoring
+Currently, version 2 supports monitoring of data factories by using only SDKs. The portal does not have the support for monitoring version 2 data factories yet. 
 
 ## Load the data into a lake
-Data Factory continues has 30+ connectors to enable you to load data from hybrid and heterogeneous environments into Azure.  See [Performance and Tuning Guide](copy-activity-performance.md) for the latest performance results from internal testing and tuning suggestions. Additionally, we have recently enabled High Availability and Scalability for the self-hosted Integration Runtime that you install in a private network environment to addressing large tier-1 enterprise customer requirements for better availability and scalability.
+Data Factory has 30+ connectors to enable you to load data from hybrid and heterogeneous environments into Azure.  See [Performance and Tuning Guide](copy-activity-performance.md) for the latest performance results from internal testing and tuning suggestions. Additionally, we have recently enabled High Availability and Scalability for the self-hosted Integration Runtime that you install in a private network environment to addressing large tier-1 enterprise customer requirements for better availability and scalability.
 
 ## Top-level concepts in version 2
 An Azure subscription may have one or more Azure Data Factory instances (or data factories). Azure Data Factory is composed of four key components that work together to provide the platform on which you can compose data-driven workflows with steps to move and transform data.

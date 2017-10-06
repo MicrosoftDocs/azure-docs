@@ -3,7 +3,7 @@ title: Azure Billing Enterprise APIs - PriceSheet| Microsoft Docs
 description: Learn about the Reporting APIs that enable Enterprise Azure customers to pull consumption data programmatically.
 services: ''
 documentationcenter: ''
-author: aedwin
+author: cwatson-cat
 manager: aedwin
 editor: ''
 tags: billing
