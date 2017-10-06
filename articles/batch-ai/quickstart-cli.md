@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: CLI
 ms.topic: quickstart
-ms.date: 10/09/2017
+ms.date: 10/06/2017
 ms.author: danlep
 ---
 
@@ -34,7 +34,7 @@ Batch AI clusters and jobs are Azure resources and must be placed in an Azure re
 
 Create a resource group with the [az group create](/cli/azure/group#az_group_create) command.
 
-The following example creates a resource group named *myResourceGroup* in the *eastus* location. It then uses the [az configure](/cli/azure) command to set this resource group as the default.
+The following example creates a resource group named *myResourceGroup* in the *eastus* location. It then uses the [az configure](/cli/azure#az_configure) command to set this resource group as the default.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -239,7 +239,7 @@ After the cluster is ready, configure and submit the learning job.
 2. Create a job named *myjob* to run on the cluster with the [az batchai job create](/cli/azure/batchai/job#az_batchai_job_create) command:
 
   ```azurecli
-  az batchai job create --name mycluster -n myjob -c job.json
+  az batchai job create --name myjob --cluster-name mycluster --config job.json
   ```
 
 Output is similar to the following:
@@ -337,9 +337,10 @@ myjob       myresourcegroup   mycluster  myresourcegroup 1      running
 For more detail, run the [az batchai job show](/cli/azure/batchai/job#az_batchai_job_show) command. 
 
 The `executionState` contains the current execution state of the job:
-•	`queued`: the job is waiting for the cluster nodes to become available
-•	`running`: the job is running
-•	`succeeded` (or `failed`) : the job is completed and `executionInfo` contains details about the result
+
+* `queued`: the job is waiting for the cluster nodes to become available
+* `running`: the job is running
+*	`succeeded` (or `failed`) : the job is completed and `executionInfo` contains details about the result
 
 
 ## List stdout and stderr output

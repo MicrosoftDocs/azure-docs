@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/09/2017
+ms.date: 10/06/2017
 ms.author: asutton
 ms.custom: 
 

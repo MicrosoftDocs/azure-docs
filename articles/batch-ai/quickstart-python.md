@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: Python
 ms.topic: quickstart
-ms.date: 10/09/2017
+ms.date: 10/06/2017
 ms.author: danlep
 ---
 
@@ -78,7 +78,7 @@ Batch AI clusters and jobs are Azure resources and must be placed in an Azure re
 ```Python
 from azure.mgmt.resource import ResourceManagementClient
 
-resource_group_name = 'quickstartrg'
+resource_group_name = 'myresourcegroup'
 
 client = ResourceManagementClient(
         credentials=creds, subscription_id=subscription_id)
@@ -96,7 +96,7 @@ For illustration purposes, this quickstart uses an Azure file share to host the 
   ```Python
   from azure.storage.file import FileService 
  
-  azure_file_share_name = 'batchaisample' 
+  azure_file_share_name = 'batchaiquickstart' 
  
   service = FileService(storage_account_name, storage_account_key) 
  
@@ -106,7 +106,7 @@ For illustration purposes, this quickstart uses an Azure file share to host the 
 2. Create a directory in the share named *mnistcntksample* 
 
   ```Python
-  mnist_dataset_directory = 'batchaiquickstart' 
+  mnist_dataset_directory = 'mnistcntksample' 
  
   service.create_directory(azure_file_share_namem, mnist_dataset_directory, fail_on_exist=False) 
   ```
@@ -192,7 +192,7 @@ The cluster is ready when the nodes are allocated and finished preparation (see 
 After the cluster is ready, configure and submit the learning job. 
 
 ```Python
-job_name = 'cntk_job' 
+job_name = 'myjob' 
  
 parameters = models.job_create_parameters.JobCreateParameters( 
  
@@ -240,10 +240,10 @@ You can inspect the job’s state using the following command:
 ```Python
 job = client.jobs.get(resource_group_name, job_name) 
  
-print(‘Job state: {0} ‘.format(job.execution_state.name))
+print(`Job state: {0} `.format(job.execution_state.name))
 ```
 
-You may see output such as `Job state: running`.
+Output is similar to: `Job state: running`.
 
 The `executionState` contains the current execution state of the job:
 * `queued`: the job is waiting for the cluster nodes to become available
@@ -278,7 +278,7 @@ for f in list(files):
              print(r.content.decode(), end='') 
 ```
 
-Output is similar to the following
+Output is similar to the following:
 
 ```Shell
 ...
