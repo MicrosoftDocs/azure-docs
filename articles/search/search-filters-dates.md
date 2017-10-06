@@ -22,7 +22,5 @@ ms.author: heidist
 
 ## See also
 
- [Filters in Azure Search]()
- [How full text search works in Azure Search]()
- [Search Documents REST API]()
+ [Filters in Azure Search]() |  [How full text search works in Azure Search]() |  [Search Documents REST API]()
 

@@ -1,5 +1,5 @@
 ---
-title: Geo-location filters in Azure Search | Microsoft Docs
+title: Geo-location spatial filters in Azure Search | Microsoft Docs
 description: Filter criteria by user security identity, language, geo-location, or numeric values to reduce search results on queries in Azure Search, a hosted cloud search service on Microsoft Azure.
 services: search
 documentationcenter: ''
@@ -13,12 +13,34 @@ ms.devlang:
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 09/30/2017
+ms.date: 10/10/2017
 ms.author: heidist
 
 ---
 
 # How to apply geo-location filters in Azure Search 
+
+SEO: spatial search, geo-location
+
+what is it - a polygon
+describe the experience
+
+Structure the index/fields
+Build and populate the index
+Structure the query
+  Define polygon   
+  URL encoding
+Handle result -visual
+
+Geo Intersection returning Points outside of the Polygon
+
+The issue appears to be a combination of errors in URL encoding of the query, and incorrect syntax for the POLYGON literal.
+
+Question
+Sign in to vote
+0
+Sign in to vote
+The issue was resolved by url encoding the request, or (if using Fiddler) by replacing spaces with "+".
 
 
 Data can be from different file types: JPG, PNG, TXT, SEGY (seismic), LAS
