@@ -6,7 +6,7 @@ These use and display requirements apply to your implementation of the content a
 
 You must not:
 
-- copy, store, or cache any data you receive from the Bing Spell Check or Bing Autosuggest APIs; or use data you receive from the Bing Spell Check or Bing Autosuggest APIs as part of any machine learning or similar algorithmic activity to train, evaluate, or improve new or existing services which you or third parties may offer. 
+- copy, store, or cache any data you receive from the Bing Spell Check or Bing Autosuggest APIs; or 
 - use data you receive from the Bing Spell Check or Bing Autosuggest APIs as part of any machine learning or similar algorithmic activity to train, evaluate, or improve new or existing services which you or third parties may offer.
 
 ## 2. DEFINITIONS
