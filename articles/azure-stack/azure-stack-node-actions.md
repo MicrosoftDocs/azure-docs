@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/706/2017
+ms.date: 10/06/2017
 ms.author: twooley
 
 ---
@@ -110,7 +110,7 @@ To run the drain action through PowerShell:
 
 ### Resume
 
-The **Resume** action resumes a drained node and marks it active for workload placement. Earlier workloads that were running on the node do not fail back.
+The **Resume** action resumes a drained node and marks it active for workload placement. Earlier workloads that were running on the node do not fail back. (If you drain a node and then power off, when you power the node back on, it's not marked as active for workload placement. When ready, you must use the resume action to mark the node as active.)
 
 To run the resume action through PowerShell:
 
