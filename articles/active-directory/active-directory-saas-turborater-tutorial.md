@@ -106,8 +106,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![TurboRater Domain and URLs single sign-on information](./media/active-directory-saas-turborater-tutorial/tutorial_turborater_url.png)
 
-    In the **Identifier** textbox, type the value as: `https://www.itcdataservices.com`
-		
+    a. In the **Identifier** textbox, type the value as: `https://www.itcdataservices.com`
+ 
+    b. In the **Reply URL** textbox, type the value as:
+	
+	| Environment | URL |
+	| ---------------| --------------- |    
+	| Test  | `https://ratingqa.itcdataservices.com/webservices/imp/saml/login` |
+	| Live  | `https://www.itcratingservices.com/webservices/imp/saml/login` |
+
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![The Certificate download link](./media/active-directory-saas-turborater-tutorial/tutorial_turborater_certificate.png) 
