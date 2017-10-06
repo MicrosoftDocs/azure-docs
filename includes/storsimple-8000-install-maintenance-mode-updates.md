@@ -20,7 +20,7 @@ When you apply maintenance mode updates to StorSimple device, all I/O requests a
 
     You are prompted for confirmation. After you confirm the updates, they are installed on the controller that you are currently accessing. After the updates are installed, the controller restarts.
 
-4. Monitor the status of updates. Log into the peer controller as the current controller is updating and will not be able to process any other commands. Type:
+4. Monitor the status of updates. Log in to the peer controller as the current controller is updating and is not able to process any other commands. Type:
 
     `Get-HcsUpdateStatus`
 
@@ -39,4 +39,4 @@ When you apply maintenance mode updates to StorSimple device, all I/O requests a
 
     The controllers restart when you exit maintenance mode.
 
-7. Return to the Azure portal. Note that the portal might not show that you installed the maintenance mode updates for 24 hours.
+7. Return to the Azure portal. The portal may not show that you installed the maintenance mode updates for 24 hours.
