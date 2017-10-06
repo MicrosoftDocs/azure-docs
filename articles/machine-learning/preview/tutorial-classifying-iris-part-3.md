@@ -30,8 +30,12 @@ This tutorial is part three of a three part series. In this part of the tutorial
 
 ## Prerequisites
 Complete the first two parts of this tutorial series:
-- Firstly, follow [Prepare data tutorial](tutorial-classifying-iris-part-1.md) to create Azure Machine Learning resources and install the Azure Machine Learning Workbench application.
-- Secondly, follow [Build a model tutorial](tutorial-classifying-iris-part-2.md) to create a logistic regression model in Azure Machine Learning.
+
+1. Follow [Prepare data tutorial](tutorial-classifying-iris-part-1.md) to create Azure Machine Learning resources and install the Azure Machine Learning Workbench application.
+
+2. Follow [Build a model tutorial](tutorial-classifying-iris-part-2.md) to create a logistic regression model in Azure Machine Learning.
+
+3. You need Docker engine installed and running locally. Alternatively, you can deploy to an Azure Container Service cluster in Azure.
 
 ## Download the model pickle file
 In the previous part of the tutorial, the **iris_sklearn.py** script was run in Azure Machine Learning Workbench locally. That action serialized the logistic regression model using the popular Python object serialization package **[pickle](https://docs.python.org/2/library/pickle.html)**. 
@@ -268,7 +272,7 @@ Test the running **irisapp** web service by feeding it with a JSON encoded recor
 2. To test the service, execute the returned service run command.
 
    ```azurecli
-   az ml service run realtime -i irisapp -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}
+   az ml service run realtime -i irisapp -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
    ```
    The output is **"2",** which is the predicted class. (Your result might be different.) 
 
