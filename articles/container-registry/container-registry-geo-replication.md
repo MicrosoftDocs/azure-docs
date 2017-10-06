@@ -74,6 +74,7 @@ az acr update -n myregistry --sku Premium
 ```
 or
 through the Azure portal:
+
 ![SKU Update](media/container-registry-skus/update-registry-sku.png)
 > 
 
