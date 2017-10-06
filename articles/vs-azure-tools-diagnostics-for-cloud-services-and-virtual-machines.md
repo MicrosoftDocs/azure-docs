@@ -106,7 +106,7 @@ In Visual Studio, you can collect diagnostics data for Azure virtual machines.
     ![Install an Azure virtual machine extension](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC766024.png)
    
     > [!NOTE]
-   > Other diagnostics extensions are available for your virtual machines. For more information, see Azure VM Extensions and Features.
+   > Other diagnostics extensions are available for your virtual machines. For more information, see [Virtual machine extensions and features for Windows](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features).
    > 
    > 
 5. To add the extension and view its **Diagnostics configuration** dialog box, select **Add**.
@@ -182,7 +182,7 @@ The events are captured from event sources and event manifests that you specify.
 
 ![ETW logs](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC766025.png)
 
-The ETW framework is supported in ASP.NET through classes in the [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110)) namespace. The Microsoft.WindowsAzure.Diagnostics namespace, which inherits from and extends standard [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110)) classes, enables the use of [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110)) as a logging framework in the Azure environment. For more information, see [Take control of logging and tracing in Microsoft Azure](https://msdn.microsoft.com/magazine/ff714589.aspx) and [Enabling diagnostics in Azure Cloud Services and virtual machines](cloud-services/cloud-services-dotnet-diagnostics.md).
+The ETW framework is supported in ASP.NET through classes in the [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110)) namespace. The Microsoft.WindowsAzure.Diagnostics namespace, which inherits from and extends standard [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110)) classes, enables the use of [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110)) as a logging framework in the Azure environment. For more information, see [Take control of logging and tracing in Microsoft Azure](https://msdn.microsoft.com/magazine/ff714589.aspx) and [Enable diagnostics in Azure Cloud Services and virtual machines](cloud-services/cloud-services-dotnet-diagnostics.md).
 
 ### Crash dumps
 To capture information about when a role instance crashes, select the **Enable transfer of Crash Dumps** check box. (Because ASP.NET handles most exceptions, this is generally useful only for worker roles.) To increase or decrease the percentage of storage space devoted to the crash dumps, change the **Directory Quota (%)** value. You can change the storage container where the crash dumps are stored, and select whether you want to capture a **Full** or **Mini** dump.
