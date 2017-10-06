@@ -26,17 +26,17 @@ In this example, you use the MNIST database of handwritten images to train a con
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-This quickstart requires that you are running the latest Azure CLI version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+This quickstart requires that you are running the latest Azure CLI version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azurecli).
 
 ## Create a resource group
 
-Batch AI clusters and jobs are Azure resources and must be placed in an Azure resource group, a logical collection into which Azure resources are deployed and managed.
+Batch AI clusters and jobs are Azure resources and must be placed in an Azure resource group.
 
 Create a resource group with the [az group create][/cli/azure/group#create] command.
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location. It then uses the [az configure](/cli/azure) command to set this resource group as the default.
 
-```azurecli-interactive
+```azurecli
 az group create --name myResourceGroup --location eastus
 
 az configure --defaults group=myResourceGroup 
@@ -46,7 +46,7 @@ az configure --defaults group=myResourceGroup
 
 This quickstart uses an Azure storage account to host data and scripts for the training job. Create a storage account with the [az storage account create](/cli/azure/storage/account#create) command.
 
-```azure-cli
+```azurecli
 az storage account create \
     --name mystorageaccount \
     --sku Standard_LRS 
@@ -56,7 +56,7 @@ For later commands, set default storage account environment variables:
 
 * **Linux**
 
-  ```azure-cli
+  ```azurecli
   export AZURE_STORAGE_ACCOUNT=mystorageaccount
 
   export AZURE_STORAGE_KEY=$(az storage account keys list --account-name mystorageaccount -o tsv --query [0].value)
@@ -64,7 +64,7 @@ For later commands, set default storage account environment variables:
 
 * **Windows**
 
-  ```azure-cli
+  ```azurecli
   set AZURE_STORAGE_ACCOUNT=mystorageaccount
 
   az storage account keys list --account-name mystorageaccount -o tsv --query [0].value > temp.txt
@@ -80,18 +80,18 @@ For illustration purposes, this quickstart uses an Azure file share to host the 
 
 1. Create a file share named *batchaiquickstart* using the [az storage share create](/cli/azure/storage/share#az_storage_share_create) command.
 
-  ```azure-cli
+  ```azurecli
   az storage share create --name batchaiquickstart
   ```
 2. Create a directory in the share named *mnistcntksample* using the [az storage directory create](/cli/azure/storage/directory#az_storage_directory_create) command.
 
-  ```azure-cli
+  ```azurecli
   az storage directory create --share-name batchaisample --name mnistcntksample
   ```
 
 3. Download the [sample package](https://batchaisamples.blob.core.windows.net/samples/BatchAIQuickStart.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=b&sig=hrAZfbZC%2BQ%2FKccFQZ7OC4b%2FXSzCF5Myi4Cj%2BW3sVZDo%3D) and unzip. Upload the contents to the directory using the [az storage file upload](/cli/azure/storage/file#az_storage_file_upload) command:
 
-  ```azure-cli
+  ```azurecli
   az storage file upload --share-name batchaiquickstart --source Train-28x28_cntk_text.txt --path mnistcntksample 
 
   az storage file upload --share-name batchaiquickstart --source Test-28x28_cntk_text.txt --path mnistcntksample
@@ -103,7 +103,7 @@ For illustration purposes, this quickstart uses an Azure file share to host the 
 ## Create GPU cluster
 Use the [az bachai cluster create](/cli/azure/batchai/cluster#az_batchai_cluster_create) command to create a Batch AI cluster. In this example, the cluster consists of a single STANDARD_NC6 VM node. This VM size has one NVIDIA K80 GPU. Mount the file share at a folder named *azurefileshare*. The full path of this folder on the GPU compute node is $AZ_BATCHAI_MOUNT_ROOT/azurefileshare. 
 
-```
+```azurecli
 az batchai cluster create --name mycluster  \
     --vm-size "STANDARD_NC6"  \
     --afs-name batchaiquickstart \
@@ -114,7 +114,7 @@ az batchai cluster create --name mycluster  \
 
 After the cluster is created, output is similar to the following:
 
-```azure-cli
+```azurecli
 {
   "allocationState": "resizing",
   "allocationStateTransitionTime": "2017-10-05T02:09:03.194000+00:00",
@@ -186,16 +186,16 @@ After the cluster is created, output is similar to the following:
 
 To get an overview of the cluster status, run the [az batchai cluster list](/cli/azure/batchai/cluster#az_batchai_cluster_list) command:
 
-```azure-cli
+```azurecli
 az batchai cluster list -o table
 ```
 
 Output is similar to the following:
 
-```azure-cli
-Name     Resource Group    VM Size       State      Idle    Running    Preparing    Unusable
--------  ----------------  ---------------     -------    ------  ---------  -----------  ---------- 
-mycluster         sample        STANDARD_NC6  steady        1          0            0              0 
+```azurecli
+Name      Resource Group    VM Size       State      Idle    Running    Preparing    Unusable
+-------   ----------------  --------      -------    ------  ---------  -----------  ----------
+mycluster myresourcegroup   STANDARD_NC6  steady     1       0          0            0
 ``` 
 
 For more detail, run the [az batchai cluster show](/cli/azure/batchai/cluster#az_batchai_cluster_show) command. It returns all the cluster properties shown after cluster creation.
@@ -238,13 +238,13 @@ After the cluster is ready, configure and submit the learning job.
   ```
 2. Create a job named *myjob* to run on the cluster with the [az batchai job create](/cli/azure/batchai/job#az_batchai_job_create) command:
 
-  ```azure-cli
+  ```azurecli
   az batchai job create --name mycluster -n myjob -c job.json
   ```
 
 Output is similar to the following:
 
-```azure-cli
+```azurecli
 {
   "caffeSettings": null,
   "chainerSettings": null,
@@ -321,16 +321,16 @@ Output is similar to the following:
 
 Use the [az batchai job list](/cli/azure/batchai/job#az_batchai_job_list) command to get an overview of the job status:
 
-```azure-cli
+```azurecli
 az batchai cluster list -o table
 ```
 
 Output is similar to the following:
 
-```azure-cli
-Name        Resource Group    Cluster    Cluster RG      Nodes  State        Exit code 
------------  ----------------  ---------  ------------  -------  ---------  ----------- 
-myjob        mygroup              mycluster     sample        1        running 
+```azurecli
+Name        Resource Group    Cluster    Cluster RG      Nodes  State    Exit code
+----------  ----------------  ---------  --------------- -----  -------  -----------
+myjob       myresourcegroup   mycluster  myresourcegroup 1      running            
 
 ```
 
@@ -345,13 +345,13 @@ The `executionState` contains the current execution state of the job:
 ## List stdout and stderr output
 Use the [az batchai job list-files](/cli/azure/batchai/job#az_batchai_job_list_files) command to list links to the stdout and stderr log files:
 
-```azure-cli
+```azurecli
 az batchai job list-files --name myjob --output-directory-id stdouterr
 ```
 
 Output is similar to the following:
 
-```azure-cli
+```azurecli
 [
   {
     "contentLength": 733,
@@ -369,17 +369,17 @@ Output is similar to the following:
 ```
 
 
-## Observe output files
+## Observe output
 
 You can stream or tail a job's output files while the job is executing. The following example uses the [az batchai job stream-file](/cli/azure/batchai/job#az_batchai_job_stream_file) command to stream the stderr.txt log:
 
-```azure-cli
+```azurecli
 az batchai job stream-file --name myjob --output-directory-id stdouterr -n stderr.txt
 ```
 
 Output is similar to the following:
 
-```azure-cli
+```azurecli
 …
 Finished Epoch[2 of 40]: [Training] loss = 0.104846 * 60000, metric = 3.00% * 60000 3.849s (15588.5 samples/s);
 Finished Epoch[3 of 40]: [Training] loss = 0.077043 * 60000, metric = 2.23% * 60000 3.902s (15376.7 samples/s);
@@ -392,12 +392,12 @@ Finished Epoch[4 of 40]: [Training] loss = 0.063050 * 60000, metric = 1.82% * 60
 
 Use the [az batchai job delete](/cli/azure/batchai/job#az_batchai_job_delete) command to delete the job:
 
-```azure-cli
+```azurecli
 az batchai job delete --name myjob
 ```
 Use the [az batchai cluster delete](/cli/azure/batchai/cluster#az_batchai_cluster_delete) command to delete the cluster:
 
-```azure-cli
+```azurecli
 az batchai cluster delete --name mycluster
 ```
 

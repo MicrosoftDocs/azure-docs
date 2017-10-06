@@ -73,7 +73,7 @@ client = batchai.BatchAIManagementClient(credentials=creds,
 
 # Create a resource group
 
-Batch AI clusters and jobs are Azure resources and must be placed in an Azure resource group, a logical collection into which Azure resources are deployed and managed. The following snippet creates a resource group:
+Batch AI clusters and jobs are Azure resources and must be placed in an Azure resource group. The following snippet creates a resource group:
 
 ```Python
 from azure.mgmt.resource import ResourceManagementClient
@@ -108,7 +108,7 @@ For illustration purposes, this quickstart uses an Azure file share to host the 
   ```Python
   mnist_dataset_directory = 'batchaiquickstart' 
  
-  service.create_directory(azure_file_share_name,                      mnist_dataset_directory, fail_on_exist=False) 
+  service.create_directory(azure_file_share_namem, mnist_dataset_directory, fail_on_exist=False) 
   ```
 3. Download the [sample package](https://batchaisamples.blob.core.windows.net/samples/BatchAIQuickStart.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=b&sig=hrAZfbZC%2BQ%2FKccFQZ7OC4b%2FXSzCF5Myi4Cj%2BW3sVZDo%3D) and unzip. Upload the contents to the directory.
 
@@ -133,10 +133,12 @@ parameters = models.ClusterCreateParameters(
     vm_size='STANDARD_NC6', 
  
     # Configure the ssh users
-    user_account_settings=models.UserAccountSettings(         admin_user_name=admin_user_name,         admin_user_password=admin_user_password), 
+    user_account_settings=models.UserAccountSettings(
+         admin_user_name=admin_user_name,         admin_user_password=admin_user_password), 
  
     # Number of VMs in the cluster
-    scale_settings=models.ScaleSettings(         manual=models.ManualScaleSettings(target_node_count=1)
+    scale_settings=models.ScaleSettings(
+         manual=models.ManualScaleSettings(target_node_count=1)
      ), 
  
     # Configure each node in the cluster
@@ -145,7 +147,10 @@ parameters = models.ClusterCreateParameters(
         # Mount shared volumes to the host
          mount_volumes=models.MountVolumes(
              azure_file_shares=[
-                 models.AzureFileShareReference(                     account_name=storage_account_name,                     credentials=models.AzureStorageCredentialsInfo(                         account_key=storage_account_key),
+                 models.AzureFileShareReference(
+                     account_name=storage_account_name,
+                     credentials=models.AzureStorageCredentialsInfo(
+         account_key=storage_account_key),
          azure_file_url='https://{0}.file.core.windows.net/{1}'.format(
                storage_account_name, mnist_dataset_directory),  relative_mount_path = 'azurefileshare')],
          ), 
@@ -161,7 +166,15 @@ You can monitor the cluster status using the following command:
 ```Python
 cluster = client.clusters.get(resource_group_name, cluster_name)
  print(
-         'Cluster state: {0} Target: {1}; Allocated: {2}; Idle: {3}; '         'Unusable: {4}; Running: {5}; Preparing: {6}'leaving: {7}.format(             cluster.allocation_state,             cluster.scale_settings.manual.target_node_count,             cluster.current_node_count,             cluster.node_state_counts.idle_node_count,             cluster.node_state_counts.unusable_node_count,             cluster.node_state_counts.running_node_count,             cluster.node_state_counts.preparing_node_count,             cluster.node_state_counts.leaving_node_count)) 
+         'Cluster state: {0} Target: {1}; Allocated: {2}; Idle: {3}; '         'Unusable: {4}; Running: {5}; Preparing: {6}'leaving: {7}.format(
+             cluster.allocation_state,
+             cluster.scale_settings.manual.target_node_count,
+             cluster.current_node_count,
+             cluster.node_state_counts.idle_node_count,
+             cluster.node_state_counts.unusable_node_count,
+             cluster.node_state_counts.running_node_count,
+             cluster.node_state_counts.preparing_node_count,
+             cluster.node_state_counts.leaving_node_count)) 
 ```
 
 The preceding code prints basic cluster allocation information such as the following:
@@ -195,7 +208,8 @@ parameters = models.job_create_parameters.JobCreateParameters(
      # In this case we will write these out to an Azure Files share
      std_out_err_path_prefix='$AZ_BATCHAI_MOUNT_ROOT/{0}'.format(relative_mount_point), 
  
-     input_directories=[models.InputDirectory(                    id='SAMPLE',
+     input_directories=[models.InputDirectory(
+         id='SAMPLE',
          path='$AZ_BATCHAI_MOUNT_ROOT/{0}/{1}'.format(relative_mount_point, mnist_dataset_directory))], 
  
      # Specify directories where files will get written to 
@@ -203,11 +217,12 @@ parameters = models.job_create_parameters.JobCreateParameters(
         path_prefix='$AZ_BATCHAI_MOUNT_ROOT/{0}'.format(relative_mount_point),             path_suffix="Models")], 
  
      # Container configuration
-     container_settings=models.ContainerSettings(                  models.ImageSourceRegistry(image='microsoft/cntk:2.1-gpu-python3.5-cuda8.0cudnn6.0')), 
+     container_settings=models.ContainerSettings(
+        models.ImageSourceRegistry(image='microsoft/cntk:2.1-gpu-python3.5-cuda8.0cudnn6.0')), 
  
      # Toolkit specific settings
      cntk_settings = models.CNTKsettings(
-        python_script_file_path='$AZ_BATCHAI_INPUT_SAMPLE/ConvNet_MNIST.py',          command_line_args='$AZ_BATCHAI_INPUT_SAMPLE $AZ_BATCHAI_OUTPUT_MODEL')
+        python_script_file_path='$AZ_BATCHAI_INPUT_SAMPLE/ConvNet_MNIST.py',       command_line_args='$AZ_BATCHAI_INPUT_SAMPLE $AZ_BATCHAI_OUTPUT_MODEL')
  ) 
  
 # Create the job 
@@ -245,7 +260,8 @@ for file in list(files):
 You can stream or tail a job's output files while the job is executing. The following command streams the stderr.txt log:
 
 ```Python
-files = client.jobs.list_output_files(     resource_group_name, job_name, models.JobsListOutputFilesOptions('stdouterr')) 
+files = client.jobs.list_output_files(
+     resource_group_name, job_name, models.JobsListOutputFilesOptions('stdouterr')) 
  
 file_name = 'stdout.txt' 
  
