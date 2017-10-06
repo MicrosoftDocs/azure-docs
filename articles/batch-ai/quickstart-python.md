@@ -167,7 +167,7 @@ client.clusters.create(resource_group_name, cluster_name, parameters).result()
 
 ## Get cluster status
 
-You can monitor the cluster status using the following command: 
+Monitor the cluster status using the following command: 
 
 ```Python
 cluster = client.clusters.get(resource_group_name, cluster_name)
