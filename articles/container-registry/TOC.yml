@@ -21,12 +21,12 @@
     href: ../container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app.md
 - name: Concepts
   items:
-  - name: Registry SKUs
-    href: container-registry-skus.md
   - name: Geo-replication
     href: container-registry-geo-replication.md
 - name: How-to guides
   items:
+  - name: Choose a registry SKU
+    href: container-registry-skus.md
   - name: Push and pull an image
     href: container-registry-get-started-docker-cli.md
   - name: View repositories
