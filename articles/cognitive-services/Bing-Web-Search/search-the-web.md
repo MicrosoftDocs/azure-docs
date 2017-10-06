@@ -343,6 +343,224 @@ A mathematical expression may contain the following functions:
   
 Mathematical expressions that contain variables (for example, 4x+6=18, where x is the variable) are not supported.  
 
+## Entity answer
+
+The `entities` field is an [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entityanswer) object that contains a list of [Entity](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity) objects (see the `value` field). The list may contain a single dominant entity, multiple disambiguation entities or both. A dominant entity is an entity that Bing believes is the only entity that satisfies the request (there is no ambiguity as to which entity satisfies the request). If multiple entities could satisfy the request, the list will contain more than one disambiguation entity. For example, if the request uses the generic title of a movie franchise, the list would likely contain disambiguation entities. But, if the request specifies a specific title from the franchise, the list would likely contain a siingle dominant entity.
+
+Entities include persons such as Adam Levine and things such as banana, goldendoodle, book, or movie title. The [entityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entitypresentationinfo) field contains hints that identify the entity's type. For example, if it's a person, movie, animal, or attraction. For a list of possible types, see [Entity Types](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types)
+
+```
+            "entityPresentationInfo" : {
+                "entityScenario" : "DominantEntity",
+                "entityTypeHints" : ["Attraction"],
+                "entityTypeDisplayHint" : "Mountain"
+            },
+```
+
+The following shows a response that includes a dominant and disambiguation entities.
+
+```
+{
+    "_type" : "SearchResponse",
+    "queryContext" : {
+        "originalQuery" : "pike place market"
+    },
+    "entities" : {
+        "value" : [{
+            "contractualRules" : [{
+                "_type" : "ContractualRules\/LicenseAttribution",
+                "targetPropertyName" : "description",
+                "mustBeCloseToContent" : true,
+                "license" : {
+                    "name" : "CC-BY-SA",
+                    "url" : "http:\/\/creativecommons.org\/licenses\/by-sa\/3.0\/"
+                },
+                "licenseNotice" : "Text under CC-BY-SA license"
+            },
+            {
+                "_type" : "ContractualRules\/LinkAttribution",
+                "targetPropertyName" : "description",
+                "mustBeCloseToContent" : true,
+                "text" : "en.wikipedia.org",
+                "url" : "http:\/\/en.wikipedia.org\/wiki\/Pike_Place_Market"
+            },
+            {
+                "_type" : "ContractualRules\/MediaAttribution",
+                "targetPropertyName" : "image",
+                "mustBeCloseToContent" : true,
+                "url" : "http:\/\/en.wikipedia.org\/wiki\/Pike_Place_Market"
+            }],
+            "webSearchUrl" : "https:\/\/www.bing.com\/search?q=Pike%20Place%20Market...",
+            "name" : "Pike Place Market",
+            "url" : "http:\/\/www.pikeplacemarket.org\/",
+            "image" : {
+                "name" : "Pike Place Market",
+                "thumbnailUrl" : "https:\/\/www.bing.com\/th?id=A4ae343983daa4...",
+                "provider" : [{
+                    "_type" : "Organization",
+                    "url" : "http:\/\/en.wikipedia.org\/wiki\/Pike_Place_Market"
+                }],
+                "hostPageUrl" : "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/7\/72\/Pike_Place...",
+                "width" : 110,
+                "height" : 110
+            },
+            "description" : "Pike Place Market is a public market overlooking the Elliott...",
+            "entityPresentationInfo" : {
+                "entityScenario" : "DominantEntity",
+                "entityTypeHints" : ["Attraction"]
+            },
+            "bingId" : "38b9431e-cf91-93be-0584-c42a3ecbfdc7"
+        },
+        {
+            "contractualRules" : [{
+                "_type" : "ContractualRules\/MediaAttribution",
+                "targetPropertyName" : "image",
+                "mustBeCloseToContent" : true,
+                "url" : "http:\/\/en.wikipedia.org\/wiki\/Pike_Place_Fish_Market"
+            }],
+            "webSearchUrl" : "https:\/\/www.bing.com\/search?q=Pike%20Place%20Fish%20Market...",
+            "name" : "Pike Place Fish Market",
+            "url" : "http:\/\/pikeplacefish.com\/",
+            "image" : {
+                "name" : "Pike Place Fish Market",
+                "thumbnailUrl" : "https:\/\/www.bing.com\/th?id=A91bdc5a1b648a695a39...",
+                "provider" : [{
+                    "_type" : "Organization",
+                    "url" : "http:\/\/en.wikipedia.org\/wiki\/Pike_Place_Fish_Market"
+                }],
+                "hostPageUrl" : "http:\/\/upload.wikimedia.org\/wikipedia\/en\/7\/7a...",
+                "width" : 50,
+                "height" : 50
+            },
+            "description" : "The Pike Place Fish Market, founded in 1930, is an open air fish market...",
+            "entityPresentationInfo" : {
+                "entityScenario" : "DisambiguationItem",
+                "entityTypeHints" : ["Organization"]
+            },
+            "bingId" : "29d4b681-227a-3924-7bb1-8a54e8666b8c"
+        }]
+    }
+}
+```
+
+The entity includes a `name`, `description`, and `image` field. When you display these fields in your user experience, you must attribute them. The `contractualRules` field contains a list of attributions that you must apply. The contractual rule identifies the field that the attribution applies to. For information about applying attribution, see [Attribution](#data-attribution).
+
+```
+            "contractualRules" : [{
+                "_type" : "ContractualRules\/LicenseAttribution",
+                "targetPropertyName" : "description",
+                "mustBeCloseToContent" : true,
+                "license" : {
+                    "name" : "CC-BY-SA",
+                    "url" : "http:\/\/creativecommons.org\/licenses\/by-sa\/3.0\/"
+                },
+                "licenseNotice" : "Text under CC-BY-SA license"
+            },
+            {
+                "_type" : "ContractualRules\/LinkAttribution",
+                "targetPropertyName" : "description",
+                "mustBeCloseToContent" : true,
+                "text" : "en.wikipedia.org",
+                "url" : "http:\/\/en.wikipedia.org\/wiki\/Mount_Rainier"
+            },
+            {
+                "_type" : "ContractualRules\/MediaAttribution",
+                "targetPropertyName" : "image",
+                "mustBeCloseToContent" : true,
+                "url" : "http:\/\/en.wikipedia.org\/wiki\/Mount_Rainier"
+            }],
+```
+
+When you display the entity information (name, description, and image), you must also use the URL in the `webSearchUrl` field to link to the Bing search results page that contains the entity.
+  
+> [!NOTE]
+> You, or a third party on your behalf, may not use, retain, store, cache, share, or distribute any data from the Entities API for the purpose of testing, developing, training, distributing or making available any non-Microsoft service or feature.  
+
+## Data attribution  
+
+Web Search API responses contain information owned by third parties. You are responsible to ensure your use is appropriate, for example by complying with any creative commons license your user experience may rely on.  
+  
+If an answer or result includes the `contractualRules`, `attributions`, or `provider` fields, you must attribute the data. If the answer does not include any of these fields, no attribution is required. If the answer includes the `contractualRules` field and the `attributions` and/or `provider` fields, you must use the contractual rules to attribute the data.  
+  
+The following example shows an entity that includes a MediaAttribution contractual rule and an Image that includes a `provider` field. The MediaAttribution rule identifies the image as the target of the rule, so you'd ignore the image's `provider` field and instead use the MediaAttribution rule to provide attribution.  
+  
+```  
+        "value" : [{
+            "contractualRules" : [
+                . . .
+                {
+                    "_type" : "ContractualRules\/MediaAttribution",
+                    "targetPropertyName" : "image",
+                    "mustBeCloseToContent" : true,
+                    "url" : "http:\/\/en.wikipedia.org\/wiki\/Space_Needle"
+                }
+            ],
+            . . .
+            "image" : {
+                "name" : "Space Needle",
+                "thumbnailUrl" : "https:\/\/www.bing.com\/th?id=A46378861201...",
+                "provider" : [{
+                    "_type" : "Organization",
+                    "url" : "http:\/\/en.wikipedia.org\/wiki\/Space_Needle"
+                }],
+                "hostPageUrl" : "http:\/\/www.citydictionary.com\/Uploaded...",
+                "width" : 110,
+                "height" : 110
+            },
+            . . .
+        }]
+```  
+  
+If a contractual rule includes the `targetPropertyName` field, the rule applies only to the targeted field. Otherwise, the rule applies to the parent object that contains the `contractualRules` field.  
+  
+  
+In the following example, the `LinkAttribution` rule includes the `targetPropertyName` field, so the rule applies to the `description` field. For rules that apply to specific fields, you must include a line immediately following the targeted data that contains a hyperlink to the provider's website. For example, to attribute the description, include a line immediately following the description text that contains a hyperlink to the data on the provider's website, in this case create a link to en.wikipedia.org.  
+  
+```  
+"entities" : {  
+    "value" : [{  
+            . . .  
+            "description" : "Peyton Williams Manning is a former American....",  
+            . . .  
+            "contractualRules" : [{  
+                    "_type" : "ContractualRules\/LinkAttribution",  
+                    "targetPropertyName" : "description",  
+                    "mustBeCloseToContent" : true,  
+                    "text" : "en.wikipedia.org",  
+                    "url" : "http:\/\/www.bing.com\/cr?IG=B8AD73..."  
+                 },  
+            . . .  
+  
+```  
+
+### License Attribution  
+
+If the list of contractual rules includes a [LicenseAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#licenseattribution) rule, you must display the notice on the line immediately following the content that the license applies to. The `LicenseAttribution` rule uses the `targetPropertyName` field to identify the property that the license applies to.  
+  
+The following shows an example that includes a `LicenseAttribution` rule.  
+  
+![License attribution](./media/cognitive-services-bing-entities-api/licenseattribution.png)  
+  
+The license notice that you display must include a hyperlink to the website that contains information about the license. Typically, you make the name of the license a hyperlink. For example, if the notice is **Text under CC-BY-SA license** and CC-BY-SA is the name of the license, you would make CC-BY-SA a hyperlink.  
+  
+### Link and Text Attribution  
+
+The [LinkAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#linkattribution) and [TextAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#textattribution) rules are typically used to identify the provider of the data. The `targetPropertyName` field identifies the field that the rule applies to.  
+  
+To attribute the providers, include a line immediately following the content that the attributions apply to (for example, the targeted field). The line should be clearly labeled to indicate that the providers are the source of the data. For example, "Data from: en.wikipedia.org". For `LinkAttribution` rules, you must create a hyperlink to the provider's website.  
+  
+The following shows an example that includes `LinkAttribution` and `TextAttribution` rules.  
+  
+![Link text attribution](./media/cognitive-services-bing-entities-api/linktextattribution.png)  
+
+### Media Attribution  
+
+If the entity includes an image and you display it, you must provide a click-through link to the provider's website. If the entity includes a [MediaAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#mediaattribution) rule, use the rule's URL to create the click-through link. Otherwise, use the URL included in the image's `provider` field to create the click-through link.  
+  
+The following shows an example that includes an image's `provider` field and contractual rules. Because the example includes the contractual rule, you will ignore the image's `provider` field and apply the `MediaAttribution` rule.  
+  
+![Media attribution](./media/cognitive-services-bing-entities-api/mediaattribution.png)  
+
 
 ### TimeZone answer  
 
