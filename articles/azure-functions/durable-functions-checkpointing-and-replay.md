@@ -22,7 +22,7 @@ One of the key attributes of Durable Functions is **reliable execution**. Orches
 
 In spite of this, Durable Functions ensures reliable execution of orchestrations. It does so by using storage queues to drive function invocation and by periodically checkpointing execution history into storage tables (using a cloud design pattern known as [Event Sourcing](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing)). That history can then be replayed to automatically rebuild the in-memory state of an orchestrator function.
 
-## Orchestration History
+## Orchestration history
 
 Suppose you have the following orchestrator function.
 

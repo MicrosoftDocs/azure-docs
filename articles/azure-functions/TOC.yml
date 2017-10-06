@@ -145,7 +145,7 @@
       href: durable-functions-install.md
     - name: Chaining 
       href: durable-functions-sequence.md
-    - name: Fan out fan in 
+    - name: Fan-out/fan-in 
       href: durable-functions-cloud-backup.md
     - name: Stateful singleton 
       href: durable-functions-counter.md

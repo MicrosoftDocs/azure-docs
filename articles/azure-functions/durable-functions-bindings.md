@@ -18,9 +18,7 @@ ms.author: cgillum
 
 # Bindings for Durable Functions (Azure Functions)
 
-## Overview
-
-The Durable Functions extension introduces two new trigger bindings that control the execution of orchestrator and activity functions. It also introduces an output binding that acts as a client for the Durable Functions runtime.
+The [Durable Functions](durable-functions-overview.md) extension introduces two new trigger bindings that control the execution of orchestrator and activity functions. It also introduces an output binding that acts as a client for the Durable Functions runtime.
 
 ## Orchestration triggers
 

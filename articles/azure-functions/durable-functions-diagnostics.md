@@ -26,7 +26,7 @@ There are several options for diagnosing issues with [Durable Functions](durable
 
 The Azure Functions Durable Extension also emits *tracking events* which allow you to trace the end-to-end execution of an orchestration. These can be found and queried using the [Application Insights Analytics](../application-insights/app-insights-analytics.md) tool in the Azure portal.
 
-### Tracking Data
+### Tracking data
 
 Each lifecycle event of an orchestration instance causes a tracking event to be written to the **traces** collection in Application Insights. This event contains a **customDimensions** payload with several fields.  Field names are all prepended with `prop__`.
 
@@ -66,7 +66,7 @@ By default, all tracking events are emitted. The volume of data can be reduced b
 > [!WARNING]
 > By default, Application Insights telemetry is sampled by the Azure Functions runtime to avoid emitting data too frequently. This can cause tracking information to be lost when many lifecycle events occur in a short period of time. See the [Configure sampling](functions-monitoring.md#configure-sampling) section of the Azure Functions Monitoring topic to learn how this behavior can be configured.
 
-### Single Instance Query
+### Single instance query
 
 The following query shows historical tracking data for a single instance of the [Hello Sequence](durable-functions-sequence.md) function orchestration. It's written using the [Application Insights Query Language (AIQL)](https://docs.loganalytics.io/docs/Language-Reference). It filters out replay execution so that only the *logical* execution path is shown.
 
@@ -91,7 +91,7 @@ The result is a list of tracking events that show the execution path of the orch
 > [!NOTE]
 > Some of these tracking events may be out of order due to the lack of precision in the `timestamp` column. This is being tracked in GitHub as [issue #71](https://github.com/Azure/azure-functions-durable-extension/issues/71).
 
-### Instance Summary Query
+### Instance summary query
 
 The following query displays the status of all orchestration instances that were run in a specified time range.
 

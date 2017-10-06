@@ -71,12 +71,12 @@ This function has a [DurableActivityContext](https://azure.github.io/azure-funct
 
 To execute the `E1_HelloSequence` orchestration, make the following HTTP call.
 
-```plaintext
+```
 POST http://{app-name}.azurewebsites.net/orchestrators/E1_HelloSequence
 ```
 The result is an HTTP 202 response, like this (trimmed for brevity):
 
-```plaintext
+```
 HTTP/1.1 202 Accepted
 Content-Length: 719
 Content-Type: application/json; charset=utf-8
@@ -87,13 +87,13 @@ Location: http://{host}/admin/extensions/DurableTaskExtension/instances/96924899
 
 At this point, the orchestration is queued up and begins to run immediately. The URL in the `Location` header can be used to check the status of the execution.
 
-```plaintext
+```
 GET http://{host}/admin/extensions/DurableTaskExtension/instances/96924899c16d43b08a536de376ac786b?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 ```
 
 The result is the status of the orchestration. It runs and completes quickly, so you see it in the *Completed* state with a response that looks like this (trimmed for brevity):
 
-```plaintext
+```
 HTTP/1.1 200 OK
 Content-Length: 179
 Content-Type: application/json; charset=utf-8
@@ -108,9 +108,9 @@ As you can see, the `runtimeStatus` of the instance is *Completed* and the `outp
 
 Look at the function execution logs. The `E1_HelloSequence` function started and completed multiple times due to the replay behavior described in the [overview](durable-functions-overview.md). On the other hand, there were only three executions of `E1_SayHello` since those function executions do not get replayed.
 
-## Full sample code
+## Visual Studio sample code
 
-Here is the full orchestration as a single C# file using the Visual Studio project syntax:
+Here is the orchestration as a single C# file in a Visual Studio project:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs)]
 
@@ -119,4 +119,4 @@ Here is the full orchestration as a single C# file using the Visual Studio proje
 At this point, you have a basic understanding of the core mechanics for Durable Functions. This sample was trivial and only showed a few of the features available. Subsequent samples are more "real world" and display a greater breadth of functionality.
 
 > [!div class="nextstepaction"]
-> [Run the fan out, fan in sample](durable-functions-cloud-backup.md)
+> [Run the Fan-out/fan-in sample](durable-functions-cloud-backup.md)

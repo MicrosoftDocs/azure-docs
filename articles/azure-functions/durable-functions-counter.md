@@ -67,12 +67,12 @@ One unique characteristic of this orchestrator function is that it effectively h
 
 Using the HTTP-triggered functions included in the sample, you can start the orchestration using the following HTTP POST request. To allow `counterState` to start at zero (the default value for `int`), there is no content in this request.
 
-```plaintext
+```
 POST http://{host}/orchestrators/E3_Counter HTTP/1.1
 Content-Length: 0
 ```
 
-```plaintext
+```
 HTTP/1.1 202 Accepted
 Content-Length: 719
 Content-Type: application/json; charset=utf-8
@@ -83,7 +83,7 @@ Location: http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb50
 
 The **E3_Counter** instance starts and then immediately waits for an event to be sent to it using `RaiseEventAsync` or using the **sendEventUrl** HTTP POST webhook referenced in the 202 response. Valid `eventName` values include *incr*, *decr*, and *end*.
 
-```plaintext
+```
 POST http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/raiseEvent/operation?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey} HTTP/1.1
 Content-Type: application/json
 Content-Length: 6
@@ -93,7 +93,7 @@ Content-Length: 6
 
 You can see the results of the "incr" operation by looking at the function logs in the Azure Functions portal.
 
-```plaintext
+```
 2017-06-29T18:54:53.998 Function started (Id=34e34a61-38b3-4eac-b6e2-98b85e32eec8)
 2017-06-29T18:54:53.998 Current counter state is 0. Waiting for next operation.
 2017-06-29T18:58:01.458 Function started (Id=b45d6c2f-39f3-42a2-b904-7761b2614232)
@@ -106,11 +106,11 @@ You can see the results of the "incr" operation by looking at the function logs 
 
 Similarly, if you check the orchestrator status, you see the `input` field has been set to the updated value (1).
 
-```plaintext
+```
 GET http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey} HTTP/1.1
 ```
 
-```plaintext
+```
 HTTP/1.1 202 Accepted
 Content-Length: 129
 Content-Type: application/json; charset=utf-8

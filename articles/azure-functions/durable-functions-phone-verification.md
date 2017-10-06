@@ -97,14 +97,14 @@ This **E4_SendSmsChallenge** function only gets called once, even if the process
 
 Using the HTTP-triggered functions included in the sample, you can start the orchestration by sending the following HTTP POST request.
 
-```plaintext
+```
 POST http://{host}/orchestrators/E4_SmsPhoneVerification
 Content-Length: 14
 Content-Type: application/json
 
 "+1425XXXXXXX"
 ```
-```plaintext
+```
 HTTP/1.1 202 Accepted
 Content-Length: 695
 Content-Type: application/json; charset=utf-8
@@ -117,7 +117,7 @@ The orchestrator function receives the supplied phone number and immediately sen
 
 To reply with the code, you can use `RaiseEventAsync` inside another function or invoke the **sendEventUrl** HTTP POST webhook referenced in the 202 response above, replacing `{eventName}` with the name of the event, `SmsChallengeResponse`:
 
-```plaintext
+```
 POST http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/SmsChallengeResponse?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 Content-Length: 4
 Content-Type: application/json
@@ -127,10 +127,10 @@ Content-Type: application/json
 
 If you send this before the timer expires, the orchestration completes and the `output` field is set to `true`, indicating a successful verification.
 
-```plaintext
+```
 GET http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 ```
-```plaintext
+```
 HTTP/1.1 200 OK
 Content-Length: 144
 Content-Type: application/json; charset=utf-8
@@ -140,7 +140,7 @@ Content-Type: application/json; charset=utf-8
 
 If you let the timer expire, or if you enter the wrong code four times, you can query for the status and see a `false` orchestration function output, indicating that phone verification failed.
 
-```plaintext
+```
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 Content-Length: 145
@@ -152,9 +152,9 @@ Content-Length: 145
 
 At this point, you have a better understanding of some of the advanced capabilities of Durable Functions, notably `WaitForExternalEvent` and `CreateTimer`. You've seen how these can be combined with `Task.WaitAny` to implement a reliable timeout system, which is often useful for interacting with real people.
 
-## Full Sample Code
+## Visual Studio sample code
 
-Here is the full orchestration as a single C# file using the Visual Studio project syntax:
+Here is the orchestration as a single C# file in a Visual Studio project:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs)]
 

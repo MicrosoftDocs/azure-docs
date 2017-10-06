@@ -16,18 +16,18 @@ ms.date: 09/29/2017
 ms.author: cgillum
 ---
 
-# Durable Functions Overview (Azure Functions))
+# Durable Functions overview (Azure Functions)
 
 *Durable Functions* is an extension of [Azure Functions](functions-overview.md) and [Azure WebJobs](../app-service/web-sites-create-web-jobs.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
 
 The extension lets you define stateful workflows in a new type of function called an *orchestrator function*. Here are some of the advantages of orchestrator functions:
 
-* They define workflows in code. No JSON schemas or designers.
+* They define workflows in code. No JSON schemas or designers are needed.
 * They can call other functions synchronously and asynchronously. Output from called functions can be saved to local variables.
 * They automatically checkpoint their progress whenever the function awaits. Local state is never lost if the process recycles or the VM reboots.
 
 > [!NOTE]
-> Durable Functions is an advanced extension for Azure Functions and is not appropriate for all applications. The rest of this article assumes the reader has a strong familiarity with [Azure Functions](functions-overview.md) concepts and the challenges involved in serverless application development.
+> Durable Functions is an advanced extension for Azure Functions and is not appropriate for all applications. The rest of this article assumes that you have a strong familiarity with [Azure Functions](functions-overview.md) concepts and the challenges involved in serverless application development.
 
 The primary use case for Durable Functions is simplifying complex, stateful coordination problems in serverless applications. The following sections describe some typical application patterns that can benefit from Durable Functions.
 
@@ -60,11 +60,11 @@ The values "F1", "F2", "F3", and "F4" are the names of other functions in the fu
 
 The `ctx` parameter ([DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html)) provides methods for invoking other functions by name, passing parameters, and returning function output. Each time the code calls `await`, the Durable Functions framework *checkpoints* the progress of the current function instance. If the process or VM recycles midway through the execution, the function instance resumes from the previous `await` call. More on this restart behavior later.
 
-## Pattern #2: Fan out, fan in
+## Pattern #2: Fan-out/fan-in
 
-*Fan out, fan in* refers to the pattern of executing multiple functions in parallel, and then waiting for all to finish.  Often some aggregation work is done on results returned from the functions.
+*Fan-out/fan-in* refers to the pattern of executing multiple functions in parallel, and then waiting for all to finish.  Often some aggregation work is done on results returned from the functions.
 
-![Fan out, fan in diagram](media/durable-functions-overview/fan-out-fan-in.png)
+![Fan-out/fan-in diagram](media/durable-functions-overview/fan-out-fan-in.png)
 
 With normal functions, fanning out can be done by having the function send multiple messages to a queue. However, fanning back in is much more challenging. You'd have to write code to to track when the queue-triggered functions end and store function outputs. The Durable Functions extension handles this pattern with relatively simple code.
 
@@ -152,6 +152,8 @@ The [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable
 ## Pattern #4: Stateful singletons
 
 Most functions have an explicit start and end and don't directly interact with external event sources. However, orchestrations support a [stateful singleton](durable-functions-singletons.md) pattern that allows them to behave like reliable [actors](https://en.wikipedia.org/wiki/Actor_model) in distributed computing.
+
+The following diagram illustrates a function that runs in an infinite loop while processing events received from external sources.
 
 ![Stateful singleton diagram](media/durable-functions-overview/stateful-singleton.png)
 

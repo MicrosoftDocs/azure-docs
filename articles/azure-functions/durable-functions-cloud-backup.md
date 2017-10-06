@@ -18,7 +18,7 @@ ms.author: cgillum
 
 # Fan-out/fan-in scenario in Durable Functions - Cloud backup example
 
-Fan-in/fan-out refers to the pattern of executing multiple functions concurrently and then performing some aggregation on the results. This article explains a sample that uses [Durable Functions](durable-functions-overview.md) to implement a fan-in/fan-out scenario. The sample is a durable function that backs up all or some of an app's site content into Azure Storage.
+*Fan-out/fan-in* refers to the pattern of executing multiple functions concurrently and then performing some aggregation on the results. This article explains a sample that uses [Durable Functions](durable-functions-overview.md) to implement a fan-in/fan-out scenario. The sample is a durable function that backs up all or some of an app's site content into Azure Storage.
 
 ## Prerequisites
 
@@ -97,7 +97,7 @@ The implementation loads the file from disk and asynchronously streams the conte
 
 Using the HTTP-triggered functions included in the sample, you can start the orchestration using the following HTTP POST request.
 
-```plaintext
+```
 POST http://{host}/orchestrators/E2_BackupSiteContent HTTP/1.1
 Content-Type: application/json
 Content-Length: 20
@@ -110,7 +110,7 @@ Content-Length: 20
 
 This will trigger the `E2_BackupSiteContent` orchestrator and pass the string `D:\home\LogFiles` as a parameter. The response provides a link to get the status of this backup operation:
 
-```plaintext
+```
 HTTP/1.1 202 Accepted
 Content-Length: 719
 Content-Type: application/json; charset=utf-8
@@ -121,11 +121,11 @@ Location: http://{host}/admin/extensions/DurableTaskExtension/instances/b4e9bdcc
 
 Depending on how many log files you have in your function app, this operation could take several minutes to complete. You can get the latest status by querying the URL in the `Location` header of the previous HTTP 202 response.
 
-```plaintext
+```
 GET http://{host}/admin/extensions/DurableTaskExtension/instances/b4e9bdcc435d460f8dc008115ff0a8a9?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 ```
 
-```plaintext
+```
 HTTP/1.1 202 Accepted
 Content-Length: 148
 Content-Type: application/json; charset=utf-8
@@ -136,7 +136,7 @@ Location: http://{host}/admin/extensions/DurableTaskExtension/instances/b4e9bdcc
 
 In this case, the function is still running. You are able to see the input that was saved into the orchestrator state and the last updated time. You can continue to use the `Location` header values to poll for completion. When the status is "Completed", you see an HTTP response value similar to the following:
 
-```plaintext
+```
 HTTP/1.1 200 OK
 Content-Length: 152
 Content-Type: application/json; charset=utf-8
@@ -146,9 +146,9 @@ Content-Type: application/json; charset=utf-8
 
 Now you can see that the orchestration is complete and approximately how much time it took to complete. You also see a value for the `output` field, which indicates that around 450 KB of logs were uploaded.
 
-## Full Sample Code
+## Visual Studio sample code
 
-Here is the full orchestration as a single C# file using the Visual Studio project syntax:
+Here is the orchestration as a single C# file in a Visual Studio project:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs)]
 

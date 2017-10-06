@@ -63,10 +63,6 @@ If you prefer, you can use the Azure portal for Durable Functions development.
 1. Download the [DFSampleApp.zip](https://github.com/Azure/azure-functions-durable-extension/raw/master/docfx/files/DFSampleApp.zip) file.
 2. Unzip the sample file into `D:\home\site\wwwroot` in the function app, using Kudu or FTP.
 
-## Other development tools
-
-Directions for using other development tools, such as Visual Studio Code, are not available yet.
-
 ## Next steps
 
 > [!div class="nextstepaction"]
