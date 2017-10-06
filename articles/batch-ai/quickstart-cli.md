@@ -98,7 +98,7 @@ az storage file upload --share-name batchaiquickstart --source Train-28x28_cntk_
 
 az storage file upload --share-name batchaiquickstart --source Test-28x28_cntk_text.txt --path mnistcntksample
 
-az storage file upload --share-name batchaiquickstart --source ConvNet_MNIST.cntk --path mnistcntksample
+az storage file upload --share-name batchaiquickstart --source ConvNet_MNIST.py --path mnistcntksample
 
 
 ```

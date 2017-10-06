@@ -55,7 +55,7 @@ To use Batch AI, you define and manage *clusters* and *jobs*. 
  
 **Clusters**  describe your compute requirements: 
 * Azure region that you want to run in 
-* The family and size of VM to use - for example, NC24 with 4 NVIDIA K80 GPUs 
+* The family and size of VM to use - for example, an NC24 VM, which contains 4 NVIDIA K80 GPUs 
 * The number of VMs, or the minimum and maximum number for autoscaling 
 * The VM image - for example, Ubuntu 16.04 LTS or [Microsoft Deep Learning Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)
 * Any remote file share volumes to mount - for example, from Azure Files or an NFS server managed by Batch AI 
@@ -84,7 +84,10 @@ Batch AI provides flexible options for your training scripts, data, and outputs:
 
 * Set up an **NFS server** to support a larger scale of data and VMs for training. Batch AI can set up an NFS server for you as a special cluster type with disks backed in Azure Storage. 
  
-* A **parallel file system** provides further scalability for data and parallel training. While Batch AI does not manage parallel file systems, example deployment templates are available for Luster, Gluster, and BeeGFS.  
+* A **parallel file system** provides further scalability for data and parallel training. While Batch AI does not manage parallel file systems, example deployment templates are available for Lustre, Gluster, and BeeGFS.  
 
 ## Next steps
+
+* Get started creating your first Batch AI training job using the [Azure CLI](quickstart-cli.md) or [Python](quickstart-python.md).
+* Check out sample [training recipes](https://github.com/Azure/BatchAI) for different frameworks.
 

@@ -32,6 +32,8 @@ In this example, you use the MNIST database of handwritten images to train a con
 
 * Azure storage account - See [How to create an Azure storage account](../storage/common/storage-create-storage-account.md)
 
+* Azure Active Directory service principal credentials - See [How to create a service principal with the CLI](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)
+
 * Create these parameters in your Python script, substituting your own values:
 
 ```Python
@@ -50,10 +52,55 @@ admin_user_name = 'my_admin_user_name'
 admin_user_password = 'my_admin_user_password'
 ```
 
+## Authenticate with Batch AI
+
+To be able to access Azure Batch AI, you need to authenticate using Azure Active Directory. Below is code to authenticate with the service (create a `BatchAIManagementClient` object) using your service principal credentials and subscription ID:
+
+```Python
+from azure.common.credentials import ServicePrincipalCredentials
+import azure.mgmt.batchai as batchai
+import azure.mgmt.batchai.models as models
+
+creds = ServicePrincipalCredentials(
+		client_id=client_id, secret=secret, token_uri=token_uri)
+
+client = batchai.BatchAIManagementClient(credentials=creds,
+                                         subscription_id=subscription_id
+)
+A resource group need to be created before using BatchAI
+
+from azure.mgmt.resource import ResourceManagementClient
+
+resource_group_name = 'quickstartrg'
+
+client = ResourceManagementClient(
+        credentials=creds, subscription_id=subscription_id)
+
+resource = client.resource_groups.create_or_update(
+        resource_group_name, {'location': 'eastus'})
+
+```
+# Create a resource group
+
+Batch AI clusters and jobs are Azure resources and must be placed in an Azure resource group, a logical collection into which Azure resources are deployed and managed. The following snippet creates a resource group:
+
+```Python
+from azure.mgmt.resource import ResourceManagementClient
+
+resource_group_name = 'quickstartrg'
+
+client = ResourceManagementClient(
+        credentials=creds, subscription_id=subscription_id)
+
+resource = client.resource_groups.create_or_update(
+        resource_group_name, {'location': 'eastus'})
+
+
+```
 
 
 ## Prepare Azure file share
-
+For illustration purposes, this quickstart uses an Azure file share to host the training data and scripts for the learning job. Create a file share named *batchaiquickstart*
 ## Create GPU cluster
 
 ## Monitor cluster creation
