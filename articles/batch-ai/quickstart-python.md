@@ -125,7 +125,9 @@ For illustration purposes, this quickstart uses an Azure file share to host the 
 Create a Batch AI cluster. In this example, the cluster consists of a single STANDARD_NC6 VM node. This VM size has one NVIDIA K80 GPU. Mount the file share at a folder named *azurefileshare*. The full path of this folder on the GPU compute node is $AZ_BATCHAI_MOUNT_ROOT/azurefileshare.
 
 ```Python
-cluster_name = 'mycluster' 
+cluster_name = 'mycluster'
+
+relative_mount_point = 'azurefileshare' 
  
 parameters = models.ClusterCreateParameters(
     # Location where the cluster will physically be deployed
@@ -156,7 +158,7 @@ parameters = models.ClusterCreateParameters(
          account_key=storage_account_key),
          azure_file_url='https://{0}.file.core.windows.net/{1}'.format(
                storage_account_name, mnist_dataset_directory),
-                  relative_mount_path = 'azurefileshare')],
+                  relative_mount_path = relative_mount_point)],
          ), 
     ), 
 ) 
