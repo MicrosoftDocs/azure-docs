@@ -62,7 +62,7 @@ Here are some notes about the orchestration trigger:
 
 The orchestration trigger binding supports both inputs and outputs. Here are some things to know about input and output handling:
 
-* **inputs** - Orchestration functions support only [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) as a parameter type. Deserialization inputs directly in the function signature are not supported. Code must use the [GetInput](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput_) method to fetch orchestrator function inputs. These inputs must be JSON-serializable types.
+* **inputs** - Orchestration functions support only [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) as a parameter type. Deserialization inputs directly in the function signature are not supported. Code must use the [GetInput\<T>](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1) method to fetch orchestrator function inputs. These inputs must be JSON-serializable types.
 * **outputs** - Orchestration triggers support output values as well as inputs. The return value of the function is used to assign the output value and must be JSON-serializable. If a function returns `Task` or `void`, a `null` value will be saved as the output.
 
 > [!NOTE]
