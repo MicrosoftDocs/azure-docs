@@ -1,10 +1,10 @@
 ---
 title: Install Update 5 on StorSimple 8000 series device | Microsoft Docs
-description: Explains how to install StorSimple 8000 Series Update 4 on your StorSimple 8000 series device.
+description: Explains how to install StorSimple 8000 Series Update 5 on your StorSimple 8000 series device.
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jconnoc
 editor: ''
 
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/02/2017
+ms.date: 10/06/2017
 ms.author: alkohli
 
 ---
