@@ -603,7 +603,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/cognitive-services/Batch-AI">
+                                            <a href="/azure/cognitive-services/Batch-AI">
                                                 <img src="media/index/Azure_batch_AI_tile_90.png" alt="" />
                                                 <p>Azure Batch AI</p>
                                             </a>
@@ -2540,7 +2540,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/cognitive-services/Batch-AI">
+                                <a href="/azure/cognitive-services/Batch-AI">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">

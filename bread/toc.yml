@@ -110,6 +110,9 @@
     tocHref: /azure/cognitive-services/
     topicHref: /azure/cognitive-services/
     items: 
+    - name: Batch AI
+      tocHref: /azure/cognitive-services/Batch-AI/
+      topicHref: /azure/cognitive-services/Batch-AI/
     - name: Bing Custom Search
       tocHref: /azure/cognitive-services/bing-custom-search/
       topicHref: /azure/cognitive-services/bing-custom-search/
