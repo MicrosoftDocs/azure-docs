@@ -48,7 +48,7 @@ sections:
 - title: Preview features
   items:
   - type: paragraph
-    text: 'Leverage the power of Azure's global footprint with ACR Geo-replication'
+    text: Leverage the power of Azure's global footprint with ACR Geo-replication
   - type: list
     style: unordered
     className: spaced noBullet
