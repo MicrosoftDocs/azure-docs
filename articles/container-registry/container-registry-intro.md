@@ -53,4 +53,3 @@ Developers can also push to a container registry as part of a container developm
 * [Create a container registry using the Azure portal](container-registry-get-started-portal.md)
 * [Create a container registry using the Azure CLI](container-registry-get-started-azure-cli.md)
 * [Push your first image using the Docker CLI](container-registry-get-started-docker-cli.md)
-* To build a continuous integration and deployment workflow using Visual Studio Team Services, Azure Container Service, and Azure Container Registry, see [CI/CD with Docker Swarm and VSTS](../container-service/dcos-swarm/container-service-docker-swarm-setup-ci-cd.md).
