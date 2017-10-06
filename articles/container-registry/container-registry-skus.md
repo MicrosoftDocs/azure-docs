@@ -68,7 +68,7 @@ Once completed, the subscription storage account is no longer used by ACR.
 
 ## Changing SKUs with the Azure Portal
 From **Overview** in the Azure Portal, choose **Update** to configure the desired SKU.
-![SKU Update](media/container-registry-skus\update-registry-sku.png)
+![SKU Update](media/container-registry-skus/update-registry-sku.png)
 
 
 ## Changing SKUs with the az cli
