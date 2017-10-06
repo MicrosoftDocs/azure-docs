@@ -112,13 +112,13 @@ For illustration purposes, this quickstart uses an Azure file share to host the 
 
 
 ## Create GPU cluster
-Use the [az bachai cluster create](/cli/azure/batchai/cluster#az_batchai_cluster_create) command to create a Batch AI cluster consisting of a single GPU VM node. In this example, the VM runs the default Ubuntu LTS image. Specify `image=UbuntuDSVM` instead to run the Microsoft Deep Learning Virtual Machine, which supports additional training frameworks. The NC6 size has one NVIDIA K80 GPU. Mount the file share at a folder named *azurefileshare*. The full path of this folder on the GPU compute node is $AZ_BATCHAI_MOUNT_ROOT/azurefileshare. 
+Use the [az bachai cluster create](/cli/azure/batchai/cluster#az_batchai_cluster_create) command to create a Batch AI cluster consisting of a single GPU VM node. In this example, the VM runs the default Ubuntu LTS image. Specify `image UbuntuDSVM` instead to run the Microsoft Deep Learning Virtual Machine, which supports additional training frameworks. The NC6 size has one NVIDIA K80 GPU. Mount the file share at a folder named *azurefileshare*. The full path of this folder on the GPU compute node is $AZ_BATCHAI_MOUNT_ROOT/azurefileshare. 
 
 
 ```azurecli
 az batchai cluster create --name mycluster  \
     --vm-size STANDARD_NC6  \
-    --image=UbuntuLTS \
+    --image UbuntuLTS \
     --min 1 --max 1 \
     --afs-name batchaiquickstart \
     --nfs-mount-path azurefileshare \
