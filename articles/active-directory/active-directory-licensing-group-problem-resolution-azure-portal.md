@@ -26,14 +26,14 @@
 
 Group-based licensing in Azure Active Directory (Azure AD) introduces the concept of users in a licensing error state. In this article, we explain the reasons why users might end up in this state.
 
-When you assign licenses directly to individual users, without making use of group-based licensing, the assignment operation might fail. For example, when you execute the PowerShell cmdlet `Set-MsolUserLicense` on a user system, the cmdlet can fail for many reasons that are related to business logic. For example, there might be an insufficient number of licenses or a conflict between two service plans that can't be assigned at the same time. The problem is immediately reported back to you.
+When you assign licenses directly to individual users, without using group-based licensing, the assignment operation might fail. For example, when you execute the PowerShell cmdlet `Set-MsolUserLicense` on a user system, the cmdlet can fail for many reasons that are related to business logic. For example, there might be an insufficient number of licenses or a conflict between two service plans that can't be assigned at the same time. The problem is immediately reported back to you.
 
 When you're using group-based licensing, the same errors can occur, but they happen in the background while the Azure AD service is assigning licenses. For this reason, the errors can't be communicated to you immediately. Instead, they're recorded on the user object and then reported via the administrative portal. The original intent to license the user is never lost, but it's recorded in an error state for future investigation and resolution.
 
 ## How to find license assignment errors
 **To find license assignment errors**
 
-   1. To find users in an error state in a specific group, open the pane for the group. Under **Licenses**, a notification displays if there are any users in an error state.
+   1. To find users in an error state in a specific group, open the pane for the group. Under **Licenses**, a notification appears if there are any users in an error state.
 
    ![Group, error notification](media/active-directory-licensing-group-problem-resolution-azure-portal/group-error-notification.png)
 
@@ -71,7 +71,7 @@ Consider the following example. A user has a license for Office 365 Enterprise *
 -   SharePoint Online (Plan 2) conflicts with SharePoint Online (Plan 1).
 -   Exchange Online (Plan 2) conflicts with Exchange Online (Plan 1).
 
-To solve this conflict, you need to disable two of the plans. You can either disable the E1 license that's directly assigned to the user. Or, you need to modify the entire group license assignment and disable the plans in the E3 license. Alternatively, you might decide to remove the E1 license from the user if it's redundant in the context of the E3 license.
+To solve this conflict, you need to disable two of the plans. You can disable the E1 license that's directly assigned to the user. Or, you need to modify the entire group license assignment and disable the plans in the E3 license. Alternatively, you might decide to remove the E1 license from the user if it's redundant in the context of the E3 license.
 
 The decision about how to resolve conflicting product licenses always belongs to the administrator. Azure AD doesn't automatically resolve license conflicts.
 
@@ -103,7 +103,7 @@ To solve this problem, remove users from nonsupported locations from the license
 
 You can assign more than one product license to a group. For example, you can assign Office 365 Enterprise E3 and Enterprise Mobility + Security to a group to easily enable all included services for users.
 
-Azure AD attempts to assign all licenses that are specified in the group to each user. If Azure AD can't assign one of the products because of business logic problems, it won't assign the other licenses in the group either. An example, is if there aren't enough licenses for all or if there are conflicts with other services that are enabled on the user.
+Azure AD attempts to assign all licenses that are specified in the group to each user. If Azure AD can't assign one of the products because of business logic problems, it won't assign the other licenses in the group either. An example is if there aren't enough licenses for all, or if there are conflicts with other services that are enabled on the user.
 
 You can see the users who failed to get assigned and check which products are affected by this problem.
 
@@ -111,14 +111,11 @@ You can see the users who failed to get assigned and check which products are af
 
 Some Microsoft Online products you might own are *add-ons*. Add-ons require a prerequisite service plan to be enabled for a user or a group before they can be assigned a license. With group-based licensing, the system requires that both the prerequisite and add-on service plans be present in the same group. This is done to ensure that any users who are added to the group can receive the fully working product. Let's consider the following example:
 
-Microsoft Workplace Analytics is an add-on product. It contains a single service plan with the same name. We can only assign this service plan to a user, or group, when one of the following prerequisites are also assigned:
+Microsoft Workplace Analytics is an add-on product. It contains a single service plan with the same name. We can only assign this service plan to a user, or group, when one of the following prerequisites is also assigned:
 - Exchange Online (Plan 1) 
-
-or
-
 - Exchange Online (Plan 2)
 
-If we try to assign this product on its own to a group, the portal returns an error--select the error notification and it shows the following details:
+If we try to assign this product on its own to a group, the portal returns an error. Selecting the error notification shows the following details:
 
 ![Group, prerequisite missing](media/active-directory-licensing-group-problem-resolution-azure-portal/group-prerequisite-required.png)
 
@@ -128,20 +125,20 @@ If we select the details, it shows the following error message:
 
 To assign this add-on license to a group, we must ensure that the group also contains the prerequisite service plan. For example, we might update an existing group that already contains the full Office 365 E3 product, and then add the add-on product to it.
 
-It is also possible to create a standalone group that contains only the minimum required products to make the add-on work--it can be used to license only the selected users for the add-on product. In this example, we have assigned the following products to the same group:
+It is also possible to create a standalone group that contains only the minimum required products to make the add-on work. It can be used to license only the selected users for the add-on product. In this example, we have assigned the following products to the same group:
 - Office 365 Enterprise E3 with only the Exchange Online (Plan 2) service plan enabled
 - Microsoft Workplace Analytics
 
 ![Group, prerequisite included](media/active-directory-licensing-group-problem-resolution-azure-portal/group-addon-with-prerequisite.png)
 
-From now on, any users added to this group consumes one license of the E3 product and one license of the Workplace Analytics product. At the same time, those users can be members of another group that gives them the full E3 product and they still consume only one license for that product.
+From now on, any users added to this group consume one license of the E3 product and one license of the Workplace Analytics product. At the same time, those users can be members of another group that gives them the full E3 product, and they still consume only one license for that product.
 
 > [!TIP]
-> You can create multiple groups for each prerequisite service plan. For example, if you use both Office 365 Enterprise E1 and Office 365 Enterprise E3 for your users, you can create two groups to license Microsoft Workplace Analytics; one that uses E1 as a prerequisite and the other that uses E3. This lets you distribute the add-on to E1 and E3 users without consuming additional licenses.
+> You can create multiple groups for each prerequisite service plan. For example, if you use both Office 365 Enterprise E1 and Office 365 Enterprise E3 for your users, you can create two groups to license Microsoft Workplace Analytics: one that uses E1 as a prerequisite and the other that uses E3. This lets you distribute the add-on to E1 and E3 users without consuming additional licenses.
 
 ## License assignment fails silently for a user due to duplicate proxy addresses in Exchange Online
 
-If you use Exchange Online, some users in your tenant might be incorrectly configured with the same proxy address value. When group-based licensing tries to assign a license to such a user, it fails and does not record an error. The failure to record the error in this instance is a limitation in the preview version of this feature and we are going to address it before *General Availability*.
+If you use Exchange Online, some users in your tenant might be incorrectly configured with the same proxy address value. When group-based licensing tries to assign a license to such a user, it fails and does not record an error. The failure to record the error in this instance is a limitation in the preview version of this feature, and we are going to address it before *General Availability*.
 
 > [!TIP]
 > If you notice that some users did not receive a license and there is no error recorded for those users, first check if they have a duplicate proxy address.
@@ -158,7 +155,7 @@ After you resolve any proxy address problems for the affected users, make sure t
 
 Depending on what steps you've taken to resolve the errors, it might be necessary to manually trigger the processing of a group to update the user state.
 
-For example, if you free up some licenses by removing direct license assignments from users, you need to trigger the processing of groups that previously failed to fully license all user members. To reprocess a group, go to the group pane, open **Licenses**, and then select the **Reprocess** button in the toolbar.
+For example, if you free up some licenses by removing direct license assignments from users, you need to trigger the processing of groups that previously failed to fully license all user members. To reprocess a group, go to the group pane, open **Licenses**, and then select the **Reprocess** button on the toolbar.
 
 ## Next steps
 
