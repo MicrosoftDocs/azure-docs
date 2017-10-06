@@ -1,7 +1,7 @@
 ---
 title: Azure Quickstart - CNTK training with Batch AI - Azure CLI | Microsoft Docs
 description: Quickly learn to run a CNTK training job with Batch AI using the Azure CLI
-services: batchai
+services: batch-ai
 documentationcenter: na
 author: dlepow
 manager: timlt
@@ -9,7 +9,7 @@ editor: tysonn
 
 ms.assetid:
 ms.custom: mvc
-ms.service: batchai
+ms.service: batch-ai
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: CLI
@@ -50,7 +50,7 @@ This quickstart uses an Azure storage account to host data and scripts for the t
 az storage account create \
     --name mystorageaccount \
     --sku Standard_LRS 
- ```
+```
 
 For later commands, set default storage account environment variables:
 
@@ -76,32 +76,28 @@ For later commands, set default storage account environment variables:
 
 ## Prepare Azure file share
 
-For illustration purposes, this quickstart uses an Azure file share to host the training data and scripts for the learning job. Create a file share named *batchaiquickstart* using the [az storage share create](/cli/azure/storage/share#az_storage_share_create) command.
+For illustration purposes, this quickstart uses an Azure file share to host the training data and scripts for the learning job. 
 
-```azure-cli
-az storage share create --name batchaiquickstart
-```
-Create a directory in the share named *mnistcntksample* using the [az storage directory create](/cli/azure/storage/directory#az_storage_directory_create) command.
+1. Create a file share named *batchaiquickstart* using the [az storage share create](/cli/azure/storage/share#az_storage_share_create) command.
 
-```azure-cli
-az storage directory create --share-name batchaisample --name mnistcntksample
-```
+  ```azure-cli
+  az storage share create --name batchaiquickstart
+  ```
+2. Create a directory in the share named *mnistcntksample* using the [az storage directory create](/cli/azure/storage/directory#az_storage_directory_create) command.
 
-Download the [sample package](https://batchaisamples.blob.core.windows.net/samples/BatchAIQuickStart.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=b&sig=hrAZfbZC%2BQ%2FKccFQZ7OC4b%2FXSzCF5Myi4Cj%2BW3sVZDo%3D), unzip, and upload the contents to the directory using the [az storage file upload](/cli/azure/storage/file#az_storage_file_upload) command.
+  ```azure-cli
+  az storage directory create --share-name batchaisample --name mnistcntksample
+  ```
 
-```azure-cli
-wget -O BatchAIQuickStart.zip "https://batchaisamples.blob.core.windows.net/samples/BatchAIQuickStart.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=b&sig=hrAZfbZC%2BQ%2FKccFQZ7OC4b%2FXSzCF5Myi4Cj%2BW3sVZDo%3D" 
+3. Download the [sample package](https://batchaisamples.blob.core.windows.net/samples/BatchAIQuickStart.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=b&sig=hrAZfbZC%2BQ%2FKccFQZ7OC4b%2FXSzCF5Myi4Cj%2BW3sVZDo%3D) and unzip. Upload the contents to the directory using the [az storage file upload](/cli/azure/storage/file#az_storage_file_upload) command:
 
-unzip BatchAIQuickStart.zip
+  ```azure-cli
+  az storage file upload --share-name batchaiquickstart --source Train-28x28_cntk_text.txt --path mnistcntksample 
 
-az storage file upload --share-name batchaiquickstart --source Train-28x28_cntk_text.txt --path mnistcntksample 
+  az storage file upload --share-name batchaiquickstart --source Test-28x28_cntk_text.txt --path mnistcntksample
 
-az storage file upload --share-name batchaiquickstart --source Test-28x28_cntk_text.txt --path mnistcntksample
-
-az storage file upload --share-name batchaiquickstart --source ConvNet_MNIST.py --path mnistcntksample
-
-
-```
+  az storage file upload --share-name batchaiquickstart --source ConvNet_MNIST.py --path mnistcntksample
+  ```
 
 
 ## Create GPU cluster
@@ -181,7 +177,7 @@ After the cluster is created, output is similar to the following:
   "vmPriority": "dedicated",
   "vmSize": "STANDARD_NC6"
 ```
-### Monitor cluster creation
+## Get cluster status
 
 To monitor the cluster state, run the [az batchai cluster show](/cli/azure/batchai/cluster#az_batchai_cluster_show) command:
 
@@ -373,8 +369,6 @@ Use the [az batchai job delete](/cli/azure/batchai/job#az_batchai_job_delete) co
 ```azure-cli
 az batchai job delete --name myjob
 ```
-## Delete resources
-
 Use the [az batchai cluster delete](/cli/azure/batchai/cluster#az_batchai_cluster_delete) command to delete the cluster:
 
 ```azure-cli
