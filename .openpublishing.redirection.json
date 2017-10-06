@@ -916,6 +916,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/logic-apps/logic-apps-custom-hosted-api.md",
+            "redirect_url": "/azure/logic-apps/logic-apps-custom-api-host-deploy-call",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/app-service-logic/app-service-logic-deploy-from-vs.md",
             "redirect_url": "/azure/logic-apps/logic-apps-deploy-from-vs",
             "redirect_document_id": false
@@ -4160,6 +4165,11 @@
             "redirect_url": "/azure/operations-management-suite/oms-solution-update-management",
             "redirect_document_id": false
         },
+		{
+            "source_path": "articles/log-analytics/log-analytics-get-started.md",
+            "redirect_url": "https://docs.microsoft.com/en-us/azure/log-analytics",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/machine-learning/machine-learning-apps-text-analytics.md",
             "redirect_url": "../cognitive-services/cognitive-services-text-analytics-quick-start",
@@ -5145,6 +5155,16 @@
             "redirect_url": "/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues",
             "redirect_document_id": false
         },
+        {
+            "source_path": "articles/service-bus-messaging/service-bus-create-queues.md",
+            "redirect_url": "/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/service-bus-messaging/service-bus-create-topics-subscriptions.md",
+            "redirect_url": "/azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions",
+            "redirect_document_id": false
+        },        
         {
             "source_path": "articles/service-bus-messaging/service-bus-dotnet-advanced-message-queuing.md",
             "redirect_url": "/azure/service-bus-messaging/service-bus-amqp-dotnet",
@@ -6134,12 +6154,7 @@
             "source_path": "articles/logic-apps/logic-apps-enterprise-integration-accounts.md",
             "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-create-integration-account",
             "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/logic-apps/logic-apps-custom-hosted-api.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-custom-api-host-deploy-call",
-            "redirect_document_id": false
-        },        
+        },    
         {
             "source_path": "articles/backup/backup-azure-backup-ibiza-faq.md",
             "redirect_url": "/azure/backup/backup-azure-backup-faq",
