@@ -38,7 +38,15 @@ ms.custom: H1Hack27Feb2017
 
 
 [sap-net-weaver-ports]:https://help.sap.com/viewer/ports
-[sap-net-weaver-ports-ascs-scs-ports]:sap-high-availability-infrastructure-wsfc-shared-disk#0f3ee255-b31e-4b8a-a95a-d9ed6200468b
+[sap-high-availability-architecture-scenarios]:sap-high-availability-architecture-scenarios.md
+[sap-high-availability-guide-wsfc-shared-disk]:sap-high-availability-guide-wsfc-shared-disk.md
+[sap-high-availability-guide-wsfc-file-share]:sap-high-availability-guide-wsfc-file-share.md
+[sap-ascs-high-availability-multi-sid-wsfc]:sap-ascs-high-availability-multi-sid-wsfc.md
+[sap-high-availability-infrastructure-wsfc-shared-disk]:sap-high-availability-infrastructure-wsfc-shared-disk.md
+[sap-high-availability-installation-wsfc-shared-disk]:sap-high-availability-installation-wsfc-shared-disk.md
+[sap-hana-ha]:sap-hana-high-availability.md
+[sap-suse-ascs-ha]:high-availability-guide-suse.md
+[sap-net-weaver-ports-ascs-scs-ports]:sap-high-availability-infrastructure-wsfc-shared-disk.md#0f3ee255-b31e-4b8a-a95a-d9ed6200468b
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
