@@ -42,4 +42,5 @@ The following command shows the restore of a file /etc/fstabfrom the backup file
 ```
 tar  -xvf  /osbackups/hostname/backup.tar.gz  etc/fstab 
 ```
->[!NOTE] You need to copy the file to desired location after it is restored from the backup.
+>[!NOTE] 
+>You need to copy the file to desired location after it is restored from the backup.

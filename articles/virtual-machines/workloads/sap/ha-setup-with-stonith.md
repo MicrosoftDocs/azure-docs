@@ -45,6 +45,7 @@ When you setup HANA Large Instances with HSR, you can request Microsoft Service 
 - Server Name and Server IP address (e.g., myhanaserver1, 10.35.0.1)
 - Location (e.g., US East)
 - Customer Name (e.g., Microsoft)
+- SID - HANA System Identifier (e.g., H11)
 
 Once the STONITH device is configured, Microsoft Service Management team does provide you the SBD device name and IP address of the iSCSI storage which you can use to configure STONITH setup. 
 
