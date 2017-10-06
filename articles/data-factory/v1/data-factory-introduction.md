@@ -34,7 +34,7 @@ For example, a gaming company collects logs that are produced by games in the cl
 
 To analyze these logs, the company needs to use the reference data such as customer information, game information, and marketing campaign information that is in an on-premises data store. Therefore, the company wants to ingest log data from the cloud data store and reference data from the on-premises data store. 
 
-Next they want to process the data by using Hadoop in the cloud (Azure HDInsight) and publish the result data into a cloud data warehouse such as Azure SQL Data Warehouse or an on-premises data store such as SQL Server. The company wants this workflow to run  once a week. 
+Next they want to process the data by using Hadoop in the cloud (Azure HDInsight). They want to publish the result data into a cloud data warehouse such as Azure SQL Data Warehouse or an on-premises data store such as SQL Server. The company wants this workflow to run  once a week. 
 
 The company needs a platform where they can create a workflow that can ingest data from both on-premises and cloud data stores. The company also needs to be able to transform or process data by using existing compute services such as Hadoop, and publish the results to an on-premises or cloud data store for BI applications to consume. 
 
@@ -50,7 +50,7 @@ Azure Data Factory is the platform for these kind of scenarios. It is a **cloud-
 
 It's more of an Extract-and-Load (EL) and Transform-and-Load (TL) platform rather than a traditional Extract-Transform-and-Load (ETL) platform. The transformations that are performed are to transform/process data by using compute services rather than to add derived columns, count the number of rows, sort data, and so on. 
 
-Currently, in Azure Data Factory, the data that is consumed and produced by workflows is **time-sliced data** (hourly, daily, weekly, etc.). For example, a pipeline might read input data, process data, and produce output data once a day. You can also run a workflow just one time.  
+Currently, in Azure Data Factory, the data that is consumed and produced by workflows is **time-sliced data** (hourly, daily, weekly, and so on.). For example, a pipeline might read input data, process data, and produce output data once a day. You can also run a workflow just one time.  
   
 
 ## How does it work? 
@@ -74,10 +74,12 @@ After data is present in a centralized data store in the cloud, process or trans
 Deliver transformed data from the cloud to on-premises sources such as SQL Server, or keep it in your cloud storage sources for consumption by business intelligence (BI) and analytics tools and other applications.
 
 ## Key components
-An Azure subscription may have one or more Azure Data Factory instances (or data factories). Azure Data Factory is composed of four key components that work together to provide the platform on which you can compose data-driven workflows with steps to move and transform data. 
+An Azure subscription can have one or more Azure Data Factory instances (or data factories). Azure Data Factory is composed of four key components that work together to provide the platform on which you can compose data-driven workflows with steps to move and transform data. 
 
 ### Pipeline
-A data factory may have one or more pipelines. A pipeline is a group of activities. Together, the activities in a pipeline perform a task. For example, a pipeline can contain a group of activities that ingests data from an Azure blob, and then run a Hive query on an HDInsight cluster to partition the data. The benefit of this is that the pipeline allows you to manage the activities as a set instead of each one individually. For example,you can deploy and schedule the pipeline, instead of independent activities. 
+A data factory can have one or more pipelines. A pipeline is a group of activities. Together, the activities in a pipeline perform a task. 
+
+For example, a pipeline can contain a group of activities that ingests data from an Azure blob, and then runs a Hive query on an HDInsight cluster to partition the data. The benefit of this is that the pipeline allows you to manage the activities as a set instead of each one individually. For example, you can deploy and schedule the pipeline, instead of scheduling independent activities. 
 
 ### Activity
 A pipeline can have one or more activities. Activities define the actions to perform on your data. For example, you can use a copy activity to copy data from one data store to another data store. Similarly, you can use a Hive activity, which runs a Hive query on an Azure HDInsight cluster, to transform or analyze your data. Data Factory supports two types of activities: data movement activities and data transformation activities.
@@ -87,7 +89,7 @@ Copy Activity in Data Factory copies data from a source data store to a sink dat
 
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
 
-For more information, see [Data Movement Activities](data-factory-data-movement-activities.md) article.
+For more information, see [Move data by using Copy Activity](data-factory-data-movement-activities.md).
 
 ### Data transformation activities
 [!INCLUDE [data-factory-transformation-activities](../../../includes/data-factory-transformation-activities.md)]
@@ -95,10 +97,12 @@ For more information, see [Data Movement Activities](data-factory-data-movement-
 For more information, see [Move data by using Copy Activity](data-factory-data-transformation-activities.md).
 
 ### Custom .NET activities
-If you need to move data to or from a data store that Copy Activity doesn't support, or transform data using your own logic, create a **custom .NET activity**. For details about how to create and use a custom activity, see [Use custom activities in an Azure Data Factory pipeline](data-factory-use-custom-activities.md).
+If you need to move data to or from a data store that Copy Activity doesn't support, or transform data by using your own logic, create a **custom .NET activity**. For details about how to create and use a custom activity, see [Use custom activities in an Azure Data Factory pipeline](data-factory-use-custom-activities.md).
 
 ### Datasets
-An activity takes zero or more datasets as inputs and one or more datasets as outputs. Datasets represent data structures within the data stores, which simply point to or reference the data you want to use in your activities (such as as inputs or outputs). For example, an Azure blob dataset specifies the blob container and folder in the Azure blob storage from which the pipeline should read the data. Or an Azure SQL Table dataset specifies the table to which the output data is written by the activity. 
+An activity takes zero or more datasets as inputs and one or more datasets as outputs. Datasets represent data structures within the data stores, which simply point to or reference the data you want to use in your activities (such as as inputs or outputs). 
+
+For example, an Azure blob dataset specifies the blob container and folder in the Azure blob storage from which the pipeline should read the data. Or an Azure SQL Table dataset specifies the table to which the output data is written by the activity. 
 
 ### Linked services
 Linked services are much like connection strings, which define the connection information that's needed for Data Factory to connect to external resources. Think of it this way: a linked service defines the connection to the data source and a dataset represents the structure of the data. For example, an Azure Storage-linked service specifies a connection string with which to connect to the Azure Storage account. An Azure blob dataset specifies the blob container and the folder that contains the data.   
@@ -137,5 +141,5 @@ To learn how to build data factories with data pipelines, follow the step-by-ste
 | Tutorial | Description |
 | --- | --- |
 | [Move data between two cloud data stores](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Create a data factory with a pipeline that **moves data** from blob storage to SQL database. |
-| [Transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md) |Build your first Azure data factory with a data pipeline that **processes data** by running Hive script on an Azure HDInsight (Hadoop) cluster. |
+| [Transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md) |Build your first Azure data factory with a data pipeline that **processes data** by running a Hive script on an Azure HDInsight (Hadoop) cluster. |
 | [Move data between an on-premises data store and a cloud data store using Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) |Build a data factory with a pipeline that **moves data** from an **on-premises** SQL Server database to an Azure blob. As part of the walkthrough, you install and configure the Data Management Gateway on your machine. |
