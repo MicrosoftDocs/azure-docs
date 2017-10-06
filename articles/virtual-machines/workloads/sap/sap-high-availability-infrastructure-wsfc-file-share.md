@@ -51,7 +51,7 @@ ms.custom: H1Hack27Feb2017
 [sap-high-availability-infrastructure-wsfc-shared-disk]:sap-high-availability-infrastructure-wsfc-shared-disk.md
 [sap-high-availability-infrastructure-wsfc-shared-disk-azure-network]:sap-high-availability-infrastructure-wsfc-shared-disk.md#47d5300a-a830-41d4-83dd-1a0d1ffdbe6a
 [sap-high-availability-infrastructure-wsfc-shared-disk-dns-ip]:sap-high-availability-infrastructure-wsfc-shared-disk.md#b22d7b3b-4343-40ff-a319-097e13f62f9e
-[sap-ascs-high-availability-multi-sid-wsfc-set-static-ip]:sap-ascs-high-availability-multi-sid-wsfc.md#84c019fe-8c58-4dac-9e54-173efd4b2c30
+[sap-ascs-high-availability-multi-sid-wsfc-set-static-ip]:sap-high-availability-infrastructure-wsfc-shared-disk.md#84c019fe-8c58-4dac-9e54-173efd4b2c30
 [sap-high-availability-infrastructure-wsfc-shared-disk-set-static-ip-ilb]:sap-high-availability-infrastructure-wsfc-shared-disk.md#7a8f3e9b-0624-4051-9e41-b73fff816a9e
 [sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules]:sap-high-availability-infrastructure-wsfc-shared-disk.md#f19bd997-154d-4583-a46e-7f5a69d0153c
 [sap-high-availability-infrastructure-wsfc-shared-disk-change-ascs-ilb-rules]:sap-high-availability-infrastructure-wsfc-shared-disk.md#fe0bd8b5-2b43-45e3-8295-80bee5415716
@@ -203,7 +203,7 @@ ms.custom: H1Hack27Feb2017
 >
 >This is a **public preview feature**, customers must not use it for running productive SAP systems.
 >
->If you want to join the pilot program, please open a SAP support ticket in the BC-OP-NT-AZR queue.  After testing, please provide us with feedback.
+>If you want to join the pilot program, open an SAP support ticket in the BC-OP-NT-AZR queue.  After testing, provide us with feedback.
 >
 
 ## Prerequisite
@@ -217,8 +217,8 @@ Make sure to review these documents before starting with installation:
 
 | Virtual host name role | Virtual host name | Static IP address | Availability Set |
 | --- | --- | --- | --- |
-| 1st cluster node (A)SCS cluster | ascs-1 | 10.0.6.4 | ascs-as |
-| 2nd cluster node (A)SCS cluster | ascs-2 | 10.0.6.5 | ascs-as |
+| First cluster node (A)SCS cluster | ascs-1 | 10.0.6.4 | ascs-as |
+| Second cluster node (A)SCS cluster | ascs-2 | 10.0.6.5 | ascs-as |
 | Cluster Network Name |ascs-cl | 10.0.6.6 | n.a |
 | SAP PR1 ASCS cluster Network Name |pr1-ascs | 10.0.6.7 | n.a |
 
@@ -234,16 +234,16 @@ _**Table 2:** SAP (A)SCS Instance Details _
 
 | Virtual host name role | Virtual host name | Static IP address | Availability Set |
 | --- | --- | --- | --- |
-| 1st cluster node | sofs-1 | 10.0.6.10 | sofs-as |
-| 2nd cluster node | sofs-2 | 10.0.6.11 | sofs-as |
-| 3rd cluster node | sofs-3 | 10.0.6.12 | sofs-as |
+| First cluster node | sofs-1 | 10.0.6.10 | sofs-as |
+| Second cluster node | sofs-2 | 10.0.6.11 | sofs-as |
+| Third cluster node | sofs-3 | 10.0.6.12 | sofs-as |
 | Cluster Network Name | sofs-cl | 10.0.6.13 | n.a |
 | SAP Global Host Name | sapglobal | Use IPs of all cluster nodes | n.a |
 
 _**Table 3:** SOFS cluster_
 
 
-## Deploy VMs for SAP (A)SCS cluster, DBMS Cluster and SAP Application Servers
+## Deploy VMs for SAP (A)SCS cluster, DBMS Cluster, and SAP Application Servers
 Azure infrastructure preparation for SAP is described in this document: https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide#a-name78092dbe-165b-454c-92f5-4972bdbef9bfa-prepare-the-infrastructure
 
 You can follow the steps:
@@ -263,7 +263,7 @@ You can follow the steps:
 
 *  [Add Windows virtual machines to the domain Add registry entries on both cluster nodes of the SAP ASCS/SCS instance][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain]
 
-* As you use Windows Server 2016, it is strongly recommended to configure Azure Cloud witness
+* As you use Windows Server 2016, it is recommended to configure Azure Cloud witness
 
   https://docs.microsoft.com/en-us/windows-server/failover-clustering/deploy-cloud-witness
 
@@ -306,23 +306,23 @@ Add-ClusterScaleOutFileServerRole -Name $SAPGlobalHostName
 
 ## Deploy Scale Out File Server Automatically
 
-Also, you can **automate** deployment of SOFS using Azure ARM templates in an existing VNET and Active Directory environment:
+Also, you can **automate** deployment of SOFS using Azure Resource Manager templates in an existing VNET and Active Directory environment:
 
 > [!IMPORTANT]
->It is strongly recommended to have 3 (or more cluster) nodes for SOFS with 3-way mirroring.
+>It is recommended to have 3 (or more cluster) nodes for SOFS with 3-way mirroring.
 >
->Therefore, in the SOFS ARM template UI you must specify in VM Count.
+>Therefore, in the SOFS Resource Manager template UI you must specify in VM Count.
 >
 
 ### Using managed disks
 
 https://github.com/robotechredmond/301-storage-spaces-direct-md
 
-Managed disks are strongly recommended.
+Managed disks are recommended.
 
-![Figure 10: UI screen for SOFS ARM template with Managed disks][sap-ha-guide-figure-8010]
+![Figure 10: UI screen for SOFS Resource Manager template with Managed disks][sap-ha-guide-figure-8010]
 
-_**Figure 10:** UI screen for SOFS ARM template with Managed disks_
+_**Figure 10:** UI screen for SOFS Resource Manager template with Managed disks_
 
 VM Count minimum is 2, Disk count minimum is 2 + 1 spare disk = 3, SAP GLOBAL Host network name is **sapglobalhost** and file share is **sapmnt**.
 
@@ -330,9 +330,9 @@ VM Count minimum is 2, Disk count minimum is 2 + 1 spare disk = 3, SAP GLOBAL Ho
 
 https://github.com/Azure/azure-quickstart-templates/tree/master/301-storage-spaces-direct
 
-![Figure 11: UI screen for SOFS ARM template without Managed disks][sap-ha-guide-figure-8011]
+![Figure 11: UI screen for SOFS Azure Resource Manager template without Managed disks][sap-ha-guide-figure-8011]
 
-_**Figure 11:** UI screen for SOFS ARM template without Managed disks_
+_**Figure 11:** UI screen for SOFS Azure Resource Manager template without Managed disks_
 
 Make sure to choose **Premium Storage** as Storage Account Type. Other settings are the same as with managed disks.
 
