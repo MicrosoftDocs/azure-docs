@@ -10,7 +10,7 @@ ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: troubleshooting
 ms.workload: iaas-sql-server
-ms.date: 10/03/2017
+ms.date: 10/05/2017
 ms.author: jroth
 ---
 # Frequently asked questions for SQL Server on Linux Azure Virtual Machines
@@ -55,6 +55,10 @@ This topic provides answers to some of the most common questions about running [
 1. **Are SQL Server High Availability solutions supported on Azure VMs?**
 
    Not at this time. Always On Availability Groups and Failover Clustering both require a clustering solution in Linux, such as Pacemaker. The supported Linux distributions for SQL Server do not support their high availability add-ons in the Cloud.
+
+1. **Why can’t I provision an RHEL or SLES SQL Server VM with an Azure subscription that has a spending limit?**
+
+   RHEL and SLES virtual machines require a subscription with no spending limit and a verified payment method (usually a credit card) associated with the subscription. If you provision an RHEL or SLES VM without removing the spending limit, your subscription will get disabled and all VMs/services stopped. If you do run into this state, to re-enable the subscription [remove the spending limit](https://account.windowsazure.com/subscriptions). Your remaining credits will be restored for the current billing cycle but an RHEL or SLES VM image surcharge will go against your credit card if you choose to re-start and continue running it.
 
 ## Resources
 
