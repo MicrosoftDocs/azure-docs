@@ -45,16 +45,6 @@ sections:
     items:
     - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Container Registry with Azure Container Instances</a>
     - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app">Container Registry with Azure Container Service</a>
-- title: Preview Features
-  items:
-  - type: paragraph
-    text: Leverage the power of Azure's global footprint with ACR Geo-replication
-  - type: list
-    style: unordered
-    className: spaced noBullet
-    items:
-    - html: <a href="/azure/container-registry/container-registry-geo-replication">ACR Geo-replication</a>
-
 - title: Reference
   items:
   - type: list
