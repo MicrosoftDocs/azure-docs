@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 06/27/2017
-ms.author: sethm;babanisa
+ms.date: 10/05/2017
+ms.author: sethm
 
 ---
 # Event Hubs diagnostic logs
@@ -25,6 +25,7 @@ You can view two types of logs for Azure Event Hubs:
 * **[Diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. You can configure diagnostic logs for a richer view of everything that happens with a job. Diagnostic logs cover activities from the time the job is created until the job is deleted, including updates and activities that occur while the job is running.
 
 ## Turn on diagnostic logs
+
 Diagnostics logs are disabled by default. To enable diagnostic logs:
 
 1.	In the [Azure portal](https://portal.azure.com), under **Monitoring + Management**, click **Diagnostics logs**.
@@ -132,4 +133,4 @@ Example:
 ## Next steps
 * [Introduction to Event Hubs](event-hubs-what-is-event-hubs.md)
 * [Event Hubs API overview](event-hubs-api-overview.md)
-* [Get started with Event Hubs](event-hubs-csharp-ephcs-getstarted.md)
+* [Get started with Event Hubs](event-hubs-dotnet-standard-getstarted-send.md)
