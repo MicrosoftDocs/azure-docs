@@ -22,7 +22,7 @@ ms.author: heidist
 
 A key requirement in a multilingual search application is presenting retrievable results in the user's language. In Azure Search, you can return translated strings from your index by using a combination of query parameters for searching and selecting specific fields.
 
-| Paramaters | Purpose |
+| Parameters | Purpose |
 |-----------|--------------|
 | searchField | Limits full text search to the list of named fields. |
 | $Select | Trims the response to include just the named fields. By default, all retrievable fields are returned. The $Select parameter returns only the fields you specify. |
@@ -32,13 +32,14 @@ A key requirement in a multilingual search application is presenting retrievable
 
 ## Field definitions for string translations
 
-In Azure Search, queries target a single index. For this reason, we assume one index with fields for each set of translation strings. In our samples, including the [real-estate sample](search-get-started-portal.md) shown below, you might have seen field definitions similar to the following:
+In Azure Search, queries target a single index. For this reason, we assume one index with fields for each set of translation strings. In our samples, including the [real-estate sample](search-get-started-portal.md) shown below, you might have seen field definitions similar to the following screenshot. 
+
+This example shows the language analyzer assignments for the fields in this index. Fields that contain translated strings perform better in full text search when using an analyzer that has ben engineered to handle the linguistic rules of the target language.
 
   ![](./media/search-filters/lang-fields.png)
 
-Fields that contain translated strings perform better in full text search when using an analyzer that is engineered to handle the linguistic rules of the target language.
-
-For code examples showing field definitions with languages analyzers, see [Define an index (.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet#define-your-azure-search-index) and [Define an index (REST)](https://docs.microsoft.com/azure/search/search-create-index-rest-api#define-your-azure-search-index-using-well-formed-json).
+> [!Note]
+> For code examples showing field definitions with languages analyzers, see [Define an index (.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet#define-your-azure-search-index) and [Define an index (REST)](https://docs.microsoft.com/azure/search/search-create-index-rest-api#define-your-azure-search-index-using-well-formed-json).
 
 ## Build and load an index
 
@@ -46,7 +47,7 @@ An intermediate (and perhaps obvious) step is that you have to [build and popula
 
 ## Scope queries and trim results
 
-Assuming your application logic includes language detection and you are providing UI pages in a given language, use searchFields to target the query at fields containing strings in that language.
+Assuming your application logic includes language detection and you are providing UI pages in a given language, use **searchFields** to target the query at fields containing strings in that language. To limit results to just the translated strings, use **Select**. As noted before, all fields marked as Retrievable are included in the response. Using the **Select** query parameter gives you control over which ones are returned to the calling application.
 
 ```charp
 parameters =
@@ -56,8 +57,6 @@ parameters =
         Select = new[] { "description_de"  }
     };
 ```
-
-As noted before, all fields marked as retrievable are included in the response. Using the Select query parameter gives you control over which ones are returned to the calling application.
 
 ## See also
 

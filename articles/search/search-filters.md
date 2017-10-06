@@ -65,6 +65,9 @@ Criteria provided in a filter qualifies a document for inclusion or exclusion in
 
 At query time, filter criteria are added to a filter tree that is evaluated before the query. In a complex expression with multiple parts, each part resolves to an atomic instruction in a filter tree. 
 
+> [!Note]
+> A filter is a query type, one of two, where the other query type is search. A search query searches for one or more terms in all searchable fields in your index. A filter query evaluates a boolean expression over filterable fields in an index. Filters, which can be complex, are broken down into atomic instructions, as a boolean expression, and added to a filter tree.
+
 ## Filter definition
 
 Filters are OData expressions, articulated using a [subset of OData syntax supported in Azure Search](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).

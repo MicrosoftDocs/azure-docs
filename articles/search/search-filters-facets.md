@@ -20,7 +20,7 @@ ms.author: heidist
 
 # How to build a facet filter in Azure Search 
 
-Faceted navigation is used for self-directed filtering on query results in a search app, where the application offers UI controls for scoping search to product categories, brands, or price ranges. In this article, quickly learn basic steps for creating a faceted navigation structure to back the search experience you want to create. 
+Faceted navigation is used for self-directed filtering on query results in a search app, where the application offers UI controls for scoping search to groups of doucments (for example, product categories, brands, or price ranges). In this article, quickly learn basic steps for creating a faceted navigation structure to back the search experience you want to create. 
 
 > [!div class="checklist"]
 > * Choose fields for filtering and faceting
@@ -30,7 +30,7 @@ Faceted navigation is used for self-directed filtering on query results in a sea
 > * Handle results
 > * Facet navigation for complex objects 
 
-Facets are dynamic and returned on a query. Search responses bring with them the facet categories used to navigate the results. The following example is an illustration of a facet navigation structure.
+Facets are dynamic and returned on a query. Search responses bring with them the facet categories used to navigate the results. If you aren't familiar with facets, the following example is an illustration of a facet navigation structure.
 
   ![](./media/search-filters/facet-nav.png)
 
@@ -86,7 +86,7 @@ Because faceting and filtering are enabled by default, explicitly setting the at
 ```
 
 > [!Note]
-> This index definition is copied from [Create an Azure Search index using the REST API](https://docs.microsoft.com/azure/search/search-create-index-rest-api). It is identical except for superficial differences in the fild definitions. Filterable and facetable attributes are explicitly added on category, tags, parkingIncluded, smokingAllowed, and rating fields. In practice, you get filterable and facetable for free on Edm.String, Edm.Boolean, and Edm.Int32 field types, so this change is for instructional purposes only.
+> This index definition is copied from [Create an Azure Search index using the REST API](https://docs.microsoft.com/azure/search/search-create-index-rest-api). It is identical except for superficial differences in the field definitions. Filterable and facetable attributes are explicitly added on category, tags, parkingIncluded, smokingAllowed, and rating fields. In practice, you get filterable and facetable for free on Edm.String, Edm.Boolean, and Edm.Int32 field types, so this change is for instructional purposes only.
 
 ## Build and load an index
 
