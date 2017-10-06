@@ -3,8 +3,8 @@ title: Azure Quickstart - CNTK training with Batch AI - Python | Microsoft Docs
 description: Quickly learn to run a CNTK training job with Batch AI using the Python SDK
 services: batch-ai
 documentationcenter: na
-author: dlepow
-manager: timlt
+author: lliimsft
+manager: Vaman.Bedekar
 editor: tysonn
 
 ms.assetid:
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: Python
 ms.topic: quickstart
 ms.date: 10/06/2017
-ms.author: danlep
+ms.author: lili
 ---
 
 # Run a CNTK training job using the Azure Python SDK
@@ -53,6 +53,8 @@ storage_account_key = 'my_storage_account_key'
 admin_user_name = 'my_admin_user_name'
 admin_user_password = 'my_admin_user_password'
 ```
+
+As a best practice, all credentials should be stored in a separate configuration file, which is not shown in this example. Refer to the [recipes](https://github.com/azure/BatchAI/recipes) to implement a configuration file. 
 
 ## Authenticate with Batch AI
 
@@ -167,22 +169,23 @@ You can monitor the cluster status using the following command:
 
 ```Python
 cluster = client.clusters.get(resource_group_name, cluster_name)
- print(
-         'Cluster state: {0} Target: {1}; Allocated: {2}; Idle: {3}; '         'Unusable: {4}; Running: {5}; Preparing: {6}'leaving: {7}.format(
-             cluster.allocation_state,
-             cluster.scale_settings.manual.target_node_count,
-             cluster.current_node_count,
-             cluster.node_state_counts.idle_node_count,
-             cluster.node_state_counts.unusable_node_count,
-             cluster.node_state_counts.running_node_count,
-             cluster.node_state_counts.preparing_node_count,
-             cluster.node_state_counts.leaving_node_count)) 
+print('Cluster state: {0} Target: {1}; Allocated: {2}; Idle: {3}; '
+      'Unusable: {4}; Running: {5}; Preparing: {6}; leaving: {7}'.format(
+    cluster.allocation_state,
+    cluster.scale_settings.manual.target_node_count,
+    cluster.current_node_count,
+    cluster.node_state_counts.idle_node_count,
+    cluster.node_state_counts.unusable_node_count,
+    cluster.node_state_counts.running_node_count,
+    cluster.node_state_counts.preparing_node_count,
+    cluster.node_state_counts.leaving_node_count)) 
 ```
 
 The preceding code prints basic cluster allocation information such as the following:
 
 ```Shell
-Cluster state: AllocationState.steady Target: 1; Allocated: 1; Idle: 0; Unusable: 0; Running: 0; Preparing: 1 
+Cluster state: AllocationState.steady Target: 1; Allocated: 1; Idle: 0; Unusable: 0; Running: 0; Preparing: 1; Leaving 0
+ 
 ```  
 
 The cluster is ready when the nodes are allocated and finished preparation (see the `nodeStateCounts` attribute). If something went wrong, the `errors` attribute contains the error description.

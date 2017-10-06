@@ -393,7 +393,7 @@ You can stream or tail a job's output files while the job is executing. The foll
 az batchai job stream-file --job-name myjob --output-directory-id stdouterr --name stderr.txt
 ```
 
-Output is similar to the following. Interrupt the output by pressing [Ctrl][C].
+Output is similar to the following. Interrupt the output by pressing [Ctrl]-[C].
 
 ```azurecli
 …
