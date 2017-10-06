@@ -53,7 +53,7 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="container-registry-geo-replication">ACR Geo-replication</a>
+    - html: <a href="/azure/container-registry/container-registry-geo-replication">ACR Geo-replication</a>
 
 - title: Reference
   items:
