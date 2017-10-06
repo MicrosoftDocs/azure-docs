@@ -36,7 +36,7 @@ Learn more about each of these capabilities in these articles:
 
 This tutorial shows you how to:
 
-* Create a Node.js simulated device app that has a direct method which enables **lockDoor** which can be called by the solution back end.
+* Create a Node.js simulated device app that has a direct method, which enables **lockDoor**, which can be called by the solution back end.
 * Create a Node.js console app that calls the **lockDoor** direct method in the simulated device app using a job and updates the desired properties using a device job.
 
 At the end of this tutorial, you have two Node.js apps:
@@ -55,7 +55,7 @@ To complete this tutorial, you need the following:
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## Create a simulated device app
-In this section, you create a Node.js console app that responds to a direct method called by the cloud, which triggers a simulated lock door method.
+In this section, you create a Node.js console app that responds to a direct method called by the cloud, which triggers a simulated **lockDoor** method.
 
 1. Create a new empty folder called **simDevice**.  In the **simDevice** folder, create a package.json file using the following command at your command prompt.  Accept all the defaults:
    
@@ -149,7 +149,7 @@ In this section, you create a Node.js console app that initiates a remote **lock
     var maxExecutionTimeInSeconds =  3600;
     var jobClient = JobClient.fromConnectionString(connectionString);
     ```
-6. Add the following function that will be used to monitor the execution of the job:
+6. Add the following function that is used to monitor the execution of the job:
    
     ```
     function monitorJob (jobId, callback) {
