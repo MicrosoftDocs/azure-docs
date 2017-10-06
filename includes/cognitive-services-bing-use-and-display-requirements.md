@@ -42,7 +42,10 @@ The only exception to the internet search experience requirement is for URL disc
 - display advertising that is not provided by Microsoft on any page that displays any part of a response; 
 - display any advertising with responses (i) from the Bing Image, News or Video Search APIs; or (ii) that are filtered or limited primarily (or solely) to image, news and/or video results.
 
-**C. Branding.** You may attribute each response (or portion of a response) displayed from the Bing Web, Image, News, and Video APIs to Microsoft as described in [https://go.microsoft.com/fwlink/?linkid=833278](https://go.microsoft.com/fwlink/?linkid=833278), unless Microsoft specifies otherwise in writing for your use.  You must not attribute responses (or portions of responses) displayed from the Bing Custom Search API to Microsoft, unless Microsoft specifies otherwise in writing for your particular use.
+**C. Branding.** 
+
+- You may attribute each response (or portion of a response) displayed from the Bing Web, Image, News, and Video APIs to Microsoft as described in [https://go.microsoft.com/fwlink/?linkid=833278](https://go.microsoft.com/fwlink/?linkid=833278), unless Microsoft specifies otherwise in writing for your use.  
+- You must not attribute responses (or portions of responses) displayed from the Bing Custom Search API to Microsoft, unless Microsoft specifies otherwise in writing for your particular use.
 
 **D. Transferring responses.** If you enable a user to transferIf you enable a user to transfer a response from a Search API to another user, such as through a messaging app or social media posting, the following apply:
 
