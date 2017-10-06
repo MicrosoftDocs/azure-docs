@@ -111,6 +111,8 @@
     items:
     - name: Azure portal
       href: howto-server-parameters.md
+    - name: Azure CLI
+      href: howto-configure-server-parameters-using-cli.md
 - name: Reference
   items:
   - name: Azure CLI
