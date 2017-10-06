@@ -159,7 +159,7 @@ The following section shows you how to expose access scopes, by modifying the re
 
 4. You are taken to the application's main registration page, which opens up the **Settings** page for the application. Switch to the **Edit manifest** page, by clicking **Manifest** from the application's registration page. A web-based manifest editor opens, allowing you to **Edit** the manifest within the portal. Optionally, you can click **Download** and edit locally, then use **Upload** to reapply it to your application.
 
-5. In this example, we will implement/expose a new scope called `Employees.Read.All` on our resource/API, by adding the following JSON element to the `oauth2Permissions` collection. The existing `user_impersonation` scope is provided by default. This scope allows a client application to request permission to access the resource, under the identity of the signed-in user. Be sure to add the comma after the existing `user_impersonation` scope, and change the property values to suit your resource's needs. 
+5. In this example, we will expose a new scope called `Employees.Read.All` on our resource/API, by adding the following JSON element to the `oauth2Permissions` collection. The existing `user_impersonation` scope is provided by default during registration. `user_impersonation` allows a client application to request permission to access the resource, under the identity of the signed-in user. Be sure to add the comma after the existing `user_impersonation` scope element, and change the property values to suit your resource's needs. 
 
   ```json
   {
@@ -269,9 +269,8 @@ By default, OAuth 2.0 implicit Grant is disabled for applications. You can enabl
 
 #### To enable OAuth 2.0 implicit grant
 
->
 > [!NOTE]
-> For a more thorough coverage on how to edit the application manifest, be sure to first review the preceding section, [Configuring a resource application to expose web APIs](#configuring-a-resource-application-to-expose-web-apis).
+> For details on how to edit the application manifest, be sure to first review the preceding section, [Configuring a resource application to expose web APIs](#configuring-a-resource-application-to-expose-web-apis).
 >
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
