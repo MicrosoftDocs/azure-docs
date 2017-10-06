@@ -71,7 +71,7 @@ client = batchai.BatchAIManagementClient(credentials=creds,
 )
 ```
 
-# Create a resource group
+## Create a resource group
 
 Batch AI clusters and jobs are Azure resources and must be placed in an Azure resource group. The following snippet creates a resource group:
 
@@ -134,7 +134,8 @@ parameters = models.ClusterCreateParameters(
  
     # Configure the ssh users
     user_account_settings=models.UserAccountSettings(
-         admin_user_name=admin_user_name,         admin_user_password=admin_user_password), 
+         admin_user_name=admin_user_name,
+         admin_user_password=admin_user_password), 
  
     # Number of VMs in the cluster
     scale_settings=models.ScaleSettings(
@@ -152,7 +153,8 @@ parameters = models.ClusterCreateParameters(
                      credentials=models.AzureStorageCredentialsInfo(
          account_key=storage_account_key),
          azure_file_url='https://{0}.file.core.windows.net/{1}'.format(
-               storage_account_name, mnist_dataset_directory),  relative_mount_path = 'azurefileshare')],
+               storage_account_name, mnist_dataset_directory),
+                  relative_mount_path = 'azurefileshare')],
          ), 
     ), 
 ) 
@@ -213,8 +215,10 @@ parameters = models.job_create_parameters.JobCreateParameters(
          path='$AZ_BATCHAI_MOUNT_ROOT/{0}/{1}'.format(relative_mount_point, mnist_dataset_directory))], 
  
      # Specify directories where files will get written to 
-     output_directories=[models.OutputDirectory(                 id='MODEL',
-        path_prefix='$AZ_BATCHAI_MOUNT_ROOT/{0}'.format(relative_mount_point),             path_suffix="Models")], 
+     output_directories=[models.OutputDirectory(
+        id='MODEL',
+        path_prefix='$AZ_BATCHAI_MOUNT_ROOT/{0}'.format(relative_mount_point),
+        path_suffix="Models")], 
  
      # Container configuration
      container_settings=models.ContainerSettings(
@@ -222,7 +226,8 @@ parameters = models.job_create_parameters.JobCreateParameters(
  
      # Toolkit specific settings
      cntk_settings = models.CNTKsettings(
-        python_script_file_path='$AZ_BATCHAI_INPUT_SAMPLE/ConvNet_MNIST.py',       command_line_args='$AZ_BATCHAI_INPUT_SAMPLE $AZ_BATCHAI_OUTPUT_MODEL')
+        python_script_file_path='$AZ_BATCHAI_INPUT_SAMPLE/ConvNet_MNIST.py',
+        command_line_args='$AZ_BATCHAI_INPUT_SAMPLE $AZ_BATCHAI_OUTPUT_MODEL')
  ) 
  
 # Create the job 
