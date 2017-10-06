@@ -1,7 +1,7 @@
 ---
 
 title: How to use Azure API Management with internal virtual networks | Microsoft Docs
-description: Learn how to setup and configure Azure API Management on an internal virtual network
+description: Learn how to set up and configure Azure API Management on an internal virtual network
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -19,7 +19,7 @@ ms.author: apimpm
 
 ---
 # Using Azure API Management service with an internal virtual network
-With Azure Virtual Networks, Azure API Management can manage APIs not accessible on the Internet. A number of VPN technologies are available to make the connection. API Management can be deployed in two main modes inside a virtual network:
+With Azure Virtual Networks, Azure API Management can manage APIs not accessible on the internet. A number of VPN technologies are available to make the connection. API Management can be deployed in two main modes inside a virtual network:
 * External
 * Internal
 
@@ -96,7 +96,7 @@ To access these API Management service endpoints, you can create a virtual machi
 You can then access all the service endpoints from the virtual machine you created. 
 If you use a custom DNS server in a virtual network, you can also create A DNS records and access these endpoints from anywhere in your virtual network. 
 
-### Access on custom domain names:
+### Access on custom domain names
 
    1. If you don’t want to access the API Management service with the default host names, you can set up custom domain names for all your service endpoints as shown in the following image: 
 
