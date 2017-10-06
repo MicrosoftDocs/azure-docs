@@ -64,7 +64,7 @@ If takes a few minutes to update the capacity of your scale set. If you decrease
 
 
 ## Stop and start VMs in a scale set
-To stop one or more VMs in a scale set, use [Stop-AzureRmVmss](powershell/module/azurerm.compute/stop-azurermvmss). The `-InstanceId` parameter allows you to specify one or more VMs to stop. If you do not specify an instance ID, all VMs in the scale set are stopped. To stop multiple VMs, separate each instance ID with a comma.
+To stop one or more VMs in a scale set, use [Stop-AzureRmVmss](/powershell/module/azurerm.compute/stop-azurermvmss). The `-InstanceId` parameter allows you to specify one or more VMs to stop. If you do not specify an instance ID, all VMs in the scale set are stopped. To stop multiple VMs, separate each instance ID with a comma.
 
 The following example stops instance *0* in the scale set named *myScaleSet* and the *myResourceGroup* resource group. Provide your values as follows:
 
@@ -76,7 +76,7 @@ By default, stopped VMs are deallocated and do not incur compute charges. If you
 
 
 ### Start VMs in a scale set
-To start one or more VMs in a scale set, use [Start-AzureRmVmss](powershell/module/azurerm.compute/start-azurermvmss). The `-InstanceId` parameter allows you to specify one or more VMs to start. If you do not specify an instance ID, all VMs in the scale set are started. To start multiple VMs, separate each instance ID with a comma.
+To start one or more VMs in a scale set, use [Start-AzureRmVmss](/powershell/module/azurerm.compute/start-azurermvmss). The `-InstanceId` parameter allows you to specify one or more VMs to start. If you do not specify an instance ID, all VMs in the scale set are started. To start multiple VMs, separate each instance ID with a comma.
 
 The following example starts instance *0* in the scale set named *myScaleSet* and the *myResourceGroup* resource group. Provide your values as follows:
 
@@ -86,7 +86,7 @@ Start-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleS
 
 
 ## Restart VMs in a scale set
-To restart one or more VMs in a scale set, use [Retart-AzureRmVmss](powershell/module/azurerm.compute/restart-azurermvmss). The `-InstanceId` parameter allows you to specify one or more VMs to restart. If you do not specify an instance ID, all VMs in the scale set are restarted. To restart multiple VMs, separate each instance ID with a comma.
+To restart one or more VMs in a scale set, use [Retart-AzureRmVmss](/powershell/module/azurerm.compute/restart-azurermvmss). The `-InstanceId` parameter allows you to specify one or more VMs to restart. If you do not specify an instance ID, all VMs in the scale set are restarted. To restart multiple VMs, separate each instance ID with a comma.
 
 The following example restarts instance *0* in the scale set named *myScaleSet* and the *myResourceGroup* resource group. Provide your values as follows:
 
@@ -96,7 +96,7 @@ Restart-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScal
 
 
 ## Remove VMs from a scale set
-To remove one or more VMs in a scale set, use [Remove-AzureRmVmss](powershell/module/azurerm.compute/remove-azurermvmss). The `-InstanceId` parameter allows you to specify one or more VMs to remove. If you do not specify an instance ID, all VMs in the scale set are removed. To remove multiple VMs, separate each instance ID with a comma.
+To remove one or more VMs in a scale set, use [Remove-AzureRmVmss](/powershell/module/azurerm.compute/remove-azurermvmss). The `-InstanceId` parameter allows you to specify one or more VMs to remove. If you do not specify an instance ID, all VMs in the scale set are removed. To remove multiple VMs, separate each instance ID with a comma.
 
 The following example removes instance *0* in the scale set named *myScaleSet* and the *myResourceGroup* resource group. Provide your values as follows:
 
