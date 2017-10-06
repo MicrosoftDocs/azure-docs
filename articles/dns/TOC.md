@@ -64,7 +64,7 @@
 ## [Virtual Machine](/azure/virtual-machines/)
 ## [Load Balancer](/azure/load-balancer/)
 ## [Traffic Manager](/azure/traffic-manager/)
-## [Web apps](/azure/app-service-web/)
+## [Web apps](/azure/app-service/)
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=networking)

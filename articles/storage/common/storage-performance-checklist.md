@@ -3,7 +3,7 @@ title: Azure Storage performance and scalability checklist | Microsoft Docs
 description: A checklist of proven practices for use with Azure Storage in developing performant applications.
 services: storage
 documentationcenter: ''
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: robinsh
+ms.author: tamram
 
 ---
 # Microsoft Azure Storage Performance and Scalability Checklist

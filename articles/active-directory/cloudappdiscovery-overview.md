@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 09/27/2017
 ms.author: curtand
 ms.reviewer: nigu
 
@@ -38,6 +38,7 @@ Use this link to explore the [new Cloud App Discovery experience in Azure AD](ht
 ## Next steps
 Use the following links to set up Cloud App Discovery in Azure AD.
 
+* [Get started using Cloud App Discovery](cloudappdiscovery-get-started.md)
 * [Create snapshot reports](cloudappdiscovery-set-up-snapshots.md)
 * [Configure continuous reporting](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 * [Use a custom log parser](https://docs.microsoft.comcommit/cloud-app-security/custom-log-parser)

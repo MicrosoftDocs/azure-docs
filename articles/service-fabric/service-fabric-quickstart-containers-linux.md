@@ -21,7 +21,7 @@ ms.author: ryanwi
 # Deploy an Azure Service Fabric Linux container application on Azure
 Azure Service Fabric is a distributed systems platform for deploying and managing scalable and reliable microservices and containers. 
 
-This quickstart shows how to deploy Linux containers to a Service Fabric cluster. Once complete, you have a voting application consisting of a python web front-end and a Redis back-end running in a Service Fabric cluster. 
+This quickstart shows how to deploy Linux containers to a Service Fabric cluster. Once complete, you have a voting application consisting of a Python web front-end and a Redis back-end running in a Service Fabric cluster. 
 
 ![quickstartpic][quickstartpic]
 
@@ -49,18 +49,18 @@ cd service-fabric-dotnet-containers/Linux/container-tutorial/Voting
 ```
 
 ## Deploy the containers to a Service Fabric cluster in Azure
-To deploy the application to a cluster in Azure, use your own cluster, or use a Party Cluster.
+To deploy the application to a cluster in Azure, use your own cluster, or use a Party cluster.
 
-Party clusters are free, limited-time Service Fabric clusters hosted on Azure. They are maintained by the Service Fabric team where anyone can deploy applications and learn about the platform. To get access to a Party Cluster, [follow the instructions](http://aka.ms/tryservicefabric). 
+Party clusters are free, limited-time Service Fabric clusters hosted on Azure. They are maintained by the Service Fabric team where anyone can deploy applications and learn about the platform. To get access to a Party cluster, [follow the instructions](http://aka.ms/tryservicefabric). 
 
 For information about creating your own cluster, see [Create your first Service Fabric cluster on Azure](service-fabric-get-started-azure-cluster.md).
 
 > [!Note]
-> The web front-end service is configured to listen on port 80 for incoming traffic. Make sure that port is open in your cluster. If you are using a Party Cluster, this port is open.
+> The web front-end service is configured to listen on port 80 for incoming traffic. Make sure that port is open in your cluster. If you are using a Party cluster, this port is open.
 >
 
 ### Deploy the application manifests 
-Install the Service Fabric command line (sfctl) in your CLI environment
+Install the [Service Fabric CLI (sfctl)](service-fabric-cli.md) in your CLI environment
 
 ```azurecli-interactive
 pip3 install --user sfctl 
@@ -78,7 +78,7 @@ Use the install script provided to copy the Voting application definition to the
 ./install.sh
 ```
 
-Open a browser and navigate to Service Fabric Explorer at http://\<my-azure-service-fabric-cluster-url>:80 - for example, `http://linh1x87d1d.westus.cloudapp.azure.com:80`. Expand the Applications node to see that there is now an entry for the Voting application type and the instance you created.
+Open a browser and navigate to Service Fabric Explorer at http://\<my-azure-service-fabric-cluster-url>:19080/Explorer - for example, `http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`. Expand the Applications node to see that there is now an entry for the Voting application type and the instance you created.
 
 ![Service Fabric Explorer][sfx]
 
@@ -91,7 +91,7 @@ Service Fabric makes sure your container instances automatically move to other n
 
 To fail over the front-end container, do the following steps:
 
-1. Open Service Fabric Explorer in your cluster - for example, `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
+1. Open Service Fabric Explorer in your cluster - for example, `http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`.
 2. Click on the **fabric:/Voting/azurevotefront** node in the tree view and expand the partition node (represented by a GUID). Notice the node name in the treeview, which shows you the nodes that the container is currently running on - for example `_nodetype_4`
 3. Expand the **Nodes** node in the tree view. Click on the ellipsis (three dots) next to the node that is running the container.
 4. Choose **Restart** to restart that node and confirm the restart action. The restart causes the container to fail over to another node in the cluster.

@@ -61,6 +61,9 @@
   - name: Container Registry
     tocHref: /azure/container-registry/
     topicHref: /azure/container-registry/
+  - name: Cost Management
+    tocHref: /azure/cost-management/
+    topicHref: /azure/cost-management/
   - name: Functions
     tocHref: /azure/azure-functions/
     topicHref: /azure/azure-functions/
@@ -269,6 +272,9 @@
   - name: Power BI Embedded
     tocHref: /azure/power-bi-embedded/
     topicHref: /azure/power-bi-embedded/
+  - name: Power BI Workspace Collections
+    tocHref: /azure/power-bi-workspace-collections/
+    topicHref: /azure/power-bi-workspace-collections/
   - name: Redis Cache
     tocHref: /azure/redis-cache/
     topicHref: /azure/redis-cache/

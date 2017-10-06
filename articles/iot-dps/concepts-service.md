@@ -5,7 +5,7 @@ services: iot-dps
 keywords: 
 author: nberdy
 ms.author: nberdy
-ms.date: 09/05/2017
+ms.date: 10/03/2017
 ms.topic: article
 ms.service: iot-dps
 
@@ -49,14 +49,14 @@ An enrollment is the record of devices or groups of devices that may at some poi
 
 ### Enrollment group
 
-An enrollment group is a group of devices that share a specific attestation mechanism. All devices in the enrollment group present X.509 certificates that have been signed by the same root CA. Enrollment groups can only use the X.509 attestation mechanism.
+An enrollment group is a group of devices that share a specific attestation mechanism. All devices in the enrollment group present X.509 certificates that have been signed by the same root CA. Enrollment groups can only use the X.509 attestation mechanism. The enrollment group name and certificate name must be alphanumeric, lowercase, and may contain hyphens.
 
 > [!TIP]
 > We recommend using an enrollment group for a large number of devices that share a desired initial configuration, or for devices all going to the same tenant.
 
 ### Individual enrollment
 
-An individual enrollment is an entry for a single device that may register. Individual enrollments may use either X.509 certificates or SAS tokens (in a real or virtual TPM) as attestation mechanisms. Individual enrollments may have the desired IoT hub device ID specified.
+An individual enrollment is an entry for a single device that may register. Individual enrollments may use either X.509 certificates or SAS tokens (in a real or virtual TPM) as attestation mechanisms. The registration ID in an individual enrollment is alphanumeric, lowercase, and may contain hyphens. Individual enrollments may have the desired IoT hub device ID specified.
 
 > [!TIP]
 > We recommend using individual enrollments for devices that require unique initial configurations, or for devices that can only use SAS tokens via TPM or virtual TPM as the attestation mechanism.

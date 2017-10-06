@@ -18,21 +18,21 @@ ms.author: spelluru
 ---
 
 # Manage an Azure-SSIS integration runtime
-This article provides information on how to stop, start, and reconfigure Azure-SSIS integration runtime.  
+The [Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md) article shows you how to create an Azure-SSIS integration runtime by using Azure Data Factory. This article complements it by providing information on how to stop, start, reconfigure, or remove an Azure-SSIS integration runtime.  
 
 
 ## Stop 
 Stop the Azure-SSIS integration runtime. This command releases all of its nodes and stops billing.
 
 ```powershell
-#Stop-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName 
+Stop-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName 
 ```
 
 ## Start 
 Start the Azure-SSIS integration runtime. This command allocates all of its nodes and starts billing.   
 
 ```powershell
-#Start-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName
+Start-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName
 ```
 
 ## Reconfigure
@@ -53,9 +53,19 @@ After you provision and start an instance of Azure-SSIS integration runtime, you
 	```powershell
 	Start-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName
 	```
+
+## Remove
+To remove an existing Azure-SSIS integration runtime, run the following command: 
+
+```powershell
+Remove-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Force
+```
+
 ## Next steps
 For more information about Azure-SSIS runtime, see the following topics: 
 
-- [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime)
-- [Join Azure-SSIS Integration Runtime to VNET](join-azure-ssis-integration-runtime-virtual-network.md)
-- [Provision an Azure-SSIS integration runtime](tutorial-deploy-ssis-packages-azure.md).
+- [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). This article provides conceptual information about integration runtimes in general including the Azure-SSIS IR. 
+- [Tutorial: deploy SSIS packages to Azure](tutorial-deploy-ssis-packages-azure.md). This article provides step-by-step instructions to create an Azure-SSIS IR and uses an Azure SQL database to host the SSIS catalog. 
+- [How to: Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md). This article expands on the tutorial and provides instructions on using Azure SQL Managed Instance (private preview) and joining the IR to a VNet. 
+- [Monitor an Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). This article shows you how to retrieve information about an Azure-SSIS IR and descriptions of statuses in the returned information. 
+- [Join an Azure-SSIS IR to a VNet](join-azure-ssis-integration-runtime-virtual-network.md). This article provides conceptual information about joining an Azure-SSIS IR to an Azure virtual network (VNet). It also provides steps to use Azure portal to configure VNet so that Azure-SSIS IR can join the VNet. 

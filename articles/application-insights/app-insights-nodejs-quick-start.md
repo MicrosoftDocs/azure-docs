@@ -24,7 +24,7 @@ To complete this quickstart:
 
 - You need an Azure Subscription and an existing Node.js web application.
 
-If you don't have a Node.js web application, you can create one by following the [Create a Node.js web app quickstart](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-nodejs).
+If you don't have a Node.js web application, you can create one by following the [Create a Node.js web app quickstart](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-nodejs).
  
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -63,7 +63,7 @@ Application Insights can gather telemetry data from any internet-connected appli
    npm install applicationinsights --save
    ```
 
-3. Edit your app's first .js file and add the two lines below to the topmost part of your script. If you are using the [Node.js quickstart app](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-nodejs), you would modify the index.js file. 
+3. Edit your app's first .js file and add the two lines below to the topmost part of your script. If you are using the [Node.js quickstart app](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-nodejs), you would modify the index.js file. 
 
    ```JavaScript
    const appInsights = require('applicationinsights');

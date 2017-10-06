@@ -118,6 +118,7 @@
 ##### [Configure web proxy](storsimple-8000-configure-web-proxy.md)
 ##### [Modify DATA 0 settings](storsimple-8000-modify-data-0.md)
 
+#### [Using Azure PowerShell sample scripts](storsimple-8000-automation-azurerm-scripts.md)
 
 #### [Using StorSimple Snapshot Manager](storsimple-snapshot-manager-admin.md)
 ##### [What is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
