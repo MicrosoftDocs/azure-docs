@@ -68,7 +68,6 @@ Remove-AzureStorageShare -Share $snapshot
 
 ## Next Steps
 * [How to create a file share snapshot](storage-snapshots-create.md)
-* [Create and manage Snapshot using .Net SDK](storage-dotnet-how-to-use-files.md#snapshots)
 * [How to list and browse snapshot](storage-snapshots-list-browse.md)
 * [Snapshot Overview](storage-snapshots-files.md)
 * [Snapshot FAQ](storage-files-faq.md#snapshots)

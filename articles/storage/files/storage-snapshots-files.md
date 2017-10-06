@@ -133,10 +133,8 @@ charges.
 Snapshots provide only file level protection and any fat finger deletes on file share or storage account are not protected by snapshots . It is a best practice to lock storage account or resource group in order to protect the storage account from accidental deletions.
 
 ## Next Steps
-* [Create Snapshot using .Net SDK](storage-dotnet-how-to-use-files.md#snapshots)
 * [How to create a file share snapshot](storage-snapshots-create.md)
 * [How to list and browse snapshot](storage-snapshots-list-browse.md)
 * [How to delete snapshot](storage-snapshots-delete.md)
-* [Snapshot Overview](storage-snapshots-files.md)
 * [Snapshot FAQ](storage-files-faq.md#snapshots)
 

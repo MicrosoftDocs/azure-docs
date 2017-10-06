@@ -72,7 +72,6 @@ $snapshot=$share.Snapshot()
 ```
 
 ## Next Steps
-* [Create and manage Snapshot using .Net SDK](storage-dotnet-how-to-use-files.md#snapshots)
 * [How to list and browse snapshot](storage-snapshots-list-browse.md)
 * [How to delete snapshot](storage-snapshots-delete.md)
 * [Snapshot Overview](storage-snapshots-files.md)
