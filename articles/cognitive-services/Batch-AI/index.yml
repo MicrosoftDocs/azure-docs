@@ -1,0 +1,55 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Batch AI Documentation
+metadata:
+  title: Batch AI Documentation (Preview)
+  meta.description: Azure Batch AI helps you develop your AI models in parallel using any framework and then train them in parallel and at scale across GPU and CPU clusters. Learn how to use Batch AI with our quickstarts and samples.
+  services: batch-ai
+  author: Dan Lepow
+  manager: carolz
+  layout: LandingPage
+  ms.assetid: 
+  ms.service: batch-ai
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 10/5/2017
+  ms.author: Dan Lepow
+abstract:
+  description: Azure Batch AI helps you develop your AI models in parallel using any framework and then train them in parallel and at scale across GPU and CPU clusters. Learn how to use Batch AI with our quickstarts and samples.
+sections:
+- title: Quickstarts
+  items:
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: https://docs.microsoft.com/media/common/cli.svg
+      text: Azure CLI
+      href: quickstart-cli.md
+    - image:
+        src: https://docs.microsoft.com/media/common/python.svg
+      text: Python
+      href: quickstart-python.md
+- title: Samples
+  items:
+  - type: paragraph
+    text: Recipes for AI frameworks
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Heading
+      html: <p><a href="https://github.com/Azure/BatchAI">Recipes for AI frameworks</a></p>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="/cli/azure/batchai">Azure CLI</a></p>
+    - title: Languages
+      html: <p><a href="/python/api/overview/azure/batchai">Python</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/batchai">REST API Reference</a></p>
