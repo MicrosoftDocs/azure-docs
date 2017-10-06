@@ -161,7 +161,7 @@ import requests
 import json
 
 #specify url
-url = 'https://ryanwiapimgmt.management.azure-api.net/backends/servicefabric?api-version=2016-10-10'
+url = 'https://your-apim.management.azure-api.net/backends/servicefabric?api-version=2016-10-10'
 
 token = "SharedAccessSignature integration&201710140514&Lqnbei7n2Sot6doiNtxMFPUi/m9LsNa+1ZK/PdxqFl49JFWjXh1wW5Gd99r/tIOeHp6dU8UV5iZUdOPfcrm5hg=="
 
