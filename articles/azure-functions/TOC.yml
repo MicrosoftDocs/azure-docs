@@ -98,7 +98,11 @@
     - name: On-premises functions
       href: functions-runtime-install.md
   - name: Configure
-    href: functions-how-to-use-azure-function-app-settings.md
+    items:
+    - name: Manage a function app 
+      href: functions-how-to-use-azure-function-app-settings.md
+    - name: Set the runtime version 
+      href: functions-versions.md
   - name: Monitor
     href: functions-monitoring.md
   - name: Integrate
