@@ -52,7 +52,7 @@ Where:
 
 ## Known issues
 
-## "Automation script" fails when attempting schema export for MSI extension
+### "Automation script" fails when attempting schema export for MSI extension
 
 When Managed Service Identity is enabled on a VM, the following error is shown when attempting to use the “Automation script” feature for the VM, or its resource group:
 
