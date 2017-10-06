@@ -93,16 +93,16 @@ Continuing with our example above, lets create another service **fabric:/App1/Se
 ![Node view of deployed application][node-view-four]
 </center>
 
-As you can see, Service Fabric activated two new copies of 'MyServicePackage' (one for each replica from partition **P6** & **P7**) and placed each replica in its dedicated copy of *CodePackage*. Another thing to note here is, when **Exclusive Process** model is used, for a given *application*, multiple copies of a given *ServicePackage* can be active on a *Node*. In above example, we see that three copies of 'MyServicePackage' are active for **fabric:/App1**. Each of these active copies of 'MyServicePackage' has a **ServicePackageAtivationId** associated with it which identifies that copy within *application* **fabric:/App1**.
+As you can see, Service Fabric activated two new copies of 'MyServicePackage' (one for each replica from partition **P6** & **P7**) and placed each replica in its dedicated copy of *CodePackage*. Another thing to note here is, when **Exclusive Process** model is used, for a given *application*, multiple copies of a given *ServicePackage* can be active on a *Node*. In above example, we see that three copies of 'MyServicePackage' are active for **fabric:/App1**. Each of these active copies of 'MyServicePackage' has a **ServicePackageActivationId** associated with it which identifies that copy within *application* **fabric:/App1**.
 
-When only **Shared Process** model is used for an *application*, like **fabric:/App2** in above example, there is only one active copy of *ServicePackage* on a *Node* and **ServicePackageAtivationId** for this activation of *ServicePackage* is 'empty string'.
+When only **Shared Process** model is used for an *application*, like **fabric:/App2** in above example, there is only one active copy of *ServicePackage* on a *Node* and **ServicePackageActivationId** for this activation of *ServicePackage* is 'empty string'.
 
 > [!NOTE]
->- **Shared Process** hosting model corresponds to **ServicePackageAtivationMode** equal **SharedProcess**. This is the default hosting model and **ServicePackageAtivationMode** need not be specified at the time of creating the service.
+>- **Shared Process** hosting model corresponds to **ServicePackageActivationMode** equal **SharedProcess**. This is the default hosting model and **ServicePackageActivationMode** need not be specified at the time of creating the service.
 >
->- **Exclusive Process** hosting model corresponds to **ServicePackageAtivationMode** equal **ExclusiveProcess** and need to be explicitly specified at the time of creating the service. 
+>- **Exclusive Process** hosting model corresponds to **ServicePackageActivationMode** equal **ExclusiveProcess** and need to be explicitly specified at the time of creating the service. 
 >
->- Hosting model of a service can be known by querying the [service description][p2] and looking at value of **ServicePackageAtivationMode**.
+>- Hosting model of a service can be known by querying the [service description][p2] and looking at value of **ServicePackageActivationMode**.
 >
 >
 
