@@ -14,16 +14,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2017
+ms.date: 10/06/2017
 ms.author: iainfou
 
 ---
-# Manage virtual machines in a virtual machine scale set
-Use the tasks in this article to manage virtual machines in your virtual machine scale set.
+# Manage a virtual machine scale set with Azure PowerShell
 
-Most of the tasks that involve managing a virtual machine in a scale set require that you know the instance ID of the machine that you want to manage. You can use [Azure Resource Explorer](https://resources.azure.com) to find the instance ID of a virtual machine in a scale set. You also use Resource Explorer to verify the status of the tasks that you finish.
-
-See [How to install and configure Azure PowerShell](/powershell/azure/overview) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
 
 
 ## View information about a scale set
@@ -33,116 +29,78 @@ To view the overall information about a scale set, use [Get-AzureRmVmss](/powers
 Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 ```
 
-The output is similar to the following example:
-
-```
-```
 
 ## View VMs in a scale set
-To view information about a specific VM instance in a scale set, use [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm). The following example gets information about instance *2* in the scale set named *myScaleSet* and in the *myResourceGroup* resource group. Provide your own values for these names:
+To view a list of VM instance in a scale set, use [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm). The following example list all VM instances in the scale set named *myScaleSet* and in the *myResourceGroup* resource group. Provide your own values for these names:
 
 ```powershell
-Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "2"
+Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 ```
 
-The output is similar to the following example:
+To view additional information about a specific VM instance, add the `-InstanceId` parameter to [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm) and specify an instance to view. The following example views information about VM instance *0* in the scale set named *myScaleSet* and the *myResourceGroup* resource group. Enter your own names as follows:
 
-```
+```powershell
+Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
 ```
 
-To view a list of all VMs in a scale set, you can combine [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) and [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm). The following example gets the information about a scale set named *myScaleSet* in *myResourceGroup), then loops through the number of instances and displays information on each:
+
+## Change the capacity of a scale set
+The preceding commands showed information about your scale set and the VM instances. To increase or decrease the number of instances in the scale set, you can change the capacity. The scale set automatically creates or removes the required number of VMs, then configures the VMs to receive application traffic.
+
+First, create a scale set object with [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss), then specify a new value for `sku.capacity`. To apply the capacity change, use [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss). The following example updates *myScaleSet* in the *myResourceGroup* resource group to a capacity of *5* instances. Provide your own values as follows:
 
 ```powershell
 # Get current scale set
-$scaleset = Get-AzureRmVmss `
-  -ResourceGroupName myResourceGroup `
-  -VMScaleSetName myScaleSet
+$vmss = Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 
-# Loop through the instanaces in your scale set
-for ($i=1; $i -le ($scaleset.Sku.Capacity - 1); $i++) {
-    Get-AzureRmVmssVM -ResourceGroupName myResourceGroup `
-      -VMScaleSetName myScaleSet `
-      -InstanceId $i
-}
+# Set and update the capacity of your scale set
+$vmss.sku.capacity = 5
+Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -VirtualMachineScaleSet $vmss 
 ```
+
+If takes a few minutes to update the capacity of your scale set. If you decrease the capacity of a scale set, the VMs with the highest instance IDs are removed first.
 
 
 ## Stop and start VMs in a scale set
 To stop one or more VMs in a scale set, use [Stop-AzureRmVmss](powershell/module/azurerm.compute/stop-azurermvmss). The `-InstanceId` parameter allows you to specify one or more VMs to stop. If you do not specify an instance ID, all VMs in the scale set are stopped. To stop multiple VMs, separate each instance ID with a comma.
 
-The following example stops instances *1* and *3* in the scale set named *myScaleSet* and the *myResourceGroup* resource group. Provide your values as follows:
+The following example stops instance *0* in the scale set named *myScaleSet* and the *myResourceGroup* resource group. Provide your values as follows:
 
 ```powershell
-Stop-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "1","3"
+Stop-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
 ```
 
 By default, stopped VMs are deallocated and do not incur compute charges. If you wish the VM to remain in a provisioned state when stopped, add the `-StayProvisioned` parameter to the preceding command. Stopped VMs that remain provisioned incur regular compute charges.
 
-In Resource Explorer, we can see that the status of the instance is **deallocated**:
 
-    "statuses": [
-      {
-        "code": "ProvisioningState/succeeded",
-        "level": "Info",
-        "displayStatus": "Provisioning succeeded",
-        "time": "2016-03-15T01:25:17.8792929+00:00"
-      },
-      {
-        "code": "PowerState/deallocated",
-        "level": "Info",
-        "displayStatus": "VM deallocated"
-      }
-    ]
+### Start VMs in a scale set
+To start one or more VMs in a scale set, use [Start-AzureRmVmss](powershell/module/azurerm.compute/start-azurermvmss). The `-InstanceId` parameter allows you to specify one or more VMs to start. If you do not specify an instance ID, all VMs in the scale set are started. To start multiple VMs, separate each instance ID with a comma.
 
-
+The following example starts instance *0* in the scale set named *myScaleSet* and the *myResourceGroup* resource group. Provide your values as follows:
 
 ```powershell
-Start-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
+Start-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
 ```
 
-In Resource Explorer, we can see that the status of the instance is **running**:
 
-    "statuses": [
-      {
-        "code": "ProvisioningState/succeeded",
-        "level": "Info",
-        "displayStatus": "Provisioning succeeded",
-        "time": "2016-03-15T02:10:08.0730839+00:00"
-      },
-      {
-        "code": "PowerState/running",
-        "level": "Info",
-        "displayStatus": "VM running"
-      }
-    ]
+## Restart VMs in a scale set
+To restart one or more VMs in a scale set, use [Retart-AzureRmVmss](powershell/module/azurerm.compute/restart-azurermvmss). The `-InstanceId` parameter allows you to specify one or more VMs to restart. If you do not specify an instance ID, all VMs in the scale set are restarted. To restart multiple VMs, separate each instance ID with a comma.
 
-You can start all the virtual machines in the scale set by not using the -InstanceId parameter.
+The following example restarts instance *0* in the scale set named *myScaleSet* and the *myResourceGroup* resource group. Provide your values as follows:
 
-## Stop a virtual machine in a scale set
-Replace the quoted values with the name of your resource group and scale set. Replace *#* with the identifier of the virtual machine that you want to stop and then run it:
+```powershell
+Restart-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
+```
 
-    
 
-## Restart a virtual machine in a scale set
-Replace the quoted values with the name of your resource group and the scale set. Replace *#* with the identifier of the virtual machine that you want to restart and then run it:
+## Remove VMs from a scale set
+To remove one or more VMs in a scale set, use [Remove-AzureRmVmss](powershell/module/azurerm.compute/remove-azurermvmss). The `-InstanceId` parameter allows you to specify one or more VMs to remove. If you do not specify an instance ID, all VMs in the scale set are removed. To remove multiple VMs, separate each instance ID with a comma.
 
-    Restart-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
+The following example removes instance *0* in the scale set named *myScaleSet* and the *myResourceGroup* resource group. Provide your values as follows:
 
-You can restart all the virtual machines in the set by not using the -InstanceId parameter.
+```powershell
+Remove-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
+```
 
-## Remove a virtual machine from a scale set
-Replace the quoted values with the name of your resource group and the scale set. Replace *#* with the identifier of the virtual machine that you want to remove and then run it:  
 
-    Remove-AzureRmVmss -ResourceGroupName "resource group name" –VMScaleSetName "scale set name" -InstanceId #
-
-You can remove the virtual machine scale set all at once by not using the -InstanceId parameter.
-
-## Change the capacity of a scale set
-You can add or remove virtual machines by changing the capacity of the set. Get the scale set that you want to change, set the capacity to what you want it to be, and then update the scale set with the new capacity. In these commands, replace the quoted values with the name of your resource group and the scale set.
-
-    $vmss = Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
-    $vmss.sku.capacity = 5
-    Update-AzureRmVmss -ResourceGroupName "resource group name" -Name "scale set name" -VirtualMachineScaleSet $vmss 
-
-If you are removing virtual machines from the scale set, the virtual machines with the highest ids are removed first.
-
+## Next steps
