@@ -33,9 +33,11 @@ sections:
       href: quickstart-python.md
 - title: Samples
   items:
-  - type: paragraph
-    text: Recipes for AI frameworks
-    href: https://github.com/Azure/BatchAI
+ - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="https://github.com/Azure/BatchAI">Recipes for AI frameworks</a>
 - title: Reference
   items:
   - type: list
