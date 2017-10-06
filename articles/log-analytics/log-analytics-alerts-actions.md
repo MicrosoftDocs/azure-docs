@@ -56,7 +56,7 @@ Webhook actions require the properties in the following table.
 Webhooks include a URL and a payload formatted in JSON that is the data sent to the external service.  By default, the payload will include the values in the following table.  You can choose to replace this payload with a custom one of your own.  In that case you can use the variables in the table for each of the parameters to include their value in your custom payload.
 
 >[!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the webook payload has changed.  You can see an example in [Samples](#samples) below.
+> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the webook payload has changed.  Details of the format are in [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse).  You can see an example in [Samples](#samples) below.
 
 | Parameter | Variable | Description |
 |:--- |:--- |:--- |
@@ -114,7 +114,7 @@ Runbook actions start the runbook using a [webhook](../automation/automation-web
 You cannot directly populate any parameters of the runbook, but the [$WebhookData parameter](../automation/automation-webhooks.md) will include the details of the alert, including the results of the log search that created it.  The runbook will need to define **$WebhookData** as a parameter for it to access the properties of the alert.  The alert data is available in json format in a single property called **SearchResults** in the **RequestBody** property of **$WebhookData**.  This will have with the properties in the following table.
 
 >[!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the runbook payload has changed.  You can see an example in [Samples](#samples) below.
+> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the runbook payload has changed.  Details of the format are in [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse).  You can see an example in [Samples](#samples) below.
 
 | Node | Description |
 |:--- |:--- |
@@ -153,11 +153,12 @@ For example, the following runbook would extract the records returned by the log
 
 
 ## Sample payload
-This section shows sample payload for webhook and runbook actions in both a legacy and an [upgraded](log-analytics-log-search-upgrade.md) Log Analytics workspace.
+This section shows sample payload for webhook and runbook actions in both a legacy and an [upgraded Log Analytics workspace](log-analytics-log-search-upgrade.md).
 
 ### Webhook actions
 
 #### Legacy workspace.
+Following is a sample payload for a webhook action in a legacy workspace.
 
     {
     "WorkspaceId": "workspaceID",
@@ -232,6 +233,7 @@ This section shows sample payload for webhook and runbook actions in both a lega
 
 
 #### Upgraded workspace.
+Following is a sample payload for a webhook action in an upgraded workspace.
 
     {
     "WorkspaceId": "workspaceID",
@@ -370,6 +372,7 @@ This section shows sample payload for webhook and runbook actions in both a lega
 ### Runbooks
 
 #### Legacy workspace
+Following is a sample payload for a runbook action in a legacy workspace.
 
     {
         "SearchResults": {
@@ -425,6 +428,7 @@ This section shows sample payload for webhook and runbook actions in both a lega
     }
 
 #### Upgraded workspace
+Following is a sample payload for a runbook action in an upgraded workspace.
 
     {
     "WorkspaceId": "workspaceID",
