@@ -9746,6 +9746,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/expressroute/expressroute-routing-nat.md",
+            "redirect_url": "/azure/expressroute/expressroute-routing",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-machines/virtual-machines-windows-matlab-mdcs-cluster.md",
             "redirect_url": "/azure/virtual-machines/windows/matlab-mdcs-cluster",
             "redirect_document_id": false
