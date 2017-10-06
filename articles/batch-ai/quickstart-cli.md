@@ -32,7 +32,7 @@ This quickstart requires that you are running the latest Azure CLI version. If y
 
 Batch AI clusters and jobs are Azure resources and must be placed in an Azure resource group.
 
-Create a resource group with the [az group create][/cli/azure/group#create] command.
+Create a resource group with the [az group create](/cli/azure/group#az_group_create) command.
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location. It then uses the [az configure](/cli/azure) command to set this resource group as the default.
 
@@ -44,7 +44,7 @@ az configure --defaults group=myResourceGroup
 
 ## Create a storage account
 
-This quickstart uses an Azure storage account to host data and scripts for the training job. Create a storage account with the [az storage account create](/cli/azure/storage/account#create) command.
+This quickstart uses an Azure storage account to host data and scripts for the training job. Create a storage account with the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
 
 ```azurecli
 az storage account create \
@@ -121,7 +121,7 @@ After the cluster is created, output is similar to the following:
   "creationTime": "2017-10-05T02:09:01.998000+00:00",
   "currentNodeCount": 0,
   "errors": null,
-  "id": "/subscriptions/10d0b7c6-9243-4713-xxxx-xxxxxxxxxxxx/resourceGroups/demo/providers/Microsoft.BatchAI/clusters/cluster",
+  "id": "/subscriptions/10d0b7c6-9243-4713-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.BatchAI/clusters/mycluster",
   "location": "eastus",
   "name": "mycluster",
   "nodeSetup": {
@@ -249,8 +249,8 @@ Output is similar to the following:
   "caffeSettings": null,
   "chainerSettings": null,
   "cluster": {
-    "id": "/subscriptions/10d0b7c6-9243-4713-xxxx-xxxxxxxxxxxx/resourceGroups/demo/providers/Microsoft.BatchAI/clusters/mycluster",
-    "resourceGroup": "demo"
+    "id": "/subscriptions/10d0b7c6-9243-4713-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.BatchAI/clusters/mycluster",
+    "resourceGroup": "myresourcegroup"
   },
   "cntkSettings": {
     "commandLineArgs": "$AZ_BATCHAI_INPUT_SAMPLE $AZ_BATCHAI_OUTPUT_MODEL",
