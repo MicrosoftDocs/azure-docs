@@ -39,10 +39,10 @@ The integration with the RESTful services can be designed as a claims exchange o
    * Send input claims
    * Send back output claims
 
-## RESTful demo
-In this walkthrough, you develop a .NET framework web API that validates the user input and provide user loyalty number. For example, your application can grant access to "platinum benefits"based on the loyalty number.
+## RESTful walkthrough
+In this walkthrough, you develop a .NET framework web API that validates the user input and provide user loyalty number. For example, your application can grant access to "platinum benefits" based on the loyalty number.
 
-The demo involves:
+Overview:
 *   Developing the RESTful service (.NET framework Web API)
 *   Using the RESTful service in the user journey
 *   Sending input claims and read them in your code
@@ -55,7 +55,7 @@ Complete the steps in the [Getting started with custom policies](active-director
 
 ## Step 1: Create an ASP.NET web API
 1.  In Visual Studio, create a project by selecting **File > New > Project**.
-2.  In the **New Project** dialog, select **Visual C > Web > ASP.NET Web Application (.NET Framework)**.
+2.  In the **New Project** dialog, select **Visual C# > Web > ASP.NET Web Application (.NET Framework)**.
 3.  Name the application, for example, Contoso.AADB2C.API, and then select **OK**.
 
     ![Create new visual studio project](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-create-project.png)
@@ -280,7 +280,7 @@ Locate the `<ClaimsProviders>` node and add following XML snippet under `<Claims
 </ClaimsProvider>
 ```
 
-## Step 6: Add the claim `city` to your relying party policy file so the claim is sent to your application
+## Step 6: Add the `loyaltyNumber` claim to your relying party policy file so the claim is sent to your application
 Edit your SignUpOrSignIn.xml relying party (RP) file and modify the `<TechnicalProfile Id="PolicyProfile">` element to add the following: `<OutputClaim ClaimTypeReferenceId="loyaltyNumber" />`.
 
 After you add the new claim, the `RelyingParty` looks like this:
@@ -356,7 +356,7 @@ After you add the new claim, the `RelyingParty` looks like this:
 
 ## [Optional] Download the complete policy files and code
 * We recommend you build your scenario using your own Custom policy files after completing the Getting Started with Custom Policies walk through instead of using these sample files.  [Sample policy files for reference](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw)
-* You can download the complete code  here [Sample visual studio solution for reference](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/Contoso.AADB2C.API)
+* You can download the complete code  here [Sample visual studio solution for reference](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/)
 	
 ## Next steps
 1.  [Secure your RESTful API with basic authentication (username and password)](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)

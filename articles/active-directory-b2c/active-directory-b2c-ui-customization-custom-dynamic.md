@@ -98,10 +98,10 @@ Your custom HTML5 templated is based on B2C built in HTML5 template. You can dow
 9. Find the `@` signs, and replace with `@@`
 10. Copy the content of the file and past it below the Layout definition. Your code should look like:
 ![unified.cshtml file after adding the HTML5](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-edit-view1.png)
-## Step 2.3 change the background image
+### Step 2.3 change the background image
 10. Locate the `<img>` element with ID `background_background_image` and replace the `src` to _https://kbdevstorage1.blob.core.windows.net/asset-blobs/19889_en_1_, or any other background image you like.
 ![Change the page background](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-static-background.png)
-## Step 2.4 add you view to MVC controller
+### Step 2.4 add you view to MVC controller
 Open **Controllers\HomeController.cs** and add following method. 
 ```C
 public IActionResult unified()
@@ -116,7 +116,7 @@ After adding the _unified_ method, your code should look like:
 
 Debug your web app, and make sure _unified_ page is accessible. For example, `http://localhost:<Port number>/Home/unified`
 
-## Step 2.5 Publish to Azure
+### Step 2.5: Publish to Azure
 1.  In the **Solution Explorer**, right-click the **Contoso.AADB2C.UI** project and select **Publish**.
 
     ![Publish to Microsoft Azure App Service](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-publish1.png)
