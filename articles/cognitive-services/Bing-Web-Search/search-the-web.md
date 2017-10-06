@@ -539,7 +539,7 @@ If the list of contractual rules includes a [LicenseAttribution](https://docs.mi
   
 The following shows an example that includes a `LicenseAttribution` rule.  
   
-![License attribution](./media/cognitive-services-bing-entities-api/licenseattribution.png)  
+![License attribution](./media/licenseattribution.png)  
   
 The license notice that you display must include a hyperlink to the website that contains information about the license. Typically, you make the name of the license a hyperlink. For example, if the notice is **Text under CC-BY-SA license** and CC-BY-SA is the name of the license, you would make CC-BY-SA a hyperlink.  
   
@@ -551,7 +551,7 @@ To attribute the providers, include a line immediately following the content tha
   
 The following shows an example that includes `LinkAttribution` and `TextAttribution` rules.  
   
-![Link text attribution](./media/cognitive-services-bing-entities-api/linktextattribution.png)  
+![Link text attribution](./media/linktextattribution.png)  
 
 ### Media Attribution  
 
@@ -559,7 +559,7 @@ If the entity includes an image and you display it, you must provide a click-thr
   
 The following shows an example that includes an image's `provider` field and contractual rules. Because the example includes the contractual rule, you will ignore the image's `provider` field and apply the `MediaAttribution` rule.  
   
-![Media attribution](./media/cognitive-services-bing-entities-api/mediaattribution.png)  
+![Media attribution](./media/mediaattribution.png)  
 
 
 ### TimeZone answer  
