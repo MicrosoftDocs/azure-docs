@@ -39,10 +39,16 @@ Classic provides minimal functionality, enabling an initial release of ACR. Clas
 | Feature | Basic | Standard | Premium |
 |---|---|---|---|---|
 | Storage | 10 gib | 100 gib| 500 gib |
-| ReadOps Per Minute | 1k | 100k | 5,000k | 
-| WriteOps Per Minute | 100 | 1k | 500k | 
+| ReadOps Per Minute | 1k | 300k | 10,000k | 
+| WriteOps Per Minute | 100 | 500 | 2k | 
+| Download Bandwidth MB/s | 30 | 60 | 100 |
+| Upload Bandwidth MB/s | 10 | 20 | 50 |
 | WebHooks | 2 | 10 | 100| 
 | Geo-replication | N/A | N/A | [Supported *(Preview)*](container-registry-geo-replication.md) |
+
+> [!Note]
+> ReadOps, WriteOps & Bandwidth are minimum estimates. ACR will continue to strive to improve performance as usage requires. 
+>
 
 ### ReadOps
 Docker pull translates to multiple read operations based on the number of layers, plus the manifest retrieval. 
@@ -63,6 +69,25 @@ Current usage of a registry can be found in the **overview**
 
 Repository sizes can be maintained with the [az acr repository delete](/cli/azure/acr/repository?view=azure-cli-latest#az_acr_repository_delete) API.
 
+# Why change from Classic to Basic/Standard/Premium
+The Classic SKU was introduced to provide a private registry in Azure quickly. It is based on the OSS implementation. While a good product, we had the opportunity to more deeply integrate the registry into the capabilities of Azure. Some of the capabilities include:
+* Integrating Azure Active Identity for individual authentication. See: (az acr login)[/cli/azure/acr?view=azure-cli-latest#az_acr_login]
+* Enable image and tag deletes: (az acr repository delete)[/cli/azure/acr/repository?view=azure-cli-latest#az_acr_repository_delete]
+* [Geo-replication](container-registry-geo-replication)
+* [WebHooks](container-registry-webhook)
+
+Most of all, the Classic registry depends on the storage account being provisioned in your subscription. Moving the management of storage to ACR enables:
+* Default encrypted at rest of all images
+* Offsite storage, assuring backup of all images
+* Ability to move between SKUs, enabling higher throughput. ACR will meet the needs of your required throughput. This may be implemented by multiple storage accounts to provide concurrent pulls, or CDN as needs increase. The implementation for how ACR achieves the desired throughput is expressed as intent, without having to manage the implementation. 
+
+Additional features will be coming, that provide a better view of how images are being used. 
+
+* Telemetry of image usage over time
+* Repository level permissions
+* Base image caching and notifications
+
+For more information, and the ability to cast your vote, please see the [ACR Roadmap](https://aka.ms/acr/roadmap)
 
 # Changing SKUs
 Changing between SKUs can be completed through the Azure Portal or the az CLI.
