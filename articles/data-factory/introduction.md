@@ -65,7 +65,7 @@ After the raw data has been refined into a business-ready consumable form, load 
 After you have successfully built and deployed your data integration pipeline, providing business value from refined data, monitor the scheduled activities and pipelines for success and failure rates. Azure Data Factory has built-in support for pipeline monitoring via Azure Monitor, API, PowerShell, Microsoft Operations Management Suite (OMS), and health panels on the Azure portal.
 
 ## What’s different in version 2?
-Azure Data Factory version 2 builds upon the original Azure Data Factory data movement and transformation service, extending to a broader set of cloud-first data integration scenarios. Azure Data Factory version 2 brings the following capabilities:
+Azure Data Factory version 2 builds on the original Azure Data Factory data movement and transformation service, extending to a broader set of cloud-first data integration scenarios. Azure Data Factory version 2 brings the following capabilities:
 
 - Control flow and scale
 - Deploy and run SSIS packages in Azure
@@ -89,7 +89,7 @@ You now have the freedom to model any flow style that's required for data integr
 		- Activities can consume the arguments that are passed to the pipeline.
 	- Custom state passing
 		- Activity outputs including state can be consumed by a subsequent activity in the pipeline.
-	- Looping Containers
+	- Looping containers
 		- For-each 
 - Trigger-based flows
 	- Pipelines can be triggered by on-demand or wall-clock time.
@@ -135,11 +135,11 @@ Activities represent a processing step in a pipeline. For example, you might use
 Datasets represent data structures within the data stores, which simply point to or reference the data you want to use in your activities as inputs or outputs. 
 
 ### Linked services
-Linked services are much like connection strings, which define the connection information that's needed for Data Factory to connect to external resources. Think of it this way: a linked service defines the connection to the data source and a dataset represents the structure of the data. For example, an Azure-Storage linked service specifies a connection string to connect to the Azure Storage account. Additionally, an Azure Blob dataset specifies the blob container and the folder that contains the data.
+Linked services are much like connection strings, which define the connection information that's needed for Data Factory to connect to external resources. Think of it this way: a linked service defines the connection to the data source, and a dataset represents the structure of the data. For example, an Azure-Storage linked service specifies a connection string to connect to the Azure Storage account. Additionally, an Azure blob dataset specifies the blob container and the folder that contains the data.
 
 Linked services are used for two purposes in Data Factory:
 
-- To represent a **data store** that includes, but isn't limited to, an on-premises SQL Server, Oracle database, file share, or Azure Blob storage account. For a list of supported data stores, see the [copy activity](copy-activity-overview.md) article.
+- To represent a **data store** that includes, but isn't limited to, an on-premises SQL Server, Oracle database, file share, or Azure blob storage account. For a list of supported data stores, see the [copy activity](copy-activity-overview.md) article.
 
 - To represent a **compute resource** that can host the execution of an activity. For example, the HDInsightHive activity runs on an HDInsight Hadoop cluster. For a list of transformation activities and supported compute environments, see the [transform data](transform-data.md) article.
 
@@ -151,14 +151,14 @@ Triggers represent the unit of processing that determines when a pipeline execut
 A pipeline run is an instance of the pipeline execution. Pipeline runs are typically instantiated by passing the arguments to the parameters that are defined in pipelines. The arguments can be passed manually or within the trigger definition.
 
 ### Parameters
-Parameters are key-value pairs of read-only configuration.  Parameters are defined in the pipeline and the arguments for the defined parameters are passed during execution from the run context that was created by a trigger or a pipeline that was executed manually. Activities within the pipeline consume the parameter values.
+Parameters are key-value pairs of read-only configuration.  Parameters are defined in the pipeline. The arguments for the defined parameters are passed during execution from the run context that was created by a trigger or a pipeline that was executed manually. Activities within the pipeline consume the parameter values.
 
 A dataset is a strongly-typed parameter and a reusable/referenceable entity. An activity can reference datasets and can consume the properties that are defined in the dataset definition.
 
 A linked service is also a strongly typed parameter that contains the connection information to either a data store or a compute environment. It is also a reusable/referenceable entity.
 
 ### Control flow
-Control flow is an orchestration of pipeline activities that includes chaining activities in a sequence, branching, and defining parameters at the pipeline level, and passing arguments while invoking the pipeline on-demand or from a trigger. Also includes custom-state passing and looping containers, that is, For-each iterators.
+Control flow is an orchestration of pipeline activities that includes chaining activities in a sequence, branching, defining parameters at the pipeline level, and passing arguments while invoking the pipeline on-demand or from a trigger. It also includes custom-state passing and looping containers, that is, For-each iterators.
 
 
 For more information about Data Factory concepts, see the following articles:
@@ -173,7 +173,7 @@ Currently, you can create data factories in the East US and East US 2 regions. H
 
 Azure Data Factory itself does not store any data. It lets you create data-driven workflows to orchestrate the movement of data between supported data stores and the processing of data using compute services in other regions or in an on-premises environment. It also allows you to monitor and manage workflows by using both programmatic and UI mechanisms.
 
-Although Data Factory is available in the East US and East US 2 regions only, the service that powers the data movement in Data Factory is available globally in several regions. If a data store is behind a firewall, then a Data Management Gateway that's installed in your on-premises environment moves the data instead.
+Although Data Factory is available only in the East US and East US 2 regions, the service that powers the data movement in Data Factory is available globally in several regions. If a data store is behind a firewall, then a Data Management Gateway that's installed in your on-premises environment moves the data instead.
 
 For an example, let's assume that your compute environments such as Azure HDInsight cluster and Azure Machine Learning are running out of the West Europe region. You can create and use an Azure Data Factory instance in North Europe and use it to schedule jobs on your compute environments in West Europe. It takes a few milliseconds for Data Factory to trigger the job on your compute environment, but the time for running the job on your computing environment does not change.
 
