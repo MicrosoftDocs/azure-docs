@@ -114,6 +114,8 @@ Follow these steps to use Bing to add slices to your Custom Search instance.
 - For each custom search instance, the maximum number of pins that you may make is limited to 200.
 
 ## Next steps
+
+- [Search your custom instance](./search-your-custom-view.md)
 - [Configure and consume custom hosted UI](./hosted-ui.md)
 - [Use decoration markers to highlight text](./hit-highlighting.md)
 - [Page webpages](./page-webpages.md)
