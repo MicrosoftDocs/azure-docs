@@ -209,6 +209,8 @@ if(aliasPrimaryConnectionString == null)
 
 ## Next steps
 
+See the Geo-disaster recovery [REST API reference here](/rest/api/servicebus/disasterrecoveryconfigs).
+
 To learn more about Service Bus messaging, see the following articles:
 
 * [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
