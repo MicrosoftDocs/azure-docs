@@ -56,7 +56,7 @@ If you prefer, you can use the Azure portal for Durable Functions development.
 ### Create an orchestrator function
 
 1. Create a new function app at [functions.azure.com](https://functions.azure.com/signin).
-2. Create a new function and select the **Durable Orchestration Trigger - C#** template. This template downloads the extension from NuGet.org and creates a new orchestrator function.
+2. Create a new function and select the **Durable Functions Orchestrator trigger** template. This template downloads the extension from NuGet.org and creates a new orchestrator function.
 
 ### Copy sample code to the function app
 
