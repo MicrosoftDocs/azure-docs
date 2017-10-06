@@ -188,7 +188,7 @@ This code is what you might describe as an "eternal orchestration" &mdash; that 
 * "Restarts" itself by calling `ctx.ContinueAsNew`.
 * Awaits again indefinitely for the next operation.
 
-### Pattern #5: Human interaction
+## Pattern #5: Human interaction
 
 Many processes involve some kind of human interaction. The tricky thing about involving humans in an automated process is that people are not always as highly available and responsive as cloud services. Automated processes must allow for this, and they often do so by using timeouts and compensation logic.
 
