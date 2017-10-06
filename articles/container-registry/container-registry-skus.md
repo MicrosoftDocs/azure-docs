@@ -35,13 +35,14 @@ Classic provides minimal functionality, enabling an initial release of ACR. Clas
 > [!NOTE]
 > Classic registries will be deprecated in the near future. Please see Basic, Standard or Premium registries for newly created registries. For existing Classic registries, please see Changing SKUs
 >
+
 | Feature | Basic | Standard | Premium |
 |---|---|---|---|---|
 | Storage | 10 gib | 100 gib| 500 gib |
-| ReadOps/Min | 1k | 100k | 5,000k | 
-| WriteOps/Min | 100 | 1k | 500k | 
+| ReadOps Per Minute | 1k | 100k | 5,000k | 
+| WriteOps Per Minute | 100 | 1k | 500k | 
 | WebHooks | 2 | 10 | 100| 
-| Geo-replication | N/A | N/A | Supported *(Preview)* |
+| Geo-replication | N/A | N/A | [Supported *(Preview)*](container-registry-geo-replication.md) |
 
 ### ReadOps
 Docker pull translates to multiple read operations based on the number of layers, plus the manifest retrieval. 
@@ -57,14 +58,14 @@ Docker Reference: [Pushing An Image](https://docs.docker.com/registry/spec/api/#
 ## Maintaining registry sizes
 SKU storage constraints are intended to be aligned with the typical scenario. Basic for getting started, standard for the majority of production apps, while premium provides hyper-scale performance and [geo-replication](container-registry-geo-replication.md). 
 
+Current usage of a registry can be found in the **overview**
+![SKU Update](media/container-registry-skus/registry-overview-quotas.png)
+
 Repository sizes can be maintained with the [az acr repository delete](/cli/azure/acr/repository?view=azure-cli-latest#az_acr_repository_delete) API.
 
 
 # Changing SKUs
 Changing between SKUs can be completed through the Azure Portal or the az CLI.
-## Changing from Classic
-Changing from classic registries requires copying images from the associated storage account in the subscription. This process will take some time. While conversion, `docker pull` will continue to function, however `docker push` will be blocked until conversion is complete. 
-Once completed, the subscription storage account is no longer used by ACR. 
 
 ## Changing SKUs with the Azure Portal
 From **Overview** in the Azure Portal, choose **Update** to configure the desired SKU.
@@ -76,3 +77,6 @@ Change between SKUs using the [az acr update](/cli/azure/acr?view=azure-cli-late
 
 Example: `ac acr update -n MyRegistry --sku premium`
 
+## Changing from Classic
+Changing from classic registries requires copying images from the associated storage account in the subscription. This process will take some time. While conversion, `docker pull` will continue to function, however `docker push` will be blocked until conversion is complete. 
+Once completed, the subscription storage account is no longer used by ACR. 
