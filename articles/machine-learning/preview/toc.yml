@@ -83,6 +83,8 @@
     items:
     - name: Set up Model Management
       href: deployment-setup-configuration.md
+    - name: Scale clusters and services
+      href: how-to-scale-clusters.md
     - name: Deploy a web service
       href: model-management-service-deploy.md
     - name: Consume a web service
