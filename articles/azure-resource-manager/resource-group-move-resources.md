@@ -140,7 +140,7 @@ The services that enable moving to both a new resource group and subscription ar
 * Virtual Machines - VMs with managed disks cannot be moved. See [Virtual Machines limitations](#virtual-machines-limitations)
 * Virtual Machines (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 * Virtual Machine Scale Sets - see [Virtual Machines limitations](#virtual-machines-limitations)
-* Virtual Networks - Currently, a peered Virtual Network cannot be moved until VNet peering has been disabled. Once disabled, the Virtual Network can be moved successfully and the VNet peering can be enabled. In addition, a Virtual Network cannot be moved to a different subscription if the Virtual Network contains any subnet with resource navigation links. For example, a Virtual Network subnet has a resource navigation link when a Microsoft.Cache redis resource is deployed into this subnet.
+* Virtual Networks - see [Virtual Networks limitations](#virtual-networks-limitations)
 * VPN Gateway
 
 ## Services that do not enable move
@@ -175,6 +175,12 @@ Managed disks do not support move. This restriction means that several related r
 Virtual machines created from Marketplace resources cannot be moved across subscriptions. Deprovision the virtual machine in the current subscription, and deploy again in the new subscription.
 
 Virtual Machines with certificate stored in Key Vault can be moved to a new resource group in the same subscription, but not across subscriptions.
+
+## Virtual Networks limitations
+
+To move a peered virtual network, you must first disable the virtual network peering. Once disabled, you can move the virtual network. After the move, reenable the virtual network peering.
+
+You cannot move a virtual network to a different subscription if the virtual network contains a subnet with resource navigation links. For example, if a Redis Cache resource is deployed into a subnet, that subnet has a resource navigation link.
 
 ## App Service limitations
 
@@ -215,18 +221,6 @@ You can move an App Service Certificate to a new resource group or subscription 
 1. Delete the uploaded certificate from the web app
 2. Move the web app
 3. Upload the certificate to the web app
-
-## Recovery Services limitations
-
-Move is not enabled for Storage, Network, or Compute resources used to set up disaster recovery with Azure Site Recovery.
-
-For example, suppose you have set up replication of your on-premises machines to a storage account (Storage1) and want the protected machine to come up after failover to Azure as a virtual machine (VM1) attached to a virtual network (Network1). You cannot move any of these Azure resources - Storage1, VM1, and Network1 - across resource groups within the same subscription or across subscriptions.
-
-## HDInsight limitations
-
-You can move HDInsight clusters to a new subscription or resource group. However, you cannot move across subscriptions the networking resources linked to the HDInsight cluster (such as the virtual network, NIC, or load balancer). In addition, you cannot move to a new resource group a NIC that is attached to a virtual machine for the cluster.
-
-When moving an HDInsight cluster to a new subscription, first move other resources (like the storage account). Then, move the HDInsight cluster by itself.
 
 ## Classic deployment limitations
 
@@ -312,6 +306,18 @@ To move classic resources to a new subscription, use the REST operations that ar
 
 The operation may run for several minutes.
 
+## Recovery Services limitations
+
+Move is not enabled for Storage, Network, or Compute resources used to set up disaster recovery with Azure Site Recovery.
+
+For example, suppose you have set up replication of your on-premises machines to a storage account (Storage1) and want the protected machine to come up after failover to Azure as a virtual machine (VM1) attached to a virtual network (Network1). You cannot move any of these Azure resources - Storage1, VM1, and Network1 - across resource groups within the same subscription or across subscriptions.
+
+## HDInsight limitations
+
+You can move HDInsight clusters to a new subscription or resource group. However, you cannot move across subscriptions the networking resources linked to the HDInsight cluster (such as the virtual network, NIC, or load balancer). In addition, you cannot move to a new resource group a NIC that is attached to a virtual machine for the cluster.
+
+When moving an HDInsight cluster to a new subscription, first move other resources (like the storage account). Then, move the HDInsight cluster by itself.
+
 ## Use portal
 
 To move resources, select the resource group containing those resources, and then select the **Move** button.
@@ -334,16 +340,7 @@ When it has completed, you are notified of the result.
 
 ## Use PowerShell
 
-To move existing resources to another resource group or subscription, use the `Move-AzureRmResource` command.
-
-The first example shows how to move one resource to a new resource group.
-
-```powershell
-$resource = Get-AzureRmResource -ResourceName ExampleApp -ResourceGroupName OldRG
-Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $resource.ResourceId
-```
-
-The second example shows how to move multiple resources to a new resource group.
+To move existing resources to another resource group or subscription, use the [Move-AzureRmResource](/powershell/module/azurerm.resources/move-azurermresource) command. The following example shows how to move multiple resources to a new resource group.
 
 ```powershell
 $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
@@ -355,11 +352,12 @@ To move to a new subscription, include a value for the `DestinationSubscriptionI
 
 ## Use Azure CLI
 
-To move existing resources to another resource group or subscription, use the `az resource move` command. Provide the resource IDs of the resources to move. The following example shows how to move a storage account to a new resource group. In the `--ids` parameter, provide a space-separated list of the resource IDs to move.
+To move existing resources to another resource group or subscription, use the [az resource move](/cli/azure/resource?view=azure-cli-latest#az_resource_move) command. Provide the resource IDs of the resources to move. The following example shows how to move multiple resources to a new resource group. In the `--ids` parameter, provide a space-separated list of the resource IDs to move.
 
 ```azurecli
-resid=$(az resource show -g examplegroup -n examplestorage --resource-type "Microsoft.Storage/storageAccounts" --query id --output tsv)
-az resource move --destination-group newgroup --ids $resid
+webapp=$(az resource show -g OldRG -n ExampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)
+plan=$(az resource show -g OldRG -n ExamplePlan --resource-type "Microsoft.Web/serverfarms" --query id --output tsv)
+az resource move --destination-group newgroup --ids $webapp $plan
 ```
 
 To move to a new subscription, provide the `--destination-subscription-id` parameter.
