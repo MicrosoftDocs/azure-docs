@@ -18,7 +18,7 @@ ms.author: wgries
 ---
 
 # Planning for an Azure File Sync (preview) deployment
-With Azure File Sync (preview), shares can be replicated to Windows Servers on-premises or in Azure. You and your users then access the file share through the Windows Server, such as through a SMB or NFS share. This is particularly useful for scenarios in which data will be accessed and modified far away from an Azure datacenter, such as in a branch office scenario. Data may be replicated between multiple Windows Server endpoints, such as between multiple branch offices. 
+Azure File Sync (preview) allows you centralize your organization's file shares in Azure Files without giving up the flexibility, performance, and compatibility of an on-premises file server. It does this by transforming your Windows Servers into a quick cache of your Azure File share. You can use any protocol available on Windows Server to access your data locally (including SMB, NFS, and FTPS) and you can have as many caches as you need across the world.
 
 This guide describes what to consider when deploying Azure File Sync. It is recommended that you read [Planning for an Azure Files deployment](storage-files-planning.md) guide testing. 
 
@@ -134,11 +134,7 @@ Azure File Sync is only available in the following regions in Preview:
 In Preview, we only support sync with an Azure File share in the same region as the Storage Sync Service.
 
 ## Azure File Sync agent update policy
-Updates to the Azure File Sync agent will be released on a regular basis to add new functionality and to address any issues found. We recommend enabling Microsoft Update to get all updates to the Azure File Sync agent as we release them. That said, we understand that some organizations like to strictly control updates. For deployments using older versions of the Azure File Sync agent:
-
-- The Storage Sync Service will honor the previous major version for three months after the initial release of a new major version. For example, version 1.\* would be supported by the Storage Sync Service until three months after the release of version 2.\*.
-- After three months have elapsed, the Storage Sync Service will begin to block Registered Servers using the expired version from syncing with their Sync Groups.
-- Within the three months for a previous major version, all bug fixes will go only to the current major version.
+[!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
 ## Next steps
 * [Planning for an Azure Files deployment](storage-files-planning.md)
