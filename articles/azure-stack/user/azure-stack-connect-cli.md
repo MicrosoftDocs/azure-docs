@@ -19,13 +19,13 @@ ms.author: sngun
 ---
 # Install and configure CLI for use with Azure Stack
 
-In this document, we guide you through the process of using Azure Command-line Interface (CLI) to manage Azure Stack Development Kit resources from Linux and Mac client platforms. 
+In this document, we guide you through the process of using Azure command-line interface (CLI) to manage Azure Stack Development Kit resources from Linux and Mac client platforms. 
 
 ## Export the Azure Stack CA root certificate
 
-If you are using CLI from a virtual machine that is running within the Azure Stack Development Kit environment, the Azure Stack root certificate is already installed within the virtual machine so you can directly retrieve. Whereas if you are use CLI from a workstation outside the development kit, you must export the Azure Stack CA root certificate from the development kit and add it to the Python certificate store of your development workstation(external Linux or Mac platform). 
+If you are using CLI from a virtual machine that is running within the Azure Stack Development Kit environment, the Azure Stack root certificate is already installed in the virtual machine so you can directly retrieve it. If you use CLI from a workstation outside the development kit, you must export the Azure Stack CA root certificate from the development kit and add it to the Python certificate store of your development workstation (external Linux or Mac platform). 
 
-Sign in to your development kit and run the following script to export the Azure Stack root certificate in PEM format:
+To export the Azure Stack root certificate in PEM format, sign in to your development kit and run the following script:
 
 ```powershell
    $label = "AzureStackSelfSignedRootCert"
@@ -33,7 +33,7 @@ Sign in to your development kit and run the following script to export the Azure
    $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
    if (-not $root)
    {
-       Log-Error "Cerficate with subject CN=$label not found"
+       Log-Error "Certificate with subject CN=$label not found"
        return
    }
 
@@ -46,7 +46,7 @@ Sign in to your development kit and run the following script to export the Azure
 
 ## Install CLI
 
-Next you should sign in to your development workstation and install CLI. Azure Stack requires the 2.0 version of Azure CLI, which you can install by using the steps described in the [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) article. To verify if the installation was successful, open a terminal or a command prompt window and run the following command:
+Next, sign in to your development workstation and install CLI. Azure Stack requires the 2.0 version of Azure CLI, which you can install by using the steps described in the [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) article. To verify if the installation was successful, open a terminal or a command prompt window and run the following command:
 
 ```azurecli
 az --version
@@ -56,13 +56,13 @@ You should see the version of Azure CLI and other dependent libraries that are i
 
 ## Trust the Azure Stack CA root certificate
 
-To trust the Azure Stack CA root certificate, you should append it to the existing python certificate. If you are running CLI from a Linux machine that is created within the Azure Stack environment, run the following bash command:
+To trust the Azure Stack CA root certificate, append it to the existing Python certificate. If you are running CLI from a Linux machine that is created within the Azure Stack environment, run the following bash command:
 
 ```bash
 sudo cat /var/lib/waagent/Certificates.pem >> ~/lib/azure-cli/lib/python2.7/site-packages/certifi/cacert.pem
 ```
 
-If you are running CLI from a machine outside the Azure Sack environment, you must first set up [VPN connectivity to Azure Stack](azure-stack-connect-azure-stack.md). Now copy the PEM certificate that you exported earlier onto your development workstation and run the following commands depending on your development workstation's OS,:
+If you are running CLI from a machine outside the Azure Sack environment, you must first set up [VPN connectivity to Azure Stack](azure-stack-connect-azure-stack.md). Now copy the PEM certificate that you exported earlier onto your development workstation and run the following commands, depending on your development workstation's OS.
 
 ### Linux
 
@@ -118,9 +118,9 @@ https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/
 
 Use the following steps to connect to Azure Stack:
 
-1. Register your Azure Stack environment by running the az cloud register command.
+1. Register your Azure Stack environment by running the **az cloud register** command.
    
-   a. To register the **cloud administrative** environment, use:
+   a. To register the *cloud administrative* environment, use:
 
    ```azurecli
    az cloud register \ 
@@ -132,7 +132,7 @@ Use the following steps to connect to Azure Stack:
      --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
    ```
 
-   b. To register the **user** environment, use:
+   b. To register the *user* environment, use:
 
    ```azurecli
    az cloud register \ 
@@ -144,16 +144,16 @@ Use the following steps to connect to Azure Stack:
      --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
    ```
 
-2. Set the active environment by using the following commands:
+2. Set the active environment by using the following commands.
 
-   a. For the **cloud administrative** environment, use:
+   a. For the *cloud administrative* environment, use:
 
    ```azurecli
    az cloud set \
      -n AzureStackAdmin
    ```
 
-   b. For the **user** environment, use:
+   b. For the *user* environment, use:
 
    ```azurecli
    az cloud set \
@@ -169,7 +169,7 @@ Use the following steps to connect to Azure Stack:
 
 4. Sign in to your Azure Stack environment by using the **az login** command. You can sign in to the Azure Stack environment either as a user or as a [service principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects). 
 
-   * Sign in as a **user**: You can either specify the username and password directly within the az login command or authenticate using a browser. You would have to do the latter, if your account has multi-factor authentication enabled.
+   * Sign in as a *user*: You can either specify the username and password directly within the **az login** command or authenticate by using a browser. You have to do the latter if your account has multi-factor authentication enabled.
 
    ```azurecli
    az login \
@@ -178,9 +178,9 @@ Use the following steps to connect to Azure Stack:
    ```
 
    > [!NOTE]
-   > If your user account has Multi factor authentication enabled, you can use the az login command without providing the -u parameter. Running the command gives you a URL and a code that you must use to authenticate.
+   > If your user account has multi-factor authentication enabled, you can use the **az login command** without providing the *-u* parameter. Running the command gives you a URL and a code that you must use to authenticate.
    
-   * Sign in as a **service principal**: Before you sign in, [Create a service principal through the Azure portal](azure-stack-create-service-principals.md) or CLI and assign it a role. Now, log in by using the following command:
+   * Sign in as a *service principal*: Before you sign in, [create a service principal through the Azure portal](azure-stack-create-service-principals.md) or CLI and assign it a role. Now, log in by using the following command:
 
    ```azurecli
    az login \
@@ -201,7 +201,7 @@ az group create \
 
 If the resource group is created successfully, the previous command outputs the following properties of the newly created resource:
 
-![resource group create output](media/azure-stack-connect-cli/image1.png)
+![Resource group create output](media/azure-stack-connect-cli/image1.png)
 
 ## Next steps
 
