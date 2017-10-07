@@ -19,18 +19,17 @@ ms.author: mandia; ladocs
 
 ---
 # Connectors list
-> [!TIP]
-> [Connector details](/connectors/) lists any triggers and actions defined in the swagger, and also lists any limits for each connector.
+To find the triggers and actions defined by each connector's Swagger description plus any connector limits, see [Connector details](/connectors/).
 
 Connectors are an integral part when creating logic apps. Using these connectors, you can expand your on-premises and cloud applications to do various things with data that you create, and data you already have. The connectors are available as either built-in actions or managed connectors.
 
-**Built-in actions**: Part of the underlying Logic Apps engine that provides built-in connectivity or functionality. Some examples include calling HTTP endpoints, Azure Functions, and Azure API Management operations as well as data operations and variables.
+**Built-in actions**: The Logic Apps engine itself provides built-in actions for communicating to endpoints and performing tasks. For example, you can use these actions for calling HTTP endpoints, Azure Functions, and Azure API Management operations as well as manipulating messages with data operations and variables.
 
-**Managed connectors**: Provide API connectivity to services and require creating an API connection that is hosted and managed by the Logic Apps service. Managed connectors are available in the following categories:
+**Managed connectors**: Provide access to APIs for various services by creating API connections that the Logic Apps service hosts and manages. Managed connectors fall into these categories:
 
 * **Standard connectors**: Automatically available and included when you use logic apps. Some examples include Service Bus, Power BI, OneDrive, and many more.
 
-* **On-premises connectors**: Connect to server applications on-premises utilizing the [on-premises data gateway][gatewaydoc]. On-premises connectors include connectivity to server applications such as SharePoint Server, SQL Server, Oracle DB, File shares, and others.
+* **On-premises connectors**: Connect to server applications on-premises using the [on-premises data gateway][gatewaydoc]. On-premises connectors include connectivity to server applications such as SharePoint Server, SQL Server, Oracle DB, file shares, and others.
 
 * **Integration account connectors**: Available when you purchase an integration account. Using these connectors, you can transform and validate XML, process business-to-business messages with AS2 / X12 / EDIFACT, and encode and decode flat files. If you work with BizTalk Server, then these connectors are a good fit to expand your BizTalk workflows into Azure.  
 
@@ -38,12 +37,12 @@ Connectors are an integral part when creating logic apps. Using these connectors
 
 * **Enterprise connectors**: Includes MQ and SAP. Available at an additional cost. 
 
-[Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps/) and [Pricing model](../logic-apps/logic-apps-pricing.md) provide more details on the costs. 
+For more information about costs, see [pricing details](https://azure.microsoft.com/pricing/details/logic-apps/) and the [pricing model](../logic-apps/logic-apps-pricing.md) for Logic Apps. 
 
 ## Popular connectors
 There are thousands of applications and millions of executions that are successfully processing data and information using these connectors. 
 
-## Built-in actions
+### Built-in actions
 The Logic Apps engine provides actions that can manipulate data, communicate over HTTP, and control the flow of the logic app definition. Some of these actions include:
 
 | |  |  |  |
@@ -52,7 +51,7 @@ The Logic Apps engine provides actions that can manipulate data, communicate ove
 | [![API Icon][HTTP-Requesticon]<br/>**Request**][HTTP-Requestdoc] | Provides a callable HTTPS URL typically used as a webhook in other applications. When the logic app receives a request to this URL, the logic app starts. | [![API Icon][Schedule-icon]<br/>**Schedule**][recurrencedoc] | Start logic apps based on simple or complex recurrence schedules. For example, create schedules from as simple as recur every day to recur hourly on the last Friday of every month between 9:00 am and 5:00 pm. |
 | [![API Icon][CallLogicApp-icon]<br/>**Call<br/>Logic App**][nested-logic-appdoc] | Call a nested logic app. Any logic app with a request trigger can be called as a nested logic app.| [![API Icon][AppServices-icon]<br/>**API App**][api/web-appdoc] | Call an App Service API App. API Apps with swagger renders just like other first class actions.|
 
-## Standard connectors
+### Standard connectors
 The following table lists the most popular and some favorites with our users:
 
 | |  |  |  |
@@ -63,7 +62,7 @@ The following table lists the most popular and some favorites with our users:
 | [![API Icon][Service-Busicon]<br/>**Service Bus**][Service-Busdoc] | The most popular connector within logic apps, it includes triggers and actions to do asynchronous messaging and publish/subscribe with queues, subscriptions, and topics. |  [![API Icon][SharePointicon]<br/>**SharePoint<br/>Online**][SharePointdoc] | If you do anything with SharePoint, and could benefit from automation, we recommend looking at this connector. Can be used with an on-premises SharePoint, and SharePoint Online. |
 | [![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc] | One of the most used connectors, it can connect to an on-premises SQL Server, and an Azure SQL Database. | [![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc] | Sign in easily with a Twitter account, and then start a workflow when a new tweet is posted. Then, save these tweets to a SQL database or SharePoint list. | 
 
-## On-premises connectors 
+### On-premises connectors 
 
 On-premises connectors provide access to data in on-premises servers.  Creating a connection to a server on-premises requires an [on-premises data gateway][gatewaydoc] that provides a secure communication channel without needed to configure network infrastructure.  Some of the connectors include:
 
@@ -72,7 +71,7 @@ On-premises connectors provide access to data in on-premises servers.  Creating 
 | [![API Icon][db2icon]<br/>**DB2**][db2doc] | [![API Icon][oracle-DB-icon]<br/>**Oracle DB**][oracle-db-doc] | [![API Icon][sharepointicon]<br/>**SharePoint</br> Server**][sharepointserver] | [![API Icon][filesystem-icon]<br/>**File</br> System**][filesystemdoc] |
 [![API Icon][sql-servericon]<br/>**SQL</br> Server**][sql-serverdoc] | ![API Icon][Biztalk-Servericon]<br/>**BizTalk</br> Server**| |
 
-## Integration account connectors 
+### Integration account connectors 
 
 The Enterprise Integration Pack (EIP) includes connectors that are well known to the BizTalk Server community. When you purchase an [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), you also get the following connectors: 
 
@@ -82,7 +81,7 @@ The Enterprise Integration Pack (EIP) includes connectors that are well known to
 [![API Icon][flatfileicon]<br/>**Flat file</br> encoding**][flatfiledoc] | [![API Icon][flatfiledecodeicon]<br/>**Flat file</br> decoding**][flatfiledecodedoc] | [![API Icon][integrationaccounticon]<br/>**Integration<br/>account**][integrationaccountdoc] | [![API Icon][xmltransformicon]<br/>**Transform<br/>XML**][xmltransformdoc] |
 | [![API Icon][x12icon]<br/>**X12</br> decoding**][x12decode] | [![API Icon][x12icon]<br/>**X12</br> encoding**][x12encode] | [![API Icon][xmlvalidateicon]<br/>**XML <br/>validation**][xmlvalidatedoc] | |
 
-## Enterprise connectors
+### Enterprise connectors
 
 Connect to your enterprise applications within your logic apps.
 
@@ -225,7 +224,7 @@ Are we missing a connector topic, or any details you think are important? If yes
 
 <!--Icon references-->
 [appFiguresicon]: ./media/apis-list/appfigures.png
-[AppServices-icon]: ./media/apis-list/AppServices.svg
+[AppServices-icon]: ./media/apis-list/AppServices.png
 [Asanaicon]: ./media/apis-list/asana.png
 [Azure-Automation-icon]: ./media/apis-list/azure-automation.png
 [AzureBlobStorageicon]: ./media/apis-list/azureblob.png
@@ -308,14 +307,14 @@ Are we missing a connector topic, or any details you think are important? If yes
 <!-- Primitive Icons -->
 [API/Web-Appicon]: ./media/apis-list/api.png
 [Azure-Functionsicon]: ./media/apis-list/function.png
-[CallLogicApp-icon]: ./media/apis-list/calllogicapp.svg
+[CallLogicApp-icon]: ./media/apis-list/calllogicapp.png
 [Delayicon]: ./media/apis-list/delay.png
-[HTTPicon]: ./media/apis-list/http.svg
-[HTTP-Requesticon]: ./media/apis-list/request.svg
+[HTTPicon]: ./media/apis-list/http.png
+[HTTP-Requesticon]: ./media/apis-list/request.png
 [HTTP-Responseicon]: ./media/apis-list/response.png
 [HTTP-Swaggericon]: ./media/apis-list/http_swagger.png
 [Nested-Logic-Appicon]: ./media/apis-list/workflow.png
-[Recurrenceicon]: ./media/apis-list/recurrence.svg
+[Recurrenceicon]: ./media/apis-list/recurrence.png
 [Queryicon]: ./media/apis-list/query.png
 [Webhookicon]: ./media/apis-list/webhook.png
 
