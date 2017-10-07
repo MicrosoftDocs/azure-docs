@@ -6,18 +6,17 @@
     It explains what Azure Data Factory is, to someone who knows nothing about ADF.
 -->
 
-Azure Data Factory is a cloud-based data integration service. It enables you to create data-driven workflows in the cloud. The workflows orchestrate and automate data movement and data transformation. We call these workflows *pipelines*. Pipelines are data-driven. A pipeline can perform the following sequence with your data:
+Azure Data Factory is a cloud-based data integration service. It enables you to create data-driven workflows in the cloud. The workflows orchestrate and automate data movement and data transformation. We call these workflows *pipelines*. You can create and schedule pipelines. A pipeline can perform the following sequence with your data:
+
 
 1. Ingest data from disparate data stores.
 
 2. Transform, or otherwise process, the data by using compute services such as the following:
-  - Azure HDInsight Hadoop.
-  - Spark.
-  - Azure Data Lake Analytics.
-  - Azure Machine Learning.
+    - Azure HDInsight Hadoop
+    - Spark
+    - Azure Data Lake Analytics
+    - Azure Machine Learning
 
 3. Publish output data to data stores.
-  - The publishing target could be an Azure SQL Data Warehouse for business intelligence (BI) applications to consume. 
-
-By using Azure Data Factory, you can create and schedule pipelines.
+    - The publishing target could be an Azure SQL Data Warehouse for business intelligence (BI) applications to consume. 
 
