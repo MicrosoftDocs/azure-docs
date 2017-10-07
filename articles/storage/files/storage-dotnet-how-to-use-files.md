@@ -325,22 +325,23 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 You can copy a blob to a file in the same way. If the source object is a blob, then create a SAS to authenticate access to that blob during the copy operation.
 ## Snapshots
 
-Beginning with version 8.5 of the Azure Storage Client Library, you can create a file share snapshot for a file share. You can also list or browse snapshots and delete snapshots. Snapshots are read-only so no write operations are allowed on snapshots.
+Beginning with version 8.5 of the Azure Storage Client Library, you can create a snapshot for a file share. You can also list or browse share snapshots and delete share snapshots. Share snapshots are read-only so no write operations are allowed on share snapshots.
 
 **Create Snapshots**
 
-The following example creates file share snapshot
+The following example creates a file share snapshot.
 
 ```csharp
 storageAccount = CloudStorageAccount.Parse(ConnectionString); 
 fClient = storageAccount.CreateCloudFileClient(); 
-string baseShareName = "myazurefileshare"; CloudFileShare myShare = fClient.GetShareReference(baseShareName); 
+string baseShareName = "myazurefileshare"; 
+CloudFileShare myShare = fClient.GetShareReference(baseShareName); 
 var snapshotShare = myShare.Snapshot();
 
 ```
 **List Snapshots**
 
-The following example lists the snapshots on a share
+The following example lists the snapshots on a share.
 
 ```csharp
 var shares = fClient.ListShares(baseShareName, ShareListingDetails.All);
@@ -348,7 +349,7 @@ var shares = fClient.ListShares(baseShareName, ShareListingDetails.All);
 
 **Browse files and directories within Snapshots**
 
-The following example browse files and directory within snapshots
+The following example browses files and directory within snapshots
 
 ```csharp
 CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); 
@@ -356,9 +357,11 @@ var rootDirectory = mySnapshot.GetRootDirectoryReference();
 var items = rootDirectory.ListFilesAndDirectories();
 ```
 
-** Restore files/fileshare by using snapshots** 
+** Restore file shares or files from snapshots** 
 
-By using snapshots on file shares, one can create point in time snapshots of their file storage and later on recover any file from an earlier snapshot. One can achieve this by first querying for snapshots of a file share and then retrieving a file that belongs to a particular snapshot and using that version to either directly read and compare or to restore. Snapshots contain all of the information needed to browse and restore your data (from the time the snapshot was taken) to original or alternate location. The restore can be done at item-level.
+Taking a snapshot of a file share enables you to recover individual files or the entire the file share in the future. 
+
+You can restore a file from a file share snapshot by querying the snapshots of a file share. You can then retrieve a file that belongs to a particular snapshot and use that version to either directly read and compare or to restore.
 
 ```csharp
 CloudFileShare liveShare = fClient.GetShareReference(baseShareName);
@@ -389,7 +392,7 @@ fileInliveShare.StartCopyAsync(new Uri(sourceUri));
 
 **Delete Snapshots**
 
-The following example deletes file share snapshot
+The following example deletes a file share snapshot.
 
 ```csharp
 CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); mySnapshot.Delete(null, null, null);

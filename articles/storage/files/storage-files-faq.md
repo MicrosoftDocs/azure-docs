@@ -103,7 +103,7 @@ ms.author: renash
 
 * **Q. What is file share snapshot?**
     
-     Azure file share snapshots allows you to create a read-only versions of your file shares. It also allows you to copy an older version of your content back to the same share or an alternate location in Azure or on-premises for further modifications. To learn more about snapshot, please look at [snapshot overview](storage-snapshots-files.md).
+     Azure file share snapshots allows you to create a read-only versions of your file shares. It also allows you to copy an older version of your content back to the same share or an alternate location in Azure or on-premises for further modifications. To learn more about snapshot, see at [snapshot overview](storage-snapshots-files.md).
 
 * **Q. Where are my snapshots stored?**
     
@@ -148,15 +148,13 @@ ms.author: renash
 
 ### Restore from Snapshot
 
+* **Q. Can I promote a snapshot to the base share?**
+    
+    You can only copy data from a share snapshot to any desired destination. However you cannot promote snapshot to the base share.
 
 * **Q. Can I restore data from my snapshot to a different storage account?**
     
-    Yes. Files from a snapshot can be copied to original or an alternate location which includes same/different storage account in same or different regions. Also you can restore files to on-premises or any other cloud.
-
-* **Q. Can I restore data from my snapshot to a different region?**
-    
-    Yes. Files from a snapshot can be copied to an alternate location which includes same/different storage account in same or different regions. Also you can restore files to on-premises or any other cloud.
-    
+    Yes. Files from a snapshot can be copied to original or an alternate location which includes same/different storage account in same or different regions. Also you can restore files to on-premises or any other cloud.    
   
 ### Snapshot - Cleanup
 

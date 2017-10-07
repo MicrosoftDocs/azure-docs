@@ -1,6 +1,6 @@
 ---
-title: How to create Azure Files Share Snapshot | Microsoft Docs
-description: Create Azure Files Share Snapshot. File Share Snapshots provide a point in time state of the contents of a cloud file share. Only the incremental changes to individual files in the share will be written to the Snapshot.
+title: How to create Azure Files share snapshot | Microsoft Docs
+description: Create Azure Files share snapshot. Azure Files share snapshot is a read-only version of a an Azure Files share that's taken at a point in time. Once a snapshot has been created, it can be read, copied, or deleted, but not modified. Snapshots provide a way to back up the share as it appears at a moment in time.
 services: storage
 documentationcenter: .net
 author: renash
@@ -18,17 +18,17 @@ ms.author: tamram
 
 ---
 
-#How to create Azure Files Share Snapshot
+#How to create Azure Files share snapshots
 
-You can create file share snapshot using Portal, Powershell, CLI, REST or any Storage SDK.Following article will tell you how to create snapshot using Portal, CLI and Powershell. To learn more about snapshot, please look at [snapshot overview](storage-snapshots-files.md) or [snapshot FAQ](storage-files-faq.md)
+You can create file share snapshot using Portal, Powershell, CLI, REST or any Storage SDK. The following article will tell you how to create snapshot using Portal, CLI and Powershell. To learn more about snapshot, see at [snapshot overview](storage-snapshots-files.md) or [snapshot FAQ](storage-files-faq.md)
 
-You can take a snapshot of file share while it is in-use. However, snapshots
+You can take a snapshot of a file share while it is in use. However, snapshots
 only capture data that has been already written to Azure File share at the time
 the snapshot command is issued. This might exclude any data that has been cached
 by any applications or the operating system.
 
 ## Create snapshot using portal  
-You can simply hit `Create a Snapshot` button in portal to create a point in time snapshot.
+You can simply navigate to your file share in the portal and select `Create a Snapshot` button to create a point in time snapshot.
 
 >   ![./media/storage-snapshots-create/portal-create-snapshot.png](./media/storage-snapshots-create/portal-create-snapshot.png)
 
@@ -36,7 +36,7 @@ You can simply hit `Create a Snapshot` button in portal to create a point in tim
 ## Create snapshot using CLI 2.0
 You can create a share snapshot by using the `az storage share snapshot` command:
 
-```cli
+```azurecli-interactive
 az storage share snapshot -n <share name>
 ```
 

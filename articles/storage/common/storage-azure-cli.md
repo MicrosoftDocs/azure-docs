@@ -435,9 +435,9 @@ az storage share list --include-snapshots
 ```
 
 ### Browse Snapshots
-You may also browse into a particular snapshot to view its content using `az storage file list`. One has to specify the share name `--share-name` and the timestamp, which we want to browse into `--snapshot '2017-10-04T19:45:18.0000000Z'`
+You may also browse into a particular snapshot to view its content using `az storage file list`. One has to specify the share name `--share-name <snare name>` and the timestamp `--snapshot '2017-10-04T19:45:18.0000000Z'`
 
-```cli
+```azurecli-interactive
 az storage file list --share-name sharesnapshotdefs --snapshot '2017-10-04T19:45:18.0000000Z' -otable
 ```
 
@@ -457,9 +457,9 @@ IMG_1635.JPG    974058            file
 ```
 ### Restore from Snapshots
 
-You can restore a file by copying or downloading a file from snapshot using `az storage file download` command
+You can restore a file by copying or downloading a file from a snapshot using `az storage file download` command
 
-```cli
+```azurecli-interactive
 az storage file download --path IMG_0966.JPG --share-name sharesnapshotdefs --snapshot '2017-10-04T19:45:18.0000000Z'
 ```
 **Sample Output**
