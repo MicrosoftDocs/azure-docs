@@ -42,7 +42,7 @@ To set up a managed service identity in the portal, you will first create an app
 
 ### Using an Azure Resource Manager template
 
-An Azure Resource Manager template can be used to automate deployment of your Azure resources. To learn more about deploying to App Service and Functions, see [Automating resource deployment in App Service](../app-service-web/app-service-deploy-complex-application-predictably.md) and [Automating resource deployment in Azure Functions](../azure-functions/functions-infrastructure-as-code.md).
+An Azure Resource Manager template can be used to automate deployment of your Azure resources. To learn more about deploying to App Service and Functions, see [Automating resource deployment in App Service](../app-service/app-service-deploy-complex-application-predictably.md) and [Automating resource deployment in Azure Functions](../azure-functions/functions-infrastructure-as-code.md).
 
 Any resource of type `Microsoft.Web/sites` can be created with an identity by including the following property in the resource definition:
 ```json

@@ -23,7 +23,7 @@ ms.author: kumud
 The Standard SKU of Azure Load Balancer introduces high availability (HA) ports - a capability to distribute traffic from all ports, and for all supported protocols. While configuring an Internal Load Balancer, users can configure an HA Ports rule that can set the frontend and backend ports to **0** and protocol to **all**, and thus allow all the traffic to flow through the Internal Load Balancer.
 
 >[!NOTE]
-> High Availability Ports feature is currently in Preview. During preview, the feature may not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> High Availability Ports feature is available with Load Balancer Standard and currently in preview. During preview, the feature may not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It is necessary to sign up for the Load Balancer Standard Preview to use HA Ports with Load Balancer Standard resources. Please follow the instructions for sign-up in addition to Load Balancer [Standard Preview](https://aka.ms/lbpreview#preview-sign-up) as well.
 
 The load balancing algorithm still remains the same and the destination is selected based in the five touples <Source IP Address, Source Port, Destination IP Address, Destination Port, Protocol>. But this configuration allows for a single LB rule to process all available traffic, and reduces configuration complexity as well as any limits imposed by the maximum number of Load Balancing rules that one can add.
 
@@ -66,12 +66,17 @@ To participate in the Preview of the HA ports feature in Load Balancer Standard 
 
     ```cli
     az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network 
-    ```
-## Caveats
+    ```  
+
+
+>[!NOTE]
+>To use this feature, you must also sign-up for Load Balancer [Standard Preview](https://aka.ms/lbpreview#preview-sign-up) in addition to HA Ports. Registration of the HA Ports or Load Balancer Standard previews may take up to an hour.
+
+## Limitations
 
 Following are the supported configurations or exceptions for HA Ports:
 
-- A single frontend ipConfiguration can have a single DSR Load Balancer rule with HA ports (all ports), or it can have a single non-DSR load balancer rule with HA ports (all ports). It cannot have both.
+- A single frontend IP Configuration can have a single DSR Load Balancer rule with HA ports (all ports), or it can have a single non-DSR load balancer rule with HA ports (all ports). It cannot have both.
 - A single Network Interface IP configuration can only have one non-DSR load balancer rule with HA ports. No other rules can be configured for this ipconfig.
 - A single Network Interface IP configuration can have one or more DSR load balancer rules with HA ports, provided all of their respective frontend ip configurations are unique.
 - Two (or more) Load Balancer rules pointing to the same backend pool can co-exist if all of the load balancing rules are HA port (DSR only), or, all of the rules are non-HA port (DSR & non-DSR). Two such LB rules cannot co-exist if there is a combination of HA port and non-HA Port rules.
