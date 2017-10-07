@@ -73,8 +73,8 @@ Repository sizes can be maintained with the [az acr repository delete](/cli/azur
 The Classic SKU was introduced to provide a private registry in Azure quickly. It is based on the OSS implementation. While a good product, we had the opportunity to more deeply integrate the registry into the capabilities of Azure. Some of the capabilities include:
 * Integrating Azure Active Identity for individual authentication. See: [az acr login](/cli/azure/acr?view=azure-cli-latest#az_acr_login)
 * Enable image and tag deletes: [az acr repository delete](/cli/azure/acr/repository?view=azure-cli-latest#az_acr_repository_delete)
-* [Geo-replication](container-registry-geo-replication)
-* [WebHooks](container-registry-webhook)
+* [Geo-replication](./container-registry-geo-replication)
+* [WebHooks](./container-registry-webhook)
 
 Most of all, the Classic registry depends on the storage account being provisioned in your subscription. Moving the management of storage to ACR enables:
 * Default encrypted at rest of all images

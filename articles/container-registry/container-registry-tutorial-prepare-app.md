@@ -1,35 +1,34 @@
 ---
-title: Azure Container Instances tutorial - Prepare your app | Azure Docs
-description: Prepare an app for deployment to Azure Container Instances
-services: container-instances
+title: Geo-replicate Azure Container Registry tutorial - Prepare your app | Azure Docs
+description: Prepare an app for geo-replicating with Azure Container REgistry
+services: container-registry
 documentationcenter: ''
-author: seanmck
-manager: timlt
-editor: ''
+author: stevelas
+manager: balans
+editor: 'mmacy'
 tags: 
 keywords: ''
 
-ms.assetid: 
-ms.service: container-instances
+ms.service: container-registry
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/01/2017
-ms.author: seanmck
-ms.custom: mvc
+ms.date: 10/06/2017
+ms.author: stevelas
+ms.custom: 
 ---
 
-# Create container for deployment to Azure Container Instances
+# Create container for deployment to Azure Container Registry
 
-Azure Container Instances enables deployment of Docker containers onto Azure infrastructure without provisioning any virtual machines or adopting any higher-level service. In this tutorial, you will build a simple web application in Node.js and package it in a container that can be run using Azure Container Instances. We will cover:
+The Azure Container Registry is a private registry, deployed in Azure and kept network-close to your deployments. This tutorial walks through deploying an Azure Container Registry, and pushing a container image to it. Steps completed include:
 
 > [!div class="checklist"]
 > * Cloning application source from GitHub  
 > * Creating container images from application source
 > * Testing the images in a local Docker environment
 
-In subsequent tutorials, you will upload your image to an Azure Container Registry, and then deploy them to Azure Container Instances.
+In subsequent tutorials, you will upload your image to an Azure Container Registry, deploy them to multiple Azure App Services in different regions, using the geo-replication feature of ACR.
 
 ## Before you begin
 
@@ -43,9 +42,9 @@ Azure Cloud Shell does not include the Docker components required to complete ev
 
 The sample in this tutorial includes a simple web application built in [Node.js](http://nodejs.org). The app serves a static HTML page and looks like this:
 
-![Tutorial app shown in browser][aci-tutorial-app]
+![Tutorial app shown in browser][acr-tutorial-app]
 
-Use git to download the sample:
+Use git to download the sample into a local directory:
 
 ```bash
 git clone https://github.com/Azure-Samples/aci-helloworld.git
@@ -53,7 +52,7 @@ git clone https://github.com/Azure-Samples/aci-helloworld.git
 
 ## Build the container image
 
-The Dockerfile provided in the sample repo shows how the container is built. It starts from an [official Node.js image][dockerhub-nodeimage] based on [Alpine Linux](https://alpinelinux.org/), a small distribution that is well suited to use with containers. It then copies the application files into the container, installs dependencies using the Node Package Manager, and finally starts the application.
+The Dockerfile provided in the sample repo shows how the container is built. It starts from an [official Node.js image][dockerhub-nodeimage] based on [Alpine Linux](https://alpinelinux.org/). It then copies the application files into the container, installs dependencies using the Node Package Manager, and finally starts the application.
 
 ```
 FROM node:8.2.0-alpine
@@ -64,10 +63,11 @@ RUN npm install
 CMD node /usr/src/app/index.js
 ```
 
-Use the `docker build` command to create the container image, tagging it as *aci-tutorial-app*:
+Use the `docker build` command to create the container image, tagging it as *acr-tutorial-app*:
 
 ```bash
-docker build ./aci-helloworld -t aci-tutorial-app
+cd aci-helloworld
+docker build . -t acr-tutorial-app
 ```
 
 Use the `docker images` to see the built image:
@@ -80,7 +80,7 @@ Output:
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
-aci-tutorial-app             latest              5c745774dfa9        39 seconds ago       68.1 MB
+acr-tutorial-app             latest              5c745774dfa9        39 seconds ago       68.1 MB
 ```
 
 ## Run the container locally
@@ -88,16 +88,16 @@ aci-tutorial-app             latest              5c745774dfa9        39 seconds 
 Before you try deploying the container to Azure Container Instances, run it locally to confirm that it works. The `-d` switch lets the container run in the background, while `-p` allows you to map an arbitrary port on your compute to port 80 in the container.
 
 ```bash
-docker run -d -p 8080:80 aci-tutorial-app
+docker run -d -p 8080:80 acr-tutorial-app
 ```
 
 Open the browser to http://localhost:8080 to confirm that the container is running.
 
-![Running the app locally in the browser][aci-tutorial-app-local]
+![Running the app locally in the browser][acr-tutorial-app]
 
 ## Next steps
 
-In this tutorial, you created a container image that can be deployed to Azure Container Instances. The following steps were completed:
+In this tutorial, you created a container image that can be pushed to Azure Container Registry. The following steps were completed:
 
 > [!div class="checklist"]
 > * Cloning the application source from GitHub  
@@ -107,11 +107,9 @@ In this tutorial, you created a container image that can be deployed to Azure Co
 Advance to the next tutorial to learn about storing container images in an Azure Container Registry.
 
 > [!div class="nextstepaction"]
-> [Push images to Azure Container Registry](./container-instances-tutorial-prepare-acr.md)
+> [Push images to Azure Container Registry](./container-registry-tutorial-prepare-acr.md)
 
 <!-- LINKS -->
-[dockerhub-nodeimage]: https://hub.docker.com/r/library/node/tags/8.2.0-alpine/
 
 <!--- IMAGES --->
-[aci-tutorial-app]:./media/container-instances-quickstart/aci-app-browser.png
-[aci-tutorial-app-local]: ./media/container-instances-tutorial-prepare-app/aci-app-browser-local.png
+[acr-tutorial-app]:./media/container-registry-tutorial-prepare-app/acr-app-browser-local.png
