@@ -47,21 +47,13 @@ Make sure the server roles running on the machine are supported by Sysprep. For 
 ## Create a managed image in the portal 
 
 1. Open the [portal](https://portal.azure.com).
-2. Click the plus sign to create a new resource.
-3. In the filter search, type **Image**.
-4. Select **Image** from the results.
-5. In the **Image** blade, click **Create**.
-6. In **Name**, type a name for the image.
-7. If you have more than one subscription, select the correct one from the **Subscription** drop-down.
-7. In **Resource Group** either select **Create new** and type in a name, or select **From existing** and select a resource group to use from the drop-down list.
-8. In **Location**, choose the location of your resource group.
-9. In **OS type** select the type of operating system, either Windows or Linux.
-11. In **Storage blob**, click **Browse** to look for the VHD in your Azure storage.
-12. In **Account type** choose Standard_LRS or Premium_LRS. Standard uses hard-disk drives and Premium uses solid-state drives. Both use locally-redundant storage.
-13. In **Disk caching** select the appropriate disk caching option. The options are **None**, **Read-only** and **Read\write**.
-14. Optional: You can also add an existing data disk to the image by clicking **+ Add data disk**.  
-15. When you are done making your selections, click **Create**.
-16. After the image is created, you will see it as an **Image** resource in the list of resources in the resource group you chose.
+2. In the menu on the left, click Virtual Machines and then select the VM from the list.
+3. In the page for the VM, on the upper menu, click **Capture**.
+3. In **Name**, type the name that you would like to use for the image.
+4. In **Resource group** either select **Create new** and type in a name, or select **Use existing** and select a resource group to use from the drop-down list.
+5. If you want to delete the source VM after the image has been created, select **Automatically delete this virtual machine after creating the image**.
+6. When you are done, click **Create**.
+16. After the image is created, you will see it as an **Image** resource in the list of resources in the resource group.
 
 
 
