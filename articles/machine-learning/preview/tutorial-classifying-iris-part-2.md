@@ -33,6 +33,10 @@ This tutorial uses the timeless [Iris flower dataset](https://en.wikipedia.org/w
 ## Prerequisites
 You should complete the first part of this tutorial series. Follow the [Prepare data tutorial](tutorial-classifying-iris-part-1.md) to create Azure Machine Learning resources and install the Azure Machine Learning Workbench application prior to beginning the steps in this tutorial.
 
+Optionally, you can experiment with running scripts against a local Docker container. To do so, you will need a Docker engine (Community Edition is sufficient) installed and started locally on your Windows or macOS machine. Read more about [Docker installation instruction](https://docs.docker.com/engine/installation/).
+
+If you want to experiment with dispatching script to run in a Docker container in a remote Azure VM, or an HDInsight Spark cluster, you can follow [instructions to create an Ubuntu-based Azure Data Science Virtual Machine, or HDI Cluster](how-to-create-dsvm-hdi.md).
+
 ## Review iris_sklearn.py and configuration files
 1. Launch the **Azure Machine Learning Workbench** application, and open the **myIris** project you created in the previous part of the tutorial series.
 

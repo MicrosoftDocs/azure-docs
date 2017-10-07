@@ -116,7 +116,7 @@ Use Cluster deployment for high-scale production scenarios. It sets up an ACS cl
 To deploy your web service to a production environment, first set up the environment using the following command:
 
 ```azurecli
-az ml env setup -c --cluster-name [your environment name] --location [Azure region e.g. eastus2] [-g [resource group]]
+az ml env setup -c --name [your environment name] --location [Azure region e.g. eastus2] [-g [resource group]]
 ```
 
 The cluster environment setup command creates the following resources in your subscription:
