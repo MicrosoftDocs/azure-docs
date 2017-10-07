@@ -1,12 +1,12 @@
 # Get help developing applications that integrate with Azure Active Directory
 
-See the options below if you need help for development related questions:
+See the following options if you need help for development related questions:
 
 ## 1. Search
 
-If you have a development related question, you may be able to find the answer you need on our documentation, our [github samples](https://github.com/azure-samples) or [Stack Overflow](https://www.stackoverflow.com).
+If you have a development related question, you may be able to find the answer you need on our documentation, our [github samples](https://github.com/azure-samples), or [Stack Overflow](https://www.stackoverflow.com).
 
-Type your problem or scenario on the search box below for a scoped search on Stack Overflow, our docs.microsoft.com and code samples:
+Type your problem or scenario on the following search box for a scoped search on Stack Overflow, our docs.microsoft.com, and code samples:
 
 <form method="get" action="http://www.bing.com/search">
 <table border="0" align="center" cellpadding="0">
@@ -24,12 +24,12 @@ maxlength="255" "/>
 
 Stack Overflow is the preferred channel for development related questions - where both members of community as well as our team at Microsoft are directly involved on helping you to solve your problem.
 
-If you cannot find an answer with Search, submit a new question on Stack Overflow: use one of the tags below when making questions to help the community answer your questionon a timely manner:
+If you cannot find an answer with Search, submit a new question on Stack Overflow: use one of the following tags when making questions to help the community answer your question on a timely manner:
 
 |Component/Area  |Tags  |
 |---------|---------|
-|ADAL Library |[[adal]](http://stackoverflow.com/questions/tagged/adal)|
-|MSAL Library     |[[msal]](http://stackoverflow.com/questions/tagged/msal)|
+|ADAL library |[[adal]](http://stackoverflow.com/questions/tagged/adal)|
+|MSAL library     |[[msal]](http://stackoverflow.com/questions/tagged/msal)|
 |OWIN middleware  |[[azure-active-directory]](http://stackoverflow.com/questions/tagged/azure-active-directory)|
 |[Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  |[[azure-ad-b2b]](http://stackoverflow.com/questions/tagged/azure-ad-b2b)|
 |[Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  |[[azure-ad-b2c]](http://stackoverflow.com/questions/tagged/azure-ad-b2b)|
@@ -47,14 +47,14 @@ If you cannot find an answer with Search, submit a new question on Stack Overflo
 
  If you find a bug or problem related to our libraries, please raise an issue on our GitHub repositories. Because our libraries are open source, you are also free to submit a pull request as well. A list of github repositories for our libraries can be found here:
 
-- [V1 Libraries: ADAL and Owin Middleware](./active-directory-authentication-libraries)
-- [V2 Libraries: MSAL and Owin Middleware](./active-directory-v2-libraries)
+- [V1 libraries: ADAL and Owin Middleware](./active-directory-authentication-libraries)
+- [V2 libraries: MSAL and Owin Middleware](./active-directory-v2-libraries)
 
 ## 4. Open a support request
 
-If you need to talk to someone, you can open a support request. If you are an Azure customer, there are several support options available. See [this page](https://azure.microsoft.com/support/plans/) to compare plans . Developer support is also available for Azure customers. See [this page](https://azure.microsoft.com/support/plans/developer/) for information on how to purchase Developer support plans.
+If you need to talk to someone, you can open a support request. If you are an Azure customer, there are several support options available. To compare plans, see [this page](https://azure.microsoft.com/support/plans/). Developer support is also available for Azure customers. For information on how to purchase Developer support plans, see [this page](https://azure.microsoft.com/support/plans/developer/).
 
-- If you already have an Azure Support Plan, click [here](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) to open a support request
+- If you already have an Azure Support Plan, [open a support request here](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 - If you are not an Azure customer, you can also open a support request with Microsoft via [our commercial support](https://support.microsoft.com/en-us/gp/contactus81?Audience=Commercial).
 
