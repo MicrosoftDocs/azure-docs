@@ -67,7 +67,7 @@ Remove-AzureStorageShare -Share $snapshot
 ```
 
 ## Next Steps
-You just learned how delete snapshot using portal, and Azure CLI. Click the link below to learn more about
+You just learned how delete snapshot using portal, and Azure CLI. Click the link below to learn more about:
 * [How to create a file share snapshot](storage-snapshots-create.md)
 * [How to list and browse snapshot](storage-snapshots-list-browse.md)
 * [Snapshot Overview](storage-snapshots-files.md)

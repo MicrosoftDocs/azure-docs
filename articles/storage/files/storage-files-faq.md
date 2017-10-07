@@ -101,6 +101,10 @@ ms.author: renash
 
 ### Snapshots - General
 
+* **Q. What is file share snapshot?**
+    
+     Azure file share snapshots allows you to create a read-only versions of your file shares. It also allows you to copy an older version of your content back to the same share or an alternate location in Azure or on-premises for further modifications. To learn more about snapshot, please look at [snapshot overview](storage-snapshots-files.md).
+
 * **Q. Where are my snapshots stored?**
     
      Snapshots are stored in the same storage account as the file share.
@@ -110,36 +114,29 @@ ms.author: renash
      Snapshots do not have any performance overhead.
 
 
-* **Q. Are snapshots App Consistent?**
+* **Q. Are snapshots application consistent?**
     
-     No. Snapshots are not App consistent. User will have to flush the writes from the App before taking the snapshot.
-
-* **Q. Are snapshots geo-redundant?**
-    
-     Like Azure Files, snapshots also have GRS, LRS tiers of redundancy. Redundancy tier or snapshot will be same as the base Azure File Share. If you have a GRS account your snapshot will also be stored redundantly in a different geo.
+     No. Snapshots are not application consistent. User will have to flush the writes from the application to the share before taking the snapshot.
 
 * **Q. Are there any limits on the number of snapshots?**
     
-     There is a limit of 200 snapshots that Azure Files can retain. Snapshots do not count towards the share quota so there is no per share limit on the total space utilized by all the snapshot.Storage account limits still apply. After 200 snapshots, older snapshots will have to be deleted in order to create new snapshots. There is no limit to the simultaneous calls for create snapshot.
+     There is a limit of 200 snapshots that Azure Files can retain. Snapshots do not count towards the share quota so there is no per share limit on the total space utilized by all the snapshot.Storage account limits still apply. After 200 snapshots, older snapshots will have to be deleted in order to create new snapshots.
 
 ### Create Snapshots
 
-* **Q. Can I create snapshots of Encrypted fileshare?**
-    
-     You can take snapshot of Azure File shares which have Encryption at rest enabled. You can restore files from a snapshot to an encrypted file share. If your share is encrypted, your snapshot will also be encrypted.
-
-* **Q. How can I take app-consistent snapshots?**
-    
-     The snapshot excludes data cached by applications or the operating system. To create an "application-consistent" snapshot of your file share, stop applications from writing to the Azure File Share, and flush all caches to share. Then ensure that no clients are writing to the Azure File Share by taking steps such as freezing the file system, unmounting the Azure File Share, or shutting down the associated client machines. After completing the steps to halt all I/O, take a snapshot of File Share.    
-     
-     If you restore the File Share from snapshots, be sure to stop all I/O activity,and then reverse the process you used to create the snapshots. For example,start the client machine if it was shut down, mount the Azure File Share if it was unmounted, and start the  application that was stopped.
-
 * **Q. Can I create snapshot of individual files?**
     
-     You cannot create snapshots for individual files. Snapshots are only at file share level. You can restore individual files from the file-share snapshot but you cannot create file-level snapshots. However, if you have taken a share level snapshot and you want to list snapshots where a particular file has changed, you can do so from "Previous Versions" experience on a Windows mounted share.
+     Snapshots are created at file share level. You can restore individual files from the file-share snapshot but you cannot create file-level snapshots. However, if you have taken a share level snapshot and you want to list snapshots where a particular file has changed, you can do so from "Previous Versions" experience on a Windows mounted share.
+
+* **Q. Can I create snapshots of Encrypted fileshare?**
+    
+     You can take a snapshot of Azure File shares which has Encryption at rest enabled. You can restore files from a snapshot to an encrypted file share. If your share is encrypted, your snapshot will also be encrypted.
+
+* **Q.Can I create geo-redundant snapshots?**
+    
+     Redundancy tier of snapshot will be same as the base Azure File Share. If you have selected GRS for your account your snapshot will also be stored redundantly in a different geo.
 
 ### Manage and Share Snapshots
-
 
 * **Q. Can I browse my snapshots from Linux?**
     
@@ -160,20 +157,19 @@ ms.author: renash
     
     Yes. Files from a snapshot can be copied to an alternate location which includes same/different storage account in same or different regions. Also you can restore files to on-premises or any other cloud.
     
-    
+  
 ### Snapshot - Cleanup
-
 
 * **Q. Can I delete my share but not share-snapshots?**
     
-    You will not be able to delete your share if you have active snapshots on your
-share.
+    You will not be able to delete your share if you have active snapshots on your share. There is an API available for deleting snapshots along with share and you can achieve the same from Azure portal as well.
 
 * **Q. What happens to my snapshots if I delete my Storage Account?**
     
-    If you delete your storage account, the snapshots will be deleted as well.
+    If you delete your storage account, the snapshots will be deleted as well. If you would like
 
 ## Billing and Pricing
+
 * **Q. Does the network traffic between an Azure VM and a file share count as external bandwidth that is charged to the subscription?**
    
     If the file share and VM are in the same Azure region, the traffic between them is free. If they are in different regions, the traffic between them will be charged as external bandwidth.
@@ -182,15 +178,13 @@ share.
     
      During Public Preview snapshot capacity wont be charged. Standard Storage egress and transaction costs sill apply. After GA, both capacity and transactions on snapshot will be charged.
      
-     Snapshots are incremental in nature. The base snapshot is the share itself. All the subsequent snapshots are incremental and will only store the diff from the previous snapshot. Only the blocks that have changed after your last snapshot are saved to the snapshot, and you are billed only for the changed blocks. If you have a share with 100 GB of data but only 5 GB has changed after your last snapshot, a subsequent snapshot consumes only 5 additional GB and you are billed only for the additional 5 GB of snapshot storage, even though both the earlier and later snapshots appear to be complete. See [Pricing page](https://azure.microsoft.com/en-us/pricing/details/storage/files/) for more information on transaction and standard egress charges. 
-     
-     When you delete a snapshot, you remove only the data not needed by any other snapshot. All active snapshots contain all the information needed to restore the share to the instant at which that snapshot was taken.
+     Snapshots are incremental in nature. The base snapshot is the share itself. All the subsequent snapshots are incremental and will only store the diff from the previous snapshot. Only the content that has changed are saved to the snapshot, and you are billed only for the changed content. If you have a share with 100 GB of data but only 5 GB has changed after your last snapshot, a snapshot consumes only 5 additional GB and you will be billed only 105 GB. See [Pricing page](https://azure.microsoft.com/en-us/pricing/details/storage/files/) for more information on transaction and standard egress charges.
 
 ## Backup
 
 * **Q. How do I backup my Azure File Share?**
     
-    You can use AzCopy, RoboCopy, or a 3rd party backup tool that can backup a mounted file share. We expect to have the ability to take snapshots of File shares in the near future; you will be able to use this feature to backup your Azure File share.
+    You can use periodic file share snapshots for protection against accidental deletes. You can also use AzCopy, RoboCopy, or a 3rd party backup tool that can backup a mounted file share.
 
 ## Performance
 
