@@ -51,7 +51,7 @@ If you cannot find an answer with Search, submit a new question on Stack Overflo
 |Any other area related to authentication or authorization |[[azure-active-directory]](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 > [!TIP]
-> The following posts from Stack Overflow can help you to increase the chances for  community can be equipped to answer your question in the first shot:  
+> The following posts from Stack Overflow can help you to make a good questions so community members can assess and respond to these questions quickly:  
 > - [How do I ask a good question](https://stackoverflow.com/help/how-to-ask)
 > - [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve)
 
