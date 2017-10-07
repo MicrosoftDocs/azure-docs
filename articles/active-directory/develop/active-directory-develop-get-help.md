@@ -7,17 +7,31 @@ See the following options if you need help for development related questions:
 If you have a development related question, you may be able to find the answer you need on our documentation, our [github samples](https://github.com/azure-samples), or [Stack Overflow](https://www.stackoverflow.com).
 
 Type your problem or scenario on the following search box for a scoped search on Stack Overflow, our docs.microsoft.com, and code samples:
-
-<form method="get" action="http://www.bing.com/search">
+<div>
+<form method="get" action="http://www.bing.com/search" target="_blank">
 <table border="0" align="center" cellpadding="0">
 <tr><td>
-<input type="text" name="q" size="45" style="color:#808080;"
-maxlength="255" "/>
+<input type="text" size="45" name=q maxlength="255" "/>
 <input type="submit" value="Search" />
-<input type="hidden" name="sitesearch" value="(site:stackoverflow.com OR site:docs.microsoft.com/azure/active-directory/develop OR site:github.com/azure-samples OR site:cloudidentity.com)" /></td></tr>
+<input type="hidden" value="(site:stackoverflow.com OR site:docs.microsoft.com/azure/active-directory/develop OR site:github.com/azure-samples OR site:cloudidentity.com)" /></td></tr>
 </table>
 </form>
-
+</div>
+xxxx
+<div>
+<script>
+  (function() {
+    var cx = '009064582482013993705:47sd94mwzya';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+</div>
 
 ## 2. Stack Overflow
 [![Stack Overflow](media/active-directory-develop-get-help/stackoverflow-logo.png)](www.stackoverflow.com)
@@ -37,7 +51,7 @@ If you cannot find an answer with Search, submit a new question on Stack Overflo
 |Any other area related to authentication or authorization |[[azure-active-directory]](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 > [!TIP]
-> The following guides from Stack Overflow can help you to make a good question so stack overflow users can be equipped to answer your question in the first shot:  
+> The following posts from Stack Overflow can help you to increase the chances for  community can be equipped to answer your question in the first shot:  
 > - [How do I ask a good question](https://stackoverflow.com/help/how-to-ask)
 > - [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve)
 
