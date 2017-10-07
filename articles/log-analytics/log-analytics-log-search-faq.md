@@ -27,6 +27,10 @@ This article includes frequently asked questions and known issues regarding the 
 ### Question: I have a lot of alert rules. Do I need to create them again in the new language after I upgrade?  
 No, your alert rules are automatically converted to the new search language during upgrade.  
 
+### Question: I have alert rules with webhook and runbook actions. Will these continue to work when I upgrade?
+
+No, there are some changes in the webhook and runbook actions that might require you to make changes on how you process the payload. We’ve made these changes to standardize the various output formats and reduce the size of the payload. Details on these formats are in [Add actions to alert rules in Log Analytics](log-analytics-alerts-actions.md).
+
 
 ## Computer groups
 
