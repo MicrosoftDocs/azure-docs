@@ -52,7 +52,7 @@ A Server Endpoint represents a specific location on a Registered Server, such as
 Cloud tiering is an optional feature of Azure File Sync, which enables infrequently used or access files to be tiered to Azure Files. When a file is tiered, the Azure File Sync file system filter (StorageSync.sys) replaces the file locally with a pointer, or reparse point, representing a URL to the file in Azure Files. A tiered file has the "offline" attribute set in NTFS, so third party applications can identify tiered files. When a user opens a tiered file, the Azure File Sync seamlessly recalls the file data from Azure Files without the user needing to know the file is not stored locally on the system. This functionality is also known as Hierarchical Storage Management (HSM).
 
 ## Azure File Sync Interoperability 
-This section covers Azure File Sync interoperability with Windows Server features and roles and 3rd party solutions.
+This section covers Azure File Sync interoperability with Windows Server features and roles and third party solutions.
 
 ### Supported versions of Windows Server
 At present, the supported versions of Windows Server by Azure File Sync are:
@@ -62,10 +62,10 @@ At present, the supported versions of Windows Server by Azure File Sync are:
 | Windows Server 2016 | Datacenter and Standard | Full (Server with a UI) |
 | Windows Server 2012 R2 | Datacenter and Standard | Full (Server with a UI) |
 
-Future versions of Windows Server will be added as they are released, older versions of Windows may be added based on user feedback.
+Future versions of Windows Server will be added as they are released, and older versions of Windows may be added based on user feedback.
 
 > [!Important]  
-> We recommend keeping all of your Windows Servers used with Azure File Sync up-to-date with the latest updates from Windows Update. 
+> We recommend keeping all Windows Servers used with Azure File Sync up-to-date with the latest updates from Windows Update. 
 
 ### File system features
 | Feature | Support Status | Notes |
