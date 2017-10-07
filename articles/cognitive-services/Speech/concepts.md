@@ -11,16 +11,15 @@ ms.topic: article
 ms.date: 09/15/2017
 ms.author: zhouwang
 ---
-# Basic Concepts
+# Basic concepts
 
-This page describes some basic concepts in Microsoft Speech Recognition Service. We recommend you to read this page before using Microsoft Speech Recognition API in your application.
+This page describes some basic concepts in Microsoft speech recognition service. We recommend you to read this page before using Microsoft speech recognition API in your application.
 
-## Understanding Speech Recognition
+## Understanding speech recognition
 
-If this is the first time you're creating a speech-enabled application, or if it's the first time
-you're adding speech capabilities to an existing application, this section helps you get started. If you already have some experience with speech-enabled applications, you may choose to just skim this section, or you may skip it entirely if you're an old hand at speech and you want to get right to the protocol details.
+If this is the first time you're creating a speech-enabled application, or if it's the first time you're adding speech capabilities to an existing application, this section helps you get started. If you already have some experience with speech-enabled applications, you may choose to just skim this section, or you may skip it entirely if you're an old hand at speech and you want to get right to the protocol details.
 
-### Audio Streams
+### Audio streams
 
 Foremost among the basic concepts of speech is the *audio stream*. Unlike a keystroke, which occurs at a single point in time and contains a single piece of information, a spoken request is spread over hundreds of milliseconds and contains many kilobytes of information. The duration of spoken utterances presents some difficulty to developers looking to provide a streamlined and elegant speech experience for their application. Today's computers and algorithms perform speech transcription in approximately half of the duration of the utterance, so a 2-second utterance can be transcribed in roughly 1 second, but any application that experiences a 1-second delay in processing user is neither streamlined nor elegant.
 
@@ -39,7 +38,7 @@ The APIs for your microphone must allow you to start and stop receiving audio by
 
 Detecting *when* a speaker has *stopped* speaking seems simple enough for humans but is a rather difficult problem outside of laboratory conditions. It is not enough to simply look for pure silence after an utterance, since there is often a lot of ambient noise to complicate things. The Microsoft Speech Service does an excellent job of quickly detecting when a user has stopped speaking, and the service can inform your application of this fact, but this arrangement does mean that your application is the last to know when the user stop speaking. This isn't at all like other forms of input where your application is the *first* to know when the user's input starts *and* ends.
 
-### Asynchronous Service Responses
+### Asynchronous service responses
 
 The fact that your application needs to be informed of when user input is complete doesn't impose any performance penalties or programming difficulties on your application, but it does require that you think about speech requests differently from the input request/response patterns with which you are familiar. Since your application won't know when the user stops speaking, your application must continue to stream audio to the service while simultaneously and asynchronously waiting on a response from the service. This pattern is unlike other request/response web protocols like HTTP. In those protocols, you must complete a request before receiving any response; in the Microsoft Speech Service protocol, you receive responses *while you are still streaming audio for the request*.
 
@@ -56,9 +55,9 @@ the user speaks and ends when your application has completed handling of the spe
 Creating a speech-enabled device or application can be challenging, even for experienced developers. Stream-based protocols often seem daunting at first glance, and important details like silence detection may be completely new. With so many messages needing to be successfully sent and received to complete a single request/response pair, it is *very* important to collect complete and accurate data about those messages. The Microsoft Speech Service protocol provides for the collection of this data. You should make every effort to supply the required data as accurately as possible; by supplying complete and accurate data, you will be helping yourself -- should you ever need help from the Microsoft Speech Service Team in troubleshooting your client implementation, the quality of the telemetry data you have gathered will be critical for problem analysis.
 
 > [!NOTE]
-> This feature is not supported when using Speech Recognition REST API.
+> This feature is not supported when using speech recognition REST API.
 
-### Speech Application States
+### Speech application states
 
 The steps you take to enable speech input in your application are a little different than the steps for other forms of input such as mouse clicks or finger taps. You must keep track of when your application is listening to the microphone and sending data to the speech service, when it is waiting for a response from the service and when it is in an idle state. The relationship between these states is shown in the diagram below.
 
@@ -66,9 +65,9 @@ The steps you take to enable speech input in your application are a little diffe
 
 Since the Microsoft Speech Service participates in some of the states, the service protocol defines messages that help your application transition between states. Your application needs to interpret and act on these protocol messages to track and manage the speech application states.
 
-## REST Speech Recognition API
+## REST speech recognition API
 
-The Microsoft [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) Speech Recognition API is an HTTP 1.1 protocol definition for building simple speech applications that perform speech recognition. This API is most suitable for applications where continuous user feedback is not required or for platforms that do not support the [IETF WebSocket standard](https://tools.ietf.org/html/rfc6455). The REST API has the following characteristics:
+The Microsoft [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) speech recognition API is an HTTP 1.1 protocol definition for building simple speech applications that perform speech recognition. This API is most suitable for applications where continuous user feedback is not required or for platforms that do not support the [IETF WebSocket standard](https://tools.ietf.org/html/rfc6455). The REST API has the following characteristics:
 
 - Utterances are limited to a maximum of 15 seconds.
 - Partial results are not returned. Only the final phrase result is returned.
@@ -76,15 +75,15 @@ The Microsoft [REST](https://en.wikipedia.org/wiki/Representational_state_transf
 - A single recognition phrase result is returned to the client only after the client stops writing to the request stream.
 - Continuous recognition is not supported. 
 
-If these features are important to your application's functionality, use the [WebSocket Speech Recognition API](#WebSocket-speech-recognition-api).
+If these features are important to your application's functionality, use the [WebSocket speech recognition API](#WebSocket-speech-recognition-api).
 
-## WebSocket Speech Recognition API
+## WebSocket speech recognition API
 
-The Microsoft WebSocket Speech Recognition API is a service protocol definition that uses a [WebSocket](https://tools.ietf.org/html/rfc6455) for bidirectional communication. With this API, you can build full-featured speech applications that provide a rich user experience.
+The Microsoft WebSocket speech recognition API is a service protocol definition that uses a [WebSocket](https://tools.ietf.org/html/rfc6455) for bidirectional communication. With this API, you can build full-featured speech applications that provide a rich user experience.
 
-Microsoft Speech [Client Libraries](GetStarted/GetStartedClientLibraries.md) are using this API to provide more advanced functionalities while hiding low-level communication details to users. If your language or platform does not yet have an SDK, you can create your own implementation based on the [protocol documentation](API-Reference-REST/websocketprotocol.md).
+Microsoft speech [client libraries](GetStarted/GetStartedClientLibraries.md) are using this API to provide more advanced functionalities while hiding low-level communication details to users. If your language or platform does not yet have an SDK, you can create your own implementation based on the [protocol documentation](API-Reference-REST/websocketprotocol.md).
 
-## Speech Service Endpoints
+## Speech service endpoints
 
 The URI of the HTTP endpoints of Microsoft Speech Service is defined as follows:
 
@@ -151,7 +150,7 @@ The following characteristics are typical of dictation mode applications:
 
 ## Recognition languages
 
-The *recognition language* specifies the language that your application user speaks. Specify the *recognition language* with the *language* URL query parameter on the connection. The value of the *language* query parameter uses the IETF language tag [BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag), and **must** be one of the languages that are supported by Speech Recognition API. The complete list of languages supported by the Speech service can be found in the page [Supported Languages](API-Reference-REST/supportedlanguages.md).
+The *recognition language* specifies the language that your application user speaks. Specify the *recognition language* with the *language* URL query parameter on the connection. The value of the *language* query parameter uses the IETF language tag [BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag), and **must** be one of the languages that are supported by speech recognition API. The complete list of languages supported by the Speech Service can be found in the page [Supported Languages](API-Reference-REST/supportedlanguages.md).
 
 The Microsoft Speech Service rejects invalid connection requests by displaying an `HTTP 400 Bad Request` response. An invalid request is one that:
 
@@ -169,7 +168,7 @@ In the following example, an application uses *conversation* speech recognition 
 https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US
 ```
 
-## Transcription Responses
+## Transcription responses
 
 The transcription responses return the converted text from audio to clients. A transcription response contains the following fields:
 
@@ -189,11 +188,11 @@ The transcription responses return the converted text from audio to clients. A t
 
 - `Duration`specifies the duration (in 100-nanosecond units) of this speech phrase.
 
-A transcription response returns more information if desired. See [Output Format](#output-format) for how to return more detailed outputs.
+A transcription response returns more information if desired. See [output format](#output-format) for how to return more detailed outputs.
 
 Microsoft Speech Service supports additional transcription process that includes adding capitalization and punctuation, masking profanity, and normalizing text to common forms. For example, if a user speaks a phrase represented by the words "remind me to buy six iPhones", Microsoft's Speech Services will return the transcribed text "Remind me to buy 6 iPhones." The process that converts the word "six" to the number "6" is called *Inverse Text Normalization* (*ITN* for short).
 
-### NoMatch Recognition Status
+### NoMatch recognition status
 
 The transcription response returns `NoMatch` in `RecognitionStatus` when the Microsoft Speech Service detects speech in the audio stream but is unable to match that speech to the language grammar being used for the request. For example, a *NoMatch* condition might occur if a user says something in German when the recognizer expects US English as the spoken language. The waveform pattern of the utterance would indicate the presence of human speech, but none of the words spoken would match the US English lexicon being used by the recognizer.
 
@@ -228,7 +227,7 @@ Each entry returned in the N-best list contains
 - `Confidence`, which represents the [confidence scores](#confidence) of this entry.
 - `Lexical`, which is the [lexical form](#lexical-form) of the recognized text.
 - `ITN`, which is the [ITN form](#itn-form) of the recognized text.
-- `MaskedITN`, which is the [Masked ITN form](#masked-itn-form) of the recognized text.
+- `MaskedITN`, which is the [masked ITN form](#masked-itn-form) of the recognized text.
 - `Display`, which is the [display form](#display-form) of the recognized text.
 
 ### Confidence scores <a id="confidence"></a>

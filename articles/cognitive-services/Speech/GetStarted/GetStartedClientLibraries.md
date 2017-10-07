@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 09/15/2017
 ms.author: zhouwang
 ---
-# Get Started with Microsoft Speech Client Libraries
+# Get started with Microsoft speech client libraries
 
 Besides making direct HTTP requests via REST API, Microsoft Speech Services also provides developers with Speech Client Libraries in different languages. The Speech Client Libraries
 
@@ -31,7 +31,7 @@ Currently, the following Microsoft Speech Client Libraries are available:
 
 - [ObjectiveC library for iOS](Get-Started-ObjectiveC-iOS.md)
 
-## Additional Resources
+## Additional resources
 
 - The [samples](../samples.md) page provides complete samples to use Speech Client Libraries.
 

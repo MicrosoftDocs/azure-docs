@@ -1,6 +1,6 @@
 ---
-title: Using REST API for speech recognition  | Microsoft Docs
-description: Using REST to access Speech Recognition API in Microsoft Cognitive Services to convert spoken audio to text.
+title: Using REST API for Speech Recognition | Microsoft Docs
+description: Using REST to access speech recognition API in Microsoft Cognitive Services to convert spoken audio to text.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma61
@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 15/09/2017
 ms.author: zhouwang
 ---
-# Get Started with Speech Recognition using REST API
+# Get started with speech recognition using REST API
 
 With the cloud-based Microsoft Speech Service, you can develop applications using REST API to convert spoken audio to text.
 
-To use Speech Recognition API REST end points, the steps are as follows:
+To use speech recognition REST API, the steps are as follows:
 
 1. Get a subscription key for using Speech API.
-2. Set the proper request header and send the request to the appropriate Microsoft Speech Recognition API REST end points.
+2. Set the proper request header and send the request to the appropriate REST end points.
 3. Parse the response to get your transcribed text.
 
 ## Prerequisites
@@ -29,18 +29,18 @@ To access the REST end points, you must first subscribe to Speech API, which is 
 
 ### Precorded audio file
 
-In this example, we use a recorded audio file to illustrate the usage of the REST API. Record a short audio file of you saying something short (for example: *"What is the weather like today?"* or *"Find funny movies to watch."*). The Microsoft Speech Recognition API also supports external microphone input.
+In this example, we use a recorded audio file to illustrate the usage of the REST API. Record a short audio file of you saying something short (for example: *"What is the weather like today?"* or *"Find funny movies to watch."*). The Microsoft speech recognition API also supports external microphone input.
 
 > [!NOTE]
 > The example requires that audio is recorded as wav file with **PCM single channel (mono), 16 KHz**.
 
-## Build recognition request and send it to the speech service 
+## Build recognition request and send it to the speech service
 
 The next step for speech recognition is to send a POST request to the Microsoft Speech HTTP end points with proper request header and body.
 
-### HTTP Endpoints
+### HTTP endpoints
 
-The URI of the HTTP endpoints of speech service is built based on [recognition mode](../concepts.md#recognition-modes) and [recognition language](../concepts.md#recognition-languages), as described in [Speech Service Endpoints](../concepts.md#speech-service-endpoints).
+The URI of the HTTP endpoints of Microsoft Speech Service is built based on [recognition mode](../concepts.md#recognition-modes) and [recognition language](../concepts.md#recognition-languages), as described in [Speech Service Endpoints](../concepts.md#speech-service-endpoints).
 
 Some examples of service URI are as follows.
 | Recognition mode  | Language | Output format | REST end point |

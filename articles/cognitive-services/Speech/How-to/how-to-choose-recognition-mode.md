@@ -1,5 +1,5 @@
 ---
-title: How to choose recognition mode | Microsoft Docs
+title: How to Choose Recognition Mode | Microsoft Docs
 description: How to choose the best recognition mode.
 services: cognitive-services
 author: zhouwangzw

@@ -1,6 +1,6 @@
 ---
 title: Microsoft Speech Client Samples | Microsoft Docs
-description: Samples for using the Microsoft Speech service that converts spoken audio to text.
+description: Samples for using the Microsoft Speech Service that converts spoken audio to text.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma61
@@ -11,9 +11,9 @@ ms.topic: article
 ms.date: 09/15/2017
 ms.author: zhouwang
 ---
-# Microsoft Speech Client Samples
+# Microsoft speech client samples
 
-Microsoft Speech Service provides end-to-end samples showing how to use Microsoft Speech Recognition API in different use cases, for example command recognition, continuous recognition, and intent detection. All samples are available on GitHub, and can be downloaded by the following links: The README.md in each repository as well as the [Client Libraries](GetStarted/GetStartedClientLibraries.md) page provide details about how to build and run the samples.
+Microsoft Speech Service provides end-to-end samples showing how to use Microsoft speech recognition API in different use cases, for example command recognition, continuous recognition, and intent detection. All samples are available on GitHub, and can be downloaded by the following links: The README.md in each repository as well as the [client libraries](GetStarted/GetStartedClientLibraries.md) page provide details about how to build and run the samples.
 
 - [REST API samples](https://github.com/Azure-Samples/SpeechToText-REST)
 

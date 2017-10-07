@@ -15,7 +15,7 @@ ms.author: zhouwang
 
 ## Error `HTTP 403 Forbidden`
 
-When using Speech Recognition API, it returns an `HTTP 403 Forbidden` error.
+When using speech recognition API, it returns an `HTTP 403 Forbidden` error.
 
 ### Cause
 
@@ -37,7 +37,7 @@ For more information about authentication, see the [Authentication](How-to/how-t
 
 ### Troubleshooting steps
 
-#### Verify that your subscription key is valid.
+#### Verify that your subscription key is valid
 
 You can run the following command for verification. Note to replace *YOUR_SUBSCRIPTION_KEY* with your own subscription key. If your subscription key is valid, you receive in the response the authorization token as a JSON Web Token (JWT). Otherwise you get an error in response.
 
@@ -120,7 +120,7 @@ This reason is usually that the request body contains invalid audio data. Curren
 
 The error is most likely because that no audio data is sent to the service and the service returns this error after timeout. For REST API, the audio data should be put in the request body.
 
-## The RecognitionStatus in the response is `InitialSilenceTimeout`
+## The `RecognitionStatus` in the response is `InitialSilenceTimeout`
 
 Audio data is usually the reason causing the issue. For example,
 

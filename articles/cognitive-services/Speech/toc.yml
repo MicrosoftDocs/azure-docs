@@ -5,9 +5,9 @@
 - name: Get started
   href: GetStarted/GetStarted.md
   items:
-  - name: REST  
+  - name: REST
     href: GetStarted/GetStartedREST.md
-  - name: Client Libraries
+  - name: Client libraries
     href: GetStarted/GetStartedClientLibraries.md
 - name: How-to Guides
   items:
@@ -25,10 +25,10 @@
   href: troubleshooting.md
 - name: Reference
   items: 
-  - name: Microsoft Speech Websocket Protocol
+  - name: Microsoft Speech WebSocket protocol
     href: API-Reference-REST/websocketprotocol.md
-  - name: Text-to-speech API reference
+  - name: Text-to-Speech API reference
     href: API-Reference-REST/BingVoiceOutput.md
-  - name: Supported Languages
+  - name: Supported languages
     href: API-Reference-REST/supportedlanguages.md
 - name: Resources

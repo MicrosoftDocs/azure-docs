@@ -1,6 +1,6 @@
 ---
 title: Bing Text to Speech API in Microsoft Cognitive Services | Microsoft Docs
-description: Use the Bing Text to Speech API to provide real-time text-to-speech conversion in a variety of voices and languages
+description: Use the Bing text to speech API to provide real-time text-to-speech conversion in a variety of voices and languages
 services: cognitive-services
 author: priyaravi20
 manager: yanbo
@@ -11,13 +11,13 @@ ms.topic: article
 ms.date: 03/16/2017
 ms.author: prrajan
 ---
-# Bing Text to Speech API
+# Bing text to speech API
 
-## <a name="Introduction"></a> Introduction
+## <a name="Introduction"></a>Introduction
 
-With the Bing Text to Speech API, your application can send HTTP requests to a cloud server, where text is instantly synthesized into human-sounding speech and returned as an audio file. This API can be used in many different contexts to provide real-time text-to-speech conversion in a variety of different voices and languages.
+With the Bing text to speech API, your application can send HTTP requests to a cloud server, where text is instantly synthesized into human-sounding speech and returned as an audio file. This API can be used in many different contexts to provide real-time text-to-speech conversion in a variety of different voices and languages.
 
-## <a name="VoiceSynReq"></a> Voice synthesis request
+## <a name="VoiceSynReq"></a>Voice synthesis request
 
 ### <a name="Subscription"></a>Authorization token
 
@@ -62,12 +62,12 @@ Authorization | Authorization token |  See the <a href="#Subscription">Authoriza
 
 ### <a name="InputParam"></a>Input parameters
 
-Requests to the Bing Text to Speech API are made using HTTP POST calls. The headers are specified in the previous section. The body contains Speech Synthesis Markup Language (SSML) input that represents the text to be synthesized. For a description of the markup used to control aspects of speech such as the language and gender of the speaker, see the [SSML W3C Specification](http://www.w3.org/TR/speech-synthesis/).
+Requests to the Bing text to speech API are made using HTTP POST calls. The headers are specified in the previous section. The body contains Speech Synthesis Markup Language (SSML) input that represents the text to be synthesized. For a description of the markup used to control aspects of speech such as the language and gender of the speaker, see the [SSML W3C Specification](http://www.w3.org/TR/speech-synthesis/).
 
 >[!NOTE]
 >The maximum size of the SSML input that is supported is 1,024 characters, including all tags.
 
-###  <a name="SampleVoiceOR"></a>Example: Voice output request
+###  <a name="SampleVoiceOR"></a>Example: voice output request
 
 An example of a voice output request is as follows:
 
@@ -87,9 +87,9 @@ Authorization: Bearer [Base64 access_token]
 
 ## <a name="VoiceOutResponse"></a>Voice output response
 
-The Bing Text to Speech API uses HTTP POST to send audio back to the client. The API response contains the audio stream and the codec, and it matches the requested output format. The audio returned for a given request must not exceed 15 seconds. 
+The Bing text to speech API uses HTTP POST to send audio back to the client. The API response contains the audio stream and the codec, and it matches the requested output format. The audio returned for a given request must not exceed 15 seconds.
 
-### <a name="SuccessfulRecResponse"></a>Example: Successful synthesis response
+### <a name="SuccessfulRecResponse"></a>Example: successful synthesis response
 
 The following code is an example of a JSON response to a successful voice synthesis request. The comments and formatting of the code are for purposes of this example only and are omitted from the actual response.
 
@@ -101,7 +101,7 @@ Content-Type: audio/x-wav
 Response audio payload
 ```
 
-### <a name="RecFailure"></a>Example: Synthesis failure
+### <a name="RecFailure"></a>Example: synthesis failure
 
 The following example code shows a JSON response to a voice-synthesis query failure:
 

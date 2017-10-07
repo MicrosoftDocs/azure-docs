@@ -1,6 +1,6 @@
 ---
-title: Get started with Microsoft Speech Recognition API in Objective C on iOS | Microsoft Docs
-description: Use Microsoft Speech Recognition API to develop iOS applications applications that convert spoken audio to text.
+title: Get Started with Microsoft speech recognition API in Objective C on iOS | Microsoft Docs
+description: Use Microsoft speech recognition API to develop iOS applications applications that convert spoken audio to text.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma61
@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 09/29/2017
 ms.author: zhouwang
 ---
-# Get Started with Microsoft Speech Recognition API in Objective C on iOS
+# Get started with Microsoft speech recognition API in Objective C on iOS
 
-With Microsoft Speech Recognition API, you can develop iOS applications that use Microsoft cloud-based Speech Service to convert spoken audio to text. The API supports real-time streaming, so your application can simultaneously and asynchronously receive partial recognition results at the same time it is sending audio to the service.
+With Microsoft speech recognition API, you can develop iOS applications that use Microsoft cloud-based Speech Service to convert spoken audio to text. The API supports real-time streaming, so your application can simultaneously and asynchronously receive partial recognition results at the same time it is sending audio to the service.
 
-This article uses a sample application to demonstrate the basics of getting started with the Microsoft Speech Recognition API to develop an iOS application. For a complete API reference, see [Speech SDK Client Library Reference](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-iOS/master/com.Microsoft.SpeechSDK-1_0-for-iOS.docset/Contents/Resources/Documents/index.html).
+This article uses a sample application to demonstrate the basics of getting started with the Microsoft speech recognition API to develop an iOS application. For a complete API reference, see [Speech SDK Client Library Reference](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-iOS/master/com.Microsoft.SpeechSDK-1_0-for-iOS.docset/Contents/Resources/Documents/index.html).
 
 ## Prerequisites
 
@@ -33,11 +33,11 @@ Before creating the example, you must subscribe to Speech API, which is part of 
 
 If you want to use *Recognition with intent*, you also need to sign up [Language Understanding Intelligent Service (LUIS)](https://azure.microsoft.com/en-us/services/cognitive-services/language-understanding-intelligent-service/).
 
-## Use Speech Client Library
+## Use speech client library
 
 Follow the [instructions](https://github.com/Azure-Samples/Cognitive-Speech-STT-iOS#the-client-library) to add the client library into an XCode project.
 
-The Client Library Reference for iOS can be found [here](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-iOS/master/com.Microsoft.SpeechSDK-1_0-for-iOS.docset/Contents/Resources/Documents/index.html).
+The client library reference for iOS can be found [here](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-iOS/master/com.Microsoft.SpeechSDK-1_0-for-iOS.docset/Contents/Resources/Documents/index.html).
 
 ## Build and run samples
 
@@ -98,21 +98,21 @@ The following code in the sample shows how to create recognition client classes 
 
 ```
 
-The Client Library provides pre-implemented recognition client classes for typical scenarios in speech recognition.
+The client library provides pre-implemented recognition client classes for typical scenarios in speech recognition.
 
-* `DataRecognitionClient`: Speech recognition with PCM data (for example from a file or audio source). The data is broken up into buffers and each buffer is sent to the Speech Service. No modification is done to the buffers, so the user can apply their own Silence Detection if desired. If the data is provided from wave files, you can send data from the file right to the server. If you have raw data, for example audio coming over Bluetooth, then you first send a format header to the server followed by the data.
+* `DataRecognitionClient`: speech recognition with PCM data (for example from a file or audio source). The data is broken up into buffers and each buffer is sent to the Speech Service. No modification is done to the buffers, so the user can apply their own silence detection if desired. If the data is provided from wave files, you can send data from the file right to the server. If you have raw data, for example audio coming over Bluetooth, then you first send a format header to the server followed by the data.
 
-* `MicrophoneRecognitionClient`: Speech recognition with audio coming from the microphone. Make sure the microphone is turned on and data from the microphone is sent to the Speech Recognition Service. A built-in “Silence Detector” is applied to the microphone data before it is sent to the recognition service.
+* `MicrophoneRecognitionClient`: speech recognition with audio coming from the microphone. Make sure the microphone is turned on and data from the microphone is sent to the speech recognition service. A built-in "Silence Detector" is applied to the microphone data before it is sent to the recognition service.
 
 * `DataRecognitionClientWithIntent` and `MicrophoneRecognitionClientWithIntent`: these clients return, in addition to recognition text, structured information about the intent of the speaker, which could be used drive further actions by your applications. To use Intent, you need to first train a model using [LUIS](https://azure.microsoft.com/en-us/services/cognitive-services/language-understanding-intelligent-service/).
 
 ### Recognition language
 
-When you use the `SpeechRecognitionServiceFactory` to create the Client, you must select a language. The complete list of languages supported by the Speech service can be found in the page [Supported Languages](../API-Reference-REST/supportedlanguages.md).
+When you use the `SpeechRecognitionServiceFactory` to create the client, you must select a language. The complete list of languages supported by the Speech Service can be found in the page [Supported Languages](../API-Reference-REST/supportedlanguages.md).
 
 ### `SpeechRecognitionMode`
 
-You also need to specify `SpeechRecognitionMode` when creating the Client with `SpeechRecognitionServiceFactory`.
+You also need to specify `SpeechRecognitionMode` when creating the client with `SpeechRecognitionServiceFactory`.
 
 * `SpeechRecognitionMode_ShortPhrase`: An utterance up to 15 seconds long. As data is sent to the service, the client receives multiple partial results and one final result with multiple n-best choices.
 
@@ -133,7 +133,7 @@ You can attach various event handlers to the client you created.
   * In `SpeechRecognitionMode_LongDictation` mode, the event handler is called multiple times, based on where the service identifies sentence pauses.
   * **For each of the n-best choices**, a confidence value and a few different forms of the recognized text are returned. For more information, see the [output format](../Concepts.md#output-format) page.
 
-## Related Topics
+## Related topics
 
 * [Client Library Reference for iOS](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-iOS/master/com.Microsoft.SpeechSDK-1_0-for-iOS.docset/Contents/Resources/Documents/index.html)
 * [Get started with Microsoft Speech Recognition and/or intent in Java on Android](GetStartedJavaAndroid.md)

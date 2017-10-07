@@ -1,5 +1,5 @@
 ---
-title: How to authenticate to Microsoft Speech API | Microsoft Docs
+title: How to Authenticate to Microsoft Speech API | Microsoft Docs
 description: How to request authentication to use Microsoft Speech API
 services: cognitive-services
 author: zhouwang
@@ -13,7 +13,7 @@ ms.author: zhouwang
 ---
 # How to authenticate to Microsoft Speech API
 
-Microsoft Speech Service support two ways for authentication.
+Microsoft Speech Service supports authentication
 
 - using subscription key
 - using authorization token

@@ -20,16 +20,16 @@ The cloud-based Microsoft Speech API provides developers an easy way to create p
 
 ## Speech to text (speech recognition)
 
-Microsoft Speech Recognition API *transcribes* audio streams into text that your application can display to the user or act upon as command input. It provides developers an easy way to integrate Microsoft speech recognition technologies into their applications.
+Microsoft speech recognition API *transcribes* audio streams into text that your application can display to the user or act upon as command input. It provides developers an easy way to integrate Microsoft speech recognition technologies into their applications.
 
 - Powered by advanced speech recognition technologies from Microsoft that are used by Cortana, Office Dictation, Office Translator, and other Microsoft products.
 - Provides both REST APIs and client libraries for running on various platforms (Windows, Android, iOS) using different languages (C#, Java, JavaScript, ObjectiveC).
-- Real-time continuous recognition. The Speech Recognition API enables users to transcribe audio into text in real time, and supports to receive the intermediate results of the words that have been recognized so far. The speech service also supports end-of-speech detection. In addition, users can choose additional formatting capabilities, like capitalization and punctuation, masking profanity, and text normalization.
+- Real-time continuous recognition. The speech recognition API enables users to transcribe audio into text in real time, and supports to receive the intermediate results of the words that have been recognized so far. The speech service also supports end-of-speech detection. In addition, users can choose additional formatting capabilities, like capitalization and punctuation, masking profanity, and text normalization.
 - Supports optimized speech recognition results for **interactive**, **conversation**, and **dictation scenarios**. For user scenarios which require customized language models and acoustic models, [Custom Speech Service](../custom-speech-service/cognitive-services-custom-speech-home.md) allows you to create speech models that tailored to your application and your users.
-- Support many spoken languages in multiple dialects. For the full list of supported languages in each recognition mode, see [Recognition Languages](api-reference-rest/supportedlanguages.md).
+- Support many spoken languages in multiple dialects. For the full list of supported languages in each recognition mode, see [recognition languages](api-reference-rest/supportedlanguages.md).
 - Integration with language understanding. Besides converting the input audio into text, the *Speech to Text* provides applications an additional capability to understand what the text means. It uses the [Language Understanding Intelligent Service(LUIS)](../LUIS/Home.md) to extract intents and entities from the recognized text.
 
-Developers can choose either [REST APIs](GetStarted/GetStartedREST.md) or [Client Libraries](GetStarted/GetStartedClientLibraries.md) to access Microsoft speech to text services.
+Developers can choose either [REST APIs](GetStarted/GetStartedREST.md) or [client libraries](GetStarted/GetStartedClientLibraries.md) to access Microsoft speech to text services.
 
 | Use cases | [REST APIs](GetStarted/GetStartedREST.md) | [Client Libraries](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
@@ -40,7 +40,7 @@ Developers can choose either [REST APIs](GetStarted/GetStartedREST.md) or [Clien
 
 ### What's next
 
-- Get started to use Microsoft Speech Recognition Service with [REST APIs](GetStarted/GetStartedREST.md) or [Client Libraries](GetStarted/GetStartedClientLibraries.md).
+- Get started to use Microsoft speech recognition service with [REST APIs](GetStarted/GetStartedREST.md) or [client libraries](GetStarted/GetStartedClientLibraries.md).
 - Check out [sample applications](samples.md) in your preferred programming language.
 - Go to the Reference section to find [Microsoft Speech Protocol](API-Reference-REST/websocketprotocol.md) details and API references.
 
@@ -50,4 +50,4 @@ Developers can choose either [REST APIs](GetStarted/GetStartedREST.md) or [Clien
 
 ### What's next
 
-- Get started to use Microsoft Text to Speech service: [Text to Speech API Reference](api-reference-rest/bingvoiceoutput.md). For the full list of languages and voices supported by Text to Speech, see [Supported Locales and Voice Fonts](api-reference-rest/bingvoiceoutput.md#SupLocales).
+- Get started to use Microsoft text to speech service: [Text to Speech API Reference](api-reference-rest/bingvoiceoutput.md). For the full list of languages and voices supported by Text to Speech, see [Supported Locales and Voice Fonts](api-reference-rest/bingvoiceoutput.md#SupLocales).
