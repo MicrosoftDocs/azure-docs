@@ -11,7 +11,7 @@ Type your problem or scenario on the following search box for a scoped search on
 <form method="get" action="http://www.bing.com/search" target="_blank">
 <table border="0" align="center" cellpadding="0">
 <tr><td>
-<input type="text" size="45" name=q maxlength="255" "/>
+<input aria-label="Bing Scoped Search" type="search" placeholder="Bing Scoped Search" name="q" size="45">
 <input type="submit" value="Search" />
 <input type="hidden" value="(site:stackoverflow.com OR site:docs.microsoft.com/azure/active-directory/develop OR site:github.com/azure-samples OR site:cloudidentity.com)" /></td></tr>
 </table>
