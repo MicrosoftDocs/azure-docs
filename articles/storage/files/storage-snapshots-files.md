@@ -130,8 +130,6 @@ charges.
 Snapshots provide only file level protection and any fat finger deletes on file share or storage account are not protected by snapshots . You may lock your storage account or resource group in order to protect the storage account from accidental deletions.
 
 ## Next Steps
-* [How to create a file share snapshot](storage-snapshots-create.md)
-* [How to list and browse snapshot](storage-snapshots-list-browse.md)
-* [How to delete snapshot](storage-snapshots-delete.md)
+* [Work with Azure Files share snapshot](storage-how-to-use-files-snapshots.md)
 * [Snapshot FAQ](storage-files-faq.md#snapshots)
 

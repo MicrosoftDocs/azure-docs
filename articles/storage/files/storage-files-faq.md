@@ -140,7 +140,7 @@ ms.author: renash
 
 * **Q. Can I browse my snapshots from Linux?**
     
-     One can use Azure CLI 2.0 to create, list, browse and restore on Linux. One can browse for "Previous Versions" in Windows but Linux does not have same functionality. 
+     you can use Azure CLI 2.0 to create, list, browse and restore on Linux. One can browse for "Previous Versions" in Windows but Linux does not have same functionality. 
 
 * **Q. Can I copy the snapshots to a different storage account?**
     
