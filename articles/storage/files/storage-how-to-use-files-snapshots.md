@@ -1,6 +1,6 @@
 ---
 title: How to use Azure Files share snapshot | Microsoft Docs
-description: Use Azure Files share snapshot. Azure Files share snapshot is a read-only version of a an Azure Files share that's taken at a point in time. Once a snapshot has been created, it can be read, copied, or deleted, but not modified. Snapshots provide a way to back up the share as it appears at a moment in time.
+description: Use Azure Files share snapshot. Azure Files share snapshot is a read-only version of a an Azure Files share that's taken at a point in time. Once a share snapshot has been created, it can be read, copied, or deleted, but not modified. Share snapshots provide a way to back up the share as it appears at a moment in time.
 services: storage
 documentationcenter: .net
 author: renash
@@ -20,22 +20,24 @@ ms.author: tamram
 
 # Work with file share snapshots
 
+Azure Files share snapshot is a read-only version of a an Azure Files share that's taken at a point in time. Once a share snapshot has been created, it can be read, copied, or deleted, but not modified. Share snapshots provide a way to back up the share as it appears at a moment in time. In this article we will learn about how to create, manage and delete Azure Files share snapshots. To learn more about share snapshot, see at [share snapshot overview](storage-snapshots-files.md) or [snapshot FAQ](storage-files-faq.md)
+
 ## Create Azure Files share snapshots
 
-You can create file share snapshot using Portal, Powershell, CLI, REST or any Storage SDK. The following few sections will tell you how to create snapshot using Portal, CLI and Powershell. To learn more about snapshot, see at [snapshot overview](storage-snapshots-files.md) or [snapshot FAQ](storage-files-faq.md)
+You can create a share snapshot using Portal, Powershell, CLI, REST or any Storage SDK. The following few sections will tell you how to create a share snapshot using Portal, CLI and Powershell. 
 
-You can take a snapshot of a file share while it is in use. However, snapshots
+You can take a share snapshot of a file share while it is in use. However, share snapshots
 only capture data that has been already written to Azure File share at the time
-the snapshot command is issued. This might exclude any data that has been cached
+the share snapshot command is issued. This might exclude any data that has been cached
 by any applications or the operating system.
 
-### Create snapshot using portal  
-You can simply navigate to your file share in the portal and select `Create a Snapshot` button to create a point in time snapshot.
+### Create share snapshot using portal  
+You can simply navigate to your file share in the portal and select `Create a Snapshot` button to create a point in time share snapshot.
 
 >   ![./media/storage-snapshots-create/portal-create-snapshot.png](./media/storage-snapshots-create/portal-create-snapshot.png)
 
 
-### Create snapshot using CLI 2.0
+### Create share snapshot using CLI 2.0
 You can create a share snapshot by using the `az storage share snapshot` command:
 
 ```azurecli-interactive
@@ -56,7 +58,7 @@ Sample Output
 }
 ```
 
-### Create snapshot using Powershell
+### Create share snapshot using Powershell
 You can create a share snapshot by using the `$share.Snapshot()` command:
 
 ```powershell
@@ -72,43 +74,43 @@ $share.IsSnapshot
 $snapshot=$share.Snapshot()
 
 ```
-## List snapshots, browse snapshot contents and restore from snapshots
+## List share snapshots, browse share snapshot contents and restore from snapshots
 
-You can enumerate the snapshots associated with your file share using
+You can enumerate the share snapshots associated with your file share using
 “Previous Versions” integration in Windows, through REST, Client Library, PowerShell, and Portal. Once the Azure File share is mounted, you can view all the previous
 versions of the file using SMB “Previous Versions” integration. Once the Azure
 File share is mounted, you can view all the previous versions of the directory
-using SMB “Previous Versions” integration. In the following few sections you will learn how to use Azure portal, Windows and Azure CLI 2.0 to list, browse and restore snapshots.
+using SMB “Previous Versions” integration. In the following few sections you will learn how to use Azure portal, Windows and Azure CLI 2.0 to list, browse and restore share snapshots.
 
-### File share snapshot operations in portal
+### Share snapshot operations in portal
 
-You can look at all your snapshots for a file share in portal and browse the snapshot to view its content
+You can look at all your share snapshots for a file share in portal and browse the share snapshot to view its content
 
-#### View snapshot
+#### View share snapshot
 On your file share under Snapshot, select **View snapshots**
 
 ![./media/storage-snapshots-list-browse/snapshot-view-portal.png](./media/storage-snapshots-list-browse/snapshot-view-portal.png)
 
-#### List and browse snapshot content
-View the list of snapshots and then browse its content directly by selecting the snapshot from the timestamp desired.
+#### List and browse share snapshot content
+View the list of share snapshots and then browse its content directly by selecting the share snapshot from the timestamp desired.
 
 ![./media/storage-snapshots-list-browse/snapshot-browsefiles-portal.png](./media/storage-snapshots-list-browse/snapshot-browsefiles-portal.png)
 
-You can also select **Connect** Button on your list snapshot view to get the `net use` command and the directory path to a particular snapshot, which you can directly browse into.
+You can also select **Connect** Button on your list snapshot view to get the `net use` command and the directory path to a particular share snapshot, which you can directly browse into.
 
 ![./media/storage-snapshots-list-browse/snapshot-download-restore-portal.png](./media/storage-snapshots-list-browse/snapshot-download-restore-portal.png)
 
-#### Download or restore from snapshot
+#### Download or restore from share snapshot
 From within portal, download or restore the desired file from a snapshot.
 
 ![./media/storage-snapshots-list-browse/snapshot-connect-portal.pngsnapshot-list-portal.png](./media/storage-snapshots-list-browse/snapshot-connect-portal.png)
 
 
 ### File share snapshot operations in Windows
-When you have already taken snapshots of your file share, you can view previous versions of a share, directory, or a particular file from your mounted Azure file share on Windows. As an example, here is how you can use the **Previous Versions** feature to view and restore a previous version of a  particular directory in Windows.:
+When you have already taken share snapshots of your file share, you can view previous versions of a share, directory, or a particular file from your mounted Azure file share on Windows. As an example, here is how you can use the **Previous Versions** feature to view and restore a previous version of a  particular directory in Windows.:
 
 > [!Note]  
-> Same operations can be done on share level as well as file level. Only version that contains changes for that directory or file are shown in the list. If a particular directory or file has not changed between two snapshots, the snapshot only shows up in the share-level previous version list but not in the directory's or file's previous version list.
+> Same operations can be done on share level as well as file level. Only version that contains changes for that directory or file are shown in the list. If a particular directory or file has not changed between two share snapshots, the share snapshot only shows up in the share-level previous version list but not in the directory's or file's previous version list.
 
 #### Mount file share
 First mount the file share using the net use command.
@@ -118,12 +120,12 @@ Go to File Explorer and find the mounted share.
 
 ![./media/storage-snapshots-list-browse/snapshot-windows-mount.png](./media/storage-snapshots-list-browse/snapshot-windows-mount.png)
 
-#### List Previous versions
+#### List Previous Versions
  Navigate to the item or parent item that needs restore. Double-click to navigate to the desired directory. Right-click and select “Properties” from the menu
 
 ![./media/storage-snapshots-list-browse/snapshot-windows-previous-versions.png](./media/storage-snapshots-list-browse/snapshot-windows-previous-versions.png)
 
-Select “**Previous Versions”** to see the list of snapshots for this directory. Listing may take a few seconds to load depending on the network speed and number of snapshots.
+Select “**Previous Versions”** to see the list of share snapshots for this directory. Listing may take a few seconds to load depending on the network speed and number of share snapshots.
 
  ![./media/storage-snapshots-list-browse/snapshot-windows-list.png](./media/storage-snapshots-list-browse/snapshot-windows-list.png)
 
@@ -132,22 +134,22 @@ You can select **Open** to browse a particular snapshot
  ![./media/storage-snapshots-list-browse/snapshot-browse-windows.png](./media/storage-snapshots-list-browse/snapshot-browse-windows.png)
 
 #### Restore from a Previous Version
-**Restore** to copy contents of the entire directory recursively at the snapshot creation time to original location.
+**Restore** to copy contents of the entire directory recursively at the share snapshot creation time to original location.
  ![./media/storage-snapshots-list-browse/snapshot-windows-previous-versions.png](./media/storage-snapshots-list-browse/snapshot-windows-restore.png)
 
 ### File share snapshot operations in Azure CLI 2.0
-You can use Azure CI 2.0 to perform same operations such as listing snapshots, browsing snapshot content, restoring or downloading files from snapshot, or deleting snapshots.
+You can use Azure CI 2.0 to perform same operations such as listing share snapshots, browsing share snapshot content, restoring or downloading files from share snapshot, or deleting share snapshots.
 
-#### List Snapshots
+#### List share snapshots
 
-You may list snapshots of a particular share using [`az storage share list`](/cli/azure/storage/share?view=azure-cli-latest#az_storage_share_list) with `--include-snapshots`
+You may list share snapshots of a particular share using [`az storage share list`](/cli/azure/storage/share?view=azure-cli-latest#az_storage_share_list) with `--include-snapshots`
 
 ```azurecli-interactive 
 az storage share list --include-snapshots
 ```
 
 #### Sample Output
-The command will give you list of snapshots along with all its associated properties.
+The command will give you list of share snapshots along with all its associated properties.
 
 ```json
 [
@@ -184,8 +186,8 @@ The command will give you list of snapshots along with all its associated proper
 ]
 ```
 
-#### Browse Snapshots
-You may also browse into a particular snapshot to view its content using [`az storage file list`](/cli/azure/storage/share?view=azure-cli-latest#az_storage_share_list). One has to specify the share name `--share-name` and the timestamp, which we want to browse into `--snapshot '2017-10-04T19:45:18.0000000Z'`
+#### Browse share snapshots
+You may also browse into a particular share snapshot to view its content using [`az storage file list`](/cli/azure/storage/share?view=azure-cli-latest#az_storage_share_list). One has to specify the share name `--share-name` and the timestamp, which we want to browse into `--snapshot '2017-10-04T19:45:18.0000000Z'`
 
 ```azurecli-interactive 
 az storage file list --share-name sharesnapshotdefs --snapshot '2017-10-04T19:45:18.0000000Z' -otable
@@ -193,7 +195,7 @@ az storage file list --share-name sharesnapshotdefs --snapshot '2017-10-04T19:45
 
 #### Sample Output
 
-You will see that the content of the snapshot is identical to the content of the share at the point in time that snapshot was created.
+You will see that the content of the share snapshot is identical to the content of the share at the point in time that share snapshot was created.
 
 ```
 Name            Content Length    Type    Last Modified
@@ -208,9 +210,9 @@ IMG_1634.JPG    1495999           file
 IMG_1635.JPG    974058            file
 
 ```
-#### Restore from Snapshots
+#### Restore from share snapshots
 
-You can restore a file by copying or downloading a file from snapshot using `az storage file download` command
+You can restore a file by copying or downloading a file from the share snapshot using `az storage file download` command
 
 ```azurecli-interactive 
 az storage file download --path IMG_0966.JPG --share-name sharesnapshotdefs --snapshot '2017-10-04T19:45:18.0000000Z'
@@ -218,7 +220,7 @@ az storage file download --path IMG_0966.JPG --share-name sharesnapshotdefs --sn
 
 #### Sample Output
 
-You see that the contents of the downloaded file and its properties are identical to the content and properties at the point in time that snapshot was created.
+You see that the contents of the downloaded file and its properties are identical to the content and properties at the point in time that share snapshot was created.
 
 ```json
 {
@@ -252,20 +254,20 @@ You see that the contents of the downloaded file and its properties are identica
 
 ## Delete Azure Files share snapshot
 
-You can delete file share snapshots using the Azure portal, PowerShell, CLI, REST API, or any Storage SDK. The following few sections will tell you how to delete snapshots using Azure portal, CLI, and Powershell.
+You can delete file share snapshots using the Azure portal, PowerShell, CLI, REST API, or any Storage SDK. The following few sections will tell you how to delete share snapshots using Azure portal, CLI, and Powershell.
 
-You are able to browse snapshots and view differences between the two snapshots using any comparison tool to determine which snapshot you want to delete. 
+You are able to browse share snapshots and view differences between the two share snapshots using any comparison tool to determine which share snapshot you want to delete. 
 
-You cannot delete a share that has snapshot. You must first delete all its snapshots in order to be able to delete the share.
+You cannot delete a share that has share snapshot. You must first delete all its share snapshots in order to be able to delete the share.
 
-### Delete snapshot using portal  
-You can navigate to your file share blade and select `delete` button in portal to delete one or more snapshots.
+### Delete share snapshot using portal  
+You can navigate to your file share blade and select `delete` button in portal to delete one or more share snapshots.
 
 >   ![./media/storage-snapshots-delete/portal-snapshots-delete.png](./media/storage-snapshots-delete/portal-snapshots-delete.png)
 
 
-### Delete a snapshot using Azure CLI 2.0
-You can delete a share snapshot by using the `[az storage share delete]` command by providing `--snapshot` parameter with snapshot timestamp:
+### Delete a share snapshot using Azure CLI 2.0
+You can delete a share snapshot by using the `[az storage share delete]` command by providing `--snapshot '2017-10-04T23:28:35.0000000Z' ` parameter with share snapshot timestamp:
 
 ```azurecli-interactive
 az storage share delete -n <share name> --snapshot '2017-10-04T23:28:35.0000000Z' 
@@ -278,7 +280,7 @@ Sample Output
 }
 ```
 
-### Delete a snapshot using PowerShell
+### Delete a share snapshot using PowerShell
 You can create a share snapshot by using the `Remove-AzureStorageShare -Share` command:
 
 ```powershell
@@ -300,4 +302,4 @@ Remove-AzureStorageShare -Share $snapshot
 
 ## Next Steps
 * [Snapshot Overview](storage-snapshots-files.md)
-* [Snapshot FAQ](storage-files-faq.md#snapshots)
+* [Snapshot FAQ](storage-files-faq.md)

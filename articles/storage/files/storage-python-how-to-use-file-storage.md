@@ -141,36 +141,36 @@ snapshot = file_service.snapshot_share(share_name, metadata=metadata)
 ```
 
 ## List shares and snapshots
-You can list all the snapshots for a particular share
+You can list all the snapshots for a particular share.
 
 ```python
 shares = list(file_service.list_shares(include_snapshots=True))
 ```
 
-## Browse snapshot
-You can browse content of each snapshot to retrieve files and directories from that point in time.
+## Browse share snapshot
+You can browse content of each share snapshot to retrieve files and directories from that point in time.
 
 ```python
 directories_and_files = list(file_service.list_directories_and_files(share_name, snapshot=snapshot_id))
 ```
 
-## Get file from snapshot
-You can download a file from a snapshot for your restore scenario
+## Get file from share snapshot
+You can download a file from a share snapshot for your restore scenario.
 
 ```python
 with open(FILE_PATH, 'wb') as stream:
     file = file_service.get_file_to_stream(share_name, directory_name, file_name, stream, snapshot=snapshot_id)
 ```
 
-## Delete snapshot only 
-You can delete a single snapshot.
+## Delete a single share snapshot  
+You can delete a single share snapshot.
 
 ```python
 file_service.delete_share(share_name, snapshot=snapshot_id)
 ```
 
-## Delete share when snapshots exist
-A share that contains snapshot cannot be deleted unless all the snapshots are deleted first.
+## Delete share when share snapshots exist
+A share that contains snapshots cannot be deleted unless all the snapshots are deleted first.
 
 ```python
 file_service.delete_share(share_name, delete_snapshots=DeleteSnapshot.Include)

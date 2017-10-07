@@ -369,7 +369,7 @@ az storage file copy start \
 --destination-share share2 --destination-path dir2/file.txt		
 ```
 
-## Create snapshot
+## Create share snapshot
 You can create a share snapshot by using the `az storage share snapshot` command:
 
 ```cli
@@ -390,9 +390,9 @@ Sample Output
 }
 ```
 
-### List Snapshots
+### List share napshots
 
-You may list snapshots of a particular share using `az storage share list --include-snapshots`
+You may list share snapshots of a particular share using `az storage share list --include-snapshots`
 
 ```cli
 az storage share list --include-snapshots
@@ -434,8 +434,8 @@ az storage share list --include-snapshots
 ]
 ```
 
-### Browse Snapshots
-You may also browse into a particular snapshot to view its content using `az storage file list`. One has to specify the share name `--share-name <snare name>` and the timestamp `--snapshot '2017-10-04T19:45:18.0000000Z'`
+### Browse share snapshots
+You may also browse into a particular share snapshot to view its content using `az storage file list`. One has to specify the share name `--share-name <snare name>` and the timestamp `--snapshot '2017-10-04T19:45:18.0000000Z'`
 
 ```azurecli-interactive
 az storage file list --share-name sharesnapshotdefs --snapshot '2017-10-04T19:45:18.0000000Z' -otable
@@ -455,9 +455,9 @@ IMG_1634.JPG    1495999           file
 IMG_1635.JPG    974058            file
 
 ```
-### Restore from Snapshots
+### Restore from share snapshots
 
-You can restore a file by copying or downloading a file from a snapshot using `az storage file download` command
+You can restore a file by copying or downloading a file from a share snapshot using `az storage file download` command
 
 ```azurecli-interactive
 az storage file download --path IMG_0966.JPG --share-name sharesnapshotdefs --snapshot '2017-10-04T19:45:18.0000000Z'
@@ -492,8 +492,8 @@ az storage file download --path IMG_0966.JPG --share-name sharesnapshotdefs --sn
   }
 }
 ```
-## Delete snapshot
-You can delete a share snapshot by using the `az storage share delete` command by providing `--snapshot` parameter with snapshot timestamp:
+## Delete share snapshot
+You can delete a share snapshot by using the `az storage share delete` command by providing `--snapshot` parameter with share snapshot timestamp:
 
 ```cli
 az storage share delete -n <share name> --snapshot '2017-10-04T23:28:35.0000000Z' 
