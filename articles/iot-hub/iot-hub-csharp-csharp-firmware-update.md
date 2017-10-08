@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 10/06/2017
 ms.author: v-jamebr
 
 ---
@@ -50,7 +50,7 @@ In this section, you create a .NET console app (using C#) that initiates a remot
 
 1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Name the project **TriggerFWUpdate**.
 
-    ![New Visual C# Windows Classic Desktop project][img-createapp]
+    ![New Visual C# Windows Classic Desktop project][img-createserviceapp]
 
 2. In Solution Explorer, right-click the **TriggerFWUpdate** project, and then click **Manage NuGet Packages...**.
 3. In the **NuGet Package Manager** window, select **Browse**, search for **microsoft.azure.devices**, select **Install** to install the **Microsoft.Azure.Devices** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT service SDK][lnk-nuget-service-sdk] NuGet package and its dependencies.
@@ -68,7 +68,7 @@ In this section, you create a .NET console app (using C#) that initiates a remot
         static ServiceClient client;
         static string targetDevice = "{deviceIdForTargetDevice}";
         
-6. Add the following method to the **Program** class. This method polls the device twin for updated status every 500 milliseconds beginning with the time passed to it. It writes to the console only when status has actually changed. For this sample, to prevent consuming extra IoT Hub message allotment, polling stops once a terminal status is read.  
+6. Add the following method to the **Program** class. This method polls the device twin for updated status every 500 milliseconds. It writes to the console only when status has actually changed. For this sample, to prevent consuming extra IoT Hub messages in your subscription, polling stops when the device reports a status of "applyComplete" or an error.  
    
         public static async Task QueryTwinFWUpdateReported(DateTime startTime)
         {
@@ -334,7 +334,7 @@ In this section, you will
             Console.WriteLine("Error in sample: {0}", ex.Message);
         }
         
-8. Build the solution.       
+15. Build the solution.       
 
 > [!NOTE]
 > To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the MSDN article [Transient Fault Handling][lnk-transient-faults].
@@ -344,7 +344,7 @@ In this section, you will
 You are now ready to run the apps.
 1. Run the .NET device app **SimulatedDeviceFWUpdate**.  Right-click the **SimulatedDeviceFWUpdate** project, select **Debug**, and then select **Start new instance**. It should start listening for method calls from your IoT Hub: 
 
-2. Now that the device is connected and waiting for method invocations, run the .NET **TriggerFWUpdate** app to invoke the reboot method in the simulated device app. Right-click the **TriggerFWUpdate** project, select **Debug**, and then select **Start new instance**. You should see update sequence written in the **SimulatedDeviceFWUpdate** console and also the sequence reported through the reported properties of the device in the **TriggerFWUpdate** console. Note the process takes several seconds. so be patient. 
+2. Now that the device is connected and waiting for method invocations, run the .NET **TriggerFWUpdate** app to invoke the reboot method in the simulated device app. Right-click the **TriggerFWUpdate** project, select **Debug**, and then select **Start new instance**. You should see update sequence written in the **SimulatedDeviceFWUpdate** console and also the sequence reported through the reported properties of the device in the **TriggerFWUpdate** console. Note the process takes several seconds to complete. 
    
     ![Service and device app run][img-combinedrun]
 
@@ -356,8 +356,10 @@ To learn how to extend your IoT solution and schedule method calls on multiple d
 
 <!-- images -->
 [img-servicenuget]: media/iot-hub-csharp-csharp-firmware-update/servicesdknuget.png
-[img-createapp]: media/iot-hub-csharp-csharp-firmware-update/createnetapp.png
-[img-fwupdate]: media/iot-hub-csharp-csharp-firmware-update/fwupdated.png
+[img-clientnuget]: media/iot-hub-csharp-csharp-firmware-update/clientsdknuget.png
+[img-createserviceapp]: media/iot-hub-csharp-csharp-firmware-update/createserviceapp.png
+[img-createdeviceapp]: media/iot-hub-csharp-csharp-firmware-update/createdeviceapp.png
+[img-combinedrun]: media/iot-hub-csharp-csharp-firmware-update/combinedrun.png
 
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md
