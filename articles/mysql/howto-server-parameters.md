@@ -8,7 +8,7 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/05/2017
+ms.date: 10/08/2017
 ---
 
 # How to configure server parameters in Azure Database for MySQL by using the Azure portal
