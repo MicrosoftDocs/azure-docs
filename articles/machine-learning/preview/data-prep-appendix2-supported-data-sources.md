@@ -23,7 +23,7 @@ The supported data sources for this release are listed below.
 ### Directory versus file
 *Files/Directories*: Choose a single file and read it into Data Preparation. The file type is parsed to determine the default parameters for the file connection that is on the next screen. Choose a directory or set of files within a directory (the file picker is multiselect). Either approach results in the files being read as a single dataflow with the files appended to each other (with headers stripped out if needed).
 
-The supported types of file are as follows:
+The file types are as follows:
 - Delimited (.csv, .tsv, .txt, and so on) 
 - Fixed width
 - Plain text
