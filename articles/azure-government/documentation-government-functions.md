@@ -80,7 +80,7 @@ Functions uses an Azure Storage account to maintain state and other information 
 In the following command, substitute a globally unique storage account name where you see the `<storage_name>` placeholder. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
 
 ```azurecli-interactive
-§ az storage account create --name <storage_name> --location usgovvirginia --resource-group myResourceGroup --sku Standard_LRS
+az storage account create --name <storage_name> --location usgovvirginia --resource-group myResourceGroup --sku Standard_LRS
 ```
 
 After the storage account has been created, the Azure CLI shows information similar to the following example:
