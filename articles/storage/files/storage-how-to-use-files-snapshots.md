@@ -98,13 +98,13 @@ View the list of share snapshots and then browse its content directly by selecti
 
 You can also select **Connect** Button on your list snapshot view to get the `net use` command and the directory path to a particular share snapshot, which you can directly browse into.
 
-![./media/storage-snapshots-list-browse/snapshot-download-restore-portal.png](./media/storage-snapshots-list-browse/snapshot-download-restore-portal.png)
+
+![./media/storage-snapshots-list-browse/snapshot-connect-portal.pngsnapshot-list-portal.png](./media/storage-snapshots-list-browse/snapshot-connect-portal.png)
 
 #### Download or restore from share snapshot
 From within portal, download or restore the desired file from a snapshot.
 
-![./media/storage-snapshots-list-browse/snapshot-connect-portal.pngsnapshot-list-portal.png](./media/storage-snapshots-list-browse/snapshot-connect-portal.png)
-
+![./media/storage-snapshots-list-browse/snapshot-download-restore-portal.png](./media/storage-snapshots-list-browse/snapshot-download-restore-portal.png)
 
 ### File share snapshot operations in Windows
 When you have already taken share snapshots of your file share, you can view previous versions of a share, directory, or a particular file from your mounted Azure file share on Windows. As an example, here is how you can use the **Previous Versions** feature to view and restore a previous version of a  particular directory in Windows.:

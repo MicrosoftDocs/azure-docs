@@ -136,11 +136,11 @@ ms.author: renash
     
      Redundancy tier of share snapshot will be same as the base Azure File Share. If you have selected GRS for your account your share snapshot will also be stored redundantly in a different geo.
 
-### Manage and share snapshots
+### Manage share snapshots
 
 * **Q. Can I browse my share snapshots from Linux?**
     
-     you can use Azure CLI 2.0 to create, list, browse and restore on Linux. One can browse for "Previous Versions" in Windows but Linux does not have same functionality. 
+     You can use Azure CLI 2.0 to create, list, browse and restore on Linux.
 
 * **Q. Can I copy the share snapshots to a different storage account?**
     
@@ -154,7 +154,7 @@ ms.author: renash
 
 * **Q. Can I restore data from my share snapshot to a different storage account?**
     
-    Yes. Files from a share snapshot can be copied to original or an alternate location which includes same/different storage account in same or different regions. Also you can restore files to on-premises or any other cloud.    
+    Yes. Files from a share snapshot can be copied to original or an alternate location which includes same/different storage account in same or different regions. You can also copy files to on-premises or any other cloud.    
   
 ### Cleanup share snapshot
 
@@ -164,7 +164,7 @@ ms.author: renash
 
 * **Q. What happens to my share snapshots if I delete my Storage Account?**
     
-    If you delete your storage account, the share snapshots will be deleted as well. If you would like
+    If you delete your storage account, the share snapshots will be deleted as well.
 
 ## Billing and Pricing
 
