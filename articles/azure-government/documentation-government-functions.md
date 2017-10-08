@@ -75,7 +75,7 @@ az group create --name myResourceGroup --location usgovvirginia
 > 
 > 
 
-Functions uses an Azure Storage account to maintain state and other information about your functions. Create a storage account in the resource group you created by using the [az storage account create](../storage/common/storage-azure-cli#create-a-new-storage-account.md) command.
+Functions uses an Azure Storage account to maintain state and other information about your functions. Create a storage account in the resource group you created by using the [az storage account create](../storage/common/storage-azure-cli.md#create-a-new-storage-account) command.
 
 In the following command, substitute a globally unique storage account name where you see the `<storage_name>` placeholder. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
 
@@ -106,7 +106,7 @@ After the storage account has been created, the Azure CLI shows information simi
 
 You must have a function app to host the execution of your functions. The function app provides an environment for serverless execution of your function code. It lets you group functions as logical unit for easier management, deployment, and sharing of resources. Create a function app by using the [az functionapp create](https://docs.microsoft.com/en-us/cli/azure/functionapp?view=azure-cli-latest#az_functionapp_create) command.
 
-Before creating your function app, you must create an [App Service plan](../azure-functions/functions-scale#app-service-plan.md) that hosts your function app. 
+Before creating your function app, you must create an [App Service plan](../azure-functions/functions-scale.md#app-service-plan) that hosts your function app. 
 This can be done with the following command that creates a plan named "testPlan".
 
 ```azurecli-interactive
