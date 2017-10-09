@@ -104,7 +104,7 @@ Some of the hard-coded values in the template:
 | Property | Value |
 |----------|-------|
 | Location | West US |
-| VNet name | <ClusterNamePrevix>-vnet1 |
+| VNet name | &lt;ClusterNamePrevix>-vnet1 |
 | Address space prefix | 10.1.0.0/16 |
 | Subnet name | subnet 1 |
 | Subnet prefix | 10.1.0.0/24 |
@@ -115,7 +115,7 @@ Some of the hard-coded values in the template:
 | Gateway VPN type | RouteBased |
 | Gateway SKU | Basic |
 | Gateway IP | vnet1gwip |
-| Cluster Name | <ClusterNamePrefix>1 |
+| Cluster Name | &lt;ClusterNamePrefix>1 |
 | Cluster version | 3.6 |
 | Cluster kind | hbase |
 | Cluster worker node count | 2 |
@@ -126,7 +126,7 @@ Some of the hard-coded values in the template:
 | Property | Value |
 |----------|-------|
 | Location | East US |
-| VNet name | <ClusterNamePrevix>-vnet2 |
+| VNet name | &lt;ClusterNamePrevix>-vnet2 |
 | Address space prefix | 10.2.0.0/16 |
 | Subnet name | subnet 1 |
 | Subnet prefix | 10.2.0.0/24 |
@@ -137,7 +137,7 @@ Some of the hard-coded values in the template:
 | Gateway VPN type | RouteBased |
 | Gateway SKU | Basic |
 | Gateway IP | vnet1gwip |
-| Cluster Name | <ClusterNamePrefix>2 |
+| Cluster Name | &lt;ClusterNamePrefix>2 |
 | Cluster version | 3.6 |
 | Cluster kind | hbase |
 | Cluster worker node count | 2 |
