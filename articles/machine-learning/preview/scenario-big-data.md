@@ -1,6 +1,6 @@
 ---
-title: Server Workload Forecasting on Terabytes Data - Azure | Microsoft Docs
-description: How to train a machine learning model on big data using Azure ML Workbench.
+title: Server workload forecasting on terabytes data - Azure | Microsoft Docs
+description: How to train a machine learning model on big data by using Azure Machine Learning Workbench.
 services: machine-learning
 documentationcenter: ''
 author: daden
@@ -19,28 +19,21 @@ ms.author: daden
 
 # Server workload forecasting on terabytes data
 
-This example illustrates how data scientists can use Azure ML Workbench to develop solutions that require use of big data. We show how a user by using Azure ML Workbench can follow a happy path of starting from a sample of a large dataset, iterating through data preparation, feature engineering and machine learning, and then eventually extending the process to the entire large dataset. 
+This article covers how data scientists can use Azure Machine Learning Workbench to develop solutions that require the use of big data. You can start from a sample of a large dataset, iterate through data preparation, feature engineering, and machine learning, and then extend the process to the entire large dataset. 
 
-Along the way, we show the following key capabilities of Azure ML Workbench:
-* Easy switching between compute targets: we show how the user can set up different compute targets and use them in experimentation. In this example, we use an Ubuntu DSVM and a HDInsight cluster as the compute targets. We also show the user how to configure the compute targets depending on the availability of resources. In particular, after scaling out the Spark cluster (that is, including more worker nodes in the Spark cluster), how the user can use the resources through Azure ML Workbench to speed up experiment runs.
-* Run history tracking:  We show the user how Azure ML Workbench can be used to track the performance of ML models and other metrics of interests.
-* Operationalization of the machine learning model:  we show the use of the build-in tools within Azure ML Workbench to deploy the trained ML model as web service on Azure Container Service (ACS). We also show how to use the web service to get mini-batch predictions through REST API calls. 
+You'll learn about the following key capabilities of Machine Learning Workbench:
+* Easy switching between compute targets. You can set up different compute targets and use them in experimentation. In this example, you use an Ubuntu DSVM and a HDInsight cluster as the compute targets. You can also configure the compute targets, depending on the availability of resources. In particular, after scaling out the Spark cluster with more worker nodes, you can use the resources through Machine Learning Workbench to speed up experiment runs.
+* Run history tracking. You can use Machine Learning Workbench to track the performance of machine learning models and other metrics of interest.
+* Operationalization of the machine learning model. You can use the built-in tools within Machine Learning Workbench to deploy the trained machine learning model as a web service on Azure Container Service. You can also use the web service to get mini-batch predictions through REST API calls. 
 * Support for terabytes data.
 
-
-
-## Link to the Gallery GitHub repository
-
-The public GitHub repository for this example contains all materials, including code samples: 
- 
-[https://github.com/Azure/MachineLearningSamples-BigData](https://github.com/Azure/MachineLearningSamples-BigData)
-
-
+> [!NOTE]
+> For code samples and other materials related to this example, see [GitHub](https://github.com/Azure/MachineLearningSamples-BigData).
+> 
 
 ## Use case overview
 
-
-Forecasting the workload on servers is a common business need for technology companies that manage their own infrastructure. To reduce infrastructure cost, services running on under-utilized servers should be grouped together to run on a smaller number of machines, and services running on heavy-loaded servers should be given more machines to run. In this scenario, we focus on workload prediction for each machine (or server). In particular, we use the session data on each server to predict the workload class of the server in future. We classify the load of each server into low, medium, and high classes by using Random Forest Classifier in [Apache Spark ML](https://spark.apache.org/docs/2.1.1/ml-guide.html). The machine learning techniques and workflow in this example can be easily extended to other similar problems. 
+Forecasting the workload on servers is a common business need for technology companies that manage their own infrastructure. To reduce infrastructure cost, services running on under-used servers should be grouped together to run on a smaller number of machines. Services running on over-used servers should be given more machines to run. In this scenario, you focus on workload prediction for each machine (or server). In particular, you use the session data on each server to predict the workload class of the server in future. You classify the load of each server into low, medium, and high classes by using the Random Forest Classifier in [Apache Spark ML](https://spark.apache.org/docs/2.1.1/ml-guide.html). The machine learning techniques and workflow in this example can be easily extended to other similar problems. 
 
 
 ## Prerequisites
