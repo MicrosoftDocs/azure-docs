@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 10/09/2017
 ms.author: twooley
 
 ---
@@ -44,6 +44,8 @@ Here, you can view the following information:
 
 ![Scale unit tile showing Running status for each node](media/azure-stack-node-actions/ScaleUnitStatus.PNG)
 
+## View information about a scale unit node
+
 If you select an individual node, you can view the following information:
 
 - region name
@@ -59,7 +61,7 @@ You can also perform scale unit node actions from here.
 
 ## Scale unit node actions
 
-On the scale unit node blade, you can perform node actions such as:
+When you view information about a scale unit node, you can also perform node actions such as:
 
 - power on and power off
 - drain and resume
