@@ -57,10 +57,10 @@ Use [git](https://git-scm.com/) to download a copy of the application to your de
 git clone https://github.com/Azure-Samples/storage-blobs-python-quickstart.git 
 ```
 
-This command clones the repository to your local git folder. To open the python program, look for storage-blobs-python-quickstart folder, and example.py file.  
+This command clones the repository to your local git folder. To open the python program, look for the storage-blobs-python-quickstart folder, and example.py file.  
 
 ## Configure your storage connection string
-In the application, you must provide your storage account name and account key to create a ```BlockBlobService``` object. Open the `example.py` file from the Solution Explorer in your IDE. Replace the **accountname** and **accountkey** values with your account name and key. 
+In the application, you must provide your storage account name and account key to create a `BlockBlobService` object. Open the `example.py` file from the Solution Explorer in your IDE. Replace the **accountname** and **accountkey** values with your account name and key. 
 
 ```python
 account_name = 'accountname'
@@ -83,14 +83,14 @@ List blobs in the container
 
 Downloading blob to C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078_DOWNLOADED.txt
 ```
-When you press any key to continue, the sample program deletes the storage container and the files. Before you continue, check your 'Documents' for the two files -- you can open them and see they are identical.
+When you press any key to continue, the sample program deletes the storage container and the files. Before you continue, check your 'Documents' for the two files. You can open them and see they are identical.
 
-You can also use a tool such as the [Azure Storage Explorer](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information. 
+You can also use a tool such as the [Azure Storage Explorer](http://storageexplorer.com) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information. 
 
 After you've verified the files, hit any key to finish the demo and delete the test files. Now that you know what the sample does, open the example.py file to look at the code. 
 
 ## Get references to the storage objects
-The first thing to do is create the references to the objects used to access and manage Blob storage. These objects build on each other -- each is used by the next one in the list.
+The first thing to do is create the references to the objects used to access and manage Blob storage. These objects build on each other, and each is used by the next one in the list.
 
 * Instantiate the **CloudStorageAccount** object pointing to the storage account. 
 
@@ -121,17 +121,14 @@ block_blob_service.set_container_acl(container_name, public_access=PublicAccess.
 ```
 ## Upload blobs to the container
 
-Blob storage supports block blobs, append blobs, and page blobs. Block blobs are the most commonly used, and that is what is used in this quickstart. 
+Blob storage supports block blobs, append blobs, and page blobs. Block blobs are the most commonly used, and that is what is used in this quickstart.  
 
-
-        #Get full path on drive to file_to_upload by joining the fully qualified directory name and file name on the local drive
-
-To upload a file to a blob, get the full path on drive to the created file by joining the directory name and the file name on your local drive. You can then upload the file to the specified path using the **create\_blob\_from\_path** method. 
+To upload a file to a blob, get the full path of the file by joining the directory name and the file name on your local drive. You can then upload the file to the specified path using the **create\_blob\_from\_path** method. 
 
 The sample code creates a local file to be used for the upload and download, storing the file to be uploaded as **file\_path\_to\_file** and the name of the blob as **local\_file\_name**. The following example uploads the file to your container called **quickstartblobs**.
 
 ```python
- # Create a file in Documents to test the upload and download.
+# Create a file in Documents to test the upload and download.
 local_path=os.path.expanduser("~\Documents")
 local_file_name ="QuickStart_" + str(uuid.uuid4()) + ".txt"
 full_path_to_file =os.path.join(local_path, local_file_name)
