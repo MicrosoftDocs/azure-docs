@@ -48,8 +48,8 @@ The Logic Apps engine provides actions that can manipulate data, communicate ove
 | |  |  |  |
 | --- | --- | --- | --- |
 | [![API Icon][HTTPicon]<br/>**HTTP**][httpdoc] | Use logic apps to communicate with any endpoint over HTTP.| [![API Icon][Azure-Functionsicon]<br/>**Azure Functions**][azure-functionsdoc] | Create functions that run custom snippets of C# or node.js, and then use these functions in your logic apps.  |
-| [![API Icon][HTTP-Requesticon]<br/>**Request**][HTTP-Requestdoc] | Provides a callable HTTPS URL typically used as a webhook in other applications. When the logic app receives a request to this URL, the logic app starts. | [![API Icon][Schedule-icon]<br/>**Schedule**][recurrencedoc] | Start logic apps based on simple or complex recurrence schedules. For example, create schedules from as simple as recur every day to recur hourly on the last Friday of every month between 9:00 am and 5:00 pm. |
-| [![API Icon][CallLogicApp-icon]<br/>**Call<br/>Logic App**][nested-logic-appdoc] | Call a nested logic app. Any logic app with a request trigger can be called as a nested logic app.| [![API Icon][AppServices-icon]<br/>**API App**][api/web-appdoc] | Call an App Service API App. API Apps with swagger renders just like other first class actions.|
+| [![API Icon][HTTP-Requesticon]<br/>**Request**][HTTP-Requestdoc] | Provides a callable HTTPS URL typically used as a webhook in other applications. When the logic app receives a request to this URL, the logic app starts. | [![API Icon][Recurrenceicon]<br/>**Schedule**][recurrencedoc] | Start logic apps based on simple or complex recurrence schedules. For example, create schedules from as simple as recur every day to recur hourly on the last Friday of every month between 9:00 am and 5:00 pm. |
+| [![API Icon][CallLogicApp-icon]<br/>**Call<br/>Logic App**][nested-logic-appdoc] | Call a nested logic app. Any logic app with a request trigger can be called as a nested logic app.| [![API Icon][API/Web-Appicon]<br/>**API App**][api/web-appdoc] | Call an App Service API App. API Apps with swagger renders just like other first class actions.|
 
 ### Standard connectors
 The following table lists the most popular and some favorites with our users:
@@ -307,7 +307,7 @@ Are we missing a connector topic, or any details you think are important? If yes
 <!-- Primitive Icons -->
 [API/Web-Appicon]: ./media/apis-list/api.png
 [Azure-Functionsicon]: ./media/apis-list/function.png
-[CallLogicApp-icon]: ./media/apis-list/calllogicapp.png
+[CallLogicApp-icon]: ./media/apis-list/CallLogicApp.png
 [Delayicon]: ./media/apis-list/delay.png
 [HTTPicon]: ./media/apis-list/http.png
 [HTTP-Requesticon]: ./media/apis-list/request.png
