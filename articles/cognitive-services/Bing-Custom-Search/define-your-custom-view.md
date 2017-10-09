@@ -61,6 +61,9 @@ To add suggestions to your Active list, click the + icon.  Because the service
 ## Preview pane
 At any time, you can test out your search instance by using the preview pane. This pane mimics the results that the instance would return for a specific query. You can also review Bing results by switching to Bing using the My Instance drop-down button next to the search button. 
 
+> [!NOTE]
+> Searches will hit the en-US Bing market
+
 <a name="adjustrank"></a>
 ## Adjust rank
 The portal lets you adjust ranking to manipulate the results that Bing returns. In the Preview pane, enter a search term and run the query. The preview pane list the search result for the query. To the right of each result is the list of adjustments you can make. 
