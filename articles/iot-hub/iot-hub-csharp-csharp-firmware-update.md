@@ -303,7 +303,6 @@ In this section, you will
             string fwUpdateUrl = (string)JObject.Parse(methodRequest.DataAsJson)["fwPackageUri"];
             Console.WriteLine("\nReturning response for method {0}, URI is: {1}", methodRequest.Name, fwUpdateUrl);
 
-
             Task updateTask = Task.Run(() => (doUpdate(fwUpdateUrl)));
 
             string result = "'FirmwareUpdate started.'";
