@@ -47,7 +47,7 @@ The first step to allowing users to create VMs from a licensed image is to make 
 	- **Terms review needed:** the licensed image is not currently available to users. The terms and conditions of the license must be accepted before lab users can use it to create VMs. 
 
 ## Making a licensed image available to lab users
-To make sure a licensed image is available to lab users, you must first accept the terms and conditions for that licensed image. Enabling programmatic deployment for the subscription associated with a licensed image automatically accepts the legal terms and privacy statements for that image. [Working with Marketplace Images on Azure Resource Manager](https://azure.microsoft.com/blog/working-with-marketplace-images-on-azure-resource-manager/) provides additional information about programmatic deployment of marketplace images.
+To make sure a licensed image is available to lab users, a lab owner with admin permissions must first accept the terms and conditions for that licensed image. Enabling programmatic deployment for the subscription associated with a licensed image automatically accepts the legal terms and privacy statements for that image. [Working with Marketplace Images on Azure Resource Manager](https://azure.microsoft.com/blog/working-with-marketplace-images-on-azure-resource-manager/) provides additional information about programmatic deployment of marketplace images.
 
 You can enable programmatic deployment for a licensed image by following these steps:
 
@@ -65,6 +65,12 @@ You can enable programmatic deployment for a licensed image by following these s
 1. In the Configure Programmatic Deployment window, select **Enable**.
 
 	![Configure Programmatic Deployment window](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-enable-programmatic-deployment.png)
+
+   > [!IMPORTANT]
+   > You might see multiple subscriptions listed in the Configure Programmatic Deployment window. Make sure you are enabling programmatic deployment only for the intended subscription.
+   >
+   >
+
 
 1. Select **Save**. In the list of marketplace images, that image now shows **Terms accepted** and is available for users to create virtual machines.
 
