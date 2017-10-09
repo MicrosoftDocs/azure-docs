@@ -442,6 +442,34 @@ Query: What time is it in the U.S.
 ```  
 
   
+<a name="translationqueries"></a>   
+### Translation answer
+  
+If the query asks Bing to translate text (a word or phrase) from one language to another, the response may contain a [Translations](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#Translations) answer. For example, *translate bathroom to spanish* or *translate bathroom from english to french*. The query string needs to include the language to translate the text to (for example, *to spanish* or *to french*). If the query string does not explicitly state the language to translate from, Bing determines the language based on the text. In these examples, Bing uses English since *bathroom* is an English word. 
+  
+The following shows an example of a `Translations` answer to the query, *translate bathroom to spanish*.  
+  
+```  
+    "translations" : {
+        "id" : "https:\/\/www.bingapis.com\/api\/v7\/#Translations",
+        "contractualRules" : [{
+            "_type" : "ContractualRules\/LinkAttribution",
+            "text" : "Microsoft Translator",
+            "url" : "http:\/\/www.bing.com\/translator\/?ref=TThis&...",
+            "urlPingSuffix" : "DevEx,5309.1"
+        }],
+        "attributions" : [{
+            "providerDisplayName" : "Microsoft Translator",
+            "seeMoreUrl" : "http:\/\/www.bing.com\/translator\/?ref=...",
+            "seeMoreUrlPingSuffix" : "DevEx,5309.1"
+        }],
+        "originalText" : "bathroom",
+        "translatedText" : "cuarto de baño",
+        "translatedLanguageName" : "es",
+        "inLanguage" : "en"
+    },
+```
+  
 ### SpellSuggestion answer
 
 If Bing determines that the user may have intended to search for something different, the response includes a [SpellSuggestions](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#spellsuggestions) object. For example, if the user searches for *carlos pen*, Bing may determine that the user likely intended to search for Carlos Pena instead (based on past searches by others of *carlos pen*). The following shows an example spell response.  
