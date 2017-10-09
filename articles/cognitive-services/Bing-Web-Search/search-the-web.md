@@ -445,7 +445,7 @@ Query: What time is it in the U.S.
 <a name="translationqueries"></a>   
 ### Translation answer
   
-If the query asks Bing to translate text (a word or phrase) from one language to another, the response may contain a [Translations](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#Translations) answer. For example, *translate bathroom to spanish* or *translate bathroom from english to french*. The query string needs to include the language to translate the text to (for example, *to spanish* or *to french*). If the query string does not explicitly state the language to translate from, Bing determines the language based on the text. In these examples, Bing uses English since *bathroom* is an English word. 
+If the query asks Bing to translate text (a word or phrase) from one language to another, the response may contain a [Translation](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#translation) answer. For example, *translate bathroom to spanish* or *translate bathroom from english to french*. The query string needs to include the language to translate the text to (for example, *to spanish* or *to french*). If the query string does not explicitly state the language to translate from, Bing determines the language based on the text. In these examples, Bing uses English since *bathroom* is an English word. 
   
 The following shows an example of a `Translations` answer to the query, *translate bathroom to spanish*.  
   
