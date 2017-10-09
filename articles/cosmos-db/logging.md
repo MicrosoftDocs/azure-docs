@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 10/09/2017
 ms.author: mimig
 
 ---
@@ -55,7 +55,9 @@ To complete this tutorial, you must have the following resources:
 
 3. Click **Save**.
 
-    You can return to this page at anytime to modify the diagnostic log settings for your account.
+    If you receive an error that says "Failed to update diagnostics for \<workspace name>. The subscription \<subscription id> is not registered to use microsoft.insights." follow the [Troubleshoot Azure Diagnostics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage) instructions to register the account, then retry this procedure.
+
+    If you want to change how your diagnostic logs are saved at any point in the future, you can return to this page at anytime to modify the diagnostic log settings for your account.
 
 ## Turn on logging using CLI
 
@@ -343,7 +345,7 @@ Storage account is configured in the portal when **Log DataPlaneRequests** is se
 <a id="#view-in-loganalytics"></a>
 ## View diagnostic logs in Log Analytics
 
-If you selected **Send to Log Analytics** option when you turned on logging, diagnostic data from your collection gets pushed to Log Analytics and Operations Management Suite within two hours. This means that if you look at Log Analytics immediately after turning on logging, you won't see any data. Just wait two hours and try again. 
+If you selected **Send to Log Analytics** option when you turned on logging, diagnostic data from your collection gets pushed to Log Analytics and Operations Management Suite (OMS) within two hours. This means that if you look at Log Analytics immediately after turning on logging, you won't see any data. Just wait two hours and try again. 
 
 Before viewing your logs, you'll want to check and see if your Log Analytics workspace has been upgraded to use the most recent Log Analytics query language. To check this, open the [Azure portal](https://portal.azure.com), click **Log Analytics** on the far left side, select the workspace name, and go to the **OMS Workspace** page as shown in the following image. 
 
@@ -364,58 +366,62 @@ Now enter a query in the search box. For example, the following image shows how 
 <a id="#queries"></a>
 ### Queries
 
-Here are some additional queries you can enter into the **Log search** box to help you monitor your Azure Cosmos DB containers. Queries marked New are for accounts that have been upgraded, queries marked Current are for accounts that have not been upgraded. 
+Here are some additional queries you can enter into the **Log search** box to help you monitor your Azure Cosmos DB containers. 
 
 * All diagnostic logs from Azure Cosmos DB for the specified time period.
-    * New: `AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"`
-    * Current: `(Type=AzureDiagnostics) (ResourceProvider="MICROSOFT.DOCUMENTDB" AND Category="DataPlaneRequests")`
-* Ten most recent events.
-    * New: `AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | take 10`
-    * Current: `(Type=AzureDiagnostics)(ResourceProvider="MICROSOFT.DOCUMENTDB" AND Category="DataPlaneRequests") top 10`
+
+    ```
+    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
+    ```
+
+* Ten most recently logged events.
+
+    ```
+    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | take 10
+    ```
+
 * All operations, grouped by operation type.
-    * New: `AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by OperationName`
-    * Current: `(Type=AzureDiagnostics)(ResourceProvider="MICROSOFT.DOCUMENTDB" AND Category="DataPlaneRequests") | Measure count() by OperationName`
+
+    ```
+    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by OperationName
+    ```
+
 * All operations, grouped by Resource.
-    * New: `AzureActivity | where Caller == "test@company.com" and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by Resource`
-    * Current: `(Type=AzureDiagnostics)(ResourceProvider="MICROSOFT.DOCUMENTDB" AND Category="DataPlaneRequests") | Measure count() by Resource` 
-* User activity, grouped by resource. Note that this is an activity log, not a diagnostic log.
-    * New: `AzureActivity | where Caller == "test@company.com" and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by Resource`
-    * Current (not correct): `(Type=AzureActivity)(ResourceProvider="MICROSOFT.DOCUMENTDB" AND Category="DataPlaneRequests") | Measure count() by Resource | where Caller = "test@company.com"`
-* Operations that take longer than 3 milliseconds.
-    * New: `AzureDiagnostics | where toint(duration_s) > 3000 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by clientIpAddress_s, TimeGenerated`
-    * Current (not correct): `(Type=AzureDiagnostics)(ResourceProvider="MICROSOFT.DOCUMENTDB" AND Category="DataPlaneRequests") | Measure count() by clientIpAddress_s, TimeGenerated | Where toint (duration_s) > 3000`
-* What kind of agent is running which operations.
-    * New: `AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by OperationName, userAgent_s`
-    * Current (not correct): `(Type=AzureDiagnostics)(ResourceProvider="MICROSOFT.DOCUMENTDB" AND Category="DataPlaneRequests") | Measure count() by OperationName, userAgent_s`
+
+    ```
+    AzureActivity | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by Resource
+    ```
+
+* All user activity, grouped by resource. Note that this is an activity log, not a diagnostic log.
+
+    ```
+    AzureActivity | where Caller == "test@company.com" and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by Resource
+    ```
+
+* Which operations take longer than 3 milliseconds.
+
+    ```
+    AzureDiagnostics | where toint(duration_s) > 3000 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by clientIpAddress_s, TimeGenerated
+    ```
+
+* Which agent is running the operations.
+
+    ```
+    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by OperationName, userAgent_s
+    ```
+
 * When were long running operations performed.
-    * New: `AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | project TimeGenerated , toint(duration_s)/1000 | render timechart`
-    * Current (not correct): `(Type=AzureDiagnostics)(ResourceProvider="MICROSOFT.DOCUMENTDB" AND Category="DataPlaneRequests") | project TimeGenerated , toint(duration_s)/1000 | render timechart`
+
+    ```
+    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | project TimeGenerated , toint(duration_s)/1000 | render timechart
+    ```
 
 For additional information on using the new Log Search language, see [Getting Started with Queries](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-queries). 
-
-For information on using the current Log Search language, see [Find data using log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md)
-
-<a id="#view-in-oms"></a>
-## View diagnostic logs in Operations Management Suite
-
-If you selected **Send to Log Analytics** option when you turned on logging, diagnostic data from your collection gets pushed to Operations Management Suite within two hours. This means that if you look at Operations Management Suite immediately after turning on logging, you won't see any data. Just wait two hours and try again. 
-
-If you're already in the [Azure portal](https://portal.azure.com), the easiest way to open Operations Management Suite is to click one of the **OMS Portal** links as shown in the following diagram.
-
-![Open OMS from the Azure portal](./media/logging/open-oms.png)
-
-You can also go to the [Operations Management Suite](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite) page and then click **Sign in**, however if you're working multiple with shared subscriptions the Azure portal path provides more visibility into all of your subscriptions. 
-
-Once data starts streaming into your Operations Management Suite workspace you can view data from Azure Cosmos DB by clicking the the **Log Search** icon ![Log search icon](./media/logging/log-search-icon.png) on the left menu and entering a query into the search box. For example, the following image shows how to display the ten most recent logs using the `AzureDiagnostics | take 10` query.
-
-![Introductory query in OMS](./media/logging/query-oms.png)
-
-See the [Queries](#queries) section in this article for additional sample queries. The query language used by Log Analytics and Operations Management Suite is the same.
 
 ## Next steps
 
 - To gain an understanding of not only how to enable logging, but also the metrics and log categories supported by the various Azure services read both the [Overview of metrics in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) and [Overview of Azure Diagnostic Logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) articles.
 - Read these articles to learn about event hubs:
-   - [What are Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md)?
+   - [What are Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
    - [Get started with Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 - See [Download metrics and diagnostic logs from Azure Storage](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)
