@@ -26,7 +26,7 @@ In this example, you use the MNIST database of handwritten images to train a con
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-This quickstart requires that you are running the latest Azure CLI version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azurecli).
+This quickstart requires that you are running the latest Azure CLI version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Create a resource group
 
