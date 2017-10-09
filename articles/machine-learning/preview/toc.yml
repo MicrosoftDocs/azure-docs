@@ -83,12 +83,16 @@
     items:
     - name: Set up Model Management
       href: deployment-setup-configuration.md
+    - name: Scale clusters and services
+      href: how-to-scale-clusters.md
     - name: Deploy a web service
       href: model-management-service-deploy.md
     - name: Consume a web service
       href: model-management-consumption.md  
     - name: How to use model data collection
       href: how-to-use-model-data-collection.md
+    - name: Deployment troubleshooting guide
+      href: how-to-deploy-troubleshooting-guide.md
   - name: Real-world examples
     items:
     - name: Document collection analysis
