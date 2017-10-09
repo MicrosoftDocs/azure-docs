@@ -32,7 +32,7 @@ More specifically, if your script creates a subfolder or writes a file, that fol
 If your project folder contains any large files, you incur latency when the folder is copied to the target compute environment at the beginning of an execution. Even if the execution happens locally, there is still unnecessary disk traffic to avoid. For this reason, we currently cap the maximum project size at 25 MB.
 
 ## Option 1: Use the outputs folder
-This is the preferred option if all the following conditions apply:
+This option is preferable if all the following conditions apply:
 * Your script produces files.
 * You expect the files to change with every experiment.
 * You want to keep a history of these files. 
@@ -119,7 +119,7 @@ nativeSharedDirectory: ~/.azureml/share
 ...
 ```
 >[!IMPORTANT]
->The **sharedVolumes** property must be set to *true* when you use the `AZUREML_NATIVE_SHARE_DIRECTORY` environment variable to access the shared folder; otherwise, the execution will fail.
+>The **sharedVolumes** property must be set to *true* when you use the `AZUREML_NATIVE_SHARE_DIRECTORY` environment variable to access the shared folder; otherwise, the execution fails.
 
 The code running in the Docker container always sees this shared folder as /azureml-share/. The folder path, as seen by the Docker container, is not configurable. Do not use this folder name in your code. Instead, always use the environment variable name `AZUREML_NATIVE_SHARE_DIRECTORY` to refer to this folder. It is mapped to a local folder on the Docker host machine or compute context. The base directory of this local folder is the configurable value of the `nativeSharedDirectory` setting in the .compute file. The local path of the shared folder on the host machine, if you use the default value above, is the following:
 ```
@@ -146,7 +146,7 @@ For more information, see [Azure Machine Learning Workbench execution configurat
 ## Option 3: Use external durable storage
 
 You can use external durable storage to persist state during execution. This option is useful in the following scenarios:
-- Your input data is already stored in a durable storage that's accessible from the target compute environment.
+- Your input data is already stored in durable storage that's accessible from the target compute environment.
 - The files don't need to be part of the run history records.
 - The files must be shared by executions across various compute environments.
 - The files must be able to survive the compute context itself.
@@ -187,7 +187,7 @@ attach_storage_container(spark, "<storage account name>", "<storage key>”)
 ```
 
 ## Conclusion
-Because Azure Machine Learning executes scripts by copying the entire project folder to the target compute context, take special care with large input, output, and intermediary files. You can use the special outputs folder, the shared folder that's accessible through the `AZUREML_NATIVE_SHARE_DIRECTORY` environment variable, or you can use external durable storage for large file transactions. 
+Because Azure Machine Learning executes scripts by copying the entire project folder to the target compute context, take special care with large input, output, and intermediary files. For large file transactions, you can use the special outputs folder, the shared folder that's accessible through the `AZUREML_NATIVE_SHARE_DIRECTORY` environment variable, or external durable storage. 
 
 ## Next steps
 - Review the [Azure Machine Learning Workbench execution configuration files](experiment-execution-configuration-reference.md) article.
