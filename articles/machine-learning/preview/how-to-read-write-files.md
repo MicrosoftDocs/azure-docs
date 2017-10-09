@@ -1,6 +1,6 @@
 ---
-title: How to read and write large data files | Microsoft Docs
-description: How to read and write large files in Azure ML experiments.
+title: Read and write large data files | Microsoft Docs
+description: Read and write large files in Azure Machine Learning experiments.
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -14,24 +14,24 @@ ms.date: 09/10/2017
 # Persisting changes and working with large files
 With the Azure Machine Learning Experimentation service, you can configure a variety of execution targets. Some targets are local, such as a local computer or a Docker container on a local computer. Others are remote, such as a Docker container on a remote machine or an HDInsight cluster. For more information, see [Overview of Azure Machine Learning experiment execution service](experiment-execution-configuration.md). 
 
-Before you can execute on a target, you must copy the project folder to the compute target. You do so even with a local execution where you're using a local temp folder for this purpose. 
+Before you can execute on a target, you must copy the project folder to the compute target. You must do so even with a local execution that uses a local temp folder for this purpose. 
 
 ## Execution isolation, portability, and reproducibility
-The purpose of this design is to ensure the isolation, reproducibility, and portability of the execution. If you execute the same script twice, on the same compute target or another compute target, you receive the same results. The changes made by the first execution shouldn't affect the second execution. With this design, you can treat compute targets as stateless computation resources, with no affinity to the jobs that are executed after they are finished.
+The purpose of this design is to ensure the isolation, reproducibility, and portability of the execution. If you execute the same script twice, on the same or another compute target, you receive the same results. The changes made during the first execution shouldn't affect those in the second execution. With this design, you can treat compute targets as stateless computation resources, each having no affinity to the jobs that are executed after they are finished.
 
 ## Challenges
-Even though it provides the benefits of portability and repeatability, this design also brings some unique challenges:
+Even though this design provides the benefits of portability and repeatability, it also brings some unique challenges:
 
 ### Persisting state changes
-If your script modifies the state of the compute context, the changes are not persisted for your next execution and they're not propagated back to the client machine automatically. 
+If your script modifies the state of the compute context, the changes are not persisted for your next execution, and they're not propagated back to the client machine automatically. 
 
-More specifically, if your script creates a subfolder or writes a file, that folder or file will not be present in your project directory after execution. They are stored in a temp folder on the compute target environment, wherever it happens to be. You might use them for debugging purposes, but you cannot rely on their existence.
+More specifically, if your script creates a subfolder or writes a file, that folder or file will not be present in your project directory after execution. The files are stored in a temp folder in the compute target environment. You might use them for debugging purposes, but you cannot rely on their permanent existence.
 
 ### Working with large files in the project folder
 
 If your project folder contains any large files, you incur latency when the folder is copied to the target compute environment at the beginning of an execution. Even if the execution happens locally, there is still unnecessary disk traffic to avoid. For this reason, we currently cap the maximum project size at 25 MB.
 
-## Option 1: Use the outputs folder
+## Option 1: Use the *outputs* folder
 This option is preferable if all the following conditions apply:
 * Your script produces files.
 * You expect the files to change with every experiment.
@@ -46,7 +46,7 @@ Additionally, you want to compare the outputs across runs, select an output file
 
 You can write files to a folder named *outputs* that's relative to the root directory. The folder receives special treatment by the Experimentation service. Anything your script creates in the folder during the execution, such as a model file, data file, or plotted image file (collectively known as _artifacts_), is copied to the Azure Blob storage account that's associated with your experimentation account after the run is finished. The files become part of your run history record.
 
-Here is a short example of code for storing a model in the `outputs` folder:
+Here is a short example of code for storing a model in the *outputs* folder:
 ```python
 import os
 import pickle
@@ -64,7 +64,7 @@ For a more complete example, see the `iris_sklearn.py` Python script in the _Cla
 If you don't need to keep a history of each run's files, using a shared folder that can be accessed across independent runs can be a great option for the following scenarios: 
 - Your script needs to load data from local files, such as .csv files or a directory of text or image files, as training or test data. 
 - Your script processes raw data and writes out intermediate results, such as featurized training data from text or image files, which are used in a subsequent training run. 
-- Your script spits out a model, and your subsequent scoring script needs to pick up the model and use it for evaluation. 
+- Your script spits out a model, and your subsequent scoring script must pick up the model and use it for evaluation. 
 
 It is important to note that the shared folder lives locally on your chosen compute target. Therefore, this option works only if all your script runs that reference this shared folder are executed on the same compute target, and the compute target is not recycled between runs.
 
@@ -84,13 +84,13 @@ with open(os.environ['AZUREML_NATIVE_SHARE_DIRECTORY'] + 'test.txt', 'r') as f:
     text = file.read()
 ```
 
-For a more complete example, see the `iris_sklearn_shared_folder.py` file in the _Classifying Iris_ sample project.
+For a more complete example, see the *iris_sklearn_shared_folder.py* file in the _Classifying Iris_ sample project.
 
-Before you can use this feature, you have to set in the .compute file some simple configurations that represent the targeted execution context in the aml_config folder. The actual path to the folder can vary depending on the compute target you choose and the value you configure.
+Before you can use this feature, you have to set in the *.compute* file some simple configurations that represent the targeted execution context in the aml_config folder. The actual path to the folder can vary depending on the compute target you choose and the value you configure.
 
 ### Configure local compute context
 
-To enable this feature in a local compute context, simply add to your .compute file the following line, which represents _local_ environment (usually named *local.compute*).
+To enable this feature in a local compute context, simply add to your *.compute* file the following line, which represents the _local_ environment (usually named *local.compute*).
 ```
 # local.runconfig
 ...
@@ -109,7 +109,7 @@ C:\users\<username>\.azureml\share\<exp_acct_name>\<workspace_name>\<proj_name>\
 ```
 
 ### Configure the Docker compute context (local or remote)
-To enable this feature on a Docker compute context, you must add the following two lines to your local or remote Docker .compute file.
+To enable this feature on a Docker compute context, you must add the following two lines to your local or remote Docker *.compute* file.
 
 ```
 # docker.compute
@@ -121,7 +121,7 @@ nativeSharedDirectory: ~/.azureml/share
 >[!IMPORTANT]
 >The **sharedVolumes** property must be set to *true* when you use the `AZUREML_NATIVE_SHARE_DIRECTORY` environment variable to access the shared folder; otherwise, the execution fails.
 
-The code running in the Docker container always sees this shared folder as /azureml-share/. The folder path, as seen by the Docker container, is not configurable. Do not use this folder name in your code. Instead, always use the environment variable name `AZUREML_NATIVE_SHARE_DIRECTORY` to refer to this folder. It is mapped to a local folder on the Docker host machine or compute context. The base directory of this local folder is the configurable value of the `nativeSharedDirectory` setting in the .compute file. The local path of the shared folder on the host machine, if you use the default value above, is the following:
+The code running in the Docker container always sees this shared folder as */azureml-share/*. The folder path, as seen by the Docker container, is not configurable. Do not use this folder name in your code. Instead, always use the environment variable name `AZUREML_NATIVE_SHARE_DIRECTORY` to refer to this folder. It is mapped to a local folder on the Docker host machine or compute context. The base directory of this local folder is the configurable value of the `nativeSharedDirectory` setting in the *.compute* file. The local path of the shared folder on the host machine, if you use the default value above, is the following:
 ```
 # Windows
 C:\users\<username>\.azureml\share\<exp_acct_name>\<workspace_name>\<proj_name>\
@@ -151,7 +151,7 @@ You can use external durable storage to persist state during execution. This opt
 - The files must be shared by executions across various compute environments.
 - The files must be able to survive the compute context itself.
 
-One such example is to use Azure Blob storage from your Python or PySpark code. Here is a short example:
+One such approach is to use Azure Blob storage from your Python or PySpark code. Here is a short example:
 
 ```python
 from azure.storage.blob import BlockBlobService
