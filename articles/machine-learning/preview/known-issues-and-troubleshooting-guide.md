@@ -79,7 +79,7 @@ When you are working in Azure ML Workbench, you can also send us a frown (or a s
 
 - Text clustering transforms are not supported on Mac.
 
-- RevoScalePy library is not supported only on Windows, or on Linux (in Docker containers). It is not supported on macOS.
+- RevoScalePy library is only supported on Windows and Linux (in Docker containers). It is not supported on macOS.
 
 ## Docker error "read: connection refused"
 When executing against a local Docker container, sometimes you might see the following error: 
