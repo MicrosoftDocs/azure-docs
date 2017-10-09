@@ -120,7 +120,7 @@ catch (Exception e)
 
 ```
 
-### Azure PowerShell
+### <a name="azure-powershell-token"></a>Azure PowerShell
 
 ```powershell
 # Get an access token from MSI
