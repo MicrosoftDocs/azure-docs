@@ -40,7 +40,7 @@ An on-premises data gateway is required when one or more Azure Analysis Services
 * Only one gateway can be installed on a single computer.
 * Install the gateway on a computer that remains on and does not go to sleep.
 * Do not install the gateway on a computer wirelessly connected to your network. Performance can be diminished.
-* Sign in to Azure with an account in Azure AD for the same [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) as the subsciption you are registering the gateway in. Azure B2B (guest) accounts are not supported when installing and registering a gateway.
+* Sign in to Azure with an account in Azure AD for the same [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) as the subscription you are registering the gateway in. Azure B2B (guest) accounts are not supported when installing and registering a gateway.
 
 
 ## <a name="download"></a>Download
@@ -54,12 +54,12 @@ An on-premises data gateway is required when one or more Azure Analysis Services
 
    ![Install location and license terms](media/analysis-services-gateway-install/aas-gateway-installer-accept.png)
 
-3. Enter an account to sign in to Azure. The account must be in your tenant's Azure Active Directory. This account is used for the gateway administrator. Azure B2B (guest) accounts are not supported when installing and registering the gateway.
+3. Sign in to Azure. The account must be in your tenant's Azure Active Directory. This account is used for the gateway administrator. Azure B2B (guest) accounts are not supported when installing and registering the gateway.
 
-   ![Enter an account to sign in to Azure](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
+   ![Sign in to Azure](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
 
    > [!NOTE]
-   > If you sign in with a domain account, it will be mapped to your organizational account in Azure AD. Your organizational account will be used as the the gateway administrator.
+   > If you sign in with a domain account, it's mapped to your organizational account in Azure AD. Your organizational account is used as the gateway administrator.
 
 ## <a name="register"></a>Register
 In order to create a gateway resource in Azure, you must register the local instance you installed with the Gateway Cloud Service. 

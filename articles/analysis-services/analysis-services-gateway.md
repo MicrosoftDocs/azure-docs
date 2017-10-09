@@ -23,7 +23,7 @@ The on-premises data gateway acts as a bridge, providing secure data transfer be
 
 Getting setup with the gateway the first time is a four-part process:
 
-- **Download and run setup** - This step installs a gateway service on a computer in your organization. You also sign-in to Azure using an account in your [tenant's](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) Azure AD. Azure B2B (guest) accounts are not supported.
+- **Download and run setup** - This step installs a gateway service on a computer in your organization. You also sign in to Azure using an account in your [tenant's](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) Azure AD. Azure B2B (guest) accounts are not supported.
 
 - **Register your gateway** - In this step, you specify a name and recovery key for your gateway, and select a region, registering your gateway with the Gateway Cloud Service. Your gateway resource **must be registered in the same region** as your Analysis Services servers. 
 
@@ -109,7 +109,7 @@ Usually, your Azure AD account's user principal name (UPN) matches the email add
 The credentials are decrypted at the on-premises data gateway.
 
 **Q**: Are there any requirements for network bandwidth? <br/>
-**A**: It's recommend your network connection has good throughput. 
+**A**: It's recommended your network connection has good throughput. 
 Every environment is different, and the amount of data being sent affects the results. 
 Using ExpressRoute could help to guarantee a level of throughput between on-premises and the Azure datacenters.
 You can use the third-party tool Azure Speed Test app to help gauge your throughput.
@@ -157,7 +157,7 @@ You can also look at tools that your data source has for tracing queries.
 For example, you can use Extended Events or SQL Profiler for SQL Server and Analysis Services.
 
 **Q**: Where are the gateway logs? <br/>
-**A**: See Logs later in this topic.
+**A**: See Logs later in this article.
 
 ### <a name="update"></a>Update to the latest version
 
