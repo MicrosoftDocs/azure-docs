@@ -58,6 +58,7 @@
     - name: Data preparation guide
       href: data-prep-user-guide.md
     - name: Data preparation transformations
+      href: data-prep-appendix3-supported-transforms.md
       items:
       - name: Combine columns by example
         href: data-prep-combine-columns-by-example.md
@@ -73,6 +74,8 @@
       href: tutorial-iris-azure-cli.md
     - name: Track run history and model metrics
       href: how-to-use-run-history-model-metrics.md    
+    - name: How to find runs with the best accuracy and lowest duration
+      href: how-to-find-best-accuracy-cli.md
     - name: Read and write files
       href: how-to-read-write-files.md
     - name: MMLSpark library
@@ -81,12 +84,16 @@
     items:
     - name: Set up Model Management
       href: deployment-setup-configuration.md
+    - name: Scale clusters and services
+      href: how-to-scale-clusters.md
     - name: Deploy a web service
       href: model-management-service-deploy.md
     - name: Consume a web service
       href: model-management-consumption.md  
     - name: How to use model data collection
       href: how-to-use-model-data-collection.md
+    - name: Deployment troubleshooting guide
+      href: how-to-deploy-troubleshooting-guide.md
   - name: Real-world examples
     items:
     - name: Document collection analysis
@@ -119,8 +126,6 @@
       href: data-prep-python-extensibility-overview.md
     - name: Supported data sources
       href: data-prep-appendix2-supported-data-sources.md
-    - name: Supported transforms
-      href: data-prep-appendix3-supported-transforms.md
     - name: Supported inspectors
       href: data-prep-appendix4-supported-inspectors.md
     - name: Supported data destinations
