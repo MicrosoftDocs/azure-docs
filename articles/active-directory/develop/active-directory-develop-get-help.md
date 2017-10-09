@@ -10,7 +10,7 @@ Type your problem or scenario on the following search box for a scoped search on
 <br/><br/>
 <div>
 <form method="get" class="clearFilter" action="http://www.bing.com/search" target="_blank">
-<input aria-label="Bing scoped search" type="search" placeholder="Bing scoped search" name="q" size="45">
+<input aria-label="Bing scoped search" type="search" placeholder="Bing scoped search" name="q" size="45" style="box-sizing: border-box;font-size: 0.87rem;height: 36px;line-height: 1.8; padding: 0 10px;">
 <a title="Clear Filter" class="clearInput" href="#"><span class="visually-hidden">Clear Filter</span></a>
 <input type="submit" value="Search" />
 <input type="hidden" name="q1" value="(site:stackoverflow.com OR site:docs.microsoft.com OR site:github.com/azure-samples OR site:cloudidentity.com)" /></td></tr>
@@ -27,9 +27,9 @@ Type your problem or scenario on the following search box for a scoped search on
 ## 3. Post to Stack Overflow
 [![Stack Overflow](media/active-directory-develop-get-help/stackoverflow-logo.png)](www.stackoverflow.com)
 
-Stack Overflow is the preferred channel for development related questions - where both members of community as well as our team at Microsoft are directly involved on helping you to solve your problem.
+Stack Overflow is the preferred channel for development related questions - where both members of community as Microsoft team members are directly involved on helping you to solve your problem.
 
-If you cannot find an answer with Search, submit a new question on Stack Overflow: use one of the following tags when making questions to help the community answer your question on a timely manner:
+If you cannot find an answer to your problem with Search, submit a new question on Stack Overflow: use one of the following tags when making questions to help the community identify then answer your question on a timely manner:
 
 |Component/Area  |Tags  |
 |---------|---------|
@@ -39,11 +39,12 @@ If you cannot find an answer with Search, submit a new question on Stack Overflo
 |[Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  |[[azure-ad-b2b]](http://stackoverflow.com/questions/tagged/azure-ad-b2b)|
 |[Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  |[[azure-ad-b2c]](http://stackoverflow.com/questions/tagged/azure-ad-b2b)|
 |[Microsoft Graph API](https://developer.microsoft.com/graph/) |[[microsoft-graph]](http://stackoverflow.com/questions/tagged/microsoft-graph)
-|Any other area related to authentication or authorization |[[azure-active-directory]](http://stackoverflow.com/questions/tagged/azure-active-directory)
+|Any other area related to authentication or authorization topics |[[azure-active-directory]](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
+<br/>
 
 > [!TIP]
-> The following posts from Stack Overflow can help you to make a good questions so community members can assess and respond to these questions quickly:  
+> The following posts from Stack Overflow contains tips on how to make questions, and guidelines on adding source code - this helps increase the chances for community members to assess and respond to your question quickly:  
 > - [How do I ask a good question](https://stackoverflow.com/help/how-to-ask)
 > - [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve)
 
