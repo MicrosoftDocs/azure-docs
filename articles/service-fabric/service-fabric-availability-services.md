@@ -29,13 +29,13 @@ Creating a stateless service requires defining an `InstanceCount`. The instance 
 When an instance of a stateless named-service fails, a new instance is created on an eligible node in the cluster. For example, a stateless service instance might fail on Node1 and be recreated on Node5.
 
 ## Availability of Service Fabric stateful services
-A stateful service has a state associated with it. In Service Fabric, a stateful service is modeled as a set of replicas. Each replica is a running instance of the code of the service. The replica also has a copy of the state for that service. Read and write operations are performed at one replica, called the *primary*. Changes to state from write operations are *replicated* to the other replicas in the replica set, called *active secondaries*, and applied. 
+A stateful service has a state associated with it. In Service Fabric, a stateful service is modeled as a set of replicas. Each replica is a running instance of the code of the service. The replica also has a copy of the state for that service. Read and write operations are performed at one replica, called the *Primary*. Changes to state from write operations are *replicated* to the other replicas in the replica set, called *active secondaries*, and applied. 
 
-There can be only one primary replica, but there can be multiple active secondary replicas. The number of active secondary replicas is configurable, and a higher number of replicas can tolerate a greater number of concurrent software and hardware failures.
+There can be only one Primary replica, but there can be multiple active Secondary replicas. The number of active Secondary replicas is configurable, and a higher number of replicas can tolerate a greater number of concurrent software and hardware failures.
 
-If the primary replica goes down, Service Fabric makes one of the active secondary replicas the new primary replica. This active secondary replica already has the updated version of the state, via *replication*, and it can continue processing further read/write operations. This process is known as *reconfiguration* and is described further in the [Reconfiguration](service-fabric-concepts-reconfiguration.md) article.
+If the primary replica goes down, Service Fabric makes one of the active Secondary replicas the new Primary replica. This active Secondary replica already has the updated version of the state, via *replication*, and it can continue processing further read/write operations. This process is known as *reconfiguration* and is described further in the [Reconfiguration](service-fabric-concepts-reconfiguration.md) article.
 
-The concept of a replica being either a primary or active secondary, is known as the *replica role*. These replicas are described further in the [Replicas and instances](service-fabric-concepts-replica-lifecycle.md) article. 
+The concept of a replica being either a Primary or active Secondary, is known as the *replica role*. These replicas are described further in the [Replicas and instances](service-fabric-concepts-replica-lifecycle.md) article. 
 
 ## Next steps
 For more information on Service Fabric concepts, see the following articles:
