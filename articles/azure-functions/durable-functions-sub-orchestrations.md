@@ -75,4 +75,4 @@ public static async Task ProvisionNewDevices(
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to handle errors](durable-functions-error-handling.md)
+> [Learn what task hubs are and how to configure them](durable-functions-task-hubs.md)
