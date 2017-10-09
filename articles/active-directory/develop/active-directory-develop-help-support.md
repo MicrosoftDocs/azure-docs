@@ -6,14 +6,14 @@ If you need help or support for development-related questions, use one of the fo
 
 If you have a development-related question, you may be able to find the answer you need on our documentation, our [github samples](https://github.com/azure-samples), or [Stack Overflow](https://www.stackoverflow.com).
 
-Type your problem, question or error on the following search box to search on Stack Overflow, docs.microsoft.com, and our code samples:
+Type your problem, question or error on the following search box to search on Stack Overflow, our documentation, and our code samples:
 <br/><br/>
 <div>
 <form method="get" class="clearFilter" action="http://www.bing.com/search" target="_blank">
 <input aria-label="Bing scoped search" type="search" placeholder="Bing scoped search" name="q" size="45" style="box-sizing: border-box;font-size: 0.87rem;height: 36px;line-height: 1.8; padding: 0 10px;">
 <a title="Clear Filter" class="clearInput" href="#"><span class="visually-hidden">Clear Filter</span></a>
 <input type="submit" value="Search" />
-<input type="hidden" name="q1" value="(site:stackoverflow.com OR site:docs.microsoft.com OR site:github.com/azure-samples OR site:cloudidentity.com)" /></td></tr>
+<input type="hidden" name="q1" value="(site:stackoverflow.com OR site:docs.microsoft.com OR site:github.com/azure-samples OR site:cloudidentity.com OR site:developer.microsoft.com/en-us/graph)" /></td></tr>
 </form>
 </div>
 
@@ -23,13 +23,14 @@ Type your problem, question or error on the following search box to search on St
 |---------|---------|
 |[jwt.ms](https://jwt.ms)| Paste an Id or Access tokens to decode the claims names and values |
 |[Error code analyzer](https://apps.dev.microsoft.com/portal/tools/errors)| Paste an error code received during sign-in or consent pages to see possible causes and remediations |
+|[Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)| Tool that lets you make requests and see responses against the Microsoft Graph API|
 
 ## 3. Post a question to Stack Overflow
 [![Stack Overflow](media/active-directory-develop-get-help/stackoverflow-logo.png)](https://www.stackoverflow.com)
 
 Stack Overflow is the preferred channel for development-related questions - where both members of community as Microsoft team members are directly involved on helping you to solve your problem.
 
-If you cannot find an answer to your problem with Search, submit a new question to Stack Overflow: use one of the following tags when making questions to help the community identify then answer your question on a timely manner:
+If you cannot find an answer to your problem via search, submit a new question to Stack Overflow: use one of the following tags when making questions to help the community identify, then answer your question on a timely manner:
 
 |Component/Area  |Tags  |
 |---------|---------|
@@ -44,7 +45,7 @@ If you cannot find an answer to your problem with Search, submit a new question 
 <br/>
 
 > [!TIP]
-> The following posts from Stack Overflow contain tips on how to make questions, and guidelines on adding source code - to help increase the chances for community members to assess and respond to your question quickly:  
+> The following posts from Stack Overflow contain tips on how to make questions, and tips on adding source code - following these guidelines may help increase the chances for community members to assess and respond to your question quickly:  
 > - [How do I ask a good question](https://stackoverflow.com/help/how-to-ask)
 > - [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve)
 
@@ -52,10 +53,9 @@ If you cannot find an answer to your problem with Search, submit a new question 
 
 [![Stack Overflow](media/active-directory-develop-get-help/github-logo.png)](https://www.github.com)
 
- If you find a bug or problem related to our libraries, please raise an issue on our GitHub repositories. Because our libraries are open source, you are also free to submit a pull request as well. A list of GitHub repositories for our libraries can be found here:
+ If you find a bug or problem related to our libraries, please raise an issue on our GitHub repositories. Because our libraries are open source, you are also free to submit a pull request as well. The following article contains a list of libraries and their GitHub repositories:
 
-- [V1 libraries: ADAL and Owin Middleware](active-directory-authentication-libraries.md)
-- [V2 libraries: MSAL and Owin Middleware](active-directory-v2-libraries.md)
+- [ADAL, MSAL and Owin middleware](active-directory-authentication-libraries.md) libraries and GitHub repositories
 
 ## 5. Open a support request
 
