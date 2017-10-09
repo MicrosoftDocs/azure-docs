@@ -64,9 +64,13 @@ You now have an application that has permission to create, read and update users
 ## Configure delete permissions for your application
 Currently, the *Read and write directory data* permission does **NOT** include the ability to do any deletions such as deleting users. If you want to give your application the ability to delete users, you'll need to do these extra steps that involve PowerShell, otherwise, you can skip to the next section.
 
-First, download and install the [Microsoft Online Services Sign-In Assistant](http://go.microsoft.com/fwlink/?LinkID=286152). Then download and install the [64-bit Azure Active Directory module for Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
+First, if you don't already have it installed, install the [Azure AD PowerShell v1 module (MSOnline)](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0):
 
-After you install the PowerShell module, open PowerShell and connect to your B2C tenant. After you run `Get-Credential`, you will be prompted for a user name and password, Enter the user name and password of your B2C tenant administrator account.
+```powershell
+Install-Module MSOnline
+```
+
+After you install the PowerShell module connect to your Azure AD B2C tenant.
 
 > [!IMPORTANT]
 > You need to use a B2C tenant administrator account that is **local** to the B2C tenant. These accounts look like this: myusername@myb2ctenant.onmicrosoft.com.
