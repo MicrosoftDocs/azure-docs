@@ -45,10 +45,11 @@ These release notes provide information on new features and known issues in Azur
 * A tenant must register the storage resource provider before creating their first Azure Function in the subscription.
 * Deleting tenant subscriptions results in orphaned resources.  As a workaround, first delete tenant resources or entire resource group, and then delete tenant subscriptions. 
 * You must create a NAT rule when creating a network load balancer, or you will receive an error when you attempt to add a NAT rule after the load balancer is created.
-* Tenants can create virtual machines larger than quota allows.  This behavior is because compute quotas are not enforced.
 * Tenants are given the option to create a virtual machine with geo-redundant storage.  This configuration causes virtual machine creation to fail.
 * It can take up to an hour before tenants can create databases in a new SQL or MySQL SKU. 
 * Creation of items directly on SQL and MySQL hosting servers that are not performed by the resource provider is not supported and may result in mismatched state.
+* The Infrastructure backup blade should not be used.
+
 
 #### Fabric
 * The compute resource provider displays an unknown state.
