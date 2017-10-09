@@ -75,7 +75,7 @@ Use the following steps to create a Storm on HDInsight cluster:
 
     ![Set the storage account settings for HDInsight](./media/hdinsight-apache-storm-tutorial-get-started-linux/set-hdinsight-storage-account.png)
 
-6. From the **Summary** blade, review the configuration for the cluster. Use the __Edit__ links to change any settings that are incorrect. Finally, use the__Select__ button to create the cluster.
+6. From the **Summary** blade, review the configuration for the cluster. Use the __Edit__ links to change any settings that are incorrect. Finally, use the __Create__ button to create the cluster.
 
     ![Cluster configuration summary](./media/hdinsight-apache-storm-tutorial-get-started-linux/hdinsight-configuration-summary.png)
 
@@ -118,7 +118,7 @@ The Storm UI provides a web interface for working with running topologies, and i
 
 Use the following steps to monitor the topology using the Storm UI:
 
-1. To display the Storm UI, open a web browser to https://CLUSTERNAME.azurehdinsight.net/stormui. Replace **CLUSTERNAME** with the name of your cluster.
+1. To display the Storm UI, open a web browser to `https://CLUSTERNAME.azurehdinsight.net/stormui`. Replace **CLUSTERNAME** with the name of your cluster.
 
     > [!NOTE]
     > If asked to provide a user name and password, enter the cluster administrator (admin) and password that you used when creating the cluster.
