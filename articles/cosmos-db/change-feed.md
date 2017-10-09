@@ -26,7 +26,7 @@ ms.author: arramac
 * Stream processing for IoT or performing analytics.
 * Additional data movement by synchronizing with a cache, search engine, or data warehouse, or archiving data to cold storage.
 
-The **change feed support** in Azure Cosmos DB enables you to build efficient and scalable solutions for each of these patterns, as shown in the following image.
+The **change feed support** in Azure Cosmos DB enables you to build efficient and scalable solutions for each of these patterns, as shown in the following image:
 
 ![Using Azure Cosmos DB change feed to power real-time analytics and event-driven computing scenarios](./media/change-feed/changefeedoverview.png)
 
@@ -41,7 +41,7 @@ You can read the change feed in three different ways, as discussed later in this
 
 1.	[Using Azure Functions](#azure-functions)
 2.	[Using the Azure Cosmos DB SDK](#rest-apis)
-3.	[Using the Azure Cosmos DB Change Feed Processor library](#cfp-library)
+3.	[Using the Azure Cosmos DB Change Feed Processor library](#change-feed-processor)
 
 The change feed is available for each partition key range within the document collection, and thus can be distributed across one or more consumers for parallel processing as shown in the following image.
 
@@ -56,7 +56,7 @@ Additional details:
 * The change feed is sorted by order of modification within each partition key value. There is no guaranteed order across partition-key values.
 * Changes can be synchronized from any point-in-time, that is, there is no fixed data retention period for which changes are available.
 * Changes are available in chunks of partition key ranges. This capability allows changes from large collections to be processed in parallel by multiple consumers/servers.
-* Applications can request for multiple change feeds simultaneously on the same collection.
+* Applications can request multiple change feeds simultaneously on the same collection.
 
 ## Use cases and scenarios
 
@@ -69,11 +69,11 @@ For example, with a change feed, you can perform the following tasks efficiently
 * Implement batch analytics on data using [Apache Hadoop](run-hadoop-with-hdinsight.md).
 * Perform zero down-time migrations to another Azure Cosmos DB account with a different partitioning scheme.
 * Implement [lambda pipelines on Azure](https://blogs.technet.microsoft.com/msuspartner/2016/01/27/azure-partner-community-big-data-advanced-analytics-and-lambda-architecture/) with Azure Cosmos DB. Azure Cosmos DB provides a scalable database solution that can handle both ingestion and query, and implement lambda architectures with low TCO. 
-* Receive and store event data from devices, sensors, infrastructure, and applications, and process these events in real-time with [Azure Stream Analytics](../stream-analytics/stream-analytics-documentdb-output.md), [Apache Storm](../hdinsight/hdinsight-storm-overview.md), or [Apache Spark](../hdinsight/hdinsight-apache-spark-overview.md). 
+* Receive and store event data from devices, sensors, infrastructure, and applications, and process these events in real time with [Azure Stream Analytics](../stream-analytics/stream-analytics-documentdb-output.md), [Apache Storm](../hdinsight/hdinsight-storm-overview.md), or [Apache Spark](../hdinsight/hdinsight-apache-spark-overview.md). 
 
 The following image shows how lambda pipelines that both ingest and query using Azure Cosmos DB can use change feed support: 
 
-![Azure Cosmos DB based lambda pipeline for ingestion and query](./media/change-feed/lambda.png)
+![Azure Cosmos DB-based lambda pipeline for ingestion and query](./media/change-feed/lambda.png)
 
 Also, within your [serverless](http://azure.com/serverless) web and mobile apps, you can track events such as changes to your customer's profile, preferences, or location to trigger certain actions like sending push notifications to their devices using [Azure Functions](#azure-functions). If you're using Azure Cosmos DB to build a game, you can, for example, use change feed to implement real-time leaderboards based on scores from completed games.
 
@@ -82,12 +82,12 @@ Also, within your [serverless](http://azure.com/serverless) web and mobile apps,
 
 If you're using Azure Functions, the simplest way to connect to an Azure Cosmos DB change feed is to add an Azure Cosmos DB trigger to your Azure Functions app. When you create an Azure Cosmos DB trigger in an Azure Functions app, you select the Azure Cosmos DB collection to connect to, and the function is triggered whenever a change to the collection is made. 
 
-Triggers can be created in the Azure Functions portal, in the Azure Cosmos DB portal, or programatically. For more information, see [Azure Cosmos DB: Serverless database computing using Azure Functions](serverless-computing-database.md).
+Triggers can be created in the Azure Functions portal, in the Azure Cosmos DB portal, or programmatically. For more information, see [Azure Cosmos DB: Serverless database computing using Azure Functions](serverless-computing-database.md).
 
 <a id="rest-apis"></a>
 ## Using the SDK
 
-The [DocumentDB SDK](documentdb-sdk-dotnet.md) for Azure Cosmos DB gives you all the power to read and manage a change feed. But with great power comes lots of responsibility, too. If you want to manage checkpoints, deal with document sequence numbers, and have granular control over partition keys, then using the SDK may be the right approach.
+The [DocumentDB SDK](documentdb-sdk-dotnet.md) for Azure Cosmos DB gives you all the power to read and manage a change feed. But with great power comes lots of responsibilities, too. If you want to manage checkpoints, deal with document sequence numbers, and have granular control over partition keys, then using the SDK may be the right approach.
 
 This section walks through how to use the DocumentDB SDK to work with a change feed.
 
@@ -160,14 +160,14 @@ In the code in step 4 above, the **ResponseContinuation** in the last line has t
 
 One more thing to note, the **ETag** on **FeedResponse** is different than the **_etag** you see on the document. The **_etag** is an internal identifier and used for concurrency, it contains information about the version of the document, whereas **ETag** is used for sequencing the feed.
 
-So, your checkpoint array is just keeping the LSN for each partition. But if you don’t want to deal with the partitions, checkpoints, LSN, Startime, etc. the simpler option is to use the Change Feed Processor Library.
+So, your checkpoint array is just keeping the LSN for each partition. But if you don’t want to deal with the partitions, checkpoints, LSN, start time, etc. the simpler option is to use the Change Feed Processor Library.
 
-<a id="cfp-library"></a>
+<a id="change-feed-processor"></a>
 ## Using Change Feed Processor library 
 
 The [Azure Cosmos DB Change Feed Processor library](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet-changefeed) can help you easily distribute event processing across multiple consumers. This library simplifies reading changes across partitions and multiple threads working in parallel.
 
-The main benefit of Change Feed Processor library is that you don’t have to manage the each partition and continuation token and you don’t have to poll each collection manually.
+The main benefit of Change Feed Processor library is that you don’t have to manage each partition and continuation token and you don’t have to poll each collection manually.
 
 The Change Feed Processor library simplifies reading changes across partitions and multiple threads working in parallel.  It automatically manages reading changes across partitions using a lease mechanism. As you can see in the following image, if you start two clients that are using the Change Feed Processor library, they divide the work among themselves. As you continue to increase the clients, they keep dividing the work among themselves.
 
@@ -175,9 +175,16 @@ The Change Feed Processor library simplifies reading changes across partitions a
 
 The left client was started first and it started monitoring all the partitions, then the second client was started and then the first let go of some of the leases to second client. As you can see this is the nice way to distribute the work between different machines and clients.
 
+Before installing Change Feed Processor NuGet package, first install: 
+
+* Microsoft.Azure.DocumentDB, version 1.13.1 or above 
+* Newtonsoft.Json, version 9.0.1 or above
+
+Then install the [Microsoft.Azure.DocumentDB.ChangeFeedProcessor Nuget package](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/) and include it as a reference.
+
 To implement the Change Feed Processor library you have to do following:
 
-1. Implement a **DocumentFeedObserver** object which implements **IChangeFeedObserver**.
+1. Implement a **DocumentFeedObserver** object, which implements **IChangeFeedObserver**.
 
 2. Implement a **DocumentFeedObserverFactory**, which implements a **IChangeFeedObserverFactory**.
 
@@ -227,7 +234,7 @@ using (DocumentClient destClient = new DocumentClient(destCollInfo.Uri, destColl
 }
 ```
 
-That’s it. After these few steps you will start seeing the documents come in the **DocumentFeedObserver ProcessChangesAsync** method.
+That’s it. After these few steps documents will start coming into the **DocumentFeedObserver ProcessChangesAsync** method.
 
 ## Next steps
 
@@ -440,7 +447,7 @@ Here's a sample request to return all incremental changes in collection from the
 Changes are ordered by time within each partition key value within the partition key range. There is no guaranteed order across partition-key values. If there are more results than can fit in a single page, you can read the next page of results by resubmitting the request with the `If-None-Match` header with value equal to the `etag` from the previous response. If multiple documents were inserted or updated transactionally within a stored procedure or trigger, they will all be returned within the same response page.
 
 > [!NOTE]
-> With change feed, you might get more items returned in a page than specified in `x-ms-max-item-count` in the case of multiple documents inserted or updated inside a stored procedures or triggers. 
+> With change feed, you might get more items returned in a page than specified in `x-ms-max-item-count` when multiple documents are inserted or updated inside stored procedures or triggers. 
 
 When using the .NET SDK (1.17.0), set the field `StartTime` in `ChangeFeedOptions` to directly return changed documents since `StartTime` when calling  `CreateDocumentChangeFeedQuery`. By specifying `If-Modified-Since` using the REST API, your request will return not the documents themselves, but rather the continuation token or `etag` in the response header. To return the documents modified the specified time, the continuation token `etag` must then be used in the next request with `If-None-Match` to return the actual documents. 
 
@@ -497,7 +504,7 @@ private async Task<Dictionary<string, string>> GetChanges(
     return checkpoints;
 }
 ```
-And the following snippet shows how to process changes in real-time with Azure Cosmos DB by using the change feed support and the preceding function. The first call returns all the documents in the collection, and the second only returns the two documents created that were created since the last checkpoint.
+And the following snippet shows how to process changes in real time with Azure Cosmos DB by using the change feed support and the preceding function. The first call returns all the documents in the collection, and the second only returns the two documents created that were created since the last checkpoint.
 
 ```csharp
 // Returns all documents in the collection.
@@ -510,7 +517,7 @@ await client.CreateDocumentAsync(collection, new DeviceReading { DeviceId = "xse
 checkpoints = await GetChanges(client, collection, checkpoints);
 ```
 
-You can also filter the change feed using client side logic to selectively process events. For example, here's a snippet that uses client side LINQ to process only temperature change events from device sensors.
+You can also filter the change feed using client-side logic to selectively process events. For example, here's a snippet that uses client-side LINQ to process only temperature change events from device sensors.
 
 ```csharp
 FeedResponse<DeviceReading> readChangesResponse = await query.ExecuteNextAsync<DeviceReading>;
@@ -522,8 +529,8 @@ foreach (DeviceReading changedDocument in
 }
 ```
 
-## <a id="change-feed-processor"></a>Change Feed Processor library
-Another option is to use the , which can help you easily distribute event processing from a change feed across multiple consumers. The library is great for building change feed readers on the .NET platform. Some workflows that would be simplified by using the Change Feed Processor library over the methods included in the other Cosmos DB SDKs include: 
+## Change Feed Processor library
+Another option is to use the Azure Change Feed Processor Library, which can help you easily distribute event processing from a change feed across multiple consumers. The library is great for building change feed readers on the .NET platform. Some workflows that would be simplified by using the Change Feed Processor library over the methods included in the other Cosmos DB SDKs include: 
 
 * Pulling updates from change feed when data is stored across multiple partitions
 * Moving or replicating data from one collection to another
@@ -531,7 +538,6 @@ Another option is to use the , which can help you easily distribute event proces
 
 While using the APIs in the Cosmos SDKs provides precise access to change feed updates in each partition, using the Change Feed Processor library simplifies reading changes across partitions and multiple threads working in parallel. Instead of manually reading changes from each container and saving a continuation token for each partition, the Change Feed Processor automatically manages reading changes across partitions using a lease mechanism.
 
-The library is available as a NuGet Package:  
 
 ### Understanding Change Feed Processor library 
 
@@ -563,13 +569,6 @@ To further understand how these four elements of Change Feed Processor work toge
 
 ### Using Change Feed Processor Library 
 The following section explains how to use the Change Feed Processor library in the context of replicating changes from a source collection to a destination collection. Here, the source collection is the monitored collection in Change Feed Processor. 
-
-**Install and include the Change Feed Processor NuGet package** 
-
-Before installing Change Feed Processor NuGet Package, first install: 
-* Microsoft.Azure.DocumentDB, version 1.13.1 or above 
-* Newtonsoft.Json, version 9.0.1 or above
-Install `Microsoft.Azure.DocumentDB.ChangeFeedProcessor` and include it as a reference.
 
 **Create a monitored, lease and destination collection** 
 
@@ -622,7 +621,7 @@ The specific fields that can be customized are summarized in the following table
 	</tr>
 	<tr>
 		<td>PartitionKeyRangeId</td>
-		<td>Gets or sets the partition key range id for the current request in the Azure Cosmos DB database service.</td>
+		<td>Gets or sets the partition key range ID for the current request in the Azure Cosmos DB database service.</td>
 	</tr>
 	<tr>
 		<td>RequestContinuation</td>
