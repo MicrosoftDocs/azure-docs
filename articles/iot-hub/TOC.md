@@ -114,6 +114,7 @@
 #### [Node.js back end/Node.js device](iot-hub-node-node-schedule-jobs.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-schedule-jobs.md)
 #### [Java](iot-hub-java-java-schedule-jobs.md)
+
 ## Manage
 ### Create an IoT hub 
 #### [Use Azure portal](iot-hub-create-through-portal.md)
@@ -127,15 +128,19 @@
 #### [Use Azure portal](iot-hub-configure-file-upload.md)
 #### [Use Azure PowerShell](iot-hub-configure-file-upload-powershell.md)
 #### [Use Azure CLI](iot-hub-configure-file-upload-cli.md)
-### [Bulk manage IoT devices](iot-hub-bulk-identity-mgmt.md)
+### [Monitor with diagnostics](iot-hub-monitor-resource-health.md)
+#### [Migrate to diagnostics settings](iot-hub-migrate-to-diagnostics-settings.md)
+#### [Operations monitoring](iot-hub-operations-monitoring.md)
 ### [Usage metrics](iot-hub-metrics.md)
-### [Operations monitoring](iot-hub-operations-monitoring.md)
+### [Bulk manage IoT devices](iot-hub-bulk-identity-mgmt.md)
 ### [Configure IP filtering](iot-hub-ip-filtering.md)
+
 ## Secure
 ### [Security from the ground up](iot-hub-security-ground-up.md)
 ### [Security best practices](iot-hub-security-best-practices.md)
 ### [Security architecture](iot-hub-security-architecture.md)
 ### [Secure your IoT deployment](iot-hub-security-deployment.md)
+
 ## Azure IoT Edge
 ### [Overview](iot-hub-iot-edge-overview.md)
 ### Get started
