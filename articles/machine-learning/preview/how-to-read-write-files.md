@@ -86,7 +86,7 @@ with open(os.environ['AZUREML_NATIVE_SHARE_DIRECTORY'] + 'test.txt', 'r') as f:
 
 For a more complete example, see the *iris_sklearn_shared_folder.py* file in the _Classifying Iris_ sample project.
 
-Before you can use this feature, you have to set in the *.compute* file some simple configurations that represent the targeted execution context in the aml_config folder. The actual path to the folder can vary depending on the compute target you choose and the value you configure.
+Before you can use this feature, you have to set in the *.compute* file some simple configurations that represent the targeted execution context in the *aml_config* folder. The actual path to the folder can vary depending on the compute target you choose and the value you configure.
 
 ### Configure local compute context
 
