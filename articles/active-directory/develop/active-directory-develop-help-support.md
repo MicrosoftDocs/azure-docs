@@ -22,7 +22,7 @@ Type your problem, question or error on the following search box to search on St
 |Tool  |Description  |
 |---------|---------|
 |[jwt.ms](https://jwt.ms)| Paste an Id or Access tokens to decode the claims names and values |
-|[Error code analyzer](https://apps.dev.microsoft.com/portal/tools/errors)| Paste an error code received during sign-in or consent to see possible causes and remediation |
+|[Error code analyzer](https://apps.dev.microsoft.com/portal/tools/errors)| Paste an error code received during sign-in or consent pages to see possible causes and remediations |
 
 ## 3. Post a question to Stack Overflow
 [![Stack Overflow](media/active-directory-develop-get-help/stackoverflow-logo.png)](https://www.stackoverflow.com)
