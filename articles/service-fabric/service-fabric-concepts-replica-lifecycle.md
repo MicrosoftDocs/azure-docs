@@ -135,7 +135,7 @@ The following diagram illustrates the replica role transitions and some example 
 - P -> N: Deletion of the primary replica.
 
 > [!NOTE]
-> Higher-level programming models, such as [Reliable Actors](service-fabric-reliable-actors-introduction.md) and [Reliable Services](service-fabric-reliable-services-introduction.md), hide the concept of replica roles from the developer. In Actors, the notion of a role is unnecessary. In Services it's largely simplified for most scenarios.
+> Higher-level programming models, such as [Reliable Actors](service-fabric-reliable-actors-introduction.md) and [Reliable Services](service-fabric-reliable-services-introduction.md), hide the concept of replica roles from the developer. In Actors, the notion of a role is unnecessary. In Services, it's largely simplified for most scenarios.
 >
 
 ## Next steps
