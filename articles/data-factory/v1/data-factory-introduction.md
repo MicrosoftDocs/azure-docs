@@ -97,7 +97,7 @@ For more information, see [Move data by using Copy Activity](data-factory-data-m
 For more information, see [Move data by using Copy Activity](data-factory-data-transformation-activities.md).
 
 ### Custom .NET activities
-Create a custom .NET activity of you need to move data to or from a data store that Copy Activity doesn't support or if you need to transform data by using your own logic. For details about how to create and use a custom activity, see [Use custom activities in an Azure Data Factory pipeline](data-factory-use-custom-activities.md).
+Create a custom .NET activity if you need to move data to or from a data store that Copy Activity doesn't support or if you need to transform data by using your own logic. For details about how to create and use a custom activity, see [Use custom activities in an Azure Data Factory pipeline](data-factory-use-custom-activities.md).
 
 ### Datasets
 An activity takes zero or more datasets as inputs and one or more datasets as outputs. Datasets represent data structures within the data stores. These structures point to or reference the data you want to use in your activities (such as inputs or outputs). 
@@ -105,7 +105,9 @@ An activity takes zero or more datasets as inputs and one or more datasets as ou
 For example, an Azure blob dataset specifies the blob container and folder in the Azure blob storage from which the pipeline should read the data. Or an Azure SQL Table dataset specifies the table to which the output data is written by the activity. 
 
 ### Linked services
-Linked services are much like connection strings, which define the connection information that's needed for Data Factory to connect to external resources. Think of it this way: a linked service defines the connection to the data source and a dataset represents the structure of the data. For example, an Azure Storage-linked service specifies a connection string with which to connect to the Azure Storage account. An Azure blob dataset specifies the blob container and the folder that contains the data.   
+Linked services are much like connection strings, which define the connection information that's needed for Data Factory to connect to external resources. Think of it this way: a linked service defines the connection to the data source and a dataset represents the structure of the data. 
+
+For example, an Azure Storage-linked service specifies a connection string with which to connect to the Azure Storage account. An Azure blob dataset specifies the blob container and the folder that contains the data.   
 
 Linked services are used for two reasons in Data Factory:
 
@@ -140,6 +142,6 @@ To learn how to build data factories with data pipelines, follow the step-by-ste
 
 | Tutorial | Description |
 | --- | --- |
-| [Move data between two cloud data stores](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Create a data factory with a pipeline that **moves data** from blob storage to SQL database. |
-| [Transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md) |Build your first Azure data factory with a data pipeline that **processes data** by running a Hive script on an Azure HDInsight (Hadoop) cluster. |
-| [Move data between an on-premises data store and a cloud data store using Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) |Build a data factory with a pipeline that **moves data** from an **on-premises** SQL Server database to an Azure blob. As part of the walkthrough, you install and configure the Data Management Gateway on your machine. |
+| [Move data between two cloud data stores](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Create a data factory with a pipeline that **moves data** from blob storage to a SQL database. |
+| [Transform data by using Hadoop cluster](data-factory-build-your-first-pipeline.md) |Build your first Azure data factory with a data pipeline that **processes data** by running a Hive script on an Azure HDInsight (Hadoop) cluster. |
+| [Move data between an on-premises data store and a cloud data store by using Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) |Build a data factory with a pipeline that **moves data** from an **on-premises** SQL Server database to an Azure blob. As part of the walkthrough, you install and configure the Data Management Gateway on your machine. |
