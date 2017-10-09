@@ -1,5 +1,5 @@
 ---
-title: Adding a VM image to Azure Stack | Microsoft Docs
+title: Add a VM image to Azure Stack | Microsoft Docs
 description: Add your organization's custom Windows or Linux VM image for tenants to use
 services: azure-stack
 documentationcenter: ''
@@ -21,18 +21,17 @@ ms.author: sngun
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Azure Stack enables operators to make custom virtual machine images available to their users. These images can be referenced by Azure Resource Manager templates or added to the
-Azure Marketplace UI with the creation of a Marketplace item. 
+In Azure Stack, operators can make custom virtual machine images available to their users. These images can be referenced by Azure Resource Manager templates or added to the Azure Marketplace UI as a Marketplace item. 
 
-## Add a VM image to marketplace with PowerShell
+## Add a VM image to Marketplace by using PowerShell
 
-Run the following prerequisites either from the [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)
+Run the following prerequisites, either from the [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
 
-* [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).  
+1. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).  
 
-* Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md).  
+2. Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md).  
 
-* Prepare a Windows or Linux operating system virtual hard disk image in VHD format (not VHDX).
+3. Prepare a Windows or Linux operating system virtual hard disk image in VHD format (don't use VHDX format).
    
    * For Windows images, the article [Upload a Windows VM image to Azure for Resource Manager deployments](../virtual-machines/windows/upload-generalized-managed.md) contains image preparation instructions in the **Prepare the VHD for upload** section.
    * For Linux images, follow the steps to
@@ -40,7 +39,7 @@ Run the following prerequisites either from the [development kit](azure-stack-co
      the article [Deploy Linux virtual machines on Azure
      Stack](azure-stack-linux.md).  
 
-Now run the following steps to add the image to the Azure Stack marketplace:
+Now run the following steps to add the image to the Azure Stack Marketplace:
 
 1. Import the Connect and ComputeAdmin modules:
    
@@ -123,18 +122,18 @@ Now run the following steps to add the image to the Azure Stack marketplace:
 
 The command does the following:
 
-* Authenticates to the Azure Stack environment
-* Uploads the local VHD to a newly created temporary storage account
-* Adds the VM image to the VM image repository and
-* Creates a Marketplace item
+* Authenticates to the Azure Stack environment.
+* Uploads the local VHD to a newly created temporary storage account.
+* Adds the VM image to the VM image repository.
+* Creates a Marketplace item.
 
 To verify that the command ran successfully, go to Marketplace in the portal, and then verify that the VM image is available in the **Virtual Machines** category.
 
 ![VM image added successfully](./media/azure-stack-add-vm-image/image5.PNG) 
 
-## Remove a VM image with PowerShell
+## Remove a VM image by using PowerShell
 
-When you no longer need the virtual machine image that you have uploaded earlier, you can delete it from the marketplace by using the following cmdlet:
+When you no longer need the virtual machine image that you uploaded, you can delete it from the Marketplace by using the following cmdlet:
 
 ```powershell
 Remove-AzsVMImage `
@@ -197,10 +196,7 @@ One requirement of images is that they can be referenced by a Blob storage URI. 
 
    When the image is successfully created, the VM image status changes to ‘Succeeded’.
 
-4. To make the virtual machine image
-   more readily available for user consumption in the UI, it is best
-   to [create a
-   Marketplace item](azure-stack-create-and-publish-marketplace-item.md).
+4. To make the virtual machine image  more readily available for user consumption in the UI, it's a good idea to [create a Marketplace item](azure-stack-create-and-publish-marketplace-item.md).
 
 ## Next steps
 
