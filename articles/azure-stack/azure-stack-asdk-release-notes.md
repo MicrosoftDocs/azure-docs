@@ -22,7 +22,7 @@ ms.author: helaw
 
 *Applies to: Azure Stack Development Kit*
 
-These release notes provide information on new features and known issues in Azure Stack Development Kit.  IF you are unsure of which version you are running, you can use the [portal to check](azure-stack-updates.md#determine-the-current-version).
+These release notes provide information on new features and known issues in Azure Stack Development Kit.  If you are unsure of which version you are running, you can use the [portal to check](azure-stack-updates.md#determine-the-current-version).
 
 ## Release Build 20170928.3
 
