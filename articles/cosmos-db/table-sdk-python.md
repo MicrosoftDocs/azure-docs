@@ -27,7 +27,7 @@ ms.custom:
 |   |   |
 |---|---|
 |**SDK download**|[PyPI](https://pypi.python.org/pypi/azure-cosmosdb-table/)|
-|**API documentation**|TBD|
+|**API documentation**|[GitHub](https://azure.github.io/azure-cosmosdb-python/)|
 |**SDK installation instructions**|[GitHub](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
 |**Contribute to SDK**|[GitHub](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
 |**Current supported platform**|[[Python 2.7] (https://www.python.org/downloads/), or [Python 3.3, 3.4, 3.5, or 3.6] (https://www.python.org/downloads/)|
