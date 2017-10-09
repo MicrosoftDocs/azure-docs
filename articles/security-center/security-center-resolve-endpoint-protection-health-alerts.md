@@ -1,20 +1,6 @@
 ---
-title: Resolve endpoint protection health alerts in Azure Security Center| Microsoft Docs
-description: This document shows you how to implement the Azure Security Center recommendation **Resolve Endpoint Protection health alerts**.
-services: security-center
-documentationcenter: na
-author: TerryLanfear
-manager: MBaldwin
-editor: ''
-
-ms.assetid: 4050f453-98fc-4314-8438-d476469757fb
-ms.service: security-center
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/01/2016
-ms.author: terrylan
+redirect_url: /azure/security-center
+redirect_document_id: TRUE
 
 ---
 # Resolve endpoint protection health alerts in Azure Security Center
@@ -22,8 +8,8 @@ Azure Security Center will recommend that you resolve detected endpoint protecti
 
 > [!NOTE]
 > This document introduces the service by using an example deployment. This is not a step-by-step guide.
-> 
-> 
+>
+>
 
 ## Implement the recommendation
 1. In the **Recommendations blade**, select **Resolve Endpoint Protection health alerts**.
