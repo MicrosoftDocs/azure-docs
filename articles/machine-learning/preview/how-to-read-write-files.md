@@ -11,28 +11,40 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/10/2017
 ---
-# Persisting changes and dealing with large files
+# Persisting changes and working with large files
+With the Azure Machine Learning Experimentation service, you can configure a variety of execution targets. Some targets are local, such as a local computer or a Docker container on a local computer. Others are remote, such as a Docker container on a remote machine or an HDInsight cluster. For more information, see [Overview of Azure Machine Learning experiment execution service](experiment-execution-configuration.md). 
 
-## Execution Isolation, Portability, and Reproducibility
-Azure ML Experimentation Service allows you to configure different execution targets, some are local -- such as local computer or a Docker container on a local computer, some are remote -- such as a Docker container in a remote machine, or an HDInsight cluster. Reference the [Configuration Experimentation Execution](experiment-execution-configuration.md) article for more details. Before any execution can happen, the project folder is copied into that compute target. This is true even in case of a local execution where a local temp folder is used for this purpose. 
+Before you can execute on a target, you must copy the project folder to the compute target. You do so even with a local execution where you're using a local temp folder for this purpose. 
 
-The purpose of this design is to ensure execution isolation, reproducibility, and portability. If you execute the same script twice, in the same compute target or a different compute target, you are guaranteed to receive the same results. The changes made by the first execution shouldn't affect the second execution. With this design, we can treat compute targets as stateless computation resources with no affinity to the jobs executed after they are finished.
+## Execution isolation, portability, and reproducibility
+The purpose of this design is to ensure the isolation, reproducibility, and portability of the execution. If you execute the same script twice, on the same compute target or another compute target, you receive the same results. The changes made by the first execution shouldn't affect the second execution. With this design, you can treat compute targets as stateless computation resources, with no affinity to the jobs that are executed after they are finished.
 
 ## Challenges
-With the benefits of portability and repeatability, this design also brings some unique challenges:
+Even though it provides the benefits of portability and repeatability, this design also brings some unique challenges:
+
 ### Persisting state changes
-If your script modifies state on the compute context, the changes are not persisted for your next execution, nor are they propagated back to the client machine automatically. 
+If your script modifies the state of the compute context, the changes are not persisted for your next execution and they're not propagated back to the client machine automatically. 
 
-More concretely, if your script creates a sub folder, or writes out a file, you will not find such folder or file in your project directory post execution. They are left in a temp folder on the compute target environment wherever it happens to be. They might be used for debugging purposes, but you can never take dependencies on their existence.
+More specifically, if your script creates a subfolder or writes a file, that folder or file will not be present in your project directory after execution. They are stored in a temp folder on the compute target environment, wherever it happens to be. You might use them for debugging purposes, but you cannot rely on their existence.
 
-### Dealing with large files in project folder
+### Working with large files in the project folder
 
-If your project folder contains any large files, your incur latency when the project folder is copied to the target compute environment at the beginning of each execution. Even if the execution happens locally, it is still unnecessary disk traffic that should be avoided. This is why we currently cap the maximum project size limit at 25 MB right now.
+If your project folder contains any large files, you incur latency when the folder is copied to the target compute environment at the beginning of an execution. Even if the execution happens locally, there is still unnecessary disk traffic to avoid. For this reason, we currently cap the maximum project size at 25 MB.
 
-## Option 1: use the outputs folder
-This is the preferred option if your script produces files, and you expect these files change with every experiment run, and you want to keep a history of these files. The common use case is that if you train a model, or create a dataset, or plot a graph as an image file as part of your model training execution. And you want to compare these outputs across runs, and you want to go back and select an output file (such as a model) produced by a previous run, and use it for a subsequent task (such as scoring).
+## Option 1: Use the outputs folder
+This is the preferred option if all of the following apply:
+* Your script produces files.
+* You expect the files to change with every experiment.
+* You want to keep a history of these files. 
 
-Essentially, you can write file(s) into a folder named `outputs` relative to the root directory. This is a special folder that receives special treatment by the Experimentation Service. Anything your script creates in there during the execution, such as a model file, a data file, or a plotted image file (collectively known as _artifacts_), are copied into the Azure Blob Storage account associated with your Experimentation account after the run is finished. They become part of your run history record.
+The common use cases are:
+* Training a model
+* Creating a dataset
+* Plotting a graph as an image file as part of your model-training execution 
+
+Additionally, you want to compare the outputs across runs, select an output file (such as a model) that was produced by a previous run, and then use it for a subsequent task (such as scoring).
+
+You can write files to a folder named *outputs* relative to the root directory. This is a special folder that receives special treatment by the Experimentation Service. Anything your script creates in there during the execution, such as a model file, a data file, or a plotted image file (collectively known as _artifacts_), are copied into the Azure Blob Storage account associated with your Experimentation account after the run is finished. They become part of your run history record.
 
 Here is a quick example for storing a model in the `outputs` folder:
 ```python
@@ -139,9 +151,8 @@ You of course are free to use external durable store to persist state during exe
 - These files need to shared by executions across different compute environment.
 - These files need to survive the compute context itself.
 
-One such example is to use Azure blob storage from your Python/PySpark code.
+One such example is to use Azure Blob storage from your Python/PySpark code. Here is a short example:
 
-Here is a quick example of using Azure blob storage from Python code:
 ```python
 from azure.storage.blob import BlockBlobService
 import glob
@@ -164,7 +175,7 @@ for name in glob.iglob('mydata.csv'):
     blob_service.create_blob_from_path(CONTAINER_NAME, 'single_file.csv', name)
 ```
 
-Here is also a quick example for attaching any arbitrary Azure Blob Storage to an HDI Spark runtime:
+Here is a short example for attaching any arbitrary Azure Blob storage to an HDI Spark runtime:
 ```python
 def attach_storage_container(spark, account, key):
     config = spark._sc._jsc.hadoopConfiguration()
@@ -176,7 +187,7 @@ attach_storage_container(spark, "<storage account name>", "<storage key>”)
 ```
 
 ## Conclusion
-Since Azure ML executes scripts by copying the entire project folder into the target compute context, special care must be given to large input, output, and intermediary files. You can use the special `outputs` folder, the shared folder accessible through `AZUREML_NATIVE_SHARE_DIRECTORY` environment variable, or external durable storage for large file transactions. 
+Because Azure ML executes scripts by copying the entire project folder into the target compute context, take special care with large input, output, and intermediary files. You can use the special `outputs` folder, the shared folder that's accessible through `AZUREML_NATIVE_SHARE_DIRECTORY` environment variable, or external durable storage for large file transactions. 
 
 ## Next steps
 - Review [Configuring Experimentation Execution](experiment-execution-configuration-reference.md).
