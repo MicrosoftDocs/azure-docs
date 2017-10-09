@@ -141,4 +141,4 @@ Select **Verify Template** to verify the configuration and then select **Save** 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [CI/CD to Azure App Service](deploy-jenkins-app-service-plugin.md)
+> [CI/CD to Azure App Service](java-deploy-webapp-tutorial.md)
