@@ -17,7 +17,7 @@ Type your problem or scenario on the following search box for a scoped search on
 </form>
 </div>
 
-## 2. Use our Development Support Tools
+## 2. Use our development support tools
 
 |Tool  |Description  |
 |---------|---------|
@@ -29,7 +29,7 @@ Type your problem or scenario on the following search box for a scoped search on
 
 Stack Overflow is the preferred channel for development related questions - where both members of community as Microsoft team members are directly involved on helping you to solve your problem.
 
-If you cannot find an answer to your problem with Search, submit a new question on Stack Overflow: use one of the following tags when making questions to help the community identify then answer your question on a timely manner:
+If you cannot find an answer to your problem with Search, submit a new question to Stack Overflow: use one of the following tags when making questions to help the community identify then answer your question on a timely manner:
 
 |Component/Area  |Tags  |
 |---------|---------|
@@ -48,7 +48,7 @@ If you cannot find an answer to your problem with Search, submit a new question 
 > - [How do I ask a good question](https://stackoverflow.com/help/how-to-ask)
 > - [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve)
 
-## 4. Create a Github Issue
+## 4. Create a Github issue
 
 [![Stack Overflow](media/active-directory-develop-get-help/github-logo.png)](www.github.com)
 
@@ -67,7 +67,7 @@ If you need to talk to someone, you can open a support request. If you are an Az
 
 You can also try [our virtual agent](https://support.microsoft.com/contactus/?ws=support) to obtain support or ask questions.
 
-### Free Chat Support for a limited time
+### Free chat support for a limited time
 
 You can also use our chat support - which is free for Microsoft Partners for a limited time. If your company is not a Microsoft Partner, you can enroll it for free and obtain other benefits by going [here](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx).
 
