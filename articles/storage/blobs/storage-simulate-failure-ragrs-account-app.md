@@ -71,7 +71,7 @@ The Fiddler ScriptEditor launches showing the **SampleRules.js** file. This file
 
 ### Configure HTTPS decryption
 
-Requests to storage accounts using the client libraries use HTTPS. For this reason, HTTPS decryption needs to be enabled in Fiddler so it can inject the `503 - Service Unavailable` error to simulate a failure, to learn how to do this visit [Configure Fiddler to Decrypt HTTPS Traffic](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
+Requests to Azure Storage made using the client libraries always use HTTPS. For this reason, HTTPS decryption needs to be enabled in Fiddler so it can inject the `503 - Service Unavailable` error to simulate a failure, to learn how to do this visit [Configure Fiddler to Decrypt HTTPS Traffic](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
  
 ## Start and pause the application
 
@@ -81,7 +81,7 @@ In Visual Studio, press **F5** or select **Start** to start debugging the applic
 
 With the application paused you can now uncomment the custom rule we saved in Fiddler a preceding step.  This code sample looks for requests to the RA-GRS storage account and if the path contains the name of the image, `HelloWorld`, it returns a response code of `503 - Service Unavailable`.
 
-Navigate to Fiddler and select **Rules** and **Customize Rules...**.  Uncomment out the following lines and select **File** and **Save**. Replace `STORAGEACCOUNTNAME` with the name of your storage account.
+Navigate to Fiddler and select **Rules** -> **Customize Rules...**.  Uncomment out the following lines and select **File** and **Save**. Replace `STORAGEACCOUNTNAME` with the name of your storage account.
 
 ```javascript
          if ((oSession.hostname == "STORAGEACCOUNTNAME.blob.core.windows.net")
