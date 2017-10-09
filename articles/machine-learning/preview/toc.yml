@@ -58,7 +58,6 @@
     - name: Advanced data preparation
       href: data-prep-user-guide.md
     - name: Data preparation transformations
-      href: data-prep-appendix3-supported-transforms.md
       items:
       - name: Combine columns by example
         href: data-prep-combine-columns-by-example.md
@@ -126,6 +125,8 @@
       href: data-prep-python-extensibility-overview.md
     - name: Supported data sources
       href: data-prep-appendix2-supported-data-sources.md
+    - name: Supported transforms
+      href: data-prep-appendix3-supported-transforms.md
     - name: Supported inspectors
       href: data-prep-appendix4-supported-inspectors.md
     - name: Supported data destinations
