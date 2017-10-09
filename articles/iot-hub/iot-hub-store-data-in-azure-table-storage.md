@@ -76,7 +76,7 @@ Click **Routes** > **Add** and enter a name for the route. Select **Device Messa
 
 By default, IoT Hub routes all messages which do not match any other routes to the built-in endpoint. Since all telemetry messages now match the rule which routes the messages to storage, you need to add another route for messages to be written to the built-in endpoint. There is no additional charge to route messages to multiple endpoints.
 
-> ![NOTE]
+> [!NOTE]
 > You can skip this step if you are not doing additional processing on your telemetry messages.
 
 Click **Add** from the Routes pane and enter a name for the route. Select **Device Messages** as the data source and **events** as the endpoint. Enter `true` as the query string, then click **Save**.
