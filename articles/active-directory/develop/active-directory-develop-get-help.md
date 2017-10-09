@@ -24,7 +24,7 @@ Type your problem, question or error on the following search box to search on St
 |[jwt.ms](https://jwt.ms)| Paste an Id or Access tokens to decode the claims names and values |
 |[Error code analyzer](https://apps.dev.microsoft.com/portal/tools/errors)| Paste an error code received during sign-in or consent to see possible causes and remediation |
 
-## 3. Post to Stack Overflow
+## 3. Post a question to Stack Overflow
 [![Stack Overflow](media/active-directory-develop-get-help/stackoverflow-logo.png)](https://www.stackoverflow.com)
 
 Stack Overflow is the preferred channel for development-related questions - where both members of community as Microsoft team members are directly involved on helping you to solve your problem.
@@ -48,11 +48,11 @@ If you cannot find an answer to your problem with Search, submit a new question 
 > - [How do I ask a good question](https://stackoverflow.com/help/how-to-ask)
 > - [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve)
 
-## 4. Create a Github issue
+## 4. Create a GitHub issue
 
 [![Stack Overflow](media/active-directory-develop-get-help/github-logo.png)](https://www.github.com)
 
- If you find a bug or problem related to our libraries, please raise an issue on our GitHub repositories. Because our libraries are open source, you are also free to submit a pull request as well. A list of github repositories for our libraries can be found here:
+ If you find a bug or problem related to our libraries, please raise an issue on our GitHub repositories. Because our libraries are open source, you are also free to submit a pull request as well. A list of GitHub repositories for our libraries can be found here:
 
 - [V1 libraries: ADAL and Owin Middleware](active-directory-authentication-libraries.md)
 - [V2 libraries: MSAL and Owin Middleware](active-directory-v2-libraries.md)
