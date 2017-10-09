@@ -19,3 +19,5 @@ ms.service: iot-edge
 # ms.tgt_pltfrm:
 # ms.reviewer:
 ---
+
+# Understand the Azure IoT Edge runtime and its components

@@ -19,3 +19,5 @@ ms.service: iot-edge
 # ms.tgt_pltfrm:
 # ms.reviewer:
 ---
+
+# Understand how IoT Edge modules can be used, configured, and reused

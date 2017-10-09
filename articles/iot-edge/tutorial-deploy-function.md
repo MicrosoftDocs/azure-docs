@@ -19,3 +19,5 @@ ms.service: iot-edge
 # ms.tgt_pltfrm:
 # ms.reviewer:
 ---
+
+# Deploy Azure Function as an IoT Hub module 

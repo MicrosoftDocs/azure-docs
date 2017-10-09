@@ -19,3 +19,5 @@ ms.service: iot-edge
 # ms.tgt_pltfrm:
 # ms.reviewer:
 ---
+
+# Deploy your first IoT Edge module and process data on a simulated device in about 15 minutes

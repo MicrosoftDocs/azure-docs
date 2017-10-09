@@ -19,3 +19,5 @@ ms.service: iot-edge
 # ms.tgt_pltfrm:
 # ms.reviewer:
 ---
+
+# Create an edge gateway device to filter traffic from other IoT devices

@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Deploy and monitor modules for Azure IoT Edge | Microsoft Docs 
+title: Deploy, monitor modules for Azure IoT Edge | Microsoft Docs 
 description: Manage the modules that run on edge devices
 services: iot-edge
 keywords: 
@@ -19,3 +19,5 @@ ms.service: iot-edge
 # ms.tgt_pltfrm:
 # ms.reviewer:
 ---
+
+# Deploy modules to edge devices and monitor their status

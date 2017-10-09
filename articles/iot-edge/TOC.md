@@ -23,8 +23,7 @@
 ## Iot Edge modules
 ### [Development](module-development.md)
 ### [Composition](module-composition.md)
-### [Deployment](module-deployment.md)
-### [Monitoring](module-monitoring.md)
+### [Deployment and monitoring](module-deployment-monitoring.md)
 
 # Reference
 
