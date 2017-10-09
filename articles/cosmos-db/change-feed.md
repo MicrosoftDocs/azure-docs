@@ -20,7 +20,7 @@ ms.author: arramac
 ---
 # Working with the change feed support in Azure Cosmos DB
 
-[Azure Cosmos DB](../cosmos-db/introduction.md) is a fast and flexible globally replicated well-suited for IoT, gaming, retail, and operational logging applications. A common design pattern in these applications is to use changes to the data to kick off additional actions. These additional actions could be any of the following: 
+[Azure Cosmos DB](../cosmos-db/introduction.md) is a fast and flexible globally replicated database, well-suited for IoT, gaming, retail, and operational logging applications. A common design pattern in these applications is to use changes to the data to kick off additional actions. These additional actions could be any of the following: 
 
 * Triggering a notification or a call to an API when a document is inserted or modified.
 * Stream processing for IoT or performing analytics.
