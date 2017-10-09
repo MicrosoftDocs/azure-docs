@@ -35,7 +35,7 @@ When thinking about the lifecycles of Azure Service Fabric Reliable Services, th
   - The cancellation token passed to **RunAsync** is canceled, and the listeners are closed.
   - After the listeners close, the service object itself is destructed.
 
-There are details around the exact ordering of these events. The order of events can change slightly depending on whether the Reliable Service is stateless or stateful. In addition, for stateful services, we must deal with the primary swap scenario. During this sequence, the role of primary is transferred to another replica (or comes back) without the service shutting down. Finally, we must think about error or failure conditions.
+There are details around the exact ordering of these events. The order of events can change slightly depending on whether the Reliable Service is stateless or stateful. In addition, for stateful services, we must deal with the Primary swap scenario. During this sequence, the role of Primary is transferred to another replica (or comes back) without the service shutting down. Finally, we must think about error or failure conditions.
 
 ## Stateless service startup
 The lifecycle of a stateless service is straightforward. Here's the order of events:
@@ -70,9 +70,9 @@ Stateful services have a similar pattern to stateless services, with a few chang
 2. `StatefulServiceBase.OnOpenAsync()` is called. This call is not commonly overridden in the service.
 3. The following things happen in parallel:
     - `StatefulServiceBase.CreateServiceReplicaListeners()` is invoked. 
-      - If the service is a primary service, all returned listeners are opened. `ICommunicationListener.OpenAsync()` is called on each listener.
-      - If the service is a secondary service, only those listeners marked as `ListenOnSecondary = true` are opened. Having listeners that are open on secondaries is less common.
-    - If the service is currently a primary, the service's `StatefulServiceBase.RunAsync()` method is called.
+      - If the service is a Primary service, all returned listeners are opened. `ICommunicationListener.OpenAsync()` is called on each listener.
+      - If the service is a Secondary service, only those listeners marked as `ListenOnSecondary = true` are opened. Having listeners that are open on secondaries is less common.
+    - If the service is currently a Primary, the service's `StatefulServiceBase.RunAsync()` method is called.
 4. After all the replica listener's `OpenAsync()` calls complete and `RunAsync()` is called, `StatefulServiceBase.OnChangeRoleAsync()` is called. This call is not commonly overridden in the service.
 
 Similar to stateless services, there's no coordination between the order in which the listeners are created and opened and when **RunAsync** is called. If you need coordination, the solutions are much the same. There is one additional case for stateful service. Say that the calls that arrive at the communication listeners require information kept inside some [Reliable Collections](service-fabric-reliable-services-reliable-collections.md). Because the communication listeners could open before the reliable collections are readable or writeable, and before **RunAsync** could start, some additional coordination is necessary. The simplest and most common solution is for the communication listeners to return an error code that the client uses to know to retry the request.
@@ -86,24 +86,24 @@ Like stateless services, the lifecycle events during shutdown are the same as du
 2. After `CloseAsync()` completes on each listener and `RunAsync()` also completes, the service's `StatefulServiceBase.OnChangeRoleAsync()` is called. This call is not commonly overridden in the service.
 
    > [NOTE!]  
-   > The need to wait for **RunAsync** to complete is only necessary if this replica is a primary replica.
+   > The need to wait for **RunAsync** to complete is only necessary if this replica is a Primary replica.
 
 3. After the `StatefulServiceBase.OnChangeRoleAsync()` method completes, the `StatefulServiceBase.OnCloseAsync()` method is called. This call is an uncommon override, but it is available.
 3. After `StatefulServiceBase.OnCloseAsync()` completes, the service object is destructed.
 
-## Stateful service primary swaps
-While a stateful service is running, only the primary replicas of that stateful services have their communication listeners opened and their **RunAsync** method called. Secondary replicas are constructed, but see no further calls. While a stateful service is running the replica that's currently the primary can change. What does this mean in terms of the lifecycle events that a replica can see? The behavior the stateful replica sees depends on whether it is the replica being demoted or promoted during the swap.
+## Stateful service Primary swaps
+While a stateful service is running, only the Primary replicas of that stateful services have their communication listeners opened and their **RunAsync** method called. Secondary replicas are constructed, but see no further calls. While a stateful service is running the replica that's currently the Primary can change. What does this mean in terms of the lifecycle events that a replica can see? The behavior the stateful replica sees depends on whether it is the replica being demoted or promoted during the swap.
 
-### For the primary that's demoted
-For the primary replica that's demoted, Service Fabric needs this replica to stop processing messages and quit any background work it is doing. As a result, this step looks like it did when the service is shut down. One difference is that the service isn't destructed or closed because it remains as a secondary. The following APIs are called:
+### For the Primary that's demoted
+For the Primary replica that's demoted, Service Fabric needs this replica to stop processing messages and quit any background work it is doing. As a result, this step looks like it did when the service is shut down. One difference is that the service isn't destructed or closed because it remains as a Secondary. The following APIs are called:
 
 1. In parallel:
     - Any open listeners are closed. `ICommunicationListener.CloseAsync()` is called on each listener.
     - The cancellation token passed to `RunAsync()` is canceled. A check of the cancellation token's `IsCancellationRequested` property returns true, and if called, the token's `ThrowIfCancellationRequested` method throws an `OperationCanceledException`.
 2. After `CloseAsync()` completes on each listener and `RunAsync()` also completes, the service's `StatefulServiceBase.OnChangeRoleAsync()` is called. This call is not commonly overridden in the service.
 
-### For the secondary that's promoted
-Similarly, Service Fabric needs the secondary replica that's promoted to start listening for messages on the wire and start any background tasks it needs to complete. As a result, this process looks like it did when the service is created, except that the replica itself already exists. The following APIs are called:
+### For the Secondary that's promoted
+Similarly, Service Fabric needs the Secondary replica that's promoted to start listening for messages on the wire and start any background tasks it needs to complete. As a result, this process looks like it did when the service is created, except that the replica itself already exists. The following APIs are called:
 
 1. In parallel:
     - `StatefulServiceBase.CreateServiceReplicaListeners()` is invoked and any returned listeners are opened. `ICommunicationListener.OpenAsync()` is called on each listener.
@@ -111,18 +111,18 @@ Similarly, Service Fabric needs the secondary replica that's promoted to start l
 2. After all the replica listener's `OpenAsync()` calls complete and `RunAsync()` is called, `StatefulServiceBase.OnChangeRoleAsync()` is called. This call is not commonly overridden in the service.
 
 ### Common issues during stateful service shutdown and primary demotion
-Service Fabric changes the primary of a stateful service for a variety of reasons. The most common are [cluster rebalancing](service-fabric-cluster-resource-manager-balancing.md) and [application upgrade](service-fabric-application-upgrade.md). During these operations (as well as during normal service shutdown, like you'd see if the service was deleted), it is important that the service respect the `CancellationToken`. 
+Service Fabric changes the Primary of a stateful service for a variety of reasons. The most common are [cluster rebalancing](service-fabric-cluster-resource-manager-balancing.md) and [application upgrade](service-fabric-application-upgrade.md). During these operations (as well as during normal service shutdown, like you'd see if the service was deleted), it is important that the service respect the `CancellationToken`. 
 
 Services that do not handle cancellation cleanly can experience several issues. These operations are slow because Service Fabric waits for the services to stop gracefully. This can ultimately lead to failed upgrades that time out and roll back. Failure to honor the cancellation token can also cause imbalanced clusters. Clusters become unbalanced because nodes get hot, but the services can't be rebalanced because it takes too long to move them elsewhere. 
 
-Since the services are stateful, it is also likely that they use the [Reliable Collections](service-fabric-reliable-services-reliable-collections.md). In Service Fabric, when a primary is demoted, one of the first things that happens is that write access to the underlying state is revoked. This leads to a second set of issues that can impact the service lifecycle. The collections return exceptions based on the timing and whether the replica is being moved or shut down. These exceptions should be handled correctly. Exceptions thrown by Service Fabric fall into permanent [(`FabricException`)](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.fabricexception?view=azure-dotnet) and transient [(`FabricTransientException`)](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.fabrictransientexception?view=azure-dotnet) categories. Permanent exceptions should be logged and thrown while the transient exceptions can be retried based on some retry logic.
+Since the services are stateful, it is also likely that they use the [Reliable Collections](service-fabric-reliable-services-reliable-collections.md). In Service Fabric, when a Primary is demoted, one of the first things that happens is that write access to the underlying state is revoked. This leads to a second set of issues that can impact the service lifecycle. The collections return exceptions based on the timing and whether the replica is being moved or shut down. These exceptions should be handled correctly. Exceptions thrown by Service Fabric fall into permanent [(`FabricException`)](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.fabricexception?view=azure-dotnet) and transient [(`FabricTransientException`)](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.fabrictransientexception?view=azure-dotnet) categories. Permanent exceptions should be logged and thrown while the transient exceptions can be retried based on some retry logic.
 
 Handling the exceptions that come from use of the `ReliableCollections` in conjunction with service lifecycle events is an important part of testing and validating a Reliable Service. We recommend that you always run your service under load while performing upgrades and [chaos testing](service-fabric-controlled-chaos.md) before deploying to production. These basic steps help ensure that your service is correctly implemented and handles lifecycle events correctly.
 
 
 ## Notes on service lifecycle
   - Both the `RunAsync()` method and the `CreateServiceReplicaListeners/CreateServiceInstanceListeners` calls are optional. A service can have one of them, both, or neither. For example, if the service does all its work in response to user calls, there is no need for it to implement `RunAsync()`. Only the communication listeners and their associated code are necessary. Similarly, creating and returning communication listeners is optional, as the service can have only background work to do, and so only needs to implement `RunAsync()`
-  - It is valid for a service to complete `RunAsync()` successfully and return from it. Completing is not a failure condition. Completing `RunAsync()` indicates that the background work of the service has completed. For stateful reliable services, `RunAsync()` is called again if the replica is demoted from primary to secondary and then promoted back to primary.
+  - It is valid for a service to complete `RunAsync()` successfully and return from it. Completing is not a failure condition. Completing `RunAsync()` indicates that the background work of the service has completed. For stateful reliable services, `RunAsync()` is called again if the replica is demoted from Primary to Secondary and then promoted back to primary.
   - If a service exits from `RunAsync()` by throwing some unexpected exception, this constitutes a failure. The service object is shut down and a health error is reported.
   - While there is no time limit on returning from these methods, you immediately lose the ability to write to Reliable Collections, and therefore, cannot complete any real work. We recommended that you return as quickly as possible upon receiving the cancellation request. If your service does not respond to these API calls in a reasonable amount of time, Service Fabric can forcibly terminate your service. Usually this only happens during application upgrades or when a service is being deleted. This timeout is 15 minutes by default.
   - Failures in the `OnCloseAsync()` path result in `OnAbort()` being called, which is a last-chance best-effort opportunity for the service to clean up and release any resources that they have claimed.
