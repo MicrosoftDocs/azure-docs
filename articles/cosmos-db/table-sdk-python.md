@@ -21,20 +21,17 @@ ms.custom:
 # Azure Cosmos DB Python SDK: Release notes and resources
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
+> * [Python](table-sdk-python.md)
  
 
-<table>
+|   |   |
+|---|---|
+|**SDK download**|[PyPI](https://pypi.python.org/pypi/azure-cosmosdb-table/)|
+|**API documentation**|TBD|
+|**SDK installation instructions**|TBD|
+|**Contribute to SDK**|[GitHub](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
+|**Current supported platform**|[[Python 2.7] (https://www.python.org/downloads/), or [Python 3.3, 3.4, 3.5, or 3.6] (https://www.python.org/downloads/)|
 
-<tr><td>**Download SDK**</td><td>[PyPI](https://pypi.python.org/pypi/azure-cosmosdb-table/)</td></tr>
-
-<tr><td>**API documentation**</td><td>TBD</td></tr>
-
-<tr><td>**SDK installation instructions**</td><td>TBD</td></tr>
-
-<tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)</td></tr>
-
-<tr><td>**Current supported platform**</td><td>[Python 2.7] (https://www.python.org/downloads/), or [Python 3.3, 3.4, 3.5, or 3.6] (https://www.python.org/downloads/)</td></tr>
-</table></br>
 
 ## Release notes
 ### <a name="0.37.1"/>0.37.1
@@ -43,7 +40,7 @@ ms.custom:
 
 
 
-## Release & retirement dates
+## Release and retirement dates
 Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
 
 New features and functionality and optimizations are only added to the current SDK, as such it is  recommended that you always upgrade to the latest SDK version as early as possible. 
