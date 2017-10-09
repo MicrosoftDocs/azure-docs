@@ -1968,5 +1968,5 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## See also 
 
- [Bing Video Search overview](../overview.md)  
+ [Searching the web for videos](search-the-web.md)  
  [Try it](https://azure.microsoft.com/services/cognitive-services/bing-video-search-api/)
