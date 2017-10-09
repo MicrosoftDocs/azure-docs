@@ -19,7 +19,7 @@ ms.author: sngun
 ---
 # Install and configure CLI for use with Azure Stack
 
-In this document, we guide you through the process of using Azure command-line interface (CLI) to manage Azure Stack Development Kit resources from Linux and Mac client platforms. 
+In this article, we guide you through the process of using the Azure command-line interface (CLI) to manage Azure Stack Development Kit resources from Linux and Mac client platforms. 
 
 ## Export the Azure Stack CA root certificate
 
