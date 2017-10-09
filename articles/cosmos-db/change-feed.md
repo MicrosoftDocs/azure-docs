@@ -87,7 +87,7 @@ Triggers can be created in the Azure Functions portal, in the Azure Cosmos DB po
 <a id="rest-apis"></a>
 ## Using the SDK
 
-The [DocumentDB SDK](sdk-documentdb-dotnet.md) for Azure Cosmos DB gives you all the power to read and manage a change feed. But with great power comes lots of responsibility, too. If you want to manage checkpoints, deal with document sequence numbers, and have granular control over partition keys, then using the SDK may be the right approach.
+The [DocumentDB SDK](documentdb-sdk-dotnet.md) for Azure Cosmos DB gives you all the power to read and manage a change feed. But with great power comes lots of responsibility, too. If you want to manage checkpoints, deal with document sequence numbers, and have granular control over partition keys, then using the SDK may be the right approach.
 
 This section walks through how to use the DocumentDB SDK to work with a change feed.
 
