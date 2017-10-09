@@ -32,7 +32,22 @@ If the Azure File Sync agent installation is failing, run the following command 
 StorageSyncAgent.msi /l*v Installer.log
 ```
 
-Once the installation fails, review the installer.log to determine the cause.
+Once the installation fails, review the installer.log to determine the cause. 
+
+> [!Note]  
+> The agent installation will fail if you select to use Microsoft Update and the Windows Update service is not running.
+
+## Cloud Endpoint creation fails with the following error: "The specified Azure FileShare is already in use by a different CloudEndpoint"
+This error occurs if the Azure File share is already in use by another Cloud Endpoint. 
+
+If you're receiving this error and the Azure File share is not currently in use by a Cloud Endpoint, perform the following steps below to clear the Azure File Sync metadata on the Azure File share:
+
+> [!Warning]  
+> Deleting the metadata on an Azure File share that is currently in use by a Cloud endpoint will cause Azure File Sync operations to fail. 
+
+1. Navigate to your Azure File share in the Azure Portal.  
+2. Right click the Azure File share and select **Edit metadata**
+3. Right click SyncService and select **Delete**.
 
 ## Server is not listed under Registered Servers in the Azure portal
 If a server is not listed under Registered Servers for a Storage Sync Service, perform the following steps:
@@ -44,6 +59,16 @@ If a server is not listed under Registered Servers for a Storage Sync Service, p
 ![A screenshot of the Server Registration dialog with the "server is already registered" error message](media/storage-sync-files-troubleshoot/server-registration-1.png)
 
 This message is displayed if the server was previously registered with a Storage Sync Service. To unregister the server with the current Storage Sync Service and register with a new Storage Sync Service, follow the steps to [Unregister a server with Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
+
+If the server is not listed under Registered Servers in the Storage Sync Service, run the following PowerShell commands on the server that you want to unregister:
+
+```PowerShell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+Reset-StorageSyncServer
+```
+
+> [!Note]  
+> If the server is part of a cluster, there is an optional `Reset-StorageSyncServer -CleanClusterRegistration` parameter that will also remove the cluster registration. This switch should be used when the last node in the cluster is unregistered.
 
 ## How to troubleshoot sync not working on a server
 If sync is failing on a server, perform the following:

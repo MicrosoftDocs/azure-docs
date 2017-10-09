@@ -45,7 +45,7 @@ Version 2.x of the tools uses the Azure Functions runtime 2.x that is built on .
 >[!IMPORTANT]   
 > Before installing Azure Functions Core Tools, [install .NET Core 2.0](https://www.microsoft.com/net/core).  
 >
-> Azure Functions runtime 2.0 is in preview and currently not all features of Azure Functions are supported. For more information, see [Azure Functions runtime 2.0 known issues](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues) 
+> Azure Functions runtime 2.0 is in preview, and currently not all features of Azure Functions are supported. For more information, see [Azure Functions runtime 2.0 known issues](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues) 
 
  Use the following command to install the version 2.0 tools:
 
