@@ -128,7 +128,7 @@ The Microsoft Speech Recognition API supports the following languages in *conver
 | fr-FR | French (France) | zh-CN | Chinese (Mandarin, simplified) |
  
 ## Output format
-The Microsoft Speech Service can return a variety of payload formats of recognition phrase results. All payloads are JSON structures. 
+The Microsoft Speech Service can return a variety of payload formats of recognition phrase results. All payloads are JSON structures. But keep in mind that the response `content-type` header is `text/plain`, and some libraries might not parse the content as `JSON` objects.
 
 You can control the phrase result format by specifying the `format` URL query parameter. By default, the service returns `simple` results. 
 
@@ -165,7 +165,7 @@ Punctuation and capitalization signal where to put emphasis, where to pause, and
 Because the display form extends the masked ITN form, you can set the profanity parameter value to `masked` or `raw`. If the value is set to `raw`, the recognition results include any profanity spoken by the user. If the value is set to `masked`, words recognized as part of the language's profanity lexicon are replaced with asterisks.
 
 ## Sample responses
-All payloads are JSON structures.
+All payloads are JSON structures. But keep in mind that the response `content-type` header is `text/plain`, and some libraries might not parse the content as `JSON` objects.
 
 The payload format of the `simple` phrase result: 
 ```json
