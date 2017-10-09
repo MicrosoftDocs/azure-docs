@@ -113,13 +113,7 @@
     - name: Dashboards
       href: log-analytics-dashboards.md
     - name: View Designer
-      items:
-        - name: View Designer overview
-          href: log-analytics-view-designer.md
-        - name: Tile reference
-          href: log-analytics-view-designer-tiles.md
-        - name: Visualization part reference
-          href: log-analytics-view-designer-parts.md
+      href: log-analytics-view-designer.md
     - name: Power BI
       href: log-analytics-powerbi.md
   - name: Create alerts
@@ -238,7 +232,11 @@
   - name: Azure PowerShell
     href: /powershell/module/azurerm.operationalinsights
   - name: REST
-    href: /rest/api/loganalytics
+    href: /rest/api/loganalytics 
+  - name: Tile reference
+    href: log-analytics-view-designer-tiles.md
+  - name: Visualization part reference
+    href: log-analytics-view-designer-parts.md
 - name: Resources
   items:
   - name: Azure Roadmap
