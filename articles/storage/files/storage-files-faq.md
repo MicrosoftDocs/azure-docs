@@ -115,20 +115,20 @@ ms.author: renash
 * **A file I want to use has been tiered... how can I recall it to disk for use locally?**  
     The easiest way to recall a file to disk is to open it. The Azure File Sync file system filter (StorageSync.sys) will seamlessly download the file from your Azure File share without you having to do any work. For file types that can be partially read from, such as multimedia or zip files, opening a file will not result in the download of the entire file.
 
-        It is also possible force a file to be recalled using PowerShell. For instance, this might be useful if you want to recall many files at once (such as all the files within a folder). Open a PowerShell session to the server node where Azure File Sync is installed, and run the following PowerShell commands:
-        
-        ```PowerShell
-        Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-        Invoke-StorageSyncFileRecall -Path <file-or-directory-to-be-recalled>
-        ```
+    It is also possible force a file to be recalled using PowerShell. For instance, this might be useful if you want to recall many files at once (such as all the files within a folder). Open a PowerShell session to the server node where Azure File Sync is installed, and run the following PowerShell commands:
+    
+    ```PowerShell
+    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+    Invoke-StorageSyncFileRecall -Path <file-or-directory-to-be-recalled>
+    ```
 
 * **How can I force a file or directory to be tiered?**  
     When enabled, the cloud tiering feature will automatically tier files based on last access and modify times in order to achieve the volume free space percentage specified on the cloud endpoint, however, sometimes you might like to force a file to tier manually. For instance, this might be useful if you save a large file you don't intend to use again for a long time and want the free space on your volume now for other files/folders. You can force tiering with the following PowerShell commands:
 
-        ```PowerShell
-        Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-        Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
-        ```
+    ```PowerShell
+    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+    Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
+    ```
 
 * **I would like to use Azure File Sync with Windows Server 2008 R2, with Linux, or with my NAS device - does Azure File Sync support that?**
     Today, Azure File Sync only supports Windows Server 2016 and Windows Server 2012 R2. At this time, we don't have any other plans we can share, but we're open and interested to support additional platforms based on customer demand. Please let us know what platforms you would like to us to support on [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files).

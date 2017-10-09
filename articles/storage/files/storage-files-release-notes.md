@@ -81,7 +81,7 @@ The following items do not sync, but the rest of the system will continue to ope
 - A server endpoint may not be on the system volume (for example, C:\MyFolder is not an acceptable path unless C:\MyFolder is a mount point).
 - Failover Clustering is supported with Clustered Disks only, not with Cluster Shared Volumes (CSVs).
 - A server endpoint may not be nested, but can coexist on the same volume in parallel with each other.
-- Deleting a large number of directories from a server at once (over 10,000) may cause sync to fail - delete directories in batches of less than 10,000 and make sure the delete operations sync successfully before deleting the next batch.
+- Deleting a large number of directories from a server at once (over 10,000) may cause sync failures - delete directories in batches of less than 10,000 and make sure the delete operations sync successfully before deleting the next batch.
 - Not supported at the root of a volume.
 - Do not store an OS or application paging file within a server endpoint.
         
@@ -90,7 +90,7 @@ The following items do not sync, but the rest of the system will continue to ope
 - Certain (obscure) characters that are supported by NTFS and SMB are not supported by Azure Files (see naming conventions) and in some cases this can cause a file to be uploaded to Azure but fail to sync from there to another server and can even prevent other files from syncing properly - if you think you may have hit this issue we can help you identify the offending file and it will need to be deleted manually from the server and then from the Azure file share to allow sync to resume properly.
 - The storage account containing the Azure File share must be located in the same region where you deploy the Storage Sync Service.
  
-### Azure Portal
+### Azure portal
 - Pinning a Storage Sync Service to the dashboard works, but the tile is not yet functional.
  
 ### Cloud tiering
