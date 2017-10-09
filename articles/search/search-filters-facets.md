@@ -20,7 +20,7 @@ ms.author: heidist
 
 # How to build a facet filter in Azure Search 
 
-Faceted navigation is used for self-directed filtering on query results in a search app, where the application offers UI controls for scoping search to groups of doucments (for example, product categories, brands, or price ranges). In this article, quickly learn basic steps for creating a faceted navigation structure to back the search experience you want to create. 
+Faceted navigation is used for self-directed filtering on query results in a search app, where your application offers UI controls for scoping search to groups of dcuments (for example, categories or brands), and Azure Search provides the data stucture to back the experience. In this article, quickly learn basic steps for creating a faceted navigation structure to back the search experience you want to create. 
 
 > [!div class="checklist"]
 > * Choose fields for filtering and faceting
@@ -94,13 +94,45 @@ An intermediate (and perhaps obvious) step is that you have to [build and popula
 
 ## Add facet filters to a query
 
-STEPS TBD
+In application code, construct a query that returns a faceted navigation data structure. Build the UI to visualize the structure. Add logic to filter or trim results when a user clicks a facet.
 
-https://docs.microsoft.com/en-us/rest/api/searchservice/search-documents 
+MULTI-SELECT
+https://social.msdn.microsoft.com/Forums/azure/en-US/4b68aeb2-396a-45fd-b433-49cb92d37324/how-can-you-handle-multiselects-with-azure-search?forum=azuresearch
 
-## Handle results
+(1)
+By searching within a facet do you mean searching within say only those documents where category is "c1"? If so, then you can add &$filter=category eq 'c1' to your URL. If category is a multi-value field then do $filter=category/any(c: c eq 'c1')
 
-STEPS TBD
+(2)
+To assign multiple categories to a document, you need the category field to be of type "Collection(Edm.String)". It is still possible to facet on such fields.
+
+The syntax for uploading a string collection is pretty straightforward in JSON:
+
+{
+    "value": [
+        {
+            "@search.action": "upload",
+            "id": "123",
+            "categories": ["a", "b", "c"]
+        }
+    }
+}
+
+
+
+
+
+
+
+### Return a faceted navigation structure
+
+One of the challenges with facet navigation in Azure Search is that the structure provides only the 
+
+### Add visualization
+
+### Return filtered results on click events
+
+The filter expression handles the click event on the facet value. Given a Category facet, clicking the category "motel" is implemented through a `$filter` expression that selects accommodations of that type.
+
 
 <a name="facet-complex-fields"></a>
 

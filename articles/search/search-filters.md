@@ -65,6 +65,8 @@ Criteria provided in a filter qualifies a document for inclusion or exclusion in
 
 At query time, filter criteria are added to a filter tree that is evaluated before the query. In a complex expression with multiple parts, each part resolves to an atomic instruction in a filter tree. 
 
+You can specify predicates in any order. There is no appreciable difference in performance if you try to arrange predicates in a particular seqquence.
+
 > [!Note]
 > A filter is a query type, one of two, where the other query type is search. A search query searches for one or more terms in all searchable fields in your index. A filter query evaluates a boolean expression over filterable fields in an index. Filters, which can be complex, are broken down into atomic instructions, as a boolean expression, and added to a filter tree.
 
@@ -77,10 +79,10 @@ You can specify one filter for each **search** operation, but the filter itself 
 The following examples represent prototypical filters in several APIs.
 
 ```http
-# Use $filter for GET
+# Option 1:  Use $filter for GET
 GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2016-09-01
 
-# Use filter for POST and pass it in the header
+# Option 2: Use filter for POST and pass it in the header
 POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
 {
     "search": "*",
@@ -115,7 +117,7 @@ The following examples illustrate several design patterns for filter scenarios. 
    search=hotels ocean$filter=(baseRate ge 60 and baseRate lt 300) or city eq 'Los Angeles'
    ```
 
-+ "Contains" filters. Filters come with precision requirements for fully qualified terms. If you want to filter on a term that appears in a description, you can use the search.ismatch function to relax some of these restrictions.
++ "Contains" filters. Filters come with precision requirements for fully-qualified, case-sensitive terms. If you want to filter on a term that appears in a description, you can use the search.ismatch function to relax some of these restrictions.
 
   ```
    # search.ismatch selects documents where 'ocean' appears in any field, for a search on white sand.
@@ -126,7 +128,7 @@ The following examples illustrate several design patterns for filter scenarios. 
    search=white sand&$filter=tags/any(t: t eq 'ocean') 
   ```
 
-+ Multiple OR'd expressions, evaluated individually, with responses from each one combined into one result. The search.ismatch function is a query-plus-filter structure that can be repeated multiple times in one query. You can use the non-scored version (search.ismatch) or the scored version (search.ismatchscoring).
++ Multiple query-filter combinations, or defining search words to query on in separate fields ('beagles' in 'dog' or 'siamese' in 'cat'). OR'd expressions are evaluated individually, with responses from each one combined into one result sent back to the calling application. This design pattern is achieved through the search.ismatch function. You can use the non-scored version (search.ismatch) or the scored version (search.ismatchscoring).
 
    ```
    # Match on hostels rated higher than 4 OR 5-star motels.
@@ -166,7 +168,9 @@ Text filters are valid for string fields, from which you want to pull some arbit
 
 For text filters based on contents within a string field, low cardinality fields are the best candidates. Choose fields containing a relatively small number of values (such as a list of colors, countries, or brand names), and the number of conditions is also small (color eq ‘blue’ or color eq ‘yellow’). The performance benefit comes from caching, which Azure Search does for queries most likely to be repeated.
 
-For text filters composed of strings, there is no lexical analysis or word-breaking, so comparisons are for exact matches only. For example, assume a field *f* contains "sunny day", `$filter=f eq 'sunny'`does not match, but `$filter=f eq 'sunny day'` will. Similarly, in a filter, text strings are case-sensitive. There is no lower-casing of upper-cased words.
+For text filters composed of strings, there is no lexical analysis or word-breaking, so comparisons are for exact matches only. For example, assume a field *f* contains "sunny day", `$filter=f eq 'Sunny'`does not match, but `$filter=f eq 'Sunny day'` will. 
+
+Text strings are case-sensitive. There is no lower-casing of upper-cased words: `$filter=f eq 'Sunny day'` will not find 'sunny day'`.
 
 There are several mechanisms in Azure Search for creating text filters. 
 

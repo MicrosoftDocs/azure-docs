@@ -23,23 +23,36 @@ ms.author: heidist
 SEO: spatial search, geo-location
 
 what is it - a polygon
-describe the experience
+describe the experience | use case -- searching for something, like gas stations, order by distance with closest one first.
+
+In the query, the current location has to be passed in as a geo-coordinates. In results, you probably want proximity-based ordering, with the closest result first.
 
 Structure the index/fields
 Build and populate the index
 Structure the query
   Define polygon   
   URL encoding
-Handle result -visual
+Handle results
+  Order by distance
+  Map controls ?
+Scoring profiles distance functions
+
+Syntax is $orderby=
+
+
+That said, I'm wondering why you have both geo-sorting in your scoring profile and in the $orderby. From your description of the ordering you want, it sounds like $orderby should be sufficient. Whenever you use $orderby, it completely determines the order of the results (except for breaking ties, where scoring is used). This means that if you use $orderby, scoring profiles are of very limited usefulness.
+
+In contrast to $orderby, the purpose of the distance function in scoring profiles is to boost relevance of documents based on proximity to a location, but it is only part of the calculation that determines a document's score. This is useful when you want the user's search terms to influence the ordering of documents, but it will be a less predictable ordering since it is based on a relevance score.
+
+https://docs.microsoft.com/en-us/rest/api/searchservice/add-scoring-profiles-to-a-search-index#bkmk_indexref
+
+
+
 
 Geo Intersection returning Points outside of the Polygon
 
 The issue appears to be a combination of errors in URL encoding of the query, and incorrect syntax for the POLYGON literal.
 
-Question
-Sign in to vote
-0
-Sign in to vote
 The issue was resolved by url encoding the request, or (if using Fiddler) by replacing spaces with "+".
 
 

@@ -20,12 +20,12 @@ ms.author: heidist
 
 # How to filter by language  in Azure Search 
 
-A key requirement in a multilingual search application is presenting retrievable results in the user's language. In Azure Search, you can return translated strings from your index by using a combination of query parameters for searching and selecting specific fields.
+A key requirement in a multilingual search application is presenting retrievable results in the user's own language. In Azure Search, you can return translated strings from your index by using a combination of query parameters for search, along with selection of specific fields to show to the user.
 
 | Parameters | Purpose |
 |-----------|--------------|
 | searchField | Limits full text search to the list of named fields. |
-| $Select | Trims the response to include just the named fields. By default, all retrievable fields are returned. The $Select parameter returns only the fields you specify. |
+| $Select | Trims the response to include just the named fields. By default, all retrievable fields are returned. You cna use the $Select parameter to returns just the fields with translated strings. |
 
 > [!Note]
 > This approach is not technically a filter in that there is no $filter argument or OData expression. However, since the scenario is strongly affiliated with filter concepts, we present it as a filter use case.
@@ -49,7 +49,7 @@ An intermediate (and perhaps obvious) step is that you have to [build and popula
 
 Assuming your application logic includes language detection and you are providing UI pages in a given language, use **searchFields** to target the query at fields containing strings in that language. To limit results to just the translated strings, use **Select**. As noted before, all fields marked as Retrievable are included in the response. Using the **Select** query parameter gives you control over which ones are returned to the calling application.
 
-```charp
+```csharp
 parameters =
     new SearchParameters()
     {
