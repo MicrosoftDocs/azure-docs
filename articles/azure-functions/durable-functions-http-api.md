@@ -24,7 +24,7 @@ The Durable Task extension exposes a set of HTTP APIs that can be used to perfor
 * Send an event to a waiting orchestration instance.
 * Terminate a running orchestration instance.
 
-Each of these HTTP APIs are web hook operations that are handled directly by the Durable Task extension. They are not specific to any function in the function app.
+Each of these HTTP APIs are webhook operations that are handled directly by the Durable Task extension. They are not specific to any function in the function app.
 
 > [!NOTE]
 > These operations can also be invoked directly using the instance management APIs on the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) class. For more information, see [Instance Management](durable-functions-instance-management.md).
@@ -60,7 +60,7 @@ Location: https://{host}/webhookextensions/handler/DurableTaskExtension/instance
 }
 ```
 > [!NOTE]
-> The format of the web hook URLs may differ depending on which version of the Azure Functions host you are running. The above example is for the Azure Functions 2.0 host.
+> The format of the webhook URLs may differ depending on which version of the Azure Functions host you are running. The above example is for the Azure Functions 2.0 host.
 
 ## Async Operation Tracking
 

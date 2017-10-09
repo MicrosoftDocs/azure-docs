@@ -37,7 +37,7 @@ A task hub name can be configured in the *host.json* file of a function app.
 Task hub names must start with a letter and consist of only letters and numbers. If not specified, the default task hub name for a function app is **DurableFunctionsHub**.
 
 > [!NOTE]
-> If you have multiple function apps which share a storage account, it is recommended to configure a different task hub name for each function app. This ensures that each function app is properly isolated from each other.
+> If you have multiple function apps that share a storage account, it is recommended to configure a different task hub name for each function app. This ensures that each function app is properly isolated from each other.
 
 ## Azure Storage resources
 
@@ -48,7 +48,7 @@ A task hub consists of several Azure Storage resources:
 * One history table.
 * One storage container containing one or more lease blobs.
 
-All of these resources are created automatically in the default Azure Storage account when orchestrator or activity functions run or are scheduled to run. The [Performance & Scale](durable-functions-perf-and-scale.md) topic explains how these resources are used.
+All of these resources are created automatically in the default Azure Storage account when orchestrator or activity functions run or are scheduled to run. The [Performance & Scale](durable-functions-perf-and-scale.md) article explains how these resources are used.
 
 ## Next steps
 

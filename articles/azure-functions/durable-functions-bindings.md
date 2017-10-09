@@ -81,7 +81,7 @@ public static string Run([OrchestrationTrigger] DurableOrchestrationContext cont
 }
 ```
 
-In most cases, an orchestrator function will actually call another function as part of its implementation, so here is another "Hello World" example which demonstrates this:
+Most orchestrator functions call other functions, so here is a "Hello World" example that demonstrates how to call a function:
 
 ```csharp
 [FunctionName("HelloWorld")]
@@ -96,7 +96,7 @@ public static async Task<string> Run(
 
 ## Activity triggers
 
-The activity trigger enables you to author functions which are called by orchestrator functions.
+The activity trigger enables you to author functions that are called by orchestrator functions.
 
 If you're using Visual Studio, the activity trigger is configured using the [ActvityTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.ActivityTriggerAttribute.html) .NET attribute. 
 
@@ -207,9 +207,9 @@ Alternatively, you can bind to `IAsyncCollector<T>` where `T` is [StartOrchestra
 
 See the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) API documentation for additional details on these operations.
 
-### Client sample (Visual Studio Development)
+### Client sample (Visual Studio development)
 
-Here is an example queue-triggered function which starts a "HelloWorld" orchestration.
+Here is an example queue-triggered function that starts a "HelloWorld" orchestration.
 
 ```csharp
 [FunctionName("QueueStart")]
@@ -222,7 +222,7 @@ public static Task Run(
 }
 ```
 
-### Client sample (Non-Visual Studio)
+### Client sample (not Visual Studio)
 
 If you're not using Visual Studio for development, you can create the following function.json file. This example shows how to configure a queue-triggered function that uses the durable orchestration client binding:
 
