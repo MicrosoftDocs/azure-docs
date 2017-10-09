@@ -15,20 +15,6 @@
     href: container-registry-get-started-powershell.md
 - name: Tutorials
   items:
-  - name: Geo-replicating Azure Container Registry
-    items:
-    - name: 1 - Create container image
-      href: container-registry-tutorial-prepare-app.md
-    - name: 2 - Create container registry
-      href: container-registry-tutorial-prepare-acr.md
-    - name: 3 - Deploy region 1
-      href: container-registry-tutorial-geo-deploy-region1.md
-    - name: 4 - Configure geo-replication
-      href: container-registry-tutorial-geo-deploy-region1.md
-    - name: 5 - Deploy region 2
-      href: container-registry-tutorial-geo-deploy-region1.md
-    - name: 6 - Push an update, replicate to regions
-      href: container-registry-tutorial-geo-deploy-region1.md
   - name: Azure Container Instances
     href: ../container-instances/container-instances-tutorial-prepare-app.md
   - name: Azure Container Service
