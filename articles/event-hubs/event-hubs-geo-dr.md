@@ -118,9 +118,10 @@ To delete the alias, you must delete the geo-pairing. Once the pairing deletion 
 
 ## Next Steps
 
+See the Geo-disaster recovery [REST API reference here](/rest/api/eventhub/disasterrecoveryconfigs).
+
 For more information about Event Hubs, visit the following links:
 
-* [REST API reference](/rest/api/eventhub/disasterrecoveryconfigs)
 * Get started with an [Event Hubs tutorial](event-hubs-dotnet-standard-getstarted-send.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
 * [Sample applications that use Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
