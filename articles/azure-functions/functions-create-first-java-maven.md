@@ -55,7 +55,7 @@ In an empty folder, run the following command to generate the Functions project 
 mvn archetype:generate \
     -DarchetypeGroupId=com.microsoft.azure \
 	-DarchetypeArtifactId=azure-functions-archetype \
-    -DarchetypeVersion=1.0-SNAPSHOT
+    -DarchetypeVersion=1.0
 ```
 
 ### Windows (CMD)
