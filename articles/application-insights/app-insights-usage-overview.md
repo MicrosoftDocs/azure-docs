@@ -31,8 +31,9 @@ The best experience is obtained by installing Application Insights both in your 
 
     ![Copy the script into the head of your master web page.](./media/app-insights-usage-overview/02-monitor-web-page.png)
 
+3. **Mobile app code:** Use the Mobile Center SDK to collect events from your app, then send copies of these events to Application Insights for analysis by [following this guide](app-insights-mobile-center-quickstart.md).
 
-3. **Get telemetry:** Run your project in debug mode for a few minutes, and then look for results in the Overview blade in Application Insights.
+4. **Get telemetry:** Run your project in debug mode for a few minutes, and then look for results in the Overview blade in Application Insights.
 
     Publish your app to monitor your app's performance and find out what your users are doing with your app.
 
