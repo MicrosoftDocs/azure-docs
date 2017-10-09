@@ -49,9 +49,9 @@ ms.custom: H1Hack27Feb2017
 
 ## Release notes
 ### <a name="2.2.1"/>2.2.1
-* bugfix for aggregate dict
-* bugfix for trimming slashes in the resource link
-* tests for unicode encoding
+* Bug fix for aggregate dictionary.
+* Bug fix for trimming slashes in the resource link.
+* Added tests for Unicode encoding.
 
 ### <a name="2.2.0"/>2.2.0
 * Added support for a new consistency level called ConsistentPrefix.
