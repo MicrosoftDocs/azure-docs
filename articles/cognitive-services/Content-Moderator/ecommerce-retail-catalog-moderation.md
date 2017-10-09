@@ -1,6 +1,6 @@
 ---
-title: Classify and moderate eCommerce product catalogs with Azure Content Moderator | Microsoft Docs
-description: Use Content Moderator with eCommerce product catalogs
+title: Moderate eCommerce catalogs with Azure Content Moderator | Microsoft Docs
+description: Use Content Moderator to moderate with eCommerce catalogs
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -12,9 +12,9 @@ ms.date: 09/25/2017
 ms.author: sajagtap
 ---
 
-# eCommerce content classification and moderation
+# Moderate eCommerce catalogs with Content Moderator
 
-In this tutorial, we learn how to use the Content Moderator platform with Computer Vision and Custom Vision services. The solution combines machine assisted classification with human review capabilities to classify eCommerce catalog images.
+In this tutorial, we learn how to use the Content Moderator APIs and human review tools with Computer Vision and Custom Vision APIs. The solution combines machine assisted classification with human review capabilities to moderate eCommerce catalogs.
 
 ![Classified product images](images/tutorial-ecommerce-content-moderator.PNG)
 
