@@ -20,29 +20,18 @@ ms.custom:
 ---
 # Azure Cosmos DB Python SDK: Release notes and resources
 > [!div class="op_single_selector"]
-> * [.NET](documentdb-sdk-dotnet.md)
-> * [.NET Change Feed](documentdb-sdk-dotnet-changefeed.md)
-> * [.NET Core](documentdb-sdk-dotnet-core.md)
-> * [Node.js](documentdb-sdk-node.md)
-> * [Java](documentdb-sdk-java.md)
-> * [Python](documentdb-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/documentdb/)
-> * [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-> 
-> 
+> * [.NET](table-sdk-dotnet.md)
+ 
 
 <table>
 
-<tr><td>**Download SDK**</td><td>[PyPI](https://pypi.python.org/pypi/azure-cosmosdb-table/0.37.1)</td></tr>
+<tr><td>**Download SDK**</td><td>[PyPI](https://pypi.python.org/pypi/azure-cosmosdb-table/)</td></tr>
 
 <tr><td>**API documentation**</td><td>TBD</td></tr>
 
 <tr><td>**SDK installation instructions**</td><td>TBD</td></tr>
 
-<tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-tables-python)</td></tr>
-
-<tr><td>**Samples**</td><td>[Azure Cosmos DB Python examples](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-python-samples)</td></tr>
+<tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)</td></tr>
 
 <tr><td>**Current supported platform**</td><td>[Python 2.7] or (https://www.python.org/downloads/), [Python 3.3, 3.4, 3.5, or 3.6] (https://www.python.org/downloads/)</td></tr>
 </table></br>
