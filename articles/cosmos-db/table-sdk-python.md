@@ -33,7 +33,7 @@ ms.custom:
 
 <tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)</td></tr>
 
-<tr><td>**Current supported platform**</td><td>[Python 2.7] or (https://www.python.org/downloads/), [Python 3.3, 3.4, 3.5, or 3.6] (https://www.python.org/downloads/)</td></tr>
+<tr><td>**Current supported platform**</td><td>[Python 2.7] (https://www.python.org/downloads/), or [Python 3.3, 3.4, 3.5, or 3.6] (https://www.python.org/downloads/)</td></tr>
 </table></br>
 
 ## Release notes
