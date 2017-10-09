@@ -1,36 +1,20 @@
-# Get help developing applications that integrate with Azure Active Directory
+# Support and help options for developers 
 
-See the following options if you need help for development related questions:
+If you need help or support for development-related questions, use one of the options below:
 
 ## 1. Search
 
 If you have a development related question, you may be able to find the answer you need on our documentation, our [github samples](https://github.com/azure-samples), or [Stack Overflow](https://www.stackoverflow.com).
 
 Type your problem or scenario on the following search box for a scoped search on Stack Overflow, our docs.microsoft.com, and code samples:
+<br/><br/>
 <div>
-<form method="get" action="http://www.bing.com/search" target="_blank">
-<table border="0" align="center" cellpadding="0">
-<tr><td>
-<input aria-label="Bing Scoped Search" type="search" placeholder="Bing Scoped Search" name="q" size="45">
+<form method="get" class="clearFilter" action="http://www.bing.com/search" target="_blank">
+<input aria-label="Bing scoped search" type="search" placeholder="Bing scoped search" name="q" size="45">
+<a title="Clear Filter" class="clearInput" href="#"><span class="visually-hidden">Clear Filter</span></a>
 <input type="submit" value="Search" />
-<input type="hidden" value="(site:stackoverflow.com OR site:docs.microsoft.com/azure/active-directory/develop OR site:github.com/azure-samples OR site:cloudidentity.com)" /></td></tr>
-</table>
+<input type="hidden" name="q1" value="(site:stackoverflow.com OR site:docs.microsoft.com/azure/active-directory/develop OR site:github.com/azure-samples OR site:cloudidentity.com)" /></td></tr>
 </form>
-</div>
-xxxx
-<div>
-<script>
-  (function() {
-    var cx = '009064582482013993705:47sd94mwzya';
-    var gcse = document.createElement('script');
-    gcse.type = 'text/javascript';
-    gcse.async = true;
-    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(gcse, s);
-  })();
-</script>
-<gcse:search></gcse:search>
 </div>
 
 ## 2. Stack Overflow
@@ -50,6 +34,7 @@ If you cannot find an answer with Search, submit a new question on Stack Overflo
 |[Microsoft Graph API](https://developer.microsoft.com/graph/) |[[microsoft-graph]](http://stackoverflow.com/questions/tagged/microsoft-graph)
 |Any other area related to authentication or authorization |[[azure-active-directory]](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
+
 > [!TIP]
 > The following posts from Stack Overflow can help you to make a good questions so community members can assess and respond to these questions quickly:  
 > - [How do I ask a good question](https://stackoverflow.com/help/how-to-ask)
@@ -61,8 +46,8 @@ If you cannot find an answer with Search, submit a new question on Stack Overflo
 
  If you find a bug or problem related to our libraries, please raise an issue on our GitHub repositories. Because our libraries are open source, you are also free to submit a pull request as well. A list of github repositories for our libraries can be found here:
 
-- [V1 libraries: ADAL and Owin Middleware](./active-directory-authentication-libraries)
-- [V2 libraries: MSAL and Owin Middleware](./active-directory-v2-libraries)
+- [V1 libraries: ADAL and Owin Middleware](active-directory-authentication-libraries)
+- [V2 libraries: MSAL and Owin Middleware](active-directory-v2-libraries)
 
 ## 4. Open a support request
 
