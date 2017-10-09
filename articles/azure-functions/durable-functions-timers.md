@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
-ms.author: cgillum
+ms.author: azfuncdf
 ---
 
 # Timers in Durable Functions (Azure Functions)
@@ -49,7 +49,7 @@ public static async Task Run(
 ```
 
 > [!WARNING]
-> Avoid infinite loops in orchestrator functions. For information about how to safely and efficiently implement infinite loop scenarios, see the [Eternal Orchestrations](durable-functions-eternal-orchestrations.md) topic 
+> Avoid infinite loops in orchestrator functions. For information about how to safely and efficiently implement infinite loop scenarios, see [Eternal Orchestrations](durable-functions-eternal-orchestrations.md). 
 
 ## Usage for timeout
 

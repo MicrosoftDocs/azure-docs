@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
-ms.author: cgillum
+ms.author: azfuncdf
 ---
 
 # Diagnostics in Durable Functions (Azure Functions)
@@ -64,7 +64,7 @@ The verbosity of tracking data emitted to Application Insights can be configured
 By default, all tracking events are emitted. The volume of data can be reduced by setting `Host.Triggers.DurableTask` to `"Warning"` or `"Error"` in which case tracking events will only be emitted for exceptional situations.
 
 > [!WARNING]
-> By default, Application Insights telemetry is sampled by the Azure Functions runtime to avoid emitting data too frequently. This can cause tracking information to be lost when many lifecycle events occur in a short period of time. See the [Configure sampling](functions-monitoring.md#configure-sampling) section of the Azure Functions Monitoring topic to learn how this behavior can be configured.
+> By default, Application Insights telemetry is sampled by the Azure Functions runtime to avoid emitting data too frequently. This can cause tracking information to be lost when many lifecycle events occur in a short period of time. The [Azure Functions Monitoring article](functions-monitoring.md#configure-sampling) explains how to configure this behavior.
 
 ### Single instance query
 

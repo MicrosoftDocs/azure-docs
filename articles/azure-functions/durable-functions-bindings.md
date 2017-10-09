@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
-ms.author: cgillum
+ms.author: azfuncdf
 ---
 
 # Bindings for Durable Functions (Azure Functions)
@@ -39,7 +39,7 @@ When you write orchestrator functions in scripting languages (for example, in th
 ```
 
 * `orchestration` is the name of the orchestration. This is the value that clients must use when they want to start new instances of this orchestrator function. This property is optional. If not specified, the name of the function is used.
-* `version` is a version label of the orchestration. Clients that start a new instance of an orchestration must include the matching version label. This property is optional. If not specified, the empty string is used. For more information on versioning, see the [Versioning](durable-functions-versioning.md) topic.
+* `version` is a version label of the orchestration. Clients that start a new instance of an orchestration must include the matching version label. This property is optional. If not specified, the empty string is used. For more information on versioning, see [Versioning](durable-functions-versioning.md).
 
 > [!NOTE]
 > Setting values for `orchestration` or `version` properties is not recommended at this time.
@@ -113,7 +113,7 @@ If you're using the Azure portal for development, the activity trigger is define
 ```
 
 * `activity` is the name of the activity. This is the value that orchestrator functions use to invoke this activity function. This property is optional. If not specified, the name of the function is used.
-* `version` is a version label of the activity. Orchestrator functions that invoke an activity must include the matching version label. This property is optional. If not specified, the empty string is used. For more information on versioning, see the [Versioning](durable-functions-versioning.md) topic.
+* `version` is a version label of the activity. Orchestrator functions that invoke an activity must include the matching version label. This property is optional. If not specified, the empty string is used. For more information, see [Versioning](durable-functions-versioning.md).
 
 > [!NOTE]
 > Setting values for `activity` or `version` properties is not recommended at this time.
@@ -277,7 +277,7 @@ module.exports = function (context, input) {
 };
 ```
 
-More details on starting instances can be found in the [Instance Management](durable-functions-instance-management.md) topic.
+More details on starting instances can be found in [Instance management](durable-functions-instance-management.md).
 
 ## Next steps
 

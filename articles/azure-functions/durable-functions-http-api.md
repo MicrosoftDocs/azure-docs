@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
-ms.author: cgillum
+ms.author: azfuncdf
 ---
 
 # HTTP APIs in Durable Functions (Azure Functions)
@@ -144,7 +144,7 @@ Here is an example response payload (formatted for readability):
 }
 ```
 
-The **HTTP 202** response also includes a **Location** response header which references the same URL has the `statusQueryGetUri` field mentioned previously.
+The **HTTP 202** response also includes a **Location** response header that references the same URL as the `statusQueryGetUri` field mentioned previously.
 
 ### Raise Event
 
