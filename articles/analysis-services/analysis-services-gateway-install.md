@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 10/09/2017
 ms.author: owend
 
 ---
@@ -40,6 +40,7 @@ An on-premises data gateway is required when one or more Azure Analysis Services
 * Only one gateway can be installed on a single computer.
 * Install the gateway on a computer that remains on and does not go to sleep.
 * Do not install the gateway on a computer wirelessly connected to your network. Performance can be diminished.
+* Sign in to Azure with an account in Azure AD for the same [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) as the subsciption you are registering the gateway in. Azure B2B (guest) accounts are not supported when installing and registering a gateway.
 
 
 ## <a name="download"></a>Download
@@ -53,7 +54,7 @@ An on-premises data gateway is required when one or more Azure Analysis Services
 
    ![Install location and license terms](media/analysis-services-gateway-install/aas-gateway-installer-accept.png)
 
-3. Enter an account to sign in to Azure. The account must be in your tenant's Azure Active Directory. This account is used for the gateway administrator. 
+3. Enter an account to sign in to Azure. The account must be in your tenant's Azure Active Directory. This account is used for the gateway administrator. Azure B2B (guest) accounts are not supported when installing and registering the gateway.
 
    ![Enter an account to sign in to Azure](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
 
@@ -85,7 +86,6 @@ After you've installed and registered your gateway, you need to create a gateway
 
     * **Subscription**: Select the Azure subscription 
     to associate with your gateway resource. 
-    This subscription should be the same subscription your servers are in.
    
       The default subscription is based on the 
       Azure account that you used to sign in.
