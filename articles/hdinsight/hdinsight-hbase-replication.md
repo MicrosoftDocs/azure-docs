@@ -237,7 +237,6 @@ In this tutorial, you learned how to set up HBase replication within a virtual n
 * [Get started with Apache HBase in HDInsight][hdinsight-hbase-get-started]
 * [HDInsight HBase overview][hdinsight-hbase-overview]
 * [Create HBase clusters in Azure Virtual Network][hdinsight-hbase-provision-vnet]
-* [Analyze real-time Twitter sentiment with HBase][hdinsight-hbase-twitter-sentiment]
 * [Analyze sensor data with Storm and HBase in HDInsight (Hadoop)][hdinsight-sensor-data]
 
 [hdinsight-hbase-geo-replication-vnet]: hdinsight-hbase-geo-replication-configure-vnets.md
@@ -250,7 +249,6 @@ In this tutorial, you learned how to set up HBase replication within a virtual n
 [hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started-linux.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 [hdinsight-sensor-data]: hdinsight-storm-sensor-data-analysis.md
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
