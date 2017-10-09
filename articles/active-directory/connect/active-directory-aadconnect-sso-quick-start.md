@@ -99,11 +99,11 @@ By default, the browser automatically calculates the right zone (Internet or Int
 
 6. Navigate to **User Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page\Intranet Zone** and select **Allow updates to status bar via script**.
 
-![Single sign-on](./media/active-directory-aadconnect-sso/sso6.png)
+![Single sign-on](./media/active-directory-aadconnect-sso/sso11.png)
 
-7. Enable the policy setting, and click **OK** and **OK** again.
+7. Enable the policy setting, and click **OK**.
 
-![Single sign-on](./media/active-directory-aadconnect-sso/sso7.png)
+![Single sign-on](./media/active-directory-aadconnect-sso/sso12.png)
 
 ### Browser considerations
 
