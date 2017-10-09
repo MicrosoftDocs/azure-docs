@@ -269,10 +269,6 @@ ms.author: renash
 * **Using Azure Files with IBM MQ**  
     IBM has released a document to guide IBM MQ customers when configuring Azure Files with their service. For more information, please check out [How to setup IBM MQ Multi instance queue manager with Microsoft Azure File Service](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
 
-## Troubleshooting
-* **How do I troubleshoot Azure Files errors?**  
-    You can refer to [Azure Files Troubleshooting Article](storage-troubleshoot-windows-file-connection-problems.md) for end-to-end troubleshooting guidance. 
-
 ## See also
 * [Troubleshoot Azure Files problems in Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Troubleshoot Azure Files problems in Linux](storage-troubleshoot-linux-file-connection-problems.md)
