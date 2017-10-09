@@ -13,7 +13,7 @@ ms.author: v-brapel
 ---
 
 # Search your custom instance
-Before making your first call to the Custom Search API to get search results for your instance, you need to get a Cognitive Services subscription key. To get a key for Custom Search API, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api). Use the same MSA that you used to create your instance in the portal.
+Before making your first call to the Custom Search API to get search results for your instance, you need to get a Cognitive Services subscription key. To get a key for Custom Search API, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).
 To get search results for your custom search instance, send an HTTP GET request to:
 
 `https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search`
