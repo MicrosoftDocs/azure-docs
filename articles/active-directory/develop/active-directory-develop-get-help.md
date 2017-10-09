@@ -1,12 +1,12 @@
 # Support and help options for developers 
 
-If you need help or support for development-related questions, use one of the options below:
+If you need help or support for development-related questions, use one of the following options:
 
 ## 1. Search
 
-If you have a development related question, you may be able to find the answer you need on our documentation, our [github samples](https://github.com/azure-samples), or [Stack Overflow](https://www.stackoverflow.com).
+If you have a development-related question, you may be able to find the answer you need on our documentation, our [github samples](https://github.com/azure-samples), or [Stack Overflow](https://www.stackoverflow.com).
 
-Type your problem or scenario on the following search box for a scoped search on Stack Overflow, our docs.microsoft.com, and our code samples:
+Type your problem, question or error on the following search box to search on Stack Overflow, docs.microsoft.com, and our code samples:
 <br/><br/>
 <div>
 <form method="get" class="clearFilter" action="http://www.bing.com/search" target="_blank">
@@ -21,13 +21,13 @@ Type your problem or scenario on the following search box for a scoped search on
 
 |Tool  |Description  |
 |---------|---------|
-|[jwt.ms](https://jwt.ms)| Paste an Id or Access tokens to decode the claims names an values |
+|[jwt.ms](https://jwt.ms)| Paste an Id or Access tokens to decode the claims names and values |
 |[Error code analyzer](https://apps.dev.microsoft.com/portal/tools/errors)| Paste an error code received during sign-in or consent to see possible causes and remediation |
 
 ## 3. Post to Stack Overflow
 [![Stack Overflow](media/active-directory-develop-get-help/stackoverflow-logo.png)](www.stackoverflow.com)
 
-Stack Overflow is the preferred channel for development related questions - where both members of community as Microsoft team members are directly involved on helping you to solve your problem.
+Stack Overflow is the preferred channel for development-related questions - where both members of community as Microsoft team members are directly involved on helping you to solve your problem.
 
 If you cannot find an answer to your problem with Search, submit a new question to Stack Overflow: use one of the following tags when making questions to help the community identify then answer your question on a timely manner:
 
@@ -44,7 +44,7 @@ If you cannot find an answer to your problem with Search, submit a new question 
 <br/>
 
 > [!TIP]
-> The following posts from Stack Overflow contains tips on how to make questions, and guidelines on adding source code - this helps increase the chances for community members to assess and respond to your question quickly:  
+> The following posts from Stack Overflow contain tips on how to make questions, and guidelines on adding source code - to help increase the chances for community members to assess and respond to your question quickly:  
 > - [How do I ask a good question](https://stackoverflow.com/help/how-to-ask)
 > - [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve)
 
