@@ -94,10 +94,15 @@ By default, the browser automatically calculates the right zone (Internet or Int
 > If you want to disallow some users from using Seamless SSO - for instance, if these users are signing in on shared kiosks - set the preceding values to *4*. This action adds the Azure AD URLs to the Restricted Zone, and fails Seamless SSO all the time.
 
 5. Click **OK** and **OK** again.
+
 ![Single sign-on](./media/active-directory-aadconnect-sso/sso7.png)
+
 6. Navigate to **User Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page\Intranet Zone** and select **Allow updates to status bar via script**.
+
 ![Single sign-on](./media/active-directory-aadconnect-sso/sso6.png)
+
 7. Enable the policy setting, and click **OK** and **OK** again.
+
 ![Single sign-on](./media/active-directory-aadconnect-sso/sso7.png)
 
 ### Browser considerations
