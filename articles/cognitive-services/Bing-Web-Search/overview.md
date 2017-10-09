@@ -3,9 +3,8 @@ title: Bing Web Search API overview | Microsoft Docs
 description: Shows how to use the Bing Web Search API to search the web for webpages, images, news, videos, and more.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-
-ms.assetid: 3E66B979-A359-4835-865B-5D2E6F8B8454
+manager: rosh
+ms.assetid: 
 ms.service: cognitive-services
 ms.technology: bing-web-search
 ms.topic: article
@@ -13,9 +12,9 @@ ms.date: 01/12/2017
 ms.author: scottwhi
 ---
 
-# Search the web
+# About Bing Web Search API
 
-The Web Search API provides a similar (but not exact) experience to Bing.com/Search by returning search results that Bing determines are relevant to the specified user's query. The results include webpages and may include images, videos, and more. 
+The Web Search API provides similar (but not exact) experience to Bing.com/Search by returning search results that Bing determines are relevant to the specified user's query. The results include webpages and may include images, videos, and more. 
 
 If you're building a search results page that displays any content that's relevant to the user's search query, call this API instead of calling the other content-specific Bing APIs. The only time you should need to call the content-specific APIs, such as the [Image Search API](../bing-image-search/search-the-web.md) or [News Search API](../bing-news-search/search-the-web.md), is if you need answers from only that API. For example, if you're building an image-only search results page or a news-only search results page.
 
@@ -442,34 +441,6 @@ Query: What time is it in the U.S.
 ```  
 
   
-<a name="translationqueries"></a>   
-### Translation answer
-  
-If the query asks Bing to translate text (a word or phrase) from one language to another, the response may contain a [Translation](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#translation) answer. For example, *translate bathroom to spanish* or *translate bathroom from english to french*. The query string needs to include the language to translate the text to (for example, *to spanish* or *to french*). If the query string does not explicitly state the language to translate from, Bing determines the language based on the text. In these examples, Bing uses English since *bathroom* is an English word. 
-  
-The following shows an example of a `Translations` answer to the query, *translate bathroom to spanish*.  
-  
-```  
-    "translations" : {
-        "id" : "https:\/\/www.bingapis.com\/api\/v7\/#Translations",
-        "contractualRules" : [{
-            "_type" : "ContractualRules\/LinkAttribution",
-            "text" : "Microsoft Translator",
-            "url" : "http:\/\/www.bing.com\/translator\/?ref=TThis&...",
-            "urlPingSuffix" : "DevEx,5309.1"
-        }],
-        "attributions" : [{
-            "providerDisplayName" : "Microsoft Translator",
-            "seeMoreUrl" : "http:\/\/www.bing.com\/translator\/?ref=...",
-            "seeMoreUrlPingSuffix" : "DevEx,5309.1"
-        }],
-        "originalText" : "bathroom",
-        "translatedText" : "cuarto de baño",
-        "translatedLanguageName" : "es",
-        "inLanguage" : "en"
-    },
-```
-  
 ### SpellSuggestion answer
 
 If Bing determines that the user may have intended to search for something different, the response includes a [SpellSuggestions](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#spellsuggestions) object. For example, if the user searches for *carlos pen*, Bing may determine that the user likely intended to search for Carlos Pena instead (based on past searches by others of *carlos pen*). The following shows an example spell response.  
@@ -508,4 +479,3 @@ Bing returns only a subset of the possible results in each response. If you want
 To improve your search box user experience, see [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md). As the user enters their query term, you can call this API to get relevant query terms that were used by others.
 
 Be sure to read [Bing Use and Display Requirements](./useanddisplayrequirements.md) so you don't break any of the rules about using the search results.
-

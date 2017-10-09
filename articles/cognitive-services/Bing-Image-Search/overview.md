@@ -112,7 +112,7 @@ To get insights about the image, such as web pages that include the image or peo
   
 -   [license](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#license)—Filter images by the type of license associated with the site  
   
--   [size](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#size)—Filter images by size, such as small images up to 200x200 pixels  
+-   [size](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-eference#size)—Filter images by size, such as small images up to 200x200 pixels  
   
 To get images from a specific domain, use the [site:](http://msdn.microsoft.com/library/ff795613.aspx) query operator. 
 
@@ -136,7 +136,7 @@ If Bing can segment the original search query, the [Images](https://docs.microso
   
 The following example shows the pivot suggestions for *Microsoft Surface*.  
   
-```json
+```  
 {  
     "_type" : "Images",  
     "webSearchUrl" : "https:\/\/www.bing.com\/images\/search?q=microsoft%20surface&FORM=OIIARP",  
@@ -149,7 +149,7 @@ The following example shows the pivot suggestions for *Microsoft Surface*.
             "text" : "OtterBox Surface",  
             "displayText" : "OtterBox",  
             "webSearchUrl" : "https:\/\/www.bing.com\/images\/search?q=OtterBox+Surface&FORM=IRQBPS",  
-            "searchLink" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/images\/search?q=OtterBox...",  
+            "searchLink" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/images\/search?q=OtterBox...",  
                     "searchLink" : "https:\/\/api.cognitive.microsoft.com\/api...",
             "thumbnail" : {  
                 "thumbnailUrl" : "https:\/\/tse3.mm.bing.net\/th?q=OtterBox+Surface..."  
@@ -159,7 +159,7 @@ The following example shows the pivot suggestions for *Microsoft Surface*.
             "text" : "Sony Surface",  
             "displayText" : "Sony",  
             "webSearchUrl" : "https:\/\/www.bing.com\/images\/search?q=Sony+Surface&FORM=IRQBPS",  
-            "searchLink" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/images\/search?q=...",  
+            "searchLink" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/images\/search?q=...",  
             "thumbnail" : {  
                 "thumbnailUrl" : "https:\/\/tse3.mm.bing.net\/th?q=Sony+Surface&pid=Ap..."  
             }  
@@ -173,7 +173,7 @@ The following example shows the pivot suggestions for *Microsoft Surface*.
             "text" : "Microsoft Surface4",  
             "displayText" : "Surface2",  
             "webSearchUrl" : "https:\/\/www.bing.com\/images\/search?q=Microsoft+Surface...",  
-            "searchLink" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/images\/search?...",  
+            "searchLink" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/images\/search?...",  
             "thumbnail" : {  
                 "thumbnailUrl" : "https:\/\/tse4.mm.bing.net\/th?q=Microsoft..."  
             }  
@@ -182,14 +182,14 @@ The following example shows the pivot suggestions for *Microsoft Surface*.
             "text" : "Microsoft Tablet",  
             "displayText" : "Tablet",  
             "webSearchUrl" : "https:\/\/www.bing.com\/images\/search?q=Microsoft+Tablet&FORM=IRQBPS",  
-            "searchLink" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/images\/search?...",  
+            "searchLink" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/images\/search?...",  
             "thumbnail" : {  
                 "thumbnailUrl" : "https:\/\/tse3.mm.bing.net\/th?q=Microsoft+Tablet..."  
             }  
         },  
         ...  
     }],  
-    "nextOffset" : 10  
+    "nextOffsetAddCount" : 0  
 }  
 ```  
 
@@ -215,7 +215,7 @@ If Bing can expand the query to narrow the original search, the [Images](https:/
 
 The following example shows the expanded queries for *Microsoft Surface*.  
   
-```json
+```  
 {  
     "_type" : "Images",  
     "webSearchUrl" : "https:\/\/www.bing.com\/images\/search?q=microsoft%20surface...",  
@@ -225,7 +225,7 @@ The following example shows the expanded queries for *Microsoft Surface*.
         "text" : "Microsoft Surface Pro 3",  
         "displayText" : "Pro 3",  
         "webSearchUrl" : "https:\/\/www.bing.com\/images\/search?q=Microsoft+Surface+Pro+3...",  
-        "searchLink" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/images\/search?q=Microsoft...",  
+        "searchLink" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/images\/search?q=Microsoft...",  
         "thumbnail" : {  
             "thumbnailUrl" : "https:\/\/tse4.mm.bing.net\/th?q=Microsoft+Surface+Pro+3..."  
         }  
@@ -234,7 +234,7 @@ The following example shows the expanded queries for *Microsoft Surface*.
         "text" : "Microsoft Surface RT",  
         "displayText" : "RT",  
         "webSearchUrl" : "https:\/\/www.bing.com\/images\/search?q=Microsoft+Surface+RT...",  
-        "searchLink" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/images\/search?q=...",  
+        "searchLink" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/images\/search?q=...",  
         "thumbnail" : {  
             "thumbnailUrl" : "https:\/\/tse4.mm.bing.net\/th?q=Microsoft+Surface+RT..."  
         }  
@@ -243,15 +243,16 @@ The following example shows the expanded queries for *Microsoft Surface*.
         "text" : "Microsoft Surface Phone",  
         "displayText" : "Phone",  
         "webSearchUrl" : "https:\/\/www.bing.com\/images\/search?q=Microsoft+Surface+Phone",  
-        "searchLink" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/images\/search?q=...",  
+        "searchLink" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/images\/search?q=...",  
         "thumbnail" : {  
             "thumbnailUrl" : "https:\/\/tse4.mm.bing.net\/th?q=Microsoft+Surface+Phone..."  
         }  
     }],  
     "pivotSuggestions" : [...],  
-    "nextOffset" : 10  
+    "nextOffsetAddCount" : 0  
 }  
 ```  
+
 
 The `queryExpansions` field contains a list of [Query](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query_obj) objects. The `text` field contains the expanded query and the `displayText` field contains the expansion term. You can use the `text` and `thumbnail` fields to display the expanded query strings to the user in case the expanded query string is really what they're looking for. Make the thumbnail and text clickable using the `webSearchUrl` URL or `searchLink` URL. Use `webSearchUrl` to send the user to the Bing search results, or `searchLink` if you provide your own results page. 
 
@@ -259,9 +260,12 @@ The following shows an example Bing implementation that uses expanded queries. I
 
 ![Query expansion suggestions](./media/cognitive-services-bing-images-api/bing-image-queryexpansion.GIF)
 
+
+
 ## Throttling requests
 
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
+
 
 ## Next steps
 

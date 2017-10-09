@@ -17,27 +17,24 @@ ms.author: scottwhi
 
 To get today's trending images, send the following GET request:  
   
-```
-GET https://api.cognitive.microsoft.com/bing/v7.0/images/trending?mkt=en-us HTTP/1.1
+GET https://api.cognitive.microsoft.com/bing/v7.0/images/trending?mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
-User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)  
 X-MSEdge-ClientIP: 999.999.999.999  
 X-Search-Location: lat:47.60357;long:-122.3295;re:100  
 X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 Host: api.cognitive.microsoft.com  
-```
   
 Trending Images supports only the following markets:  
    
--   en-US (English, United States)  
--   en-CA (English, Canada)  
--   en-AU (English, Australia)  
--   zh-CN (Chinese, China)
+- en-US (English, United States)  
+- en-CA (English, Canada)  
+- en-AU (English, Australia)  
+- zh-CN (Chinese, China)
 
 The response contains a [TrendingImages](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#trendingimages) object that lists images by category. Use the category's `title` to group the images in your user experience. The categories may change daily.  
   
-```  
-{  
+```json
+{
     "_type" : "TrendingImages",  
     "categories" : [{  
         "title" : "Popular people searches",  
@@ -89,12 +86,11 @@ If you call the Image Search API to get the related images, set the [id](https:/
 
 The following example shows how to use the image ID to get related images of Mr. Smith in the preceding trending images response.
 
-```
-GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=Smith&id=77FDE4A1C6529A23C7CF0EC073FAA64843E828F2&mkt=en-us HTTP/1.1
+```  
+GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=Smith&id=77FDE4A1C6529A23C7CF0EC073FAA64843E828F2&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
-User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)  
 X-MSEdge-ClientIP: 999.999.999.999  
 X-Search-Location: lat:47.60357;long:-122.3295;re:100  
 X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 Host: api.cognitive.microsoft.com  
-```
+```  
