@@ -53,6 +53,8 @@
         href: log-analytics-azure-vm-extension.md
       - name: Azure resources
         href: log-analytics-azure-storage.md
+      - name: Diagnostic or log data from Azure storage
+        href: log-analytics-azure-storage-iis-table.md
       - name: Operations Manager
         href: log-analytics-om-agents.md
       - name: Configuration Manager
@@ -111,7 +113,13 @@
     - name: Dashboards
       href: log-analytics-dashboards.md
     - name: View Designer
-      href: log-analytics-view-designer.md
+      items:
+        - name: View Designer overview
+          href: log-analytics-view-designer.md
+        - name: Tile reference
+          href: log-analytics-view-designer-tiles.md
+        - name: Visualization part reference
+          href: log-analytics-view-designer-parts.md
     - name: Power BI
       href: log-analytics-powerbi.md
   - name: Create alerts
