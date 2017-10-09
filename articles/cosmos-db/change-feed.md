@@ -163,7 +163,7 @@ One more thing to note, the **ETag** on **FeedResponse** is different than the 
 So, your checkpoint array is just keeping the LSN for each partition. But if you don’t want to deal with the partitions, checkpoints, LSN, start time, etc. the simpler option is to use the Change Feed Processor Library.
 
 <a id="change-feed-processor"></a>
-## Using Change Feed Processor library 
+## Using the Change Feed Processor library 
 
 The [Azure Cosmos DB Change Feed Processor library](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet-changefeed) can help you easily distribute event processing across multiple consumers. This library simplifies reading changes across partitions and multiple threads working in parallel.
 
