@@ -46,41 +46,36 @@ Key Vault performs several internal management functions on your behalf when you
 
 Developers used to need to do the following practices with a storage account key to get access to Azure storage. 
  
-```powershell
-//create an Azure Storage Account using a connection string containing an account name and a storage key 
+```csharp
+// Create an Azure Storage Account using a connection string containing an account name and a storage key 
 
 var storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
 var blobClient = storageAccount.CreateCloudBlobClient();
- ```
+```
  
 ### After Azure Key Vault Storage Keys 
 
 ```powershell
-//Make sure to set storage permissions appropriately on your key vault
+# Make sure to set storage permissions appropriately on your key vault
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourVault' -ObjectId yourObjectId -PermissionsToStorage all
 
-//Get secret URI 
-
-Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service -VaultName yourKV  
-
+# Get secret URI 
+Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service -VaultName yourKV 
 -AccountName msak01 -Name blobsas1 -Protocol HttpsOnly -ValidityPeriod ([System.Timespan]::FromDays(1)) -Permission Read,List
-
-//Get a SAS token from Key Vault
-
-var secret = await kv.GetSecretAsync("SecretUri");
+```
+```csharp
+// Get a SAS token from Key Vault
+var secret = await kv.GetSecretAsync("msak01-blobsas1");
 
 // Create new storage credentials using the SAS token. 
-
 var accountSasCredential = new StorageCredentials(secret.Value); 
 
 // Use the storage credentials and the Blob storage endpoint to create a new Blob service client. 
-
 var accountWithSas = new CloudStorageAccount(accountSasCredential, new Uri ("https://myaccount.blob.core.windows.net/"), null, null, null); 
 
 var blobClientWithSas = accountWithSas.CreateCloudBlobClient(); 
  
 // If your SAS token is about to expire, Get sasToken again from Key Vault and update it.
-
 accountSasCredential.UpdateSASToken(sasToken);
 ```
 
@@ -102,7 +97,7 @@ Key Vault needs permissions to *list* and *regenerate* keys for a storage accoun
     
      or
      
-    `Get-AzureRmADServicePrincipal -SearchString "AzureKeyVault"`
+    `Get-AzureRmADServicePrincipal -SearchString "Azure Key Vault"`
 
 - Assign Storage Key Operator role to Azure Key Vault Identity: 
 
@@ -141,7 +136,7 @@ Get-AzureRmADUser -SearchString "your name"
 Now search for your name and get the related ObjectId, which you will use in setting permissions on the vault.
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId yourUserPrincipalId -PermissionsToStorage all
+Set-AzureRmKeyVaultAccessPolicy -VaultName yourtest1 -ObjectId yourUserPrincipalId -PermissionsToStorage All
 ```
 
 ### Allow access
@@ -162,11 +157,10 @@ Add-AzureKeyVaultManagedStorageAccount -VaultName yourtest1 -Name msak01 -Accoun
 
 ### Regeneration
 
-Setting the regeneration period using the following commands.
+Setting the regeneration period to 3 days using the following commands.
 
 ```powershell
-$regenPeriod = [System.Timespan]::FromDays(3)
-Add-AzureKeyVaultManagedStorageAccount -VaultName yourtest1 -Name msak01 -AccountResourceId /subscriptions/subscriptionId/resourceGroups/yourresgroup1/providers/Microsoft.Storage/storageAccounts/yourtest1 -ActiveKeyName key2 -RegenerationPeriod $regenPeriod
+Add-AzureKeyVaultManagedStorageAccount -VaultName yourtest1 -Name msak01 -AccountResourceId /subscriptions/subscriptionId/resourceGroups/yourresgroup1/providers/Microsoft.Storage/storageAccounts/yourtest1 -ActiveKeyName key2 -RegenerationPeriod "03.00:00:00"
 ```
 
 ### Set SAS definitions
@@ -174,8 +168,8 @@ Add-AzureKeyVaultManagedStorageAccount -VaultName yourtest1 -Name msak01 -Accoun
 Set the SAS definitions in Key Vault for your managed storage account.
 
 ```powershell
-Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service -VaultName yourtest1  -AccountName msak01 -Name blobsas1 -Protocol HttpsOnly -ValidityPeriod ([System.Timespan]::FromDays(1)) -Permission Read,List
-Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service,Object -VaultName yourtest1  -AccountName msak01 -Name blobsas2 -Protocol HttpsOnly -ValidityPeriod ([System.Timespan]::FromDays(1)) -Permission Read,List,Write
+Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service -VaultName yourtest1 -AccountName msak01 -Name blobsas1 -Protocol HttpsOnly -ValidityPeriod "01.00:00:00" -Permission Read,List
+Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service,Object -VaultName yourtest1 -AccountName msak01 -Name blobsas2 -Protocol HttpsOnly -ValidityPeriod "01.00:00:00" -Permission Read,List,Write
 ```
 
 ### Get token
@@ -194,8 +188,8 @@ Notice that trying to access with *$sastoken1* fails, but that we are able to ac
 ```powershell
 $context1 = New-AzureStorageContext -SasToken $sasToken1 -StorageAccountName yourtest1
 $context2 = New-AzureStorageContext -SasToken $sasToken2 -StorageAccountName yourtest1
-Set-AzureStorageBlobContent -Container containertest1 -File "abc.txt"  -Context $context1
-Set-AzureStorageBlobContent -Container cont1-file "file.txt"  -Context $context2
+Set-AzureStorageBlobContent -Container containertest1 -File "abc.txt" -Context $context1
+Set-AzureStorageBlobContent -Container containertest1 -File "abc.txt" -Context $context2
 ```
 
 ### Example summary
