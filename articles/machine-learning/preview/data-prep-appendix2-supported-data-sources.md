@@ -17,7 +17,7 @@ ms.date: 09/12/2017
 # Supported data sources for this release 
 The following document outlines the list of currently supported data sources in Azure Machine Learning data preparation.
 
-The supported data sources for this release are listed below.
+The supported data sources for this release are as follows.
 
 ## Types 
 ### Directory versus file
@@ -76,7 +76,7 @@ A Parquet dataset is a collection of more than one '.parquet' file, each of whic
 Scale-out execution relies on Spark's Parquet reading capabilities and supports single files as well as folders.
 
 #### Options
-*Parquet dataset*: This option determines whether AMLWB expands a given directory and attempts to read each file in it individually (the unticked mode) or treats the directory as the whole data set and lets PyArrow figure out the best way to interpret the files (the ticked mode).
+*Parquet dataset*: This option determines whether AMLWB uses the unticked mode or the ticked mode. The unticked mode expands a given directory and attempts to read each file in it individually. The ticked mode treats the directory as the whole data set and lets PyArrow figure out the best way to interpret the files.
 
 
 ## Locations
