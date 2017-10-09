@@ -29,7 +29,7 @@ ms.author: renash
     You can mount the file share on your local machine using SMB 3.0 protocol or use tools like [Storage Explorer](http://storageexplorer.com/) to access files in your file share. From your application, you can use storage client libraries, REST APIs or Powershell to access your files in Azure File share.
 
 * **What is Azure File Sync?**  
-    Azure File Sync (preview) allows you centralize your organization's file shares in Azure Files without giving up the flexibility, performance, and compatibility of an on-premises file server. It does this by transforming your Windows Servers into a quick cache of your Azure File share. You can use any protocol available on Windows Server to access your data locally (including SMB, NFS, and FTPS) and you can have as many caches as you need across the world.
+    Azure File Sync (preview) allows you to centralize your organization's file shares in Azure Files without giving up the flexibility, performance, and compatibility of an on-premises file server. It does this by transforming your Windows Servers into a quick cache of your Azure File share. You can use any protocol available on Windows Server to access your data locally (including SMB, NFS, and FTPS) and you can have as many caches as you need across the world.
 
 * **Why would I use an Azure File share instead of Azure Blob storage for my data?** 
     Azure Files and Azure Blob storage both provide a way to store large amounts of data in the cloud, but are useful for slightly different purposes. Azure Blob storage is useful for massive-scale, cloud-native applications that need to store unstructured data. Azure Blob storage lacks many of the abstractions of a file system, such as common file system metadata, instead focusing on cloud scale and performance. Additionally, Azure Blob storage may only be accessed through REST-based client libraries (or directly through the REST-based protocol).
@@ -39,9 +39,9 @@ ms.author: renash
     For a more in-depth discussion on the differences between Azure Files and Azure Blob storage, see [Deciding when to use Azure Blob storage, Azure Files, or Azure Disks](../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). To learn more about Azure Blob storage, see [Introduction to Blob storage](../blobs/storage-blobs-introduction.md).
 
 * **Why would I use an Azure File share instead of Azure Disks?**  
-    An Azure Disk is just that, a disk. A standalone disk by itself, is not very useful - to get value out of an Azure Disk, you have to attach to virtual machine running in Azure. Azure Disks can be used for anything and everything you would use a disk for on an on-premises server: as an OS system disk, swap space for an OS, or as dedicated storage for an application. One interesting use for Azure Disks is to create a file server in the cloud for use in exactly the same places you might use an Azure File share. Deploying a file server in Azure VMs is a fantastic, high performance way to get file storage in Azure when you require a deployment options currently unsupported by Azure Files (such as NFS protocol support or premium storage). 
+    An Azure Disk is just that, a disk. A standalone disk by itself, is not very useful - to get value out of an Azure Disk, you have to attach to virtual machine running in Azure. Azure Disks can be used for anything and everything you would use a disk for on an on-premises server: as an OS system disk, swap space for an OS, or as dedicated storage for an application. One interesting use for Azure Disks is to create a file server in the cloud for use in exactly the same places you might use an Azure File share. Deploying a file server in Azure VMs is a fantastic, high-performance way to get file storage in Azure when you require deployment options not currently supported by Azure Files (such as NFS protocol support or premium storage). 
 
-    On the other hand, running a file server with Azure Disks as backend storage will typically be much more expensive than using an Azure File share for several reasons. First, in addition to paying for disk storage, you must also pay for the expense of running on or more Azure VMs. Second, you must also manage the VMs used to run the file server, such as being responsible for OS upgrades, etc. Finally, if you ultimately require data cached on-premises, it's up to you to set up and manage replication technologies (such as Distributed File System Replication) to make that happen.
+    On the other hand, running a file server with Azure Disks as backend storage will typically be much more expensive than using an Azure File share for several reasons. First, in addition to paying for disk storage, you must also pay for the expense of running one or more Azure VMs. Second, you must also manage the VMs used to run the file server, such as being responsible for OS upgrades, etc. Finally, if you ultimately require data cached on-premises, it's up to you to set up and manage replication technologies (such as Distributed File System Replication) to make that happen.
 
     One interesting approach to get the best of both Azure Files and a file server hosted in Azure VMs with Azure Disks as back-end storage, is to install Azure File Sync on your cloud VM-hosted file server. If the Azure File share is in the same region as your file server, you can enable cloud tiering and set volume free space percentage to maximum (99%). This ensures minimal duplication of data while allowing you to use whatever applications you want against your file servers, such anything requiring NFS protocol support.
 
@@ -57,7 +57,7 @@ ms.author: renash
     For a more in-depth guide on how to deploy an Azure File share to replace production file shares in your organization, see [Planning for an Azure Files deployment](storage-files-planning.md).
 
 * **What storage redundancy options are supported by Azure Files?**  
-    Azure Files only supports currently only supports locally redundant storage (LRS) and geo-redundant storage (GRS) right now. We plan to support zone-redundant storage (ZRS) and read-access geo-redundant storage (RA-GRS) in the future, but don't have timelines to share at this time.
+    Azure Files currently only supports locally redundant storage (LRS) and geo-redundant storage (GRS) right now. We plan to support zone-redundant storage (ZRS) and read-access geo-redundant storage (RA-GRS) in the future, but don't have timelines to share at this time.
 
 * **I really want to see *x* feature added to Azure Files, can you add it?**  
     Absolutely, the Azure Files team is interested in hearing any and all feedback you have about our service. Please vote on feature requests on the [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)! We're looking forward to delighting you with many new features.
@@ -77,29 +77,29 @@ ms.author: renash
     For example, the first conflict of `CompanyReport.docx` would become `CompanyReport-CentralServer.docx` if `CentralServer` is where the older write occurred. The second conflict would be identified as `CompanyReport-CentralServer-1.docx`.
 
 * **When registering a server I get numerous "web site not trusted" responses, why?**  
-    This error occurs because the **Enhanced Internet Explorer Security** policy is enabled during server registration. For more information on how to properly disable the **Enhanced Internet Explorer Security** policy, see [Prepare Windows Servers for use with Azure File Sync](storage-sync-files-deployment-guide.md#Prepare-Windows-Servers-for-use-with-Azure-File-Sync) and [How to deploy Azure File Sync (preview)](storage-sync-files-deployment-guide.md).
+    This error occurs because the **Enhanced Internet Explorer Security** policy is enabled during server registration. For more information on how to properly disable the **Enhanced Internet Explorer Security** policy, see [Prepare Windows Servers for use with Azure File Sync](storage-sync-files-deployment-guide.md#prepare-windows-servers-for-use-with-azure-file-sync) and [How to deploy Azure File Sync (preview)](storage-sync-files-deployment-guide.md).
 
 * **Is geo-redundant storage (GRS) supported for Azure File Sync?**  
     Not yet, Azure File Sync only supports locally redundant storage (LRS) at this time. We are working to enable geo-redundant storage support before the general availability of Azure File Sync.
 
 * **Why doesn't the *Size on disk* property for a file match the *Size* property after using Azure File Sync?**  
-    Windows File Explorer exposes two properties, **Size** and **Size on disk** to represent the size of a file. These properties differ subtly in meaning; **Size** represents the complete size of the file, while **Size on disk** represents the size of the file stream actually stored on disk. These can differ for a variety of reasons, such as compression, use of Data Deduplication, or in our case, cloud tiering with Azure File Sync. If a file is tiered to an Azure File share, the size on disk will be zero because the file stream is stored in your Azure File share, not on disk. It is also possible for a file to be partially tiered (or partially recalled), meaning that part of the file is on disk. This can happen when files are partially read by applications such as multimedia players or by zipping utilties. 
+    Windows File Explorer exposes two properties, **Size** and **Size on disk** to represent the size of a file. These properties differ subtly in meaning; **Size** represents the complete size of the file, while **Size on disk** represents the size of the file stream actually stored on disk. These can differ for a variety of reasons, such as compression, use of Data Deduplication, or in our case, cloud tiering with Azure File Sync. If a file is tiered to an Azure File share, the size on disk will be zero because the file stream is stored in your Azure File share, not on disk. It is also possible for a file to be partially tiered (or partially recalled), meaning that part of the file is on disk. This can happen when files are partially read by applications such as multimedia players or by zipping utilities. 
 
 * **How can I tell if a file has been tiered?**  
     There are several ways to check if a file has been tiered to your Azure File share:
     
-    1. **Check the file attributes on the file.** To do this, right click on a file, navigate to **Details** and scroll down to the **Attributes** property. A tiered file will have the following attributes set:     
+    1. **Check the file attributes on the file.** To do this, right-click on a file, navigate to **Details** and scroll down to the **Attributes** property. A tiered file will have the following attributes set:     
         
         | Attribute letter | Attribute | Definition |
         |:----------------:|-----------|------------|
         | A | Archive | Indicates that the file should be backed up by backup software. This attribute is always set regardless of whether the file is tiered or stored fully on disk. |
-        | P | Sparse file | Indicates that the file is a sparse file, which is a specialized type of file NTFS offers for efficient use when file's on disk stream is mostly empty. Azure File Sync uses sparse files because a file is either fully tiered, meaning it's file stream is only stored in the cloud, or partially recalled, meaning that part of the file is already on disk. If a file is fully recalled to disk, Azure File Sync will convert it from a sparse file to a regular file. |
+        | P | Sparse file | Indicates that the file is a sparse file, which is a specialized type of file NTFS offers for efficient use when file's on disk stream is mostly empty. Azure File Sync uses sparse files because a file is either fully tiered, meaning its file stream is only stored in the cloud, or partially recalled, meaning that part of the file is already on disk. If a file is fully recalled to disk, Azure File Sync will convert it from a sparse file to a regular file. |
         | L | Reparse point | Indicates that the file has a reparse point, which is a special pointer for use by a file system filter. Azure File Sync uses reparse points to define to the Azure File Sync file system filter (StorageSync.sys) where in the cloud the file is stored. This enables seamless access without your end-user even needing to know Azure File Sync is being used or how to get access to the file in your Azure File share. When a file is fully recalled, Azure File Sync removes the reparse point from the file. |
-        | O | Offline | Indicates that some or all of the the file's content is not stored on disk. When a file is fully recalled, Azure File Sync removes this attribute. |
+        | O | Offline | Indicates that some or all of the file's content is not stored on disk. When a file is fully recalled, Azure File Sync removes this attribute. |
 
         ![The Properties dialog for a file with the Details tab selected](media/storage-files-faq/azure-file-sync-file-attributes.png)
         
-        It is also possible to see the attributes for all of the files in a folder by adding the **Attributes** field to the table display of File Exporer. To do this, right click on an existing column (for example, Size), select **More** and select **Attributes** from the drop down list.
+        It is also possible to see the attributes for all of the files in a folder by adding the **Attributes** field to the table display of File Exporer. To do this, right-click on an existing column (for example, Size), select **More** and select **Attributes** from the drop-down list.
         
     2. **Use `fsutil` to check for Reparse Points on a file.** As mentioned in the previous option, a tiered file will always have a reparse point, or a special pointer for the Azure File Sync file system filter (StorageSync.sys), set. You can check if a file has a reparse point with the `fsutil` utility on an elevated command prompt or PowerShell session:
     
@@ -135,13 +135,13 @@ ms.author: renash
 
 ## Security, Authentication and Access Control
 * **Is Active Directory-based authentication and access control supported by Azure Files?**  
-    Azure Files does not currently support AD-based authentication or ACLs, but this is something we're actively working on. For now, there are two ways you can workaround the lack of AD-based authentication and access control:
+    Azure Files does not currently support AD-based authentication or ACLs, but this is something we're actively working on. For now, there are two ways you can work around the lack of AD-based authentication and access control:
 
     - Using SAS, you can generate tokens with specific permissions that are valid for a specified time interval. For example, you can generate a token with read-only access to a given file with 10 minutes expiry. Anyone who possesses this token while it is valid has read-only access to that file for those 10 minutes. SAS keys are only supported via the REST API or client libraries today, you must mount the Azure File share over SMB with the storage account keys.
 
     - Azure File Sync will preserve and replicate all ACLs (AD-based or local) to all server endpoints it syncs to. Because Windows Server can already authenticate with Active Directory, Azure File Sync can provide a great stop-gap measure until full support for AD-based authentication and ACL support arrives.
 
-* **How can I enable ensure my Azure File share is encrypted at-rest?**  
+* **How can I ensure my Azure File share is encrypted at-rest?**  
     You don't have to do anything to enable encrypted, [Server Side Encryption](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) is now enabled by default for Azure Files in all public regions and national clouds. 
 
 * **How can I provide access to a specific file using a web browser?**  
@@ -240,7 +240,7 @@ ms.author: renash
      Sshare snapshots are incremental in nature. The base share snapshot is the share itself. All the subsequent share snapshots are incremental and will only store the diff from the previous share snapshot. You are billed only for the changed content. If you have a share with 100 GB of data but only 5 GB has changed after your last share snapshot, the share snapshot will consumes only 5 additional GB and you will be billed only 105 GB. See [Pricing page](https://azure.microsoft.com/en-us/pricing/details/storage/files/) for more information on transaction and standard egress charges.
 
 ## Backup
-* **How do I backup my Azure File share?**  
+* **How do I back up my Azure File share?**  
     You can use periodic share snapshots for protection against accidental deletes. You can use AzCopy, RoboCopy, or a 3rd party backup tool that can backup a mounted file share.
 
 ## Scale and Performance
