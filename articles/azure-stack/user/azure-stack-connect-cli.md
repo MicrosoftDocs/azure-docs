@@ -111,7 +111,7 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
 
 Before users can create virtual machines by using CLI, the cloud administrator should set up a publicly accessible endpoint that contains virtual machine image aliases and register this endpoint with the cloud. The `endpoint-vm-image-alias-doc` parameter in the `az cloud register` command is used for this purpose. Cloud administrators must download the image to the Azure Stack marketplace before they add it to image aliases endpoint.
    
-For example, Azure contains uses following URI: 
+For example, Azure uses the following URI: 
 https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. The cloud administrator should set up a similar endpoint for Azure Stack with the images that are available in the Azure Stack marketplace.
 
 ## Connect to Azure Stack
