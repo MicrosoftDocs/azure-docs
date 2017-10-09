@@ -25,7 +25,7 @@ Type your problem, question or error on the following search box to search on St
 |[Error code analyzer](https://apps.dev.microsoft.com/portal/tools/errors)| Paste an error code received during sign-in or consent to see possible causes and remediation |
 
 ## 3. Post to Stack Overflow
-[![Stack Overflow](media/active-directory-develop-get-help/stackoverflow-logo.png)](www.stackoverflow.com)
+[![Stack Overflow](media/active-directory-develop-get-help/stackoverflow-logo.png)](https://www.stackoverflow.com)
 
 Stack Overflow is the preferred channel for development-related questions - where both members of community as Microsoft team members are directly involved on helping you to solve your problem.
 
@@ -50,7 +50,7 @@ If you cannot find an answer to your problem with Search, submit a new question 
 
 ## 4. Create a Github issue
 
-[![Stack Overflow](media/active-directory-develop-get-help/github-logo.png)](www.github.com)
+[![Stack Overflow](media/active-directory-develop-get-help/github-logo.png)](https://www.github.com)
 
  If you find a bug or problem related to our libraries, please raise an issue on our GitHub repositories. Because our libraries are open source, you are also free to submit a pull request as well. A list of github repositories for our libraries can be found here:
 
