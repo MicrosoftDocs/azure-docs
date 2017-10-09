@@ -67,7 +67,7 @@ The patch orchestration app requires the repair manager system service to be ena
 Azure clusters in the silver durability tier have the repair manager service enabled by default. Azure clusters in the gold durability tier might or might not have the repair manager service enabled, depending on when those clusters were created. Azure clusters in the bronze durability tier, by default, do not have the repair manager service enabled. If the service is already enabled, you can see it running in the system services section in the Service Fabric Explorer.
 
 ##### Azure portal
-You can enable repair manager from Azure portal at the time of setting up of cluster. Select `Include Repair Manager` option under `Add on features` at the time of cluster configuration.
+You can enable repair manager from Azure portal at the time of setting up of cluster. Select **Include Repair Manager** option under **Add on features** at the time of cluster configuration.
 ![Image of Enabling Repair Manager from Azure portal](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
 ##### Azure Resource Manager template
