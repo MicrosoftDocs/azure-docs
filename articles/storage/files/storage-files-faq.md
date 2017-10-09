@@ -31,7 +31,7 @@ ms.author: renash
 * **What is Azure File Sync?**  
     Azure File Sync (preview) allows you to centralize your organization's file shares in Azure Files without giving up the flexibility, performance, and compatibility of an on-premises file server. It does this by transforming your Windows Servers into a quick cache of your Azure File share. You can use any protocol available on Windows Server to access your data locally (including SMB, NFS, and FTPS) and you can have as many caches as you need across the world.
 
-* **Why would I use an Azure File share instead of Azure Blob storage for my data?** 
+* **Why would I use an Azure File share instead of Azure Blob storage for my data?**  
     Azure Files and Azure Blob storage both provide a way to store large amounts of data in the cloud, but are useful for slightly different purposes. Azure Blob storage is useful for massive-scale, cloud-native applications that need to store unstructured data. Azure Blob storage lacks many of the abstractions of a file system, such as common file system metadata, instead focusing on cloud scale and performance. Additionally, Azure Blob storage may only be accessed through REST-based client libraries (or directly through the REST-based protocol).
 
     Azure Files on the other hand specifically seeks to be a file system, with all of the file abstracts you know and love from years of on-premises operating systems. Like Azure Blob storage, Azure Files offers a REST interface and REST-based client libraries, but unlike Azure Blob storage, Azure Files also offers SMB access to Azure File shares. This means you can directly mount an Azure File share on Windows, Linux, or macOS, on-premises or in cloud VMs, without having to write any code or attach any special drivers to the file system. Additionally, Azure File shares may be cached on on-premises file servers using Azure File Sync for quick access near where the data is being used. 
@@ -80,7 +80,7 @@ ms.author: renash
     This error occurs because the **Enhanced Internet Explorer Security** policy is enabled during server registration. For more information on how to properly disable the **Enhanced Internet Explorer Security** policy, see [Prepare Windows Servers for use with Azure File Sync](storage-sync-files-deployment-guide.md#prepare-windows-servers-for-use-with-azure-file-sync) and [How to deploy Azure File Sync (preview)](storage-sync-files-deployment-guide.md).
 
 * **Is geo-redundant storage (GRS) supported for Azure File Sync?**  
-    Not yet, Azure File Sync only supports locally redundant storage (LRS) at this time. We are working to enable geo-redundant storage support before the general availability of Azure File Sync.
+    Yes, both locally redundant storage (LRS) and geo-redundant storage (GRS) are supported by Azure File Sync. In the case of a GRS failover between paired regions, we recommend treating the new region as a backup of data only. Azure File Sync will not automatically start syncing with the new primary region. 
 
 * **Why doesn't the *Size on disk* property for a file match the *Size* property after using Azure File Sync?**  
     Windows File Explorer exposes two properties, **Size** and **Size on disk** to represent the size of a file. These properties differ subtly in meaning; **Size** represents the complete size of the file, while **Size on disk** represents the size of the file stream actually stored on disk. These can differ for a variety of reasons, such as compression, use of Data Deduplication, or in our case, cloud tiering with Azure File Sync. If a file is tiered to an Azure File share, the size on disk will be zero because the file stream is stored in your Azure File share, not on disk. It is also possible for a file to be partially tiered (or partially recalled), meaning that part of the file is on disk. This can happen when files are partially read by applications such as multimedia players or by zipping utilities. 
@@ -129,6 +129,23 @@ ms.author: renash
     Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
     Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
     ```
+
+* **A file or folder is being excluded by Azure File Sync... why?**
+    By default, Azure File Sync excludes the following files:
+    
+    - desktop.ini
+    - thumbs.db
+    - ehthumbs.db
+    - ~$\*.\*
+    - \*.laccdb
+    - \*.tmp
+    - 635D02A9D91C401B97884B82B3BCDAEA.\*
+
+    The following folders are also excluded by default:
+
+    - \System Volume Information
+    - \$RECYCLE.BIN
+    - \SyncShareState
 
 * **I would like to use Azure File Sync with Windows Server 2008 R2, with Linux, or with my NAS device - does Azure File Sync support that?**
     Today, Azure File Sync only supports Windows Server 2016 and Windows Server 2012 R2. At this time, we don't have any other plans we can share, but we're open and interested to support additional platforms based on customer demand. Please let us know what platforms you would like to us to support on [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files).
