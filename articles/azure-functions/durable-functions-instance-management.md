@@ -143,4 +143,4 @@ public static Task Run(
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to use the HTTP APIs for instance management](durable-functions-http-apis.md)
+> [Learn how to use the HTTP APIs for instance management](durable-functions-http-api.md)

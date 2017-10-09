@@ -48,7 +48,7 @@ A task hub consists of several Azure Storage resources:
 * One history table.
 * One storage container containing one or more lease blobs.
 
-All of these resources are created automatically in the default Azure Storage account when orchestrator or activity functions run or are scheduled to run. The [Performance & Scale](~/articles/topics/perf-and-scale.md) topic explains how these resources are used.
+All of these resources are created automatically in the default Azure Storage account when orchestrator or activity functions run or are scheduled to run. The [Performance & Scale](durable-functions-perf-and-scale.md) topic explains how these resources are used.
 
 ## Next steps
 
