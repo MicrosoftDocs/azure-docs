@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2017
-ms.author: tamram
+ms.author: renash
 
 ---
 
-#Azure Files share snapshot overview
+# Azure Files share snapshot overview
 
 Azure Storage provides the capability to take share snapshots of file shares. Share snapshots capture the share state at that point in time. In this article, we describe
 what capabilities share snapshots provide and how you can leverage them in your custom use case.
