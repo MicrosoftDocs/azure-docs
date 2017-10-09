@@ -19,7 +19,7 @@ This quickstart guides you through connecting your app's Mobile Center instance 
 
 To complete this quickstart, you need:
 
-- An Azure subscription
+- An Azure subscription.
 - An iOS or Android app.
  
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
@@ -30,7 +30,7 @@ Before you can use Application Insights with your mobile app, you need to onboar
 
 To onboard your app, follow the Mobile Center quickstart for each platform your app supports. Create separate Mobile Center instances for each platform:
 
-* [iOS quickstart](https://docs.microsoft.com/mobile-center/quickstarts/ios/overview)
+* [iOS quickstart](https://docs.microsoft.com/mobile-center/quickstarts/ios/overview).
 * [Android quickstart](https://docs.microsoft.com/mobile-center/quickstarts/android/overview).
 
 ## Track events in your app with the Mobile Center SDK
@@ -91,7 +91,7 @@ Application Insights can query, segment, filter, and analyze the custom event te
 
    This will take you to the Application Insights Analytics portal for your Application Insights resource. The Analytics portal lets you directly query your data using the Log Analytics query language, so you can ask arbitrarily complex questions about your app and its users.
    
-   Open a new tab in the Analytics portal, then paste in the following query, which shows how many users have sent each custom event from your app.
+   Open a new tab in the Analytics portal, then paste in the following query. It returns a count of how many distinct users have sent each custom event from your app in the last 24 hours, sorted by these distinct counts.
 
    ```AIQL
    customEvents
@@ -100,16 +100,38 @@ Application Insights can query, segment, filter, and analyze the custom event te
    | order by dcount_user_Id desc 
    ```
 
-   Click anywhere on the query in the text editor to highlight it. Then click **Go** to run the query. 
+    
 
    ![Analytics portal](./media/app-insights-mobile-center-quickstart/analytics-portal.png)
+
+   1. Click anywhere on the query in the text editor to highlight it.
+   2. Then click **Go** to run the query. 
 
    Learn more about [Application Insights Analytics](app-insights-analytics.md) and the [Log Analytics query language](https://docs.loganalytics.io/docs/Language-Reference).
 
 
-2. **Segment and filter your custom event telemetry.** TBD
+2. **Segment and filter your custom event telemetry.** From the Application Insights **Overview** page, choose **Users** in the table of contents.
 
-3. **Analyze conversion, retention, and navigation patterns in your app.** TBD
+   ![Users tool icon](./media/app-insights-mobile-center-quickstart/users-icon.png)
+
+   The Users tool shows how many users of your app clicked certain buttons, visited certain screens, or performed any other action that you are tracking as an event with the Mobile Center SDK. If you've been looking for a way to segment and filter your Mobile Center events, the Users tool is a great choice.
+
+   ![Users tool](./media/app-insights-mobile-center-quickstart/users.png) 
+
+   For example, segment your usage by geography by choosing **Country or region** in the **Split by** dropdown menu.
+
+3. **Analyze conversion, retention, and navigation patterns in your app.** From the Application Insights **Overview** page, choose **User Flows** in the table of contents.
+
+   ![User Flows tool](./media/app-insights-mobile-center-quickstart/user-flows.png)
+
+   The User Flows tool visualizes which events users send after some starting event. It's useful for getting an overall picture of how users navigate through your app. It can also reveal places where many users are churning from your app, or repeating the same actions over and over.
+
+   In addition to User Flows, Application Insights has several other usage analytics tools to answer specific questions:
+
+   * **Funnels** for analyzing and monitoring conversion rates.
+   * **Retention** for analyzing how well your app retains users over time.
+   * **Workbooks** for combining visualizations and text into a shareable report.
+   * **Cohorts** for naming and saving specific groups of users or events so they can be easily referenced from other analytics tools.
 
 ## Next steps
 
