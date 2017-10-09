@@ -46,7 +46,7 @@ To export the Azure Stack root certificate in PEM format, sign in to your develo
 
 ## Install CLI
 
-Next, sign in to your development workstation and install CLI. Azure Stack requires the 2.0 version of Azure CLI, which you can install by using the steps described in the [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) article. To verify if the installation was successful, open a terminal or a command prompt window and run the following command:
+Next, sign in to your development workstation and install CLI. Azure Stack requires the 2.0 version of Azure CLI. You can install that by using the steps described in the [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) article. To verify if the installation was successful, open a terminal or a command prompt window and run the following command:
 
 ```azurecli
 az --version
@@ -118,7 +118,7 @@ https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/
 
 Use the following steps to connect to Azure Stack:
 
-1. Register your Azure Stack environment by running the **az cloud register** command.
+1. Register your Azure Stack environment by running the `az cloud register` command.
    
    a. To register the *cloud administrative* environment, use:
 
@@ -167,9 +167,9 @@ Use the following steps to connect to Azure Stack:
      --profile 2017-03-09-profile
    ```
 
-4. Sign in to your Azure Stack environment by using the **az login** command. You can sign in to the Azure Stack environment either as a user or as a [service principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects). 
+4. Sign in to your Azure Stack environment by using the `az login` command. You can sign in to the Azure Stack environment either as a user or as a [service principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects). 
 
-   * Sign in as a *user*: You can either specify the username and password directly within the **az login** command or authenticate by using a browser. You have to do the latter if your account has multi-factor authentication enabled.
+   * Sign in as a *user*: You can either specify the username and password directly within the `az login` command or authenticate by using a browser. You have to do the latter if your account has multi-factor authentication enabled.
 
       ```azurecli
       az login \
@@ -178,7 +178,7 @@ Use the following steps to connect to Azure Stack:
       ```
 
       > [!NOTE]
-      > If your user account has multi-factor authentication enabled, you can use the **az login command** without providing the *-u* parameter. Running the command gives you a URL and a code that you must use to authenticate.
+      > If your user account has multi-factor authentication enabled, you can use the `az login command` without providing the `-u` parameter. Running the command gives you a URL and a code that you must use to authenticate.
    
    * Sign in as a *service principal*: Before you sign in, [create a service principal through the Azure portal](azure-stack-create-service-principals.md) or CLI and assign it a role. Now, log in by using the following command:
 
