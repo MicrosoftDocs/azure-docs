@@ -167,7 +167,7 @@ For more information about Data Factory concepts, see the following articles:
 - [Pipelines and activities](concepts-pipelines-activities.md)
 - [Integration runtime](concepts-integration-runtime.md)
 
-## Supported regions:
+## Supported regions
 
 Currently, you can create data factories in the East US and East US 2 regions. However, a data factory can access data stores and compute services in other Azure regions to move data between data stores or process data using compute services.
 
