@@ -91,6 +91,8 @@
       href: model-management-consumption.md  
     - name: How to use model data collection
       href: how-to-use-model-data-collection.md
+    - name: Deployment troubleshooting guide
+      href: how-to-deploy-troubleshooting-guide.md
   - name: Real-world examples
     items:
     - name: Document collection analysis
