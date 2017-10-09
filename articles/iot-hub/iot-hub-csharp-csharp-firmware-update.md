@@ -26,7 +26,7 @@ In the [Get started with device management][lnk-dm-getstarted] tutorial, you saw
 This tutorial shows you how to:
 
 * Create a .NET console app that calls the firmwareUpdate direct method in the simulated device app through your IoT hub.
-* Create a simulated device app that implements a **firmwareUpdate** direct method. This method initiates a multi-stage process that waits to download the firmware image, downloads the firmware image, and finally applies the firmware image. During each stage of the update, the device uses the reported properties to report on progress.
+* Create a simulated device app that implements a firmwareUpdate direct method. This method initiates a multi-stage process that waits to download the firmware image, downloads the firmware image, and finally applies the firmware image. During each stage of the update, the device uses the reported properties to report on progress.
 
 At the end of this tutorial, you have a Node.js console device app and a .NET (C#) console back-end app:
 
@@ -130,11 +130,11 @@ In this section, you will
 * Trigger a simulated firmware update
 * Use the reported properties to enable device twin queries to identify devices and when they last completed a firmware update
 
-1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Name the project **SimulateManagedDevice**.
+1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Name the project **SimulateDeviceFWUpdate**.
    
     ![New Visual C# Windows Classic device app][img-createdeviceapp]
     
-2. In Solution Explorer, right-click the **SimulateManagedDevice** project, and then click **Manage NuGet Packages...**.
+2. In Solution Explorer, right-click the **SimulateDeviceFWUpdate** project, and then click **Manage NuGet Packages...**.
 3. In the **NuGet Package Manager** window, select **Browse** and search for **microsoft.azure.devices.client**. Select **Install** to install the **Microsoft.Azure.Devices.Client** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT device SDK][lnk-nuget-client-sdk] NuGet package and its dependencies.
    
     ![NuGet Package Manager window Client app][img-clientnuget]
@@ -144,7 +144,7 @@ In this section, you will
         using Microsoft.Azure.Devices.Client;
         using Microsoft.Azure.Devices.Shared;
 
-5. Add the following fields to the **Program** class. Replace the placeholder value with the device connection string that you noted in the previous section.
+5. Add the following fields to the **Program** class. Replace the placeholder value with the device connection string that you noted in the **Create a device identity** section.
    
         static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
         static DeviceClient Client = null;
@@ -171,7 +171,7 @@ In this section, you will
             }
         }
 
-7. Add the following method to simulate actually downloading the firmware image from the cloud:
+7. Add the following method to simulate downloading the firmware image:
         
         static async Task<byte[]> simulateDownloadImage(string imageUrl)
         {
@@ -186,7 +186,7 @@ In this section, you will
         }
 
 
-8. Add the following method to simulate actually applying the image to the device:
+8. Add the following method to simulate applying the firmware image to the device:
         
         static async Task simulateApplyImage(byte[] imageData)
         {
@@ -199,7 +199,7 @@ In this section, you will
 
         }
  
-9.  Add the following method to simulate waiting for to download image data. Report status and the time that waiting started and clear other properties. 
+9.  Add the following method to simulate waiting to download the firmware image. Update status to **waiting** and clears other firmware update properties on the twin. Typically, devices are informed of an available update and an administrator defined policy causes the device to start downloading and applying the update. This function is where the logic to enable that policy should run. 
         
         static async Task waitToDownload(Twin twin, string fwUpdateUri)
         {
@@ -218,7 +218,7 @@ In this section, you will
             await Task.Delay(2000);
         }
 
-10. Add the following method to perform the download. It reports the download start through the device twin, calls the simulate download method, and reports success or failure through the twin depending on the results of the download operation. 
+10. Add the following method to perform the download. It updates the status to **downloading** through the device twin, calls the simulate download method, and reports a status of **downloadComplete** or **downloadFailed** through the twin depending on the results of the download operation. 
         
         static async Task<byte[]> downloadImage(Twin twin, string fwUpdateUri)
         {
@@ -248,7 +248,7 @@ In this section, you will
             }
         }
 
-11. Add the following method to apply the image. It reports the start of applying the image through the device twin, calls the simulate apply image method, and reports success or failure through the twin depending on the results of the apply operation. 
+11. Add the following method to apply the image. It updates the status to **applying** through the device twin, calls the simulate apply image method, and updates status to **applyComplete** or **applyFailed** through the twin depending on the results of the apply operation. 
         
         static async Task applyImage(Twin twin, byte[] imageData)
         {
@@ -278,7 +278,7 @@ In this section, you will
             }
         }
 
-12. Add the following method to sequence the firmware update operation, from waiting to download through applying the image:
+12. Add the following method to sequence the firmware update operation from waiting to download the image through applying the image to the device:
         
         static async Task doUpdate(string fwUpdateUrl)
         {
@@ -296,7 +296,7 @@ In this section, you will
             }
         }
 
-13. Add the following method to handle the updated firmware direct method from the cloud. It extracts the URL to the firmware update from the message payload, passes it to the `doUpdate` task, which it starts on another threadpool thread, and then returns a response. 
+13. Add the following method to handle the **updateFirmware** direct method from the cloud. It extracts the URL to the firmware update from the message payload and passes it to the **doUpdate** task, which it starts on another threadpool thread. It then returns the method response to the cloud.
         
         static Task<MethodResponse> onFirmwareUpdate(MethodRequest methodRequest, object userContext)
         {
@@ -344,7 +344,7 @@ In this section, you will
 You are now ready to run the apps.
 1. Run the .NET device app **SimulatedDeviceFWUpdate**.  Right-click the **SimulatedDeviceFWUpdate** project, select **Debug**, and then select **Start new instance**. It should start listening for method calls from your IoT Hub: 
 
-2. Now that the device is connected and waiting for method invocations, run the .NET **TriggerFWUpdate** app to invoke the reboot method in the simulated device app. Right-click the **TriggerFWUpdate** project, select **Debug**, and then select **Start new instance**. You should see update sequence written in the **SimulatedDeviceFWUpdate** console and also the sequence reported through the reported properties of the device in the **TriggerFWUpdate** console. Note the process takes several seconds to complete. 
+2. Once the device is connected and waiting for method invocations, run the .NET **TriggerFWUpdate** app to invoke the firmware update method in the simulated device app. Right-click the **TriggerFWUpdate** project, select **Debug**, and then select **Start new instance**. You should see update sequence written in the **SimulatedDeviceFWUpdate** console and also the sequence reported through the reported properties of the device in the **TriggerFWUpdate** console. Note that the process takes several seconds to complete. 
    
     ![Service and device app run][img-combinedrun]
 
