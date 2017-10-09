@@ -16,13 +16,13 @@ ms.date: 09/29/2017
 ms.author: azfuncdf
 ---
 
-# Task Hubs in Durable Functions (Azure Functions)
+# Task hubs in Durable Functions (Azure Functions)
 
-A task hub is a logical container for durable task orchestrations and activities within the context of a single Azure storage account. Multiple functions and even function apps can exist in the same task hub, and the task hub often serves as an application container.
+A *task hub* for [Durable Functions](durable-functions-overview.md) is a logical container for orchestrations and activities within the context of a single Azure storage account. Multiple functions and even function apps can exist in the same task hub, and the task hub often serves as an application container.
 
 Task hubs do not need to be created explicitly. They are initialized automatically by the runtime, using a name that is declared in the *host.json* file. Each task hub has its own set of storage queues, tables, and blobs within a single storage account. All function apps that run in a given task hub share the same storage resources. Orchestrator and activity functions can only interact with each other when they belong to the same task hub.
 
-## Configuring a Task Hub in host.json
+## Configuring a task hub in host.json
 
 A task hub name can be configured in the *host.json* file of a function app.
 

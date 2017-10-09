@@ -62,7 +62,7 @@ Location: https://{host}/webhookextensions/handler/DurableTaskExtension/instance
 > [!NOTE]
 > The format of the webhook URLs may differ depending on which version of the Azure Functions host you are running. The above example is for the Azure Functions 2.0 host.
 
-## Async Operation Tracking
+## Async operation tracking
 
 The HTTP response mentioned previously is designed to help implementing long-running HTTP async APIs with Durable Functions. This is sometimes referred to as the *Polling Consumer Pattern*. The client/server flow works as follows:
 
@@ -76,7 +76,7 @@ This protocol allows coordinating long-running processes with external clients o
 > [!NOTE]
 > By default, all HTTP-based actions provided by [Azure Logic Apps](https://azure.microsoft.com/en-us/services/logic-apps/) support the standard asynchronous operation pattern. This makes it possible to embed a long-running durable function as part of a Logic Apps workflow. More details on Logic Apps support for asynchronous HTTP patterns can be found in the [Azure Logic Apps workflow actions and triggers documentation](../logic-apps/logic-apps-workflow-actions-triggers.md#asynchronous-patterns).
 
-## HTTP API Reference
+## HTTP API reference
 
 All HTTP APIs implemented by the extension take the following parameters. The data type of all parameters is `string`.
 
@@ -91,7 +91,7 @@ All HTTP APIs implemented by the extension take the following parameters. The da
 
 The next few sections cover the specific HTTP APIs supported by the extension and provide examples of how they can be used.
 
-### Get Instance Status
+### Get instance status
 
 Gets the status of a specified orchestration instance.
 
@@ -146,7 +146,7 @@ Here is an example response payload (formatted for readability):
 
 The **HTTP 202** response also includes a **Location** response header that references the same URL as the `statusQueryGetUri` field mentioned previously.
 
-### Raise Event
+### Raise event
 
 Sends an event notification message to a running orchestration instance.
 
@@ -192,7 +192,7 @@ Content-Length: 6
 
 The responses for this API do not contain any content.
 
-### Terminate Instance
+### Terminate instance
 
 Terminates a running orchestration instance.
 
@@ -226,7 +226,7 @@ Several possible status code values can be returned.
 
 Here is an example request that terminates a running instance and specifies a reason of **buggy**:
 
-```plaintext
+```
 DELETE /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/terminate?reason=buggy&taskHub=DurableFunctionsHub&connection=Storage&code=XXX
 ```
 
