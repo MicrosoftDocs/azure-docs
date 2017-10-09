@@ -233,9 +233,9 @@
     href: /powershell/module/azurerm.operationalinsights
   - name: REST
     href: /rest/api/loganalytics 
-  - name: Tile reference
+  - name: View Designer tile reference
     href: log-analytics-view-designer-tiles.md
-  - name: Visualization part reference
+  - name: View Designer visualization part reference
     href: log-analytics-view-designer-parts.md
 - name: Resources
   items:
