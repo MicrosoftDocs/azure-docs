@@ -23,6 +23,8 @@ In Azure API Management, a product contains one or more APIs as well as a usage 
 
 You can add an API during the product creation. You can add it to the product later, either from the Product's **Settings** page or while creating an API. 
 
+## Add a product
+
 When you add a product, you need to supply the following information. 
 
 |Name|Description|

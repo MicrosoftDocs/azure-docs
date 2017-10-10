@@ -11,7 +11,7 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 10/10/2017
 ms.author: apimpm
 ---
 

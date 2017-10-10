@@ -38,7 +38,7 @@ To perform the steps described in this tutorial:
 
 [Create an Azure API Management instance](get-started-create-service-instance.md).
 
-## How to plan for capacity?
+## Plan for capacity?
 
 To find out if you have enough units to handle your traffic, test on workloads that you expect. 
 

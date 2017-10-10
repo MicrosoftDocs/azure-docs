@@ -50,6 +50,7 @@ To complete this quickstart.
 
 7. Press **Published** if you want to publish the product. Before the APIs in a product can be called, the product must be published. 
     
+    >[!NOTE]
     > By default new products are unpublished, and are visible only to the  **Administrators** group.
     > 
     > 

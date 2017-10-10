@@ -1,8 +1,8 @@
 # Overview
 ## [About API Management](api-management-key-concepts.md)
 # Quickstarts
-## [Create an APIM instance - Portal](get-started-create-service-instance.md)
-## [Create an APIM instance - PowerShell](powershell-create-service-instance.md)
+## [Create an instance - Portal](get-started-create-service-instance.md)
+## [Create an instance - PowerShell](powershell-create-service-instance.md)
 # Tutorials
 ## [1 - Import and publish your first API](api-management-get-started.md)
 ## [2 - Create and publish a product](api-management-howto-add-products.md)
@@ -30,7 +30,7 @@
 ### [Secure APIs using client certificate authentication](api-management-howto-mutual-certificates-for-clients.md)
 ## Manage in production
 ### [Manage using automation](automation-manage-api-management.md)
-### [Use role-based access control](api-management-role-based-access-control.md)
+### [Use Role-Based Access Control](api-management-role-based-access-control.md)
 ## [API import restrictions](api-management-api-import-restrictions.md)
 ## [Frequently asked questions](api-management-faq.md)
 # How-to guides
@@ -61,7 +61,7 @@
 ### [Configure using Git](api-management-configuration-repository-git.md)
 ## Integrate with Service Fabric
 ### [Overview](../service-fabric/service-fabric-api-management-overview.md)
-### [Quick start](../service-fabric/service-fabric-api-management-quick-start.md)
+### [Quickstart](../service-fabric/service-fabric-api-management-quick-start.md)
 # Reference
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [REST](/rest/api/apimanagement/)
@@ -72,7 +72,7 @@
 ### [Advanced policies](api-management-advanced-policies.md)
 ### [Authentication policies](api-management-authentication-policies.md)
 ### [Caching policies](api-management-caching-policies.md)
-### [Cross domain policies](api-management-cross-domain-policies.md)
+### [Cross-domain policies](api-management-cross-domain-policies.md)
 ### [Transformation policies](api-management-transformation-policies.md)
 ## [Error handling](api-management-error-handling-policies.md)
 ## [Policy expressions](api-management-policy-expressions.md)
@@ -88,8 +88,8 @@
 ## [Data model reference](api-management-template-data-model-reference.md)
 ## [Page controls](api-management-page-controls.md)
 # Resources
-## [API design guidance](../best-practices-api-design.md?toc=%2fazure%2fapi-management%2ftoc.json)
-## [API implementation guidance](../best-practices-api-implementation.md?toc=%2fazure%2fapi-management%2ftoc.json)
+## [API design guidance](https://docs.microsoft.com/azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json)
+## [API implementation guidance](https://docs.microsoft.com/azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json)
 ## [API Management - Plays well with other Azure services](http://weblogs.asp.net/cschittko/api-management-plays-well-with-other-azure-services)
 ## [API Management plugin for SmartBear Ready! API](http://smartbear.com/plugins/microsoft-azure-api-management-plugin/)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)

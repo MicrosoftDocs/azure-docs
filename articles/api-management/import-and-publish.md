@@ -98,8 +98,6 @@ Operations can also be called **Developer portal** to test APIs.
     
     After an operation is invoked, the developer portal displays the **Response status**, the **Response headers**, and any **Response content**.
 
-![Response][api-management-invoke-get-response]
-
 ## <a name="next-steps"> </a>Next steps
 
 * [View analytics]()
