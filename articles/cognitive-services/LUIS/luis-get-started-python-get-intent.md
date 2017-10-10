@@ -14,7 +14,7 @@ ms.author: v-demak
 
 # Call a LUIS app using Python
 
-This Quickstart shows you how to call your Language Understanding Intelligent Service (LUIS) app in just a few minutes. When you're finished, you'll be able to use Python code to pass utterances to a LUIS endpoint and get results.
+This quickstart shows you how to call your Language Understanding Intelligent Service (LUIS) app in just a few minutes. When you're finished, you'll be able to use Python code to pass utterances to a LUIS endpoint and get results.
 
 ## Before you begin
 You need a Cognitive services API key to make calls to the sample LUIS app we use in this walkthrough. 
@@ -39,45 +39,13 @@ To understand what a LUIS app returns, you can paste the URL of a sample LUIS ap
 
 ## Consume a LUIS result using the Endpoint API with Python 2.7
 
-You can use Java to access to the same results you saw in the browser window in the previous step. 
-1. Copy the following code to create a class in your IDE:
+You can use Python to access the same results you saw in the browser window in the previous step. 
+1. Copy the following code:
 
-```python
-########### Python 2.7 #############
-import httplib, urllib, base64
+   [!code-python[Console app code that calls a LUIS endpoint](./includes/python/quickstart-call-endpoint/call-endpoint-2-7.py)]
+2. Replace the value of the `Ocp-Apim-Subscription-Key` field with your LUIS subscription key.
 
-headers = {
-    # Request headers
-    'Ocp-Apim-Subscription-Key': '03e69d3426dd44a8824163114261cc26',
-}
-
-params = urllib.urlencode({
-    # Query parameter
-    'q': 'turn on the left light',
-    # Optional request parameters, set to default values
-    'timezoneOffset': '0',
-    'verbose': 'false',
-    'spellCheck': 'false',
-    'staging': 'false',
-})
-
-try:
-    conn = httplib.HTTPSConnection('westus.api.cognitive.microsoft.com')
-    conn.request("GET", "/luis/v2.0/apps/60340f5f-99c1-4043-8ab9-c810ff16252d?%s" % params, "{body}", headers)
-    response = conn.getresponse()
-    data = response.read()
-    print(data)
-    conn.close()
-except Exception as e:
-    print("[Errno {0}] {1}".format(e.errno, e.strerror))
-
-####################################
-```
-2. Replace the value of the `SubscriptionKey` variable with your LUIS subscription key.
-
-3. In your IDE, add references to `httpclient` and `httpcore` libraries.
-
-4. Run the console application. It displays the same JSON that you saw earlier in the browser window.
+3. Run the script. It displays the same JSON that you saw earlier in the browser window.
 <!-- 
 ![Console window displays JSON result from LUIS](./media/luis-get-started-python-get-intent/console-turn-on.png)
 -->
