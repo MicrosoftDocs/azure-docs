@@ -136,7 +136,7 @@ The **services available in Azure Government** are listed by category, as well a
 
 ### Generally Available
 
-- [Service Bus](documentation-government-networking.md#service-bus)
+- [Service Bus](documentation-government-networking.md#support-for-service-bus)
 - [StorSimple](documentation-government-services-storage.md) 
 - [SQL Server Stretch Database](documentation-government-services-database.md#sql-server-stretch-database)
 
