@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/01/2016
+ms.date: 10/02/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 
@@ -179,7 +179,7 @@ Some examples of running multiple SAP HANA instances could look like:
 | SKU | Memory Size | Storage Size | Sizes with multiple databases |
 | --- | --- | --- | --- |
 | S72 | 768 GB | 3 TB | 1x768 GB HANA Instance<br /> or 1x512 GB Instance + 1x256 GB Instance<br /> or 3x256 GB Instances | 
-| S72m | 768 GB | 3 TB | 3x512GB HANA Instances<br />or 1x512 GB Instance + 1x1 TB Instance<br />or 6x256 GB Instances<br />or 1x1.5 TB instance | 
+| S72m | 1.5 TB | 6 TB | 3x512GB HANA Instances<br />or 1x512 GB Instance + 1x1 TB Instance<br />or 6x256 GB Instances<br />or 1x1.5 TB instance | 
 | S192m | 4 TB | 16 TB | 8x512 GB Instances<br />or 4x1 TB Instances<br />or 4x512 GB Instances + 2x1 TB Instances<br />or 4x768 GB Instances + 2x512 GB Instances<br />or 1x4 TB Instance |
 | S384xm | 8 TB | 22 TB | 4x2 TB Instances<br />or 2x4 TB Instances<br />or 2x3 TB Instances + 1x2 TB Instances<br />or 2x2.5 TB Instances + 1x3 TB Instances<br />or 1x8 TB Instance |
 

@@ -3,7 +3,7 @@ title: Azure AD App Proxy - get started install connector| Microsoft Docs
 description:  Turn on Application Proxy in the Azure  portal, and install the Connectors for the reverse proxy.
 services: active-directory
 documentationcenter: ''
-author: kgremban
+author: billmath
 manager: femila
 
 ms.assetid: c7186f98-dd80-4910-92a4-a7b8ff6272b9
@@ -12,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
-ms.author: kgremban
+ms.date: 10/02/2017
+ms.author: billmath
 ms.reviewer: harshja
 ms.custom: it-pro
 ---
@@ -58,7 +58,7 @@ To prepare your environment for Azure AD Application Proxy, you first need to en
    * ocsp.msocsp.com:80
    * www.microsoft.com:80
 
-4. Your connector needs access to login.windows.net and login.microsoftonline.net for the registration process.
+4. Your connector needs access to login.windows.net and login.microsoftonline.com for the registration process.
 
 5. Use the [Azure AD Application Proxy Connector Ports Test Tool](https://aadap-portcheck.connectorporttest.msappproxy.net/) to verify that your connector can reach the Application Proxy service. At a minimum, make sure that the Central US region and the region closest to you have all green checkmarks. Beyond that, more green checkmarks means greater resiliency.
 

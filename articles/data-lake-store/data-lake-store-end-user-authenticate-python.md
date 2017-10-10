@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 09/29/2017
 ms.author: nitinme
 
 ---
 # End-user authentication with Data Lake Store using Python
 > [!div class="op_single_selector"]
+> * [Using Java](data-lake-store-end-user-authenticate-java-sdk.md)
 > * [Using .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md)
 > * [Using Python](data-lake-store-end-user-authenticate-python.md)
 > * [Using REST API](data-lake-store-end-user-authenticate-rest-api.md)

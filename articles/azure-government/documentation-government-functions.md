@@ -20,7 +20,7 @@ ms.author: yujhong
 # Azure Functions Quickstarts for Azure Government
 The series of Quickstarts below will help you get started using Azure Functions on Azure Government. Using Azure Functions with Azure Government is similar to using it with the Azure commercial platform, with a [few exceptions](documentation-government-compute.md#azure-functions).
 
-To learn more about Azure Functions, click [here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview). 
+To learn more about Azure Functions, click [here](../azure-functions/functions-overview.md). 
 ## Create function - Azure CLI
 
 ### Prerequisites
@@ -40,7 +40,7 @@ If you don't have an Azure Government subscription, create a [free account](http
 
 ### Launch Azure CLI 2.0
 
-You must first connect to Azure Government with Azure Command Line Interface (CLI) by following [these steps](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-get-started-connect-with-cli). 
+You must first connect to Azure Government with Azure Command Line Interface (CLI) by following [these steps](documentation-government-get-started-connect-with-cli.md). 
 
 To connect to Azure Government through CLI, you set the cloud:
 
@@ -75,12 +75,12 @@ az group create --name myResourceGroup --location usgovvirginia
 > 
 > 
 
-Functions uses an Azure Storage account to maintain state and other information about your functions. Create a storage account in the resource group you created by using the [az storage account create](https://docs.microsoft.com/en-us/azure/storage/common/storage-azure-cli#create-a-new-storage-account) command.
+Functions uses an Azure Storage account to maintain state and other information about your functions. Create a storage account in the resource group you created by using the [az storage account create](../storage/common/storage-azure-cli.md#create-a-new-storage-account) command.
 
 In the following command, substitute a globally unique storage account name where you see the `<storage_name>` placeholder. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
 
 ```azurecli-interactive
-§ az storage account create --name <storage_name> --location usgovvirginia --resource-group myResourceGroup --sku Standard_LRS
+az storage account create --name <storage_name> --location usgovvirginia --resource-group myResourceGroup --sku Standard_LRS
 ```
 
 After the storage account has been created, the Azure CLI shows information similar to the following example:
@@ -106,7 +106,7 @@ After the storage account has been created, the Azure CLI shows information simi
 
 You must have a function app to host the execution of your functions. The function app provides an environment for serverless execution of your function code. It lets you group functions as logical unit for easier management, deployment, and sharing of resources. Create a function app by using the [az functionapp create](https://docs.microsoft.com/en-us/cli/azure/functionapp?view=azure-cli-latest#az_functionapp_create) command.
 
-Before creating your function app, you must create an [App Service plan](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale#app-service-plan) that hosts your function app. 
+Before creating your function app, you must create an [App Service plan](../azure-functions/functions-scale.md#app-service-plan) that hosts your function app. 
 This can be done with the following command that creates a plan named "testPlan".
 
 ```azurecli-interactive
@@ -190,7 +190,7 @@ If you don't have cURL available in your command line, enter the same URL in the
 
 ## Create function using Visual Studio 
 
-Before starting, first check to make sure that your Visual Studio is [connected to the Azure Government environment](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-get-started-connect-with-vs). 
+Before starting, first check to make sure that your Visual Studio is [connected to the Azure Government environment](documentation-government-get-started-connect-with-vs.md). 
 
 Once that is confirmed, the steps to create a function using Visual Studio to Azure Government are essentially the same as creating one in Azure commercial, which can be found [here](../azure-functions/functions-create-your-first-function-visual-studio.md). 
 
@@ -268,7 +268,7 @@ This tutorial will walk through how to update an existing function by adding out
     >
 
 * This tutorial requires a running function app. If you do not have one, you can follow the Quickstart section above titled "Create function- Visual Studio". 
-* This tutorial also requires an Azure Queue, if you have not created one you can do so by following [these steps](https://docs.microsoft.com/en-us/azure/storage/queues/storage-dotnet-how-to-use-queues).
+* This tutorial also requires an Azure Queue, if you have not created one you can do so by following [these steps](../storage/queues/storage-dotnet-how-to-use-queues.md).
 
 ### Update the function code 
 In order to connect the function to your output Queue, you must create an output binding. 

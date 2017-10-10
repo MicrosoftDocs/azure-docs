@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 09/29/2017
 ms.author: nitinme
 
 ---
@@ -116,6 +116,7 @@ To retrieve the redirect URI, do the following steps.
 ## Next steps
 In this article, you created an Azure AD native application and gathered the information you need in your client applications that you author using .NET SDK, Java SDK, REST API, etc. You can now proceed to the following articles that talk about how to use the Azure AD web application to first authenticate with Data Lake Store and then perform other operations on the store.
 
+* [End-user-authentication with Data Lake Store using Java SDK](data-lake-store-end-user-authenticate-java-sdk.md)
 * [End-user authentication with Data Lake Store using .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md)
 * [End-user authentication with Data Lake Store using Python](data-lake-store-end-user-authenticate-python.md)
 * [End-user authentication with Data Lake Store using REST API](data-lake-store-end-user-authenticate-rest-api.md)

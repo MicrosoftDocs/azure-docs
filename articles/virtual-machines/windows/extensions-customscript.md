@@ -45,7 +45,7 @@ The following JSON shows the schema for the Custom Script Extension. The extensi
 ```json
 {
 	"apiVersion": "2015-06-15",
-	"type": "extensions",
+	"type": "Microsoft.Compute/virtualMachines/extensions",
 	"name": "config-app",
 	"location": "[resourceGroup().location]",
 	"dependsOn": [

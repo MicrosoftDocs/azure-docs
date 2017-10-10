@@ -28,6 +28,7 @@
 ## Authenticate with Data Lake Store
 ### [Authentication options](data-lakes-store-authentication-using-azure-active-directory.md)
 ### [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md)
+#### [Using Java](data-lake-store-end-user-authenticate-java-sdk.md)
 #### [Using .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md)
 #### [Using REST API](data-lake-store-end-user-authenticate-rest-api.md)
 #### [Using Python](data-lake-store-end-user-authenticate-python.md)
