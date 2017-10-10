@@ -91,7 +91,7 @@ The project **Toll** is generated in **Solution Explorer**.
    
    ![Two input streams](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-05.png)
    
-Next, you add reference data input for the blob file that contains car registration data.
+   Next, you add reference data input for the blob file that contains car registration data.
    
 12. Right-click the **Inputs** node in the project, and then follow the same process for the stream inputs. For **Source Type**, select **Reference data**, and for **Input Alias**, enter **Registration**.
    
