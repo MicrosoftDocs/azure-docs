@@ -22,7 +22,7 @@ Each pricing tier has a range of performance levels (vCores) to choose from, dep
 Within an Azure Database for MySQL server, you can have one or multiple databases. You can opt to create a single database per server to utilize all the resources, or create multiple databases to share the resources. 
 
 ## Choose a pricing tier
-Azure Database for MySQL offers Three pricing tiers: Basic General Purpose and Performance Optimized.
+Azure Database for MySQL offers Three pricing tiers: Basic, General Purpose and Memory Optimized.
 
 The following table provides examples of the pricing tiers best suited for different application workloads.
 
@@ -30,14 +30,14 @@ The following table provides examples of the pricing tiers best suited for diffe
 | :----------- | :----------------|
 | Basic | Best suited for small workloads that require scalable compute and storage without IOPS guarantee. Examples include servers used for development or testing, or small-scale infrequently used applications. |
 | General Purpose | The go-to option for most business workloads offering balanced and scalable compute and storage options.|
-| Performance Optimized | Ideal for highly transactional and analytical workloads requiring low disk latency and higher memory.|
+| Memory Optimized | Ideal for highly transactional and analytical workloads that requires higher memory usage.|
 
-To decide on a pricing tier, first start by determining if your workload needs an IOPS guarantee. We offer 3 IOPS per GB in the General Purpose and Performance Optimized tiers.
+To decide on a pricing tier, first start by determining if your workload needs an IOPS guarantee. We offer 3 IOPS per GB in the General Purpose and Memory Optimized tiers.
 
-| **Pricing tier features** | **Basic** | **General Purpose** | **Performance Optimized** |
+| **Pricing tier features** | **Basic** | **General Purpose** | **Memory Optimized** |
 | :------------------------ | :-------- | :----------- | :----------- |
 | Storage IOPS guarantee | NO | Yes | Yes |   
-| Maximum storage IOPS | Variable | 3,000 | 3,000 |  
+| Maximum storage IOPS | Variable | 6,000 | 6,000 |  
 
 
 For the time being, you cannot change pricing tier once the server is created. In the future, it will be possible to upgrade or downgrade a server from one pricing tier to another tier.
@@ -51,23 +51,22 @@ Once you have determined the pricing tier for your Azure Database for MySQL serv
 vCores are a measure of CPU processing throughput that is guaranteed to be available to a single Azure Database for MySQL server. For more information, see [Explaining vCores](concepts-compute-unit-and-storage.md)
 
 
-| **Performance level** | **Basic** | **General Purpose** | **Performance Optimized** |
-|  |  | | **Memory Optimized** | **Storage Optimized** | **Memory and Storage Optimized** |
-| :------ | :----- | :------ |:----- | :------ | :------ |
-| vCores | 1,2 | 2,4,8,16,32 |2,4,8,16,32 | 2,4,8,16,32 | 2,4,8,16,32 |
-| Max Storage Size | 50 GB |1 TB | 1 TB | 1 TB | 1 TB |
-| Storage Type | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage | Local SSD | Local SSD |
-| Database backup retention period | 7 days | 35 days | 35 days | 35 days | 35 days | 
-| Built-in HA | Yes | Yes | Yes | Yes, with warm multi-AZ standby | Yes, with warm multi-AZ standby |
+| **Performance level** | **Basic** | **General Purpose** | **Memory Optimized** |
+| :-------------------- | :----- | :------ |:----- | :------ | :------ |
+| vCores | 1,2 | 2,4,8,16,32 |2,4,8,16,32 |
+| Max Storage Size | 50 GB |1 TB | 1 TB | 
+| Storage Type | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage | 
+| Database backup retention period | 7 days | 35 days | 35 days |  
+
 
 \* Max storage size refers to the maximum usable provisioned storage size for your server. Log usage does not count toward the storage size.
 
 ## Storage 
 The storage configuration defines the amount of storage capacity available to an Azure Database for MySQL server. The storage used by the service includes the database files, transaction logs, and the MySQL server logs. Consider the size of storage needed to host your databases and the performance requirements (IOPS) when selecting the storage configuration.
 
-Some storage capacity is included at a minimum with each pricing tier, noted in the preceding table as "Included storage size." Additional storage capacity can be added when the server is created, in increments of 125 GB, up to the maximum allowed storage. The additional storage capacity can be configured independently of the vCores configuration. The price changes based on the amount of storage selected.
+Some storage capacity is included at a minimum with each pricing tier, noted in the preceding table as "Included storage size." Additional storage capacity can be added when the server is created, in increments of 1 GB, up to the maximum allowed storage. The additional storage capacity can be configured independently of the vCores configuration. The price changes based on the amount of storage selected.
 
-The IOPS configuration in each performance level relates to the pricing tier and the storage size chosen. Basic tier does not provide an IOPS guarantee. Within the Standard pricing tier, the IOPS scale proportionally to maximum storage size in a fixed 3:1 ratio. The included storage of 125 GB guarantees for 375 provisioned IOPS, each with an IO size of up to 256 KB. You can choose additional storage up to 1 TB maximum, to guarantee 3,000 provisioned IOPS.
+The IOPS configuration in each performance level relates to the pricing tier and the storage size chosen. Basic tier does not provide an IOPS guarantee. Within the Standard pricing tier, the IOPS scale proportionally to maximum storage size in a fixed 3:1 ratio. The included storage of 125 GB guarantees for 375 provisioned IOPS, each with an IO size of up to 256 KB. You can choose additional storage up to 1 TB maximum, to guarantee 6,000 provisioned IOPS.
 
 Monitor the Metrics graph in the Azure portal or write Azure CLI commands to measure the consumption of storage and IOPS. Relevant metrics to monitor are Storage limit, Storage percentage, Storage used, and IO percent.
 
