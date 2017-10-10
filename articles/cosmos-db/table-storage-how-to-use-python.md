@@ -20,19 +20,20 @@ ms.author: mimig
 # How to use Table storage in Python
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
+> [!TIP]
+> The content in this article applies to the original basic Azure Table storage. However, there is now a premium offering for Azure Table storage in public preview that offers throughput-optimized tables, global distribution, and automatic secondary indexes. To learn more and try out the new premium experience, please check out [Azure Cosmos DB: Table API](https://aka.ms/premiumtables). 
 
-This guide shows you how to perform common Azure Table storage scenarios in Python using the [Microsoft Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python). The scenarios covered include creating and deleting a table, and inserting and querying entities.
+This guide shows you how to perform common Azure Table storage scenarios in Python using the [Azure Cosmos DB Table SDK for Python](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table). The scenarios covered include creating and deleting a table, and inserting and querying entities.
 
-While working through the scenarios in this tutorial, you may wish to refer to the [Azure Storage SDK for Python API reference](https://azure-storage.readthedocs.io/en/latest/index.html).
+While working through the scenarios in this tutorial, you may want to refer to the [Python API reference](https://azure.github.io/azure-cosmosdb-python/)).
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
-[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 ## Install the Azure Storage SDK for Python
 
-Once you've created a storage account, your next step is to install the [Microsoft Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python). For details on installing the SDK, refer to the [README.rst](https://github.com/Azure/azure-storage-python/blob/master/README.rst) file in the Storage SDK for Python repository on GitHub.
+Once you've created an Azure Cosmos DB account, your next step is to install the [Azure Cosmos DB Table SDK for Python](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table). For details on installing the SDK, refer to the [README.rst](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table) file in the Table SDK for Python repository on GitHub.
 
 ## Create a table
 
