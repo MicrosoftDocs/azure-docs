@@ -62,7 +62,7 @@ Similar to [template functions](resource-group-template-functions.md) in Azure R
 CreateUiDefinition itself has a simple schema. The real depth of it comes from all the supported elements and functions, which the following documents describe in wondrous detail:
 
 - [Elements](managed-application-createuidefinition-elements.md)
-- [Functions](managed-application-createuidefinition-functions.md)
+- [Functions](../managed-applications/createuidefinition-functions.md)
 
 A current JSON schema for CreateUiDefinition is available here: https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json. 
 
