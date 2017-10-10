@@ -1,6 +1,6 @@
 ﻿---
 title: 'Azure Active Directory B2C: Integrate REST API claim exchanges in your Azure AD B2C user journey as validation of user input'
-description: Sample how to integrate REST API claim exchanges in your Azure AD B2C user journey as validation of user input
+description: Integrate REST API claim exchanges in your Azure AD B2C user journey as validation of user input.
 services: active-directory-b2c
 documentationcenter: ''
 author: yoelhor
@@ -17,7 +17,7 @@ ms.date: 09/30/2017
 ms.author: yoelh
 ---
 
-# Integrate REST API claims exchanges in your Azure AD B2C user journey as validation on user input
+# Integrate REST API claims exchanges in your Azure AD B2C user journey as validation of user input
 With the Identity Experience Framework, which underlies Azure Active Directory B2C (Azure AD B2C), you can integrate with a RESTful API in a user journey. In this walkthrough, you'll learn how Azure AD B2C interacts with .NET Framework RESTful services (web API).
 
 ## Introduction
@@ -169,13 +169,13 @@ In the web API, a _controller_ is an object that handles HTTP requests. The cont
                 // Read the input claims from the request body
                 string input = Request.Content.ReadAsStringAsync().Result;
 
-                // Check input content value
+                // Check the input content value
                 if (string.IsNullOrEmpty(input))
                 {
                     return Content(HttpStatusCode.Conflict, new B2CResponseContent("Request content is empty", HttpStatusCode.Conflict));
                 }
 
-                // Convert the input string into InputClaimsModel object
+                // Convert the input string into an InputClaimsModel object
                 InputClaimsModel inputClaims = JsonConvert.DeserializeObject(input, typeof(InputClaimsModel)) as InputClaimsModel;
 
                 if (inputClaims == null)
@@ -183,13 +183,13 @@ In the web API, a _controller_ is an object that handles HTTP requests. The cont
                     return Content(HttpStatusCode.Conflict, new B2CResponseContent("Can not deserialize input claims", HttpStatusCode.Conflict));
                 }
 
-                // Run input validation
+                // Run an input validation
                 if (inputClaims.firstName.ToLower() == "test")
                 {
                     return Content(HttpStatusCode.Conflict, new B2CResponseContent("Test name is not valid, please provide a valid name", HttpStatusCode.Conflict));
                 }
 
-                // Create output claims object and set the loyalty number with random value
+                // Create an output claims object and set the loyalty number with a random value
                 OutputClaimsModel outputClaims = new OutputClaimsModel();
                 outputClaims.loyaltyNumber = new Random().Next(100, 1000).ToString();
 
@@ -224,7 +224,7 @@ In the web API, a _controller_ is an object that handles HTTP requests. The cont
 6. Copy the web app's URL.
 
 ## Step 4: Add the new `loyaltyNumber` claim to the schema of your TrustFrameworkExtensions.xml file
-The claim `loyaltyNumber` is not yet defined in our schema. Add a definition within the `<BuildingBlocks>` element, which you can find at the beginning of the *TrustFrameworkExtensions.xml* file.
+The `loyaltyNumber` claim is not yet defined in our schema. Add a definition within the `<BuildingBlocks>` element, which you can find at the beginning of the *TrustFrameworkExtensions.xml* file.
 
 ```xml
 <BuildingBlocks>
@@ -241,7 +241,7 @@ The claim `loyaltyNumber` is not yet defined in our schema. Add a definition wit
 ## Step 5: Add a claims provider 
 Every claims provider must have one or more technical profiles, which determine the endpoints and protocols needed to communicate with the claims provider. 
 
-A claims provider can have multiple technical profiles for various reasons. For example, multiple technical profiles might be defined because the claims provider supports multiple protocols, endpoints can have varying capabilities, or releases can contain claims with a variety of assurance levels. It might be acceptable to release sensitive claims in one user journey but not in another. 
+A claims provider can have multiple technical profiles for various reasons. For example, multiple technical profiles might be defined because the claims provider supports multiple protocols, endpoints can have varying capabilities, or releases can contain claims that have a variety of assurance levels. It might be acceptable to release sensitive claims in one user journey but not in another. 
 
 The following XML snippet contains a claims provider node with two technical profiles:
 
@@ -251,7 +251,7 @@ The following XML snippet contains a claims provider node with two technical pro
 
    In this example, the content of the claim `givenName` sends to the REST service as `firstName`, the content of the claim `surname` sends to the REST service as `lastName`, and `email` sends as is. The `OutputClaims` element defines the claims that are retrieved from RESTful service back to Azure AD B2C.
 
-* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**: Adds a validation technical profile to an existing technical profile (defined in base policy). During the sign-up journey, the validation technical profile invokes the preceding technical profile. If the RESTful service returns an HTTP error 409 (conflict), the error message is displayed to the user. 
+* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**: Adds a validation technical profile to an existing technical profile (defined in base policy). During the sign-up journey, the validation technical profile invokes the preceding technical profile. If the RESTful service returns an HTTP error 409 (a conflict error), the error message is displayed to the user. 
 
 Locate the `<ClaimsProviders>` node, and then add the following XML snippet under the `<ClaimsProviders>` node:
 
