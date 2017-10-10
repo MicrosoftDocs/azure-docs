@@ -69,9 +69,11 @@ If you have iOS and Android versions of your app, it's best to create two separa
 One step left: start exporting the custom events from Mobile Center into the Application Insights resource you just created.
 
 In your new Application Insights resource:
+
 1. On the **Overview** page in the **Essentials** section at the top, copy the instrumentation key for this resource.
 
 In the Mobile Center instance for your app:
+
 1. On the **Settings** page, click **Export**.
 2. Choose **New Export**, pick **Application Insights**, then click **Customize**.
 3. Paste your Application Insights instrumentation key into the box.
@@ -80,6 +82,8 @@ In the Mobile Center instance for your app:
 Remember to repeat this process for each platform your app supports.
 
 Once export is set up, each custom event received by Mobile Center will be copied into Application Insights. It can take several minutes for events to reach Application Insights, so if they don't show up immediately, wait a bit before diagnosing further.
+
+Mobile Center will export the most recent 48 hours of custom events to Application Insights. Currently, there's no way to export Mobile Center custom events to Application Insights from earlier than 48 hours ago.
 
 ## Start monitoring your app in the Azure portal
 
@@ -136,4 +140,4 @@ Application Insights can query, segment, filter, and analyze the custom event te
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Understand how customers are using your app](app-insights-tutorial-users.md)
+> [Understand how customers are using your app](app-insights-usage-overview.md)
