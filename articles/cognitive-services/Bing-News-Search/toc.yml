@@ -12,7 +12,7 @@
   expanded: true
   items:
   - name: Get started
-    href: quick-start.md
+    href: quickstart.md
   - name: C#
     href: csharp.md
   - name: Java
