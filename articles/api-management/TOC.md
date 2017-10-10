@@ -1,35 +1,48 @@
 # Overview
-## [What is API Management?](api-management-key-concepts.md)
-# Get started
-## [Manage your first API](api-management-get-started.md)
-## [Protect your API with rate limits](api-management-howto-product-with-rules.md)
-## [Add caching to improve performance](api-management-howto-cache.md)
+## [About API Management](api-management-key-concepts.md)
+# Quickstarts
+## [Create an APIM instance - Portal](get-started-create-service-instance.md)
+## [Create an APIM instance - PowerShell](powershell-create-service-instance.md)
+# Tutorials
+## [1 - Import and publish your first API](api-management-get-started.md)
+## [2 - Create and publish a product](api-management-howto-add-products.md)
+## [3 - Create blank API and mock API responses](mock-api-responses.md)
+## [4 - Transform and protect a published API](api-management-howto-product-with-rules.md)
+## [5 - Monitor your API](api-management-howto-use-azure-monitor.md)
+## [6 - Trace calls](api-management-howto-api-inspector.md)
+## [7 - Use revisions](api-management-get-started-revise-api.md)
+## [8 - Publish multiple versions of your API](api-management-get-started-publish-versions.md)
+# Samples
+## [Policy samples](policy-samples.md)
+## [PowerShell samples](powershell-samples.md)
+# Concepts
+## [What is an API?](api-management-howto-create-apis.md)
+## [What is a product?](api-management-product.md)
+## [What is an operation?](api-management-howto-add-operations.md)
+## Policies
+### [Overview](api-management-howto-policies.md)
+### [Policy reference index](api-management-policy-reference.md)
+### [Custom caching](api-management-sample-cache-by-key.md)
+### [Advanced monitoring](api-management-log-to-eventhub-sample.md)
+### [Advanced request throttling](api-management-sample-flexible-throttling.md)
+### [Using external services](api-management-sample-send-request.md)
+### [Manage secrets using properties](api-management-howto-properties.md)
+### [Secure APIs using client certificate authentication](api-management-howto-mutual-certificates-for-clients.md)
+## Manage in production
+### [Manage using automation](automation-manage-api-management.md)
+### [Use role-based access control](api-management-role-based-access-control.md)
+## [API import restrictions](api-management-api-import-restrictions.md)
 ## [Frequently asked questions](api-management-faq.md)
-# How to
-## Set up an APIM service
-### [Create an APIM instance](get-started-create-service-instance.md)
-### [Upgrade and scale](upgrade-and-scale.md)
-### [Configure a custom domain](configure-custom-domain.md)
-## Develop APIs
-### [Add and publish an API Product](api-management-howto-add-products.md)
-### [Add operations](api-management-howto-add-operations.md)
-### [Create an API](api-management-howto-create-apis.md)
-### [Import an API definition](api-management-howto-import-api.md)
+# How-to guides
+## [Upgrade and scale](upgrade-and-scale.md)
+## [Configure a custom domain](configure-custom-domain.md)
+## [Add caching to improve performance](api-management-howto-cache.md)
 ## Secure your backend
 ### [Protect Web API backend with AAD](api-management-howto-protect-backend-with-aad.md)
 ### [Connect to a virtual network](api-management-using-with-vnet.md)
 ### [Connect to an internal virtual network](api-management-using-with-internal-vnet.md)
 ### [Integrate Application Gateway in an internal VNET](api-management-howto-integrate-internal-vnet-appgateway.md)
 ### [Mutual Certificate authentication](api-management-howto-mutual-certificates.md)
-## Configure Policies
-### [Custom caching](api-management-sample-cache-by-key.md)
-### [Advanced monitoring](api-management-log-to-eventhub-sample.md)
-### [Advanced request throttling](api-management-sample-flexible-throttling.md)
-### [Using external services](api-management-sample-send-request.md)
-### [Policy reference index](api-management-policy-reference.md)
-### [Policies overview](api-management-howto-policies.md)
-### [Manage secrets using properties](api-management-howto-properties.md)
-### [Secure APIs using client certificate authentication](api-management-howto-mutual-certificates-for-clients.md)
 ## Customize the developer experience
 ### [Modify page content and layout](api-management-modify-content-layout.md)
 ### [Customize styling of page elements](api-management-customize-styles.md)
@@ -44,41 +57,36 @@
 ### [Deploy to multiple Azure regions](api-management-howto-deploy-multi-region.md)
 ### [Log events to Azure Event Hubs](api-management-howto-log-event-hubs.md)
 ### [Set up DR using backup/restore](api-management-howto-disaster-recovery-backup-restore.md)
-### [Trace calls with the API Inspector](api-management-howto-api-inspector.md)
 ### [Manage user accounts](api-management-howto-create-or-invite-developers.md)
-### [Manage using automation](automation-manage-api-management.md)
 ### [Configure using Git](api-management-configuration-repository-git.md)
-### [Monitor using Azure Monitor](api-management-howto-use-azure-monitor.md)
-### [Use role-based access control](api-management-role-based-access-control.md)
-### Integrate with Service Fabric
-#### [Overview](../service-fabric/service-fabric-api-management-overview.md)
-#### [Quick start](../service-fabric/service-fabric-api-management-quick-start.md)
-
+## Integrate with Service Fabric
+### [Overview](../service-fabric/service-fabric-api-management-overview.md)
+### [Quick start](../service-fabric/service-fabric-api-management-quick-start.md)
 # Reference
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [REST](/rest/api/apimanagement/)
 ## [REST (original)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
 ## [Policies](api-management-policies.md)
-### Policy reference
-#### [Access restriction policies](api-management-access-restriction-policies.md)
-#### [Advanced policies](api-management-advanced-policies.md)
-#### [Authentication policies](api-management-authentication-policies.md)
-#### [Caching policies](api-management-caching-policies.md)
-#### [Cross domain policies](api-management-cross-domain-policies.md)
-#### [Transformation policies](api-management-transformation-policies.md)
-### [Error handling](api-management-error-handling-policies.md)
-### [Policy expressions](api-management-policy-expressions.md)
-## [Templates](api-management-developer-portal-templates-reference.md)
-### Template reference
-#### [APIs](api-management-api-templates.md)
-#### [Products](api-management-product-templates.md)
-#### [Applications](api-management-application-templates.md)
-#### [Issues](api-management-issue-templates.md)
-#### [User profile](api-management-user-profile-templates.md)
-#### [Pages](api-management-page-templates.md)
-### [Data model reference](api-management-template-data-model-reference.md)
-### [Page controls](api-management-page-controls.md)
+## Policy reference
+### [Access restriction policies](api-management-access-restriction-policies.md)
+### [Advanced policies](api-management-advanced-policies.md)
+### [Authentication policies](api-management-authentication-policies.md)
+### [Caching policies](api-management-caching-policies.md)
+### [Cross domain policies](api-management-cross-domain-policies.md)
+### [Transformation policies](api-management-transformation-policies.md)
+## [Error handling](api-management-error-handling-policies.md)
+## [Policy expressions](api-management-policy-expressions.md)
+## Template reference
+### [Templates](api-management-developer-portal-templates-reference.md)
+### [APIs](api-management-api-templates.md)
+### [Products](api-management-product-templates.md)
+### [Applications](api-management-application-templates.md)
+### [Issues](api-management-issue-templates.md)
+### [User profile](api-management-user-profile-templates.md)
+### [Pages](api-management-page-templates.md)
 ### [Template resources](api-management-template-resources.md)
+## [Data model reference](api-management-template-data-model-reference.md)
+## [Page controls](api-management-page-controls.md)
 # Resources
 ## [API design guidance](../best-practices-api-design.md?toc=%2fazure%2fapi-management%2ftoc.json)
 ## [API implementation guidance](../best-practices-api-implementation.md?toc=%2fazure%2fapi-management%2ftoc.json)
@@ -96,4 +104,7 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-management)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) 
 ## [Whitepaper: Cloud-based API Management](http://j.mp/ms-apim-whitepaper)
+
+
+
 

@@ -26,15 +26,17 @@ The price of each unit, the ability to add/remove units, whether or not you have
 >[!NOTE]
 >The [pricing details](https://azure.microsoft.com/pricing/details/api-management/) article shows approximate numbers of unit capacity in each tier. To get more accurate numbers, you need to look at a realistic scenario for your APIs. See the "How to plan for capacity" section that follows.
 
+What you'll learn:
+
+> [!div class="checklist"]
+> * How to plan for capacity
+> * How to upgrade and scale 
+
 ## Prerequisites
 
-To perform the steps described in this article, you must have:
+To perform the steps described in this tutorial:
 
-+ An active Azure subscription.
-
-    [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-+ An APIM instance. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
+[Create an Azure API Management instance](get-started-create-service-instance.md).
 
 ## How to plan for capacity?
 
