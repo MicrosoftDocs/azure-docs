@@ -19,6 +19,8 @@
     href: ../container-instances/container-instances-tutorial-prepare-app.md
   - name: Azure Container Service
     href: ../container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app.md
+  - name: Service Fabric
+    href: ../service-fabric/service-fabric-tutorial-create-container-images.md
 - name: How-to guides
   items:
   - name: Push and pull an image
