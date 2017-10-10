@@ -14,18 +14,20 @@ ms.author: v-brapel
 
 # Call Bing Custom Search endpoint (Python)
 
-Call Bing Custom Search endpoint using Python by performing these steps:
-1. Get a subscription key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).
-2. Install [Python](https://www.python.org/).
-3. Create a folder for your code
-4. From a command prompt or terminal, navigate to the folder you just created.
-4. Run the following commands:
+This example shows how to request search results from your custom search instance using Python. To create this example follow these steps:
+
+1. Create your custom instance (see [Define a custom search instance](define-your-custom-view.md)).
+2. Get a subscription key (if you don't have one see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api)).
+3. Install [Python](https://www.python.org/).
+4. Create a folder for your code.
+5. From a command prompt or terminal, navigate to the folder you just created.
+6. Run the following commands:
     <pre>
     pip install pipenv
     pipenv install requests
     </pre>
-6. Create the file BingCustomSearch.py and copy the following code
-9. Replace **YOUR-SUBSCRIPTION-KEY** and **YOUR-CUSTOM-CONFIG-ID** with your key and configuration ID.
+7. Create the file BingCustomSearch.py and copy the following code to it.
+8. Replace **YOUR-SUBSCRIPTION-KEY** and **YOUR-CUSTOM-CONFIG-ID** with your key and configuration ID (see step 1).
 
 ``` Python
 import json
