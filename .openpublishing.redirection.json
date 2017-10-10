@@ -12946,21 +12946,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/azure-stack/azure-stack-app-service-capacity-planning.md",
-            "redirect_url": "/azure-stack/azure-stack-app-service-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/azure-stack/azure-stack-sql-resource-provider-databases.md",
-            "redirect_url": "/azure-stack/azure-stack-sql-resource-provider-deploy",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/azure-stack/azure-stack-sql-resource-provider-hosting-servers.md",
-            "redirect_url": "/azure-stack/azure-stack-sql-resource-provider-deploy",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/data-factory/data-factory-amazon-redshift-connector.md",
             "redirect_url": "/azure/data-factory/v1/data-factory-amazon-redshift-connector",
             "redirect_document_id": true

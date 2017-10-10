@@ -3,7 +3,7 @@ title: 'NAT for Azure ExpressRoute | Microsoft Docs'
 description: This page provides detailed requirements for configuring and managing routing for ExpressRoute circuits.
 documentationcenter: na
 services: expressroute
-author: osamazia
+author: cherylmc
 manager: ganesr
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2017
-ms.author: osamam
+ms.author: cherylmc
 
 ---
 # NAT for ExpressRoute
