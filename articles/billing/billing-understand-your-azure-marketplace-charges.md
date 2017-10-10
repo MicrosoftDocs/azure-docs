@@ -19,7 +19,7 @@ ms.author: adpick
 ms.custom: H1Hack27Feb2017
 ---
 # Understand your Azure billing for external service charges
-External services also known as Azure Marketplace, are services published by third-parties available for Azure. For example, ClearDB and SendGrid are external services that you can purchase in Azure, but are not published by Microsoft.
+External services are published by third party software vendors in the Azure marketplace. For example, ClearDB and SendGrid are external services that you can purchase in Azure, but are not published by Microsoft.
 
 When you provision a new external service or resource, a warning is shown:
 
