@@ -31,14 +31,14 @@ ms.author: renash
 * **What is Azure File Sync?**  
     Azure File Sync (preview) allows you to centralize your organization's file shares in Azure Files without giving up the flexibility, performance, and compatibility of an on-premises file server. It does this by transforming your Windows Servers into a quick cache of your Azure File share. You can use any protocol available on Windows Server to access your data locally (including SMB, NFS, and FTPS) and you can have as many caches as you need across the world.
 
-* **Why would I use an Azure File share instead of Azure Blob storage for my data?**  
-    Azure Files and Azure Blob storage both provide a way to store large amounts of data in the cloud, but are useful for slightly different purposes. Azure Blob storage is useful for massive-scale, cloud-native applications that need to store unstructured data. Azure Blob storage lacks many of the abstractions of a file system, such as common file system metadata, instead focusing on cloud scale and performance. Additionally, Azure Blob storage may only be accessed through REST-based client libraries (or directly through the REST-based protocol).
+* **Why would I use an Azure File share versus Azure Blob storage for my data?**  
+    Azure Files and Azure Blob storage both provide a way to store large amounts of data in the cloud, but are useful for slightly different purposes. Azure Blob storage is useful for massive-scale, cloud-native applications that need to store unstructured data. To maximize performance and scale, Azure Blob storage is a simpler storage abstraction than a true file system. Additionally, Azure Blob storage may only be accessed through REST-based client libraries (or directly through the REST-based protocol).
 
     Azure Files on the other hand specifically seeks to be a file system, with all of the file abstracts you know and love from years of on-premises operating systems. Like Azure Blob storage, Azure Files offers a REST interface and REST-based client libraries, but unlike Azure Blob storage, Azure Files also offers SMB access to Azure File shares. This means you can directly mount an Azure File share on Windows, Linux, or macOS, on-premises or in cloud VMs, without having to write any code or attach any special drivers to the file system. Additionally, Azure File shares may be cached on on-premises file servers using Azure File Sync for quick access near where the data is being used. 
    
     For a more in-depth discussion on the differences between Azure Files and Azure Blob storage, see [Deciding when to use Azure Blob storage, Azure Files, or Azure Disks](../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). To learn more about Azure Blob storage, see [Introduction to Blob storage](../blobs/storage-blobs-introduction.md).
 
-* **Why would I use an Azure File share instead of Azure Disks?**  
+* **Why would I use an Azure File share versus Azure Disks?**  
     An Azure Disk is just that, a disk. A standalone disk by itself, is not very useful - to get value out of an Azure Disk, you have to attach to virtual machine running in Azure. Azure Disks can be used for anything and everything you would use a disk for on an on-premises server: as an OS system disk, swap space for an OS, or as dedicated storage for an application. One interesting use for Azure Disks is to create a file server in the cloud for use in exactly the same places you might use an Azure File share. Deploying a file server in Azure VMs is a fantastic, high-performance way to get file storage in Azure when you require deployment options not currently supported by Azure Files (such as NFS protocol support or premium storage). 
 
     On the other hand, running a file server with Azure Disks as backend storage will typically be much more expensive than using an Azure File share for several reasons. First, in addition to paying for disk storage, you must also pay for the expense of running one or more Azure VMs. Second, you must also manage the VMs used to run the file server, such as being responsible for OS upgrades, etc. Finally, if you ultimately require data cached on-premises, it's up to you to set up and manage replication technologies (such as Distributed File System Replication) to make that happen.
@@ -69,8 +69,8 @@ ms.author: renash
 * **Can I have domain joined and non-domain joined servers in the same Sync Group?**  
     Yes, a Sync Group can contain Server Endpoints that have different Active Directory membership, inclusive of not being domain joined. While configuration technically works, we do not recommend this as a normal configuration as ACLs that are defined for files/folders on one server might not be able to be enforced by other servers in the Sync Group. For best results, we recommend syncing between either servers in the same Active Directory forest, servers in different Active Directory forests with established trust relationships, or servers not in a domain, but not a mix of all of the above.
 
-* **I created a file in an Azure File share over SMB. How long until the file is synced to the servers in the Sync Group?** 
-    When you create or update files in an Azure File share using SMB or REST, it can take up to 24 hours to sync the changes to the servers in the Sync Group.
+* **I created a file directly in my Azure File share over SMB or through the poral. How long until the file is synced to the servers in the Sync Group?** 
+    When you create or modify files in an Azure File share using the Azure portal, SMB, or REST, it can take up to 24 hours to sync the changes to the servers in the Sync Group.
 
 * **When the same file is changed on two servers at approximately the same time, what happens?**  
     Azure File Sync uses a simple conflict resolution strategy: we keep both changes. The most recently written keeps the original file name. The older file has the 'source' machine and the conflict number appended to the name with this taxonomy: 
@@ -162,7 +162,7 @@ ms.author: renash
     - Azure File Sync will preserve and replicate all ACLs (AD-based or local) to all server endpoints it syncs to. Because Windows Server can already authenticate with Active Directory, Azure File Sync can provide a great stop-gap measure until full support for AD-based authentication and ACL support arrives.
 
 * **How can I ensure my Azure File share is encrypted at-rest?**  
-    You don't have to do anything to enable encrypted, [Server Side Encryption](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) is now enabled by default for Azure Files in all public regions and national clouds. 
+    You don't have to do anything to enable encryption, [Server Side Encryption](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) is now enabled by default for Azure Files in all public regions and national clouds. 
 
 * **How can I provide access to a specific file using a web browser?**  
     Using SAS, you can generate tokens with specific permissions that are valid for a specified time interval. For example, you can generate a token with read-only access to a particular file for a specific period of time. Anyone who possesses this url can access the file directly from any web browser while it is valid. SAS keys can be easily generated from UI like Storage Explorer.
