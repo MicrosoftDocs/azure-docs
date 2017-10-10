@@ -916,6 +916,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/logic-apps/logic-apps-custom-hosted-api.md",
+            "redirect_url": "/azure/logic-apps/logic-apps-custom-api-host-deploy-call",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/app-service-logic/app-service-logic-deploy-from-vs.md",
             "redirect_url": "/azure/logic-apps/logic-apps-deploy-from-vs",
             "redirect_document_id": false
@@ -4160,6 +4165,11 @@
             "redirect_url": "/azure/operations-management-suite/oms-solution-update-management",
             "redirect_document_id": false
         },
+		{
+            "source_path": "articles/log-analytics/log-analytics-get-started.md",
+            "redirect_url": "https://docs.microsoft.com/en-us/azure/log-analytics",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/machine-learning/machine-learning-apps-text-analytics.md",
             "redirect_url": "../cognitive-services/cognitive-services-text-analytics-quick-start",
@@ -5145,6 +5155,16 @@
             "redirect_url": "/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues",
             "redirect_document_id": false
         },
+        {
+            "source_path": "articles/service-bus-messaging/service-bus-create-queues.md",
+            "redirect_url": "/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/service-bus-messaging/service-bus-create-topics-subscriptions.md",
+            "redirect_url": "/azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions",
+            "redirect_document_id": false
+        },        
         {
             "source_path": "articles/service-bus-messaging/service-bus-dotnet-advanced-message-queuing.md",
             "redirect_url": "/azure/service-bus-messaging/service-bus-amqp-dotnet",
@@ -6134,12 +6154,7 @@
             "source_path": "articles/logic-apps/logic-apps-enterprise-integration-accounts.md",
             "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-create-integration-account",
             "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/logic-apps/logic-apps-custom-hosted-api.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-custom-api-host-deploy-call",
-            "redirect_document_id": false
-        },        
+        },    
         {
             "source_path": "articles/backup/backup-azure-backup-ibiza-faq.md",
             "redirect_url": "/azure/backup/backup-azure-backup-faq",
@@ -12931,21 +12946,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/azure-stack/azure-stack-app-service-capacity-planning.md",
-            "redirect_url": "/azure-stack/azure-stack-app-service-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/azure-stack/azure-stack-sql-resource-provider-databases.md",
-            "redirect_url": "/azure-stack/azure-stack-sql-resource-provider-deploy",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/azure-stack/azure-stack-sql-resource-provider-hosting-servers.md",
-            "redirect_url": "/azure-stack/azure-stack-sql-resource-provider-deploy",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/data-factory/data-factory-amazon-redshift-connector.md",
             "redirect_url": "/azure/data-factory/v1/data-factory-amazon-redshift-connector",
             "redirect_document_id": true
@@ -13526,8 +13526,18 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-join-rhel-linux-vm.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-join-rhel-linux-vm",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-functions/functions-java-refernece.md",
-            "redirect_url": "/azure/azure-functions/functions-java-reference",
+            "redirect_url": "/azure/azure-functions/functions-reference-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/functions-java-reference.md",
+            "redirect_url": "/azure/azure-functions/functions-reference-java",
             "redirect_document_id": false
         }
     ]

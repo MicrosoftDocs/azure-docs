@@ -3,7 +3,7 @@ title: Testing a runbook in Azure Automation | Microsoft Docs
 description: Before you publish a runbook in Azure Automation, you can test it to ensure that works as expected.  This article describes how to test a runbook and view its output.
 services: automation
 documentationcenter: ''
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 
