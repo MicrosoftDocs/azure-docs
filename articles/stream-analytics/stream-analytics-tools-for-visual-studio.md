@@ -19,7 +19,7 @@ ms.author: sujie
 
 ---
 # Use Azure Stream Analytics tools for Visual Studio
-Azure Stream Analytics tools for Visual Studio are now generally available. These tools enable a richer experience for Stream Analytics users to troubleshoot as well as write complex queries and even write queries locally. You also have the ability to export a Stream Analytics job into a Visual Studio project.
+Azure Stream Analytics tools for Visual Studio are now generally available. These tools enable a richer experience for Stream Analytics users to troubleshoot as well as write complex queries and even write queries locally. You also can export a Stream Analytics job into a Visual Studio project.
 
 ## Introduction
 In this tutorial, you learn how to use Stream Analytics tools for Visual Studio to create, author, test locally, manage, and debug your Stream Analytics jobs. 
@@ -69,7 +69,7 @@ The project **Toll** is generated in **Solution Explorer**.
 
 7. For **Event Hub Policy Name**, select **RootManageSharedAccessKey** (the default value).
 
-8. For **Event Serialization Format**, select **Json**, and for **Encoding**, select **UTF8** .
+8. For **Event Serialization Format**, select **Json**, and for **Encoding**, select **UTF8**.
    
    Your settings look like this:
    
@@ -120,7 +120,7 @@ Now all the inputs are defined.
 This tutorial attempts to answer several business questions that are related to toll data. We constructed queries that can be used in Stream Analytics to provide relevant answers. Before you start your first Stream Analytics job, let's explore a simple scenario and the query syntax.
 
 ### Introduction to Stream Analytics query language
-Let's say that you need to count the number of vehicles that enter a toll booth. Because this  stream of events is continuous, you have to define a period of time. Let's modify the question to be "How many vehicles enter a toll booth every three minutes?" This measurement is commonly referred to as the tumbling count.
+Let's say that you need to count the number of vehicles that enter a toll booth. Because this stream of events is continuous, you have to define a period of time. Let's modify the question to be "How many vehicles enter a toll booth every three minutes?" This measurement is commonly referred to as the tumbling count.
 
 Let's look at the Stream Analytics query that answers this question:
 

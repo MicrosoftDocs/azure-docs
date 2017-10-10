@@ -1,5 +1,5 @@
 ---
-title: Use Stream Analytics Visual Studio tools to set up the continuous integration and deployment process  | Microsoft Docs
+title: Use Stream Analytics Visual Studio tools to set up the continuous integration and deployment process | Microsoft Docs
 description: Tutorial for using Stream Analytics Visual Studio tools to set up a continuous integration and deployment process
 keywords: visual studio, NuGet, DevOps, CI/CD
 documentationcenter: ''
