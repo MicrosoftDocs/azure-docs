@@ -91,7 +91,7 @@ The project **Toll** is generated in **Solution Explorer**.
    
    ![Two input streams](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-05.png)
    
-   Next, you add reference data input for the blob file that contains car registration data.
+Next, you add reference data input for the blob file that contains car registration data.
    
 12. Right-click the **Inputs** node in the project, and then follow the same process for the stream inputs. For **Source Type**, select **Reference data**, and for **Input Alias**, enter **Registration**.
    
@@ -114,7 +114,7 @@ Now all the inputs are defined.
 
 5. Select **Save**.
 
-![Output settings](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-output-01.png)
+   ![Output settings](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-output-01.png)
  
 ## Stream Analytics query
 This tutorial attempts to answer several business questions that are related to toll data. We constructed queries that can be used in Stream Analytics to provide relevant answers. Before you start your first Stream Analytics job, let's explore a simple scenario and the query syntax.
@@ -154,7 +154,7 @@ You can first compile the query to see if there is any syntax error.
    
    ![Add local input](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-01.png)
    
-   In the pop-up window, select the sample data from your local path. Select **Save**.
+2. In the pop-up window, select the sample data from your local path. Select **Save**.
    
    ![Add local input](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-02.png)
    
@@ -162,7 +162,7 @@ You can first compile the query to see if there is any syntax error.
    
    ![Local input folder file list](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-03.png)
    
-2. Select **Run Locally** in the query editor. Or you can press F5.
+3. Select **Run Locally** in the query editor. Or you can press F5.
    
    ![Run Locally](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-local-run-01.png)
    
@@ -170,7 +170,7 @@ You can first compile the query to see if there is any syntax error.
    
    ![Local run](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-local-run-02.png)
    
-3. Check the results in the local folder.
+4. Check the results in the local folder.
    
    ![Local folder result](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-local-run-03.png)
    
@@ -191,25 +191,26 @@ You can see the progress in the **Output** window.
 ### Submit a Stream Analytics query to Azure
 1. In the **Query Editor**, select **Submit To Azure** in the script editor.
 
-![Submit To Azure](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-submit-job-01.png)
+   ![Submit To Azure](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-submit-job-01.png)
  
 2. Select **Create a New Azure Stream Analytics Job**. For **Job Name**, enter **TollApp**. Choose the correct **Subscription** in the drop-down list. Select **Submit**.
 
-![Submit Job](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-submit-job-02.png)
+   ![Submit Job](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-submit-job-02.png)
 
  
 ### Start the job
-Now your job is created, and the job view opens automatically. Select the green arrow button to start the job.
+Now your job is created, and the job view opens automatically. 
+1. Select the green arrow button to start the job.
 
-![Start job button](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-start-job-01.png)
+   ![Start job button](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-start-job-01.png)
  
-Choose the default setting, and select **Start**.
+2. Choose the default setting, and select **Start**.
  
-![Start Job](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-start-job-02.png)
+   ![Start Job](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-start-job-02.png)
 
-You can see the job status changed to **Running**, and there are input/output events.
+   You can see the job status changed to **Running**, and there are input/output events.
 
-![Job Summary and Metrics](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-start-job-03.png)
+   ![Job Summary and Metrics](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-start-job-03.png)
 
 ## Check results in Visual Studio
 1. Open Visual Studio Server Explorer, and right-click the **TollDataRefJoin** table.

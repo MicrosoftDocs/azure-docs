@@ -44,9 +44,11 @@ When a Stream Analytics Visual Studio project builds successfully, it generates 
 * Resource Manager parameters file
 *       [ProjectName].JobTemplate.parameters.json   
 
-The default parameters in the parameters.json file are from the settings in your Visual Studio project. If you want to deploy to another environment, replace the parameters accordingly. 
+The default parameters in the parameters.json file are from the settings in your Visual Studio project. If you want to deploy to another environment, replace the parameters accordingly.
+
 > [!NOTE] 
 For all the credentials, the default values are set to null. You are *required* to set the values before you deploy to the cloud.
+
 ```json
 "Input_EntryStream_sharedAccessPolicyKey": {
       "value": null
