@@ -89,4 +89,4 @@ After you have enabled the custom domain in Azure CDN and verified that the doma
 
 ## See Also
 [How to Enable the Content Delivery Network (CDN)  for Azure](cdn-create-new-endpoint.md)  
-[Delegating your domain to Azure DNS](dns-domain-delegation.md)
+[Delegating your domain to Azure DNS](../dns/dns-domain-delegation.md)
