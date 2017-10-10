@@ -1,5 +1,5 @@
 ---
-title: X.509 security in Azure IoT Hub | Microsoft Docs
+title: Tutorial for X.509 security in Azure IoT Hub | Microsoft Docs
 description: Get started on the X.509 based security in your Azure IoT hub in a simulated environment.
 services: iot-hub
 documentationcenter: ''
@@ -12,23 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 10/10/2017
 ms.author: dkshir
 
 ---
 # Set up X.509 security in your Azure IoT hub
 
-This tutorial simulates the steps you need to secure your Azure IoT hub using the *X.509 Certificate Authentication*. For the purpose of illustration, we will show how to use the open source tool OpenSSL to create certificates locally on your Windows machine. We recommend that you use this tutorial for test purposes only. For production environment, you should purchase the certificates from a *certificate authority (CA)* such as **VeriSign**. 
+This tutorial simulates the steps you need to secure your Azure IoT hub using the *X.509 Certificate Authentication*. For the purpose of illustration, we will show how to use the open source tool OpenSSL to create certificates locally on your Windows machine. We recommend that you use this tutorial for test purposes only. For production environment, you should purchase the certificates from a *root certificate authority (CA)*. 
 
 ## Prerequisites
 This tutorial requires that you have the following resources ready:
 
 - You have created an IoT hub with your Azure subscription. See [Create an IoT hub through portal](iot-hub-create-through-portal.md) for detailed steps. 
-- You have a Windows development machine with [PowerShell installed](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell) on it. 
 - You have [Visual Studio 2015 or Visual Studio 2017](https://www.visualstudio.com/vs/) installed on your machine. 
-- You have acquired the OpenSSL binaries. You may either
-    - download the OpenSSL source code and build the binaries on your machine, or 
-    - download and install any [third-party OpenSSL binaries](https://wiki.openssl.org/index.php/Binaries), for example, from [this project on SourceForge](https://sourceforge.net/projects/openssl/).
 
 <a id="getcerts"></a>
 
@@ -36,14 +32,14 @@ This tutorial requires that you have the following resources ready:
 The X.509 certificate-based security in the IoT Hub requires you to start with an [X.509 certificate chain](https://en.wikipedia.org/wiki/X.509#Certificate_chains_and_cross-certification), which includes the root certificate as well as any intermediate certificates up until the leaf certificate. 
 
 You may choose either of the following ways to get your certificates:
-- Purchase X.509 certificates from a *certificate authority (CA)* such as **VeriSign**. This is recommended for production environments.
+- Purchase X.509 certificates from a *root certificate authority (CA)*. This is recommended for production environments.
 OR,
-- Create your own X.509 certificates using a third party tool such as [OpenSSL](https://www.openssl.org/). This will be fine for test and development purposes. The article [How to create your X.509 certificates](iot-hub-security-x509-create-certificates.md) walks you through a sample PowerShell script to create the certificates using OpenSSL. The rest of this tutorial will use the OpenSSL environment set up in this *How to* guide to walk through the end-to-end X.509 security in Azure IoT Hub.
+- Create your own X.509 certificates using a third party tool such as [OpenSSL](https://www.openssl.org/). This will be fine for test and development purposes. The sections titled [Create your X.509 certificates](iot-hub-security-x509-create-certificates.md#createcerts) and [Create X.509 certificate chain](iot-hub-security-x509-create-certificates.md#createcertchain) walk you through a sample PowerShell script to create the certificates using OpenSSL. The rest of this tutorial will use the OpenSSL environment set up in this *How to* guide to walk through the end-to-end X.509 security in Azure IoT Hub.
 
 
 <a id="registercerts"></a>
 
-## Register X.509 certificates to your IoT hub
+## Register X.509 CA certificates to your IoT hub
 
 These steps show you how to add a new Certificate Authority to your IoT hub through the portal.
 
@@ -64,30 +60,9 @@ These steps show you how to add a new Certificate Authority to your IoT hub thro
 
    ![Verify certificate](./media/iot-hub-security-x509-get-started/verify-cert.png)  
 
-8. In the PowerShell window on your desktop, run the following code:
-    ```PowerShell
-    function New-CAVerificationCert([string]$requestedSubjectName)
-    {
-        $cnRequestedSubjectName = ("CN={0}" -f $requestedSubjectName)
-        $verifyRequestedFileName = ".\verifyCert4.cer"
-        $rootCACert = Get-CACertBySubjectName $_rootCertSubject
-        Write-Host "Using Signing Cert:::" 
-        Write-Host $rootCACert
-    
-        $verifyCert = New-CASelfsignedCertificate $cnRequestedSubjectName $rootCACert $false
-
-        Export-Certificate -cert $verifyCert -filePath $verifyRequestedFileName -Type Cert
-        if (-not (Test-Path $verifyRequestedFileName))
-        {
-            throw ("Error: CERT file {0} doesn't exist" -f $verifyRequestedFileName)
-        }
-    
-        Write-Host ("Certificate with subject {0} has been output to {1}" -f $cnRequestedSubjectName, (Join-Path (get-location).path $verifyRequestedFileName)) 
-    }
-    New-CAVerificationCert "<your verification code>"
-    ```
-   This creates a certificate with the given subject name, signed by the CA, as a file named *VerifyCert4.cer* in your working directory. This certificate file will help validate with your IoT hub that you have the signing permission (that is, the private key) of this CA.
-9. In the **Certificate Details** blade on the Azure portal, navigate to the **Verification Certificate .pem or .cer file**, and select the *VerifyCert4.cer* created by the preceding PowerShell command using the _File Explorer_ icon besides it.
+8. Now, you need to sign this *Verification Code* with the private key associate with your X.509 CA certificate, which generates a signature. There are tools available to perform this signing process, for example, OpenSSL. This is known as the [Proof of possession](https://tools.ietf.org/html/rfc5280#section-3.1). If you have used our sample PowerShell scripts in the previous section, then run the script mentioned in the section titled [Proof of possession of your X.509 CA certificate](iot-hub-security-x509-create-certificates.md#signverificationcode).
+ 
+9. Upload the resulting signature from step 8 above to your IoT hub in the portal. In the **Certificate Details** blade on the Azure portal, navigate to the **Verification Certificate .pem or .cer file**, and select the signature, for example, *VerifyCert4.cer* created by the sample PowerShell command using the _File Explorer_ icon besides it.
 
 10. Once the certificate is successfuly uploaded, click **Verify**. The **STATUS** of your certificate changes to **_Verified_** in the **Certificates** blade. Click **Refresh** if it does not update automatically.
 
@@ -106,62 +81,21 @@ These steps show you how to add a new Certificate Authority to your IoT hub thro
 
    ![Create X.509 device in portal](./media/iot-hub-security-x509-get-started/create-x509-device.png)
 
-4. In the PowerShell window on your local machine, run the following script to create a CA-signed X.509 certificate for this device:
-    ```PowerShell
-    function New-CADevice([string]$deviceName, [string]$signingCertSubject=$_rootCertSubject)
-    {
-        $cnNewDeviceSubjectName = ("CN={0}" -f $deviceName)
-        $newDevicePfxFileName = ("./{0}.pfx" -f $deviceName)
-        $newDevicePemAllFileName      = ("./{0}-all.pem" -f $deviceName)
-        $newDevicePemPrivateFileName  = ("./{0}-private.pem" -f $deviceName)
-        $newDevicePemPublicFileName   = ("./{0}-public.pem" -f $deviceName)
-    
-        $signingCert = Get-CACertBySubjectName $signingCertSubject ## "CN=Azure IoT CA Intermediate 1 CA"
-
-        $newDeviceCertPfx = New-CASelfSignedCertificate $cnNewDeviceSubjectName $signingCert $false
-    
-        $certSecureStringPwd = ConvertTo-SecureString -String $_privateKeyPassword -Force -AsPlainText
-
-        # Export the PFX of the cert we've just created.  The PFX is a format that contains both public and private keys.
-        Export-PFXCertificate -cert $newDeviceCertPfx -filePath $newDevicePfxFileName -password $certSecureStringPwd
-        if (-not (Test-Path $newDevicePfxFileName))
-        {
-            throw ("Error: CERT file {0} doesn't exist" -f $newDevicePfxFileName)
-        }
-
-        # Begin the massaging.  First, turn the PFX into a PEM file which contains public key, private key, and other attributes.
-        Write-Host ("When prompted for password by openssl, enter the password as {0}" -f $_privateKeyPassword)
-        openssl pkcs12 -in $newDevicePfxFileName -out $newDevicePemAllFileName -nodes
-
-        # Convert the PEM to get formats we can process
-        if ($useEcc -eq $true)
-        {
-            openssl ec -in $newDevicePemAllFileName -out $newDevicePemPrivateFileName
-        }
-        else
-        {
-            openssl rsa -in $newDevicePemAllFileName -out $newDevicePemPrivateFileName
-        }
-        openssl x509 -in $newDevicePemAllFileName -out $newDevicePemPublicFileName
- 
-        Write-Host ("Certificate with subject {0} has been output to {1}" -f $cnNewDeviceSubjectName, (Join-Path (get-location).path $newDevicePemPublicFileName)) 
-    }
-    ```
-   Then run `New-CADevice "<yourTestDevice>"` in your PowerShell window, using the friendly name that you used to create your device. When prompted for the password for the CA's private key, enter "123". This creates a _<yourTestDevice>.pfx_ file in your working directory.
-
 
 
 <a id="authenticatedevice"></a>
 
 ## Authenticate your X.509 device with the X.509 certificates
 
-In this section, you create a C# application to simulate the X.509 device registered for your IoT hub, and send temperature and humidity values from the device to your hub. Note that in this tutorial, we will create only the device application. It is left as an exercise to the readers to create the IoT Hub service application that will send response to the events sent by this simulated device.
+To authenticate your X.509 device, you need to first sign the device with the CA certificate. Signing of leaf devices is normally done at the manufacturing plant, where manufacturing tools have been enabled accordingly. As the device goes from one manufacturer to another, each manufacturer’s signing action is captured as an intermediate certificate within the chain. The end result is a certificate chain from the CA certificate to the device’s leaf certificate. If you have been using our PowerShell scripts in the previous sections, then you can run the script mentioned in the section titled [Create leaf X.509 certificate for your device](iot-hub-security-x509-create-certificates.md#createx509device) to simulate this process.
+
+Next, we will show you how to create a C# application to simulate the X.509 device registered for your IoT hub. We will send temperature and humidity values from the simulated device to your hub. Note that in this tutorial, we will create only the device application. It is left as an exercise to the readers to create the IoT Hub service application that will send response to the events sent by this simulated device. The C# application assumes that you have followed the PowerShell scripts mentioned in the article [PowerShell scripts to manage CA-signed X.509 certificates](iot-hub-security-x509-create-certificates.md)
 
 1. In Visual Studio, create a new Visual C# Windows Classic Desktop project by using the Console Application project template. Name the project **SimulateX509Device**.
    ![Create X.509 device project in Visual Studio](./media/iot-hub-security-x509-get-started/create-device-project.png)
 
 2. In Solution Explorer, right-click the **SimulateX509Device** project, and then click **Manage NuGet Packages...**. In the NuGet Package Manager window, select **Browse** and search for **microsoft.azure.devices.client**. Select **Install** to install the **Microsoft.Azure.Devices.Client** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the Azure IoT device SDK NuGet package and its dependencies.
-   ![Add device SDK Nuget package in Visual Studio](./media/iot-hub-security-x509-get-started/device-sdk-nuget.png)
+   ![Add device SDK NuGet package in Visual Studio](./media/iot-hub-security-x509-get-started/device-sdk-nuget.png)
 
 3. Add the following lines of code at the top of the *Program.cs* file:
     
@@ -204,12 +138,12 @@ In this section, you create a C# application to simulate the X.509 device regist
     }
     ```
 
-6. Finally, add the following lines of code to the **Main** function, replacing the placeholders _<device-name>_, <your-iot-hub-name>_ and _<absolute-path-to-your-device-pfx-file>_ as required by your setup.
+6. Finally, add the following lines of code to the **Main** function, replacing the placeholders _device-id_, _your-iot-hub-name_ and _absolute-path-to-your-device-pfx-file_ as required by your setup.
     ```CSharp
     try
     {
         var cert = new X509Certificate2(@"<absolute-path-to-your-device-pfx-file>", "123");
-        var auth = new DeviceAuthenticationWithX509Certificate("<device-name>", cert);
+        var auth = new DeviceAuthenticationWithX509Certificate("<device-id>", cert);
         var deviceClient = DeviceClient.Create("<your-iot-hub-name>.azure-devices.net", auth, TransportType.Amqp_Tcp_Only);
 
         if (deviceClient == null)
