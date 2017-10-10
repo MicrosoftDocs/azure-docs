@@ -62,7 +62,6 @@ The system is made up of the following components:
 
 The first step in working with API Management is to create a service instance. Sign in to the [Azure Portal][Azure Portal] and click **New**, **Web + Mobile**, **API Management**.
 
-![API Management new instance][api-management-create-instance-menu]
 
 For **Name**, specify a unique sub-domain name to use for the service URL.
 
@@ -75,7 +74,6 @@ Enter **Contoso Ltd.** for the **Organization Name**, and enter your email addre
 > 
 > 
 
-![New API Management service][api-management-create-instance-step1]
 
 API Management service instances are available in three tiers: Developer, Standard, and Premium.
 
@@ -85,8 +83,6 @@ API Management service instances are available in three tiers: Developer, Standa
 > 
 
 Click **Create** to start provisioning your service instance.
-
-![New API Management service][api-management-instance-created]
 
 Once the service instance is created, the next step is to create or import an API.
 
@@ -102,11 +98,9 @@ APIs can be created (and operations can be added) manually, or they can be impor
 
 APIs are configured from the publisher portal. To reach it, click **Publisher portal** from the service toolbar.
 
-![Publisher portal][api-management-management-console]
 
 To import the calculator API, click **APIs** from the **API Management** menu on the left, and then click **Import API**.
 
-![Import API button][api-management-import-api]
 
 Perform the following steps to configure the calculator API:
 
@@ -115,7 +109,6 @@ Perform the following steps to configure the calculator API:
 3. Click in the **Products (optional)** box and choose **Starter**.
 4. Click **Save** to import the API.
 
-![Add new API][api-management-import-new-api]
 
 > [!NOTE]
 > **API Management** currently supports both 1.2 and 2.0 version of Swagger document for import. Make sure that, even though [Swagger 2.0 specification](http://swagger.io/specification) declares that `host`, `basePath`, and `schemes` properties are optional, your Swagger 2.0 document **MUST** contain those properties; otherwise it won't get imported. 
@@ -124,7 +117,6 @@ Perform the following steps to configure the calculator API:
 
 Once the API is imported, the summary page for the API is displayed in the publisher portal.
 
-![API summary][api-management-imported-api-summary]
 
 The API section has several tabs. The **Summary** tab displays basic metrics and information about the API. The [Settings](api-management-howto-create-apis.md#configure-api-settings) tab is used to view and edit the configuration for an API. The [Operations](api-management-howto-add-operations.md) tab is used to manage the API's operations. The **Security** tab can be used to configure gateway authentication for the backend server by using Basic authentication or [mutual certificate authentication](api-management-howto-mutual-certificates.md), and to configure [user authorization by using OAuth 2.0](api-management-howto-oauth2.md).  The **Issues** tab is used to view issues reported by the developers who are using your APIs. The **Products** tab is used to configure the products that contain this API.
 
@@ -140,34 +132,26 @@ In order to make calls to an API, developers must first subscribe to a product t
 ## <a name="call-operation"> </a>Call an operation from the developer portal
 Operations can be called directly from the developer portal, which provides a convenient way to view and test the operations of an API. In this tutorial step, you will call the Basic Calculator API's **Add two integers** operation. Click **Developer portal** from the menu at the top right of the publisher portal.
 
-![Developer portal][api-management-developer-portal-menu]
 
 Click **APIs** from the top menu, and then click **Basic Calculator** to see the available operations.
 
-![Developer portal][api-management-developer-portal-calc-api]
 
 Note the sample descriptions and parameters that were imported along with the API and operations, providing documentation for the developers that will use this operation. These descriptions can also be added when operations are added manually.
 
 To call the **Add two integers** operation, click **Try it**.
 
-![Try it][api-management-developer-portal-calc-api-console]
 
 You can enter some values for the parameters or keep the defaults, and then click **Send**.
 
-![HTTP Get][api-management-invoke-get]
 
 After an operation is invoked, the developer portal displays the **Response status**, the **Response headers**, and any **Response content**.
 
-![Response][api-management-invoke-get-response]
 
 ## <a name="view-analytics"> </a>View analytics
 To view analytics for Basic Calculator, switch back to the publisher portal by selecting **Manage** from the menu at the top right of the developer portal.
 
-![Manage][api-management-manage-menu]
-
 The default view for the publisher portal is the **Dashboard**, which provides an overview of your API Management instance.
 
-![Dashboard][api-management-dashboard]
 
 Hover the mouse over the chart for **Basic Calculator** to see the specific metrics for the usage of the API for a given time period.
 
@@ -178,13 +162,9 @@ Hover the mouse over the chart for **Basic Calculator** to see the specific metr
 
 Click **View Details** to view the summary page for the API, including a larger version of the displayed metrics.
 
-![Analytics][api-management-mouse-over]
-
-![Summary][api-management-api-summary-metrics]
 
 For detailed metrics and reports, click **Analytics** from the **API Management** menu on the left.
 
-![Overview][api-management-analytics-overview]
 
 The **Analytics** section has the following four tabs:
 
@@ -216,38 +196,3 @@ The **Analytics** section has the following four tabs:
 [API Management pricing]: http://azure.microsoft.com/pricing/details/api-management/
 
 [Azure Portal]: https://portal.azure.com/
-
-[api-management-management-console]: ./media/api-management-get-started/api-management-management-console.png
-[api-management-create-instance-menu]: ./media/api-management-get-started/api-management-create-instance-menu.png
-[api-management-create-instance-step1]: ./media/api-management-get-started/api-management-create-instance-step1.png
-[api-management-create-instance-step2]: ./media/api-management-get-started/api-management-create-instance-step2.png
-[api-management-instance-created]: ./media/api-management-get-started/api-management-instance-created.png
-[api-management-import-api]: ./media/api-management-get-started/api-management-import-api.png
-[api-management-import-new-api]: ./media/api-management-get-started/api-management-import-new-api.png
-[api-management-imported-api-summary]: ./media/api-management-get-started/api-management-imported-api-summary.png
-[api-management-calc-operations]: ./media/api-management-get-started/api-management-calc-operations.png
-[api-management-list-products]: ./media/api-management-get-started/api-management-list-products.png
-[api-management-add-api-to-product]: ./media/api-management-get-started/api-management-add-api-to-product.png
-[api-management-add-myechoapi-to-product]: ./media/api-management-get-started/api-management-add-myechoapi-to-product.png
-[api-management-api-added-to-product]: ./media/api-management-get-started/api-management-api-added-to-product.png
-[api-management-developers]: ./media/api-management-get-started/api-management-developers.png
-[api-management-add-subscription]: ./media/api-management-get-started/api-management-add-subscription.png
-[api-management-add-subscription-window]: ./media/api-management-get-started/api-management-add-subscription-window.png
-[api-management-subscription-added]: ./media/api-management-get-started/api-management-subscription-added.png
-[api-management-developer-portal-menu]: ./media/api-management-get-started/api-management-developer-portal-menu.png
-[api-management-developer-portal-calc-api]: ./media/api-management-get-started/api-management-developer-portal-calc-api.png
-[api-management-developer-portal-calc-api-console]: ./media/api-management-get-started/api-management-developer-portal-calc-api-console.png
-[api-management-invoke-get]: ./media/api-management-get-started/api-management-invoke-get.png
-[api-management-invoke-get-response]: ./media/api-management-get-started/api-management-invoke-get-response.png
-[api-management-manage-menu]: ./media/api-management-get-started/api-management-manage-menu.png
-[api-management-dashboard]: ./media/api-management-get-started/api-management-dashboard.png
-
-[api-management-add-response]: ./media/api-management-get-started/api-management-add-response.png
-[api-management-add-response-window]: ./media/api-management-get-started/api-management-add-response-window.png
-[api-management-developer-key]: ./media/api-management-get-started/api-management-developer-key.png
-[api-management-mouse-over]: ./media/api-management-get-started/api-management-mouse-over.png
-[api-management-api-summary-metrics]: ./media/api-management-get-started/api-management-api-summary-metrics.png
-[api-management-analytics-overview]: ./media/api-management-get-started/api-management-analytics-overview.png
-[api-management-analytics-usage]: ./media/api-management-get-started/api-management-analytics-usage.png
-[api-management-]: ./media/api-management-get-started/api-management-.png
-[api-management-]: ./media/api-management-get-started/api-management-.png
