@@ -30,3 +30,9 @@
    ```
  
  For installation steps, see the [Intel MPI Library Installation Guide](http://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html).
+
+5. Enable ptrace for non-root non-debugger processes (needed for the most recent versions of Intel MPI).
+ 
+  ```bash
+  echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
+  ```
