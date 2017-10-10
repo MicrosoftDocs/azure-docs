@@ -48,7 +48,7 @@ In this tutorial, you will:
 
 1. Then click the **Filter** icon.
 
-1. In the Filter windows, select **Windows based**, **Microsoft**, and then click **Done** to filter the results to Microsoft-published, Windows SQL Server images.
+1. In the Filter windows, check the **Windows based** subcategory and **Microsoft** for the publisher. Then click **Done** to filter the results to Microsoft-published, Windows SQL Server images.
 
    ![Azure Virtual Machines window](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
 
