@@ -25,30 +25,18 @@ This article applies to StorSimple 8000 series devices running Update 3.0 or lat
 
 ## RBAC roles for StorSimple
 
-RBAC can be assigned based on the roles. There are two types of roles that StorSimple users can choose from: built-in or custom.
+RBAC can be assigned based on the roles. The roles ensure certain permission levels based on the available resources in the environment. There are two types of roles that StorSimple users can choose from: built-in or custom.
 
-* **Built-in roles** - The built-in roles ensure certain permission levels based on the available resources in the environment. The following built-in roles are included (but not limited to) in Azure:
+* **Built-in roles** - The built-in roles can be owner, contributor, reader, or user access administrator. For more information, see [Built-in roles for Azure Role-based Access Control](../active-directory/role-based-access-control-what-is.md#built-in-roles).
 
-    * **Owner**  - They can manage everything, including access.
-    * **Contributor** - They can do anything the owner can do except assign access. Someone with this role can view and regenerate the service registration keys. With the service registration keys, they can register new devices with a StorSimple Device Manager service.
-    * **Reader** - They can view information about everything. For instance, the device network, general, and security settings. But they can't make any changes to those settings.
-    * **User Access Administrator**  - They can manage user access to the storage account. For example, they can grant Reader access to a specific user.
-
-    For more information, see [Built-in roles for Azure Role-based Access Control](../active-directory/role-based-access-built-in-roles.md).
-
-* **Custom roles** - If the built-in roles do not suit your needs, you can create custom RBAC roles. To create a custom RBAC role, start with a built-in role, edit it, and then import it back in the environment. The download and upload of the role are managed using either Azure PowerShell or the Azure CLI.
-
-    For more information, see [Create custom roles for Role-based Access Control](../active-directory/role-based-access-control-custom-roles.md).
+* **Custom roles** - If the built-in roles do not suit your needs, you can create custom RBAC roles for StorSimple. To create a custom RBAC role, start with a built-in role, edit it, and then import it back in the environment. The download and upload of the role are managed using either Azure PowerShell or the Azure CLI. For more information, see [Create custom roles for Role-based Access Control](../active-directory/role-based-access-control-custom-roles.md).
 
 To view the different roles available for a StorSimple device user in the Azure portal, go to your StorSimple Device Manager service and then go to **Access control (IAM) > Roles**.
 
-![View RBAC roles](./media/storsimple-8000-role-based-access-control/rbac-role-types.png)
 
 ## Create a custom role for StorSimple Infrastructure Administrator
 
-A StorSimple Infrastructure Admin (StorSimple Infra Admin) can manage the infrastructure management for the StorSimple devices. The following example walks you through the process of creating a custom role for a StorSimple Infrastructure Admin.
-
-In this example, we start with the built-in role **Reader** that allows users to view all the resource scopes but not to edit them or create new ones. We then edit this role to create a new custom role for StorSimple.
+In the following example, we start with the built-in role **Reader** that allows users to view all the resource scopes but not to edit them or create new ones. We then extend this role to create a new custom role StorSimple Infrastructure admin. This role is assigned to users who can manage the infrastructure for the StorSimple devices.
 
 1. Run Windows PowerShell as an administrator.
 
@@ -82,7 +70,7 @@ In this example, we start with the built-in role **Reader** that allows users to
 
     ```
     {
-        "Name":  "StorSimple infra admin",
+        "Name":  "StorSimple Infrastructure Admin",
         "Id":  "<guid>",
         "IsCustom":  true,
         "Description":  "Lets you view everything, but not make any changes except for Clear alerts, Clear settings, install, download etc.",
@@ -115,7 +103,7 @@ In this example, we start with the built-in role **Reader** that allows users to
 
 This role should now appear in the list of roles in the **Access control** blade.
 
-![View RBAC roles](./media/storsimple-8000-role-based-access-control/rbac-roles.png)
+![View RBAC roles](./media/storsimple-8000-role-based-access-control/rbac-role-types.png)
 
 For more information, go to [Create a custom RBAC role using PowerShell](../active-directory/role-based-access-control-create-custom-roles-for-internal-external-users.md#create-a-custom-rbac-role-to-open-support-requests-using-powershell).
 
@@ -125,7 +113,7 @@ For more information, go to [Create a custom RBAC role using PowerShell](../acti
 PS C:\WINDOWS\system32> Login-AzureRMAccount
 
 Environment           : AzureCloud
-Account               : alkohli@microsoft.com
+Account               : john.doe@microsoft.com
 TenantId              : 12a345bc-67d8-90ef-12ab-3c4de567fg78
 SubscriptionId        : 1234ab5c-678d-910e-1fg2-3abcd4e5678f
 SubscriptionName      : Internal Consumption
@@ -145,7 +133,7 @@ PS C:\WINDOWS\system32> Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Jso
 
 PS C:\WINDOWS\system32> New-AzureRMRoleDefinition -InputFile "C:\ssrbaccustom.json"
 
-Name             : StorSimple infra admin
+Name             : StorSimple Infrastructure Admin
 Id               : ff2e8f83-e352-4097-968f-a78d01aff144
 IsCustom         : True
 Description      : Lets you view everything, but not make any changes except for Clear alerts, Clear settings, install,
@@ -160,10 +148,9 @@ AssignableScopes : {/subscriptions/1234ab5c-678d-910e-1fg2-3abcd4e5678f/}
 PS C:\WINDOWS\system32>
 ```
 
-
 ## Add users to the custom role
 
-You grant access from within the resource, resource group, or subscription that is the scope of the role assignment.
+You grant access from within the resource, resource group, or subscription that is the scope of the role assignment. When providing access, bear in mind that the access granted at the parent node is inherited by the child. For more information, go to [Resource heirarhcy and access inheritance](active-directory/role-based-access-control-what-is.md#resource-hierarchy-and-access-inheritance).
 
 1. Go to **Access control (IAM)**. Click **+ Add** on the Access control blade.
 
@@ -177,11 +164,7 @@ You grant access from within the resource, resource group, or subscription that 
 
     ![Add permissions to RBAC role](./media/storsimple-8000-role-based-access-control/rbac-create-role-infra-admin.png)
 
-5. An **Adding user** notification tracks the progress.
-
-    ![Track progress notification](./media/storsimple-8000-role-based-access-control/rbac-create-role-notification.png)
-
-After the user is successfully added, the list of users in access control is updated.
+An **Adding user** notification tracks the progress. After the user is successfully added, the list of users in access control is updated.
 
 ## View permissions for the custom role
 
