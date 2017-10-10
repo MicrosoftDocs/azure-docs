@@ -17,7 +17,7 @@ ms.author: tomfitz
 
 ---
 # Microsoft.Common.Section UI element
-A control that groups one or more elements under a heading. You use this element when [creating an Azure Managed Application](managed-application-publishing.md).
+A control that groups one or more elements under a heading. You use this element when [creating an Azure Managed Application](../azure-resource-manager/managed-application-publishing.md).
 
 ## UI sample
 ![Microsoft.Common.Section](./media/managed-application-elements/microsoft.common.section.png)
@@ -50,8 +50,8 @@ types except `Microsoft.Common.Section`.
 - This element doesn't support the `toolTip` property.
 
 ## Sample output
-To access the output values of elements in `elements`, use the [basics()](managed-application-createuidefinition-functions.md#basics) or
-[steps()](managed-application-createuidefinition-functions.md#steps) functions and dot notation:
+To access the output values of elements in `elements`, use the [basics()](createuidefinition-functions.md#basics) or
+[steps()](createuidefinition-functions.md#steps) functions and dot notation:
 
 ```json
 basics('section1').element1
@@ -60,6 +60,6 @@ basics('section1').element1
 Elements of type `Microsoft.Common.Section` have no output values themselves.
 
 ## Next steps
-* For an introduction to managed applications, see [Azure Managed Application overview](managed-application-overview.md).
-* For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](managed-application-createuidefinition-overview.md).
-* For a description of common properties in UI elements, see [CreateUiDefinition elements](managed-application-createuidefinition-elements.md).
+* For an introduction to managed applications, see [Azure Managed Application overview](../azure-resource-manager/managed-application-overview.md).
+* For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](../azure-resource-manager/managed-application-createuidefinition-overview.md).
+* For a description of common properties in UI elements, see [CreateUiDefinition elements](../azure-resource-manager/managed-application-createuidefinition-elements.md).
