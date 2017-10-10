@@ -39,6 +39,10 @@ sections:
         src: https://docs.microsoft.com/media/common/java.svg
       text: Java
       href: app-insights-java-quick-start
+    - image:
+        src: https://docs.microsoft.com/azure/application-insights/media/index/mobile-center.svg
+      text: Mobile Center
+      href: app-insights-mobile-center-quickstart
 - title: Step-by-step Tutorials
   items:
   - type: paragraph

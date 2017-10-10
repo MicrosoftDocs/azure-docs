@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="96px" height="96px" viewBox="0 0 96 96" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>96</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="96" fill="#CB2E62">
+            <polygon id="wall" fill-rule="nonzero" points="72.000011 0 72.000011 96 96 86.0156 96 9.98401"></polygon>
+            <polygon id="base" fill-rule="nonzero" points="0 72 96 86.018 72.0001 96.0024"></polygon>
+            <path d="M24,16 L32,18 L32,32.4 L48,22 L48,34 L32,42 L48,50 L48,62 L32,51.6 L32,66 L24,68 L8,54 L8,48 L17.2307692,42 L8,36 L8,30 L24,16 Z M12.8,32.4 L24,38 L24,24 L12.8,32.4 Z M24,60 L24,46 L12.8,51.6 L24,60 Z M48,22 L62,26 L62,58 L48,62 L48,55 L48,50 L48,34 L48,22 Z" id="logo"></path>
+        </g>
+    </g>
+</svg>
