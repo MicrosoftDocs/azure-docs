@@ -133,8 +133,6 @@ Supported shipping locations:
 * China East
 * China North
 * UK South
-* Germany Central
-* Germany Northeast
 
 ### Shipping
 **Shipping drives to the data center:**
