@@ -17,9 +17,9 @@
     href: csharp.md
   - name: Java
     href: java.md
-  - name: NodeJs
+  - name: Node.js
     href: nodejs.md
-  - name: Php
+  - name: PHP
     href: php.md
   - name: Python
     href: python.md
