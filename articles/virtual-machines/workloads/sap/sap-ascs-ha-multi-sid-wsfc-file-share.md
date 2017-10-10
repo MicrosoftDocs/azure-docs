@@ -1,5 +1,5 @@
 ---
-title: SAP (A)SCS Instance Multi-SID High Availability for with Windows Server Failover Clustering and File Share | Microsoft Docs
+title: SAP (A)SCS Instance Multi-SID High Availability with Windows Server Failover Clustering and File Share on Azure | Microsoft Docs
 description:  Multi-SID High Availability for SAP (A)SCS Instance with Windows Server Failover Clustering and File Share on Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -31,10 +31,10 @@ ms.custom: H1Hack27Feb2017
 
 [sap-installation-guides]:http://service.sap.com/instguides
 [sap-installation-guides-file-share]:https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html
-
+[networking-limits-azure-resource-manager]:../../../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
 [azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
 [azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
-
+[load-balancer-multivip-overview]:../../../load-balancer/load-balancer-multivip-overview.md
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
 [deployment-guide]:deployment-guide.md
@@ -185,7 +185,7 @@ ms.custom: H1Hack27Feb2017
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
-# SAP (A)SCS Instance Multi-SID High Availability for with Windows Server Failover Clustering and File Share
+# SAP (A)SCS Instance Multi-SID High Availability with Windows Server Failover Clustering and File Share on Azure
 
 > ![Windows][Logo_Windows] Windows
 >
@@ -198,7 +198,7 @@ This article focuses on how to move from a single ASCS/SCS installation to an SA
 
 > [!NOTE]
 >
-> This feature is available only in the **Azure Resource Manager (ARM)** deployment model.
+> This feature is available only in the **Azure Resource Manager** deployment model.
 >
 >There is a limit to the number of private front-end IPs for each Azure internal load balancer.
 >
@@ -211,7 +211,9 @@ For more information about load-balancer limits, see "Private front end IP per l
 
 You have already configured a WSFC cluster that is used for **one** SAP ASCS/SCS instance using **file share**, as shown in this diagram.
 
-![Figure: SAP (A)SCS instance and SOFS deployed in TWO clusters][sap-ha-guide-figure-8007]
+![Figure 1: SAP (A)SCS instance and SOFS deployed in TWO clusters][sap-ha-guide-figure-8007]
+
+_**Figure 1:** SAP (A)SCS instance and SOFS deployed in TWO clusters_
 
 > [!IMPORTANT]
 > The setup must meet the following conditions:
@@ -223,7 +225,9 @@ You have already configured a WSFC cluster that is used for **one** SAP ASCS/SCS
 
 The goal is to install multiple SAP ABAP ASCS or SAP Java SCS clustered instances in the same WSFC cluster, as illustrated here:
 
-![Figure: SAP Multi-SID configuration in two clusters][sap-ha-guide-figure-8008]
+![Figure 2: SAP Multi-SID configuration in two clusters][sap-ha-guide-figure-8008]
+
+_**Figure 2:** SAP Multi-SID configuration in two clusters_
 
 The installation of an additional **&lt;SID2&gt;** SAP system is basically identical to installation of one <SID> system. There are two additional preparation steps need on (A)SCS cluster as well as on File Share SOFS cluster.
 
@@ -248,7 +252,9 @@ https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-avail
 
 You have the option to reuse the existing **&lt;SAPGLOBALHost&gt;** and **Volume1** of the first SAP <SID1> system.
 
-![Figure: Multi-SID SOFS same SAP GLOBAL host name][sap-ha-guide-figure-8014]
+![Figure 3: Multi-SID SOFS same SAP GLOBAL host name][sap-ha-guide-figure-8014]
+
+_**Figure 3:** Multi-SID SOFS same SAP GLOBAL host name_
 
 > [!IMPORTANT]
 >For the second **SAP &lt;SID2&gt;** system, the same Volume1 and the same **&lt;SAPGlobalHost&gt;** network name are  being used.
@@ -313,7 +319,9 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 You can configure the second SOFS e.g. the second SOFS cluster role with **&lt;SAPGlobalHost2&gt;** and different **Voulme2** for the second **&lt;SID2&gt;**.
 
-![Figure: Multi-SID SOFS same SAP GLOBAL host name 2][sap-ha-guide-figure-8015]
+![Figure 4: Multi-SID SOFS same SAP GLOBAL host name 2][sap-ha-guide-figure-8015]
+
+_**Figure 4:** Multi-SID SOFS same SAP GLOBAL host name 2_
 
 Execute this PowerShell script to create the second SOFS role with &lt;SAPGlobalHost2&gt;:
 
@@ -329,9 +337,9 @@ Create the second **Volume2**. Execute this PowerShell script:
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR2 -FileSystem CSVFS_ReFS -Size 5GB -ResiliencySettingName Mirror
 ```
 
-![Figure: Multi-SID SOFS same SAP GLOBAL host name 2][sap-ha-guide-figure-8016]
+![Figure 5: Multi-SID SOFS same SAP GLOBAL host name 2][sap-ha-guide-figure-8016]
 
-_**Figure:** Second **Volume2** in Failover Cluster Manager_
+_**Figure 5:** Second **Volume2** in Failover Cluster Manager_
 
 Create a SAP GLOBAL folder for the second **&lt;SID2&gt;** and set file security.
 
@@ -380,43 +388,42 @@ To create SAPMNT file share on **Volume2** with **&lt;SAPGlobalHost2&gt;** host 
 
 Right click on saoglobal2 SOFS cluster group and choose “Add file share”.
 
-![Figure: Start “Add File Share” wizard][sap-ha-guide-figure-8017]
+![Figure 6: Start “Add File Share” wizard][sap-ha-guide-figure-8017]
 
-_**Figure:** Start “Add File Share” wizard_
+_**Figure 6:** Start “Add File Share” wizard_
 
-![Figure: Choose „SMB Share – Quick][sap-ha-guide-figure-8018]
+![Figure 7: Choose „SMB Share – Quick][sap-ha-guide-figure-8018]
 
-_**Figure:** Choose „SMB Share – Quick“_
+_**Figure 7:** Choose „SMB Share – Quick_
 
-![Figure: Choose sapglobalhost2 and specify path on Volume2][sap-ha-guide-figure-8019]
+![Figure 8: Choose sapglobalhost2 and specify path on Volume2][sap-ha-guide-figure-8019]
 
-_**Figure:** Choose **sapglobalhost2** and specify path on **Volume2**_
+_**Figure 8:** Choose **sapglobalhost2** and specify path on Volume2_
 
 
-![Figure: Set file share name to sapmnt][sap-ha-guide-figure-8020]
+![Figure 9: Set file share name to sapmnt][sap-ha-guide-figure-8020]
 
-_**Figure:** Set file share name to **sapmnt**_
+_**Figure 9:** Set file share name to **sapmnt**_
 
-![Figure: Disable all settings][sap-ha-guide-figure-8021]
+![Figure 10: Disable all settings][sap-ha-guide-figure-8021]
 
-_**Figure:** Disable all settings_
+_**Figure 10:** Disable all settings_
 
 Make sure to set “Full control” to files and sapmnt share for:
 * **SAP_&lt;SID&gt;_GlobalAdmin** domain user group
 * Computer object of (A)SCS cluster nodes **ascs-1$** and **ascs-2$**
 
-![Figure: Make sure to set full access to user group and computer accounts][sap-ha-guide-figure-8022]
+![Figure 11: Make sure to set full access to user group and computer accounts][sap-ha-guide-figure-8022]
 
-_**Figure:** Make sure to set full access to user group and computer accounts_
+_**Figure 11:** Make sure to set full access to user group and computer accounts_
 
+![Figure 12: Click Create][sap-ha-guide-figure-8023]
 
-![Figure: Click Create][sap-ha-guide-figure-8023]
+_**Figure 12:** Click Create_
 
-_**Figure:** Click Create_
+![Figure 13: The second sapmnt bound to sapglobal2 host and Volume2 is created][sap-ha-guide-figure-8024]
 
-![Figure: The second sapmnt bound to sapglobal2 host and Volume2 is created][sap-ha-guide-figure-8024]
-
-_**Figure:** The **second sapmnt** bound to **sapglobal2** host and **Volume2** is created_
+_**Figure 13:** The **second sapmnt** bound to **sapglobal2** host and **Volume2** is created_
 
 ## SAP NetWeaver Multi-SID installation
 
@@ -429,7 +436,7 @@ Install DBMS and SAP application Servers as described earlier.
 
 
 
-# Next Steps
+## Next Steps
 
 Official **SAP Guidelines for HA File Share**:
 
@@ -441,7 +448,7 @@ https://docs.microsoft.com/en-us/windows-server/storage/storage-spaces/storage-s
 
 **Scale-Out File Server**
 
-https://technet.microsoft.com/en-us/library/hh831349(v=ws.11).aspx
+https://technet.microsoft.com/library/hh831349(v=ws.11).aspx
 
 **What's new in Storage in Windows Server 2016**
 

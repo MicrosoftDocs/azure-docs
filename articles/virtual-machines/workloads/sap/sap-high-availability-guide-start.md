@@ -212,7 +212,7 @@ It covers both ![Windows][Logo_Windows] **Windows** and ![Linux][Logo_Linux] **L
 
 ## Azure Infrastructure Preparation for SAP NetWeaver HA Deployment
 
-**Summary:** In these documents, we cover the steps that you can take to deploy Azure infrastructure as preparation for SAP installation. To simplify Azure infrastructure deployment, SAP Azure Resource Manager (ARM) templates are used to automate whole process.
+**Summary:** In these documents, we cover the steps that you can take to deploy Azure infrastructure as preparation for SAP installation. To simplify Azure infrastructure deployment, SAP Azure Resource Manager templates are used to automate whole process.
 
 **Updated:** September 2017
 

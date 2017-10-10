@@ -325,9 +325,9 @@ We shall discuss in detail below how to achieve high availability for all three 
 
 You usually don't need a specific high-availability solution for the SAP Application Server and dialog instances. You achieve high availability by redundancy, and you'll configure multiple dialog instances in different instances of Azure Virtual Machines. You should have at least two SAP application instances installed in two instances of Azure Virtual Machines.
 
-![Figure: High-availability SAP Application Server][sap-ha-guide-figure-2000]
+![Figure 1: High-availability SAP Application Server][sap-ha-guide-figure-2000]
 
-
+_**Figure 1:** High-availability SAP Application Server_
 
 You must place all virtual machines that host SAP Application Server instances in the same Azure availability set. An Azure availability set ensures that:
 
@@ -340,8 +340,8 @@ There is no infinite number of Fault and Upgrade Domains that can be used by an 
 
 Deploying a few SAP application server instances in their dedicated VMs and assuming that we got five Upgrade Domains, the following picture emerges at the end. The actual max number of fault and update domains within an availability set might change in the future:
 
-![HA of SAP Application Servers in Azure][planning-guide-figure-3000]
-
+![Figure 2: HA of SAP Application Servers in Azure Availability Set][planning-guide-figure-3000]
+_**Figure 2:** HA of SAP Application Servers in Azure Availability Set_
 More details can be found in this documentation: [manage the availability of virtual machines][virtual-machines-manage-availability].
 
 
@@ -397,11 +397,11 @@ You can  find more information on Multi-SID HA architecture in these architectur
 
 ### High-availability DBMS instance
 
-The DBMS also is a single point of contact in an SAP system. You need to protect it by using a high-availability solution. Figure 7 shows a SQL Server Always On high-availability solution in Azure, with Windows Server Failover Clustering and the Azure internal load balancer. SQL Server Always On replicates DBMS data and log files by using its own DBMS replication. In this case, you don't need cluster shared disks, which simplifies the entire setup.
+The DBMS also is a single point of contact in an SAP system. You need to protect it by using a high-availability solution. Figure below  shows a SQL Server Always On high-availability solution in Azure, with Windows Server Failover Clustering and the Azure internal load balancer. SQL Server Always On replicates DBMS data and log files by using its own DBMS replication. In this case, you don't need cluster shared disks, which simplifies the entire setup.
 
-![Figure: Example of a high-availability SAP DBMS, with SQL Server Always On][sap-ha-guide-figure-2003]
+![Figure 3: Example of a high-availability SAP DBMS, with SQL Server Always On][sap-ha-guide-figure-2003]
 
-_**Figure:** Example of a high-availability SAP DBMS, with SQL Server Always On_
+_**Figure 3:** Example of a high-availability SAP DBMS, with SQL Server Always On_
 
 For more information about clustering **SQL Server DBMS** in Azure by using the Azure Resource Manager deployment model, see these articles:
 

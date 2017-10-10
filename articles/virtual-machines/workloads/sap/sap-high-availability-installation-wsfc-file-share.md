@@ -1,5 +1,5 @@
 ---
-title: SAP NetWeaver HA Installation on Windows Failover Cluster and File Share for SAP (A)SCS Instance | Microsoft Docs
+title: SAP NetWeaver HA Installation on Windows Failover Cluster and File Share for SAP (A)SCS Instance on Azure | Microsoft Docs
 description: SAP NetWeaver HA Installation on Windows Failover Cluster and File Share for SAP (A)SCS Instance
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -21,7 +21,7 @@ ms.custom: H1Hack27Feb2017
 
 ---
 
-# SAP NetWeaver HA Installation on Windows Failover Cluster and File Share for SAP (A)SCS Instance
+# SAP NetWeaver HA Installation on Windows Failover Cluster and File Share for SAP (A)SCS Instance on Azure
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -186,6 +186,8 @@ ms.custom: H1Hack27Feb2017
 [virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
+
+This document is describing how to install and configure high available SAP system on Azure, with **Windows Failover Cluster (WSFC)** and **Scale Out File Share** as an option for clustering SAP (A)SCS instance.
 
 ## Prerequisite
 
@@ -417,7 +419,9 @@ Import-Module C:\tmp\SAPScripts.ps1
 Update-SAPASCSSCSProfile -PathToAscsScsInstanceProfile \\sapglobal\sapmnt\PR1\SYS\profile\PR1_ASCS00_ascs-1 -NewASCSHostName pr1-ascs -NewSAPGlobalHostName sapglobal -Verbose  
 ```
 
-![Figure: SAPScripts.ps1 output][sap-ha-guide-figure-8012]
+![Figure 1: SAPScripts.ps1 output][sap-ha-guide-figure-8012]
+
+_**Figure 1:** SAPScripts.ps1 output_
 
 ## Update &lt;sid&gt;adm User Environment variable
 
@@ -508,7 +512,9 @@ Run form the elevated command prompt following command:
 C:\usr\sap\PR1\ASCS00\exe\sapstartsrv.exe -r -p \\sapglobal\sapmnt\PR1\SYS\profile\PR1_ASCS00_pr1-ascs -s PR1 -n 00 -U SAPCLUSTER\SAPServicePR1 -P mypasswd12 -e SAPCLUSTER\pr1adm
 ```
 
-![Figure: SAPScripts.ps1 output][sap-ha-guide-figure-8013]
+![Figure 2: Reinstall SAP service][sap-ha-guide-figure-8013]
+
+_**Figure 2:** Reinstall SAP service_
 
 Makes sure that parameters are correct and choose **Manual** as startup Type.
 
@@ -598,7 +604,9 @@ https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-avail
 
 You have the option to reuse the existing **&lt;SAPGLOBALHost&gt;** and **Volume1** of the first SAP <SID1> system.
 
-![Figure: Multi-SID SOFS same SAP GLOBAL host name][sap-ha-guide-figure-8014]
+![Figure 3: Multi-SID SOFS same SAP GLOBAL host name][sap-ha-guide-figure-8014]
+
+_**Figure 3:** Multi-SID SOFS same SAP GLOBAL host name_
 
 > [!IMPORTANT]
 >For the second **SAP &lt;SID2&gt;** system, the same Volume1 and the same **&lt;SAPGlobalHost&gt;** network name are  being used.
@@ -662,7 +670,9 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 You can configure the second SOFS e.g. the second SOFS cluster role with **&lt;SAPGlobalHost2&gt;** and different **Voulme2** for the second **&lt;SID2&gt;**.
 
-![Figure: Multi-SID SOFS same SAP GLOBAL host name 2][sap-ha-guide-figure-8015]
+![Figure 4: Multi-SID SOFS same SAP GLOBAL host name 2][sap-ha-guide-figure-8015]
+
+_**Figure 4:** Multi-SID SOFS same SAP GLOBAL host name 2_
 
 Execute this PowerShell script to create the second SOFS role with &lt;SAPGlobalHost2&gt;:
 
@@ -678,9 +688,9 @@ Create the second **Volume2**. Execute this PowerShell script:
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR2 -FileSystem CSVFS_ReFS -Size 5GB -ResiliencySettingName Mirror
 ```
 
-![Figure 12: Multi-SID SOFS same SAP GLOBAL host name 2][sap-ha-guide-figure-8016]
+![Figure 5: Multi-SID SOFS same SAP GLOBAL host name 2][sap-ha-guide-figure-8016]
 
-_**Figure 12:** Second **Volume2** in Failover Cluster Manager_
+_**Figure 5:** Second **Volume2** in Failover Cluster Manager_
 
 Create a SAP GLOBAL folder for the second **&lt;SID2&gt;** and set file security.
 
@@ -729,43 +739,43 @@ To create SAPMNT file share on **Volume2** with **&lt;SAPGlobalHost2&gt;** host 
 
 Right click on saoglobal2 SOFS cluster group and choose “Add file share”.
 
-![Figure 13: Start “Add File Share” wizard][sap-ha-guide-figure-8017]
+![Figure 6: Start “Add File Share” wizard][sap-ha-guide-figure-8017]
 
-_**Figure 13:** Start “Add File Share” wizard_
+_**Figure 6:** Start “Add File Share” wizard_
 
-![Figure 14: Choose „SMB Share – Quick][sap-ha-guide-figure-8018]
+![Figure 7: Choose „SMB Share – Quick][sap-ha-guide-figure-8018]
 
-_**Figure 14:** Choose „SMB Share – Quick“_
+_**Figure 7:** Choose „SMB Share – Quick“_
 
-![Figure 15: Choose sapglobalhost2 and specify path on Volume2][sap-ha-guide-figure-8019]
+![Figure 8: Choose sapglobalhost2 and specify path on Volume2][sap-ha-guide-figure-8019]
 
-_**Figure 15:** Choose **sapglobalhost2** and specify path on **Volume2**_
+_**Figure 8:** Choose **sapglobalhost2** and specify path on **Volume2**_
 
 
-![Figure 16: Set file share name to sapmnt][sap-ha-guide-figure-8020]
+![Figure 9: Set file share name to sapmnt][sap-ha-guide-figure-8020]
 
-_**Figure 16:** Set file share name to **sapmnt**_
+_**Figure 9:** Set file share name to **sapmnt**_
 
-![Figure 17: Disable all settings][sap-ha-guide-figure-8021]
+![Figure 10: Disable all settings][sap-ha-guide-figure-8021]
 
-_**Figure 17:** Disable all settings_
+_**Figure 10:** Disable all settings_
 
 Make sure to set “Full control” to files and sapmnt share for:
 * **SAP_&lt;SID&gt;_GlobalAdmin** domain user group
 * Computer object of (A)SCS cluster nodes **ascs-1$** and **ascs-2$**
 
-![Figure 18: Make sure to set full access to user group and computer accounts][sap-ha-guide-figure-8022]
+![Figure 11: Make sure to set full access to user group and computer accounts][sap-ha-guide-figure-8022]
 
-_**Figure 18:** Make sure to set full access to user group and computer accounts_
+_**Figure 11:** Make sure to set full access to user group and computer accounts_
 
 
-![Figure 19: Click Create][sap-ha-guide-figure-8023]
+![Figure 12: Click Create][sap-ha-guide-figure-8023]
 
-_**Figure 19:** Click Create_
+_**Figure 12:** Click Create_
 
-![Figure 20: The second sapmnt bound to sapglobal2 host and Volume2 is created][sap-ha-guide-figure-8024]
+![Figure 13: The second sapmnt bound to sapglobal2 host and Volume2 is created][sap-ha-guide-figure-8024]
 
-_**Figure 20:** The **second sapmnt** bound to **sapglobal2** host and **Volume2** is created_
+_**Figure 13:** The **second sapmnt** bound to **sapglobal2** host and **Volume2** is created_
 
 ## SAP &lt;SID2&gt; (A)SCS and ERS instances Installation
 

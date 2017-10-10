@@ -206,6 +206,8 @@ ms.custom: H1Hack27Feb2017
 >If you want to join the pilot program, open an SAP support ticket in the BC-OP-NT-AZR queue.  After testing, provide us with feedback.
 >
 
+This document is describing Azure infrastructure preparation steps, needed to install and configure high available SAP system on **Windows Failover Cluster (WSFC)**, using **Scale Out File Share** as an option for clustering SAP (A)SCS instance.
+
 ## Prerequisite
 
 Make sure to review these documents before starting with installation:
@@ -320,9 +322,9 @@ https://github.com/robotechredmond/301-storage-spaces-direct-md
 
 Managed disks are recommended.
 
-![Figure 10: UI screen for SOFS Resource Manager template with Managed disks][sap-ha-guide-figure-8010]
+![Figure 1: UI screen for SOFS Resource Manager template with Managed disks][sap-ha-guide-figure-8010]
 
-_**Figure 10:** UI screen for SOFS Resource Manager template with Managed disks_
+_**Figure 1:** UI screen for SOFS Resource Manager template with Managed disks_
 
 VM Count minimum is 2, Disk count minimum is 2 + 1 spare disk = 3, SAP GLOBAL Host network name is **sapglobalhost** and file share is **sapmnt**.
 
@@ -330,9 +332,9 @@ VM Count minimum is 2, Disk count minimum is 2 + 1 spare disk = 3, SAP GLOBAL Ho
 
 https://github.com/Azure/azure-quickstart-templates/tree/master/301-storage-spaces-direct
 
-![Figure 11: UI screen for SOFS Azure Resource Manager template without Managed disks][sap-ha-guide-figure-8011]
+![Figure 2: UI screen for SOFS Azure Resource Manager template without Managed disks][sap-ha-guide-figure-8011]
 
-_**Figure 11:** UI screen for SOFS Azure Resource Manager template without Managed disks_
+_**Figure 2:** UI screen for SOFS Azure Resource Manager template without Managed disks_
 
 Make sure to choose **Premium Storage** as Storage Account Type. Other settings are the same as with managed disks.
 

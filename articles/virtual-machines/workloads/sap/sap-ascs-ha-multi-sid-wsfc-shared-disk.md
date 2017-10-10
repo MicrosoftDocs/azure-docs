@@ -1,5 +1,5 @@
----
-title: SAP (A)SCS Instance Multi-SID High Availability for with Windows Server Failover Clustering and Shared Disk | Microsoft Docs
+18810088-f9be---
+title: SAP (A)SCS Instance Multi-SID High Availability with Windows Server Failover Clustering and Shared Disk on Azure | Microsoft Docs
 description:  Multi-SID High Availability for SAP (A)SCS Instance with Windows Server Failover Clustering and Shared Disk on Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -83,7 +83,7 @@ ms.custom: H1Hack27Feb2017
 
 
 [sap-high-availability-installation-wsfc-file-share]:sap-high-availability-installation-wsfc-file-share.md
-
+[sap-high-availability-infrastructure-wsfc-shared-disk-install-sios]:sap-high-availability-infrastructure-wsfc-shared-disk.md#5c8e5482-841e-45e1-a89d-a05c0907c868
 
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
@@ -200,7 +200,7 @@ ms.custom: H1Hack27Feb2017
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
-# SAP (A)SCS Instance Multi-SID High Availability for with Windows Server Failover Clustering and Shared Disk
+# SAP (A)SCS Instance Multi-SID High Availability with Windows Server Failover Clustering and Shared Disk on Azure
 
 > ![Windows][Logo_Windows] Windows
 >
@@ -213,7 +213,7 @@ This article focuses on how to move from a single ASCS/SCS installation to an SA
 
 > [!NOTE]
 >
-> This feature is available only in the **Azure Resource Manager (ARM)** deployment model.
+> This feature is available only in the **Azure Resource Manager** deployment model.
 >
 >There is a limit to the number of private front-end IPs for each Azure internal load balancer.
 >
@@ -385,7 +385,7 @@ Do the following:
 1. Add an additional disk or disks of the same size (which you need to stripe) to each of the cluster nodes, and format them.
 2. Configure storage replication with SIOS DataKeeper.
 
-This procedure assumes that you have already installed SIOS DataKeeper on the WSFC cluster machines. If you have installed it, you must now configure replication between the machines. The process is described in detail in the main [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide-8.12.3.3].  
+This procedure assumes that you have already installed SIOS DataKeeper on the WSFC cluster machines. If you have installed it, you must now configure replication between the machines. The process is described in detail in chapter [Install SIOS DataKeeper Cluster Edition for the SAP ASCS/SCS cluster share disk][sap-high-availability-infrastructure-wsfc-shared-disk-install-sios].  
 
 ![DataKeeper synchronous mirroring for the new SAP ASCS/SCS share disk][sap-ha-guide-figure-6006]
 

@@ -1,5 +1,5 @@
 ---
-title: Clustering SAP (A)SCS Instance on Windows Failover Cluster Using File Share  | Microsoft Docs
+title: Clustering SAP (A)SCS Instance on Windows Failover Cluster Using File Share on Azure | Microsoft Docs
 description: Clustering SAP (A)SCS Instance on Windows Failover Cluster Using File Share
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -188,20 +188,11 @@ ms.custom: H1Hack27Feb2017
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
+
+# Clustering SAP (A)SCS Instance on Windows Failover Cluster Using File Share on Azure
+
 > ![Windows][Logo_Windows] Windows
 >
-
-# Prerequisite
-Make sure to review these documents before starting with this document:
-
-* [Azure Virtual Machines High Availability Architecture and Scenarios for SAP NetWeaver][sap-high-availability-architecture-scenarios]
-
-> [!IMPORTANT]
->Clustering of SAP (A)SCS instances with file share is supported for **SAP NetWeaver 7.40 (and higher)** products, with **SAP Kernel 7.49 (and higher)**.
->
-
-# Clustering SAP (A)SCS Instance on Windows Failover Cluster Using File Share
-
 
 > [!IMPORTANT]
 >
@@ -214,6 +205,16 @@ Windows Server Failover Clustering is the foundation of a high-availability SAP 
 
 A failover cluster is a group of 1+n independent servers (nodes) that work together to increase the availability of applications and services. If a node failure occurs, Windows Server Failover Clustering calculates the number of failures that can occur while maintaining a healthy cluster to provide applications and services. You can choose from different quorum modes to achieve failover clustering.
 
+## Prerequisite
+Make sure to review these documents before starting with this document:
+
+* [Azure Virtual Machines High Availability Architecture and Scenarios for SAP NetWeaver][sap-high-availability-architecture-scenarios]
+
+> [!IMPORTANT]
+>Clustering of SAP (A)SCS instances with file share is supported for **SAP NetWeaver 7.40 (and higher)** products, with **SAP Kernel 7.49 (and higher)**.
+>
+
+
 ## Windows Server Failover Clustering in Azure
 
 Compared to bare metal or private cloud deployments, Azure Virtual Machines requires additional steps to configure Windows Server Failover Clustering. When you build a  cluster, you need to set several IP addresses and virtual host names for the SAP ASCS/SCS instance.
@@ -222,7 +223,9 @@ Compared to bare metal or private cloud deployments, Azure Virtual Machines requ
 
 The Azure cloud platform doesn't offer the option to configure virtual IP addresses, such as floating IP addresses. You need an alternative solution to set up a virtual IP address to reach the cluster resource in the cloud. Azure has an **internal load balancer** in the Azure Load Balancer service. With the internal load balancer, clients reach the cluster over the cluster virtual IP address. You need to deploy the internal load balancer in the resource group that contains the cluster nodes. Then, configure all necessary port forwarding rules with the probe ports of the internal load balancer. The clients can connect via the virtual host name. The DNS server resolves the cluster IP address, and the internal load balancer handles port forwarding to the active node of the cluster.
 
-![Figure: Windows Server Failover Clustering configuration in Azure without a shared disk][sap-ha-guide-figure-1001]
+![Figure 1: Windows Server Failover Clustering configuration in Azure without a shared disk][sap-ha-guide-figure-1001]
+
+_**Figure 1:** Windows Server Failover Clustering configuration in Azure without a shared disk_
 
 ## SAP (A)SCS HA with File Share
 
@@ -244,9 +247,9 @@ What is specific for this architecture is the following:
 * The SAP (A)SCS instance is installed on a local disk on both cluster nodes
 * The **<(A)SCSVirtualHostName>** network name is different from **<SAPGLOBALHost>**
 
-![Figure: New SAP (A)SCS HA architecture with SMB file share][sap-ha-guide-figure-8004]
+![Figure 2: New SAP (A)SCS HA architecture with SMB file share][sap-ha-guide-figure-8004]
 
-_**Figure:** New SAP (A)SCS HA architecture with SMB file share_
+_**Figure 2:** New SAP (A)SCS HA architecture with SMB file share_
 
 Prerequisites for SMB file share:
 
@@ -259,18 +262,18 @@ Prerequisites for SMB file share:
 Now, the **SAP &lt;SID&gt;** cluster role is not containing cluster shared disks or Generic File Share cluster resource.
 
 
-![Figure: SAP <SID> cluster role resources when using file share][sap-ha-guide-figure-8005]
+![Figure 3: SAP <SID> cluster role resources when using file share][sap-ha-guide-figure-8005]
 
-_**Figure:** **SAP &lt;SID&gt;** cluster role resources when using file share_
+_**Figure 3:** **SAP &lt;SID&gt;** cluster role resources when using file share_
 
 
 ## Scale-Out File Share (SOFS) With Storage Spaces Direct (S2D) on Azure as SAPMNT File Share
 
 You can use SOFS to host and protect SAP GLOBAL Host files, and to offer highly available SAPMNT file share service.
 
-![Figure: SOFS file share used to protect SAP GLOBAL Host files][sap-ha-guide-figure-8006]
+![Figure 4: SOFS file share used to protect SAP GLOBAL Host files][sap-ha-guide-figure-8006]
 
-_**Figure:** SOFS file share used to protect SAP GLOBAL Host files_
+_**Figure 4:** SOFS file share used to protect SAP GLOBAL Host files_
 
 > [!IMPORTANT]
 >SOFS file share is fully supported on Microsoft Azure cloud as well as in on-premise
@@ -345,9 +348,9 @@ You have the possibility to deploy SAP (A)SCS instances in one cluster, with the
 >In this scenario, the SAP (A)SCS instance is configured to access SAP GLOBALHost using UNC path \\\&lt;SAPGLOBALHost&gt;\sapmnt\&lt;SID&gt;\SYS\...
 >
 
-![Figure: SAP (A)SCS instance and SOFS deployed in TWO clusters][sap-ha-guide-figure-8007]
+![Figure 5: SAP (A)SCS instance and SOFS deployed in TWO clusters][sap-ha-guide-figure-8007]
 
-_**Figure:** SAP (A)SCS instance and SOFS deployed in TWO clusters_
+_**Figure 5:** SAP (A)SCS instance and SOFS deployed in TWO clusters_
 
 > [!IMPORTANT]
 >On Azure cloud, each cluster used for SAP and for SOFS file shares must be deployed in their own Azure Availability Set, to ensure distributed the placement of those cluster VMs across the underlying Azure infrastructure.

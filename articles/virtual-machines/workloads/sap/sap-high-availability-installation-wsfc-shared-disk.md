@@ -1,5 +1,5 @@
 ---
-title: SAP NetWeaver HA Installation on Windows Failover Cluster and Shared Disk for SAP (A)SCS Instance | Microsoft Docs
+title: SAP NetWeaver HA Installation on Windows Failover Cluster and Shared Disk for SAP (A)SCS Instance on Azure | Microsoft Docs
 description: SAP NetWeaver HA Installation on Windows Failover Cluster and Shared Disk for SAP (A)SCS Instance
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -21,7 +21,7 @@ ms.custom: H1Hack27Feb2017
 
 ---
 
-# SAP NetWeaver HA Installation on Windows Failover Cluster and Shared Disk for SAP (A)SCS Instance
+# SAP NetWeaver HA Installation on Windows Failover Cluster and Shared Disk for SAP (A)SCS Instance on Azure
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -142,6 +142,8 @@ ms.custom: H1Hack27Feb2017
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
+This document is describing how to install and configure high available SAP system on Azure, with **Windows Failover Cluster (WSFC)** and using **cluster shared disk** for clustering SAP (A)SCS instance.
+
 ## Prerequisite
 
 Make sure to review these documents before starting with installation:
@@ -185,15 +187,15 @@ Installing SAP with a high-availability ASCS/SCS instance involves these tasks:
 
   The IP address of the virtual SAP ASCS/SCS host name (**pr1-ascs-sap**) is the same as the IP address of Azure Load Balancer (**pr1-lb-ascs**).
 
-  ![Figure: Define the DNS entry for the SAP ASCS/SCS cluster virtual name and TCP/IP address][sap-ha-guide-figure-3046]
+  ![Figure 1: Define the DNS entry for the SAP ASCS/SCS cluster virtual name and TCP/IP address][sap-ha-guide-figure-3046]
 
-  _**Figure:** Define the DNS entry for the SAP ASCS/SCS cluster virtual name and TCP/IP address_
+  _**Figure 1:** Define the DNS entry for the SAP ASCS/SCS cluster virtual name and TCP/IP address_
 
 2.  To define the IP address assigned to the virtual host name, select **DNS Manager** > **Domain**.
 
-  ![Figure: New virtual name and TCP/IP address for SAP ASCS/SCS cluster configuration][sap-ha-guide-figure-3047]
+  ![Figure 2: New virtual name and TCP/IP address for SAP ASCS/SCS cluster configuration][sap-ha-guide-figure-3047]
 
-  _**Figure:** New virtual name and TCP/IP address for SAP ASCS/SCS cluster configuration_
+  _**Figure 2:** New virtual name and TCP/IP address for SAP ASCS/SCS cluster configuration_
 
 ### <a name="eb5af918-b42f-4803-bb50-eff41f84b0b0"></a> Install the SAP first cluster node
 
@@ -251,9 +253,9 @@ To add a probe port:
 
 2.  Define a probe port. The default probe port number is **0**. In our example, we use probe port **62000**.
 
-  ![Figure: The cluster configuration probe port is 0 by default][sap-ha-guide-figure-3048]
+  ![Figure 3: The cluster configuration probe port is 0 by default][sap-ha-guide-figure-3048]
 
-  _**Figure:** The default cluster configuration probe port is 0_
+  _**Figure 3:** The default cluster configuration probe port is 0_
 
   The port number is defined in SAP Azure Resource Manager templates. You can assign the port number in PowerShell.
 
@@ -325,9 +327,9 @@ To add a probe port:
 
   ```
 
-  ![Figure: Probe the cluster port after you set the new value][sap-ha-guide-figure-3049]
+  ![Figure 4: Probe the cluster port after you set the new value][sap-ha-guide-figure-3049]
 
-  _**Figure:** Probe the cluster port after you set the new value_
+  _**Figure 4:** Probe the cluster port after you set the new value_
 
 ### <a name="4498c707-86c0-4cde-9c69-058a7ab8c3ac"></a> Open the Windows firewall probe port
 
@@ -353,9 +355,9 @@ To install the second cluster, follow the steps in the SAP installation guide.
 
 Change the start type of the SAP ERS Windows service to **Automatic (Delayed Start)** on both cluster nodes.
 
-![Figure: Change the service type for the SAP ERS instance to delayed automatic][sap-ha-guide-figure-3050]
+![Figure 5: Change the service type for the SAP ERS instance to delayed automatic][sap-ha-guide-figure-3050]
 
-_**Figure:** Change the service type for the SAP ERS instance to delayed automatic_
+_**Figure 5:** Change the service type for the SAP ERS instance to delayed automatic_
 
 ## <a name="2477e58f-c5a7-4a5d-9ae3-7b91022cafb5"></a> Install the SAP Primary Application Server
 
@@ -377,15 +379,15 @@ It's easy to test and monitor an SAP ASCS/SCS instance failover and SIOS disk re
 
 The **SAP PR1** cluster group is running on cluster node A. For example, on **pr1-ascs-0**. Assign the shared disk drive S, which is part of the **SAP PR1** cluster group, and which the ASCS/SCS instance uses, to cluster node A.
 
-![Figure: Failover Cluster Manager: The SAP <SID> cluster group is running on cluster node A][sap-ha-guide-figure-5000]
+![Figure 6: Failover Cluster Manager: The SAP <SID> cluster group is running on cluster node A][sap-ha-guide-figure-5000]
 
-_**Figure:** Failover Cluster Manager: The SAP <*SID*> cluster group is running on cluster node A_
+_**Figure 6:** Failover Cluster Manager: The SAP <*SID*> cluster group is running on cluster node A_
 
 In the SIOS DataKeeper Management and Configuration tool, you can see that the shared disk data is synchronously replicated from the source volume drive S on cluster node A to the target volume drive S on cluster node B. For example, it's replicated from **pr1-ascs-0 [10.0.0.40]** to **pr1-ascs-1 [10.0.0.41]**.
 
-![Figure: In SIOS DataKeeper, replicate the local volume from cluster node A to cluster node B][sap-ha-guide-figure-5001]
+![Figure 7: In SIOS DataKeeper, replicate the local volume from cluster node A to cluster node B][sap-ha-guide-figure-5001]
 
-_**Figure:** In SIOS DataKeeper, replicate the local volume from cluster node A to cluster node B_
+_**Figure 7:** In SIOS DataKeeper, replicate the local volume from cluster node A to cluster node B_
 
 ### <a name="5e959fa9-8fcd-49e5-a12c-37f6ba07b916"></a> Failover from node A to node B
 
@@ -406,12 +408,12 @@ _**Figure:** In SIOS DataKeeper, replicate the local volume from cluster node A 
 
   After failover, the SAP <*SID*> cluster group is running on cluster node B. For example, it's running on **pr1-ascs-1**.
 
-  ![Figure: In Failover Cluster Manager, the SAP <SID> cluster group is running on cluster node B][sap-ha-guide-figure-5002]
+  ![Figure 8: In Failover Cluster Manager, the SAP <SID> cluster group is running on cluster node B][sap-ha-guide-figure-5002]
 
-  _**Figure**: In Failover Cluster Manager, the SAP <*SID*> cluster group is running on cluster node B_
+  _**Figure 8**: In Failover Cluster Manager, the SAP <*SID*> cluster group is running on cluster node B_
 
   The shared disk is now mounted on cluster node B. SIOS DataKeeper is replicating data from source volume drive S on cluster node B to target volume drive S on cluster node A. For example, it's replicating from **pr1-ascs-1 [10.0.0.41]** to **pr1-ascs-0 [10.0.0.40]**.
 
-  ![Figure: SIOS DataKeeper replicates the local volume from cluster node B to cluster node A][sap-ha-guide-figure-5003]
+  ![Figure 9: SIOS DataKeeper replicates the local volume from cluster node B to cluster node A][sap-ha-guide-figure-5003]
 
-  _**Figure:** SIOS DataKeeper replicates the local volume from cluster node B to cluster node A_
+  _**Figure 9:** SIOS DataKeeper replicates the local volume from cluster node B to cluster node A_

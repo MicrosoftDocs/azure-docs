@@ -159,6 +159,8 @@ ms.custom: H1Hack27Feb2017
 > ![Windows][Logo_Windows] Windows
 >
 
+This document is describing Azure infrastructure preparation steps, needed to install and configure high available SAP system on **Windows Failover Cluster (WSFC)**, using **cluster shared disk** as an option for clustering SAP (A)SCS instance.
+
 ## Prerequisite
 
 Make sure to review these documents before starting with installation:
@@ -552,7 +554,7 @@ To add registry entries on both cluster nodes of the SAP ASCS/SCS instance, firs
 | Variable name |`KeepAliveTime` |
 | Variable type |REG_DWORD (Decimal) |
 | Value |120000 |
-| Link to documentation |[https://technet.microsoft.com/en-us/library/cc957549.aspx](https://technet.microsoft.com/en-us/library/cc957549.aspx) |
+| Link to documentation |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
 
 _**Table 3:** Change the first TCP/IP parameter_
 
@@ -882,6 +884,6 @@ After you install SIOS DataKeeper on both nodes, you need to start the configura
 
   _**Figure:** Failover Cluster Manager shows the disk that DataKeeper replicated_
 
-# Next steps
+## Next steps
 
 * [SAP NetWeaver HA Installation using **Windows Failover Cluster** and **Shared Disk** for SAP (A)SCS Instance][sap-high-availability-installation-wsfc-shared-disk]
