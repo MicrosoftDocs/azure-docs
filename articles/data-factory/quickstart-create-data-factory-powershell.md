@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: hero-article
-ms.date: 09/19/2017
+ms.date: 09/26/2017
 ms.author: jingwang
 
 ---
 # Create a data factory and pipeline using PowerShell
-Azure Data Factory is a cloud-based data integration service that allows you to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Uing Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores, process/transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning, and publish output data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications to consume. 
+Azure Data Factory is a cloud-based data integration service that allows you to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Using Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores, process/transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning, and publish output data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications to consume. 
 
 This quickstart describes how to use PowerShell to create an Azure data factory. The pipeline in this data factory copies data from one location to another location in an Azure blob storage.
 
@@ -25,10 +25,9 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Prerequisites
 
-* **Azure Storage account**. You use the blob storage as both the **source** and **sink** data stores. If you don't have an Azure storage account, see the [Create a storage account] on creating one. (../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one.
-* Create a **blob container** in Blob Storage, create an input **folder** in the container, and upload some files to the folder. 
+* **Azure Storage account**. You use the blob storage as both the **source** and **sink** data stores. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) on creating one. 
+* Create a **blob container** in Blob Storage, create an input **folder** in the container, and upload some files to the folder. You can use tools such as [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/) to connect to Azure Blob storage, create a blob container, upload input file, and verify the output file.
 * **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
-* [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/). You can use this tool to connect to Azure Blob storage, create a blob container, upload input file, and verify the output file. 
 
 ## Create a data factory
 
@@ -51,10 +50,20 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     ```
 2. Run the **Set-AzureRmDataFactoryV2** cmdlet to create a data factory. Replace place-holders with your own values before executing the command. Replaced **place-holders** with your own values. 
 
+    Define a variable for the resource group name that you can use in PowerShell commands later. 
     ```powershell
     $resourceGroupName = "<your resource group to create the factory>";
+    ```
+
+    Define a variable for the data factory name that you can use in PowerShell commands later. 
+
+    ```powershell
     $dataFactoryName = "<specify the name of data factory to create. It must be globally unique.>";
-    Set-AzureRmDataFactoryV2 -ResourceGroupName "<your resource group to create the factory>" -Location "East US" -Name "<specify the name of data factory to create. It must be globally unique.>" 
+    ```
+
+    Run the following command to create a data factory. 
+    ```powershell       
+    Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName 
     ```
 
     Note the following points:
@@ -257,9 +266,9 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
                 $run
                 break
             }
+            Write-Host  "Pipeline is running...status: InProgress" -foregroundcolor "Yellow"
         }
 
-        Write-Host  "Pipeline is running...status: " $run.Status -foregroundcolor "Yellow"
         Start-Sleep -Seconds 30
     }
     ```
@@ -267,29 +276,27 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
     Here is the sample output of pipeline run:
 
     ```
-    Key                  : 00000000-0000-0000-0000-000000000000
-    Timestamp            : 9/7/2017 8:31:26 AM
-    RunId                : 000000000-0000-0000-0000-000000000000
-    DataFactoryName      : <dataFactoryname>
-    PipelineName         : Adfv2QuickStartPipeline
-    Parameters           : {inputPath: <inputBlobPath>, outputPath: <outputBlobPath>}
-    ParametersCount      : 2
-    ParameterNames       : {inputPath, outputPath}
-    ParameterNamesCount  : 2
-    ParameterValues      : {<inputBlobPath>, <outputBlobPath>}
-    ParameterValuesCount : 2
-    RunStart             : 9/7/2017 8:30:45 AM
-    RunEnd               : 9/7/2017 8:31:26 AM
-    DurationInMs         : 41291
-    Status               : Succeeded
-    Message              :
+    Pipeline is running...status: InProgress
+    Pipeline run finished. The status is:  Succeeded
+    
+    ResourceGroupName : ADFTutorialResourceGroup
+    DataFactoryName   : SPTestFactory0928
+    RunId             : 0000000000-0000-0000-0000-0000000000000
+    PipelineName      : Adfv2QuickStartPipeline
+    LastUpdated       : 9/28/2017 8:28:38 PM
+    Parameters        : {[inputPath, adftutorial/input], [outputPath, adftutorial/output]}
+    RunStart          : 9/28/2017 8:28:14 PM
+    RunEnd            : 9/28/2017 8:28:38 PM
+    DurationInMs      : 24151
+    Status            : Succeeded
+    Message           :
     ```
 
 2. Run the following script to retrieve copy activity run details, for example, size of the data read/written.
 
     ```powershell
-    $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
     Write-Host "Activity run details:" -foregroundcolor "Yellow"
+    $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
     $result
     
     Write-Host "Activity 'Output' section:" -foregroundcolor "Yellow"
@@ -301,29 +308,29 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
 3. Confirm that you see the output similar to the following sample output of activity run result:
 
     ```json
-    Activity run details:
-    ResourceGroupName : adf
-    DataFactoryName   : <dataFactoryname>
+    ResourceGroupName : ADFTutorialResourceGroup
+    DataFactoryName   : SPTestFactory0928
     ActivityName      : CopyFromBlobToBlob
-    Timestamp         : 9/7/2017 8:24:06 AM
-    PipelineRunId     : 9b362a1d-37b5-449f-918c-53a8d819d83f
+    PipelineRunId     : 00000000000-0000-0000-0000-000000000000
     PipelineName      : Adfv2QuickStartPipeline
     Input             : {source, sink}
     Output            : {dataRead, dataWritten, copyDuration, throughput...}
     LinkedServiceName :
-    ActivityStart     : 9/7/2017 8:23:30 AM
-    ActivityEnd       : 9/7/2017 8:24:06 AM
-    Duration          : 36331
+    ActivityRunStart  : 9/28/2017 8:28:18 PM
+    ActivityRunEnd    : 9/28/2017 8:28:36 PM
+    DurationInMs      : 18095
     Status            : Succeeded
     Error             : {errorCode, message, failureType, target}
     
     Activity 'Output' section:
-    "dataRead": 331452208
-    "dataWritten": 331452208
-    "copyDuration": 23
-    "throughput": 14073.209
+    "dataRead": 38
+    "dataWritten": 38
+    "copyDuration": 7
+    "throughput": 0.01
     "errors": []
     "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (West US)"
+    "usedCloudDataMovementUnits": 2
+    "billedDuration": 14
     ```
 
 ## Verify the output

@@ -4,7 +4,7 @@ description: Understand why you see charges for your Azure free account. Learn w
 services: ''
 documentationcenter: ''
 author: amberbhargava
-manager: 
+manager: amberb
 editor: ''
 tags: billing
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
-ms.author: amberbhargava
+ms.author: amberb
 ---
 # Avoid getting charged for your Azure free account
 

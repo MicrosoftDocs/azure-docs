@@ -3,7 +3,7 @@ title: How to use Queue storage from PHP | Microsoft Docs
 description: Learn how to use the Azure Queue storage service to create and delete queues, and insert, get, and delete messages. Samples are written in PHP.
 documentationcenter: php
 services: storage
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: robinsh
+ms.author: tamram
 
 ---
 # How to use Queue storage from PHP
@@ -71,7 +71,7 @@ UseDevelopmentStorage=true
 To create any Azure service client, you need to use the **ServicesBuilder** class. You can use either of the following techniques:
 
 * Pass the connection string directly to it.
-* Use environment variables in your Web App to store the connection string. See [Azure web app configuration settings](../../app-service-web/web-sites-configure.md) document for configuring connection strings.
+* Use environment variables in your Web App to store the connection string. See [Azure web app configuration settings](../../app-service/web-sites-configure.md) document for configuring connection strings.
 For the examples outlined here, the connection string is passed directly.
 
 ```php

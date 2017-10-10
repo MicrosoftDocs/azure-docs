@@ -19,6 +19,7 @@
 # How to
 
 ## Security policy
+### [Overview](security-center-policies-overview.md)
 ### [Data collection](security-center-enable-data-collection.md)
 ### [Security policy](security-center-policies.md)
 ### [Email notifications](security-center-provide-security-contact-details.md)
