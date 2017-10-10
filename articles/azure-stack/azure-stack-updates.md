@@ -1,6 +1,6 @@
 ---
-title: Updates in Azure Stack | Microsoft Docs
-description: Learn about updates in Azure Stack
+title: Manage updates in Azure Stack overview | Microsoft Docs
+description: Learn about update management for Azure Stack integrated systems.
 services: azure-stack
 documentationcenter: ''
 author: twooley
@@ -13,27 +13,53 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2017
+ms.date: 09/25/2017
 ms.author: twooley
 
 ---
-# Update management in Azure Stack
-In this Technical Preview 3 release, you can preview the experience for managing Azure Stack updates. No updates are yet available for installation.    
+# Manage updates in Azure Stack overview
 
-## View update information
-In the administrator portal, there is an **Updates** tile on the default dashboard. This tile indicates the current update version of Azure Stack, when the last check for system updates occurred, and the update state. You can click the **Updates** tile to check for available updates, and to view the update history.
+*Applies to: Azure Stack integrated systems*
 
- ![Updates tile on default dashboard](./media/azure-stack-updates/image2.png)
+Microsoft will release update packages for Azure Stack integrated systems on a regular basis. Each release of Microsoft software updates is bundled as a single update package. As an Azure Stack operator, you can easily import, install, and monitor the installation progress of these update packages from the administrator portal. 
 
-You can access this same update information in other locations. For example, to view update information for a particular region, you can:
+Your original equipment manufacturer (OEM) hardware vendor will also release updates, such as driver and firmware updates. These updates are delivered as separate packages by your OEM hardware vendor, and are managed separately from Microsoft updates.
+
+To keep your system under support, you must keep Azure Stack updated to a specific version level. Make sure that you review the [Azure Stack servicing policy](azure-stack-servicing-policy.md).
+
+> [!NOTE]
+> You can't apply Azure Stack update packages to Azure Stack Development Kit. The update packages are designed for integrated systems.
+
+## The Update resource provider
+
+Azure Stack includes an Update resource provider that orchestrates the application of Microsoft software updates. This resource provider ensures that updates are applied across all physical hosts, Service Fabric applications and runtimes, and all infrastructure virtual machines and their associated services.
+
+As updates install, you can easily view high-level status as the update process targets the various subsystems in Azure Stack (for example, physical hosts, and infrastructure virtual machines).
+
+## Plan for updates
+
+We strongly recommend that you notify users of any maintenance operations, and that you schedule normal maintenance windows during non-business hours as much as possible. Maintenance operations may affect both tenant workloads and portal operations.
+
+## Using the Update tile to manage updates
+Managing updates from the administrator portal is a simple process. An Azure Stack operator can navigate to the Update tile in the dashboard to:
+
+- view important information such as the current version.
+- install updates, and monitor progress.
+- review update history for previously installed updates.
  
-* Click **Browse**, click **Updates**, and then click the region name.
+## Determine the current version
 
-* On the default dashboard, click the region name on the **Region Management** tile.
+The Update tile shows the current version of Azure Stack. You can get to the Update tile by using either of the following methods in the administrator portal:
+
+- On the dashboard, view the current version in the **Update** tile.
+ 
+   ![Updates tile on default dashboard](./media/azure-stack-updates/image1.png)
+ 
+- On the **Region management** tile, click the region name. View the current version in the **Update** tile.
 
 ## Next steps
-* [Region management in Azure Stack](azure-stack-region-management.md)
 
-* [Understand Azure Stack POC Architecture](azure-stack-architecture.md)      
+- [Azure Stack servicing policy](azure-stack-servicing-policy.md) 
+- [Region management in Azure Stack](azure-stack-region-management.md)     
 
 

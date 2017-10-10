@@ -3,7 +3,7 @@ title: Visualize network traffic patterns with Azure Network Watcher and open so
 description: This page describes how to use Network Watcher packet capture with Capanalysis to visualize traffic patterns to and from your VMs.
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor:
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 ---
 
 # Visualize network traffic patterns to and from your VMs using open source tools
@@ -22,8 +22,6 @@ ms.author: gwallace
 Packet captures contain network data that allow you to perform network forensics and deep packet inspection. There are many opens source tools you can use to analyze packet captures to gain insights about your network. One such tool is CapAnalysis, an open source packet capture visualization tool. Visualizing packet capture data is a valuable way to quickly derive insights on patterns and anomalies within your network. Visualizations also provide a means of sharing such insights in an easily consumable manner.
 
 Azure’s Network Watcher provides you the ability to capture this valuable data by allowing you to perform packet captures on your network. In this article, we provide a walkthrough of how to visualize and gain insights from packet captures using CapAnalysis with Network Watcher.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ## Scenario
 

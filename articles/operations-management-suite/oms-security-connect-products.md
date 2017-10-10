@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/05/2016
+ms.date: 07/18/2017
 ms.author: yurid
 
 ---
@@ -93,6 +93,8 @@ On the agent machine, the events need to be sent from the syslog daemon to local
 	```
 
 ## Reviewing collected security events
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 After the configuration is over, the security event will start to be ingested by OMS Security. To visualize those events, open the Log Search, type the command *Type=CommonSecurityLog* in the search field and press ENTER. The following example shows the result of this command, notice that in this case OMS Security already ingested security logs from multiple vendors:
    

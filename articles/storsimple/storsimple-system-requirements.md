@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 01/05/2017
+ms.date: 06/06/2017
 ms.author: alkohli
 
 ---
@@ -32,7 +32,7 @@ The following software requirements are for the storage clients that access your
 
 | Supported operating systems | Version required | Additional requirements/notes |
 | --- | --- | --- |
-| Windows Server |2008R2 SP1, 2012, 2012R2, 2016 |StorSimple iSCSI volumes are supported for use on only the following Windows disk types:<ul><li>Simple volume on basic disk</li><li>Simple and mirrored volume on dynamic disk</li></ul>Windows Server 2012 and 2016 thin provisioning and ODX features are supported if you are using a StorSimple iSCSI volume.<br><br>StorSimple can create thinly provisioned and fully provisioned volumes. It cannot create partially provisioned volumes.<br><br>Reformatting a thinly provisioned volume may take a long time. We recommend deleting the volume and then creating a new one instead of reformatting. However, if you still prefer to reformat a volume:<ul><li>Run the following command before the reformat to avoid space reclamation delays: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>After the formatting is complete, use the following command to re-enable space reclamation:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Apply the Windows Server 2012 hotfix as described in [KB 2878635](https://support.microsoft.com/kb/2870270) to your Windows Server computer.</li></ul></li></ul></ul> If you are configuring StorSimple Snapshot Manager or StorSimple Adapter for SharePoint, go to [Software requirements for optional components](#software-requirements-for-optional-components). |
+| Windows Server |2008R2 SP1, 2012, 2012R2, 2016 |StorSimple iSCSI volumes are supported for use on only the following Windows disk types:<ul><li>Simple volume on basic disk</li><li>Simple and mirrored volume on dynamic disk</li></ul>Only the software iSCSI initiators present natively in the operating system are supported. Hardware iSCSI initiators are not supported.<br></br>Windows Server 2012 and 2016 thin provisioning and ODX features are supported if you are using a StorSimple iSCSI volume.<br><br>StorSimple can create thinly provisioned and fully provisioned volumes. It cannot create partially provisioned volumes.<br><br>Reformatting a thinly provisioned volume may take a long time. We recommend deleting the volume and then creating a new one instead of reformatting. However, if you still prefer to reformat a volume:<ul><li>Run the following command before the reformat to avoid space reclamation delays: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>After the formatting is complete, use the following command to re-enable space reclamation:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Apply the Windows Server 2012 hotfix as described in [KB 2878635](https://support.microsoft.com/kb/2870270) to your Windows Server computer.</li></ul></li></ul></ul> If you are configuring StorSimple Snapshot Manager or StorSimple Adapter for SharePoint, go to [Software requirements for optional components](#software-requirements-for-optional-components). |
 | VMWare ESX |5.5 and 6.0 |Supported with VMWare vSphere as iSCSI client. VAAI-block feature is supported with VMware vSphere on StorSimple devices. |
 | Linux RHEL/CentOS |5, 6, and 7 |Support for Linux iSCSI clients with open-iSCSI initiator versions 5, 6, and 7. |
 | Linux |SUSE Linux 11 | |
@@ -88,7 +88,7 @@ We recommend that you set your firewall rules for outbound traffic, based on Sto
 #### URL patterns for Azure portal
 | URL pattern | Component/Functionality | Device IPs |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` |StorSimple Manager service<br>Access Control Service<br>Azure Service Bus |Cloud-enabled network interfaces |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |StorSimple Device Manager service<br>Access Control Service<br>Azure Service Bus<br>Authentication Service |Cloud-enabled network interfaces |
 | `https://*.backup.windowsazure.com` |Device registration |DATA 0 only |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Certificate revocation |Cloud-enabled network interfaces |
 | `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure storage accounts and monitoring |Cloud-enabled network interfaces |
@@ -99,7 +99,7 @@ We recommend that you set your firewall rules for outbound traffic, based on Sto
 #### URL patterns for Azure Government portal
 | URL pattern | Component/Functionality | Device IPs |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*` |StorSimple Manager service<br>Access Control Service<br>Azure Service Bus |Cloud-enabled network interfaces |
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*` <br>`https://login-us.microsoftonline.com` |StorSimple Device Manager service<br>Access Control Service<br>Azure Service Bus<br>Authentication Service |Cloud-enabled network interfaces |
 | `https://*.backup.windowsazure.us` |Device registration |DATA 0 only |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Certificate revocation |Cloud-enabled network interfaces |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure storage accounts and monitoring |Cloud-enabled network interfaces |

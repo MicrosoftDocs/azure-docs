@@ -21,13 +21,6 @@ ms.author: yanacai
 
 You can use Azure Data Lake Tools for Visual Studio and the Azure Data Lake U-SQL SDK to run U-SQL jobs on your workstation, just as you can in the Azure Data Lake service. These two local-run features save you time in testing and debugging your U-SQL jobs.
 
-Prerequisites:
-
-- An Azure Data Lake Analytics account. See [Get started with Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md).
-- Azure Data Lake Tools for Visual Studio. See [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-- The U-SQL script development experience. See [Get started with Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md).
-
-
 ## Understand the data-root folder and the file path
 
 Both local run and the U-SQL SDK require a data-root folder. The data-root folder is a "local store" for the local compute account. It's equivalent to the Azure Data Lake Store account of a Data Lake Analytics account. Switching to a different data-root folder is just like switching to a different store account. If you want to access commonly shared data with different data-root folders, you must use absolute paths in your scripts. Or, create file system symbolic links (for example, **mklink** on NTFS) under the data-root folder to point to the shared data.
@@ -77,6 +70,30 @@ You can also click the **(Local)** account on the top of script window, and then
 
     ![Data Lake Tools for Visual Studio local-run submit jobs](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-submit-job.png)
 
+### Debug scripts and C# assemblies locally
+
+You can debug C# assemblies without submitting and registering it to Azure Data Lake Analytics Service. You can set breakpoints in both the code behind file and in a referenced C# project.
+
+#### To debug local code in code behind file
+
+1. Set breakpoints in the code behind file.
+2. Press F5 to debug the script locally.
+
+> [!NOTE]
+   > The following procedure only works in Visual Studio 2015. In older Visual Studio you may need to manually add the pdb files.  
+   >
+   >
+
+#### To debug local code in a referenced C# project
+
+1. Create a C# Assembly project, and build it to generate the output dll.
+2. Register the dll using a U-SQL statement:
+
+        CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
+        
+3. Set breakpoints in the C# code.
+4. Press F5 to debug the script with referencing the C# dll locally.
+
 ## Use local run from the Data Lake U-SQL SDK
 
 In addition to running U-SQL scripts locally by using Visual Studio, you can use the Azure Data Lake U-SQL SDK to run U-SQL scripts locally with command-line and programming interfaces. Through these, you can scale your U-SQL local test.
@@ -84,15 +101,8 @@ In addition to running U-SQL scripts locally by using Visual Studio, you can use
 Learn more about [Azure Data Lake U-SQL SDK](data-lake-analytics-u-sql-sdk.md).
 
 
-
-
 ## Next steps
 
-* To get an overview of Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
-* To get started developing U-SQL applications, see [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-* To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md).
-* For management tasks, see [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md).
-* To log diagnostics information, see [Accessing diagnostics logs for Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md).
 * To see a more complex query, see [Analyze website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 * To view job details, see [Use Job Browser and Job View for Azure Data Lake Analytics jobs](data-lake-analytics-data-lake-tools-view-jobs.md).
 * To use the vertex execution view, see [Use the Vertex Execution View in Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).

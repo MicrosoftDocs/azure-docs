@@ -3,7 +3,7 @@ title: Child runbooks in Azure Automation | Microsoft Docs
 description: Describes the different methods for starting a runbook in Azure Automation from another runbook and sharing information between them.
 services: automation
 documentationcenter: ''
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 
@@ -65,7 +65,7 @@ Parameters for a child runbook started with a cmdlet are provided as a hashtable
 The following example starts a child runbook with parameters and then waits for it to complete using the Start-AzureRmAutomationRunbook -wait parameter. Once completed, its output is collected from the child runbook.
 
     $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true} 
-    $joboutput = Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-ChildRunbook" -ResouceGroupName "LabRG" –Parameters $params –wait
+    $joboutput = Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-ChildRunbook" -ResourceGroupName "LabRG" –Parameters $params –wait
 
 
 ## Comparison of methods for calling a child runbook

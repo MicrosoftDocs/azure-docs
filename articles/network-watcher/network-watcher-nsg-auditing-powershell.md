@@ -3,7 +3,7 @@ title: Automate NSG auditing with Azure Network Watcher Security group view | Mi
 description: This page provides instructions on how to configure auditing of a Network Security Group
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 
 ---
 
@@ -29,8 +29,6 @@ If you are unfamiliar with Network Security Groups, visit [Network Security Over
 In this scenario, you compare a known good baseline to the security group view results returned for a virtual machine.
 
 This scenario assumes you have already followed the steps in [Create a Network Watcher](network-watcher-create.md) to create a Network Watcher. The scenario also assumes that a Resource Group with a valid virtual machine exists to be used.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ## Scenario
 

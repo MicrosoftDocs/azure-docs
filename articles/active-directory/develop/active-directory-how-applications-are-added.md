@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/09/2016
 ms.author: shoatman
+ms.custom: aaddev
 
 ---
 # How and why applications are added to Azure AD
@@ -128,7 +129,7 @@ With all of that said it is possible to prevent users in your directory from add
 Learn more about how to add applications to Azure AD and how to configure services for apps.
 
 * Developers: [Learn how to integrate an application with AAD](https://msdn.microsoft.com/library/azure/dn151122.aspx)
-* Developers: [Review sample code for apps integrated with Azure Active Directory on Github](https://github.com/AzureADSamples)
+* Developers: [Review sample code for apps integrated with Azure Active Directory on GitHub](https://github.com/AzureADSamples)
 * Developers and IT Pros: [Review the REST API documentation for the Azure Active Directory Graph API](https://msdn.microsoft.com/library/azure/hh974478.aspx)
 * IT Pros: [Learn how to use Azure Active Directory pre-integrated applications from the App Gallery](https://msdn.microsoft.com/library/azure/dn308590.aspx)
 * IT Pros: [Find tutorials for configuring specific pre-integrated apps](https://msdn.microsoft.com/library/azure/dn893637.aspx)

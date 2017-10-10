@@ -2,7 +2,7 @@
 title: Azure Load Balancer Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to use Load Balancer for network performance of apps. Manage traffic for virtual machines and cloud resources, and in cross-premises virtual networks.
 services: load-balancer
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid:	
@@ -104,7 +104,7 @@ Learn how to configure Load Balancer to deliver high availability and network pe
                     <div class="cardText">
                         <h3>Command-Line</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network">PowerShell</a></p>
-                        <p><a href="/cli/azure/network/lb">Azure CLI 2​.0 (Preview)</a></p>
+                        <p><a href="/cli/azure/network/lb">Azure CLI 2​.0</a></p>
                     </div>
                 </div>
             </div>

@@ -11,10 +11,10 @@ tags: azure-resource-manager
 ms.assetid: fb0aa0a6-d096-4d6a-b2f6-eda1c64f6182
 ms.service: dns
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/03/2017
+ms.date: 03/10/2017
 ms.author: jonatul
 ---
 
@@ -31,6 +31,14 @@ This article walks you through the steps to create your first DNS zone and recor
 A DNS zone is used to host the DNS records for a particular domain. To start hosting your domain in Azure DNS, you need to create a DNS zone for that domain name. Each DNS record for your domain is then created inside this DNS zone. Finally, to publish your DNS zone to the Internet, you need to configure the name servers for the domain. Each of these steps is described below.
 
 These instructions assume you have already installed and signed in to Azure PowerShell. For help, see [How to manage DNS zones using PowerShell](dns-operations-dnszones.md).
+
+## Create the resource group
+
+Before creating the DNS zone, a resource group is created to contain the DNS Zone. The following shows the command.
+
+```powershell
+New-AzureRMResourceGroup -name MyResourceGroup -location "westus"
+```
 
 ## Create a DNS zone
 
@@ -80,6 +88,13 @@ MaxNumberOfRecordSets : 5000
 
 These name servers should be configured with the domain name registrar (where you purchased the domain name). Your registrar will offer the option to set up the name servers for the domain. For more information, see [Delegate your domain to Azure DNS](dns-domain-delegation.md).
 
+## Delete all resources
+
+To delete all resources created in this article, take the following step:
+
+```powershell
+Remove-AzureRMResourceGroup -Name MyResourceGroup
+```
 
 ## Next steps
 

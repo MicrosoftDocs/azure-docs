@@ -1,9 +1,9 @@
 ---
-title: Securing PaaS web and mobile applications using SQL Database and SQL Data Warehouse | Microsoft Docs
+title: Securing PaaS Databases in Azure | Microsoft Docs
 description: " Learn about Azure SQL Database and SQL Data Warehouse security best practices for securing your PaaS web and mobile applications. "
 services: security
 documentationcenter: na
-author: TerryLanfear
+author: techlake
 manager: MBaldwin
 editor: ''
 
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 07/11/2017
 ms.author: terrylan
 
 ---
-# Securing PaaS web and mobile applications using SQL Database and SQL Data Warehouse
+# Securing PaaS databases in Azure
 
 In this article, we discuss a collection of [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) and [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/) security best practices for securing your PaaS web and mobile applications. These best practices are derived from our experience with Azure and the experiences of customers like yourself.
 
@@ -73,15 +73,15 @@ To learn more about Azure SQL Firewall and IP restrictions, see:
 - [Configure an Azure SQL Database server-level firewall rule using the Azure portal](../sql-database/sql-database-configure-firewall-settings.md)
 
 ### Encryption of data at rest
-[Transparent Data Encryption (TDE)](https://msdn.microsoft.com/library/azure/bb934049) encrypts SQL Server, Azure SQL Database, and Azure SQL Data Warehouse data files, known as encrypting data at rest. You can take several precautions to help secure the database such as designing a secure system, encrypting confidential assets, and building a firewall around the database servers. However, in a scenario where the physical media (such as drives or backup tapes) are stolen, a malicious party can restore or attach the database and browse the data. One solution is to encrypt the sensitive data in the database and protect the keys that are used to encrypt the data with a certificate. This prevents anyone without the keys from using the data but this kind of protection must be planned in advance.
+[Transparent Data Encryption (TDE)](https://msdn.microsoft.com/library/azure/bb934049) is enabled by default. TDE transparently encrypts SQL Server, Azure SQL Database, and Azure SQL Data Warehouse data and log files. TDE protects against a compromise of direct access to the files or their backup. This enables you to encrypt data at rest without changing existing applications. TDE should always stay enabled; however, this will not stop an attacker using the normal access path. TDE provides the ability to comply with many laws, regulations, and guidelines established in various industries.
 
-TDE protects data at rest, meaning the data and log files. It provides the ability to comply with many laws, regulations, and guidelines established in various industries. This enables software developers to encrypt data by using industry standard encryption algorithms without changing existing applications.
+Azure SQL manages key related issues for TDE. As with TDE, on premise special care must be taken to ensure recoverability and when moving databases. In more sophisticated scenarios, the keys can be explicitly managed in Azure Key Vault through extensible key management (see [Enable TDE on SQL Server Using EKM](/security/encryption/enable-tde-on-sql-server-using-ekm)). This also allows for Bring Your Own Key (BYOK) through Azure Key Vaults BYOK capability.
 
-TDE should be used if regulations explicitly specify such encryption. Be aware, though, that this will not stop an attacker using the normal access path. TDE is used to protect against the highly unlikely case that you might need to use additional application level encryption, either through Azure SQL provided encryption against rows and columns or through application level encryption.
+Azure SQL provides encryption for columns through [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). This allows only authorized applications access to sensitive columns. Using this kind of encryption limits SQL queries for encrypted columns to equality-based values.
 
-Application level encryption should also be used for selective data. Data sovereignty concerns can be mitigated by encrypting data with a key that is kept in the correct country. This prevents even accidental data transfer from causing an issue since it will be impossible to decrypt the data without the key, assuming a strong algorithm is used (such as AES 256).
+Application level encryption should also be used for selective data. Data sovereignty concerns can sometimes be mitigated by encrypting data with a key that is kept in the correct country. This prevents even accidental data transfer from causing an issue since it is impossible to decrypt the data without the key, assuming a strong algorithm is used (such as AES 256).
 
-Azure SQL provided encryption against rows and columns can be done to only allow authorized ([RBAC](../active-directory/role-based-access-built-in-roles.md)) users access and prevents lower privileged users to see the columns or rows.
+You can use additional precautions to help secure the database such as designing a secure system, encrypting confidential assets, and building a firewall around the database servers.
 
 ## Next steps
 This article introduced you to a collection of SQL Database and SQL Data Warehouse security best practices for securing your PaaS web and mobile applications. To learn more about securing your PaaS deployments, see:

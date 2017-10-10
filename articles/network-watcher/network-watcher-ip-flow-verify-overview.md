@@ -3,7 +3,7 @@ title: Introduction to IP flow verify in Azure Network Watcher | Microsoft Docs
 description: This page provides an overview of the Network Watcher IP flow verify capability
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 ---
 
 # Introduction to IP flow verify in Azure Network Watcher
@@ -24,8 +24,6 @@ IP flow verify checks if a packet is allowed or denied to or from a virtual mach
 IP flow verify targets a network interface of a virtual machine. Traffic flow is then verified based on the configured settings to or from that network interface. This capability is useful in confirming if a rule in a Network Security Group is blocking ingress or egress traffic to or from a virtual machine.
 
 An instance of Network Watcher needs to be created in all regions that you plan to run IP flow verify. Network Watcher is a regional service and can only be ran against resources in the same region. This does not affect the results of IP flow verify as the route associated with the NIC will still be returned.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ![1][1]
 

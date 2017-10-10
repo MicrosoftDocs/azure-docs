@@ -3,7 +3,7 @@ title: Introduction to topology in Azure Network Watcher | Microsoft Docs
 description: This page provides an overview of the Network Watcher topology capabilities
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 
@@ -14,14 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 ---
 
 # Introduction to topology in Azure Network Watcher
 
 Topology returns a graph of network resources in a virtual network. The graph depicts the interconnection between the resources to represent the end to end network connectivity.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ![topology overview][1]
 

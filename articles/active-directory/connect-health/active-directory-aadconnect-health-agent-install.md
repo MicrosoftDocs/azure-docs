@@ -12,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/12/2017
-ms.author: vakarand
+ms.date: 07/18/2017
+ms.author: billmath
 
 ---
 # Azure AD Connect Health Agent Installation
@@ -30,8 +30,20 @@ The following table is a list of requirements for using Azure AD Connect Health.
 | Outbound connectivity to the Azure service endpoints | During installation and runtime, the agent requires connectivity to Azure AD Connect Health service endpoints. If outbound connectivity is blocked using Firewalls, ensure that the following endpoints are added to the allowed list: </br></br><li>&#42;.blob.core.windows.net </li><li>&#42;.servicebus.windows.net - Port: 5671 </li><li>&#42;.adhybridhealth.azure.com/</li><li>https://management.azure.com </li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li> |
 |Outbound connectivity based on IP Addresses | For IP address based filtering on firewalls, refer to the [Azure IP Ranges](https://www.microsoft.com/en-us/download/details.aspx?id=41653).|
 | SSL Inspection for outbound traffic is filtered or disabled | The agent registration step or data upload operations may fail if there is SSL inspection or termination for outbound traffic at the network layer. |
-| Firewall ports on the server running the agent. |The agent requires the following firewall ports to be open in order for the agent to communicate with the Azure AD Health service endpoints.</br></br><li>TCP/UDP port 443</li><li>TCP/UDP port 5671</li> |
+| Firewall ports on the server running the agent. |The agent requires the following firewall ports to be open in order for the agent to communicate with the Azure AD Health service endpoints.</br></br><li>TCP port 443</li><li>TCP port 5671</li> |
 | Allow the following websites if IE Enhanced Security is enabled |If IE Enhanced Security is enabled, then the following websites must be allowed on the server that is going to have the agent installed.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>The federation server for your organization trusted by Azure Active Directory. For example: https://sts.contoso.com</li> |
+|Disable FIPS|FIPS is not supported by Azure AD Connect Health agents.|
+
+## Download and install the Azure AD Connect Health Agent
+* Make sure that you [satisfy the requirements](active-directory-aadconnect-health-agent-install.md#requirements) for Azure AD Connect Health.
+* Get started using Azure AD Connect Health for AD FS
+    * [Download Azure AD Connect Health Agent for AD FS.](http://go.microsoft.com/fwlink/?LinkID=518973)
+    * [See the installation instructions](#installing-the-azure-ad-connect-health-agent-for-ad-fs).
+* Get started using Azure AD Connect Health for sync
+    * [Download and install the latest version of Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771). The Health Agent for sync will be installed as part of the Azure AD Connect installation (version 1.0.9125.0 or higher).
+* Get started using Azure AD Connect Health for AD DS
+    * [Download Azure AD Connect Health Agent for AD DS](http://go.microsoft.com/fwlink/?LinkID=820540).
+    * [See the installation instructions](#installing-the-azure-ad-connect-health-agent-for-ad-ds).
 
 ## Installing the Azure AD Connect Health Agent for AD FS
 To start the agent installation, double-click the .exe file that you downloaded. On the first screen, click Install.

@@ -29,7 +29,7 @@ ms.author: sdanie
 
 Azure Redis Cache gives you access to a secure, dedicated Redis cache, managed by Microsoft. Your cache is accessible from any application within Microsoft Azure.
 
-This topic shows you how to get started with Azure Redis Cache using Node.js. For another example of using Azure Redis Cache with Node.js, see [Build a Node.js Chat Application with Socket.IO on an Azure Website](../app-service-web/web-sites-nodejs-chat-app-socketio.md).
+This topic shows you how to get started with Azure Redis Cache using Node.js. 
 
 ## Prerequisites
 Install [node_redis](https://github.com/mranney/node_redis):

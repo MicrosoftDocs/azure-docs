@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
-ms.date: 07/25/2016
-ms.author: jehollan
+ms.date: 03/29/2017
+ms.author: LADocs; jehollan
 
 ---
 # Create workflow definitions for logic apps using JSON
@@ -39,32 +39,34 @@ somewhere so we can track down that failure later:
 
 ```
 {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
+  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "triggers": {
+    "Request": {
+      "type": "request",
+      "kind": "http"
+    }
+  },
+  "actions": {
+    "readData": {
+      "type": "Http",
+      "inputs": {
+        "method": "GET",
+        "uri": "http://myurl"
+      }
     },
-    "triggers": {
-        "manual": {
-            "type": "manual"
-        }
-    },
-    "actions": {
-        "readData": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "http://myurl"
-            }
-        },
-        "postToErrorMessageQueue": {
-            "type": "ApiConnection",
-            "inputs": "...",
-            "runAfter": {
-                "readData": ["Failed"]
-            }
-        }
-    },
-    "outputs": {}
+    "postToErrorMessageQueue": {
+      "type": "ApiConnection",
+      "inputs": "...",
+      "runAfter": {
+        "readData": [
+          "Failed"
+        ]
+      }
+    }
+  },
+  "outputs": {}
 }
 ```
 
@@ -83,38 +85,49 @@ To run multiple actions in parallel, the `runAfter` property must be equivalent 
 
 ```
 {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {},
-    "triggers": {
-        "manual": {
-            "type": "manual"
-        }
+  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "triggers": {
+    "Request": {
+      "kind": "http",
+      "type": "Request"
+    }
+  },
+  "actions": {
+    "readData": {
+      "type": "Http",
+      "inputs": {
+        "method": "GET",
+        "uri": "http://myurl"
+      }
     },
-    "actions": {
-        "readData": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "http://myurl"
-            }
-        },
-        "branch1": {
-            "type": "Http",
-            "inputs": "...",
-            "runAfter": {
-                "readData": ["Succeeded"]
-            }
-        },
-        "branch2": {
-            "type": "Http",
-            "inputs": "...",
-            "runAfter": {
-                "readData": ["Succeeded"]
-            }
-        }
+    "branch1": {
+      "type": "Http",
+      "inputs": {
+        "method": "GET",
+        "uri": "http://myurl"
+      },
+      "runAfter": {
+        "readData": [
+          "Succeeded"
+        ]
+      }
     },
-    "outputs": {}
+    "branch2": {
+      "type": "Http",
+      "inputs": {
+        "method": "GET",
+        "uri": "http://myurl"
+      },
+      "runAfter": {
+        "readData": [
+          "Succeeded"
+        ]
+      }
+    }
+  },
+  "outputs": {}
 }
 ```
 
@@ -130,68 +143,68 @@ by adding items to the `runAfter` property as in the previous example.
 
 ```
 {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-04-01-preview/workflowdefinition.json#",
-    "actions": {
-        "readData": {
-            "inputs": {
-                "method": "GET",
-                "uri": "http://myurl"
-            },
-            "runAfter": {},
-            "type": "Http"
-        },
-        "branch1": {
-            "inputs": {
-                "method": "GET",
-                "uri": "http://myurl"
-            },
-            "runAfter": {
-                "readData": [
-                    "Succeeded"
-                ]
-            },
-            "type": "Http"
-        },
-        "branch2": {
-            "inputs": {
-                "method": "GET",
-                "uri": "http://myurl"
-            },
-            "runAfter": {
-                "readData": [
-                    "Succeeded"
-                ]
-            },
-            "type": "Http"
-        },
-        "join": {
-            "inputs": {
-                "method": "GET",
-                "uri": "http://myurl"
-            },
-            "runAfter": {
-                "branch1": [
-                    "Succeeded"
-                ],
-                "branch2": [
-                    "Succeeded"
-                ]
-            },
-            "type": "Http"
-        }
+  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-04-01-preview/workflowdefinition.json#",
+  "actions": {
+    "readData": {
+      "type": "Http",
+      "inputs": {
+        "method": "GET",
+        "uri": "http://myurl"
+      },
+      "runAfter": {}
     },
-    "contentVersion": "1.0.0.0",
-    "outputs": {},
-    "parameters": {},
-    "triggers": {
-        "manual": {
-            "inputs": {
-                "schema": {}
-            },
-            "kind": "Http",
-            "type": "Request"
-        }
+    "branch1": {
+      "type": "Http",
+      "inputs": {
+        "method": "GET",
+        "uri": "http://myurl"
+      },
+      "runAfter": {
+        "readData": [
+          "Succeeded"
+        ]
+      }
+    },
+    "branch2": {
+      "type": "Http",
+      "inputs": {
+        "method": "GET",
+        "uri": "http://myurl"
+      },
+      "runAfter": {
+        "readData": [
+          "Succeeded"
+        ]
+      }
+    },
+    "join": {
+      "type": "Http",
+      "inputs": {
+        "method": "GET",
+        "uri": "http://myurl"
+      },
+      "runAfter": {
+        "branch1": [
+          "Succeeded"
+        ],
+        "branch2": [
+          "Succeeded"
+        ]
+      }
     }
+  },
+  "parameters": {},
+  "triggers": {
+    "Request": {
+      "type": "Request",
+      "kind": "Http",
+      "inputs": {
+        "schema": {}
+      }
+    }
+  },
+  "contentVersion": "1.0.0.0",
+  "outputs": {}
 }
 ```
 
@@ -204,50 +217,69 @@ We can create a map of values to destinations as a parameter:
 
 ```
 {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "specialCategories": {
-            "defaultValue": ["science", "google", "microsoft", "robots", "NSA"],
-            "type": "Array"
-        },
-        "destinationMap": {
-            "defaultValue": {
-                "science": "http://www.nasa.gov",
-                "microsoft": "https://www.microsoft.com/en-us/default.aspx",
-                "google": "https://www.google.com",
-                "robots": "https://en.wikipedia.org/wiki/Robot",
-                "NSA": "https://www.nsa.gov/"
-            },
-            "type": "Object"
-        }
+  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "specialCategories": {
+      "defaultValue": [
+        "science",
+        "google",
+        "microsoft",
+        "robots",
+        "NSA"
+      ],
+      "type": "Array"
     },
-    "triggers": {
-        "manual": {
-            "type": "manual"
-        }
+    "destinationMap": {
+      "defaultValue": {
+        "science": "http://www.nasa.gov",
+        "microsoft": "https://www.microsoft.com/en-us/default.aspx",
+        "google": "https://www.google.com",
+        "robots": "https://en.wikipedia.org/wiki/Robot",
+        "NSA": "https://www.nsa.gov/"
+      },
+      "type": "Object"
+    }
+  },
+  "triggers": {
+    "Request": {
+      "type": "Request",
+      "kind": "http"
+    }
+  },
+  "actions": {
+    "getArticles": {
+      "type": "Http",
+      "inputs": {
+        "method": "GET",
+        "uri": "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://feeds.wired.com/wired/index"
+      }
     },
-    "actions": {
-        "getArticles": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://feeds.wired.com/wired/index"
-            },
-            "conditions": []
-        },
-        "getSpecialPage": {
-            "type": "Http",
-            "inputs": {
+    "forEachArticle": {
+      "type": "foreach",
+      "foreach": "@body('getArticles').responseData.feed.entries",
+      "actions": {
+        "ifGreater": {
+          "type": "if",
+          "expression": "@greater(length(intersection(item().categories, parameters('specialCategories'))), 0)",
+          "actions": {
+            "getSpecialPage": {
+              "type": "Http",
+              "inputs": {
                 "method": "GET",
                 "uri": "@parameters('destinationMap')[first(intersection(item().categories, parameters('specialCategories')))]"
-            },
-            "conditions": [{
-                "expression": "@greater(length(intersection(item().categories, parameters('specialCategories'))), 0)"
-            }],
-            "forEach": "@body('getArticles').responseData.feed.entries"
+              }
+            }
+          }
         }
+      },
+      "runAfter": {
+        "getArticles": [
+          "Succeeded"
+        ]
+      }
     }
+  }
 }
 ```
 
@@ -275,33 +307,34 @@ the first five characters are not used.
 
 ```
 {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "order": {
-            "defaultValue": {
-                "quantity": 10,
-                "id": "myorder1",
-                "orderer": "NAME=Stèphén__Šīçiłianö"
-            },
-            "type": "Object"
-        }
-    },
-    "triggers": {
-        "manual": {
-            "type": "manual"
-        }
-    },
-    "actions": {
-        "order": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').orderer,5,sub(length(parameters('order').orderer), 5) )),'+','-') ,'/' ,'_' )}"
-            }
-        }
-    },
-    "outputs": {}
+  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "order": {
+      "defaultValue": {
+        "quantity": 10,
+        "id": "myorder1",
+        "orderer": "NAME=Contoso"
+      },
+      "type": "Object"
+    }
+  },
+  "triggers": {
+    "request": {
+      "type": "request",
+      "kind": "http"
+    }
+  },
+  "actions": {
+    "order": {
+      "type": "Http",
+      "inputs": {
+        "method": "GET",
+        "uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').orderer,5,sub(length(parameters('order').orderer), 5) )),'+','-') ,'/' ,'_' )}"
+      }
+    }
+  },
+  "outputs": {}
 }
 ```
 
@@ -412,8 +445,9 @@ You can start with a basic definition like this example:
         }
     },
     "triggers": {
-        "manual": {
-            "type": "manual"
+        "request": {
+          "type": "request",
+          "kind": "http"
         }
     },
     "actions": {

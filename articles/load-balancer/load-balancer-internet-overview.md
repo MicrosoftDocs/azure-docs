@@ -3,7 +3,7 @@ title: Internet facing load balancer overview | Microsoft Docs
 description: Overview for Internet facing load balancer and its features. How a load balancer works for Azure using virtual machines and cloud services.
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: tysonn
 
@@ -13,11 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
 ---
 
 # Internet facing load balancer overview
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure load balancer maps the public IP address and port number of incoming traffic to the private IP address and port number of the virtual machine and vice versa for the response traffic from the virtual machine. Load balancing rules allow you to distribute specific types of traffic between multiple virtual machines or services. For example, you can spread the load of web request traffic across multiple web servers or web roles.
 
@@ -25,13 +27,15 @@ For a cloud service that contains instances of web roles or worker roles, you ca
 
 The *servicedefinition.csdef* file contains the endpoint configuration and when you have multiple role instances for a web or worker role deployment, the load balancer will be setup for it. The way to add instances to your cloud deployment is changing the instance count on the service configuration file (.csfg).
 
-The following figure shows a load-balanced endpoint for encrypted web traffic that is shared among three virtual machines for the public and private TCP port of 443. These three virtual machines are in a load-balanced set.
+## Example of an Internet facing Load Balancer
 
-![public load balancer example](./media/load-balancer-internet-overview/IC727496.png))
+The following figure shows a load-balanced endpoint for web traffic that is shared among three virtual machines for the public and private TCP port of 80. These three virtual machines are in a load-balanced set.
 
-Figure 1 - Load-balanced endpoint for encrypted web traffic
+![public load balancer example](./media/load-balancer-internet-overview/IC727496.png)
 
-When Internet clients send web page requests to the public IP address of the cloud service on TCP port 443, the Azure Load Balancer distributes the requests between the three virtual machines in the load-balanced set. For more information about load balancer algorithms, see the [load balancer overview page](load-balancer-overview.md#load-balancer-features).
+Figure 1 - Load-balanced endpoint for web traffic
+
+When Internet clients send web page requests to the public IP address of the cloud service on TCP port 80, the Azure Load Balancer distributes the requests between the three virtual machines in the load-balanced set. For more information about load balancer algorithms, see the [load balancer overview page](load-balancer-overview.md#load-balancer-features).
 
 By default, Azure Load Balancer distributes network traffic equally among multiple virtual machine instances. You can also configure session affinity, For more information, see [load balancer distribution mode](load-balancer-distribution-mode.md).
 

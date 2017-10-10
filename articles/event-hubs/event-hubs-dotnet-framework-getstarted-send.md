@@ -3,7 +3,7 @@ title: Send events to Azure Event Hubs using the .NET Framework | Microsoft Docs
 description: Get started sending events to Event Hubs using the .NET Framework
 services: event-hubs
 documentationcenter: ''
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 editor: ''
 
@@ -13,28 +13,30 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/08/2017
-ms.author: jotaub;sethm
+ms.date: 06/12/2017
+ms.author: sethm
 
 ---
 # Send events to Azure Event Hubs using the .NET Framework
 
 ## Introduction
+
 Event Hubs is a service that processes large amounts of event data (telemetry) from connected devices and applications. After you collect data into Event Hubs, you can store the data using a storage cluster or transform it using a real-time analytics provider. This large-scale event collection and processing capability is a key component of modern application architectures including the Internet of Things (IoT).
 
-This tutorial shows how to use the [Azure portal](https://portal.azure.com) to create an Event Hub. It also shows how to send events to an Event Hub using a console application written in C# using the .NET Framework. To receive events using the .NET Framework, see the [Receive events using the .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md) article, or click the appropriate receiving language in the left-hand table of contents.
+This tutorial shows how to use the [Azure portal](https://portal.azure.com) to create an event hub. It also shows how to send events to an event hub using a console application written in C# using the .NET Framework. To receive events using the .NET Framework, see the [Receive events using the .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md) article, or click the appropriate receiving language in the left-hand table of contents.
 
-To complete this tutorial, you'll need the following:
+To complete this tutorial, you need the following prerequisites:
 
 * [Microsoft Visual Studio 2015 or higher](http://visualstudio.com). The screen shots in this tutorial use Visual Studio 2017.
 * An active Azure account. If you don't have one, you can create a free account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/free/).
 
-## Create an Event Hubs namespace and an Event Hub
+## Create an Event Hubs namespace and an event hub
 
-The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the Event Hub. To create a namespace and Event Hub, follow the procedure in [this article](event-hubs-create.md), then proceed with the following steps.
+The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and event hub, follow the procedure in [this article](event-hubs-create.md), then proceed with the following steps in this tutorial.
 
-## Create a console application
-In this section, you'll write a Windows console app that sends events to your Event Hub.
+## Create a sender console application
+
+In this section, you'll write a Windows console app that sends events to your event hub.
 
 1. In Visual Studio, create a new Visual C# Desktop App project using the **Console Application** project template. Name the project **Sender**.
    
@@ -47,57 +49,57 @@ In this section, you'll write a Windows console app that sends events to your Ev
     Visual Studio downloads, installs, and adds a reference to the [Azure Service Bus library NuGet package](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 4. Add the following `using` statements at the top of the **Program.cs** file:
    
-    ```csharp
-    using System.Threading;
-    using Microsoft.ServiceBus.Messaging;
-    ```
-5. Add the following fields to the **Program** class, substituting the placeholder values with the name of the Event Hub you created in the previous section, and the namespace-level connection string you saved previously.
+  ```csharp
+  using System.Threading;
+  using Microsoft.ServiceBus.Messaging;
+  ```
+5. Add the following fields to the **Program** class, substituting the placeholder values with the name of the event hub you created in the previous section, and the namespace-level connection string you saved previously.
    
-    ```csharp
-    static string eventHubName = "{Event Hub name}";
-    static string connectionString = "{send connection string}";
-    ```
+  ```csharp
+  static string eventHubName = "{Event Hub name}";
+  static string connectionString = "{send connection string}";
+  ```
 6. Add the following method to the **Program** class:
    
-    ```csharp
-    static void SendingRandomMessages()
-    {
-        var eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, eventHubName);
-        while (true)
-        {
-            try
-            {
-                var message = Guid.NewGuid().ToString();
-                Console.WriteLine("{0} > Sending message: {1}", DateTime.Now, message);
-                eventHubClient.Send(new EventData(Encoding.UTF8.GetBytes(message)));
-            }
-            catch (Exception exception)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("{0} > Exception: {1}", DateTime.Now, exception.Message);
-                Console.ResetColor();
-            }
+  ```csharp
+  static void SendingRandomMessages()
+  {
+      var eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, eventHubName);
+      while (true)
+      {
+          try
+          {
+              var message = Guid.NewGuid().ToString();
+              Console.WriteLine("{0} > Sending message: {1}", DateTime.Now, message);
+              eventHubClient.Send(new EventData(Encoding.UTF8.GetBytes(message)));
+          }
+          catch (Exception exception)
+          {
+              Console.ForegroundColor = ConsoleColor.Red;
+              Console.WriteLine("{0} > Exception: {1}", DateTime.Now, exception.Message);
+              Console.ResetColor();
+          }
    
-            Thread.Sleep(200);
-        }
-    }
-    ```
+          Thread.Sleep(200);
+      }
+  }
+  ```
    
-    This method continuously sends events to your Event Hub with a 200-ms delay.
+  This method continuously sends events to your event hub with a 200-ms delay.
 7. Finally, add the following lines to the **Main** method:
    
-    ```csharp
-    Console.WriteLine("Press Ctrl-C to stop the sender process");
-    Console.WriteLine("Press Enter to start now");
-    Console.ReadLine();
-    SendingRandomMessages();
-    ```
+  ```csharp
+  Console.WriteLine("Press Ctrl-C to stop the sender process");
+  Console.WriteLine("Press Enter to start now");
+  Console.ReadLine();
+  SendingRandomMessages();
+  ```
 8. Run the program, and ensure that there are no errors.
   
-Congratulations! You have now sent messages to an Event Hub.
+Congratulations! You have now sent messages to an event hub.
 
 ## Next steps
-Now that you've built a working application that creates an Event Hub and sends data, you can move on to the following scenarios:
+Now that you've built a working application that creates an event hub and sends data, you can move on to the following scenarios:
 
 * [Receive events using the Event Processor Host](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 * [Event Processor Host reference](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)

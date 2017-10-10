@@ -1,11 +1,11 @@
 ---
-title: 'Azure Active Directory B2C: Acquiring a token using an iOS application | Microsoft Docs'
+title: 'Acquiring a token using an iOS application - Azure AD B2C | Microsoft Docs'
 description: This article will show you how to create an iOS app that uses AppAuth with Azure Active Directory B2C to manage user identities and authenticate users.
 services: active-directory-b2c
 documentationcenter: ios
-author: saeeda
+author: saeedakhter-msft
 manager: krassk
-editor: ''
+editor: parakhj
 
 ms.assetid: d818a634-42c2-4cbd-bf73-32fa0c8c69d3
 ms.service: active-directory-b2c
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objectivec
 ms.topic: article
 ms.date: 03/07/2017
-ms.author: saeeda
+ms.author: saeedakhter-msft
 
 ---
 # Azure AD B2C: Sign-in using an iOS application
@@ -28,27 +28,25 @@ The Microsoft identity platform uses open standards such as OAuth2 and OpenID Co
 
 If you're new to OAuth2 or OpenID Connect, much of this sample configuration may not make much sense to you. We recommend you look at a brief [overview of the protocol we've documented here](active-directory-b2c-reference-protocols.md).
 
-Not all Azure Active Directory scenarios & features are supported by the B2C platform.  To determine if you should use the B2C platform, read about [B2C limitations](active-directory-b2c-limitations.md).
-
 ## Get an Azure AD B2C directory
 Before you can use Azure AD B2C, you must create a directory, or tenant. A directory is a container for all your users, apps, groups, and more. If you don't have one already, [create a B2C directory](active-directory-b2c-get-started.md) before you continue.
 
 ## Create an application
 Next, you need to create an app in your B2C directory. The app registration gives Azure AD information that it needs to communicate securely with your app. To create a mobile app, follow [these instructions](active-directory-b2c-app-registration.md). Be sure to:
 
-* Include a **mobile device** in the application.
+* Include a **Native client** in the application.
 * Copy the **Application ID** that is assigned to your app. You need this GUID later.
 * Set up a **Redirect URI** with a custom scheme (for example, com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). You need this URI later.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## Create your policies
-In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This app contains one identity experience: a combined sign-in and sign-up. You need to create this policy, as described in the
+In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This app contains one identity experience: a combined sign-in and sign-up. Create this policy as described in the
 [policy reference article](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). When you create the policy, be sure to:
 
-* Choose the **Display name** and sign-up attributes in your policy.
-* Choose the **Display name** and **Object ID** application claims in every policy. You can choose other claims as well.
-* Copy the **Name** of each policy after you create it. It should have the prefix `b2c_1_`.  You need the policy name later.
+* Under **Sign-up attributes**, select the attribute **Display name**.  You can select other attributes as well.
+* Under **Application claims**, select the claims **Display name** and **User's Object ID**. You can select other claims as well.
+* Copy the **Name** of each policy after you create it. Your policy name is prefixed with `b2c_1_` when you save the policy.  You need the policy name later.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
@@ -125,12 +123,13 @@ appDelegate.currentAuthorizationFlow =
 
 To set up your application to handle the redirect to the URI with the custom scheme, you need to update the list of 'URL Schemes' in your Info.pList:
 * Open Info.pList.
-* Hover over a row like 'Bundle creator OS Type Code' and click the \+ symbol.
+* Hover over a row like 'Bundle OS Type Code' and click the \+ symbol.
 * Rename the new row 'URL types'.
-* Click the arrow to the left of 'URL types'.
-* rename the value in Item 0 to 'URL Schemes'.
-* Edit the value of 'Item 0' underneath 'URL Schemes' and set the value to your application's unique scheme.  It must match the scheme in redirectURL when creating the OIDAuthorizationRequest object.
-* In our sample, we used the scheme 'com.onmicrosoft.fabrikamb2c.exampleapp'.
+* Click the arrow to the left of 'URL types' to open the tree.
+* Click the arrow to the left of 'Item 0' to open the tree.
+* Rename first item underneath Item 0 to 'URL Schemes'.
+* Click the arrow to the left of 'URL Schemes' to open the tree.
+* In the 'Value' column, there is a blank field to the left of 'Item 0' underneath 'URL Schemes'.  Set the value to your application's unique scheme.  The value must match the scheme used in redirectURL when creating the OIDAuthorizationRequest object.  In our sample, we used the scheme 'com.onmicrosoft.fabrikamb2c.exampleapp'.
 
 Refer to the [AppAuth guide](https://openid.github.io/AppAuth-iOS/) on how to complete the rest of the process. If you need to quickly get started with a working app, check out [our sample](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). Follow the steps in the [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md) to enter your own Azure AD B2C configuration.
 

@@ -9,12 +9,12 @@ editor: ''
 tags: billing
 
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
-ms.service: billing
+ms.service: azure-supportability
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 06/13/2017
 ms.author: genli
 
 ---

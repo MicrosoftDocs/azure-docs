@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
+ms.date: 06/13/2017
 ms.author: amanbha
 
 ---
@@ -25,14 +25,14 @@ When an actor is activated, the following occurs:
 
 * When a call comes for an actor and one is not already active, a new actor is created.
 * The actor's state is loaded if it's maintaining state.
-* The `OnActivateAsync` method (which can be overridden in the actor implementation) is called.
+* The `OnActivateAsync` (C#) or `onActivateAsync` (Java) method (which can be overridden in the actor implementation) is called.
 * The actor is now considered active.
 
 ## Actor deactivation
 When an actor is deactivated, the following occurs:
 
 * When an actor is not used for some period of time, it is removed from the Active Actors table.
-* The `OnDeactivateAsync` method (which can be overridden in the actor implementation) is called. This clears all the timers for the actor. Actor operations like state changes should not be called from this method.
+* The `OnDeactivateAsync` (C#) or `onDeactivateAsync` (Java) method (which can be overridden in the actor implementation) is called. This clears all the timers for the actor. Actor operations like state changes should not be called from this method.
 
 > [!TIP]
 > The Fabric Actors runtime emits some [events related to actor activation and deactivation](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters). They are useful in diagnostics and performance monitoring.
@@ -40,7 +40,7 @@ When an actor is deactivated, the following occurs:
 >
 
 ### Actor garbage collection
-When an actor is deactivated, references to the actor object are released and it can be garbage collected normally by the common language runtime (CLR) garbage collector. Garbage collection only cleans up the actor object; it does **not** remove state stored in the actor's State Manager. The next time the actor is activated, a new actor object is created and its state is restored.
+When an actor is deactivated, references to the actor object are released and it can be garbage collected normally by the common language runtime (CLR) or java virtual machine (JVM) garbage collector. Garbage collection only cleans up the actor object; it does **not** remove state stored in the actor's State Manager. The next time the actor is activated, a new actor object is created and its state is restored.
 
 What counts as “being used” for the purpose of deactivation and garbage collection?
 
@@ -78,6 +78,18 @@ public class Program
 }
 ```
 
+```Java
+public class Program
+{
+    public static void main(String[] args)
+    {
+        ActorRuntime.registerActorAsync(
+                MyActor.class,
+                (context, actorTypeInfo) -> new FabricActorService(context, actorTypeInfo),
+                timeout);
+    }
+}
+```
 For each active actor, the actor runtime keeps track of the amount of time that it has been idle (i.e. not used). The actor runtime checks each of the actors every `ScanIntervalInSeconds` to see if it can be garbage collected and collects it if it has been idle for `IdleTimeoutInSeconds`.
 
 Anytime an actor is used, its idle time is reset to 0. After this, the actor can be garbage collected only if it again remains idle for `IdleTimeoutInSeconds`. Recall that an actor is considered to have been used if either an actor interface method or an actor reminder callback is executed. An actor is **not** considered to have been used if its timer callback is executed.
@@ -110,6 +122,14 @@ IActorService myActorServiceProxy = ActorServiceProxy.Create(
 
 await myActorServiceProxy.DeleteActorAsync(actorToDelete, cancellationToken)
 ```
+```Java
+ActorId actorToDelete = new ActorId(id);
+
+ActorService myActorServiceProxy = ActorServiceProxy.create(
+    new Uri("fabric:/MyApp/MyService"), actorToDelete);
+
+myActorServiceProxy.deleteActorAsync(actorToDelete);
+```
 
 Deleting an actor has the following effects depending on whether or not the actor is currently active:
 
@@ -127,7 +147,8 @@ Note that an actor cannot call delete on itself from one of its actor methods be
 * [Actor reentrancy](service-fabric-reliable-actors-reentrancy.md)
 * [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
 * [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Sample code](https://github.com/Azure/servicefabric-samples)
+* [C# Sample code](https://github.com/Azure/servicefabric-samples)
+* [Java Sample code](http://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png

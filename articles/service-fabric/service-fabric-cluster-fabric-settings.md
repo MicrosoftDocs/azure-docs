@@ -14,17 +14,40 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/15/2017
+ms.date: 06/15/2017
 ms.author: chackdan
 
 ---
 # Customize Service Fabric cluster settings and Fabric Upgrade policy
-This document tells you how to customize the various fabric settings and the fabric upgrade policy for your Service Fabric cluster. You can customize them on the portal or using an Azure Resource Manager template.
+This document tells you how to customize the various fabric settings and the fabric upgrade policy for your Service Fabric cluster. You can customize them through the [Azure portal](https://portal.azure.com) or using an Azure Resource Manager template.
 
-## Fabric settings that you can customize
-Here are the Fabric settings that you can customize:
+> [!NOTE]
+> Not all settings are available in the portal. In case a setting listed below is not available via the portal customize it using an Azure Resource Manager template.
+> 
 
-### Section Name: Diagnostics
+## Customize cluster settings using Resource Manager templates
+The steps below illustrate how to add a new setting *MaxDiskQuotaInMB* to the *Diagnostics* section.
+
+1. Go to https://resources.azure.com
+2. Navigate to your subscription by expanding **subscriptions** -> **resource groups** -> **Microsoft.ServiceFabric** -> **\<Your Cluster Name>**
+3. In the top right corner, select **Read/Write.**
+4. Select **Edit** and update the `fabricSettings` JSON element and add a new element:
+
+```
+      {
+        "name": "Diagnostics",
+        "parameters": [
+          {
+            "name": "MaxDiskQuotaInMB",
+            "value": "65536"
+          }
+        ]
+      }
+```
+
+The following is a list of Fabric settings that you can customize, organized by section.
+
+## Diagnostics
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | ConsumerInstances |String |The list of DCA consumer instances. |
@@ -38,12 +61,12 @@ Here are the Fabric settings that you can customize:
 | EnableTelemetry |Bool, default is true |This is going to enable or disable telemetry. |
 | EnableCircularTraceSession |Bool, default is false |Flag indicates whether circular trace sessions should be used. |
 
-### Section Name: Trace/Etw
+## Trace/Etw
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | Level |Int, default is 4 |Trace etw level can take values 1, 2, 3, 4. To be supported you must keep the trace level at 4 |
 
-### Section Name: PerformanceCounterLocalStore
+## PerformanceCounterLocalStore
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | IsEnabled |Bool, default is true |Flag indicates whether performance counter collection on local node is enabled. |
@@ -52,22 +75,22 @@ Here are the Fabric settings that you can customize:
 | MaxCounterBinaryFileSizeInMB |Int, default is 1 |Maximum size (in MB) for each performance counter binary file. |
 | NewCounterBinaryFileCreationIntervalInMinutes |Int, default is 10 |Maximum interval (in seconds) after which a new performance counter binary file is created. |
 
-### Section Name: Setup
+## Setup
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | FabricDataRoot |String |Service Fabric data root directory. Default for Azure is d:\svcfab |
 | FabricLogRoot |String |Service fabric log root directory. This is where SF logs and traces are placed. |
 | ServiceRunAsAccountName |String |The account name under which to run fabric host service. |
 | ServiceStartupType |String |The startup type of the fabric host service. |
-| SkipFirewallConfiguration |Bool, default is false |Specfies if firewall settings need to be set by the system or not. This applies only if you are using windows firewall. If you are using third party firewalls, then you must open the ports for the system and applications to use |
+| SkipFirewallConfiguration |Bool, default is false |Specifies if firewall settings need to be set by the system or not. This applies only if you are using windows firewall. If you are using third party firewalls, then you must open the ports for the system and applications to use |
 
-### Section Name: TransactionalReplicator
+## TransactionalReplicator
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | MaxCopyQueueSize |Uint, default is 16384 |This is the maximum value defines the initial size for the queue which maintains replication operations. Note that it must be a power of 2. If during runtime the queue grows to this size operations will be throttled between the primary and secondary replicators. |
 | BatchAcknowledgementInterval | Time in seconds, default is 0.015 | Specify timespan in seconds. Determines the amount of time that the replicator waits after receiving an operation before sending back an acknowledgement. Other operations received during this time period will have their acknowledgements sent back in a single message-> reducing network traffic but potentially reducing the throughput of the replicator. |
 | MaxReplicationMessageSize |Uint, default is 52428800 | Maximum message size of replication operations. Default is 50MB. |
-| ReplicatorAddress |Wstring, default is "localhost:0" | The endpoint in form of a string -'IP:Port' which is used by the Windows Fabric Replicator to establish connections with other replicas in order to send/receive operations. |
+| ReplicatorAddress |string, default is "localhost:0" | The endpoint in form of a string -'IP:Port' which is used by the Windows Fabric Replicator to establish connections with other replicas in order to send/receive operations. |
 | InitialPrimaryReplicationQueueSize |Uint, default is 64 | This value defines the initial size for the queue which maintains the replication operations on the primary. Note that it must be a power of 2.|
 | MaxPrimaryReplicationQueueSize |Uint, default is 8192 |This is the maximum number of operations that could exist in the primary replication queue. Note that it must be a power of 2. |
 | MaxPrimaryReplicationQueueMemorySize |Uint, default is 0 |This is the maximum value of the primary replication queue in bytes. |
@@ -85,10 +108,10 @@ Here are the Fabric settings that you can customize:
 | SlowApiMonitoringDuration |Time in seconds, default is 300 | Specify duration for api before warning health event is fired.|
 | MinLogSizeInMB |Int, default is 0 |Minimum size of the transactional log. The log will not be allowed to truncate to a size below this setting. 0 indicates that the replicator will determine the minimum log size according to other settings. Increasing this value increases the possibility of doing partial copies and incremental backups since chances of relevant log records being truncated is lowered. |
 
-### Section Name: FabricClient
+## FabricClient
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
-| NodeAddresses |Wstring, default is "" |A collection of addresses (connection strings) on different nodes that can be used to communicate with the the Naming Service. Initially the Client connects selecting one of the addresses randomly. If more than one connection string is supplied and a connection fails because of a communication or timeout error; the Client switches to use the next address sequentially. See the Naming Service Address retry section for details on retries semantics. |
+| NodeAddresses |string, default is "" |A collection of addresses (connection strings) on different nodes that can be used to communicate with the the Naming Service. Initially the Client connects selecting one of the addresses randomly. If more than one connection string is supplied and a connection fails because of a communication or timeout error; the Client switches to use the next address sequentially. See the Naming Service Address retry section for details on retries semantics. |
 | ConnectionInitializationTimeout |Time in seconds, default is 2 |Specify timespan in seconds. Connection timeout interval for each time client tries to open a connection to the gateway. |
 | PartitionLocationCacheLimit |Int, default is 100000 |Number of partitions cached for service resolution (set to 0 for no limit). |
 | ServiceChangePollInterval |Time in seconds, default is 120 |Specify timespan in seconds. The interval between consecutive polls for service changes from the client to the gateway for registered service change notifications callbacks. |
@@ -99,65 +122,65 @@ Here are the Fabric settings that you can customize:
 | RetryBackoffInterval |Time in seconds, default is 3 |Specify timespan in seconds. The back-off interval before retrying the operation. |
 | MaxFileSenderThreads |Uint, default is 10 |The max number of files that are transferred in parallel. |
 
-### Section Name: Common
+## Common
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | PerfMonitorInterval |Time in seconds, default is 1 |Specify timespan in seconds. Performance monitoring interval. Setting to 0 or negative value disables monitoring. |
 
-### Section Name: HealthManager
+## HealthManager
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | EnableApplicationTypeHealthEvaluation |Bool, default is false |Cluster health evaluation policy: enable per application type health evaluation. |
 
-### Section Name: FabricNode
+## FabricNode
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | StateTraceInterval |Time in seconds, default is 300 |Specify timespan in seconds. The interval for tracing node status on each node and up nodes on FM/FMM. |
 
-### Section Name: NodeDomainIds
+## NodeDomainIds
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
-| UpgradeDomainId |Wstring, default is "" |Describes the upgrade domain a node belongs to. |
+| UpgradeDomainId |string, default is "" |Describes the upgrade domain a node belongs to. |
 | PropertyGroup |NodeFaultDomainIdCollection |Describes the fault domains a node belongs to. The fault domain is defined through a URI that describes the location of the node in the datacenter.  Fault Domain URIs are of the format fd:/fd/ followed by a URI path segment.|
 
-### Section Name: NodeProperties
+## NodeProperties
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | PropertyGroup |NodePropertyCollectionMap |A collection of string key-value pairs for node properties. |
 
-### Section Name: NodeCapacities
+## NodeCapacities
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | PropertyGroup |NodeCapacityCollectionMap |A collection of node capacities for different metrics. |
 
-### Section Name: FabricNode
+## FabricNode
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | StartApplicationPortRange |Int, default is 0 |Start of the application ports managed by hosting subsystem. Required if EndpointFilteringEnabled is true in Hosting. |
 | EndApplicationPortRange |Int, default is 0 |End (no inclusive) of the application ports managed by hosting subsystem. Required if EndpointFilteringEnabled is true in Hosting. |
-| ClusterX509StoreName |Wstring, default is "My" |Name of X.509 certificate store that contains cluster certificate for securing intra-cluster communication. |
-| ClusterX509FindType |Wstring, default is "FindByThumbprint" |Indicates how to search for cluster certificate in the store specified by ClusterX509StoreName Supported values: "FindByThumbprint"; "FindBySubjectName" With "FindBySubjectName"; when there are multiple matches; the one with the furthest expiration is used. |
-| ClusterX509FindValue |Wstring, default is "" |Search filter value used to locate cluster certificate. |
-| ClusterX509FindValueSecondary |Wstring, default is "" |Search filter value used to locate cluster certificate. |
-| ServerAuthX509StoreName |Wstring, default is "My" |Name of X.509 certificate store that contains server certificate for entree service. |
-| ServerAuthX509FindType |Wstring, default is "FindByThumbprint" |Indicates how to search for server certificate in the store specified by ServerAuthX509StoreName Supported value: FindByThumbprint; FindBySubjectName. |
-| ServerAuthX509FindValue |Wstring, default is "" |Search filter value used to locate server certificate. |
-| ServerAuthX509FindValueSecondary |Wstring, default is "" |Search filter value used to locate server certificate. |
-| ClientAuthX509StoreName |Wstring, default is "My" |Name of the X.509 certificate store that contains certificate for default admin role FabricClient. |
-| ClientAuthX509FindType |Wstring, default is "FindByThumbprint" |Indicates how to search for certificate in the store specified by ClientAuthX509StoreName Supported value: FindByThumbprint; FindBySubjectName. |
-| ClientAuthX509FindValue |Wstring, default is "" | Search filter value used to locate certificate for default admin role FabricClient. |
-| ClientAuthX509FindValueSecondary |Wstring, default is "" |Search filter value used to locate certificate for default admin role FabricClient. |
-| UserRoleClientX509StoreName |Wstring, default is "My" |Name of the X.509 certificate store that contains certificate for default user role FabricClient. |
-| UserRoleClientX509FindType |Wstring, default is "FindByThumbprint" |Indicates how to search for certificate in the store specified by UserRoleClientX509StoreName Supported value: FindByThumbprint; FindBySubjectName. |
-| UserRoleClientX509FindValue |Wstring, default is "" |Search filter value used to locate certificate for default user role FabricClient. |
-| UserRoleClientX509FindValueSecondary |Wstring, default is "" |Search filter value used to locate certificate for default user role FabricClient. |
+| ClusterX509StoreName |string, default is "My" |Name of X.509 certificate store that contains cluster certificate for securing intra-cluster communication. |
+| ClusterX509FindType |string, default is "FindByThumbprint" |Indicates how to search for cluster certificate in the store specified by ClusterX509StoreName Supported values: "FindByThumbprint"; "FindBySubjectName" With "FindBySubjectName"; when there are multiple matches; the one with the furthest expiration is used. |
+| ClusterX509FindValue |string, default is "" |Search filter value used to locate cluster certificate. |
+| ClusterX509FindValueSecondary |string, default is "" |Search filter value used to locate cluster certificate. |
+| ServerAuthX509StoreName |string, default is "My" |Name of X.509 certificate store that contains server certificate for entree service. |
+| ServerAuthX509FindType |string, default is "FindByThumbprint" |Indicates how to search for server certificate in the store specified by ServerAuthX509StoreName Supported value: FindByThumbprint; FindBySubjectName. |
+| ServerAuthX509FindValue |string, default is "" |Search filter value used to locate server certificate. |
+| ServerAuthX509FindValueSecondary |string, default is "" |Search filter value used to locate server certificate. |
+| ClientAuthX509StoreName |string, default is "My" |Name of the X.509 certificate store that contains certificate for default admin role FabricClient. |
+| ClientAuthX509FindType |string, default is "FindByThumbprint" |Indicates how to search for certificate in the store specified by ClientAuthX509StoreName Supported value: FindByThumbprint; FindBySubjectName. |
+| ClientAuthX509FindValue |string, default is "" | Search filter value used to locate certificate for default admin role FabricClient. |
+| ClientAuthX509FindValueSecondary |string, default is "" |Search filter value used to locate certificate for default admin role FabricClient. |
+| UserRoleClientX509StoreName |string, default is "My" |Name of the X.509 certificate store that contains certificate for default user role FabricClient. |
+| UserRoleClientX509FindType |string, default is "FindByThumbprint" |Indicates how to search for certificate in the store specified by UserRoleClientX509StoreName Supported value: FindByThumbprint; FindBySubjectName. |
+| UserRoleClientX509FindValue |string, default is "" |Search filter value used to locate certificate for default user role FabricClient. |
+| UserRoleClientX509FindValueSecondary |string, default is "" |Search filter value used to locate certificate for default user role FabricClient. |
 
-### Section Name: Paas
+## Paas
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
-| ClusterId |Wstring, default is "" |X509 certificate store used by fabric for configuration protection. |
+| ClusterId |string, default is "" |X509 certificate store used by fabric for configuration protection. |
 
-### Section Name: FabricHost
+## FabricHost
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | StopTimeout |Time in seconds, default is 300 |Specify timespan in seconds. The timeout for hosted service activation; deactivation and upgrade. |
@@ -170,7 +193,7 @@ Here are the Fabric settings that you can customize:
 | EnableRestartManagement |Bool, default is false |This is to enable server restart. |
 
 
-### Section Name: FailoverManager
+## FailoverManager
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | UserReplicaRestartWaitDuration |Time in seconds, default is 60.0 * 30 |Specify timespan in seconds. When a persisted replica goes down; Windows Fabric waits for this duration for the replica to come back up before creating new replacement  replicas (which would require a copy of the state). |
@@ -178,7 +201,7 @@ Here are the Fabric settings that you can customize:
 | UserStandByReplicaKeepDuration |Time in seconds, default is 3600.0 * 24 * 7 |Specify timespan in seconds. When a persisted replica come back from a down state; it may have already been replaced. This timer determines how long the FM will keep the standby replica before discarding it. |
 | UserMaxStandByReplicaCount |Int, default is 1 |The default max number of StandBy replicas that the system keeps for user services. |
 
-### Section Name: NamingService
+## NamingService
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | TargetReplicaSetSize |Int, default is 7 |The number of replica sets for each partition of the Naming Service store. Increasing the number of replica sets increases the level of reliability for the information in the Naming Service Store; decreasing the change that the information will be lost as a result of node failures; at a cost of increased load on Windows Fabric and the amount of time it takes to perform updates to the naming data.|
@@ -186,7 +209,7 @@ Here are the Fabric settings that you can customize:
 |ReplicaRestartWaitDuration | Time in seconds, default is (60.0 * 30)| Specify timespan in seconds. When a Naming Service replica goes down; this timer starts.  When it expires the FM will begin to replace the replicas which are down (it does not yet consider them lost). |
 |QuorumLossWaitDuration | Time in seconds, default is MaxValue | Specify timespan in seconds. When a Naming Service gets into quorum loss; this timer starts.  When it expires the FM will consider the down replicas as lost; and attempt to recover quorum. Not that this may result in data loss. |
 |StandByReplicaKeepDuration | Time in seconds, default is 3600.0 * 2 | Specify timespan in seconds. When a Naming Service replicas come back from a down state; it may have already been replaced.  This timer determines how long the FM will keep the standby replica before discarding it. |
-|PlacementConstraints | Wstring, default is "" | Placement constraint for the Naming Service. |
+|PlacementConstraints | string, default is "" | Placement constraint for the Naming Service. |
 |ServiceDescriptionCacheLimit | Int, default is 0 | The maximum number of entries maintained in the LRU service description cache at the Naming Store Service (set to 0 for no limit). |
 |RepairInterval | Time in seconds, default is 5 | Specify timespan in seconds. Interval in which the naming inconsistency repair between the authority owner and name owner will start. |
 |MaxNamingServiceHealthReports | Int, default is 10 | The maximum number of slow operations that Naming store service reports unhealthy at one time. If 0; all slow operations are sent. |
@@ -200,67 +223,68 @@ Here are the Fabric settings that you can customize:
 | GatewayServiceDescriptionCacheLimit |Int, default is 0 |The maximum number of entries maintained in the LRU service description cache at the Naming Gateway (set to 0 for no limit). |
 | PartitionCount |Int, default is 3 |The number of partitions of the Naming Service store to be created. Each partition owns a single partition key that corresponds to its index; so partition keys [0; PartitionCount) exist. Increasing the number of Naming Service partitions increases the scale that the Naming Service can perform at by decreasing the average amount of data held by any backing replica set; at a cost of increased utilization of resources (since PartitionCount*ReplicaSetSize service replicas must be maintained).|
 
-### Section Name: RunAs
+## RunAs
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
-| RunAsAccountName |Wstring, default is "" |Indicates the RunAs account name. This is only needed for "DomainUser" or "ManagedServiceAccount" account type. Valid values are "domain\user" or "user@domain". |
-|RunAsAccountType|Wstring, default is "" |Indicates the RunAs account type. This is needed for any RunAs section Valid values are "DomainUser/NetworkService/ManagedServiceAccount/LocalSystem".|
-|RunAsPassword|Wstring, default is "" |Indicates the RunAs account password. This is only needed for "DomainUser" account type. |
+| RunAsAccountName |string, default is "" |Indicates the RunAs account name. This is only needed for "DomainUser" or "ManagedServiceAccount" account type. Valid values are "domain\user" or "user@domain". |
+|RunAsAccountType|string, default is "" |Indicates the RunAs account type. This is needed for any RunAs section Valid values are "DomainUser/NetworkService/ManagedServiceAccount/LocalSystem".|
+|RunAsPassword|string, default is "" |Indicates the RunAs account password. This is only needed for "DomainUser" account type. |
 
-### Section Name: RunAs_Fabric
+## RunAs_Fabric
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
-| RunAsAccountName |Wstring, default is "" |Indicates the RunAs account name. This is only needed for "DomainUser" or "ManagedServiceAccount" account type. Valid values are "domain\user" or "user@domain". |
-|RunAsAccountType|Wstring, default is "" |Indicates the RunAs account type. This is needed for any RunAs section Valid values are "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
-|RunAsPassword|Wstring, default is "" |Indicates the RunAs account password. This is only needed for "DomainUser" account type. |
+| RunAsAccountName |string, default is "" |Indicates the RunAs account name. This is only needed for "DomainUser" or "ManagedServiceAccount" account type. Valid values are "domain\user" or "user@domain". |
+|RunAsAccountType|string, default is "" |Indicates the RunAs account type. This is needed for any RunAs section Valid values are "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
+|RunAsPassword|string, default is "" |Indicates the RunAs account password. This is only needed for "DomainUser" account type. |
 
-### Section Name: RunAs_HttpGateway
+## RunAs_HttpGateway
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
-| RunAsAccountName |Wstring, default is "" |Indicates the RunAs account name. This is only needed for "DomainUser" or "ManagedServiceAccount" account type. Valid values are "domain\user" or "user@domain". |
-|RunAsAccountType|Wstring, default is "" |Indicates the RunAs account type. This is needed for any RunAs section Valid values are "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
-|RunAsPassword|Wstring, default is "" |Indicates the RunAs account password. This is only needed for "DomainUser" account type. |
+| RunAsAccountName |string, default is "" |Indicates the RunAs account name. This is only needed for "DomainUser" or "ManagedServiceAccount" account type. Valid values are "domain\user" or "user@domain". |
+|RunAsAccountType|string, default is "" |Indicates the RunAs account type. This is needed for any RunAs section Valid values are "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
+|RunAsPassword|string, default is "" |Indicates the RunAs account password. This is only needed for "DomainUser" account type. |
 
-### Section Name: RunAs_DCA
+## RunAs_DCA
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
-| RunAsAccountName |Wstring, default is "" |Indicates the RunAs account name. This is only needed for "DomainUser" or "ManagedServiceAccount" account type. Valid values are "domain\user" or "user@domain". |
-|RunAsAccountType|Wstring, default is "" |Indicates the RunAs account type. This is needed for any RunAs section Valid values are "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
-|RunAsPassword|Wstring, default is "" |Indicates the RunAs account password. This is only needed for "DomainUser" account type. |
+| RunAsAccountName |string, default is "" |Indicates the RunAs account name. This is only needed for "DomainUser" or "ManagedServiceAccount" account type. Valid values are "domain\user" or "user@domain". |
+|RunAsAccountType|string, default is "" |Indicates the RunAs account type. This is needed for any RunAs section Valid values are "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
+|RunAsPassword|string, default is "" |Indicates the RunAs account password. This is only needed for "DomainUser" account type. |
 
-### Section Name: HttpGateway
+## HttpGateway
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 |IsEnabled|Bool, default is false | Enables/Disables the httpgateway. Httpgateway is disabled by default and this config needs to be set to enable it. |
 |ActiveListeners |Uint, default is 50 | Number of reads to post to the http server queue. This controls the number of concurrent requests that can be satisfied by the HttpGateway. |
 |MaxEntityBodySize |Uint, default is 4194304 |  Gives the maximum size of the body that can be expected from a http request. Default value is 4MB. Httpgateway will fail a request if it has a body of size > this value. Minimum read chunk size is 4096 bytes. So this has to be >= 4096. |
+|HttpGatewayHealthReportSendInterval |Time in seconds, default is 30 | Specify timespan in seconds. The interval at which the Http Gateway sends accumulated health reports to Health Manager. |
 
-### Section Name: KtlLogger
+## KtlLogger
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 |AutomaticMemoryConfiguration |Int, default is 1 | Flag that indicates if the memory settings should be automatically and dynamically configured. If zero then the memory configuration settings are used directly and do not change based on system conditions. If one then the memory settings are configured automatically and may change based on system conditions. |
 |WriteBufferMemoryPoolMinimumInKB |Int, default is 8388608 |The number of KB to initially allocate for the write buffer memory pool. Use 0 to indicate no limit Default should be consistent with SharedLogSizeInMB below. |
 |WriteBufferMemoryPoolMaximumInKB | Int, default is 0 |The number of KB to allow the write buffer memory pool to grow up to. Use 0 to indicate no limit. |
 |MaximumDestagingWriteOutstandingInKB | Int, default is 0 | The number of KB to allow the shared log to advance ahead of the dedicated log. Use 0 to indicate no limit.
-|SharedLogPath |Wstring, default is "" | Path and file name to location to place shared log container. Use "" for using default path under fabric data root. |
-|SharedLogId |Wstring, default is "" |Unique guid for shared log container. Use "" if using default path under fabric data root. |
+|SharedLogPath |string, default is "" | Path and file name to location to place shared log container. Use "" for using default path under fabric data root. |
+|SharedLogId |string, default is "" |Unique guid for shared log container. Use "" if using default path under fabric data root. |
 |SharedLogSizeInMB |Int, default is 8192 | The number of MB to allocate in the shared log container. |
 
-### Section Name: ApplicationGateway/Http
+## ApplicationGateway/Http
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 |IsEnabled |Bool, default is false | Enables/Disables the HttpApplicationGateway. HttpApplicationGateway is disabled by default and this config needs to be set to enable it. |
-|NumberOfParallelOperations | Uint, default is 1000 | Number of reads to post to the http server queue. This controls the number of concurrent requests that can be satisfied by the HttpGateway. |
-|DefaultHttpRequestTimeout |Time in seconds. default is 60 |Specify timespan in seconds.  Gives the default request timeout for the http requests being processed in the http app gateway. |
+|NumberOfParallelOperations | Uint, default is 5000 | Number of reads to post to the http server queue. This controls the number of concurrent requests that can be satisfied by the HttpGateway. |
+|DefaultHttpRequestTimeout |Time in seconds. default is 120 |Specify timespan in seconds.  Gives the default request timeout for the http requests being processed in the http app gateway. |
 |ResolveServiceBackoffInterval |Time in seconds, default is 5 |Specify timespan in seconds.  Gives the default back-off interval before retrying a failed resolve service operation. |
-|BodyChunkSize |Uint, default is 4096 |  Gives the size of for the chunk in bytes used to read the body. |
-|GatewayAuthCredentialType |Wstring, default is "None" | Indicates the type of security credentials to use at the http app gateway endpoint Valid values are "None/X509. |
-|GatewayX509CertificateStoreName |Wstring, default is "My" | Name of X.509 certificate store that contains certificate for http app gateway. |
-|GatewayX509CertificateFindType |Wstring, default is "FindByThumbprint" | Indicates how to search for certificate in the store specified by GatewayX509CertificateStoreName Supported value: FindByThumbprint; FindBySubjectName. |
-|GatewayX509CertificateFindValue | Wstring, default is "" | Search filter value used to locate the http app gateway certificate. This certificate is configured on the https endpoint and can also be used to verify the identity of the app if needed by the services. FindValue is looked up first; and if that doesnt exist; FindValueSecondary is looked up. |
-|GatewayX509CertificateFindValueSecondary | Wstring, default is "" |Search filter value used to locate the http app gateway certificate. This certificate is configured on the https endpoint and can also be used to verify the identity of the app if needed by the services. FindValue is looked up first; and if that doesnt exist; FindValueSecondary is looked up.|
+|BodyChunkSize |Uint, default is 16384 |  Gives the size of for the chunk in bytes used to read the body. |
+|GatewayAuthCredentialType |string, default is "None" | Indicates the type of security credentials to use at the http app gateway endpoint Valid values are "None/X509. |
+|GatewayX509CertificateStoreName |string, default is "My" | Name of X.509 certificate store that contains certificate for http app gateway. |
+|GatewayX509CertificateFindType |string, default is "FindByThumbprint" | Indicates how to search for certificate in the store specified by GatewayX509CertificateStoreName Supported value: FindByThumbprint; FindBySubjectName. |
+|GatewayX509CertificateFindValue | string, default is "" | Search filter value used to locate the http app gateway certificate. This certificate is configured on the https endpoint and can also be used to verify the identity of the app if needed by the services. FindValue is looked up first; and if that doesnt exist; FindValueSecondary is looked up. |
+|GatewayX509CertificateFindValueSecondary | string, default is "" |Search filter value used to locate the http app gateway certificate. This certificate is configured on the https endpoint and can also be used to verify the identity of the app if needed by the services. FindValue is looked up first; and if that doesnt exist; FindValueSecondary is looked up.|
 
-### Section Name: Management
+## Management
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | ImageStoreConnectionString |SecureString | Connection string to the Root for ImageStore. |
@@ -272,7 +296,7 @@ Here are the Fabric settings that you can customize:
 |DisableChecksumValidation | Bool, default is false | This configuration allows us to enable or disable checksum validation during application provisioning. |
 |DisableServerSideCopy | Bool, default is false | This configuration enables or disables server side copy of application package on the ImageStore during application provisioning. |
 
-### Section Name: HealthManager/ClusterHealthPolicy
+## HealthManager/ClusterHealthPolicy
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | ConsiderWarningAsError |Bool, default is false |Cluster health evaluation policy: warnings are treated as errors. |
@@ -281,7 +305,7 @@ Here are the Fabric settings that you can customize:
 |MaxPercentDeltaUnhealthyNodes | Int, default is 10 |Cluster upgrade health evaluation policy: maximum percent of delta unhealthy nodes allowed for the cluster to be healthy. |
 |MaxPercentUpgradeDomainDeltaUnhealthyNodes | Int, default is 15 |Cluster upgrade health evaluation policy: maximum percent of delta of unhealthy nodes in an upgrade domain allowed for the cluster to be healthy.|
 
-### Section Name: FaultAnalysisService
+## FaultAnalysisService
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | TargetReplicaSetSize |Int, default is 0 |NOT_PLATFORM_UNIX_START The TargetReplicaSetSize for FaultAnalysisService. |
@@ -289,12 +313,12 @@ Here are the Fabric settings that you can customize:
 | ReplicaRestartWaitDuration |Time in seconds, default is 60 minutes|Specify timespan in seconds. The ReplicaRestartWaitDuration for FaultAnalysisService. |
 | QuorumLossWaitDuration | Time in seconds, default is MaxValue |Specify timespan in seconds. The QuorumLossWaitDuration for FaultAnalysisService. |
 | StandByReplicaKeepDuration| Time in seconds, default is (60*24*7) minutes |Specify timespan in seconds. The StandByReplicaKeepDuration for FaultAnalysisService. |
-| PlacementConstraints | Wstring, default is ""| The PlacementConstraints for FaultAnalysisService. |
+| PlacementConstraints | string, default is ""| The PlacementConstraints for FaultAnalysisService. |
 | StoredActionCleanupIntervalInSeconds | Int, default is 3600 |This is how often the store will be cleaned up.  Only actions in a terminal state; and that completed at least CompletedActionKeepDurationInSeconds ago will be removed. |
 | CompletedActionKeepDurationInSeconds | Int, default is 604800 | This is approximately how long to keep actions that are in a terminal state.  This also depends on StoredActionCleanupIntervalInSeconds; since the work to cleanup is only done on that interval. 604800 is 7 days. |
 | StoredChaosEventCleanupIntervalInSeconds | Int, default is 3600 |This is how often the store will be audited for cleanup; if the number of events is more than 30000; the cleanup will kick in. |
 
-### Section Name: FileStoreService
+## FileStoreService
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | NamingOperationTimeout |Time in seconds, default is 60 |Specify timespan in seconds. The timeout for performing naming operation. |
@@ -305,22 +329,22 @@ Here are the Fabric settings that you can customize:
 | MaxRequestProcessingThreads | Uint, default is 200 |The maximum number of parallel threads allowed to process requests in the primary. '0' == number of cores. |
 | MaxSecondaryFileCopyFailureThreshold | Uint, default is 25| The maximum number of file copy retries on the secondary before giving up. |
 | AnonymousAccessEnabled | Bool, default is true |Enable/Disable anonymous access to the FileStoreService shares. |
-| PrimaryAccountType | Wstring, default is "" |The primary AccountType of the pricipal to ACL the FileStoreService shares. |
-| PrimaryAccountUserName | Wstring, default is "" |The primary account Username of the pricipal to ACL the FileStoreService shares. |
-| PrimaryAccountUserPassword | SecureString, default is empty |The primary account password of the pricipal to ACL the FileStoreService shares. |
+| PrimaryAccountType | string, default is "" |The primary AccountType of the principal to ACL the FileStoreService shares. |
+| PrimaryAccountUserName | string, default is "" |The primary account Username of the principal to ACL the FileStoreService shares. |
+| PrimaryAccountUserPassword | SecureString, default is empty |The primary account password of the principal to ACL the FileStoreService shares. |
 | FileStoreService | PrimaryAccountNTLMPasswordSecret | SecureString, default is empty | The password secret which used as seed to generated same password when using NTLM authentication. |
-| PrimaryAccountNTLMX509StoreLocation | Wstring, default is "LocalMachine"| The store location of the X509 certificate used to generate HMAC on the PrimaryAccountNTLMPasswordSecret  when using NTLM authentication. |
-| PrimaryAccountNTLMX509StoreName | Wstring, default is "MY"| The store name of the X509 certificate used to generate HMAC on the PrimaryAccountNTLMPasswordSecret  when using NTLM authentication. |
-| PrimaryAccountNTLMX509Thumbprint | Wstring, default is ""|The thumbprint of the X509 certificate used to generate HMAC on the PrimaryAccountNTLMPasswordSecret  when using NTLM authentication. |
-| SecondaryAccountType | Wstring, default is ""| The seconday AccountType of the pricipal to ACL the FileStoreService shares. |
-| SecondaryAccountUserName | Wstring, default is ""| The seconday account Username of the pricipal to ACL the FileStoreService shares. |
-| SecondaryAccountUserPassword | SecureString, default is empty |The seconday account password of the pricipal to ACL the FileStoreService shares.  |
+| PrimaryAccountNTLMX509StoreLocation | string, default is "LocalMachine"| The store location of the X509 certificate used to generate HMAC on the PrimaryAccountNTLMPasswordSecret  when using NTLM authentication. |
+| PrimaryAccountNTLMX509StoreName | string, default is "MY"| The store name of the X509 certificate used to generate HMAC on the PrimaryAccountNTLMPasswordSecret  when using NTLM authentication. |
+| PrimaryAccountNTLMX509Thumbprint | string, default is ""|The thumbprint of the X509 certificate used to generate HMAC on the PrimaryAccountNTLMPasswordSecret  when using NTLM authentication. |
+| SecondaryAccountType | string, default is ""| The secondary AccountType of the principal to ACL the FileStoreService shares. |
+| SecondaryAccountUserName | string, default is ""| The secondary account Username of the principal to ACL the FileStoreService shares. |
+| SecondaryAccountUserPassword | SecureString, default is empty |The secondary account password of the principal to ACL the FileStoreService shares.  |
 | SecondaryAccountNTLMPasswordSecret | SecureString, default is empty | The password secret which used as seed to generated same password when using NTLM authentication. |
-| SecondaryAccountNTLMX509StoreLocation | Wstring, default is "LocalMachine" |The store location of the X509 certificate used to generate HMAC on the SecondaryAccountNTLMPasswordSecret  when using NTLM authentication. |
-| SecondaryAccountNTLMX509StoreName | Wstring, default is "MY" |The store name of the X509 certificate used to generate HMAC on the SecondaryAccountNTLMPasswordSecret  when using NTLM authentication. |
-| SecondaryAccountNTLMX509Thumbprint | Wstring, default is ""| The thumbprint of the X509 certificate used to generate HMAC on the SecondaryAccountNTLMPasswordSecret  when using NTLM authentication. |
+| SecondaryAccountNTLMX509StoreLocation | string, default is "LocalMachine" |The store location of the X509 certificate used to generate HMAC on the SecondaryAccountNTLMPasswordSecret  when using NTLM authentication. |
+| SecondaryAccountNTLMX509StoreName | string, default is "MY" |The store name of the X509 certificate used to generate HMAC on the SecondaryAccountNTLMPasswordSecret  when using NTLM authentication. |
+| SecondaryAccountNTLMX509Thumbprint | string, default is ""| The thumbprint of the X509 certificate used to generate HMAC on the SecondaryAccountNTLMPasswordSecret  when using NTLM authentication. |
 
-### Section Name: ImageStoreService
+## ImageStoreService
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | Enabled |Bool, default is false |The Enabled flag for ImageStoreService. |
@@ -329,14 +353,14 @@ Here are the Fabric settings that you can customize:
 | ReplicaRestartWaitDuration | Time in seconds, default is 60.0 * 30 | Specify timespan in seconds. The ReplicaRestartWaitDuration for ImageStoreService. |
 | QuorumLossWaitDuration | Time in seconds, default is MaxValue | Specify timespan in seconds. The QuorumLossWaitDuration for ImageStoreService. |
 | StandByReplicaKeepDuration | Time in seconds, default is 3600.0 * 2 | Specify timespan in seconds. The StandByReplicaKeepDuration for ImageStoreService. |
-| PlacementConstraints | Wstring, default is "" | The PlacementConstraints for ImageStoreService. |
+| PlacementConstraints | string, default is "" | The PlacementConstraints for ImageStoreService. |
 | ClientUploadTimeout | Time in seconds, default is 1800 |Specify timespan in seconds. Timeout value for top-level upload request to Image Store Service. |
 | ClientCopyTimeout | Time in seconds, default is 1800 | Specify timespan in seconds. Timeout value for top-level copy request to Image Store Service. |
 | ClientDownloadTimeout | Time in seconds, default is 1800 | Specify timespan in seconds. Timeout value for top-level download request to Image Store Service |
 | ClientListTimeout | Time in seconds, default is 600 | Specify timespan in seconds. Timeout value for top-level list request to Image Store Service. |
 | ClientDefaultTimeout | Time in seconds, default is 180 | Specify timespan in seconds. Timeout value for all non-upload/non-download requests (e.g. exists; delete) to Image Store Service. |
 
-### Section Name: ImageStoreClient
+## ImageStoreClient
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | ClientUploadTimeout |Time in seconds, default is 1800 | Specify timespan in seconds. Timeout value for top-level upload request to Image Store Service. |
@@ -345,12 +369,12 @@ Here are the Fabric settings that you can customize:
 |ClientListTimeout | Time in seconds, default is 600 |Specify timespan in seconds. Timeout value for top-level list request to Image Store Service. |
 |ClientDefaultTimeout | Time in seconds, default is 180 | Specify timespan in seconds. Timeout value for all non-upload/non-download requests (e.g. exists; delete) to Image Store Service. |
 
-### Section Name: TokenValidationService
+## TokenValidationService
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
-| Providers |Wstring, default is "DSTS" |Comma separated list of token validation providers to enable (valid providers are: DSTS; AAD). Currently only a single provider can be enabled at any time. |
+| Providers |string, default is "DSTS" |Comma separated list of token validation providers to enable (valid providers are: DSTS; AAD). Currently only a single provider can be enabled at any time. |
 
-### Section Name: UpgradeOrchestrationService
+## UpgradeOrchestrationService
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | TargetReplicaSetSize |Int, default is 0 |The TargetReplicaSetSize for UpgradeOrchestrationService. |
@@ -358,115 +382,115 @@ Here are the Fabric settings that you can customize:
 | ReplicaRestartWaitDuration | Time in seconds, default is 60 minutes| Specify timespan in seconds. The ReplicaRestartWaitDuration for UpgradeOrchestrationService. |
 | QuorumLossWaitDuration | Time in seconds, default is MaxValue | Specify timespan in seconds. The QuorumLossWaitDuration for UpgradeOrchestrationService. |
 | StandByReplicaKeepDuration | Time in seconds, default is 60*24*7 minutes | Specify timespan in seconds. The StandByReplicaKeepDuration for UpgradeOrchestrationService. |
-| PlacementConstraints | Wstring, default is "" | The PlacementConstraints for UpgradeOrchestrationService. |
+| PlacementConstraints | string, default is "" | The PlacementConstraints for UpgradeOrchestrationService. |
 | AutoupgradeEnabled | Bool, default is true | Automatic polling and upgrade action based on a goal-state file. |
 | UpgradeApprovalRequired | Bool, default is false | Setting to make code upgrade require administrator approval before proceeding. |
 
-### Section Name: UpgradeService
+## UpgradeService
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
-| PlacementConstraints |Wstring, default is "" |The PlacementConstraints for Upgrade service. |
+| PlacementConstraints |string, default is "" |The PlacementConstraints for Upgrade service. |
 | TargetReplicaSetSize | Int, default is 3 | The TargetReplicaSetSize for UpgradeService. |
 | MinReplicaSetSize | Int, default is 2 | The MinReplicaSetSize for UpgradeService. |
-| CoordinatorType | Wstring, default is "WUTest"| The CoordinatorType for UpgradeService. |
-| BaseUrl | Wstring, default is "" |BaseUrl for UpgradeService. |
-| ClusterId | Wstring, default is "" | ClusterId for UpgradeService. |
-| X509StoreName | Wstring, default is "My"| X509StoreName for UpgradeService. |
-| X509StoreLocation | Wstring, default is "" | X509StoreLocation for UpgradeService. |
-| X509FindType | Wstring, default is ""| X509FindType for UpgradeService. |
-| X509FindValue | Wstring, default is "" | X509FindValue for UpgradeService. |
-| X509SecondaryFindValue | Wstring, default is "" | X509SecondaryFindValue for UpgradeService. |
+| CoordinatorType | string, default is "WUTest"| The CoordinatorType for UpgradeService. |
+| BaseUrl | string, default is "" |BaseUrl for UpgradeService. |
+| ClusterId | string, default is "" | ClusterId for UpgradeService. |
+| X509StoreName | string, default is "My"| X509StoreName for UpgradeService. |
+| X509StoreLocation | string, default is "" | X509StoreLocation for UpgradeService. |
+| X509FindType | string, default is ""| X509FindType for UpgradeService. |
+| X509FindValue | string, default is "" | X509FindValue for UpgradeService. |
+| X509SecondaryFindValue | string, default is "" | X509SecondaryFindValue for UpgradeService. |
 | OnlyBaseUpgrade | Bool, default is false | OnlyBaseUpgrade for UpgradeService. |
-| TestCabFolder | Wstring, default is "" | TestCabFolder for UpgradeService. |
+| TestCabFolder | string, default is "" | TestCabFolder for UpgradeService. |
 
-### Section Name: Security/ClientAccess
+## Security/ClientAccess
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
-| CreateName |Wstring, default is "Admin" |Security configuration for Naming URI creation. |
-| DeleteName |Wstring, default is "Admin" |Security configuration for Naming URI deletion. |
-| PropertyWriteBatch |Wstring, default is "Admin" |Security configuration for Naming property write operations. |
-| CreateService |Wstring, default is "Admin" | Security configuration for service creation. |
-| CreateServiceFromTemplate |Wstring, default is "Admin" |Security configuration for service creatin from template. |
-| UpdateService |Wstring, default is "Admin" |Security configuration for service updates. |
-| DeleteService  |Wstring, default is "Admin" |Security configuration for service deletion. |
-| ProvisionApplicationType |Wstring, default is "Admin" | Security configuration for application type provisioning. |
-| CreateApplication |Wstring, default is "Admin" | Security configuration for application creation. |
-| DeleteApplication |Wstring, default is "Admin" | Security configuration for application deletion. |
-| UpgradeApplication |Wstring, default is "Admin" | Security configuration for starting or interrupting application upgrades. |
-| RollbackApplicationUpgrade |Wstring, default is "Admin" | Security configuration for rolling back application upgrades. |
-| UnprovisionApplicationType |Wstring, default is "Admin" | Security configuration for application type unprovisioning. |
-| MoveNextUpgradeDomain |Wstring, default is "Admin" | Security configuration for resuming application upgrades with an explicit Upgrade Domain. |
-| ReportUpgradeHealth |Wstring, default is "Admin" | Security configuration for resuming application upgrades with the current upgrade progress. |
-| ReportHealth |Wstring, default is "Admin" | Security configuration for reporting health. |
-| ProvisionFabric |Wstring, default is "Admin" | Security configuration for MSI and/or Cluster Manifest provisioning. |
-| UpgradeFabric |Wstring, default is "Admin" | Security configuration for starting cluster upgrades. |
-| RollbackFabricUpgrade |Wstring, default is "Admin" | Security configuration for rolling back cluster upgrades. |
-| UnprovisionFabric |Wstring, default is "Admin" | Security configuration for MSI and/or Cluster Manifest unprovisioning. |
-| MoveNextFabricUpgradeDomain |Wstring, default is "Admin" | Security configuration for resuming cluster upgrades with an explicity Upgrade Domain. |
-| ReportFabricUpgradeHealth |Wstring, default is "Admin" | Security configuration for resuming cluster upgrades with the current upgrade progress. |
-| StartInfrastructureTask |Wstring, default is "Admin" | Security configuration for starting infrastructure tasks. |
-| FinishInfrastructureTask |Wstring, default is "Admin" | Security configuration for finishing infrastructure tasks. |
-| ActivateNode |Wstring, default is "Admin" | Security configuration for activation a node. |
-| DeactivateNode |Wstring, default is "Admin" | Security configuration for deactivating a node. |
-| DeactivateNodesBatch |Wstring, default is "Admin" | Security configuration for deactivating multiple nodes. |
-| RemoveNodeDeactivations |Wstring, default is "Admin" | Security configuration for reverting deactivation on multiple nodes. |
-| GetNodeDeactivationStatus |Wstring, default is "Admin" | Security configuration for checking deactivation status. |
-| NodeStateRemoved |Wstring, default is "Admin" | Security configuration for reporting node state removed. |
-| RecoverPartition |Wstring, default is "Admin" | Security configuration for recovering a partition. |
-| RecoverPartitions |Wstring, default is "Admin" | Security configuration for recovering partitions. |
-| RecoverServicePartitions |Wstring, default is "Admin" | Security configuration for recovering service partitions. |
-| RecoverSystemPartitions |Wstring, default is "Admin" | Security configuration for recovering system service partitions. |
-| ReportFault |Wstring, default is "Admin" | Security configuration for reporting fault. |
-| InvokeInfrastructureCommand |Wstring, default is "Admin" | Security configuration for infrastructure task management commands. |
-| FileContent |Wstring, default is "Admin" | Security configuration for image store client file transfer (external to cluster). |
-| FileDownload |Wstring, default is "Admin" | Security configuration for image store client file download initiation (external to cluster). |
-| InternalList |Wstring, default is "Admin" | Security configuration for image store client file list operation (internal). |
-| Delete |Wstring, default is "Admin" | Security configuration for image store client delete operation. |
-| Upload |Wstring, default is "Admin" | Security configuration for image store client upload operation. |
-| GetStagingLocation |Wstring, default is "Admin" | Security configuration for image store client staging location retrieval. |
-| GetStoreLocation |Wstring, default is "Admin" | Security configuration for image store client store location retrieval. |
-| NodeControl |Wstring, default is "Admin" | Security configuration for starting; stopping; and restarting nodes. |
-| CodePackageControl |Wstring, default is "Admin" | Security configuration for restarting code packages. |
-| UnreliableTransportControl |Wstring, default is "Admin" | Unreliable Transport for adding and removing behaviors. |
-| MoveReplicaControl |Wstring, default is "Admin" | Move replica. |
-| PredeployPackageToNode |Wstring, default is "Admin" | Predeployment api. |
-| StartPartitionDataLoss |Wstring, default is "Admin" | Induces data loss on a partition. |
-| StartPartitionQuorumLoss |Wstring, default is "Admin" | Induces quorum loss on a partition. |
-| StartPartitionRestart |Wstring, default is "Admin" | Simultaneously restarts some or all the replicas of a partition. |
-| CancelTestCommand |Wstring, default is "Admin" | Cancels a specific TestCommand - if it is in flight. |
-| StartChaos |Wstring, default is "Admin" | Starts Chaos - if it is not already started. |
-| StopChaos |Wstring, default is "Admin" | Stops Chaos - if it has been started. |
-| StartNodeTransition |Wstring, default is "Admin" | Security configuration for starting a node transition. |
-| StartClusterConfigurationUpgrade |Wstring, default is "Admin" | Induces StartClusterConfigurationUpgrade on a partition. |
-| GetUpgradesPendingApproval |Wstring, default is "Admin" | Induces GetUpgradesPendingApproval on a partition. |
-| StartApprovedUpgrades |Wstring, default is "Admin" | Induces StartApprovedUpgrades on a partition. |
-| Ping |Wstring, default is "Admin\|\|User" | Security configuration for client pings. |
-| Query |Wstring, default is "Admin\|\|User" | Security configuration for queries. |
-| NameExists |Wstring, default is "Admin\|\|User" | Security configuration for Naming URI existence checks. |
-| EnumerateSubnames |Wstring, default is "Admin\|\|User" | Security configuration for Naming URI enumeration. |
-| EnumerateProperties |Wstring, default is "Admin\|\|User" | Security configuration for Naming property enumeration. |
-| PropertyReadBatch |Wstring, default is "Admin\|\|User" | Security configuration for Naming property read operations. |
-| GetServiceDescription |Wstring, default is "Admin\|\|User" | Security configuration for long-poll service notifications and reading service descriptions. |
-| ResolveService |Wstring, default is "Admin\|\|User" | Security configuration for complaint-based service resolution. |
-| ResolveNameOwner |Wstring, default is "Admin\|\|User" | Security configuration for resolving Naming URI owner. |
-| ResolvePartition |Wstring, default is "Admin\|\|User" | Security configuration for resolving system services. |
-| ServiceNotifications |Wstring, default is "Admin\|\|User" | Security configuration for event-based service notifications. |
-| PrefixResolveService |Wstring, default is "Admin\|\|User" | Security configuration for complaint-based service prefix resolution. |
-| GetUpgradeStatus |Wstring, default is "Admin\|\|User" | Security configuration for polling application upgrade status. |
-| GetFabricUpgradeStatus |Wstring, default is "Admin\|\|User" | Security configuration for polling cluster upgrade status. |
-| InvokeInfrastructureQuery |Wstring, default is "Admin\|\|User" | Security configuration for querying infrastructure tasks. |
-| List |Wstring, default is "Admin\|\|User" | Security configuration for image store client file list operation. |
-| ResetPartitionLoad |Wstring, default is "Admin\|\|User" | Security configuration for reset load for a failoverUnit. |
-| ToggleVerboseServicePlacementHealthReporting | Wstring, default is "Admin\|\|User" | Security configuration for Toggling Verbose ServicePlacement HealthReporting. |
-| GetPartitionDataLossProgress | Wstring, default is "Admin\|\|User" | Fetches the progress for an invoke data loss api call. |
-| GetPartitionQuorumLossProgress | Wstring, default is "Admin\|\|User" | Fetches the progress for an invoke quorum loss api call. |
-| GetPartitionRestartProgress | Wstring, default is "Admin\|\|User" | Fetches the progress for a restart partition api call. |
-| GetChaosReport | Wstring, default is "Admin\|\|User" | Fetches the status of Chaos within a given time range. |
-| GetNodeTransitionProgress | Wstring, default is "Admin\|\|User" | Security configuration for getting progress on a node transition command. |
-| GetClusterConfigurationUpgradeStatus | Wstring, default is "Admin\|\|User" | Induces GetClusterConfigurationUpgradeStatus on a partition. |
-| GetClusterConfiguration | Wstring, default is "Admin\|\|User" | Induces GetClusterConfiguration on a partition. |
+| CreateName |string, default is "Admin" |Security configuration for Naming URI creation. |
+| DeleteName |string, default is "Admin" |Security configuration for Naming URI deletion. |
+| PropertyWriteBatch |string, default is "Admin" |Security configuration for Naming property write operations. |
+| CreateService |string, default is "Admin" | Security configuration for service creation. |
+| CreateServiceFromTemplate |string, default is "Admin" |Security configuration for service creation from template. |
+| UpdateService |string, default is "Admin" |Security configuration for service updates. |
+| DeleteService  |string, default is "Admin" |Security configuration for service deletion. |
+| ProvisionApplicationType |string, default is "Admin" | Security configuration for application type provisioning. |
+| CreateApplication |string, default is "Admin" | Security configuration for application creation. |
+| DeleteApplication |string, default is "Admin" | Security configuration for application deletion. |
+| UpgradeApplication |string, default is "Admin" | Security configuration for starting or interrupting application upgrades. |
+| RollbackApplicationUpgrade |string, default is "Admin" | Security configuration for rolling back application upgrades. |
+| UnprovisionApplicationType |string, default is "Admin" | Security configuration for application type unprovisioning. |
+| MoveNextUpgradeDomain |string, default is "Admin" | Security configuration for resuming application upgrades with an explicit Upgrade Domain. |
+| ReportUpgradeHealth |string, default is "Admin" | Security configuration for resuming application upgrades with the current upgrade progress. |
+| ReportHealth |string, default is "Admin" | Security configuration for reporting health. |
+| ProvisionFabric |string, default is "Admin" | Security configuration for MSI and/or Cluster Manifest provisioning. |
+| UpgradeFabric |string, default is "Admin" | Security configuration for starting cluster upgrades. |
+| RollbackFabricUpgrade |string, default is "Admin" | Security configuration for rolling back cluster upgrades. |
+| UnprovisionFabric |string, default is "Admin" | Security configuration for MSI and/or Cluster Manifest unprovisioning. |
+| MoveNextFabricUpgradeDomain |string, default is "Admin" | Security configuration for resuming cluster upgrades with an explicity Upgrade Domain. |
+| ReportFabricUpgradeHealth |string, default is "Admin" | Security configuration for resuming cluster upgrades with the current upgrade progress. |
+| StartInfrastructureTask |string, default is "Admin" | Security configuration for starting infrastructure tasks. |
+| FinishInfrastructureTask |string, default is "Admin" | Security configuration for finishing infrastructure tasks. |
+| ActivateNode |string, default is "Admin" | Security configuration for activation a node. |
+| DeactivateNode |string, default is "Admin" | Security configuration for deactivating a node. |
+| DeactivateNodesBatch |string, default is "Admin" | Security configuration for deactivating multiple nodes. |
+| RemoveNodeDeactivations |string, default is "Admin" | Security configuration for reverting deactivation on multiple nodes. |
+| GetNodeDeactivationStatus |string, default is "Admin" | Security configuration for checking deactivation status. |
+| NodeStateRemoved |string, default is "Admin" | Security configuration for reporting node state removed. |
+| RecoverPartition |string, default is "Admin" | Security configuration for recovering a partition. |
+| RecoverPartitions |string, default is "Admin" | Security configuration for recovering partitions. |
+| RecoverServicePartitions |string, default is "Admin" | Security configuration for recovering service partitions. |
+| RecoverSystemPartitions |string, default is "Admin" | Security configuration for recovering system service partitions. |
+| ReportFault |string, default is "Admin" | Security configuration for reporting fault. |
+| InvokeInfrastructureCommand |string, default is "Admin" | Security configuration for infrastructure task management commands. |
+| FileContent |string, default is "Admin" | Security configuration for image store client file transfer (external to cluster). |
+| FileDownload |string, default is "Admin" | Security configuration for image store client file download initiation (external to cluster). |
+| InternalList |string, default is "Admin" | Security configuration for image store client file list operation (internal). |
+| Delete |string, default is "Admin" | Security configuration for image store client delete operation. |
+| Upload |string, default is "Admin" | Security configuration for image store client upload operation. |
+| GetStagingLocation |string, default is "Admin" | Security configuration for image store client staging location retrieval. |
+| GetStoreLocation |string, default is "Admin" | Security configuration for image store client store location retrieval. |
+| NodeControl |string, default is "Admin" | Security configuration for starting; stopping; and restarting nodes. |
+| CodePackageControl |string, default is "Admin" | Security configuration for restarting code packages. |
+| UnreliableTransportControl |string, default is "Admin" | Unreliable Transport for adding and removing behaviors. |
+| MoveReplicaControl |string, default is "Admin" | Move replica. |
+| PredeployPackageToNode |string, default is "Admin" | Predeployment api. |
+| StartPartitionDataLoss |string, default is "Admin" | Induces data loss on a partition. |
+| StartPartitionQuorumLoss |string, default is "Admin" | Induces quorum loss on a partition. |
+| StartPartitionRestart |string, default is "Admin" | Simultaneously restarts some or all the replicas of a partition. |
+| CancelTestCommand |string, default is "Admin" | Cancels a specific TestCommand - if it is in flight. |
+| StartChaos |string, default is "Admin" | Starts Chaos - if it is not already started. |
+| StopChaos |string, default is "Admin" | Stops Chaos - if it has been started. |
+| StartNodeTransition |string, default is "Admin" | Security configuration for starting a node transition. |
+| StartClusterConfigurationUpgrade |string, default is "Admin" | Induces StartClusterConfigurationUpgrade on a partition. |
+| GetUpgradesPendingApproval |string, default is "Admin" | Induces GetUpgradesPendingApproval on a partition. |
+| StartApprovedUpgrades |string, default is "Admin" | Induces StartApprovedUpgrades on a partition. |
+| Ping |string, default is "Admin\|\|User" | Security configuration for client pings. |
+| Query |string, default is "Admin\|\|User" | Security configuration for queries. |
+| NameExists |string, default is "Admin\|\|User" | Security configuration for Naming URI existence checks. |
+| EnumerateSubnames |string, default is "Admin\|\|User" | Security configuration for Naming URI enumeration. |
+| EnumerateProperties |string, default is "Admin\|\|User" | Security configuration for Naming property enumeration. |
+| PropertyReadBatch |string, default is "Admin\|\|User" | Security configuration for Naming property read operations. |
+| GetServiceDescription |string, default is "Admin\|\|User" | Security configuration for long-poll service notifications and reading service descriptions. |
+| ResolveService |string, default is "Admin\|\|User" | Security configuration for complaint-based service resolution. |
+| ResolveNameOwner |string, default is "Admin\|\|User" | Security configuration for resolving Naming URI owner. |
+| ResolvePartition |string, default is "Admin\|\|User" | Security configuration for resolving system services. |
+| ServiceNotifications |string, default is "Admin\|\|User" | Security configuration for event-based service notifications. |
+| PrefixResolveService |string, default is "Admin\|\|User" | Security configuration for complaint-based service prefix resolution. |
+| GetUpgradeStatus |string, default is "Admin\|\|User" | Security configuration for polling application upgrade status. |
+| GetFabricUpgradeStatus |string, default is "Admin\|\|User" | Security configuration for polling cluster upgrade status. |
+| InvokeInfrastructureQuery |string, default is "Admin\|\|User" | Security configuration for querying infrastructure tasks. |
+| List |string, default is "Admin\|\|User" | Security configuration for image store client file list operation. |
+| ResetPartitionLoad |string, default is "Admin\|\|User" | Security configuration for reset load for a failoverUnit. |
+| ToggleVerboseServicePlacementHealthReporting | string, default is "Admin\|\|User" | Security configuration for Toggling Verbose ServicePlacement HealthReporting. |
+| GetPartitionDataLossProgress | string, default is "Admin\|\|User" | Fetches the progress for an invoke data loss api call. |
+| GetPartitionQuorumLossProgress | string, default is "Admin\|\|User" | Fetches the progress for an invoke quorum loss api call. |
+| GetPartitionRestartProgress | string, default is "Admin\|\|User" | Fetches the progress for a restart partition api call. |
+| GetChaosReport | string, default is "Admin\|\|User" | Fetches the status of Chaos within a given time range. |
+| GetNodeTransitionProgress | string, default is "Admin\|\|User" | Security configuration for getting progress on a node transition command. |
+| GetClusterConfigurationUpgradeStatus | string, default is "Admin\|\|User" | Induces GetClusterConfigurationUpgradeStatus on a partition. |
+| GetClusterConfiguration | string, default is "Admin\|\|User" | Induces GetClusterConfiguration on a partition. |
 
-### Section Name: ReconfigurationAgent
+## ReconfigurationAgent
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | ApplicationUpgradeMaxReplicaCloseDuration | Time in seconds, default is 900 |Specify timespan in seconds. The duration for which the system will wait before terminating service hosts that have replicas that are stuck in close. |
@@ -477,7 +501,7 @@ Here are the Fabric settings that you can customize:
 | FabricUpgradeMaxReplicaCloseDuration | Time in seconds, default is 900 | Specify timespan in seconds. The maximum duration RA will wait before terminating service host of replica that is not closing. |
 | IsDeactivationInfoEnabled | Bool, default is true | Determines whether RA will use deactivation info for performing primary re-election For new clusters this configuration should be set to true For existing clusters that are being upgraded please see the release notes on how to enable this. |
 
-### Section Name: PlacementAndLoadBalancing
+## PlacementAndLoadBalancing
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | TraceCRMReasons |Bool, default is true |Specifies whether to trace reasons for CRM issued movements to the operational events channel. |
@@ -486,10 +510,10 @@ Here are the Fabric settings that you can customize:
 |VerboseHealthReportLimit | Int, default is 20 | Defines the number of times a replica has to go unplaced before a health warning is reported for it (if verbose health reporting is enabled). |
 |ConstraintViolationHealthReportLimit | Int, default is 50 | Defines the number of times constraint violating replica has to be persistently unfixed before diagnostics are conducted and health reports are emitted. |
 |DetailedConstraintViolationHealthReportLimit | Int, default is 200 | Defines the number of times constraint violating replica has to be persistently unfixed before diagnostics are conducted and detailed health reports are emitted. |
-|DetailedVerboseHealthReportLimit | Int, default is 200 | Defines the number of times an unplaced replica has to be persistently unpalced before detailed health reports are emitted. |
+|DetailedVerboseHealthReportLimit | Int, default is 200 | Defines the number of times an unplaced replica has to be persistently unplaced before detailed health reports are emitted. |
 |ConsecutiveDroppedMovementsHealthReportLimit | Int, default is 20 | Defines the number of consecutive times that ResourceBalancer-issued Movements are dropped before diagnostics are conducted and health warnings are emitted. Negative: No Warnings Emitted under this condition. |
 |DetailedNodeListLimit | Int, default is 15 | Defines the number of nodes per constraint to include before truncation in the Unplaced Replica reports. |
-|DetailedPartitionListLimit | Int, default is 15 | Defines the number of partitions per diganostic entry for a constraint to include before truncation in  Diagnostics. |
+|DetailedPartitionListLimit | Int, default is 15 | Defines the number of partitions per diagnostic entry for a constraint to include before truncation in  Diagnostics. |
 |DetailedDiagnosticsInfoListLimit | Int, default is 15 | Defines the number of diagnostic entries (with detailed information) per constraint to include before truncation in  Diagnostics.|
 |PLBRefreshGap | Time in seconds, default is 1 | Specify timespan in seconds. Defines the minimum amount of time that must pass before PLB refreshes state again. |
 |MinPlacementInterval | Time in seconds, default is 1 | Specify timespan in seconds. Defines the minimum amount of time that must pass before two consecutive placement rounds. |
@@ -509,13 +533,13 @@ Here are the Fabric settings that you can customize:
 |UseMoveCostReports | Bool, default is false | Instructs the LB to ignore the cost element of the scoring function; resulting potentially large number of moves for better balanced placement. |
 |PreventTransientOvercommit | Bool, default is false | Determines should PLB immediately count on resources that will be freed up by the initiated moves. By default; PLB can initiate move out and move in on the same node which can create transient overcommit. Setting this parameter to true will prevent those kind of overcommits and on-demand defrag (aka placementWithMove) will be disabled. |
 |InBuildThrottlingEnabled | Bool, default is false | Determine whether the in-build throttling is enabled. |
-|InBuildThrottlingAssociatedMetric | Wstring, default is "" | The associated metric name for this throttling. |
+|InBuildThrottlingAssociatedMetric | string, default is "" | The associated metric name for this throttling. |
 |InBuildThrottlingGlobalMaxValue | Int, default is 0 |The maximal number of in-build replicas allowed globally. |
 |SwapPrimaryThrottlingEnabled | Bool, default is false| Determine whether the swap-primary throttling is enabled. |
-|SwapPrimaryThrottlingAssociatedMetric | Wstring, default is ""| The associated metric name for this throttling. |
+|SwapPrimaryThrottlingAssociatedMetric | string, default is ""| The associated metric name for this throttling. |
 |SwapPrimaryThrottlingGlobalMaxValue | Int, default is 0 | The maximal number of swap-primary replicas allowed globally. |
 |PlacementConstraintPriority | Int, default is 0 | Determines the priority of placement constraint: 0: Hard; 1: Soft; negative: Ignore. |
-|PreferredLocationConstraintPriority | Int, default is 2| Determines the priority of prefered location constraint: 0: Hard; 1: Soft; 2: Optimization; negative: Ignore |
+|PreferredLocationConstraintPriority | Int, default is 2| Determines the priority of preferred location constraint: 0: Hard; 1: Soft; 2: Optimization; negative: Ignore |
 |CapacityConstraintPriority | Int, default is 0 | Determines the priority of capacity constraint: 0: Hard; 1: Soft; negative: Ignore. |
 |AffinityConstraintPriority | Int, default is 0 | Determines the priority of affinity constraint: 0: Hard; 1: Soft; negative: Ignore. |
 |FaultDomainConstraintPriority | Int, default is 0 | Determines the priority of fault domain constraint: 0: Hard; 1: Soft; negative: Ignore. |
@@ -529,12 +553,12 @@ Here are the Fabric settings that you can customize:
 |PartiallyPlaceServices | Bool, default is true | Determines if all service replicas in cluster will be placed "all or nothing" given limited suitable nodes for them.|
 |InterruptBalancingForAllFailoverUnitUpdates | Bool, default is false | Determines if any type of failover unit update should interrupt fast or slow balancing run. With specified "false" balancing run will be interrupted if FailoverUnit:  is created/deleted; has missing replicas; changed primary replica location or changed number of replicas. Balancing run will NOT be interrupted in other cases - if FailoverUnit:  has extra replicas; changed any replica flag; changed only partition version or any other case. |
 
-### Section Name: Security
+## Security
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | ClusterProtectionLevel |None or EncryptAndSign |None (default) for unsecured clusters, EncryptAndSign for secure clusters. |
 
-### Section Name: Hosting
+## Hosting
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | ServiceTypeRegistrationTimeout |Time in Seconds, default is 300 |Maximum time allowed for the ServiceType to be  registered with fabric |
@@ -543,18 +567,18 @@ Here are the Fabric settings that you can customize:
 | ActivationMaxRetryInterval |Time in seconds, default is 300 |On every continuous activation failure, the system retries the activation for up to ActivationMaxFailureCount. ActivationMaxRetryInterval specifies Wait time interval before retry after every activation failure |
 | ActivationMaxFailureCount |Whole number, default is 10 |Number of times system retries failed activation before giving up |
 
-### Section Name: FailoverManager
+## FailoverManager
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | PeriodicLoadPersistInterval |Time in seconds, default is 10 |This determines how often the FM check for new load reports |
 
-### Section Name: Federation
+## Federation
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | LeaseDuration |Time in seconds, default is 30 |Duration that a lease lasts between a node and its neighbors. |
 | LeaseDurationAcrossFaultDomain |Time in seconds, default is 30 |Duration that a lease lasts between a node and its neighbors across fault domains. |
 
-### Section Name: ClusterManager
+## ClusterManager
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 | UpgradeStatusPollInterval |Time in seconds, default is 60 |The frequency of polling for application upgrade status. This value determines the rate of update for any GetApplicationUpgradeProgress call |
@@ -567,11 +591,11 @@ Here are the Fabric settings that you can customize:
 |ReplicaRestartWaitDuration |Time in seconds, default is (60.0 * 30)|Specify timespan in seconds. The ReplicaRestartWaitDuration for ClusterManager. |
 |QuorumLossWaitDuration |Time in seconds, default is MaxValue | Specify timespan in seconds. The QuorumLossWaitDuration for ClusterManager. |
 |StandByReplicaKeepDuration | Time in seconds, default is (3600.0 * 2)|Specify timespan in seconds. The StandByReplicaKeepDuration for ClusterManager. |
-|PlacementConstraints | Wstring, default is "" |The PlacementConstraints for ClusterManager. |
+|PlacementConstraints | string, default is "" |The PlacementConstraints for ClusterManager. |
 |SkipRollbackUpdateDefaultService | Bool, default is false |The CM will skip reverting updated default services during application upgrade rollback. |
 |EnableDefaultServicesUpgrade | Bool, default is false |Enable upgrading default services during application upgrade. Default service descriptions would be overwritten after upgrade. |
 |InfrastructureTaskHealthCheckWaitDuration |Time in seconds, default is 0| Specify timespan in seconds. The amount of time to wait before starting health checks after post-processing an infrastructure task. |
-|InfrastructureTaskHealthCheckStableDuration | Time in seconds, default is 0| Specify timespan in seconds. The amount of time to observe consecutive passed health checks before post-processing of an infrastructure task finishes sucessfully. Observing a failed health check will reset this timer. |
+|InfrastructureTaskHealthCheckStableDuration | Time in seconds, default is 0| Specify timespan in seconds. The amount of time to observe consecutive passed health checks before post-processing of an infrastructure task finishes successfully. Observing a failed health check will reset this timer. |
 |InfrastructureTaskHealthCheckRetryTimeout | Time in seconds, default is 60 |Specify timespan in seconds. The amount of time to spend retrying failed health checks while post-processing an infrastructure task. Observing a passed health check will reset this timer. |
 |ImageBuilderTimeoutBuffer |Time in seconds, default is 3 |Specify timespan in seconds. The amount of time to allow for Image Builder specific timeout errors to return to the client. If this buffer is too small; then the client times out before the server and gets a generic timeout error. |
 |MinOperationTimeout | Time in seconds, default is 60 |Specify timespan in seconds. The minimum global timeout for internally processing operations on ClusterManager. |
