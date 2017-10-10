@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/29/2017
+ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
 ---
@@ -56,7 +56,7 @@ Using your web browser, navigate to `http://localhost:3000` to test the app loca
 ## Modify app to display welcome message
 
 Modify the application so it displays a welcome message. First, you must setup a route by modifying the *~/workspace/ruby-docs-hello-world/config/routes.rb* file to include a route named `hello`.
-    
+
   ```ruby
   Rails.application.routes.draw do
       #For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -188,7 +188,6 @@ az mysql server firewall-rule create --name allIPs --server <mysql_server_name> 
 > [!NOTE]
 > Azure Database for MySQL (Preview) doesn't currently limit connections only to Azure services. As IP addresses in Azure are dynamically assigned, it is better to enable all IP addresses. The service is in preview. Better methods for securing your database are planned.
 >
->
 
 ### Connect to production MySQL server locally
 
@@ -323,7 +322,7 @@ In this step, you deploy the MySQL-connected PHP application to Azure App Servic
 
 ### Create an App Service plan
 
-[!INCLUDE [Create app service plan no h](../../../includes/app-service-web-create-app-service-plan-no-h.md)]
+[!INCLUDE [Create app service plan no h](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
 ### Create a web app
 

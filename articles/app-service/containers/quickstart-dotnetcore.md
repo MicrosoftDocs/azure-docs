@@ -75,11 +75,11 @@ git commit -m "first commit"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)] 
+[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)]
 
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)] 
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
 ## Create a web app with built-in image
 

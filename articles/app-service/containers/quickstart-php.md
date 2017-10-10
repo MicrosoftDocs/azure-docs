@@ -17,7 +17,7 @@ ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
 ---
-# Create a PHP web app with built-in container
+# Create a PHP web app in App Service on Linux
 
 [App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart tutorial shows how to deploy a PHP app to Azure App Service on Linux. You create the web app with built-in image using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell, and you use Git to deploy the PHP code to the web app.
 

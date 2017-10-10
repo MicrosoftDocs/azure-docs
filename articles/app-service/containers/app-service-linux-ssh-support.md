@@ -1,11 +1,11 @@
 ---
 title: SSH support for Azure App Service on Linux | Microsoft Docs
-description: Learn about using SSH with Azure Web App for Containers.
+description: Learn about using SSH with Azure App Service on Linux.
 keywords: azure app service, web app, linux, oss
 services: app-service
 documentationcenter: ''
 author: wesmc7777
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
@@ -102,7 +102,7 @@ The Dockerfile uses the [`CMD` instruction](https://docs.docker.com/engine/refer
 
 See the following links for more information regarding Web App for Containers. You can post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [How to use a custom Docker image for Azure Web App for Containers](quickstart-custom-docker-image.md)
+* [How to use a custom Docker image for Web App for Containers](quickstart-custom-docker-image.md)
 * [Using .NET Core in Azure App Service on Linux](quickstart-dotnetcore.md)
 * [Using Ruby in Azure App Service on Linux](quickstart-ruby.md)
 * [Azure App Service Web App for Containers FAQ](app-service-linux-faq.md)

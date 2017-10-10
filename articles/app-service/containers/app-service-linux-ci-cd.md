@@ -1,6 +1,6 @@
 ---
-title: Continuous Deployment from a Docker container registry with Azure Web App for Containers | Microsoft Docs
-description: How to setup continuous deployment from a Docker container registry in Azure Web App for Containers.
+title: Continuous Deployment from a Docker container registry with Web App for Containers - Azure | Microsoft Docs
+description: How to setup continuous deployment from a Docker container registry in Web App for Containers.
 keywords: azure app service, linux, docker, acr,oss
 services: app-service
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.date: 05/10/2017
 ms.author: aelnably;wesmc
 
 ---
-# Continuous deployment with Azure Web App for Containers
+# Continuous deployment with Web App for Containers
 
 In this tutorial, you configure continuous deployment for a custom container image from Managed [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) repositories or [Docker Hub](https://hub.docker.com).
 
@@ -83,10 +83,10 @@ When the image gets updated, the web app get updated automatically with the new 
 
 ## Next steps
 
-* [What is Azure Web App for Containers?](./app-service-linux-intro.md)
+* [What is Azure App Service on Linux?](./app-service-linux-intro.md)
 * [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
-* [Using .NET Core in Azure Web App for Containers](quickstart-dotnetcore.md)
-* [Using Ruby in Azure Web App for Containers](quickstart-ruby.md)
-* [How to use a custom Docker image for Azure Web App for Containers](quickstart-custom-docker-image.md)
+* [Using .NET Core in Azure App Service on Linux](quickstart-dotnetcore.md)
+* [Using Ruby in Azure App Service on Linux](quickstart-ruby.md)
+* [How to use a custom Docker image for Web App for Containers](quickstart-custom-docker-image.md)
 * [Azure App Service Web App for Containers FAQ](./app-service-linux-faq.md)
 * [Manage Web App for Containers using Azure CLI 2.0](./app-service-linux-cli.md)

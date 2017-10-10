@@ -1,6 +1,6 @@
 ---
-title: Use a custom Docker image for Azure Web App for Containers | Microsoft Docs
-description: How to use a custom Docker image for Azure Web App for Containers.
+title: Use a custom Docker image for Web App for Containers - Azure | Microsoft Docs
+description: How to use a custom Docker image for Web App for Containers.
 keywords: azure app service, web app, linux, docker, container
 services: app-service
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.date: 09/03/2017
 ms.author: cfowler
 ms.custom: mvc
 ---
-# Use a custom Docker image for Azure Web App for Containers
+# Use a custom Docker image for Web App for Containers
 
 [Web App for Containers](app-service-linux-intro.md) provides built-in Docker images on Linux with support for specific versions, such as PHP 7.0 and Node.js 4.5. Web App for Containers leverages the Docker container technology to host both built-in images and custom images as a platform as a service. In this tutorial, you will learn how to build a custom docker image for use on Web App for Containers, which is a common pattern if there isn't a built-in image for your language, or your application requires a specific configuration which isn't provided within the built-in images.
 
@@ -263,7 +263,7 @@ The command reveals two passwords that can be used with the user name.
 Now that you have the necessary credentials, log in to the Azure Container Registry using the `docker login` command. The URL for the registry is required to log in. Use the format `http://{azure-container-registry-name>.azureacr.io`.
 
 ```bash
-docker login <azure-container-registry-name>.azureacr.io --username <azure-container-registry-name> --password <password> 
+docker login <azure-container-registry-name>.azureacr.io --username <azure-container-registry-name> --password <password>
 ```
 
 Confirm that the login succeeded. Push the image by using the `docker push` command, and tagging the image with the full URL of the registry followed by your image name and tag.
@@ -272,7 +272,7 @@ Confirm that the login succeeded. Push the image by using the `docker push` comm
 docker push http://<azure-container-registry-name>.azureacr.io/mydockerimage:v1.0.0
 ```
 
-Verify that the push successfully added a container to the registry by listing the ACR repositories. 
+Verify that the push successfully added a container to the registry by listing the ACR repositories.
 
 ```azurecli-interactive
 az acr repository list -n <azure-container-registry-name>
@@ -328,7 +328,7 @@ Creating a service plan produces results similar to the following sample:
   "id": "/subscriptions/resourceGroups/myResourceGroup/provide
 rs/Microsoft.Web/serverfarms/myServicePlan",
   "kind": "linux",
-  "location": "West Europe", 
+  "location": "West Europe",
   "resourceGroup": "myResourceGroup",
   "sku": {
     "capabilities": null,
@@ -346,7 +346,7 @@ rs/Microsoft.Web/serverfarms/myServicePlan",
 Now that the resource group and service plan have been created, you can run the [az webapp create](https://docs.microsoft.com/cli/azure/webapp#az_webapp_create) command to create the web app. Notice the runtime stack is Python 3.4 and the web app uses the resource group and service plan setup in previous steps.
 
 ```azurecli-interactive
-az webapp create -g myResourceGroup -p myServicePlan -n <web-app-name> --runtime "python|3.4" 
+az webapp create -g myResourceGroup -p myServicePlan -n <web-app-name> --runtime "python|3.4"
 ```
 
 The command to create a web app produces the output shown here:
@@ -600,10 +600,10 @@ PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
 77 root      20   0   21920   2304   1972 R  0.0  0.1   0:00.00 top
 ```
 
-Congratulations! You've configured a custom Docker image for an Azure Web App for Containers.
+Congratulations! You've configured a custom Docker image for Web App for Containers.
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 
 ## Next Steps
 
-[Azure App Service Web App for Containers FAQ](app-service-linux-faq.md)
+[Azure App Service on Linux FAQ](app-service-linux-faq.md)
