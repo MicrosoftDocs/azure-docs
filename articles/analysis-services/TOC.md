@@ -51,6 +51,8 @@
 
 # Resources
 ## [Analysis Services code samples on GitHub](https://github.com/Microsoft/Analysis-Services)
+## [Sample Tabular 1400 model project and database on GitHub](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks-analysis-services)
+## [Adventure Works sample databases on GitHub](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks2014)
 ## [Analysis Services team blog](https://blogs.msdn.microsoft.com/analysisservices/)
 ## [Azure Analysis Services forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)

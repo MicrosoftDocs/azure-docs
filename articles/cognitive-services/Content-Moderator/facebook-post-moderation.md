@@ -1,6 +1,6 @@
 ---
 title: Moderate Facebook posts with Azure Content Moderator | Microsoft Docs
-description: Use Content Moderator with sample Facebook page
+description: Use Content Moderator to moderate Facebook pages
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -12,9 +12,9 @@ ms.date: 09/18/2017
 ms.author: sajagtap
 ---
 
-# Moderate Facebook posts
+# Moderate Facebook posts with Content Moderator
 
-In this tutorial, we learn how to use Content Moderator with a sample Facebook page. The solution either takes down or allows publishing of images and text by viewers of the Facebook page.
+In this tutorial, we learn how to use Content Moderator to mdoerate Facebook pages.
 
 The tutorial guides you through these steps:
 
