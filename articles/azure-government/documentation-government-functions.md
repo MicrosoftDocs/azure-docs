@@ -267,8 +267,8 @@ In the command below, replace the "resourceGroupName" and "FunctionAppname" tags
 az functionapp config appsettings set --resource-group <resourceGroupName> --name <FunctionAppname> --settings AzureWebJobsmyconnection= "<connectionString>"
 
 ```
-8. Once this has been set, you can run your Timer trigger function locally. 
-9. In order to deploy to Azure Government, use the same process as defined [above](documentation-government-functions.md#create-function-using-visual-studio).
+
+8. Once this has been set, you can run your Timer trigger function locally. In order to deploy to Azure Government, use the same process as defined [above](documentation-government-functions.md#create-function-using-visual-studio).
 
 ## Use Azure Queues for Output Bindings
 
