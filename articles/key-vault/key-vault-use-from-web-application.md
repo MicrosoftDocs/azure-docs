@@ -32,11 +32,12 @@ To complete this tutorial, you must have the following:
 * A Client ID and a Client Secret for a web application registered with Azure Active Directory that has access to your Key Vault
 * A web application. We will be showing the steps for an ASP.NET MVC application deployed in Azure as a Web App.
 
+>[!IMPORTANT]
+>* This sample depends on an older way of manually provisioning AAD Identities. Currently, there is a new feature in preview called [Managed Service Identity (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), which can automatically provision AAD Identities. Please refer to the following sample on [github](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) for further details.
+
 > [!NOTE]
->* This sample depends on an older way of manually provisioning AAD Identities. Currently, there is a new feature in preview called Managed Service Identity (MSI), which can automatically provision AAD Identities. Please refer to the following [link](https://docs.microsoft.com/azure/active-directory/msi-overview) for further details. 
 >* It is essential that you have completed the steps listed in [Get Started with Azure Key Vault](key-vault-get-started.md) for this tutorial so that you have the URI to a secret and the Client ID and Client Secret for a web application.
-> 
-> 
+
 
 The web application that will be accessing the Key Vault is the one that is registered in Azure Active Directory and has been given access to your Key Vault. If this is not the case, go back to Register an Application in the Get Started tutorial and repeat the steps listed.
 
@@ -160,15 +161,14 @@ $x509 = New-Object System.Security.Cryptography.X509Certificates.X509Certificate
 $x509.Import("C:\data\KVWebApp.cer")
 $credValue = [System.Convert]::ToBase64String($x509.GetRawCertData())
 
-# If you used different dates for makecert then adjust these values
-$now = [System.DateTime]::Now
-$yearfromnow = $now.AddYears(1)
 
-$adapp = New-AzureRmADApplication -DisplayName "KVWebApp" -HomePage "http://kvwebapp" -IdentifierUris "http://kvwebapp" -CertValue $credValue -StartDate $now -EndDate $yearfromnow
+$adapp = New-AzureRmADApplication -DisplayName "KVWebApp" -HomePage "http://kvwebapp" -IdentifierUris "http://kvwebapp" -CertValue $credValue -StartDate $x509.NotBefore -EndDate $x509.NotAfter
+
 
 $sp = New-AzureRmADServicePrincipal -ApplicationId $adapp.ApplicationId
 
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName $sp.ServicePrincipalName -PermissionsToSecrets all -ResourceGroupName 'contosorg'
+
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName "http://kvwebapp" -PermissionsToSecrets all -ResourceGroupName 'contosorg'
 
 # get the thumbprint to use in your app settings
 $x509.Thumbprint

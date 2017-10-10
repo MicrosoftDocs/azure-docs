@@ -369,12 +369,12 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 Language | Example 
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
-Go Lan   | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
-python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
+Go Lang  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
+Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
-Javascript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
-Powershell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
+JavaScript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
+PowerShell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
 Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
     
 

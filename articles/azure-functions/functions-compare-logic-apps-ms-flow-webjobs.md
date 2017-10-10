@@ -3,7 +3,7 @@ title: Choose between Flow, Logic Apps, Functions, and WebJobs | Microsoft Docs
 description: Compare and contrast the for cloud integration services from Microsoft and decide which service(s) you should use.
 services: functions,app-service\logic
 documentationcenter: na
-author: cephalin
+author: ggailey777
 manager: wpickett
 tags: ''
 keywords: microsoft flow, flow, logic apps, azure functions, functions, azure webjobs, webjobs, event processing, dynamic compute, serverless architecture
@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/07/2017
+ms.date: 10/03/2017
 ms.author: glenga
 ms.custom: mvc
 ---
@@ -25,7 +25,7 @@ problems and automate business processes:
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Azure Functions](https://azure.microsoft.com/services/functions/)
-* [Azure App Service WebJobs](../app-service-web/web-sites-create-web-jobs.md)
+* [Azure App Service WebJobs](../app-service/web-sites-create-web-jobs.md)
 
 All these services are useful when "gluing" together disparate systems. They can all define input, actions, 
 conditions, and output. You can run each of them on a schedule or trigger. However, each service has unique advantages, and comparing them is not a question of "Which service is the best?" but one of "Which service is best suited 
@@ -96,10 +96,12 @@ The following table summarizes the differences between Functions and WebJobs:
 | PowerShell |experimental |supported |
 | C# |supported |supported |
 | F# |supported |not supported |
+| JavaScript |supported |supported |
 | Bash |experimental |supported |
+| Java |supported | not supported |
 | PHP |experimental |supported |
 | Python |experimental |supported |
-| JavaScript |supported |supported |
+
 
 Whether to use Functions or WebJobs ultimately depends on what you're already doing with App Service. If you have an App Service 
 app for which you want to run code snippets, and you want to manage them together in the same DevOps environment, use WebJobs. In the following scenarios, use Functions.

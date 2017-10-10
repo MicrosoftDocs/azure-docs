@@ -33,7 +33,7 @@ If needed, install the [Azure CLI 2.0](/en-us/cli/azure/install-azure-cli?view=a
 After the script sample has been run, the following command can be used to remove the resource group, cluster, and all related resources.
 
 ```azurecli
-ResourceGroupName = "sfclustertutorialgroup"
+ResourceGroupName = "aztestclustergroup"
 az group delete --name $ResourceGroupName
 ```
 

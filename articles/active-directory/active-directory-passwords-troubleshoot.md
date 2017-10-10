@@ -14,12 +14,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 09/21/2017
 ms.author: joflore
 ms.custom: it-pro
 
 ---
-
 # How to troubleshoot self-service password reset
 
 If you are having issues with self-service password reset, the items that follow may help you to get things working quickly.
@@ -148,17 +147,21 @@ A best practice when troubleshooting issues with Password Writeback is to inspec
 | 33008| ADPasswordPolicyError| This event occurs when the Password Writeback service attempts to set a password on your local directory that does not meet the password age, history, complexity, or filtering requirements of the domain. <br> <br> If you have a minimum password age, and have recently changed the password within that window of time, you are not able to change the password again until it reaches the specified age in your domain. For testing purposes, minimum age should be set to 0. <br> <br> If you have password history requirements enabled, then you must select a password that has not been used in the last N times, where N is the password history setting. If you do select a password that has been used in the last N times, then you see a failure in this case. For testing purposes, history should be set to 0. <br> <br> If you have password complexity requirements, all of them are enforced when the user attempts to change or reset a password. <br> <br> If you have password filters enabled, and a user selects a password that does not meet the filtering criteria, then the reset or change operation fails.|
 | 33009| ADConfigurationError| This event indicates there was an issue writing a password back to your on-premises directory due to a configuration issue with Active Directory. Check the Azure AD Connect machine’s Application event log for messages from the ADSync service for more information on what error occurred.|
 
-
 ## Troubleshoot Password Writeback connectivity
 
 If you are experiencing service interruptions with the Password Writeback component of Azure AD Connect, here are some quick steps you can take to resolve this:
 
+* [Confirm network connectivity](#confirm-network-connectivity)
 * [Restart the Azure AD Connect Sync Service](#restart-the-azure-ad-connect-sync-service)
 * [Disable and re-enable the Password Writeback feature](#disable-and-re-enable-the-password-writeback-feature)
 * [Install the latest Azure AD Connect release](#install-the-latest-azure-ad-connect-release)
 * [Troubleshoot Password Writeback](#troubleshoot-password-writeback)
 
 In general, we recommend that you execute these steps in the order above to recover your service in the most rapid manner.
+
+### Confirm network connectivity
+
+The most common point of failure is that firewall and or proxy ports and idle timeouts are incorrectly configured. Review the network requirements in the article [Self-service password reset in Azure AD deep dive](active-directory-passwords-how-it-works.md#network-requirements) for more information.
 
 ### Restart the Azure AD Connect Sync Service
 
