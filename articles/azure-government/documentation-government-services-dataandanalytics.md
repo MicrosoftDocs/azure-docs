@@ -51,15 +51,25 @@ For more information, see [HDInsight public documentation](../hdinsight/hdinsigh
 Power BI US Government is generally available as part of the Office 365 US Government Community subscriptions. You can learn about Power BI US Government <a href=https://powerbi.microsoft.com/en-us/documentation/powerbi-service-govus-overview/>here</a>. 
 You can see a demo on how to build data-centric solutions on Azure Government using Power BI <a href=https://channel9.msdn.com/Blogs/Azure/Cognitive-Services-HDInsight-and-Power-BI-on-Azure-Government/>here</a>.
 
-Power BI Embedded is coming soon.
-
 ### Variations
+
+Power BI does not yet have Portal support in the Azure Government Portal. 
 
 The URLs for Power BI are different in US Government:
 
 | Service Type | Power BI Commercial | Power BI US Government |
 | --- | --- | --- |
 | Power BI URL | app.powerbi.com | app.powerbigov.us |
+
+## Power BI Embedded 
+For details on this service and how to use it, see [Azure Power BI Embedded Documentation](https://docs.microsoft.com/azure/power-bi-embedded/).
+
+### Variations
+Power BI Embedded does not yet have Portal support in the Azure Government Portal. 
+
+## Azure Analysis Services
+
+For information on this service and how to use it, see [Azure Analysis Services Documentation](https://docs.microsoft.com/azure/analysis-services/).
 
 ## Next Steps
 For supplemental information and updates, subscribe to the
