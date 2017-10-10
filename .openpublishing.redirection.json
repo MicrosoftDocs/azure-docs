@@ -5394,6 +5394,26 @@
             "source_path": "articles/sql-database/sql-database-cloud-migrate-fix-compatibility-issues.md",
             "redirect_url": "/azure/sql-database/sql-database-cloud-migrate",
             "redirect_document_id": false
+        },  
+        {
+            "source_path": "articles/cognitive-services/Bing-Custom-Search/how-it-works.md",
+            "redirect_url": "/azure/cognitive-services/Bing-Custom-Search/define-your-custom-view",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Bing-Custom-Search/quickstart.md",
+            "redirect_url": "/azure/cognitive-services/Bing-Custom-Search/quick-start",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Bing-Custom-Search/rank-results.md",
+            "redirect_url": "/azure/cognitive-services/Bing-Custom-Search/define-your-custom-view",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Bing-Image-Search/index.md",
+            "redirect_url": "/azure/cognitive-services/Bing-Image-Search/search-the-web",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/sql-database/sql-database-command-line-tools.md",
