@@ -24,28 +24,28 @@ ms.author: carlrab
 
 So you’ve recently moved SQL Server databases to Azure SQL Database, or perhaps you’re planning on moving very soon. Once you’ve moved, what’s next? Given that SQL Database is a *Platform as a Service*, Microsoft handles several areas on your behalf. But how exactly does this change your company’s practices around key areas such as security, business continuity, database maintenance, performance tuning, monitoring and more? 
 
-The purpose of this topic is to succinctly organize resources and guidance that you’ll need for making the shift to managing your SQL Database investments. The major areas in this topic cover business continuity, security, database maintenance and monitoring, performance and data movement. We’ll cover key areas that are different between SQL Server and SQL Database, and call out operational best practices that will help you maximize benefits and minimize risk. 
+The purpose of this article is to succinctly organize resources and guidance that you’ll need for making the shift to managing your SQL Database investments. The major areas in this article cover business continuity, security, database maintenance and monitoring, performance and data movement. We’ll cover key areas that are different between SQL Server and SQL Database, and call out operational best practices that will help you maximize benefits and minimize risk. 
 
 ## Manage business continuity after migration
 
 ### How do I create and manage backups on SQL Database? 
-SQL Database automatically backs up databases for you and provides you the ability to restore to any point in time in the retention period. The retention period is 35 days for Standard and Premium databases and 7 days for Basic databases. In addition, the Long Term Retention feature allows you to hold backup files for a longer period (up to 10 years), and restore from these backups at any point. If you wish to backup your data to an on-premise location, you could export your database to BACPAC files. 
+SQL Database automatically backs up databases for you and provides you the ability to restore to any point in time in the retention period. The retention period is 35 days for Standard and Premium databases and 7 days for Basic databases. In addition, the Long-Term Retention feature allows you to hold backup files for a longer period (up to 10 years), and restore from these backups at any point. If you wish to back up your data to an on-premise location, you could export your database to BACPAC files. 
 
 ### How do I ensure business continuity in the event of a datacenter-level disaster or a regional catastrophe? 
-SQL Database provides the capability to maintain actively geo-replicated secondary databases in another region. Configuring them in an Auto-Failover Group will ensure that the databases automatically failover to the secondary in a disaster scenario. If an auto-failover group is not configured, then your application needs to actively monitor for a disaster and initiate a failover to the secondary. 
+SQL Database provides the capability to maintain actively geo-replicated secondary databases in another region. Configuring them in an Auto-Failover Group will ensure that the databases automatically fail over to the secondary in a disaster scenario. If an auto-failover group is not configured, then your application needs to actively monitor for a disaster and initiate a failover to the secondary. 
 SQL Server provided me Readable Secondary Replicas, can I access the secondaries on SQL Database? 
 Yes, the ‘Active Geo Replication’ feature is used to create Readable Secondary Replicas. 
 
 ### How does my disaster recovery plan change from on-premise to SQL Database? 
-SQL Server implementations required you to actively manage backups using features such as Failover Clustering, Database Mirroring, Replication, Log Shipping or just plain vanilla BACPAC backups. However, on SQL Database, backups are fully managed by Microsoft and you only can have backup and disaster recovery plans configured and working with just a few clicks on the Azure Portal (or few commands on PowerShell). 
+SQL Server implementations required you to actively manage backups using features such as Failover Clustering, Database Mirroring, Replication, Log Shipping or just plain vanilla BACPAC backups. However, on SQL Database, backups are fully managed by Microsoft and you only can have backup and disaster recovery plans configured and working with just a few clicks on the Azure portal (or few commands on PowerShell). 
 ‌
 ### In the event of disaster, how do I recover my databases? 
-SQL Database automatically lets you restore your databases to any point in time in the last 35 days. This is an option if you lose data or face an application related disaster. 
+SQL Database automatically lets you restore your databases to any point in time in the last 35 days. This is an option if you lose data or face an application-related disaster. 
 
-In case you face a regional disaster, you can geo-restore from your geo-secondary in another region (you should configure geo-restore on the Portal upfront, this is not automatic like point-in-time restore). For real time access to your applications, you can failover to the geo-secondary in the other region manually. Alternatively, if you have auto-failover group configured, this failover to a geo-secondary happens automatically in a disaster scenario. 
+In case you face a regional disaster, you can geo-restore from your geo-secondary in another region (you should configure geo-restore on the Azure portal upfront, this is not automatic like point-in-time restore). For real-time access to your applications, you can fail over to the geo-secondary in the other region manually. Alternatively, if you have auto-failover group configured, this failover to a geo-secondary happens automatically in a disaster scenario. 
 
 ### Are the failovers to secondary transparent? How does my application handle database failovers? 
-If you have auto-failover groups configured, then the failover to secondary is transparent. However, if you have not, then your application needs to incorporate the logic to monitor availability of the primary and then manually failover to the secondary. 
+If you have auto-failover groups configured, then the failover to secondary is transparent. However, if you have not, then your application needs to incorporate the logic to monitor availability of the primary and then manually fail over to the secondary. 
  
 ## Manage security after migration
 
@@ -79,21 +79,21 @@ If you already have an Active Directory on-premises, you can federate the direct
 
 |||
 |---|---|
-|If you…|Azure SQL Database / Azure SQL Data Warehouse|
-|Prefer not to use Azure Active Directory (AD) in Azure|Use [SQL authentication](sql-database-security-overview.md)|
-|Used AD on SQL Server on-premises|[Federate AD with Azure AD](../active-directory/connect/active-directory-aadconnect.md), and use Azure AD authentication. With this, you can use Single Sign-On.|
-|Need to enforce multi-factor authentication (MFA)|Require MFA as a policy through [Microsoft Conditional Access](sql-database-conditional-access.md), and use [Azure AD Universal authentication with MFA support](sql-database-ssms-mfa-authentication.md).|
-|Have guest accounts from Microsoft accounts (live.com, outlook.com) or other domains (gmail.com)|Use [Azure AD Universal authentication](sql-database-ssms-mfa-authentication.md) in SQL Database/Data Warehouse, which leverages [Azure AD B2B Collaboration](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).|
-|Are logged into Windows using your Azure AD credentials from a federated domain|Use [Azure AD integrated authentication](sql-database-aad-authentication-configure.md).|
-|Are logged into Windows using credentials from a domain not federated with Azure|Use [Azure AD password authentication](sql-database-aad-authentication-configure.md).|
-|Have middle-tier services which need to connect to Azure SQL Database or Data Warehouse|Use [Azure AD token authentication](sql-database-aad-authentication-configure.md).
+| If you…|Azure SQL Database / Azure SQL Data Warehouse|
+| Prefer not to use Azure Active Directory (AD) in Azure|Use [SQL authentication](sql-database-security-overview.md)|
+| Used AD on SQL Server on-premises|[Federate AD with Azure AD](../active-directory/connect/active-directory-aadconnect.md), and use Azure AD authentication. With this, you can use Single Sign-On.|
+| Need to enforce multi-factor authentication (MFA)|Require MFA as a policy through [Microsoft Conditional Access](sql-database-conditional-access.md), and use [Azure AD Universal authentication with MFA support](sql-database-ssms-mfa-authentication.md).|
+| Have guest accounts from Microsoft accounts (live.com, outlook.com) or other domains (gmail.com)|Use [Azure AD Universal authentication](sql-database-ssms-mfa-authentication.md) in SQL Database/Data Warehouse, which leverages [Azure AD B2B Collaboration](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).|
+| Are logged in to Windows using your Azure AD credentials from a federated domain|Use [Azure AD integrated authentication](sql-database-aad-authentication-configure.md).|
+| Are logged in to Windows using credentials from a domain not federated with Azure|Use [Azure AD password authentication](sql-database-aad-authentication-configure.md).|
+| Have middle-tier services which need to connect to Azure SQL Database or Data Warehouse|Use [Azure AD token authentication](sql-database-aad-authentication-configure.md).
 |||
 
 ### How can I limit access to sensitive data in my databases from the application side? 
 
 To prevent unauthorized users from being able to view sensitive data, there are a few options available in SQL Database: 
 
-- [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) is a form of client side encryption which encrypts sensitive columns in your database (so they are in ciphertext to database administrators and unauthorized users). The key for Always Encrypted is stored on the client side, so only authorized clients can decrypt the sensitive columns. Always Encrypted supports equality comparisons today, so DBAs can continue to query encrypted columns as part of their SQL commands. Always Encrypted can be used with a variety of key store options, such as [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md), Windows certificate store, and local hardware security modules.
+- [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) is a form of client-side encryption which encrypts sensitive columns in your database (so they are in ciphertext to database administrators and unauthorized users). The key for Always Encrypted is stored on the client side, so only authorized clients can decrypt the sensitive columns. Always Encrypted supports equality comparisons today, so DBAs can continue to query encrypted columns as part of their SQL commands. Always Encrypted can be used with a variety of key store options, such as [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md), Windows certificate store, and local hardware security modules.
 - [Dynamic Data Masking](sql-database-dynamic-data-masking-get-started.md) is a data masking feature which limits sensitive data exposure by masking it to non-privileged users on the application layer. You define a masking rule that can create a masking pattern (for example, to only show last 4 digits of a national ID and mark the rest as X’s) and identify which users can be excluded from the masking rule.
 - [Row-Level Security](/sql/relational-databases/security/row-level-security) enables you to control access to rows in a database table based on the user executing the query (group membership or execution context). The access restriction is done on the database tier instead of in an application tier, to simplify your app logic. 
 
@@ -134,13 +134,13 @@ There are a few monitoring capabilities built into SQL Database, which track sec
 - [SQL auditing](sql-database-auditing.md) allows you to collect audit logs of database events in your own Azure Storage account.
 - [SQL Threat Detection](sql-database-threat-detection.md) allows you to detect suspicious activities indicating a possible malicious intent to access, breach or exploit data in the database. SQL Database Threat Detection runs multiple sets of algorithms which detect potential vulnerabilities and SQL injection attacks, as well as anomalous database access patterns (such as access from an unusual location or by an unfamiliar principal). Security officers or other designated administrators receive an email notification if a threat is detected on the database. Each notification provides details of the suspicious activity and recommendations on how to further investigate and mitigate the threat. 
 - [SQL Vulnerability Assessment](sql-vulnerability-assessment.md) is a database scanning and reporting service that allows you to monitor the security state of your databases at scale, and identify security risks and drift from a security baseline defined by you. After every scan, a customized list of actionable steps and remediation scripts are provided, as well as an assessment report that can be used for helping to meet compliance. 
-- [SQL-OMS Security Sync Application](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) utilizes Operations Management Suite (OMS) public APIs to push SQL audit logs into OMS for log analytics and the ability to define custom detection alerts including: 
+- [SQL-OMS Security Sync Application](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) utilizes Operations Management Suite (OMS) public APIs to push SQL audit logs in to OMS for log analytics and the ability to define custom detection alerts including: 
  - SQL Database Audit tile & dashboard which provide clear and coherent report of your database activities. 
  - SQL Log Analytics to analyze your database activity and investigate discrepancies and anomalies that could indicate suspected security violations.
  - Advanced alerts specific rules on observed events that trigger email, Webhook and Azure automation runbook alerts (i.e. Password changes, after-hours, specific SQL commands).
 - [Azure Security Center](../security-center/security-center-intro.md) offers centralized security management across workloads running in Azure, on-premises, and in other clouds. You can view whether essential SQL Database protection such as Auditing and Transparent Data Encryption are configured on all resources, and create policies based on your own requirements. 
 
-### Is SQL Database compliant with any regulatory compliances, and how does that help with my own organization's compliance? 
+### Is SQL Database compliant with any regulatory requirements, and how does that help with my own organization's compliance? 
 Azure SQL Database is compliant with a range of regulatory compliances. To view the latest set of compliances that have been met, visit the [Microsoft Trust Center](https://www.microsoft.com/trustcenter/compliance/complianceofferings) and drill down on the compliances that are important to your organization to see if Azure SQL Database is included under the compliant Azure services. It is important to note that although Azure SQL Database may be certified as a compliant service, it aids in the compliance of your organization’s service but does not automatically guarantee it. 
 
 ## Database maintenance and monitoring after migration
@@ -151,7 +151,7 @@ Azure SQL Database is compliant with a range of regulatory compliances. To view 
 
   ![Monitoring chart](./media/sql-database-manage-after-migration/monitoring-chart.png)
 
-- To get deeper insight and drill down into the details of queries, you could use 'Query Performance Insight' available on the Portal. This will require that 'Query Store' is active on your database.
+- To get deeper insight and drill down into the details of queries, you could use 'Query Performance Insight' available on the Azure portal. This will require that 'Query Store' is active on your database.
 
   ![Query Performance Insight](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
@@ -205,4 +205,4 @@ Azure SQL Database does not maintain indexes and statistics automatically as par
 The [Data Sync](sql-database-sync-data.md) feature helps you synchronize data bi-directionally between multiple on-premises SQL Server databases and Azure SQL Database. However, since this is trigger based, eventual consistency is guaranteed (no data loss), but transaction consistency is not guaranteed. 
 
 ## Next steps
-Learn about [Azure SQL Datbase](sql-database-technical-overview.md).
+Learn about [Azure SQL Database](sql-database-technical-overview.md).
