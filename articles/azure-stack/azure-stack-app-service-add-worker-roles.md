@@ -80,15 +80,17 @@ Once the deployment has completed, the following configuration is required to su
    as administrator** to open PowerShell in administrator mode.
 5. Copy and paste each of the following commands (one at a time) into the PowerShell window, and press enter:
    
-   ```netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=Yes```
-   ```netsh advfirewall firewall set rule group="Windows Management Instrumentation (WMI)" new enable=yes```
-   ```reg add HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\system /v LocalAccountTokenFilterPolicy /t REG\_DWORD /d 1 /f```
+   ```Enable-NetFirewallRule -DisplayGroup "File and Printer Sharing"```
+   
+   ```Enable-NetFirewallRule -DisplayGroup "Windows Management Instrumentation (WMI)"```
+   
+   ```Set-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System -Name LocalAccountTokenFilterPolicy -Value 1 -Force```
    
 6. Close your remote desktop session.
 7. Restart the VM from the portal.
 
 > [!NOTE]
-> These are minimum requirements for App Service on Azure Stack. They are the default settings of the Windows 2012 R2 image included with Azure Stack. The instructions have been provided for future reference, and for those using a different image.
+> These are minimum requirements for App Service on Azure Stack. They are the default settings of the Windows 2016 image included with Azure Stack. The instructions have been provided for future reference, and for those using a different image.
 > 
 > 
 
