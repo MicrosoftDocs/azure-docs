@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 10/10/2017
 ms.author: curtand;jeffsta
 ms.reviewer: jeffsta
 
@@ -24,7 +24,7 @@ This article explains how to add or change work information such as phone number
 
 ## To change work information
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
-2. Select ***Users and groups**.
+2. Select **Users and groups**.
 
    ![Opening user management](./media/active-directory-users-work-info-azure-portal/create-users-user-management.png)
 3. Select **All users**.
