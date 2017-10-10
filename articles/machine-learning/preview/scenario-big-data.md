@@ -41,63 +41,63 @@ Forecasting the workload on servers is a common business need for technology com
 The prerequisites to run this example are as follows:
 
 * An [Azure account](https://azure.microsoft.com/free/) (free trials are available).
-* An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) following the [quick start installation guide](./quickstart-installation.md) to install the program and create a workspace.
-* This scenario assumes that you are running Azure Machine Learning (ML) Workbench on Windows 10. If you are using macOS, the instruction is largely the same.
-* A Data Science Virtual Machine (DSVM) for Linux (Ubuntu). You can provision an Ubuntu DSVM following the [instructions](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). Click [here](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu) for quick start. We recommend using a virtual machine with at least 8 cores and 32 GB of memory.  You need the DSVM IP address, user name, and password to try out this example. Save the following table with the DSVM info for later steps:
+* An installed copy of [Machine Learning Workbench](./overview-what-is-azure-ml.md). To install the program and create a workspace, see the [quickstart installation guide](./quickstart-installation.md).
+* Windows 10 (the instructions in this example are generally the same for macOS systems).
+* A Data Science Virtual Machine (DSVM) for Linux (Ubuntu). You can provision an Ubuntu DSVM by following [these instructions](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). You can also see [this quickstart](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). We recommend using a virtual machine with at least 8 cores and 32 GB of memory. You need the DSVM IP address, user name, and password to try out this example. Save the following table with the DSVM info for later steps:
 
- Field Name| Value |  
+ Field name| Value |  
  |------------|------|
 DSVM IP address | xxx|
  User name  | xxx|
  Password   | xxx|
 
- You can choose to use any virtual machine (VM) with [Docker Engine](https://docs.docker.com/engine/) installed.
+ You can choose to use any VM with [Docker Engine](https://docs.docker.com/engine/) installed.
 
-* A HDInsight Spark Cluster with HDP version 3.6 and Spark version 2.1.x. Visit [Create an Apache Spark cluster in Azure HDInsight] (https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql) for details of how to create HDInsight clusters. We recommend using a three-worker cluster with each worker having 16 cores and 112 GB of memory. Or you can just choose VM type "`D12 V2`" for head node and "`D14 V2`" for the worker node. The deployment of the cluster takes around 20 minutes. You need the cluster name, SSH user name, and password to try out this example. Save the following table with the Azure HDInsight cluster info for later steps:
+* An HDInsight Spark Cluster, with HDP version 3.6 and Spark version 2.1.x. Visit [Create an Apache Spark cluster in Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql) for details about how to create HDInsight clusters. We recommend using a three-worker cluster, with each worker having 16 cores and 112 GB of memory. Or you can just choose VM type "`D12 V2`" for head node, and "`D14 V2`" for the worker node. The deployment of the cluster takes about 20 minutes. You need the cluster name, SSH user name, and password to try out this example. Save the following table with the Azure HDInsight cluster info for later steps:
 
- Field Name| Value |  
+ Field name| Value |  
  |------------|------|
  Cluster name| xxx|
- User name  | xxx (by default, it is sshuser)|
+ User name  | xxx (sshuser by default)|
  Password   | xxx|
 
 
-* An Azure Storage account. You can follow the [instructions](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) to create an Azure storage account. Also, create two private Blob containers with name "`fullmodel`" and "`onemonthmodel`" in this storage account. The storage account is used to save intermediate compute results and machine learning models. You need the storage account name and access key to try out this example. Save the following table with the Azure storage account  info for later steps:
+* An Azure Storage account. You can follow [these instructions](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) to create one. Also, create two private blob containers with name "`fullmodel`" and "`onemonthmodel`" in this storage account. The storage account is used to save intermediate compute results and machine learning models. You need the storage account name and access key to try out this example. Save the following table with the Azure storage account info for later steps:
 
- Field Name| Value |  
+ Field name| Value |  
  |------------|------|
  Storage account name| xxx|
  Access key  | xxx|
 
 
-The Ubuntu DSVM and the Azure HDInsight cluster created in the pre-requisite list are compute targets. Compute targets are the compute resource in the context of Azure ML Workbench, which might be different from the computer where Azure ML Workbench runs.   
+The Ubuntu DSVM and the Azure HDInsight cluster created in the pre-requisite list are compute targets. Compute targets are the compute resource in the context of Machine Language Workbench, which might be different from the computer where the Workbench runs.   
 
 ## Create a new Workbench project
 
-Create a new project using this example as a template:
-1.	Open Azure Machine Learning Workbench
-2.	On the **Projects** page, click the **+** sign and select **New Project**
-3.	In the **Create New Project** pane, fill in the information for your new project
-4.	In the **Search Project Templates** search box, type "Workload Forecasting on Terabytes Data" and select the template
-5.	Click **Create**
+Create a new project by using this example as a template:
+1.	Open Machine Learning Workbench.
+2.	On the **Projects** page, select the **+** sign, and select **New Project**.
+3.	In the **Create New Project** pane, fill in the information for your new project.
+4.	In the **Search Project Templates** search box, type "Workload Forecasting on Terabytes Data", and select the template.
+5.	Select **Create**
 
-You can create an Azure ML Workbench project with a pre-created git repository by following this [instruction](./tutorial-classifying-iris-part-1.md).  
-Run git status to inspect the status of the files for version tracking.
+You can create a Workbench project with a pre-created git repository by following this [instruction](./tutorial-classifying-iris-part-1.md).  
+Run `git status` to inspect the status of the files for version tracking.
 
 ## Data description
 
-The data used in the scenario is synthesized server workload data and is hosted in an Azure blob storage account that's publically accessible. The specific storage account info can be found in the `dataFile` field of [`Config/storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json). You can use the data directly from the Azure blob storage. In the event that the storage is used by many users simultaneously, you can opt to use [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) to download the data into your own storage. 
+The data used in this example is synthesized server workload data. It is hosted in an Azure blob storage account that's publically accessible. The specific storage account info can be found in the `dataFile` field of [`Config/storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json). You can use the data directly from the Azure blob storage. If the storage is used by many users simultaneously, you can use [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) to download the data into your own storage. 
 
-The total data size is around 1 TB. Each file is around 1-3 GB and is in CSV file format without header. Each row of data represents the load of a transaction on a particular server.  The detailed information of the data schema is as follows:
+The total data size is approximately 1 TB. Each file is about 1-3 GB, and is in CSV file format, without header. Each row of data represents the load of a transaction on a particular server. The detailed information of the data schema is as follows:
 
-Column Number | Field Name| Type | Description |  
+Column number | Field name| Type | Description |  
 |------------|------|-------------|---------------|
 1  | `SessionStart` | Datetime |	Session start time
 2  |`SessionEnd`	| Datetime | Session end time
-3 |`ConcurrentConnectionCounts` | Integer |	Number of Concurrent Connections
-4 | `MbytesTransferred`	| Double | Normalized data transferred in Megabytes
+3 |`ConcurrentConnectionCounts` | Integer |	Number of concurrent connections
+4 | `MbytesTransferred`	| Double | Normalized data transferred in megabytes
 5 | `ServiceGrade` | Integer |	Service grade for the session
-6 | `HTTP1` | Integer|	whether the session uses HTTP1 or HTTP2
+6 | `HTTP1` | Integer|	Session uses HTTP1 or HTTP2
 7 |`ServerType` | Integer	|Server type
 8 |`SubService_1_Load` | Double |	Subservice 1 load
 9 | `SubService_1_Load` | Double | 	Subservice 2 load
@@ -111,51 +111,51 @@ Column Number | Field Name| Type | Description |
 
 
 
-Note while the expected data types are listed in the preceding table, due to missing values and dirty-data problems, there is no guarantee that the data types is as expected and processing of the data should take this into consideration. 
+Note that the expected data types are listed in the preceding table. Due to missing values and dirty-data problems, there is no guarantee that the data types actually are as expected. Data processing should take this into consideration. 
 
 
 ## Scenario structure
 
 The files in this example are organized as follows.
 
-| File Name | Type | Description |
+| File name | Type | Description |
 |-----------|------|-------------|
-| `Code` | Folder | The  folder contains all the code in the example |
-| `Config` | Folder | The  folder contains the configuration files |
-| `Image` | Folder | The folder  used to save images for the README file |
-| `Model` | Folder | The folder used to save model files downloaded from Azure Blob storage |
-| `Code/etl.py` | Python file | the Python file used for data preparation and feature engineering |
-| `Code/train.py` | Python file | The Python file used to train a three-class multi-classfication model  |
-| `Code/webservice.py` | Python file | The Python file used for operationalization  |
-| `Code/scoring_webservice.py` | Python file |  The Python file used for data transformation and calling the web service |
+| `Code` | Folder | The  folder contains all the code in the example. |
+| `Config` | Folder | The  folder contains the configuration files. |
+| `Image` | Folder | The folder used to save images for the README file. |
+| `Model` | Folder | The folder used to save model files downloaded from Azure blob storage. |
+| `Code/etl.py` | Python file | The Python file used for data preparation and feature engineering. |
+| `Code/train.py` | Python file | The Python file used to train a three-class multi-classfication model.  |
+| `Code/webservice.py` | Python file | The Python file used for operationalization.  |
+| `Code/scoring_webservice.py` | Python file |  The Python file used for data transformation and calling the web service. |
 | `Code/O16Npreprocessing.py` | Python file | The Python file used to preprocess the data for scoring_webservice.py.  |
-| `Code/util.py` | Python file | The Python file, which contains code for reading and writing Azure blobs.  
-| `Config/storageconfig.json` | JSON file | The configuration file for the Azure blob container that stores the intermediate results and model for processing and training on one-month data |
-| `Config/fulldata_storageconfig.json` | Json file |  The configuration file for the Azure blob container that stores the intermediate results and model for processing and training on full dataset|
-| `Config/webservice.json` | JSON file | The configuration file for scoring_webservice.py|
-| `Config/conda_dependencies.yml` | YAML file | The Conda dependency file |
-| `Config/conda_dependencies_webservice.yml` | YAML file | The Conda dependency file for web service|
-| `Config/dsvm_spark_dependencies.yml` | YAML file | the Spark dependency file for Ubuntu DSVM |
-| `Config/hdi_spark_dependencies.yml` | YAML file | the Spark dependency file for HDInsight Spark cluster |
-| `README.md` | Markdown file | The README markdown file |
-| `Code/download_model.py` | Python file | The Python file used to download the  model files from Azure Blob to local disk |
-| `Docs/DownloadModelsFromBlob.md` | Markdown file | The markdown file, which contains the instruction of how to run `Code/download_model.py` |
+| `Code/util.py` | Python file | The Python file that contains code for reading and writing Azure blobs.  
+| `Config/storageconfig.json` | JSON file | The configuration file for the Azure blob container that stores the intermediate results and model for processing and training on one-month data. |
+| `Config/fulldata_storageconfig.json` | Json file | The configuration file for the Azure blob container that stores the intermediate results and model for processing and training on full dataset.|
+| `Config/webservice.json` | JSON file | The configuration file for scoring_webservice.py.|
+| `Config/conda_dependencies.yml` | YAML file | The Conda dependency file. |
+| `Config/conda_dependencies_webservice.yml` | YAML file | The Conda dependency file for the web service.|
+| `Config/dsvm_spark_dependencies.yml` | YAML file | The Spark dependency file for Ubuntu DSVM. |
+| `Config/hdi_spark_dependencies.yml` | YAML file | The Spark dependency file for HDInsight Spark cluster. |
+| `README.md` | Markdown file | The README markdown file. |
+| `Code/download_model.py` | Python file | The Python file used to download the  model files from Azure blob to a local disk. |
+| `Docs/DownloadModelsFromBlob.md` | Markdown file | The markdown file that contains instructions for how to run `Code/download_model.py`. |
 
 
 
 ### Data flow
 
-The code in [`Code/etl.py`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Code/etl.py)  loads data from the publicly accessible container (`dataFile` field of [`Config/storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json)). It includes data preparation and feature engineering, and saves the intermediate compute results and models to your own private container. The code in [`Code/train.py`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Code/train.py) loads the intermediate compute results from the private container, trains the multi-class classification model, and finally writes the trained machine learning model to the private container. It is recommended that the user uses one container for experimentation on the one-month dataset and then another one for experimentation on the full dataset. Since the data and models are saved as Parquet file, each file is actually a folder in the container, containing multiple blobs. The resulting container looks as follows:
+The code in [`Code/etl.py`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Code/etl.py)  loads data from the publicly accessible container (`dataFile` field of [`Config/storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json)). It includes data preparation and feature engineering, and saves the intermediate compute results and models to your own private container. The code in [`Code/train.py`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Code/train.py) loads the intermediate compute results from the private container, trains the multi-class classification model, and writes the trained machine learning model to the private container. You should use one container for experimentation on the one-month dataset, and another one for experimentation on the full dataset. Because the data and models are saved as Parquet file, each file is actually a folder in the container, containing multiple blobs. The resulting container looks as follows:
 
-| Blob Prefix Name | Type | Description |
+| Blob prefix name | Type | Description |
 |-----------|------|-------------|
-| featureScaleModel | Parquet | Standard scaler model for numeric features |
-| stringIndexModel | Parquet | String indexer model for non-numeric features|
-| oneHotEncoderModel|Parquet | One-hot encoder model for categorical features |
-| mlModel | Parquet | trained machine learning model |
-| info| Python pickle file | information about the transformed data, including training start, training end, duration, the timestamp for train-test splitting and columns for indexing and one-hot encoding.
+| featureScaleModel | Parquet | Standard scaler model for numeric features. |
+| stringIndexModel | Parquet | String indexer model for non-numeric features.|
+| oneHotEncoderModel|Parquet | One-hot encoder model for categorical features. |
+| mlModel | Parquet | Trained machine learning model. |
+| info| Python pickle file | Information about the transformed data, including training start, training end, duration, the timestamp for train-test splitting, and columns for indexing and one-hot encoding.
 
-All the files/blobs in the preceding table are used for operationalization.
+All the files and blobs in the preceding table are used for operationalization.
 
 
 ### Model development
@@ -163,16 +163,16 @@ All the files/blobs in the preceding table are used for operationalization.
 #### Architecture diagram
 
 
-The following diagram shows the end-to-end workflow of using Azure ML Workbench to develop the model:
+The following diagram shows the end-to-end workflow of using Machine Learning Workbench to develop the model:
 ![architecture](media/scenario-big-data/architecture.PNG)
 
+In the following sections, we show the model development by using the remote compute target functionality in Machine Language Workbench. We first load a small amount of sample data, and run the script [`Code/etl.py`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Code/etl.py) on an Ubuntu DSVM for fast iteration. We can further limit the work we do in  [`Code/etl.py`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Code/etl.py) by passing an extra argument for faster iteration. In the end, we use an HDInsight cluster to train with full data.     
 
+The  [`Code/etl.py`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Code/etl.py) file loads and prepares the data, and performs feature engineering. It accepts two arguments:
+1. A configuration file for the Azure blob storage container, for storing the intermediate compute results and models.
+2. A debug config argument for faster iteration.
 
-In the following, we show the model development by using the remote compute target functionality in Azure ML workbench. We first load a small sample data and run the script [`Code/etl.py`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Code/etl.py) on an Ubuntu DSVM for fast iteration. We can further limit the work we do in  [`Code/etl.py`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Code/etl.py) by passing an extra argument for faster iteration. In the end, we use a HDInsight cluster to train with full data.     
-
-The  [`Code/etl.py`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Code/etl.py) file performs loading the data, data preparation, and feature engineering. It accepts two arguments: (1) a configuration file for Azure Blob storage container for storing the intermediate compute results and models, (2) debug config for faster iteration.
-
-The first argument, `configFilename`, is a local configuration file where you store the Azure Blob storage information and specify where to load the data. By default, it is  [`Config/storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/storageconfig.json) and it is going to be used in the one-month-data run. We also include [`Config/fulldata_storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldatastorageconfig.json), which you need to use on the full-dataset run. The content in the configuration is as follows: 
+The first argument, `configFilename`, is a local configuration file where you store the Azure blob storage information, and specify where to load the data. By default, it is  [`Config/storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/storageconfig.json), and it is going to be used in the one-month data run. We also include [`Config/fulldata_storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldatastorageconfig.json), which you need to use on the full dataset run. The content in the configuration is as follows: 
 
 | Field | Type | Description |
 |-----------|------|-------------|
@@ -180,14 +180,14 @@ The first argument, `configFilename`, is a local configuration file where you st
 | storageContainer | String | Container in Azure Storage account to store intermediate results |
 | storageKey | String |Azure Storage account access key |
 | dataFile|String | Data source files  |
-| duration| String | duration of data in the data source files|
+| duration| String | Duration of data in the data source files|
 
-Modify both `Config/storageconfig.json` and `Config/fulldata_storageconfig.json` to configure the storage account, storage key, and the blob container to store the intermediate results. By default, the blob container for one-month-data run is "`onemonthmodel`" and the blob container for full-dataset run is "`fullmodel`." Make sure you create these two containers in your storage account. The `"dataFile"` field in [`Config/fulldata_storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldatastorageconfig.json) configures what data is loaded in [`Code/etl.py`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Code/etl.py) and `"duration"` configures the range the data includes. If the duration is set to 'ONE_MONTH', the data loaded should be just one csv file among the seven files of the data for June-2016. If the duration is 'FULL', the full dataset, which is 1 TB, is loaded. You don't need to change `"dataFile"` and `"duration"` in these two configuration files.
+Modify both `Config/storageconfig.json` and `Config/fulldata_storageconfig.json` to configure the storage account, storage key, and the blob container to store the intermediate results. By default, the blob container for the one-month data run is "`onemonthmodel`", and the blob container for full dataset run is "`fullmodel`". Make sure you create these two containers in your storage account. The `"dataFile"` field in [`Config/fulldata_storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldatastorageconfig.json) configures what data is loaded in [`Code/etl.py`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Code/etl.py). `"duration"` configures the range the data includes. If the duration is set to 'ONE_MONTH', the data loaded should be just one .csv file among the seven files of the data for June-2016. If the duration is 'FULL', the full dataset (1 TB) is loaded. You don't need to change `"dataFile"` and `"duration"` in these two configuration files.
 
 The second argument is DEBUG. Setting it to 'FILTER_IP' enables a faster iteration. Use of this parameter is helpful when you want to debug your script.
 
 > [!NOTE]
-> Replace any argument variable in all the following commands with its actual value.
+> In all of the following commands, replace any argument variable with its actual value.
 > 
 
 
