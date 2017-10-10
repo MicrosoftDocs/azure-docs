@@ -142,7 +142,7 @@ Check out following video on policy expressions.
 
 [Policy Reference]: api-management-policy-reference.md
 [Product]: api-management-howto-add-products.md
-[API]: api-management-howto-add-products.md#add-apis 
+[API]: api-management-howto-add-products.md
 [Operation]: api-management-howto-add-operations.md
 
 [Advanced policies]: https://msdn.microsoft.com/library/azure/dn894085.aspx
