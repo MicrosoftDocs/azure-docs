@@ -12,8 +12,8 @@ ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.devlang: java
 ms.workload: na
-ms.date: 09/12/2017
-ms.author: routlaw
+ms.date: 10/03/2017
+ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
 ---
 
@@ -54,16 +54,14 @@ In an empty folder, run the following command to generate the Functions project 
 ```bash
 mvn archetype:generate \
     -DarchetypeGroupId=com.microsoft.azure \
-	-DarchetypeArtifactId=azure-functions-archetype \
-    -DarchetypeVersion=1.0-SNAPSHOT
+	-DarchetypeArtifactId=azure-functions-archetype 
 ```
 
 ### Windows (CMD)
 ```cmd
 mvn archetype:generate ^
 	-DarchetypeGroupId=com.microsoft.azure ^
-	-DarchetypeArtifactId=azure-functions-archetype ^
-    -DarchetypeVersion=1.0-SNAPSHOT
+	-DarchetypeArtifactId=azure-functions-archetype
 ```
 
 Maven prompts you for values needed to finish generating the project. For _groupId_, _artifactId_, and _version_ values, see the [Maven naming conventions](https://maven.apache.org/guides/mini/guide-naming-conventions.html) reference. The _appName_ value must be unique across Azure, so Maven generates an app name based on the previously entered _artifactId_  as a default. The _packageName_ value determines the Java package for the generated function code.
@@ -128,7 +126,7 @@ The deploy process to Azure Functions uses account credentials from the Azure CL
 
 ```
 az login
-mvn azure-fuctions:deploy
+mvn azure-functions:deploy
 ```
 
 When the deploy is complete, you see the URL you can use to access your Azure function app:

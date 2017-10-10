@@ -389,7 +389,7 @@ VNet requirements:
 
 * The virtual network must be in the same Azure **region** and **subscription** as the Azure Batch account.
 
-* For pools created with a virtual machine configuration, only Azure Resource Manager (ARM)-based virtual networks are supported. For pools created with a cloud services xonfiguration, both ARM and classic virtual networks are supported. 
+* For pools created with a virtual machine configuration, only Azure Resource Manager (ARM)-based virtual networks are supported. For pools created with a cloud services configuration, both ARM and classic virtual networks are supported. 
 
 * To use an ARM-based network, the Batch client API must use [Azure Active Directory authentication](batch-aad-auth.md). To use a classic virtual network, the 'MicrosoftAzureBatch' service principal must have the 'Classic Virtual Machine Contributor' Role-Based Access Control (RBAC) role for the specified virtual network. 
 
