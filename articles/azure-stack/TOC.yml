@@ -93,6 +93,8 @@
       href: azure-stack-manage-windows-azure-pack.md
     - name: Replace hardware
       items:
+      - name: Node actions
+        href: azure-stack-node-actions.md
       - name: Replace disk
         href: azure-stack-replace-disk.md
   - name: Security, compliance & identity
