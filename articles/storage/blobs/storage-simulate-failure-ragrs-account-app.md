@@ -34,11 +34,6 @@ In part two of the series, you learn how to:
 
 To complete this tutorial:
 
-* Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
-  - **Azure development**
-
-  ![Azure development (under Web & Cloud)](media/storage-simulate-failure-ragrs-account-app/workloads.png)
-
 * Download and install [Fiddler](https://www.telerik.com/download/fiddler)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -118,7 +113,7 @@ In Visual Studio, select **Continue** or press **F5** to resume debugging.
 
 ### Disable HTTPS decryption
 
-Once you are done testing, HTTPS decryption should be disabled visit: [Configure Fiddler to Decrypt HTTPS Traffic](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS) to find steps to disable HTTPS decryption in Fiddler.
+Once you are done testing, HTTPS decryption should be disabled. To find steps to disable HTTPS decryption in Fiddler, visit: [Configure Fiddler to Decrypt HTTPS Traffic](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
 
 ## Next steps
 
