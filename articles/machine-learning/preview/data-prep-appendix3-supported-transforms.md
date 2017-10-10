@@ -1,6 +1,6 @@
 ---
-title: Supported transformations available with Azure Machine Learning Data Preparation  | Microsoft Docs
-description: This document provides a complete list of transformations available for Azure ML data prep
+title: Use data transforms for data preparation in Azure Machine Learning | Microsoft Docs
+description: This article provides a complete list of transformations available for Azure Machine Learning data prep
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -11,12 +11,13 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 10/09/2017
 ---
-# Supported Transforms for this release
-The following list's and summaries the available Transforms for this release. 
+# Use data transforms for data preparation in Azure Machine Learning
 
-The supported transforms for this release are described below.
+A *transform* in Azure Machine Learning consumes data in a given format, performs an operation on the data (such as changing the data type), and then produces data in the new format. Each transform has its own interface and behavior. You can chain several transforms together via steps in the dataflow, allowing you to perform complex and repeatable transformations on your data. This is the core of data preparation functionality.
+
+The following is a list of the transforms available in Azure Machine Learning. 
 
 ## Column selection 
 Many of the following listed transforms work on a single column or many. To select multiple columns, use Control Click on each column or use Shift Click on a range of columns.
