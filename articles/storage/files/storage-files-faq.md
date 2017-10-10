@@ -51,7 +51,7 @@ ms.author: renash
     Getting started with Azure Files is easy: simply [create a file share](storage-how-to-create-file-share.md) and mount in your preferred operating system: 
 
     - [Mount on Windows](storage-how-to-use-files-windows.md)
-    - [Mount on Linux](storage-how-to-use-files-linux.md) 
+    - [Mount on Linux](storage-how-to-use-files-linux.md)
     - [Mount on macOS](storage-how-to-use-files-mac.md)
 
     For a more in-depth guide on how to deploy an Azure File share to replace production file shares in your organization, see [Planning for an Azure Files deployment](storage-files-planning.md).
