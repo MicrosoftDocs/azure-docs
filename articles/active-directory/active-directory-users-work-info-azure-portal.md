@@ -23,7 +23,7 @@ ms.reviewer: jeffsta
 This article explains how to add or change work information such as phone numbers or department names for a user in Azure Active Directory (Azure AD). For information about adding new users in your organization, see [Add new users to Azure Active Directory](active-directory-users-create-external-azure-portal.md).
 
 ## To change work information
-1. Sign in to the [Azure AD Adm8n Center](https://aad.portal.azure.com) with an account that's a global admin for the directory.
+1. Sign in to the [Azure AD Admin Center](https://aad.portal.azure.com) with an account that's a global admin for the directory.
 2. Select **Users and groups**.
 
    ![Opening user management](./media/active-directory-users-work-info-azure-portal/create-users-user-management.png)
