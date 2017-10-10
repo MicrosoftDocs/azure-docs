@@ -64,9 +64,11 @@ The following steps configure setup of the agent for Log Analytics in Azure and 
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
     ``` 
 
+## Configure agent to communicate with a proxy server
+
 Perform the following steps if your Linux computers need to communicate through a proxy server to Log Analytics.  The proxy configuration value has the following syntax `[protocol://][user:password@]proxyhost[:port]`.
 
-1. Edit the file `/etc/opt/microsoft/omsagent/proxy.conf` and by running the following commands:
+1. Edit the file `/etc/opt/microsoft/omsagent/proxy.conf` by running the following commands and change the values to your specific settings.
 
     ```
     proxyconf="https://proxyuser:proxypassword@proxyserver01:30443"
