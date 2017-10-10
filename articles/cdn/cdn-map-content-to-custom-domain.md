@@ -1,5 +1,5 @@
 ---
-title: Map Azure CDN content to a custom domain | Microsoft Docs
+title: Add a custom domain to your CDN endpoint | Microsoft Docs
 description: Learn how to map Azure CDN content to a custom domain.
 services: cdn
 documentationcenter: ''
