@@ -41,6 +41,10 @@ References:
 
 ## SAP NetWeaver certifications
 Microsoft Azure is certified for the following SAP products, with full support from Microsoft and SAP.
+References:
+
+- [1928533 - SAP Applications on Azure: Supported Products and Azure VM types](https://launchpad.support.sap.com/#/notes/1928533) for all SAP NetWeaver based applications, including SAP TREX, SAP LiveCache and SAP Content Server. And all databases, excluding SAP HANA.
+
 
 | SAP Product | Guest OS | RDBMS | Virtual Machine Types |
 | --- | --- | --- | --- |
