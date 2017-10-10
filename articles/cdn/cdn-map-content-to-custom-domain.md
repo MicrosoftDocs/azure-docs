@@ -46,6 +46,10 @@ Often, you can find the DNS records page by viewing your account information, an
 
 ## Step 2: Create the CNAME DNS record(s)
 
+You must create a CNAME DNS record with your domain registrar to map your domain to the CDN endpoint. CNAME records map specific subdomains such as `www.contoso.com` or `cdn.contoso.com`. It is not possible to map a CNAME record to a root domain, such as `contoso.com`.
+
+A subdomain can be associated with only one CDN endpoint. The CNAME record that you create will route all traffic addressed to the subdomain to the specified endpoint. For example, if you associate `www.contoso.com` with your CDN endpoint, you cannot associate it with another Azure endpoint, such as a storage account endpoint or a cloud service endpoint. However, you can use different subdomains from the same domain for different service endpoints. You can also map different subdomains to the same CDN endpoint.
+
 Use one of the following options to map your custom domain to a CDN endpoint:
 
 - Option 1: Direct mapping. If **NO** production traffic is running on the custom domain, you can map a custom domain to a CDN endpoint directly. The process of mapping your custom domain to your CDN endpoint might result in a brief period of downtime for the domain while you are registering the domain in the Azure portal. Your DNS mapping should be similar to: `www.consoto.com   CNAME   consoto.azureedge.net`.
@@ -54,12 +58,6 @@ Use one of the following options to map your custom domain to a CDN endpoint:
 
    1. Create a new CNAME record and provide a subdomain alias that includes the **cdnverify** subdomain. For example, **cdnverify.www** or **cdnverify.cdn**. 
    2. Provide the host name, which is your CDN endpoint, in the following format: `cdnverify.&lt;EndpointName>.azureedge.net`. Your DNS mapping should look like: `cdnverify.www.consoto.com   CNAME   cdnverify.consoto.azureedge.net`.
-
-> [!NOTE]
-> You must create a CNAME record with your domain registrar to map your domain to the CDN endpoint. CNAME records map specific subdomains such as `www.contoso.com` or `cdn.contoso.com`. It is not possible to map a CNAME record to a root domain, such as `contoso.com`.
-> 
-> A subdomain can be associated with only one CDN endpoint. The CNAME record that you create will route all traffic addressed to the subdomain to the specified endpoint. For example, if you associate `www.contoso.com` with your CDN endpoint, you cannot associate it with another Azure endpoint, such as a storage account endpoint or a cloud service endpoint. However, you can use different subdomains from the same domain for different service endpoints. You can also map different subdomains to the same CDN endpoint.
-> 
 
 ## Step 3: Enable the CNAME record mapping in Azure
 
@@ -70,8 +68,9 @@ After you have registered your custom domain by using one of the previous proced
 3. In the upper left of the endpoint blade, click **Custom domain**. 
    ![Custom domain button](./media/cdn-map-content-to-custom-domain/cdn-custom-domain-button.png)
 
-4. In the **Custom hostname** text box, enter your custom domain, including the subdomain. For example, `www.contoso.com` or `cdn.contoso.com`. 
-   ![Add a custom domain dialog](./media/cdn-map-content-to-custom-domain/cdn-add-custom-domain-dialog.png)
+4. In the **Custom hostname** text box, enter your custom domain, including the subdomain. For example, `www.contoso.com` or `cdn.contoso.com`.
+
+![Add a custom domain dialog](./media/cdn-map-content-to-custom-domain/cdn-add-custom-domain-dialog.png)
 
 5. Click **Add**.
    Azure verifies that the CNAME record exists for the domain name you have entered. If the CNAME is correct, your custom domain is validated. It can take some time for the CNAME record to propagate to the name servers. If your domain is not validated immediately, verify that the CNAME record is correct, then wait a few minutes and try again. For **Azure CDN from Verizon** (Standard and Premium) endpoints, it can take up to 90 minutes for custom domain settings to propagate to all CDN edge nodes.  
