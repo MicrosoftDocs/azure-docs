@@ -27,6 +27,17 @@ These release notes provide information on new features and known issues in Azur
 ## Release Build 20170928.3
 
 ### Known issues
+
+#### PowerShell
+
+Azure PowerShell 1.2.11 is not yet available but is tracking for a release later this week. Until that time, consider the following issues:
+* As they are dependent on it, the App Service, SQL Adapter, and MYSQL Adapter Resource Providers are delayed until Azure PowerShell 1.2.11 is available.
+* Azure PowerShell 1.2.11 is referenced in the documentation, even though it is not yet available.
+* AzureStack-Tools still reference Azure PowerShell 1.2.10, and will remain that way until 1.2.11 is available.
+* Azure PS 1.2.10 can still be used with the development kit for many operations, but it will need to be replaced when Azure PS 1.2.11 is available.
+
+
+
 #### Deployment
 * You must specify a time server by IP address during deployment.  
 
