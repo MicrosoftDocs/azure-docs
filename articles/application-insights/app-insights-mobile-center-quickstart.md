@@ -83,7 +83,7 @@ Remember to repeat this process for each platform your app supports.
 
 Once export is set up, each custom event received by Mobile Center is copied into Application Insights. It can take several minutes for events to reach Application Insights, so if they don't show up immediately, wait a bit before diagnosing further.
 
-Mobile Center exports the most recent 48 hours of custom events to Application Insights. Currently, there's no way to export Mobile Center custom events to Application Insights from earlier than 48 hours ago.
+To give you more data when you first connect, the most recent 48 hours of custom events in Mobile Center are also exported to Application Insights. Currently, there's no way to export more or less than this most recent 48 hours when you turn on continuous export.
 
 ## Start monitoring your app in the Azure portal
 
