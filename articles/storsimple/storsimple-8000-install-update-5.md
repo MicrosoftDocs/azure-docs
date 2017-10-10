@@ -1,10 +1,10 @@
 ---
 title: Install Update 5 on StorSimple 8000 series device | Microsoft Docs
-description: Explains how to install StorSimple 8000 Series Update 4 on your StorSimple 8000 series device.
+description: Explains how to install StorSimple 8000 Series Update 5 on your StorSimple 8000 series device.
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jconnoc
 editor: ''
 
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/02/2017
+ms.date: 10/06/2017
 ms.author: alkohli
 
 ---
@@ -44,12 +44,11 @@ Perform the following steps to update your device to [Update 5](storsimple-updat
 
 Verify that your device is running **StorSimple 8000 Series Update 5 (6.3.9600.17845)**. The **Last updated date** should be modified.
 
-* You will now see that the Maintenance mode updates are available (this message might continue to be displayed for up to 24 hours after you install the updates). Maintenance mode updates are disruptive updates that result in device downtime and can only be applied via the Windows PowerShell interface of your device.
+You will now see that the Maintenance mode updates are available (this message might continue to be displayed for up to 24 hours after you install the updates). The steps to install maintenance mode update are detailed in the next section.
 
-* Download the maintenance mode updates by using the steps listed in [to download hotfixes](#to-download-hotfixes) to search for and download KB4011837, which installs disk firmware updates (the other updates should already be installed by now). Follow the steps listed in [install and verify maintenance mode hotfixes](#to-install-and-verify-maintenance-mode-hotfixes) to install the maintenance mode updates.
+[!INCLUDE [storsimple-8000-install-maintenance-mode-updates](../../includes/storsimple-8000-install-maintenance-mode-updates.md)]
 
 ## Install Update 5 as a hotfix
-
 
 The software versions that can be upgraded using the hotfix method are:
 
