@@ -117,7 +117,7 @@ This article will cover some of the commonly asked questions about Azure Files f
         If the file has a reparse point, you should see **Reparse Tag Value : 0x8000001e**. This hexadecimal value is the reparse point value owned by Azure File Sync. The output will also contain the reparse data representing the path to your file in your Azure File share.
 
         > [!Warning]  
-        > The `fsutil reparsepoint` utility command also contains the ability to delete a reparse point. Do not execute this command unless instructed to by the Azure File Sync engineer team - doing so may result data loss. 
+        > The `fsutil reparsepoint` utility command also contains the ability to delete a reparse point. Do not execute this command unless instructed to by the Azure File Sync engineering team - doing so may result data loss. 
 
 * **A file I want to use has been tiered... how can I recall it to disk for use locally?**  
     The easiest way to recall a file to disk is to open it. The Azure File Sync file system filter (StorageSync.sys) will seamlessly download the file from your Azure File share without you having to do any work. For file types that can be partially read from, such as multimedia or zip files, opening a file will not result in the download of the entire file.
@@ -166,7 +166,7 @@ This article will cover some of the commonly asked questions about Azure Files f
     - Azure File Sync will preserve and replicate all ACLs (AD-based or local) to all server endpoints it syncs to. Because Windows Server can already authenticate with Active Directory, Azure File Sync can provide a great stop-gap measure until full support for AD-based authentication and ACL support arrives.
 
 * **How can I ensure my Azure File share is encrypted at-rest?**  
-    You don't have to do anything to enable encryption, [Server Side Encryption](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) is now enabled by default for Azure Files in all public regions and national clouds. 
+    Encryption at-rest is in the process of being enabled by default in all regions. For these regions, you don't have to do anything to enable encryption. For other regions, please consult [Server Side Encryption](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 * **How can I provide access to a specific file using a web browser?**  
     Using SAS, you can generate tokens with specific permissions that are valid for a specified time interval. For example, you can generate a token with read-only access to a particular file for a specific period of time. Anyone who possesses this url can access the file directly from any web browser while it is valid. SAS keys can be easily generated from UI like Storage Explorer.
