@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2017
+ms.date: 07/18/2017
 ms.author: billmath
 
 ---
@@ -176,7 +176,7 @@ In this task you will define the multi-factor authentication strategy to use.  A
 
 Multi-factor design options:
 
-| Asset to secure | MFA in the cloud | MFA on-premise |
+| Asset to secure | MFA in the cloud | MFA on-premises |
 | --- | --- | --- |
 | Microsoft apps |yes |yes |
 | SaaS apps in the app gallery |yes |yes |

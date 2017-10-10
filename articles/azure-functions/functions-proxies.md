@@ -4,7 +4,7 @@ description: Overview of how to use Azure Functions Proxies
 services: functions
 documentationcenter: ''
 author: mattchenderson
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 

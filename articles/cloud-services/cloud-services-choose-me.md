@@ -24,7 +24,7 @@ Is Azure Cloud Services the choice for you? Azure provides different hosting mod
 <a name="tellmecs"></a>
 
 ## Tell me about cloud services
-Cloud Services is an example of [Platform-as-a-Service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Like [App Service](../app-service-web/app-service-web-overview.md), this technology is designed to support applications that are scalable, reliable, and cheap to operate. Just like an App Service is hosted on VMs, so too are Cloud Services, however, you have more control over the VMs. You can install your own software on Cloud Service VMs and you can remote into them.
+Cloud Services is an example of [Platform-as-a-Service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Like [App Service](../app-service/app-service-web-overview.md), this technology is designed to support applications that are scalable, reliable, and cheap to operate. Just like an App Service is hosted on VMs, so too are Cloud Services, however, you have more control over the VMs. You can install your own software on Cloud Service VMs and you can remote into them.
 
 ![cs_diagram](./media/cloud-services-choose-me/diagram.png)
 
@@ -38,7 +38,7 @@ Automatically deploys and hosts your app through IIS.
 * **Worker role**  
 Does not use IIS and runs your app standalone.
 
-For example, a simple application might use just a single web role, serving a website. A more complex application might use a web role to handle incoming requests from users, then pass those requests on to a worker role for processing. (This communication could use [Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md) or [Azure Queues](../storage/storage-introduction.md).)
+For example, a simple application might use just a single web role, serving a website. A more complex application might use a web role to handle incoming requests from users, then pass those requests on to a worker role for processing. (This communication could use [Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md) or [Azure Queues](../storage/common/storage-introduction.md).)
 
 As the preceding figure suggests, all the VMs in a single application run in the same cloud service. Users access the application through a single public IP address, with requests automatically load balanced across the application's VMs. The platform [scales and deploys](cloud-services-how-to-scale.md) the VMs in a Cloud Services application in a way that avoids a single point of hardware failure.
 

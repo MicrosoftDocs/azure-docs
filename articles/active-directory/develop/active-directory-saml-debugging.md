@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2016
+ms.date: 07/20/2017
 ms.author: asmalser
 ms.custom: aaddev
+ms.reviewer: dastrock
 
 ---
 # How to debug SAML-based single sign-on to applications in Azure Active Directory

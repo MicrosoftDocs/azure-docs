@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/12/2017
 ms.author: billmath
 
 ---
@@ -1179,7 +1179,7 @@ Process all values in a multi-valued attribute (or output of an expression) base
 * condition: any function that can process an item in the attribute
 
 **Examples:**  
-`Select($item,[otherPhone],Replace($item,“-”,“”))`  
+`Select($item,[otherPhone],Replace($item,"-",""))`  
 Return all the values in the multi-valued attribute otherPhone after hyphens (-) have been removed.
 
 - - -

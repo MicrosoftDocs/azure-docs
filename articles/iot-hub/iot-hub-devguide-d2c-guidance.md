@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 10/09/2017
 ms.author: elioda
 
 ---
@@ -32,9 +32,9 @@ Here is a detailed comparison of the various device-to-cloud communication optio
 | Storage and retrieval | Temporarily stored by IoT Hub, up to 7 days. Only sequential reading. | Stored by IoT Hub in the device twin. Retrievable using the [IoT Hub query language][lnk-query]. | Stored in user-provided Azure Storage account. |
 | Size | Up to 256-KB messages. | Maximum reported properties size is 8 KB. | Maximum file size supported by Azure Blob Storage. |
 | Frequency | High. For more information, see [IoT Hub limits][lnk-quotas]. | Medium. For more information, see [IoT Hub limits][lnk-quotas]. | Low. For more information, see [IoT Hub limits][lnk-quotas]. |
-| Protocol | Available on all protocols. | Currently available only when using MQTT. | Available when using any protocol, but requires HTTP on the device. |
+| Protocol | Available on all protocols. | Available using MQTT or AMQP. | Available when using any protocol, but requires HTTP on the device. |
 
-It is possible that an application requires to both send information as a telemetry time series or alert and also to make it available in the device twin. In this scenario, you can chose one of the following options:
+It is possible that an application requires to both send information as a telemetry time series or alert and also to make it available in the device twin. In this scenario, you can choose one of the following options:
 
 * The device app sends a device-to-cloud message and reports a property change.
 * The solution back end can store the information in the device twin's tags when it receives the message.

@@ -52,7 +52,7 @@ Don't have time to complete the tutorial and just want to get the full sample Po
     <tr><th>Supported HDInsight Versions</th>
         <td>3.1, 3.2</td></tr>
     <tr><th>Change Log</th>
-        <td>Updated DocumentDB Java SDK to 1.6.0</br>
+        <td>Updated Azure Cosmos DB Java SDK to 1.6.0</br>
             Added support for partitioned collections as both a source and sink</br>
         </td></tr>
 </table>
@@ -174,9 +174,9 @@ This tutorial uses Script Action from the Azure Portal to customize your HDInsig
 
         # Provide the HDInsight cluster name where you want to run the Hive job.
         $clusterName = "<HDInsightClusterName>"
-2. <p>Let's begin constructing your query string. We'll write a Hive query that takes all documents' system generated timestamps (_ts) and unique ids (_rid) from a DocumentDB collection, tallies all documents by the minute, and then stores the results back into a new DocumentDB collection.</p>
+2. <p>Let's begin constructing your query string. We'll write a Hive query that takes all documents' system generated timestamps (_ts) and unique ids (_rid) from an Azure Cosmos DB collection, tallies all documents by the minute, and then stores the results back into a new Azure Cosmos DB collection.</p>
 
-    <p>First, let's create a Hive table from our DocumentDB collection. Add the following code snippet to the PowerShell Script pane <strong>after</strong> the code snippet from #1. Make sure you include the optional DocumentDB.query parameter t trim our documents to just _ts and _rid.</p>
+    <p>First, let's create a Hive table from our Azure Cosmos DB collection. Add the following code snippet to the PowerShell Script pane <strong>after</strong> the code snippet from #1. Make sure you include the optional DocumentDB.query parameter t trim our documents to just _ts and _rid.</p>
 
    > [!NOTE]
    > **Naming DocumentDB.inputCollections was not a mistake.** Yes, we allow adding multiple collections as an input: </br>
@@ -252,8 +252,8 @@ This tutorial uses Script Action from the Azure Portal to customize your HDInsig
 
    1. Click <strong>Browse</strong> on the left-side panel. </br>
    2. Click <strong>everything</strong> at the top-right of the browse panel. </br>
-   3. Find and click <strong>DocumentDB Accounts</strong>. </br>
-   4. Next, find your <strong>DocumentDB Account</strong>, then <strong>DocumentDB Database</strong> and your <strong>DocumentDB Collection</strong> associated with the output collection specified in your Hive query.</br>
+   3. Find and click <strong>Azure Cosmos DB Accounts</strong>. </br>
+   4. Next, find your <strong>Azure Cosmos DB Account</strong>, then <strong>Azure Cosmos DB Database</strong> and your <strong>Azure Cosmos DB Collection</strong> associated with the output collection specified in your Hive query.</br>
    5. Finally, click <strong>Document Explorer</strong> underneath <strong>Developer Tools</strong>.</br></p>
 
    You will see the results of your Hive query.
@@ -273,7 +273,7 @@ This tutorial uses Script Action from the Azure Portal to customize your HDInsig
 
         # Provide HDInsight cluster name where you want to run the Pig job.
         $clusterName = "Azure HDInsight Cluster Name"
-2. <p>Let's begin constructing your query string. We'll write a Pig query that takes all documents' system generated timestamps (_ts) and unique ids (_rid) from a DocumentDB collection, tallies all documents by the minute, and then stores the results back into a new DocumentDB collection.</p>
+2. <p>Let's begin constructing your query string. We'll write a Pig query that takes all documents' system generated timestamps (_ts) and unique ids (_rid) from an Azure Cosmos DB collection, tallies all documents by the minute, and then stores the results back into a new Azure Cosmos DB collection.</p>
     <p>First, load documents from Cosmos DB into HDInsight. Add the following code snippet to the PowerShell Script pane <strong>after</strong> the code snippet from #1. Make sure to add a DocumentDB query to the optional DocumentDB query parameter to trim our documents to just _ts and _rid.</p>
 
    > [!NOTE]
@@ -339,20 +339,20 @@ This tutorial uses Script Action from the Azure Portal to customize your HDInsig
 
     1. Click <strong>Browse</strong> on the left-side panel. </br>
     2. Click <strong>everything</strong> at the top-right of the browse panel. </br>
-    3. Find and click <strong>DocumentDB Accounts</strong>. </br>
-    4. Next, find your <strong>DocumentDB Account</strong>, then <strong>DocumentDB Database</strong> and your <strong>DocumentDB Collection</strong> associated with the output collection specified in your Pig query.</br>
+    3. Find and click <strong>Azure Cosmos DB Accounts</strong>. </br>
+    4. Next, find your <strong>Azure Cosmos DB Account</strong>, then <strong>Azure Cosmos DB Database</strong> and your <strong>Azure Cosmos DB Collection</strong> associated with the output collection specified in your Pig query.</br>
     5. Finally, click <strong>Document Explorer</strong> underneath <strong>Developer Tools</strong>.</br></p>
 
     You will see the results of your Pig query.
 
     ![Pig query results][image-pig-query-results]
 
-## <a name="RunMapReduce"></a>Step 5: Run a MapReduce job using DocumentDB and HDInsight
+## <a name="RunMapReduce"></a>Step 5: Run a MapReduce job using Azure Cosmos DB and HDInsight
 1. Set the following variables in your PowerShell Script pane.
 
         $subscriptionName = "<SubscriptionName>"   # Azure subscription name
         $clusterName = "<ClusterName>"             # HDInsight cluster name
-2. We'll execute a MapReduce job that tallies the number of occurrences for each Document property from your DocumentDB collection. Add this script snippet **after** the snippet above.
+2. We'll execute a MapReduce job that tallies the number of occurrences for each Document property from your Azure Cosmos DB collection. Add this script snippet **after** the snippet above.
 
         # Define the MapReduce job.
         $TallyPropertiesJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/TallyProperties-v01.jar" -ClassName "TallyProperties" -Arguments "<DocumentDB Endpoint>","<DocumentDB Primary Key>", "<DocumentDB Database Name>","<DocumentDB Input Collection Name>","<DocumentDB Output Collection Name>","<[Optional] DocumentDB Query>"
@@ -380,8 +380,8 @@ This tutorial uses Script Action from the Azure Portal to customize your HDInsig
 
    1. Click <strong>Browse</strong> on the left-side panel.
    2. Click <strong>everything</strong> at the top-right of the browse panel.
-   3. Find and click <strong>Cosmos DB Accounts</strong>.
-   4. Next, find your <strong>Cosmos DB Account</strong>, then <strong>Cosmos DB Database</strong> and your <strong>DocumentDB Collection</strong> associated with the output collection specified in your MapReduce job.
+   3. Find and click <strong>Azure Cosmos DB Accounts</strong>.
+   4. Next, find your <strong>Azure Cosmos DB Account</strong>, then <strong>Azure Cosmos DB Database</strong> and your <strong>Azure Cosmos DB Collection</strong> associated with the output collection specified in your MapReduce job.
    5. Finally, click <strong>Document Explorer</strong> underneath <strong>Developer Tools</strong>.
 
       You will see the results of your MapReduce job.

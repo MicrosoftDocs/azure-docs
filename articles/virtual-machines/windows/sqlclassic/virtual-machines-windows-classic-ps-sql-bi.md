@@ -130,7 +130,7 @@ Analysis Services, Reporting Services, SQL Server Database Engine, and data sour
 * In this example deployment Analysis Services, Reporting Services, and the SQL Server Database Engine run on a single virtual machine. The virtual machine hosts the report server databases. The virtual machine is joined to an on-premises Domain through Azure Virtual Networking, or some other VPN tunneling solution.
 * Data source is on-premises.
 
-![bi iaas scenarios vm and on premise data sources](./media/virtual-machines-windows-classic-ps-sql-bi/IC654384.gif)
+![bi iaas scenarios vm and on-premises data sources](./media/virtual-machines-windows-classic-ps-sql-bi/IC654384.gif)
 
 ## Reporting Services Native Mode Configuration
 The virtual machine gallery image for SQL Server includes Reporting Services Native mode installed, however the report server is not configured. The steps in this section configure the Reporting Services report server. For more detailed information on configuring Reporting Services Native mode, see [Install Reporting Services Native Mode Report Server (SSRS)](https://msdn.microsoft.com/library/ms143711.aspx).

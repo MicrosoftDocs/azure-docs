@@ -74,7 +74,7 @@ Client certificates are required in order to authenticate requests to the servic
 2. [Upload CA Certificate to Cloud Service](#upload-ca-certificate-to-cloud-service)
 3. [Update CA Certificate in Service Configuration File](#update-ca-certificate-in-service-configuration-file)
 4. [Issue Client Certificates](#issue-client-certificates)
-5. [Create PFX files for Client Certificates](#create-pfx-files-for-client-crtificates)
+5. [Create PFX files for Client Certificates](#create-pfx-files-for-client-certificates)
 6. [Import Client Certificate](#Import-Client-Certificate)
 7. [Copy Client Certificate Thumbprints](#copy-client-certificate-thumbprints)
 8. [Configure Allowed Clients in the Service Configuration File](#configure-allowed-clients-in-the-service-configuration-file)
@@ -84,7 +84,7 @@ Client certificates are required in order to authenticate requests to the servic
 2. [Upload CA Certificate to Cloud Service](#Upload-CA-certificate-to-cloud-service)
 3. [Update CA Certificate in Service Configuration File](#Update-CA-Certificate-in-Service-Configuration-File)
 4. [Copy Client Certificate Thumbprints](#Copy-Client-Certificate-Thumbprints)
-5. [Configure Allowed Clients in the Service Configuration File](#Configure-Allowed-Clients-in-the-Service-Configuration File)
+5. [Configure Allowed Clients in the Service Configuration File](#configure-allowed-clients-in-the-service-configuration-file)
 6. [Configure Client Certificate Revocation Check](#Configure-Client-Certificate-Revocation-Check)
 
 ## Allowed IP addresses
@@ -95,7 +95,7 @@ A certificate is required to encrypt the credentials that are stored in the meta
 
 ### Use a new self-signed certificate
 1. [Create a Self-Signed Certificate](#create-a-self-signed-certificate)
-2. [Create PFX file for Self-Signed Encryption Certificate](#create-pfx-file-for-self-signed-encryption-certificate)
+2. [Create PFX file for Self-Signed Encryption Certificate](#create-pfx-file-for-self-signed-ssl-certificate)
 3. [Upload Encryption Certificate to Cloud Service](#upload-encryption-certificate-to-cloud-service)
 4. [Update Encryption Certificate in Service Configuration File](#update-encryption-certificate-in-service-configuration-file)
 

@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 06/27/2017
 ms.author: raynew
 
 ---
@@ -23,7 +23,7 @@ Use the instructions in this article to prepare on-premises VMware servers to in
 
 ## Prepare for automatic discovery
 
-Site Recovery automatically discovers VMs located and vSphere ESXi hosts, and/or managed by vCenter servers.  To do this, Site Recovery needs credentials that can access vCenter servers and vSphere ESXi hosts. Create those as follows:
+Site Recovery automatically discovers VMs running on vSphere ESXi hosts (with or without a vCenter server). For automatic discovery, Site Recovery needs an account to access hosts and servers:
 
 1. To use a dedicated account, create a role (at the vCenter level, with the permissions described in the table below. Give it a name such as **Azure_Site_Recovery**.
 2. Then, create a user on the vSphere host/vCenter server, and assign the role to the user. You specify this user account during Site Recovery deployment.

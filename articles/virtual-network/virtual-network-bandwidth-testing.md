@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/21/2017
+ms.date: 07/21/2017
 ms.author: steveesp
 
 ---
@@ -152,7 +152,7 @@ ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
 
 Receiver <Linux>:
 
-``` bash 
+``` bash
 ntttcp -r -m <2 x nr cores>,*,<Linux server IP>
 ```
 
