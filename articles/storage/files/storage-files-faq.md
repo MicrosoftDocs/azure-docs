@@ -97,16 +97,92 @@ ms.author: renash
     You can mount the file share via the SMB protocol as long as port 445 (TCP Outbound) is open and your client supports the SMB 3.0 protocol (for example, you're using Windows 10 or Windows Server 2012). Please work with your local ISP provider to unblock the port. In the interim, you can view your files using [Storage Explorer](../../vs-azure-tools-storage-explorer-files.md#view-a-file-shares-contents).
 
 
+## Share snapshots
+
+### Share snapshots - General
+
+* **Q. What is file share snapshot?**
+    
+     Azure file share snapshots allows you to create a read-only versions of your file shares. It also allows you to copy an older version of your content back to the same share or an alternate location in Azure or on-premises for further modifications. To learn more about share snapshot, see at [share snapshot overview](storage-snapshots-files.md).
+
+* **Q. Where are my share snapshots stored?**
+    
+     Share snapshots are stored in the same storage account as the file share.
+
+* **Q. Are there any performance implications?**
+    
+     Share snapshots do not have any performance overhead.
+
+
+* **Q. Are share snapshots application consistent?**
+    
+     No. Share snapshots are not application consistent. User will have to flush the writes from the application to the share before taking share snapshot.
+
+* **Q. Are there any limits on the number of share snapshots?**
+    
+     There is a limit of 200 share snapshots that Azure Files can retain. Share snapshots do not count towards the share quota so there is no per share limit on the total space utilized by all the share snapshots.Storage account limits still apply. After 200 share snapshots, older snapshots will have to be deleted in order to create new share snapshots.
+
+### Create share snapshots
+
+* **Q. Can I create share snapshot of individual files?**
+    
+     Share snapshots are created at file share level. You can restore individual files from the file share snapshot but you cannot create file-level share snapshots. However, if you have taken a share level share snapshot and you want to list share snapshots where a particular file has changed, you can do so from "Previous Versions" experience on a Windows mounted share.
+
+* **Q. Can I create share snapshots of Encrypted fileshare?**
+    
+     You can take a share snapshot of Azure File shares which has Encryption at rest enabled. You can restore files from a share snapshot to an encrypted file share. If your share is encrypted, your share snapshot will also be encrypted.
+
+* **Q.Can I create geo-redundant share snapshots?**
+    
+     Redundancy tier of share snapshot will be same as the base Azure File Share. If you have selected GRS for your account your share snapshot will also be stored redundantly in a different geo.
+
+### Manage share snapshots
+
+* **Q. Can I browse my share snapshots from Linux?**
+    
+     You can use Azure CLI 2.0 to create, list, browse and restore on Linux.
+
+* **Q. Can I copy the share snapshots to a different storage account?**
+    
+    One can copy files from share snapshots to another location but not the share snapshots themselves.
+
+### Restore data from share snapshots
+
+* **Q. Can I promote a share snapshot to the base share?**
+    
+    You can only copy data from a share snapshot to any desired destination. However you cannot promote a share snapshot to the base share.
+
+* **Q. Can I restore data from my share snapshot to a different storage account?**
+    
+    Yes. Files from a share snapshot can be copied to original or an alternate location which includes same/different storage account in same or different regions. You can also copy files to on-premises or any other cloud.    
+  
+### Cleanup share snapshot
+
+* **Q. Can I delete my share but not share snapshots?**
+    
+    You will not be able to delete your share if you have active share snapshots on your share. There is an API available for deleting share snapshots along with share and you can achieve the same from Azure portal as well.
+
+* **Q. What happens to my share snapshots if I delete my Storage Account?**
+    
+    If you delete your storage account, the share snapshots will be deleted as well.
+
 ## Billing and Pricing
+
 * **Q. Does the network traffic between an Azure VM and a file share count as external bandwidth that is charged to the subscription?**
    
     If the file share and VM are in the same Azure region, the traffic between them is free. If they are in different regions, the traffic between them will be charged as external bandwidth.
+
+* **Q. How much does share snapshots cost?**
+    
+     During Public Preview share snapshot capacity won't be charged. Standard Storage egress and transaction costs sill apply. After GA, both capacity and transactions on share snapshot will be charged.
+     
+     Sshare snapshots are incremental in nature. The base share snapshot is the share itself. All the subsequent share snapshots are incremental and will only store the diff from the previous share snapshot. You are billed only for the changed content. If you have a share with 100 GB of data but only 5 GB has changed after your last share snapshot, the share snapshot will consumes only 5 additional GB and you will be billed only 105 GB. See [Pricing page](https://azure.microsoft.com/en-us/pricing/details/storage/files/) for more information on transaction and standard egress charges.
 
 ## Backup
 
 * **Q. How do I backup my Azure File Share?**
     
-    You can use AzCopy, RoboCopy, or a 3rd party backup tool that can backup a mounted file share. We expect to have the ability to take snapshots of File shares in the near future; you will be able to use this feature to backup your Azure File share.
+    You can use periodic share snapshots for protection against accidental deletes. You can also use AzCopy, RoboCopy, or a 3rd party backup tool that can backup a mounted file share.
 
 ## Performance
 

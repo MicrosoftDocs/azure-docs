@@ -53,6 +53,8 @@
         href: log-analytics-azure-vm-extension.md
       - name: Azure resources
         href: log-analytics-azure-storage.md
+      - name: Diagnostic or log data from Azure storage
+        href: log-analytics-azure-storage-iis-table.md
       - name: Operations Manager
         href: log-analytics-om-agents.md
       - name: Configuration Manager
@@ -230,7 +232,11 @@
   - name: Azure PowerShell
     href: /powershell/module/azurerm.operationalinsights
   - name: REST
-    href: /rest/api/loganalytics
+    href: /rest/api/loganalytics 
+  - name: View Designer tile reference
+    href: log-analytics-view-designer-tiles.md
+  - name: View Designer visualization part reference
+    href: log-analytics-view-designer-parts.md
 - name: Resources
   items:
   - name: Azure Roadmap

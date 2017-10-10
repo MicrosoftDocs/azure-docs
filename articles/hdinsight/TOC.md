@@ -23,7 +23,7 @@
 ## [Start with R Server](hdinsight-hadoop-r-server-get-started.md)
 ## [Start with HBase & NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Start with Storm](hdinsight-apache-storm-tutorial-get-started-linux.md)
-## [Start with Interactive Query)](hdinsight-hadoop-use-interactive-hive.md)
+## [Start with Interactive Query](hdinsight-hadoop-use-interactive-hive.md)
 ## [Start with Kafka (Preview)](hdinsight-apache-kafka-get-started.md)
 ## [Hadoop sandbox](hdinsight-hadoop-emulator-get-started.md)
 ## [Data Lake Tools with Hortonworks Sandbox](hdinsight-hadoop-emulator-visual-studio.md)
