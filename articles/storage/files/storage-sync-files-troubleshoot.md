@@ -23,7 +23,7 @@ Azure File Sync (preview) allows you to centralize your organization's file shar
 This article is designed to help you troubleshoot and resolve issues encountered with your Azure File Sync deployment. Failing that, this guide illustrates how to collect important logs from the system to aid in a deeper investigation of the issues. The following options are available for getting support for Azure File Sync:
 
 - Microsoft Support: To create a new support case, navigate to the "Help + support" tab on the Azure portal and click "New support request".
-- [Azure Storage Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazuredata)
+- [Azure Storage Forum](https://social.msdn.microsoft.com/Forums/home?forum=windowsazuredata)
 
 ## How to troubleshoot agent installation failures
 If the Azure File Sync agent installation is failing, run the following command from an elevated command prompt to enable logging during the agent installation:
