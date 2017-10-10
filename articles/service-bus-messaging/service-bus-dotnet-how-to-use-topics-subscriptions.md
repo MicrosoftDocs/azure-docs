@@ -13,7 +13,7 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 06/30/2017
+ms.date: 10/10/2017
 ms.author: sethm
 
 ---
@@ -79,7 +79,7 @@ Launch Visual Studio and create a new **Console app (.NET Framework)** project.
 ### Add the Service Bus NuGet package
 
 1. Right-click the newly created project and select **Manage NuGet Packages**.
-2. Click the **Browse** tab, search for **Microsoft Azure Service Bus**, and then select the **WindowsAzure.ServiceBus** item. Click **Install** to complete the installation, then close this dialog box.
+2. Click the **Browse** tab, search for **WindowsAzure.ServiceBus**, and then select the **WindowsAzure.ServiceBus** item. Click **Install** to complete the installation, then close this dialog box.
    
     ![Select a NuGet package][nuget-pkg]
 
@@ -153,7 +153,7 @@ Launch Visual Studio and create a new **Console app (.NET Framework)** project.
     ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
-3. Add the following code to the `Main` method. Set the `connectionString` variable to the connection string you obtained when creating the namespace, and set `topicName` to the name that you used when creating the topic.
+3. Add the following code to the `Main` method. Set the `connectionString` variable to the connection string you obtained when creating the namespace, and set `topicName` to the name that you used when creating the topic. Also make sure to replace `<your subscription name>` with the name of the subscription you created in step 3. 
    
     ```csharp
     var connectionString = "<your connection string>";
