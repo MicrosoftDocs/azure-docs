@@ -85,8 +85,6 @@ Perform the following steps if your Linux computers need to communicate through 
 ## Collect event and performance data
 Log Analytics can collect events from the Linux Syslog and performance counters that you specify for longer term analysis and reporting, and take action when a particular condition is detected.  Follow these steps to configure collection of events from the Linux Syslog, and several common performance counters to start with.  
 
-### Data collection from Linux VM
-
 1. Select **Syslog**.  
 2. You add an event log by typing in the name of the log.  Type **Syslog** and then click the plus sign **+**.  
 3. In the table, uncheck the severities **Info**, **Notice** and **Debug**. 
