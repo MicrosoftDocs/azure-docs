@@ -39,28 +39,37 @@ To reduce the configuration management and time to provision a VM, you can creat
 3. [Create a scale set](virtual-machine-scale-sets-create.md) and specify the custom VM image created in the preceding steps.
 
 
-## <a name="already-provisioned"></a>Deploy apps to scale set instances
-You can install and configure applications with [VM Extensions](../virtual-machines/windows/extensions-features.md). You can use VM extensions to run PowerShell or bash scripts on the VM instances, or copy application files. These scripts and application files can then be executed locally on the VM instance to install and configure the application as needed.
+## <a name="already-provisioned"></a>Install an app with the Custom Script Extension
+The Custom Script Extension downloads and executes scripts on Azure VMs. This extension is useful for post deployment configuration, software installation, or any other configuration / management task. Scripts can be downloaded from Azure storage or GitHub, or provided to the Azure portal at extension run time.
+
+The Custom Script extension integrates with Azure Resource Manager templates, and can also be run using the Azure CLI, PowerShell, Azure portal, or the Azure Virtual Machine REST API. 
+
+For more information, see the [Custom Script Extension overview](../virtual-machines/windows/extensions-customscript.md).
 
 
-## Install an app with the Custom Script Extension
-The Custom Script extension runs a script on each VM instance in the scale set. A config file or variable indicates which files are downloaded to the VM, and then what command runs. You could use this to run an installer, a script, a batch file, any executable for example.
+### Use Azure PowerShell
+PowerShell uses a hashtable to store the file to download and the command to execute. The following example:
 
-> [!IMPORTANT]
-> Use the `-ProtectedSetting` switch for any settings that may contain sensitive information.
+- Gets information about a scale set with [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss)
+- Downloads a script from GitHub - *https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate-iis.ps1*
+- Sets the extension to run the install script - `powershell -ExecutionPolicy Unrestricted -File automate-iis.ps1`
+- Applies the extension to the VM instances with [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss)
 
-
-### Azure PowerShell
-PowerShell uses a hashtable for the settings. This example configures the custom script extension to run a PowerShell script that installs IIS.
+The Custom Script Extension is applued to the *myScaleSet* VM instances in the resource group named *myResourceGroup*. Enter your own names as follows:
 
 ```powershell
-# Setup extension configuration hashtable variable
-$customConfig = @{
-  "fileUris" = @("https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/temp/install-iis.ps1");
-  "commandToExecute" = "PowerShell -ExecutionPolicy Unrestricted .\install-iis.ps1 >> `"%TEMP%\StartupLog.txt`" 2>&1";
-};
+# Get information about a scale set
+$vmssConfig = Get-AzureRmVmss `
+                -ResourceGroupName "myResourceGroup" `
+                -VMScaleSetName "myScaleSet"
 
-# Add the extension to the config
+# Define the script for your Custom Script Extension to run
+$customConfig = @{
+    "fileUris" = (,"https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate-iis.ps1");
+    "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File automate-iis.ps1"
+}
+
+# Use Custom Script Extension to install IIS and configure basic website
 Add-AzureRmVmssExtension `
     -VirtualMachineScaleSet $vmssConfig `
     -Publisher Microsoft.Compute `
@@ -69,7 +78,7 @@ Add-AzureRmVmssExtension `
     -Name "customscript" `
     -Setting $customConfig
 
-# Send the new config to Azure
+# Update the scale set and apply the Custom Script Extension to the VM instances
 Update-AzureRmVmss `
     -ResourceGroupName "myResourceGroup" `
     -Name "myScaleSet" `
@@ -77,23 +86,30 @@ Update-AzureRmVmss `
 ```
 
 
-### Azure CLI 2.0
-Save the following json file as _settings.json_.
+### Use Azure CLI 2.0
+To use the Custom Script Extension with the Azure CLI, you create a JSON file that defines what files to obtain and commands to execute. These JSON definitions can be re-used across scale set deployments to apply consistent application installs.
+
+In your current shell, create a file named *customConfig.json* and paste the following configuration. For example, create the file in the Cloud Shell not on your local machine. You can use any editor you wish. Enter `sensible-editor cloudConfig.json` to create the file and see a list of available editors.
 
 ```json
 {
   "fileUris": [
-    "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/installserver.sh",
-    "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/workserver.py"
+    "https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate_nginx.sh"
   ],
-  "commandToExecute": "bash installserver.sh"
+  "commandToExecute": "bash automate_nginx.sh"
 }
 ```
 
-Use the Azure CLI to add this extension to an existing scale set. Each VM instance in the scale set automatically runs the extension.
+Apply the Custom Script Extension configuration to the VM instances in your scale set with [az vmss extension set](). The following example applies the *customConfig.json* configuration to the *myScaleSet* VM instances in the resource group named *myResourceGroup*. Enter your own names as follows:
 
 ```azurecli
-az vmss extension set --publisher Microsoft.Azure.Extensions --version 2.0 --name CustomScript --resource-group myResourceGroup --vmss-name myScaleSet --settings @settings.json
+az vmss extension set \
+    --publisher Microsoft.Azure.Extensions \
+    --version 2.0 \
+    --name CustomScript \
+    --resource-group myResourceGroup \
+    --vmss-name myScaleSet \
+    --settings @customConfig.json
 ```
 
 
@@ -131,9 +147,13 @@ Update-AzureRmVmss `
 
 
 ## Install an app to a Linux VM with cloud-init
-Cloud-Init is used when the scale set is created. First, create a local file named _cloud-init.txt_ and add your configuration to it. For example, see [this gist](https://gist.github.com/Thraka/27bd66b1fb79e11904fb62b7de08a8a6#file-cloud-init-txt)
+[Cloud-init](https://cloudinit.readthedocs.io/latest/) is a widely used approach to customize a Linux VM as it boots for the first time. You can use cloud-init to install packages and write files, or to configure users and security. As cloud-init runs during the initial boot process, there are no additional steps or required agents to apply your configuration.
 
-Use the Azure CLI to create a scale set. The `--custom-data` field accepts the file name of a cloud-init script.
+Cloud-init also works across distributions. For example, you don't use **apt-get install** or **yum install** to install a package. Instead you can define a list of packages to install. Cloud-init automatically uses the native package management tool for the distro you select.
+
+For more information, see [Use cloud-init to customize Azure VMs](../virtual-machines/linux/using-cloud-init.md).
+
+To create a scale set and use a cloud-init file, add the `--custom-data` parameter to the [az vmss create](/cli/azure/vmss#create) command and specify the name of a cloud-int file. The following example creates a scale set named *myScaleSet* in *myResourceGroup* and configures VM instances with a file named *cloud-init.txt*. Enter your own names as follows:
 
 ```azurecli
 az vmss create \
