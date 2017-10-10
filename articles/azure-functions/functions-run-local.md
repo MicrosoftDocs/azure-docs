@@ -157,6 +157,7 @@ To set a value for connection strings, you can do one of the following options:
     ```
     Both commands require you to first sign-in to Azure.
 
+<a name="create-func"></a>
 ## Create a function
 
 To create a function, run the following command:
@@ -183,7 +184,7 @@ To create a queue-triggered function, run:
 ```
 func new --language JavaScript --template QueueTrigger --name QueueTriggerJS
 ```
-
+<a name="start"></a>
 ## Run functions locally
 
 To run a Functions project, run the Functions host. The host enables triggers for all functions in the project:
@@ -233,7 +234,57 @@ Then, in Visual Studio Code, in the **Debug** view, select **Attach to Azure Fun
 
 ### Passing test data to a function
 
-You can also invoke a function directly by using `func run <FunctionName>` and provide input data for the function. This command is similar to running a function using the **Test** tab in the Azure portal. This command launches the entire Functions host.
+To test your functions locally, you [start the Functions host](#start) and call endpoints on the local server using HTTP requests. The endpoint you call depends on the type of function. 
+
+>[!NOTE]  
+> Examples in this topic use the cURL tool to send HTTP requests from the Terminal or a command prompt. You can use a tool of your choice to send HTTP requests to the local server. The cURL tool is available by default on Linux-based systems. On Windows, you must first download and install the [cURL tool](https://curl.haxx.se/).
+
+For more general information on testing functions, see [Strategies for testing your code in Azure Functions](functions-test-a-function.md).
+
+#### HTTP and webhook triggered functions
+For HTTP and webhook triggered functions, you call the endpoint as you would from a client using the URL for an HTTP triggered function:
+
+    http://localhost:{port}/api/{function_name}
+
+Make sure to use the same server name and port that the Functions host is listening on. You see this in the output generated when starting the Function host. The following cURL command triggers the `MyHttpTrigger` quickstart function from a GET request with the _name_ parameter passed in the query string. 
+
+```
+curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
+```
+This is the same function called from a POST request passing _name_ in the request body:
+
+```
+curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
+```
+
+Note that you can make GET requests from a browser passing data in the query string. For all other HTTP methods, you must use cURL, Fiddler, Postman, or a similar HTTP testing tool.  
+
+#### Non-HTTP triggered functions
+For all kinds of functions other than HTTP triggers and webhooks, you can test your functions locally by calling an administration endpoint. Calling this endpoint on the local server triggers the function. You can optionally pass test data to the execution. This functionality is similar to the **Test** tab in the Azure portal.  
+
+You call the following administrator endpoint to trigger non-HTTP functions with an HTTP request:
+
+    http://localhost:{port}/admin/functions/{function_name}
+
+To pass test data to the administrator endpoint of a function, you must supply the data in the body of a POST request message. The message body is required to have the following JSON format:
+
+```JSON
+{
+    "input": "<trigger_input>"
+}
+```` 
+The `<trigger_input>` value contains data in a format expected by the function. The following cURL example is a POST to a `QueueTriggerJS` function. In this case, the input is a string that is equivalent to the message expected to be found in the queue.      
+
+```
+curl --request POST -H "Content-Type:application/json" --data '{"input":"sample queue data"}' http://localhost:7071/admin/functions/QueueTriggerJS
+```
+
+#### Using the `func run` command in version 1.x
+
+>[!IMPORTANT]  
+> The `func run` command is not supported in version 2.x of the tools. For more information, see the topic [How to target Azure Functions runtime versions](functions-versions.md).
+
+You can also invoke a function directly by using `func run <FunctionName>` and provide input data for the function. This command is similar to running a function using the **Test** tab in the Azure portal. 
 
 `func run` supports the following options:
 

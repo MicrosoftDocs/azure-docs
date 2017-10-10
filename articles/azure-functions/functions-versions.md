@@ -34,11 +34,13 @@ You can add this application setting to your function app in several ways.
 
 ## Set the runtime in the portal
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your function app and choose the **Application settings** tab.
+1. In the [Azure portal](https://portal.azure.com), navigate to your function app, and under **Configured Features**, choose **Application settings**.
 
-2. Find the `FUNCTIONS_EXTENSION_VERSION` setting and change the value to `beta`. If this setting doesn't exist, click **+ Add new setting** to add it.   
+    ![Select function app settings](./media/functions-versions/add-update-app-setting.png)
 
-    ![](./media/functions-versions/add-update-app-setting.png)
+2. In the **Application settings** tab, find the `FUNCTIONS_EXTENSION_VERSION` setting and change the value to `beta`. If this setting doesn't exist, click **+ Add new setting** to add it.   
+
+    ![Set the function app setting](./media/functions-versions/add-update-app-setting2.png)
 
 3. Click **Save** to save the application setting update. 
 
