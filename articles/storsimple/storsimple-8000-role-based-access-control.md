@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
+ms.date: 10/10/2017
 ms.author: alkohli
 
 ---
@@ -150,7 +150,7 @@ PS C:\WINDOWS\system32>
 
 ## Add users to the custom role
 
-You grant access from within the resource, resource group, or subscription that is the scope of the role assignment. When providing access, bear in mind that the access granted at the parent node is inherited by the child. For more information, go to [Resource heirarhcy and access inheritance](active-directory/role-based-access-control-what-is.md#resource-hierarchy-and-access-inheritance).
+You grant access from within the resource, resource group, or subscription that is the scope of the role assignment. When providing access, bear in mind that the access granted at the parent node is inherited by the child. For more information, go to [Resource heirarhcy and access inheritance](../active-directory/role-based-access-control-what-is.md#resource-hierarchy-and-access-inheritance).
 
 1. Go to **Access control (IAM)**. Click **+ Add** on the Access control blade.
 
