@@ -21,8 +21,6 @@ ms.author: sethm
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-## What will be accomplished
-
 This tutorial covers the following steps:
 
 1. Create a Service Bus namespace, using the Azure portal.
@@ -62,7 +60,7 @@ If you have already created a Service Bus Messaging namespace, jump to the [Crea
 ## 3. Create a subscription to the topic
 
 1. In the portal resources pane, click the namespace you created in step 1, then click name of the topic you created in step 2.
-2. A the top of the overview pane, click the plus sign next to **Subscription** to add a subscription to this topic.
+2. At the top of the overview pane, click the plus sign next to **Subscription** to add a subscription to this topic.
 
     ![Create subscription][createtopic4]
 
