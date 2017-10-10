@@ -43,10 +43,10 @@ Azure PowerShell 1.2.11 is not yet available but is tracking for a release later
 
 #### Portal
 * You may see a blank dashboard in the portal.  You can recover the dashboard by selecting the gear in the upper right of the portal, and selecting "Restore default settings".
-* Tenants are able to browse the full marketplace without a subscription, and will see administrative items like plans and offers.  These items are non-functional to tenants.
-* The "move" button is disabled on the Resource Group blade.  This is expected behavior, because moving resource groups between subscriptions is not currently supported.
+* Tenants are able to browse the full marketplace without a subscription, and can administrative items like plans and offers.  These items are non-functional to tenants.
+* The "move" button is disabled on the Resource Group blade.  This disabled button is expected behavior, because moving resource groups between subscriptions is not currently supported.
 * You are not able to view permissions to your subscription using the Azure Stack portals.  As a work-around, you can verify permissions using Powershell.
-* You will see an alert advising you to register your Azure Stack Development Kit.  This is expected behavior.  
+* You will see an alert advising you to register your Azure Stack Development Kit.  This alert is expected behavior.  
   
 
 #### Services
@@ -59,7 +59,7 @@ Azure PowerShell 1.2.11 is not yet available but is tracking for a release later
 * Tenants are given the option to create a virtual machine with geo-redundant storage.  This configuration causes virtual machine creation to fail.
 * It can take up to an hour before tenants can create databases in a new SQL or MySQL SKU. 
 * Creation of items directly on SQL and MySQL hosting servers that are not performed by the resource provider is not supported and may result in mismatched state.
-* The Infrastructure backup blade should not be used.
+* The Infrastructure backup blade must not be used.
 
 
 #### Fabric
