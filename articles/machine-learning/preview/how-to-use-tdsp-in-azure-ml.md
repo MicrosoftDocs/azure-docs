@@ -104,7 +104,8 @@ Refer to the [TDSP documentation templates](https://github.com/Azure/Azure-TDSP-
 We also provide a [ProjectLearnings](https://aka.ms/tdspamlgithubrepoprojectlearnings) template. You can use this template to include any information that is not included in the primary project document, but that is still useful to document. 
 
 ### Example the project report
-An example project report can be found [here](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome/blob/master/docs/deliveralbe_docs/ProjectReport.md). This report is the project report for the [US income classification sample project](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) that shows how to instantiate and use the TDSP template for a data science project.
+An example project report is the 
+[Data Science Project Report: Azure Machine Learning Sample for UCI Adult Income Classification Dataset Using Team Data Science Project (TDSP) Template](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome/blob/master/docs/deliverable_docs/ProjectReport.md). This report is the project report for the [US income classification sample project](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) that shows how to instantiate and use the TDSP template for a data science project.
 
 ## Next steps
 To facilitate your understanding on how to use the TDSP structure and templates in Machine Learning projects, we provide several completed project examples in the documentation for Machine Learning:
