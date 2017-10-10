@@ -263,7 +263,7 @@ The command reveals two passwords that can be used with the user name.
 Now that you have the necessary credentials, log in to the Azure Container Registry using the `docker login` command. The URL for the registry is required to log in. Use the format `http://{azure-container-registry-name>.azureacr.io`.
 
 ```bash
-docker login <azure-container-registry-name>.azureacr.io --username <azure-container-registry-name> --password <password> 
+docker login <azure-container-registry-name>.azureacr.io --username <azure-container-registry-name> --password <password>
 ```
 
 Confirm that the login succeeded. Push the image by using the `docker push` command, and tagging the image with the full URL of the registry followed by your image name and tag.
@@ -272,7 +272,7 @@ Confirm that the login succeeded. Push the image by using the `docker push` comm
 docker push http://<azure-container-registry-name>.azureacr.io/mydockerimage:v1.0.0
 ```
 
-Verify that the push successfully added a container to the registry by listing the ACR repositories. 
+Verify that the push successfully added a container to the registry by listing the ACR repositories.
 
 ```azurecli-interactive
 az acr repository list -n <azure-container-registry-name>

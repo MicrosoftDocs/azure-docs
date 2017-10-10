@@ -1,11 +1,6 @@
 ---
-<<<<<<< HEAD
 title: How to use the Maven Plugin for Web App for Containers to deploy a containerized Spring Boot app to Azure
 description: Learn how to use the Maven Plugin for Web App for Containers to deploy a Spring Boot app to Azure.
-=======
-title: How to use the Maven Plugin for Web Apps for Containers to deploy a containerized Spring Boot app to Azure
-description: Learn how to use the Maven Plugin for Web Apps for Containers to deploy a Spring Boot app to Azure.
->>>>>>> branding updates
 services: app-service\web
 documentationcenter: java
 author: rmcmurray
