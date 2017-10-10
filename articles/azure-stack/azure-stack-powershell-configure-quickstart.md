@@ -1,5 +1,5 @@
 ---
-title: Install and configure PowerShell for Azure Stack quickstart  | Microsoft Docs
+title: Install and configure PowerShell for Azure Stack Quickstart  | Microsoft Docs
 description: Learn about installing and configuring PowerShell for Azure Stack.
 services: azure-stack
 documentationcenter: ''
@@ -22,14 +22,14 @@ ms.author: sngun
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-This article helps you to install and configure an Azure Stack environment with PowerShell. The script that we provide in this article is scoped to the **Azure Stack operator** only.
+This Quickstart helps you to install and configure an Azure Stack environment with PowerShell. The script that we provide in this article is scoped to the **Azure Stack operator** only.
 
 This article is a condensed version of the steps that are described in the [Install PowerShell]( azure-stack-powershell-install.md), [Download tools]( azure-stack-powershell-download.md), and [Configure the Azure Stack operator's PowerShell environment]( azure-stack-powershell-configure-admin.md) articles. By using the scripts in these topics, you can set up PowerShell for Azure Stack environments that are deployed with Azure Active Directory or Active Directory Federation Services.  
 
 
 ## Set up PowerShell for Azure Active Directory-based deployments
 
-Sign in to your Azure Stack Development Kit, or a Windows-based external client if you are connected through VPN. Open an elevated PowerShell ISE session and run the following script (make sure to update the **TenantName**, **ArmEndpoint**, **GraphAudience** variables as per your environment configuration):
+Sign in to your Azure Stack Development Kit, or a Windows-based external client if you are connected through VPN. Open an elevated PowerShell ISE session and run the following script (make sure to update the **TenantName**, **ArmEndpoint**, and **GraphAudience** variables as per your environment configuration):
 
 ```powershell
 # Specify Azure Active Directory tenant name.
