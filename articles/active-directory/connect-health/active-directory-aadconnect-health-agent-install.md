@@ -34,6 +34,17 @@ The following table is a list of requirements for using Azure AD Connect Health.
 | Allow the following websites if IE Enhanced Security is enabled |If IE Enhanced Security is enabled, then the following websites must be allowed on the server that is going to have the agent installed.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>The federation server for your organization trusted by Azure Active Directory. For example: https://sts.contoso.com</li> |
 |Disable FIPS|FIPS is not supported by Azure AD Connect Health agents.|
 
+## Download and install the Azure AD Connect Health Agent
+* Make sure that you [satisfy the requirements](active-directory-aadconnect-health-agent-install.md#requirements) for Azure AD Connect Health.
+* Get started using Azure AD Connect Health for AD FS
+    * [Download Azure AD Connect Health Agent for AD FS.](http://go.microsoft.com/fwlink/?LinkID=518973)
+    * [See the installation instructions](#installing-the-azure-ad-connect-health-agent-for-ad-fs).
+* Get started using Azure AD Connect Health for sync
+    * [Download and install the latest version of Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771). The Health Agent for sync will be installed as part of the Azure AD Connect installation (version 1.0.9125.0 or higher).
+* Get started using Azure AD Connect Health for AD DS
+    * [Download Azure AD Connect Health Agent for AD DS](http://go.microsoft.com/fwlink/?LinkID=820540).
+    * [See the installation instructions](#installing-the-azure-ad-connect-health-agent-for-ad-ds).
+
 ## Installing the Azure AD Connect Health Agent for AD FS
 To start the agent installation, double-click the .exe file that you downloaded. On the first screen, click Install.
 

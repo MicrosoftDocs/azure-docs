@@ -3,9 +3,9 @@ title: Use Azure Policy to create and manage policies to enforce organizational 
 description: Use Azure Policy to enforce standards, meet regulatory compliance and audit requirements, control costs, maintain security and performance consistency, and impose enterprise wide design principles.
 services: azure-policy 
 keywords: 
-author: niniikhena
+author: Jim-Parker
 ms.author: jimpark
-ms.date: 09/20/2017
+ms.date: 10/06/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
@@ -114,7 +114,7 @@ Now that we've assigned the policy definition, we're going to create a new polic
 }
 ```
 
-   To view samples of json code written in json code, look at this article  - [Resource policy overview](../azure-resource-manager/resource-manager-policy.md)
+   To view samples of json code, look at this article  - [Resource policy overview](../azure-resource-manager/resource-manager-policy.md)
    
 4. Select **Save**.
 
@@ -158,7 +158,7 @@ With an initiative definition, you can group several policy definitions to achie
 
 4. Fill out the **Assignment** form, by entering:
    - name: Get secure assignment
-   - description: this iniitiative assigment is tailored towards enforcing this group of policy definitions in the **Azure Advisor Capacity Dev** subscription
+   - description: this initiative assignment is tailored towards enforcing this group of policy definitions in the **Azure Advisor Capacity Dev** subscription
    - pricing tier: Standard
    - scope you would like this assignment applied to: **Azure Advisor Capacity Dev**
 
@@ -170,7 +170,7 @@ Following the example above, after assigning the policy definition to require SQ
 
 1. Select **Assignments** on the left pane.
 2. Browse through all policy assignments and launch the *Require SQL Server version 12.0* assignment.
-3. Request an exlusion for the resource groups in which you are trying to create the SQL server. In this case, we are exlcuding Microsoft.Sql/servers/databases: *baconandbeer/Cheetos* and *baconandbeer/Chorizo*.
+3. Request an exclusion for the resource groups in which you are trying to create the SQL server. In this case, we are excluding Microsoft.Sql/servers/databases: *baconandbeer/Cheetos* and *baconandbeer/Chorizo*.
 
    ![Request exclusion](media/create-manage-policy/request-exclusion.png)
 
