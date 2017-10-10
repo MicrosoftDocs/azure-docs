@@ -22,6 +22,7 @@ ms.author: bradsev
 
 This document provides instructions on how to create data science projects in Azure Machine Learning with Team Data Science Process (TDSP) templates that structure projects for collaboration and reproducibility. 
 
+
 ## What is the Team Data Science Process?
 The TDSP is an agile, iterative, data science process for executing and delivering advanced analytics solutions. It's designed to improve the collaboration and efficiency of data science teams in enterprise organizations. It supports these objectives with four key components:
 
@@ -52,9 +53,10 @@ The following are the things you should note or review *before* creating a new p
 To create a new project with the TDSP structure and documentation templates, complete the following procedures.
 
 ### Create a new project
-To create a new project, open Azure Machine Learning. Under **Projects** on the top left pane, select the plus sign (**+**), and then select **New Project**.
+To create a new project, open Azure Machine Learning. Under **Projects** on the top-left pane, select the plus sign (**+**), and then select **New Project**.
 
 ![New project](./media/how-to-use-tdsp-in-azure-ml/instantiation-1.png)
+
 
 ### Create a new TDSP-structured project
    1. Specify the parameters and information in the relevant box or list:
@@ -65,11 +67,12 @@ To create a new project, open Azure Machine Learning. Under **Projects** on the 
         - An empty Git repository path
         - Workspace name
 
-   2. Then in the **Search** box, enter *TDSP*. 
+   2. Then in the **Search** box, enter **TDSP**. 
    3. When the **Structure a project with TDSP** option appears, select that template. 
    4. Select the **Create** button to create your new project with a TDSP structure. If you provide an empty Git repository when you create the project (in the appropriate text box), then that repository will populate with the project structure and contents after creation of the project.
 
 ![Create a TDSP project](./media/how-to-use-tdsp-in-azure-ml/instantiation-2.png)
+
 
 ## Examine the TDSP project structure
 After your new project is created, you can examine its structure (see the left panel in the following figure). It contains all the aspects of standardized documentation for business understanding. These items include the stages of the TDSP lifecycle, data location, definitions, and the architecture of this documentation template. 
@@ -78,11 +81,12 @@ The structure shown is derived from the TDSP structure that is published in [TDS
 
 ### Project folder structure
 The TDSP project template contains the following top-level folders:
-   - **code**: Contains code
-   - **docs**: Contains necessary documentation about the project (for example, markdown files, and related media)
+   - **code**: Contains code.
+   - **docs**: Contains necessary documentation about the project (for example, markdown files, and related media).
    - **sample_data**: Contains **SAMPLE (small)** data that you can use for early development or testing. Typically, these sets are not larger than several (5) MB. This folder is not for full or large data sets.
 
 ![Sample data](./media/how-to-use-tdsp-in-azure-ml/instantiation-3.png)
+
 
 ## Use the TDSP structure and templates
 You need to add project-specific information to the structure and templates. You're expected to populate these with code and the information necessary to execute and deliver your project. The [ProjectReport](https://aka.ms/tdspamlgithubrepoprojectreport) file is a template that you need to modify with information relevant to your project. It comes with a set of questions that help you fill out the information for each of the four stages of the [TDSP lifecycle](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md).
@@ -104,3 +108,4 @@ To facilitate your understanding on how to use the TDSP structure and templates 
 
 - For a sample showing how create a TDSP project in Machine Learning, see [Team Data Science Process sample project: Classify incomes from US Census data in Azure Machine Learning](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome).
 - For a sample that uses deep learning in natural language processing (NLP) in a TDSP-instantiated project in Machine Learning, see [Bio-medical entity recognition using natural language processing with deep learning](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction).
+
