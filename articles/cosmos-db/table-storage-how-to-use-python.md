@@ -25,9 +25,11 @@ ms.author: mimig
 
 This guide shows you how to perform common Azure Table storage scenarios in Python using the [Azure Cosmos DB Table SDK for Python](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table). The scenarios covered include creating and deleting a table, and inserting and querying entities.
 
-While working through the scenarios in this tutorial, you may want to refer to the [Python API reference](https://azure.github.io/azure-cosmosdb-python/)).
+While working through the scenarios in this tutorial, you may want to refer to the [Python API reference](https://azure.github.io/azure-cosmosdb-python/).
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
+
+## Create an Azure Cosmos DB account
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
