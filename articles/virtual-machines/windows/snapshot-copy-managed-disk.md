@@ -1,8 +1,8 @@
 ---
-title: Create a copy of an Azure Managed Disk for back up | Microsoft Docs
-description: Learn how to create a copy of an Azure Managed Disk to use for back up or troubleshooting disk issues.
+title: Create a snapshot of an Azure VM | Microsoft Docs
+description: Learn how to create a copy of an Azure VM to use as a back up or for troubleshooting issues.
 documentationcenter: ''
-author: cwatson-cat
+author: cynthn
 manager: timlt
 editor: ''
 tags: azure-resource-manager
@@ -13,27 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 2/9/2017
-ms.author: cwatson
+ms.date: 10/09/2017
+ms.author: cynthn
 
 ---
-# Create a copy of a VHD stored as an Azure Managed Disk by using Managed Snapshots
-Take a snapshot of a Managed Disk for backup or create a Managed Disk from the snapshot and attach it to a test virtual machine to troubleshoot. A Managed Snapshot is a full point-in-time copy of a VM Managed Disk. It creates a read-only copy of your VHD and, by default, stores it as a Standard Managed Disk. For more information about Managed Disks, see [Azure Managed Disks overview](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+# Create a snapshot
 
-For information about pricing, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/managed-disks/). 
+Take a snapshot of a managed disk for backup or create a Managed Disk from the snapshot and attach it to a test virtual machine to troubleshoot. A Managed Snapshot is a full point-in-time copy of a VM Managed Disk. It creates a read-only copy of your VHD and, by default, stores it as a managed disk. 
 
-## Before you begin
-If you use PowerShell, make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it.
-
-```
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
-```
-For more information, see [Azure PowerShell Versioning](/powershell/azure/overview).
-
-## Copy the VHD with a snapshot
-Use either the Azure portal or PowerShell to take a snapshot of the Managed Disk.
-
-### Use Azure portal to take a snapshot 
+## Use Azure portal to take a snapshot 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Starting in the upper left, click **New** and search for **snapshot**.
@@ -45,8 +33,16 @@ Use either the Azure portal or PowerShell to take a snapshot of the Managed Disk
 8. Select the **Account type** to use to store the snapshot. We recommend **Standard_LRS** unless you need it stored on a high performing disk.
 9. Click **Create**.
 
-### Use PowerShell to take a snapshot
-The following steps show you how to get the VHD disk to be copied, create the snapshot configurations, and take a snapshot of the disk by using the New-AzureRmSnapshot cmdlet<!--Add link to cmdlet when available-->. 
+## Use PowerShell to take a snapshot
+The following steps show you how to get the VHD disk to be copied, create the snapshot configurations, and take a snapshot of the disk by using the [New-AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot) cmdlet. 
+
+Make sure that you have the latest version of the AzureRM.Compute PowerShell module installed. Run the following command to install it.
+
+```
+Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+```
+For more information, see [Azure PowerShell Versioning](/powershell/azure/overview).
+
 
 1. Set some parameters. 
 
