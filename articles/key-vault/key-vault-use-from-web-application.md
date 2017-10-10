@@ -167,7 +167,8 @@ $adapp = New-AzureRmADApplication -DisplayName "KVWebApp" -HomePage "http://kvwe
 
 $sp = New-AzureRmADServicePrincipal -ApplicationId $adapp.ApplicationId
 
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName $sp.ServicePrincipalName -PermissionsToSecrets all -ResourceGroupName 'contosorg'
+
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName "http://kvwebapp" -PermissionsToSecrets all -ResourceGroupName 'contosorg'
 
 # get the thumbprint to use in your app settings
 $x509.Thumbprint
