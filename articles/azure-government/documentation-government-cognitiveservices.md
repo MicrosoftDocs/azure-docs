@@ -329,7 +329,6 @@ A successful response is returned in JSON. Following is an example of a successf
    }
 }
 ```
-
 For more information, please see [public documentation](../cognitive-services/computer-vision/index.md) and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa) for Computer Vision API.
 
 ### Face API
@@ -524,7 +523,6 @@ A successful response is returned in JSON. Following is an example of a successf
 
 ```json
 Response:
-
 [
    {
       "faceId": "0ed7f4db-1207-40d4-be2e-84694e42d682",
@@ -563,11 +561,11 @@ Response:
    }
 ]
 ```
-For more information, please see [public documentation](../cognitive-services/Face/index.md) and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for Face API.
+For more information, please see [public documentation](../cognitive-services/Face/index.md), and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for Face API.
 
 ### Next Steps
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
-* Get help on Stack Overflow by using the [azure-gov](https://stackoverflow.com/questions/tagged/azure-gov) tag
+* Get help on Stack Overflow by using the "[azure-gov](https://stackoverflow.com/questions/tagged/azure-gov)" tag
 * Give us feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government)
 
 
