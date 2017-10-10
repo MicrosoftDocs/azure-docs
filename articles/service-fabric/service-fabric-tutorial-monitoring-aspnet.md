@@ -236,5 +236,5 @@ In this tutorial, you learned how to:
 
 Now that you have completed setting up monitoring and diagnostics for your ASP.NET application, try the following:
 - [Explore monitoring and diagnostics in Service Fabric](service-fabric-diagnostics-overview.md)
-- [Test an app](service-fabric-testability-overview.md) 
-- [Lift and shift an ASP.NET application in a Windows container to Azure](service-fabric-host-app-in-a-container.md)
+- [Service Fabric event analysis with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
+- To learn more about Application Insights, see [Application Insights Documentation](https://docs.microsoft.com/en-us/azure/application-insights/)

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 09/21/2017
 ms.author: jgao
 
 ---
@@ -37,16 +37,17 @@ You also must register your developer account. For more information, see [Publis
 ## Define the application
 Two steps are involved in publishing applications in the Marketplace. First, define a *createUiDef.json* file. The createUiDef.json file indicates which clusters your application is compatible with. Then, publish the template from the Azure portal. Here's a sample createUiDef.json file:
 
-    {
-        "handler": "Microsoft.HDInsight",
-        "version": "0.0.1-preview",
-        "clusterFilters": {
-            "types": ["Hadoop", "HBase", "Storm", "Spark"],
-            "tiers": ["Standard", "Premium"],
-            "versions": ["3.4"]
-        }
+```json
+{
+    "handler": "Microsoft.HDInsight",
+    "version": "0.0.1-preview",
+    "clusterFilters": {
+        "types": ["Hadoop", "HBase", "Storm", "Spark"],
+        "tiers": ["Standard", "Premium"],
+        "versions": ["3.4"]
     }
-
+}
+```
 
 | Field | Description | Possible values |
 | --- | --- | --- |

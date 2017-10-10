@@ -33,7 +33,7 @@ In this tutorial, we are going to develop a .NET and a Node.js console app:
 To complete this tutorial, you need:
 
 * Visual Studio 2015 or Visual Studio 2017.
-* Node.js version 0.10.x or later.
+* Node.js version 4.0.x or later.
 * An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]

@@ -1,11 +1,5 @@
 # Overview
 ## [Developer guide](azure-developer-guide.md) 
-### [What is Azure?](azure-developer-guide.md#what-is-azure)
-### [Where do I start?](azure-developer-guide.md#where-do-i-start)
-### [Azure regions](azure-developer-guide.md#azure-regions)
-### [How do I manage my applications and projects?](azure-developer-guide.md#how-do-i-manage-my-applications-and-projects)
-### [Understanding accounts, subscriptions, and billing](azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)
-
 ## [Overview of Azure services](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
 ## [Portal overview](https://docs.microsoft.com/azure/azure-portal-overview?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
 ## [SDKs and tools](https://docs.microsoft.com/azure/index#pivot=sdkstools)
@@ -37,7 +31,7 @@
 ### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-cli-samples)
 ### [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
 ### [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
-## PowerShell
+## Azure PowerShell
 ### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-powershell-samples)
 ### [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
 ### [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/powershell-samples)
@@ -108,8 +102,8 @@
 ### [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/)
 ### [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README)
 ## Command line interfaces
-### [Azure CLI2.0](https://docs.microsoft.com/cli/azure/)
-### [PowerShell](https://docs.microsoft.com/powershell/)
+### [Azure CLI](https://docs.microsoft.com/cli/azure/)
+### [Azure PowerShell](https://docs.microsoft.com/powershell/)
 ## [Billing](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview)
 
 # Resources

@@ -33,16 +33,9 @@ A stateful service has some state associated with it. In Service Fabric, a state
 
 There can be only one Primary replica, but there can be multiple Active Secondary replicas. The number of Active Secondary replicas is configurable, and a higher number of replicas can tolerate a greater number of concurrent software and hardware failures.
 
-If the Primary replica goes down, Service Fabric makes one of the Active Secondary replicas the new Primary replica. This Active Secondary replica already has the updated version of the state (via *replication*), and it can continue processing further read and write operations.
+If the Primary replica goes down, Service Fabric makes one of the Active Secondary replicas the new Primary replica. This Active Secondary replica already has the updated version of the state (via *replication*), and it can continue processing further read and write operations. This process is known as reconfiguration and is described further in [Reconfiguration](service-fabric-concepts-reconfiguration.md).
 
-This concept, of a replica being either a Primary or Active Secondary, is known as the Replica Role.
-
-### Replica roles
-The role of a replica is used to manage the life cycle of the state being managed by that replica. A replica whose role is Primary services read requests. The Primary also handles all write requests by updating its state and replicating the changes. These changes are applied to the Active Secondaries in the replica set. The job of an Active Secondary is to receive state changes that the Primary replica has replicated and update its view of the state.
-
-> [!NOTE]
-> Higher-level programming models such as [Reliable Actors](service-fabric-reliable-actors-introduction.md) and [Reliable Services](service-fabric-reliable-services-introduction.md) hide the concept of replica role from the developer. In Actors, the notion of role is unnecessary, while in Services it is largely simplified for most scenarios.
->
+This concept, of a replica being either a Primary or Active Secondary, is known as the Replica Role. These are described further in [Replicas and Instances](service-fabric-concepts-replica-lifecycle.md). 
 
 ## Next steps
 For more information on Service Fabric concepts, see the following articles:
