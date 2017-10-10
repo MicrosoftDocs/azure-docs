@@ -20,39 +20,32 @@ Before you can make your first call, you need to get a Cognitive Services subscr
 To get News-only search results, you'd send a GET request to the following endpoint:  
   
 ```
-https://api.cognitive.microsoft.com/bing/v5.0/news/search
+https://api.cognitive.microsoft.com/bing/v7.0/news/search
 ```
-
-> [!NOTE]
-> V7 Preview endpoint:
-> 
-> ```
-> https://api.cognitive.microsoft.com/bing/v7.0/news/search
-> ```  
   
 The request must use the HTTPS protocol.
 
 We recommend that all requests originate from a server. Distributing the key as part of a client application provides more opportunity for a malicious third-party to access it. Also, making calls from a server provides a single upgrade point for future versions of the API.
 
-The request must specify the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#query) query parameter, which contains the user's search term. Although it's optional, the request should also specify the [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#mkt) query parameter, which identifies the market where you want the results to come from. For a list of optional query parameters such as `freshness` and `textDecorations`, see [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#query-parameters). All query parameter values must be URL encoded.  
+The request must specify the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query) query parameter, which contains the user's search term. Although it's optional, the request should also specify the [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#mkt) query parameter, which identifies the market where you want the results to come from. For a list of optional query parameters such as `freshness` and `textDecorations`, see [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query-parameters). All query parameter values must be URL encoded.  
   
-The request must specify the [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#subscriptionkey) header. Although optional, you are encouraged to also specify the following headers:  
+The request must specify the [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#subscriptionkey) header. Although optional, you are encouraged to also specify the following headers:  
   
--   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#useragent)  
--   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#clientid)  
--   [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#clientip)  
--   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#location)  
+-   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#useragent)  
+-   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#clientid)  
+-   [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#clientip)  
+-   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#location)  
 
 The client IP and location headers are important for returning location aware content.  
 
-For a list of all request and response headers, see [Headers](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#headers).
+For a list of all request and response headers, see [Headers](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#headers).
 
 ## The request
 
 The following shows a news request that includes all the suggested query parameters and headers. If it's your first time calling any of the Bing APIs, don't include the client ID header. Only include the client ID if you've previously called a Bing API and Bing returned a client ID for the user and device combination. 
 
 ```  
-GET https://api.cognitive.microsoft.com/bing/v5.0/news/search?q=sailing+dinghies&mkt=en-us HTTP/1.1  
+GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)  
 X-Search-ClientIP: 999.999.999.999  
@@ -60,18 +53,6 @@ X-Search-Location: lat:47.60357;long:-122.3295;re:100
 X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 Host: api.cognitive.microsoft.com  
 ```  
-
-> [!NOTE]
-> V7 Preview request:
->
-> ```  
-> GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies&mkt=en-us HTTP/1.1  
-> Ocp-Apim-Subscription-Key: 123456789ABCDE  
-> X-MSEdge-ClientIP: 999.999.999.999  
-> X-Search-Location: lat:47.60357;long:-122.3295;re:100  
-> X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
-> Host: api.cognitive.microsoft.com  
-> ```  
 
 The following shows the response to the previous request. The example also shows the Bing-specific response headers.
 
@@ -82,7 +63,7 @@ BingAPIs-Market: en-US
 
 {
     "_type" : "News",
-    "readLink" : "https:\/\/api.cognitive.microsoft.com\/bing\/v5\/news\/search?q=sailing+dinghies",
+    "readLink" : "https:\/\/api.cognitive.microsoft.com\/bing\/v7\/news\/search?q=sailing+dinghies",
     "totalEstimatedMatches" : 88400,
     "value" : [{
         "name" : "Sailing Vies for Four Trophies",
@@ -156,73 +137,6 @@ BingAPIs-Market: en-US
     }]
 }
 ```
-
-> [!NOTE]
-> V7 Preview response changes:
->
-> Added the `mentions` field to the [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) object. The `mentions` field contains a list of entities (persons or places) that were found in the article.  
-> 
->     {
->         "name" : "How Celebs Shacked Up at Coachella: Inside the Rental Mansions...",
->         "mentions" : [
->             {
->                 "name" : "Lady Gaga"
->             },
->             {
->                 "name" : "Kendrick Lamar"
->             },
->             {
->                 "name" : "Coachella Valley Music and Arts Festival"
->             }
->         ],
->         . . .
->     }
-> 
-> Added the `video` field to the [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) object. The `video` field contains a video that's related to the news article. The video is either an \<iframe\> that you can embed or a motion thumbnail.   
->
->         "video" : {
->             "name" : "How Rock Stars do Coachella! Inside Gaga",
->             "motionThumbnailUrl" : "http:\/\/prod-video-cms-amp-microsoft-com...",
->             "thumbnail" : {
->                 "width" : 320,
->                 "height" : 180
->             }
->         },
->
->         "video" : {
->             "name" : "Watch Bob Weir, Trey Anastasio Cover Lady Gaga's 'Million Reasons'",
->             "thumbnailUrl" : "https:\/\/www.bing.com\/th?id=ON.FCC9C67B9191...",
->             "embedHtml" : "<iframe width=\"1280\" height=\"720\" src=\"https:...><\/iframe>",
->             "allowHttpsEmbed" : true,
->             "thumbnail" : {
->                 "width" : 480,
->                 "height" : 252
->             }
->         },
->  
-> Added the `sort` field to the [News](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news) object. The `sort` field shows the sort order of the articles in the response. For example, the articles are sorted by relevance (default) or date. The `isSelected` field identifies the sort order that Bing applied. You can use `url` to send a request with a different sort order.
->
-> {
->     "_type" : "News",
->     "readLink" : "https:\/\/api.cognitive.microsoft.com\/bing\/v5\/news\/search?q=sailing+dinghies",
->     "totalEstimatedMatches" : 82600,
->     "sort" : [
->         {
->             "name" : "Best match",
->             "id" : "relevance",
->             "isSelected" : true,
->             "url" : "https:\/\/api.cognitive.microsoft.com\/bing\/v5\/news\/search?q=sailing+dinghies"
->         },
->         {
->             "name" : "Most recent",
->             "id" : "date",
->             "isSelected" : false,
->             "url" : "https:\/\/api.cognitive.microsoft.com\/bing\/v5\/news\/search?q=sailing+dinghies&sortby=date"
->         }
->     ],
->     "value" : [...]
-> }
-
 
 ## Next steps
 
