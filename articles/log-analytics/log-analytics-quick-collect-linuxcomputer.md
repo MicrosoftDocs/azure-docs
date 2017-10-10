@@ -17,7 +17,7 @@ ms.author: magoedte
 
 ---
 
-# Collect data from Linux computers
+# Collect data from your on-premises Linux computers
 [Azure Log Analytics](log-analytics-overview.md) can collect data directly from your physical or virtual Linux computers and other resources in your environment into a single repository for detailed analysis and correlation.  This quickstart shows you how to configure and collect data from your Linux computer with a few easy steps.  
  
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
