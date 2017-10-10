@@ -22,7 +22,7 @@ ms.author: sngun
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-**AzureStack-Tools** is a GitHub repository that hosts PowerShell modules that you can use to manage and deploy resources to Azure Stack. You can download these PowerShell modules to the Azure Stack Development Kit, or to a Windows-based external client if you are planning to establish VPN connectivity. To obtain these tools, clone the GitHub repository or download the **AzureStack-Tools** folder. 
+**AzureStack-Tools** is a GitHub repository that hosts PowerShell modules for managing and deploying resources to Azure Stack. If you are planning to establish VPN connectivity, you can download these PowerShell modules to the Azure Stack Development Kit, or to a Windows-based external client. To obtain these tools, clone the GitHub repository or download the **AzureStack-Tools** folder. 
 
 To clone the repository, download [Git for Windows](https://git-scm.com/download/win), open a command prompt, and run the following script:
 
@@ -64,7 +64,7 @@ The **AzureStack-Tools** repository contains PowerShell modules that support the
 
 | Functionality | Description | Who can use this module? |
 | --- | --- | --- |
-| [Cloud capabilities](user/azure-stack-validate-templates.md) | Use this module to get the cloud capabilities of a cloud. For example, you can get the cloud capabilities such as API version, Azure Resource Manager resources, and VM extensions for Azure Stack and Azure clouds by using this module. | Cloud operators and users |
+| [Cloud capabilities](user/azure-stack-validate-templates.md) | Use this module to get the cloud capabilities of a cloud. For example, by using this module, you can get the cloud capabilities such as API version and Azure Resource Manager resources. You can also get the VM extensions for Azure Stack and Azure clouds by using this module. | Cloud operators and users |
 | [Azure Stack compute administration](azure-stack-add-vm-image.md) | Use this module to add or remove a VM image from the Azure Stack marketplace. | Cloud operators |
 | [Azure Stack infrastructure administration](https://github.com/Azure/AzureStack-Tools/blob/master/Infrastructure/README.md) | Use this module to manage Azure Stack infrastructure VMs, alerts, updates, and so on. |  Cloud operators|
 | [Resource Manager policy for Azure Stack](user/azure-stack-policy-module.md) | Use this module to configure an Azure subscription or an Azure resource group with the same versioning and service availability as Azure Stack. | Cloud operators and users |
