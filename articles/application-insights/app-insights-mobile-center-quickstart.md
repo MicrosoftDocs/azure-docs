@@ -13,7 +13,7 @@ manager: carmonm
 
 # Start analyzing your mobile app with Mobile Center and Application Insights
 
-This quickstart guides you through connecting your app's Mobile Center instance to Application Insights so you can query, segment, filter, and analyze your telemetry with more powerful tools.
+This quickstart guides you through connecting your app's Mobile Center instance to Application Insights. With Application Insights, you can query, segment, filter, and analyze your telemetry with more powerful tools than are available from Mobile Center.
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ To onboard your app, follow the Mobile Center quickstart for each platform your 
 
 ## Track events in your app with the Mobile Center SDK
 
-After your app is onboarded to Mobile Center, it needs to be modified to send custom event telemetry using the Mobile Center SDK. Custom events are the only type of Mobile Center telemetry that are exported to Application Insights.
+After your app is onboarded to Mobile Center, it needs to be modified to send custom event telemetry using the Mobile Center SDK. Custom events are the only type of Mobile Center telemetry that is exported to Application Insights.
 
 To send custom events from iOS apps, use the `trackEvent` or `trackEvent:withProperties` methods in the Mobile Center SDK. [Learn more about tracking events from iOS apps.](https://docs.microsoft.com/mobile-center/sdk/analytics/ios)
 
@@ -49,7 +49,7 @@ To send custom events from Android apps, use the `trackEvent` method in the Mobi
 Analytics.trackEvent("Video clicked")
 ```
 
-Go to the **Events** tab under the **Analytics** section in Mobile Center to make sure your custom events are being received. This can take a couple minutes from when they're sent from your app.
+To make sure your custom events are being received, go to the **Events** tab under the **Analytics** section in Mobile Center. It can take a couple minutes for events to show up from when they're sent from your app.
 
 ## Create a Mobile Center-type Application Insights resource in the Azure portal
 
@@ -66,7 +66,7 @@ If you have iOS and Android versions of your app, it's best to create two separa
 
 ## Start exporting your Mobile Center data into the Application Insights resource
 
-One step left: start exporting the custom events from Mobile Center into the Application Insights resource you just created.
+One step left: start exporting the custom events from Mobile Center into the Application Insights resource you created.
 
 In your new Application Insights resource:
 
@@ -81,9 +81,9 @@ In the Mobile Center instance for your app:
 
 Remember to repeat this process for each platform your app supports.
 
-Once export is set up, each custom event received by Mobile Center will be copied into Application Insights. It can take several minutes for events to reach Application Insights, so if they don't show up immediately, wait a bit before diagnosing further.
+Once export is set up, each custom event received by Mobile Center is copied into Application Insights. It can take several minutes for events to reach Application Insights, so if they don't show up immediately, wait a bit before diagnosing further.
 
-Mobile Center will export the most recent 48 hours of custom events to Application Insights. Currently, there's no way to export Mobile Center custom events to Application Insights from earlier than 48 hours ago.
+Mobile Center exports the most recent 48 hours of custom events to Application Insights. Currently, there's no way to export Mobile Center custom events to Application Insights from earlier than 48 hours ago.
 
 ## Start monitoring your app in the Azure portal
 
@@ -93,7 +93,7 @@ Application Insights can query, segment, filter, and analyze the custom event te
 
    ![Analytics button in Application Insights](./media/app-insights-mobile-center-quickstart/analytics.png)
 
-   This will take you to the Application Insights Analytics portal for your Application Insights resource. The Analytics portal lets you directly query your data using the Log Analytics query language, so you can ask arbitrarily complex questions about your app and its users.
+   The Application Insights Analytics portal associated with your Application Insights resource will open. The Analytics portal lets you directly query your data using the Log Analytics query language, so you can ask arbitrarily complex questions about your app and its users.
    
    Open a new tab in the Analytics portal, then paste in the following query. It returns a count of how many distinct users have sent each custom event from your app in the last 24 hours, sorted by these distinct counts.
 
@@ -108,7 +108,7 @@ Application Insights can query, segment, filter, and analyze the custom event te
 
    ![Analytics portal](./media/app-insights-mobile-center-quickstart/analytics-portal.png)
 
-   1. Click anywhere on the query in the text editor to highlight it.
+   1. Select the query by clicking anywhere on the query in the text editor.
    2. Then click **Go** to run the query. 
 
    Learn more about [Application Insights Analytics](app-insights-analytics.md) and the [Log Analytics query language](https://docs.loganalytics.io/docs/Language-Reference).
