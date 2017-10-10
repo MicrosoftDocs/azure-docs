@@ -261,14 +261,15 @@ Go down to the "Add" button and click on "New Item" as shown below.
 	> Make sure CLI is connected to Azure Government by following the "Launch Azure CLI 2.0" section above. 
 	>
 	>
-In the command below, replace the "resourceGroupName" and "FunctionAppname" tags with your app information and paste the connection string from Step 6 above in place of the "connectionString" tag. Then run the command using Azure CLI.
+
+	In the command below, replace the "resourceGroupName" and "FunctionAppname" tags with your app information and paste the connection string from Step 6 above in place of the "connectionString" tag. Then run the command using Azure CLI.
 
 ```azurecli-interactive
 az functionapp config appsettings set --resource-group <resourceGroupName> --name <FunctionAppname> --settings AzureWebJobsmyconnection= "<connectionString>"
 
 ```
 
-8. Once this has been set, you can run your Timer trigger function locally. In order to deploy to Azure Government, use the same process as defined [above](documentation-government-functions.md#create-function-using-visual-studio).
+Once this has been set, you can run your Timer trigger function locally. In order to deploy to Azure Government, use the same process as defined [above](documentation-government-functions.md#create-function-using-visual-studio).
 
 ## Use Azure Queues for Output Bindings
 
