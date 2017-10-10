@@ -42,47 +42,7 @@ To understand what a LUIS app returns, you can paste the URL of a sample LUIS ap
 You can use JavaScript to access the same results you saw in the browser window in the previous step. 
 1. Copy the code that follows and save it into an HTML file:
 
-```javascript
-<!DOCTYPE html>
-<html>
-<head>
-    <title>JSSample</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-</head>
-<body>
-
-<script type="text/javascript">
-    $(function() {
-        var params = {
-            // These are optional request parameters. They are set to their default values.
-            "timezoneOffset": "0",
-            "verbose": "false",
-            "spellCheck": "false",
-            "staging": "false",
-        };
-      
-        $.ajax({
-            url: "https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/60340f5f-99c1-4043-8ab9-c810ff16252d?q=turn%20on%20the%20left%20light" + $.param(params),
-            beforeSend: function(xhrObj){
-                // Request headers
-                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","YOUR SUBSCRIPTION KEY");
-            },
-            type: "GET",
-            // The request body may be empty for a GET request
-            data: "{body}",
-        })
-        .done(function(data) {
-            // Display a popup containing the top intent
-            alert("Detected the following intent: " + data.topScoringIntent.intent);
-        })
-        .fail(function() {
-            alert("error");
-        });
-    });
-</script>
-</body>
-</html>
-```
+   [!code-javascript[Console app code that calls a LUIS endpoint](./includes/javascript/quickstart-call-endpoint/call-endpoint.html)]
 2. Replace `"YOUR SUBSCRIPTION KEY"` with your subscription key in this line of code: `xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","YOUR SUBSCRIPTION KEY");`
 
 3. Open the file you saved using a web browser.  An alert window should pop up that says `Detected the following intent: TurnOn`.
