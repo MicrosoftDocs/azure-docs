@@ -69,7 +69,7 @@ ms.author: renash
 * **Can I have domain joined and non-domain joined servers in the same Sync Group?**  
     Yes, a Sync Group can contain Server Endpoints that have different Active Directory membership, inclusive of not being domain joined. While configuration technically works, we do not recommend this as a normal configuration as ACLs that are defined for files/folders on one server might not be able to be enforced by other servers in the Sync Group. For best results, we recommend syncing between either servers in the same Active Directory forest, servers in different Active Directory forests with established trust relationships, or servers not in a domain, but not a mix of all of the above.
 
-* **I created a file directly in my Azure File share over SMB or through the poral. How long until the file is synced to the servers in the Sync Group?** 
+* **I created a file directly in my Azure File share over SMB or through the portal. How long until the file is synced to the servers in the Sync Group?** 
     When you create or modify files in an Azure File share using the Azure portal, SMB, or REST, it can take up to 24 hours to sync the changes to the servers in the Sync Group.
 
 * **When the same file is changed on two servers at approximately the same time, what happens?**  
