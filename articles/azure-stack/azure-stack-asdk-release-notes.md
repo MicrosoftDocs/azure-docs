@@ -34,7 +34,7 @@ Azure PowerShell 1.2.11 is not yet available but is tracking for a release later
 * As they are dependent on it, the App Service, SQL Adapter, and MYSQL Adapter Resource Providers are delayed until Azure PowerShell 1.2.11 is available.
 * Azure PowerShell 1.2.11 is referenced in the documentation, even though it is not yet available.
 * AzureStack-Tools still reference Azure PowerShell 1.2.10, and will remain that way until 1.2.11 is available.
-* Azure PS 1.2.10 can still be used with the development kit for many operations, but it will need to be replaced when Azure PS 1.2.11 is available.
+* Azure PS 1.2.10 can still be used with the development kit for many operations, but it needs to be replaced when Azure PS 1.2.11 is available.
 
 
 
