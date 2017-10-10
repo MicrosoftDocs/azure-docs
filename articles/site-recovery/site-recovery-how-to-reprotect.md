@@ -25,7 +25,7 @@ ms.author: ruturajd
 This article describes how to reprotect Azure virtual machines from Azure to an on-premises site. Follow the instructions in this article when you're ready to fail back your VMware virtual machines or Windows/Linux physical servers after they've failed over from the on-premises site to Azure (as described in [Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery](site-recovery-failover.md)).
 
 > [!WARNING]
-> You cannot failback after you have either [completed migration](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), moved a virtual machine to another resource group, or deleted the Azure virtual machine. If you disable protection of the virtual machine, you cannot failback.
+> You cannot failback after you have either [completed migration](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), moved a virtual machine to another resource group, or deleted the Azure virtual machine. If you disable protection of the virtual machine, you cannot failback. If the virtual machine was first created in Azure (born in the cloud) then you cannot reprotect it back to on-premises. The machine should have been initially protected on-premises and failed over to Azure before reprotect.
 
 
 After reprotection finishes and the protected virtual machines are replicating, you can initiate a failback on the virtual machines to bring them to the on-premises site.
