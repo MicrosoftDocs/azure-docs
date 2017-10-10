@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB Python SDK for premium tables | Microsoft Docs
+title: Azure Cosmos DB Table API for Python | Microsoft Docs
 description: Learn all about the Azure Cosmos DB Python SDK for premium tables  including release dates, retirement dates, and changes made between each version.
 services: cosmos-db
 documentationcenter: python
@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/05/2017
+ms.date: 10/10/2017
 ms.author: mimig1
 ms.custom: 
 
 ---
-# Azure Cosmos DB Python SDK: Release notes and resources
+# Azure Cosmos DB Table API for Python: Release notes and resources
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
 > * [Python](table-sdk-python.md)
@@ -27,18 +27,15 @@ ms.custom:
 |   |   |
 |---|---|
 |**SDK download**|[PyPI](https://pypi.python.org/pypi/azure-cosmosdb-table/)|
-|**API documentation**|[GitHub](https://azure.github.io/azure-cosmosdb-python/)|
-|**SDK installation instructions**|[GitHub](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
+|**API documentation**|[Python API reference documentation](https://azure.github.io/azure-cosmosdb-python/)|
+|**SDK installation instructions**|[Python SDK installation instructions](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
 |**Contribute to SDK**|[GitHub](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
-|**Current supported platform**|[[Python 2.7] (https://www.python.org/downloads/), or [Python 3.3, 3.4, 3.5, or 3.6] (https://www.python.org/downloads/)|
+|**Current supported platform**|[Python 2.7](https://www.python.org/downloads/) or [Python 3.3, 3.4, 3.5, or 3.6] (https://www.python.org/downloads/)|
 
 
 ## Release notes
 ### <a name="0.37.1"/>0.37.1
 * Pre-release SDK
-
-
-
 
 ## Release and retirement dates
 Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
