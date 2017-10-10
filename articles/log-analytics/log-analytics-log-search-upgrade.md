@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2017
+ms.date: 10/10/2017
 ms.author: magoedte;bwren
 
 ---
@@ -45,6 +45,7 @@ If your workspace is automatically upgraded, then you will see a banner indicati
 
  ![Automatic upgrade](media/log-analytics-log-search-upgrade/auto-upgrade.png)
 
+
 ## What happens after the upgrade?
 The following changes are made to your workspace when it's converted:
 
@@ -52,30 +53,42 @@ The following changes are made to your workspace when it's converted:
 - [My dashboard](log-analytics-dashboards.md) is being deprecated in favor of [View Designer](log-analytics-view-designer.md) and [Azure Dashboards](https://docs.microsoft.com/en-us/azure/azure-portal/azure-portal-dashboards.md).  Tiles that you added to My Dashboard are still available, but they're read only.
 - [Power BI integration](log-analytics-powerbi.md) is replaced with a new process.  Any existing Power BI schedules that you created will be disabled, and you need to replace them with the new process.
 - Responses from [alert actions](log-analytics-alerts-actions.md) using webhooks and runbooks have a new format, and you may need to update your alert rules accordingly.
+- Have a look at the [Log Search FAQ](log-analytics-log-search-faq.md) for common questions about the upgrade.
 
-## Can I go back after upgrading?
-When you upgrade, a complete backup of your workspace is taken that includes a snapshot of all saved searches, alert rule, and views.  This allows you to restore your old workspace if you should later desire.  Once your region has been upgraded though, then your old workspace will no longer be available.
+## How do I know if there were any issues from the upgrade?
+After the upgrade has completed, there will be an **Upgrade Summary** section in the settings for the workspace.  Check this section for information about your upgrade and to view the
 
-To restore your legacy workspace, go to **Settings** in your workspace and then **Upgrade Summary**.  You can then select the option to **Restore legacy workspace**.  
+ ![Upgrade summary](media/log-analytics-log-search-upgrade/upgrade-summary.png)
 
-![Restore legacy](media/log-analytics-log-search-upgrade/restore-legacy-b.png)
-
-## How do I perform the upgrade?
+## How do I manually perform the upgrade?
 You can upgrade your workspace when you see the banner at the top of the portal.  
 
-1.	Start the upgrade process by clicking on the banner that says **Learn more and upgrade**.<br>![Upgrade 2](media/log-analytics-log-search-upgrade/upgrade-01a.png)<br>
-2.	Read through the additional information about the upgrade on the upgrade information page.<br>![Upgrade 2](media/log-analytics-log-search-upgrade/upgrade-03.png)<br>
-3.	Click **Upgrade Now** to start the upgrade.<br>![Upgrade 4](media/log-analytics-log-search-upgrade/upgrade-04.png)<br>A notification box in the upper right corner shows the status.<br>![Upgrade 5](media/log-analytics-log-search-upgrade/upgrade-05.png)
-4.	That’s it!  Go over to the Log Search page to have a look at your upgraded workspace.<br>![Upgrade 6](media/log-analytics-log-search-upgrade/upgrade-06.png)<br>
+1.	Start the upgrade process by clicking on the banner that says **Learn more and upgrade**.
+
+    ![Upgrade 2](media/log-analytics-log-search-upgrade/upgrade-01a.png)<br>
+
+2.	Read through the additional information about the upgrade on the upgrade information page.
+
+    ![Upgrade 2](media/log-analytics-log-search-upgrade/upgrade-03.png)<br>
+
+3.	Click **Upgrade Now** to start the upgrade.
+
+    ![Upgrade 4](media/log-analytics-log-search-upgrade/upgrade-04.png)<br>A notification box in the upper right corner shows the status.
+    
+    ![Upgrade 5](media/log-analytics-log-search-upgrade/upgrade-05.png)
+
+4.	That’s it!  Go over to the Log Search page to have a look at your upgraded workspace.
+
+    ![Upgrade 6](media/log-analytics-log-search-upgrade/upgrade-06.png)
 
 If you encounter an issue that causes the upgrade to fail, you can go to the [discussion forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) and post your question or [create a support request](../azure-supportability/how-to-create-azure-support-request.md) from the Azure portal.
 
 ## How do I learn the new language?
 Since it's used by multiple services we've created an [external site to host the documentation](https://docs.loganalytics.io/) for the new language.  This includes tutorials, samples, and a complete reference to help you come up to speed. You can walk through a tutorial of the new language at [Getting Started with Queries](https://go.microsoft.com/fwlink/?linkid=856078) and access the language reference at [Log Analytics query language](https://go.microsoft.com/fwlink/?linkid=856079).  
 
-If you're already familiar with the legacy Log Analytics query language though, then you can use the language converter which is added to your workspace as part of the upgrade.
+If you want to try out the new language in a demo environment including a bunch of sample data, have a look at the [playground environment](https://portal.loganalytics.io/demo#/discover/home).
 
-Just type in your legacy query and then click **Convert** to see the translated version.  You can then either click the search button to run the search or copy and paste the converted query to use somewhere else such as an alert rule.
+If you're already familiar with the legacy Log Analytics query language though, then you can use the language converter which is added to your workspace as part of the upgrade.  Just type in your legacy query and then click **Convert** to see the translated version.  You can then either click the search button to run the search or copy and paste the converted query to use somewhere else such as an alert rule.  You can also have a look at our [cheat sheet](log-analytics-log-search-transition.md) that directly compares common queries from the legacy language.
 
 ![Language converter](media/log-analytics-log-search-upgrade/language-converter.png)
 
