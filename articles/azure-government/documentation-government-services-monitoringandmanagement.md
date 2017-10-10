@@ -172,7 +172,7 @@ For more information, see [Log Analytics public documentation](../log-analytics/
 ## Scheduler
 For information on this service and how to use it, see [Azure Scheduler Documentation](https://docs.microsoft.com/azure/scheduler/). 
 
-## Azure Portal- Ibiza
+## Azure Portal
 The Azure Government Portal can be accessed [here](https://portal.azure.us). 
 
 ## Azure Resource Manager
