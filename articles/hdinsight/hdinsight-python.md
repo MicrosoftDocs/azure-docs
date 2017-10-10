@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 10/06/2017
 ms.author: larryfr
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
@@ -204,6 +204,8 @@ For more information on using SSH, see [Use SSH with HDInsight](hdinsight-hadoop
     ssh myuser@mycluster-ssh.azurehdinsight.net
     ```
 
+    For more information, see the [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) document.
+
 3. From the SSH session, add the python files uploaded previously to the WASB storage for the cluster.
 
     ```bash
@@ -215,9 +217,15 @@ After uploading the files, use the following steps to run the Hive and Pig jobs.
 
 #### Use the Hive UDF
 
-1. Use the `hive` command to start the hive shell. You should see a `hive>` prompt once the shell has loaded.
+1. To connect to Hive, use the following command:
 
-2. Enter the following query at the `hive>` prompt:
+    ```bash
+    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
+    ```
+
+    This command starts the Beeline client.
+
+2. Enter the following query at the `0: jdbc:hive2://headnodehost:10001/>` prompt:
 
    ```hive
    add file wasb:///hiveudf.py;
@@ -236,9 +244,19 @@ After uploading the files, use the following steps to run the Hive and Pig jobs.
         100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
         100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
 
+4. To exit Beeline, use the following command:
+
+    ```hive
+    !q
+    ```
+
 #### Use the Pig UDF
 
-1. Use the `pig` command to start the shell. You see a `grunt>` prompt once the shell has loaded.
+1. To connect to pig, use the following command:
+
+    ```bash
+    pig
+    ```
 
 2. Enter the following statements at the `grunt>` prompt:
 
@@ -270,7 +288,7 @@ After uploading the files, use the following steps to run the Hive and Pig jobs.
     #from pig_util import outputSchema
     ```
 
-    Once the change has been made, use Ctrl+X to exit the editor. Select Y, and then enter to save the changes.
+    This modifies the Python script to work with C Python instead of Jython. Once the change has been made, use **Ctrl+X** to exit the editor. Select **Y**, and then **Enter** to save the changes.
 
 6. Use the `pig` command to start the shell again. Once you are at the `grunt>` prompt, use the following to run the Python script using the C Python interpreter.
 
@@ -291,46 +309,8 @@ You can use PowerShell to upload the files to the HDInsight server. Use the foll
 > [!IMPORTANT] 
 > The steps in this section use Azure PowerShell. For more information on using Azure PowerShell, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
-```powershell
-# Login to your Azure subscription
-# Is there an active Azure subscription?
-$sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
-if(-not($sub))
-{
-    Add-AzureRmAccount
-}
+[!code-powershell[main](../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=5-41)]
 
-# Get cluster info
-$clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
-# Change the path to match the file location on your system
-$pathToStreamingFile = "C:\path\to\hiveudf.py"
-$pathToJythonFile = "C:\path\to\pigudf.py"
-
-$clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-$resourceGroup = $clusterInfo.ResourceGroup
-$storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
-$container=$clusterInfo.DefaultStorageContainer
-$storageAccountKey=(Get-AzureRmStorageAccountKey `
-    -Name $storageAccountName `
--ResourceGroupName $resourceGroup)[0].Value
-
-#Create a storage content and upload the file
-$context = New-AzureStorageContext `
-    -StorageAccountName $storageAccountName `
-    -StorageAccountKey $storageAccountKey
-
-Set-AzureStorageBlobContent `
-    -File $pathToStreamingFile `
-    -Blob "hiveudf.py" `
-    -Container $container `
-    -Context $context
-
-Set-AzureStorageBlobContent `
-    -File $pathToJythonFile `
-    -Blob "pigudf.py" `
-    -Container $container `
-    -Context $context
-```
 > [!IMPORTANT]
 > Change the `C:\path\to` value to the path to the files on your development environment.
 
@@ -346,52 +326,7 @@ PowerShell can also be used to remotely run Hive queries. Use the following Powe
 > [!IMPORTANT]
 > Before running, the script prompts you for the HTTPs/Admin account information for your HDInsight cluster.
 
-```powershell
-# Login to your Azure subscription
-# Is there an active Azure subscription?
-$sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
-if(-not($sub))
-{
-    Add-AzureRmAccount
-}
-
-# Get cluster info
-$clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
-$creds=Get-Credential -Message "Enter the login for the cluster"
-
-# If using a Windows-based HDInsight cluster, change the USING statement to:
-# "USING 'D:\Python27\python.exe hiveudf.py' AS " +
-$HiveQuery = "add file wasb:///hiveudf.py;" +
-                "SELECT TRANSFORM (clientid, devicemake, devicemodel) " +
-                "USING 'python hiveudf.py' AS " +
-                "(clientid string, phoneLabel string, phoneHash string) " +
-                "FROM hivesampletable " +
-                "ORDER BY clientid LIMIT 50;"
-
-$jobDefinition = New-AzureRmHDInsightHiveJobDefinition `
-    -Query $HiveQuery
-
-$job = Start-AzureRmHDInsightJob `
-    -ClusterName $clusterName `
-    -JobDefinition $jobDefinition `
-    -HttpCredential $creds
-Write-Host "Wait for the Hive job to complete ..." -ForegroundColor Green
-Wait-AzureRmHDInsightJob `
-    -JobId $job.JobId `
-    -ClusterName $clusterName `
-    -HttpCredential $creds
-# Uncomment the following to see stderr output
-# Get-AzureRmHDInsightJobOutput `
-#   -Clustername $clusterName `
-#   -JobId $job.JobId `
-#   -HttpCredential $creds `
-#   -DisplayOutputType StandardError
-Write-Host "Display the standard output ..." -ForegroundColor Green
-Get-AzureRmHDInsightJobOutput `
-    -Clustername $clusterName `
-    -JobId $job.JobId `
-    -HttpCredential $creds
-```
+[!code-powershell[main](../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=45-94)]
 
 The output for the **Hive** job should appear similar to the following example:
 
@@ -408,49 +343,7 @@ PowerShell can also be used to run Pig Latin jobs. To run a Pig Latin job that u
 > [!NOTE]
 > When remotely submitting a job using PowerShell, it is not possible to use C Python as the interpreter.
 
-```powershell
-# Login to your Azure subscription
-# Is there an active Azure subscription?
-$sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
-if(-not($sub))
-{
-    Add-AzureRmAccount
-}
-
-# Get cluster info
-$clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
-$creds=Get-Credential -Message "Enter the login for the cluster"
-
-$PigQuery = "Register wasb:///pigudf.py using jython as myfuncs;" +
-            "LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);" +
-            "LOG = FILTER LOGS by LINE is not null;" +
-            "DETAILS = foreach LOG generate myfuncs.create_structure(LINE);" +
-            "DUMP DETAILS;"
-
-$jobDefinition = New-AzureRmHDInsightPigJobDefinition -Query $PigQuery
-
-$job = Start-AzureRmHDInsightJob `
-    -ClusterName $clusterName `
-    -JobDefinition $jobDefinition `
-    -HttpCredential $creds
-
-Write-Host "Wait for the Pig job to complete ..." -ForegroundColor Green
-Wait-AzureRmHDInsightJob `
-    -Job $job.JobId `
-    -ClusterName $clusterName `
-    -HttpCredential $creds
-# Uncomment the following to see stderr output
-# Get-AzureRmHDInsightJobOutput `
-#    -Clustername $clusterName `
-#    -JobId $job.JobId `
-#    -HttpCredential $creds `
-#    -DisplayOutputType StandardError
-Write-Host "Display the standard output ..." -ForegroundColor Green
-Get-AzureRmHDInsightJobOutput `
-    -Clustername $clusterName `
-    -JobId $job.JobId `
-    -HttpCredential $creds
-```
+[!code-powershell[main](../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=98-144)]
 
 The output for the **Pig** job should appear similar to the following data:
 
@@ -472,23 +365,13 @@ This problem may be caused by the line endings in the Python file. Many Windows 
 
 You can use the following PowerShell statements to remove the CR characters before uploading the file to HDInsight:
 
-```powershell
-$original_file ='c:\path\to\hiveudf.py'
-$text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
-[IO.File]::WriteAllText($original_file, $text)
-```
+[!code-powershell[main](../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=148-150)]
 
 ### PowerShell scripts
 
 Both of the example PowerShell scripts used to run the examples contain a commented line that displays error output for the job. If you are not seeing the expected output for the job, uncomment the following line and see if the error information indicates a problem.
 
-```powershell
-# Get-AzureRmHDInsightJobOutput `
-        -Clustername $clusterName `
-        -JobId $job.JobId `
-        -HttpCredential $creds `
-        -DisplayOutputType StandardError
-```
+[!code-powershell[main](../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=135-139)]
 
 The error information (STDERR) and the result of the job (STDOUT) are also logged to your HDInsight storage.
 

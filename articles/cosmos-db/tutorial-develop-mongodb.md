@@ -57,7 +57,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Set up your MongoDB app
 
-You can use the [Create a web app in Azure that connects to MongoDB running on a virtual machine](../app-service-web/web-sites-dotnet-store-data-mongodb-vm.md) tutorial, with minimal modification, to quickly setup a MongoDB application (either locally or published to an Azure web app) that connects to an API for MongoDB account.  
+You can use the [Create a web app in Azure that connects to MongoDB running on a virtual machine](../app-service/app-service-web-tutorial-nodejs-mongodb-app.md) tutorial, with minimal modification, to quickly setup a MongoDB application (either locally or published to an Azure web app) that connects to an API for MongoDB account.  
 
 1. Follow the tutorial, with one modification.  Replace the Dal.cs code with this:
 

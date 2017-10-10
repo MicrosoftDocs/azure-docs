@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/07/2017
+ms.date: 09/14/2017
 ms.author: terrylan
 
 ---
@@ -111,14 +111,13 @@ If the Microsoft Monitoring Agent is installed directly on the VM (not as an Azu
 If you remove the Microsoft Monitoring Extension, Security Center is not able to collect security data from the VM and some security recommendations and alerts are unavailable. Within 24 hours, Security Center determines that the VM is missing the extension and reinstalls the extension.
 
 ### How do I stop the automatic agent installation and workspace creation?
-You can turn off data collection for your subscriptions in the security policy but this is not recommended. Turning off data collection limits Security Center recommendations and alerts. Data collection is required for subscriptions on the Standard pricing tier. To disable data collection:
+You can turn off automatic provisioning for your subscriptions in the security policy but this is not recommended. Turning off automatic provisioning limits Security Center recommendations and alerts. Automatic provisioning is required for subscriptions on the Standard pricing tier. To disable automatic provisioning:
 
 1. If your subscription is configured for the Standard tier, open the security policy for that subscription and select the **Free** tier.
 
    ![Pricing tier][1]
 
-2. Next, turn off data collection by selecting **Off** on the **Security policy – Data collection** blade.
-
+2. Next, turn off automatic provisioning by selecting **Off** on the **Security policy – Data collection** blade.
    ![Data collection][2]
 
 ### How do I remove OMS extensions installed by Security Center?

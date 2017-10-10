@@ -2124,7 +2124,7 @@ The **SqlUserDefinedReducer** attribute indicates that the type should be regist
 **SqlUserDefinedReducer** is an optional attribute for a user-defined reducer definition. It's used to define IsRecursive property.
 
 * bool     IsRecursive    
-* **true**  = Indicates whether this Reducer is idempotent
+* **true**  = Indicates whether this Reducer is associative and commutative
 
 The main programmability objects are **input** and **output**. The input object is used to enumerate input rows. Output is used to set output rows as a result of reducing activity.
 

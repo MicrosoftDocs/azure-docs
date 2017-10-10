@@ -75,7 +75,6 @@ The following members of Azure AD can be provisioned in Azure SQL server or SQL 
 * Imported members from other Azure AD's who are native or federated domain members.
 * Active Directory groups created as security groups.
 
-Microsoft accounts (for example outlook.com, hotmail.com, live.com) or other guest accounts (for example gmail.com, yahoo.com) are not supported. If you can log in to [https://login.live.com](https://login.live.com) using the account and password, then you are using a Microsoft account, which is not supported for Azure AD authentication for Azure SQL Database or Azure SQL Data Warehouse.
 
 ## Connecting using Azure AD identities
 
