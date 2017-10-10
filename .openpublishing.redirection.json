@@ -5411,11 +5411,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cognitive-services/Bing-Image-Search/index.md",
-            "redirect_url": "/azure/cognitive-services/Bing-Image-Search/search-the-web",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/sql-database/sql-database-command-line-tools.md",
             "redirect_url": "/azure/sql-database/sql-database-manage-overview",
             "redirect_document_id": false
