@@ -34,7 +34,8 @@ To develop functions app with Java, you must have the following installed:
 -  [Apache Maven](https://maven.apache.org), version 3.0 or above.
 -  [Node.js](https://nodejs.org/download/), version 8.6 or higher.
 
-> [!IMPORTANT] The JAVA_HOME environment variable must be set to the install location of the JDK to complete this quickstart.
+> [!IMPORTANT] 
+> The JAVA_HOME environment variable must be set to the install location of the JDK to complete this quickstart.
 
 ## Install the Azure Functions Core Tools
 
