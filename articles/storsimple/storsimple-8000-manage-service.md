@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 10/04/2017
 ms.author: alkohli
 
 ---
@@ -59,7 +59,7 @@ For each StorSimple Device Manager service, the following attributes exist:
 StorSimple 8000 series can be now managed in the Azure portal. If you have an existing service to manage the StorSimple devices, we recommend that you move your service to the Azure portal. The Azure classic portal for the StorSimple Manager service is not supported after September 30, 2017. If you want to move to the new Azure portal, refer [Considerations for transition](#considerations-for-transition). 
 
 > [!NOTE]
-> Starting October 5, 2017, your classic StorSimple device managers will automatically move to the new Azure portal. This is a phased rollout, and we will update you about the move via email and portal notifications. If you have any questions, see [FAQ: Move to Azure portal]().
+> Starting October 5, 2017, your classic StorSimple device managers will automatically move to the new Azure portal. This is a phased rollout, and we will update you about the move via email and portal notifications. If you have any questions, see [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md).
 
 ### Considerations for transition
 
@@ -71,7 +71,7 @@ Review the impact of migrating to the new Azure portal before you move the servi
 
 #### Before you transition
 
-* Your device is running Update 3.0 or later. If your device is running an older version, install the latest updates. For more information, go to [Install Update 5](storsimple-8000-install-update-5.md). If using a StorSimple Cloud Appliance (8010/8020), create a new cloud appliance with Update 5.0.
+* Your device is running Update 3.0 or later. If your device is running an older version, install the latest updates. For more information, go to [Install Update 5](storsimple-8000-install-update-5.md). If using a StorSimple Cloud Appliance (8010/8020), you cannot update a cloud appliance. Use the latest version of software to create a new cloud appliance with Update 5.0 and then fail over to the new cloud appliance created.
 
 * Once you are transitioned to the new Azure portal, you cannot use the Azure classic portal to manage your StorSimple device.
 
