@@ -40,25 +40,25 @@ This article describes the schema and properties for all supported elements of a
 | toolTip | No | The text to display in the tool tip of the element. Similar to `label`, some elements support multiple tool tip strings. Inline links can be embedded using Markdown syntax.
 | constraints | No | One or more properties that are used to customize the validation behavior of the element. The supported properties for constraints vary by element type. Some element types do not support customization of the validation behavior, and thus have no constraints property. |
 | options | No | Additional properties that customize the behavior of the element. Similar to `constraints`, the supported properties vary by element type. |
-| visible | No | Indicates whether the element is displayed. If `true`, the element and applicable child elements are displayed. The default value is `true`. Use [logical functions](managed-application-createuidefinition-functions.md#logical-functions) to dynamically control this property's value.
+| visible | No | Indicates whether the element is displayed. If `true`, the element and applicable child elements are displayed. The default value is `true`. Use [logical functions](../managed-applications/createuidefinition-functions.md#logical-functions) to dynamically control this property's value.
 
 ## Elements
 
 The documentation for each element contains a UI sample, schema, remarks on the behavior of the element (usually concerning validation and supported customization), and sample output.
 
-- [Microsoft.Common.DropDown](managed-application-microsoft-common-dropdown.md)
-- [Microsoft.Common.FileUpload](managed-application-microsoft-common-fileupload.md)
-- [Microsoft.Common.OptionsGroup](managed-application-microsoft-common-optionsgroup.md)
-- [Microsoft.Common.PasswordBox](managed-application-microsoft-common-passwordbox.md)
-- [Microsoft.Common.Section](managed-application-microsoft-common-section.md)
-- [Microsoft.Common.TextBox](managed-application-microsoft-common-textbox.md)
-- [Microsoft.Compute.CredentialsCombo](managed-application-microsoft-compute-credentialscombo.md)
-- [Microsoft.Compute.SizeSelector](managed-application-microsoft-compute-sizeselector.md)
-- [Microsoft.Compute.UserNameTextBox](managed-application-microsoft-compute-usernametextbox.md)
-- [Microsoft.Network.PublicIpAddressCombo](managed-application-microsoft-network-publicipaddresscombo.md)
-- [Microsoft.Network.VirtualNetworkCombo](managed-application-microsoft-network-virtualnetworkcombo.md)
-- [Microsoft.Storage.MultiStorageAccountCombo](managed-application-microsoft-storage-multistorageaccountcombo.md)
-- [Microsoft.Storage.StorageAccountSelector](managed-application-microsoft-storage-storageaccountselector.md)
+- [Microsoft.Common.DropDown](../managed-applications/microsoft-common-dropdown.md)
+- [Microsoft.Common.FileUpload](../managed-applications/microsoft-common-fileupload.md)
+- [Microsoft.Common.OptionsGroup](../managed-applications/microsoft-common-optionsgroup.md)
+- [Microsoft.Common.PasswordBox](../managed-applications/microsoft-common-passwordbox.md)
+- [Microsoft.Common.Section](../managed-applications/microsoft-common-section.md)
+- [Microsoft.Common.TextBox](../managed-applications/microsoft-common-textbox.md)
+- [Microsoft.Compute.CredentialsCombo](../managed-applications/microsoft-compute-credentialscombo.md)
+- [Microsoft.Compute.SizeSelector](../managed-applications/microsoft-compute-sizeselector.md)
+- [Microsoft.Compute.UserNameTextBox](../managed-applications/microsoft-compute-usernametextbox.md)
+- [Microsoft.Network.PublicIpAddressCombo](../managed-applications/microsoft-network-publicipaddresscombo.md)
+- [Microsoft.Network.VirtualNetworkCombo](../managed-applications/microsoft-network-virtualnetworkcombo.md)
+- [Microsoft.Storage.MultiStorageAccountCombo](../managed-applications/microsoft-storage-multistorageaccountcombo.md)
+- [Microsoft.Storage.StorageAccountSelector](../managed-applications/microsoft-storage-storageaccountselector.md)
 
 ## Next steps
 * For an introduction to managed applications, see [Azure Managed Application overview](managed-application-overview.md).

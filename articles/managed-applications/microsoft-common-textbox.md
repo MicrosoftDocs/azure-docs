@@ -18,7 +18,7 @@ ms.author: tomfitz
 ---
 
 # Microsoft.Common.TextBox UI element
-A control that can be used to edit unformatted text. You use this element when [creating an Azure Managed Application](managed-application-publishing.md).
+A control that can be used to edit unformatted text. You use this element when [creating an Azure Managed Application](../azure-resource-manager/managed-application-publishing.md).
 
 ## UI sample
 ![Microsoft.Common.TextBox](./media/managed-application-elements/microsoft.common.textbox.png)
@@ -59,6 +59,6 @@ validation messages are used. The default value is **null**.
 ```
 
 ## Next steps
-* For an introduction to managed applications, see [Azure Managed Application overview](managed-application-overview.md).
-* For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](managed-application-createuidefinition-overview.md).
-* For a description of common properties in UI elements, see [CreateUiDefinition elements](managed-application-createuidefinition-elements.md).
+* For an introduction to managed applications, see [Azure Managed Application overview](../azure-resource-manager/managed-application-overview.md).
+* For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](../azure-resource-manager/managed-application-createuidefinition-overview.md).
+* For a description of common properties in UI elements, see [CreateUiDefinition elements](../azure-resource-manager/managed-application-createuidefinition-elements.md).

@@ -17,7 +17,7 @@ ms.author: tomfitz
 
 ---
 # Microsoft.Common.PasswordBox UI element
-A control that can be used to provide and confirm a password. You use this element when [creating an Azure Managed Application](managed-application-publishing.md).
+A control that can be used to provide and confirm a password. You use this element when [creating an Azure Managed Application](../azure-resource-manager/managed-application-publishing.md).
 
 ## UI sample
 ![Microsoft.Common.PasswordBox](./media/managed-application-elements/microsoft.common.passwordbox.png)
@@ -46,7 +46,7 @@ A control that can be used to provide and confirm a password. You use this eleme
 
 ## Remarks
 - This element doesn't support the `defaultValue` property.
-- For implementation details of `constraints`, see [Microsoft.Common.TextBox](managed-application-microsoft-common-textbox.md).
+- For implementation details of `constraints`, see [Microsoft.Common.TextBox](microsoft-common-textbox.md).
 - If `options.hideConfirmation` is set to **true**, the second text box for
 confirming the user's password is hidden. The default value is **false**.
 
@@ -56,6 +56,6 @@ confirming the user's password is hidden. The default value is **false**.
 ```
 
 ## Next steps
-* For an introduction to managed applications, see [Azure Managed Application overview](managed-application-overview.md).
-* For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](managed-application-createuidefinition-overview.md).
-* For a description of common properties in UI elements, see [CreateUiDefinition elements](managed-application-createuidefinition-elements.md).
+* For an introduction to managed applications, see [Azure Managed Application overview](../azure-resource-manager/managed-application-overview.md).
+* For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](../azure-resource-manager/managed-application-createuidefinition-overview.md).
+* For a description of common properties in UI elements, see [CreateUiDefinition elements](../azure-resource-manager/managed-application-createuidefinition-elements.md).
