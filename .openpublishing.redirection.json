@@ -9746,6 +9746,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/expressroute/expressroute-routing-nat.md",
+            "redirect_url": "/azure/expressroute/expressroute-routing",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-machines/virtual-machines-windows-matlab-mdcs-cluster.md",
             "redirect_url": "/azure/virtual-machines/windows/matlab-mdcs-cluster",
             "redirect_document_id": false
@@ -11322,7 +11327,7 @@
         },
         {
             "source_path": "articles/container-service/kubernetes/container-service-connect.md",
-            "redirect_url": "/azure/container-service/kubernetes/container-service-kubernetes-walkthrough",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-connect",
             "redirect_document_id": false
         },
         {
@@ -12943,21 +12948,6 @@
         {
             "source_path": "articles/machine-learning/services.md",
             "redirect_url": "/azure/machine-learning/preview/index.yml",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/azure-stack/azure-stack-app-service-capacity-planning.md",
-            "redirect_url": "/azure-stack/azure-stack-app-service-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/azure-stack/azure-stack-sql-resource-provider-databases.md",
-            "redirect_url": "/azure-stack/azure-stack-sql-resource-provider-deploy",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/azure-stack/azure-stack-sql-resource-provider-hosting-servers.md",
-            "redirect_url": "/azure-stack/azure-stack-sql-resource-provider-deploy",
             "redirect_document_id": false
         },
         {
