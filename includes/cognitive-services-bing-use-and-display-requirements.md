@@ -35,9 +35,9 @@ The only exception to the internet search experience requirement is for URL disc
 
 - copy, store, or cache any data from responses (except retention to the extent permitted by the "Continuity of Service" section below); 
 - use data received from the Search APIs as part of any machine learning or similar algorithmic activity to train, evaluate, or improve new or existing services which you or third parties may offer.
-- modify content of results (other than to reformat them in a way that does not violate any other requirement); 
+- modify content of results (other than to reformat them in a way that does not violate any other requirement), unless required by law or agreed by Microsoft; 
 - omit attribution and URLs associated with result content;
-- re-order, including by omission, results displayed in an answer when an order or ranking is provided (for the Bing Custom Search API, this does not apply to re-ordering implemented through the customsearch.ai portal);
+- re-order, including by omission, results displayed in an answer when an order or ranking is provided (for the Bing Custom Search API, this does not apply to re-ordering implemented through the customsearch.ai portal), unless required by law or agreed by Microsoft;
 - display other content within any part of a response in a way that would lead an end user to believe that the other content is part of the response; 
 - display advertising that is not provided by Microsoft on any page that displays any part of a response; 
 - display any advertising with responses (i) from the Bing Image, News or Video Search APIs; or (ii) that are filtered or limited primarily (or solely) to image, news and/or video results.
