@@ -4,7 +4,7 @@ description: This provides a comparision of features and guidance on developing 
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: yujhong
+author: yujhongmicrosoft
 manager: zakramer
 
 ms.assetid: cba97199-851d-43ae-a75a-c601f3f81601
@@ -335,7 +335,7 @@ For more information, please see [public documentation](../cognitive-services/co
 ### Face API
 #### Prerequisites
 * Get the Microsoft Face API Windows SDK [here](https://www.nuget.org/packages/Microsoft.ProjectOxford.Face/)
-* Learn more about obtaining free Subscription Keys [here](../../Computer-vision/Vision-API-How-to-Topics/HowToSubscribe.md)
+* Learn more about obtaining free Subscription Keys [here](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe)
 
 #### Detect Faces in images with Face API using C# <a name="Detect"> </a>
 Use the [Face - Detect method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 
