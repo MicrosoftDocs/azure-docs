@@ -34,7 +34,7 @@ The resource provider is made up of three components:
 - **The resource provider itself**, which processes provisioning requests and exposes database resources.
 - **Servers that host SQL Server**, which provide capacity for databases, called Hosting Servers. 
 
-This release no longer creates a SQL instance. You must create one (or more) and/or provide access to external SQL instances. There are a number of options available to you including templates in the [Azure Stack Quickstart Gallery](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/mysql-standalone-server-windows) and Marketplace items. 
+This release no longer creates a SQL instance. You must create one (or more) and/or provide access to external SQL instances. There are a number of options available to you including templates in the [Azure Stack Quickstart Gallery](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sql-2014-standalone) and Marketplace items. 
 
 >[!NOTE]
 If you have downloaded any SQL Marketplace items, make sure you also download the SQL IaaS Extension or these will not deploy.
@@ -112,7 +112,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 # Change directory to the folder where you extracted the installation files 
 # and adjust the endpoints
-<extracted file directory>\DeploySQLProvider.ps1 -DirectoryTenantID $tenantID -AzCredential $AdminCreds -VMLocalCredential $vmLocalAdminCreds -ResourceGroupName "SqlRPRG" -VmName "SqlVM" -ArmEndpoint "https://adminmanagement.local.azurestack.external" -TenantArmEndpoint "https://management.local.azurestack.external" -DefaultSSLCertificatePassword $PfxPass
+<extracted file directory>\DeploySQLProvider.ps1 -DirectoryTenantID $tenantID -AzCredential $AdminCreds -VMLocalCredential $vmLocalAdminCreds -ResourceGroupName "SqlRPRG" -VmName "SqlRP" -ArmEndpoint "https://adminmanagement.local.azurestack.external" -TenantArmEndpoint "https://management.local.azurestack.external" -DefaultSSLCertificatePassword $PfxPass
  ```
 
 ### DeploySqlProvider.ps1 parameters
