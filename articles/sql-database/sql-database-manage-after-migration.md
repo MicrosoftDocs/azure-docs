@@ -54,7 +54,7 @@ If you have auto-failover groups configured, then the failover to secondary is t
 There are a few ways to lock down connectivity access to your SQL databases. 
 1. Limit traffic over the Internet 
 Express Route gives you dedicated fiber to the Azure network so that your data does not travel over the internet. It is also possible to configure cross region connectivity using Express route. The following links describe Express Route in more detail: 
- - [Introduction on Express Route](../expressroute-introduction.md)
+ - [Introduction on Express Route](../expressroute/expressroute-introduction.md)
  - [Prerequisites](../expressroute/expressroute-prerequisites.md) 
  - [Workflows](../expressroute/expressroute-workflows.md) 
  
