@@ -31,10 +31,10 @@ These release notes provide information on new features and known issues in Azur
 #### PowerShell
 
 Azure PowerShell 1.2.11 is not yet available but is tracking for a release later this week. Until that time, consider the following issues:
-* As they are dependent on it, the App Service, SQL Adapter, and MYSQL Adapter Resource Providers are delayed until Azure PowerShell 1.2.11 is available.
+* The App Service, SQL Adapter, and MYSQL Adapter Resource Providers are dependent on PowerShell 1.2.11. Therefore, they are delayed until the new version of Azure PowerShell is available.
 * Azure PowerShell 1.2.11 is referenced in the documentation, even though it is not yet available.
 * AzureStack-Tools still reference Azure PowerShell 1.2.10, and will remain that way until 1.2.11 is available.
-* Azure PS 1.2.10 can still be used with the development kit for many operations, but it needs to be replaced when Azure PS 1.2.11 is available.
+* Azure PS 1.2.10 can still be used with the development kit for many operations. It needs to be replaced when Azure PS 1.2.11 is available.
 
 
 
@@ -43,8 +43,8 @@ Azure PowerShell 1.2.11 is not yet available but is tracking for a release later
 
 #### Portal
 * You may see a blank dashboard in the portal.  You can recover the dashboard by selecting the gear in the upper right of the portal, and selecting "Restore default settings".
-* Tenants are able to browse the full marketplace without a subscription, and can administrative items like plans and offers.  These items are non-functional to tenants.
-* The "move" button is disabled on the Resource Group blade.  This disabled button is expected behavior, because moving resource groups between subscriptions is not currently supported.
+* Tenants are able to browse the full marketplace without a subscription, and can see administrative items like plans and offers.  These items are non-functional to tenants.
+* The "move" button is disabled under Resource Group.  This disabled button is expected behavior, because moving resource groups between subscriptions is not currently supported.
 * You are not able to view permissions to your subscription using the Azure Stack portals.  As a work-around, you can verify permissions using Powershell.
 * You will see an alert advising you to register your Azure Stack Development Kit.  This alert is expected behavior.  
   
@@ -55,7 +55,7 @@ Azure PowerShell 1.2.11 is not yet available but is tracking for a release later
 * VM Availability sets can only be configured with a fault domain of one and an update domain of one.  
 * A tenant must register the storage resource provider before creating their first Azure Function in the subscription.
 * Deleting tenant subscriptions results in orphaned resources.  As a workaround, first delete tenant resources or entire resource group, and then delete tenant subscriptions. 
-* You must create a NAT rule when creating a network load balancer, or you will receive an error when you attempt to add a NAT rule after the load balancer is created.
+* You must create a NAT rule when creating a network load balancer. If you dont', you will receive an error when you attempt to add a NAT rule after the load balancer is created.
 * Tenants are given the option to create a virtual machine with geo-redundant storage.  This configuration causes virtual machine creation to fail.
 * It can take up to an hour before tenants can create databases in a new SQL or MySQL SKU. 
 * Creation of items directly on SQL and MySQL hosting servers that are not performed by the resource provider is not supported and may result in mismatched state.
