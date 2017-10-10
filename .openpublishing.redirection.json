@@ -5159,12 +5159,12 @@
             "source_path": "articles/service-bus-messaging/service-bus-create-queues.md",
             "redirect_url": "/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues",
             "redirect_document_id": false
-        },        
+        },
         {
             "source_path": "articles/service-bus-messaging/service-bus-create-topics-subscriptions.md",
             "redirect_url": "/azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions",
             "redirect_document_id": false
-        },        
+        },
         {
             "source_path": "articles/service-bus-messaging/service-bus-dotnet-advanced-message-queuing.md",
             "redirect_url": "/azure/service-bus-messaging/service-bus-amqp-dotnet",
@@ -6154,7 +6154,7 @@
             "source_path": "articles/logic-apps/logic-apps-enterprise-integration-accounts.md",
             "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-create-integration-account",
             "redirect_document_id": false
-        },    
+        },
         {
             "source_path": "articles/backup/backup-azure-backup-ibiza-faq.md",
             "redirect_url": "/azure/backup/backup-azure-backup-faq",
@@ -9004,22 +9004,22 @@
             "source_path": "articles/azure-stack/azure-stack-kv-sample-app.md",
             "redirect_url": "/azure/azure-stack/user/azure-stack-kv-sample-app",
             "redirect_document_id": false
-        }, 
+        },
         {
             "source_path": "articles/azure-stack/azure-stack-network-differences.md",
             "redirect_url": "/azure/azure-stack/user/azure-stack-network-differences",
             "redirect_document_id": false
-        }, 
+        },
         {
             "source_path": "articles/azure-stack/azure-stack-policy-module.md",
             "redirect_url": "/azure/azure-stack/user/azure-stack-policy-module",
             "redirect_document_id": false
-        }, 
+        },
         {
             "source_path": "articles/azure-stack/azure-stack-powershell-configure-user.md",
             "redirect_url": "/azure/azure-stack/user/azure-stack-powershell-configure-user",
             "redirect_document_id": false
-        }, 
+        },
         {
             "source_path": "articles/azure-stack/azure-stack-solution-pipeline.md",
             "redirect_url": "/azure/azure-stack/user/azure-stack-solution-pipeline",
@@ -12749,7 +12749,7 @@
             "source_path": "articles/container-registry/container-registry-managed-get-started-portal.md",
             "redirect_url": "/azure/container-registry/container-registry-get-started-portal",
             "redirect_document_id": false
-        },      
+        },
         {
             "source_path": "articles/container-registry/container-registry-managed-get-started-azure-cli.md",
             "redirect_url": "/azure/container-registry/container-registry-get-started-azure-cli",
@@ -12936,9 +12936,9 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/billing/billing-usage-rate-card-partner-solution-cloudyn.md", 
-             "redirect_url": "/azure/cost-management/overview", 
-             "redirect_document_id": false 
+            "source_path": "articles/billing/billing-usage-rate-card-partner-solution-cloudyn.md",
+             "redirect_url": "/azure/cost-management/overview",
+             "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-policy/index.md",
@@ -13444,7 +13444,7 @@
             "source_path": "articles/billing/billing-enterprise-api-usage-detail.md",
             "redirect_url": "https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail",
             "redirect_document_id": true
-        },    
+        },
         {
             "source_path": "articles/active-directory-domain-services/active-directory-ds-azure-portal-enable-preview-access.md",
             "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-contact-us",
@@ -13544,6 +13544,11 @@
             "source_path": "articles/azure-functions/functions-java-reference.md",
             "redirect_url": "/azure/azure-functions/functions-reference-java",
             "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/security-center/security-center-resolve-endpoint-protection-health-alerts.md",
+          "redirect_url": "/azure/security-center",
+          "redirect_document_id": false
         }
     ]
 }
