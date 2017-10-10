@@ -1,5 +1,5 @@
 ﻿---
-title: 'Azure Active Directory B2C: Secure your RESTful services using HTTP basic authentication'
+title: 'Azure Active Directory B2C: Secure your RESTful services by using HTTP basic authentication'
 description: Sample how to secure your custom REST API claims exchanges in your Azure AD B2C by using HTTP basic authentication
 services: active-directory-b2c
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 09/25/2017
 ms.author: yoelh
 ---
 
-# Azure Active Directory B2C: Secure your RESTful services using HTTP basic authentication
+# Azure Active Directory B2C: Secure your RESTful services by using HTTP basic authentication
 In a [related article](active-directory-b2c-custom-rest-api-netfw.md), we created a RESTful service (Web API) that integrates into Azure AD B2C user journeys without authentication. This article shows how to add HTTP basic authentication to your RESTful service so only verified users, including B2C, can access your API. With HTTP basic authentication, you set the user credentials (app ID & app secret) in your custom policy to use the credentials. 
 
 > [!NOTE]
