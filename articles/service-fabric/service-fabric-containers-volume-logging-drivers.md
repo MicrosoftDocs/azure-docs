@@ -17,13 +17,13 @@ ms.date: 8/9/2017
 ms.author: subramar
 ---
 
-# Using Volume Plugins and Logging Drivers for your Container
+# Using Volume Plugins and Logging Drivers in your Container
 
-Service Fabric supports specifying [Docker volume plugins](https://docs.docker.com/engine/extend/plugins_volume/) and [Docker logging drivers](https://docs.docker.com/engine/admin/logging/overview/) for your container service. By default, there are no [Docker volume plugins](https://docs.docker.com/engine/extend/plugins_volume/) and [Docker logging drivers](https://docs.docker.com/engine/admin/logging/overview/) installed on the machines. 
+Service Fabric supports specifying [Docker volume plugins](https://docs.docker.com/engine/extend/plugins_volume/) and [Docker logging drivers](https://docs.docker.com/engine/admin/logging/overview/) for your container service. 
 
-## Install plugin or driver
+## Install Volume/Logging Driver
 
-This can be accompished manually by RDP/SSH-ing into the machine or through a VMSS start-up script. For instance, in order to install the Docker Volume Driver, SSH into the machine and execute:
+If the Docker volume/logging driver is not installed on the machine, install it manually through RDP/SSH-ing into the machine or through a VMSS start-up script. For instance, in order to install the Docker Volume Driver, SSH into the machine and execute:
 
 ```bash
 docker plugin install --alias cloudstor:azure --grant-all-permissions docker4x/17.09.0-ce-azure1  \
