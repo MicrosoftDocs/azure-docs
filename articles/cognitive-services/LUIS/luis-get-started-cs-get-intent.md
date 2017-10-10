@@ -40,57 +40,11 @@ To understand what a LUIS app returns, you can paste the URL of a sample LUIS ap
 ## Consume a LUIS result using the Endpoint API with C# 
 
 You can use C# to access to the same results you saw in the browser window in the previous step. 
+
 1. Create a new console application in Visual Studio. Copy the code that follows and save it into an .cs file:
 
-```cs
-using System;
-using System.Net.Http;
-using System.Web;
+   [!code-csharp[Console app code that calls a LUIS endpoint](./includes/cs/quickstart-call-endpoint/Program.cs)]
 
-namespace ConsoleLuisEndpointSample
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            MakeRequest();
-            Console.WriteLine("Hit ENTER to exit...");
-            Console.ReadLine();
-        }
-
-        static async void MakeRequest()
-        {
-            var client = new HttpClient();
-            var queryString = HttpUtility.ParseQueryString(string.Empty);
-
-            // This app ID is for a public sample app that recognizes requests to turn on and turn off lights
-            var luisAppId = "60340f5f-99c1-4043-8ab9-c810ff16252d";
-            var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-
-            // The request header contains your subscription key
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-
-            // The "q" parameter contains the utterance to send to LUIS
-            queryString["q"] = "turn on the left light";
-
-            // These optional request parameters are set to their default values
-            queryString["timezoneOffset"] = "0";
-            queryString["verbose"] = "false";
-            queryString["spellCheck"] = "false";
-            queryString["staging"] = "false";
-
-            var uri = "https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/" + luisAppId + "?" + queryString;
-            var response = await client.GetAsync(uri);
-
-            var strResponseContent = await response.Content.ReadAsStringAsync();
-            
-            // Display the JSON result from LUIS
-            Console.WriteLine(strResponseContent.ToString());
-        }
-    }
-}
-
-```
 2. Replace the value of the `subscriptionKey` variable with your LUIS subscription key.
 
 3. In the Visual Studio project, add a reference to **System.Web**.
