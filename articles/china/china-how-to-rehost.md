@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 10/13/2017
 ms.author: v-wimarc
 
 ---
@@ -74,7 +74,7 @@ In Microsoft Azure China 21Vianet, application [endpoints](https://www.azure.cn/
 
 Traffic Manager uses DNS to direct users to particular service endpoints based on the chosen traffic-routing method and the health of the current endpoints. Traffic Manager supports endpoints for Azure virtual machines, Azure Web Apps, and other Azure services, in addition to external endpoints not hosted on Azure. For details, see the [endpoint documentation](https://www.azure.cn/documentation/articles/traffic-manager-endpoint-types/) (in Chinese, or see the [English translation](https://translate.google.com.hk/translate?hl=zh-CN&sl=zh-CN&tl=en&u=https%3A%2F%2Fwww.azure.cn%2Fdocumentation%2Farticles%2Ftraffic-manager-endpoint-types%2F)).
 
-When rehosting a global Azure application, you can support users who travel outside China by setting up Traffic Manager on global Azure, then route traffic to a site hosted on Azure China 21Vianet. Traffic Manager is configured with the [performance traffic-routing method](https://azure.microsoft.com/documentation/articles/traffic-manager-routing-methods/#performance-traffic-routing-method). An app’s responsiveness improves when Traffic Manager routes users to the closest location as measured by the lowest network latency. To work, the solution must synchronize user data between the applications hosted on global Azure and Azure China 21Vianet.
+When rehosting a global Azure application, you can support users who travel outside China by setting up Traffic Manager on global Azure, then route traffic to a site hosted on Azure China 21Vianet. Make sure to synchronize user data. Traffic Manager is configured with the [performance traffic-routing method](https://azure.microsoft.com/documentation/articles/traffic-manager-routing-methods/#performance-traffic-routing-method). An app’s responsiveness improves when Traffic Manager routes users to the closest location as measured by the lowest network latency.
 
 ### Set up push notifications
 When rehosting an application that uses push notifications, note that Azure Notification Hubs use a different platform notification service (PNS) in China. For Android devices, Notification Hubs use the Baidu Push PNS for notifications sent to mobile devices in China.
