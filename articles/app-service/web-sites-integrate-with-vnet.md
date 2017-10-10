@@ -91,7 +91,7 @@ If your VNet does not have a gateway nor has Point to Site, then you have to set
 
 ##### Enabling Point to Site in a Resource Manager VNet
 To configure a Resource Manager VNet with a gateway and Point to Site, you can use either PowerShell as documented here, [Configure a Point-to-Site connection to a virtual network using PowerShell][V2VNETP2S] or use the Azure portal as documented here, [Configure a Point-to-Site connection to a VNet using the Azure portal][V2VNETPortal]. The UI to perform this capability is not yet available. 
-Note that you need to create certificates for the Point to Site configuration. This is automatically configured when you connect your WebApp to the VNet. 
+Note that you don't need to create certificates for the Point to Site configuration. This is automatically configured when you connect your WebApp to the VNet. 
 
 ### Creating a pre-configured VNet
 If you want to create a new VNet that is configured with a gateway and Point-to-Site, then the App Service networking UI has the capability to do that but only for a Resource Manager VNet. If you wish to create a Classic VNet with a gateway and Point-to-Site, then you need to do this manually through the Networking user interface. 
