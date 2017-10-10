@@ -119,26 +119,26 @@ Create a certificate chain with a root CA, for example, "CN=Azure IoT Root CA" t
     ```PowerShell
     function New-CASelfsignedCertificate([string]$subjectName, [object]$signingCert, [bool]$isASigner=$true)
     {
-	      # Build up argument list
-	      $selfSignedArgs =@{"-DnsName"=$subjectName; 
-	                         "-CertStoreLocation"="cert:\LocalMachine\My";
+	    # Build up argument list
+	    $selfSignedArgs =@{"-DnsName"=$subjectName; 
+	                       "-CertStoreLocation"="cert:\LocalMachine\My";
                            "-NotAfter"=(get-date).AddDays(30); 
-	                        }
+	                      }
 
-	      if ($isASigner -eq $true)
-	      {
-		        $selfSignedArgs += @{"-KeyUsage"="CertSign"; }
+	    if ($isASigner -eq $true)
+	    {
+		    $selfSignedArgs += @{"-KeyUsage"="CertSign"; }
             $selfSignedArgs += @{"-TextExtension"= @(("2.5.29.19={text}ca=TRUE&pathlength=12")); }
-	      }
+	    }
         else
         {
             $selfSignedArgs += @{"-TextExtension"= @("2.5.29.37={text}1.3.6.1.5.5.7.3.2,1.3.6.1.5.5.7.3.1", "2.5.29.19={text}ca=FALSE&pathlength=0")  }
         }
 
-	      if ($signingCert -ne $null)
-	      {
-		        $selfSignedArgs += @{"-Signer"=$signingCert }
-	      }
+	    if ($signingCert -ne $null)
+	    {
+		    $selfSignedArgs += @{"-Signer"=$signingCert }
+	    }
 
         if ($useEcc -eq $true)
         {
@@ -146,9 +146,9 @@ Create a certificate chain with a root CA, for example, "CN=Azure IoT Root CA" t
                              "-CurveExport"="CurveName" }
         }
 
-	      # Now use splatting to process this
-	      Write-Host ("Generating certificate {0} which is for prototyping, NOT PRODUCTION.  It will expire in 30 days." -f $subjectName)
-	      write (New-SelfSignedCertificate @selfSignedArgs)
+	    # Now use splatting to process this
+	    Write-Host ("Generating certificate {0} which is for prototyping, NOT PRODUCTION.  It will expire in 30 days." -f $subjectName)
+	    write (New-SelfSignedCertificate @selfSignedArgs)
     }
     ``` 
     2. The following PowerShell function creates intermediate X.509 certificates using the preceding function as well as the OpenSSL binaries. 
