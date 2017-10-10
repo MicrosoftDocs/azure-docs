@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 09/22/2017
+ms.date: 10/07/2017
 ms.author: skwan
 ---
 
@@ -51,6 +51,16 @@ Where:
 - Extension name and type for Linux is: ManagedIdentityExtensionForLinux
 
 ## Known issues
+
+### "Automation script" fails when attempting schema export for MSI extension
+
+When Managed Service Identity is enabled on a VM, the following error is shown when attempting to use the “Automation script” feature for the VM, or its resource group:
+
+![MSI automation script export error](media/msi-known-issues/automation-script-export-error.png)
+
+The Managed Service Identity VM extension does not currently support the ability to export its schema to a resource group template. As a result, the generated template does not show configuration parameters to enable Managed Service Identity on the resource. These sections can be added manually by following the examples in [Configure a VM Managed Service Identity by using a template](msi-qs-configure-template-windows-vm.md).
+
+When the schema export functionality becomes available for the MSI VM extension, it will be listed in [Exporting Resource Groups that contain VM extensions](../virtual-machines/windows/extensions-export-templates.md#supported-virtual-machine-extensions).
 
 ### Configuration blade does not appear in the Azure portal
 
