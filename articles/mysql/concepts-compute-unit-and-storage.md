@@ -25,7 +25,7 @@ If you are looking to migrate an existing MySQL server running on-premises or on
 
 If your existing on-premises or virtual machine server is currently utilizing 4 cores (without counting CPU hyperthread), start by configuring 4 vCores for your Azure Database for MySQL server. vCores can be dynamically scaled up or down depending on your workload needs with virtually no application downtime. 
 
-Monitor the Metrics graph in the Azure portal or write Azure CLI commands -to measure vCores. Relevant metrics to monitor are the Compute Unit percentage and Compute Unit limit.
+Monitor the Metrics graph in the Azure portal or write Azure CLI commands -to measure vCores. Relevant metrics to monitor are the Compute Unit percentage and Compute Unit limit. 
 
 >[!IMPORTANT]
 > If you find storage IOPS are not fully utilized to the maximum, consider monitoring the vCores utilization as well. Raising the vCores may allow for higher IO throughput by lessening the performance bottleneck due to limited CPU or memory.
