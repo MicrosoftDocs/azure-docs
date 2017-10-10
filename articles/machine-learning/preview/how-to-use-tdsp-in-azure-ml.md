@@ -50,7 +50,7 @@ Note or review the following *before* you create a new project:
 * For how to handle large files and outputs in Machine Learning, read [Persisting changes and dealing with large files](http://aka.ms/aml-largefiles).
 
 > [!NOTE]
-> Be sure that other than the readme.md file, all documentation-related content (text, markdowns, images, and other document files) that are *not* used during project execution reside in the folder named "docs" (all lowercase). The "docs" folder is a special folder ignored by Machine Learning execution so that the contents in this folder don't get copied to compute targets unnecessarily. Objects in this folder also don’t count towards the 25-MB cap for the project size. The "docs" folder, for example, is the place to store large image files needed in your documentation. These files are still tracked by Git through the run history. 
+> Be sure that other than the readme.md file, all documentation-related content (text, markdowns, images, and other document files) that is *not* used during project execution resides in the folder named "docs" (all lowercase). The "docs" folder is a special folder ignored by Machine Learning execution so that the contents in this folder don't get copied to compute targets unnecessarily. Objects in this folder also don’t count toward the 25-MB cap for the project size. The "docs" folder, for example, is the place to store large image files needed in your documentation. These files are still tracked by Git through the run history. 
 
 ## Instantiate the TDSP structure and templates from the Machine Learning template gallery
 To create a new project with the TDSP structure and documentation templates, complete the following procedures.
@@ -64,11 +64,11 @@ To create a new project, open Azure Machine Learning. Under **Projects** on the 
 ### Create a new TDSP-structured project
    1. Specify the parameters and information in the relevant box or list:
 
-        - Project name
-        - Project directory
-        - Project description
-        - An empty Git repository path
-        - Workspace name
+      - Project name
+      - Project directory
+      - Project description
+      - An empty Git repository path
+      - Workspace name
 
    2. Then in the **Search** box, enter **TDSP**. 
    3. When the **Structure a project with TDSP** option appears, select that template. 
@@ -85,7 +85,7 @@ The structure shown is derived from the TDSP structure that is published in [TDS
 ### Project folder structure
 The TDSP project template contains the following top-level folders:
    - **code**: Contains code.
-   - **docs**: Contains necessary documentation about the project (for example, markdown files, and related media).
+   - **docs**: Contains necessary documentation about the project (for example, markdown files and related media).
    - **sample_data**: Contains **SAMPLE (small)** data that you can use for early development or testing. Typically, these sets are not larger than several (5) MB. This folder is not for full or large data sets.
 
 ![Sample data](./media/how-to-use-tdsp-in-azure-ml/instantiation-3.png)
@@ -103,9 +103,8 @@ Refer to the [TDSP documentation templates](https://github.com/Azure/Azure-TDSP-
 
 We also provide a [ProjectLearnings](https://aka.ms/tdspamlgithubrepoprojectlearnings) template. You can use this template to include any information that is not included in the primary project document, but that is still useful to document. 
 
-### Example the project report
-You can get an example project report
- [Data Science Project Report: Azure Machine Learning Sample for UCI Adult Income Classification Dataset Using Team Data Science Project (TDSP) Template](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome/blob/master/docs/deliverable_docs/ProjectReport.md). This report is the project report for the [US income classification sample project](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) that shows how to instantiate and use the TDSP template for a data science project.
+### Example project report
+You can get an [example project report](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome/blob/master/docs/deliverable_docs/ProjectReport.md). This project report for the [US income classification sample project](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) shows how to instantiate and use the TDSP template for a data science project.
 
 ## Next steps
 To facilitate your understanding on how to use the TDSP structure and templates in Machine Learning projects, we provide several completed project examples in the documentation for Machine Learning:
