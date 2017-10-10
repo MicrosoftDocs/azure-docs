@@ -77,7 +77,7 @@ There are three steps to granting your VM access to a database:
 
 ### Create a group in Azure AD and make the VM MSI a member of the group
 
-You can use an existing Azure AD group, or create a new one.  You can create a new group using Azure AD PowerShell.  Download [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2), sign in using ```powershell Connect-AzureAd```, and run this command to create a group and save it in a variable:
+You can use an existing Azure AD group, or create a new one.  You can create a new group using Azure AD PowerShell.  Download [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2), sign in using PowerShell `Connect-AzureAd`, and run the following command to create a group and save it in a variable:
 
 ```powershell
 $Group = New-AzureADGroup -DisplayName "VM MSI access to SQL" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
@@ -93,7 +93,7 @@ ObjectId                             DisplayName          Description
 6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 VM MSI access to SQL
 ```
 
-Next, add the VM's MSI to the group.  You need the MSI's **ObjectId**.  You can get the ObjectId using Azure PowerShell.  Download [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps), sign in using ```powershell Login-AzureRmAccount```, and run this command to get the ObjectId, entering the appropriate values for RESOURCE-GROUP and VM-NAME:
+Next, add the VM's MSI to the group.  You need the MSI's **ObjectId**.  You can get the ObjectId using Azure PowerShell.  Download [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps), sign in using PowerShell `Login-AzureRmAccount`, and run the following command to get the ObjectId, entering the appropriate values for RESOURCE-GROUP and VM-NAME:
 
 ```powershell
 $VM = Get-AzureRmVm -ResourceGroup <RESOURCE-GROUP> -Name <VM-NAME>
@@ -131,12 +131,21 @@ Now that you have created the group and added the VM MSI to the membership, you 
 4.  Select an Azure AD user account to be made an administrator of the server, and click **Select**.
 5.  In the command bar, click **Save**.
 
+1.	In the Azure portal, select **SQL servers** from the left-hand navigation.
+2.	Click the SQL server that will be enabled for Azure AD authentication.
+3.	In the **Settings** section of the blade, click **Active Directory admin**.
+4.	In the command bar, click **Set admin**.
+5.	Sele** an Azure AD user account to be made an administrator of the server, and click **Select.**
+6.	In the command bar, click **Save.**
+
+
+
 ### Create a contained user in the database the represents the Azure AD group
 
 For this next step, you will need [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
 1.  Start SQL Server Management Studio.
-2.  Enter your SQL server name in the **Server name** field.
+2.  In the **Connect to Server** dialog, Enter your SQL server name in the **Server name** field.
 3.  In the **Authentication** field, select **Active Directory - Universal with MFA support**.
 4.  In the **User name** field, enter the name of the Azure AD account that you set as the server administrator, e.g. helen@woodgroveonline.com
 5.  Click **Options**.
@@ -202,7 +211,7 @@ catch (Exception e)
 // Open a connection to the SQL server using the access token.
 //
 if (accessToken != null) {
-    string connectionString = @"Data Source=<AZURE-SQL-SERVERNAME>; Initial Catalog=<DATABASE>;";
+    string connectionString = "Data Source=<AZURE-SQL-SERVERNAME>; Initial Catalog=<DATABASE>;";
     SqlConnection conn = new SqlConnection(connectionString);
     conn.AccessToken = accessToken;
     conn.Open();
@@ -214,7 +223,7 @@ Alternatively, a quick way to test the end to end setup without having to write 
 1.	In the portal, navigate to **Virtual Machines** and go to your Windows virtual machine and in the **Overview**, click **Connect**. 
 2.	Enter in your **Username** and **Password** for which you added when you created the Windows VM. 
 3.	Now that you have created a **Remote Desktop Connection** with the virtual machine, open **PowerShell** in the remote session. 
-4.	Using Powershell’s Invoke-WebRequest, make a request to the local MSI endpoint to get an access token for Azure SQL.
+4.	Using Powershell’s `Invoke-WebRequest`, make a request to the local MSI endpoint to get an access token for Azure SQL.
 
     ```powershell
        $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://database.windows.net/"} -Headers @{Metadata="true"}
@@ -232,7 +241,7 @@ Alternatively, a quick way to test the end to end setup without having to write 
     $ArmToken = $content.access_token
     ```
 
-5.  Open a connection to the SQL server and send a query.  Remember to replace the values for AZURE-SQL-SERVERNAME and DATABASE.
+5.  Open a connection to the SQL server. Remember to replace the values for AZURE-SQL-SERVERNAME and DATABASE.
     
     ```powershell
     $SqlConnection = New-Object System.Data.SqlClient.SqlConnection
