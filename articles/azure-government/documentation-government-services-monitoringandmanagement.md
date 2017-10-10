@@ -169,6 +169,15 @@ The following Log Analytics features behave differently in Azure Government:
 
 For more information, see [Log Analytics public documentation](../log-analytics/log-analytics-overview.md).
 
+## Scheduler
+For information on this service and how to use it, see [Azure Scheduler Documentation](https://docs.microsoft.com/azure/scheduler/). 
+
+## Azure Portal- Ibiza
+The Azure Government Portal can be accessed [here](https://portal.azure.us). 
+
+## Azure Resource Manager
+For information on this service and how to use it, see [Azure Resource Manager Documentation](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). 
+
 ## Next steps
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
 * Get help on Stack Overflow by using the [azure-gov](https://stackoverflow.com/questions/tagged/azure-gov)

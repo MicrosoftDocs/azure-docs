@@ -92,6 +92,9 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 > [!NOTE]
 > Microsoft does not honor any BGP community values that you set on the routes advertised to Microsoft.
 
+## Support for Virtual Network
+Virtual Network is generally available in Azure Government. For more information, see the [Virtual Network public documentation](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview). 
+
 ## Support for Load Balancer
 Load Balancer is generally available in Azure Government. For more information, see the [Load Balancer public documentation](../load-balancer/load-balancer-overview.md). 
 
@@ -103,6 +106,15 @@ VNet Peering is generally available in Azure Government. For more information, s
 
 ## Support for VPN Gateway 
 VPN Gateway is generally available in Azure Government. For more information, see the [VPN Gateway public documentation](../vpn-gateway/vpn-gateway-about-vpngateways.md). 
+
+## Support for Application Gateway 
+Application Gateway is generally available in Azure Government. For more information, see the [Application Gateway public documentation](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction). 
+
+## Support for Network Watcher
+Network Watcher is available through Preview in Azure Government. For more information, see the [Network Watcher public documentation](https://docs.microsoft.com/azure/network-watcher/). 
+
+## Support for Service Bus
+Service Bus is generally available in Azure Government. For more information, see the [Service Bus public documentation](https://docs.microsoft.com/azure/service-bus/).
 
 ## Next Steps
 For supplemental information and updates please subscribe to the
