@@ -24,14 +24,14 @@ This article explains how to add or change work information such as phone number
 
 ## To change work information
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
-2. Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
+2. Select ***Users and groups**.
 
    ![Opening user management](./media/active-directory-users-work-info-azure-portal/create-users-user-management.png)
-3. On the **Users and groups** blade, select **Users**.
+3. Select **All users**.
 
-   ![Opening the Users blade](./media/active-directory-users-work-info-azure-portal/create-users-open-users-blade.png)
-4. On the **Users and groups - Users** blade, select a user from the list.
-5. On the blade for the selected user, select **Work Info**.
+   ![Opening the all Users group](./media/active-directory-users-work-info-azure-portal/create-users-open-users-blade.png)
+4. Select a user from the list.
+5. For the selected user, select **Work Info**.
 
     ![Opening Work information](./media/active-directory-users-work-info-azure-portal/active-directory-create-users-work-info.png)
 6. Add or change the work information. Then, in the command bar, select **Save**.
