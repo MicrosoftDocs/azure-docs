@@ -163,7 +163,7 @@ The **services available in Azure Government** are listed by category, as well a
 - [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery) 
 - [Scheduler](documentation-government-services-monitoringandmanagement.md#scheduler) 
 - [Monitoring and Diagnostics](documentation-government-services-monitoringandmanagement.md#monitor)
-- [Azure Portal - Ibiza](documentation-government-services-monitoringandmanagement.md#azure-portal-ibiza)
+- [Azure Portal - Ibiza](documentation-government-services-monitoringandmanagement.md#azure-portal)
 - [Azure Resource Manager](documentation-government-services-monitoringandmanagement.md#azure-resource-manager)
 
 
