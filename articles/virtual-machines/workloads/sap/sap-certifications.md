@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/29/2017
+ms.date: 10/10/2017
 ms.author: rclaus
 ms.custom: 
 
@@ -28,12 +28,12 @@ SAP and Microsoft have a long history of working together in a strong partnershi
 
 | SAP Product | Supported OS | Azure Offerings |
 | --- | --- | --- |
-| SAP HANA Developer Edition (including the HANA client software comprised of SQLODBC, ODBO-Windows only, ODBC, JDBC drivers, HANA studio, and HANA database) |Red Hat Enterprise Linux, SUSE Linux Enterprise | D-Series VM family |
-| HANA One |Red Hat Enterprise Linux, SUSE Linux Enterprise |DS14_v2 (upon general availability) |
+| SAP HANA Developer Edition (including the HANA client software comprised of SQLODBC, ODBO-Windows only, ODBC, JDBC drivers, HANA studio, and HANA database) | Red Hat Enterprise Linux, SUSE Linux Enterprise | D-Series VM family |
+| Business One on HANA | SUSE Linux Enterprise | DS14_v2 |
 | SAP S/4 HANA |Red Hat Enterprise Linux, SUSE Linux Enterprise |Controlled Availability for GS5, SAP HANA on Azure (Large instances) |
-| Suite on HANA, OLTP |Red Hat Enterprise Linux, SUSE Linux Enterprise |GS5 for single node deployments for non-production scenarios, SAP HANA on Azure (Large instances) |
-| HANA Enterprise for BW, OLAP |Red Hat Enterprise Linux, SUSE Linux Enterprise |GS5 for single node deployments, SAP HANA on Azure (Large instances) |
-| SAP BW/4 HANA |Red Hat Enterprise Linux, SUSE Linux Enterprise |GS5 for single node deployments, SAP HANA on Azure (Large instances) |
+| Suite on HANA, OLTP | Red Hat Enterprise Linux, SUSE Linux Enterprise |GS5 for single node deployments for non-production scenarios, SAP HANA on Azure (Large instances) |
+| HANA Enterprise for BW, OLAP | Red Hat Enterprise Linux, SUSE Linux Enterprise |GS5 for single node deployments, SAP HANA on Azure (Large instances) |
+| SAP BW/4 HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise |GS5 for single node deployments, SAP HANA on Azure (Large instances) |
 
 ## SAP NetWeaver certifications
 Microsoft Azure is certified for the following SAP products, with full support from Microsoft and SAP.
@@ -44,3 +44,12 @@ Microsoft Azure is certified for the following SAP products, with full support f
 | SAP Business All-in-One |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle (Windows and Oracle Linux only), DB2, SAP ASE |A5 to A11, D11 to D14, DS11 to DS14, DS11_v2 to DS15_v2, GS1 to GS5 |
 | SAP BusinessObjects BI |Windows |N/A |A5 to A11, D11 to D14, DS11 to DS14, DS11_v2 to DS15_v2, GS1 to GS5 |
 | SAP NetWeaver |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle (Windows and Oracle Linux only), DB2, SAP ASE |A5 to A11, D11 to D14, DS11 to DS14, DS11_v2 to DS15_v2, GS1 to GS5 |
+
+## Other SAP Workload supported on Azure
+
+| SAP Product | Guest OS | RDBMS | Virtual Machine Types |
+| --- | --- | --- | --- |
+| SAP Business One on SQL Server | Windows  | SQL Server | All NetWeaver certified |
+| SAP BPC 10.01 MS SP08 | Windows | | All NetWeaver Certified VMs<br /> SAP Note #2451795 |
+| SAP Business Objects BI platform | Windows | | SAP Note #2145537 |
+| SAP Data Services 4.2 | | | SAP Note #2288344 |
