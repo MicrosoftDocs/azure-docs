@@ -19,7 +19,7 @@ ms.author: owend
 
 ---
 # Azure Analysis Services samples
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
 Use the following sample resources to help you learn about and test Analysis Services for your environment.
 
