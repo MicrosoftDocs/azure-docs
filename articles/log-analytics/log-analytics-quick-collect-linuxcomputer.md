@@ -100,7 +100,17 @@ Now that you have enabled data collection, lets run a simple log search example 
 2. Click the **Log Search** tile and on the Log Search pane, in the query field type `Perf` and then hit enter or click the search button to the right of the query field.<br> ![Log Analytics log search query example](./media/log-analytics-quick-collect-linxcomputer/log-analytics-portal-queryexample.png)<br> For example, the query in the following image returned 735 Performance records.<br> ![Log Analytics log search result](media/log-analytics-quick-collect-linuxcomputer/log-analytics-search-perf.png)
 
 ## Clean up resources
-When no longer needed, delete the Log Analytics workspace. To do so, select the Log Analytics workspace you created earlier and on the resource page click **Delete**.<br> ![Delete Log Analytics resource](media/log-analytics-quick-collect-azurevm/log-analytics-portal-delete-resource.png)
+When no longer needed, you can remove the agent from the Linux computer and delete the Log Analytics workspace.  
+
+To remove the agent, perform the following steps by running the bundle .sh file with the *--purge* argument on the computer, which completely removes the agent and its configuration.
+
+    ```
+    > sudo rpm -e omsconfig
+    > sudo rpm -e omsagent
+    > sudo /opt/microsoft/scx/bin/uninstall
+    ````
+
+To delete the workspace, select the Log Analytics workspace you created earlier and on the resource page click **Delete**.<br> ![Delete Log Analytics resource](media/log-analytics-quick-collect-azurevm/log-analytics-portal-delete-resource.png)
 
 ## Next steps
 Now that you are collecting operational and performance data from your on-premises Linux computer, you can easily begin exploring, analyzing, and taking action on data that you collect for *free*.  
