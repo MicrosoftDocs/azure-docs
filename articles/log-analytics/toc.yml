@@ -91,6 +91,8 @@
     items:
     - name: Language documentation
       href: https://docs.loganalytics.io
+    - name: Cross-workspace searches
+      href: log-analytics-cross-workspace-search.md
     - name: Transition from legacy language
       href: log-analytics-log-search-transition.md
     - name: Take action from search results
@@ -108,8 +110,6 @@
       items:
       - name: Regular expressions
         href: log-analytics-log-searches-regex.md
-      - name: Cross-workspace searches
-        href: log-analytics-cross-workspace-search.md
   - name: Analyze data
     items:
     - name: Dashboards
