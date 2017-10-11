@@ -1,5 +1,5 @@
 ﻿---
-title: 'Azure Active Directory B2C: Secure your RESTful services by using client certificates'
+title: 'Azure Active Directory B2C: Secure your RESTful service by using client certificates'
 description: Secure your custom REST API claims exchanges in your Azure AD B2C by using client certificates
 services: active-directory-b2c
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.date: 09/25/2017
 ms.author: yoelh
 ---
 
-# Secure your RESTful services by using client certificates
+# Secure your RESTful service by using client certificates
 In a related article, you [create a RESTful service](active-directory-b2c-custom-rest-api-netfw.md) that interacts with Azure Active Directory B2C (Azure AD B2C).
 
-In this article, you learn how to restrict access to your Azure web app (RESTful API) by using a client certificate. This mechanism is called TLS mutual authentication, or *client certificate authentication*. Only services such as Azure AD B2C, which have a proper certificate, can access your service.
+In this article, you learn how to restrict access to your Azure web app (RESTful API) by using a client certificate. This mechanism is called TLS mutual authentication, or *client certificate authentication*. Only services that have proper certificates, such as Azure AD B2C, can access your service.
 
 >[!NOTE]
 >You can also secure your RESTful service by using [HTTP basic authentication](active-directory-b2c-custom-rest-api-netfw-secure-basic.md). However, HTTP basic authentication is considered less secure over a client certificate. Our recommendation is to secure the RESTful service by using client certificate authentication as described in this article.
@@ -31,11 +31,11 @@ This article details how to:
 * Configure your custom policy to use the client certificate.
 
 ## Prerequisites
-* Complete the previous steps in the [Integrate REST API claims exchanges](active-directory-b2c-custom-rest-api-netfw.md) article.
+* Complete the steps in the [Integrate REST API claims exchanges](active-directory-b2c-custom-rest-api-netfw.md) article.
 * A valid certificate (a .pfx file with a private key).
 
 ## Step 1: Configure a web app for client certificate authentication
-To set up **Azure App Service** to require client certificates, set the web app `clientCertEnabled` site setting to *true*. To make this change, you must use the REST API. The setting is not currently available through the management experience in Azure portal.
+To set up **Azure App Service** to require client certificates, set the web app `clientCertEnabled` site setting to *true*. To make this change, you must use the REST API. The setting is not currently available through the management experience in the Azure portal.
 
 >[!NOTE]
 >Make sure that your Azure App Service plan is Standard or above. For more information, see [Azure App Service plans in-depth overview](https://docs.microsoft.com/en-us/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).
@@ -49,7 +49,7 @@ Use [Azure Resource Explorer (Preview)](https://resources.azure.com) to set the 
 >For more information about setting the **clientCertEnabled** property, see [Configure TLS mutual authentication for web apps](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
 
 >[!TIP]
->Alternatively, to make it easy to craft the REST API call, you can use the [ARMClient](https://github.com/projectkudu/ARMClient) tool.
+>Alternatively, to make it easier to craft the REST API call, you can use the [ARMClient](https://github.com/projectkudu/ARMClient) tool.
 
 ## Step 2: Upload your certificate to Azure AD B2C policy keys
 After you set `clientCertEnabled` to *true*, the communication with your RESTful API requires a client certificate. To obtain, upload, and store the client certificate in your Azure AD B2C tenant, do the following: 
@@ -76,7 +76,7 @@ After you set `clientCertEnabled` to *true*, the communication with your RESTful
 8. To view the keys that are available in your tenant and confirm that you've created the `B2C_1A_B2cRestClientCertificate` key, select **Policy Keys**.
 
 ## Step 3: Change the technical profile
- To support client certificate authentication in your extension policy, change the technical profile by doing the following:
+To support client certificate authentication in your extension policy, change the technical profile by doing the following:
 
 1. In your working directory, open the *TrustFrameworkExtensions.xml* extension policy file.
 
@@ -159,13 +159,13 @@ After you set `clientCertEnabled` to *true*, the communication with your RESTful
 ## Step 6: Add certificate validation
 The client certificate that Azure AD B2C sends to your RESTful service does not undergo validation by the Azure Web Apps platform. except to check whether the certificate exists. Validating the certificate is the responsibility of the web app. 
 
-Here is sample ASP.NET code that validates certificate properties for authentication purposes:
+Here is some sample ASP.NET code that validates certificate properties for authentication purposes:
 
 > [!NOTE]
 >For more information about configuring Azure App Service for client certificate authentication, see [Configure TLS mutual authentication for web apps](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
 
 ### 6.1 Add application settings to your project's web.config file
-In the Visual Studio project that you created earlier, add following application settings to the *web.config* file under the `appSettings` element:
+In the Visual Studio project that you created earlier, add the following application settings to the *web.config* file after the `appSettings` element:
 
 ```XML
 <add key="ClientCertificate:Subject" value="CN=Subject name" />
@@ -173,10 +173,7 @@ In the Visual Studio project that you created earlier, add following application
 <add key="ClientCertificate:Thumbprint" value="Certificate thumbprint" />
 ```
 
-Replace the values of the certificate's:
-* Subject name
-* Issuer name
-* Certificate thumbprint
+Replace the values of the certificate's **Subject name**, **Issuer name**, and **Certificate thumbprint**.
 
 ### 6.2 Add the IsValidClientCertificate function
 Open the *Controllers\IdentityController.cs* file, and then add to the `Identity` controller class the following function: 
