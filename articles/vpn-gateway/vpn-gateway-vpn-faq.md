@@ -71,10 +71,10 @@ Route-based gateways implement the route-based VPNs. Route-based VPNs use "route
 No. An Azure Vnet gateway type cannot be changed from policy-based to route-based or the other way. The gateway must be deleted and recreated, a process taking around 60 minutes. The IP address of the gateway will not be preserved nor will the Pre-Shared Key (PSK).
 1. Delete any connections associated with the gateway to be deleted.
 2. Delete the gateway:
-* [Using the portal](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-delete-vnet-gateway-portal)
-* [Using PowerShell](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-delete-vnet-gateway-powershell)
-* [Using classic Powershell](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-delete-vnet-gateway-classic-powershell)
-3. [Create a new gateway of desired type and complete the VPN setup](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#VNetGateway)
+* [Azure portal](vpn-gateway-delete-vnet-gateway-portal)
+* [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell)
+* [Azure Powershell - classic](vpn-gateway-delete-vnet-gateway-classic-powershell)
+3. [Create a new gateway of desired type and complete the VPN setup](vpn-gateway-howto-site-to-site-resource-manager-portal#VNetGateway)
 
 ### Do I need a 'GatewaySubnet'?
 
