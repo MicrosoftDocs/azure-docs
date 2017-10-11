@@ -42,7 +42,11 @@ To understand what a LUIS app returns, you can paste the URL of a sample LUIS ap
 You can use Python to access the same results you saw in the browser window in the previous step. 
 1. Copy the following code:
 
-   [!code-python[Console app code that calls a LUIS endpoint](./includes/python/quickstart-call-endpoint/call-endpoint-2-7.py)]
+   [!code-python[Console app code that calls a LUIS endpoint for Python 2.7](~/samples-luis/documentation-samples/endpoint-api-samples/python/quickstart-call-endpoint-2-7.py)]
+
+   [!code-python[Console app code that calls a LUIS endpoint for Python 3.6](~/samples-luis/documentation-samples/endpoint-api-samples/python/quickstart-call-endpoint-3-6.py)]
+
+
 2. Replace the value of the `Ocp-Apim-Subscription-Key` field with your LUIS subscription key.
 
 3. Run the script. It displays the same JSON that you saw earlier in the browser window.

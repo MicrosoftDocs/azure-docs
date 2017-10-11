@@ -42,7 +42,7 @@ To understand what a LUIS app returns, you can paste the URL of a sample LUIS ap
 You can use Java to access the same results you saw in the browser window in the previous step. 
 1. Copy the following code to create a class in your IDE:
 
-   [!code-java[Console app code that calls a LUIS endpoint](./includes/java/quickstart-call-endpoint/call-endpoint.java)]
+   [!code-java[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/endpoint-api-samples/java/call-endpoint.java)]
 2. Replace the value of the `SubscriptionKey` variable with your LUIS subscription key.
 
 3. In your IDE, add references to `httpclient` and `httpcore` libraries.
