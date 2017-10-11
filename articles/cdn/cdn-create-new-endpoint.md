@@ -61,7 +61,7 @@ A CDN profile is a collection of CDN endpoints.  Each profile contains one or mo
 4. In the **Origin type** dropdown, select your origin type.  Select **Storage** for an Azure Storage account, **Cloud service** for an Azure Cloud Service, **Web App** for an Azure Web App, or **Custom origin** for any other publicly accessible web server origin (hosted in Azure or elsewhere).
    
     ![CDN origin type](./media/cdn-create-new-endpoint/cdn-origin-type.png)
-5. In the **Origin hostname** dropdown, select or type your origin domain.  The dropdown lists all available origins of the type you specified in step 4.  If you selected *Custom origin* as your **Origin type**, you will type in the domain of your custom origin.
+5. In the **Origin hostname** dropdown, select or type your origin domain.  The dropdown lists all available origins of the type you specified in step 4.  If you select *Custom origin* as your **Origin type**, enter the domain of your custom origin.
 6. In the **Origin path** text box, enter the path to the resources you want to cache, or leave blank to allow cache any resource at the domain you specified in step 5.
 7. In the **Origin host header**, enter the host header you want the CDN to send with each request, or leave the default.
    
@@ -83,7 +83,7 @@ A CDN profile is a collection of CDN endpoints.  Each profile contains one or mo
   
 9. Click the **Add** button to create the new endpoint.
    
-   After the endpoint is created, it appears in a list of endpoints for the profile. The list view shows the original domain and the URL to use to access cached content.
+   After the endpoint is created, it appears in the list of endpoints for the profile.
     
    ![CDN endpoint][cdn-endpoint-success]
     
