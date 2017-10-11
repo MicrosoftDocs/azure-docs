@@ -238,36 +238,38 @@ An ASP.NET Core stateless service named `fabric:/ApiApplication/WebApiService` s
 
 ### Create a Java Service Fabric service
 For this tutorial, we deploy a basic web server which echoes messages back to the user. The echo server sample application contains an HTTP endpoint for your service, which you expose through Azure API Management.
-Clone the Java getting started samples.
 
-```bash
-git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
-cd service-fabric-java-getting-started
-```
-Edit *Services/EchoServer/EchoServer1.0/EchoServerApplication/EchoServerPkg/ServiceManifest.xml*. Update the endpoint so the service listens on port 8081.
+1. Clone the Java getting started samples.
 
-```xml
-<Endpoint Name="WebEndpoint" Protocol="http" Port="8081" />
-```
+   ```bash
+   git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
+   cd service-fabric-java-getting-started
+   ```
 
-Save *ServiceManifest.xml*, then build the EchoServer1.0 application.
+2. Edit *Services/EchoServer/EchoServer1.0/EchoServerApplication/EchoServerPkg/ServiceManifest.xml*. Update the endpoint so the service listens on port 8081.
 
-```bash
-cd Services/EchoServer/EchoServer1.0/
-gradle
-```
+   ```xml
+   <Endpoint Name="WebEndpoint" Protocol="http" Port="8081" />
+   ```
 
-Deploy the application to the cluster.
+3. Save *ServiceManifest.xml*, then build the EchoServer1.0 application.
 
-```bash
-cd Scripts
-sfctl cluster select --endpoint http://mycluster.southcentralus.cloudapp.azure.com:19080
-./install.sh
-```
+   ```bash
+   cd Services/EchoServer/EchoServer1.0/
+   gradle
+   ```
 
-A Java stateless service named `fabric:/EchoServerApplication/EchoServerService` should now be running in your Service Fabric cluster in Azure.
+4. Deploy the application to the cluster.
 
-Open a browser and type in http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage, you should see "[version 1.0]Hello World !!!".
+   ```bash
+   cd Scripts
+   sfctl cluster select --endpoint http://mycluster.southcentralus.cloudapp.azure.com:19080
+   ./install.sh
+   ```
+
+   A Java stateless service named `fabric:/EchoServerApplication/EchoServerService` should now be running in your Service Fabric cluster in Azure.
+
+5. Open a browser and type in http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage, you should see "[version 1.0]Hello World !!!" displayed.
 
 
 ## Create an API operation
