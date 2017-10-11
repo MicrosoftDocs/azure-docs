@@ -27,6 +27,10 @@ sections:
         src: /azure/event-grid/media/index/cli.svg
       text: Azure CLI
       href: /azure/event-grid/custom-event-quickstart
+    - image: 
+        src: /azure/event-grid/media/index/logo-powershell.svg
+      text: Azure PowerShell
+      href: /azure/event-grid/custom-event-quickstart-powershell
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
