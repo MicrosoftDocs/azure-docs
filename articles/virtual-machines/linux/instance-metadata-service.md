@@ -27,14 +27,14 @@ Azure's Instance Metadata Service is a REST Endpoint accessible to all IaaS VMs 
 The endpoint is available at a well-known non-routable IP address (`169.254.169.254`) that can be accessed only from within the VM.
 
 > [!IMPORTANT]
-> This service is  **generally available** in Global Azure Regions. It is in Public preview for Government, China, and German Azure Cloud. It regularly receives updates to expose new information about virtual machine instances. This page reflects the up-to-date [data categories](#instance-metadata-data-categories) available.
+> This service is  **generally available** in all Azure Regions.  It regularly receives updates to expose new information about virtual machine instances. This page reflects the up-to-date [data categories](#instance-metadata-data-categories) available.
 
 ## Service availability
-The service is available in all generally available Global Azure regions. The service is in public preview  in the Government, China, or Germany regions.
+The service is available in all generally available all Azure regions. Not all API version may be available in all Azure Regions.
 
 Regions                                        | Availability?                                 | Supported Versions
 -----------------------------------------------|-----------------------------------------------|-----------------
-[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | Generally Available   | 2017-04-02  2017-08-01
+[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | Generally Available   | 2017-04-02, 2017-08-01
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Generally Available | 2017-04-02
 [Azure China](https://www.azure.cn/)                                                           | Generally Available | 2017-04-02
 [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | Generally Available | 2017-04-02
@@ -46,7 +46,7 @@ To try out the Instance Metadata Service, create a VM from [Azure Resource Manag
 ## Usage
 
 ### Versioning
-The Instance Metadata Service is versioned. Versions are mandatory and the current version on Global Azure is `2017-08-01`.
+The Instance Metadata Service is versioned. Versions are mandatory and the current version on Global Azure is `2017-08-01`. Current supported versions are ( 2017-04-02, 2017-08-01 )
 
 > [!NOTE] 
 > Previous preview releases of scheduled events supported {latest} as the api-version. This format is no longer supported and will be deprecated in the future.
@@ -69,7 +69,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 > All instance metadata queries are case-sensitive.
 
 ### Data output
-By default, the Instance Metadata Service returns data in JSON format (`Content-Type: application/json`). However, different APIs can return data in different formats if requested.
+By default, the Instance Metadata Service returns data in JSON format (`Content-Type: application/json`). However, different APIs return data in different formats if requested.
 The following table is a reference of other data formats APIs may support.
 
 API | Default Data Format | Other Formats
@@ -396,7 +396,7 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 4. I am not seeing all data populated for new version of 2017-08-01
    * For any VMs created after Sep 2016, add a [Tag](../../azure-resource-manager/resource-group-using-tags.md) to start seeing compute metadata. For older VMs (created before Sep 2016), add/remove extensions or data disks to the VM to refresh metadata.
 5. Why am I getting the error `500 Internal Server Error`?
-   * Please retry your request based on exponential back off system. If the issue persists contact  Azure support.
+   * Retry your request based on exponential back off system. If the issue persists contact  Azure support.
 6. Where do I share additional questions/comments?
    * Send your comments on http://feedback.azure.com.
 7. Would this work for Virtual Machine Scale Set Instance?
