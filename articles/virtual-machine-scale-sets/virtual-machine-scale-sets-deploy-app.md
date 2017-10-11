@@ -58,32 +58,34 @@ PowerShell uses a hashtable to store the file to download and the command to exe
 The Custom Script Extension is applued to the *myScaleSet* VM instances in the resource group named *myResourceGroup*. Enter your own names as follows:
 
 ```powershell
-# Get information about a scale set
-$vmssConfig = Get-AzureRmVmss `
-                -ResourceGroupName "myResourceGroup" `
-                -VMScaleSetName "myScaleSet"
-
 # Define the script for your Custom Script Extension to run
 $customConfig = @{
     "fileUris" = (,"https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate-iis.ps1");
     "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File automate-iis.ps1"
 }
 
+# Get information about a scale set
+$vmss = Get-AzureRmVmss `
+                -ResourceGroupName "myResourceGroup" `
+                -VMScaleSetName "myScaleSet"
+
 # Use Custom Script Extension to install IIS and configure basic website
-Add-AzureRmVmssExtension `
-    -VirtualMachineScaleSet $vmssConfig `
-    -Publisher Microsoft.Compute `
-    -Type CustomScriptExtension `
+$vmss = Add-AzureRmVmssExtension `
+    -VirtualMachineScaleSet $vmss `
+    -Name "customScript" `
+    -Publisher "Microsoft.Compute" `
+    -Type "CustomScriptExtension" `
     -TypeHandlerVersion 1.8 `
-    -Name "customscript" `
     -Setting $customConfig
 
 # Update the scale set and apply the Custom Script Extension to the VM instances
 Update-AzureRmVmss `
     -ResourceGroupName "myResourceGroup" `
     -Name "myScaleSet" `
-    -VirtualMachineScaleSet $vmssConfig
+    -VirtualMachineScaleSet $vmss
 ```
+
+If the upgrade policy on your scale set is *manual*, update your VM instances with [Update-AzureRmVmssInstance](/powershell/module/azurerm.compute/update-azurermvmssinstance). This cmdlet applies the updated scale set configuration to the VM instances and installs your application.
 
 
 ### Use Azure CLI 2.0
@@ -93,14 +95,12 @@ In your current shell, create a file named *customConfig.json* and paste the fol
 
 ```json
 {
-  "fileUris": [
-    "https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate_nginx.sh"
-  ],
-  "commandToExecute": "bash automate_nginx.sh"
+  "fileUris": ["https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate_nginx.sh"],
+  "commandToExecute": "./automate_nginx.sh"
 }
 ```
 
-Apply the Custom Script Extension configuration to the VM instances in your scale set with [az vmss extension set](). The following example applies the *customConfig.json* configuration to the *myScaleSet* VM instances in the resource group named *myResourceGroup*. Enter your own names as follows:
+Apply the Custom Script Extension configuration to the VM instances in your scale set with [az vmss extension set](/cli/azure/vmss/extension#set). The following example applies the *customConfig.json* configuration to the *myScaleSet* VM instances in the resource group named *myResourceGroup*. Enter your own names as follows:
 
 ```azurecli
 az vmss extension set \
@@ -111,6 +111,8 @@ az vmss extension set \
     --vmss-name myScaleSet \
     --settings @customConfig.json
 ```
+
+If the upgrade policy on your scale set is *manual*, update your VM instances with [az vmss update-instances](/cli/azure/vmss#update-instances). This cmdlet applies the updated scale set configuration to the VM instances and installs your application.
 
 
 ## Install an app to a Windows VM with PowerShell DSC
