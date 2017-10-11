@@ -96,10 +96,10 @@ To deploy App Service resource provider, follow these steps:
 
 11. Review the role instance and SKU options. The defaults are populated with the minimum recommended instance SKUs for each role. A summary of core and memory requirements is provided to help plan your deployment. After you make your selections, click **Next**.
 
-> [!NOTE]
-> For production deployments, following the guidance in [Capacity planning for Azure App Service server roles in Azure Stack](azure-stack-app-service-capacity-planning.md).
-> 
->
+    > [!NOTE]
+    > For production deployments, following the guidance in [Capacity planning for Azure App Service server roles in Azure Stack](azure-stack-app-service-capacity-planning.md).
+    > 
+    >
 
     | Role | Recommended minimum instances | Recommended minimum SKU | Notes |
     | --- | --- | --- | --- |
