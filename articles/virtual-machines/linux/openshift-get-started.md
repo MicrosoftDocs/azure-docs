@@ -67,3 +67,4 @@ Of the 4 offerings covered, two are available for customers to deploy into Azure
 - [Deploy OpenShift Origin](./openshift-origin.md)
 - [Deploy OpenShift Container Platform](./openshift-container-platform.md)
 - [Monitor OpenShift with OMS](./openshift-oms.md)
+- [Troubleshooting OpenShift Deployment](./openshift-troubleshooting.md)

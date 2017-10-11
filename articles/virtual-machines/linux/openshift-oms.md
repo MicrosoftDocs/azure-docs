@@ -131,3 +131,4 @@ oc create -f ocp-omsagent.yml
 ## Next Steps
 
 - [Getting Started with OpenShift Container Platform](https://docs.openshift.com/container-platform/3.6/getting_started/index.html)
+- [Getting Started with OpenShift Origin](https://docs.openshift.org/latest/getting_started/index.html)

@@ -123,4 +123,5 @@ az group delete --name myResourceGroup
 ## Next steps
 
 - [Monitor OpenShift with OMS](./openshift-oms.md)
+- [Troubleshooting OpenShift Deployment](./openshift-troubleshooting.md)
 - [Getting Started with OpenShift Origin](https://docs.openshift.org/latest/getting_started/index.html)
