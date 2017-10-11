@@ -21,8 +21,8 @@ To step through this how-to guide, you need:
 
 ## Configure logging for Azure Database for MySQL
 You can configure the server to access the MySQL slow query log.
-1. Turn on logging by setting slow\_query\_log parameter to ON.
-2. Adjust other parameters like long\_query\_time and log\_slow\_admin\_statements.
+1. Turn on logging by setting **slow\_query\_log** parameter to ON.
+2. Adjust other parameters like **long\_query\_time** and **log\_slow\_admin\_statements**.
 
 See [How to Configure Server Parameters](howto-configure-server-parameters-using-cli.md) to learn how to set the value of these parameters through the Azure CLI.
 
