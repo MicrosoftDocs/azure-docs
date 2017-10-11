@@ -65,7 +65,7 @@ sections:
     - image:
         src: https://docs.microsoft.com/en-us/azure/media/index/logo_vs-team-services.svg
       text: VSTS
-      href: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp
+      href: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
