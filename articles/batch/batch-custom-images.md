@@ -75,7 +75,7 @@ Once you have saved your custom image and you know its resource ID, you can crea
 1. Navigate to your Batch account in the Azure portal. This account must be in the same subscription and region as the resource group containing the custom image. 
 2. In the **Settings** window on the left, select the **Pools** menu item.
 3. In the **Pools** window, select the **Add** command.
-4. On the **Add Pool** window, select **Custom Image (Linux/Windows)** from the **Image Type** dropdown. The portal displays the **Virtual Machine Image ID** picker. Specify the managed image name in the box.
+4. On the **Add Pool** window, select **Custom Image (Linux/Windows)** from the **Image Type** dropdown. From the dropdown, specify the managed image name (short form of the resource ID) in the box.
 5. Select the correct **Publisher/Offer/Sku** for your custom VHD.
 6. Specify the remaining required settings, including the **Node size**, **Target dedicated nodes**, and **Low priority nodes**, as well as any desired optional settings.
 
