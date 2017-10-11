@@ -39,7 +39,7 @@ There are two types of auth providers, and the distinction is around how your Az
 Use the following steps to create an Azure Multi-Factor Authentication Provider in the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator. 
-2. Select **Azure Active Directory** > **Multi-Factor Authentication**.
+2. Select **Azure Active Directory** > **MFA Server**.
 3. Select **Providers**.
 4. Select **Add**.
 5. Fill in the following fields and then select **Add**:

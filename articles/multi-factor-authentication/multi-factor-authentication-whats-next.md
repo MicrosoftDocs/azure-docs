@@ -40,7 +40,7 @@ Fraud alert can be configured and set up so that your users can report fraudulen
 
 ### Turn on fraud alert
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Navigate to **Azure Active Directory** > **Multi-Factor Authentication** > **Fraud alert**.
+2. Navigate to **Azure Active Directory** > **MFA Server** > **Fraud alert**.
 
    ![Fraud alert](./media/multi-factor-authentication-whats-next/fraudalert.png)
 
@@ -72,7 +72,7 @@ A one-time bypass allows a user to authenticate a single time without performing
 ### Create a one-time bypass
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Navigate to **Azure Active Directory** > **Multi-Factor Authentication** > **One-time bypass**.
+2. Navigate to **Azure Active Directory** > **MFA Server** > **One-time bypass**.
 
    ![One-time bypass](./media/multi-factor-authentication-whats-next/onetimebypass.png)
 3. Select **Add**.
@@ -103,7 +103,7 @@ Before you begin be aware of the following:
 ### Set up a custom message
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Navigate to **Azure Active Directory** > **Multi-Factor Authentication** > **Phone call settings**.
+2. Navigate to **Azure Active Directory** > **MFA Server** > **Phone call settings**.
 
    ![Phone call settings](./media/multi-factor-authentication-whats-next/phonecallsettings.png)
 
@@ -119,7 +119,7 @@ Caching is not intended to be used for sign-ins to Azure AD.
 
 ### Set up caching 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Navigate to **Azure Active Directory** > **Multi-Factor Authentication** > **Caching rules**.
+2. Navigate to **Azure Active Directory** > **MFA Server** > **Caching rules**.
 
    ![Caching rules](./media/multi-factor-authentication-whats-next/cachingrules.png)
 
