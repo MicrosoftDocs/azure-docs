@@ -67,17 +67,18 @@ Install the updates as follows:
    * UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
    * vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
    * UA update4 bits for RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
-2. Extract the .zip files.
-	- **RX server**: Copy **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** to the RX server, and extract it. In the extracted folder, run **/Install**.
-	- **Configuration server and process server**: Copy **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** to the configuration server and process server. Double-click to run it.<br>
-	- **Windows Master Target server**: To update the unified agent, copy **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** to the server. Double-click it to run it. The same unified agent update is also applicable for the source server. If source hasn't been updated to Update 4, you should update the unified agent.
+
+2.  Extract the .zip files.
+3. **RX server**: Copy **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** to the RX server, and extract it. In the extracted folder, run **/Install**.
+4. **Configuration server and process server**: Copy **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** to the configuration server and process server. Double-click to run it.<br>
+5. **Windows Master Target server**: To update the unified agent, copy **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** to the server. Double-click it to run it. The same unified agent update is also applicable for the source server. If source hasn't been updated to Update 4, you should update the unified agent.
   The update does not need to apply on the Master target prepared with **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe**  as this is new GA installer with all the latest changes.
- - **vContinuum server**:  Copy **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** to the server.  Make sure that you've closed the vContinuum wizard. Double-click on the file to run it.
+6. **vContinuum server**:  Copy **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** to the server.  Make sure that you've closed the vContinuum wizard. Double-click on the file to run it.
 	The update does not need to apply on the Master Target prepared with **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** as this is new GA installer with all the latest changes.
-	- **Linux master target server**: To update the unified agent, copy **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** to the master target server and extract it. In the extracted folder, run **/Install**.
-	- **Windows source server**: To update the unified agent, copy **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** to the source server. Double-click on the file to run it. 
+7. **Linux master target server**: To update the unified agent, copy **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** to the master target server and extract it. In the extracted folder, run **/Install**.
+8. **Windows source server**: To update the unified agent, copy **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** to the source server. Double-click on the file to run it. 
 	You don't need to install the Update 5 agent on the source server if it has already been updated to Update 4 or source agent is installed with latest base installer **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**.
-	- **Linux source server**: To update the unified agent, copy the corresponding version of the unified agent file to the Linux server, and extract it. In the extracted folder, run **/Install**.  Example: For RHEL 6.7 64 bit server, copy **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** to the server, and extract it. In the extracted folder, run **/Install**.
+9. **Linux source server**: To update the unified agent, copy the corresponding version of the unified agent file to the Linux server, and extract it. In the extracted folder, run **/Install**.  Example: For RHEL 6.7 64 bit server, copy **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** to the server, and extract it. In the extracted folder, run **/Install**.
 
 ## Enable replication
 
