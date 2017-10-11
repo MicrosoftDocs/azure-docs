@@ -40,6 +40,8 @@ Before you begin this tutorial:
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Install the [Azure Powershell module version 4.1 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) or [Azure CLI 2.0](/cli/azure/install-azure-cli).
 - Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) or [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) on Azure
+- If you deploy a Windows cluster, set up a Windows development environment. Install [Visual Studio 2017](http://www.visualstudio.com) and the **Azure development**, **ASP.NET and web development**, and **.NET Core cross-platform development** workloads.  Then setup a [.NET development environment](service-fabric-get-started.md).
+- If you deploy a Linux cluster, setup a Java development environment on [Linux](service-fabric-get-started-linux.md) or [MacOS](service-fabric-get-started-mac.md).  Install the [Service Fabric CLI](service-fabric-cli). 
 
 ## Sign-in to Azure and select your subscription
 This tutorial uses [Azure PowerShell][azure-powershell]. When you start a new PowerShell session, sign in to your Azure account and select your subscription before you execute Azure commands.
@@ -192,9 +194,9 @@ print(response.text)
 
 ## Deploy a Service Fabric back-end service
 
-Now that you have the Service Fabric configured as a backend to API Management, you can author backend policies for your APIs that send traffic to your Service Fabric services. But first you need a service running in Service Fabric to accept requests.
+Now that you have the Service Fabric configured as a backend to API Management, you can author backend policies for your APIs that send traffic to your Service Fabric services. But first you need a service running in Service Fabric to accept requests.  If you previously created a [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md), deploy a .NET Service Fabric service.  If you previously created a [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md), deploy a Java Service Fabric service.
 
-### Create a Service Fabric service with an HTTP endpoint
+### Deploy a .NET Service Fabric service
 
 For this tutorial, we'll create a basic stateless ASP.NET Core Reliable Service using the default Web API project template. This creates an HTTP endpoint for your service, which you'll expose through Azure API Management:
 
@@ -202,9 +204,7 @@ For this tutorial, we'll create a basic stateless ASP.NET Core Reliable Service 
 /api/values
 ```
 
-Start by [setting up your development environment for ASP.NET Core development](service-fabric-add-a-web-frontend.md#set-up-your-environment-for-aspnet-core).
-
-Once your development environment is set up, start Visual Studio as Administrator and create an ASP.NET Core service:
+Start Visual Studio as Administrator and create an ASP.NET Core service:
 
  1. In Visual Studio, select File -> New Project.
  2. Select the Service Fabric Application template under Cloud and name it **"ApiApplication"**.
@@ -232,9 +232,43 @@ Once your development environment is set up, start Visual Studio as Administrato
 
     This is the endpoint that you'll expose through API Management in Azure.
 
- 7. Finally, deploy the application to your cluster in Azure. [Using Visual Studio](service-fabric-publish-app-remote-cluster.md#to-publish-an-application-using-the-publish-service-fabric-application-dialog-box), right-click the Application project and select **Publish**. Provide your cluster endpoint (for example, `mycluster.westus.cloudapp.azure.com:19000`) to deploy the application to your Service Fabric cluster in Azure.
+ 7. Finally, deploy the application to your cluster in Azure. [Using Visual Studio](service-fabric-publish-app-remote-cluster.md#to-publish-an-application-using-the-publish-service-fabric-application-dialog-box), right-click the Application project and select **Publish**. Provide your cluster endpoint (for example, `mycluster.southcentralus.cloudapp.azure.com:19000`) to deploy the application to your Service Fabric cluster in Azure.
 
 An ASP.NET Core stateless service named `fabric:/ApiApplication/WebApiService` should now be running in your Service Fabric cluster in Azure.
+
+### Create a Java Service Fabric service
+For this tutorial, we'll deploy a basic web server which echos messages back to the user. The echo server sample application contains an HTTP endpoint for your service, which you'll expose through Azure API Management.
+Clone the Java getting started samples.
+
+```bash
+git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
+cd service-fabric-java-getting-started
+```
+Edit *Services/EchoServer/EchoServer1.0/EchoServerApplication/EchoServerPkg/ServiceManifest.xml*. Update the endpoint to use port 8081.
+
+```xml
+<Endpoint Name="WebEndpoint" Protocol="http" Port="8081" />
+```
+
+Save *ServiceManifest.xml*, then build the EchoServer1.0 application.
+
+```bash
+cd Services/EchoServer/EchoServer1.0/
+gradle
+```
+
+Deploy the application to the cluster.
+
+```bash
+cd Scripts
+sfctl cluster select --endpoint http://mycluster.southcentralus.cloudapp.azure.com:19080
+./install.sh
+```
+
+A Java stateless service named `fabric:/EchoServerApplication/EchoServerService` should now be running in your Service Fabric cluster in Azure.
+
+Open a browser and type in http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage, you should see "[version 1.0]Hello World !!!".
+
 
 ## Create an API operation
 
