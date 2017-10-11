@@ -88,7 +88,6 @@
 ### [ScaleR and SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## Use HBase
 ### [Use Phoenix and SQLLine](hdinsight-hbase-phoenix-squirrel-linux.md)
-### [Analyze real-time tweets](hdinsight-hbase-analyze-twitter-sentiment.md)
 ### [Create clusters on a virtual network](hdinsight-hbase-provision-vnet.md)
 ### [Configure HBase replication](hdinsight-hbase-replication.md)
 ### [Develop an app with Java](hdinsight-hbase-build-java-maven-linux.md)
