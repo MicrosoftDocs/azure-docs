@@ -299,10 +299,10 @@ After your RESTful service is protected by the client ID (username) and secret, 
 6. Upload the *TrustFrameworkExtensions.xml* file, and then ensure that it passes validation.
 
 ## Step 6: Test the custom policy by using Run Now
-1. Open **Azure AD B2C Settings** and then go to **Identity Experience Framework**.
+1. Open **Azure AD B2C Settings**, and then select **Identity Experience Framework**.
 
     >[!NOTE]
-    >**Run now** requires at least one application to be preregistered on the tenant. To learn how to register applications, see the Azure AD B2C [Get started](active-directory-b2c-get-started.md) article or the [Application registration](active-directory-b2c-app-registration.md) article.
+    >Run Now requires at least one application to be preregistered on the tenant. To learn how to register applications, see the Azure AD B2C [Get started](active-directory-b2c-get-started.md) article or the [Application registration](active-directory-b2c-app-registration.md) article.
 
 2. Open **B2C_1A_signup_signin**, the relying party (RP) custom policy that you uploaded, and then select **Run now**.
 
