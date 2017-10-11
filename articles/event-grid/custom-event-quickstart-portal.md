@@ -26,31 +26,33 @@ When you are finished, you see that the event data has been sent to an endpoint.
 
 Event Grid topics are Azure resources, and must be placed in an Azure resource group. The resource group is a logical collection into which Azure resources are deployed and managed.
 
-In the left navigation, select **Resource Groups**. Then, select **Add**.
+1. In the left navigation, select **Resource Groups**. Then, select **Add**.
 
-![Create resource group](./media/custom-event-quickstart-portal/create-resource-group.png)
+   ![Create resource group](./media/custom-event-quickstart-portal/create-resource-group.png)
 
-Set the resource group name to *gridResourceGroup* and the location to *westus2*. Select **Create**.
+1. Set the resource group name to *gridResourceGroup* and the location to *westus2*. Select **Create**.
 
-![Provide resource group values](./media/custom-event-quickstart-portal/provide-resource-group-values.png)
+   ![Provide resource group values](./media/custom-event-quickstart-portal/provide-resource-group-values.png)
 
 ## Create a custom topic
 
-A topic provides a user-defined endpoint that you post your events to. To create a topic in your resource group, select **More services** and search for *event grid*. Select **Event Grid Topics** from the available options.
+A topic provides a user-defined endpoint that you post your events to. 
 
-![Create event grid topic](./media/custom-event-quickstart-portal/create-event-grid-topic.png)
+1. To create a topic in your resource group, select **More services** and search for *event grid*. Select **Event Grid Topics** from the available options.
 
-Select **Add**.
+   ![Create event grid topic](./media/custom-event-quickstart-portal/create-event-grid-topic.png)
 
-![Add event grid topic](./media/custom-event-quickstart-portal/add-topic.png)
+1. Select **Add**.
 
-Provide a name for the topic. The topic name must be unique because it is represented by a DNS entry. For the preview release, Event Grid supports **westus2** and **westcentralus** locations. Select the resource group you created earlier. Select **Create**.
+   ![Add event grid topic](./media/custom-event-quickstart-portal/add-topic.png)
 
-![Provide event grid topic values](./media/custom-event-quickstart-portal/provide-topic-values.png)
+1. Provide a name for the topic. The topic name must be unique because it is represented by a DNS entry. For the preview release, Event Grid supports **westus2** and **westcentralus** locations. Select the resource group you created earlier. Select **Create**.
 
-After the topic has been created, select **Refresh** to see the topic.
+   ![Provide event grid topic values](./media/custom-event-quickstart-portal/provide-topic-values.png)
 
-![See event grid topic](./media/custom-event-quickstart-portal/see-topic.png)
+1. After the topic has been created, select **Refresh** to see the topic.
+
+   ![See event grid topic](./media/custom-event-quickstart-portal/see-topic.png)
 
 ## Create a message endpoint
 
@@ -58,17 +60,19 @@ Before subscribing to the topic, let's create the endpoint for the event message
 
 ## Subscribe to a topic
 
-You subscribe to a topic to tell Event Grid which events you want to track. To create an Event Grid subscription, again select **More Services** and search for *event grid*. Select **Event Grid Subscriptions** from the available options.
+You subscribe to a topic to tell Event Grid which events you want to track. 
 
-![Create event grid subscription](./media/custom-event-quickstart-portal/create-subscription.png)
+1. To create an Event Grid subscription, again select **More Services** and search for *event grid*. Select **Event Grid Subscriptions** from the available options.
 
-Select **+ Event Subscription**.
+   ![Create event grid subscription](./media/custom-event-quickstart-portal/create-subscription.png)
 
-![Add event grid subscription](./media/custom-event-quickstart-portal/add-subscription.png)
+1. Select **+ Event Subscription**.
 
-Provide a unique name for your event subscription. For the topic type, select **Event Grid Topics**. For the instance, select the custom topic you created. Provide the URL from RequestBin as the endpoint for event notification. When finished providing values, select **Create**.
+   ![Add event grid subscription](./media/custom-event-quickstart-portal/add-subscription.png)
 
-![Provide event grid subscription value](./media/custom-event-quickstart-portal/provide-subscription-values.png)
+1. Provide a unique name for your event subscription. For the topic type, select **Event Grid Topics**. For the instance, select the custom topic you created. Provide the URL from RequestBin as the endpoint for event notification. When finished providing values, select **Create**.
+
+   ![Provide event grid subscription value](./media/custom-event-quickstart-portal/provide-subscription-values.png)
 
 Now, let's trigger an event to see how Event Grid distributes the message to your endpoint. To simplify this article, use Cloud Shell to send sample event data to the topic. Typically, an application or Azure service would send the event data.
 
@@ -117,13 +121,7 @@ You have triggered the event, and Event Grid sent the message to the endpoint yo
 
 If you plan to continue working with this event, do not clean up the resources created in this article. If you do not plan to continue, delete the resources you created in this article.
 
-Select the resource group.
-
-![Select resource group](./media/custom-event-quickstart-portal/select-resource-group.png)
-
-Select **Delete resource group**.
-
-![Delete resource group](./media/custom-event-quickstart-portal/delete-resource-group.png)
+Select the resource group, and select **Delete resource group**.
 
 ## Next steps
 
