@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 10/11/2017
 ms.author: mimig
 
 ---
