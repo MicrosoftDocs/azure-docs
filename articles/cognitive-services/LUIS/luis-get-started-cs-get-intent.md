@@ -42,9 +42,9 @@ To understand what a LUIS app returns, you can paste the URL of a sample LUIS ap
 You can use C# to access the same results you saw in the browser window in the previous step. 
 
 1. Create a new console application in Visual Studio. Copy the code that follows and save it into an .cs file:
-
-   [!code-csharp[Console app code that calls a LUIS endpoint](./includes/cs/quickstart-call-endpoint/Program.cs)]
-2. Replace the value of the `subscriptionKey` variable with your LUIS subscription key.
+    
+   [!code-csharp[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/endpoint-api-samples/csharp/Program.cs)]
+1. Replace the value of the `subscriptionKey` variable with your LUIS subscription key.
 
 3. In the Visual Studio project, add a reference to **System.Web**.
 
