@@ -12,7 +12,19 @@
   expanded: true
   items:
   - name: Get started
-    href: quick-start.md
+    href: quickstart.md
+  - name: C#
+    href: csharp.md
+  - name: Java
+    href: java.md
+  - name: Node.js
+    href: nodejs.md
+  - name: PHP
+    href: php.md
+  - name: Python
+    href: python.md
+  - name: Ruby
+    href: ruby.md
 - name: How to
   items:
   - name: Handle hit highlighting

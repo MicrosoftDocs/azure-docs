@@ -2,16 +2,16 @@
 title: Azure Monitoring REST API walkthrough | Microsoft Docs
 description: How to authenticate requests and use the Azure Monitor REST API to retrieve available metric definitions and metric values.
 author: mcollier
-manager: 
-editor: 
+manager:
+editor:
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 
 ms.assetid: 565e6a88-3131-4a48-8b82-3effc9a3d5c6
 ms.service: monitoring-and-diagnostics
 ms.workload:
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm:
+ms.devlang:
 ms.search.region:
 ms.search.scope:
 ms.search.validFrom:
@@ -88,12 +88,273 @@ After authenticating, queries can then be executed against the Azure Monitor RES
 1. List the metric definitions for a resource
 2. Retrieve the metric values
 
+## Retrieve Metric Definitions (Multi-Dimensional API)
+
+Use the [Azure Monitor Metric definitions REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metricdefinitions) to access the list of metrics that are available for a service.
+
+**Method**: GET
+
+**Request URI**: https://management.azure.com/subscriptions/*{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}*/*{resourceType}*/*{resourceName*/providers/microsoft.insights/metricDefinitions?api-version=*{apiVersion}*
+
+For example, to retrieve the metric definitions for an Azure Storage account, the request would appear as follows:
+
+```PowerShell
+$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/microsoft.insights/metricDefinitions?api-version=2017-05-01-preview"
+
+Invoke-RestMethod -Uri $request `
+                  -Headers $authHeader `
+                  -Method Get `
+                  -OutFile ".\contosostorage-metricdef-results.json" `
+                  -Verbose
+
+```
+> [!NOTE]
+> To retrieve metric definitions using the multi-dimensional Azure Monitor metrics REST API, use "2017-05-01-preview" as the API version.
+>
+>
+
+The resulting JSON response body would be similar to the following example: (Note that the second metric has dimensions)
+
+```JSON
+{
+    "value": [
+        {
+            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/microsoft.insights/metricdefinitions/UsedCapacity",
+            "resourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage",
+            "category": "Capacity",
+            "name": {
+                "value": "UsedCapacity",
+                "localizedValue": "Used capacity"
+            },
+            "isDimensionRequired": false,
+            "unit": "Bytes",
+            "primaryAggregationType": "Average",
+            "metricAvailabilities": [
+                {
+                    "timeGrain": "PT1M",
+                    "retention": "P30D"
+                },
+                {
+                    "timeGrain": "PT1H",
+                    "retention": "P30D"
+                }
+            ]
+        },
+        {
+            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/microsoft.insights/metricdefinitions/Transactions",
+            "resourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage",
+            "category": "Transaction",
+            "name": {
+                "value": "Transactions",
+                "localizedValue": "Transactions"
+            },
+            "isDimensionRequired": false,
+            "unit": "Count",
+            "primaryAggregationType": "Total",
+            "metricAvailabilities": [
+                {
+                    "timeGrain": "PT1M",
+                    "retention": "P30D"
+                },
+                {
+                    "timeGrain": "PT1H",
+                    "retention": "P30D"
+                }
+            ],
+            "dimensions": [
+                {
+                    "value": "ResponseType",
+                    "localizedValue": "Response type"
+                },
+                {
+                    "value": "GeoType",
+                    "localizedValue": "Geo type"
+                },
+                {
+                    "value": "ApiName",
+                    "localizedValue": "API name"
+                }
+            ]
+        },
+        ...
+    ]
+}
+```
+
+## Retrieve Dimension Values (Multi-Dimensional API)
+Once the available metric definitions are known, there may be some metrics that have dimensions. Before querying for the metric you may want to discover what the range of values a dimension has. Based on these dimension values you can then choose to filter or segment the metrics based on dimension values while querying for metrics. Use the metric’s name ‘value’ (not the ‘localizedValue’) for any filtering requests (for example, retrieve the ‘CpuTime’ and ‘Requests’ metric data points). If no filters are specified, the default metric is returned.
+
+> [!NOTE]
+> To retrieve dimension values using the Azure Monitor REST API, use "2017-05-01-preview" as the API version.
+>
+>
+
+**Method**: GET
+
+**Request URI**: https://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metric=*{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&resultType=metadata&api-version=*{apiVersion}*
+
+For example, to retrieve the list of potential values the 'API Name dimension' for the 'Transactions' metric during a given time range, the request would be as follows:
+
+```PowerShell
+$filter = "APIName eq '*'"
+$request = "https://management.azure.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/microsoft.insights/metrics?metric=Transactions&timespan=2017-09-01T00:00:00Z/2017-09-10T00:00:00Z&resultType=metadata&$filter=${filter}&api-version=2017-05-01-preview"
+Invoke-RestMethod -Uri $request `
+    -Headers $authHeader `
+    -Method Get `
+    -OutFile ".\contosostorage-dimension-values.json" `
+    -Verbose
+```
+The resulting JSON response body would be similar to the following example:
+
+```JSON
+{
+  "timespan": "2017-09-01T00:00:00Z/2017-09-10T00:00:00Z",
+  "value": [
+    {
+      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/Microsoft.Insights/metrics/Transactions",
+      "type": "Microsoft.Insights/metrics",
+      "name": {
+        "value": "Transactions",
+        "localizedValue": "Transactions"
+      },
+      "unit": "Count",
+      "timeseries": [
+        {
+          "metadatavalues": [
+            {
+              "name": {
+                "value": "apiname",
+                "localizedValue": "apiname"
+              },
+              "value": "DeleteBlob"
+            }
+          ]
+        },
+        {
+          "metadatavalues": [
+            {
+              "name": {
+                "value": "apiname",
+                "localizedValue": "apiname"
+              },
+              "value": "SetBlobProperties"
+            }
+          ]
+        },
+        {
+          "metadatavalues": [
+            {
+              "name": {
+                "value": "apiname",
+                "localizedValue": "apiname"
+              },
+              "value": "PutPage"
+            }
+          ]
+        },
+        {
+          "metadatavalues": [
+            {
+              "name": {
+                "value": "apiname",
+                "localizedValue": "apiname"
+              },
+              "value": "Unknown"
+            }
+          ]
+        },
+        ...
+      ]    
+    }
+  ]
+}
+```
+
+## Retrieve Metric Values (Multi-Dimensional API)
+Once the available metric definitions and possible dimension values are known, it is then possible to retrieve the related metric values. Use the metric’s name ‘value’ (not the ‘localizedValue’) for any filtering requests. If no dimension filters are specified, the rolled up aggregated metric is returned.
+
+> [!NOTE]
+> To retrieve multi-dimensional metric values using the Azure Monitor REST API, use "2017-05-01-preview" as the API version.
+>
+>
+
+**Method**: GET
+
+**Request URI**: https://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metric=*{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&interval=*{timeGrain}*&aggregation=*{aggreation}*&api-version=*{apiVersion}*
+
+For example, to retrieve the metric values the storage 'Transactions' metric during a 5 min range, for all transactions to the API name 'GetBlobProperties', the request would be as follows:
+
+```PowerShell
+$filter = "APIName eq 'GetBlobProperties'"
+$request = "https://management.azure.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/microsoft.insights/metrics?metric=Transactions&timespan=2017-09-19T02:00:00Z/2017-09-19T02:05:00Z&$filter=${filter}&interval=PT1M&aggregation=Count&api-version=2017-05-01-preview"
+Invoke-RestMethod -Uri $request `
+    -Headers $authHeader `
+    -Method Get `
+    -OutFile ".\contosostorage-metric-values.json" `
+    -Verbose
+```
+The resulting JSON response body would be similar to the following example:
+
+```JSON
+{
+  "cost": 0,
+  "timespan": "2017-09-19T02:00:00Z/2017-09-19T02:05:00Z",
+  "interval": "PT1M",
+  "value": [
+    {
+      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/Microsoft.Insights/metrics/Transactions",
+      "type": "Microsoft.Insights/metrics",
+      "name": {
+        "value": "Transactions",
+        "localizedValue": "Transactions"
+      },
+      "unit": "Count",
+      "timeseries": [
+        {
+          "metadatavalues": [
+            {
+              "name": {
+                "value": "apiname",
+                "localizedValue": "apiname"
+              },
+              "value": "GetBlobProperties"
+            }
+          ],
+          "data": [
+            {
+              "timeStamp": "2017-09-19T02:00:00Z",
+              "count": 2.0
+            },
+            {
+              "timeStamp": "2017-09-19T02:01:00Z",
+              "count": 1.0
+            },
+            {
+              "timeStamp": "2017-09-19T02:02:00Z",
+              "count": 3.0
+            },
+            {
+              "timeStamp": "2017-09-19T02:03:00Z",
+              "count": 7.0
+            },
+            {
+              "timeStamp": "2017-09-19T02:04:00Z",
+              "count": 2.0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
 ## Retrieve metric definitions
 Use the [Azure Monitor Metric definitions REST API](https://msdn.microsoft.com/library/mt743621.aspx) to access the list of metrics that are available for a service.
 
 **Method**: GET
 
-**Request URI**: https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/${resourceProviderNamespace}/${resourceType}/${resourceName}/providers/microsoft.insights/metricDefinitions?api-version=${apiVersion}
+**Request URI**: https://management.azure.com/subscriptions/*{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}*/*{resourceType}*/*{resourceName}*/providers/microsoft.insights/metricDefinitions?api-version=*{apiVersion}*
 
 For example, to retrieve the metric definitions for an Azure Logic App, the request would appear as follows:
 
@@ -147,6 +408,7 @@ The resulting JSON response body would be similar to the following example:
       "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metricdefinitions/RunsStarted",
       "supportedAggregationTypes": [ "None", "Average", "Minimum", "Maximum", "Total", "Count" ]
     }
+  ]
 }
 ```
 

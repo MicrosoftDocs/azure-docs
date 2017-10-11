@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/19/2017
+ms.date: 09/25/2017
 ms.author: cherylmc
 
 ---
-# Create and install VPN client configuration files for P2S RADIUS authentication
+# Create and install VPN client configuration files for P2S RADIUS authentication (Preview)
 
 VPN client configuration files are contained in a zip file. Configuration files provide the settings required for a native Windows or Mac IKEv2 VPN client to connect to a VNet over Point-to-Site. The RADIUS server provides multiple authentication options and as such, the VPN client configuration varies for each option.
 
@@ -35,16 +35,18 @@ VPN client configuration files are contained in a zip file. Configuration files 
 
 ## <a name="adeap"></a>Username/password authentication
 
-* **AD authentication:** A popular scenario is AD domain authentication. In this scenario, users use their domain credentials to connect to Azure VNets. You can create VPN client configuration files for RADIUS AD authentication. Make sure that all connecting users have username/password credentials that can be authenticated through RADIUS. You can only create a configuration for EAP-MSCHAPv2 username/password authentication protocol. '-AuthenticationMethod' is specified as 'EapMSChapv2'.
+* **AD authentication:** A popular scenario is AD domain authentication. In this scenario, users use their domain credentials to connect to Azure VNets. You can create VPN client configuration files for RADIUS AD authentication.
 
 * **Authentication without AD:** You can also configure the username/password RADIUS authentication scenario without AD.
+
+Make sure that all connecting users have username/password credentials that can be authenticated through RADIUS. You can only create a configuration for EAP-MSCHAPv2 username/password authentication protocol. '-AuthenticationMethod' is specified as 'EapMSChapv2'.
 
 ### <a name="usernamefiles"></a>Generate VPN client configuration files
 
 Create the VPN client configuration using the following command:
 
 ```powershell 
-Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGatewayName "VNet1GW" -AuthenticationMethod "EapMSChapv2"
+New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGatewayName "VNet1GW" -AuthenticationMethod "EapMSChapv2"
 ```
  
 After running the command, it will return a link. Copy and paste the link to a web browser to download a zipped file, called 'VpnClientConfiguration.zip'. Unzip the file to see the following folders: 
@@ -117,7 +119,7 @@ You can create VPN client configuration files for RADIUS certificate authenticat
 Create the VPN client configuration using the following command:
  
 ```powershell
-Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGatewayName "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root>
+New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGatewayName "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root>
 ```
 
 The cmdlet result returns a link. Copy and paste the link to a web browser to download a zipped file, called 'VpnClientConfiguration.zip'. Unzip the file to see the following folders:

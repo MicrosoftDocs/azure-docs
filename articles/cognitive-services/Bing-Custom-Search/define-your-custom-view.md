@@ -51,7 +51,7 @@ Similarly, you can add slices to the Blocked list (except you can’t use an upl
 
 ## Pinned list
 The portal also lets you pin a specific webpage to the top of the search result if the user enters a specific search term. The **Pinned** tab contains a list of query term and webpage pairs that specify the webpage that appears as the top result for a specific query. The user’s query term must exactly match the pinned query term.
-For information about pinning results, see Adjust Rank.
+For information about pinning results, see [Adjust Rank](#adjustrank).
 
 ## Site suggestions
 After adding slices to the Active list, the service generates site and subsite suggestions that you might want to add to your search. The **You might want to add** section contains the suggestions. The instance settings page includes this section only if suggestions are available. 
@@ -61,6 +61,10 @@ To add suggestions to your Active list, click the + icon.  Because the service
 ## Preview pane
 At any time, you can test out your search instance by using the preview pane. This pane mimics the results that the instance would return for a specific query. You can also review Bing results by switching to Bing using the My Instance drop-down button next to the search button. 
 
+> [!NOTE]
+> Searches will hit the en-US Bing market
+
+<a name="adjustrank"></a>
 ## Adjust rank
 The portal lets you adjust ranking to manipulate the results that Bing returns. In the Preview pane, enter a search term and run the query. The preview pane list the search result for the query. To the right of each result is the list of adjustments you can make. 
 

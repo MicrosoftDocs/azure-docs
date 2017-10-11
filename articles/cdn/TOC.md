@@ -19,7 +19,7 @@
 ####[Dynamic site acceleration](cdn-dynamic-site-acceleration.md)
  
 ## Manage
-### [Manage with PowerShell](cdn-manage-powershell.md)
+### [Manage with Azure PowerShell](cdn-manage-powershell.md)
 ### Configure time-to-live
 #### [Web Apps/Cloud Services, ASP.NET, or IIS content](cdn-manage-expiration-of-cloud-service-content.md)
 #### [Storage blob service content](cdn-manage-expiration-of-blob-content.md)
@@ -37,11 +37,13 @@
 ### [HTTP/2 support](cdn-http2.md)
 
 ## Analyze
-### [Analyze usage patterns](cdn-analyze-usage-patterns.md)
-### [Generate advanced HTTP reports](cdn-advanced-http-reports.md)
-### [View real-time statistics](cdn-real-time-stats.md)
-### [Analyze edge node performance](cdn-edge-performance.md)
-### [Export metrics with Diagnostics Logs](cdn-log-analysis.md)
+### [Analyze Azure CDN usage patterns](cdn-log-analysis.md)
+#### [Core reports from Verizon](cdn-analyze-usage-patterns.md)
+#### [Azure diagnostics logs](cdn-azure-diagnostic-logs.md)
+### Analytics tools for Azure CDN from Verizon
+#### [Generate advanced HTTP reports](cdn-advanced-http-reports.md)
+#### [View real-time statistics](cdn-real-time-stats.md)
+#### [Analyze edge node performance](cdn-edge-performance.md)
 
 ## Develop
 ### [.NET](cdn-app-dev-net.md)
@@ -53,7 +55,7 @@
 
 # Reference
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
-## [PowerShell](/powershell/module/azurerm.cdn)
+## [Azure PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
 ## [Java](/java/api/com.microsoft.azure.management.cdn)
 ## [REST](/rest/api/cdn/)

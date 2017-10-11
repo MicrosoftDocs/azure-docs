@@ -19,6 +19,7 @@
 # How to
 
 ## Security policy
+### [Overview](security-center-policies-overview.md)
 ### [Data collection](security-center-enable-data-collection.md)
 ### [Security policy](security-center-policies.md)
 ### [Email notifications](security-center-provide-security-contact-details.md)
@@ -53,7 +54,6 @@
 #### [Install Endpoint Protection](security-center-install-endpoint-protection.md)
 #### [Reboot after system updates](security-center-apply-system-updates.md#reboot-after-system-updates)
 #### [Remediate OS vulnerabilities](security-center-remediate-os-vulnerabilities.md)
-#### [Resolve endpoint protection health alerts](security-center-resolve-endpoint-protection-health-alerts.md)
 #### [Update OS version](security-center-update-os-version.md)
 #### [Vulnerability assessment not installed](security-center-vulnerability-assessment-recommendations.md)
 ### [Monitor security health](security-center-monitoring.md)
@@ -74,6 +74,7 @@
 
 ## Cloud defenses
 ### [Just in time access](security-center-just-in-time.md)
+### [Adaptive application controls](security-center-adaptive-application.md)
 
 ## Automation and Orchestration
 ### [Playbooks](security-center-playbooks.md)
