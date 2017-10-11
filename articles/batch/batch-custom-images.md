@@ -26,7 +26,7 @@ Some reasons to use a custom image that is configured for your scenario include 
 
 ## Prerequisites
 
-- **A Batch account created with the User Subscription pool allocation mode.** To use a custom image to provision Virtual Machine pools, create your Batch account with the User Subscription [pool allocation mode](batch-api-basics.md#pool-allocation-mode). With this mode, Batch pools are allocated into the subscription where the account resides. See the [Account](batch-api-basics.md#account) section in [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md) for information on setting the pool allocation mode when you create a Batch account.
+- **A Batch account created with the User Subscription pool allocation mode.** With this mode, Batch pools are allocated into the subscription where the account resides. See the [Account](batch-api-basics.md#account) section in [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md) for more information.
 
 - **An Azure Storage account.** To create a pool of virtual machines using a custom image, you need a standard, general-purpose Azure Storage account in the same subscription and region. If you create a custom image from an Azure VM, then you will copy the image to the storage account where the VM's OS disk resides, and you won't need to create a separate storage account. 
     
