@@ -41,7 +41,7 @@ Before you begin this tutorial:
 - Install the [Azure Powershell module version 4.1 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) or [Azure CLI 2.0](/cli/azure/install-azure-cli).
 - Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) or [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) on Azure
 - If you deploy a Windows cluster, set up a Windows development environment. Install [Visual Studio 2017](http://www.visualstudio.com) and the **Azure development**, **ASP.NET and web development**, and **.NET Core cross-platform development** workloads.  Then setup a [.NET development environment](service-fabric-get-started.md).
-- If you deploy a Linux cluster, setup a Java development environment on [Linux](service-fabric-get-started-linux.md) or [MacOS](service-fabric-get-started-mac.md).  Install the [Service Fabric CLI](service-fabric-cli). 
+- If you deploy a Linux cluster, setup a Java development environment on [Linux](service-fabric-get-started-linux.md) or [MacOS](service-fabric-get-started-mac.md).  Install the [Service Fabric CLI](service-fabric-cli.md). 
 
 ## Sign-in to Azure and select your subscription
 This tutorial uses [Azure PowerShell][azure-powershell]. When you start a new PowerShell session, sign in to your Azure account and select your subscription before you execute Azure commands.
