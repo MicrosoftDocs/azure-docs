@@ -106,7 +106,7 @@ If you use a custom DNS server in a virtual network, you can also create A DNS r
 
 ## <a name="routing"> </a> Routing
 When API Management is deployed in a vnet subnet in Internal vnet mode, a Load Balanced IP address from the subnet will be reserved to access the service endpoints. A Load Balanced Public IP Address will also be reserved, which provides Inbound access to only the Management service endpoint over 3443 port.
-An IP address from a subnet IP range will be used to access resources within the vnet and its public IP address will be used to access resources outside the vnet. The Load Balanced public IP and private IP addresses can be found on the Overview/Essentials blade in Azure Portal.
+An IP address from a subnet IP range will be used to access resources within the vnet and its public IP address will be used to access resources outside the vnet. The Load Balanced public IP and private IP addresses can be found on the Overview/Essentials blade in Azure portal.
 
 ## <a name="related-content"> </a>Related content
 To learn more, see the following articles:
