@@ -58,7 +58,7 @@ request(options, function(error, response, body){
 })
 ```
 
-## Next steps
+### Next steps
 - [Configure and consume custom hosted UI](./hosted-ui.md)
 - [Use decoration markers to highlight text](./hit-highlighting.md)
 - [Page webpages](./page-webpages.md)
