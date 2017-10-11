@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/09/2017
+ms.date: 10/11/2017
 ms.author: nitinme
 
 ---
@@ -25,7 +25,7 @@ ms.author: nitinme
 >
 >
 
-In this article,, you learn how to perform account management operations on Data Lake Store using .NET SDK. Account management operations include creating a Data Lake Store account, listing the accounts in an Azure subscription, deleting the accounts, etc.
+In this article, you learn how to perform account management operations on Data Lake Store using .NET SDK. Account management operations include creating a Data Lake Store account, listing the accounts in an Azure subscription, deleting the accounts, etc.
 
 For instructions on how to perform data management operations on Data Lake Store using .NET SDK, see [Filesystem operations on Data Lake Store using .NET SDK](data-lake-store-data-operations-net-sdk.md).
 
