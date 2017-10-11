@@ -44,9 +44,7 @@ Before you begin this tutorial:
 - If you deploy a Linux cluster, set up a Java development environment on [Linux](service-fabric-get-started-linux.md) or [MacOS](service-fabric-get-started-mac.md).  Install the [Service Fabric CLI](service-fabric-cli.md). 
 
 ## Sign in to Azure and select your subscription
-This tutorial uses [Azure PowerShell][azure-powershell]. When you start a new PowerShell session, sign in to your Azure account and select your subscription before you execute Azure commands.
- 
-Sign in to your Azure account select your subscription:
+Sign in to your Azure account select your subscription before you execute Azure commands.
 
 ```powershell
 Login-AzureRmAccount
