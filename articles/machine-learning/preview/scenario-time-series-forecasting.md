@@ -54,7 +54,7 @@ This scenario details the construction of a machine learning energy demand forec
 - An [Azure account](https://azure.microsoft.com/free/) (free trials are available).
 - An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) following the [quick start installation guide](./quickstart-installation.md) to install the program and create a workspace.
 - This sample assumes that you are running Azure ML Workbench on Windows 10 with [Docker engine](https://www.docker.com/) locally installed. If you are using macOS, the instructions are largely the same.
-- Azure Machine Learning Operationalization installed with a local deployment environment set up and a model management account created as described in this  [guide](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/getting-started.md).
+- Azure Machine Learning Operationalization installed with a local deployment environment set up and a model management account created as described in this  [guide](./model-management-configuration.md).
 - This sample requires that you update the Pandas installation to version 0.20.3 or higher and install matplotlib. Click *Open Command Prompt* from the *File* menu in the Workbench and run the following commands to install these dependencies:
 
     ```
