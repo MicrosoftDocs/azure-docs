@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
-ms.author: cgillum
+ms.author: azfuncdf
 ---
 
 # Fan-out/fan-in scenario in Durable Functions - Cloud backup example
@@ -88,7 +88,7 @@ The implementation is also pretty straightforward. It happens to use some advanc
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/run.csx)]
 
-The implementation loads the file from disk and asynchronously streams the contents into a blob of the same name. The return value is the number of bytes copied to storage, which is then used by the orchestrator function to compute the aggregate sum.
+The implementation loads the file from disk and asynchronously streams the contents into a blob of the same name. The return value is the number of bytes copied to storage, that is then used by the orchestrator function to compute the aggregate sum.
 
 > [!NOTE]
 > This is a perfect example of moving I/O operations into an `activityTrigger` function. Not only can the work be distributed across many different VMs, but you also get the benefits of checkpointing the progress. If the host process gets terminated for any reason, you know which uploads have already completed.

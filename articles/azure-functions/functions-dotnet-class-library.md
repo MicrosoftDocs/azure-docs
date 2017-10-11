@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/03/2017
+ms.date: 10/10/2017
 ms.author: donnam
 
 ---
@@ -130,8 +130,8 @@ public static void Run(
     [CosmosDBTrigger("database", "collection", ConnectionStringSetting = "myCosmosDB")]
 IReadOnlyList<Document> documents, TraceWriter log)
 {
-        log.Verbose("Documents modified " + documents.Count);
-        log.Verbose("First document Id " + documents[0].Id);
+        log.Info("Documents modified " + documents.Count);
+        log.Info("First document Id " + documents[0].Id);
 }
 ```
 
