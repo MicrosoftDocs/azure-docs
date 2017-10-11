@@ -70,7 +70,7 @@ Get-ServiceFabricComposeDeploymentUpgrade -Deployment TestContainerApp
 Alternatively, you can use the following Service Fabric CLI command:
 
 ```azurecli
-sfctl compose create --name TestContainerApp --file-path docker-compose.yml [ [ --user --encrypted-pass ] | [ --user --has-pass ] ] [ --timeout ]
+sfctl compose create --deployment-name TestContainerApp --file-path docker-compose.yml [ [ --user --encrypted-pass ] | [ --user --has-pass ] ] [ --timeout ]
 ```
 
 After you've created the deployment, you can check its status by using the following command:
@@ -88,7 +88,7 @@ sfctl compose remove  --deployment-name TestContainerApp [ --timeout ]
 To start a Compose deployment upgrade, use the following command:
 
 ```powershell
-sfctl compose upgrade --name TestContainerApp --file-path docker-compose-v2.yml [ [ --user --encrypted-pass ] | [ --user --has-pass ] ] [--upgrade-mode Monitored] [--failure-action Rollback] [ --timeout ]
+sfctl compose upgrade --deployment-name TestContainerApp --file-path docker-compose-v2.yml [ [ --user --encrypted-pass ] | [ --user --has-pass ] ] [--upgrade-mode Monitored] [--failure-action Rollback] [ --timeout ]
 ```
 
 After upgrade is accepted, the upgrade progress could be tracked using the following command:
@@ -124,7 +124,7 @@ If the service name that you specify in a Compose file is a fully qualified doma
 
 For example, if the specified application name is `fabric:/SampleApp/MyComposeApp`, `<ServiceName>.MyComposeApp.SampleApp` would be the registered DNS name.
 
-## Differences between Compose deployment (instance definition) and Service Fabric application model (type definition)
+## Compose deployment (instance definition) versus Service Fabric app model (type definition)
 
 A docker-compose.yml file describes a deployable set of containers, including their properties and configurations.
 For example, the file can contain environment variables and ports. You can also specify deployment parameters, such as placement constraints, resource limits, and DNS names, in the docker-compose.yml file.
