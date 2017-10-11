@@ -13,7 +13,7 @@ ms.author: v-dotren
 
 # Use a custom managed image to create a pool of virtual machines
 
-When you create a Azure Batch Pool using the [Virtual Machine Configuration](/rest/api/batchservice/Pool/Add#definitions_virtualmachineconfiguration), you can specify either an Azure Marketplace image, or provide a custom image (a custom *managed image resource*). This article talks about how to use a custom image in an Azure Batch pool.
+When you create an Azure Batch pool using the [Virtual Machine Configuration](/rest/api/batchservice/Pool/Add#definitions_virtualmachineconfiguration), you can specify either an Azure Marketplace image, or provide a custom image (a custom *managed image resource*). This article talks about how to use a custom image in an Azure Batch pool.
 
 ## Why use a custom image?
 With a custom image, you have control over operating system, type of disks for operating system, and data disks. Your image can include pre-installed applications and data that are available on all the Batch pool nodes as soon as they are provisioned. 
@@ -54,9 +54,9 @@ You can also prepare a managed image from a new or existing Azure VM.
 
 * If you are creating a new VM, you can use an Azure Marketplace image as the base image for your managed image and then customize it. 
 
-* Ensure that the VM is created with a managed disk. This is a default settting when you create a VM.
+* Ensure that the VM is created with a managed disk. This is the default storage setting when you create a VM.
 
-* To customize the base image, add your applications, and optionally add data disks disks and data to it. 
+* To customize the base image, add your applications, and optionally add data disks and data to it. 
 
 * Then generalize the VM to serve as your managed image. 
 
