@@ -49,6 +49,11 @@ ms.custom: H1Hack27Feb2017
 
 ## Release Notes
 
+### <a name="1.13.0"/>1.13.0
+* Fixed an issue in reading single partition key ranges.
+* Fixed an issue in ResourceID parsing that affects database with short names.
+* Fixed an issue cause by partition key encoding.
+
 ### <a name="1.12.0"/>1.12.0
 * Critical bug fixes to request processing during partition splits.
 * Fixed an issue with the Strong and BoundedStaleness consistency levels.
@@ -166,6 +171,7 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.13.0](#1.13.0) |August 25, 2017 |--- |
 | [1.12.0](#1.12.0) |July 11, 2017 |--- |
 | [1.11.0](#1.11.0) |May 10, 2017 |--- |
 | [1.10.0](#1.10.0) |March 11, 2017 |--- |
