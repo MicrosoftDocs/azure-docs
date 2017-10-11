@@ -15,7 +15,7 @@ ms.author: scottwhi
 
 # Using ranking to display results  
 
-Each search response includes a [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#rankingresponse) answer, that specifies how you must display the search results. The ranking response groups results by mainline content and sidebar content for a traditional search results page. If you do not display the results in a traditional mainline and sidebar format, you must provide the mainline content higher visibility than the sidebar content.  
+Each search response includes a [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#rankingresponse) answer, that specifies how you must display the search results within an answer. The ranking response groups results by mainline content and sidebar content for a traditional search results page. If you do not display the results in a traditional mainline and sidebar format, you must provide the mainline content higher visibility than the sidebar content.  
   
 Within each group (mainline or sidebar), the [Items](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#rankinggroup-items) array identifies the order that the content must appear in. Each item provides the following two ways to identify the result within an answer.  
   

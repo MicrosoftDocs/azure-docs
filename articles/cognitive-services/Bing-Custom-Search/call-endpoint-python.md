@@ -17,9 +17,11 @@ ms.author: v-brapel
 This example shows how to request search results from your custom search instance using Python. To create this example follow these steps:
 
 1. Create your custom instance (see [Define a custom search instance](define-your-custom-view.md)).
-2. Get a subscription key (if you don't have one see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api)).
-   > [!NOTE]
-   > Existing Bing Custom Search customers who have a preview key provisioned on or before October 15 2017 will be able to use their keys until November 30 2017, or until they have exhausted the maximum number of queries allowed. Afterward, they need to migrate to the generally available version on Azure.
+2. Get a subscription key (if you don't have one see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api)).  
+
+  >[!NOTE]  
+  >Existing Bing Custom Search customers who have a preview key provisioned on or before October 15 2017 will be able to use their keys until November 30 2017, or until they have exhausted the maximum number of queries allowed. Afterward, they need to migrate to the generally available version on Azure.  
+
 3. Install [Python](https://www.python.org/).
 4. Create a folder for your code.
 5. From a command prompt or terminal, navigate to the folder you just created.
