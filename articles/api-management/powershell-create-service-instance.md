@@ -29,4 +29,5 @@ This tutorial describes the steps for creating a new API Management instance usi
 
 ## Next steps
 
-[Create and publish your first API in Azure API Management](api-management-get-started.md)
+> [!div class="nextstepaction"]
+> [Import and publish your first API](import-and-publish.md)

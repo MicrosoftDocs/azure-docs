@@ -104,6 +104,12 @@ To learn more about API Management, watch the following presentation from the Mi
 > 
 > 
 
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Create an APIM instance](get-started-create-service-instance.md)
+
+
 [APIs and operations]: #apis
 [Products]: #products
 [Groups]: #groups

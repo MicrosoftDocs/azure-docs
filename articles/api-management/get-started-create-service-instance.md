@@ -19,17 +19,17 @@ ms.author: apimpm
 
 This tutorial describes the steps for creating a new API Management instance using the [Azure portal](https://portal.azure.com/).
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 ![new APIM instance](media/get-started-create-service-instance/get-started-create-service-instance-created.png)
 
-## Prerequisites
+## Log in to Azure
 
-+ An active Azure subscription.
-
-    [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+Log in to the Azure portal at http://portal.azure.com.
 
 ## Create a new service
 
-1. In the [Azure portal](https://portal.azure.com/), select **New** > **Enterprise Integration** > **API management**.
+1. In the Azure portal, select **New** > **Enterprise Integration** > **API management**.
 
     Alternatively, choose **New**, type `API management` in the search box, and press Enter. Click **Create**.
 
@@ -54,4 +54,5 @@ This tutorial describes the steps for creating a new API Management instance usi
 
 ## Next steps
 
-[Create and publish your first API in Azure API Management](api-management-get-started.md)
+> [!div class="nextstepaction"]
+> [Import and publish your first API](import-and-publish.md)

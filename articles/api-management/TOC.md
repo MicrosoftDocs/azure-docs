@@ -4,7 +4,7 @@
 ## [Create an instance - Portal](get-started-create-service-instance.md)
 ## [Create an instance - PowerShell](powershell-create-service-instance.md)
 # Tutorials
-## [1 - Import and publish your first API](api-management-get-started.md)
+## [1 - Import and publish your first API](import-and-publish.md)
 ## [2 - Create and publish a product](api-management-howto-add-products.md)
 ## [3 - Create blank API and mock API responses](mock-api-responses.md)
 ## [4 - Transform and protect a published API](api-management-howto-product-with-rules.md)
@@ -22,6 +22,7 @@
 ## Policies
 ### [Overview](api-management-howto-policies.md)
 ### [Policy reference index](api-management-policy-reference.md)
+### [Policy expressions](api-management-policy-expressions.md)
 ### [Custom caching](api-management-sample-cache-by-key.md)
 ### [Advanced monitoring](api-management-log-to-eventhub-sample.md)
 ### [Advanced request throttling](api-management-sample-flexible-throttling.md)
@@ -31,6 +32,7 @@
 ## Manage in production
 ### [Manage using automation](automation-manage-api-management.md)
 ### [Use Role-Based Access Control](api-management-role-based-access-control.md)
+## [Error handling](api-management-error-handling-policies.md)
 ## [API import restrictions](api-management-api-import-restrictions.md)
 ## [Frequently asked questions](api-management-faq.md)
 # How-to guides
@@ -74,8 +76,6 @@
 ### [Caching policies](api-management-caching-policies.md)
 ### [Cross-domain policies](api-management-cross-domain-policies.md)
 ### [Transformation policies](api-management-transformation-policies.md)
-## [Error handling](api-management-error-handling-policies.md)
-## [Policy expressions](api-management-policy-expressions.md)
 ## Template reference
 ### [Templates](api-management-developer-portal-templates-reference.md)
 ### [APIs](api-management-api-templates.md)

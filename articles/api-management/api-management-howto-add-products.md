@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2017
+ms.date: 10/10/2017
 ms.author: apimpm
 
 ---
@@ -22,7 +22,7 @@ In Azure API Management, a product contains one or more APIs as well as a usage 
 
 ![added product](media/api-management-howto-add-products/added-product.png)
 
-What you'll learn:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a product
@@ -30,10 +30,8 @@ What you'll learn:
 
 ## Prerequisites
 
-To complete this quickstart.
-
 + [Create an Azure API Management instance](get-started-create-service-instance.md).
-+ [Import and publish your first API](/api-management-get-started)
++ [Import and publish your first API](import-and-publish.md)
 
 ## <a name="create-product"> </a>Create a product
 
@@ -72,11 +70,6 @@ Set a visibility of a product for developers or guest from the **Access control*
 
 
 ## <a name="next-steps"> </a>Next steps
-Once the desired APIs are added and the product published, developers can subscribe to the product and begin to call the APIs.
 
-For more information about working with products, see the following video:
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Using-Products/player]
-> 
-> 
-
+> [!div class="nextstepaction"]
+> [Create blank API and mock API responses](mock-api-responses.md)

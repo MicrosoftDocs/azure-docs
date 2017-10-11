@@ -11,7 +11,7 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/10/2017
 ms.author: apimpm
 ---
 
@@ -24,7 +24,7 @@ The steps in this tutorial show you how to use API Management (APIM) to set a po
 
 ![Mocked operation response](./media/mock-api-responses/mock-api-responses01.png)
 
-What you'll learn:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a test API and operation
@@ -33,9 +33,8 @@ What you'll learn:
 
 ## Prerequisites
 
-To perform the steps described in this tutorial:
-
-[Create an Azure API Management instance](get-started-create-service-instance.md).
++ [Create an Azure API Management instance](get-started-create-service-instance.md)
++ [Import and publish your first API](import-and-publish.md)
 
 ## Create a test API and operation
 
@@ -88,4 +87,5 @@ The steps in this section show how to create a blank API with no backend. It als
 
 ## Next steps
 
-[Import and publish your first API](api-management-get-started.md)
+> [!div class="nextstepaction"]
+> [Transform and protect a published API](api-management-howto-product-with-rules.md)

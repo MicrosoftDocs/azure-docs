@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/059/2017
+ms.date: 10/10/2017
 ms.author: apimpm
 
 ---
@@ -24,7 +24,7 @@ For details about what is API Management (APIM) API, see [What is APIM API?](api
 
 ![New API](./media/api-management-get-started/created-api.png)
 
-What you'll learn:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Import your first API
@@ -32,8 +32,6 @@ What you'll learn:
 > * Test the API in the Developer portal
 
 ## Prerequisites
-
-To complete this tutorial: 
 
 [Create an Azure API Management instance](get-started-create-service-instance.md).
 
@@ -100,5 +98,5 @@ Operations can also be called **Developer portal** to test APIs.
 
 ## <a name="next-steps"> </a>Next steps
 
-* [View analytics]()
-* [Protect your API with rate limits](api-management-howto-product-with-rules.md).
+> [!div class="nextstepaction"]
+> [Create and publish a product](api-management-howto-add-products.md)
