@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
-ms.author: cgillum
+ms.author: azfuncdf
 ---
 
 # Singleton orchestrators in Durable Functions (Azure Functions)
@@ -48,7 +48,7 @@ public static async Task<HttpResponseMessage> Ensure(
 
 By default, instance IDs are randomly generated GUIDs. But notice in this case the trigger function uses a predefined `InstanceId` variable with a value of `MySingletonInstanceId` to pre-assign an instance ID to the orchestrator function. This allows the trigger to check and see whether the well-known instance is already running by calling [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_).
 
-The implementation details of the orchestrator function do not actually matter. It could be a regular orchestrator function which starts and completes, or it could be one that runs forever (that is, an [Eternal Orchestration](durable-functions-eternal-orchestrations.md)). The important point is that there is only ever one instance running at a time.
+The implementation details of the orchestrator function do not actually matter. It could be a regular orchestrator function that starts and completes, or it could be one that runs forever (that is, an [Eternal Orchestration](durable-functions-eternal-orchestrations.md)). The important point is that there is only ever one instance running at a time.
 
 > [!NOTE]
 > If the singleton orchestration instance terminates, fails, or completes, it will not be possible to recreate it using the same ID. In those cases, you should be prepared to recreate it using a new instance ID.
