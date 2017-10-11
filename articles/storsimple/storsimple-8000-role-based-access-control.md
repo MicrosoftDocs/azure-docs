@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2017
+ms.date: 10/11/2017
 ms.author: alkohli
 
 ---
@@ -91,7 +91,7 @@ In the following example, we start with the built-in role **Reader** that allows
 
                     ],
         "AssignableScopes":  [
-                                "/subscriptions/1234ab5c-678d-910e-1fg2-3abcd4e5678f/"
+                                "/subscriptions/<subscription_ID>/"
                             ]
     }
     ```
@@ -113,16 +113,16 @@ For more information, go to [Create a custom RBAC role using PowerShell](../acti
 PS C:\WINDOWS\system32> Login-AzureRMAccount
 
 Environment           : AzureCloud
-Account               : john.doe@microsoft.com
-TenantId              : 12a345bc-67d8-90ef-12ab-3c4de567fg78
-SubscriptionId        : 1234ab5c-678d-910e-1fg2-3abcd4e5678f
+Account               : john.doe@contoso.com
+TenantId              : <tenant_ID>
+SubscriptionId        : <subscription_ID>
 SubscriptionName      : Internal Consumption
 CurrentStorageAccount :
 
 PS C:\WINDOWS\system32> Get-AzureRMRoleDefinition -Name "Reader"
 
 Name             : Reader
-Id               : acdd72a7-3385-48ef-bd42-f606fba81ae7
+Id               : <guid>
 IsCustom         : False
 Description      : Lets you view everything, but not make any changes.
 Actions          : {*/read}
@@ -134,7 +134,7 @@ PS C:\WINDOWS\system32> Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Jso
 PS C:\WINDOWS\system32> New-AzureRMRoleDefinition -InputFile "C:\ssrbaccustom.json"
 
 Name             : StorSimple Infrastructure Admin
-Id               : ff2e8f83-e352-4097-968f-a78d01aff144
+Id               : <tenant_ID>
 IsCustom         : True
 Description      : Lets you view everything, but not make any changes except for Clear alerts, Clear settings, install,
                    download etc.
@@ -143,14 +143,14 @@ Actions          : {Microsoft.StorSimple/managers/alerts/read,
                    Microsoft.StorSimple/managers/devices/jobs/read,
                    Microsoft.StorSimple/managers/devices/alertSettings/read...}
 NotActions       : {}
-AssignableScopes : {/subscriptions/1234ab5c-678d-910e-1fg2-3abcd4e5678f/}
+AssignableScopes : {/subscriptions/<subscription_ID>/}
 
 PS C:\WINDOWS\system32>
 ```
 
 ## Add users to the custom role
 
-You grant access from within the resource, resource group, or subscription that is the scope of the role assignment. When providing access, bear in mind that the access granted at the parent node is inherited by the child. For more information, go to [Resource heirarhcy and access inheritance](../active-directory/role-based-access-control-what-is.md#resource-hierarchy-and-access-inheritance).
+You grant access from within the resource, resource group, or subscription that is the scope of the role assignment. When providing access, bear in mind that the access granted at the parent node is inherited by the child. For more information, go to [Resource heirarchy and access inheritance](../active-directory/role-based-access-control-what-is.md#resource-hierarchy-and-access-inheritance).
 
 1. Go to **Access control (IAM)**. Click **+ Add** on the Access control blade.
 
@@ -164,7 +164,7 @@ You grant access from within the resource, resource group, or subscription that 
 
     ![Add permissions to RBAC role](./media/storsimple-8000-role-based-access-control/rbac-create-role-infra-admin.png)
 
-An **Adding user** notification tracks the progress. After the user is successfully added, the list of users in access control is updated.
+An **Adding user** notification tracks the progress. After the user is successfully added, the list of users in Access control is updated.
 
 ## View permissions for the custom role
 
