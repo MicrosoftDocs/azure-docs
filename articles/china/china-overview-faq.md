@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 10/13/2017
 ms.author: v-wimarc
 
 ---
@@ -56,13 +56,22 @@ You can continue to use the Management portal to:
 When a new enrollment is provisioned, the status is shown as pending. When you log on to the EA portal with the account, the status changes to active.
 
 ## Operations
+### What’s the criteria for purchasing a subscription to Azure China 21Vianet?
+To comply with the [Anti-Terrorism Law](http://www.gov.cn/zhengce/2015-12/28/content_5029899.htm), online service providers have an obligation to verify users through real-name authentication before rendering services. When you sign up for an Azure China 21Vianet subscription online or through a Microsoft sales representative, you must provide the following:
+- Local Chinese mobile phone number
+- Chinese citizenship ID or a China-registered business license 
+
+If you want to purchase an Enterprise Agreement through OSPA, you should complete a credit check with 21Vianet prior to starting the contract process. You must update your business license with registered capital information, tax register certification, past two years of financial reports, and other details. The Microsoft Account Team can help you with this process prior to submitting your request to 21Vianet. This requirement ensures that you can pay for the service. 
+
+### Can I merge my Azure China 21Vianet account into my existing global Azure account?
+Your Azure China 21Vianet account can’t be merged into an existing global Azure account because Azure China 21Vianet is a physically separated instance of cloud services located in mainland China.
+
 ### Is there guidance on planning the migration of my applications?
 Yes. To run on Azure China 21Vianet:
 - If the application or workload runs in another cloud provider, you can [refactor and migrate](/azure/china/china-how-to-refactor).
 - If the application runs on global Azure, you can [rehost and migrate](/azure/china/china-how-to-rehost).
 
-### How can I apply for SSL certification for my website?
-If you have an SSL certification request for your website, please contact the [21Vianet support team](/azure/china/china-resources-support) to get help.
+
 
 
 
