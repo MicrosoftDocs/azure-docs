@@ -1,5 +1,5 @@
 - name: Bing Image Search Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
     - name: About Bing Image Search API
