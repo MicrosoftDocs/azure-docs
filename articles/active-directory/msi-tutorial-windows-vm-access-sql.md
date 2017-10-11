@@ -173,7 +173,7 @@ For this next step, you will need [Microsoft SQL Server Management Studio](https
 
 Code running in the VM can now get a token from MSI and use the token to authenticate to the SQL server.
 
-## Get an access token using the VM identity and use it to call Azure Resource Manager 
+## Get an access token using the VM identity and use it to call Azure SQL 
 
 Azure SQL natively supports Azure AD authentication, so it can directly accept access tokens obtained using MSI.  You use the **access token** method of creating a connection to SQL.  This is part of Azure SQL's integration with Azure AD, and is different from supplying credentials on the connection string.
 
