@@ -209,7 +209,7 @@ The device-facing endpoints are (irrespective of the protocol):
 | Endpoint | Functionality |
 | --- | --- |
 | `{iot hub host name}/devices/{deviceId}/messages/events` |Send device-to-cloud messages. |
-| `{iot hub host name}/devices/{deviceId}/devicebound` |Receive cloud-to-device messages. |
+| `{iot hub host name}/devices/{deviceId}/messages/devicebound` |Receive cloud-to-device messages. |
 
 ### Use a symmetric key in the identity registry
 
