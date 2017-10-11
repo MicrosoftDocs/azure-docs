@@ -19,7 +19,7 @@
 | Integrated Load Balancer | |X |X |X |X |
 | [Always On](../articles/app-service/web-sites-configure.md) | | |X |X |X |
 | [Scheduled Backups](../articles/app-service/web-sites-backup.md) | | | |Once per day |Once every 5 minutes<sup>8</sup> |
-| [Auto Scale](../articles/app-service/web-sites-scale.md) | | |X |X |X |
+| [Auto Scale](../articles/app-service/web-sites-scale.md) | | | |X |X |
 | [WebJobs](../articles/app-service/web-sites-create-web-jobs.md)<sup>9</sup> |X |X |X |X |X |
 | [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) support | |X |X |X |X |
 | [Endpoint monitoring](../articles/app-service/web-sites-monitor.md) | | |X |X |X |
