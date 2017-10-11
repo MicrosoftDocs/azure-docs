@@ -58,7 +58,7 @@ cd AzureStack-Tools-master
 
 ```
 
-## Functionalities provided by the modules
+## Functionality provided by the modules
 
 The **AzureStack-Tools** repository contains PowerShell modules that support the following functionalities for Azure Stack:  
 

@@ -29,7 +29,7 @@ This article is a condensed version of the steps that are described in the [Inst
 
 ## Set up PowerShell for Azure Active Directory-based deployments
 
-Sign in to your Azure Stack Development Kit, or a Windows-based external client if you are connected through VPN. Open an elevated PowerShell ISE session and run the following script (make sure to update the **TenantName**, **ArmEndpoint**, and **GraphAudience** variables as per your environment configuration):
+Sign in to your Azure Stack Development Kit, or a Windows-based external client if you are connected through VPN. Open an elevated PowerShell ISE session, and then run the following script (make sure to update the **TenantName**, **ArmEndpoint**, and **GraphAudience** variables as per your environment configuration):
 
 ```powershell
 # Specify Azure Active Directory tenant name.
@@ -188,7 +188,7 @@ Now that you’ve configured PowerShell, you can test the configuration by creat
 New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
 ```
 
-When the resource group is created, the cmdlet output has the Provisioning state property set to **Succeeded**.
+After the resource group has been created, the Provisioning state property is set to **Succeeded**.
 
 ## Next steps
 
