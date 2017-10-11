@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
-ms.author: cgillum
+ms.author: azfuncdf
 ---
 
 # Human interaction in Durable Functions - Phone verification sample
@@ -79,7 +79,7 @@ The user receives an SMS message with a four digit code. They have 90 seconds to
 > It may not be obvious at first, but this orchestrator function is completely deterministic. This is because the `CurrentUtcDateTime` property is used to calculate the timer expiration time, and this property returns the same value on every replay at this point in the orchestrator code. This is important to ensure that the same `winner` results from every repeated call to `Task.WhenAny`.
 
 > [!WARNING]
-> It's important to cancel timers using a `CancellationTokenSource` if we no longer need them to expire, like we do in the example above when a challenge response is accepted. For more information, see the [Durable Timers](durable-functions-timers.md) topic.
+> It's important to [cancel timers using a CancellationTokenSource](durable-functions-timers.md) if you no longer need them to expire, as in the example above when a challenge response is accepted.
 
 ## Sending the SMS message
 
