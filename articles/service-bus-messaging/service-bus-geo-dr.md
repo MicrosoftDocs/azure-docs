@@ -216,6 +216,7 @@ if(aliasPrimaryConnectionString == null)
 
 - See the Geo-disaster recovery [REST API reference here](/rest/api/servicebus/disasterrecoveryconfigs).
 - Run the Geo-disaster recovery [sample on GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2).
+- See the Geo-disaster recovery [sample that sends messages to an alias](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1).
 
 To learn more about Service Bus messaging, see the following articles:
 
