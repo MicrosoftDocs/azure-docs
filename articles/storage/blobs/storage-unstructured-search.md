@@ -247,3 +247,8 @@ In this tutorial, you learned about searching unstructured data using Azure sear
 > * Uploading data to your container
 > * Create a Search Service
 > * Using the Search Service to search your container
+
+Follow this link to learn more about search.
+
+> [!div class="nextstepaction"]
+> [What is Azure Search](../../search/search-what-is-azure-search.md)
