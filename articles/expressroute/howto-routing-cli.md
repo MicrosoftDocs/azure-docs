@@ -42,146 +42,6 @@ These instructions only apply to circuits created with service providers offerin
 
 You can configure one, two, or all three peerings (Azure private, Azure public, and Microsoft) for an ExpressRoute circuit. You can configure peerings in any order you choose. However, you must make sure that you complete the configuration of each peering one at a time.
 
-## <a name="private"></a>Azure private peering
-
-This section helps you create, get, update, and delete the Azure private peering configuration for an ExpressRoute circuit.
-
-### To create Azure private peering
-
-1. Install the latest version of Azure CLI. You must use the latest version of the Azure Command-line Interface (CLI).* Review the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
-
-  ```azurecli
-  az login
-  ```
-
-  Select the subscription you want to create ExpressRoute circuit
-
-  ```azurecli
-  az account set --subscription "<subscription ID>"
-  ```
-2. Create an ExpressRoute circuit. Follow the instructions to create an [ExpressRoute circuit](howto-circuit-cli.md) and have it provisioned by the connectivity provider.
-
-  If your connectivity provider offers managed Layer 3 services, you can request your connectivity provider to enable Azure private peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, continue your configuration using the next steps.
-3. Check the ExpressRoute circuit to make sure it is provisioned and also enabled. Use the following example:
-
-  ```azurecli
-  az network express-route show --resource-group ExpressRouteResourceGroup --name MyCircuit
-  ```
-
-  The response is similar to the following example:
-
-  ```azurecli
-  "allowClassicOperations": false,
-  "authorizations": [],
-  "circuitProvisioningState": "Enabled",
-  "etag": "W/\"1262c492-ffef-4a63-95a8-a6002736b8c4\"",
-  "gatewayManagerEtag": null,
-  "id": "/subscriptions/81ab786c-56eb-4a4d-bb5f-f60329772466/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit",
-  "location": "westus",
-  "name": "MyCircuit",
-  "peerings": [],
-  "provisioningState": "Succeeded",
-  "resourceGroup": "ExpressRouteResourceGroup",
-  "serviceKey": "1d05cf70-1db5-419f-ad86-1ca62c3c125b",
-  "serviceProviderNotes": null,
-  "serviceProviderProperties": {
-  "bandwidthInMbps": 200,
-  "peeringLocation": "Silicon Valley",
-  "serviceProviderName": "Equinix"
-  },
-  "serviceProviderProvisioningState": "Provisioned",
-  "sku": {
-    "family": "UnlimitedData",
-    "name": "Standard_MeteredData",
-    "tier": "Standard"
-  },
-  "tags": null,
-  "type": "Microsoft.Network/expressRouteCircuits]
-  ```
-
-4. Configure Azure private peering for the circuit. Make sure that you have the following items before you proceed with the next steps:
-
-  * A /30 subnet for the primary link. The subnet must not be part of any address space reserved for virtual networks.
-  * A /30 subnet for the secondary link. The subnet must not be part of any address space reserved for virtual networks.
-  * A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID.
-  * AS number for peering. You can use both 2-byte and 4-byte AS numbers. You can use a private AS number for this peering. Ensure that you are not using 65515.
-  * **Optional -** An MD5 hash if you choose to use one.
-
-  Use the following example to configure Azure private peering for your circuit:
-
-  ```azurecli
-  az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 10.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 10.0.0.4/30 --vlan-id 200 --peering-type AzurePrivatePeering
-  ```
-
-  If you choose to use an MD5 hash, use the following example:
-
-  ```azurecli
-  az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 10.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 10.0.0.4/30 --vlan-id 200 --peering-type AzurePrivatePeering --SharedKey "A1B2C3D4"
-  ```
-
-  > [!IMPORTANT]
-  > Ensure that you specify your AS number as peering ASN, not customer ASN.
-  > 
-  > 
-
-### To view Azure private peering details
-
-You can get configuration details by using the following example:
-
-```azurecli
-az network express-route peering show -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePrivatePeering
-```
-
-The output is similar to the following example:
-
-```azurecli
-{
-  "azureAsn": 12076,
-  "etag": "W/\"2e97be83-a684-4f29-bf3c-96191e270666\"",
-  "gatewayManagerEtag": "18",
-  "id": "/subscriptions/9a0c2943-e0c2-4608-876c-e0ddffd1211b/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit/peerings/AzurePrivatePeering",
-  "ipv6PeeringConfig": null,
-  "lastModifiedBy": "Customer",
-  "microsoftPeeringConfig": null,
-  "name": "AzurePrivatePeering",
-  "peerAsn": 7671,
-  "peeringType": "AzurePrivatePeering",
-  "primaryAzurePort": "",
-  "primaryPeerAddressPrefix": "",
-  "provisioningState": "Succeeded",
-  "resourceGroup": "ExpressRouteResourceGroup",
-  "routeFilter": null,
-  "secondaryAzurePort": "",
-  "secondaryPeerAddressPrefix": "",
-  "sharedKey": null,
-  "state": "Enabled",
-  "stats": null,
-  "vlanId": 100
-}
-```
-
-### To update Azure private peering configuration
-
-You can update any part of the configuration using the following example. In this example, the VLAN ID of the circuit is being updated from 100 to 500.
-
-```azurecli
-az network express-route peering update --vlan-id 500 -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePrivatePeering
-```
-
-### To delete Azure private peering
-
-You can remove your peering configuration by running the following example:
-
-> [!WARNING]
-> You must ensure that all virtual networks are unlinked from the ExpressRoute circuit before running this example. 
-> 
-> 
-
-```azurecli
-az network express-route peering delete -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePrivatePeering
-```
-
-
 ## <a name="Microsoft"></a>Microsoft peering
 
 This section helps you create, get, update, and delete the Microsoft peering configuration for an ExpressRoute circuit.
@@ -324,6 +184,145 @@ You can remove your peering configuration by running the following example:
 
 ```azurecli
 az network express-route peering delete -g ExpressRouteResourceGroup --circuit-name MyCircuit --name MicrosoftPeering
+```
+
+## <a name="private"></a>Azure private peering
+
+This section helps you create, get, update, and delete the Azure private peering configuration for an ExpressRoute circuit.
+
+### To create Azure private peering
+
+1. Install the latest version of Azure CLI. You must use the latest version of the Azure Command-line Interface (CLI).* Review the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
+
+  ```azurecli
+  az login
+  ```
+
+  Select the subscription you want to create ExpressRoute circuit
+
+  ```azurecli
+  az account set --subscription "<subscription ID>"
+  ```
+2. Create an ExpressRoute circuit. Follow the instructions to create an [ExpressRoute circuit](howto-circuit-cli.md) and have it provisioned by the connectivity provider.
+
+  If your connectivity provider offers managed Layer 3 services, you can request your connectivity provider to enable Azure private peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, continue your configuration using the next steps.
+3. Check the ExpressRoute circuit to make sure it is provisioned and also enabled. Use the following example:
+
+  ```azurecli
+  az network express-route show --resource-group ExpressRouteResourceGroup --name MyCircuit
+  ```
+
+  The response is similar to the following example:
+
+  ```azurecli
+  "allowClassicOperations": false,
+  "authorizations": [],
+  "circuitProvisioningState": "Enabled",
+  "etag": "W/\"1262c492-ffef-4a63-95a8-a6002736b8c4\"",
+  "gatewayManagerEtag": null,
+  "id": "/subscriptions/81ab786c-56eb-4a4d-bb5f-f60329772466/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit",
+  "location": "westus",
+  "name": "MyCircuit",
+  "peerings": [],
+  "provisioningState": "Succeeded",
+  "resourceGroup": "ExpressRouteResourceGroup",
+  "serviceKey": "1d05cf70-1db5-419f-ad86-1ca62c3c125b",
+  "serviceProviderNotes": null,
+  "serviceProviderProperties": {
+  "bandwidthInMbps": 200,
+  "peeringLocation": "Silicon Valley",
+  "serviceProviderName": "Equinix"
+  },
+  "serviceProviderProvisioningState": "Provisioned",
+  "sku": {
+    "family": "UnlimitedData",
+    "name": "Standard_MeteredData",
+    "tier": "Standard"
+  },
+  "tags": null,
+  "type": "Microsoft.Network/expressRouteCircuits]
+  ```
+
+4. Configure Azure private peering for the circuit. Make sure that you have the following items before you proceed with the next steps:
+
+  * A /30 subnet for the primary link. The subnet must not be part of any address space reserved for virtual networks.
+  * A /30 subnet for the secondary link. The subnet must not be part of any address space reserved for virtual networks.
+  * A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID.
+  * AS number for peering. You can use both 2-byte and 4-byte AS numbers. You can use a private AS number for this peering. Ensure that you are not using 65515.
+  * **Optional -** An MD5 hash if you choose to use one.
+
+  Use the following example to configure Azure private peering for your circuit:
+
+  ```azurecli
+  az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 10.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 10.0.0.4/30 --vlan-id 200 --peering-type AzurePrivatePeering
+  ```
+
+  If you choose to use an MD5 hash, use the following example:
+
+  ```azurecli
+  az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 10.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 10.0.0.4/30 --vlan-id 200 --peering-type AzurePrivatePeering --SharedKey "A1B2C3D4"
+  ```
+
+  > [!IMPORTANT]
+  > Ensure that you specify your AS number as peering ASN, not customer ASN.
+  > 
+  > 
+
+### To view Azure private peering details
+
+You can get configuration details by using the following example:
+
+```azurecli
+az network express-route peering show -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePrivatePeering
+```
+
+The output is similar to the following example:
+
+```azurecli
+{
+  "azureAsn": 12076,
+  "etag": "W/\"2e97be83-a684-4f29-bf3c-96191e270666\"",
+  "gatewayManagerEtag": "18",
+  "id": "/subscriptions/9a0c2943-e0c2-4608-876c-e0ddffd1211b/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit/peerings/AzurePrivatePeering",
+  "ipv6PeeringConfig": null,
+  "lastModifiedBy": "Customer",
+  "microsoftPeeringConfig": null,
+  "name": "AzurePrivatePeering",
+  "peerAsn": 7671,
+  "peeringType": "AzurePrivatePeering",
+  "primaryAzurePort": "",
+  "primaryPeerAddressPrefix": "",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "ExpressRouteResourceGroup",
+  "routeFilter": null,
+  "secondaryAzurePort": "",
+  "secondaryPeerAddressPrefix": "",
+  "sharedKey": null,
+  "state": "Enabled",
+  "stats": null,
+  "vlanId": 100
+}
+```
+
+### To update Azure private peering configuration
+
+You can update any part of the configuration using the following example. In this example, the VLAN ID of the circuit is being updated from 100 to 500.
+
+```azurecli
+az network express-route peering update --vlan-id 500 -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePrivatePeering
+```
+
+### To delete Azure private peering
+
+You can remove your peering configuration by running the following example:
+
+> [!WARNING]
+> You must ensure that all virtual networks are unlinked from the ExpressRoute circuit before running this example. 
+> 
+> 
+
+```azurecli
+az network express-route peering delete -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePrivatePeering
 ```
 
 ## <a name="public"></a>Azure public peering
