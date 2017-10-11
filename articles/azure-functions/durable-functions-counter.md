@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
-ms.author: cgillum
+ms.author: azfuncdf
 ---
 
 # Stateful singletons in Durable Functions - Counter sample
@@ -61,7 +61,7 @@ This is an example of an *eternal orchestration* &mdash; that is, one that poten
 One unique characteristic of this orchestrator function is that it effectively has no history: the `ContinueAsNew` method resets the history after each processed event. This is the preferred way to implement an orchestrator which has an arbitrary lifetime. Using a `while` loop could cause the orchestrator function's history to grow unbounded, resulting in unnecessarily high memory usage.
 
 > [!NOTE]
-> The `ContinueAsNew` method has other use-cases besides eternal orchestrations. For more information, see the [Eternal Orchestrations](durable-functions-eternal-orchestrations.md) topic.
+> The `ContinueAsNew` method has other use-cases besides eternal orchestrations. For more information, see [Eternal Orchestrations](durable-functions-eternal-orchestrations.md).
 
 ## Running the sample
 
