@@ -25,7 +25,7 @@ This page provides information on how to use the Azure SQL Database performance 
 
 ## Log header
 
-The diagnostics log uses JSON standard format to output Intelligent Insights findings. The exact category property for accessing an Intelligent Insights log is the fixed value SQLInsights.
+The diagnostics log uses JSON standard format to output Intelligent Insights findings. The exact category property for accessing an Intelligent Insights log is the fixed value "SQLInsights".
 
 The header of the log is common and consists of the time stamp (TimeGenerated) that shows when an entry was created. It also includes a resource ID (ResourceId) that refers to the particular SQL Database the entry relates to. The category (Category), level (Level), and operation name (OperationName) are fixed properties whose values do not change. They indicate that the log entry is informational and that it comes from Intelligent Insights (SQLInsights).
 
@@ -39,9 +39,9 @@ The header of the log is common and consists of the time stamp (TimeGenerated) t
 
 ## Issue ID and database affected
 
-The issue identification property (issueId_d) provides a way of uniquely tracking performance issues until they're resolved. Intelligent Insights observes each issue lifecycle as Active, Verifying, or Completed. Through each of these status phases, Intelligent Insights can record multiple event records in the log. For each of these entries, the issue ID number remains unique. Intelligent Insights tracks the issue through its lifecycle and generates an insight in the diagnostics log every 15 minutes.
+The issue identification property (issueId_d) provides a way of uniquely tracking performance issues until they're resolved. Intelligent Insights observes each issue lifecycle as "Active", "Verifying", or "Complete". Through each of these status phases, Intelligent Insights can record multiple event records in the log. For each of these entries, the issue ID number remains unique. Intelligent Insights tracks the issue through its lifecycle and generates an insight in the diagnostics log every 15 minutes.
 
-After a performance issue is detected and for as long as it lasts, the issue is reported as "Active" under the status (status_s) property. After a detected issue is mitigated, it's verified and reported as "Verifying" under the status (status_s) property. If the issue is no longer present, the status (status_s) property reports this issue as "Completed".
+After a performance issue is detected and for as long as it lasts, the issue is reported as "Active" under the status (status_s) property. After a detected issue is mitigated, it's verified and reported as "Verifying" under the status (status_s) property. If the issue is no longer present, the status (status_s) property reports this issue as "Complete".
 
 Along with the issue ID, the diagnostics log reports the start (intervalStartTime_t) and end (intervalEndTme_t) time stamps of the particular event related to an issue that's reported in the diagnostics log.
 
@@ -53,12 +53,12 @@ The elastic pool (elasticPoolName_s) property indicates which elastic pool the d
 "elasticPoolName_s" : "", // resource elastic pool (if applicable) 
 "databaseName_s" : "db_name",  // database name
 "issueId_d" : 1525, // unique ID of the issue detected
-"status_s" : "Active" // status of the issue – possible values: Active, Verifying and Completed
+"status_s" : "Active" // status of the issue – possible values: "Active", "Verifying", and "Complete"
 ```
 
 ## Detected issues
 
-The next section of the Intelligent Insights performance log contains performance issues that were detected through built-in artificial intelligence. Detections are disclosed within the JSON property. Detections consist of the category of an issue, the impact of the issue, the queries affected, and the metrics. The detections property might contain multiple performance issues that were detected.
+The next section of the Intelligent Insights performance log contains performance issues that were detected through built-in artificial intelligence. Detections are disclosed in properties within the JSON diagnostics log. These detections consist of the category of an issue, the impact of the issue, the queries affected, and the metrics. The detections properties might contain multiple performance issues that were detected.
 
 Detected performance issues are reported with the following detections property structure:
 
@@ -70,7 +70,7 @@ Detected performance issues are reported with the following detections property 
 }] 
 ```
 
-Detectable performance patterns and the details outputted to the diagnostics log are provided in the following table.
+Detectable performance patterns and the details that are outputted to the diagnostics log are provided in the following table.
 
 ### Detection category
 
@@ -80,25 +80,25 @@ Depending on the performance issue detected, the details outputted in the diagno
 
 | Detectable performance patterns | Details outputted |
 | :------------------- | ------------------- |
-| Reaching resource limits | <li>Resources affected</li><li>Query hashes</li><li>Resource consumption percentage</li> |
-| Workload increase | <li>Number of queries whose execution increased</li><li>Query hashes of queries with the largest contribution to the workload increase</li> |
-| Memory pressure | <li>Memory clerk</li> |
+| Reaching Resource Limits | <li>Resources affected</li><li>Query hashes</li><li>Resource consumption percentage</li> |
+| Workload Increase | <li>Number of queries whose execution increased</li><li>Query hashes of queries with the largest contribution to the workload increase</li> |
+| Memory Pressure | <li>Memory clerk</li> |
 | Locking | <li>Affected query hashes</li><li>Blocking query hashes</li> |
 | Increased MAXDOP | <li>Query hashes</li><li>CXP wait times</li><li>Wait times</li> |
-| Pagelatch contention | <li>Query hashes of queries causing contention</li> |
-| Missing index | <li>Query hashes</li> |
-| New query | <li>Query hash of the new queries</li> |
-| Unusual wait statistic | <li>Unusual wait types</li><li>Query hashes</li><li>Query wait times</li> |
-| TempDB contention | <li>Query hashes of queries causing contention</li><li>Query attribution to the overall database pagelatch contention wait time [%]</li> |
-| Elastic pool DTU shortage | <li>Elastic pool</li><li>Top DTU-consuming database</li><li>Percent of pool DTU used by the top consumer</li> |
-| Plan regression | <li>Query hashes</li><li>Good plan IDs</li><li>Bad plan IDs</li> |
-| Database-scoped configuration value change | <li>Database-scoped configuration changes compared to the default values</li> |
-| Slow client | <li>Query hashes</li><li>Wait times</li> |
-| Pricing tier downgrade | <li>Text notification</li> |
+| Pagelatch Contention | <li>Query hashes of queries causing contention</li> |
+| Missing Index | <li>Query hashes</li> |
+| New Query | <li>Query hash of the new queries</li> |
+| Unusual Wait Statistic | <li>Unusual wait types</li><li>Query hashes</li><li>Query wait times</li> |
+| TempDB Contention | <li>Query hashes of queries causing contention</li><li>Query attribution to the overall database pagelatch contention wait time [%]</li> |
+| Elastic Pool DTU Shortage | <li>Elastic pool</li><li>Top DTU-consuming database</li><li>Percent of pool DTU used by the top consumer</li> |
+| Plan Regression | <li>Query hashes</li><li>Good plan IDs</li><li>Bad plan IDs</li> |
+| Database-Scoped Configuration Value Change | <li>Database-scoped configuration changes compared to the default values</li> |
+| Slow Client | <li>Query hashes</li><li>Wait times</li> |
+| Pricing Tier Downgrade | <li>Text notification</li> |
 
 ### Impact
 
-The impact (impact) property describes how much a detected behavior contributed to the problem a database is having. Impacts range from 1 to 3, with 3 as the highest contribution, 2 as moderate, and 1 as the lowest contribution. The impact value might be used as an input for custom alerting automation, depending on your specific needs. The property queries impacted (QueryHashes) list the query hashes that were affected by a particular detection.
+The impact (impact) property describes how much a detected behavior contributed to the problem that a database is having. Impacts range from 1 to 3, with 3 as the highest contribution, 2 as moderate, and 1 as the lowest contribution. The impact value might be used as an input for custom alerting automation, depending on your specific needs. The property queries impacted (QueryHashes) provide a list of the query hashes that were affected by a particular detection.
 
 ### Impacted queries
 

@@ -32,21 +32,21 @@ Intelligent Insights automatically detects performance issues with SQL Database 
 
 | Detectable performance patterns | Details outputted |
 | :------------------- | ------------------- |
-| [Reaching resource limits](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | Consumption of available resources (DTUs), database worker threads, or database login sessions available on the monitored subscription has reached limits, which causes SQL Database performance issues. |
-| [Workload increase](sql-database-intelligent-insights-troubleshoot-performance.md#workload-increase) | Workload increase or continuous accumulation of workload on the database was detected, which causes SQL Database performance issues. |
-| [Memory pressure](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | Workers that requested memory grants have to wait for memory allocations for statistically significant amounts of time. Or an increased accumulation of workers that requested memory grants exists, which affects SQL Database performance. |
+| [Reaching Resource Limits](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | Consumption of available resources (DTUs), database worker threads, or database login sessions available on the monitored subscription has reached limits, which causes SQL Database performance issues. |
+| [Workload Increase](sql-database-intelligent-insights-troubleshoot-performance.md#workload-increase) | Workload increase or continuous accumulation of workload on the database was detected, which causes SQL Database performance issues. |
+| [Memory Pressure](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | Workers that requested memory grants have to wait for memory allocations for statistically significant amounts of time. Or an increased accumulation of workers that requested memory grants exists, which affects SQL Database performance. |
 | [Locking](sql-database-intelligent-insights-troubleshoot-performance.md#locking) | Excessive database locking was detected, which affects SQL Database performance. |
-| [Increased MAXDOP](sql-database-intelligent-insights-troubleshoot-performance.md#increased-maxdop) | The maximum degree of parallelism option (MAXDOP) has changed, and it affects the query execution efficiency.  |
-| [Pagelatch contention](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Pagelatch contention was detected, which affects SQL Database performance. Multiple threads concurrently attempt to access the same in-memory data buffer pages. This results in increased wait times, which affects SQL Database performance. |
-| [Missing index](sql-database-intelligent-insights-troubleshoot-performance.md#missing-index) | A missing index issue was detected, which affects SQL Database performance. |
-| [New query](sql-database-intelligent-insights-troubleshoot-performance.md#new-query) | A new query was detected, which affects overall SQL Database performance.  |
-| [Unusual wait statistic](sql-database-intelligent-insights-troubleshoot-performance.md#unusual-wait-statistic) | Unusual database wait times were detected, which affects SQL Database performance. |
-| [TempDB contention](sql-database-intelligent-insights-troubleshoot-performance.md#tempdb-contention) | Multiple threads try to access the same tempDB resources, which causes a bottleneck that affects SQL Database performance. |
-| [Elastic pool DTU shortage](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | A shortage of available eDTUs in the elastic pool affects SQL Database performance. |
-| [Plan regression](sql-database-intelligent-insights-troubleshoot-performance.md#plan-regression) | A new plan or a change in the workload of an existing plan was detected, which affects SQL Database performance. |
-| [Database-scoped configuration value change](sql-database-intelligent-insights-troubleshoot-performance.md#database-scoped-configuration-value-change) | A configuration change on the database affects SQL Database performance. |
-| [Slow client](sql-database-intelligent-insights-troubleshoot-performance.md#slow-client) | A slow application client that is unable to consume output from the SQL Database fast enough was detected, which affects SQL Database performance. |
-| [Pricing tier downgrade](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | A pricing tier downgrade action decreased available resources, which affects SQL Database performance. |
+| [Increased MAXDOP](sql-database-intelligent-insights-troubleshoot-performance.md#increased-maxdop) | The maximum degree of parallelism option (MAXDOP) has changed, and it affects the query execution efficiency. |
+| [Pagelatch Contention](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Pagelatch contention was detected, which affects SQL Database performance. Multiple threads concurrently attempt to access the same in-memory data buffer pages. This results in increased wait times, which affects SQL Database performance. |
+| [Missing Index](sql-database-intelligent-insights-troubleshoot-performance.md#missing-index) | A missing index issue was detected, which affects SQL Database performance. |
+| [New Query](sql-database-intelligent-insights-troubleshoot-performance.md#new-query) | A new query was detected, which affects overall SQL Database performance. |
+| [Unusual Wait Statistic](sql-database-intelligent-insights-troubleshoot-performance.md#unusual-wait-statistic) | Unusual database wait times were detected, which affects SQL Database performance. |
+| [TempDB Contention](sql-database-intelligent-insights-troubleshoot-performance.md#tempdb-contention) | Multiple threads try to access the same tempDB resources, which causes a bottleneck that affects SQL Database performance. |
+| [Elastic Pool DTU Shortage](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | A shortage of available eDTUs in the elastic pool affects SQL Database performance. |
+| [Plan Regression](sql-database-intelligent-insights-troubleshoot-performance.md#plan-regression) | A new plan or a change in the workload of an existing plan was detected, which affects SQL Database performance. |
+| [Database-Scoped Configuration Value Change](sql-database-intelligent-insights-troubleshoot-performance.md#database-scoped-configuration-value-change) | A configuration change on the database affects SQL Database performance. |
+| [Slow Client](sql-database-intelligent-insights-troubleshoot-performance.md#slow-client) | A slow application client that is unable to consume output from the SQL Database fast enough was detected, which affects SQL Database performance. |
+| [Pricing Tier Downgrade](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | A pricing tier downgrade action decreased available resources, which affects SQL Database performance. |
 
 > [!TIP]
 > For continuous performance optimization of SQL Database, enable [Azure SQL Database automatic tuning](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-automatic-tuning). This unique feature of SQL Database built-in intelligence continuously monitors your SQL Database, automatically tunes indexes, and applies query execution plan corrections.
@@ -54,7 +54,7 @@ Intelligent Insights automatically detects performance issues with SQL Database 
 
 The following section describes the previously listed detectable performance patterns in more detail.
 
-## Reaching resource limits
+## Reaching Resource Limits
 
 ### What is happening
 
@@ -74,7 +74,7 @@ If you have reached the available session limits, you can optimize your applicat
 
 For more suggestions on resolving session limits, see [How to deal with the limits of SQL Database maximum logins](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). To find out the available resource limits for your subscription tier, see [SQL Database resource limits](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-resource-limits).
 
-## Workload increase
+## Workload Increase
 
 ### What is happening
 
@@ -82,15 +82,15 @@ This performance pattern identifies issues caused by a workload increase or, in 
 
 This detection is made through a combination of several metrics. The basic metric measured is detecting an increase in workload compared with the past workload baseline. The other form of detection is based on measuring a large increase in active worker threads that is large enough to affect the query performance.
 
-In its more severe form, the workload continuously piles up due to the inability of the SQL Database to handle the workload. The result is a continuously growing workload size, which is the workload pile-up condition. Due to this condition, the time that the workload waits for execution grows. This condition represents one of the most severe database performance issues. This issue is detected through monitoring the increase in the number of aborted worker threads. 
+In its more severe form, the workload might continuously pile up due to the inability of the SQL Database to handle the workload. The result is a continuously growing workload size, which is the workload pile-up condition. Due to this condition, the time that the workload waits for execution grows. This condition represents one of the most severe database performance issues. This issue is detected through monitoring the increase in the number of aborted worker threads. 
 
 ### Troubleshooting
 
-The diagnostics log outputs the number of queries whose execution has increased and the query hash of the query with the largest contribution to the workload increase. You can use this information as a starting point for optimizing the workload. The query identified as the largest contributor to the workload increase is especially useful.
+The diagnostics log outputs the number of queries whose execution has increased and the query hash of the query with the largest contribution to the workload increase. You can use this information as a starting point for optimizing the workload. The query identified as the largest contributor to the workload increase is especially useful as your starting point.
 
-You also can distribute the workloads more evenly to the database. You can optimize the query that is affecting the performance by adding indexes. You also can distribute your workload among multiple databases. If these solutions aren't possible, consider increasing the pricing tier of your SQL Database subscription to increase the amount of resources available.
+You might consider distributing the workloads more evenly to the database. Consider optimizing the query that is affecting the performance by adding indexes. You also might distribute your workload among multiple databases. If these solutions aren't possible, consider increasing the pricing tier of your SQL Database subscription to increase the amount of resources available.
 
-## Memory pressure
+## Memory Pressure
 
 ### What is happening
 
@@ -98,13 +98,13 @@ This performance pattern indicates degradation in the current database performan
 
 Memory pressure denotes a performance condition in which there is a large number of worker threads requesting memory grants in the SQL Database. The high volume causes a high memory utilization condition in which the SQL Database is unable to efficiently allocate memory to all workers that request it. One of the most common reasons for this issue is related to the amount of memory available to the SQL Database on one hand. On the other hand, an increase in workload causes the increase in worker threads and the memory pressure.
 
-The more severe form of memory pressure is the memory pile-up condition. This condition indicates that a higher number of worker threads are requesting memory grants than there are queries releasing the memory. This number of worker threads requesting memory grants also might be continuously increasing (piling up) because the engine is unable to allocate memory efficiently enough to meet the demand. The memory pile-up condition represents one of the most severe database performance issues.
+The more severe form of memory pressure is the memory pile-up condition. This condition indicates that a higher number of worker threads are requesting memory grants than there are queries releasing the memory. This number of worker threads requesting memory grants also might be continuously increasing (piling up) because the SQL Database engine is unable to allocate memory efficiently enough to meet the demand. The memory pile-up condition represents one of the most severe database performance issues.
 
 ### Troubleshooting
 
 The diagnostics log outputs the memory object store details with the clerk (that is, worker thread) marked as the highest reason for high memory usage and relevant time stamps. You can use this information as the basis for troubleshooting. 
 
-You can optimize or remove queries related to the clerks with the highest memory usage. You also can make sure that you aren't querying data that you don't plan to use. Good practice is to always use a WHERE clause in your queries. In addition, we recommend that you create nonclustered indexes to seek the data rather than to scan it.
+You can optimize or remove queries related to the clerks with the highest memory usage. You also can make sure that you aren't querying data that you don't plan to use. Good practice is to always use a WHERE clause in your queries. In addition, we recommend that you create nonclustered indexes to seek the data rather than scan it.
 
 You also can reduce the workload by optimizing or distributing it over multiple databases. Or you can distribute your workload among multiple databases. If these solutions aren't possible, consider increasing the pricing tier of your SQL Database subscription to increase the amount of memory resources available to the database.
 
@@ -118,7 +118,7 @@ This performance pattern indicates degradation in the current database performan
 
 In modern RDBMS, locking is essential for implementing multithreaded systems in which performance is maximized by running multiple simultaneous workers and parallel database transactions where possible. Locking in this context refers to the built-in access mechanism in which only a single transaction can exclusively access the rows, pages, tables, and files that are required and not compete with another transaction for resources. When the transaction that locked the resources for use is done with them, the lock on those resources is released, which allows other transactions to access required resources. For more information on locking, see [Lock in the database engine](https://msdn.microsoft.com/library/ms190615.aspx).
 
-If transactions executed by the SQL engine are waiting for prolonged periods of time to access resources locked for use, this wait time affects the slowdown of the workload execution performance. 
+If transactions executed by the SQL engine are waiting for prolonged periods of time to access resources locked for use, this wait time causes the slowdown of the workload execution performance. 
 
 ### Troubleshooting
 
@@ -132,7 +132,7 @@ For more suggestions, see [How to resolve blocking problems that are caused by l
 
 ### What is happening
 
-This detectable performance pattern indicates a condition in which a chosen query execution plan was parallelized more than it should have been. The SQL Database query optimizer can enhance the workload performance by executing queries in parallel to speed up things where possible. In some cases, parallel workers processing a query spend more time waiting on each other to synchronize and merge results compared to executing the same query with fewer parallel workers, or even in some cases a single worker thread.
+This detectable performance pattern indicates a condition in which a chosen query execution plan was parallelized more than it should have been. The SQL Database query optimizer can enhance the workload performance by executing queries in parallel to speed up things where possible. In some cases, parallel workers processing a query spend more time waiting on each other to synchronize and merge results compared to executing the same query with fewer parallel workers, or even in some cases compared to a single worker thread.
 
 The expert system analyzes the current database performance compared to the baseline period. It determines if a previously running query is running slower than before because the query execution plan is more parallelized than it should be.
 
@@ -144,9 +144,9 @@ The diagnostics log outputs query hashes related to queries for which the durati
 
 First, optimize or simplify complex queries. Good practice is to break up long batch jobs into smaller ones. In addition, ensure that you created indexes to support your queries. You can also manually enforce the maximum degree of parallelism (MAXDOP) for a query that was flagged as poor performing. To configure this operation by using T-SQL, see [Configure the MAXDOP server configuration option](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option).
 
-Setting the MAXDOP server configuration option to zero (0) as a default value denotes that SQL Database can use all available logical CPU cores to parallelize threads by executing a single query. Setting MAXDOP to one (1) denotes that only one core can be used for a single query execution. In practical terms, this means that parallelism is turned off. Depending on the case-per-case basis, available cores to the database, and diagnostics log information, you can tune the MAXDOP option to the number of cores for parallel query execution that resolved the issue in your case.
+Setting the MAXDOP server configuration option to zero (0) as a default value denotes that SQL Database can use all available logical CPU cores to parallelize threads for executing a single query. Setting MAXDOP to one (1) denotes that only one core can be used for a single query execution. In practical terms, this means that parallelism is turned off. Depending on the case-per-case basis, available cores to the database, and diagnostics log information, you can tune the MAXDOP option to the number of cores used for parallel query execution that might resolve the issue in your case.
 
-## Pagelatch contention
+## Pagelatch Contention
 
 ### What is happening
 
@@ -168,7 +168,7 @@ One method for handling latch contention is to replace a sequential index key wi
 
 For more information, see [Diagnose and resolve latch contention on SQL Server](http://download.microsoft.com/download/B/9/E/B9EDF2CD-1DBF-4954-B81E-82522880A2DC/SQLServerLatchContention.pdf) (PDF download).
 
-## Missing index
+## Missing Index
 
 ### What is happening
 
@@ -188,7 +188,7 @@ The diagnostics log outputs query hashes for the queries that were identified to
 > For continuous performance optimization of SQL Database, we recommend that you enable [SQL Database automatic tuning](sql-database-automatic-tuning.md). This unique feature of SQL Database built-in intelligence continuously monitors your SQL Database and automatically tunes and creates indexes for your databases.
 >
 
-## New query
+## New Query
 
 ### What is happening
 
@@ -202,13 +202,13 @@ The diagnostics log outputs information up to two new most CPU-consuming queries
 
 Consider using [Azure SQL Database Query Performance Insight](sql-database-query-performance.md).
 
-## Unusual wait statistic
+## Unusual Wait Statistic
 
 ### What is happening
 
 This detectable performance pattern indicates a workload performance degradation in which poor-performing queries are identified compared to the past seven-day workload baseline.
 
-In this case, the system can't classify the poor-performing queries under any other standard detectable performance categories, but it detected the wait statistic responsible for the regression. Therefore, it considers them as queries with &#8220;*unusual wait statistics*&#8221; where the unusual wait statistic responsible for the regression is also exposed. 
+In this case, the system can't classify the poor-performing queries under any other standard detectable performance categories, but it detected the wait statistic responsible for the regression. Therefore, it considers them as queries with *unusual wait statistics*, where the unusual wait statistic responsible for the regression is also exposed. 
 
 ### Troubleshooting
 
@@ -218,7 +218,7 @@ Because the system couldn't successfully identify the root cause for the poor-pe
 
 For more information on optimizing query performance, see [Query tuning](https://msdn.microsoft.com/library/ms176005.aspx).
 
-## TempDB contention
+## TempDB Contention
 
 ### What is happening
 
@@ -230,7 +230,7 @@ The diagnostics log outputs tempDB contention details. You can use the informati
 
 For more information, see [Introduction to memory-optimized tables](https://docs.microsoft.com/en-us/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
 
-## Elastic pool DTU shortage
+## Elastic Pool DTU Shortage
 
 ### What is happening
 
@@ -246,7 +246,7 @@ Because this performance condition is related to multiple databases using the sa
 
 If reduction and optimization of the current workload on your top DTU-consuming databases aren't possible, consider increasing your elastic pool pricing tier. Such increase results in the increase of the available DTUs in the elastic pool.
 
-## Plan regression
+## Plan Regression
 
 ### What is happening
 
@@ -254,7 +254,7 @@ This detectable performance pattern denotes a condition in which SQL Database ut
 
 The SQL Database determines the query execution plan with the least cost to a query execution. As the type of queries and workloads change, sometimes the existing plans are no longer efficient, or perhaps SQL Database didn't make a good assessment. As a matter of correction, query execution plans can be manually forced.
 
-This detectable performance pattern combines three different cases of plan regression: new plan regression, old plan regression, and existing plans changed workload. The particular type of plan regression that occurred is provided in the &#8220;*details*&#8221; property in the diagnostics log.
+This detectable performance pattern combines three different cases of plan regression: new plan regression, old plan regression, and existing plans changed workload. The particular type of plan regression that occurred is provided in the *details* property in the diagnostics log.
 
 The new plan regression condition refers to a state in which SQL Database starts executing a new query execution plan that isn't as efficient as the old plan. The old plan regression condition refers to the state when SQL Database switches from using a new, more efficient plan to the old plan, which isn't as efficient as the new plan. The existing plans changed workload regression refers to the state in which the old and the new plans continuously alternate, with the balance going more toward the poor-performing plan.
 
@@ -274,7 +274,7 @@ For more information, see [Learn how SQL Server prevents plan regressions](https
 > For continuous performance optimization of SQL Database, we recommend that you enable [SQL Database automatic tuning](sql-database-automatic-tuning.md). This unique feature of SQL Database built-in intelligence continuously monitors your SQL Database and automatically tunes and creates best-performing query execution plans for your databases.
 >
 
-## Database-scoped configuration value change
+## Database-Scoped Configuration Value Change
 
 ### What is happening
 
@@ -288,7 +288,7 @@ The diagnostics log outputs database-scoped configuration changes that were made
 
 For more information on optimizing database-scoped configuration and T-SQL syntax on changing the configuration, see [Alter database-scoped configuration (Transact-SQL)](https://msdn.microsoft.com/en-us/library/mt629158.aspx).
 
-## Slow client
+## Slow Client
 
 ### What is happening
 
@@ -302,13 +302,13 @@ This detectable performance pattern indicates a client-side condition. Troublesh
 
 You can optimize performance of your application for consumption of these queries. You also can consider possible network latency issues. Because the performance degradation issue was based on change in the last seven-day performance baseline, you can investigate whether recent application or network condition changes caused this performance regression event. 
 
-## Pricing tier downgrade
+## Pricing Tier Downgrade
 
 ### What is happening
 
 This detectable performance pattern indicates a condition in which the pricing tier of your SQL Database was downgraded. Because of reduction of resources (DTUs) available to the database, the system detected a drop in the current database performance compared to the past seven-day baseline.
 
-In addition, there could be a condition in which the pricing tier of your SQL Database subscription was downgraded and then upgraded to a higher tier within a short period of time. Detection of this temporary performance degradation is output in the details section of the diagnostics log as a pricing tier downgrade and upgrade.
+In addition, there could be a condition in which the pricing tier of your SQL Database subscription was downgraded and then upgraded to a higher tier within a short period of time. Detection of this temporary performance degradation is outputted in the details section of the diagnostics log as a pricing tier downgrade and upgrade.
 
 ### Troubleshooting
 
@@ -318,14 +318,14 @@ If you reduced your pricing tier, and therefore the DTUs available to SQL Databa
 
  Follow the flowchart for a recommended approach to troubleshoot performance issues by using Intelligent Insights.
 
-Access Intelligent Insights through the Azure portal by going to Azure SQL Analytics. Attempt to locate the incoming performance alert, and select it. Identify what is happening on the detections page. Observe the provided Root Cause Analysis of the issue, query text, query time trends, and incident evolution. Attempt to resolve the issue by using the Intelligent Insights recommendation for mitigating the performance issue. 
+Access Intelligent Insights through the Azure portal by going to Azure SQL Analytics. Attempt to locate the incoming performance alert, and select it. Identify what is happening on the detections page. Observe the provided root cause analysis of the issue, query text, query time trends, and incident evolution. Attempt to resolve the issue by using the Intelligent Insights recommendation for mitigating the performance issue. 
 
-[![Troubleshooting flowchart](./media/sql-database-intelligent-insights/intelligent-insights-troubleshooting-flowchart.png)](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/intelligent-insight/Troubleshoot%20Azure%20SQL%20Database%20performance%20issues%20using%20Intelligent%20Insight.pdf)
+[![Troubleshooting flow chart](./media/sql-database-intelligent-insights/intelligent-insights-troubleshooting-flowchart.png)](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/intelligent-insight/Troubleshoot%20Azure%20SQL%20Database%20performance%20issues%20using%20Intelligent%20Insight.pdf)
 
 > [!TIP]
 > Select the flowchart to download a PDF version.
 
-Intelligent Insights usually needs one hour of time to perform the root cause analysis of the performance issue. If you can't locate your issue in Intelligent Insights and it's critical, use Query Store to manually identify the root cause of the performance issue. (Typically, these issues are less than one hour old.) For more information, see [Monitor performance by using Query Store](https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
+Intelligent Insights usually needs one hour of time to perform the root cause analysis of the performance issue. If you can't locate your issue in Intelligent Insights and it's critical to you, use the Query Store to manually identify the root cause of the performance issue. (Typically, these issues are less than one hour old.) For more information, see [Monitor performance by using the Query Store](https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
 
 ## Next steps
 - Learn [Intelligent Insights](sql-database-intelligent-insights.md) concepts.

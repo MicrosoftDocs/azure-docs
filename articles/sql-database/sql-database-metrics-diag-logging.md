@@ -109,6 +109,17 @@ To enable metrics and diagnostics logging by using PowerShell, use the following
 
 You can combine these parameters to enable multiple output options.
 
+### To configure multiple Azure subscriptions
+
+To support multiple subscriptions, use the PowerShell script from [Enable Azure resource metrics logging using PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/). Provide the workspace resource ID as a parameter when executing the script to send diagnostic data from resources in one Azure subscription to a workspace in another Azure subscription.
+
+- To configure multiple Azure subscriptions, use the following commands:
+
+    ```powershell
+    PS C:\> $WSID = "/subscriptions/<subID>/resourcegroups/oms/providers/microsoft.operationalinsights/workspaces/omsws"
+    PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
+    ```
+
 ### Azure CLI
 
 To enable metrics and diagnostics logging by using the Azure CLI, use the following commands:
