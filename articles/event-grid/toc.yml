@@ -6,10 +6,12 @@
     href: overview.md
 - name: Quickstarts
   items:
-  - name: Create custom events - Azure CLI
+  - name: Create custom event - Azure CLI
     href: custom-event-quickstart.md
-  - name: Create custom events - PowerShell
+  - name: Create custom event - PowerShell
     href: custom-event-quickstart-powershell.md
+  - name: Create custom event - Portal
+    href: custom-event-quickstart-portal.md
 - name: Tutorials
   items:
   - name: Monitor VM changes with logic apps

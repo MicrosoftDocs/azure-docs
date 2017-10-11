@@ -1,5 +1,5 @@
 ---
-title: Custom events for Azure Event Grid | Microsoft Docs
+title: Custom events for Azure Event Grid with PowerShell | Microsoft Docs
 description: Use Azure Event Grid and PowerShell to publish a topic, and subscribe to that event. 
 services: event-grid 
 keywords: 

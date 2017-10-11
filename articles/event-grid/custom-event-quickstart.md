@@ -1,5 +1,5 @@
 ---
-title: Custom events for Azure Event Grid and CLI | Microsoft Docs
+title: Custom events for Azure Event Grid with CLI | Microsoft Docs
 description: Use Azure Event Grid and Azure CLI to publish a topic, and subscribe to that event. 
 services: event-grid 
 keywords: 
