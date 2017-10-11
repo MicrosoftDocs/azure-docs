@@ -13,9 +13,9 @@ ms.custom: mvc
 
 # Search unstructured data in cloud storage
 
-In this two-part tutorial series, you learn how to search semi-structured and unstructured data using Azure search. In this part, you search unstructured data stored in Azure blobs. Unstructured data is data that either is not organized in a pre-defined manner or does not have a data model. An example would be a .txt file.
+In this tutorial, you learn how to search unstructured data using Azure search using data stored in Azure blobs. Unstructured data is data that either is not organized in a pre-defined manner or does not have a data model. An example would be a .txt file.
 
-In this part you learn how to:
+In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * Create a resource group
@@ -57,7 +57,7 @@ If you are not familiar with the process of creating a General-purpose storage a
 
 7. Choose a Location and select **Create.**
 
-  ![Unstructured search](media/storage-unstructured-structured-search/storagepanes2.png)
+  ![Unstructured search](media/storage-unstructured-search/storagepanes2.png)
 
 ## Create a container
 
@@ -75,7 +75,7 @@ For this tutorial, you use a single container to store the text files obtained f
 
 5. Select **OK** to create the container. 
 
-  ![Unstructured search](media/storage-unstructured-structured-search/storageactinfo.png)
+  ![Unstructured search](media/storage-unstructured-search/storageactinfo.png)
 
 ## Upload the example data
 
@@ -89,13 +89,13 @@ Now that you have a container, you can upload your example data to it.
 
 4. Select **Upload** to begin the upload process.
 
-  ![Unstructured search](media/storage-unstructured-structured-search/upload.png)
+  ![Unstructured search](media/storage-unstructured-search/upload.png)
 
 The upload process may take a moment.
 
 After it completes, navigate back into your data container to confirm the text files uploaded.
 
-  ![Unstructured search](media/storage-unstructured-structured-search/clinicalfolder.png)
+  ![Unstructured search](media/storage-unstructured-search/clinicalfolder.png)
 
 ## Create a Search Service
 
@@ -119,7 +119,7 @@ If you are not familiar with the process of creating a search service, here's ho
 
 8. Select **Create** to create the search service.
 
-  ![Unstructured search](media/storage-unstructured-structured-search/createsearch2.png)
+  ![Unstructured search](media/storage-unstructured-search/createsearch2.png)
 
 ## Connect your search service to your container
 
@@ -141,9 +141,11 @@ Now that you have a search service, you can attach it to your blob storage. This
     
     b. You can also choose **All metadata** to obtain both standard blob properties and *all* content-type specific metadata. 
 
-2. Since the blobs you're using are text files, set **Parsing Mode** to **Text**.    
+2. Since the blobs you're using are text files, set **Parsing Mode** to **Text**.
+    
+    a. In your own future scenarios, you may wish to select [other parsing modes](../../search/search-howto-indexing-azure-blob-storage.md) depending on the contents of your blobs.
 
-  ![Unstructured search](media/storage-unstructured-structured-search/datasources.png)
+  ![Unstructured search](media/storage-unstructured-search/datasources.png)
 
 3. Select **Storage Container** to list the available storage accounts.
 
@@ -151,7 +153,7 @@ Now that you have a search service, you can attach it to your blob storage. This
 
 5. Click **Select** to return to **New data source** and select **OK** to continue.
 
-  ![Unstructured search](media/storage-unstructured-structured-search/datacontainer.png)
+  ![Unstructured search](media/storage-unstructured-search/datacontainer.png)
 
 ### Configure the Index
 
@@ -163,7 +165,7 @@ Now that you have a search service, you can attach it to your blob storage. This
 
 3. Select **metadata_storage_name** from the **Key** dropdown.
 
-  ![Unstructured search](media/storage-unstructured-structured-search/valuestoselect.png)
+  ![Unstructured search](media/storage-unstructured-search/valuestoselect.png)
 
 4. Click **OK**, which brings up **Create an Indexer**.
 
@@ -188,7 +190,7 @@ The **FIELD NAME** column contains the parameters. The following table provides 
 
 1. Enter a name in the **Name** field and select **OK**.
 
-  ![Unstructured search](media/storage-unstructured-structured-search/exindexer.png)
+  ![Unstructured search](media/storage-unstructured-search/exindexer.png)
 
 2. You are brought back to **Import Data**, select **OK** to complete the connection process.
 
@@ -202,25 +204,25 @@ The following steps show you where to find the search explorer and provides you 
 
 1. Navigate to all resources and find your newly created search service.
 
-  ![Unstructured search](media/storage-unstructured-structured-search/exampleurl.png)
+  ![Unstructured search](media/storage-unstructured-search/exampleurl.png)
 
 3. Select your index to open it up. 
 
-  ![Unstructured search](media/storage-unstructured-structured-search/overview.png)
+  ![Unstructured search](media/storage-unstructured-search/overview.png)
 
 4. Select **Search Explorer** to open up the search explorer, where you can make live queries on your data.
 
-  ![Unstructured search](media/storage-unstructured-structured-search/indexespane.png)
+  ![Unstructured search](media/storage-unstructured-search/indexespane.png)
 
 5. Select **Search** while the query string field is empty. An empty query returns *all* the data from your blobs.
 
-  ![Unstructured search](media/storage-unstructured-structured-search/emptySearch.png)
+  ![Unstructured search](media/storage-unstructured-search/emptySearch.png)
 
 ### Full-text search 
 
 Enter "Myopia" in the **Query string** field and select **Search**. Initiating a search of the contents of the files and returning a subset of them, which contains the word "Myopia."
 
-  ![Unstructured search](media/storage-unstructured-structured-search/secondMyopia.png) 
+  ![Unstructured search](media/storage-unstructured-search/secondMyopia.png) 
 
 ### System properties search
 
@@ -230,11 +232,9 @@ The query string is directly modifying the URL, so spaces are not permitted. To 
     
 The `$select` parameter can only be used with fields that are marked retrievable when defining your index.
 
-  ![Unstructured search](media/storage-unstructured-structured-search/metadatasearchunstructured.png) 
+  ![Unstructured search](media/storage-unstructured-search/metadatasearchunstructured.png) 
 
-You have now completed part one of this series and have a searchable set of unstructured data.
-
-Make sure **not** to delete any resources created in this tutorial, as most of them are going to be reused in the subsequent tutorial.
+You have now completed this tutorial and have a searchable set of unstructured data.
 
 ## Next steps
 
@@ -247,8 +247,3 @@ In this tutorial, you learned about searching unstructured data using Azure sear
 > * Uploading data to your container
 > * Create a Search Service
 > * Using the Search Service to search your container
-
-Advance to the next tutorial to learn about semi-structured search.  
-
-> [!div class="nextstepaction"]
-> [Searching Structured Data](./storage-semi-structured-search.md)
