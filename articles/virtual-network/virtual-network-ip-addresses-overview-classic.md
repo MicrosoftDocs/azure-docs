@@ -138,9 +138,8 @@ The table below shows each resource type with the possible allocation methods (d
 
 | Resource | Dynamic | Static | Multiple IP addresses |
 | --- | --- | --- | --- |
-| VM (in a *standalone* cloud service) |Yes |Yes |Yes |
-| PaaS role instance (in a *standalone* cloud service) |Yes |No |Yes |
-| VM or PaaS role instance (in a VNet) |Yes |Yes |Yes |
+| VM (in a *standalone* cloud service or VNet) |Yes |Yes |Yes |
+| PaaS role instance (in a *standalone* cloud service or VNet) |Yes |No |No |
 | Internal load balancer front end |Yes |Yes |Yes |
 | Application gateway front end |Yes |Yes |Yes |
 
