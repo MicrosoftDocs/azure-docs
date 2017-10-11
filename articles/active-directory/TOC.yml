@@ -70,7 +70,7 @@
         href: msi-tutorial-linux-vm-access-arm.md
     - name: Use MSI to access Azure SQL
       items:
-      - name: With a Windows VM
+      - name: From a Windows VM
         href: msi-tutorial-windows-vm-access-sql.md    
     - name: Use MSI to access Azure storage
       items:
