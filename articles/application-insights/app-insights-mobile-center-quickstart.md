@@ -13,25 +13,28 @@ manager: carmonm
 
 # Start analyzing your mobile app with Mobile Center and Application Insights
 
-This quickstart guides you through connecting your app's Mobile Center instance to Application Insights. With Application Insights, you can query, segment, filter, and analyze your telemetry with more powerful tools than are available from Mobile Center.
+This quickstart guides you through connecting your app's Mobile Center instance to Application Insights. With Application Insights, you can query, segment, filter, and analyze your telemetry with more powerful tools than are available from the [Analytics](https://docs.microsoft.com/mobile-center/analytics/) service of Mobile Center.
 
 ## Prerequisites
 
 To complete this quickstart, you need:
 
 - An Azure subscription.
-- An iOS or Android app.
+- An iOS, Android, Xamarin, Universal Windows, or React Native app.
  
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Onboard your app to Mobile Center
 
-Before you can use Application Insights with your mobile app, you need to onboard your app to Mobile Center. Application Insights does not receive telemetry from your mobile app directly. Instead, your app sends custom event telemetry to Mobile Center. Then, Mobile Center continuously exports copies of these custom events into Application Insights as the events are received.
+Before you can use Application Insights with your mobile app, you need to onboard your app to [Mobile Center](https://docs.microsoft.com/mobile-center/). Application Insights does not receive telemetry from your mobile app directly. Instead, your app sends custom event telemetry to Mobile Center. Then, Mobile Center continuously exports copies of these custom events into Application Insights as the events are received.
 
 To onboard your app, follow the Mobile Center quickstart for each platform your app supports. Create separate Mobile Center instances for each platform:
 
-* [iOS quickstart](https://docs.microsoft.com/mobile-center/quickstarts/ios/overview).
-* [Android quickstart](https://docs.microsoft.com/mobile-center/quickstarts/android/overview).
+* [iOS](https://docs.microsoft.com/mobile-center/sdk/getting-started/ios).
+* [Android](https://docs.microsoft.com/mobile-center/sdk/getting-started/android).
+* [Xamarin](https://docs.microsoft.com/mobile-center/sdk/getting-started/xamarin).
+* [Universal Windows](https://docs.microsoft.com/mobile-center/sdk/getting-started/uwp).
+* [React Native](https://docs.microsoft.com/mobile-center/sdk/getting-started/react-native).
 
 ## Track events in your app with the Mobile Center SDK
 
@@ -48,6 +51,8 @@ To send custom events from Android apps, use the `trackEvent` method in the Mobi
 ```Java
 Analytics.trackEvent("Video clicked")
 ```
+
+To send custom events from other app platforms, use the `trackEvent` methods in their Mobile Center SDKs.
 
 To make sure your custom events are being received, go to the **Events** tab under the **Analytics** section in Mobile Center. It can take a couple minutes for events to show up from when they're sent from your app.
 
@@ -71,7 +76,7 @@ A configuration box will appear. Use the table below to fill out the input field
 
 3. Click **Create**.
 
-If you have iOS and Android versions of your app, it's best to create two separate Application Insights resources, one for each platform.
+If your app supports multiple platforms (iOS, Android, etc.), it's best to create separate Application Insights resources, one for each platform.
 
 ## Start exporting your Mobile Center data into the Application Insights resource
 
@@ -86,7 +91,7 @@ In the Mobile Center instance for your app:
 
 Remember to repeat this process for each platform your app supports.
 
-Once export is set up, each custom event received by Mobile Center is copied into Application Insights. It can take several minutes for events to reach Application Insights, so if they don't show up immediately, wait a bit before diagnosing further.
+Once [export](https://docs.microsoft.com/mobile-center/analytics/export) is set up, each custom event received by Mobile Center is copied into Application Insights. It can take several minutes for events to reach Application Insights, so if they don't show up immediately, wait a bit before diagnosing further.
 
 To give you more data when you first connect, the most recent 48 hours of custom events in Mobile Center are automatically exported to Application Insights.
 
