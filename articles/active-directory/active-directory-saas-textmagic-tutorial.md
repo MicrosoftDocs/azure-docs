@@ -185,9 +185,7 @@ The objective of this section is to create a test user in the Azure portal calle
 ### Create a TextMagic test user
 
 Application supports Just in time user provisioning and after authentication users will be created in the application automatically. You need to fill in the information once at the first login to activate the sub-account into the system.
-
 There is no action item for you in this section.
-
 
 ### Assign the Azure AD test user
 
