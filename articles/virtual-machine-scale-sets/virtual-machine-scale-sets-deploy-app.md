@@ -50,12 +50,12 @@ For more information, see the [Custom Script Extension overview](../virtual-mach
 ### Use Azure PowerShell
 PowerShell uses a hashtable to store the file to download and the command to execute. The following example:
 
+- Instructs the VM instances to download a script from GitHub - *https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate-iis.ps1*
+- Sets the extension to run an install script - `powershell -ExecutionPolicy Unrestricted -File automate-iis.ps1`
 - Gets information about a scale set with [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss)
-- Downloads a script from GitHub - *https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate-iis.ps1*
-- Sets the extension to run the install script - `powershell -ExecutionPolicy Unrestricted -File automate-iis.ps1`
 - Applies the extension to the VM instances with [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss)
 
-The Custom Script Extension is applued to the *myScaleSet* VM instances in the resource group named *myResourceGroup*. Enter your own names as follows:
+The Custom Script Extension is applied to the *myScaleSet* VM instances in the resource group named *myResourceGroup*. Enter your own names as follows:
 
 ```powershell
 # Define the script for your Custom Script Extension to run
@@ -64,12 +64,12 @@ $customConfig = @{
     "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File automate-iis.ps1"
 }
 
-# Get information about a scale set
+# Get information about the scale set
 $vmss = Get-AzureRmVmss `
                 -ResourceGroupName "myResourceGroup" `
                 -VMScaleSetName "myScaleSet"
 
-# Use Custom Script Extension to install IIS and configure basic website
+# Add the Custom Script Extension to install IIS and configure basic website
 $vmss = Add-AzureRmVmssExtension `
     -VirtualMachineScaleSet $vmss `
     -Name "customScript" `
@@ -116,36 +116,50 @@ If the upgrade policy on your scale set is *manual*, update your VM instances wi
 
 
 ## Install an app to a Windows VM with PowerShell DSC
-You can use PowerShell DSC to customize the scale set VM instances. The **DSC** extension published by **Microsoft.Powershell** deploys and runs the provided DSC configuration on each VM instance. A config file or variable tells the extension where *.zip* package is, and which _script-function_ combination to run.
+[PowerShell Desired State Configuration (DSC)](https://msdn.microsoft.com/en-us/powershell/dsc/overview) is a management platform to define the configuration of target machines. DSC configurations define what to install on a machine and how to configure the host. A Local Configuration Manager (LCM) engine runs on each target node that processes requested actions based on pushed configurations.
 
-PowerShell uses a hashtable for the settings. This example deploys a DSC package that installs IIS.
+The PowerShell DSC extension lets you customize VM instances in a scale set with PowerShell. The following example:
+
+- Instructs the VM instances to download a DSC package from GitHub  - *https://github.com/iainfoulds/azure-samples/raw/master/dsc.zip*
+- Sets the extension to run an install script - `configure-http.ps1`
+- Gets information about a scale set with [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss)
+- Applies the extension to the VM instances with [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss)
+
+The DSC extension is applied to the *myScaleSet* VM instances in the resource group named *myResourceGroup*. Enter your own names as follows:
 
 ```powershell
-# Setup extension configuration hashtable variable
+# Define the script for your Desired Configuration to download and run
 $dscConfig = @{
   "wmfVersion" = "latest";
   "configuration" = @{
-    "url" = "https://github.com/MicrosoftDocs/azure-cloud-services-files/raw/temp/dsc.zip";
+    "url" = "https://github.com/iainfoulds/azure-samples/raw/master/dsc.zip";
     "script" = "configure-http.ps1";
     "function" = "WebsiteTest";
   };
 }
 
-# Add the extension to the config
-Add-AzureRmVmssExtension `
-    -VirtualMachineScaleSet $vmssConfig `
+# Get information about the scale set
+$vmss = Get-AzureRmVmss `
+                -ResourceGroupName "myResourceGroup" `
+                -VMScaleSetName "myScaleSet"
+
+# Add the Desired State Configuration extension to install IIS and configure basic website
+$vmss = Add-AzureRmVmssExtension `
+    -VirtualMachineScaleSet $vmss `
     -Publisher Microsoft.Powershell `
     -Type DSC `
     -TypeHandlerVersion 2.24 `
-    -Name "dsc" `
+    -Name "DSC" `
     -Setting $dscConfig
 
-# Send the new config to Azure
+# Update the scale set and apply the Desired State Configuration extension to the VM instances
 Update-AzureRmVmss `
     -ResourceGroupName "myResourceGroup" `
     -Name "myScaleSet"  `
-    -VirtualMachineScaleSet $vmssConfig
+    -VirtualMachineScaleSet $vmss
 ```
+
+If the upgrade policy on your scale set is *manual*, update your VM instances with [Update-AzureRmVmssInstance](/powershell/module/azurerm.compute/update-azurermvmssinstance). This cmdlet applies the updated scale set configuration to the VM instances and installs your application.
 
 
 ## Install an app to a Linux VM with cloud-init
@@ -153,7 +167,7 @@ Update-AzureRmVmss `
 
 Cloud-init also works across distributions. For example, you don't use **apt-get install** or **yum install** to install a package. Instead you can define a list of packages to install. Cloud-init automatically uses the native package management tool for the distro you select.
 
-For more information, see [Use cloud-init to customize Azure VMs](../virtual-machines/linux/using-cloud-init.md).
+For more information, including an example *cloud-init.txt* file, see [Use cloud-init to customize Azure VMs](../virtual-machines/linux/using-cloud-init.md).
 
 To create a scale set and use a cloud-init file, add the `--custom-data` parameter to the [az vmss create](/cli/azure/vmss#create) command and specify the name of a cloud-int file. The following example creates a scale set named *myScaleSet* in *myResourceGroup* and configures VM instances with a file named *cloud-init.txt*. Enter your own names as follows:
 
@@ -167,6 +181,7 @@ az vmss create \
   --admin-username azureuser \
   --generate-ssh-keys
 ```
+
 
 ## Deploy application updates
 If you deployed your application through an extension, alter the extension definition in some way. This change causes the extension to be redeployed to all VM instances. Something **must** be changed about the extension, such as renaming a referenced file, otherwise, Azure does not see that the extension has changed.
