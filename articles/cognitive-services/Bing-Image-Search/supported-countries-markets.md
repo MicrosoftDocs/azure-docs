@@ -111,4 +111,4 @@ Alternatively, you may specify the market using the `mkt` query parameter and a 
 |Turkey|Turkish|tr-TR|
 |United Kingdom|English|en-GB|
 |United States|English|en-US|
-|United States|Spanish es-US|
+|United States|Spanish|es-US|
