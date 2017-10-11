@@ -17,9 +17,11 @@ ms.author: v-brapel
 This example shows how to request search results from your custom search instance using C#. To create this example follow these steps:
 
 1. Create your custom instance (see [Define a custom search instance](define-your-custom-view.md)).
-2. Get a subscription key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).
-   > [!NOTE]
-   > Existing Bing Custom Search customers who have a preview key provisioned on or before October 15 2017 will be able to use their keys until November 30 2017, or until they have exhausted the maximum number of queries allowed. Afterward, they need to migrate to the generally available version on Azure.
+2. Get a subscription key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).  
+
+  >[!NOTE]  
+  >Existing Bing Custom Search customers who have a preview key provisioned on or before October 15 2017 will be able to use their keys until November 30 2017, or until they have exhausted the maximum number of queries allowed. Afterward, they need to migrate to the generally available version on Azure.  
+
 3. Install [Java](https://www.java.com).
 4. Download apache [http components](http://hc.apache.org/httpcomponents-client-ga/) and place in your class path.
 5. Using your Java IDE of choice create a package called com.contoso.BingCustomSearch.
