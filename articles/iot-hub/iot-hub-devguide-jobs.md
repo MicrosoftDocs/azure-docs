@@ -40,7 +40,7 @@ Jobs are initiated by the solution back end and maintained by IoT Hub.  You can 
 The following reference topics provide you with more information about using jobs.
 
 ## Jobs to execute direct methods
-The following is the HTTP 1.1 request details for executing a [direct method][lnk-dev-methods] on a set of devices using a job:
+The following is the HTTPS 1.1 request details for executing a [direct method][lnk-dev-methods] on a set of devices using a job:
 
     ```
     PUT /jobs/v2/<jobId>?api-version=2016-11-14
@@ -74,7 +74,7 @@ queryCondition = "deviceId IN ['MyDevice1']
 [IoT Hub Query Language][lnk-query] covers IoT Hub query language in additional detail.
 
 ## Jobs to update device twin properties
-The following is the HTTP 1.1 request details for updating device twin properties using a job:
+The following is the HTTPS 1.1 request details for updating device twin properties using a job:
 
     ```
     PUT /jobs/v2/<jobId>?api-version=2016-11-14
@@ -94,7 +94,7 @@ The following is the HTTP 1.1 request details for updating device twin propertie
     ```
 
 ## Querying for progress on jobs
-The following is the HTTP 1.1 request details for [querying for jobs][lnk-query]:
+The following is the HTTPS 1.1 request details for [querying for jobs][lnk-query]:
 
     ```
     GET /jobs/v2/query?api-version=2016-11-14[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
