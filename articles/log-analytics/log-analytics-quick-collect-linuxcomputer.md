@@ -104,11 +104,9 @@ When no longer needed, you can remove the agent from the Linux computer and dele
 
 To remove the agent, perform the following steps by running the bundle .sh file with the *--purge* argument on the computer, which completely removes the agent and its configuration.
 
-    ```
     > sudo rpm -e omsconfig
     > sudo rpm -e omsagent
     > sudo /opt/microsoft/scx/bin/uninstall
-    ````
 
 To delete the workspace, select the Log Analytics workspace you created earlier and on the resource page click **Delete**.<br> ![Delete Log Analytics resource](media/log-analytics-quick-collect-azurevm/log-analytics-portal-delete-resource.png)
 
