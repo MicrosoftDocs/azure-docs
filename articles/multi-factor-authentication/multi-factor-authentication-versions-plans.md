@@ -23,6 +23,7 @@ When it comes to protecting your accounts, two-step verification should be stand
 
 This article explains the difference between the versions offered to administrators and the full Azure MFA version. If you're ready to deploy the complete Azure MFA offering, the later section covers implementation options and how Microsoft calculates consumption.
 
+
 >[!IMPORTANT]
 >This article is meant to be a guide to help you understand the different ways to buy Azure Multi-Factor Authentication. For specific details about pricing and billing, you should always refer to the [Multi-Factor Authentication pricing page](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
 
@@ -51,6 +52,7 @@ The following table provides a list of the features that are available in the va
 | SMS as a second factor |● |● |● |
 | App passwords for clients that don't support MFA |● |● |● |
 | Admin control over verification methods |● |● |● |
+| Protect non-admin accounts with MFA | | |● |
 | PIN mode | | |● |
 | Fraud alert | | |● |
 | MFA Reports | | |● |
