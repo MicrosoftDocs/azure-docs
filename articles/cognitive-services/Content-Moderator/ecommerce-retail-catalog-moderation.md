@@ -173,7 +173,6 @@ In our case, we define these custom tags (**celebrity**, **flag**, **us**, **toy
                 // Parse the response body. Blocking!
                 SaveCustomVisionTags(response.Content.ReadAsStringAsync().Result, ref ReviewTags);
             }
-
             return response.IsSuccessStatusCode;
         }       
  
@@ -241,6 +240,14 @@ In our case, we define these custom tags (**celebrity**, **flag**, **us**, **toy
                 // Create review in the Content Moderator review tool
                 CreateReview(Url, ReviewTags);
             }
+
+## License
+
+All Microsoft Cognitive Services SDKs and samples are licensed with the MIT License. For more details, see [LICENSE](https://microsoft.mit-license.org/).
+
+## Developer Code of Conduct
+
+Developers using Cognitive Services, including this client library & sample, are expected to follow the “Developer Code of Conduct for Microsoft Cognitive Services”, found at http://go.microsoft.com/fwlink/?LinkId=698895.
 
 ## Next steps
 
