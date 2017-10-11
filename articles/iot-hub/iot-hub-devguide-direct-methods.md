@@ -20,7 +20,7 @@ ms.custom: H1Hack27Feb2017
 ---
 # Understand and invoke direct methods from IoT Hub
 ## Overview
-IoT Hub gives you ability to invoke direct methods on devices from the cloud. Direct methods represent a request-reply interaction with a device similar to an HTTP call in that they succeed or fail immediately (after a user-specified timeout). This is useful for scenarios where the course of immediate action is different depending on whether the device was able to respond, such as sending an SMS wake-up to a device if a device is offline (SMS being more expensive than a method call).
+IoT Hub gives you ability to invoke direct methods on devices from the cloud. Direct methods represent a request-reply interaction with a device similar to an HTTP call in that they succeed or fail immediately (after a user-specified timeout). This approach is useful for scenarios where the course of immediate action is different depending on whether the device was able to respond, such as sending an SMS wake-up to a device if a device is offline (SMS being more expensive than a method call).
 
 Each device method targets a single device. [Jobs][lnk-devguide-jobs] provide a way to invoke direct methods on multiple devices, and schedule method invocation for disconnected devices.
 
@@ -43,18 +43,18 @@ Direct methods are synchronous and either succeed or fail after the timeout peri
 
 Direct methods are HTTPS-only from the cloud side, and MQTT or AMQP from the device side.
 
-The payload for method requests and responses is a JSON document up to 8KB.
+The payload for method requests and responses is a JSON document up to 8 KB.
 
 ## Reference topics:
 The following reference topics provide you with more information about using direct methods.
 
 ## Invoke a direct method from a back-end app
 ### Method invocation
-Direct method invocations on a device are HTTPS calls which comprise:
+Direct method invocations on a device are HTTPS calls that comprise:
 
 * The *URI* specific to the device (`{iot hub}/twins/{device id}/methods/`)
 * The POST *method*
-* *Headers* which contain the authorization, request ID, content type, and content encoding
+* *Headers* that contain the authorization, request ID, content type, and content encoding
 * A transparent JSON *body* in the following format:
 
 ```
@@ -71,10 +71,10 @@ Direct method invocations on a device are HTTPS calls which comprise:
 Timeout is in seconds. If timeout is not set, it defaults to 30 seconds.
 
 ### Response
-The back-end app receives a response which comprises:
+The back-end app receives a response that comprises:
 
 * *HTTP status code*, which is used for errors coming from the IoT Hub, including a 404 error for devices not currently connected
-* *Headers* which contain the ETag, request ID, content type, and content encoding
+* *Headers* that contain the ETag, request ID, content type, and content encoding
 * A JSON *body* in the following format:
 
 ```
@@ -90,7 +90,7 @@ The back-end app receives a response which comprises:
 ### Method invocation
 Devices receive direct method requests on the MQTT topic: `$iothub/methods/POST/{method name}/?$rid={request id}`
 
-The body which the device receives is in the following format:
+The body that the device receives is in the following format:
 
 ```
 {
@@ -119,7 +119,7 @@ Other reference topics in the IoT Hub developer guide include:
 * [IoT Hub MQTT support][lnk-devguide-mqtt] provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps
-Now you have learned how to use direct methods, you may be interested in the following IoT Hub developer guide topic:
+Now you have learned how to use direct methods, you may be interested in the following IoT Hub developer guide article:
 
 * [Schedule jobs on multiple devices][lnk-devguide-jobs]
 
