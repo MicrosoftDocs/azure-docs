@@ -54,7 +54,7 @@ vCores are a measure of CPU processing throughput that is guaranteed to be avail
 | **Performance level** | **Basic** | **General Purpose** | **Memory Optimized** |
 | :-------------------- | :----- | :------ |:----- | :------ | :------ |
 | vCores | 1,2 | 2,4,8,16,32 |2,4,8,16,32 |
-| Max Storage Size | 50 GB |1 TB | 1 TB | 
+| Max Storage Size | 50 GB | 2 TB | 2 TB | 
 | Storage Type | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage | 
 | Database backup retention period | 7 days | 35 days | 35 days |  
 
