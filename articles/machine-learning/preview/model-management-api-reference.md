@@ -14,36 +14,36 @@ ms.date: 09/20/2017
 ---
 # Azure Machine Learning Model Management Account API reference
 
-For deployment environment set up information, see [Model Management Account Setup](model-management-configuration.md).
+For information about setting up the deployment environment, see [Model Management account setup](model-management-configuration.md).
 
-The Azure Machine Learning Model Management API implements the following operations:
+The Azure Machine Learning Model Management Account API implements the following operations:
 
-- Model Registration
-- Manifest Creation
-- Docker Image Creation
-- Web service Creation
+- Model registration
+- Manifest creation
+- Docker image creation
+- Web service creation
 
-You can use this image to create a web service either locally or on a remote ACS cluster or another Docker supported environment of your choice.
+You can use this image to create a web service either locally or on a remote Azure Container Service cluster or another Docker-supported environment of your choice.
 
 ## Prerequisites
 Make sure you have gone through the installation steps in the [Install and create Quickstart](quickstart-installation.md) document.
 
 The following are required before you proceed:
-1. Model Management Account provisioning
+1. Model Management account provisioning
 2. Environment creation for deploying and managing models
-3. A machine learning model
+3. A Machine Learning model
 
-### AAD token
-When using the CLI, log in using `az login`. The CLI uses your AAD token from the .azure file. If you wish to use the APIs, you have the following options:
+### Azure AD token
+When you're using Azure CLI, log in by using `az login`. The CLI uses your Azure Active Directory (Azure AD) token from the .azure file. If you want to use the APIs, you have the following options.
 
-##### Acquiring the AAD token manually
-You can do `az login` and get the latest token from the .azure file on your home directory.
+##### Acquiring the Azure AD token manually
+You can use `az login` and get the latest token from the .azure file on your home directory.
 
-##### Acquiring the AAD token programmatically
+##### Acquiring the Azure AD token programmatically
 ```
 az ad sp create-for-rbac --scopes /subscriptions/<SubscriptionId>/resourcegroups/<ResourceGroupName> --role Contributor --years <length of time> --name <MyservicePrincipalContributor>
 ```
-Once you create service principal, save the output. Now you can use that to get token from AAD:
+After you create the service principal, save the output. Now you can use that to get a token from Azure AD:
 
 ```cs
  private static async Task<string> AcquireTokenAsync(string clientId, string password, string authority, string resource)
@@ -54,12 +54,12 @@ Once you create service principal, save the output. Now you can use that to get 
         return token.AccessToken;
 }
 ```
-The token is put in authorization header for API calls. See below for more details.
+The token is put in an authorization header for API calls.
 
 
-## Register Model
+## Register a model
 
-Model registration step registers your machine learning model with the Azure Model Management Account that you created. This registration enables tracking the models and their versions that are assigned at the time of registration. The user provides the name of the model. Subsequent registration of models under the same name generates a new version and id.
+The model registration step registers your Machine Learning model with the Azure Model Management account that you created. This registration enables tracking the models and their versions that are assigned at the time of registration. The user provides the name of the model. Subsequent registration of models under the same name generates a new version and ID.
 
 ### Request
 
@@ -68,54 +68,54 @@ Model registration step registers your machine learning model with the Azure Mod
 | POST |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/models 
  |
 ### Description
-Register a Model
+Registers a model.
 
 ### Parameters
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | The Azure Subscription id | Yes | string |
+| subscriptionId | path | Azure subscription ID. | Yes | string |
 | resourceGroupName | path | Name of the resource group in which the Model Management account is located. | Yes | string |
-| accountName | path | The Name of the Model Management Account | Yes | string |
-| api-version | query | The version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
-| Authorization | header | The Authorization Token, it should be something like 'Bearer XXXXXX' | Yes | string |
-| model | body | The payload that is used to register a Model | Yes | [Model](#model) |
+| accountName | path | Name of the Model Management account. | Yes | string |
+| api-version | query | Version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
+| Authorization | header | Authorization token. It should be something like "Bearer XXXXXX." | Yes | string |
+| model | body | Payload that is used to register a model. | Yes | [Model](#model) |
 
 
 ### Responses
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
-| 200 | Ok. The Model registration succeeded | [Model](#model) |
-| default | error response describing why the operation failed | [ErrorResponse](#errorresponse) |
+| 200 | OK. The model registration succeeded. | [Model](#model) |
+| default | Error response that describes why the operation failed. | [ErrorResponse](#errorresponse) |
 
-## Query the list of Models in an account
+## Query the list of models in an account
 ### Request
 | Method | Request URI |
 |------------|------------|
 | GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/models 
  |
 ### Description
-Query the list of Models in an account. The result list can be filtered using tag and name. If no filter is passed, the query lists all the Models in the given account. The returned list is paginated and the count of item in each page is an optional parameter
+Queries the list of models in an account. You can filter the result list by tag and name. If no filter is passed, the query lists all the models in the account. The returned list is paginated, and the count of items in each page is an optional parameter.
 
 ### Parameters
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | The Azure Subscription id | Yes | string |
+| subscriptionId | path | The Azure subscription ID. | Yes | string |
 | resourceGroupName | path | Name of the resource group in which the Model Management account is located. | Yes | string |
-| accountName | path | The Name of the Model Management Account | Yes | string |
-| api-version | query | The version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
-| Authorization | header | The Authorization Token, it should be something like 'Bearer XXXXXX' | Yes | string |
-| name | query | The object name | No | string |
-| tag | query | The Model tag | No | string |
-| count | query | The number of items to retrieve in a page | No | string |
-| $skipToken | The continuation token to retrieve the naxt page | No | string |
+| accountName | path | Name of the Model Management account. | Yes | string |
+| api-version | query | Version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
+| Authorization | header | Authorization token. It should be something like "Bearer XXXXXX." | Yes | string |
+| name | query | Object name. | No | string |
+| tag | query | Model tag. | No | string |
+| count | query | Number of items to retrieve in a page. | No | string |
+| $skipToken | Continuation token to retrieve the next page. | No | string |
 
 ### Responses
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Success | [PaginatedModelList](#paginatedmodellist) |
-| default | error response describing why the operation failed | [ErrorResponse](#errorresponse) |
+| default | Error response that describes why the operation failed. | [ErrorResponse](#errorresponse) |
 
-## Get Model Details
+## Get model details
 ### Request
 | Method | Request URI |
 |------------|------------|
@@ -123,25 +123,25 @@ Query the list of Models in an account. The result list can be filtered using ta
  |
 
 ### Description
-Get Model by id
+Gets a model by ID.
 
 ### Parameters
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | The Azure Subscription id | Yes | string |
+| subscriptionId | path | Azure subscription ID | Yes | string |
 | resourceGroupName | path | Name of the resource group in which the Model Management account is located. | Yes | string |
-| accountName | path | The Name of the Model Management Account | Yes | string |
-| id | path | The object id | Yes | string |
-| api-version | query | The version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
-| Authorization | header | The Authorization Token, it should be something like 'Bearer XXXXXX' | Yes | string |
+| accountName | path | Name of the Model Management account. | Yes | string |
+| id | path | Object ID. | Yes | string |
+| api-version | query | Version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
+| Authorization | header | Authorization token. It should be something like "Bearer XXXXXX." | Yes | string |
 
 ### Responses
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Success | [Model](#model) |
-| default | error response describing why the operation failed | [ErrorResponse](#errorresponse) |
+| default | Error response that describes why the operation failed. | [ErrorResponse](#errorresponse) |
 
-## Register a Manifest with the registered model and all dependencies
+## Register a manifest with the registered model and all dependencies
 
 ### Request
 | Method | Request URI |
@@ -149,25 +149,25 @@ Get Model by id
 | POST |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/manifests | 
 
 ### Description
-Register a manifest with the registered model and all its dependencies
+Registers a manifest with the registered model and all its dependencies.
 
 ### Parameters
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | The Azure Subscription id | Yes | string |
+| subscriptionId | path | Azure subscription ID | Yes | string |
 | resourceGroupName | path | Name of the resource group in which the Model Management account is located. | Yes | string |
-| accountName | path | The Name of the Model Management Account | Yes | string |
-| api-version | query | The version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
-| Authorization | header | The Authorization Token, it should be something like 'Bearer XXXXXX' | Yes | string |
-| manifestRequest | body | The payload that is used to register a Manifest | Yes | [Manifest](#manifest) |
+| accountName | path | Name of the Model Management account. | Yes | string |
+| api-version | query | Version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
+| Authorization | header | Authorization token. It should be something like "Bearer XXXXXX." | Yes | string |
+| manifestRequest | body | Payload that is used to register a manifest. | Yes | [Manifest](#manifest) |
 
 ### Responses
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
-| 200 | The Manifest registration was successful | [Manifest](#manifest) |
-| default | error response describing why the operation failed | [ErrorResponse](#errorresponse) |
+| 200 | The Manifest registration was successful. | [Manifest](#manifest) |
+| default | Error response that describes why the operation failed. | [ErrorResponse](#errorresponse) |
 
-## Query the list of Manifests in an account
+## Query the list of manifests in an account
 
 ### Request
 | Method | Request URI |
@@ -175,28 +175,28 @@ Register a manifest with the registered model and all its dependencies
 | GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/manifests | 
 
 ### Description
-Query the list of Manifests in an account. The result list can be filtered using Model Id and Manifest Name. If no filter is passed, the query lists all the Manifests in the given account. The returned list is paginated and the count of item in each page is an optional parameter
+Queries the list of manifests in an account. You can filter the result list by model ID and manifest name. If no filter is passed, the query lists all the manifests in the account. The returned list is paginated, and the count of item. in each page is an optional parameter.
 
 ### Parameters
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | The Azure Subscription id | Yes | string |
+| subscriptionId | path | Azure subscription ID | Yes | string |
 | resourceGroupName | path | Name of the resource group in which the Model Management account is located. | Yes | string |
-| accountName | path | The Name of the Model Management Account | Yes | string |
-| api-version | query | The version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
-| Authorization | header | The Authorization Token, it should be something like 'Bearer XXXXXX' | Yes | string |
-| modelId | query | The Model Id | No | string |
-| manifestName | query | The Manifest name | No | string |
-| count | query | The number of items to retrieve in a page | No | string |
-| $skipToken | query | The continuation token to retrieve the next page | No | string |
+| accountName | path | Name of the Model Management account. | Yes | string |
+| api-version | query | Version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
+| Authorization | header | Authorization token. It should be something like "Bearer XXXXXX." | Yes | string |
+| modelId | query | Model ID. | No | string |
+| manifestName | query | Manifest name. | No | string |
+| count | query | Number of items to retrieve in a page. | No | string |
+| $skipToken | query | Continuation token to retrieve the next page. | No | string |
 
 ### Responses
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | success | [PaginatedManifestList](#paginatedmanifestlist) |
-| default | error response describing why the operation failed | [ErrorResponse](#errorresponse) |
+| default | Error response that describes why the operation failed. | [ErrorResponse](#errorresponse) |
 
-## Get Manifest details
+## Get manifest details
 
 ### Request
 | Method | Request URI |
@@ -204,25 +204,25 @@ Query the list of Manifests in an account. The result list can be filtered using
 | GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/manifests/{id} | 
 
 ### Description
-Gets Manifest by id
+Gets the manifest by ID.
 
 ### Parameters
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | The Azure Subscription id | Yes | string |
+| subscriptionId | path | Azure subscription ID. | Yes | string |
 | resourceGroupName | path | Name of the resource group in which the Model Management account is located. | Yes | string |
-| accountName | path | The Name of the Model Management Account | Yes | string |
-| id | path | The object id | Yes | string |
-| api-version | query | The version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
-| Authorization | header | The Authorization Token, it should be something like 'Bearer XXXXXX' | Yes | string |
+| accountName | path | Name of the Model Management account. | Yes | string |
+| id | path | Object ID. | Yes | string |
+| api-version | query | Version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
+| Authorization | header | Authorization token. It should be something like "Bearer XXXXXX." | Yes | string |
 
 ### Responses
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | success | [Manifest](#manifest) |
-| default | error response describing why the operation failed | [ErrorResponse](#errorresponse) |
+| default | Error response that describes why the operation failed. | [ErrorResponse](#errorresponse) |
 
-## Create an Image
+## Create an image
 
 ### Request
 | Method | Request URI |
@@ -230,23 +230,23 @@ Gets Manifest by id
 | POST |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/images | 
 
 ### Description
-Create an Image as a docker Image in ACR
+Creates an image as a Docker image in Azure Container Registry.
 
 ### Parameters
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | The Azure Subscription id | Yes | string |
+| subscriptionId | path | Azure subscription ID. | Yes | string |
 | resourceGroupName | path | Name of the resource group in which the Model Management account is located. | Yes | string |
-| accountName | path | The Name of the Model Management Account | Yes | string |
-| api-version | query | The version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
-| Authorization | header | The Authorization Token, it should be something like 'Bearer XXXXXX' | Yes | string |
-| imageRequest | body | The payload that is used to create an Image | Yes | [ImageRequest](#imagerequest) |
+| accountName | path | Name of the Model Management account. | Yes | string |
+| api-version | query | Version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
+| Authorization | header | Authorization token. It should be something like "Bearer XXXXXX." | Yes | string |
+| imageRequest | body | The payload that is used to create an image. | Yes | [ImageRequest](#imagerequest) |
 
 ### Responses
 | Code | Description | Headers | Schema |
 |--------------------|--------------------|--------------------|--------------------|
-| 202 | The async operation location URL. A GET call will show you the status of the image creation task. | Operation-Location |
-| default | error response describing why the operation failed | [ErrorResponse](#errorresponse) |
+| 202 | Async operation location URL. A GET call will show you the status of the image creation task. | Operation-Location |
+| default | Error response that describes why the operation failed. | [ErrorResponse](#errorresponse) |
 
 ## Query the list of images in an account
 
@@ -256,28 +256,28 @@ Create an Image as a docker Image in ACR
 | GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/images | 
 
 ### Description
-Query the list of Images in an account. The result list can be filtered using Manifest id and name. If no filter is passed, the query lists all the Images in the given account. The returned list is paginated and the count of item in each page is an optional parameter.
+Queries the list of images in an account. You can filter the result list by manifest ID and name. If no filter is passed, the query lists all the images in the account. The returned list is paginated, and the count of items in each page is an optional parameter.
 
 ### Parameters
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | The Azure Subscription id | Yes | string |
+| subscriptionId | path | Azure subscription ID. | Yes | string |
 | resourceGroupName | path | Name of the resource group in which the Model Management account is located. | Yes | string |
-| accountName | path | The Name of the Model Management Account | Yes | string |
-| api-version | query | The version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
-| Authorization | header | The Authorization Token, it should be something like 'Bearer XXXXXX' | Yes | string |
-| manifestId | query | The Manifest Id | No | string |
-| manifestName | query | The Manifest name | No | string |
-| count | query | The number of items to retrieve in a page | No | string |
-| $skipToken | query | The continuation token to retrieve the next page | No | string |
+| accountName | path | Name of the Model Management account. | Yes | string |
+| api-version | query | Version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
+| Authorization | header | Authorization token. It should be something like "Bearer XXXXXX." | Yes | string |
+| manifestId | query | Manifest ID. | No | string |
+| manifestName | query | Manifest name. | No | string |
+| count | query | Number of items to retrieve in a page. | No | string |
+| $skipToken | query | Continuation token to retrieve the next page. | No | string |
 
 ### Responses
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | success | [PaginatedImageList](#paginatedimagelist) |
-| default | error response describing why the operation failed | [ErrorResponse](#errorresponse) |
+| default | Error response that describes why the operation failed. | [ErrorResponse](#errorresponse) |
 
-## Get Image details
+## Get image details
 
 ### Request
 | Method | Request URI |
@@ -285,26 +285,26 @@ Query the list of Images in an account. The result list can be filtered using Ma
 | GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/images/{id} | 
 
 ### Description
-Gets Image by id
+Gets an image by ID.
 
 ### Parameters
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | The Azure Subscription id | Yes | string |
+| subscriptionId | path | Azure subscription ID. | Yes | string |
 | resourceGroupName | path | Name of the resource group in which the Model Management account is located. | Yes | string |
-| accountName | path | The Name of the Model Management Account | Yes | string |
-| id | path | The image id | Yes | string |
-| api-version | query | The version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
-| Authorization | header | The Authorization Token, it should be something like 'Bearer XXXXXX' | Yes | string |
+| accountName | path | Name of the Model Management account. | Yes | string |
+| id | path | Image ID. | Yes | string |
+| api-version | query | Version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
+| Authorization | header | Authorization token. It should be something like "Bearer XXXXXX." | Yes | string |
 
 ### Responses
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | success | [Image](#image) |
-| default | error response describing why the operation failed | [ErrorResponse](#errorresponse) |
+| default | Error response that describes why the operation failed. | [ErrorResponse](#errorresponse) |
 
 
-## Create a Service
+## Create a service
 
 ### Request
 | Method | Request URI |
@@ -312,26 +312,26 @@ Gets Image by id
 | POST |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services | 
 
 ### Description
-Create a Service from an image
+Creates a service from an image.
 
 ### Parameters
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | The Azure Subscription id | Yes | string |
+| subscriptionId | path | Azure subscription ID. | Yes | string |
 | resourceGroupName | path | Name of the resource group in which the Model Management account is located. | Yes | string |
-| accountName | path | The Name of the Model Management Account | Yes | string |
-| api-version | query | The version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
-| Authorization | header | The Authorization Token, it should be something like 'Bearer XXXXXX' | Yes | string |
-| serviceRequest | body | The payload that is used to create a service | Yes | [ServiceCreateRequest](#servicecreaterequest) |
+| accountName | path | Name of the Model Management account. | Yes | string |
+| api-version | query | Version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
+| Authorization | header | Authorization token. It should be something like "Bearer XXXXXX." | Yes | string |
+| serviceRequest | body | Payload that is used to create a service. | Yes | [ServiceCreateRequest](#servicecreaterequest) |
 
 ### Responses
 | Code | Description | Headers | Schema |
 |--------------------|--------------------|--------------------|--------------------|
-| 202 | The async operation location URL. A GET call will show you the status of the service creation task. | Operation-Location |
-| 409 | Service with the specified name already exists |
-| default | error response describing why the operation failed | [ErrorResponse](#errorresponse) |
+| 202 | Async operation location URL. A GET call will show you the status of the service creation task. | Operation-Location |
+| 409 | Service with the specified name already exists. |
+| default | Error response that describes why the operation failed. | [ErrorResponse](#errorresponse) |
 
-## Query the list of services in an account.
+## Query the list of services in an account
 
 ### Request
 | Method | Request URI |
@@ -339,33 +339,33 @@ Create a Service from an image
 | GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services | 
 
 ### Description
-Query the list of Services in an account. The result list can be filtered using Model name/id, Manifest name/id, Image id, Service name, or Machine Learning Compute Resource id. If no filter is passed, the query lists all Services in the account. The returned list is paginated and the count of item in each page is an optional parameter.
+Queries the list of Services in an account. You can filter the result list by model name/ID, manifest name/ID, image ID, service name, or Machine Learning compute resource ID. If no filter is passed, the query lists all services in the account. The returned list is paginated, and the count of items in each page is an optional parameter.
 
 ### Parameters
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | The Azure Subscription id | Yes | string |
+| subscriptionId | path | Azure subscription ID. | Yes | string |
 | resourceGroupName | path | Name of the resource group in which the Model Management account is located. | Yes | string |
-| accountName | path | The Name of the Model Management Account | Yes | string |
-| api-version | query | The version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
-| Authorization | header | The Authorization Token, it should be something like 'Bearer XXXXXX' | Yes | string |
-| serviceName | query | The Service name | No | string |
-| modelId | query | The Model Name | No | string |
-| modelName | query | The Model Id | No | string |
-| manifestId | query | The Manifest Id | No | string |
-| manifestName | query | The Manifest Name | No | string |
-| imageId | query | The Image Id | No | string |
-| computeResourceId | query | The Machine Learning Compute Resource id | No | string |
-| count | query | The number of items to retrieve in a page | No | string |
-| $skipToken | query | The continuation token to retrieve the next page | No | string |
+| accountName | path | Name of the Model Management account. | Yes | string |
+| api-version | query | Version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
+| Authorization | header | Authorization token. It should be something like "Bearer XXXXXX." | Yes | string |
+| serviceName | query | Service name. | No | string |
+| modelId | query | Model name. | No | string |
+| modelName | query | Model ID. | No | string |
+| manifestId | query | Manifest ID. | No | string |
+| manifestName | query | Manifest name. | No | string |
+| imageId | query | Image ID. | No | string |
+| computeResourceId | query | Machine Learning compute resource ID | No | string |
+| count | query | Number of items to retrieve in a page. | No | string |
+| $skipToken | query | Continuation token to retrieve the next page. | No | string |
 
 ### Responses
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | success | [PaginatedServiceList](#paginatedservicelist) |
-| default | error response describing why the operation failed | [ErrorResponse](#errorresponse) |
+| default | Error response that describes why the operation failed. | [ErrorResponse](#errorresponse) |
 
-## Get Service details
+## Get service details
 
 ### Request
 | Method | Request URI |
@@ -373,25 +373,25 @@ Query the list of Services in an account. The result list can be filtered using 
 | GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services/{id} | 
 
 ### Description
-Gets Service by id
+Gets a service by ID.
 
 ### Parameters
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | The Azure Subscription id | Yes | string |
+| subscriptionId | path | Azure subscription ID. | Yes | string |
 | resourceGroupName | path | Name of the resource group in which the Model Management account is located. | Yes | string |
-| accountName | path | The Name of the Model Management Account | Yes | string |
-| id | path | The object id | Yes | string |
-| api-version | query | The version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
-| Authorization | header | The Authorization Token, it should be something like 'Bearer XXXXXX' | Yes | string |
+| accountName | path | Name of the Model Management account. | Yes | string |
+| id | path | Object ID. | Yes | string |
+| api-version | query | Version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
+| Authorization | header | Authorization token. It should be something like "Bearer XXXXXX." | Yes | string |
 
 ### Responses
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | success | [ServiceResponse](#serviceresponse) |
-| default | error response describing why the operation failed | [ErrorResponse](#errorresponse)
+| default | Error response that describes why the operation failed. | [ErrorResponse](#errorresponse)
 
-## Update a Service
+## Update a service
 
 ### Request
 | Method | Request URI |
@@ -399,27 +399,27 @@ Gets Service by id
 | PUT |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services/{id} | 
 
 ### Description
-Update an existing Service
+Updates an existing service.
 
 ### Parameters
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | The Azure Subscription id | Yes | string |
+| subscriptionId | path | Azure subscription ID. | Yes | string |
 | resourceGroupName | path | Name of the resource group in which the Model Management account is located. | Yes | string |
-| accountName | path | The Name of the Model Management Account | Yes | string |
-| id | path | The object id | Yes | string |
-| api-version | query | The version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
-| Authorization | header | The Authorization Token, it should be something like 'Bearer XXXXXX' | Yes | string |
-| serviceUpdateRequest | body | The payload that is used to update an existing service | Yes |  [ServiceUpdateRequest](#serviceupdaterequest) |
+| accountName | path | Name of the Model Management account. | Yes | string |
+| id | path | Object ID. | Yes | string |
+| api-version | query | Version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
+| Authorization | header | Authorization token. It should be something like "Bearer XXXXXX." | Yes | string |
+| serviceUpdateRequest | body | Payload that is used to update an existing service. | Yes |  [ServiceUpdateRequest](#serviceupdaterequest) |
 
 ### Responses
 | Code | Description | Headers | Schema |
 |--------------------|--------------------|--------------------|--------------------|
-| 202 | The async operation location URL. A GET call will show you the status of the update service task. | Operation-Location |
-| 404 | The service with the specified id does not exist |
-| default | error response describing why the operation failed | [ErrorResponse](#errorresponse)
+| 202 | Async operation location URL. A GET call will show you the status of the update service task. | Operation-Location |
+| 404 | The service with the specified ID does not exist. |
+| default | Error response that describes why the operation failed. | [ErrorResponse](#errorresponse)
 
-## Delete a Service
+## Delete a service
 
 ### Request
 | Method | Request URI |
@@ -427,26 +427,26 @@ Update an existing Service
 | DELETE |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services/{id} | 
 
 ### Description
-Deletes a Service
+Deletes a service.
 
 ### Parameters
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | The Azure Subscription id | Yes | string |
+| subscriptionId | path | Azure subscription ID. | Yes | string |
 | resourceGroupName | path | Name of the resource group in which the Model Management account is located. | Yes | string |
-| accountName | path | The Name of the Model Management Account | Yes | string |
-| id | path | The object id | Yes | string |
-| api-version | query | The version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
-| Authorization | header | The Authorization Token, it should be something like 'Bearer XXXXXX' | Yes | string |
+| accountName | path | Name of the Model Management account. | Yes | string |
+| id | path | Object ID. | Yes | string |
+| api-version | query | Version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
+| Authorization | header | Authorization token. It should be something like "Bearer XXXXXX." | Yes | string |
 
 ### Responses
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | success |  |
-| 204 | The service with the specified id does not exist |
-| default | error response describing why the operation failed | [ErrorResponse](#errorresponse)
+| 204 | The service with the specified ID does not exist. |
+| default | Error response that describes why the operation failed. | [ErrorResponse](#errorresponse)
 
-## Get Service keys
+## Get service keys
 
 ### Request
 | Method | Request URI |
@@ -454,25 +454,25 @@ Deletes a Service
 | GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services/{id}/keys | 
 
 ### Description
-Gets Service keys
+Gets service keys.
 
 ### Parameters
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | The Azure Subscription id | Yes | string |
+| subscriptionId | path | Azure subscription ID. | Yes | string |
 | resourceGroupName | path | Name of the resource group in which the Model Management account is located. | Yes | string |
-| accountName | path | The Name of the Model Management Account | Yes | string |
-| id | path | The service id | Yes | string |
-| api-version | query | The version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
-| Authorization | header | The Authorization Token, it should be something like 'Bearer XXXXXX' | Yes | string |
+| accountName | path | Name of the Model Management account. | Yes | string |
+| id | path | The service ID. | Yes | string |
+| api-version | query | Version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
+| Authorization | header | Authorization token. It should be something like "Bearer XXXXXX." | Yes | string |
 
 ### Responses
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | success | [AuthKeys](#authkeys)
-| default | error response describing why the operation failed | [ErrorResponse](#errorresponse)
+| default | Error response that describes why the operation failed. | [ErrorResponse](#errorresponse)
 
-## Regenerate Service keys
+## Regenerate service keys
 
 ### Request
 | Method | Request URI |
@@ -480,26 +480,26 @@ Gets Service keys
 | POST |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services/{id}/keys | 
 
 ### Description
-Regenerates Service keys and returns them
+Regenerates service keys and returns them.
 
 ### Parameters
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | The Azure Subscription id | Yes | string |
+| subscriptionId | path | Azure subscription ID. | Yes | string |
 | resourceGroupName | path | Name of the resource group in which the Model Management account is located. | Yes | string |
-| accountName | path | The Name of the Model Management Account | Yes | string |
-| id | path | The service id | Yes | string |
-| api-version | query | The version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
-| Authorization | header | The Authorization Token, it should be something like 'Bearer XXXXXX' | Yes | string |
-| regenerateKeyRequest | body | The payload that is used to update an existing service | Yes | [ServiceRegenerateKeyRequest](#serviceregeneratekeyrequest) |
+| accountName | path | Name of the Model Management account. | Yes | string |
+| id | path | Service ID. | Yes | string |
+| api-version | query | Version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
+| Authorization | header | Authorization token. It should be something like "Bearer XXXXXX." | Yes | string |
+| regenerateKeyRequest | body | Payload that is used to update an existing service. | Yes | [ServiceRegenerateKeyRequest](#serviceregeneratekeyrequest) |
 
 ### Responses
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | success | [AuthKeys](#authkeys)
-| default | error response describing why the operation failed | [ErrorResponse](#errorresponse)
+| default | Error response that describes why the operation failed. | [ErrorResponse](#errorresponse)
 
-## Query the list of Deployments in an account.
+## Query the list of deployments in an account
 
 ### Request
 | Method | Request URI |
@@ -507,25 +507,25 @@ Regenerates Service keys and returns them
 | GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/deployments | 
 
 ### Description
-Query the list of Deployments in an account. The result list can be filtered using Service Id, which will return only the deployments that are created for the particular service. If no filter is passed, the query lists all the Deployments in the given account.
+Queries the list of deployments in an account. You can filter the result list by service ID, which will return only the deployments that are created for the particular service. If no filter is passed, the query lists all the deployments in the account.
 
 ### Parameters
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | The Azure Subscription id | Yes | string |
+| subscriptionId | path | Azure subscription ID. | Yes | string |
 | resourceGroupName | path | Name of the resource group in which the Model Management account is located. | Yes | string |
-| accountName | path | The Name of the Model Management Account | Yes | string |
-| api-version | query | The version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
-| Authorization | header | The Authorization Token, it should be something like 'Bearer XXXXXX' | Yes | string |
-| serviceId | query | The Service id | No | string |
+| accountName | path | Name of the Model Management account. | Yes | string |
+| api-version | query | Version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
+| Authorization | header | Authorization token. It should be something like "Bearer XXXXXX." | Yes | string |
+| serviceId | query | Service ID. | No | string |
 
 ### Responses
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | success | [DeploymentList](#deploymentlist) |
-| default | error response describing why the operation failed | [ErrorResponse](#errorresponse)
+| default | Error response that describes why the operation failed. | [ErrorResponse](#errorresponse)
 
-## Get Deployment Details
+## Get deployment details
 
 ### Request
 | Method | Request URI |
@@ -533,25 +533,25 @@ Query the list of Deployments in an account. The result list can be filtered usi
 | GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/deployments/{id} | 
 
 ### Description
-Gets Deployment by Id
+Get the deployment by ID.
 
 ### Parameters
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | The Azure Subscription id | Yes | string |
+| subscriptionId | path | Azure subscription ID. | Yes | string |
 | resourceGroupName | path | Name of the resource group in which the Model Management account is located. | Yes | string |
-| accountName | path | The Name of the Model Management Account | Yes | string |
-| id | path | The deployment id | Yes | string |
-| api-version | query | The version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
-| Authorization | header | The Authorization Token, it should be something like 'Bearer XXXXXX' | Yes | string |
+| accountName | path | Name of the Model Management account. | Yes | string |
+| id | path | Deployment ID. | Yes | string |
+| api-version | query | Version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
+| Authorization | header | Authorization token. It should be something like "Bearer XXXXXX." | Yes | string |
 
 ### Responses
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | success | [Deployment](#deployment) |
-| default | error response describing why the operation failed | [ErrorResponse](#errorresponse)
+| default | Error response that describes why the operation failed. | [ErrorResponse](#errorresponse)
 
-## Get Operation Details
+## Get operation details
 
 ### Request
 | Method | Request URI |
@@ -559,23 +559,23 @@ Gets Deployment by Id
 | GET |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/operations/{id} | 
 
 ### Description
-Get async operation status by operation id
+Gets the async operation status by operation ID.
 
 ### Parameters
 | Name | Located in | Description | Required | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | The Azure Subscription id | Yes | string |
+| subscriptionId | path | Azure subscription ID. | Yes | string |
 | resourceGroupName | path | Name of the resource group in which the Model Management account is located. | Yes | string |
-| accountName | path | The Name of the Model Management Account | Yes | string |
-| id | path | The operation id | Yes | string |
-| api-version | query | The version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
-| Authorization | header | The Authorization Token, it should be something like 'Bearer XXXXXX' | Yes | string |
+| accountName | path | Name of the Model Management account. | Yes | string |
+| id | path | Operation ID. | Yes | string |
+| api-version | query | Version of the Microsoft.Machine.Learning resource provider API to use. | Yes | string |
+| Authorization | header | Authorization token. It should be something like "Bearer XXXXXX." | Yes | string |
 
 ### Responses
 | Code | Description | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | success | [OperationStatus](#asyncoperationstatus) |
-| default | error response describing why the operation failed | [ErrorResponse](#errorresponse)
+| default | Error response that describes why the operation failed. | [ErrorResponse](#errorresponse)
 
 
 
@@ -584,105 +584,105 @@ Get async operation status by operation id
 
 <a name="asset"></a>
 ### Asset
-Asset object which will be needed during docker Image creation
+The asset object that will be needed during Docker image creation.
 
 
 |Name|Description|Schema|
 |---|---|---|
-|**id**  <br>*optional*|Asset id|string|
-|**mimeType**  <br>*optional*|The MIME type of Model content. For more details about MIME type, please open https://www.iana.org/assignments/media-types/media-types.xhtml|string|
-|**unpack**  <br>*optional*|Indicates wher we need to unpack the content during docker Image creation.|boolean|
-|**url**  <br>*optional*|The asset location url|string|
+|**id**  <br>*optional*|Asset ID.|string|
+|**mimeType**  <br>*optional*|MIME type of model content. For more details about MIME type, see the [list of IANA media types](https://www.iana.org/assignments/media-types/media-types.xhtml).|string|
+|**unpack**  <br>*optional*|Indicates where we need to unpack the content during Docker image creation.|boolean|
+|**url**  <br>*optional*|Asset location URL.|string|
 
 
 <a name="asyncoperationstate"></a>
 ### AsyncOperationState
-The async operation state
+The async operation state.
 
 *Type* : enum (NotStarted, Running, Cancelled, Succeeded, Failed)
 
 
 <a name="asyncoperationstatus"></a>
 ### AsyncOperationStatus
-The operation status
+The operation status.
 
 
 |Name|Description|Schema|
 |---|---|---|
-|**createdTime**  <br>*optional*  <br>*read-only*|The async operation creation time (UTC)|string (date-time)|
-|**endTime**  <br>*optional*  <br>*read-only*|The async operation end time (UTC)|string (date-time)|
+|**createdTime**  <br>*optional*  <br>*read-only*|Async operation creation time (UTC).|string (date-time)|
+|**endTime**  <br>*optional*  <br>*read-only*|Async operation end time (UTC).|string (date-time)|
 |**error**  <br>*optional*||[ErrorResponse](#errorresponse)|
-|**id**  <br>*optional*|The async operation id|string|
-|**operationType**  <br>*optional*|The async operation type|enum (Image, Service)|
-|**resourceLocation**  <br>*optional*|The resource created/updated by the async operation|string|
+|**id**  <br>*optional*|Async operation ID.|string|
+|**operationType**  <br>*optional*|Async operation type.|enum (Image, Service)|
+|**resourceLocation**  <br>*optional*|Resource created or updated by the async operation.|string|
 |**state**  <br>*optional*||[AsyncOperationState](#asyncoperationstate)|
 
 
 <a name="authkeys"></a>
 ### AuthKeys
-The authentication keys for a Service
+The authentication keys for a service.
 
 
 |Name|Description|Schema|
 |---|---|---|
-|**primaryKey**  <br>*optional*|The primary key|string|
-|**secondaryKey**  <br>*optional*|The secondary key|string|
+|**primaryKey**  <br>*optional*|Primary key.|string|
+|**secondaryKey**  <br>*optional*|Secondary key.|string|
 
 
 <a name="autoscaler"></a>
 ### AutoScaler
-Settings for Auto Scaler
+Settings for the autoscaler.
 
 
 |Name|Description|Schema|
 |---|---|---|
-|**autoscaleEnabled**  <br>*optional*|Enable or disable the Auto Scaler|boolean|
-|**maxReplicas**  <br>*optional*|The maximum number of pod replicas to scale up to.  <br>**Minimum value** : `1`|integer|
-|**minReplicas**  <br>*optional*|The minimum number of pod replicas to scale down to.  <br>**Minimum value** : `0`|integer|
-|**refreshPeriodInSeconds**  <br>*optional*|Refresh time for Auto Scaling trigger.  <br>**Minimum value** : `1`|integer|
-|**targetUtilization**  <br>*optional*|Utilization percentage at which Auto Scaling will trigger.  <br>**Minimum value** : `0`  <br>**Maximum value** : `100`|integer|
+|**autoscaleEnabled**  <br>*optional*|Enable or disable the autoscaler.|boolean|
+|**maxReplicas**  <br>*optional*|Maximum number of pod replicas to scale up to.  <br>**Minimum value** : `1`|integer|
+|**minReplicas**  <br>*optional*|Minimum number of pod replicas to scale down to.  <br>**Minimum value** : `0`|integer|
+|**refreshPeriodInSeconds**  <br>*optional*|Refresh time for autoscaling trigger.  <br>**Minimum value** : `1`|integer|
+|**targetUtilization**  <br>*optional*|Utilization percentage that triggers autoscaling.  <br>**Minimum value** : `0`  <br>**Maximum value** : `100`|integer|
 
 
 <a name="computeresource"></a>
 ### ComputeResource
-Machine Learning Compute Resource
+The Machine Learning compute resource.
 
 
 |Name|Description|Schema|
 |---|---|---|
-|**id**  <br>*optional*|Resource id|string|
-|**type**  <br>*optional*|Type of resource|enum (Cluster)|
+|**id**  <br>*optional*|Resource ID.|string|
+|**type**  <br>*optional*|Type of resource.|enum (Cluster)|
 
 
 <a name="containerresourcereservation"></a>
 ### ContainerResourceReservation
-Configuration to reserve resources for the Container in Cluster
+Configuration to reserve resources for a container in the cluster.
 
 
 |Name|Description|Schema|
 |---|---|---|
-|**cpu**  <br>*optional*|Specifies CPU reservation. Format for Kubernetes: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-cpu|string|
-|**memory**  <br>*optional*|Specifies Memory reservation. Format for Kubernetes: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-memory|string|
+|**cpu**  <br>*optional*|Specifies CPU reservation. Format for Kubernetes: [Meaning of CPU](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-cpu).|string|
+|**memory**  <br>*optional*|Specifies memory reservation. Format for Kubernetes: [Meaning of memory](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-memory).|string|
 
 
 <a name="deployment"></a>
 ### Deployment
-Instance of an Azure Machine Learning Deployment
+An instance of an Azure Machine Learning deployment.
 
 
 |Name|Description|Schema|
 |---|---|---|
-|**createdAt**  <br>*optional*  <br>*read-only*|The deployment creation time (UTC)|string (date-time)|
-|**expiredAt**  <br>*optional*  <br>*read-only*|The deployment expired time (UTC)|string (date-time)|
-|**id**  <br>*optional*|The deployment Id|string|
-|**imageId**  <br>*optional*|The Image Id associated to this deployment|string|
-|**serviceName**  <br>*optional*|The Service name|string|
-|**status**  <br>*optional*|Current Deployment status|string|
+|**createdAt**  <br>*optional*  <br>*read-only*|Deployment creation time (UTC).|string (date-time)|
+|**expiredAt**  <br>*optional*  <br>*read-only*|Deployment expired time (UTC).|string (date-time)|
+|**id**  <br>*optional*|Deployment ID.|string|
+|**imageId**  <br>*optional*|Image ID associated with this deployment.|string|
+|**serviceName**  <br>*optional*|Service name.|string|
+|**status**  <br>*optional*|Current deployment status.|string|
 
 
 <a name="deploymentlist"></a>
 ### DeploymentList
-An array of Deployment objects.
+An array of deployment objects.
 
 *Type* : < [Deployment](#deployment) > array
 
@@ -694,36 +694,36 @@ Model Management Service error detail.
 
 |Name|Description|Schema|
 |---|---|---|
-|**code**  <br>*required*|error code|string|
-|**message**  <br>*required*|error message|string|
+|**code**  <br>*required*|Error code.|string|
+|**message**  <br>*required*|Error message.|string|
 
 
 <a name="errorresponse"></a>
 ### ErrorResponse
-Model Management Service Error object.
+A Model Management Service error object.
 
 
 |Name|Description|Schema|
 |---|---|---|
-|**code**  <br>*required*|error code|string|
-|**details**  <br>*optional*|An array of error detail objects.|< [ErrorDetail](#errordetail) > array|
-|**message**  <br>*required*|Error message|string|
-|**statusCode**  <br>*optional*|HTTP status code|integer|
+|**code**  <br>*required*|Error code.|string|
+|**details**  <br>*optional*|Array of error detail objects.|< [ErrorDetail](#errordetail) > array|
+|**message**  <br>*required*|Error message.|string|
+|**statusCode**  <br>*optional*|HTTP status code.|integer|
 
 
 <a name="image"></a>
 ### Image
-The Auzre Machine Learning Image
+The Auzre Machine Learning image.
 
 
 |Name|Description|Schema|
 |---|---|---|
-|**computeResourceId**  <br>*optional*|The id of the environment created in the Machine Learning Compute|string|
+|**computeResourceId**  <br>*optional*|The ID of the environment created in the Machine Learning Compute|string|
 |**createdTime**  <br>*optional*|The Image creation time (UTC)|string (date-time)|
 |**creationState**  <br>*optional*||[AsyncOperationState](#asyncoperationstate)|
 |**description**  <br>*optional*|The Image description text|string|
 |**error**  <br>*optional*||[ErrorResponse](#errorresponse)|
-|**id**  <br>*optional*|The Image id|string|
+|**id**  <br>*optional*|The Image ID|string|
 |**imageBuildLogUri**  <br>*optional*|Uri of the uploaded logs from Image build|string|
 |**imageLocation**  <br>*optional*|Azure Container Registry location string for the created Image|string|
 |**imageType**  <br>*optional*||[ImageType](#imagetype)|
@@ -739,10 +739,10 @@ Request to create an Auzre Machine Learning Image
 
 |Name|Description|Schema|
 |---|---|---|
-|**computeResourceId**  <br>*required*|The id of the environment created in the Machine Learning Compute|string|
+|**computeResourceId**  <br>*required*|The ID of the environment created in the Machine Learning Compute|string|
 |**description**  <br>*optional*|The Image description text|string|
 |**imageType**  <br>*required*||[ImageType](#imagetype)|
-|**manifestId**  <br>*required*|The id of the Manifest from which the Image will be created|string|
+|**manifestId**  <br>*required*|The ID of the Manifest from which the Image will be created|string|
 |**name**  <br>*required*|The Image name|string|
 
 
@@ -764,7 +764,7 @@ The Azure Machine Learning Manifest
 |**createdTime**  <br>*optional*  <br>*read-only*|The Manifest creation time (UTC)|string (date-time)|
 |**description**  <br>*optional*|The Manifest description text|string|
 |**driverProgram**  <br>*required*|The driver program of the Manifest.|string|
-|**id**  <br>*optional*|The Manifest id|string|
+|**id**  <br>*optional*|The Manifest ID|string|
 |**modelIds**  <br>*optional*|List of Model Ids of the registered models. The request will fail if any of the included models is not registered|< string > array|
 |**modelType**  <br>*optional*|Specifies that the models are already registered with the Model Management Service|enum (Registered)|
 |**name**  <br>*required*|The Manifest name|string|
@@ -882,7 +882,7 @@ Detailed status of the Service
 |Name|Description|Schema|
 |---|---|---|
 |**createdAt**  <br>*optional*|The Service creation time (UTC)|string (date-time)|
-|**id**  <br>*optional*|The Service id|string|
+|**ID**  <br>*optional*|The Service ID|string|
 |**image**  <br>*optional*||[Image](#image)|
 |**manifest**  <br>*optional*||[Manifest](#manifest)|
 |**models**  <br>*optional*|List of models|< [Model](#model) > array|
@@ -902,7 +902,7 @@ Detailed status of the Service
 
 <a name="serviceupdaterequest"></a>
 ### ServiceUpdateRequest
-Request to update a Service
+Request to update a service
 
 
 |Name|Description|Schema|
