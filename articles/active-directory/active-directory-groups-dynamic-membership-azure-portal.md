@@ -48,6 +48,7 @@ When any attributes of a user or device change, the system evaluates all dynamic
 
 5. After creating the rule, select **Add query** at the bottom of the blade.
 6. Select **Create** on the **Group** blade to create the group.
+
 > [!TIP]
 > Group creation may fail if the advanced rule you entered was incorrect. A notification will be displayed in the upper-right hand corner of the portal; it contains an explanation of why the rule could not be accepted by the system. Read it carefully to understand how you need to adjust the rule to make it valid.
 
