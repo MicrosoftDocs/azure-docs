@@ -1,4 +1,4 @@
----
+l---
 title: Overview of Azure IoT Edge | Microsoft Docs
 description: Describes the key architectural concepts in Azure IoT Edge such as gateways, modules, and brokers.
 services: iot-hub
@@ -48,7 +48,7 @@ A module uses the **Broker_Publish** function to publish a message to the broker
 
 There are two ways to direct messages to the correct IoT Edge modules:
 
-* You can pass a set of links to the broker so the broker knows the source and sink for each module.
+* You can pass a set of links to the broker so the broker knows the source and link for each module.
 * A module can filter on the properties of the message.
 
 A module should only act upon a message if the message is intended for it. Links and message filtering effectively create a message pipeline.
