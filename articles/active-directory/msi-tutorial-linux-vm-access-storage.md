@@ -1,6 +1,6 @@
 ---
-title: Use a Linux VM MSI to access Azure storage
-description: A tutorial that walks you through the process of using a Linux VM Managed Service Identity (MSI) to access Azure storage.
+title: Use a Linux VM MSI to access Azure Storage
+description: A tutorial that walks you through the process of using a Linux VM Managed Service Identity (MSI) to access Azure Storage.
 services: active-directory
 documentationcenter: ''
 author: elkuzmen
@@ -17,11 +17,11 @@ ms.author: elkuzmen
 ---
 
 
-# Use a Linux VM Managed Service Identity to access Azure storage
+# Use a Linux VM Managed Service Identity to access Azure Storage
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to enable Managed Service Identity (MSI) for a Linux Virtual Machine and then use that identity to access storage keys. You can use storage keys as usual when doing storage operations, for example when using the Storage SDK. For this tutorial, we upload and download blobs using Azure CLI. You will learn how to:
+This tutorial shows you how to enable Managed Service Identity (MSI) for a Linux Virtual Machine and then use that identity to retrieve storage access keys. You can use a storage access key as usual when doing storage operations, for example when using the Storage SDK. For this tutorial, we upload and download blobs using Azure CLI. You will learn how to:
 
 > [!div class="checklist"]
 > * Enable MSI on a Linux Virtual Machine 
@@ -88,15 +88,15 @@ Later we will upload and download a file to the new storage account. Because fil
 
     ![Create storage container](media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## Grant your VM's MSI access to use storage keys 
+## Grant your VM's MSI access to use a storage access key
 
-Azure storage does not natively support Azure AD authentication.  However, you can use an MSI to retrieve storage keys from the Resource Manager, then use a key to access storage.  In this step, you grant your VM MSI access to the keys to your storage account.   
+Azure Storage does not natively support Azure AD authentication.  However, you can use an MSI to retrieve storage access keys from the Resource Manager, then use a key to access storage.  In this step, you grant your VM MSI access to the keys to your storage account.   
 
 1. Navigate back to your newly created storage account.
 2. Click the **Access control (IAM)** link in the left panel.  
 3. Click **+ Add** on top of the page to add a new role assignment for your VM
 4. Set **Role** to "Storage Account Key Operator Service Role", on the right side of the page. 
-5. In the next dropdown, set **Assign access** to the resource "Virtual Machine".  
+5. In the next dropdown, set **Assign access to** the resource "Virtual Machine".  
 6. Next, ensure the proper subscription is listed in **Subscription** dropdown, then set **Resource Group** to "All resource groups".  
 7. Finally, under **Select** choose your Linux Virtual Machine in the dropdown, then click **Save**. 
 
@@ -108,11 +108,10 @@ For the remainder of the tutorial, we will work from the VM we created earlier.
 
 To complete these steps, you will need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/install_guide).
 
-1. In the Azure portal, navigate to **Virtual Machines**, go to your Linux virtual machine, then from the **Overview** page click **Connect** at the top. You will be prompted to use Bash, make note of your SSH and VM IP in the alert. 
-2. Open and connect to Bash.  
-3. In the terminal, enter in your **SSH** and **VM** you wish to connect to for example, “ssh admin@12.61.219.35 ”.  
-4. Next, you will be prompted to enter in your **Password** you added when creating the **Linux VM**. You should then be successfully signed in.  
-5. Use CURL to get an access token for Azure Resource Manager.  
+1. In the Azure portal, navigate to **Virtual Machines**, go to your Linux virtual machine, then from the **Overview** page click **Connect** at the top. Copy the string to connect to your VM. 
+2. Connect to your VM using your SSH client.  
+3. Next, you will be prompted to enter in your **Password** you added when creating the **Linux VM**. You should then be successfully signed in.  
+4. Use CURL to get an access token for Azure Resource Manager.  
 
     The CURL request and response for the access token is below:
     
@@ -121,22 +120,29 @@ To complete these steps, you will need an SSH client. If you are using Windows, 
     ```
     
     > [!NOTE]
-    > The value of the "resource" parameter must be an exact match for what is expected by Azure AD. When using the Azure Resource Manager resource ID, you must include the trailing slash on the URI.
+    > In the previous request, the value of the "resource" parameter must be an exact match for what is expected by Azure AD. When using the Azure Resource Manager resource ID, you must include the trailing slash on the URI.
+    > In the following response, the access_token element as been shortened for brevity.
     
     ```bash
-    {"access_token":"eyJ0eXAiOiJ..."}
+    {"access_token":"eyJ0eXAiOiJ...",
+    "refresh_token":"",
+    "expires_in":"3599",
+    "expires_on":"1504130527",
+    "not_before":"1504126627",
+    "resource":"https://management.azure.com",
+    "token_type":"Bearer"} 
      ```
     
 ## Get storage account access keys from Azure Resource Manager to make storage calls  
 
 Now use CURL to call Resource Manager using the access token we retrieved in the previous section, to retrieve the storage access key. Once we have the storage access key, we can call storage upload/download operations.
 
-> [!NOTE]
-> The text in the URL is case sensitive, so ensure if you are using upper-lowercase for your Resource Groups to reflect it accordingly. Additionally, it’s important to know that this is a POST request not a GET request and ensure you pass a value to capture a length limit with -d that can be NULL.  
-
 ```bash 
 curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/listKeys?api-version=2016-12-01 –-request POST -d "" -H "Authorization: Bearer <ACCESS TOKEN>" 
 ```
+
+> [!NOTE]
+> The text in the prior URL is case sensitive, so ensure if you are using upper-lowercase for your Resource Groups to reflect it accordingly. Additionally, it’s important to know that this is a POST request not a GET request and ensure you pass a value to capture a length limit with -d that can be NULL.  
 
 The CURL response gives you the list of Keys:  
 
@@ -149,7 +155,7 @@ Create a sample blob file to upload to your blob storage container. On a Linux V
 echo "This is a test file." > test.txt
 ```
 
-Next, authenticate with the CLI `az storage` command using the storage key, and upload the file to the blob container.
+Next, authenticate with the CLI `az storage` command using the storage access key, and upload the file to the blob container. For this step, you will need to [install the latest Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) on your VM, if you haven't already.
  
 
 ```azurecli-interactive
@@ -166,7 +172,7 @@ Finished[#############################################################]  100.000
 }
 ```
 
-Additionally, you can download the file using the Azure CLI and authenticating with the storage key. 
+Additionally, you can download the file using the Azure CLI and authenticating with the storage access key. 
 
 Request: 
 
@@ -219,8 +225,8 @@ Response:
 ## Related content
 
 - For an overview of MSI, see [Managed Service Identity overview](../active-directory/msi-overview.md).
-- To learn how to do this same tutorial using a storage SAS credential, see [Use a Linux VM Managed Service Identity to access Azure storage via a SAS credential](msi-tutorial-linux-vm-access-storage-sas.md)
-- For more information about the Azure storage account SAS feature, see:
+- To learn how to do this same tutorial using a storage SAS credential, see [Use a Linux VM Managed Service Identity to access Azure Storage via a SAS credential](msi-tutorial-linux-vm-access-storage-sas.md)
+- For more information about the Azure Storage account SAS feature, see:
   - [Using shared access signatures (SAS)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1.md)
   - [Constructing a Service SAS](/rest/api/storageservices/Constructing-a-Service-SAS.md)
 

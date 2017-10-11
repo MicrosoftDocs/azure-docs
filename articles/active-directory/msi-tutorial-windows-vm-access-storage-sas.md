@@ -1,6 +1,6 @@
 ---
-title: Use a Windows VM MSI to access Azure storage using a SAS credential
-description: A tutorial that shows you how to use a Windows VM Managed Service Identity (MSI) to access Azure storage, using a SAS credential instead of a storage account access key.
+title: Use a Windows VM MSI to access Azure Storage using a SAS credential
+description: A tutorial that shows you how to use a Windows VM Managed Service Identity (MSI) to access Azure Storage, using a SAS credential instead of a storage account access key.
 services: active-directory
 documentationcenter: ''
 author: bryanla
@@ -16,7 +16,7 @@ ms.date: 10/11/2017
 ms.author: bryanla
 ---
 
-# Use a Windows VM Managed Service Identity to access Azure storage via a SAS credential
+# Use a Windows VM Managed Service Identity to access Azure Storage via a SAS credential
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
@@ -66,7 +66,7 @@ A Virtual Machine MSI enables you to get access tokens from Azure AD without you
 
 ## Create a storage Account 
 
-If you don't already have one, you will now create a storage account. You can also skip this step and grant your VM MSI access to the keys of an existing storage account. 
+If you don't already have one, you will now create a storage account. You can also skip this step and grant your VM MSI access to the SAS credential of an existing storage account. 
 
 1. Click the **+/Create new service** button found on the upper left-hand corner of the Azure portal.
 2. Click **Storage**, then **Storage Account**, and a new "Create storage account" panel will display.
@@ -90,17 +90,17 @@ Later we will upload and download a file to the new storage account. Because fil
 
 ## Grant your VM's MSI access to use a storage SAS 
 
-Azure storage does not natively support Azure AD authentication.  However, you can use an MSI to retrieve a storage SAS from the Resource Manager, then use the SAS to access storage.  In this step, you grant your VM MSI access to your storage account SAS.   
+Azure Storage does not natively support Azure AD authentication.  However, you can use an MSI to retrieve a storage SAS from Resource Manager, then use the SAS to access storage.  In this step, you grant your VM MSI access to your storage account SAS.   
 
 1. Navigate back to your newly created storage account.   
 2. Click the **Access control (IAM)** link in the left panel.  
 3. Click **+ Add** on top of the page to add a new role assignment for your VM
 4. Set **Role** to "Storage Account Contributor", on the right side of the page.  
-5. In the next dropdown, set **Assign access** to the resource "Virtual Machine".  
+5. In the next dropdown, set **Assign access to** the resource "Virtual Machine".  
 6. Next, ensure the proper subscription is listed in **Subscription** dropdown, then set **Resource Group** to "All resource groups".  
 7. Finally, under **Select** choose your Windows Virtual Machine in the dropdown, then click **Save**. 
 
-    ![Alt image text](media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)
+    ![Alt image text](media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
 
 ## Get an access token using the VM's identity and use it to call Azure Resource Manager 
 
@@ -108,10 +108,10 @@ For the remainder of the tutorial, we will work from the VM we created earlier.
 
 1. In the Azure portal, navigate to **Virtual Machines**, go to your Windows virtual machine, then from the **Overview** page click **Connect** at the top.
 2. Enter in your **Username** and **Password** for which you added when you created the Windows VM. 
-3. Now that you have created a **Remote Desktop Connection** with the virtual machine, open **PowerShell** in the remote session. 
+3. Now that you have created a **Remote Desktop Connection** with the virtual machine, open PowerShell in the remote session. 
 
     > [!NOTE]
-    > You will need to use the Azure Resource Manager **PowerShell** cmdlets in this portion.  If you don’t have it installed, [download the latest version](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1) before continuing.
+    > You will need to use the Azure Resource Manager PowerShell cmdlets in this portion.  If you don’t have it installed, [download the latest version](https://docs.microsoft.com/powershell/azure/overview) before continuing.
 
 4. Using Powershell’s Invoke-WebRequest, make a request to the local MSI endpoint to get an access token for Azure Resource Manager.
 
@@ -154,12 +154,12 @@ These parameters are included in the POST body of the request for the SAS creden
 First, convert the parameters to JSON, then call the storage `listServiceSas` endpoint to create the SAS credential:
 
 ```powershell
-PS C:\> $params = @{canonicalizedResource="/blob/<STORAGE-ACCOUNT-NAME>/<CONTAINER-NAME>";signedResource="c";signedPermission="rcw";signedProtocol="https";signedExpiry="2017-09-23T00:00:00Z"}
-PS C:\> $jsonParams = $params | ConvertTo-Json
+$params = @{canonicalizedResource="/blob/<STORAGE-ACCOUNT-NAME>/<CONTAINER-NAME>";signedResource="c";signedPermission="rcw";signedProtocol="https";signedExpiry="2017-09-23T00:00:00Z"}
+$jsonParams = $params | ConvertTo-Json
 ```
 
 ```powershell
-PS C:\> $sasResponse = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE-ACCOUNT-NAME>/listServiceSas/?api-version=2017-06-01 -Method POST -Body $jsonParams -Headers @{Authorization="Bearer $ArmToken"}
+$sasResponse = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE-ACCOUNT-NAME>/listServiceSas/?api-version=2017-06-01 -Method POST -Body $jsonParams -Headers @{Authorization="Bearer $ArmToken"}
 ```
 > [!NOTE] 
 > The URL is case-sensitive, so ensure you use the exact same case used earlier, when you named the Resource Group, including the uppercase "G" in "resourceGroups." 
@@ -167,14 +167,14 @@ PS C:\> $sasResponse = Invoke-WebRequest -Uri https://management.azure.com/subsc
 Now we can extract the SAS credential from the response:
 
 ```powershell
-PS C:\> $sasContent = $sasResponse.Content | ConvertFrom-Json
-PS C:\> $sasCred = $sasContent.serviceSasToken
+$sasContent = $sasResponse.Content | ConvertFrom-Json
+$sasCred = $sasContent.serviceSasToken
 ```
 
 If you inspect the SAS cred you'll see something like this:
 
 ```powershell
-PS C:\> $sasCred
+$sasCred
 sv=2015-04-05&sr=c&spr=https&se=2017-09-23T00%3A00%3A00Z&sp=rcw&sig=JVhIWG48nmxqhTIuN0uiFBppdzhwHdehdYan1W%2F4O0E%3D
 ```
 
@@ -184,14 +184,11 @@ Next we create a file called "test.txt". Then use the SAS credential to authenti
 echo "This is a test text file." > test.txt
 ```
 
-> [!NOTE]
-> First remember to install Azure storage cmdlets “Install-Module Azure.Storage”. 
-
-You can upload the blob you just created, using the `Set-AzureStorageBlobContent` PowerShell cmdlet:
+Be sure to install the Azure Storage cmdlets first, using `Install-Module Azure.Storage`. Then upload the blob you just created, using the `Set-AzureStorageBlobContent` PowerShell cmdlet:
 
 ```powershell
-PS C:\> $ctx = New-AzureStorageContext -StorageAccountName <STORAGE-ACCOUNT-NAME> -SasToken $sasCred
-PS C:\> Set-AzureStorageBlobContent -File test.txt -Container <CONTAINER-NAME> -Blob testblob -Context $ctx
+$ctx = New-AzureStorageContext -StorageAccountName <STORAGE-ACCOUNT-NAME> -SasToken $sasCred
+Set-AzureStorageBlobContent -File test.txt -Container <CONTAINER-NAME> -Blob testblob -Context $ctx
 ```
 
 Response:
@@ -211,7 +208,7 @@ Name              : testblob
 You can also download the blob you just uploaded, using the `Get-AzureStorageBlobContent` PowerShell cmdlet:
 
 ```powershell
-PS C:\> Get-AzureStorageBlobContent -Blob testblob -Container <CONTAINER-NAME> -Destination test2.txt -Context $ctx
+Get-AzureStorageBlobContent -Blob testblob -Container <CONTAINER-NAME> -Destination test2.txt -Context $ctx
 ```
 
 Response:
@@ -232,8 +229,8 @@ Name              : testblob
 ## Related content
 
 - For an overview of MSI, see [Managed Service Identity overview](../active-directory/msi-overview.md).
-- To learn how to do this same tutorial using a storage account key, see [Use a Windows VM Managed Service Identity to access Azure storage](msi-tutorial-windows-vm-access-storage.md)
-- For more information about the Azure storage account SAS feature, see:
+- To learn how to do this same tutorial using a storage account key, see [Use a Windows VM Managed Service Identity to access Azure Storage](msi-tutorial-windows-vm-access-storage.md)
+- For more information about the Azure Storage account SAS feature, see:
   - [Using shared access signatures (SAS)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1.md)
   - [Constructing a Service SAS](/rest/api/storageservices/Constructing-a-Service-SAS.md)
 
