@@ -102,7 +102,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Single sign-on dialog box](./media/active-directory-saas-textmagic-tutorial/tutorial_textmagic_samlbase.png)
 
-3. On the **TextMagic Domain and URLs** section, perform the following steps if you wish to configure the application in IDP initiated mode:
+3. On the **TextMagic Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
 	![TextMagic Domain and URLs single sign-on information](./media/active-directory-saas-textmagic-tutorial/tutorial_textmagic_url.png)
 
@@ -112,7 +112,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![TextMagic Domain and URLs single sign-on information](./media/active-directory-saas-textmagic-tutorial/url1.png)
 
-    In the **Sign-on URL** textbox, type a URL: `https://my.textmagic.com/login`
+    In the **Sign-on URL** textbox, type a URL: `https://my.textmagic.com/login/sso`
 
 
 5. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
