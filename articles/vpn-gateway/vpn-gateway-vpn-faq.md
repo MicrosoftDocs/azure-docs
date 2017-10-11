@@ -74,7 +74,7 @@ No. An Azure Vnet gateway type cannot be changed from policy-based to route-bas
 * [Azure portal](vpn-gateway-delete-vnet-gateway-portal)
 * [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell)
 * [Azure Powershell - classic](vpn-gateway-delete-vnet-gateway-classic-powershell)
-3.[Create a new gateway of desired type and complete the VPN setup](vpn-gateway-howto-site-to-site-resource-manager-portal#VNetGateway)
+3. [Create a new gateway of desired type and complete the VPN setup](vpn-gateway-howto-site-to-site-resource-manager-portal#VNetGateway)
 
 ### Do I need a 'GatewaySubnet'?
 
