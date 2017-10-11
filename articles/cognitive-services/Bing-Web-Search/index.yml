@@ -8,7 +8,7 @@ metadata:
   services: cognitive-services
   author: jerrykindall
   manager: carolz
-  ms.service: cosmos-db
+  ms.service: bing-web-search
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
@@ -52,7 +52,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="tutorial-bing-web-search-single-page-app">Single-Page Web app</a> | <a href="/azure/cosmos-db/tutorial-develop-mongodb">Source code</a>
+    - html: <a href="tutorial-bing-web-search-single-page-app">Single-Page Web app</a> | <a href="tutorial-bing-web-search-single-page-app-source">Source code</a>
     - html: <a href="import-data">Visual Search mobile app</a> | <a href="https://azure.microsoft.com/en-us/resources/samples/cognitive-services-xamarin-forms-computer-vision-search/">Download Visual Studio solution</a>
 - title: Reference
   items:

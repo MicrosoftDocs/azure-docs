@@ -8,7 +8,7 @@ metadata:
   services: cognitive-services
   author: jerrykindall
   manager: carolz
-  ms.service: cosmos-db
+  ms.service: bing-image-search
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
@@ -52,7 +52,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="tutorial-bing-image-search-single-page-app">Single-Page Web app</a> | <a href="/azure/cosmos-db/tutorial-develop-mongodb">Source code</a>
+    - html: <a href="tutorial-bing-image-search-single-page-app">Single-Page Web app</a> | <a href="tutorial-bing-image-search-single-page-app-source">Source code</a>
 - title: Reference
   items:
   - type: list
