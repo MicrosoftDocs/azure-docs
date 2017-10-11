@@ -16,7 +16,7 @@ ms.date: 09/19/2017
 ms.author: elkuzmen
 ---
 
-# Use a Windows VM Managed Service Identity to access Azure Storage
+# Use a Windows VM Managed Service Identity to access Azure Storage via access key
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
@@ -63,7 +63,7 @@ A Virtual Machine MSI enables you to get access tokens from Azure AD without you
 
     ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
-## Create a storage Account 
+## Create a storage account 
 
 If you don't already have one, you will now create a storage account. You can also skip this step and grant your VM MSI access to the keys of an existing storage account. 
 
@@ -103,15 +103,13 @@ Azure Storage does not natively support Azure AD authentication.  However, you c
 
 ## Get an access token using the VM's identity and use it to call Azure Resource Manager 
 
-For the remainder of the tutorial, we will work from the VM we created earlier.
+For the remainder of the tutorial, we will work from the VM we created earlier. 
+
+You will need to use the Azure Resource Manager PowerShell cmdlets in this portion.  If you don’t have it installed, [download the latest version](https://docs.microsoft.com/powershell/azure/overview) before continuing.
 
 1. In the Azure portal, navigate to **Virtual Machines**, go to your Windows virtual machine, then from the **Overview** page click **Connect** at the top. 
 2. Enter in your **Username** and **Password** for which you added when you created the Windows VM. 
 3. Now that you have created a **Remote Desktop Connection** with the virtual machine, open PowerShell in the remote session.
-
-    > [!NOTE]
-    > You will need to use the Azure Resource Manager PowerShell cmdlets in this portion.  If you don’t have it installed, [download the latest version](https://docs.microsoft.com/powershell/azure/overview) before continuing.
-
 4. Using Powershell’s Invoke-WebRequest, make a request to the local MSI endpoint to get an access token for Azure Resource Manager.
 
     ```powershell
