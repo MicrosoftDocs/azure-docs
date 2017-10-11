@@ -25,7 +25,7 @@ In Azure Stack, operators can make custom virtual machine images available to th
 
 ## Add a VM image to Marketplace by using PowerShell
 
-Run the following prerequisites, either from the [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
+Run the following prerequisites, either from the [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-by-using-remote-desktop-connection), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-by-using-vpn):
 
 1. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).  
 
