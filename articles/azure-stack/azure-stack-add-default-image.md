@@ -19,9 +19,9 @@ ms.author: sngun
 ---
 # Add the Windows Server 2016 VM image to the Azure Stack Marketplace
 
-By default, no virtual machine images are available in the Azure Stack Marketplace. An Azure Stack operator must add an image to the marketplace for users to access. You can add the Windows Server 2016 image to the Azure Stack Marketplace by using one of the following methods:
+By default, no virtual machine images are available in the Azure Stack Marketplace. An Azure Stack operator must add an image to the Marketplace for users to access. You can add the Windows Server 2016 image to the Azure Stack Marketplace by using one of the following methods:
 
-* [Download the image from the Azure Marketplace](#add-the-image-by-downloading-it-from-the-Azure-marketplace). Use this option if you are operating in a connected scenario and you have registered your Azure Stack instance with Azure.
+* [Download the image from the Azure Marketplace](#add-the-image-by-downloading-it-from-the-azure-marketplace). Use this option if you are operating in a connected scenario and you have registered your Azure Stack instance with Azure.
 
 * [Add the image by using PowerShell](#add-the-image-by-using-powershell). Use this option if you have deployed Azure Stack in an unconnected scenario, or in scenarios with limited connectivity.
 
@@ -35,7 +35,7 @@ By default, no virtual machine images are available in the Azure Stack Marketpla
 
    ![Download image from Azure](media/azure-stack-add-default-image/download-image.png)
 
-When the download is finished, the image is available in the **Marketplace Management** pane. The image also is available in the **Virtual Machines** pane.
+When the download is finished, the image is available under **Marketplace Management**. The image also is available under **Virtual Machines**.
 
 ## Add the image by using PowerShell
 
@@ -47,7 +47,7 @@ Run the following prerequisites, either from the [development kit](azure-stack-c
 
 2. Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md).  
 
-3. On the Windows Server Evaluations page, [download the Windows Server 2016 evaluation](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016). When prompted, select the **ISO** version of the download. Record the path to the download location, which is used later in these steps. This step requires internet connectivity.  
+3. On the Windows Server Evaluations page, [download the Windows Server 2016 evaluation](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016). When prompted, select the ISO version of the download. Record the path to the download location, which is used later in the steps described in this article. This step requires internet connectivity.  
 
 ### Add the image to the Azure Stack Marketplace
    
@@ -91,7 +91,7 @@ Run the following prerequisites, either from the [development kit](azure-stack-c
       -TenantId $TenantID 
     ```
 
-   b. **Active Directory Federation Services**. Use the following cmdlet:
+   * **Active Directory Federation Services**. Use the following cmdlet:
     
     ```PowerShell
     # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
@@ -140,7 +140,7 @@ To ensure that the Windows Server 2016 VM image has the latest cumulative update
 |Net35|No|Installs the .NET 3.5 runtime on the Windows Server 2016 image. By default, this value is set to **true**.|
 |Version|No|Specifies **Core**, **Full**, or **Both** Windows Server 2016 images. By default, this value is set to **Full**.|
 |VHDSizeInMB|No|Sets the size (in MB) of the VHD image to be added to your Azure Stack environment. By default, this value is set to 40,960 MB.|
-|CreateGalleryItem|No|Specifies whether a marketplace item should be created for the Windows Server 2016 image. By default, this value is set to **true**.|
+|CreateGalleryItem|No|Specifies whether a Marketplace item should be created for the Windows Server 2016 image. By default, this value is set to **true**.|
 |location |No |Specifies the location to which the Windows Server 2016 image should be published.|
 |IncludeLatestCU|No|Applies the latest Windows Server 2016 cumulative update to the new VHD.|
 |CUUri |No |Sets the Windows Server 2016 cumulative update to run from a specific URI. |

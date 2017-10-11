@@ -21,17 +21,17 @@ ms.author: sngun
 
 *Applies to: Azure Stack Development Kit*
 
-To manage resources, you must first connect to the Azure Stack Development Kit. In this article, we describe the steps that are required to connect to the development kit. You can use one of the following connection options:
+To manage resources, you must first connect to the Azure Stack Development Kit. In this article, we describe the steps that you take to connect to the development kit. You can use one of the following connection options:
 
-* [Remote Desktop](#connect-with-remote-desktop): A single concurrent user can quickly connect from the development kit.
-* [Virtual Private Network (VPN)](#connect-with-vpn): Multiple concurrent users can connect from clients outside of the Azure Stack infrastructure (requires setup).
+* [Remote Desktop Connection](#connect-with-remote-desktop). When you connect by using Remote Desktop Connection, a single concurrent user can quickly connect from the development kit.
+* [Virtual private network (VPN)](#connect-with-vpn). When you connect by using a VPN, multiple concurrent users can connect from clients outside the Azure Stack infrastructure (requires setup).
 
 ## Connect to Azure Stack by using Remote Desktop Connection
 A single concurrent user can manage resources in the operator portal or the user portal through Remote Desktop Connection.
 
-1. Open Remote Desktop Connection, and then connect to the development kit. For the user name, enter **AzureStack\AzureStackAdmin**. Use the operator's password that you specified when you set up Azure Stack.  
+1. Open Remote Desktop Connection and connect to the development kit. For the user name, enter **AzureStack\AzureStackAdmin**. Use the operator password that you specified when you set up Azure Stack.  
 
-2. On the development kit computer, open Server Manager. Select **Local Server**, turn off **Internet Explorer Enhanced Security**, and then close Server Manager.
+2. On the development kit computer, open Server Manager. Select **Local Server**, clear the **Internet Explorer Enhanced Security** check box, and then close Server Manager.
 
 3. To open the [user portal](azure-stack-key-features.md#portal), go to https://portal.local.azurestack.external/. Sign in by using user credentials. To open the Azure Stack [operator portal](azure-stack-key-features.md#portal), go to https://adminportal.local.azurestack.external/. Sign in by using the Azure Active Directory (Azure AD) credentials that you specified during installation.
 
