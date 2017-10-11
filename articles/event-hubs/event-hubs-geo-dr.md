@@ -21,15 +21,11 @@ ms.author: sethm
 
 When regional datacenters experience downtime, it is critical for data processing to continue to operate in a different region or datacenter. As such, *Geo-disaster recovery* and *Geo-replication* are important features for any enterprise. Azure Event Hubs supports both Geo-disaster recovery and Geo-replication, at the namespace level. 
 
-## Outages and disasters
-
-The [Best practices against outages and disasters](../service-bus-messaging/service-bus-outages-disasters.md) article makes a distinction between "outages" and "disasters," which is important to note. An *outage* is the temporary unavailability of Azure Event Hubs, and can affect some components of the service, such as a messaging store, or even the entire datacenter. However, after the problem has been fixed, Event Hubs becomes available again. Typically, an outage does not cause the loss of events or other data. An example of such an outage might be a power failure in the datacenter.
-
-A *disaster* is defined as the permanent loss of an Event Hubs resource or datacenter. The datacenter may or may not become available again, or may be down for hours or days. A disaster typically causes the loss of some or all events or other data. Examples of such disasters are fire, flooding, or earthquake.
-
-The Geo-disaster recovery feature of Azure Event Hubs is a disaster recovery solution. The concepts and workflow described in this article apply to disaster scenarios, and not to transient, or temporary outages. 
-
 Geo-disaster recovery attempts to recover from the loss of application functionality in regional disaster scenarios. For example, if an Azure region hosting your Event Hubs service becomes unavailable, a backup Event Hubs service exists in another region, and there is minimal disruption.
+
+The Geo-disaster recovery feature of Azure Event Hubs is a disaster recovery solution. The concepts and workflow described in this article apply to disaster scenarios, and not to transient, or temporary outages.
+
+For a detailed discussion of disaster recovery in Microsoft Azure, see [this article](/azure/architecture/resiliency/disaster-recovery-azure-applications). 
 
 ## Configuration workflow
 
@@ -51,7 +47,7 @@ The following sequence describes a typical disaster scenario:
 
 1. Some disaster occurs and the primary Event Hubs namespace goes down. At this point you want to take some mitigation action.
 
-2. You run code that [triggers a failover](../service-bus-messaging/service-bus-geo-dr.md#initiate-a-failover) of the Event Hubs namespace from primary to secondary.
+2. You run code that triggers a failover of the Event Hubs namespace from primary to secondary.
 
 3. After failover is triggered, metadata and data starts flowing into the secondary namespace.
 
@@ -103,7 +99,7 @@ The following section describes the steps for performing Geo-disaster recovery i
 
 After this step, the secondary namespace becomes the primary namespace.
 
-1. [Initiate a fail-over](../service-bus-messaging/service-bus-geo-dr.md#initiate-a-failover). This step is only performed on the secondary namespace. The geo-pairing is broken and the alias now points to the secondary namespace.
+1. Initiate a fail-over. This step is only performed on the secondary namespace. The geo-pairing is broken and the alias now points to the secondary namespace.
 4. Senders and receivers still connect to the event hubs using the alias. The failover does not disrupt the connection.
 5. Because the pairing is broken, the old primary namespace no longer has a replication status associated with it.
 6. The metadata synchronization between the primary and secondary namespaces also stops.
@@ -112,7 +108,7 @@ After this step, the secondary namespace becomes the primary namespace.
 
 ### Step 3: Other operations (optional)
 
-This step stops the meta-data synchronization between the primary and the secondary namespaces. After performing this step, the [geo-pairing is broken and the alias is deleted](../service-bus-messaging/service-bus-geo-dr.md#how-to-disable-geo-disaster-recovery).
+This step stops the meta-data synchronization between the primary and the secondary namespaces. After performing this step, the geo-pairing is broken and the alias is deleted.
 
 To delete the alias, you must delete the geo-pairing. Once the pairing deletion succeeds, you can delete the alias. At that point, the connection strings for the alias are also deleted.
 
