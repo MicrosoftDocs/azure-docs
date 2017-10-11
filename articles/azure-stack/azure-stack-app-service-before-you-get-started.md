@@ -42,9 +42,9 @@ Azure App Service on Azure Stack has a number of pre-requisite steps that must b
     
 ## High availability
 
-Azure App Service on Azure Stack is not currently able to offer High Availability because Azure Stack only deploys workloads into one single Fault Domain.
+Azure App Service on Azure Stack is not currently able to offer high availability because Azure Stack only deploys workloads into one single Fault Domain.
 
-To prepare Azure App Service on Azure Stack for High Availability, be sure to deploy the required File Server and SQL Server in a Highly Available configuration. When Azure Stack supports multiple fault domains, we will provide guidance on how to enable Azure App Service on Azure Stack in a Highly Available configuration.
+To prepare Azure App Service on Azure Stack for high availability, be sure to deploy the required File Server and SQL Server in a Highly Available configuration. When Azure Stack supports multiple fault domains, we will provide guidance on how to enable Azure App Service on Azure Stack in a Highly Available configuration.
 
 
 ## Certificates required for Azure App Service on Azure Stack
