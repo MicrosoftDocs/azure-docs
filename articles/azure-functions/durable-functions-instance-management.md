@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
-ms.author: cgillum
+ms.author: azfuncdf
 ---
 
 # Manage instances in Durable Functions (Azure Functions)
@@ -143,4 +143,4 @@ public static Task Run(
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to work with singletons](durable-functions-singletons.md)
+> [Learn how to use the HTTP APIs for instance management](durable-functions-http-api.md)

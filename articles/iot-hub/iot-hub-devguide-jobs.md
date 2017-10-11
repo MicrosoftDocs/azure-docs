@@ -29,7 +29,7 @@ Consider using jobs when: a solution back end needs to schedule and track progre
 * Invoke direct methods
 
 ## Job lifecycle
-Jobs are initiated by the solution back end and maintained by IoT Hub.  You can initiate a job through a service-facing URI (`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-11-14`) and query for progress on an executing job through a service-facing URI (`{iot hub}/jobs/v2/<jobId>?api-version=2016-11-14`).  Once a job is initiated, querying for jobs enables the back-end app to refresh the status of running jobs.
+Jobs are initiated by the solution back end and maintained by IoT Hub.  You can initiate a job through a service-facing URI (`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-11-14`) and query for progress on an executing job through a service-facing URI (`{iot hub}/jobs/v2/<jobId>?api-version=2016-11-14`). To refresh the status of running jobs once a job is initiated, run a job query.
 
 > [!NOTE]
 > When you initiate a job, property names and values can only contain US-ASCII printable alphanumeric, except any in the following set: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
@@ -40,7 +40,7 @@ Jobs are initiated by the solution back end and maintained by IoT Hub.  You can 
 The following reference topics provide you with more information about using jobs.
 
 ## Jobs to execute direct methods
-The following is the HTTP 1.1 request details for executing a [direct method][lnk-dev-methods] on a set of devices using a job:
+The following snippet shows the HTTPS 1.1 request details for executing a [direct method][lnk-dev-methods] on a set of devices using a job:
 
     ```
     PUT /jobs/v2/<jobId>?api-version=2016-11-14
@@ -63,7 +63,7 @@ The following is the HTTP 1.1 request details for executing a [direct method][ln
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        
     }
     ```
-The query condition can also be on a single device Id or on a list of device Ids as shown below
+The query condition can also be on a single device ID or on a list of device IDs as shown in the following examples:
 
 **Examples**
 ```
@@ -74,7 +74,7 @@ queryCondition = "deviceId IN ['MyDevice1']
 [IoT Hub Query Language][lnk-query] covers IoT Hub query language in additional detail.
 
 ## Jobs to update device twin properties
-The following is the HTTP 1.1 request details for updating device twin properties using a job:
+The following snippet shows the HTTPS 1.1 request details for updating device twin properties using a job:
 
     ```
     PUT /jobs/v2/<jobId>?api-version=2016-11-14
@@ -94,7 +94,7 @@ The following is the HTTP 1.1 request details for updating device twin propertie
     ```
 
 ## Querying for progress on jobs
-The following is the HTTP 1.1 request details for [querying for jobs][lnk-query]:
+The following snippet shows the HTTPS 1.1 request details for [querying for jobs][lnk-query]:
 
     ```
     GET /jobs/v2/query?api-version=2016-11-14[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
@@ -108,7 +108,7 @@ The following is the HTTP 1.1 request details for [querying for jobs][lnk-query]
 The continuationToken is provided from the response.  
 
 ## Jobs Properties
-The following is a list of properties and corresponding descriptions, which can be used when querying for jobs or job results.
+The following list shows the properties and corresponding descriptions, which can be used when querying for jobs or job results.
 
 | Property | Description |
 | --- | --- |
@@ -116,15 +116,15 @@ The following is a list of properties and corresponding descriptions, which can 
 | **startTime** |Application provided start time (ISO-8601) for the job. |
 | **endTime** |IoT Hub provided date (ISO-8601) for when the job completed. Valid only after the job reaches the 'completed' state. |
 | **type** |Types of jobs: |
-| **scheduledUpdateTwin**: A job used to update a set of desired properties or tags. | |
-| **scheduledDeviceMethod**: A job used to invoke a device method on a set of device twins. | |
+| | **scheduledUpdateTwin**: A job used to update a set of desired properties or tags. |
+| | **scheduledDeviceMethod**: A job used to invoke a device method on a set of device twins. |
 | **status** |Current state of the job. Possible values for status: |
-| **pending** : Scheduled and waiting to be picked up by the job service. | |
-| **scheduled** : Scheduled for a time in the future. | |
-| **running** : Currently active job. | |
-| **cancelled** : Job has been cancelled. | |
-| **failed** : Job failed. | |
-| **completed** : Job has completed. | |
+| | **pending**: Scheduled and waiting to be picked up by the job service. |
+| | **scheduled**: Scheduled for a time in the future. |
+| | **running**: Currently active job. |
+| | **canceled**: Job has been canceled. |
+| | **failed**: Job failed. |
+| | **completed**: Job has completed. |
 | **deviceJobStatistics** |Statistics about the job's execution. |
 
 **deviceJobStatistics** properties.
