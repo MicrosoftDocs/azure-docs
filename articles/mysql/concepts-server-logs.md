@@ -15,7 +15,7 @@ In Azure Database for MySQL the slow query log is available to users. Access to 
 For more information about the MySQL slow query log, see the MySQL reference manual's [slow query log section](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).
 
 ## Access server logs
-You can list and download Azure Database for MySQL server logs using the Azure portal, and the Azure CLI.
+You can list and download Azure Database for MySQL server logs using the [Azure portal](), and the [Azure CLI].
 
 ## Log retention
 Logs are available for up to seven days from their creation. If the total size of the available logs exceeds 7 GB, then the oldest files are deleted until space is available. 
@@ -28,10 +28,9 @@ By default the slow query log is disabled. To enable it, set slow_query_log to O
 
 Other parameters you can adjust include:
 
-- long_query_time: if a query takes longer than long_query_time (in seconds) that query is logged. The default is 10 seconds.
-- log_slow_admin_statements: if ON includes administrative statements like ALTER_TABLE and ANALYZE_TABLE in the statements written to the slow_query_log.
-- log_queries_not_using_indexes: determines whether queries that do not use indexes are logged to the slow_query_log
-- log_throttle_queries_not_using_indexes: This parameter limits the number of non-index queries that can be written to the slow query log. This parameter takes effect when log_queries_not_using_indexes is set to ON.
+- **long_query_time**: if a query takes longer than long_query_time (in seconds) that query is logged. The default is 10 seconds.
+- **log_slow_admin_statements**: if ON includes administrative statements like ALTER_TABLE and ANALYZE_TABLE in the statements written to the slow_query_log.
+- **log_queries_not_using_indexes**: determines whether queries that do not use indexes are logged to the slow_query_log
+- **log_throttle_queries_not_using_indexes**: This parameter limits the number of non-index queries that can be written to the slow query log. This parameter takes effect when log_queries_not_using_indexes is set to ON.
 
 See the MySQL [slow query log documentation](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) for full descriptions of the slow query log parameters.
-
