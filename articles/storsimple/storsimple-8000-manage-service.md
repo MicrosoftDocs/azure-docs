@@ -89,7 +89,7 @@ Review the impact of migrating to the new Azure portal before you move the servi
 
 * You can no longer manage your devices from the classic portal.
 
-* The existing Azure Service Management (ASM) PowerShell cmdlets are not supported. Update the scripts to manage your devices through the Azure Resource Manager. For more information, go to the [script samples using Azure Resource Manager SDK](https://github.com/anoobbacker/storsimpledevicemgmttools).
+* The existing Azure Service Management (ASM) PowerShell cmdlets are not supported. Update the scripts to manage your devices through the Azure Resource Manager. For more information, go to the [Use Azure Resource Manager SDK-based scripts to manage StorSimple devices](storsimple-8000-automation-azurerm-scripts.md).
 
 * Your service and device configuration are retained. All your volumes and backups are also transitioned to the Azure portal.
 
