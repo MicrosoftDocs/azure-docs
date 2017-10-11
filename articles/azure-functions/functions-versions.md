@@ -61,7 +61,7 @@ When you need to target a major version other than the current major version or 
 
     ![Select function app settings](./media/functions-versions/add-update-app-setting1a.png)
 
-2. In the **Application settings** tab, find the `FUNCTIONS_EXTENSION_VERSION` setting and change the value to `beta`. 
+2. In the **Application settings** tab, find the `FUNCTIONS_EXTENSION_VERSION` setting and change the value to a valid major version of the 1.x runtime or `beta` for version 2.0. 
 
     ![Set the function app setting](./media/functions-versions/add-update-app-setting2.png)
 
@@ -74,6 +74,8 @@ When you need to target a major version other than the current major version or 
 ```azurecli-interactive
 az functionapp config appsettings set --name <function_app> \
 --resource-group <my_resource_group> \
---settings FUNCTIONS_EXTENSION_VERSION=beta
+--settings FUNCTIONS_EXTENSION_VERSION=<version>
 ```
-In this code, replace `<function_app>` with the name of your function app. Also replace `<my_resource_group>` with the name of the resource group for your function app. You can run this command from the [Azure Cloud Shell](../cloud-shell/overview.md) by choosing **Try it** in the preceding code sample. You can also use the [Azure CLI locally](/cli/azure/install-azure-cli) to execute this command after executing [az login](/cli/azure#az_login) to sign in.
+In this code, replace `<function_app>` with the name of your function app. Also replace `<my_resource_group>` with the name of the resource group for your function app. Replace `<version>` with a valid major version of the 1.x runtime or `beta` for version 2.0. 
+
+You can run this command from the [Azure Cloud Shell](../cloud-shell/overview.md) by choosing **Try it** in the preceding code sample. You can also use the [Azure CLI locally](/cli/azure/install-azure-cli) to execute this command after executing [az login](/cli/azure#az_login) to sign in.
