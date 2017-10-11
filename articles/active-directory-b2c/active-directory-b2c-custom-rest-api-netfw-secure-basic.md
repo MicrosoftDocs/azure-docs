@@ -31,6 +31,7 @@ Complete the steps in the [Integrate REST API claims exchanges in your Azure AD 
 
 ### Step 1.1: Add application settings to your project's web.config file
 1. Open the Visual Studio project that you created earlier. 
+
 2. Add following application settings to the web.config file under the `appSettings` element:
 
     ```XML
@@ -221,38 +222,56 @@ After your RESTful service is protected by the client ID (username) and secret, 
 ### Step 3.1: Add a RESTful services client ID
 1. In your Azure AD B2C tenant, select **B2C Settings** > **Identity Experience Framework**.
 
+
 2. Select **Policy Keys** to view the keys that are available in your tenant.
+
 3. Select **Add**.
+
 4. For **Options**, select **Manual**.
+
 5. For **Name**, select **B2cRestClientId**.  
     The prefix *B2C_1A_* might be added automatically.
+
 6. In the **Secret** box, enter the app ID that you defined earlier.
+
 7. For **Key usage**, select **Secret**.
+
 8. Select **Create**.
+
 9. Confirm that you've created the `B2C_1A_B2cRestClientId` key.
 
 ### Step 3.2: Add a RESTful services client secret
 1. In your Azure AD B2C tenant, select **B2C Settings** > **Identity Experience Framework**.
 
 2. Select **Policy Keys** to view the keys available in your tenant.
+
 3. Select **Add**.
+
 4. For **Options**, select **Manual**.
+
 5. For **Name**, select **B2cRestClientSecret**.  
     The prefix *B2C_1A_* might be added automatically.
+
 6. In the **Secret** box, enter the app secret that you defined earlier.
+
 7. For **Key usage**, select **Secret**.
+
 8. Select **Create**.
+
 9. Confirm that you've created the `B2C_1A_B2cRestClientSecret` key.
 
 ## Step 4: Change the technical profile to support basic authentication in your extension policy
 1. In your working directory, open the extension policy file (TrustFrameworkExtensions.xml).
 
 2. Search for the `<TechnicalProfile>` node that includes `Id="REST-API-SignUp"`.
+
 3. Locate the `<Metadata>` element.
+
 4. Change the *AuthenticationType* to *Basic*, as follows:
     ```xml
     <Item Key="AuthenticationType">Basic</Item>
     ```
+
 5. Immediately after the closing `<Metadata>` element, add the following XML snippet: 
 
     ```xml
@@ -270,9 +289,13 @@ After your RESTful service is protected by the client ID (username) and secret, 
 1. In the [Azure portal](https://portal.azure.com), switch to the [context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md), and then open **Azure AD B2C**.
 
 2. Select **Identity Experience Framework**.
+
 3. Open **All Policies**.
+
 4. Select **Upload Policy**.
+
 5. Select the **Overwrite the policy if it exists** check box.
+
 6. Upload the *TrustFrameworkExtensions.xml* file, and then ensure that it passes validation.
 
 ## Step 6: Test the custom policy by using Run Now
@@ -282,6 +305,7 @@ After your RESTful service is protected by the client ID (username) and secret, 
     >**Run now** requires at least one application to be preregistered on the tenant. To learn how to register applications, see the Azure AD B2C [Get started](active-directory-b2c-get-started.md) article or the [Application registration](active-directory-b2c-app-registration.md) article.
 
 2. Open **B2C_1A_signup_signin**, the relying party (RP) custom policy that you uploaded, and then select **Run now**.
+
 3. Test the process by typing **Test** in the **Given Name** box.  
     Azure AD B2C displays an error message at the top of the page.
 
