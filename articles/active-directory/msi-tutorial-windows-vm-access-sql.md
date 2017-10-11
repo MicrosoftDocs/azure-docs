@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/9/2017
+ms.date: 10/12/2017
 ms.author: skwan
 ---
 
@@ -21,7 +21,7 @@ ms.author: skwan
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to use a Managed Service Identity (MSI) for a Windows virtual machine (VM) to access an Azure SQL server. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication without needing to insert credentials into your code. You learn how to:
+This tutorial shows you how to use a Managed Service Identity (MSI) for a Windows virtual machine (VM) to access an Azure SQL server. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without needing to insert credentials into your code. You learn how to:
 
 > [!div class="checklist"]
 > * Enable MSI on a Windows VM 
@@ -77,32 +77,39 @@ There are three steps to granting your VM access to a database:
 
 ### Create a group in Azure AD and make the VM MSI a member of the group
 
-You can use an existing Azure AD group, or create a new one.  You can create a new group using Azure AD PowerShell.  Download [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2), sign in using PowerShell `Connect-AzureAd`, and run the following command to create a group and save it in a variable:
+You can use an existing Azure AD group, or create a new one using Azure AD PowerShell.  
+
+First, install the [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) module. Then sign in using `Connect-AzureAD`, and run the following command to create the group, and save it in a variable:
 
 ```powershell
 $Group = New-AzureADGroup -DisplayName "VM MSI access to SQL" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
 ```
 
-The output looks like this, also examining the value of the variable:
+The output looks like the following, which also examines the value of the variable:
+
 ```powershell
-PS C:\> $Group = New-AzureADGroup -DisplayName "VM MSI access to SQL" -MailEnabled $false -SecurityEnabled $t
-rue -MailNickName "NotSet"
-PS C:\> $Group
+$Group = New-AzureADGroup -DisplayName "VM MSI access to SQL" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
+$Group
 ObjectId                             DisplayName          Description
 --------                             -----------          -----------
 6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 VM MSI access to SQL
 ```
 
-Next, add the VM's MSI to the group.  You need the MSI's **ObjectId**.  You can get the ObjectId using Azure PowerShell.  Download [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps), sign in using PowerShell `Login-AzureRmAccount`, and run the following command to get the ObjectId, entering the appropriate values for RESOURCE-GROUP and VM-NAME:
+Next, add the VM's MSI to the group.  You need the MSI's **ObjectId**, which you can get using Azure PowerShell.  First, download [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Then sign in using `Login-AzureRmAccount`, and run the following commands to:
+- Ensure your session context is set to the desired Azure subscription, if you have multiple ones.
+- List the available resources in your Azure subcription, in verify the correct resource group and VM names.
+- Get the MSI VM's properties, using the appropriate values for `<RESOURCE-GROUP>` and `<VM-NAME>`.
 
 ```powershell
+Set-AzureRMContext -subscription "bdc79274-6bb9-48a8-bfd8-00c140fxxxx"
+Get-AzureRmResource
 $VM = Get-AzureRmVm -ResourceGroup <RESOURCE-GROUP> -Name <VM-NAME>
 ```
 
-The output looks like this, also examining the value of the VM's MSI ObjectId:
+The output looks like the following, which also examines the service principal Object ID of the VM's MSI:
 ```powershell
-PS C:\> $VM = Get-AzureRmVm -ResourceGroup HR-PROD -Name HR-FE-01
-PS C:\> $VM.Identity.PrincipalId
+$VM = Get-AzureRmVm -ResourceGroup DevTestGroup -Name DevTestWinVM
+$VM.Identity.PrincipalId
 b83305de-f496-49ca-9427-e77512f6cc64
 ```
 
@@ -111,43 +118,39 @@ Now add the VM MSI to the group.  You can only add a service principal to a grou
 Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId $VM.Identity.PrincipalId
 ```
 
-The output looks like this, if you also examine the group membership afterward:
+If you also examine the group membership afterward, the output looks as follows:
+
 ```powershell
-PS C:\> Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId $VM.Identity.PrincipalId
-PS C:\> Get-AzureAdGroupMember -ObjectId $Group.ObjectId
+Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId $VM.Identity.PrincipalId
+Get-AzureAdGroupMember -ObjectId $Group.ObjectId
 
 ObjectId                             AppId                                DisplayName
 --------                             -----                                -----------
-b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f HR-FE-01
+b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTestWinVM
 ```
 
 ### Enable Azure AD authentication for the SQL server
 
-Now that you have created the group and added the VM MSI to the membership, you can configure Azure AD authentication for the SQL server:
-
-1.  Navigate to the Azure SQL server in the Azure portal.
-2.  In the left-hand navigation pane, click **Active Directory admin**.
-3.  In the command bar, click **Set admin**.
-4.  Select an Azure AD user account to be made an administrator of the server, and click **Select**.
-5.  In the command bar, click **Save**.
+Now that you have created the group and added the VM MSI to the membership, you can [configure Azure AD authentication for the SQL server](/azure/sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-server) using the following steps:
 
 1.	In the Azure portal, select **SQL servers** from the left-hand navigation.
-2.	Click the SQL server that will be enabled for Azure AD authentication.
+2.	Click the SQL server to be enabled for Azure AD authentication.
 3.	In the **Settings** section of the blade, click **Active Directory admin**.
 4.	In the command bar, click **Set admin**.
-5.	Sele** an Azure AD user account to be made an administrator of the server, and click **Select.**
+5.	Select an Azure AD user account to be made an administrator of the server, and click **Select.**
 6.	In the command bar, click **Save.**
 
+### Create a contained user in the database that represents the Azure AD group
 
+For this next step, you will need [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Before beginning, it may also be helpful to review the following articles for background on Azure AD integration:
 
-### Create a contained user in the database the represents the Azure AD group
-
-For this next step, you will need [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
+- [Universal Authentication with SQL Database and SQL Data Warehouse (SSMS support for MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication.md)
+- [Configure and manage Azure Active Directory authentication with SQL Database or SQL Data Warehouse](/azure/sql-database/sql-database-aad-authentication-configure.md)
 
 1.  Start SQL Server Management Studio.
 2.  In the **Connect to Server** dialog, Enter your SQL server name in the **Server name** field.
 3.  In the **Authentication** field, select **Active Directory - Universal with MFA support**.
-4.  In the **User name** field, enter the name of the Azure AD account that you set as the server administrator, e.g. helen@woodgroveonline.com
+4.  In the **User name** field, enter the name of the Azure AD account that you set as the server administrator, for example, helen@woodgroveonline.com
 5.  Click **Options**.
 6.  In the **Connect to database** field, enter the name of the non-system database you want to configure.
 7.  Click **Connect**.  Complete the sign-in process.
@@ -159,14 +162,14 @@ For this next step, you will need [Microsoft SQL Server Management Studio](https
      CREATE USER [VM MSI access to SQL] FROM EXTERNAL PROVIDER
      ```
     
-     The command should complete successfully.  This creates the contained user for the group.
+     The command should complete successfully, creating the contained user for the group.
 11.  Clear the query window, enter the following line, and click **Execute** in the toolbar:
      
      ```
      ALTER ROLE db_datareader ADD MEMBER [VM MSI access to SQL]
      ```
 
-     The command should complete successfully.  This grants the contained user the ability to read the entire database.
+     The command should complete successfully, granting the contained user the ability to read the entire database.
 
 Code running in the VM can now get a token from MSI and use the token to authenticate to the SQL server.
 
@@ -238,7 +241,7 @@ Alternatively, a quick way to test the end to end setup without having to write 
     Extract the access token from the response.
     
     ```powershell
-    $ArmToken = $content.access_token
+    $AccessToken = $content.access_token
     ```
 
 5.  Open a connection to the SQL server. Remember to replace the values for AZURE-SQL-SERVERNAME and DATABASE.
@@ -262,7 +265,7 @@ Alternatively, a quick way to test the end to end setup without having to write 
     $SqlAdapter.Fill($DataSet)
     ```
 
-Examine the value of ```powershell $DataSet``` to view the results of the query.  Congratulations, you've queried the database using a VM MSI and without needing to supply credentials!
+Examine the value of `$DataSet.Tables[0]` to view the results of the query.  Congratulations, you've queried the database using a VM MSI and without needing to supply credentials!
 
 ## Related content
 
