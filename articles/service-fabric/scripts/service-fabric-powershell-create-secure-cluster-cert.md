@@ -1,5 +1,5 @@
 ﻿---
-title: Azure PowerShell Script Sample - Create a Service Fabric cluster| Microsoft Docs
+title: Azure PowerShell Script Sample - Create a Service Fabric cluster | Microsoft Docs
 description: Azure PowerShell Script Sample - Create a Service Fabric cluster.
 services: service-fabric
 documentationcenter: 

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 09/29/2017
+ms.date: 10/09/2017
 ms.author: genemi
 ---
 # Use Virtual Network service endpoints and rules for Azure SQL Database
@@ -121,6 +121,8 @@ You have the option of using [role-based access control (RBAC)][rbac-what-is-813
 ## Limitations
 
 For Azure SQL Database, the virtual network rules feature has the following limitations:
+
+- In the firewall for your SQL Database, each virtual network rule references a subnet. All these referenced subnets must be hosted in the same geographic region that hosts the SQL Database.
 
 - Each Azure SQL Database server can have up to 128 ACL entries for any given virtual network.
 
