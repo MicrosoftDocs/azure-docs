@@ -21,12 +21,12 @@ ms.author: elioda
 When sending information from the device app to the solution back end, IoT Hub exposes three options:
 
 * [Device-to-cloud messages][lnk-d2c] for time series telemetry and alerts.
-* [Reported properties][lnk-twins] for reporting device state information such as available capabilities, conditions, or the state of long-running workflows. For example, configuration and software updates.
+* [Device twin's reported properties][lnk-twins] for reporting device state information such as available capabilities, conditions, or the state of long-running workflows. For example, configuration and software updates.
 * [File uploads][lnk-fileupload] for media files and large telemetry batches uploaded by intermittently connected devices or compressed to save bandwidth.
 
 Here is a detailed comparison of the various device-to-cloud communication options.
 
-|  | Device-to-cloud messages | Reported properties | File uploads |
+|  | Device-to-cloud messages | Device twin's reported properties | File uploads |
 | ---- | ------- | ---------- | ---- |
 | Scenario | Telemetry time series and alerts. For example, 256-KB sensor data batches sent every 5 minutes. | Available capabilities and conditions. For example, the current device connectivity mode such as cellular or WiFi. Synchronizing long-running workflows, such as configuration and software updates. | Media files. Large (typically compressed) telemetry batches. |
 | Storage and retrieval | Temporarily stored by IoT Hub, up to 7 days. Only sequential reading. | Stored by IoT Hub in the device twin. Retrievable using the [IoT Hub query language][lnk-query]. | Stored in user-provided Azure Storage account. |
