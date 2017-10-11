@@ -17,7 +17,7 @@ ms.author: scottwhi
 
 When you query the web, Bing returns all content that it thinks is relevant to the search. For example, if the search query is "sailing+dinghies", the response might contain the following answers:
 
-```
+```json
 {
     "_type" : "SearchResponse",
     "webPages" : {
@@ -54,7 +54,7 @@ Host: api.cognitive.microsoft.com
 
 The following shows the response to the previous query. As you can see Bing didn't find relevant video and news results, so the response doesn't include them.
 
-```
+```json
 {
     "_type" : "SearchResponse",
     "images" : {
@@ -94,7 +94,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:con
 
 Bing includes answers in the response based on ranking. For example, if you query *sailing+dinghies*, Bing returns `webpages`, `images`, `videos`, and `relatedSearches`.
 
-```
+```json
 {
     "_type" : "SearchResponse",
     "queryContext" : {
@@ -122,7 +122,7 @@ Host: api.cognitive.microsoft.com
 
 The response includes only `webPages` and `images`.
 
-```
+```json
 {
     "_type" : "SearchResponse",
     "queryContext" : {
@@ -136,7 +136,7 @@ The response includes only `webPages` and `images`.
 
 If you add the `responseFilter` query parameter to the previous query and set it to webpages and news, the response contains only webpages because news is not ranked.
 
-```
+```json
 {
     "_type" : "SearchResponse",
     "queryContext" : {
@@ -163,7 +163,7 @@ Host: api.cognitive.microsoft.com
 
 The following is the response to the above request. Bing returns the top two answers, webpages and images, and promotes videos into the answer.
 
-```
+```json
 {
     "_type" : "SearchResponse",
     "queryContext" : {

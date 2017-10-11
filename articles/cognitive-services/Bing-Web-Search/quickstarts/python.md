@@ -1,5 +1,5 @@
 ---
-title: Python Quickstart for Azure Cognitive Services, Bing Web Search API | Microsoft Docs
+title: Call and response - Python Quickstart for Azure Cognitive Services, Bing Web Search API | Microsoft Docs
 description: Get information and code samples to help you quickly get started using the Bing Web Search API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.date: 9/18/2017
 ms.author: v-jerkin
 
 ---
-# Bing Web search call and response in Python
+# Call and response: your first Bing Image Search query in Python
 
 The Bing Web Search API provides a experience similar to Bing.com/Search by returning search results that Bing determines are relevant to the user's query. The results may include Web pages, images, videos, news, and entities, along with related search queries, spelling corrections, time zones, unit conversion, translations, and calculations. The kinds of results you get are based on their relevance and the tier of the Bing Search APIs to which you subscribe.
 

@@ -19,6 +19,13 @@ You can specify a country using the `cc` query parameter. If you specify a count
 
 Alternatively, you may specify the market using the `mkt` query parameter and a code from the **Markets** table. Specifying a market simultaneously specifies a country and a preferred language. The `setLang` query parameter may be set to a language code in this case; usually this is the same language specified by `mkt` unless the user prefers to see Bing in another language.
 
+> [!NOTE]
+> The Trending Images API currently supports only the following markets:
+> - en-US (English, United States) 
+> - en-CA (English, Canada) 
+> - en-AU (English, Australia) 
+> - zh-CN (Chinese, China)
+
 ## Countries
 
 |Country|Code|

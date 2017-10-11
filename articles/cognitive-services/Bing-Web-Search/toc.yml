@@ -8,17 +8,17 @@
       href: supported-countries-markets.md
 - name: Quickstarts
   items:
-  - name: Call and response in C#
+  - name: First query in C#
     href: quickstarts/csharp.md
-  - name: Call and response in Java
+  - name: First query in Java
     href: quickstarts/java.md
-  - name: Call and response for Node.js
+  - name: First query for Node.js
     href: quickstarts/nodejs.md
-  - name: Call and response in Python
+  - name: First query in Python
     href: quickstarts/python.md
-  - name: Call and response in PHP
+  - name: First query in PHP
     href: quickstarts/php.md
-  - name: Call and response in Ruby
+  - name: First query in Ruby
     href: quickstarts/ruby.md
 - name: How To Guides
   items:

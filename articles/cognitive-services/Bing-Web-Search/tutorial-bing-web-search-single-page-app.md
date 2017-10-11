@@ -382,7 +382,7 @@ The context arguments are:
 |`section`|The results section (`pole`, `mainline`, or `sidebar`) in which the item appears.
 |`index`<br>`count`|Available when the `rankingResponse` item specifies that all results in a given collection are to be displayed; `undefined` otherwise. These parameters receive the index of the item within its collection and the total number of items in that collection. You can this information to number the results, to generate different HTML for the first or last result, and so on.|
 
-In our tutorial app, both the `images` and `relatedSearches` renderers use the context arguments to customize the HTML they generate. Let's take a closer look at the `images' renderer:
+In our tutorial app, both the `images` and `relatedSearches` renderers use the context arguments to customize the HTML they generate. Let's take a closer look at the `images` renderer:
 
 ```javascript
 searchItemRenderers = { 

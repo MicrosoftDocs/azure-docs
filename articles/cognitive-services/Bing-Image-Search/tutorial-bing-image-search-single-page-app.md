@@ -271,7 +271,7 @@ Much of the code in both of the preceding functions is dedicated to error handli
 
 Errors are handled by calling `renderErrorMessage()` with any details known about the error. If the response passes the full gauntlet of error tests, we call `renderSearchResults()` to display the search results in the page.
 
-## Display search results
+## Displaying search results
 
 The main function for displaying the search results is `renderSearchResults()`. This function takes the JSON returned by the Bing Image Search service and renders the images and the related searches, if any.
 

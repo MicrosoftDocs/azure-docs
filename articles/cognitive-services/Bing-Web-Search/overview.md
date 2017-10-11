@@ -14,7 +14,7 @@ ms.author: scottwhi
 
 # About Bing Web Search API
 
-The Bing Web Search API provides a similar experience to Bing.com/Search by returning search results that Bing determines are relevant to the user's query. The results may include Web pages, images, videos, news, and entities, along with related search queries, spelling corrections, time zones, unit conversion, translations, and calculations. The kinds of results you get are based on their relevance and also the tier of the Bing Search APIs to which you subscribe.
+The Bing Web Search API provides an experience similar to Bing.com/search by returning search results that Bing determines are relevant to the user's query. The results may include Web pages, images, videos, news, and entities, along with related search queries, spelling corrections, time zones, unit conversion, translations, and calculations. The kinds of results you get are based on their relevance and also the tier of the Bing Search APIs to which you subscribe.
 
 If you're building a search results page that displays any content that's relevant to the user's search query, call this API instead of calling the other content-specific Bing APIs. The only time you should need to call the content-specific APIs, such as the [Image Search API](../bing-image-search/search-the-web.md) or [News Search API](../bing-news-search/search-the-web.md), is if you need answers from only that API. For example, if you're building an image-only search results page or a news-only search results page.
 
@@ -31,12 +31,12 @@ After the user enters their query term, URL-encode the term before setting the [
 
 If the query term contains a spelling mistake, the search response includes a [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#querycontext) object. The object shows the original spelling and the corrected spelling that Bing used for the search. 
 
-```
-  "queryContext":{  
-    "originalQuery":"sialing dingy for sale",  
-    "alteredQuery":"sailing dinghy for sale",  
-    "alterationOverrideQuery":"+sialing +dingy for sale"  
-  },  
+```json
+"queryContext":{  
+  "originalQuery":"sialing dingy for sale",  
+  "alteredQuery":"sailing dinghy for sale",  
+  "alterationOverrideQuery":"+sialing +dingy for sale"  
+},  
 ```
 
 You can use this information to let the user know that you modified their query string when you display the search results.
@@ -47,7 +47,7 @@ You can use this information to let the user know that you modified their query 
 
 When you send Bing a search request, it sends back a response that contains a [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) object in the body of the response. The object includes a field for each answer that Bing thought was relevant to the user's query term. The following shows an example of the response object if Bing returned all answers.
 
-```
+```json
 {
     "_type" : "SearchResponse",
     "queryContext" : {...},
@@ -68,7 +68,7 @@ Typically, Bing returns a subset of the answers. For example, if the query term 
 
 The [webPages](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) answer contains a list of links to webpages that Bing thought were relevant to the query. Each [webpage](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webpage) in the list includes the page's name, url, display URL, short description of the content and the date Bing found the content.
 
-```
+```json
         {
             "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/#WebPages.0",
             "name" : "Dinghy sailing - Wikipedia",
@@ -87,28 +87,28 @@ Use `name` and `url` to create a hyperlink that takes the user to the webpage. T
 
 The [images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) answer contains a list of images that Bing thought were relevant to the query. Each [image](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image) in the list includes the URL of the image, its size, its dimensions, and its encoding format. The image object also includes the URL of a thumbnail of the image and the thumbnail's dimensions.
 
-```
-        {
-            "name" : "File:Rich Passage Minto Sailing Dinghy.jpg - Wikipedia",
-            "webSearchUrl" : "https:\/\/www.bing.com\/cr?IG=3A43CA5CA64...",
-            "thumbnailUrl" : "https:\/\/tse1.mm.bing.net\/th?id=OIP....",
-            "datePublished" : "2011-10-29T11:26:00",
-            "contentUrl" : "http:\/\/upload.wikimedia.org\/wikipedia\/...",
-            "hostPageUrl" : "http:\/\/www.bing.com\/cr?IG=3A43CA5CA6464....",
-            "contentSize" : "79239 B",
-            "encodingFormat" : "jpeg",
-            "hostPageDisplayUrl" : "http:\/\/en.wikipedia.org\/wiki\/File...",
-            "width" : 526,
-            "height" : 688,
-            "thumbnail" : {
-                "width" : 229,
-                "height" : 300
-            },
-            "insightsSourcesSummary" : {
-                "shoppingSourcesCount" : 0,
-                "recipeSourcesCount" : 0
-            }
-        },
+```json
+{
+    "name" : "File:Rich Passage Minto Sailing Dinghy.jpg - Wikipedia",
+    "webSearchUrl" : "https:\/\/www.bing.com\/cr?IG=3A43CA5CA64...",
+    "thumbnailUrl" : "https:\/\/tse1.mm.bing.net\/th?id=OIP....",
+    "datePublished" : "2011-10-29T11:26:00",
+    "contentUrl" : "http:\/\/upload.wikimedia.org\/wikipedia\/...",
+    "hostPageUrl" : "http:\/\/www.bing.com\/cr?IG=3A43CA5CA6464....",
+    "contentSize" : "79239 B",
+    "encodingFormat" : "jpeg",
+    "hostPageDisplayUrl" : "http:\/\/en.wikipedia.org\/wiki\/File...",
+    "width" : 526,
+    "height" : 688,
+    "thumbnail" : {
+        "width" : 229,
+        "height" : 300
+    },
+    "insightsSourcesSummary" : {
+        "shoppingSourcesCount" : 0,
+        "recipeSourcesCount" : 0
+    }
+},
 ```
 
 Depending on the user's device, you'd typically display a subset of the thumbnails with an option for the user to view the remaining images. 
@@ -128,7 +128,7 @@ For details about the image answer and images, see [Image Search API](../bing-im
 
 The [relatedSearches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse-relatedsearches) answer contains a list of the most popular related queries made by other users. Each [query](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query_obj) in the list includes a query string (`text`), a query string with hit highlighting characters (`displayText`), and a URL (`webSearchUrl`) to Bing's search results page for that query.
 
-```
+```json
         {
             "text" : "porsche racing teams",
             "displayText" : "porsche racing teams",
@@ -149,34 +149,34 @@ The following shows an example of the related queries usage in Bing.com.
 
 The [videos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) answer contains a list of videos that Bing thought were relevant to the query. Each [video](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video) in the list includes the URL of the video, its duration, its dimensions, and its encoding format. The video object also includes the URL of a thumbnail of the video and the thumbnail's dimensions.
 
-```
-        {
-            "name" : "Mallard Sailing dinghy",
-            "description" : "Davilia is a 12 foot \"Mallard\" gunter rigged...",
-            "webSearchUrl" : "https:\/\/www.bing.com\/cr?IG=1CAE739681D84...",
-            "thumbnailUrl" : "https:\/\/tse2.mm.bing.net\/th?id=OVP.wsKiL...",
-            "datePublished" : "2013-11-06T01:56:28",
-            "publisher" : [{
-                "name" : "YouTube"
-            }],
-            "contentUrl" : "https:\/\/www.youtube.com\/watch?v=MrVBWZpJjX",
-            "hostPageUrl" : "https:\/\/www.bing.com\/cr?IG=1CAE739681D8400DB...",
-            "encodingFormat" : "mp4",
-            "hostPageDisplayUrl" : "https:\/\/www.youtube.com\/watch?v=MrBWZpJjXo",
-            "width" : 1280,
-            "height" : 720,
-            "duration" : "PT3M47S",
-            "motionThumbnailUrl" : "https:\/\/tse2.mm.bing.net\/th?id=OM.oa...",
-            "embedHtml" : "<iframe width=\"1280\" height=\"720\" src=\"http:\/\/www....><\/iframe>",
-            "allowHttpsEmbed" : true,
-            "viewCount" : 19089,
-            "thumbnail" : {
-                "width" : 300,
-                "height" : 168
-            },
-            "allowMobileEmbed" : true,
-            "isSuperfresh" : false
-        },
+```json
+{
+    "name" : "Mallard Sailing dinghy",
+    "description" : "Davilia is a 12 foot \"Mallard\" gunter rigged...",
+    "webSearchUrl" : "https:\/\/www.bing.com\/cr?IG=1CAE739681D84...",
+    "thumbnailUrl" : "https:\/\/tse2.mm.bing.net\/th?id=OVP.wsKiL...",
+    "datePublished" : "2013-11-06T01:56:28",
+    "publisher" : [{
+        "name" : "YouTube"
+    }],
+    "contentUrl" : "https:\/\/www.youtube.com\/watch?v=MrVBWZpJjX",
+    "hostPageUrl" : "https:\/\/www.bing.com\/cr?IG=1CAE739681D8400DB...",
+    "encodingFormat" : "mp4",
+    "hostPageDisplayUrl" : "https:\/\/www.youtube.com\/watch?v=MrBWZpJjXo",
+    "width" : 1280,
+    "height" : 720,
+    "duration" : "PT3M47S",
+    "motionThumbnailUrl" : "https:\/\/tse2.mm.bing.net\/th?id=OM.oa...",
+    "embedHtml" : "<iframe width=\"1280\" height=\"720\" src=\"http:\/\/www....><\/iframe>",
+    "allowHttpsEmbed" : true,
+    "viewCount" : 19089,
+    "thumbnail" : {
+        "width" : 300,
+        "height" : 168
+    },
+    "allowMobileEmbed" : true,
+    "isSuperfresh" : false
+}, ...
 ```
 
 Depending on the user's device, you'd typically display a subset of the videos with an option for the user to view the remaining videos. You'd display a thumbnail of the video with the video's length, description (name), and attribution (publisher). 
@@ -200,25 +200,25 @@ For details about the video answer and videos, see [Video Search API](../bing-vi
 
 The [news](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news) answer contains a list of news articles that Bing thought were relevant to the query. Each [news article](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) in the list includes the article's name, description, and URL to the article on the host's website. If the article contains an image, the object includes a thumbnail of the image.
 
-```
-        {
-            "name" : "WC Sailing Qualifies for America Trophy with...",
-            "url" : "http:\/\/www.bing.com\/cr?IG=3445EEF15DAF4FFFBF7...",
-            "image" : {
-                "contentUrl" : "http:\/\/www.washingtoncollegesports.com\/sports\/sail...",
-                "thumbnail" : {
-                    "contentUrl" : "https:\/\/www.bing.com\/th?id=ON.1...",
-                    "width" : 400,
-                    "height" : 272
-                }
-            },
-            "description" : "The Washington College sailing team qualified for a...",
-            "provider" : [{
-                "_type" : "Organization",
-                "name" : "washingtoncollegesports.com"
-            }],
-            "datePublished" : "2017-04-16T21:56:00"
-        },
+```json
+{
+    "name" : "WC Sailing Qualifies for America Trophy with...",
+    "url" : "http:\/\/www.bing.com\/cr?IG=3445EEF15DAF4FFFBF7...",
+    "image" : {
+        "contentUrl" : "http:\/\/www.washingtoncollegesports.com\/sports\/sail...",
+        "thumbnail" : {
+            "contentUrl" : "https:\/\/www.bing.com\/th?id=ON.1...",
+            "width" : 400,
+            "height" : 272
+        }
+    },
+    "description" : "The Washington College sailing team qualified for a...",
+    "provider" : [{
+        "_type" : "Organization",
+        "name" : "washingtoncollegesports.com"
+    }],
+    "datePublished" : "2017-04-16T21:56:00"
+},
 ```
 
 
@@ -239,7 +239,7 @@ A unit conversion query is a query that converts one unit to another. For exampl
   
 The following shows the `computation` answer for *How many feet in 10 meters?*  
   
-```  
+```json
 "computation" : {  
     "id" : "https:\/\/www.bing.com\/api\/v7\/#Computation",  
     "expression" : "10 meters",  
@@ -248,49 +248,44 @@ The following shows the `computation` answer for *How many feet in 10 meters?*
 ```  
   
 The following shows examples of mathematical queries and their corresponding `computation` answers.  
-  
-```  
+```
 Query: (5+3)(10/2)+8  
-  
 Encoded query: %285%2B3%29%2810%2F2%29%2B8  
-  
+```
+```json
 "computation" : {  
         "id" : "https:\/\/www.bing.com\/api\/v7\/#Computation",  
         "expression" : "((5+3)*(10\/2))+8",  
         "value" : "48"  
 }  
-  
-  
-  
+```
+```
 Query: sqrt(4^2+8^2)  
-  
 Encoded query: sqrt%284^2%2B8^2%29  
-  
+```
+```json
 "computation" : {  
         "id" : "https:\/\/www.bing.com\/api\/v7\/#Computation",  
         "expression" : "sqrt((4^2)+(8^2))",  
         "value" : "8.94427191"  
 }  
-  
-  
-  
+``` 
+``` 
 Query: 30 6/8 - 18 8/16  
-  
 Encoded query: 30%206%2F8%20-%2018%208%2F16  
-  
+```
+```json
 "computation" : {  
         "id" : "https:\/\/www.bing.com\/api\/v7\/#WolframAlpha",  
         "expression" : "30 6\/8-18 8\/16",  
         "value" : "12.25"  
 }  
-  
-  
-  
-  
+```
+```
 Query: 8^2+11^2-2*8*11*cos(37)  
-  
-Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29  
-  
+Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29 
+```
+```json
 "computation" : {  
         "id" : "https:\/\/www.bing.com\/api\/v7\/#Computation",  
         "expression" : "(8^2)+(11^2)-(2*8*11*cos(37))",  
@@ -440,13 +435,13 @@ Query: What time is it in the U.S.
 If Bing determines that the user may have intended to search for something different, the response includes a [SpellSuggestions](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#spellsuggestions) object. For example, if the user searches for *carlos pen*, Bing may determine that the user likely intended to search for Carlos Pena instead (based on past searches by others of *carlos pen*). The following shows an example spell response.  
   
 ```  
-    "spellSuggestions" : {  
-        "id" : "https:\/\/www.bing.com\/api\/v7\/#SpellSuggestions",  
-        "value" : [{  
-            "text" : "carlos pena",  
-            "displayText" : "carlos pena"  
-        }]  
-    },  
+"spellSuggestions" : {  
+    "id" : "https:\/\/www.bing.com\/api\/v7\/#SpellSuggestions",  
+    "value" : [{  
+        "text" : "carlos pena",  
+        "displayText" : "carlos pena"  
+    }]  
+},  
 ```  
   
 The following shows how Bing uses the spelling suggestion.  

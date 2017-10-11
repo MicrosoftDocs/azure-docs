@@ -15,7 +15,7 @@ ms.author: scottwhi
 
 # Search the web for images
 
-The Bing Image Search API provides an experience similar to Bing.com/Images by letting you send a user search query to Bing and get back a list of relevant images.
+The Bing Image Search API provides an experience similar to Bing.com/images by letting you send a user search query to Bing and get back a list of relevant images.
 
 If you're building an images-only search results page to find images that are relevant to the user's search query, call this API instead of calling the more general [Web Search API](../bing-web-search/search-the-web.md). If you want images and other types of content such as webpages, news, and videos, then call the Web Search API.
 

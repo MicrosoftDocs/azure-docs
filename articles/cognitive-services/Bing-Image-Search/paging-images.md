@@ -52,7 +52,7 @@ Host: api.cognitive.microsoft.com
   
 You might expect that if you page 35 images at a time, you would set the `offset` query parameter to 0 on your first request, and then increment `offset` by 35 on each subsequent request. However, some of the results in the subsequent response may be duplicates of the previous response. For example, the first two images in the response may be the same as the last two images from the previous response.
 
-To eliminate duplicate results, use the [nextOffset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#nextoffset) field of the `Images` object. The `nextOffset` field tells you the `offset` to use for your next request. For example, if you want to page 30 images at a time, you'd set `count` to 30 and `offset` to 0 in your first request. In your next request, you'd set 'count' to 30 and `offset` to the value of the previous response's `nextOffset`. To page backward, we suggest maintaining a stack of the previous offsets and popping the most recent.
+To eliminate duplicate results, use the [nextOffset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#nextoffset) field of the `Images` object. The `nextOffset` field tells you the `offset` to use for your next request. For example, if you want to page 30 images at a time, you'd set `count` to 30 and `offset` to 0 in your first request. In your next request, you'd set `count` to 30 and `offset` to the value of the previous response's `nextOffset`. To page backward, we suggest maintaining a stack of the previous offsets and popping the most recent.
 
 > [!NOTE]
 > Paging applies only to image search (/images/search), and not to image insights or trending images (/images/trending).

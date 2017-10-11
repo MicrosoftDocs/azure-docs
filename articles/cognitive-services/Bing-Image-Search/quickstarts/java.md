@@ -1,5 +1,5 @@
 ---
-title: Java Quickstart for Azure Cognitive Services, Bing Image Search API | Microsoft Docs
+title: Call and response - Java Quickstart for Azure Cognitive Services, Bing Image Search API | Microsoft Docs
 description: Get information and code samples to help you quickly get started using the Bing Image Search API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.date: 9/21/2017
 ms.author: v-jerkin
 
 ---
-# Bing Image Search call and response in Java
+# Call and response: your first Bing Image Search query in Java
 
 The Bing Image Search API provides an experience similar to Bing.com/Images by letting you send a user search query to Bing and get back a list of relevant images.
 

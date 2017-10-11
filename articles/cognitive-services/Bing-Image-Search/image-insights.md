@@ -20,16 +20,16 @@ Each image includes an insights token that you can use to get information about 
 To get insights about an image, capture the image's [imageInsightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image-imageinsightstoken) token in the response. 
 
 ```json
-    "value" : [{
-          . . .
-          "name":"sailing dinghy.jpg",
-          "imageInsightsToken" : "mid_D6426898706EC7..."
-          "insightsSourcesSummary" : {
-              "shoppingSourcesCount" : 9,
-              "recipeSourcesCount" : 0
-          },
-          . . .
-    }],
+"value" : [{
+        . . .
+        "name":"sailing dinghy.jpg",
+        "imageInsightsToken" : "mid_D6426898706EC7..."
+        "insightsSourcesSummary" : {
+            "shoppingSourcesCount" : 9,
+            "recipeSourcesCount" : 0
+        },
+        . . .
+}],
 ```
 
 Next, call the Image Details endpoint and set the [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken) query parameter to the token in `imageInsightsToken`.  
