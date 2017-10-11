@@ -23,6 +23,8 @@
     href: powershell-samples.md
 - name: Concepts
   items:
+  - name: Workspace upgrade
+    href: log-analytics-log-search-upgrade.md
   - name: Log Analytics FAQ
     href: log-analytics-faq.md
   - name: Data Consumption
@@ -33,8 +35,6 @@
     href: log-analytics-service-providers.md 
   - name: Log Search
     items:
-       - name: Workspace upgrade
-         href: log-analytics-log-search-upgrade.md
        - name: Log searches overview
          href: log-analytics-log-search-new.md   
        - name: Log Search FAQ
