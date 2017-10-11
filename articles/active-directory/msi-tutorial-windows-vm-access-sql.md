@@ -97,7 +97,7 @@ ObjectId                             DisplayName          Description
 
 Next, add the VM's MSI to the group.  You need the MSI's **ObjectId**, which you can get using Azure PowerShell.  First, download [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Then sign in using `Login-AzureRmAccount`, and run the following commands to:
 - Ensure your session context is set to the desired Azure subscription, if you have multiple ones.
-- List the available resources in your Azure subcription, in verify the correct resource group and VM names.
+- List the available resources in your Azure subscription, in verify the correct resource group and VM names.
 - Get the MSI VM's properties, using the appropriate values for `<RESOURCE-GROUP>` and `<VM-NAME>`.
 
 ```powershell
@@ -226,7 +226,7 @@ Alternatively, a quick way to test the end to end setup without having to write 
 1.	In the portal, navigate to **Virtual Machines** and go to your Windows virtual machine and in the **Overview**, click **Connect**. 
 2.	Enter in your **Username** and **Password** for which you added when you created the Windows VM. 
 3.	Now that you have created a **Remote Desktop Connection** with the virtual machine, open **PowerShell** in the remote session. 
-4.	Using Powershell’s `Invoke-WebRequest`, make a request to the local MSI endpoint to get an access token for Azure SQL.
+4.	Using PowerShell’s `Invoke-WebRequest`, make a request to the local MSI endpoint to get an access token for Azure SQL.
 
     ```powershell
        $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://database.windows.net/"} -Headers @{Metadata="true"}
