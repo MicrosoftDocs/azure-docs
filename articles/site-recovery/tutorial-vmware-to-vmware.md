@@ -57,7 +57,7 @@ Install the updates as follows:
 
 1. Download the [update](https://aka.ms/asr-scout-update6) .zip file. The file contains the following files: 
 
-[Note!]
+> [!NOTE]
 >All Scout components' update version may not be the same. The older version indicate that there is no change in the component since last update. 
 >
 
