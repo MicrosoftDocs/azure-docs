@@ -20,7 +20,7 @@ ms.author: sngun
 
 # Manage API version profiles in Azure Stack
 
-The API Apps feature of Azure App Service version profiles provides a way to manage version differences between Azure and Azure Stack. An API version profile is a set of AzureRM PowerShell modules with specific API versions. Each cloud platform has a set of supported API version profiles. For example, Azure Stack supports a specific, dated profile version, such as  **2017-03-09-profile**, and Azure supports the *latest* API version profile. When you install a profile, the AzureRM PowerShell modules that correspond to the specified profile are installed.
+The API Apps feature of Azure App Service version profiles provides a way to manage version differences between Azure and Azure Stack. An API version profile is a set of AzureRM PowerShell modules with specific API versions. Each cloud platform has a set of supported API version profiles. For example, Azure Stack supports a specific, dated profile version, such as **2017-03-09-profile**, and Azure supports the *latest* API version profile. When you install a profile, the AzureRM PowerShell modules that correspond to the specified profile are installed.
 
 ## Install the PowerShell module required to use API version profiles
 
@@ -29,7 +29,7 @@ The **AzureRM.Bootstrapper** module that's available through the PowerShell Gall
 ```PowerShell
 Install-Module -Name AzureRm.BootStrapper
 ```
-The **AzureRM.Bootstrapper** module is in preview, so the details and functionality are subject to change. To download and install the latest version of this module from the PowerShell Gallery, run the following cmdlet:
+The **AzureRM.Bootstrapper** module is a preview, so the details and functionality are subject to change. To download and install the latest version of this module from the PowerShell Gallery, run the following cmdlet:
 
 ```PowerShell
 Update-Module -Name "AzureRm.BootStrapper"
@@ -60,7 +60,7 @@ Use-AzureRmProfile -Profile 2017-03-09-profile -Scope CurrentUser
 Use-AzureRmProfile -Profile 2017-03-09-profile -Scope CurrentUser -Force
 ```
 
-To install and import selected AzureRM modules from an API version profile, run the **Use-AzureRMProfile** cmdlet with the **Module** parameter:
+To install and import selected AzureRM modules from an API version profile, run the **Use-AzureRMProfile** cmdlet with the *Module* parameter:
 
 ```PowerShell
 # Installs and imports the compute, Storage and Network modules from the specified API version profile into your current PowerShell session.
@@ -82,7 +82,7 @@ Get-AzureRmProfile
 
 Use the **Update-AzureRmProfile** cmdlet to update the modules in an API version profile to the latest version of modules that are available in the Powershell Gallery. We recommend that you run the **Update-AzureRmProfile** cmdlet in a new PowerShell session to avoid conflicts when you import modules. The **Update-AzureRmProfile** cmdlet runs the following tasks:
 
-1. Checks to see if the latest versions of modules are installed in the given API version profile for the current scope.  
+1. Checks to see if the latest versions of the modules are installed in the given API version profile for the current scope.  
 2. Prompts you to install the modules if they are not already installed.  
 3. Installs and imports the updated modules into the current PowerShell session.  
 
@@ -90,7 +90,7 @@ Use the **Update-AzureRmProfile** cmdlet to update the modules in an API version
 Update-AzureRmProfile -Profile 2017-03-09-profile
 ```
 
-To remove the previously installed versions of the modules before you update to the latest available version, use the **Update-AzureRmProfile** cmdlet along with the **-RemovePreviousVersions** parameter:
+To remove the previously installed versions of the modules before you update to the latest available version, use the **Update-AzureRmProfile** cmdlet along with the *-RemovePreviousVersions* parameter:
 
 ```PowerShell 
 Update-AzureRmProfile -Profile 2017-03-09-profile -RemovePreviousVersions
@@ -98,9 +98,9 @@ Update-AzureRmProfile -Profile 2017-03-09-profile -RemovePreviousVersions
 
 This cmdlet runs the following tasks:  
 
-1. Checks to see if the latest versions of modules are installed in the given API version profile for the current scope.  
-2. Removes the older versions of modules from the current API version profile and in the current PowerShell session.  
-3. Prompts you to install the latest version.  
+1. Checks to see if the latest versions of the modules are installed in the given API version profile for the current scope.  
+2. Removes the older versions of the modules from the current API version profile and in the current PowerShell session.  
+3. Prompts you to install the latest version of the modules.  
 4. Installs and imports the updated modules into the current PowerShell session.  
  
 ## Uninstall profiles
