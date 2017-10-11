@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 10/11/2017
 ms.author: sethm
 
 ---
@@ -20,6 +20,8 @@ ms.author: sethm
 # Azure Service Bus Geo-disaster recovery (Preview)
 
 When regional datacenters experience downtime, it is critical for data processing to continue to operate in a different region or datacenter. As such, *Geo-disaster recovery* and *Geo-replication* are important features for any enterprise. Azure Service Bus supports both Geo-disaster recovery and Geo-replication, at the namespace level. 
+
+The Geo-disaster recovery preview is currently only available in two regions (**North Central US** and **South Central US)**.
 
 ## Outages and disasters
 
@@ -128,9 +130,11 @@ This section describes how to build your own Service Bus Geo-disaster recovery c
         alias,
         new ArmDisasterRecovery { PartnerNamespace = geoDRSecondaryNS });
 
+    // A similar loop can be used to check if other operations (Failover, BreakPairing, Delete) 
+    // mentioned below have been successful.
     while (drStatus.ProvisioningState != ProvisioningStateDR.Succeeded)
     {
-        Console.WriteLine("Waiting for DR to be setup. Current State: " +
+        Console.WriteLine("Waiting for DR to be set up. Current state: " +
         drStatus.ProvisioningState);
         drStatus = client.DisasterRecoveryConfigs.Get(
         resourceGroupName,
@@ -138,7 +142,7 @@ This section describes how to build your own Service Bus Geo-disaster recovery c
         alias);
 
         Thread.CurrentThread.Join(TimeSpan.FromSeconds(30));
-    }  
+    }
     ```
 
 You have successfully set up two paired namespaces. Now you can create entities to observe the metadata synchronization. If you want to perform a failover immediately afterwards, you should allow some time for the metadata to synchronize. You can add a short sleep time, for example:
@@ -177,8 +181,9 @@ client.DisasterRecoveryConfigs.BreakPairing(resourceGroupName, geoDRPrimaryNS, a
 The following code deletes the alias you created:
 
 ```csharp
-// Delete DR config (alias).
+// Delete the DR config (alias).
 // Note that this operation must run against the namespace to which the alias is currently pointing.
+// If you break the pairing and want to delete the namespaces afterwards, you must delete the alias first.
 
 client.DisasterRecoveryConfigs.Delete(resourceGroupName, geoDRPrimaryNS, alias);
 ```
@@ -209,7 +214,8 @@ if(aliasPrimaryConnectionString == null)
 
 ## Next steps
 
-See the Geo-disaster recovery [REST API reference here](/rest/api/servicebus/disasterrecoveryconfigs).
+- See the Geo-disaster recovery [REST API reference here](/rest/api/servicebus/disasterrecoveryconfigs).
+- Run the Geo-disaster recovery [sample on GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2).
 
 To learn more about Service Bus messaging, see the following articles:
 
