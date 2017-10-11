@@ -33,11 +33,12 @@ Azure App Service on Azure Stack has a number of pre-requisite steps that must b
 1. Download the [App Service on Azure Stack deployment helper scripts](http://aka.ms/appsvconmasrc1helper).
 2. Extract the files from the helper scripts zip file. The following files and folder structure appear:
   - Create-AppServiceCerts.ps1
-  - Create-IdentityApp.ps1
+  - Create-AADIdentityApp.ps1
+  - Create-ADFSIdentityApp.ps1
   - Modules
     - AzureStack.Identity.psm1
     - GraphAPI.psm1
-
+    
 ## Certificates required for Azure App Service on Azure Stack
 
 ### Certificates required for the Azure Stack Development Kit
@@ -118,7 +119,9 @@ In a PowerShell session running as azurestack\AzureStackAdmin, execute the Get-A
 
 ## Prepare the File Server
 
-Azure App Service requires the use of a file server.
+Azure App Service requires the use of a file server. For production deployments this must be configured to be Highly Available and capable of handling failures.
+
+For use with Azure Stack Development Kit deployments only, you can use this example ARM Deployment Template to deploy a single node file server: https://aka.ms/appsvconmasdkfstemplate.
 
 ### Provision groups and accounts in Active Directory
 
@@ -169,11 +172,6 @@ md %WEBSITES_FOLDER%
 net share %WEBSITES_SHARE% /delete
 net share %WEBSITES_SHARE%=%WEBSITES_FOLDER% /grant:Everyone,full
 ```
-
-#### Provision the content share on a Failover cluster (Active Directory)
-
-On the Failover cluster, create the following UNC clustered resources:
-- WebSites
 
 ### To enable WinRM, add the FileShareOwners group to the local Administrators group
 
