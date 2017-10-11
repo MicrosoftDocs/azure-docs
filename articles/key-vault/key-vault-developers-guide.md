@@ -77,8 +77,7 @@ For more information on the 2.x version of the .NET SDK, see the [Release notes]
 
 In Node.js, the vault management API and the vault object API are separate. Key Vault Management allows creating and updating your key vault. Key Vault Operations API is for working with vault objects like; keys, secrets and certificates. 
 
-- [Node.js API reference for Key Vault Management](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)
-- [Node.js API reference for Key Vault Operations](http://azure.github.io/azure-sdk-for-node/azure-keyvault/latest/) 
+- [Node.js API reference for Key Vault](https://docs.microsoft.com/en-us/nodejs/api/overview/azure/key-vault/)
 
 ### Quick start
 
