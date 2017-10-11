@@ -71,10 +71,9 @@ Install the updates as follows:
 	- **RX server**: Copy **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** to the RX server, and extract it. In the extracted folder, run **/Install**.
 	- **Configuration server and process server**: Copy **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** to the configuration server and process server. Double-click to run it.<br>
 	- **Windows master target server**: To update the unified agent, copy **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** to the server. Double-click it to run it. The same unified agent is also applicable for the source server. If source hasn't been updated to Update 4, you should update the unified agent.
-  The update does not need to apply on Master target prepared with InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_28Sep2017_release.exe as this is new GA installer is with all the latest changes.
-
+  The update does not need to apply on Master target prepared with **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**  as this is new GA installer is with all the latest changes.
 	- **vContinuum server**:  Copy **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** to the server.  Make sure that you've closed the vContinuum wizard. Double-click on the file to run it.
-	The update does not need to apply on Master target prepared with InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_28Sep2017_release.exe as this is new GA installer is with all the latest changes.
+	The update does not need to apply on Master target prepared with InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe as this is new GA installer is with all the latest changes.
 	- **Linux master target server**: To update the unified agent, copy **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** to the master target server and extract it. In the extracted folder, run **/Install**.
 	- **Windows source server**: (You don't need to install the Update 5 agent on the source server if it's already running Update 4 or freshly installed with latest base installer **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**.) To update the unified agent, copy **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** to the source server. Double-click on the file to run it. 
 	- **Linux source server**: To update the unified agent, copy the corresponding version of the unified agent file to the Linux server, and extract it. In the extracted folder, run **/Install**.  Example: For RHEL 6.7 64 bit server, copy **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** to the server, and extract it. In the extracted folder, run **/Install**.
@@ -108,7 +107,7 @@ Scout Update 6 is a cumulative update. It contains all fixes from Update 1 to Up
 
 [!NOTE]
 > * Base Unified Agent(UA) installer for Windows has been refreshed to support Windows Server 2016. The new installer **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe** is packaged with the base Scout GA package (**InMage_Scout_Standard_8.0.1 GA-Oct17.zip**). The same installer will be used for all supported Windows version. 
-> * Base Windows vContinuum & Master Target installer has been refreshed to support Windows Server 2016. The new installer **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe** is packaged with the base Scout GA package (**InMage_Scout_Standard_8.0.1 GA-Oct17.zip**). The same installer will be used to deploy Windows 2016 Master Target and Windows 2012R2 Master Target.
+> * Base Windows vContinuum & Master Target installer has been refreshed to support Windows Server 2016. The new installer **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** is packaged with the base Scout GA package (**InMage_Scout_Standard_8.0.1 GA-Oct17.zip**). The same installer will be used to deploy Windows 2016 Master Target and Windows 2012R2 Master Target.
 > * Download the GA package from the portal, as described in [create a vault](#create-a-vault).
 >
 
