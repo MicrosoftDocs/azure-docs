@@ -26,7 +26,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Onboard your app to Mobile Center
 
-Before you can use Application Insights with your mobile app, you need to onboard your app to Mobile Center. Application Insights does not receive telemetry from your mobile app directly, and there is no modern Application Insights SDK for iOS, Android, or other mobile platforms. Instead, your app sends custom event telemetry to Mobile Center. Then, Mobile Center continuously exports copies of these custom events into Application Insights as the events are received.
+Before you can use Application Insights with your mobile app, you need to onboard your app to Mobile Center. Application Insights does not receive telemetry from your mobile app directly. Instead, your app sends custom event telemetry to Mobile Center. Then, Mobile Center continuously exports copies of these custom events into Application Insights as the events are received.
 
 To onboard your app, follow the Mobile Center quickstart for each platform your app supports. Create separate Mobile Center instances for each platform:
 
@@ -59,18 +59,23 @@ Once your app is sending custom events and these events are being received by Mo
 2. Select **New** > **Monitoring + Management** > **Application Insights**.
 
 ![Adding Application Insights resource](./media/app-insights-mobile-center-quickstart/add.png)
-3. Choose **Mobile Center application** in the **Application Type** dropdown. Fill in a new name, and pick a subscription, resource group, and location that make sense for your app.
-4. Click **Create**.
+
+A configuration box will appear. Use the table below to fill out the input fields.
+
+    | Settings        |  Value           | Description  |
+   | ------------- |:-------------|:-----|
+   | **Name**      | Some globally unique value, like "myApp-iOS" | Name that identifies the app you are monitoring |
+   | **Application Type** | Mobile Center application | Type of app you are monitoring |
+   | **Resource Group**     | A new resource group, or an existing one from the menu | The resource group in which to create the new Application Insights resource |
+   | **Location** | A location from the menu | Choose a location near you, or near where your app is hosted |
+
+3. Click **Create**.
 
 If you have iOS and Android versions of your app, it's best to create two separate Application Insights resources, one for each platform.
 
 ## Start exporting your Mobile Center data into the Application Insights resource
 
-One step left: start exporting the custom events from Mobile Center into the Application Insights resource you created.
-
-In your new Application Insights resource:
-
-1. On the **Overview** page in the **Essentials** section at the top, copy the instrumentation key for this resource.
+In your new Application Insights resource on the **Overview** page in the **Essentials** section at the top, copy the instrumentation key for this resource.
 
 In the Mobile Center instance for your app:
 
@@ -83,7 +88,7 @@ Remember to repeat this process for each platform your app supports.
 
 Once export is set up, each custom event received by Mobile Center is copied into Application Insights. It can take several minutes for events to reach Application Insights, so if they don't show up immediately, wait a bit before diagnosing further.
 
-To give you more data when you first connect, the most recent 48 hours of custom events in Mobile Center are also exported to Application Insights. Currently, there's no way to export more or less than this most recent 48 hours when you turn on continuous export.
+To give you more data when you first connect, the most recent 48 hours of custom events in Mobile Center are automatically exported to Application Insights.
 
 ## Start monitoring your app in the Azure portal
 
@@ -136,6 +141,20 @@ Application Insights can query, segment, filter, and analyze the custom event te
    * **Retention** for analyzing how well your app retains users over time.
    * **Workbooks** for combining visualizations and text into a shareable report.
    * **Cohorts** for naming and saving specific groups of users or events so they can be easily referenced from other analytics tools.
+
+## Clean up resources
+
+If you do not want to continue using Application Insights with Mobile Center, turn off export in Mobile Center and delete the Application Insights resource. This will prevent you from being charged further by Application Insights for this resource.
+
+To turn off export in Mobile Center:
+
+1. In Mobile Center, go to **Settings** and choose **Export**.
+2. Click the Application Insights export you want to delete, then click **Delete export** at the bottom and confirm.
+
+To delete the Application Insights resource:
+
+1. In the left-hand menu of the Azure portal, click **Resource groups** and then choose the resource group in which your Application Insights resource was created.
+2. Open the Application Insights resource you want to delete. Then click **Delete** in the top menu of the resource and confirm. This will permanently delete the copy of the data that was exported to Application Insights.
 
 ## Next steps
 
