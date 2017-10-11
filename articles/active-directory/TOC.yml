@@ -64,25 +64,25 @@
         href: msi-howto-assign-access-cli.md 
     - name: Use a VM MSI to access Azure Resource Manager
       items:
-      - name: From Windows VM
+      - name: From a Windows VM
         href: msi-tutorial-windows-vm-access-arm.md
-      - name: From Linux VM
+      - name: From a Linux VM
         href: msi-tutorial-linux-vm-access-arm.md
     - name: Use a VM MSI to access Azure storage
       items:
-      - name: From Windows VM using access key
+      - name: From a Windows VM using access key
         href: msi-tutorial-windows-vm-access-storage.md
-      - name: From Windows VM using SAS
+      - name: From a Windows VM using SAS
         href: msi-tutorial-windows-vm-access-storage-sas.md        
-      - name: From Linux VM using access key
+      - name: From a Linux VM using access key
         href: msi-tutorial-linux-vm-access-storage.md
-      - name: From Linux VM using SAS
+      - name: From a Linux VM using SAS
         href: msi-tutorial-linux-vm-access-storage-sas.md        
     - name: Use a VM MSI to access non-Azure AD resource
       items:
-      - name: From Windows VM
+      - name: From a Windows VM
         href: msi-tutorial-windows-vm-access-nonaad.md
-      - name: From Linux VM
+      - name: From a Linux VM
         href: msi-tutorial-linux-vm-access-nonaad.md
     - name: FAQs and known issues
       href: msi-known-issues.md
