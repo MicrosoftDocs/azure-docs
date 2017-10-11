@@ -22,7 +22,7 @@ You can quickly and easily restart a virtual machine in  DevTest Labs by followi
 
 - The VM must be running for the restart feature to be enabled.
 - If a user is connected to a running VM when they perform a restart, they must reconnect to the VM after it starts back up.
-- If an artifact is being applied when you restart the VM, you will receive a warning that the artifact might not be applied. 
+- If an artifact is being applied when you restart the VM, you receive a warning that the artifact might not be applied. 
 
     ![Warning when restarting while applying artifacts](./media/devtest-lab-restart-vm/devtest-lab-restart-vm-apply-artifacts.png)
 
@@ -47,5 +47,5 @@ You can quickly and easily restart a virtual machine in  DevTest Labs by followi
     ![Viewing the status of the VM restart](./media/devtest-lab-restart-vm/devtest-lab-restart-notification.png)
 
 ## Next steps
-* Once the VM has been restarted, you can reconnect to it by selecting **Connect** on the VM's blade.
+* Once the VM has been restarted, you can reconnect to it by selecting **Connect** on the VM's management pane.
 * Explore the [DevTest Labs Azure Resource Manager QuickStart template gallery](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)
