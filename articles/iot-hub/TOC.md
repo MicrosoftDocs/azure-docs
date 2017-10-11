@@ -140,6 +140,11 @@
 ### [Security best practices](iot-hub-security-best-practices.md)
 ### [Security architecture](iot-hub-security-architecture.md)
 ### [Secure your IoT deployment](iot-hub-security-deployment.md)
+### Secure using X.509 CA certificates
+#### [X.509 CA certificate security overview](iot-hub-x509ca-overview.md)
+##### [X.509 CA certificate security concepts](iot-hub-x509ca-concept.md)
+#### [Get started on X.509 CA certificate security](iot-hub-security-x509-get-started.md)
+##### [Create certificates - PowerShell](iot-hub-security-x509-create-certificates.md)
 
 ## Azure IoT Edge
 ### [Overview](iot-hub-iot-edge-overview.md)
