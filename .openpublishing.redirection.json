@@ -6231,16 +6231,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cognitive-services/Bing-Image-Search/index.md",
-            "redirect_url": "/azure/cognitive-services/Bing-Image-Search/search-the-web",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/cognitive-services/Bing-Web-Search/index.md",
-            "redirect_url": "/azure/cognitive-services/Bing-Web-Search/search-the-web",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/cognitive-services/Content-Moderator/review-api-authentication.md",
             "redirect_url": "/azure/cognitive-services/content-moderator/review-api",
             "redirect_document_id": false
