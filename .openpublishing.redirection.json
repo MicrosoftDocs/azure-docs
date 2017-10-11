@@ -916,6 +916,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/logic-apps/logic-apps-custom-hosted-api.md",
+            "redirect_url": "/azure/logic-apps/logic-apps-custom-api-host-deploy-call",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/app-service-logic/app-service-logic-deploy-from-vs.md",
             "redirect_url": "/azure/logic-apps/logic-apps-deploy-from-vs",
             "redirect_document_id": false
@@ -3566,6 +3571,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/hdinsight/hdinsight-storm-develop-java-event-hub-topology.md",
+            "redirect_url": "https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely.md",
             "redirect_url": "/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh",
             "redirect_document_id": false
@@ -3663,6 +3673,11 @@
         {
             "source_path": "articles/hdinsight/hdinsight-debug-jobs.md",
             "redirect_url": "/azure/hdinsight/hdinsight-troubleshoot-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/hdinsight/hdinsight-hbase-analyze-twitter-sentiment.md",
+            "redirect_url": "/azure/hdinsight/hdinsight-hbase-tutorial-get-started-linux",
             "redirect_document_id": false
         },
         {
@@ -4158,6 +4173,11 @@
         {
             "source_path": "articles/log-analytics/log-analytics-system-update.md",
             "redirect_url": "/azure/operations-management-suite/oms-solution-update-management",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/log-analytics/log-analytics-get-started.md",
+            "redirect_url": "https://docs.microsoft.com/en-us/azure/log-analytics",
             "redirect_document_id": false
         },
         {
@@ -5143,6 +5163,16 @@
         {
             "source_path": "articles/service-bus-messaging/service-bus-brokered-tutorial-rest.md",
             "redirect_url": "/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-bus-messaging/service-bus-create-queues.md",
+            "redirect_url": "/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-bus-messaging/service-bus-create-topics-subscriptions.md",
+            "redirect_url": "/azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions",
             "redirect_document_id": false
         },
         {
@@ -6136,11 +6166,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/logic-apps/logic-apps-custom-hosted-api.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-custom-api-host-deploy-call",
-            "redirect_document_id": false
-        },        
-        {
             "source_path": "articles/backup/backup-azure-backup-ibiza-faq.md",
             "redirect_url": "/azure/backup/backup-azure-backup-faq",
             "redirect_document_id": false
@@ -6224,6 +6249,16 @@
             "source_path": "articles/cognitive-services/video-indexer/home.md",
             "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-get-started",
             "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-solution-build-system.md",
+          "redirect_url": "https://github.com/Azure-Samples/MyDriving/blob/master/docs/iot-solution-build-system.md",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-solution-get-started.md",
+          "redirect_url": "https://github.com/Azure-Samples/MyDriving/blob/master/docs/iot-solution-get-started.md",
+          "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-hub/iot-hub-gateway-kit-c-sim-troubleshooting.md",
@@ -8979,22 +9014,22 @@
             "source_path": "articles/azure-stack/azure-stack-kv-sample-app.md",
             "redirect_url": "/azure/azure-stack/user/azure-stack-kv-sample-app",
             "redirect_document_id": false
-        }, 
+        },
         {
             "source_path": "articles/azure-stack/azure-stack-network-differences.md",
             "redirect_url": "/azure/azure-stack/user/azure-stack-network-differences",
             "redirect_document_id": false
-        }, 
+        },
         {
             "source_path": "articles/azure-stack/azure-stack-policy-module.md",
             "redirect_url": "/azure/azure-stack/user/azure-stack-policy-module",
             "redirect_document_id": false
-        }, 
+        },
         {
             "source_path": "articles/azure-stack/azure-stack-powershell-configure-user.md",
             "redirect_url": "/azure/azure-stack/user/azure-stack-powershell-configure-user",
             "redirect_document_id": false
-        }, 
+        },
         {
             "source_path": "articles/azure-stack/azure-stack-solution-pipeline.md",
             "redirect_url": "/azure/azure-stack/user/azure-stack-solution-pipeline",
@@ -9718,6 +9753,11 @@
         {
             "source_path": "articles/virtual-machines/virtual-machines-windows-manage-using-azure-automation.md",
             "redirect_url": "/azure/virtual-machines/windows/manage-using-azure-automation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/expressroute/expressroute-routing-nat.md",
+            "redirect_url": "/azure/expressroute/expressroute-routing",
             "redirect_document_id": false
         },
         {
@@ -11296,6 +11336,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/container-service/kubernetes/container-service-connect.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-connect",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cosmos-db/request-units-per-minute.md",
             "redirect_url": "/azure/cosmos-db/request-units",
             "redirect_document_id": false
@@ -12714,7 +12759,7 @@
             "source_path": "articles/container-registry/container-registry-managed-get-started-portal.md",
             "redirect_url": "/azure/container-registry/container-registry-get-started-portal",
             "redirect_document_id": false
-        },      
+        },
         {
             "source_path": "articles/container-registry/container-registry-managed-get-started-azure-cli.md",
             "redirect_url": "/azure/container-registry/container-registry-get-started-azure-cli",
@@ -12901,9 +12946,9 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/billing/billing-usage-rate-card-partner-solution-cloudyn.md", 
-             "redirect_url": "/azure/cost-management/overview", 
-             "redirect_document_id": false 
+            "source_path": "articles/billing/billing-usage-rate-card-partner-solution-cloudyn.md",
+             "redirect_url": "/azure/cost-management/overview",
+             "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-policy/index.md",
@@ -12913,21 +12958,6 @@
         {
             "source_path": "articles/machine-learning/services.md",
             "redirect_url": "/azure/machine-learning/preview/index.yml",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/azure-stack/azure-stack-app-service-capacity-planning.md",
-            "redirect_url": "/azure-stack/azure-stack-app-service-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/azure-stack/azure-stack-sql-resource-provider-databases.md",
-            "redirect_url": "/azure-stack/azure-stack-sql-resource-provider-deploy",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/azure-stack/azure-stack-sql-resource-provider-hosting-servers.md",
-            "redirect_url": "/azure-stack/azure-stack-sql-resource-provider-deploy",
             "redirect_document_id": false
         },
         {
@@ -13424,7 +13454,7 @@
             "source_path": "articles/billing/billing-enterprise-api-usage-detail.md",
             "redirect_url": "https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail",
             "redirect_document_id": true
-        },    
+        },
         {
             "source_path": "articles/active-directory-domain-services/active-directory-ds-azure-portal-enable-preview-access.md",
             "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-contact-us",
@@ -13509,6 +13539,26 @@
             "source_path": "articles/power-bi-embedded-whats-new.md",
             "redirect_url": "/azure/power-bi-workspace-collections/whats-new",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-join-rhel-linux-vm.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-join-rhel-linux-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/functions-java-refernece.md",
+            "redirect_url": "/azure/azure-functions/functions-reference-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/functions-java-reference.md",
+            "redirect_url": "/azure/azure-functions/functions-reference-java",
+            "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/security-center/security-center-resolve-endpoint-protection-health-alerts.md",
+          "redirect_url": "/azure/security-center",
+          "redirect_document_id": false
         }
     ]
 }

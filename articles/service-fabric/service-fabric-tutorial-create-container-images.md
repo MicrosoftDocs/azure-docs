@@ -50,12 +50,12 @@ The sample application used in this tutorial is a voting app. The application co
 Use git to download a copy of the application to your development environment.
 
 ```bash
-git clone https://github.com/Azure-Samples/service-fabric-linux-container-quickstarts.git
+git clone https://github.com/Azure-Samples/service-fabric-dotnet-containers.git
 
-cd service-fabric-linux-container-quickstarts/container-python-redis
+cd service-fabric-dotnet-containers/Linux/container-tutorial/
 ```
 
-The 'container-python-redis' directory contains a folder named 'azure-vote'. This 'azure-vote' folder contains the front-end source code and a Dockerfile to build the front-end. The 'container-python-redis' directory also contains the 'redis' directory which has the Dockerfile to build the redis image. These directories contain the necessary assets for this tutorial set. 
+The 'container-tutorial' directory contains a folder named 'azure-vote'. This 'azure-vote' folder contains the front-end source code and a Dockerfile to build the front-end. The 'container-tutorial' directory also contains the 'redis' directory which has the Dockerfile to build the redis image. These directories contain the necessary assets for this tutorial set. 
 
 ## Create container images
 
