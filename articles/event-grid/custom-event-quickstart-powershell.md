@@ -5,12 +5,11 @@ services: event-grid
 keywords: 
 author: djrosanova
 ms.author: darosa
-ms.date: 10/10/2017
+ms.date: 10/11/2017
 ms.topic: hero-article
 ms.service: event-grid
 ---
-
-# Create and route custom events with Azure Event Grid
+# Create and route custom events with Azure PowerShell and Event Grid
 
 Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure PowerShell to create a custom topic, subscribe to the topic, and trigger the event to view the result. Typically, you send events to an endpoint that responds to the event, such as, a webhook or Azure Function. However, to simplify this article, you send the events to a URL that merely collects the messages. You create this URL by using an open source, third-party tool called [RequestBin](https://requestb.in/).
 
@@ -70,7 +69,7 @@ To simplify this article, set up sample event data to send to the topic. Typical
 
 ```powershell
 $eventID = Get-Random 99999
-$eventDate = Get-Date -Format u
+$eventDate = Get-Date -Format s
 
 $body = "[{`"id`": `"$eventID`",`"eventType`": `"recordInserted`",`"subject`": `"myapp/vehicles/motorcycles`",`"eventTime`": `"$eventDate`",`"data`":{`"make`": `"Ducati`",`"model`": `"Monster`"}}]"
 ```

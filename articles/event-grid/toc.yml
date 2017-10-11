@@ -6,9 +6,9 @@
     href: overview.md
 - name: Quickstarts
   items:
-  - name: Create and route custom events - Azure CLI
+  - name: Create custom events - Azure CLI
     href: custom-event-quickstart.md
-  - name: Create and route custom events - PowerShell
+  - name: Create custom events - PowerShell
     href: custom-event-quickstart-powershell.md
 - name: Tutorials
   items:
