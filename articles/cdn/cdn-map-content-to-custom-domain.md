@@ -33,7 +33,7 @@ If you do not already have a custom domain, you must first purchase one with a d
 
 If you are using Azure to host your [DNS domains](https://docs.microsoft.com/en-us/azure/dns/dns-overview), you must delegate the domain provider's DNS to an Azure DNS. For more information, see [Delegate a domain to Azure DNS](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns)
 
-Otherwise, if you are using your domain provider to handle your DNS domain, sign in to the website of your domain provider. Find the page for managing DNS records by consulting the provider's documentation or search for areas of the web site labeled **Domain Name**, **DNS**, or **Name Server Management**. Often, you can find the DNS records page by viewing your account information and looking for a link such as **My domains**. Some providers have different links to add different types of records.
+Otherwise, if you are using your domain provider to handle your DNS domain, sign in to the website of your domain provider. Find the page for managing DNS records by consulting the provider's documentation or searching for areas of the web site labeled **Domain Name**, **DNS**, or **Name Server Management**. Often, you can find the DNS records page by viewing your account information and looking for a link such as **My domains**. Some providers have different links to add different types of records.
 
 > [!NOTE]
 > For certain providers, such as GoDaddy, changes to DNS records don't become effective until you select a separate **Save Changes** link. 
@@ -49,9 +49,9 @@ Use one of the following options to map your custom domain to a CDN endpoint:
 
 - Option 1: Direct mapping. If no production traffic is running on the custom domain, you can map a custom domain to a CDN endpoint directly. The process of mapping your custom domain to your CDN endpoint might result in a brief period of downtime for the domain while you are registering the domain in the Azure portal. Your CNAME mapping entry should be in this format: 
  
-| NAME             | TYPE  | VALUE                  |
-|------------------|-------|------------------------|
-| www\.consoto.com | CNAME | consoto\.azureedge.net |
+  | NAME             | TYPE  | VALUE                  |
+  |------------------|-------|------------------------|
+  | www\.consoto.com | CNAME | consoto\.azureedge.net |
 
 
 - Option 2: Mapping with the **cdnverify** subdomain. If production traffic that cannot be interrupted is running on the custom domain, you can create a temporary CNAME mapping to your CDN endpoint. With this option, you use the Azure **cdnverify** subdomain to provide an intermediate registration step so that users can access your domain without interruption while the DNS mapping takes place.
@@ -87,7 +87,7 @@ After you have registered your custom domain by using one of the previous proced
 
 After you have completed the registration of your custom domain, verify that the custom subdomain references your CDN endpoint.
  
-1. Ensure that you have public content that is cached at the endpoint. For example, if your CDN endpoint is associated with a storage account, the CDN caches content in public blob containers. To test the custom domain, ensure that your container is set to allow public access and contains at least one blob.
+1. Ensure that you have public content that is cached at the endpoint. For example, if your CDN endpoint is associated with a storage account, the CDN caches content in public blob containers. To test the custom domain, verify that your container is set to allow public access and contains at least one blob.
 
 2. In your browser, navigate to the address of the blob by using the custom domain. For example, if your custom domain is `cdn.contoso.com`, the URL to the cached blob should be similar to the following URL: `http://cdn.contoso.com/mypubliccontainer/acachedblob.jpg`.
 
@@ -98,10 +98,9 @@ If you are using the temporary **cdnverify** subdomain and have verified that it
 
 1. On your domain provider's web site, create a CNAME DNS record to map your permanent custom domain to the CDN endpoint. Your CNAME mapping entry should be in this format: 
  
-| NAME             | TYPE  | VALUE                  |
-|------------------|-------|------------------------|
-| www\.consoto.com | CNAME | consoto\.azureedge.net |
-
+   | NAME             | TYPE  | VALUE                  |
+   |------------------|-------|------------------------|
+   | www\.consoto.com | CNAME | consoto\.azureedge.net |
 2. Delete the CNAME record with the **cdnverify** subdomain that you previously created.
 
 ## See Also
