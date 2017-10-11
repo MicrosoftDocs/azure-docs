@@ -22,10 +22,12 @@ ms.custom: mvc
 
 The following table includes links to PowerShell scripts samples that create and manage Service Fabric clusters, applications, and services.
 
+[!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-powershell.md)]
+
 | | |
 |-|-|
 | **Create cluster** ||
-| [Create a secure cluster](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)| Creates an Azure Service Fabric cluster. |
+| [Create a cluster (Azure)](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)| Creates an Azure Service Fabric cluster. |
 | **Manage cluster** ||
 | [Add an application certificate](./scripts/service-fabric-powershell-add-application-certificate.md)| Adds an application X.509 certificate to all nodes in a cluster. |
 | **Manage applications** ||
