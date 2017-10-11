@@ -3,7 +3,7 @@ title: Azure Instance Metadata Service | Microsoft Docs
 description: RESTful interface to get information about Linux VM's compute, network and upcoming maintenance events.
 services: virtual-machines-linux
 documentationcenter: ''
-author: harijay
+author: harijayms
 manager: timlt
 editor: ''
 tags: azure-resource-manager
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
-ms.author: harijay
+ms.author: harijayms
 ---
 
 # Azure Instance Metadata service
