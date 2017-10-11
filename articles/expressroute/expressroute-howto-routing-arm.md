@@ -47,7 +47,7 @@ These instructions only apply to circuits created with service providers offerin
 
 You can configure one, two, or all three peerings (Azure private, Azure public and Microsoft) for an ExpressRoute circuit. You can configure peerings in any order you choose. However, you must make sure that you complete the configuration of each peering one at a time. For more information about routing domains and peerings, see [ExpressRoute routing domains](expressroute-circuit-peerings.md).
 
-## <a name="Microsoft"></a>Microsoft peering
+## <a name="msft"></a>Microsoft peering
 
 This section helps you create, get, update, and delete the Microsoft peering configuration for an ExpressRoute circuit.
 
@@ -146,7 +146,7 @@ Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
   Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```
 
-### To get Microsoft peering details
+### <a name="getmsft"></a>To get Microsoft peering details
 
 You can get configuration details using the following example:
 
@@ -156,7 +156,7 @@ $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGr
 Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 ```
 
-### To update Microsoft peering configuration
+### <a name="updatemsft"></a>To update Microsoft peering configuration
 
 You can update any part of the configuration using the following example:
 
@@ -166,7 +166,7 @@ Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRo
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-### To delete Microsoft peering
+### <a name="deletemsft"></a>To delete Microsoft peering
 
 You can remove your peering configuration by running the following cmdlet:
 
@@ -277,7 +277,7 @@ This section helps you create, get, update, and delete the Azure private peering
   > 
   >
 
-### To view Azure private peering details
+### <a name="getprivate"></a>To get Azure private peering details
 
 You can get configuration details by using the following example:
 
@@ -287,7 +287,7 @@ $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGr
 Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt
 ```
 
-### To update Azure private peering configuration
+### <a name="updateprivate"></a>To update Azure private peering configuration
 
 You can update any part of the configuration using the following example. In this example, the VLAN ID of the circuit is being updated from 100 to 500.
 
@@ -297,7 +297,7 @@ Set-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Express
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-### To delete Azure private peering
+### <a name="deleteprivate"></a>To delete Azure private peering
 
 You can remove your peering configuration by running the following example:
 
@@ -416,7 +416,7 @@ This section helps you create, get, update, and delete the Azure public peering 
   > 
   >
 
-### To view Azure public peering details
+### <a name="getpublic"></a>To get Azure public peering details
 
 You can get configuration details using the following cmdlet:
 
@@ -426,7 +426,7 @@ You can get configuration details using the following cmdlet:
   Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt
   ```
 
-### To update Azure public peering configuration
+### <a name="updatepublic"></a>To update Azure public peering configuration
 
 You can update any part of the configuration using the following example. In this example, the VLAN ID of the circuit is being updated from 200 to 600.
 
@@ -436,7 +436,7 @@ Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "AzurePublicPeering" -Express
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-### To delete Azure public peering
+### <a name="deletepublic"></a>To delete Azure public peering
 
 You can remove your peering configuration by running the following example:
 

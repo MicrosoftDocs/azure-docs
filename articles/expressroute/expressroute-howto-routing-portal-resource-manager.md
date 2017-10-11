@@ -38,7 +38,7 @@ These instructions only apply to circuits created with service providers offerin
 
 You can configure one, two, or all three peerings (Azure private, Azure public and Microsoft) for an ExpressRoute circuit. You can configure peerings in any order you choose. However, you must make sure that you complete the configuration of each peering one at a time. For more information about routing domains and peerings, see [ExpressRoute routing domains](expressroute-circuit-peerings.md).
 
-## <a name="Microsoft"></a>Microsoft peering
+## <a name="msft"></a>Microsoft peering
 
 This section helps you create, get, update, and delete the Microsoft peering configuration for an ExpressRoute circuit.
 
@@ -83,19 +83,19 @@ This section helps you create, get, update, and delete the Microsoft peering con
 
   ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft7.png)
 
-### To view Microsoft peering details
+### <a name="getmsft"></a>To view Microsoft peering details
 
 You can view the properties of Azure public peering by selecting the peering.
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft3.png)
 
-### To update Microsoft peering configuration
+### <a name="updatemsft"></a>To update Microsoft peering configuration
 
 You can select the row for peering and modify the peering properties.
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft7.png)
 
-### To delete Microsoft peering
+### <a name="deletemsft"></a>To delete Microsoft peering
 
 You can remove your peering configuration by selecting the delete icon, as shown in the following image:
 
@@ -127,19 +127,19 @@ This section helps you create, get, update, and delete the Azure private peering
 
   ![save private peering](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
 
-### To view Azure private peering details
+### <a name="getprivate"></a>To view Azure private peering details
 
 You can view the properties of Azure private peering by selecting the peering.
 
 ![view private peering](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
 
-### To update Azure private peering configuration
+### <a name="updateprivate"></a>To update Azure private peering configuration
 
 You can select the row for peering and modify the peering properties.
 
 ![update private peering](./media/expressroute-howto-routing-portal-resource-manager/rprivate2.png)
 
-### To delete Azure private peering
+### <a name="deleteprivate"></a>To delete Azure private peering
 
 You can remove your peering configuration by selecting the delete icon, as shown in the following image:
 
@@ -171,19 +171,19 @@ This section helps you create, get, update, and delete the Azure public peering 
 
   ![Save public peering configuration](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
 
-### To view Azure public peering details
+### <a name="getpublic"></a>To view Azure public peering details
 
 You can view the properties of Azure public peering by selecting the peering.
 
 ![view public peering properties](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
 
-### To update Azure public peering configuration
+### <a name="updatepublic"></a>To update Azure public peering configuration
 
 You can select the row for peering and modify the peering properties.
 
 ![select public peering row](./media/expressroute-howto-routing-portal-resource-manager/rpublic2.png)
 
-### To delete Azure public peering
+### <a name="deletepublic"></a>To delete Azure public peering
 
 You can remove your peering configuration by selecting the delete icon, as shown in the following example:
 
