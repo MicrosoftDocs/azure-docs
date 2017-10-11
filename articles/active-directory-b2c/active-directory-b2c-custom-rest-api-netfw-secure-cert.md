@@ -65,7 +65,7 @@ After you set `clientCertEnabled` to *true*, the communication with your RESTful
 5. In the **Name** box, select **B2cRestClientCertificate**.  
     The prefix *B2C_1A_* is added automatically.
 
-6. In the **File upload** box, select your certificate's .pfx file with private key.
+6. In the **File upload** box, select your certificate's .pfx file with a private key.
 
 7. In the **Password** box, type the certificate's password.
 
@@ -132,26 +132,26 @@ To support client certificate authentication in your extension policy, change th
 4. In the **Given Name** box, type a name (other than "Test").  
     Azure AD B2C signs up the user and then sends a loyalty number to your application. Note the number in this JWT example:
 
-```
-{
-  "typ": "JWT",
-  "alg": "RS256",
-  "kid": "X5eXk4xyojNFum1kl2Ytv8dlNP4-c57dO6QGTVBwaNk"
-}.{
-  "exp": 1507125903,
-  "nbf": 1507122303,
-  "ver": "1.0",
-  "iss": "https://login.microsoftonline.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
-  "aud": "e1d2612f-c2bc-4599-8e7b-d874eaca1ee1",
-  "acr": "b2c_1a_signup_signin",
-  "nonce": "defaultNonce",
-  "iat": 1507122303,
-  "auth_time": 1507122303,
-  "loyaltyNumber": "290",
-  "given_name": "Emily",
-  "emails": ["B2cdemo@outlook.com"]
-}
-```
+   ```
+   {
+     "typ": "JWT",
+     "alg": "RS256",
+     "kid": "X5eXk4xyojNFum1kl2Ytv8dlNP4-c57dO6QGTVBwaNk"
+   }.{
+     "exp": 1507125903,
+     "nbf": 1507122303,
+     "ver": "1.0",
+     "iss": "https://login.microsoftonline.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
+     "aud": "e1d2612f-c2bc-4599-8e7b-d874eaca1ee1",
+     "acr": "b2c_1a_signup_signin",
+     "nonce": "defaultNonce",
+     "iat": 1507122303,
+     "auth_time": 1507122303,
+     "loyaltyNumber": "290",
+     "given_name": "Emily",
+     "emails": ["B2cdemo@outlook.com"]
+   }
+   ```
 
    >[!NOTE]
    >If you get the previous error message, it means that Azure AD B2C successfully called your RESTful service while presenting the client certificate. The next step is to validate the certificate.
