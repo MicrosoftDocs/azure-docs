@@ -12,11 +12,11 @@ ms.date: 10/06/2017
 ms.author: v-jerkin
 ---
 
-# Frequently Asked Questions (FAQ) about Bing Web Search API (Cognitive Services)
+# Frequently asked questions (FAQ) about Bing Web Search API (Cognitive Services)
  
  Find answers to commonly asked questions about concepts, code, and scenarios related to the Bing Web Search API for Microsoft Cognitive Services on Azure.
 
-## How do I get the special client headers when calling the Bing Web Search API from JavaScript?
+## Response headers in JavaScript
 
 The following headers may occur in responses from the Bing Web Search API.
 
@@ -46,13 +46,13 @@ Finally, start the CORS proxy with the following command:
 
 Leave the command window open while you use the tutorial app; closing the window stops the proxy. In the expandable HTTP Headers section below the search results, you can now see the `X-MSEdge-ClientID` header (among others) and verify that it is the same for each request.
 
-## What is a better way to get the special client headers in a production JavaScript app?
+## Response headers in production
 
 The CORS proxy approach described in the previous answer is appropriate for development, testing, and learning. 
 
 In a production environment, however, you should host a server-side script on the same domain as the Web page that uses the Bing Web Search API. This script should actually do the API calls upon request from the Web page JavaScript and pass all results, including headers, back to the client. Since the two resources (page and script) share an origin, CORS does not come into play and the special headers are acessible to the JavaScript on the Web page. 
 
-This approach also protects your API key from exposure to the public, since only the server-side script needs it. The script can use another method (such as the HTTP referrer) to make sure the request is authorized.
+This approach also protects your API key from exposure to the public, since only the server-side script needs it. The script can use another method to make sure the request is authorized.
 
 ## Next steps
 

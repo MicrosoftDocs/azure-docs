@@ -26,10 +26,12 @@ Within each group (mainline or sidebar), the [Items](https://docs.microsoft.com/
 Using the ID is simpler to use because you only need to match the ranking ID with the ID of an answer or one of its results. If an answer object includes an `id` field, display all the answer's results together. For example, if the `News` object includes the `id` field, display all the news articles together. If the `News` object does not include the `id` field, then each news article contains an `id` field and the ranking response mixes the news articles with the results from other answers.  
   
 Using the `answerType` and `resultIndex` is a little more complicated. You use `answerType` to identify the answer that contains the results to display. Then, you use `resultIndex` to index through the answer's results to get the result to display. (The `answerType` value is the name of the field in the [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) object.) If you're supposed to display all the answer's results together, the ranking response item doesn't include the `resultIndex` field.  
-  
+
+## Ranking response example
+
 The following shows an example [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse). Because the Web answer does not include an `id` field, you'd display all webpages individually based on the ranking (each webpage includes an `id` field). And because the images, videos, and related searches answers do include the `id` field, you'd display the results of each of those answers together based on the ranking.
   
-```  
+```json
 {  
     "_type" : "SearchResponse",
     "webPages" : {

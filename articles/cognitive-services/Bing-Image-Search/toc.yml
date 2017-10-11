@@ -2,26 +2,28 @@
   href: index.md
 - name: Overview
   items:
-    - name: Search the web for images
+    - name: About Bing Image Search API
       href: search-the-web.md
     - name: Supported countries and languages
       href: supported-countries-markets.md
 - name: Quickstarts
   items:
-  - name: C#
+  - name: Call and response in C#
     href: quickstarts/csharp.md
-  - name: Java
+  - name: Call and response in Java
     href: quickstarts/java.md
-  - name: Node
+  - name: Call and response for Node.js
     href: quickstarts/nodejs.md
-  - name: Python
+  - name: Call and response in Python
     href: quickstarts/python.md
-  - name: PHP
+  - name: Call and response in PHP
     href: quickstarts/php.md
-  - name: Ruby
+  - name: Call and response in Ruby
     href: quickstarts/ruby.md
-- name: How-to guides
+- name: How To Guides
   items:
+  - name: Upgrade from v5 to v7
+    href: bing-image-upgrade-guide-v5-to-v7.md
   - name: Use and display results
     href: UseAndDisplayRequirements.md
   - name: Get image insights
@@ -32,8 +34,6 @@
     href: paging-images.md
   - name: Resize and crop thumbnails
     href: resize-and-crop-thumbnails.md
-  - name: Upgrade from v5 to v7
-    href: bing-image-upgrade-guide-v5-to-v7.md
 - name: Tutorials
   items:
   - name: Single-page Web app
@@ -44,16 +44,16 @@
   items:
   - name: REST v7 API
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference
+  - name: REST v5 API (deprecated)
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference
 - name: Resources
   items:
-  - name: Frequently Asked Questions
+  - name: Frequently asked questions
     href: bing-image-search-resource-faq.md
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: Subscription key
+  - name: Get free access key
     href: https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api
   - name: Try it!
-    href: https://dev.cognitive.microsoft.com/docs/services/8336afba49a84475ba401758c0dbf749/operations/571fab09dbe2d933e891028f
+    href: https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/bing-search
   - name: User Voice

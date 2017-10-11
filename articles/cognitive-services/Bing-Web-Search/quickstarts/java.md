@@ -12,25 +12,25 @@ ms.date: 9/18/2017
 ms.author: v-jerkin
 
 ---
-# Quickstart for Bing Web Search API with Java
+# Bing Web search call and response in Java
 
-This article shows you how to use the Bing Search API, part of Microsoft Cognitive Services on Azure. While this article employs Java, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON. 
+The Bing Web Search API provides a experience similar to Bing.com/Search by returning search results that Bing determines are relevant to the user's query. The results may include Web pages, images, videos, news, and entities, along with related search queries, spelling corrections, time zones, unit conversion, translations, and calculations. The kinds of results you get are based on their relevance and the tier of the Bing Search APIs to which you subscribe.
 
-The example code is written to run under Java 7 as a console application.
-
-Refer to the [API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) for technical details about the APIs.
+This article includes a simple console application that performs a Bing Web Search API query and displays the returned raw search results, which are in JSON format. While this application is written in Java, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON. 
 
 ## Prerequisites
 
+You will need [JDK 7 or 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) to compile and run this code. You may use a Java IDE if you have a favorite, but a text editor will suffice.
+
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
 
-## Bing Web search
+## Running the application
 
-The [Bing Web Search API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-web-api-v7-reference) returns Web search results from the Bing search engine.
+To run this application, follow these steps.
 
 1. Download or install the [gson library](https://github.com/google/gson). You may also obtain it via Maven.
 2. Create a new Java project in your favorite IDE or editor.
-3. Add the provided code in a file named BingWebSearch.java.
+3. Add the provided code in a file named `BingWebSearch.java`.
 4. Replace the `subscriptionKey` value with an access key valid for your subscription.
 5. Run the program.
 
@@ -148,9 +148,9 @@ class SearchResults{
 }
 ```
 
-**Response**
+## JSON response
 
-A sample response follows. To limit the length of the JSON, only a single result is shown here. 
+A sample response follows. To limit the length of the JSON, only a single result is shown, and other parts of the response have been truncated. 
 
 ```json
 {
@@ -271,7 +271,8 @@ A sample response follows. To limit the length of the JSON, only a single result
       ]
     }
   }
-}```
+}
+```
 
 ## Next steps
 
@@ -280,5 +281,7 @@ A sample response follows. To limit the length of the JSON, only a single result
 
 ## See also 
 
- [Bing Web Search overview](../overview.md)  
- [Try it](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/)
+[Bing Web Search overview](../overview.md)  
+[Try it](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/)  
+[Get a free trial access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)  
+[Bing Web Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)

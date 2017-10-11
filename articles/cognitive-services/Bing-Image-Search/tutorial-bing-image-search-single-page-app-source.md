@@ -521,7 +521,7 @@ function newBingImageSearch(form) {
         <option value="day">Last 24 hours</option>
     </select>
 
-    &nbsp;&nbsp;&nbsp;<input type=checkbox id="safe" name="safe" value="on"><label for="safe">SafeSearch</label>
+    &nbsp;&nbsp;&nbsp;<input type=checkbox id="safe" name="safe" value="on" checked><label for="safe">SafeSearch</label>
 
     <!-- these hidden fields control paging -->
     <input type=hidden name="count" value="25">

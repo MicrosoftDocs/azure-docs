@@ -12,26 +12,28 @@ ms.date: 9/18/2017
 ms.author: v-jerkin
 
 ---
-# Quickstart for Bing Web Search API with C#
+# Bing Web search call and response in C#
 
-This article shows you how to use the Bing Search API, part of Microsoft Cognitive Services on Azure. While this article employs C#, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON. 
+The Bing Web Search API provides a experience similar to Bing.com/Search by returning search results that Bing determines are relevant to the user's query. The results may include Web pages, images, videos, news, and entities, along with related search queries, spelling corrections, time zones, unit conversion, translations, and calculations. The kinds of results you get are based on their relevance and the tier of the Bing Search APIs to which you subscribe.
 
-The example code was written in C# as a .NET Core application, with minimal external dependencies, so you can also run it on Linux or Mac OS X using Mono.
+This article includes a simple console application that performs a Bing Web Search API query and displays the returned raw search results, which are in JSON format. While this application is written in C#, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON. 
 
-Refer to the [API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) for technical details about the APIs.
+The example program uses .NET Core classes only and runs on Windows using the .NET CLR or on Linux or Mac OS X using [Mono](http://www.mono-project.com/).
 
 ## Prerequisites
 
+You will need [Visual Studio 2017](https://www.visualstudio.com/downloads/) to get this code running on Windows. (The free Community Edition will work.)
+
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
 
-## Bing Web search
+## Running the application
 
-The [Bing Web Search API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-web-api-v7-reference) returns Web search results from the Bing search engine.
+To run this application, follow these steps.
 
-1. Create a new Console solution in Visual Studio (the Community Edition is fine).
-1. Replace `Program.cs` with the provided code.
-1. Replace the `accessKey` value with an access key valid for your subscription.
-1. Run the program.
+1. Create a new Console solution in Visual Studio.
+2. Replace `Program.cs` with the provided code.
+3. Replace the `accessKey` value with an access key valid for your subscription.
+4. Run the program.
 
 ```c#
 using System;
@@ -200,9 +202,9 @@ namespace BingSearchApisQuickstart
 }
 ```
 
-**Response**
+## JSON response
 
-A sample response follows. To limit the length of the JSON, only a single result is shown here. 
+A sample response follows. To limit the length of the JSON, only a single result is shown, and other parts of the response have been truncated. 
 
 ```json
 {
@@ -333,5 +335,7 @@ A sample response follows. To limit the length of the JSON, only a single result
 
 ## See also 
 
- [Bing Web Search overview](../overview.md)  
- [Try it](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/)
+[Bing Web Search overview](../overview.md)  
+[Try it](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/)  
+[Get a free trial access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)  
+[Bing Web Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)

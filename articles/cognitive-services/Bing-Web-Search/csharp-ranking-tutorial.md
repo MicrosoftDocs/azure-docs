@@ -26,9 +26,8 @@ This tutorial shows how to:
 
 To follow along with the tutorial, you need:
 
-1. Visual Studio. If you don't have it, [download and install the free Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/).
-
-2. A subscription key for the Bing Web Search API. If you don't have one, [sign up for a free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
+- Visual Studio. If you don't have it, [download and install the free Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/).
+- A subscription key for the Bing Web Search API. If you don't have one, [sign up for a free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
 
 ## Create a new Console App project
 
@@ -325,6 +324,6 @@ WebPage:
 ...
 ```
 
-## Next Steps
+## Next steps
 
 Read more about [using ranking to display results](rank-results.md).

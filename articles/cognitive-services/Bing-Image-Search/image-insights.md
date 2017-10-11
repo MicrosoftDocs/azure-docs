@@ -165,13 +165,10 @@ The top-level object is an [ImageInsightsResponse](https://docs.microsoft.com/re
 
 ## Recognizing entities in an image  
 
-The entity recognition feature identifies entities in an image, such as people. To identify entities in an image, set the [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) query parameter to `RecognizedEntities`.  
-  
+The entity recognition feature identifies entities in an image, currently only people. To identify entities in an image, set the [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) query parameter to `RecognizedEntities`.  
+
 > [!NOTE]
 > You may not specify this module with any other module. If you specify this module with other modules, the response does not include recognized entities.  
-  
-> [!NOTE]
-> Currently, the API recognizes only people. 
   
 The following shows how to specify the image by using the [imgUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imgurl) parameter. Remember to URL encode the query parameters.  
   
@@ -210,9 +207,9 @@ The `region` field identifies the area of the image where Bing recognized the en
   
 The values of the rectangle are relative to the width and height of the original image and are in the range 0.0 through 1.0. For example, if the image is 300x200, and the region's top, left corner is at point (10, 20) and the bottom, right corner is at point (290, 150), then the normalized rectangle is:  
   
--   Left: 10 / 300 = 0.0333333333333333  
+-   Left: 10 / 300 = 0.03333...  
 -   Top:  20 / 200 = 0.1  
--   Right: 290 / 300 = 0.9666666666666667  
+-   Right: 290 / 300 = 0.9667...  
 -   Bottom: 150 / 200 = 0.75  
   
 You can use the region that Bing returns in subsequent insights calls. For example, to get visually similar images of the recognized entity. For more information, see [Cropping Images to use with Visually Similar and Entity Recognition Modules](#croppingimages). The following shows the mapping between the region fields and the query parameters that you'd use to crop images.  
@@ -221,7 +218,6 @@ You can use the region that Bing returns in subsequent insights calls. For examp
 -   Top maps to [cat](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cat)  
 -   Right maps to [car](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#car)  
 -   Bottom maps to [cab](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cab)  
-
 
 ## Finding visually similar images  
 
@@ -325,7 +321,7 @@ The response shows two recognized entities.
   
 The second call crops the image vertically down the middle and Bing recognized a single person on the right side of the image.  
   
-```json
+```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?cal=0.5&cat=0.0&car=1.0&cab=1.0&modules=RecognizedEntities&imgurl=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.M0cbee6fadb43f35b2344e53da7a23ec1o0%26pid%3DApi&mkt=en-us HTTP/1.1    
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)  
@@ -337,7 +333,7 @@ Host: api.cognitive.microsoft.com
 
 The response shows one recognized entity.  
   
-json  
+```json  
 {  
     "_type" : "ImageInsights",  
     "recognizedEntityGroups" : {
@@ -365,7 +361,6 @@ json
         ]
     }
 }  
-  
 ```  
   
 ## Finding visually similar products  

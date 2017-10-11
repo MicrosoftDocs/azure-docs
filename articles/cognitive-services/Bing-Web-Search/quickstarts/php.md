@@ -12,23 +12,23 @@ ms.date: 9/18/2017
 ms.author: v-jerkin
 
 ---
-# Quickstart for Bing Web Search API with PHP
+# Bing Web search call and response in PHP
 
-This article shows you how to use the Bing Search API, part of Microsoft Cognitive Services on Azure. While this article employs PHP, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON. 
+The Bing Web Search API provides a experience similar to Bing.com/Search by returning search results that Bing determines are relevant to the user's query. The results may include Web pages, images, videos, news, and entities, along with related search queries, spelling corrections, time zones, unit conversion, translations, and calculations. The kinds of results you get are based on their relevance and the tier of the Bing Search APIs to which you subscribe.
 
-The example code was written to work under PHP 5.6.
-
-Refer to the [API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) for technical details about the APIs.
+This article includes a simple console application that performs a Bing Web Search API query and displays the returned raw search results, which are in JSON format. While this application is written in PHP, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON. 
 
 ## Prerequisites
 
+You need [PHP 5.6.x](http://php.net/downloads.php) to run this code.
+
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
 
-## Bing Web search
+## Running the application
 
-The [Bing Web Search API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-web-api-v7-reference) returns Web search results from the Bing search engine.
+To run this application, follow these steps.
 
-1. Make sure secure HTTP support is enabled in your `php.ini` as described in the code comment.
+1. Make sure secure HTTP support is enabled in your `php.ini` as described in the code comment. On Windows, this file is in `C:\windows`.
 2. Create a new PHP project in your favorite IDE or editor.
 3. Add the provided code.
 4. Replace the `accessKey` value with an access key valid for your subscription.
@@ -103,9 +103,9 @@ if (strlen($accessKey) == 32) {
 ?>
 ```
 
-**Response**
+## JSON response
 
-A sample response follows. To limit the length of the JSON, only a single result is shown here. 
+A sample response follows. To limit the length of the JSON, only a single result is shown, and other parts of the response have been truncated. 
 
 ```json
 {
@@ -226,7 +226,8 @@ A sample response follows. To limit the length of the JSON, only a single result
       ]
     }
   }
-}```
+}
+```
 
 ## Next steps
 
@@ -235,5 +236,7 @@ A sample response follows. To limit the length of the JSON, only a single result
 
 ## See also 
 
- [Bing Web Search overview](../overview.md)  
- [Try it](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/)
+[Bing Web Search overview](../overview.md)  
+[Try it](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/)  
+[Get a free trial access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)  
+[Bing Web Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)

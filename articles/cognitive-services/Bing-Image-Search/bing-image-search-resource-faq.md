@@ -12,11 +12,11 @@ ms.date: 10/06/2017
 ms.author: v-jerkin
 ---
 
-# Frequently Asked Questions (FAQ) about Bing Image Search API (Cognitive Services)
+# Frequently asked questions (FAQ) about Bing Image Search API (Cognitive Services)
  
- Find answers to commonly asked questions about concepts, code, and scenarios related to the Bing Image Search API for Microsoft Cognitive Services on Azure.
+Find answers to commonly asked questions about concepts, code, and scenarios related to the Bing Image Search API for Microsoft Cognitive Services on Azure.
 
-## How do I get the special client headers when calling the Bing Image Search API from JavaScript?
+## Response headers in JavaScript
 
 The following headers may occur in responses from the Bing Image Search API.
 
@@ -46,7 +46,7 @@ Finally, start the CORS proxy with the following command:
 
 Leave the command window open while you use the tutorial app; closing the window stops the proxy. In the expandable HTTP Headers section below the search results, you can now see the `X-MSEdge-ClientID` header (among others) and verify that it is the same for each request.
 
-## What is a better way to get the special client headers in a production JavaScript app?
+## Response headers in production
 
 The CORS proxy approach described in the previous answer is appropriate for development, testing, and learning. 
 

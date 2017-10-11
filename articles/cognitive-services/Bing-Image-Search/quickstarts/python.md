@@ -12,21 +12,21 @@ ms.date: 9/21/2017
 ms.author: v-jerkin
 
 ---
-# Quickstart for Bing Image Search API with Python
+# Bing Image Search call and response in Python
 
-This article shows you how to use the Bing Image Search API, part of Microsoft Cognitive Services on Azure. While this article employs Python, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON. 
+The Bing Image Search API provides an experience similar to Bing.com/Images by letting you send a user search query to Bing and get back a list of relevant images.
 
-The example code was written to run under Python 3.
-
-Refer to the [API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) for technical details about the APIs.
+This article includes a simple console application that performs a Bing Image Search API query and displays the returned raw search results, which are in JSON format. While this application is written in Python, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON. 
 
 ## Prerequisites
 
+You will need [Python 3.x](https://www.python.org/downloads/) to run this code.
+
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
 
-## Bing image search
+## Running the application
 
-The [Bing Image Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) returns image results from the Bing search engine.
+To run this application, follow these steps.
 
 1. Create a new Python project in your favorite IDE or editor.
 2. Add the provided code.
@@ -82,7 +82,7 @@ else:
     print("Please paste yours into the source code.")
 ```
 
-**Response**
+## JSON response
 
 A sample response follows. To limit the length of the JSON, only a single result is shown, and other parts of the response have been truncated. 
 
@@ -177,5 +177,7 @@ A sample response follows. To limit the length of the JSON, only a single result
 
 ## See also 
 
- [Bing Image Search overview](../overview.md)  
- [Try it](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)
+[Bing Image Search overview](../overview.md)  
+[Try it](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+[Get a free trial access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
+[Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

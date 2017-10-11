@@ -38,12 +38,13 @@ The `offset` parameter specifies the number of results to skip. The `offset` is 
   
 If you want to display 15 webpages per page, you would set `count` to 15 and `offset` to 0 to get the first page of results. For each subsequent page, you would increment `offset` by 15 (for example, 15, 30).  
   
-The following shows an example that requests 15 webpages beginning at offset 45.  
+The following example requests 15 webpages beginning at offset 45.  
   
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&count=15&offset=45&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 Host: api.cognitive.microsoft.com  
+```
 
 If the default `count` value works for your implementation, you only need to specify the `offset` query parameter.  
   
@@ -51,7 +52,8 @@ If the default `count` value works for your implementation, you only need to spe
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&offset=45&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 Host: api.cognitive.microsoft.com  
-  
+```
+
 The Web Search API returns results that include webpages and may include images, videos, and news. When you page the search results, you are paging the [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) answer and not the other answers such as images or news. For example, if you set `count` to 50, you get back 50 webpage results, but the response may include results for the other answers as well. For example, the response may include 15 images and 4 news articles. It is also possible that the results may include news on the first page but not the second page, or vice versa.   
     
 If you specify the `responseFilter` query parameter and do not include Webpages in the filter list, don't use the `count` and `offset` parameters.  

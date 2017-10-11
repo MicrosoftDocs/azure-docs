@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 10/06/2017
 ms.author: v-jerkin
 ---
-# Bing Image Search countries and languages
+# Bing Web Search countries and languages
 
 The Bing Web Search API supports more than three dozen countries, many with more than one language. Specifying a country with a query serves primarily to refine search results based on interests in that country. Additionally, the results may contain links to Bing, and these links may localize the Bing user experience according to the specified country or language.
 
@@ -104,4 +104,4 @@ Alternatively, you may specify the market using the `mkt` query parameter and a 
 |Turkey|Turkish|tr-TR|
 |United Kingdom|English|en-GB|
 |United States|English|en-US|
-|United States|Spanish es-US|
+|United States|Spanish|es-US|

@@ -61,7 +61,7 @@ Xamarin comes pre-packaged with Visual Studio for Mac. No installation should be
 
 ## Building and running the app
 
-A Visual Studio solution file *(.sln)*for the Visual Search application can be downloaded from [Visual Search App with Cognitive Services](https://azure.microsoft.com/resources/samples/cognitive-services-xamarin-forms-computer-vision-search/). You can download the ZIP archive using a Web browser, clone it to your workstation from GitHub, or download it using Visual Studio.
+A Visual Studio solution file *(.sln)* for the Visual Search application can be downloaded from [Visual Search App with Cognitive Services](https://azure.microsoft.com/resources/samples/cognitive-services-xamarin-forms-computer-vision-search/). You can download the ZIP archive using a Web browser, clone it to your workstation from GitHub, or download it using Visual Studio.
 
 To start working with the sample, open `cognitive-services-xamarin-forms-computer-vision-search\VisualSearchApp.sln` in Visual Studio.  Initializing the required components may take a moment.
 
@@ -100,7 +100,8 @@ Next, click **Take Photo** or **Import Photo** to either take a photo using your
 After a photo is taken or chosen, the image is passed to the Computer Vision API. The Words Found page (defined in `OcrResultsPage.xaml`) displays any words recognized in the image.
 
 ![Image of the OCR Results Page](./media/computer-vision-web-search-tutorial/ocr-results-page.png)  
-> ![NOTE]
+
+> [!NOTE]
 > The image we used for these results is in the source repository as  `SamplePhotos\TestImage.jpg`.
 
 When you click an item on the Words Found page, the Web Results page (`WebResultsPage.xaml`) appears, showing you the top Bing results for that search.

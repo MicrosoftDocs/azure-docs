@@ -117,7 +117,7 @@ function invalidateSubscriptionKey() {
 
 // escape quotes to HTML entities for use in HTML tag attributes
 function escapeQuotes(text) {
-    return text.replace(/'/g, "&apost;").replace(/"/g, "&quot;");
+    return text.replace(/'/g, "&apos;").replace(/"/g, "&quot;");
 }
 
 // get the host portion of a URL, strpping out search result formatting and www too
@@ -549,7 +549,7 @@ function doPrevSearchPage() {
         <option value="day">Last 24 hours</option>
     </select>
 
-    &nbsp;&nbsp;&nbsp;<input type=checkbox id="safe" name="safe" value="on"><label for="safe">SafeSearch</label>
+    &nbsp;&nbsp;&nbsp;<input type=checkbox id="safe" name="safe" value="on" checked><label for="safe">SafeSearch</label>
 
     <!-- these hidden fields control paging -->
     <input type=hidden name="count" value="25">

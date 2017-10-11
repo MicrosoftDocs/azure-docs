@@ -1,27 +1,29 @@
 - name: Bing Web Search Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
-    - name: About Web Search API
+    - name: About Bing Web Search API
       href: overview.md
     - name: Supported countries and languages
       href: supported-countries-markets.md
 - name: Quickstarts
   items:
-  - name: C#
+  - name: Call and response in C#
     href: quickstarts/csharp.md
-  - name: Java
+  - name: Call and response in Java
     href: quickstarts/java.md
-  - name: Node
+  - name: Call and response for Node.js
     href: quickstarts/nodejs.md
-  - name: Python
+  - name: Call and response in Python
     href: quickstarts/python.md
-  - name: PHP
+  - name: Call and response in PHP
     href: quickstarts/php.md
-  - name: Ruby
+  - name: Call and response in Ruby
     href: quickstarts/ruby.md
-- name: How-to guides
+- name: How To Guides
   items:
+  - name: Upgrade from v5 to v7
+    href: bing-web-upgrade-guide-v5-to-v7.md
   - name: Use and display results
     href: UseAndDisplayRequirements.md
   - name: Filter answers
@@ -34,8 +36,6 @@
     href: paging-webpages.md
   - name: Resize and crop thumbnails
     href: resize-and-crop-thumbnails.md
-  - name: Upgrade from v5 to v7
-    href: bing-web-upgrade-guide-v5-to-v7.md
 - name: Tutorials
   items:
   - name: Single-page Web app
@@ -48,14 +48,16 @@
   items:
   - name: REST v7 API
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference
+  - name: REST v5 API (deprecated)
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference
 - name: Resources
   items:
-  - name: Frequently Asked Questions
+  - name: Frequently asked questions
     href: bing-web-search-resource-faq.md
-  - name: Subscription key
+  - name: Get free access key
     href: https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api
   - name: Try it!
-    href: https://dev.cognitive.microsoft.com/docs/services/f40197291cd14401b93a478716e818bf/operations/56b4447dcf5ff8098cef380d
+    href: https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/bing-search
   - name: User Voice

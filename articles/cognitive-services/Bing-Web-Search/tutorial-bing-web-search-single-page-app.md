@@ -274,7 +274,7 @@ Errors are handled by calling `renderErrorMessage()` with any details known abou
 
 ## Displaying search results
 
-The Bing Seearch APIs [require you to display results in a specified order](useanddisplayrequirements.md). Since the API may return different kinds of responses, it is not enough to iterate through the top-level `WebPages` collection in the JSON response and display those results. (If you want only one kind of results, use the `responseFilter` query parameter or another Bing Search endpoint.)
+The Bing Web Search API [requires you to display results in a specified order](useanddisplayrequirements.md). Since the API may return different kinds of responses, it is not enough to iterate through the top-level `WebPages` collection in the JSON response and display those results. (If you want only one kind of results, use the `responseFilter` query parameter or another Bing Search endpoint.)
 
 Instead, we use the `rankingResponse` in the search results to order the results for display. This object refers to items in the `WebPages` `News`, `Images`, and/or `Videos` collections, or in other top-level answer collections in the JSON response.
 
@@ -321,7 +321,9 @@ function renderSearchResults(results) {
 
 `renderResultsItems()` in turn iterates over the items in each `rankingResponse` section, maps each ranking result to a search result using the `answerType` and `resultIndex` fields, and calls the appropriate rendering function to generate the result's HTML. 
 
-If `resultIndex` is not specified for a given ranking item, `renderResultsItems()` iterates over all results of that type and calls the rendering function for each item. The resulting HTML is inserted into the appropriate `<div>` element in the HTML.
+If `resultIndex` is not specified for a given ranking item, `renderResultsItems()` iterates over all results of that type and calls the rendering function for each item. 
+
+Either way, the resulting HTML is inserted into the appropriate `<div>` element in the HTML.
 
 ```javascript
 // render search results from rankingResponse object in specified order
@@ -378,7 +380,7 @@ The context arguments are:
 | | |
 |-|-|
 |`section`|The results section (`pole`, `mainline`, or `sidebar`) in which the item appears.
-|`index`, `count`|Available when the `rankingResponse` item specifies that all results in a given collection are to be displayed; `undefined` otherwise. These parameters receive the index of the item within its collection and the total number of items in that collection.|
+|`index`<br>`count`|Available when the `rankingResponse` item specifies that all results in a given collection are to be displayed; `undefined` otherwise. These parameters receive the index of the item within its collection and the total number of items in that collection. You can this information to number the results, to generate different HTML for the first or last result, and so on.|
 
 In our tutorial app, both the `images` and `relatedSearches` renderers use the context arguments to customize the HTML they generate. Let's take a closer look at the `images' renderer:
 
@@ -412,7 +414,7 @@ Our image renderer function:
 > * Builds the HTML `<a>` tag that links to the page containing the image.
 > * Builds the HTML `<img>` tag to display the image thumbnail. 
 
-The image renderer uses the `section` and `index` variables to display results differently depending on the location they appear. A line break (`<br>` tag) is inserted between image results in the sidebar, so that the sidebar displays a column of images. In other sections, the first image result `(index === 0)` is preceded by a `<p>` tag. The thumbnails otherwise butt up against each other and wrap as needed in the browser window.
+The image renderer uses the `section` and `index` variables to display results differently depending on where they appear. A line break (`<br>` tag) is inserted between image results in the sidebar, so that the sidebar displays a column of images. In other sections, the first image result `(index === 0)` is preceded by a `<p>` tag. The thumbnails otherwise butt up against each other and wrap as needed in the browser window.
 
 The thumbnail size is used in both the `<img>` tag and the `h` and `w` fields in the thumbnail's URL. The Bing thumbnail service then delivers a thumbnail of exactly that size. The `title` and `alt` attributes (a textual description of the image) are constructed from the image's name and the hostname in the URL.
 
@@ -428,7 +430,7 @@ Providing the `X-MSEdge-ClientID` header allows the Bing APIs to associate all o
 
 First, it allows the Bing search engine to apply past context to searches to find results that better satisfy the user. If a user has previously searched for terms related to sailing, for example, a later search for "knots" might preferentially return information about knots used in sailing.
 
-Second, Bing may randomly select users to experience new features before they are made widely available. Providing the same client ID with each request ensures that users that have been chosen to see a feature always see it. Without the client ID, the user might see a feature appear and disappear, seemingly at random, in their search results.
+Second, Bing may randomly select users to experience new features before they are made widely available. Providing the same client ID with each request ensures that users who have been chosen to see a feature always see it. Without the client ID, the user might see a feature appear and disappear, seemingly at random, in their search results.
 
 Browser security policies (CORS) may prevent the `X-MSEdge-ClientID` header from being available to JavaScript. This limitation occurs when the search response has a different origin from the page that requested it. In a production environment, you should address this policy by hosting a server-side script that does the API call on the same domain as the Web page. Since the script has the same origin as the Web page, the `X-MSEdge-ClientID` header is then available to JavaScript.
 

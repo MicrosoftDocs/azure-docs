@@ -8,13 +8,13 @@ ms.assetid:
 ms.service: cognitive-services
 ms.technology: bing-web-search
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 10/11/2017
 ms.author: scottwhi
 ---
 
 # About Bing Web Search API
 
-The Web Search API provides similar (but not exact) experience to Bing.com/Search by returning search results that Bing determines are relevant to the specified user's query. The results include webpages and may include images, videos, and more. 
+The Bing Web Search API provides a similar experience to Bing.com/Search by returning search results that Bing determines are relevant to the user's query. The results may include Web pages, images, videos, news, and entities, along with related search queries, spelling corrections, time zones, unit conversion, translations, and calculations. The kinds of results you get are based on their relevance and also the tier of the Bing Search APIs to which you subscribe.
 
 If you're building a search results page that displays any content that's relevant to the user's search query, call this API instead of calling the other content-specific Bing APIs. The only time you should need to call the content-specific APIs, such as the [Image Search API](../bing-image-search/search-the-web.md) or [News Search API](../bing-news-search/search-the-web.md), is if you need answers from only that API. For example, if you're building an image-only search results page or a news-only search results page.
 
@@ -25,17 +25,17 @@ If you don't need webpages but you do need answers from more than one of the oth
 
 ## Search query term
 
-If you provide a search box where the user enters their search term, use the [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md) to improve the experience. The API returns suggested query strings based on partial search terms as the user types.
+If you provide a search box where the user enters their search term, use the [Bing Autosuggest API](../Bing-Autosuggest/get-suggested-search-terms.md) to improve the experience. The API returns suggested query strings based on partial search terms as the user types.
 
-After the user enters their query term, URL encode the term before setting the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query) query parameter. For example, if the user enters *sailing dinghies*, set `q` to *sailing+dinghies* or *sailing%20dinghies*.
+After the user enters their query term, URL-encode the term before setting the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query) query parameter. For example, if the user enters *sailing dinghies*, set `q` to *sailing+dinghies* or *sailing%20dinghies*.
 
 If the query term contains a spelling mistake, the search response includes a [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#querycontext) object. The object shows the original spelling and the corrected spelling that Bing used for the search. 
 
 ```
   "queryContext":{  
     "originalQuery":"sialing dingy for sale",  
-    "alteredQuery":"sailing dingh for sale",  
-    "alterationOverrideQuery":"+sialing dingy for sale"  
+    "alteredQuery":"sailing dinghy for sale",  
+    "alterationOverrideQuery":"+sialing +dingy for sale"  
   },  
 ```
 
@@ -190,10 +190,8 @@ As the user hovers over the thumbnail you can use `motionThumbnailUrl` to play a
 If the user clicks the thumbnail, the following are the video viewing options:
 
 - Use `hostPageUrl` to view the video on the host website (for example, YouTube)  
-  
 - Use `webSearchUrl` to view the video in the Bing video browser  
-
-- Use `embdedHtml` to embed the video in your own experience 
+- Use `embedHtml` to embed the video in your own experience 
 
 For details about the video answer and videos, see [Video Search API](../bing-video-search/search-the-web.md).
 
@@ -320,25 +318,21 @@ A mathematical expression may contain the following constants:
 |------------|-----------------|  
 |Pi|3.14159...|  
 |Degree|Degree|  
-|I|Imaginary number|  
-|E|e, 2.71828...|  
+|i|Imaginary number|  
+|e|e, 2.71828...|  
 |GoldenRatio|Golden ratio, 1.61803...|  
-|EulerGamma|Euler's constant, 0.57721...|  
-|Catalan|Catalan's constant, 0.91596...|  
-|StieltjesGamma[n]|Stieltjes constants|  
-  
+
 A mathematical expression may contain the following functions:  
   
 |Symbol|Description|  
 |------------|-----------------|  
 |Sqrt|Square root|  
 |Sin[x], Cos[x], Tan[x]<br /><br /> Csc[x], Sec[x], Cot[x]|Trigonometric functions (with arguments in radians)|  
-|ArcSin[x], ArcCos[x], ArcTan[x], ArcTan[x,y]<br /><br /> ArcCsc[x], ArcSec[x], ArcCot[x]|Inverse trigonometric functions (giving results in radians)|  
+|ArcSin[x], ArcCos[x], ArcTan[x]<br />ArcCsc[x], ArcSec[x], ArcCot[x]|Inverse trigonometric functions (giving results in radians)|  
 |Exp[x], E^x|Exponential function|  
 |Log[x]|Natural logarithm|  
-|Log[b,x]|Logarithm of x to the base b|  
-|Sinh[x], Cosh[x], Tanh[x]<br /><br /> Csch[x], Sech[x], Coth[x]|Hyperbolic functions|  
-|ArcSinh[x], ArcCosh[x], ArcTanh[x]<br /><br /> ArcCsch[x], ArcSech[x], ArcCoth[x]|Inverse hyperbolic functions|  
+|Sinh[x], Cosh[x], Tanh[x]<br />Csch[x], Sech[x], Coth[x]|Hyperbolic functions|  
+|ArcSinh[x], ArcCosh[x], ArcTanh[x]<br />ArcCsch[x], ArcSech[x], ArcCoth[x]|Inverse hyperbolic functions|  
   
 Mathematical expressions that contain variables (for example, 4x+6=18, where x is the variable) are not supported.  
 
@@ -464,11 +458,9 @@ The following shows how Bing uses the spelling suggestion.
 
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
 
-
-
 ## Next steps
 
-To get started quickly with your first request, see [Making Your First Query](./quick-start.md).
+To get started quickly with your first request, see [the C# quickstart](quickstarts/csharp.md).
 
 Familiarize yourself with the [Web Search API Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference). The reference contains the list of endpoints, headers, and query parameters that you'd use to request search results. It also includes definitions of the response objects. 
 
