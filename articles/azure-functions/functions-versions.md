@@ -19,7 +19,7 @@ ms.author: glenga
 
 The Azure Functions runtime implements the serverless execution of your code in Azure. You find this runtime in various environments other than hosted in Azure. The [Azure Functions Core Tools](functions-run-local.md) implements this runtime on your development computer. [Azure Functions Runtime](functions-runtime-overview.md) lets you use Functions in on-premise environments. 
 
-Functions supports multiple major versions of the runtime. These major versions provide the ability to support new features and enhancements while maintaining backward compatibility for existing function apps. A major version update can introduce breaking changes. This topic describes how you can target your function apps to a specific runtime version when hosted in Azure. 
+Functions supports multiple major versions of the runtime. A major version update can introduce breaking changes. This topic describes how you can target your function apps to a specific runtime version when hosted in Azure. 
 
 Functions lets you target a specific major version of the runtime by using the `FUNCTIONS_EXTENSION_VERSION` application setting in your function app. This applies to both public and preview versions. Your function app is kept on the specified major runtime version until you explicitly choose to move to a new version. You function app is updated to new minor versions of the runtime when they become available. Minor version updates do not introduce breaking changes.  
 
@@ -34,7 +34,7 @@ Use the following procedure to view the specific runtime version currently used 
 
     ![Select function app settings](./media/functions-versions/add-update-app-setting.png)
 
-2. In the **Function app settings** tab, locate the **Runtime version**. Note the specific runtime version and the requested major version. In the example below, the major version is set to 1.0.
+2. In the **Function app settings** tab, locate the **Runtime version**. Note the specific runtime version and the requested major version. In the example below, the major version is set to `~1.0`.
  
    ![Select function app settings](./media/functions-versions/function-app-view-version.png)
 
@@ -55,6 +55,8 @@ This setting is equivalent to setting the `FUNCTIONS_EXTENSION_VERSION` applicat
 
 ## Target a specific runtime version from the portal
 
+When you need to target a major version other than the current major version or version 2.0, you must set the `FUNCTIONS_EXTENSION_VERSION` application setting.
+
 1. In the [Azure portal](https://portal.azure.com), navigate to your function app, and under **Configured Features**, choose **Application settings**.
 
     ![Select function app settings](./media/functions-versions/add-update-app-setting1a.png)
@@ -67,7 +69,7 @@ This setting is equivalent to setting the `FUNCTIONS_EXTENSION_VERSION` applicat
 
 ## Target a specific version using Azure CLI
 
- Using the Azure CLI, add the application setting in the function app with the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) command.
+ You can also set the `FUNCTIONS_EXTENSION_VERSION` from the Azure CLI. Using the Azure CLI, update the application setting in the function app with the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) command.
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <function_app> \

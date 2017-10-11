@@ -237,21 +237,24 @@ Then, in Visual Studio Code, in the **Debug** view, select **Attach to Azure Fun
 To test your functions locally, you [start the Functions host](#start) and call endpoints on the local server using HTTP requests. The endpoint you call depends on the type of function. 
 
 >[!NOTE]  
-> Examples in this topic use the cURL tool to send HTTP requests from the Terminal or a command prompt. You can use a tool of your choice to send HTTP requests to the local server. The cURL tool is available by default on Linux-based systems. On Windows, you must first download and install the [cURL tool](https://curl.haxx.se/).
+> Examples in this topic use the cURL tool to send HTTP requests from the terminal or a command prompt. You can use a tool of your choice to send HTTP requests to the local server. The cURL tool is available by default on Linux-based systems. On Windows, you must first download and install the [cURL tool](https://curl.haxx.se/).
 
 For more general information on testing functions, see [Strategies for testing your code in Azure Functions](functions-test-a-function.md).
 
 #### HTTP and webhook triggered functions
-For HTTP and webhook triggered functions, you call the endpoint as you would from a client using the URL for an HTTP triggered function:
+
+You call the following endpoint to locally run HTTP and webhook triggered functions:
 
     http://localhost:{port}/api/{function_name}
 
-Make sure to use the same server name and port that the Functions host is listening on. You see this in the output generated when starting the Function host. The following cURL command triggers the `MyHttpTrigger` quickstart function from a GET request with the _name_ parameter passed in the query string. 
+Make sure to use the same server name and port that the Functions host is listening on. You see this in the output generated when starting the Function host. You can call this URL using any HTTP method supported by the trigger. 
+
+The following cURL command triggers the `MyHttpTrigger` quickstart function from a GET request with the _name_ parameter passed in the query string. 
 
 ```
 curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
 ```
-This is the same function called from a POST request passing _name_ in the request body:
+The following example is the same function called from a POST request passing _name_ in the request body:
 
 ```
 curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
@@ -262,11 +265,11 @@ Note that you can make GET requests from a browser passing data in the query str
 #### Non-HTTP triggered functions
 For all kinds of functions other than HTTP triggers and webhooks, you can test your functions locally by calling an administration endpoint. Calling this endpoint on the local server triggers the function. You can optionally pass test data to the execution. This functionality is similar to the **Test** tab in the Azure portal.  
 
-You call the following administrator endpoint to trigger non-HTTP functions with an HTTP request:
+You call the following administrator endpoint to trigger non-HTTP functions with an HTTP POST request:
 
     http://localhost:{port}/admin/functions/{function_name}
 
-To pass test data to the administrator endpoint of a function, you must supply the data in the body of a POST request message. The message body is required to have the following JSON format:
+Although you To pass test data to the administrator endpoint of a function, you must supply the data in the body of a POST request message. The message body is required to have the following JSON format:
 
 ```JSON
 {
@@ -317,7 +320,7 @@ You can use the following options:
 | **`--publish-local-settings -i`** |  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists.|
 | **`--overwrite-settings -y`** | Must be used with `-i`. Overwrites AppSettings in Azure with local value if different. Default is prompt.|
 
-This command publishes to an existing function app in Azure. An error occurs when the `<FunctionAppName>` doesn't exist in your subscription. To learn how to create a function app from the command prompt or Terminal window using the Azure CLI, see [Create a Function App for serverless execution](./scripts/functions-cli-create-serverless.md).
+This command publishes to an existing function app in Azure. An error occurs when the `<FunctionAppName>` doesn't exist in your subscription. To learn how to create a function app from the command prompt or terminal window using the Azure CLI, see [Create a Function App for serverless execution](./scripts/functions-cli-create-serverless.md).
 
 The `publish` command uploads the contents of the Functions project directory. If you delete files locally, the `publish` command does not delete them from Azure. You can delete files in Azure by using the [Kudu tool](functions-how-to-use-azure-function-app-settings.md#kudu) in the [Azure portal].  
 
