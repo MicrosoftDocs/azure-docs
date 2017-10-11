@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 10/10/2017
 ms.author: arramac
 
 ---
@@ -31,7 +31,7 @@ The **change feed support** in Azure Cosmos DB enables you to build efficient an
 ![Using Azure Cosmos DB change feed to power real-time analytics and event-driven computing scenarios](./media/change-feed/changefeedoverview.png)
 
 > [!NOTE]
-> Change feed support is only provided for the DocumentDB API at this time; the Graph API and Table API are not currently supported.
+> Change feed support is provided for all data models and containers in Azure Cosmos DB. However, the change feed is read using the DocumentDB client and serializes items into JSON format. Because of the JSON formatting, MongoDB clients will experience a mismatch between BSON formatted documents and the JSON formatted change feed. 
 
 ## How does change feed work?
 
@@ -128,7 +128,7 @@ This section walks through how to use the DocumentDB SDK to work with a change f
     foreach (PartitionKeyRange pkRange in partitionKeyRanges){
         string continuation = null;
         checkpoints.TryGetValue(pkRange.Id, out continuation);
-        IDocumentQuery&lt;Document&gt; query = client.CreateDocumentChangeFeedQuery(
+        IDocumentQuery<Document> query = client.CreateDocumentChangeFeedQuery(
             collectionUri,
             new ChangeFeedOptions
             {
@@ -141,7 +141,7 @@ This section walks through how to use the DocumentDB SDK to work with a change f
             });
         while (query.HasMoreResults)
             {
-                FeedResponse&lt;dynamic&gt; readChangesResponse = query.ExecuteNextAsync&lt;dynamic&gt;().Result;
+                FeedResponse<dynamic> readChangesResponse = query.ExecuteNextAsync<dynamic>().Result;
     
                 foreach (dynamic changedDocument in readChangesResponse)
                     {
@@ -158,8 +158,6 @@ And that's it, with these few lines of code you can start reading the change fee
 
 In the code in step 4 above, the **ResponseContinuation** in the last line has the last logical sequence number (LSN) of the document, which you will use the next time you read new documents after this sequence number. By using the **StartTime** of the **ChangeFeedOption** you can widen your net to get the documents. So, if your **ResponseContinuation** is null, but your **StartTime** goes back in time then you will get all the documents that changed since the **StartTime**. But, if your **ResponseContinuation** has a value then system will get you all the documents since that LSN.
 
-One more thing to note, the **ETag** on **FeedResponse** is different than the **_etag** you see on the document. The **_etag** is an internal identifier and used for concurrency, it contains information about the version of the document, whereas **ETag** is used for sequencing the feed.
-
 So, your checkpoint array is just keeping the LSN for each partition. But if you don’t want to deal with the partitions, checkpoints, LSN, start time, etc. the simpler option is to use the Change Feed Processor Library.
 
 <a id="change-feed-processor"></a>
@@ -173,7 +171,44 @@ The Change Feed Processor library simplifies reading changes across partitions a
 
 ![Distributed processing of Azure Cosmos DB change feed](./media/change-feed/change-feed-output.png)
 
-The left client was started first and it started monitoring all the partitions, then the second client was started and then the first let go of some of the leases to second client. As you can see this is the nice way to distribute the work between different machines and clients.
+The left client was started first and it started monitoring all the partitions, then the second client was started, and then the first let go of some of the leases to second client. As you can see this is the nice way to distribute the work between different machines and clients.
+
+Note that if you have two serverless Azure funtions monitoring the same collection and using the same lease then the two functions may get different documents depending upon how the processor library decides to processs the partitions.
+
+### Understanding the Change Feed Processor library
+
+There are four main components of implementing the Change Feed Processor: the monitored collection, the lease collection, the processor host, and the consumers. 
+
+> [!WARNING]
+> Creating a collection has pricing implications, as you are reserving throughput for the application to communicate with Azure Cosmos DB. For more details, please visit the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/)
+> 
+> 
+
+**Monitored Collection:**
+The monitored collection is the data from which the change feed is generated. Any inserts and changes to the monitored collection are reflected in the change feed of the collection. 
+
+**Lease Collection:**
+The lease collection coordinates processing the change feed across multiple workers. A separate collection is used to store the leases with one lease per partition. It is advantageous to store this lease collection on a different account with the write region closer to where the Change Feed Processor is running. A lease object contains the following attributes: 
+* Owner: Specifies the host that owns the lease
+* Continuation: Specifies the position (continuation token) in the change feed for a particular partition
+* Timestamp: Last time lease was updated; the timestamp can be used to check whether the lease is considered expired 
+
+**Processor Host:**
+Each host determines how many partitions to process based on how many other instances of hosts have active leases. 
+1.	When a host starts up, it acquires leases to balance the workload across all hosts. A host periodically renews leases, so leases remain active. 
+2.	A host checkpoints the last continuation token to its lease for each read. To ensure concurrency safety, a host checks the ETag for each lease update. Other checkpoint strategies are also supported.  
+3.	Upon shutdown, a host releases all leases but keeps the continuation information, so it can resume reading from the stored checkpoint later. 
+
+At this time the number of hosts cannot be greater than the number of partitions (leases).
+
+**Consumers:**
+Consumers, or workers, are threads that perform the change feed processing initiated by each host. Each processor host can have multiple consumers. Each consumer reads the change feed from the partition it is assigned to and notifies its host of changes and expired leases.
+
+To further understand how these four elements of Change Feed Processor work together, let's look at an example in the following diagram. The monitored collection stores documents and uses the "city" as the partition key. We see that the blue partition contains documents with the "city" field from "A-E" and so on. There are two hosts, each with two consumers reading from the four partitions in parallel. The arrows show the consumers reading from a specific spot in the change feed. In the first partition, the darker blue represents unread changes while the light blue represents the already read changes on the change feed. The hosts use the lease collection to store a "continuation" value to keep track of the current reading position for each consumer. 
+
+![Using the Azure Cosmos DB change feed processor host](./media/change-feed/changefeedprocessornew.png)
+
+### Working with the Change Feed Processor library
 
 Before installing Change Feed Processor NuGet package, first install: 
 
@@ -538,46 +573,12 @@ Another option is to use the Azure Change Feed Processor Library, which can help
 
 While using the APIs in the Cosmos SDKs provides precise access to change feed updates in each partition, using the Change Feed Processor library simplifies reading changes across partitions and multiple threads working in parallel. Instead of manually reading changes from each container and saving a continuation token for each partition, the Change Feed Processor automatically manages reading changes across partitions using a lease mechanism.
 
-
-### Understanding Change Feed Processor library 
-
-There are four main components of implementing the Change Feed Processor: the monitored collection, the lease collection, the processor host, and the consumers. 
-
-**Monitored Collection:**
-The monitored collection is the data from which the change feed is generated. Any inserts and changes to the monitored collection are reflected in the change feed of the collection. 
-
-**Lease Collection:**
-The lease collection coordinates processing the change feed across multiple workers. A separate collection is used to store the leases with one lease per partition. It is advantageous to store this lease collection on a different account with the write region closer to where the Change Feed Processor is running. A lease object contains the following attributes: 
-* Owner: Specifies the host that owns the lease
-* Continuation: Specifies the position (continuation token) in the change feed for a particular partition
-* Timestamp: Last time lease was updated; the timestamp can be used to check whether the lease is considered expired 
-
-**Processor Host:**
-Each host determines how many partitions to process based on how many other instances of hosts have active leases. 
-1.	When a host starts up, it acquires leases to balance the workload across all hosts. A host periodically renews leases, so leases remain active. 
-2.	A host checkpoints the last continuation token to its lease for each read. To ensure concurrency safety, a host checks the ETag for each lease update. Other checkpoint strategies are also supported.  
-3.	Upon shutdown, a host releases all leases but keeps the continuation information, so it can resume reading from the stored checkpoint later. 
-
-At this time the number of hosts cannot be greater than the number of partitions (leases).
-
-**Consumers:**
-Consumers, or workers, are threads that perform the change feed processing initiated by each host. Each processor host can have multiple consumers. Each consumer reads the change feed from the partition it is assigned to and notifies its host of changes and expired leases.
-
-To further understand how these four elements of Change Feed Processor work together, let's look at an example in the following diagram. The monitored collection stores documents and uses the "city" as the partition key. We see that the blue partition contains documents with the "city" field from "A-E" and so on. There are two hosts, each with two consumers reading from the four partitions in parallel. The arrows show the consumers reading from a specific spot in the change feed. In the first partition, the darker blue represents unread changes while the light blue represents the already read changes on the change feed. The hosts use the lease collection to store a "continuation" value to keep track of the current reading position for each consumer. 
-
-![Using the Azure Cosmos DB change feed processor host](./media/change-feed/changefeedprocessornew.png)
-
 ### Using Change Feed Processor Library 
 The following section explains how to use the Change Feed Processor library in the context of replicating changes from a source collection to a destination collection. Here, the source collection is the monitored collection in Change Feed Processor. 
 
 **Create a monitored, lease and destination collection** 
 
-In order to use the Change Feed Processor Library, the lease collection needs to be created before running the processor host(s). Again, we recommend storing a lease collection on a different account with a write region closer to where the Change Feed Processor is running. In this data movement example, we need to create the destination collection before running the Change Feed Processor host. In the sample code we call a helper method to create the monitored, leased, and destination collections if they do not already exist. 
 
-> [!WARNING]
-> Creating a collection has pricing implications, as you are reserving throughput for the application to communicate with Azure Cosmos DB. For more details, please visit the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/)
-> 
-> 
 
 *Creating a processor host*
 
