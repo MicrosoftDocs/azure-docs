@@ -26,7 +26,8 @@ To manage resources, you must first connect to the Azure Stack Development Kit. 
 * [Remote Desktop Connection](#connect-with-remote-desktop). When you connect by using Remote Desktop Connection, a single concurrent user can quickly connect from the development kit.
 * [Virtual private network (VPN)](#connect-with-vpn). When you connect by using a VPN, multiple concurrent users can connect from clients outside the Azure Stack infrastructure (requires setup).
 
-## Connect to Azure Stack by using Remote Desktop Connection
+<a name="connect-to-azure-stack-with-remote-desktop"></a>
+##  Connect to Azure Stack by using Remote Desktop Connection
 A single concurrent user can manage resources in the operator portal or the user portal through Remote Desktop Connection.
 
 1. Open Remote Desktop Connection and connect to the development kit. For the user name, enter **AzureStack\AzureStackAdmin**. Use the operator password that you specified when you set up Azure Stack.  
@@ -35,6 +36,7 @@ A single concurrent user can manage resources in the operator portal or the user
 
 3. To open the [user portal](azure-stack-key-features.md#portal), go to https://portal.local.azurestack.external/. Sign in by using user credentials. To open the Azure Stack [operator portal](azure-stack-key-features.md#portal), go to https://adminportal.local.azurestack.external/. Sign in by using the Azure Active Directory (Azure AD) credentials that you specified during installation.
 
+<a name="connect-to-azure-stack-with-vpn"></a>
 ## Connect to Azure Stack by using VPN
 
 You can establish a split tunnel VPN connection to an Azure Stack Development Kit. You can use a VPN connection to access the Azure Stack operator portal, the user portal, and locally installed tools like Visual Studio and PowerShell to manage Azure Stack resources. VPN connectivity is supported both in Azure AD and in Active Directory Federation Services (AD FS) deployments. VPN connections make it possible for multiple clients to connect to Azure Stack at the same time. 
