@@ -34,6 +34,7 @@ This article explains the self-service signup process for Azure Active Directory
 * **Email-verified user**: This is a type of user account in Azure AD. A user who has an identity created automatically after signing up for a self-service offer is known as an email-verified user. An email-verified user is a regular member of a directory tagged with creationmethod=EmailVerified.
 
 ## What is in an unmanaged directory?
+
  Directory | An Azure AD directory for the domain is created, one directory per domain. The Azure AD directory has no global admin.
  Users | <li>For each user who signs up, a user is added to the Azure AD directory<li>Each user is marked as a guest user<li>Each user is given access to the service that they signed up for
 
