@@ -59,7 +59,7 @@ For steps to generalize an Azure VM and create a managed image, see the guidance
 Depending on how you plan to create a Batch pool with the image, you need the following identifier for the image:
 
 * If you plan to create a pool with the image using the Batch APIs, the **resource ID** of the image, which is of the form `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage`. 
-* If you plan to use the portal, the *name* of the image. 
+* If you plan to use the portal, the **name** of the image. 
 
 
 
