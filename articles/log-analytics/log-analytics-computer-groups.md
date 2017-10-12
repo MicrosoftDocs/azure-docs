@@ -26,16 +26,16 @@ You can create a computer group in Log Analytics using any of the methods in the
 
 | Method | Description |
 |:--- |:--- |
-| Log search |Create a log search that returns a list of computers and save the results as a computer group. |
+| Log search |Create a log search that returns a list of computers. |
 | Log Search API |Use the Log Search API to programmatically create a computer group based on the results of a log search. |
 | Active Directory |Automatically scan the group membership of any agent computers that are members of an Active Directory domain and create a group in Log Analytics for each security group. |
-| SCCM | Import collections from System Center Configuration Manager  and create a group in Log Analytics for each. |
-| WSUS |Automatically scan WSUS servers or clients for targeting groups and create a group in Log Analytics for each. |
+| Configuration Manager | Import collections from System Center Configuration Manager  and create a group in Log Analytics for each. |
+| Windows Server Update Services |Automatically scan WSUS servers or clients for targeting groups and create a group in Log Analytics for each. |
 
 ### Log search
-Computer groups created from a Log Search contain all of the computers returned by a search query that you define.  This query is run every time the computer group is used so that any changes since the group was created is reflected.  
+Computer groups created from a Log Search contain all of the computers returned by a query that you define.  This query is run every time the computer group is used so that any changes since the group was created is reflected.  
 
-You can use any query for a computer group, but it must return a distinct set of computers by using `distinct Computer`.  Following is a typical example search that you can save as a computer group.
+You can use any query for a computer group, but it must return a distinct set of computers by using `distinct Computer`.  Following is a typical example search that you could use for as a computer group.
 
     Heartbeat | where Computer contains "srv" | distinct Computer
 
@@ -46,7 +46,7 @@ The following table describes the properties that define a computer group.
 | Display Name   | Name of the search  to display in the portal. |
 | Category       | Category to organize the searches in the portal. |
 | Query          | The query for the computer group. |
-| Function alias | A unique alias for the computer group.  This is how you will identify it in a query. |
+| Function alias | A unique alias used to identify the computer group in a query. |
 
 Use the following procedure to create a computer group from a log search in the Azure portal.
 
@@ -68,9 +68,7 @@ Use the following procedure to create a computer group from a log search in the 
 
 
 ### Log search API
-Computer groups created with the Log Search API are the same as searches created with a Log Search.
-
-For details on creating a computer group using the Log Search API see [Computer Groups in Log Analytics log search REST API](log-analytics-log-search-api.md#computer-groups).
+Computer groups created with the Log Search API are the same as searches created with a Log Search.  For details on creating a computer group using the Log Search API see [Computer Groups in Log Analytics log search REST API](log-analytics-log-search-api.md#computer-groups).
 
 ### Active Directory
 When you configure Log Analytics to import Active Directory group memberships, it analyzes the group membership of any domain joined computers with the OMS agent.  A computer group is created in Log Analytics for each security group in Active Directory, and each computer is added to the computer groups corresponding to the security groups they are members of.  This membership is continuously updated every 4 hours.  
@@ -100,14 +98,19 @@ Before you can import Configuration Manager collections, you must [connect Confi
 When collections have been imported, the menu lists the number of computers with group membership detected and the number of groups imported.  You can click on either of these links to return the **ComputerGroup** records with this information.
 
 ## Managing computer groups
-You can view computer groups that were created from a log search or the Log Search API from the **Computer Groups** menu in Log Analytics **Advanced settings**.  Click the **x** in the **Remove** column to delete the computer group.  Click the **View members** icon for a group to run the group's log search that returns its members. 
+You can view computer groups that were created from a log search or the Log Search API from Log Analytics **Advanced settings** in the Azure portal.  Select **Computer Groups** and then **Saved Groups**.  
+
+Click the **x** in the **Remove** column to delete the computer group.  Click the **View members** icon for a group to run the group's log search that returns its members.  You can't modify a computer group but instead must delete and then recreate it with the modified settings.
 
 ![Saved computer groups](media/log-analytics-computer-groups/configure-saved.png)
 
-To modify the group, create a new group with the same **Category** and **Name** to overwrite the original group.
 
 ## Using a computer group in a log search
-You use a Computer group in a query by treating its alias as a function as in the following example:
+You use a Computer group in a query by treating its alias as a function, typically with the following syntax:
+
+  `Table | where Computer in (ComputerGroup)`
+
+For example, you could use the following to return UpdateSummary records for only computers in a computer group called mycomputergroup.
  
   `UpdateSummary | where Computer in (mycomputergroup)`
 
