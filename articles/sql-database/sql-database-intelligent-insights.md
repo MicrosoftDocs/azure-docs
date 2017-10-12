@@ -26,7 +26,7 @@ Intelligent Insights uses built-in intelligence to continuously monitor database
 
 ## What can Intelligent Insights do for you?
 
-Intelligent Insights is a unique capability of Azure's built-in intelligence that provides the following value:
+Intelligent Insights is a unique capability of Azure built-in intelligence that provides the following value:
 
 - Proactive monitoring
 - Tailored performance insights
@@ -77,7 +77,7 @@ A Log Analytics solution provides reporting and alerting capabilities on top of 
 
 ![Intelligent Insights report](./media/sql-database-intelligent-insights/intelligent-insights-azure-sql-analytics.png)
 
-After the Intelligent Insights diagnostics log is configured to stream data to SQL Analytics, you can [monitor the SQL Database by using SQL Analytics](../log-analytics/log-analytics-azure-sql.md).
+After the Intelligent Insights diagnostics log is configured to stream data to SQL Analytics, you can [monitor the SQL database by using SQL Analytics](../log-analytics/log-analytics-azure-sql.md).
 
 ## Custom integrations of Intelligent Insights log
 
@@ -96,10 +96,10 @@ For more information on custom alerting and monitoring development by using Micr
 
 Metrics used for detection models that generate Intelligent Insights are based on monitoring:
 
-- Query duration.
-- Timeout requests.
-- Excessive wait time.
-- Errored out requests.
+- Query duration
+- Timeout requests
+- Excessive wait time
+- Errored out requests
 
 Query duration and timeout requests are used as primary models in detecting issues with database workload performance. They're used because they directly measure what is happening with the workload. To detect all possible cases of workload performance degradation, excessive wait time and errored-out requests are used as additional models to indicate issues that affect the workload performance.
 
@@ -109,7 +109,7 @@ All of the metrics are considered together in various relationships through a sc
 
 * Details of the performance issue detected. 
 * A root cause analysis of the issue detected. 
-* Recommendations on how to improve the performance of the monitored SQL Database, where possible.
+* Recommendations on how to improve the performance of the monitored SQL database, where possible.
 
 ## Query duration
 

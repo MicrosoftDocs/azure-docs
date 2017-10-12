@@ -191,11 +191,11 @@ The easiest way to configure where databases record their metrics is through the
 
 ### Install the SQL Analytics solution from the gallery
 
-1. After you create the Log Analytics resource and your data is flowing into it, install the SQL Analytics solution. On the OMS home page, on the side menu, select **Solutions Gallery**. In the gallery, select the **Azure SQL Analytics** solution, and select **Add**.
+1. After you create the Log Analytics resource and your data is flowing into it, install the SQL Analytics solution. On the Operations Management Suite home page, on the side menu, select **Solutions Gallery**. In the gallery, select the **Azure SQL Analytics** solution, and select **Add**.
 
    ![Monitoring solution](./media/sql-database-metrics-diag-logging/monitoring-solution.png)
 
-2. On your OMS home page, the **Azure SQL Analytics** tile appears. Select this tile to open the SQL Analytics dashboard.
+2. On your Operations Management Suite home page, the **Azure SQL Analytics** tile appears. Select this tile to open the SQL Analytics dashboard.
 
 ### Use the SQL Analytics solution
 
@@ -268,7 +268,7 @@ Learn how to [download metrics and diagnostics logs from Storage](../storage/blo
 
 |Property|Description|
 |---|---|
-|TenantId|Your tennant ID.|
+|TenantId|Your tenant ID.|
 |SourceSystem|Always: Azure|
 |TimeGenerated [UTC]|Time stamp when the log was recorded.|
 |Type|Always: AzureDiagnostics|
@@ -319,7 +319,7 @@ Learn more about [Query Store runtime statistics data](https://docs.microsoft.co
 
 |Property|Description|
 |---|---|
-|TenantId|Your tennant ID.|
+|TenantId|Your tenant ID.|
 |SourceSystem|Always: Azure|
 |TimeGenerated [UTC]|Time stamp when the log was recorded.|
 |Type|Always: AzureDiagnostics|
@@ -357,7 +357,7 @@ Learn more about [Query Store wait statistics data](https://docs.microsoft.com/e
 
 |Property|Description|
 |---|---|
-|TenantId|Your tennant ID.|
+|TenantId|Your tenant ID.|
 |SourceSystem|Always: Azure|
 |TimeGenerated [UTC]|Time stamp when the log was recorded.|
 |Type|Always: AzureDiagnostics|
@@ -386,7 +386,7 @@ Learn more about [SQL Server error messages](https://msdn.microsoft.com/en-us/li
 
 |Property|Description|
 |---|---|
-|TenantId|Your tennant ID.|
+|TenantId|Your tenant ID.|
 |SourceSystem|Always: Azure|
 |TimeGenerated [UTC]|Time stamp when the log was recorded.|
 |Type|Always: AzureDiagnostics|
@@ -415,7 +415,7 @@ Learn more about [database wait statistics](https://docs.microsoft.com/en-us/sql
 
 |Property|Description|
 |---|---|
-|TenantId|Your tennant ID.|
+|TenantId|Your tenant ID.|
 |SourceSystem|Always: Azure|
 |TimeGenerated [UTC]|Time stamp when the log was recorded.|
 |Type|Always: AzureDiagnostics|
@@ -438,7 +438,7 @@ Learn more about [database wait statistics](https://docs.microsoft.com/en-us/sql
 
 |Property|Description|
 |---|---|
-|TenantId|Your tennant ID.|
+|TenantId|Your tenant ID.|
 |SourceSystem|Always: Azure|
 |TimeGenerated [UTC]|Time stamp when the log was recorded.|
 |Type|Always: AzureDiagnostics|
@@ -470,7 +470,7 @@ To learn how to enable logging and understand the metrics and log categories sup
 
 To learn about Event Hubs, read:
 
-* [What are Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
+* [What is Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
 * [Get started with Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 To learn more about Storage, see how to [download metrics and diagnostics logs from Storage](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs).

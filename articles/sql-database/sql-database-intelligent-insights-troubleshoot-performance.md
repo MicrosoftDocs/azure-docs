@@ -49,7 +49,7 @@ Intelligent Insights automatically detects performance issues with SQL Database 
 | [Pricing Tier Downgrade](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | A pricing tier downgrade action decreased available resources, which affects SQL Database performance. |
 
 > [!TIP]
-> For continuous performance optimization of SQL Database, enable [Azure SQL Database automatic tuning](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-automatic-tuning). This unique feature of SQL Database built-in intelligence continuously monitors your SQL Database, automatically tunes indexes, and applies query execution plan corrections.
+> For continuous performance optimization of SQL Database, enable [Azure SQL Database automatic tuning](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-automatic-tuning). This unique feature of SQL Database built-in intelligence continuously monitors your SQL database, automatically tunes indexes, and applies query execution plan corrections.
 >
 
 The following section describes the previously listed detectable performance patterns in more detail.
@@ -62,13 +62,13 @@ This detectable performance pattern combines performance issues that are related
 
 Resources on SQL Database are typically referred to as [DTU resources](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-what-is-a-dtu). They consist of a blended measure of CPU and I/O (data and transaction log I/O) resources. The pattern of reaching resource limits is recognized when detected query performance degradation is caused by reaching any of the measured resource limits.
 
-The session limits resource denotes the number of available concurrent logins to the SQL Database. This performance pattern is recognized when applications that are connected to the SQL Databases have reached the number of available concurrent logins to the database. If applications attempt to use more sessions than are available on a database, the query performance is affected.
+The session limits resource denotes the number of available concurrent logins to the SQL database. This performance pattern is recognized when applications that are connected to the SQL databases have reached the number of available concurrent logins to the database. If applications attempt to use more sessions than are available on a database, the query performance is affected.
 
 Reaching worker limits is a specific case of reaching resource limits because available workers aren't counted in the DTU usage. Reaching worker limits on a database can cause the rise of resource-specific wait times, which results in query performance degradation.
 
 ### Troubleshooting
 
-The diagnostics log outputs query hashes of queries that affected the performance and resource consumption percentages. You can use this information as a starting point for optimizing your database workload. In particular, you can optimize the queries that affect the performance degradation by adding indexes. Or you can optimize applications with a more even workload distribution. If you're unable to reduce workloads or make optimizations, consider increasing the pricing tier of your SQL Database subscription to increase the amount of resources available.
+The diagnostics log outputs query hashes of queries that affected the performance and resource consumption percentages. You can use this information as a starting point for optimizing your database workload. In particular, you can optimize the queries that affect the performance degradation by adding indexes. Or you can optimize applications with a more even workload distribution. If you're unable to reduce workloads or make optimizations, consider increasing the pricing tier of your SQL database subscription to increase the amount of resources available.
 
 If you have reached the available session limits, you can optimize your applications by reducing the number of logins made to the database. If you're unable to reduce the number of logins from your applications to the database, consider increasing the pricing tier of your database. Or you can split and move your database into multiple databases for a more balanced workload distribution.
 
@@ -82,13 +82,13 @@ This performance pattern identifies issues caused by a workload increase or, in 
 
 This detection is made through a combination of several metrics. The basic metric measured is detecting an increase in workload compared with the past workload baseline. The other form of detection is based on measuring a large increase in active worker threads that is large enough to affect the query performance.
 
-In its more severe form, the workload might continuously pile up due to the inability of the SQL Database to handle the workload. The result is a continuously growing workload size, which is the workload pile-up condition. Due to this condition, the time that the workload waits for execution grows. This condition represents one of the most severe database performance issues. This issue is detected through monitoring the increase in the number of aborted worker threads. 
+In its more severe form, the workload might continuously pile up due to the inability of the SQL database to handle the workload. The result is a continuously growing workload size, which is the workload pile-up condition. Due to this condition, the time that the workload waits for execution grows. This condition represents one of the most severe database performance issues. This issue is detected through monitoring the increase in the number of aborted worker threads. 
 
 ### Troubleshooting
 
 The diagnostics log outputs the number of queries whose execution has increased and the query hash of the query with the largest contribution to the workload increase. You can use this information as a starting point for optimizing the workload. The query identified as the largest contributor to the workload increase is especially useful as your starting point.
 
-You might consider distributing the workloads more evenly to the database. Consider optimizing the query that is affecting the performance by adding indexes. You also might distribute your workload among multiple databases. If these solutions aren't possible, consider increasing the pricing tier of your SQL Database subscription to increase the amount of resources available.
+You might consider distributing the workloads more evenly to the database. Consider optimizing the query that is affecting the performance by adding indexes. You also might distribute your workload among multiple databases. If these solutions aren't possible, consider increasing the pricing tier of your SQL database subscription to increase the amount of resources available.
 
 ## Memory Pressure
 
@@ -96,9 +96,9 @@ You might consider distributing the workloads more evenly to the database. Consi
 
 This performance pattern indicates degradation in the current database performance caused by memory pressure, or in its more severe form a memory pile-up condition, compared to the past seven-day performance baseline.
 
-Memory pressure denotes a performance condition in which there is a large number of worker threads requesting memory grants in the SQL Database. The high volume causes a high memory utilization condition in which the SQL Database is unable to efficiently allocate memory to all workers that request it. One of the most common reasons for this issue is related to the amount of memory available to the SQL Database on one hand. On the other hand, an increase in workload causes the increase in worker threads and the memory pressure.
+Memory pressure denotes a performance condition in which there is a large number of worker threads requesting memory grants in the SQL database. The high volume causes a high memory utilization condition in which the SQL database is unable to efficiently allocate memory to all workers that request it. One of the most common reasons for this issue is related to the amount of memory available to the SQL database on one hand. On the other hand, an increase in workload causes the increase in worker threads and the memory pressure.
 
-The more severe form of memory pressure is the memory pile-up condition. This condition indicates that a higher number of worker threads are requesting memory grants than there are queries releasing the memory. This number of worker threads requesting memory grants also might be continuously increasing (piling up) because the SQL Database engine is unable to allocate memory efficiently enough to meet the demand. The memory pile-up condition represents one of the most severe database performance issues.
+The more severe form of memory pressure is the memory pile-up condition. This condition indicates that a higher number of worker threads are requesting memory grants than there are queries releasing the memory. This number of worker threads requesting memory grants also might be continuously increasing (piling up) because the SQL database engine is unable to allocate memory efficiently enough to meet the demand. The memory pile-up condition represents one of the most severe database performance issues.
 
 ### Troubleshooting
 
@@ -106,7 +106,7 @@ The diagnostics log outputs the memory object store details with the clerk (that
 
 You can optimize or remove queries related to the clerks with the highest memory usage. You also can make sure that you aren't querying data that you don't plan to use. Good practice is to always use a WHERE clause in your queries. In addition, we recommend that you create nonclustered indexes to seek the data rather than scan it.
 
-You also can reduce the workload by optimizing or distributing it over multiple databases. Or you can distribute your workload among multiple databases. If these solutions aren't possible, consider increasing the pricing tier of your SQL Database subscription to increase the amount of memory resources available to the database.
+You also can reduce the workload by optimizing or distributing it over multiple databases. Or you can distribute your workload among multiple databases. If these solutions aren't possible, consider increasing the pricing tier of your SQL database subscription to increase the amount of memory resources available to the database.
 
 For additional troubleshooting suggestions, see [Memory grants meditation: The mysterious SQL Server memory consumer with many names](https://blogs.msdn.microsoft.com/sqlmeditation/2013/01/01/memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/).
 
@@ -154,7 +154,7 @@ This performance pattern indicates the current database workload performance deg
 
 Latches are lightweight synchronization mechanisms used by SQL Database to enable multithreading. They guarantee consistency of in-memory structures that include indices, data pages, and other internal structures.
 
-There are many types of latches available on the SQL Database. For simplicity purposes, buffer latches are used to protect in-memory pages in the buffer pool. I/O latches are used to protect pages not yet loaded into the buffer pool. Whenever data is written to or read from a page in the buffer pool, a worker thread needs to acquire a buffer latch for the page first. Whenever a worker thread attempts to access a page that isn't already available in the in-memory buffer pool, an I/O request is made to load the required information from the storage. This sequence of events indicates a more severe form of performance degradation.
+There are many types of latches available on the SQL database. For simplicity purposes, buffer latches are used to protect in-memory pages in the buffer pool. I/O latches are used to protect pages not yet loaded into the buffer pool. Whenever data is written to or read from a page in the buffer pool, a worker thread needs to acquire a buffer latch for the page first. Whenever a worker thread attempts to access a page that isn't already available in the in-memory buffer pool, an I/O request is made to load the required information from the storage. This sequence of events indicates a more severe form of performance degradation.
 
 Contention on the page latches occurs when multiple threads concurrently attempt to acquire latches on the same in-memory structure, which introduces an increased wait time to query execution. In the case of pagelatch I/O contention, when data needs to be accessed from storage, this wait time is even larger. It can affect workload performance considerably. Pagelatch contention is the most common scenario of threads waiting on each other and competing for resources on multiple CPU systems.
 
@@ -185,7 +185,7 @@ The diagnostics log outputs query hashes for the queries that were identified to
 > [!TIP]
 > Did you know that SQL Database built-in intelligence can automatically manage the best-performing indexes for your databases?
 >
-> For continuous performance optimization of SQL Database, we recommend that you enable [SQL Database automatic tuning](sql-database-automatic-tuning.md). This unique feature of SQL Database built-in intelligence continuously monitors your SQL Database and automatically tunes and creates indexes for your databases.
+> For continuous performance optimization of SQL Database, we recommend that you enable [SQL Database automatic tuning](sql-database-automatic-tuning.md). This unique feature of SQL Database built-in intelligence continuously monitors your SQL database and automatically tunes and creates indexes for your databases.
 >
 
 ## New Query
@@ -252,7 +252,7 @@ If reduction and optimization of the current workload on your top DTU-consuming 
 
 This detectable performance pattern denotes a condition in which SQL Database utilizes a suboptimal query execution plan. The suboptimal plan typically causes increased query execution, which leads to longer wait times for the current and other queries.
 
-The SQL Database determines the query execution plan with the least cost to a query execution. As the type of queries and workloads change, sometimes the existing plans are no longer efficient, or perhaps SQL Database didn't make a good assessment. As a matter of correction, query execution plans can be manually forced.
+The SQL database determines the query execution plan with the least cost to a query execution. As the type of queries and workloads change, sometimes the existing plans are no longer efficient, or perhaps SQL Database didn't make a good assessment. As a matter of correction, query execution plans can be manually forced.
 
 This detectable performance pattern combines three different cases of plan regression: new plan regression, old plan regression, and existing plans changed workload. The particular type of plan regression that occurred is provided in the *details* property in the diagnostics log.
 
@@ -271,7 +271,7 @@ For more information, see [Learn how SQL Server prevents plan regressions](https
 > [!TIP]
 > Did you know that SQL Database built-in intelligence can automatically manage the best-performing query execution plans for your databases?
 >
-> For continuous performance optimization of SQL Database, we recommend that you enable [SQL Database automatic tuning](sql-database-automatic-tuning.md). This unique feature of SQL Database built-in intelligence continuously monitors your SQL Database and automatically tunes and creates best-performing query execution plans for your databases.
+> For continuous performance optimization of SQL Database, we recommend that you enable [SQL Database automatic tuning](sql-database-automatic-tuning.md). This unique feature of SQL Database built-in intelligence continuously monitors your SQL database and automatically tunes and creates best-performing query execution plans for your databases.
 >
 
 ## Database-Scoped Configuration Value Change
@@ -292,7 +292,7 @@ For more information on optimizing database-scoped configuration and T-SQL synta
 
 ### What is happening
 
-This detectable performance pattern indicates a condition in which the client using the SQL Database can't consume the output from the database as fast as the database sends the results. Because SQL Database isn't storing results of the executed queries in a buffer, it slows down and waits for the client to consume the transmitted query outputs before proceeding. This condition also might be related to a network that isn't sufficiently fast enough to transmit outputs from the SQL Database to the consuming client.
+This detectable performance pattern indicates a condition in which the client using the SQL database can't consume the output from the database as fast as the database sends the results. Because SQL Database isn't storing results of the executed queries in a buffer, it slows down and waits for the client to consume the transmitted query outputs before proceeding. This condition also might be related to a network that isn't sufficiently fast enough to transmit outputs from the SQL database to the consuming client.
 
 This condition is generated only if a performance regression is detected compared to the past seven-day database workload behavior. This performance issue is detected only if a statistically significant performance degradation occurs compared to previous performance behavior.
 
@@ -306,13 +306,13 @@ You can optimize performance of your application for consumption of these querie
 
 ### What is happening
 
-This detectable performance pattern indicates a condition in which the pricing tier of your SQL Database was downgraded. Because of reduction of resources (DTUs) available to the database, the system detected a drop in the current database performance compared to the past seven-day baseline.
+This detectable performance pattern indicates a condition in which the pricing tier of your SQL Database subscription was downgraded. Because of reduction of resources (DTUs) available to the database, the system detected a drop in the current database performance compared to the past seven-day baseline.
 
 In addition, there could be a condition in which the pricing tier of your SQL Database subscription was downgraded and then upgraded to a higher tier within a short period of time. Detection of this temporary performance degradation is outputted in the details section of the diagnostics log as a pricing tier downgrade and upgrade.
 
 ### Troubleshooting
 
-If you reduced your pricing tier, and therefore the DTUs available to SQL Database, and you're satisfied with the performance, there's nothing you need to do. If you reduced your pricing tier and you're unsatisfied with your SQL Database performance, reduce your database workloads or consider increasing the pricing tier to a higher level.
+If you reduced your pricing tier, and therefore the DTUs available to SQL Database, and you're satisfied with the performance, there's nothing you need to do. If you reduced your pricing tier and you're unsatisfied with your SQL database performance, reduce your database workloads or consider increasing the pricing tier to a higher level.
 
 ## Recommended troubleshooting flow
 
