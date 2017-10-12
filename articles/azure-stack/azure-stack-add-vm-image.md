@@ -25,7 +25,7 @@ In Azure Stack, operators can make custom virtual machine images available to th
 
 ## Add a VM image to Marketplace by using PowerShell
 
-Run the following prerequisites, either from the [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
+Run the following prerequisites, either from the [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) or from a Windows-based external client, if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
 
 1. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).  
 
@@ -34,7 +34,7 @@ Run the following prerequisites, either from the [development kit](azure-stack-c
 3. Prepare a Windows or Linux operating system virtual hard disk image in VHD format (don't use VHDX format).
    
    * For Windows images, for instructions on preparing the image, see [Upload a Windows VM image to Azure for Resource Manager deployments](../virtual-machines/windows/upload-generalized-managed.md).
-   * For Linux images, see [Deploy Linux virtual machines on Azure Stack](azure-stack-linux.md). Complete the steps to prepare the image or use an existing Azure Stack Linux image, as described in the article.  
+   * For Linux images, see [Deploy Linux virtual machines on Azure Stack](azure-stack-linux.md). Complete the steps to prepare the image or use an existing Azure Stack Linux image as described in the article.  
 
 To add the image to the Azure Stack Marketplace, complete the following steps:
 
