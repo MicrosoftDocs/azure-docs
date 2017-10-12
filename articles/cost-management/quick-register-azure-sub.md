@@ -6,7 +6,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/14/2017
+ms.date: 10/11/2017
 ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
@@ -34,9 +34,11 @@ You use your Azure subscription to register with Azure Cost Management by Cloudy
 6. Agree to the Terms of Use then validate your information and then click **Next**.
 7. In the **Gather additional data** page, click **Next** to authorize Cloudyn to collect Azure resource data. Data collected includes usage, performance, billing, and tag data from your subscriptions.  
     ![gather additional data](./media/quick-register-azure-sub/gather-additional.png)
-9. Your browser takes you to the sign in page for Cloudyn. Sign in with your Azure subscription credentials.
+8. Your browser takes you to the sign in page for Cloudyn. Sign in with your Azure subscription credentials.
 9. Click **Go to Cloudyn** to open the Cloudyn portal and then on the **Accounts Management** page, you should see your Azure subscription account information.  
     ![Accounts Management](./media/quick-register-azure-sub/accounts-mgt.png)
+
+To watch a tutorial video about registering your Azure subscription, see [Finding your Directory GUID and Rate ID for use in Azure Cost Management by Cloudyn](https://youtu.be/PaRjnyaNGMI).
 
 [!INCLUDE [cost-management-create-account-view-data](../../includes/cost-management-create-account-view-data.md)]
 
@@ -45,4 +47,4 @@ You use your Azure subscription to register with Azure Cost Management by Cloudy
 In this quickstart, you used your Azure subscription information to register with Cost Management. You also signed into the Cloudyn portal and started viewing cost data. To learn more about Azure Cost Management by Cloudyn, continue to the tutorial for Cost Management.
 
 > [!div class="nextstepaction"]
-> [View cost data](./tutorial-review-usage.md)
+> [Review usage and costs](./tutorial-review-usage.md)
