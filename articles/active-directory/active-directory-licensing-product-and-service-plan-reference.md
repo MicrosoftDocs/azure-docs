@@ -26,12 +26,12 @@ This article provides reference information that you may find useful when workin
 
 ## Product names and identifiers used in Azure AD
 
-When managing licenses in [Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) or Office portals you will see user friendly products names, such as *Office 365 Enterprise E3*. However when you use PowerShell v1.0 cmdlets, the same product will be identified using a less friendly name: *ENTERPRISEPACK*. When using PowerShell v2.0 or Microsoft Graph, the same product is identified using a GUID value: *6fd2c87f-b296-42f0-b197-1e91e994b900*. The same goes for service plans included in the product.
+When managing licenses in [Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) or Office portals you see user-friendly products names, such as *Office 365 Enterprise E3*. However when you use PowerShell v1.0 cmdlets, the same product is identified using a less friendly name: *ENTERPRISEPACK*. When using PowerShell v2.0 or Microsoft Graph, the same product is identified using a GUID value: *6fd2c87f-b296-42f0-b197-1e91e994b900*. The same goes for service plans included in the product.
 
-The table below lists the most commonly used Microsoft Online Services products and provides their various ID values.
+The following table lists the most commonly used Microsoft Online Services products and provides their various ID values.
 
-- **Product Name**: you will see these values in management portals
-- **String Id**: these are used by PowerShell v1.0 cmdlets when performing actions on licenses.
+- **Product Name**: you see these values in management portals
+- **String Id**: these are used by PowerShell v1.0 cmdlets when performing operations on licenses.
 - **Guid Id**: Azure AD Graph and Microsoft Graph use those.
 - **Service Plans Included**: a list of service plans in the product. The String Id and Guid Id are listed.
 
