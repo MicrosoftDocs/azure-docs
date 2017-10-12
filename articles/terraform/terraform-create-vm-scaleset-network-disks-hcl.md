@@ -19,43 +19,37 @@ In this tutorial, you will:
 > * Use variables and outputs for Terraform deployment 
 > * Create and deploy network infrastructure
 > * Create and deploy a VM scaleset and attach it to the network
-> * Create and deploy a Jumpbox 
+> * Create and deploy a jumpbox to connect to the VMs via SSH
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Before you begin
 
 - [Install Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure)
-- Login to Azure with az clid ( you can use  Terraform with Service principal to login)
 
-We recommend using a Service Principal when running in a Shared Environment (such as within a CI server/automation) - and authenticating via the Azure CLI when you're running Terraform locally.
-
-
-## Step 1 - Create a private/public RSA key 
+## Create a private/public RSA key (is this needed?)
 
 We will need a private and public key pair for SSH access.  
 If you don't have a key pair, create an RSA ssh key if you don't have one and put it in ~/.ssh folder (mac)
 
-## Step 2 - Create the file structure
+## Create the file structure
 
-With Terraform, it is a good practice to separate the variables from the logic of the application. 
+Create 3 new files in an empty directory with the following names:
 
-Create 3 new files in your directory with the following names:
-- variables.tf
-  This file will hold the definition of the variables that our template will use.
-- output.tf
-  This file will describe the settings that will be displayed after the deployment happens.
-- vmss.tf
-  This file has the code of the infrastructure that we are deploying.
+- `variables.tf`
+  This file holds the definition of the variables that the template will use.
+- `output.tf`
+  This file describes the settings that will be displayed after deployment.
+- `vmss.tf`
+  This code for the VM scale set infrastructure.
 
-## Step 3 - Create the variables 
+## Create the variables and output definitions
 
-In this step you will define the variables used by the Terraform template. We will use the location and the name of the resource group at several occasions in the rest of this tutorial. 
+In this step you will define common variables used by the Terraform template. 
 
-Edit the ```variables.tf``` file and copy the following content.
+Edit `variables.tf` file, copy the following code, then save the changes.
 
-```hcl 
-
+```tf 
 variable "location" {
   description = "The location where resources will be created"
   default     = "West US"
@@ -63,18 +57,11 @@ variable "location" {
 
 variable "resource_group_name" {
   description = "The name of the resource group in which the resources will be created"
-  default     = ""
+  default     = "myResourceGroup"
 }
-
 ```
 
-**Note:** The default value of the resource_group_name variable is unset, define your own value.
-
-Save the file.
-
-When we deploy our Terraform template, we want to get the FQDN that will be used to access the application. We will use the ```output``` resource type of Terraform and get the ```fqdn``` property of this resource. 
-
-Edit the ```output.tf``` file and copy the following content
+Edit  `output.tf` file and copy the following code to expose the fully qualified domain name that will be used to access the application. 
 
 ```hcl 
 output "vmss_public_ip" {
@@ -82,19 +69,18 @@ output "vmss_public_ip" {
 }
 ```
 
-## Step 3 - Create the network infrastructure. 
+## Define the network infrastructure in a template
 
-In this step we'll create the following network infrastructure: 
+In this step you'll create the following network infrastructure in a new Azure resource group: 
+
   - One VNET with the address space of 10.0.0.0/16 
   - One subnet with the addess space of 10.0.2.0/24
   - Two public IP addresses. One will be used by the VM scale set for the publication of the application, the other one will be used to connect to the jumpbox.
 
-We also need a resource group where all the resources will be created. 
 
-Edit and copy the following code in the ```vmss.tf``` file: 
+Edit and copy the following code in the `vmss.tf` file: 
 
-```hcl 
-
+```tf
 resource "azurerm_resource_group" "vmss" {
   name     = "${var.resource_group_name}"
   location = "${var.location}"
@@ -135,17 +121,19 @@ resource "azurerm_public_ip" "vmss" {
 }
 
 ``` 
-**Note:** It is a good idea to tag the resources being deployed in Azure to facilitate their identification in the future.
 
-## Step 4 - Deploy the network in Azure 
+> [!NOTE]
+> It is a good idea to tag the resources being deployed in Azure to facilitate their identification in the future.
 
-First, we need to initialize the terraform environment by running the following command: 
+## Create the network infrastructure
+
+Initialize the Terraform environment by running the following command in the directory where you created the `.tf` files:
 
 ```bash
 terraform init 
 ```
  
-The provider plugins will be downloaded from the Terraform registry in the ```.terraform``` folder in the directory where you ran the command.
+The provider plugins will be downloaded from the Terraform registry in the `.terraform` folder in the directory where you ran the command.
 
 Then run the following command to deploy the infrastructure in Azure.
 
@@ -161,20 +149,18 @@ The resource group should have the following resources:
 ![VMSS terraform network resources](./media/tf-create-vmss-step4-rg.png)
 
 
-## Step 5 - Edit the infrastructure to add the VM scaleset
+## Edit the infrastructure to add the VM scaleset
 
-In this step we will create the following resources on the network that was previously deployed:
-- Azure loadbalancer to serve the application and attach it to the public IP address that was deployed in step 4
-- Azure backend addess pool and assign it to the loadbalancer 
-- A probe on the port that is used by the application and assign it to the loadbalancer 
-- A loadbalancer rule and and attach it to the loadbalancer 
-- A VM Scaleset that will use the loadbalancer and the vnet deployed earlier
+In this step we will configure the following resources to the network:
 
-Edit the ```vmss.tf``` file and append at the end of it the following code. 
+- One Azure load balancer and rules to serve the application and attach it to the public IP address configured earlier.
+- Azure backend address pool and assign it to the loadbalancer 
+- A health probe port used by the application and configured on the loadbalancer 
+- A VM scaleset sitting behind the load balancer, running on the vnet deployed earlier
 
-```hcl
+Add the following code to the end of the `vmss.tf` file.
 
-
+```tf
 resource "azurerm_lb" "vmss" {
   name                = "vmss-lb"
   location            = "${var.location}"
@@ -290,15 +276,11 @@ resource "azurerm_virtual_machine_scale_set" "vmss" {
     environment = "codelab"
   }
 }
-
 ```
 
-**Note:** for the purpose of this codelab, in the extension of the VMSS resource we run a simple command that installs nginx, you can also run your own script.
+Add the following code to `variables.tf`:
 
-
-Edit the ```variables.tf``` file and add the following code. 
-
-```hcl 
+```tf 
 variable "application_port" {
     description = "The port that you want to expose to the external load balancer"
     default     = 80
@@ -311,10 +293,9 @@ variable "admin_password" {
 ``` 
 
 
-## Step 6 - Deploy the VM scaleset in Azure
+## Deploy the VM scale set in Azure
 
-We will now deploy the VM scaleset in Azure.
-Run the following command: 
+Run the following command to visualize the VM scale set deployment:
 
 ```bash
 terraform plan
@@ -323,7 +304,7 @@ terraform plan
 The output of the command should look like the following.
 ![Terraform add vmss plan](./media/tf-create-vmss-step6.png)
 
-Then run the following command to deploy the additional resources in Azure: 
+Then deploy the additional resources in Azure: 
 
 ```bash
 terraform apply 
@@ -334,16 +315,17 @@ The content of the resource group should look like this:
 
 Open a browser and connect to the FQDN that was returned by the command. 
 
+(add screenshots)
 
+## Add a jumpbox to the existing network 
 
-## Step 7 - Add a Jumpbox to the existing network 
+This optional step enables SSH access to the instances of the VM scale set through a jumpbox.
 
-This optional step will enable ssh access to the instances of the VM scale set by using a jumpbox.
 You will add the following resources to your existing deployment:
 - A network interface connected to the same subnet than the VM scaleset
 - A virtual machine with this network interface
 
-Edit the ```vmss.tf``` file and add the following code: 
+Add the following code to the end of the `vmss.tf` file:
 
 ```hcl 
 resource "azurerm_public_ip" "jumpbox" {
@@ -417,7 +399,7 @@ resource "azurerm_virtual_machine" "jumpbox" {
 }
 ```
 
-We also want to get the FQDN of the jumpbox that will be deployed. Edit the ```outputs.tf``` file and add the following code: 
+Edit `outputs.tf`  and add the following code to display the hostname of the jumpbox when the deployment is complete:
 
 ```
 output "jumpbox_public_ip" {
@@ -425,9 +407,9 @@ output "jumpbox_public_ip" {
 }
 ```
 
-## Step 8 - Deploy the jumpbox
+## Deploy the jumpbox
 
-Run the following command: 
+Run the following command to deploy the jumpbox
 
 ```bash
 terraform apply 
@@ -436,19 +418,13 @@ terraform apply
 Once the deployment has completed, the content of the resource group should look like this:
 ![Terraform vm scaleset resource group](./media/tf-create-create-vmss-step8.png)
 
-
-
 ## Next Steps
 
-In this tutorial, you deployed a VM scaleset and a Jumpbox on Azure using terraform. You learned how to:
-
-(Repeat the checklist from the top:)
+In this tutorial, you deployed a VM scaleset  on Azure using Terraform. You learned how to:
 
 > [!div class="checklist"]
 > * Initialise Terraform deployment
 > * Use variables and outputs for Terraform deployment 
 > * Create and deploy a network infrastructure
 > * Create and deploy a vm scaleset and attach it to an existing environment
-> * Create and deploy a jumpbox  
-> * 
-> * 
+> * Create and deploy a jumpbox to connect to the VMs via SSH 
