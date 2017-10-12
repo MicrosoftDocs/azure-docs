@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/11/2017
+ms.date: 10/12/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;oldportal
@@ -61,12 +61,12 @@ Merging an unmanaged directory follows the same DNS validation process as only t
 #### What's the advantage of merging an unmanaged directory?
 With an external takeover, a mapping of users-to-resources is created so users can continue to access services without interruption. Many applications, including RMS for individuals, handle the mapping of users-to-resources well, and users can continue to access those services without change. If an application does not handle the mapping of users-to-resources effectively, external takeover may be explicitly blocked to prevent users from a poor experience.
 
-#### Directory merging and takeover support by service
+#### Directory merging support by service
 Currently the following services support takeover:
 
 * RMS
 
-The following services will soon be supporting takeover:
+The following services will soon be supporting merging an unmanaged directory:
 
 * PowerBI
 
@@ -74,7 +74,7 @@ The following do not require additional admin action to migrate user data after 
 
 * SharePoint/OneDrive
 
-### Take over an unmanaged directory
+### Take over an unmanaged directory (no merge)
 When you do an internal takeover, the directory gets converted from an unmanaged directory to a managed directory. You need to complete DNS domain name validation, where you create an MX record or a TXT record in the DNS zone. That action:
 
 * Validates that you own the domain
@@ -86,15 +86,17 @@ Let's say an IT administrator from Bellows College discovers that users from the
 ## How to perform a DNS domain name takeover
 You have a few options for how to perform a domain validation (and merge or take over an unmanaged domain):
 
-1. Azure portal
+**Azure portal**
 
-   If you add a new domain name to an Azure AD directory, and a directory already exists for the domain, you are given the option to merge the unmanaged directory. Sign in to the Azure portal using an account that is a global administrator for your existing directory and then proceed as described in [Add a custom domain name to Azure AD](add-custom-domain.md).
-2. Office 365
-  
-  You can use the options on the [Manage domains](https://support.office.com/article/Navigate-to-the-Office-365-Manage-domains-page-026af1f2-0e6d-4f2d-9b33-fd147420fac2/) page in Office 365 to work with your domains and DNS records. See [Verify your domain in Office 365](https://support.office.com/article/Verify-your-domain-in-Office-365-6383f56d-3d09-4dcb-9b41-b5f5a5efd611/). 
+If you add a new domain name to an Azure AD directory, and a directory already exists for the domain, you are given the option to merge the unmanaged directory. Sign in to the Azure portal using an account that is a global administrator for your existing directory and then proceed as described in [Add a custom domain name to Azure AD](add-custom-domain.md).
+
+**Office 365**
+
+You can use the options on the [Manage domains](https://support.office.com/article/Navigate-to-the-Office-365-Manage-domains-page-026af1f2-0e6d-4f2d-9b33-fd147420fac2/) page in Office 365 to work with your domains and DNS records. See [Verify your domain in Office 365](https://support.office.com/article/Verify-your-domain-in-Office-365-6383f56d-3d09-4dcb-9b41-b5f5a5efd611/). 
   > [!IMPORTANT]
   > Please be aware that this will take over and not merge the unmanaged directory. If you want to merge the unmanaged directory, do not use this method.
-3. Microsoft PowerShell
+
+**Microsoft PowerShell**
 
    The following steps are required to perform a validation using Microsoft PowerShell.
 
@@ -135,20 +137,24 @@ For example:
   ````
 5. In your public DNS namespace, create a DNS txt record that contains the value that you copied in the previous step. The name for this record is the name of the parent domain, so if you create this resource record by using the DNS role from Windows Server, leave the Record name blank and just paste the value into the Text box.
 6. Run the Confirm-MsolDomain cmdlet to verify the challenge:
+  
   ````
     Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
   ````
+  
   For example:
+  
   ````
     Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
   ````
+
 A successful challenge returns you to the prompt without an error.
 
 ## How do I control self-service settings?
-Admins have two self-service controls today. They can control:
+Admins have two self-service controls today. They can control whether:
 
-* Whether or not users can join the directory via email.
-* Whether or not users can license themselves for applications and services.
+* Users can join the directory via email.
+* Users can license themselves for applications and services.
 
 ### How can I control these capabilities?
 An admin can configure these capabilities using these Azure AD cmdlet Set-MsolCompanySettings parameters:
