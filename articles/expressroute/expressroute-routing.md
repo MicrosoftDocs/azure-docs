@@ -51,7 +51,7 @@ Consider a case where you select 192.168.100.128/29 to set up private peering. 1
 * 192.168.100.128/30 will be assigned to link1, with provider using 192.168.100.129 and Microsoft using 192.168.100.130.
 * 192.168.100.132/30 will be assigned to link2, with provider using 192.168.100.133 and Microsoft using 192.168.100.134.
 
-### IP addresses used for Azure public and Microsoft peering
+### IP addresses used for Azure public peering
 You must use public IP addresses that you own for setting up the BGP sessions. Microsoft must be able to verify the ownership of the IP addresses through Routing Internet Registries and Internet Routing Registries. 
 
 * You must use a unique /29 subnet or two /30 subnets to set up the BGP peering for each peering per ExpressRoute circuit (if you have more than one). 
@@ -59,6 +59,18 @@ You must use public IP addresses that you own for setting up the BGP sessions. M
   * The first /30 subnet will be used for the primary link and the second /30 subnet is used for the secondary link.
   * For each of the /30 subnets, you must use the first IP address of the /30 subnet on your router. Microsoft uses the second IP address of the /30 subnet to set up a BGP session.
   * You must set up both BGP sessions for our [availability SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.
+
+### IP addresses used for Microsoft peering
+You must use public IP addresses that you own for setting up the BGP sessions. Microsoft must be able to verify the ownership of the IP addresses through Routing Internet Registries and Internet Routing Registries.
+
+* You must use a unique /29 (IPv4) or /125 (IPv6) subnet or two /30 (IPv4) or /126 (IPv6) subnets to set up the BGP peering for each peering per ExpressRoute circuit (if you have more than one).
+* If a /29 subnet is used, it will be split into two /30 subnets.
+* The first /30 subnet will be used for the primary link and the second /30 subnet will be used for the secondary link.
+* For each of the /30 subnets, you must use the first IP address of the /30 subnet on your router. Microsoft will use the second IP address of the /30 subnet to set up a BGP session.
+* If a /125 subnet is used, it will be split into two /126 subnets.
+* The first /126 subnet will be used for the primary link and the second /126 subnet will be used for the secondary link.
+* For each of the /126 subnets, you must use the first IP address of the /126 subnet on your router. Microsoft will use the second IP address of the /126 subnet to set up a BGP session.
+* You must set up both BGP sessions for our [availability SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.
 
 ## Public IP address requirement
 
@@ -77,7 +89,7 @@ The Azure public peering path enables you to connect to all services hosted in A
 A Private AS Number is allowed with Public Peering.
 
 ### Microsoft peering
-The Microsoft peering path lets you connect to all Microsoft cloud services hosted on public IP addresses. The list of services include Office 365, Dynamics 365 and Microsoft Azure PaaS services. Microsoft supports bi-directional connectivity on the Microsoft peering. Traffic destined to Microsoft cloud services must use valid public IPv4 / IPv6 addresses before they enter the Microsoft network.
+The Microsoft peering path lets you connect to Microsoft cloud services that are not supported through the Azure public peering path. The list of services includes Office 365 services, such as Exchange Online, SharePoint Online, Skype for Business, and Dynamics 365. Microsoft supports bi-directional connectivity on the Microsoft peering. Traffic destined to Microsoft cloud services must use valid public IPv4 addresses before they enter the Microsoft network.
 
 Make sure that your IP address and AS number are registered to you in one of the following registries:
 
@@ -224,7 +236,6 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 ## Next steps
 * Configure your ExpressRoute connection.
   
-  * [Create an ExpressRoute circuit for the classic deployment model](expressroute-howto-circuit-classic.md) or [Create and modify an ExpressRoute circuit using Azure Resource Manager](expressroute-howto-circuit-arm.md)
-  * [Configure routing for the classic deployment model](expressroute-howto-routing-classic.md) or [Configure routing for the Resource Manager deployment model](expressroute-howto-routing-arm.md)
-  * [Link a classic VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md) or [Link a Resource Manager VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md)
-
+  * [Create and modify a circuit](expressroute-howto-circuit-arm.md)
+  * [Create and modify peering configuration](expressroute-howto-routing-arm.md)
+  * [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md)
