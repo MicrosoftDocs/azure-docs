@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 10/11/2017
 ms.author: nitinme
 
 ---
@@ -67,10 +67,15 @@ The code sample available [on GitHub](https://github.com/Azure-Samples/data-lake
         using System;
         using System.IO;
 		using System.Threading;
-
+        using System.Linq;
+        using System.Text;
+        using System.Collections.Generic;
+        using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+                
+        using Microsoft.Rest;
+        using Microsoft.Rest.Azure.Authentication;
         using Microsoft.Azure.DataLake.Store;
 		using Microsoft.IdentityModel.Clients.ActiveDirectory;
-		using Microsoft.Rest.Azure.Authentication;
 
 7. Declare the variables as shown below, and provide the values for the placeholders. Also, make sure the local path and file name you provide here exist on the computer.
 
@@ -94,7 +99,7 @@ In the remaining sections of the article, you can see how to use the available .
 The following snippet creates the Data Lake Store filesystem client object, which is used to issue requests to the service.
 
     // Create client objects
-    AdlsClient client = AdlsClient.CreateClient(_adlsAccountName, creds);
+    AdlsClient client = AdlsClient.CreateClient(_adlsAccountName, adlCreds);
 
 ## Create a file and directory
 Add the following snippet to your application. This snippet adds a file as well as any parent directory that do not exist.

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 10/11/2017
 ms.author: nitinme
 
 ---
@@ -102,7 +102,7 @@ In the remaining sections of the article, you can see how to use the available .
 The following snippet creates the Data Lake Store account client object, which is used to issue account management requests to the service, such as create account, delete account, etc.
 
     // Create client objects and set the subscription ID
-    _adlsClient = new DataLakeStoreAccountManagementClient(creds) { SubscriptionId = _subId };
+    _adlsClient = new DataLakeStoreAccountManagementClient(armCreds) { SubscriptionId = _subId };
     
 ## Create a Data Lake Store account
 The following snippet creates a Data Lake Store account in the Azure subscription you provided while creating the Data Lake Store account client object.
