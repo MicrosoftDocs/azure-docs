@@ -158,7 +158,7 @@
       href: model-management-cli-reference.md
     - name: Model data collection API
       href: model-data-collection-api-reference.md
-  - name: Release Notes
+  - name: Release notes
     items:
     - name: Sprint 0 - October 2017
       href: release-notes-sprint-0.md
