@@ -1,6 +1,6 @@
 ---
-title: Provision a SQL Server Virtual Machine | Microsoft Docs
-description: Create and connect to a SQL Server virtual machine in Azure using the portal. This tutorial uses the Resource Manager mode.
+title: Create a Windows SQL Server 2017 VM in Azure | Microsoft Docs
+description: This tutorial shows how to create a Windows SQL Server 2017 virtual machine in the Azure portal.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -12,49 +12,49 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 08/14/2017
+ms.date: 10/10/2017
 ms.author: jroth
 ---
-# Provision a SQL Server virtual machine in the Azure portal
+# Provision a Windows SQL Server virtual machine in the Azure portal
+
 > [!div class="op_single_selector"]
 > * [Portal](virtual-machines-windows-portal-sql-server-provision.md)
 > * [PowerShell](virtual-machines-windows-ps-sql-create.md)
-> 
-> 
+> * [Linux](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
 
-This end-to-end tutorial shows you how to use the Azure portal to provision a virtual machine running SQL Server.
-
-The Azure virtual machine (VM) gallery includes several images that contain Microsoft SQL Server. With a few clicks, you can select one of the SQL VM images from the gallery and provision it in your Azure environment.
+In this quick start tutorial, you use the Azure portal to create a Windows virtual machine with SQL Server installed.
 
 In this tutorial, you will:
 
-* [Select a SQL VM image from the gallery](#select-a-sql-vm-image-from-the-gallery)
-* [Configure and create the VM](#configure-the-vm)
-* [Open the VM with Remote Desktop](#open-the-vm-with-remote-desktop)
-* [Connect to SQL Server remotely](#connect-to-sql-server-remotely)
+* [Select a SQL VM image from the gallery](#select)
+* [Configure and create the VM](#configure)
+* [Open the VM with Remote Desktop](#remotedesktop)
+* [Connect to SQL Server remotely](#connect)
 
-## Select a SQL VM image from the gallery
+## <a id="select"></a> Select a SQL VM image from the gallery
 
 1. Log in to the [Azure portal](https://portal.azure.com) using your account.
 
    > [!NOTE]
    > If you do not have an Azure account, visit [Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-2. On the Azure portal, click **New**. The portal opens the **New** window.
+1. On the Azure portal, click **New**. The portal opens the **New** window.
 
-3. In the **New** window, click **Compute** and then click **See all**.
+1. In the **New** window, click **Compute** and then click **See all**.
 
    ![New Compute window](./media/virtual-machines-windows-portal-sql-server-provision/azure-new-compute-blade.png)
 
-4. In the search field, type **SQL Server**, and press ENTER.
+1. In the search field, type **SQL Server 2017**, and press ENTER.
 
-5. Then click the **Filter** icon and select **Microsoft** for the publisher. Click **Done** on the filter window to filter the results to Microsoft published SQL Server images.
+1. Then click the **Filter** icon.
+
+1. In the Filter windows, check the **Windows based** subcategory and **Microsoft** for the publisher. Then click **Done** to filter the results to Microsoft-published, Windows SQL Server images.
 
    ![Azure Virtual Machines window](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
 
-5. Review the available SQL Server images. Each image identifies a SQL Server version and an operating system.
+1. Review the available SQL Server images. Each image identifies a SQL Server version and an operating system.
 
-6. Select the image named **Free License: SQL Server 2016 SP1 Developer on Windows Server 2016**.
+1. Select the image named **Free SQL Server License: SQL Server 2017 Developer on Windows Server 2016**.
 
    > [!TIP]
    > The Developer edition is used in this tutorial because it is a full-featured edition of SQL Server that is free for development testing purposes. You pay only for the cost of running the VM. However, you are free to choose any of the images to use in this tutorial.
@@ -64,13 +64,13 @@ In this tutorial, you will:
    >
    > For more information on these options, see [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md).
 
-7. Under **Select a deployment model**, verify that **Resource Manager** is selected. Resource Manager is the recommended deployment model for new virtual machines. 
+1. Under **Select a deployment model**, verify that **Resource Manager** is selected. Resource Manager is the recommended deployment model for new virtual machines. 
 
-8. Click **Create**.
+1. Click **Create**.
 
     ![Create SQL VM with Resource Manager](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
-## Configure the VM
+## <a id="configure"></a> Configure the VM
 There are five windows for configuring a SQL Server virtual machine.
 
 | Step | Description |
@@ -150,7 +150,7 @@ On the **SQL Server settings** window, configure specific settings and optimizat
 | [Automated Patching](#automated-patching) |
 | [Automated Backup](#automated-backup) |
 | [Azure Key Vault Integration](#azure-key-vault-integration) |
-| [R Services](#r-services) |
+| [SQL Server Machine Learning Services](#sql-server-machine-learning-services) |
 
 ### Connectivity
 
@@ -251,14 +251,11 @@ The following table lists the parameters required to configure Azure Key Vault I
 
 For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs](virtual-machines-windows-ps-sql-keyvault.md).
 
-### R services
+### SQL Server Machine Learning Services
 
-You have the option to enable [SQL Server R Services](https://msdn.microsoft.com/library/mt604845.aspx). This enables you to use advanced analytics with SQL Server 2016. Click **Enable** on the **SQL Server Settings** window.
+You have the option to enable [SQL Server Machine Learning Services](https://msdn.microsoft.com/library/mt604845.aspx). This enables you to use advanced analytics with SQL Server 2017. Click **Enable** on the **SQL Server Settings** window.
 
-> [!NOTE]
-> For SQL Server 2016 Developer Edition, this option is incorrectly disabled by the portal. For Developer edition, you must enable R Services manually after creating your VM.
-
-![Enable SQL Server R Services](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
+![Enable SQL Server Machine Learning Services](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
 
 When you are finished configuring SQL Server settings, click **OK**.
 
@@ -269,9 +266,9 @@ On the **Summary** window, review the summary and click **Purchase** to create S
 You can monitor the deployment from the Azure portal. The **Notifications** button at the top of the screen shows basic status of the deployment.
 
 > [!NOTE]
-> To provide you with an idea on deployment times, I deployed a SQL VM to the East US region with default settings. This test deployment took a total of 26 minutes to complete. But you might experience a faster or slower deployment time based on your region and selected settings.
+> To provide you with an idea on deployment times, I deployed a SQL VM to the East US region with default settings. This test deployment took approximately 12 minutes to complete. But you might experience a faster or slower deployment time based on your region and selected settings.
 
-## Open the VM with Remote Desktop
+## <a id="remotedesktop"></a> Open the VM with Remote Desktop
 
 Use the following steps to connect to the SQL Server virtual machine with Remote Desktop:
 
@@ -289,7 +286,7 @@ The following steps use **SQL Server Configuration Manager** to enable the TCP/I
 
 > [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
 
-## Connect to SQL Server remotely
+## <a id="connect"></a> Connect to SQL Server remotely
 
 In this tutorial, we selected **Public** access for the virtual machine and **SQL Server Authentication**. These settings automatically configured the virtual machine to allow SQL Server connections from any client over the internet (assuming they have the correct SQL login).
 

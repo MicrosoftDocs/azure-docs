@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2017
+ms.date: 09/26/2017
 ms.author: maheshu
 
 ---
@@ -23,7 +23,7 @@ ms.author: maheshu
 Ensure you've completed [Task 2 - export the secure LDAP certificate to a .PFX file](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md).
 
 
-## Task 3 - enable secure LDAP for the managed domain using the Azure portal (Preview)
+## Task 3 - enable secure LDAP for the managed domain using the Azure portal
 To enable secure LDAP, perform the following configuration steps:
 
 1. Navigate to the **[Azure portal](https://portal.azure.com)**.

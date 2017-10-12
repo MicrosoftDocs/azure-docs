@@ -203,7 +203,7 @@ The `id_token` parameter includes the following claim types:
 | Claim type | Description |
 | --- | --- |
 | aud |Audience of the token. When the token is issued to a client application, the audience is the `client_id` of the client. |
-| exp |Expiration time. The time when the token expires. For the token to be valid, the current date/time must be less than or equal to the `exp` value. The time is represented as the number of seconds from January 1, 1970 (1970-01-01T0:0:0Z) UTC until the time the token was issued. |
+| exp |Expiration time. The time when the token expires. For the token to be valid, the current date/time must be less than or equal to the `exp` value. The time is represented as the number of seconds from January 1, 1970 (1970-01-01T0:0:0Z) UTC until the time the token validity expires.|
 | family_name |User’s last name or surname. The application can display this value. |
 | given_name |User’s first name. The application can display this value. |
 | iat |Issued at time. The time when the JWT was issued. The time is represented as the number of seconds from January 1, 1970 (1970-01-01T0:0:0Z) UTC until the time the token was issued. |

@@ -6,7 +6,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/15/2017
+ms.date: 09/25/2017
 ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
@@ -35,9 +35,10 @@ To complete registration, you must be a partner program administrator with acces
   1. Go to **Dashboard** > **Account Settings** > **App Management**.
   2. If you have previously created a Web App, skip this step. Otherwise, click **Add new web app** in the **Web App** section.
   3. Copy the **App ID** GUID from your web application.
-  4. Select the key validity duration as one or two years, as needed. Select **Add key** and then copy and save the secret key value.  
+  4. Copy the **Commerce ID** GUID from your web application.
+  5. Select the key validity duration as one or two years, as needed. Select **Add key** and then copy and save the secret key value.  
     ![CSP Partner Center](./media/quick-register-csp/csp-partner-center.png)
-  5. Go back to the registration page and paste the information.  
+  6. Go back to the registration page and paste the information.  
       ![CSP account credentials](./media/quick-register-csp/csp-reg.png)
 6. Agree to the Terms of Use then validate your information. Click **Next** to authorize Cloudyn to collect Azure resource data. Data collected includes usage, performance, billing, and tag data from your subscriptions.  
 7. Under **Invite other stakeholders**, you can add users by typing their email addresses. When complete, click **Next**. It takes about two hours for all your billing data to get added to Cloudyn.

@@ -35,6 +35,7 @@
 ## Configure route filters for Microsoft peering
 ### [Azure portal](how-to-routefilter-portal.md)
 ### [Azure PowerShell](how-to-routefilter-powershell.md)
+### [Azure CLI](how-to-routefilter-cli.md)
 ## [Move a circuit from classic to Resource Manager](expressroute-howto-move-arm.md)
 ## [Migrate associated virtual networks from classic to Resource Manager](expressroute-migration-classic-resource-manager.md)
 ## Configure a router for ExpressRoute
@@ -45,7 +46,7 @@
 ### [Best practices for network security and cloud services](../best-practices-network-security.md)
 ### [Optimize routing](expressroute-optimize-routing.md)
 ### [Asymmetric routing](expressroute-asymmetric-routing.md)
-### [NAT for ExpressRoute](expressroute-routing-nat.md)
+### [NAT for ExpressRoute](expressroute-nat.md)
 
 ## Troubleshoot
 ### [Verifying ExpressRoute connectivity](expressroute-troubleshooting-expressroute-overview.md)

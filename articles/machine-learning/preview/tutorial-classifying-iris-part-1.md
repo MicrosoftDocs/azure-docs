@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 09/25/2017
+ms.date: 09/28/2017
 ---
 
 # Classifying Iris part 1: Prepare data
@@ -24,11 +24,14 @@ This tutorial is part one of a three part series. In this tutorial, let's walk t
 
 This tutorial uses the timeless [Iris flower dataset](https://en.wikipedia.org/wiki/Iris_flower_data_set) to keep things simple. The screenshots are Windows-specific, but the macOS experience is almost identical.
 
-## Launch Azure Machine Learning Workbench
-Follow the [Install and create Quickstart](quickstart-installation.md) to install the Azure Machine Learning Workbench application. That installation also includes the command-line interface (CLI). Launch the Azure Machine Learning Workbench app, and log in if needed.
+## Prerequisites
+- Create an Azure Machine Learning Experimentation Account
+- Install Azure Machine Learning Workbench
 
-## Create a new project
-1. In the **PROJECTS** pane, click on the **+** icon to create a **New Project**.
+You can follow the [Install and create Quickstart](quickstart-installation.md) to install the Azure Machine Learning Workbench application. That installation also includes the command-line interface (CLI).
+
+## Create a new project in Azure ML Workbench
+1. Launch the Azure Machine Learning Workbench app, and log in if needed. In the **PROJECTS** pane, click on the **+** icon to create a **New Project**.
 
    ![new workspace](media/tutorial-classifying-iris/new_ws.png)
 
@@ -58,9 +61,11 @@ Follow the [Install and create Quickstart](quickstart-installation.md) to instal
    ![data view](media/tutorial-classifying-iris/data_view.png)
 
 3. Complete the Data Preparation Wizard. 
-   - On the first screen, select the **File(s)/Directory** option, then click Next.
-   - On the second screen, choose the **iris.csv** local file, for example C:\Temp\myIris\iris.csv.
-   - On the third through sixth screens, accept the default settings for each screen.
+   - On the first screen, select the **File(s)/Directory** option, then click **Next**.
+   - On the second screen, choose the **iris.csv** local file, for example "C:\Temp\myIris\iris.csv".
+   - On the third screen **File Details**, accept default values.
+   - On the fourth screen **Data Types**, change the **DATA TYPE** from _String_ to _Numeric_ for _Column1_ through _Column4_ since these columns are numeric values. 
+   - On the fifth and the sixth screens, accept the default settings.
    - Click the **Finish** button.
 
    ![select iris](media/tutorial-classifying-iris/select_iris_csv.png)

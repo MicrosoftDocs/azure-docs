@@ -19,19 +19,19 @@ ms.author: chackdan
 
 ---
 # Customize Service Fabric cluster settings and Fabric Upgrade policy
-This document tells you how to customize the various fabric settings and the fabric upgrade policy for your Service Fabric cluster. You can customize them on the portal or using an Azure Resource Manager template.
+This document tells you how to customize the various fabric settings and the fabric upgrade policy for your Service Fabric cluster. You can customize them through the [Azure portal](https://portal.azure.com) or using an Azure Resource Manager template.
 
-> [!NOTE]
-> Not all settings may be available via the portal. In case a setting listed below is not available via the portal customize it using an Azure Resource Manager template.
-> 
+> [!NOTE]
+> Not all settings are available in the portal. In case a setting listed below is not available via the portal customize it using an Azure Resource Manager template.
+> 
 
-## Customizing Service Fabric cluster settings using Azure Resource Manager templates
+## Customize cluster settings using Resource Manager templates
 The steps below illustrate how to add a new setting *MaxDiskQuotaInMB* to the *Diagnostics* section.
 
 1. Go to https://resources.azure.com
-2. Navigate to your subscription by expanding subscriptions -> resource groups -> Microsoft.ServiceFabric -> Your Cluster Name
-3. In the top right corner, select "Read/Write"
-4. Select Edit and update the `fabricSettings` JSON element and add a new element
+2. Navigate to your subscription by expanding **subscriptions** -> **resource groups** -> **Microsoft.ServiceFabric** -> **\<Your Cluster Name>**
+3. In the top right corner, select **Read/Write.**
+4. Select **Edit** and update the `fabricSettings` JSON element and add a new element:
 
 ```
       {
@@ -45,8 +45,7 @@ The steps below illustrate how to add a new setting *MaxDiskQuotaInMB* to the *D
       }
 ```
 
-## Fabric settings that you can customize
-Here are the Fabric settings that you can customize:
+The following is a list of Fabric settings that you can customize, organized by section.
 
 ### Section Name: Diagnostics
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
@@ -780,6 +779,7 @@ PropertyGroup|X509NameMap,default is None|Dynamic| |
 | --- | --- | --- | --- |
 |ResolveOption|wstring,default is L"unspecified"|Static|Determines how FQDN are resolved.  Valid values are "unspecified/ipv4/ipv6". |
 |ConnectionOpenTimeout|TimeSpan,default is Common::TimeSpan::FromSeconds(60)|Static|Specify timespan in seconds. Timeout for connection setup on both incoming and accepting side (including security negotiation in secure mode) |
+
 
 ## Next steps
 Read these articles for more information on cluster management:

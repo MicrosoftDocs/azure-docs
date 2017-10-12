@@ -198,7 +198,7 @@ Now that you have learned how to use JDBC to work with Hive, use the following l
 * [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver](./hdinsight-connect-excel-hive-odbc-driver.md).
 * [Connect Excel to Hadoop by using Power Query](./hdinsight-connect-excel-power-query.md).
 * [Connect to Azure HDInsight and run Hive queries using Data Lake Tools for Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md).
-* [Use Visual Studio Code for Hive, LLAP or pySpark](hdinsight-for-vscode.md).
+* [Use Azure HDInsight Tool for Visual Studio Code](hdinsight-for-vscode.md).
 * [Upload data to HDInsight](hdinsight-upload-data.md)
 * [Use Hive with HDInsight](hdinsight-use-hive.md)
 * [Use Pig with HDInsight](hdinsight-use-pig.md)

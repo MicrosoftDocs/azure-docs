@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/30/2017
+ms.date: 10/03/2017
 ms.author: billmath
 
 ---
@@ -21,7 +21,10 @@ The Azure Active Directory (Azure AD) team regularly updates Azure AD Connect wi
 
 This article is designed to help you keep track of the versions that have been released, and to understand whether you need to update to the newest version or not.
 
-This is a list of related topics:
+>[!IMPORTANT]
+>Starting with build 1.1.484, Azure AD Connect introduced a regression bug which requires sysadmin permissions to upgrade the SQL database.  This bug is still present in the latest build 1.1.614.  If you are upgrading to this build, you will need sysadmin permissions.  Dbo permissions are not sufficient.  If you attempt to upgrade Azure AD Connect without having sysadmin permissions, the upgrade will fail and Azure AD Connect will no longer function correctly afterwards.  Microsoft is aware of this and is working to correct this.
+
+his is a list of related topics:
 
 
 Topic |  Details

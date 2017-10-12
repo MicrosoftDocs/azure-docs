@@ -233,6 +233,7 @@ Remove-AzureRmResourceGroup -Name $RGname -Force
         --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName --vault-resource-group $VaultGroupName \
         --vm-password $VmPassword --vm-user-name $VmUserName
     ```
+    
 ### Connect to the cluster
 Run the following CLI command to connect to the cluster using the certificate .  When using a client certificate for authentication, the certificate details must match a certificate deployed to the cluster nodes.  Use the `--no-verify` option for a self-signed certificate.
 
@@ -244,6 +245,17 @@ Run the following command to check that you are connected and the cluster is hea
 
 ```azurecli
 az sf cluster health
+```
+
+### Connect to the nodes directly 
+
+To connect to the nodes in a Linux cluster, you can use SSH to connect to the nodes by specifying a port number from 3389 onwards. For example, for the five node cluster created earlier, the commands would be as follows:
+```bash
+ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3389
+ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3390
+ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3391
+ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3392
+ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3393
 ```
 
 ## Next steps

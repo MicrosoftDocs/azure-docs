@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/21/2017
+ms.date: 09/26/2017
 ms.author: jejiang
 ---
 
-# Use Azure HDInsight Tool for Visual Studio Code (Hive, LLAP, or pySpark)
+# Use Azure HDInsight Tool for Visual Studio Code
 
 Learn how to use the Azure HDInsight Tools for Visual Studio Code (VSCode) to create, submit Hive batch jobs, interactive Hive queries, and pySpark scripts. The Azure HDInsight Tools can be installed on the platforms supported by VSCode including Windows, Linux, and MacOS. You can find the prerequisites for different platforms.
 
@@ -39,7 +39,7 @@ After you have installed the prerequisites, you can install the Azure HDInsight 
 **To Install Azure HDInsight tools**
 
 1. Open **Visual Studio Code**.
-2. Click **Extensions** in the left pane. Enter **Azure HDInsight tools** in the search box.
+2. Click **Extensions** in the left pane. Enter **HDInsight** in the search box.
 3. Click **Install** next to **Azure HDInsight tools**. After a few seconds, the **Install** button will be changed to **Reload**.
 4. Click **Reload** to activate the **Azure HDInsight tools** extension.
 5. Click **Reload Window** to confirm. You can see **Azure HDInsight tools** in the Extensions pane.
@@ -81,16 +81,10 @@ Before you can submit scripts to HDInsight clusters from VSCode, you need connec
 2. Right-click the script editor, and then select **HDInsight: Login** from the context menu. You can also press **CTRL+SHIFT+P** and entering **HDInsight: Login**.
 
     ![HDInsight Tools for Visual Studio Code log in](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
-3. Click **Azure** or **AzureChina** based on your subscription.
-
-    ![HDInsight Tools for Visual Studio Code login options](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login-options.png)
-
 3. Follow the login instructions in the **OUTPUT** pane to log in.
 
     **Azure:**
     ![HDInsight Tools for Visual Studio Code login info](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-Azurelogin-info.png)
-    **AzureChina:**
-    ![HDInsight Tools for Visual Studio Code China login info](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-AzureChinalogin-info.png)
 
     Once connected, your Azure account name is shown on the status bar at the left-bottom of the VSCode window. 
 
