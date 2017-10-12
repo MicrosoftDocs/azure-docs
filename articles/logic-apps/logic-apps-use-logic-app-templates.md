@@ -1,6 +1,6 @@
 ---
 title: Create workflows from templates - Azure Logic Apps | Microsoft Docs
-description: Get started - create workflows quickly by using Azure Logic App templates to connect apps and integrate data.
+description: Build workflows with logic app templates
 author: kevinlam1
 manager: anneta
 editor: ''
@@ -15,36 +15,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: LADocs; klam
-
 ms.custom: H1Hack27Feb2017 
-
 ---
-# Configure a workflow using a pre-built template or pattern to get started quickly
 
-## What are logic app templates
-A logic app template is a pre-built logic app that you can use to quickly get started creating your own workflow. 
+# Build logic app workflows from prebuilt templates
 
-These templates are a good way to discover various patterns that can be built using logic apps. You can either use these templates as-is or modify them to fit your scenario.
+To get you started faster with creating workflows, 
+Logic Apps provides templates that are prebuilt logic apps. 
+Not only can you use these templates for building workflows, 
+but also to discover commonly used patterns. 
+You can use these templates as provided or edit them to fit your scenario.
 
-## Overview of available templates
-There are many available templates currently published in the logic app platform. Some example categories, as well as the type of connectors used in them, are listed below.
+Here are some example categories for these templates:
 
-### Enterprise cloud templates
+## Enterprise cloud templates
+
 Templates that integrate Dynamics CRM, Salesforce, Box, Azure Blob, and other connectors for your enterprise cloud needs. Some examples of what can be done with these templates include organizing your leads and backing up your corporate file data.
 
-### Enterprise integration pack templates
-Configurations of VETER (validate, extract, transform, enrich, route) pipelines, receiving an X12 EDI document over AS2 and transforming it to XML, as well as X12 and AS2 message handling.
+## Consumer cloud templates
 
-### Protocol pattern templates
-These templates consist of logic apps that contain protocol patterns such as request-response over HTTP as well as integrations across FTP and SFTP. Use these as they exist, or as a basis for creating more complex protocol patterns.  
-
-### Personal productivity templates
-Patterns to help improve personal productivity include templates that set daily reminders, turn important work items into to-do lists, and automate lengthy tasks down to a single user approval step.
-
-### Consumer cloud templates
 Simple templates that integrate with social media services such as Twitter, Slack, and email, ultimately capable of strengthening social media marketing initiatives. These also include templates such as cloudy copying, which can help increase productivity by saving time spent on traditionally repetitive tasks. 
 
-## How to create a logic app using a template
+## Enterprise integration pack templates
+
+Configurations of VETER (validate, extract, transform, enrich, route) pipelines, receiving an X12 EDI document over AS2 and transforming it to XML, as well as X12 and AS2 message handling.
+
+## Personal productivity templates
+
+Patterns to help improve personal productivity include templates that set daily reminders, turn important work items into to-do lists, and automate lengthy tasks down to a single user approval step.
+
+## Protocol pattern templates
+
+These templates consist of logic apps that contain protocol patterns such as request-response over HTTP as well as integrations across FTP and SFTP. Use these as they exist, or as a basis for creating more complex protocol patterns.  
+
+## Create a logic app from a template
+
 To get started using a logic app template, go into the logic app designer. If you're entering the designer by opening an existing logic app, the logic app automatically loads in your designer view. However, if you're creating a new logic app, you see the screen below.  
  ![](../../includes/media/app-service-logic-templates/template7.png)  
 

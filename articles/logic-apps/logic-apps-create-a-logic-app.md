@@ -332,4 +332,4 @@ Confirm that you want to delete your logic app, then choose **Delete**.
 Learn how to run steps only after a specified condition is met.
 
 > [!div class="nextstepaction"]
-> [Run steps based on a condition](../logic-apps/logic-apps-control-flow-conditional-statement.md)
+> [Build logic apps from templates](../logic-apps/logic-apps-use-logic-app-templates.md)
