@@ -74,7 +74,7 @@ Here are some additional tools that may be helpful for building and debugging yo
 ## Next steps
 
 * Read the [Batch feature overview for developers](batch-api-basics.md), essential information for anyone preparing to use Batch. The article contains more detailed information about Batch service resources like pools, nodes, jobs, and tasks, and the many API features that you can use while building your Batch application.
-* [Get started with the Azure Batch library for .NET](batch-dotnet-get-started.md) to learn how to use C# and the Batch .NET library to execute a simple workload using a common Batch workflow. This article should be one of your first stops while learning how to use the Batch service. A [Python version](batch-python-tutorial.md) and a [Node.js](batch-nodejs-get-started) version of the tutorial are also available.
+* [Get started with the Azure Batch library for .NET](batch-dotnet-get-started.md) to learn how to use C# and the Batch .NET library to execute a simple workload using a common Batch workflow. This article should be one of your first stops while learning how to use the Batch service. A [Python version](batch-python-tutorial.md) and a [Node.js](batch-nodejs-get-started.md) version of the tutorial are also available.
 * Download the [code samples on GitHub][github_samples] to see how both C# and Python can interface with Batch to schedule and process sample workloads.
 
 
