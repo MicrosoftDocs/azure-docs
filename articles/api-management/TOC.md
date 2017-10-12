@@ -36,7 +36,6 @@
 ### [Use Role-Based Access Control](api-management-role-based-access-control.md)
 ## [Error handling](api-management-error-handling-policies.md)
 ## [API import restrictions](api-management-api-import-restrictions.md)
-## [Frequently asked questions](api-management-faq.md)
 # How-to guides
 ## [Upgrade and scale](upgrade-and-scale.md)
 ## [Configure a custom domain](configure-custom-domain.md)
@@ -49,7 +48,6 @@
 ### [Mutual Certificate authentication](api-management-howto-mutual-certificates.md)
 ## Customize the developer experience
 ### [Modify page content and layout](api-management-modify-content-layout.md)
-### [Customize styling of page elements](api-management-customize-styles.md)
 ### [Customize system pages using templates](api-management-developer-portal-templates.md)
 ### [Authentication with AAD](api-management-howto-aad.md)
 ### [Authentication with AAD B2C](api-management-howto-aad-b2c.md)
@@ -90,6 +88,7 @@
 ## [Data model reference](api-management-template-data-model-reference.md)
 ## [Page controls](api-management-page-controls.md)
 # Resources
+## [Frequently asked questions](api-management-faq.md)
 ## [API design guidance](https://docs.microsoft.com/azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json)
 ## [API implementation guidance](https://docs.microsoft.com/azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json)
 ## [API Management - Plays well with other Azure services](http://weblogs.asp.net/cschittko/api-management-plays-well-with-other-azure-services)
