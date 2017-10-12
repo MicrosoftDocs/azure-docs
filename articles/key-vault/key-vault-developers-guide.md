@@ -65,7 +65,7 @@ Before working with keys, secrets or certificates in your key vault, you'll crea
 
 The Key Vault management system for programmers consists of several interfaces, with REST as the foundation. Through the REST interface, all of your key vaults resources are accessible; keys, secrets and certificates. [Key Vault REST API Reference](https://docs.microsoft.com/rest/api/keyvault/). 
 
-### Supported programming languages
+### Supported programming and scripting languages
 
 #### .NET
 
@@ -75,14 +75,26 @@ For more information on the 2.x version of the .NET SDK, see the [Release notes]
 
 #### Java
 
-- [Java SDK for Key Vault](https://docs.microsoft.com/java/api/com.microsoft.azure.keyvault)
+- [Java SDK for Key Vault](https://docs.microsoft.com/java/api/overview/azure/keyvault)
 
 #### Node.js
 
-In Node.js, the vault management API and the vault object API are separate. Key Vault Management allows creating and updating your key vault. Key Vault Operations API is for working with vault objects like; keys, secrets and certificates. 
+In Node.js, the Key Vault management API and the Key Vault object API are separate. 
 
-- [Node.js API reference for Key Vault Management](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)
-- [Node.js API reference for Key Vault Operations](http://azure.github.io/azure-sdk-for-node/azure-keyvault/latest/) 
+- [Node.js API reference for Key Vault management](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault)
+- [Node.js API reference for Key Vault operations](http://azure.github.io/azure-sdk-for-node/azure-keyvault) 
+
+#### Python
+
+ - [Azure Key Vault libraries for Python](https://docs.microsoft.com/python/api/overview/azure/key-vault)
+ - 
+#### Azure CLI 2
+
+[Azure CLI for Key Vault](https://docs.microsoft.com/cli/azure/keyvault
+
+#### Azure PowerShell 
+
+- [AzureRM.KeyVault](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault)
 
 ### Quick start
 
