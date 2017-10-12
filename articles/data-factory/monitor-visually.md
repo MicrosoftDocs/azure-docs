@@ -1,6 +1,6 @@
 ---
 title: Visually monitor Azure data factories | Microsoft Docs
-description: Learn how to use Azure Monitor to monitor Data Factory pipelines by enabling diagnostic logs with information from Azure Data Factory.
+description: Learn how to visually monitor Azure Data factories
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -16,7 +16,7 @@ ms.date: 10/12/2017
 ms.author: shlo
 
 ---
-# Visually monitor data factories
+# Visually monitor Azure data factories
 Azure Data Factory is a cloud-based data integration service that allows you to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Using Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores, process/transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning, and publish output data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications to consume.
 In this quick start, you will learn how to visually monitor data factory v2 pipelines without writing a single line of code.
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
