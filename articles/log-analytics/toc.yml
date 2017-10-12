@@ -91,10 +91,10 @@
     items:
     - name: Language documentation
       href: https://docs.loganalytics.io
-    - name: Cross-workspace searches
-      href: log-analytics-cross-workspace-search.md
     - name: Transition from legacy language
       href: log-analytics-log-search-transition.md
+    - name: Cross-workspace searches
+      href: log-analytics-cross-workspace-search.md
     - name: Take action from search results
       href: log-analytics-log-search-takeaction.md
     - name: Use computer groups
@@ -231,6 +231,8 @@
       href: log-analytics-api-alerts.md
 - name: Reference
   items:
+  - name: Language reference
+    href: https://docs.loganalytics.io/docs/Language-Reference
   - name: Azure PowerShell
     href: /powershell/module/azurerm.operationalinsights
   - name: REST
