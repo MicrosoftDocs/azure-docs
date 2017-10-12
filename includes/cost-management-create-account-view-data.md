@@ -31,3 +31,5 @@ The following image shows the costs for Azure resources that Contoso incurred. T
 Right-click a resource type and select **Cost Entities** to view cost entities and the services that have consumed the resource. The VM and Workers services in DevOps consumed $486.60 and $435.71 in this example. The total for both is $922.
 
 ![cost entities and services](./media/cost-management-create-account-view-data/actual-cost-05.png)
+
+To watch a tutorial video about viewing your cloud billing data, see [Analyzing your cloud billing data with Azure Cost Management by Cloudyn](https://youtu.be/G0pvI3iLH-Y).
