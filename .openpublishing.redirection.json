@@ -71,6 +71,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/expressroute/expressroute-howto-vnet-portal-classic.md",
+            "redirect_url": "/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-government-developer-guide.md",
             "redirect_url": "/azure/azure-government/documentation-government-developer-guide",
             "redirect_document_id": false
