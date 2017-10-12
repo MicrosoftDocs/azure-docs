@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 10/11/2017
 ms.author: bwren
 
 ---
 # Computer groups in Log Analytics log searches
 
-Computer groups in Log Analytics allow you to scope [log searches](log-analytics-log-searches-new.md) to a particular set of computers.  Each group is populated with computers either using a query that you define or by importing groups from different sources.  When the group is included in a log search, the results are limited to records that match the computers in the group.
+Computer groups in Log Analytics allow you to scope [log searches](log-analytics-log-search-new.md) to a particular set of computers.  Each group is populated with computers either using a query that you define or by importing groups from different sources.  When the group is included in a log search, the results are limited to records that match the computers in the group.
 
 ## Creating a computer group
 You can create a computer group in Log Analytics using any of the methods in the following table.  Details on each method are provided in the sections below. 
