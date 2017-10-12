@@ -4,7 +4,7 @@ description: Learn how to set up disaster recovery of VMware VMs, or Windows and
 services: site-recovery
 documentationcenter: ''
 author: nsoneji
-manager: jwhit
+manager: gauarvd
 editor: ''
 
 ms.assetid: 68616d15-398c-4f40-8323-17b6ae1e65c0
@@ -13,7 +13,7 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2017
+ms.date: 10/11/2017
 ms.author: raynew
 
 ---
@@ -49,28 +49,33 @@ Select what to replicate, and where to replicate it to.
 1. RX server (if applicable)
 2. Configuration servers
 3. Process servers
-4. Master target servers
+4. Master Target servers
 5. vContinuum servers
 6. Source server (both Windows and Linux Servers)
 
 Install the updates as follows:
 
-1. Download the [update](https://aka.ms/asr-scout-update5) .zip file. The file contains the following:
+> [!NOTE]
+>All Scout components' file update version may not be the same in the update .zip file. The older version indicate that there is no change in the component since previous update to this update.
 
-   * RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
-   * CX_Windows_8.0.4.0_GA_Update_4_8725865_14Sep16.exe
-   * UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
-   * UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
-   * vCon_Windows_8.0.5.0_GA_Update_5_11525767_20Apr17.exe
-   * UA update4 bits for RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
-2. Extract the .zip files.
-	- **RX server**: Copy **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** to the RX server, and extract it. In the extracted folder, run **/Install**.
-	- **Configuration server and process server**: Copy **CX_Windows_8.0.4.0_GA_Update_4_8725865_14Sep16.exe** to the configuration server and process server. Double-click to run it.<br>
-	- **Windows master target server**: To update the unified agent, copy **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** to the server. Double-click it to run it. The unified agent is also applicable for the source server. If source hasn't been updated to Update 4, you should update the unified agent.
-	- **vContinuum server**:  Copy **vCon_Windows_8.0.5.0_GA_Update_5_11525767_20Apr17.exe** to the server.  Make sure that you've closed the vContinuum wizard. Double-click on the file to run it.
-	- **Linux master target server**: To update the unified agent, copy **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** to the master target server and extract it. In the extracted folder, run **/Install**.
-	- **Windows source server**: You don't need to install the Update 5 agent on the source server if it's already running Update 4. To update the unified agent, copy **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** to the source server. Double-click on the file to run it.
-	- **Linux source server**: To update the unified agent, copy the corresponding version of the unified agent file to the Linux server, and extract it. In the extracted folder, run **/Install**.  Example: For RHEL 6.7 64 bit server, copy **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** to the server, and extract it. In the extracted folder, run **/Install**.
+Download the [update](https://aka.ms/asr-scout-update6) .zip file. The file contains the following components: 
+  - RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
+  - CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe
+  - UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
+  - UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+  - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
+  - UA update4 bits for RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+1. Extract the .zip files.
+2. **RX server**: Copy **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** to the RX server, and extract it. In the extracted folder, run **/Install**.
+3. **Configuration server and process server**: Copy **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** to the configuration server and process server. Double-click to run it.<br>
+4. **Windows Master Target server**: To update the unified agent, copy **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** to the server. Double-click it to run it. The same unified agent update is also applicable for the source server. If source hasn't been updated to Update 4, you should update the unified agent.
+  The update does not need to apply on the Master target prepared with **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe**  as this is new GA installer with all the latest changes.
+5. **vContinuum server**:  Copy **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** to the server.  Make sure that you've closed the vContinuum wizard. Double-click on the file to run it.
+	The update does not need to apply on the Master Target prepared with **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** as this is new GA installer with all the latest changes.
+6. **Linux master target server**: To update the unified agent, copy **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** to the master target server and extract it. In the extracted folder, run **/Install**.
+7. **Windows source server**: To update the unified agent, copy **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** to the source server. Double-click on the file to run it. 
+	You don't need to install the Update 5 agent on the source server if it has already been updated to Update 4 or source agent is installed with latest base installer **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**.
+8. **Linux source server**: To update the unified agent, copy the corresponding version of the unified agent file to the Linux server, and extract it. In the extracted folder, run **/Install**.  Example: For RHEL 6.7 64 bit server, copy **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** to the server, and extract it. In the extracted folder, run **/Install**.
 
 ## Enable replication
 
@@ -85,10 +90,34 @@ Install the updates as follows:
 
 ## Updates
 
+### Site Recovery Scout 8.0.1 Update 6 
+Updated: October 6, 2017
+
+Scout Update 6 is a cumulative update. It contains all fixes from Update 1 to Update 5 plus  the new fixes and enhancements described below. 
+
+#### New platform support
+* Support has been added for Source Windows Server 2016
+* Support has been added for following  Linux operating systems:
+    - Red Hat Enterprise Linux (RHEL) 6.9
+    - CentOS 6.9
+    - Oracle Linux 5.11
+    - Oracle Linux 6.8
+* Support has been added for VMware Center 6.5
+
+> [!NOTE]
+> * Base Unified Agent(UA) installer for Windows has been refreshed to support Windows Server 2016. The new installer **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe** is packaged with the base Scout GA package (**InMage_Scout_Standard_8.0.1 GA-Oct17.zip**). The same installer will be used for all supported Windows version. 
+> * Base Windows vContinuum & Master Target installer has been refreshed to support Windows Server 2016. The new installer **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** is packaged with the base Scout GA package (**InMage_Scout_Standard_8.0.1 GA-Oct17.zip**). The same installer will be used to deploy Windows 2016 Master Target and Windows 2012R2 Master Target.
+> * Download the GA package from the portal, as described in [create a vault](#create-a-vault).
+>
+
+#### Bug fixes and enhancements
+- Failback protection fails for Linux VM with list of disks to be replicated is empty at the end of config.
+
+
 ### Site Recovery Scout 8.0.1 Update 5
 Scout Update 5 is a cumulative update. It contains all fixes from Update 1 to Update 4, and the new fixes described below.
 - Fixes from Site Recovery Scout Update 4 to Update 5 are specifically for the master target and vContinuum components.
-- If source servers, the master target, configuration, process, and RX servers are already running Update 5, then apply it only on the master target server. 
+- If source servers, the master target, configuration, process, and RX servers are already running Update 4, then apply it only on the master target server. 
 
 #### New platform support
 * SUSE Linux Enterprise Server 11 Service Pack 4(SP4)
