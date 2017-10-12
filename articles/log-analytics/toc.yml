@@ -27,11 +27,11 @@
     href: log-analytics-log-search-upgrade.md
   - name: Log Analytics FAQ
     href: log-analytics-faq.md
-  - name: Data Consumption
+  - name: Data consumption
     href: log-analytics-usage.md
   - name: Manage access
     href: log-analytics-manage-access.md
-  - name: Features for Service providers
+  - name: Features for service providers
     href: log-analytics-service-providers.md 
   - name: Log Search
     items:
@@ -39,7 +39,7 @@
          href: log-analytics-log-search-new.md   
        - name: Log Search FAQ
          href: log-analytics-log-search-faq.md
-       - name: Log search portals
+       - name: Log Search portals
          href: log-analytics-log-search-portals.md   
 - name: How To
   items:
@@ -115,7 +115,13 @@
     - name: Dashboards
       href: log-analytics-dashboards.md
     - name: View Designer
-      href: log-analytics-view-designer.md
+      items:
+      - name: Overview
+        href: log-analytics-view-designer.md
+      - name: Tile reference
+        href: log-analytics-view-designer-tiles.md
+      - name: Visualization part reference
+        href: log-analytics-view-designer-parts.md
     - name: Power BI
       href: log-analytics-powerbi.md
   - name: Create alerts
@@ -237,10 +243,6 @@
     href: /powershell/module/azurerm.operationalinsights
   - name: REST
     href: /rest/api/loganalytics 
-  - name: View Designer tile reference
-    href: log-analytics-view-designer-tiles.md
-  - name: View Designer visualization part reference
-    href: log-analytics-view-designer-parts.md
 - name: Resources
   items:
   - name: Azure Roadmap
