@@ -6,7 +6,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/14/2017
+ms.date: 10/11/2017
 ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
@@ -39,6 +39,8 @@ You use your Azure Enterprise Agreement to register with Azure Cost Management b
 7. Under **Invite other stakeholders**, you can add users by typing their email addresses. When complete, click **Next**. It takes about two hours for all your billing data to get added to Cloudyn.
 8. Click **Go to Cloudyn** to open the Cloudyn portal and then on the **Cloud Accounts Management** page, you should see your registered EA account information.
 
+To watch a tutorial video about registering your Enterprise Agreement, see [How to Find Your EA Enrollment ID and API Key for use in Azure Cost Management by Cloudyn](https://youtu.be/u_phLs_udig).
+
 [!INCLUDE [cost-management-create-account-view-data](../../includes/cost-management-create-account-view-data.md)]
 
 ## Next steps
@@ -46,4 +48,4 @@ You use your Azure Enterprise Agreement to register with Azure Cost Management b
 In this quickstart, you used your Azure Enterprise Agreement information to register with Cost Management. You also signed into the Cloudyn portal and started viewing cost data. To learn more about Azure Cost Management by Cloudyn, continue to the tutorial for Cost Management.
 
 > [!div class="nextstepaction"]
-> [View cost data](./tutorial-review-usage.md)
+> [Review usage and costs](./tutorial-review-usage.md)
