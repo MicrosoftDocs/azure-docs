@@ -3,7 +3,7 @@ title: Manage after migration - Azure SQL Database | Microsoft Docs
 description: Learn how to manage your database after migration to Azure SQL Database.
 services: sql-database
 documentationcenter: ''
-author: CarlRabeler
+author: joesackmsft
 manager: jhubbard
 editor: 
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 10/12/2016
-ms.author: carlrab
+ms.author: Joe.Sack
 ms.suite: SQL
 ms.prod_service: sql-database
 ms.component: management
