@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/24/2017
+ms.date: 10/10/2017
 ms.author: curtand
 
 ms.reviewer: kairaz.contractor
@@ -24,7 +24,6 @@ robots: NOINDEX
 # Managing groups in Azure Active Directory
 > [!div class="op_single_selector"]
 > * [Azure portal](active-directory-groups-create-azure-portal.md)
-> * [Azure classic portal](active-directory-accessmanagement-manage-groups.md)
 > * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 >
 >
