@@ -116,7 +116,6 @@ We are limited to using pre-shared keys (PSK) for authentication.
 #### Classic deployment model
 
 * Azure portal: navigate to the classic virtual network > VPN connections > Site-to-site VPN connections > Local site name > Local site > Client address space. 
-* Classic portal: add each range that you want sent through the gateway for your virtual network on the Networks page under Local Networks. 
 
 ### Can I configure Force Tunneling?
 
