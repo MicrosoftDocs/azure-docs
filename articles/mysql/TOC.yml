@@ -115,7 +115,7 @@
       href: howto-server-parameters.md
     - name: Azure CLI
       href: howto-configure-server-parameters-using-cli.md
-  - name: Server logs
+  - name: Access server logs
     items:
     - name: Azure CLI
       href: howto-configure-server-logs-in-cli.md
