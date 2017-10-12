@@ -23,7 +23,7 @@ For more general information on Azure Key Vault, see [What is Key Vault](key-vau
 
 ## Public Previews
 
-Periodically, we release a public preview of a new Key Vault feature. Please try out these and let us know what you think via azurekeyvault@microsoft.com, our feedback email address.
+Periodically, we release a public preview of a new Key Vault feature. Try out these and let us know what you think via azurekeyvault@microsoft.com, our feedback email address.
 
 ### Storage Account Keys - July 10, 2017
 
@@ -47,14 +47,14 @@ Resources mentioned in above video:
 
 ## Creating and Managing Key Vaults
 
-Before working with Azure Key Vault in your code, you can create and manage vaults through REST, Resource Manager Templates, PowerShell or CLI, as described in the following articles. 
+Key Vaults are Azure resources managed through the Azure Resource Manager. Operations on your key vault are authenticated through Azure Active Directory (AAD) and authorized through Key Vault’s own Access Policy, defined per vault. For more information on working with AAD, see [Integrating applications with Azure Active Directory](/active-directory/develop/active-directory-integrating-applications).
 
-Operations against your key vault are authenticated through Azure Active Directory (AAD) and authorized through Key Vault’s own Access Policy, defined per vault. For more information on working with AAD, see [Integrating applications with Azure Active Directory](/active-directory/develop/active-directory-integrating-applications).
+Before working with keys, secrets or certificates in your key vault, you'll create and manage your key vault through CLI, PowerShell, Resource Manager Templates or REST, as described in the following articles:
 
-- [Create and Manage Key Vaults with REST](https://docs.microsoft.com/rest/api/keyvault/)
-- [Create and Manage Key Vaults with PowerShell](key-vault-get-started.md)
-- [Create and Manage Key Vaults with CLI](key-vault-manage-with-cli2.md)
+- [Create and manage Key Vaults with CLI](key-vault-manage-with-cli2.md)
+- [Create and manage Key Vaults with PowerShell](key-vault-get-started.md)
 - [Create a key vault and add a secret via an Azure Resource Manager template](../azure-resource-manager/resource-manager-template-keyvault.md)
+- [Create and manage Key Vaults with REST](https://docs.microsoft.com/rest/api/keyvault/)
 
 
 
