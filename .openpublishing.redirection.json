@@ -13559,11 +13559,6 @@
             "source_path": "articles/azure-functions/functions-java-reference.md",
             "redirect_url": "/azure/azure-functions/functions-reference-java",
             "redirect_document_id": false
-        },
-        {
-          "source_path": "articles/security-center/security-center-resolve-endpoint-protection-health-alerts.md",
-          "redirect_url": "/azure/security-center",
-          "redirect_document_id": false
         }
     ]
 }
