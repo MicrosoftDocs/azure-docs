@@ -1,5 +1,5 @@
 ---
-title: Server workload forecasting on terabytes data - Azure | Microsoft Docs
+title: Server workload forecasting on terabytes of data - Azure | Microsoft Docs
 description: How to train a machine learning model on big data by using Azure Machine Learning Workbench.
 services: machine-learning
 documentationcenter: ''
@@ -17,9 +17,9 @@ ms.date: 09/15/2017
 ms.author: daden
 ---
 
-# Server workload forecasting on terabytes data
+# Server workload forecasting on terabytes of data
 
-This article covers how data scientists can use Azure Machine Learning Workbench to develop solutions that require the use of big data. You can start from a sample of a large dataset, iterate through data preparation, feature engineering, and machine learning, and then extend the process to the entire large dataset. 
+This article covers how data scientists can use Azure Machine Learning Workbench to develop solutions that require the use of big data. You can start from a sample of a large data set, iterate through data preparation, feature engineering, and machine learning, and then extend the process to the entire large data set. 
 
 You'll learn about the following key capabilities of Machine Learning Workbench:
 * Easy switching between compute targets. You can set up different compute targets and use them in experimentation. In this example, you use an Ubuntu DSVM and a HDInsight cluster as the compute targets. You can also configure the compute targets, depending on the availability of resources. In particular, after scaling out the Spark cluster with more worker nodes, you can use the resources through Machine Learning Workbench to speed up experiment runs.
@@ -53,7 +53,7 @@ DSVM IP address | xxx|
 
  You can choose to use any VM with [Docker Engine](https://docs.docker.com/engine/) installed.
 
-* An HDInsight Spark Cluster, with HDP version 3.6 and Spark version 2.1.x. Visit [Create an Apache Spark cluster in Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql) for details about how to create HDInsight clusters. We recommend using a three-worker cluster, with each worker having 16 cores and 112 GB of memory. Or you can just choose VM type "`D12 V2`" for head node, and "`D14 V2`" for the worker node. The deployment of the cluster takes about 20 minutes. You need the cluster name, SSH user name, and password to try out this example. Save the following table with the Azure HDInsight cluster info for later steps:
+* An HDInsight Spark Cluster, with Hortonworks Data Platform version 3.6 and Spark version 2.1.x. Visit [Create an Apache Spark cluster in Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql) for details about how to create HDInsight clusters. We recommend using a three-worker cluster, with each worker having 16 cores and 112 GB of memory. Or you can just choose VM type "`D12 V2`" for head node, and "`D14 V2`" for the worker node. The deployment of the cluster takes about 20 minutes. You need the cluster name, SSH user name, and password to try out this example. Save the following table with the Azure HDInsight cluster info for later steps:
 
  Field name| Value |  
  |------------|------|
@@ -86,7 +86,7 @@ Run `git status` to inspect the status of the files for version tracking.
 
 ## Data description
 
-The data used in this example is synthesized server workload data. It is hosted in an Azure blob storage account that's publically accessible. The specific storage account info can be found in the `dataFile` field of [`Config/storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json). You can use the data directly from the Azure blob storage. If the storage is used by many users simultaneously, you can use [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) to download the data into your own storage. 
+The data used in this example is synthesized server workload data. It is hosted in an Azure Blob storage account that's publically accessible. The specific storage account info can be found in the `dataFile` field of [`Config/storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json). You can use the data directly from the Blob storage. If the storage is used by many users simultaneously, you can use [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) to download the data into your own storage. 
 
 The total data size is approximately 1 TB. Each file is about 1-3 GB, and is in CSV file format, without header. Each row of data represents the load of a transaction on a particular server. The detailed information of the data schema is as follows:
 
@@ -123,7 +123,7 @@ The files in this example are organized as follows.
 | `Code` | Folder | The  folder contains all the code in the example. |
 | `Config` | Folder | The  folder contains the configuration files. |
 | `Image` | Folder | The folder used to save images for the README file. |
-| `Model` | Folder | The folder used to save model files downloaded from Azure blob storage. |
+| `Model` | Folder | The folder used to save model files downloaded from Blob storage. |
 | `Code/etl.py` | Python file | The Python file used for data preparation and feature engineering. |
 | `Code/train.py` | Python file | The Python file used to train a three-class multi-classfication model.  |
 | `Code/webservice.py` | Python file | The Python file used for operationalization.  |
@@ -131,7 +131,7 @@ The files in this example are organized as follows.
 | `Code/O16Npreprocessing.py` | Python file | The Python file used to preprocess the data for scoring_webservice.py.  |
 | `Code/util.py` | Python file | The Python file that contains code for reading and writing Azure blobs.  
 | `Config/storageconfig.json` | JSON file | The configuration file for the Azure blob container that stores the intermediate results and model for processing and training on one-month data. |
-| `Config/fulldata_storageconfig.json` | Json file | The configuration file for the Azure blob container that stores the intermediate results and model for processing and training on full dataset.|
+| `Config/fulldata_storageconfig.json` | Json file | The configuration file for the Azure blob container that stores the intermediate results and model for processing and training on full data set.|
 | `Config/webservice.json` | JSON file | The configuration file for scoring_webservice.py.|
 | `Config/conda_dependencies.yml` | YAML file | The Conda dependency file. |
 | `Config/conda_dependencies_webservice.yml` | YAML file | The Conda dependency file for the web service.|
@@ -145,7 +145,7 @@ The files in this example are organized as follows.
 
 ### Data flow
 
-The code in [`Code/etl.py`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Code/etl.py)  loads data from the publicly accessible container (`dataFile` field of [`Config/storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json)). It includes data preparation and feature engineering, and saves the intermediate compute results and models to your own private container. The code in [`Code/train.py`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Code/train.py) loads the intermediate compute results from the private container, trains the multi-class classification model, and writes the trained machine learning model to the private container. You should use one container for experimentation on the one-month dataset, and another one for experimentation on the full dataset. Because the data and models are saved as Parquet file, each file is actually a folder in the container, containing multiple blobs. The resulting container looks as follows:
+The code in [`Code/etl.py`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Code/etl.py)  loads data from the publicly accessible container (`dataFile` field of [`Config/storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json)). It includes data preparation and feature engineering, and saves the intermediate compute results and models to your own private container. The code in [`Code/train.py`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Code/train.py) loads the intermediate compute results from the private container, trains the multi-class classification model, and writes the trained machine learning model to the private container. You should use one container for experimentation on the one-month data set, and another one for experimentation on the full data set. Because the data and models are saved as Parquet file, each file is actually a folder in the container, containing multiple blobs. The resulting container looks as follows:
 
 | Blob prefix name | Type | Description |
 |-----------|------|-------------|
@@ -169,10 +169,10 @@ The following diagram shows the end-to-end workflow of using Machine Learning Wo
 In the following sections, we show the model development by using the remote compute target functionality in Machine Language Workbench. We first load a small amount of sample data, and run the script [`Code/etl.py`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Code/etl.py) on an Ubuntu DSVM for fast iteration. We can further limit the work we do in  [`Code/etl.py`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Code/etl.py) by passing an extra argument for faster iteration. In the end, we use an HDInsight cluster to train with full data.     
 
 The  [`Code/etl.py`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Code/etl.py) file loads and prepares the data, and performs feature engineering. It accepts two arguments:
-1. A configuration file for the Azure blob storage container, for storing the intermediate compute results and models.
+1. A configuration file for the Blob storage container, for storing the intermediate compute results and models.
 2. A debug config argument for faster iteration.
 
-The first argument, `configFilename`, is a local configuration file where you store the Azure blob storage information, and specify where to load the data. By default, it is  [`Config/storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/storageconfig.json), and it is going to be used in the one-month data run. We also include [`Config/fulldata_storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldatastorageconfig.json), which you need to use on the full dataset run. The content in the configuration is as follows: 
+The first argument, `configFilename`, is a local configuration file where you store the Blob storage information, and specify where to load the data. By default, it is  [`Config/storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/storageconfig.json), and it is going to be used in the one-month data run. We also include [`Config/fulldata_storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldatastorageconfig.json), which you need to use on the full data set run. The content in the configuration is as follows: 
 
 | Field | Type | Description |
 |-----------|------|-------------|
@@ -182,7 +182,7 @@ The first argument, `configFilename`, is a local configuration file where you st
 | dataFile|String | Data source files  |
 | duration| String | Duration of data in the data source files|
 
-Modify both `Config/storageconfig.json` and `Config/fulldata_storageconfig.json` to configure the storage account, storage key, and the blob container to store the intermediate results. By default, the blob container for the one-month data run is "`onemonthmodel`", and the blob container for full dataset run is "`fullmodel`". Make sure you create these two containers in your storage account. The `"dataFile"` field in [`Config/fulldata_storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldatastorageconfig.json) configures what data is loaded in [`Code/etl.py`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Code/etl.py). `"duration"` configures the range the data includes. If the duration is set to 'ONE_MONTH', the data loaded should be just one .csv file among the seven files of the data for June-2016. If the duration is 'FULL', the full dataset (1 TB) is loaded. You don't need to change `"dataFile"` and `"duration"` in these two configuration files.
+Modify both `Config/storageconfig.json` and `Config/fulldata_storageconfig.json` to configure the storage account, storage key, and the blob container to store the intermediate results. By default, the blob container for the one-month data run is "`onemonthmodel`", and the blob container for full data set run is "`fullmodel`". Make sure you create these two containers in your storage account. The `"dataFile"` field in [`Config/fulldata_storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldatastorageconfig.json) configures what data is loaded in [`Code/etl.py`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Code/etl.py). `"duration"` configures the range the data includes. If the duration is set to 'ONE_MONTH', the data loaded should be just one .csv file among the seven files of the data for June-2016. If the duration is 'FULL', the full data set (1 TB) is loaded. You don't need to change `"dataFile"` and `"duration"` in these two configuration files.
 
 The second argument is DEBUG. Setting it to 'FILTER_IP' enables a faster iteration. Use of this parameter is helpful when you want to debug your script.
 
@@ -223,7 +223,7 @@ Run the script `etl.py` on DSVM Docker. Use a debug parameter that filters the l
 
 ```az ml experiment submit -t dockerdsvm -c dockerdsvm ./Code/etl.py ./Config/storageconfig.json FILTER_IP```
 
-Browse to the side panel, and select **Run** to see the run history of `etl.py`. Notice that the run time is about two minutes. If you plan to change your code to include new features, providing FILTER_IP as the second argument provides a faster iteration. You might need to run this step multiple times when dealing with your own machine learning problems, to explore the dataset or create new features. With the customized restriction on what data to load, and further filtering of what data to process, you can speed up the iteration process in your model development. As you experiment, you should periodically save the changes in your code to the Git repository. Note that we used the following code in `etl.py` to enable the access to the private container:
+Browse to the side panel, and select **Run** to see the run history of `etl.py`. Notice that the run time is about two minutes. If you plan to change your code to include new features, providing FILTER_IP as the second argument provides a faster iteration. You might need to run this step multiple times when dealing with your own machine learning problems, to explore the data set or create new features. With the customized restriction on what data to load, and further filtering of what data to process, you can speed up the iteration process in your model development. As you experiment, you should periodically save the changes in your code to the Git repository. Note that we used the following code in `etl.py` to enable the access to the private container:
 
 ```python
 def attach_storage_container(spark, account, key):
@@ -252,11 +252,11 @@ Run the script `train.py` on DSVM Docker:
 
 This step loads the intermediate compute results from the run of `etl.py`, and  trains a machine learning model. This step takes about two minutes.
 
-When you have successfully finished the experimentation on the small data, you can then continue to run the experimentation on the full dataset. You can start by using the same code, and then experiment with argument and compute target changes.  
+When you have successfully finished the experimentation on the small data, you can then continue to run the experimentation on the full data set. You can start by using the same code, and then experiment with argument and compute target changes.  
 
 ####  Model development on the HDInsight cluster
 
-##### 1. Create compute target in Machine Learning Workbench for the HDInsight cluster
+##### 1. Create the compute target in Machine Learning Workbench for the HDInsight cluster
 
 ```az ml computetarget attach --name myhdi --address $clustername-ssh.azurehdinsight.net --username $username --password $password --type cluster```
 
@@ -297,7 +297,7 @@ Because this job lasts for a relatively long time（approximately 30 minutes), y
 
 #### Run history exploration
 
-Run history is a feature that enables tracking of your experimentation in Machine Learning Workbench. By default, it tracks the duration of the experimentation. In our specific example, when we move to the full dataset for "`Code/etl.py`" in the experimentation, we notice that duration significantly increases. You can also log specific metrics for tracking purposes. To enable metric tracking, add the following lines of code to the head of your Python file:
+Run history is a feature that enables tracking of your experimentation in Machine Learning Workbench. By default, it tracks the duration of the experimentation. In our specific example, when we move to the full data set for "`Code/etl.py`" in the experimentation, we notice that duration significantly increases. You can also log specific metrics for tracking purposes. To enable metric tracking, add the following lines of code to the head of your Python file:
 ```python
 # import logger
 from azureml.logging import get_azureml_logger
@@ -314,48 +314,45 @@ run_logger.log("Test Accuracy", testAccuracy)
 On the right sidebar of the Workbench, browse to **Runs** to see the run history for each Python file. You can also go to your GitHub repository. A new branch, with the name starting with "AMLHistory", is created to track the change you made to your script in each run. 
 
 
-### Operationalization
+### Operationalize the model
 
-In this section, we operationalize the model we created in the previous steps as web service and demo how we can use the web service to predict workload. We use Azure ML Operationalization Command-Line Interfaces (CLIs) to package the code and dependencies as Docker images and publish the model as containerized web service. Refer to  [Operationalization Overview](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/operationalization-overview.md) for more details. You can use the commandline prompt in Azure ML Workbench to run the Azure ML Operationalization CLIs.  You can also run the  Azure ML Operationalization CLIs on Ubuntu Linux by following the [installation guide](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/install-on-ubuntu-linux.md). 
+In this section, you operationalize the model you created in the previous steps as a web service. You also learn how to use the web service to predict workload. Use Machine Language operationalization command-line interfaces (CLIs) to package the code and dependencies as Docker images, and to publish the model as a containerized web service. For more information, see [this overview](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/operationalization-overview.md).
+
+You can use the command-line prompt in Machine Language Workbench to run the CLIs.  You can also run the CLIs on Ubuntu Linux by following the [installation guide](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/install-on-ubuntu-linux.md). 
 
 > [!NOTE]
-> Replace any argument variable in all the following commands with its actual value. It takes around 40 minutes to finish this section.
+> In all the following commands, replace any argument variable with its actual value. It takes about 40 minutes to finish this section.
 > 
 
+Choose a unique string as the environment for operationalization. Here, we use the string "[unique]" to represent the string you choose.
 
-Choose a unique string as the environment for operationalization and we use the string "[unique]" to represent the string you choose.
-
-1. Create the environment for operationalization and create the  resource group.
+1. Create the environment for operationalization, and create the resource group.
 
         az ml env setup -c -n [unique] --location eastus2 --cluster -z 5 --yes
 
-   Note we choose to use Azure Container Service as the environment by using  `--cluster` in `az ml env setup` command. We choose to operationalize the machine learning model on [Azure Container Service](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-intro-kubernetes)  as it uses [Kubernetes](https://kubernetes.io/) for automating deployment, scaling, and management of containerized applications.This command takes around 20 minutes to run. Use 
+   Note that you can use Container Service as the environment by using  `--cluster` in the `az ml env setup` command. You can operationalize the machine learning model on [Azure Container Service](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-intro-kubernetes). It uses [Kubernetes](https://kubernetes.io/) for automating deployment, scaling, and management of containerized applications. This command takes about 20 minutes to run. Use the following to check if the deployment has finished successfully: 
 
         az ml env show -g [unique]rg -n [unique]
 
-   to check if the deployment is finished successfully.
-
-   Set the deployment environment as the one you just created by running
+   Set the deployment environment as the one you just created by running the following:
 
         az ml env set -g [unique]rg -n [unique]
 
-2. Create a model management account and use the model management account.
+2. Create and use a model management account. To create a model management account, run the following:
 
-   Create a  model management account by running
+        az ml account modelmanagement create --location  eastus2 -n [unique]acc -g [unique]rg --sku-instances 4 --sku-name S3 
 
-    az ml account modelmanagement create --location  eastus2 -n [unique]acc -g [unique]rg --sku-instances 4 --sku-name S3 
-
-   Use the model management for operationalization by running
+   Use the model management for operationalization by running the following:
 
         az ml account modelmanagement set  -n [unique]acc -g [unique]rg  
 
-   Model management account is used to manage the models and web services. From Azure portal, you can see a new model management account is created and you can use it to  see the models, manifests, Docker images, and services that are created by using this model management account.
+   A model management account is used to manage the models and web services. From the Azure portal, you can see a new model management account has been created. You can see the models, manifests, Docker images, and services that are created by using this model management account.
 
 3. Download and register the models.
 
-   Download the models  in the "fullmodel" container to your local machine in the directory of code. Do not download the parquet data file with name "vmlSource.parquet" as it is not a model file but an intermediate compute result. You can also reuse the model files we have included in the git repository. Visit [DownloadModelsFromBlob.md](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Docs/DownloadModelsFromBlob.md) for details of downloading the parquet files. 
+   Download the models in the **fullmodel** container to your local machine in the directory of code. Do not download the parquet data file with name "vmlSource.parquet". It's not a model file; it's an intermediate compute result. You can also reuse the model files included in the Git repository. For more information, see [GitHub](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Docs/DownloadModelsFromBlob.md). 
 
-   Go to the `Model` folder in the CLI and register the models as follows:
+   Go to the `Model` folder in the CLI, and register the models as follows:
 
         az ml model register -m  mlModel -n vmlModel -t fullmodel
         az ml model register -m  featureScaleModel -n featureScaleModel -t fullmodel
@@ -363,17 +360,17 @@ Choose a unique string as the environment for operationalization and we use the 
         az ml model register -m  stringIndexModel -n stringIndexModel -t fullmodel
         az ml model register -m  info -n info -t fullmodel
 
-   The output of each command gives a model ID which is needed in the next step. Save them in a text file for future use.
+   The output of each command gives a model ID, which is needed in the next step. Save them in a text file for future use.
 
-4. Create manifest for the web service.
+4. Create a manifest for the web service.
 
-   Manifest is the recipe which is used to create of the Docker image for web service containers. It includes the code for the web service, all the machine learning models and run-time environemnt dependencies.  Go to the `Code` folder in the CLI and  run the command line:
+   A manifest includes the code for the web service, all the machine learning models, and run-time environment dependencies. Go to the `Code` folder in the CLI, and run the following command:
 
         az ml manifest create -n $webserviceName -f webservice.py -r spark-py -c ../Config/conda_dependencies_webservice.yml -i $modelID1 -i $modelID2 -i $modelID3 -i $modelID4 -i $modelID5
 
    The output gives a manifest ID for the next step. 
 
-   Stay in the `Code` directory, and you can test webservice.py by running 
+   Stay in the `Code` directory, and you can test webservice.py by running the following: 
 
         az ml experiment submit -t dockerdsvm -c dockerdsvm webservice.py
 
@@ -381,44 +378,39 @@ Choose a unique string as the environment for operationalization and we use the 
 
         az ml image create -n [unique]image --manifest-id $manifestID
 
-   The output gives an image ID for the next step as this docker image is used in ACS. 
+   The output gives an image ID for the next step, This docker image is used in Container Service. 
 
-6. Deploy the web service to the ACS cluster
+6. Deploy the web service to the Container Service cluster.
 
         az ml service create realtime -n [unique] --image-id $imageID --cpu 0.5 --memory 2G
 
-   The output gives a service ID, and you need to use it to get the authorization key and service URL.
+   The output gives a service ID. You need to use it to get the authorization key and service URL.
 
-7. Call the webservice in Python code to score in mini-batches.
+7. Call the web service in Python code to score in mini-batches.
 
-   Use the following command  to get the authorization key
+   Use the following command to get the authorization key:
 
          az ml service keys realtime -i $ServiceID 
 
-   and use the following command  to get the service scoring URL
+   Use the following command to get the service scoring URL:
 
         az ml service usage realtime -i $ServiceID
 
-   Modify the content in `./Config/webservice.json` with the right service scoring URL and authorization key (keep the "Bearer " in the original file and replace the "xxx" part). 
+   Modify the content in `./Config/webservice.json` with the right service scoring URL and authorization key. Keep the "Bearer" in the original file, and replace the "xxx" part. 
    
-   Go to the root directory of your project, and test the web service for mini-batch scoring by using
+   Go to the root directory of your project, and test the web service for mini-batch scoring by using the following:
 
         az ml experiment submit -t dockerdsvm -c dockerdsvm ./Code/scoring_webservice.py ./Config/webservice.json
 
 8. Scale the web service. 
 
-   Refer to [How to scale operationalization on your ACS cluster](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/how-to-scale.md) to scale the web service.
+   For more information, see [How to scale operationalization on your Azure Container Service cluster](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/how-to-scale.md).
  
 
-## Conclusion
+## Next steps
 
-This example highlights how to use Azure ML Workbench to train a machine learning model on big data and operationalize the trained model. In particular, we showed how to:
+This example highlights how to use Machine Language Workbench to train a machine learning model on big data, and operationalize the trained model. In particular, you learned how to configure and use different compute targets, and run the history of tracking metrics and use different runs.
 
-* Configure and use different compute targets.
+You can extend the code to explore cross-validation and hyper-parameter tuning. To learn more about cross-validation and hyper-parameter tuning, see [this GitHub resource](https://github.com/Azure/MachineLearningSamples-DistributedHyperParameterTuning).  
 
-* Run history of tracking metrics and different runs.
-
-* Operationalization.
-
-Users can extend the code to explore cross-validation  and hyper-parameter tuning. To learn more about cross-validation and hyper-parameter tuning, visit https://github.com/Azure/MachineLearningSamples-DistributedHyperParameterTuning.  
-To learn more about time-series forecasting, visit https://github.com/Azure/MachineLearningSamples-EnergyDemandTimeSeriesForecasting.
+To learn more about time-series forecasting, see [this GitHub resource](https://github.com/Azure/MachineLearningSamples-EnergyDemandTimeSeriesForecasting).
