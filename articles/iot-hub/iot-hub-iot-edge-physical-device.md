@@ -36,7 +36,7 @@ The walkthrough shows you how to build and run an IoT Edge gateway on a Raspberr
 When you run the IoT Edge gateway it:
 
 * Connects to a SensorTag device using the Bluetooth Low Energy (BLE) protocol.
-* Connects to IoT Hub using the HTTP protocol.
+* Connects to IoT Hub using the HTTPS protocol.
 * Forwards telemetry from the SensorTag device to IoT Hub.
 * Routes commands from IoT Hub to the SensorTag device.
 
