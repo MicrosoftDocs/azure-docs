@@ -1,6 +1,6 @@
 ---
 title: Deploy a split-merge service | Microsoft Docs
-description: Splitting and Merging with elastic database tools
+description: Use the split-merge too to move data between sharded databases.
 services: sql-database
 documentationcenter: ''
 author: ddove

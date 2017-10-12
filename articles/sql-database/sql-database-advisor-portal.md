@@ -1,6 +1,6 @@
 ---
 title: Apply performance recommendations - Azure SQL Database | Microsoft Docs
-description: You can use the Azure portal to find performance recommendations that can optimize performance of your Azure SQL Database or to correct some issue identified in your workload.
+description: Use the Azure portal to find performance recommendations that can optimize performance of your Azure SQL Database.
 services: sql-database
 documentationcenter: ''
 author: stevestein

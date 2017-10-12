@@ -1,6 +1,6 @@
 ---
 title: Getting started with elastic database jobs | Microsoft Docs
-description: how to use elastic database jobs
+description: Use elastic database jobs to execute T-SQL scripts that span multiple databases.
 services: sql-database
 documentationcenter: ''
 manager: jhubbard
