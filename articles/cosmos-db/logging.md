@@ -430,4 +430,5 @@ The following table describes the content of each log entry.
 - Read these articles to learn about event hubs:
    - [What are Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
    - [Get started with Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-- See [Download metrics and diagnostic logs from Azure Storage](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)
+- Read [Download metrics and diagnostic logs from Azure Storage](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)
+- Read [Understanding log searches in Log Analytics](../log-analytics/log-analytics-log-search-new.md)
