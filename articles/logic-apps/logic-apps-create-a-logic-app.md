@@ -206,7 +206,7 @@ sign in with the username and password for your email account.
       > For some triggers and actions, the dynamic content list 
       > doesn't show the full list of fields. 
       > In these cases, the dynamic content list shows 
-      > the **See more** link so you can view the hiddent fields. 
+      > the **See more** link so you can view the hidden fields. 
       > 
       > If you select a field that contains an array, 
       > such as **categories-item**, the designer automatically 
@@ -301,7 +301,7 @@ view or edit your logic app's definition, or view past versions.
 ## Clean up resources
 
 Your logic app continues running and possibly incurring charges 
-on your Azure subsription until you turn off or delete your app. 
+on your Azure subscription until you turn off or delete your app. 
 When you're done, make sure that you disable 
 or delete any resources where you don't want to incur charges.
 
