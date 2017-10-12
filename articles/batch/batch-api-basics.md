@@ -522,7 +522,7 @@ In situations where some of your tasks are failing, your Batch client applicatio
 ## Next steps
 * Learn about the [Batch APIs and tools](batch-apis-tools.md) available for building Batch solutions.
 * Walk through a sample Batch application step-by-step in [Get started with the Azure Batch Library for .NET](batch-dotnet-get-started.md). There is also a [Python version](batch-python-tutorial.md) of the tutorial that runs a workload on Linux compute nodes.
-* Download and install [BatchLabs][batch_labs] for use while you develop your Batch solutions. Use BatchLabs to help create, debug, and monitor Azure Batch applications., 
+* Download and install [BatchLabs][batch_labs] for use while you develop your Batch solutions. Use BatchLabs to help create, debug, and monitor Azure Batch applications. 
 * Learn how to [create pools of Linux compute nodes](batch-linux-nodes.md).
 * Visit the [Azure Batch forum][batch_forum] on MSDN. The forum is a good place to ask questions, whether you are just learning or are an expert in using Batch.
 
