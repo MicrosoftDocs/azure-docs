@@ -1,5 +1,5 @@
 ---
-title: Visually monitor data factories | Microsoft Docs
+title: Visually monitor Azure data factories | Microsoft Docs
 description: Learn how to use Azure Monitor to monitor Data Factory pipelines by enabling diagnostic logs with information from Azure Data Factory.
 services: data-factory
 documentationcenter: ''
