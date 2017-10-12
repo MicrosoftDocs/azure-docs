@@ -194,7 +194,7 @@ The solution back end operates on the device twin using the following atomic ope
     ``` 
 
 All the preceding operations support [Optimistic concurrency][lnk-concurrency] and require the **ServiceConnect** permission, as defined in the [Security][lnk-security] article.
-
+ 
 In addition to these operations, the solution back end can:
 
 * Query the device twins using the SQL-like [IoT Hub query language][lnk-query].
@@ -240,10 +240,10 @@ Tags, desired, and reported properties are JSON objects with the following restr
             ...
         }
 
-* All string values can be at most 4KB in length.
+* All string values can be at most 4 KB in length.
 
 ## Device twin size
-IoT Hub enforces 8KB size limitations on the total values of `tags`, `properties/desired`, and `properties/reported` respectively, excluding read-only elements.
+IoT Hub enforces 8 KB size limitations on the total values of `tags`, `properties/desired`, and `properties/reported` respectively, excluding read-only elements.
 The size is computed by counting all characters excluding UNICODE control characters (segments C0 and C1) and space `' '` when it appears outside of a string constant.
 IoT Hub rejects with an error all operations that would increase the size of those documents above the limit.
 
