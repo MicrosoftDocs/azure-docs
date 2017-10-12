@@ -81,13 +81,11 @@ When you do an internal takeover, the directory gets converted from an unmanaged
 Let's say an IT administrator from Bellows College discovers that users from the school have signed up for self-service offerings. As the registered owner of the DNS name BellowsCollege.com, the IT administrator can validate ownership of the DNS name in Azure and then take over the unmanaged directory. The directory then becomes a managed directory, and the IT administrator is assigned the global administrator role for the BellowsCollege.com directory.
 
 ## How to perform a DNS domain name takeover
-You have a few options for how to perform a domain validation (and do a takeover if you wish):
+You have a few options for how to perform a domain validation (and merge or take over an unmanaged domain):
 
 1. Azure portal
 
-   A takeover is triggered by doing a domain addition. If a directory already exists for the domain, you have the option to perform an external takeover.
-
-   Sign in to the Azure portal using an account that is a global administrator for your existing directory and then proceed as described in [Add a custom domain name to Azure AD](add-custom-domain.md).
+   If you add a new domain name to an Azure AD directory, and a directory already exists for the domain, you are given the option to merge the unmanaged directory. Sign in to the Azure portal using an account that is a global administrator for your existing directory and then proceed as described in [Add a custom domain name to Azure AD](add-custom-domain.md).
 2. Office 365
   
   You can use the options on the [Manage domains](https://support.office.com/article/Navigate-to-the-Office-365-Manage-domains-page-026af1f2-0e6d-4f2d-9b33-fd147420fac2/) page in Office 365 to work with your domains and DNS records. See [Verify your domain in Office 365](https://support.office.com/article/Verify-your-domain-in-Office-365-6383f56d-3d09-4dcb-9b41-b5f5a5efd611/). 
@@ -132,8 +130,7 @@ For example:
   ````
     MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
   ````
-5. In your public DNS namespace, create a DNS txt record that contains the value that you copied in the previous step.
-  The name for this record is the name of the parent domain, so if you create this resource record by using the DNS role from Windows Server, leave the Record name blank and just paste the value into the Text box
+5. In your public DNS namespace, create a DNS txt record that contains the value that you copied in the previous step. The name for this record is the name of the parent domain, so if you create this resource record by using the DNS role from Windows Server, leave the Record name blank and just paste the value into the Text box.
 6. Run the Confirm-MsolDomain cmdlet to verify the challenge:
   ````
     Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
@@ -157,11 +154,11 @@ An admin can configure these capabilities using these Azure AD cmdlet Set-MsolCo
 * **AllowAdHocSubscriptions** controls the ability for users to perform self-service sign up. If you set that parameter to $false, no users can perform self-service signup.
 
 ### How do the controls work together?
-These two parameters can be used in conjunction to define more precise control over self-service sign up. For example, the following command will allow users to perform self-service sign up, but only if those users already have an account in Azure AD (in other words, users who would need an email-verified account to be created cannot perform self-service sign up):
-
+These two parameters can be used in conjunction to define more precise control over self-service signup. For example, the following command will allow users to perform self-service signup, but only if those users already have an account in Azure AD (in other words, users who would need an email-verified account to be created cannot perform self-service signup):
+````
     Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
-
-The following flowchart explains all the different combinations for these parameters and the resulting conditions for the directory and self-service sign up.
+````
+The following flowchart explains the different combinations for these parameters and the resulting conditions for the directory and self-service sign up.
 
 ![][1]
 
