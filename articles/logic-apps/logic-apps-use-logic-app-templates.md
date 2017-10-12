@@ -91,7 +91,7 @@ Choose a prebuilt template. For example:
 
    ![Choose a prebuilt template](./media/logic-apps-use-logic-app-templates/logic-app-choose-prebuilt-template.png)
 
-6. To continue with the prebuilt template, 
+6. To continue with the selected template, 
 choose **Use this template**. 
 
 7. Based on the connectors used by the template, 
@@ -113,25 +113,27 @@ select the resource that you want to use.
    > on the designer toolbar. This action discards any unsaved changes, 
    > so a warning message appears.
 
-8. Continue building your logic app. 
+8. Continue building your logic app.
 
 > [!NOTE] 
-> For many templates, the included connectors might have 
-> already populated some required property fields. 
+> Many templates include connectors that might have 
+> already pre-populated required properties. 
 > However, some templates might still require that you provide 
 > values before you can properly deploy the logic app. 
-> If you try to deploy without completing the missing fields, 
+> If you try to deploy without completing the missing property fields, 
 > you get an error message. 
 
-## Create an existing logic app from a template
+## Update an existing logic app with a template
 
 1. In the [Azure portal](https://portal.azure.com "Azure portal"), 
 find and open your logic app in th Logic App Designer.
 
 2. On the designer toolbar, choose **Templates**. 
 This action discards any unsaved changes, 
-so a warning message appears to confirm that you want to conitnue. 
-To confirm, choose **OK**. 
+so a warning message appears so you can confirm 
+that you want to conitnue. To confirm, choose **OK**. 
+
+   ![Choose "Templates"](./media/logic-apps-use-logic-app-templates/logic-app-update-existing-with-template.png)
 
 3. Scroll past the introduction video and common triggers to **Templates**. 
 Choose a prebuilt template. For example:
@@ -144,7 +146,7 @@ Choose a prebuilt template. For example:
 
    ![Choose a prebuilt template](./media/logic-apps-use-logic-app-templates/logic-app-choose-prebuilt-template.png)
 
-4. To continue with the prebuilt template, 
+4. To continue with the selected template, 
 choose **Use this template**. 
 
 5. Based on the connectors used by the template, 
@@ -163,17 +165,18 @@ select the resource that you want to use.
 
 8. Continue building your logic app. 
 
-   If you haven't saved your changes, you can discard your work 
-   and return to your previous logic app. On the designer toolbar, 
-   choose **Discard**.
+   > [!TIP]
+   > If you haven't saved your changes, you can discard your work 
+   > and return to your previous logic app. On the designer toolbar, 
+   > choose **Discard**.
 
 > [!NOTE] 
-> For many templates, the included connectors might have 
-> already populated some required property fields. 
+> Many templates include connectors that might have 
+> already pre-populated required properties. 
 > However, some templates might still require that you provide 
 > values before you can properly deploy the logic app. 
-> If you try to deploy without completing the missing fields, 
-> you get an error message. 
+> If you try to deploy without completing the missing property fields, 
+> you get an error message.
 
 ## Deploy a logic app created from a template
 
