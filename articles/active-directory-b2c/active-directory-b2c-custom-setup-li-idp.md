@@ -149,7 +149,7 @@ Define LinkedIn as a claims provider by adding a `<ClaimsProvider>` node in your
 You've set up the identity provider. However, it is not yet available in any of the sign-up or sign-in windows. Now you must add the LinkedIn account identity provider to your user `SignUpOrSignIn` user journey.
 
 ### Step 4.1: Make a copy of the user journey
-To make the user journey available, you create a duplicate of an existing template user journey template and then add the LinkedIn identity provider:
+To make the user journey available, you create a duplicate of an existing user journey template and then add the LinkedIn identity provider:
 
 >[!NOTE]
 >If you copied the `<UserJourneys>` element from the base file of your policy to the *TrustFrameworkExtensions.xml* extension file, you can skip this section.
