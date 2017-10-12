@@ -3,7 +3,7 @@ title: Azure SQL database metrics & diagnostics logging | Microsoft Docs
 description: Learn about configuring Azure SQL Database resource to store resource usage, connectivity, and query execution statistics.
 services: sql-database
 documentationcenter: ''
-author: vvasic
+author: veljko-msft 
 manager: jhubbard
 editor: 
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
-ms.author: vvasic
+ms.author: veljko-msft 
 
 ---
 # Azure SQL Database metrics and diagnostics logging 
