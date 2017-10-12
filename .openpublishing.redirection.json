@@ -6206,11 +6206,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cognitive-services/Bing-Spell-Check/index.md",
-            "redirect_url": "/azure/cognitive-services/Bing-Spell-Check/proof-text",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/cognitive-services/Bing-Video-Search/index.md",
             "redirect_url": "/azure/cognitive-services/Bing-Video-Search/search-the-web",
             "redirect_document_id": false
@@ -6223,11 +6218,6 @@
         {
             "source_path": "articles/cognitive-services/Custom-Speech-Service/home.md",
             "redirect_url": "/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-get-started",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/cognitive-services/Bing-Autosuggest/index.md",
-            "redirect_url": "/azure/cognitive-services/Bing-Autosuggest/get-suggested-search-terms",
             "redirect_document_id": false
         },
         {
