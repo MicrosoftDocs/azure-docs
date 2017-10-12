@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/26/2017
+ms.date: 09/27/2017
 ms.author: cherylmc
 
 ---
@@ -76,7 +76,7 @@ Use the following steps to configure the native Windows VPN client for certifica
 
 ## <a name="installmac"></a>Install a Mac (OSX) VPN client configuration
 
-A separate VPN client configuration must be created for every Mac device that connects to an Azure VNet. You can't reuse the same configuration files for multiple Mac devices. This is because for these devices, you must specify the user certificate in the VPN client configuration files. The **Generic** folder has all the information required to create a VPN client configuration. The Generic folder contains the following files:
+A separate VPN client configuration must be created for every Mac device that connects to an Azure VNet. You can't reuse the same configuration files for multiple Mac devices. This is because for these devices, you must specify the user certificate in the VPN client configuration files. The **Generic** folder has all the information required to create a VPN client configuration. If you don't see the Generic folder in your download, it's likely that IKEv2 was not selected as a tunnel type. Once IKEv2 is selected, generate the zip file again to retrieve the Generic folder. The Generic folder contains the following files:
 
 * **VpnSettings.xml**, which contains important settings like server address and tunnel type. 
 * **VpnServerRoot.cer**, which contains the root certificate required to validate the Azure VPN Gateway during P2S connection setup.

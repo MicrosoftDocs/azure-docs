@@ -52,7 +52,7 @@ az group create --name myResourceGroup --location westcentralus
 The sample uploads images to a blob container in an Azure Storage account. A storage account provides a unique namespace to store and access your Azure storage data objects. Create a storage account in the resource group you created by using the [az storage account create](/cli/azure/storage/account#create) command. 
 
 > [!IMPORTANT] 
-> In part 2 of the tutorial you use Event subscriptions for blob storage. Event subscriptions are currently only supported for Blob storage accounts in the West Central US and West US. Because of this restriction, you must create a Blob storage account that is used by the sample app to store images and thumbnails.   
+> In part 2 of the tutorial you use Event subscriptions for blob storage. Event subscriptions are currently only supported for Blob storage accounts in the West Central US and West US 2. Because of this restriction, you must create a Blob storage account that is used by the sample app to store images and thumbnails.   
 
 In the following command, substitute your own globally unique name for the Blob storage account where you see the `<blob_storage_account>` placeholder.  
 
@@ -102,7 +102,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 ## Create a web app 
 
-The web app provides a hosting space for the sample app code that is deployed from the GitHub sample repository. Create a [web app](../../app-service-web/app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#create) command.  
+The web app provides a hosting space for the sample app code that is deployed from the GitHub sample repository. Create a [web app](../../app-service/app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#create) command.  
  
 In the following command, replace `<web_app>` with a unique name (valid characters are `a-z`, `0-9`, and `-`). If `<web_app>` is not unique, you get the error message: _Website with given name `<web_app>` already exists._ The default URL of the web app is `https://<web_app>.azurewebsites.net`.  
 

@@ -22,6 +22,9 @@ ms.author: kumud
 
 This article provides an example deployment of high availability (HA) ports on an Internal Load Balancer. For Network Virtual Appliances specific configurations, refer to the corresponding provider websites.
 
+>[!NOTE]
+> High Availability Ports feature is currently in Preview. During preview, the feature may not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Figure 1 illustrates the following configuration of the deployment example described in this article:
 - The NVAs are deployed in the backend pool of an Internal Load Balancer behind the HA ports configuration. 
 - The UDR applied on the DMZ Subnet routes all traffic to the <?> by making the next hop as the Internal Load Balancer Virtual IP. 
