@@ -18,15 +18,15 @@ ms.date: 10/12/2017
 
 Welcome to the first update of Azure Machine Learning Workbench following our initial public preview at the Microsoft Ignite 2017 conference. The main updates in this release are reliability and stabilization fixes.  Some of the critical issues we addressed include:
 
-## New Features
+## New features
 - macOS High Sierra is now supported
 
 ## Bug fixes
-### Workbench Experience
+### Workbench experience
 - Drag and drop a file into Workbench causes the Workbench to crash.
 - The terminal window in VS Code configured as an IDE for Workbench does not recognize _az ml_ commands.
 
-### Workbench Authentication
+### Workbench authentication
 We made a number of updates to improve various login and authentication issues reported.
 - Authentication window keeps popping-up, particularly when Internet connection is not stable.
 - Improved reliability issues around authentication token expiration.
