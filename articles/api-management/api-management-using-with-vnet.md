@@ -35,12 +35,9 @@ To perform the steps described in this article, you must have:
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 + An APIM instance. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
-+ VNET connectivity is available in the **Premium** and **Developer** tiers, switch to one of these tiers as described in the [upgrade and scale](upgrade-and-scale.md#upgrade-and-scale) topic.
++ VNET connectivity is available in the Premium and Developer tiers only. Switch to one of these tiers by following the directions in the [upgrade and scale](upgrade-and-scale.md#upgrade-and-scale) topic.
 
 ## <a name="enable-vpn"> </a>Enable VNET connection
-
-> [!NOTE]
->  VNET connectivity is available in the **Premium** and **Developer** tiers, switch to one of these tiers as described in the [upgrade and scale](upgrade-and-scale.md#upgrade-and-scale) topic.
 
 ### Enable VNET connectivity using the Azure portal
 
@@ -118,7 +115,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 | * / 5671 |Outbound |AMQP |VIRTUAL_NETWORK / INTERNET|Dependency for Log to Event Hub policy and monitoring agent |External & Internal |
 | * / 445 |Outbound |TCP |VIRTUAL_NETWORK / INTERNET|Dependency on Azure File Share for GIT |External & Internal |
 | * / 6381 - 6383 |Inbound & Outbound |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|Access Redis Cache Instances between RoleInstances |External & Internal |
-| * / * | Inbound |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK|**Azure Infrastructure Load Balancer** |External & Internal |
+| * / * | Inbound |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Azure Infrastructure Load Balancer |External & Internal |
 
 >[!IMPORTANT]
 > * The Ports for which the *Purpose* is **bold** is required for API Management service to be deployed successfully. Blocking the other ports will cause degradation in usage and monitoring of the running service.
@@ -140,20 +137,21 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 
 
 ## <a name="troubleshooting"> </a>Troubleshooting
-* **Initial Setup**: When the initial deployment of API Management service into a Subnet does not succeed, it is advised to deploy a Virtual Machine into the same Subnet. Next RDP into the Virtual Machine and validate connectivity to one of each resource in your subscription 
+* **Initial Setup**: When the initial deployment of API Management service into a subnet does not succeed, it is advised to deploy a virtual machine into the same subnet. Next remote desktop into the virtual machine and validate connectivity to one of each resource in your subscription 
     * Azure Storage blob
     * Azure SQL Database
-    * Azure File Share
 
  > [!IMPORTANT]
- > After you have validated the connectivity, make sure to clean up the Subnet, by removing both the Virtual Machine and the NIC associated with it.
+ > After you have validated the connectivity, make sure to remove all the resources deployed in the Subnet, before deploying API Management into it.
 
 * **Incremental Updates**: When making changes to your network, refer to [NetworkStatus API](https://docs.microsoft.com/en-us/rest/api/apimanagement/networkstatus), to validate if the API Management service has not lost access to any of the critical resources which it depends upon. The connectivity status should be updated every 15 minutes.
 
-* **Resource Navigation Links**: When deploying into Resource Manager style vnet subnet, API Management reserves the subnet, by creating a resource navigation Link. If the subnet already contains a resource from a different provider, deployment will fail. Similarly, when you move an API Management service to a different subnet or delete it, we will remove that resource navigation link. If you lock the resource group, in which the vnet subnet exists, you will observe attempts to delete that resource navigation link every few minutes.
+* **Resource Navigation Links**: When deploying into Resource Manager style vnet subnet, API Management reserves the subnet, by creating a resource navigation Link. If the subnet already contains a resource from a different provider, deployment will **fail**. Similarly, when you move an API Management service to a different subnet or delete it, we will remove that resource navigation link. 
 
 ## <a name="routing"> </a> Routing
-When API Management is deployed in a vnet subnet, an IP address from a subnet IP range will be used to access resources within the vnet and its public IP address will be used to access resources outside the vnet. The public IP address can be found on the Overview/Essentials blade in Azure portal.
++ A load balanced public IP address (VIP) will be reserved to provide access to all service endpoints.
++ An IP address from a subnet IP range (DIP) will be used to access resources within the vnet and a public IP address (VIP) will be used to access resources outside the vnet.
++ Load balanced public IP address can be found on the Overview/Essentials blade in the Azure portal.
 
 ## <a name="limitations"> </a>Limitations
 * A subnet containing API Management instances cannot contain any other Azure resource types.
