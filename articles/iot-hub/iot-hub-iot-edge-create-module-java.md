@@ -123,7 +123,7 @@ The input might be data from hardware (like a motion detector), a message from o
 
 The output is similar to the input, it could trigger hardware behavior (like the blinking LED), a message to other modules, or anything else (like printing to the console).
 
-Modules communicate with each other using `com.microsoft.azure.gateway.messaging.Message` class. The **Content** of a `Message` is a byte array which is capable of representing any kind of data you like. **Properties** are also available in the `Message` and are simply a string-to-string mapping. You may think of **Properties** as the headers in an HTTP request, or the metadata of a file.
+Modules communicate with each other using `com.microsoft.azure.gateway.messaging.Message` class. The **Content** of a `Message` is a byte array which is capable of representing any kind of data you like. **Properties** are also available in the `Message` and are simply a string-to-string mapping. You may think of **Properties** as the headers in an HTTPS request, or the metadata of a file.
 
 In order to develop an Azure IoT Edge module in Java, you need to create a new module class which inherits from `com.microsoft.azure.gateway.core.GatewayModule` and implement the required abstract methods `receive()` and `destroy()`. At this point, you may also choose to implement the optional `start()` or `create()` methods as well. The following code snippet shows you how to get started authoring an Azure IoT Edge module.
 
