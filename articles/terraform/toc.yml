@@ -15,8 +15,8 @@
   items:
     - name: Create a load balanced VM cluster
       href: terraform-create-vm-cluster-module.md
-    - name: Provision core compute infrasturcture
-      href: terraform-create-vm-scaleset-network-disks.md
+    - name: Provision a VM scale set infrasturcture
+      href: terraform-create-vm-scaleset-network-disks-hcl.md
 - name: Samples
   items:
     - name: Configuration templates
