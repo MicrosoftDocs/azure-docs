@@ -14,7 +14,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/5/2017
+ms.date: 10/12/2017
 ms.author: v-ruogun
 ---
 #  Transfer objects to/from Azure Blob storage using Python
@@ -62,10 +62,8 @@ This command clones the repository to your local git folder. To open the python 
 ## Configure your storage connection string
 In the application, you must provide your storage account name and account key to create a `BlockBlobService` object. Open the `example.py` file from the Solution Explorer in your IDE. Replace the **accountname** and **accountkey** values with your account name and key. 
 
-```python
-account_name = 'accountname'
-account_key = 'accountkey'
-storage_account = CloudStorageAccount(account_name, account_key)
+```python 
+block_blob_service = BlockBlobService(account_name='accountname', account_key='accountkey') 
 ```
 
 ## Run the sample
@@ -92,8 +90,6 @@ After you've verified the files, hit any key to finish the demo and delete the t
 ## Get references to the storage objects
 The first thing to do is create the references to the objects used to access and manage Blob storage. These objects build on each other, and each is used by the next one in the list.
 
-* Instantiate the **CloudStorageAccount** object pointing to the storage account. 
-
 * Instantiate the **BlockBlobService** object, which points to the Blob service in your storage account. 
 
 * Instantiate the **CloudBlobContainer** object, which represents the container you are accessing. Containers are used to organize your blobs like you use folders on your computer to organize your files.
@@ -103,14 +99,9 @@ Once you have the Cloud Blob container, you can instantiate the **CloudBlockBlob
 In this section, you instantiate the objects, create a new container, and then set permissions on the container so the blobs are public. The container is called **quickstartblobs**. 
 
 
-```python
-# Create a CloudStorageAccount instance pointing to your storage account.
-account_name = 'accountname'
-account_key = 'accountkey'
-storage_account = CloudStorageAccount(account_name, account_key)
-
+```python 
 # Create the BlockBlockService that is used to call the Blob service for the storage account
-block_blob_service = storage_account.create_block_blob_service()
+block_blob_service = BlockBlobService(account_name='accountname', account_key='accountkey') 
  
 # Create a container called 'quickstartblobs'.
 container_name ='quickstartblobs'
