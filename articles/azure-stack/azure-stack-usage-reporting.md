@@ -53,6 +53,9 @@ To set up usage data reporting, you must [register your Azure Stack instance wit
 
 If you registered your Azure Stack using a CSP subscription, you can view your usage and charges in the same way in which you view Azure consumption. Azure Stack usage will be included in your invoice and in the reconciliation file, available through [Partner Center](https://partnercenter.microsoft.com/en-us/partner/home). The reconciliation file is updated monthly. If you need to access recent Azure Stack usage information, you can use the Partner Center APIs.
 
+   ![partner center](media/azure-stack-usage-reporting/partner-center.png)
+
+
 ## View usage – Enterprise Agreement subscriptions
 
 If you registered your Azure Stack using an Enterprise Agreement subscription, you can view your usage and charges in the [EA Portal](https://ea.azure.com/). Azure Stack usage will be included in the advanced downloads along with Azure usage under the reports section in the EA portal. 
