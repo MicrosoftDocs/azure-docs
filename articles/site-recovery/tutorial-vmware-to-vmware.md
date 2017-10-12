@@ -91,7 +91,7 @@ Download the [update](https://aka.ms/asr-scout-update6) .zip file. The file cont
 ## Updates
 
 ### Site Recovery Scout 8.0.1 Update 6 
-Updated: October 6, 2017
+Updated: October 12, 2017
 
 Scout Update 6 is a cumulative update. It contains all fixes from Update 1 to Update 5 plus  the new fixes and enhancements described below. 
 
@@ -112,7 +112,6 @@ Scout Update 6 is a cumulative update. It contains all fixes from Update 1 to Up
 
 #### Bug fixes and enhancements
 - Failback protection fails for Linux VM with list of disks to be replicated is empty at the end of config.
-
 
 ### Site Recovery Scout 8.0.1 Update 5
 Scout Update 5 is a cumulative update. It contains all fixes from Update 1 to Update 4, and the new fixes described below.
