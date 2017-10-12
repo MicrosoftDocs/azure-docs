@@ -38,7 +38,7 @@ The request must specify the [Ocp-Apim-Subscription-Key](https://docs.microsoft.
 
 The client IP and location headers are important for returning location aware content.  
 
-For a list of all request and response headers, see [Headers](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference#headers).
+For a list of all request and response headers, see [Headers](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#headers).
 
 ## The request
 
@@ -47,20 +47,15 @@ The following shows a search request that includes all the suggested query param
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghies&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
-User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)  
-X-Search-ClientIP: 999.999.999.999  
+X-MSEdge-ClientIP: 999.999.999.999  
 X-Search-Location: lat:47.60357;long:-122.3295;re:100  
 X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 Host: api.cognitive.microsoft.com  
 ```  
 
-The following shows the response to the previous request. The example also shows the Bing-specific response headers.
+The following shows the response to the previous request.
 
-```
-BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC
-X-MSEdge-ClientID: 1C3352B306E669780D58D607B96869
-BingAPIs-Market: en-US
-
+```json
 {
     "_type" : "Images",
     "webSearchUrl" : "https:\/\/www.bing.com\/cr?IG=73118C8B4E3...",
@@ -104,7 +99,7 @@ BingAPIs-Market: en-US
         },
         . . .
     ],
-    "nextOff" : 0,
+    "nextOffset" : 10,
     "pivotSuggestions" : [
         {
             "pivot" : "sailing",
@@ -133,7 +128,7 @@ BingAPIs-Market: en-US
 
 ## Next steps
 
-Try out the API. Go to [Image Search API Testing Console](https://dev.cognitive.microsoft.com/docs/services/56b43f0ccf5ff8098cef3808/operations/571fab09dbe2d933e891028f). 
+Try out the API. Go to [Image Search API Testing Console](https://dev.cognitive.microsoft.com/docs/services/8336afba49a84475ba401758c0dbf749/operations/571fab09dbe2d933e891028f). 
 
 For details about consuming the response objects, see [Searching the Web](./search-the-web.md).
 

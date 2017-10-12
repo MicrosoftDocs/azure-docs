@@ -2,21 +2,21 @@
 
 These use and display requirements apply to your implementation of the content and associated information (for example, relationships, metadata and other signals) available through calls to the Bing Custom Search, Entity Search, Image Search, News Search, Video Search, Web Search, Spell Check, and Autosuggest APIs. Implementation details related to these requirements can be found in documentation for specific features and results.
 
-## 1. BING SPELL CHECK API and BING AUTOSUGGEST API.
+## 1. Bing Spell Check and Bing Autosuggest API.
 
 You must not:
 
-- copy, store, or cache any data you receive from the Bing Spell Check or Bing Autosuggest APIs; or 
+- copy, store, or cache any data you receive from the Bing Spell Check or Bing Autosuggest APIs
 - use data you receive from the Bing Spell Check or Bing Autosuggest APIs as part of any machine learning or similar algorithmic activity to train, evaluate, or improve new or existing services which you or third parties may offer.
 
-## 2. DEFINITIONS
+## 2. Definitions
 
 - "answer" refers to a category of results returned in a response. For example, a response from the Bing Web Search API may include answers in the categories of webpage results, image, video, and news;
 - "response" means any and all answers and associated data received in response to a single call to a Search API;
 - "result" refers to an item of information in an answer. For example, the set of data connected with a single news article is a result in a news answer.
 - “Search APIs” means, collectively, the Bing Custom Search, Entity Search, Image Search, News Search, Video Search, and Web Search APIs. 
 
-## 3. SEARCH APIs
+## 3. Search APIs
 
 The requirements in this Section 3 apply to the Search APIs.
 
