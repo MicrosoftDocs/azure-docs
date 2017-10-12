@@ -41,7 +41,7 @@ This article describes the schema and properties for all supported elements of a
 | toolTip | No | The text to display in the tool tip of the element. Similar to `label`, some elements support multiple tool tip strings. Inline links can be embedded using Markdown syntax.
 | constraints | No | One or more properties that are used to customize the validation behavior of the element. The supported properties for constraints vary by element type. Some element types do not support customization of the validation behavior, and thus have no constraints property. |
 | options | No | Additional properties that customize the behavior of the element. Similar to `constraints`, the supported properties vary by element type. |
-| visible | No | Indicates whether the element is displayed. If `true`, the element and applicable child elements are displayed. The default value is `true`. Use [logical functions](../managed-applications/createuidefinition-functions.md#logical-functions) to dynamically control this property's value.
+| visible | No | Indicates whether the element is displayed. If `true`, the element and applicable child elements are displayed. The default value is `true`. Use [logical functions](create-uidefinition-functions.md#logical-functions) to dynamically control this property's value.
 
 ## Elements
 
