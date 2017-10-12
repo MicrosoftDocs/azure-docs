@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 10/12/2017
 ms.author: jingwang
 
 robots: noindex
@@ -31,7 +31,7 @@ This article explains how to use the Copy Activity in Azure Data Factory to move
 
 You can copy data from an on-premises PostgreSQL data store to any supported sink data store. For a list of data stores supported as sinks by the copy activity, see [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Data factory currently supports moving data from a PostgreSQL database to other data stores, but not for moving data from other data stores to an PostgreSQL database. 
 
-## prerequisites
+## Prerequisites
 
 Data Factory service supports connecting to on-premises PostgreSQL sources using the Data Management Gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway.
 
@@ -41,7 +41,7 @@ Gateway is required even if the PostgreSQL database is hosted in an Azure IaaS V
 > See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) for tips on troubleshooting connection/gateway related issues.
 
 ## Supported versions and installation
-For Data Management Gateway to connect to the PostgreSQL Database, install the [Ngpsql data provider for PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) 2.0.12 or above on the same system as the Data Management Gateway. PostgreSQL version 7.4 and above is supported.
+For Data Management Gateway to connect to the PostgreSQL Database, install the [Ngpsql data provider for PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) with version between 2.0.12 and 3.1.9 on the same system as the Data Management Gateway. PostgreSQL version 7.4 and above is supported.
 
 ## Getting started
 You can create a pipeline with a copy activity that moves data from an on-premises PostgreSQL data store by using different tools/APIs. 
