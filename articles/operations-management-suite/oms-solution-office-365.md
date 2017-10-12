@@ -283,6 +283,15 @@ The following table provides sample log searches for update records collected by
 |Search with a specific keyword|`search in (OfficeActivity) OfficeWorkload =~ "azureactivedirectory" and "MyTest"`|
 |Monitor external actions on Exchange|`OfficeActivity | where OfficeWorkload =~ "exchange" and ExternalAccess == true`|
 
+xxx
+
+| Query | Description |
+| --- | --- |
+|Count of all the operations on your Office 365 subscription |`Type = OfficeActivity | measure count() by Operation` |
+|Usage of SharePoint sites|`Type=OfficeActivity OfficeWorkload=sharepoint | measure count() as Count by SiteUrl | sort Count asc`|
+|File access operations by user type|`Type=OfficeActivity OfficeWorkload=sharepoint Operation=FileAccessed | measure count() by UserType`|
+|Search with a specific keyword|`Type=OfficeActivity OfficeWorkload=azureactivedirectory "MyTest"`|
+|Monitor external actions on Exchange|`Type=OfficeActivity OfficeWorkload=exchange ExternalAccess = true`|
 
 
 ## Troubleshooting
