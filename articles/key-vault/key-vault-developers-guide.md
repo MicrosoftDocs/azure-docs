@@ -63,9 +63,15 @@ Before working with keys, secrets or certificates in your key vault, you'll crea
 
 ## Coding with Key Vault
 
-The Key Vault management system for programmers consists of several interfaces, with REST as the foundation. Through the REST interface, all of your key vaults resources are accessible; keys, secrets and certificates. [Key Vault REST API Reference](https://docs.microsoft.com/rest/api/keyvault/). 
+The Key Vault management system for programmers consists of several interfaces. This section contains links to all of the languages as well as some code exampls. 
 
 ### Supported programming and scripting languages
+
+#### REST
+
+All of your Key Vault resources are accessible through the REST interface; vaults, keys, secrets, etc. 
+
+- [Key Vault REST API Reference](https://docs.microsoft.com/rest/api/keyvault/). 
 
 #### .NET
 
