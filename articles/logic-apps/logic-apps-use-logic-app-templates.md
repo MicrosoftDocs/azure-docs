@@ -1,6 +1,6 @@
 ---
 title: Create workflows from templates - Azure Logic Apps | Microsoft Docs
-description: Build workflows with logic app templates
+description: Build workflows faster by using logic app templates
 author: kevinlam1
 manager: anneta
 editor: ''
@@ -23,53 +23,171 @@ ms.custom: H1Hack27Feb2017
 To get you started faster with creating workflows, 
 Logic Apps provides templates that are prebuilt logic apps. 
 Not only can you use these templates for building workflows, 
-but also to discover commonly used patterns. 
+but you can also discover commonly-used patterns. 
 You can use these templates as provided or edit them to fit your scenario.
 
-Here are some example categories for these templates:
+For example, here are some template categories:
 
-## Enterprise cloud templates
+| Template type | Description | 
+| ------------- | ----------- | 
+| Enterprise cloud templates | For integrating Azure Blob, Dynamics CRM, Salesforce, Box, and includes other connectors for your enterprise cloud needs. For example, you can use these templates to organize business leads or back up your corporate file data. | 
+| Personal productivity templates | Improve personal productivity by setting daily reminders, turning important work items into to-do lists, and automating lengthy tasks down to a single user approval step. | 
+| Consumer cloud templates | For integrating social media services such as Twitter, Slack, and email. Useful for strengthening social media marketing initiatives. These templates also include tasks such as cloud copying, which increase productivity by saving time on traditionally repetitive tasks. | 
+| Enterprise integration pack templates | For configuring VETER (validate, extract, transform, enrich, route) pipelines, receiving an X12 EDI document over AS2 and transforming to XML, and handling X12, EDIFACT, and AS2 messages. | 
+| Protocol pattern templates | For implementing protocol patterns such as request-response over HTTP and integrations across FTP and SFTP. Use these templates as provided, or build on them for complex protocol patterns. | 
+||| 
 
-Templates that integrate Dynamics CRM, Salesforce, Box, Azure Blob, and other connectors for your enterprise cloud needs. Some examples of what can be done with these templates include organizing your leads and backing up your corporate file data.
+If you don't have an Azure subscription, 
+[sign up for a free Azure account](https://azure.microsoft.com/free/) before you begin. For more information about building a logic app, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
-## Consumer cloud templates
+## Create a new logic app from a template
 
-Simple templates that integrate with social media services such as Twitter, Slack, and email, ultimately capable of strengthening social media marketing initiatives. These also include templates such as cloudy copying, which can help increase productivity by saving time spent on traditionally repetitive tasks. 
+1. If you haven't already, sign in to the [Azure portal](https://portal.azure.com "Azure portal").
 
-## Enterprise integration pack templates
+2. From the main Azure menu, choose 
+**New** > **Enterprise Integration** > **Logic App**.
 
-Configurations of VETER (validate, extract, transform, enrich, route) pipelines, receiving an X12 EDI document over AS2 and transforming it to XML, as well as X12 and AS2 message handling.
+   ![Azure portal, New, Enterprise Integration, Logic App](./media/logic-apps-use-logic-app-templates/azure-portal-create-logic-app.png)
 
-## Personal productivity templates
+3. Create your logic app with the settings in the table under this image:
 
-Patterns to help improve personal productivity include templates that set daily reminders, turn important work items into to-do lists, and automate lengthy tasks down to a single user approval step.
+   ![Provide logic app details](./media/logic-apps-use-logic-app-templates/logic-app-settings.png)
 
-## Protocol pattern templates
+   | Setting | Suggested value | Description | 
+   | ------- | --------------- | ----------- | 
+   | **Name** | *your-logic-app-name* | Provide a unique logic app name. | 
+   | **Subscription** | *your-Azure-subscription-name* | Select the Azure subscription that you want to use. | 
+   | **Resource group** | *your-Azure-resource-group-name* | Create or select an [Azure resource group](../azure-resource-manager/resource-group-overview.md) for organizing related Azure resources. | 
+   | **Location** | *your-Azure-datacenter-region* | Select the datacenter region for deploying your logic app, for example, West US. | 
+   | **Log Analytics** | Off | Turn on diagnostic logging for your logic app, but for this quickstart, keep the **Off** setting. | 
+   |||| 
 
-These templates consist of logic apps that contain protocol patterns such as request-response over HTTP as well as integrations across FTP and SFTP. Use these as they exist, or as a basis for creating more complex protocol patterns.  
+4. When you're ready, select **Pin to dashboard**. 
+That way, your logic app automatically appears on 
+your Azure dashboard and opens after deployment. 
+Choose **Create**.
 
-## Create a logic app from a template
+   > [!NOTE]
+   > If you don't want to pin your logic app, 
+   > you must manually find and open your logic app 
+   > after deployment so you can continue.
 
-To get started using a logic app template, go into the logic app designer. If you're entering the designer by opening an existing logic app, the logic app automatically loads in your designer view. However, if you're creating a new logic app, you see the screen below.  
- ![](../../includes/media/app-service-logic-templates/template7.png)  
+   After Azure deploys your logic app, the Logic Apps Designer 
+   opens and shows a page with an introduction video. 
+   Under the video, you can find templates for common logic app patterns. 
+   This quickstart builds your logic app from scratch. 
 
-From this screen, you can either choose to start with a blank logic app or a pre-built template. If you select one of the templates, you are provided with additional information. In this example, we use the *When a new file is created in Dropbox, copy it to OneDrive* template.  
- ![](../../includes/media/app-service-logic-templates/template2.png)  
+5. Scroll past the introduction video and common triggers to **Templates**. 
+Choose a prebuilt template. For example:
 
-If you choose to use the template, just select the *use this template* button. You'll be asked to sign in to your accounts based on which connectors the template utilizes. Or, if you've previously established a connection with these connectors, you can select continue as seen below.  
- ![](../../includes/media/app-service-logic-templates/template3.png)  
+   ![Choose a logic app template](./media/logic-apps-use-logic-app-templates/choose-logic-app-template.png)
 
-After establishing the connection and selecting *continue*, the logic app opens in designer view.  
- ![](../../includes/media/app-service-logic-templates/template4.png)  
+   > [!TIP]
+   > To create your logic app from scratch, choose **Blank Logic App**.
 
-In the example above, as is the case with many templates, some of the mandatory property fields may be filled out within the connectors; however, some might still require a value before being able to properly deploy the logic app. If you try to deploy without entering some of the missing fields, you'll be notified with an error message.
+   When you select a prebuilt template, 
+   you can view more information about that template. 
+   For example:
 
-If you wish to return to the template viewer, select the *Templates* button in the top navigation bar. By switching back to the template viewer, you lose any unsaved progress. Prior to switching back into template viewer, you'll see a warning message notifying you of this.  
- ![](../../includes/media/app-service-logic-templates/template5.png)  
+   ![Choose a prebuilt template](./media/logic-apps-use-logic-app-templates/logic-app-choose-prebuilt-template.png)
 
-## How to deploy a logic app created from a template
-Once you have loaded your template and made any desired changes, select the save button in the upper left corner. This saves and publishes your logic app.  
- ![](../../includes/media/app-service-logic-templates/template6.png)  
+6. To continue with the prebuilt template, 
+choose **Use this template**. 
 
-If you would like more information on how to add more steps into an existing logic app template, or make edits in general, read more at [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+7. Based on the connectors used by the template, 
+you might have to sign in with your credentials, 
+or create connections for any services or systems 
+referenced by that template. To create a connection, 
+provide a name for your connection and if required, 
+select the resource that you want to use.
 
+   If you have already have these connections, 
+   you can choose **Continue**.
+
+   ![Create connections](./media/logic-apps-use-logic-app-templates/logic-app-create-connection.png)
+
+   Your logic app now opens and appears in the Logic Apps Designer.
+
+   > [!TIP]
+   > To return to the template viewer, choose **Templates** 
+   > on the designer toolbar. This action discards any unsaved changes, 
+   > so a warning message appears.
+
+8. Continue building your logic app. 
+
+> [!NOTE] 
+> For many templates, the included connectors might have 
+> already populated some required property fields. 
+> However, some templates might still require that you provide 
+> values before you can properly deploy the logic app. 
+> If you try to deploy without completing the missing fields, 
+> you get an error message. 
+
+## Create an existing logic app from a template
+
+1. In the [Azure portal](https://portal.azure.com "Azure portal"), 
+find and open your logic app in th Logic App Designer.
+
+2. On the designer toolbar, choose **Templates**. 
+This action discards any unsaved changes, 
+so a warning message appears to confirm that you want to conitnue. 
+To confirm, choose **OK**. 
+
+3. Scroll past the introduction video and common triggers to **Templates**. 
+Choose a prebuilt template. For example:
+
+   ![Choose a logic app template](./media/logic-apps-use-logic-app-templates/choose-logic-app-template.png)
+
+   When you select a prebuilt template, 
+   you can view more information about that template. 
+   For example:
+
+   ![Choose a prebuilt template](./media/logic-apps-use-logic-app-templates/logic-app-choose-prebuilt-template.png)
+
+4. To continue with the prebuilt template, 
+choose **Use this template**. 
+
+5. Based on the connectors used by the template, 
+you might have to sign in with your credentials, 
+or create connections for any services or systems 
+referenced by that template. To create a connection, 
+provide a name for your connection and if required, 
+select the resource that you want to use.
+
+   If you have already have these connections, 
+   you can choose **Continue**.
+
+   ![Create connections](./media/logic-apps-use-logic-app-templates/logic-app-create-connection.png)
+
+   Your logic app now opens and appears in the Logic Apps Designer.
+
+8. Continue building your logic app. 
+
+   If you haven't saved your changes, you can discard your work 
+   and return to your previous logic app. On the designer toolbar, 
+   choose **Discard**.
+
+> [!NOTE] 
+> For many templates, the included connectors might have 
+> already populated some required property fields. 
+> However, some templates might still require that you provide 
+> values before you can properly deploy the logic app. 
+> If you try to deploy without completing the missing fields, 
+> you get an error message. 
+
+## Deploy a logic app created from a template
+
+After you make your changes to the template, 
+you can save your changes, which also publishes your logic app. 
+
+On the designer toolbar, choose **Save**.
+
+![Save and publish your logic app](./media/logic-apps-use-logic-app-templates/logic-app-save.png)  
+
+## Next steps
+
+Learn about building logic apps through examples, 
+scenarios, customer stories, and walkthroughs.
+
+> [!div class="nextstepaction"]
+> [Review logic app examples, scenarios, and walkthroughs](../logic-apps/logic-apps-examples-and-scenarios.md)
