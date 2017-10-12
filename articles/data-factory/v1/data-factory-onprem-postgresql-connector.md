@@ -99,7 +99,7 @@ When source is of type **RelationalSource** (which includes PostgreSQL), the fol
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
-| query |Use the custom query to read data. |SQL query string. For example: "query": "select * from \"MySchema\".\"MyTable\"". |No (if **tableName** of **dataset** is specified) |
+| query |Use the custom query to read data. |SQL query string. For example: `"query": "select * from \"MySchema\".\"MyTable\""`. |No (if **tableName** of **dataset** is specified) |
 
 > [!NOTE]
 > Schema and table names are case-sensitive. Enclose them in `""` (double quotes) in the query.  
@@ -124,7 +124,7 @@ The sample has the following data factory entities:
 
 The sample copies data from a query result in PostgreSQL database to a blob every hour. The JSON properties used in these samples are described in sections following the samples.
 
-As a first step, setup the data management gateway. The instructions are in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article.
+As a first step, set up the data management gateway. The instructions are in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article.
 
 **PostgreSQL linked service:**
 
@@ -307,13 +307,13 @@ When moving data to PostgreSQL, the following mappings are used from PostgreSQL 
 | abstime | |Datetime | &nbsp;
 | bigint |int8 |Int64 |
 | bigserial |serial8 |Int64 |
-| bit [ (n) ] | |Byte[], String | &nbsp;
+| bit [(n)] | |Byte[], String | &nbsp;
 | bit varying [ (n) ] |varbit |Byte[], String |
 | boolean |bool |Boolean |
 | box | |Byte[], String |&nbsp;
 | bytea | |Byte[], String |&nbsp;
-| character [ (n) ] |char [ (n) ] |String |
-| character varying [ (n) ] |varchar [ (n) ] |String |
+| character [(n)] |char [(n)] |String |
+| character varying [(n)] |varchar [(n)] |String |
 | cid | |String |&nbsp;
 | cidr | |String |&nbsp;
 | circle | |Byte[], String |&nbsp;
@@ -325,14 +325,14 @@ When moving data to PostgreSQL, the following mappings are used from PostgreSQL 
 | int4range | |String |&nbsp;
 | int8range | |String |&nbsp;
 | integer |int, int4 |Int32 |
-| interval [ fields ] [ (p) ] | |Timespan |&nbsp;
+| interval [fields] [(p)] | |Timespan |&nbsp;
 | json | |String |&nbsp;
 | jsonb | |Byte[] |&nbsp;
 | line | |Byte[], String |&nbsp;
 | lseg | |Byte[], String |&nbsp;
 | macaddr | |Byte[], String |&nbsp;
 | money | |Decimal |&nbsp;
-| numeric [ (p, s) ] |decimal [ (p, s) ] |Decimal |
+| numeric [(p, s)] |decimal [(p, s)] |Decimal |
 | numrange | |String |&nbsp;
 | oid | |Int32 |&nbsp;
 | path | |Byte[], String |&nbsp;
