@@ -3571,6 +3571,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/hdinsight/hdinsight-storm-develop-java-event-hub-topology.md",
+            "redirect_url": "https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely.md",
             "redirect_url": "/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh",
             "redirect_document_id": false
@@ -3668,6 +3673,11 @@
         {
             "source_path": "articles/hdinsight/hdinsight-debug-jobs.md",
             "redirect_url": "/azure/hdinsight/hdinsight-troubleshoot-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/hdinsight/hdinsight-hbase-analyze-twitter-sentiment.md",
+            "redirect_url": "/azure/hdinsight/hdinsight-hbase-tutorial-get-started-linux",
             "redirect_document_id": false
         },
         {
@@ -6218,16 +6228,6 @@
         {
             "source_path": "articles/cognitive-services/Custom-Speech-Service/home.md",
             "redirect_url": "/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-get-started",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/cognitive-services/Bing-Image-Search/index.md",
-            "redirect_url": "/azure/cognitive-services/Bing-Image-Search/search-the-web",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/cognitive-services/Bing-Web-Search/index.md",
-            "redirect_url": "/azure/cognitive-services/Bing-Web-Search/search-the-web",
             "redirect_document_id": false
         },
         {
