@@ -23,14 +23,14 @@ This article includes answers to frequently asked questions about Azure Active D
 
 **Q: I am using the “https://graph.windows.net/<tenant-name>/reports/” endpoint APIs to pull Azure AD audit and integrated application usage reports into our reporting systems programmatically. What should I switch to?**
 
-**A:** Look up our [Identity Protection risk events API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) to see how you can use the new APIs to access activity reports. This endpoint has two reports (Audit and Sign-ins) which provide all the data you got in the old API endpoint. This new endpoint also has sign-ins report with Azure AD Premium that you can use to get app usage, device usage, and user sign-in information.
+**A:** Look up our [Identity Protection risk events API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) to see how you can use the new APIs to access [activity reports](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal). This endpoint has two reports (Audit and Sign-ins) which provide all the data you got in the old API endpoint. This new endpoint also has sign-ins report with Azure AD Premium that you can use to get app usage, device usage, and user sign-in information.
 
 
 --- 
 
 **Q: I am using the “https://graph.windows.net/<tenant-name>/reports/” endpoint APIs to pull Azure AD security reports (specific types of detections, such as leaked credentials or sign-ins from anonymous IP addresses) into our reporting systems programmatically. What should I switch to?**
 
-**A:** You can use the [Identity Protection risk events API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) to access security detections through Microsoft Graph. This new format gives greater flexibility in how you can query data, with advanced filtering, field selection, and more, and standardizes risk events into one type for easier integration into SIEMs and other data collection tools. Because the data is in a different format, you can't substitute a new query for your old queries. However, because the new API uses Microsoft Graph, which is the Microsoft standard for such APIs as O365 or Azure AD. So the work required can either extend your current MS Graph investments or help you begin your transition to this new standard platform.
+**A:** You can use the [Identity Protection risk events API](active-directory-identityprotection-graph-getting-started.md) to access security detections through Microsoft Graph. This new format gives greater flexibility in how you can query data, with advanced filtering, field selection, and more, and standardizes risk events into one type for easier integration into SIEMs and other data collection tools. Because the data is in a different format, you can't substitute a new query for your old queries. However, because [the new API uses Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), which is the Microsoft standard for such APIs as O365 or Azure AD. So the work required can either extend your current MS Graph investments or help you begin your transition to this new standard platform.
 
 --- 
 
