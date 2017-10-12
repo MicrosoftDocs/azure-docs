@@ -71,38 +71,38 @@ The Key Vault management system for programmers consists of several interfaces. 
 
 All of your Key Vault resources are accessible through the REST interface; vaults, keys, secrets, etc. 
 
-- [Key Vault REST API Reference](https://docs.microsoft.com/rest/api/keyvault/). 
+[Key Vault REST API Reference](https://docs.microsoft.com/rest/api/keyvault/). 
 
 #### .NET
 
-- [.NET API refence for Key Vault](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault) 
+[.NET API refence for Key Vault](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault) 
 
 For more information on the 2.x version of the .NET SDK, see the [Release notes](key-vault-dotnet2api-release-notes.md).
 
 #### Java
 
-- [Java SDK for Key Vault](https://docs.microsoft.com/java/api/overview/azure/keyvault)
+[Java SDK for Key Vault](https://docs.microsoft.com/java/api/overview/azure/keyvault)
 
 #### Node.js
 
 In Node.js, the Key Vault management API and the Key Vault object API are separate. 
 
-- [Node.js API reference for Key Vault management](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault)
-- [Node.js API reference for Key Vault operations](http://azure.github.io/azure-sdk-for-node/azure-keyvault) 
+[Node.js API for Key Vault management](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault)
+[Node.js API for Key Vault operations](http://azure.github.io/azure-sdk-for-node/azure-keyvault) 
 
 #### Python
 
- - [Azure Key Vault libraries for Python](https://docs.microsoft.com/python/api/overview/azure/key-vault)
- - 
+[Azure Key Vault libraries for Python](https://docs.microsoft.com/python/api/overview/azure/key-vault)
+
 #### Azure CLI 2
 
-[Azure CLI for Key Vault](https://docs.microsoft.com/cli/azure/keyvault
+[Azure CLI for Key Vault](https://docs.microsoft.com/cli/azure/keyvault)
 
 #### Azure PowerShell 
 
-- [AzureRM.KeyVault](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault)
+[Azure PowerShell for Key Vault](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault)
 
-### Quick start
+### Quick start guides
 
 - [Create Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
 - [Getting started with Key Vault in Node.js](https://azure.microsoft.com/en-us/resources/samples/key-vault-node-getting-started/)
