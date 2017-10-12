@@ -1,6 +1,6 @@
 ---
 title: Create a Docker image for Model Management in Azure Machine Learning | Microsoft Docs
-description: This document describes the steps for creating a Docker image for your web service.
+description: This article describes the steps for creating a Docker image for your web service.
 services: machine-learning
 author: chhavib    
 ms.author: chhavib
@@ -36,10 +36,10 @@ The following are required before you proceed:
 ### Azure AD token
 When you're using Azure CLI, log in by using `az login`. The CLI uses your Azure Active Directory (Azure AD) token from the .azure file. If you want to use the APIs, you have the following options.
 
-##### Acquiring the Azure AD token manually
+##### Acquire the Azure AD token manually
 You can use `az login` and get the latest token from the .azure file on your home directory.
 
-##### Acquiring the Azure AD token programmatically
+##### Acquire the Azure AD token programmatically
 ```
 az ad sp create-for-rbac --scopes /subscriptions/<SubscriptionId>/resourcegroups/<ResourceGroupName> --role Contributor --years <length of time> --name <MyservicePrincipalContributor>
 ```
@@ -689,7 +689,7 @@ An array of deployment objects.
 
 <a name="errordetail"></a>
 ### ErrorDetail
-Model Management Service error detail.
+Model Management service error detail.
 
 
 |Name|Description|Schema|
@@ -700,7 +700,7 @@ Model Management Service error detail.
 
 <a name="errorresponse"></a>
 ### ErrorResponse
-A Model Management Service error object.
+A Model Management service error object.
 
 
 |Name|Description|Schema|
@@ -718,211 +718,211 @@ The Auzre Machine Learning image.
 
 |Name|Description|Schema|
 |---|---|---|
-|**computeResourceId**  <br>*optional*|The ID of the environment created in the Machine Learning Compute|string|
-|**createdTime**  <br>*optional*|The Image creation time (UTC)|string (date-time)|
+|**computeResourceId**  <br>*optional*|ID of the environment created in the Machine Learning compute resource.|string|
+|**createdTime**  <br>*optional*|Image creation time (UTC).|string (date-time)|
 |**creationState**  <br>*optional*||[AsyncOperationState](#asyncoperationstate)|
-|**description**  <br>*optional*|The Image description text|string|
+|**description**  <br>*optional*|Image description text.|string|
 |**error**  <br>*optional*||[ErrorResponse](#errorresponse)|
-|**id**  <br>*optional*|The Image ID|string|
-|**imageBuildLogUri**  <br>*optional*|Uri of the uploaded logs from Image build|string|
-|**imageLocation**  <br>*optional*|Azure Container Registry location string for the created Image|string|
+|**id**  <br>*optional*|Image ID.|string|
+|**imageBuildLogUri**  <br>*optional*|URI of the uploaded logs from the image build.|string|
+|**imageLocation**  <br>*optional*|Azure Container Registry location string for the created image.|string|
 |**imageType**  <br>*optional*||[ImageType](#imagetype)|
 |**manifest**  <br>*optional*||[Manifest](#manifest)|
-|**name**  <br>*optional*|The Image name|string|
-|**version**  <br>*optional*|The Image version set by Model Management Service|integer|
+|**name**  <br>*optional*|Image name.|string|
+|**version**  <br>*optional*|Image version set by the Model Management service.|integer|
 
 
 <a name="imagerequest"></a>
 ### ImageRequest
-Request to create an Auzre Machine Learning Image
+A request to create an Azure Machine Learning image.
 
 
 |Name|Description|Schema|
 |---|---|---|
-|**computeResourceId**  <br>*required*|The ID of the environment created in the Machine Learning Compute|string|
-|**description**  <br>*optional*|The Image description text|string|
+|**computeResourceId**  <br>*required*|ID of the environment created in the Machine Learning compute resource.|string|
+|**description**  <br>*optional*|Image description text.|string|
 |**imageType**  <br>*required*||[ImageType](#imagetype)|
-|**manifestId**  <br>*required*|The ID of the Manifest from which the Image will be created|string|
-|**name**  <br>*required*|The Image name|string|
+|**manifestId**  <br>*required*|ID of the manifest from which the image will be created.|string|
+|**name**  <br>*required*|Image name.|string|
 
 
 <a name="imagetype"></a>
 ### ImageType
-Specifies the type of the Image
+Specifies the type of the image.
 
 *Type* : enum (Docker)
 
 
 <a name="manifest"></a>
 ### Manifest
-The Azure Machine Learning Manifest
+The Azure Machine Learning manifest.
 
 
 |Name|Description|Schema|
 |---|---|---|
-|**assets**  <br>*required*|The list of assets|< [Asset](#asset) > array|
-|**createdTime**  <br>*optional*  <br>*read-only*|The Manifest creation time (UTC)|string (date-time)|
-|**description**  <br>*optional*|The Manifest description text|string|
-|**driverProgram**  <br>*required*|The driver program of the Manifest.|string|
-|**id**  <br>*optional*|The Manifest ID|string|
-|**modelIds**  <br>*optional*|List of Model Ids of the registered models. The request will fail if any of the included models is not registered|< string > array|
-|**modelType**  <br>*optional*|Specifies that the models are already registered with the Model Management Service|enum (Registered)|
-|**name**  <br>*required*|The Manifest name|string|
+|**assets**  <br>*required*|List of assets.|< [Asset](#asset) > array|
+|**createdTime**  <br>*optional*  <br>*read-only*|Manifest creation time (UTC).|string (date-time)|
+|**description**  <br>*optional*|Manifest description text.|string|
+|**driverProgram**  <br>*required*|Driver program of the manifest.|string|
+|**id**  <br>*optional*|Manifest ID.|string|
+|**modelIds**  <br>*optional*|List of model IDs of the registered models. The request will fail if any of the included models are not registered.|< string > array|
+|**modelType**  <br>*optional*|Specifies that the models are already registered with the Model Management service.|enum (Registered)|
+|**name**  <br>*required*|Manifest name.|string|
 |**targetRuntime**  <br>*required*||[TargetRuntime](#targetruntime)|
-|**version**  <br>*optional*  <br>*read-only*|The Manifest version assigned by Model Management Service|integer|
-|**webserviceType**  <br>*optional*|Specifies the desired type of Webservice which will be created from the Manifest|enum (Realtime)|
+|**version**  <br>*optional*  <br>*read-only*|Manifest version assigned by the Model Management service.|integer|
+|**webserviceType**  <br>*optional*|Specifies the desired type of web service that will be created from the manifest.|enum (Realtime)|
 
 
 <a name="model"></a>
 ### Model
-Instance of an Azure Machine Learning Model
+An instance of an Azure Machine Learning model.
 
 
 |Name|Description|Schema|
 |---|---|---|
-|**createdAt**  <br>*optional*  <br>*read-only*|The Model creation time (UTC)|string (date-time)|
-|**description**  <br>*optional*|The Model description text|string|
-|**id**  <br>*optional*  <br>*read-only*|The Model Id|string|
-|**mimeType**  <br>*required*|The MIME type of Model content. For more details about MIME type, please open https://www.iana.org/assignments/media-types/media-types.xhtml|string|
-|**name**  <br>*required*|The Model name|string|
-|**tags**  <br>*optional*|Model tag list|< string > array|
-|**unpack**  <br>*optional*|Indicates whether we need to unpack the Model during docker Image creation.|boolean|
-|**url**  <br>*required*|The URL of the Model. Usually we put a SAS URL here.|string|
-|**version**  <br>*optional*  <br>*read-only*|The Model version assigned by Model Management Service|integer|
+|**createdAt**  <br>*optional*  <br>*read-only*|Model creation time (UTC).|string (date-time)|
+|**description**  <br>*optional*|Model description text.|string|
+|**id**  <br>*optional*  <br>*read-only*|Model ID.|string|
+|**mimeType**  <br>*required*|The MIME type of the model content. For more details about MIME type, see the [list of IANA media types](https://www.iana.org/assignments/media-types/media-types.xhtml).|string|
+|**name**  <br>*required*|Model name.|string|
+|**tags**  <br>*optional*|Model tag list.|< string > array|
+|**unpack**  <br>*optional*|Indicates whether we need to unpack the model during Docker image creation.|boolean|
+|**url**  <br>*required*|URL of the model. Usually we put a shared access signature URL here.|string|
+|**version**  <br>*optional*  <br>*read-only*|The model version assigned by the Model Management service.|integer|
 
 
 <a name="modeldatacollection"></a>
 ### ModelDataCollection
-The Model data collection information
+The Model data collection information.
 
 
 |Name|Description|Schema|
 |---|---|---|
-|**eventHubEnabled**  <br>*optional*|Enable Event Hub for a Service|boolean|
-|**storageEnabled**  <br>*optional*|Enable storage for a Service|boolean|
+|**eventHubEnabled**  <br>*optional*|Enable a event hub for a service.|boolean|
+|**storageEnabled**  <br>*optional*|Enable storage for a service.|boolean|
 
 
 <a name="paginatedimagelist"></a>
 ### PaginatedImageList
-Paginated list of Images
+A paginated list of images.
 
 
 |Name|Description|Schema|
 |---|---|---|
-|**nextLink**  <br>*optional*|A continuation link (absolute URI) to the next page of results in the list.|string|
-|**value**  <br>*optional*|An array of Model objects|< [Image](#image) > array|
+|**nextLink**  <br>*optional*|Continuation link (absolute URI) to the next page of results in the list.|string|
+|**value**  <br>*optional*|Array of model objects.|< [Image](#image) > array|
 
 
 <a name="paginatedmanifestlist"></a>
 ### PaginatedManifestList
-Paginated list of Manifests.
+A paginated list of manifests.
 
 
 |Name|Description|Schema|
 |---|---|---|
-|**nextLink**  <br>*optional*|A continuation link (absolute URI) to the next page of results in the list.|string|
-|**value**  <br>*optional*|An array of Manifest objects.|< [Manifest](#manifest) > array|
+|**nextLink**  <br>*optional*|Continuation link (absolute URI) to the next page of results in the list.|string|
+|**value**  <br>*optional*|Array of manifest objects.|< [Manifest](#manifest) > array|
 
 
 <a name="paginatedmodellist"></a>
 ### PaginatedModelList
-Paginated list of Models.
+A paginated list of models.
 
 
 |Name|Description|Schema|
 |---|---|---|
-|**nextLink**  <br>*optional*|A continuation link (absolute URI) to the next page of results in the list.|string|
-|**value**  <br>*optional*|An array of Model objects.|< [Model](#model) > array|
+|**nextLink**  <br>*optional*|Continuation link (absolute URI) to the next page of results in the list.|string|
+|**value**  <br>*optional*|Array of model objects.|< [Model](#model) > array|
 
 
 <a name="paginatedservicelist"></a>
 ### PaginatedServiceList
-Paginated list of Services.
+A paginated list of services.
 
 
 |Name|Description|Schema|
 |---|---|---|
-|**nextLink**  <br>*optional*|A continuation link (absolute URI) to the next page of results in the list.|string|
-|**value**  <br>*optional*|An array of Service objects.|< [ServiceResponse](#serviceresponse) > array|
+|**nextLink**  <br>*optional*|Continuation link (absolute URI) to the next page of results in the list.|string|
+|**value**  <br>*optional*|Array of service objects.|< [ServiceResponse](#serviceresponse) > array|
 
 
 <a name="servicecreaterequest"></a>
 ### ServiceCreateRequest
-Request to create a Service
+A request to create a service.
 
 
 |Name|Description|Schema|
 |---|---|---|
-|**appInsightsEnabled**  <br>*optional*|Enable application insights for a Service|boolean|
+|**appInsightsEnabled**  <br>*optional*|Enable application insights for a service.|boolean|
 |**autoScaler**  <br>*optional*||[AutoScaler](#autoscaler)|
 |**computeResource**  <br>*required*||[ComputeResource](#computeresource)|
 |**containerResourceReservation**  <br>*optional*||[ContainerResourceReservation](#containerresourcereservation)|
 |**dataCollection**  <br>*optional*||[ModelDataCollection](#modeldatacollection)|
-|**imageId**  <br>*required*|The Image to create the Service|string|
-|**maxConcurrentRequestsPerContainer**  <br>*optional*|Maximum number of concurrent requests  <br>**Minimum value** : `1`|integer|
-|**name**  <br>*required*|The Service name|string|
-|**numReplicas**  <br>*optional*|The number of pod replicas running at any given time. Cannot be specified if Autoscaler is enabled.  <br>**Minimum value** : `0`|integer|
+|**imageId**  <br>*required*|Image to create the service.|string|
+|**maxConcurrentRequestsPerContainer**  <br>*optional*|Maximum number of concurrent requests.  <br>**Minimum value** : `1`|integer|
+|**name**  <br>*required*|Service name.|string|
+|**numReplicas**  <br>*optional*|Number of pod replicas running at any time. Cannot be specified if Autoscaler is enabled.  <br>**Minimum value** : `0`|integer|
 
 
 <a name="serviceregeneratekeyrequest"></a>
 ### ServiceRegenerateKeyRequest
-Request to regenerate key for a Service
+A request to regenerate a key for a service.
 
 
 |Name|Description|Schema|
 |---|---|---|
-|**keyType**  <br>*optional*|Specifies which key to regenerate|enum (Primary, Secondary)|
+|**keyType**  <br>*optional*|Specifies which key to regenerate.|enum (Primary, Secondary)|
 
 
 <a name="serviceresponse"></a>
 ### ServiceResponse
-Detailed status of the Service
+The detailed status of the service.
 
 
 |Name|Description|Schema|
 |---|---|---|
-|**createdAt**  <br>*optional*|The Service creation time (UTC)|string (date-time)|
-|**ID**  <br>*optional*|The Service ID|string|
+|**createdAt**  <br>*optional*|Service creation time (UTC).|string (date-time)|
+|**ID**  <br>*optional*|Service ID.|string|
 |**image**  <br>*optional*||[Image](#image)|
 |**manifest**  <br>*optional*||[Manifest](#manifest)|
-|**models**  <br>*optional*|List of models|< [Model](#model) > array|
-|**name**  <br>*optional*|The Service name|string|
-|**scoringUri**  <br>*optional*|The Uri for scoring the Service|string|
+|**models**  <br>*optional*|List of models.|< [Model](#model) > array|
+|**name**  <br>*optional*|Service name.|string|
+|**scoringUri**  <br>*optional*|URI for scoring the service.|string|
 |**state**  <br>*optional*||[AsyncOperationState](#asyncoperationstate)|
-|**updatedAt**  <br>*optional*|The last update time (UTC)|string (date-time)|
-|**appInsightsEnabled**  <br>*optional*|Enable application insights for a Service|boolean|
+|**updatedAt**  <br>*optional*|Last update time (UTC).|string (date-time)|
+|**appInsightsEnabled**  <br>*optional*|Enable application insights for a service.|boolean|
 |**autoScaler**  <br>*optional*||[AutoScaler](#autoscaler)|
 |**computeResource**  <br>*required*||[ComputeResource](#computeresource)|
 |**containerResourceReservation**  <br>*optional*||[ContainerResourceReservation](#containerresourcereservation)|
 |**dataCollection**  <br>*optional*||[ModelDataCollection](#modeldatacollection)|
-|**maxConcurrentRequestsPerContainer**  <br>*optional*|Maximum number of concurrent requests  <br>**Minimum value** : `1`|integer|
-|**numReplicas**  <br>*optional*|The number of pod replicas running at any given time. Cannot be specified if Autoscaler is enabled.  <br>**Minimum value** : `0`|integer|
+|**maxConcurrentRequestsPerContainer**  <br>*optional*|Maximum number of concurrent requests.  <br>**Minimum value** : `1`|integer|
+|**numReplicas**  <br>*optional*|Number of pod replicas running at any time. Cannot be specified if Autoscaler is enabled.  <br>**Minimum value** : `0`|integer|
 |**error**  <br>*optional*||[ErrorResponse](#errorresponse)|
 
 
 <a name="serviceupdaterequest"></a>
 ### ServiceUpdateRequest
-Request to update a service
+A request to update a service.
 
 
 |Name|Description|Schema|
 |---|---|---|
-|**appInsightsEnabled**  <br>*optional*|Enable application insights for a Service|boolean|
+|**appInsightsEnabled**  <br>*optional*|Enable application insights for a service.|boolean|
 |**autoScaler**  <br>*optional*||[AutoScaler](#autoscaler)|
 |**containerResourceReservation**  <br>*optional*||[ContainerResourceReservation](#containerresourcereservation)|
 |**dataCollection**  <br>*optional*||[ModelDataCollection](#modeldatacollection)|
-|**imageId**  <br>*optional*|The Image to create the Service|string|
-|**maxConcurrentRequestsPerContainer**  <br>*optional*|Maximum number of concurrent requests  <br>**Minimum value** : `1`|integer|
-|**numReplicas**  <br>*optional*|The number of pod replicas running at any given time. Cannot be specified if Autoscaler is enabled.  <br>**Minimum value** : `0`|integer|
+|**imageId**  <br>*optional*|Image to create the service.|string|
+|**maxConcurrentRequestsPerContainer**  <br>*optional*|Maximum number of concurrent requests.  <br>**Minimum value** : `1`|integer|
+|**numReplicas**  <br>*optional*|Number of pod replicas running at any time. Cannot be specified if Autoscaler is enabled.  <br>**Minimum value** : `0`|integer|
 
 
 <a name="targetruntime"></a>
 ### TargetRuntime
-Type of the target runtime.
+The type of the target runtime.
 
 
 |Name|Description|Schema|
 |---|---|---|
 |**properties**  <br>*required*||< string, string > map|
-|**runtimeType**  <br>*required*|Specifies the runtime|enum (SparkPython, Python)|
+|**runtimeType**  <br>*required*|Specifies the runtime.|enum (SparkPython, Python)|
 
