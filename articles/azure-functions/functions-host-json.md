@@ -12,7 +12,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/15/2017
+ms.date: 10/12/2017
 ms.author: tdykstra
 ---
 
@@ -43,7 +43,7 @@ The following sample *host.json* file has all possible options specified.
       "prefetchCount": 256,
       "batchCheckpointFrequency": 1
     },
-    "functions": [ "QueueProcessor", "GitHubWebHook" ]
+    "functions": [ "QueueProcessor", "GitHubWebHook" ],
     "functionTimeout": "00:05:00",
     "http": {
         "routePrefix": "api",
