@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 10/11/2017
 ms.author: nitinme
 
 ---
@@ -62,13 +62,17 @@ For instructions on how to perform account management operations on Data Lake St
 
         using System;
         using System.IO;
-		using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+        using System.Linq;
+        using System.Text;
         using System.Threading;
-
+		using System.Collections.Generic;
+        using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+                
+        using Microsoft.Rest;
+        using Microsoft.Rest.Azure.Authentication;
         using Microsoft.Azure.Management.DataLake.Store;
 		using Microsoft.Azure.Management.DataLake.Store.Models;
 		using Microsoft.IdentityModel.Clients.ActiveDirectory;
-		using Microsoft.Rest.Azure.Authentication;
 
 7. Declare the variables as shown below, and provide the values for the placeholders. Also, make sure the local path and file name you provide here exist on the computer.
 
@@ -108,7 +112,7 @@ In the remaining sections of the article, you can see how to use the available .
 The following snippet creates the Data Lake Store account and filesystem client objects, which are used to issue requests to the service.
 
     // Create client objects
-    _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(creds);
+    _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(adlCreds);
 
 ## Create a directory
 Add the following method to your class. The snippet shows a `CreateDirectory()` method that you can use to create a directory within a Data Lake Store account.
