@@ -197,6 +197,7 @@
       - name: Excel on HPC Pack
         href: excel-cluster-hpcpack.md
   - name: Manage storage
+    href: about-disks-and-vhds.md
     items:
     - name: Learn about Managed Disks
       href: managed-disks-overview.md
