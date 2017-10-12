@@ -1,5 +1,5 @@
 ---
-title: Create a snapshot of an Azure VM | Microsoft Docs
+title: Create a snapshot of a VHD in Azure | Microsoft Docs
 description: Learn how to create a copy of an Azure VM to use as a back up or for troubleshooting issues.
 documentationcenter: ''
 author: cynthn
@@ -19,7 +19,7 @@ ms.author: cynthn
 ---
 # Create a snapshot
 
-Take a snapshot of a managed disk for backup or create a Managed Disk from the snapshot and attach it to a test virtual machine to troubleshoot. A Managed Snapshot is a full point-in-time copy of a VM Managed Disk. It creates a read-only copy of your VHD and, by default, stores it as a managed disk. 
+Take a snapshot of a VHD for backup or to troubleshoot VM issues. A snapshot is a full, read-only copy of your VHD. 
 
 ## Use Azure portal to take a snapshot 
 
@@ -48,15 +48,10 @@ For more information, see [Azure PowerShell Versioning](/powershell/azure/overvi
 
  ```azurepowershell-interactive
 $resourceGroupName = 'myResourceGroup' 
-$location = 'southeastasia' 
-$dataDiskName = 'ContosoMD_datadisk1' 
-$snapshotName = 'ContosoMD_datadisk1_snapshot1'  
+$location = 'eastus' 
+$dataDiskName = 'myDisk' 
+$snapshotName = 'mySnapshot'  
 ```
-  Replace the parameter values:
-  -  "myResourceGroup" with the VM's resource group.
-  -  "southeastasia" with the geographic location where you want your Managed Snapshot stored. <!---How do you look these up? -->
-  -  "ContosoMD_datadisk1" with the name of the VHD disk that you want to copy.
-  -  "ContosoMD_datadisk1_snapshot1" with the name you want to use for the new snapshot.
 
 2. Get the VHD disk to be copied.
 
@@ -75,4 +70,6 @@ New-AzureRmSnapshot -Snapshot $snapshot -SnapshotName $snapshotName -ResourceGro
 ```
 If you plan to use the snapshot to create a Managed Disk and attach it a VM that needs to be high performing, use the parameter `-AccountType Premium_LRS` with the New-AzureRmSnapshot command. The parameter creates the snapshot so that it's stored as a Premium Managed Disk. Premium Managed Disks are more expensive than Standard. So be sure you really need Premium before using that parameter.
 
+## Next steps
 
+Create a virtual machine from a snapshot by creating a managed disk from a snapshot and then attaching the new managed disk as the OS disk. For more information, see the [Create a VM from a snapshot](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json) sample.

@@ -1,6 +1,6 @@
 ---
-title: Create a snapshot of an Azure VM | Microsoft Docs
-description: Learn how to create a copy of an Azure VM as a back up or for troubleshooting issues.
+title: Create a snapshot of a VHD in Azure | Microsoft Docs
+description: Learn how to create a copy of a VHD in Azure as a back up or for troubleshooting issues.
 documentationcenter: ''
 author: cynthn
 manager: timlt
@@ -17,7 +17,7 @@ ms.author: cynthn
 ---
 # Create a snapshot 
 
-Take a snapshot of a VM for backup or to troubleshoot VM issues. A Managed Snapshot is a full copy of a managed disk. It creates a read-only copy of your VHD and stores it as a managed disk. 
+Take a snapshot of a VHD for backup or to troubleshoot VM issues. A snapshot is a full, read-only copy of your VHD. 
 
 Use either the Azure portal or the Azure CLI 2.0 to take a snapshot.
 
@@ -74,4 +74,8 @@ The output should look something like:
 
 If you plan to use the snapshot to create a Managed Disk and attach it a VM that needs to be high performing, use the parameter `--sku Premium_LRS` with the `az snapshot create` command. This creates the snapshot so that it is stored as a Premium Managed Disk. Premium Managed Disks perform better because they are solid-state drives (SSDs), but cost more than Standard disks (HDDs).
 
+
+## Next steps
+
+ Create a virtual machine from a snapshot by creating a managed disk from the snapshot and then attaching the new managed disk as the OS disk. For more information, see the [Create a VM from a snapshot](./../scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fcli%2fmodule%2ftoc.json) script.
 
