@@ -29,6 +29,7 @@
 ### [Premium messaging](service-bus-premium-messaging.md)
 ### [Compare Azure Queues and Service Bus queues](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 ### [Optimize performance](service-bus-performance-improvements.md)
+### [Geo-disaster recovery and geo-replication](service-bus-geo-dr.md)
 ### [Asynchronous messaging and high availability](service-bus-async-messaging.md)
 ### [Handling outages and disasters](service-bus-outages-disasters.md)
 
