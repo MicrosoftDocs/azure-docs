@@ -27,6 +27,7 @@ Using a custom image configured for your scenario can provide several advantages
 - **Save reboot time on VMs.** Application installation typically requires rebooting the VM, which is time-consuming. You can save reboot time by pre-installing applications. 
 - **Copy very large amounts of data once.** You can make static data part of the managed custom image by copying it to a managed image's data disks. This only needs to be done once and makes data available to each node of the pool.
 - **Choice of disk types.** You can create a managed custom image from a VHD, from a managed disk of an Azure VM, a snapshot of these disks, or your own Linux or Windows installation that you have configured. You have the choice of using premium storage for the OS disk and the data disk.
+- **Grow pools to any size.** - When you use a managed custom image to create a pool, the pool can grow to any size you request. You do not need to make copies of image blob VHDs to accommodate the number of VMs. 
 
 
 ## Prerequisites
@@ -41,7 +42,8 @@ You can prepare a managed image from a VHD, from an Azure VM with managed disks,
 When preparing your image, keep in mind the following points:
 
 * Ensure that the base OS image you use to provision your Batch pools does not have any pre-installed Azure extensions, such as the Custom Script extension. If the image contains a pre-installed extension, Azure may encounter problems deploying the VM.
-* Ensure that the base OS image you provide uses the default temp drive. The Batch node agent currently expects the default temp drive. 
+* Ensure that the base OS image you provide uses the default temp drive. The Batch node agent currently expects the default temp drive.
+* The managed image resource referenced by a Batch Pool cannot be deleted for the lifetime of the pool. If the managed image resource is deleted then the pool cannot grow any further. 
 
 ### To create a managed image
 You can use any existing prepared Windows or Linux operating system disk to create a managed image. For example, if you wish to use a local image, then upload the local disk to an Azure Storage account that is in the same subscription and region as your Batch account using AzCopy or another upload tool. For detailed steps to upload a VHD and create a managed image, see the guidance for [Windows](../virtual-machines/windows/upload-generalized-managed.md) or [Linux](../virtual-machines/linux/upload-vhd.md) VMs.
