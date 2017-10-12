@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 10/12/2017
 ms.author: magoedte
 
 ---
@@ -102,11 +102,12 @@ Now that you have enabled data collection, lets run a simple log search example 
 ## Clean up resources
 When no longer needed, you can remove the agent from the Linux computer and delete the Log Analytics workspace.  
 
-To remove the agent, perform the following steps by running the bundle .sh file with the *--purge* argument on the computer, which completely removes the agent and its configuration.
+To remove the agent, perform the following steps.
 
-    > sudo rpm -e omsconfig
-    > sudo rpm -e omsagent
-    > sudo /opt/microsoft/scx/bin/uninstall
+1. Download the the Linux agent [universal script](https://github.com/Microsoft/OMS-Agent-for-Linux/releases) to the computer.
+2. Run the bundle .sh file w the *--purge* argument on the computer, which completely removes the agent and its configuration.
+
+    > sudo sh ./omsagent-<version>.universal.x64.sh --purge
 
 To delete the workspace, select the Log Analytics workspace you created earlier and on the resource page click **Delete**.<br> ![Delete Log Analytics resource](media/log-analytics-quick-collect-azurevm/log-analytics-portal-delete-resource.png)
 
