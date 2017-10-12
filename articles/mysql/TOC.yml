@@ -57,6 +57,8 @@
       href: concepts-servers.md
     - name: Supported versions
       href: concepts-supported-versions.md
+    - name: Server logs
+      href: concepts-server-logs.md
   - name: Resources
     items:
     - name: Pricing tiers
@@ -111,6 +113,12 @@
     items:
     - name: Azure portal
       href: howto-server-parameters.md
+    - name: Azure CLI
+      href: howto-configure-server-parameters-using-cli.md
+  - name: Access server logs
+    items:
+    - name: Azure CLI
+      href: howto-configure-server-logs-in-cli.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -119,6 +127,8 @@
     href: /rest/api/mysql
 - name: Resources
   items:
+  - name: Deployment templates
+    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformysql
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=databases
   - name: Pricing

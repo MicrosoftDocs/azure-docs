@@ -51,6 +51,8 @@
     href: concepts-physical-to-azure-architecture.md
   - name: Hyper-V to secondary site architecture
     href: concepts-hyper-v-to-secondary-architecture.md
+  - name: Azure to Azure support matrix
+    href: site-recovery-support-matrix-azure-to-azure.md
   - name: On-premises to Azure support matrix
     href: site-recovery-support-matrix-to-azure.md
   - name: On-premises to secondary site support matrix

@@ -105,7 +105,7 @@ To deploy the [Azure Stack Development Kit](azure-stack-poc.md), you must comple
 7. Optionally, set the following values:
     - **VLAN ID**: Sets the VLAN ID. Only use this option if the host and AzS-BGPNAT01 must configure VLAN ID to access the physical network (and Internet). 
     - **DNS forwarder**: A DNS server is created as part of the Azure Stack deployment. To allow computers inside the solution to resolve names outside of the stamp, provide your existing infrastructure DNS server. The in-stamp DNS server forwards unknown name resolution requests to this server.
-    - **Time server**: Sets a specific time server. 
+    - **Time server**: This required field sets the time server and must be an IP address. To find a time server IP address, visit [pool.ntp.org](http:\\pool.ntp.org) or ping time.windows.com. 
 8. Click **Next**. 
 9. On the **Verifying network interface card properties** page, you'll see a progress bar. 
     - If it says **An update cannot be downloaded**, follow the instructions on the page.
@@ -145,6 +145,9 @@ To make sure that the password for the development kit host doesn't expire too s
 
 
 ## Next steps
+
+[Install PowerShell](azure-stack-powershell-configure-quickstart.md)
+
 [Register Azure Stack with your Azure subscription](azure-stack-register.md)
 
 [Connect to Azure Stack](azure-stack-connect-azure-stack.md)
