@@ -114,7 +114,7 @@ If you have protected your virtual machines as classic resources (that is, the V
   * The storage account that you want to deploy the server to
   * The subnet and the network interface that you want to connect to it
    >[!NOTE]
-   >You must create your own [network interface](../virtual-network/virtual-networks-multiple-nics.md) (NIC) and select it while you are deploying the Process Server.
+   >You must create your own [network interface](../virtual-network/virtual-network-deploy-multinic-classic-ps.md) (NIC) and select it while you are deploying the Process Server.
 
     ![Enter information in the "Add Process Server" dialog box](./media/site-recovery-failback-azure-to-vmware-classic/psinputsadd.png)
 
