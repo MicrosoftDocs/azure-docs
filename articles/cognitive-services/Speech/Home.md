@@ -1,4 +1,4 @@
-﻿---
+---
 title: Microsoft Speech API in Cognitive Services | Microsoft Docs
 description: Use Microsoft Speech API to add speech-driven actions to your apps, including real-time interaction with users.
 services: cognitive-services
@@ -23,7 +23,7 @@ The cloud-based Microsoft Speech API provides developers an easy way to create p
 Microsoft speech recognition API *transcribes* audio streams into text that your application can display to the user or act upon as command input. It provides developers an easy way to integrate Microsoft speech recognition technologies into their applications.
 
 - Powered by advanced speech recognition technologies from Microsoft that are used by Cortana, Office Dictation, Office Translator, and other Microsoft products.
-- Provides both REST APIs and client libraries for running on various platforms (Windows, Android, iOS) using different languages (C#, Java, JavaScript, ObjectiveC).
+- Provides both [REST APIs](GetStarted/GetStartedREST.md) and [client libraries](GetStarted/GetStartedClientLibraries.md) for running on various platforms (Windows, Android, iOS) using different languages (C#, Java, JavaScript, ObjectiveC). See the table below for feature differences between REST and client APIs.
 - Real-time continuous recognition. The speech recognition API enables users to transcribe audio into text in real time, and supports to receive the intermediate results of the words that have been recognized so far. The speech service also supports end-of-speech detection. In addition, users can choose additional formatting capabilities, like capitalization and punctuation, masking profanity, and text normalization.
 - Supports optimized speech recognition results for **interactive**, **conversation**, and **dictation scenarios**. For user scenarios which require customized language models and acoustic models, [Custom Speech Service](../custom-speech-service/cognitive-services-custom-speech-home.md) allows you to create speech models that tailored to your application and your users.
 - Support many spoken languages in multiple dialects. For the full list of supported languages in each recognition mode, see [recognition languages](api-reference-rest/supportedlanguages.md).

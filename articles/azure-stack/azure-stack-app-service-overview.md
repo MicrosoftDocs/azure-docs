@@ -37,6 +37,7 @@ App Service offers several app types, each of which is intended to host a specif
 
 - [Web Apps](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) for hosting websites and web applications.
 - [API Apps](https://docs.microsoft.com/en-us/azure/app-service-api/app-service-api-apps-why-best-platform) for hosting RESTful APIs.
+- Azure Functions for hosting event driven, serverless workloads.
 
 The word app here refers to the hosting resources dedicated to running a workload. Taking “web app” as an example, you’re probably accustomed to thinking of a web app as both the compute resources and application code that together deliver functionality to a browser. But in App Service a web app is the compute resources that Azure Stack provides for hosting your application code.
 
