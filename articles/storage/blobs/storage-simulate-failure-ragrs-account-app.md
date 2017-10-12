@@ -64,13 +64,9 @@ The Fiddler ScriptEditor launches showing the **SampleRules.js** file. This file
 
 ![Paste customized rule](media/storage-simulate-failure-ragrs-account-app/figure2.png)
 
-### Configure HTTPS decryption
-
-Requests to Azure Storage made using the client libraries always use HTTPS. For this reason, HTTPS decryption needs to be enabled in Fiddler so it can inject the `503 - Service Unavailable` error to simulate a failure, to learn how to do this visit [Configure Fiddler to Decrypt HTTPS Traffic](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
- 
 ## Start and pause the application
 
-In Visual Studio, press **F5** or select **Start** to start debugging the application. Once the application begins reading from the primary endpoint, press **Pause** or press **Ctrl** + **Alt** + **Break** to pause the application.
+In Visual Studio, press **F5** or select **Start** to start debugging the application. Once the application begins reading from the primary endpoint, in the console window press **space bar** to pause the application.
 
 ## Simulate failure
 
@@ -85,7 +81,7 @@ Navigate to Fiddler and select **Rules** -> **Customize Rules...**.  Uncomment o
          }
 ```
 
-In Visual Studio, select **Continue** or press **F5** to resume debugging.
+Press **space bar** to resume the application.
 
 Once the application starts running again, the requests to the primary endpoint begin to fail. The application attempts to reconnect to the primary endpoint 5 times. After the failure threshold of five attempts, it requests the image from the secondary read-only endpoint. After the application successfully retrieves the image 20 times from the secondary endpoint, the application attempts to connect to the primary endpoint. If the primary endpoint is still unreachable, the application resumes reading from the secondary endpoint. This pattern is the [Circuit Breaker](/azure/architecture/patterns/circuit-breaker.md) pattern described in the previous tutorial.
 
@@ -95,9 +91,7 @@ Once the application starts running again, the requests to the primary endpoint 
 
 With the Fiddler custom rule set in the preceding step, requests to the primary endpoint fail. In order to simulate the primary endpoint functioning again, you remove the logic to inject the `503` error.
 
-### Stop debugging
-
-In Visual Studio, press **Pause** or press **Ctrl** + **Alt** + **Break** to pause the application.
+Press **space bar** to pause the application.
 
 ### Remove the custom rule
 
@@ -105,15 +99,9 @@ Navigate to Fiddler and select **Rules** and **Customize Rules...**.  Comment or
 
 ![Remove customized rule](media/storage-simulate-failure-ragrs-account-app/figure5.png)
 
-### Resume debugging
-
-In Visual Studio, select **Continue** or press **F5** to resume debugging.
+When complete, press **space bar** to resume the application.
 
 ![Resume application](media/storage-simulate-failure-ragrs-account-app/figure4.png)
-
-### Disable HTTPS decryption
-
-Once you are done testing, HTTPS decryption should be disabled. To find steps to disable HTTPS decryption in Fiddler, visit: [Configure Fiddler to Decrypt HTTPS Traffic](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
 
 ## Next steps
 
