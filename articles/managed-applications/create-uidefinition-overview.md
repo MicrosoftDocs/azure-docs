@@ -56,7 +56,7 @@ The steps property can contain zero or more additional steps to display after ba
 The Azure portal uses the `outputs` property to map elements from `basics` and `steps` to the parameters of the Azure Resource Manager deployment template. The keys of this dictionary are the names of the template parameters, and the values are properties of the output objects from the referenced elements.
 
 ## Functions
-Similar to [template functions](resource-group-template-functions.md) in Azure Resource Manager (both in syntax and functionality), CreateUiDefinition provides functions for working with elements' inputs and outputs, as well as features such as conditionals.
+Similar to template functions in Azure Resource Manager (both in syntax and functionality), CreateUiDefinition provides functions for working with elements' inputs and outputs, as well as features such as conditionals.
 
 ## Next steps
 CreateUiDefinition itself has a simple schema. The real depth of it comes from all the supported elements and functions, which the following documents describe in wondrous detail:

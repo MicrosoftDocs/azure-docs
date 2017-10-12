@@ -127,8 +127,8 @@ The next step is to add SKUs for your offer.
 	a. **Current Version**: Enter a version for the package you upload. It should be in the format `{number}.{number}.{number}{number}`.
 
 	b. **Select a package file**: This package contains the following files that are compressed into a .zip file:
-	* **applianceMainTemplate.json**: The deployment template file that's used to deploy the solution/application. For information about how to create deployment template files, see [Create your first Azure Resource Manager template](resource-manager-create-first-template.md).
-	* **appliancecreateUIDefinition.json**: This file is used by the Azure portal to generate the user interface that's used to provision this solution/application. For more information, see [Get started with CreateUiDefinition](managed-application-createuidefinition-overview.md).
+	* **applianceMainTemplate.json**: The deployment template file that's used to deploy the solution/application. For information about how to create deployment template files, see [Create your first Azure Resource Manager template](../azure-resource-manager/resource-manager-create-first-template.md).
+	* **appliancecreateUIDefinition.json**: This file is used by the Azure portal to generate the user interface that's used to provision this solution/application. For more information, see [Get started with CreateUiDefinition](create-uidefinition-overview.md).
 	* **mainTemplate.json**: This template file contains only the Microsoft.Solution/appliances resource. The mainTemplate file includes the following properties:
 
 		*  **kind**: Use **Marketplace** for managed applications in the Marketplace.
