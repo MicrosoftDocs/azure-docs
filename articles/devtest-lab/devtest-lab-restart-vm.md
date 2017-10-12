@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 10/13/2017
 ms.author: tarcher
 
 ---
@@ -38,13 +38,18 @@ You can quickly and easily restart a virtual machine in  DevTest Labs by followi
 1. From the list of labs, select the lab that includes the VM  you want to restart.  
 1. In the left panel, select **My Virtual Machines**. 
 1. From the list of VMs, select a running VM.
-1. At the top of the window, select **Restart**.  
+1. At the top of the VM management pane, select **Restart**.  
 
     ![Restart VM button](./media/devtest-lab-restart-vm/devtest-lab-restart-vm.png)
 
 1. Monitor the status of the restart by selecting the **Notifications** icon at the top right of the window.
 
     ![Viewing the status of the VM restart](./media/devtest-lab-restart-vm/devtest-lab-restart-notification.png)
+
+> [!NOTE]
+> You can also restart a running VM by selecting the elipses (...) on the right in the list of **My Virtual Machines**.
+> ![Restart VM through elipses](./media/devtest-lab-restart-vm/devtest-lab-restart-elipses.png)
+>
 
 ## Next steps
 * Once the VM has been restarted, you can reconnect to it by selecting **Connect** on the VM's management pane.
