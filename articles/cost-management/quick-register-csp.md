@@ -6,7 +6,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/25/2017
+ms.date: 10/11/2017
 ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
@@ -18,7 +18,9 @@ manager: carmonm
 
 As a CSP partner, you can register with Azure Cost Management by Cloudyn. Your registration provides access to the Cloudyn portal. This quickstart details the registration process needed to create a Cloudyn trial subscription and sign in to the Cloudyn portal. It also shows you how to start viewing cost data right away.
 
-To complete registration, you must be a partner program administrator with access to the Partner Center API. Configuration of the Partner Center API is required for authentication and data access. For more information, see Connect to the Partner Center API.
+
+>[!NOTE]
+>To complete registration, you must be a partner program administrator with access to the Partner Center API. Configuration of the Partner Center API is required for authentication and data access. For more information, see [Connect to the Partner Center API](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx). Additionally, indirect CSP users can only use Cloudyn when their direct CSP reseller registers with Cloudyn to provide access to their customers and subscriptions.
 
 ## Log in to Azure
 
@@ -51,4 +53,4 @@ To complete registration, you must be a partner program administrator with acces
 In this quickstart, you used your CSP information to register with Cost Management. You also signed into the Cloudyn portal and started viewing cost data. To learn more about Azure Cost Management by Cloudyn, continue to the tutorial for Cost Management.
 
 > [!div class="nextstepaction"]
-> [View cost data](./tutorial-review-usage.md)
+> [Review usage and costs](./tutorial-review-usage.md)
