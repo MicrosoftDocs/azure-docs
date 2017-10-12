@@ -43,7 +43,7 @@ To decide on a pricing tier, first start by determining if your workload needs a
 For the time being, you cannot change pricing tier once the server is created. In the future, it will be possible to upgrade or downgrade a server from one pricing tier to another tier.
 
 ## Understand the price
-When you create a new Azure Database for MySQL inside the [Azure Portal](https://portal.azure.com/#create/Microsoft.MySQLServer), click the **Pricing tier** tab, and the monthly cost will be shown based on the options you have selected. If you do not have an Azure subscription, use the Azure pricing calculator to get an estimated price. Visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) website, then click **Add items**, expand the **Databases** category, and choose **Azure Database for MySQL** to customize the options.
+When you create a new Azure Database for MySQL inside the [Azure portal](https://portal.azure.com/#create/Microsoft.MySQLServer), click the **Pricing tier** tab, and the monthly cost will be shown based on the options you have selected. If you do not have an Azure subscription, use the Azure pricing calculator to get an estimated price. Visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) website, then click **Add items**, expand the **Databases** category, and choose **Azure Database for MySQL** to customize the options.
 
 ## Choose a performance level (vCores)
 Once you have determined the pricing tier for your Azure Database for MySQL server, you are ready to determine the performance level by selecting the number of vCores needed. A good starting point is 200 or 400 vCores for applications that require higher user concurrency for their web or analytical workloads, and adjust incrementally as needed. 
@@ -77,7 +77,7 @@ Backups are done automatically. A full backup is taken every week. Differential 
 
 
 ## Scaling a server up or down
-You initially choose the pricing tier and performance level when you create your Azure Database for MySQL. Later, you can scale the vCores up or down dynamically, within the range of the same pricing tier. In the Azure portal, slide the vCores on the server's Pricing tier blade, or script it by following this example: [Monitor and scale an Azure Database for MySQL server using Azure CLI](scripts/sample-scale-server.md)
+You initially choose the pricing tier and performance level when you create your Azure Database for MySQL. Later, you can scale the vCores up or down dynamically, within the range of the same pricing tier. In the Azure portal, slide the vCores on the server's Pricing tier, or script it by following this example: [Monitor and scale an Azure Database for MySQL server using Azure CLI](scripts/sample-scale-server.md)
 
 Scaling the vCores is done independently of the maximum storage size you have chosen.
 
