@@ -169,8 +169,6 @@
       href: sql-database-operate-query-store.md
     - name: Extended events
       href: sql-database-xevent-db-diff-from-svr.md
-    - name: Compatibility levels
-      href: sql-database-compatibility-level-query-performance-130.md
     - name: Monitor in-memory
       href: sql-database-in-memory-oltp-monitoring.md
   - name: Scale out
