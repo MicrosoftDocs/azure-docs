@@ -1,6 +1,6 @@
 ---
 title: Manage after migration - Azure SQL Database | Microsoft Docs
-description: 
+description: Learn how to manage your database after migration to Azure SQL Database.
 services: sql-database
 documentationcenter: ''
 author: CarlRabeler
@@ -14,10 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 07/19/2016
+ms.date: 10/12/2016
 ms.author: carlrab
-
+ms.suite: SQL
+ms.prod_service: sql-database
+ms.component: management
 ---
+
 # How should I manage my Azure SQL database after migration
 
 *Frequently asked questions around managing your Azure SQL Database investments*
@@ -161,7 +164,7 @@ Azure SQL Database is compliant with a range of regulatory compliances. To view 
 There is no need to manage and maintain indexes and statistics in the cloud. Statistics Objects have Auto Update 'ON' by default on Azure SQL Database.
 
 ### How often do I need to run consistency checks like DBCC_CHECKDB?
-DBCC_CHECKDB checks the logical and physical integrity of all objects in the database. You no longer need to do these checks because these are managed by Microsoft on Azure.
+DBCC_CHECKDB checks the logical and physical integrity of all objects in the database. You no longer need to do these checks because these are managed by Microsoft on Azure. For more information, see [Data Integrity in Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/)
 
 ## Monitor performance and resource utilization after migration
 
