@@ -38,13 +38,13 @@ Add additional workers directly within the App Service Resource Provider Admin.
 
 2. Browse to **App Services**.
 
-  ![](media/azure-stack-app-service-add-worker-roles/image01.png)
+    ![](media/azure-stack-app-service-add-worker-roles/image01.png)
   
 3. Click **Roles**. Here you see the breakdown of all App Service roles deployed.
 
 4. Right click on the row of the type you want to scale and then click **ScaleSet**.
 
-  ![](media/azure-stack-app-service-add-worker-roles/image02.png)
+    ![](media/azure-stack-app-service-add-worker-roles/image02.png)
   
 5. Click **Scaling**, select the number of instances you want to scale to, and then click **Save**.
     
@@ -55,6 +55,7 @@ Add additional workers directly within the App Service Resource Provider Admin.
 7. You can monitor the progress of the readiness of the new roles by viewing the workers in the **Roles** blade.
 
 After they are fully deployed and ready, the workers become available for users to deploy their workload onto them. The following shows an example of the multiple pricing tiers available by default. If there are no available workers for a particular worker tier, the option to choose the corresponding pricing tier is unavailable.
+
 ![](media/azure-stack-app-service-add-worker-roles/image04.png)
 
 >[!NOTE]
