@@ -321,7 +321,7 @@ Storage account is configured in the portal when **Log DataPlaneRequests** is se
 
 
 <a id="#view-in-loganalytics"></a>
-## View diagnostic logs in Log Analytics
+## View logs in Log Analytics
 
 If you selected the **Send to Log Analytics** option when you turned on logging, diagnostic data from your collection is forwarded to Log Analytics within two hours. This means that if you look at Log Analytics immediately after turning on logging, you won't see any data. Just wait two hours and try again. 
 
@@ -398,7 +398,7 @@ To learn about the meaning of the data returned by each log search, see [Interpr
 
 For additional information on using the new Log Search language, see [Understanding log searches in Log Analytics](../log-analytics/log-analytics-log-search-new.md). 
 
-## <a id="interpret"></a>Interpret your Azure Cosmos DB logs
+## <a id="interpret"></a>Interpret your logs
 
 Diagnostic data stored in Azure Storage and Log Analytics use a very similar schema. 
 
