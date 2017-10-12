@@ -26,7 +26,7 @@ This article shows you how to enable sign-in for users of a LinkedIn account by 
 Complete the steps in the [Get started with custom policies](active-directory-b2c-get-started-custom.md) article.
 
 ## Step 1: Create a LinkedIn account application
-To use LinkedIn as an identity provider in Azure Active Directory B2C (Azure AD B2C), you must create a LinkedIn application and supply it with the right parameters. You can register a LinkedIn application by going to the[LinkedIn sign-up page](https://LinkedIn.com/signup).
+To use LinkedIn as an identity provider in Azure Active Directory B2C (Azure AD B2C), you must create a LinkedIn application and supply it with the right parameters. You can register a LinkedIn application by going to the [LinkedIn sign-up page](https://LinkedIn.com/signup).
 
 1. Go to the [LinkedIn application management](https://www.linkedin.com/secure/developer?newapp=) website, sign in with your LinkedIn account credentials, and then select **Create Application**.
 
@@ -44,20 +44,22 @@ To use LinkedIn as an identity provider in Azure Active Directory B2C (Azure AD 
 
     e. Type your **Business Email** address and **Business Phone** number.
 
-    f. At the bottom the page, read and accept the terms of use, and then select **Submit**.
+    f. At the bottom of the page, read and accept the terms of use, and then select **Submit**.
 
     ![LinkedIn account - Configure application properties](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app2.png)
 
 3. Select **Authentication**, and then note the **Client ID** and **Client Secret** values.
 
-4. In the **Authorized Redirect URLs** box, paste **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**. Replace {*tenant*} with your tenant's name (for example, contosob2c.onmicrosoft.com). Make sure that you are using the HTTPS scheme. Select **Add**.
+4. In the **Authorized Redirect URLs** box, paste **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**. Replace {*tenant*} with your tenant name (for example, contosob2c.onmicrosoft.com). Make sure that you are using the HTTPS scheme. 
 
     ![LinkedIn account - Set authorized redirect URLs](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app3.png)
 
     >[!NOTE]
     >The client secret is an important security credential. Do not share this secret with anyone or distribute it with your app.
 
-4. Select **Settings**, change the **Application status** to **Live**, and then select **Update**.
+5. Select **Add**.
+
+6. Select **Settings**, change the **Application status** to **Live**, and then select **Update**.
 
     ![LinkedIn account - Set application status](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app4.png)
 
@@ -143,7 +145,7 @@ Define LinkedIn as a claims provider by adding a `<ClaimsProvider>` node in your
 
 5. Save the file.
 
-## Step 4: Register the LinkedIn account claims provider to Sign up or Sign in user journey
+## Step 4: Register the LinkedIn account claims provider
 You've set up the identity provider. However, it is not available in any of the sign-up or sign-in windows. Now you must add the LinkedIn account identity provider to your user `SignUpOrSignIn` user journey.
 
 ### Step 4.1: Make a copy of the user journey
