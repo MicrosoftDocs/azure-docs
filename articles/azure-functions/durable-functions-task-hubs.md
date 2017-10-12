@@ -39,7 +39,7 @@ A function app's task hub name can be configured in the *host.json* file.
 Task hub names must start with a letter and consist of only letters and numbers. If not specified, the default task hub name for a function app is **DurableFunctionsHub**.
 
 > [!NOTE]
-> If you have multiple function apps that share a storage account, you must configure a different task hub name for each function app must. This ensures that each function app is properly isolated from each other.
+> If you have multiple function apps that share a storage account, you must configure a different task hub name for each function app. This ensures that each function app is properly isolated from the others.
 
 ## Azure Storage resources
 
