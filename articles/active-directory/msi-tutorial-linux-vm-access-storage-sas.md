@@ -1,9 +1,9 @@
 ---
-title: Use a Linux VM MSI to access Azure Storage
-description: A tutorial that walks you through the process of using a Linux VM Managed Service Identity (MSI) to access Azure Storage.
+title: Use a Linux VM MSI to access Azure Storage using a SAS credential
+description: A tutorial that shows you how to use a Linux VM Managed Service Identity (MSI) to access Azure Storage, using a SAS credential instead of a storage account access key.
 services: active-directory
 documentationcenter: ''
-author: elkuzmen
+author: bryanla
 manager: mbaldwin
 editor: bryanla
 
@@ -12,21 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/19/2017
-ms.author: elkuzmen
+ms.date: 10/11/2017
+ms.author: bryanla
 ---
 
 
-# Use a Linux VM Managed Service Identity to access Azure Storage via access key
+# Use a Linux VM Managed Service Identity to access Azure Storage via a SAS credential
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to enable Managed Service Identity (MSI) for a Linux Virtual Machine and then use that identity to retrieve storage account access keys. You can use a storage access key as usual when doing storage operations, for example when using the Storage SDK. For this tutorial, we upload and download blobs using Azure CLI. You will learn how to:
+This tutorial shows you how to enable Managed Service Identity (MSI) for a Linux Virtual Machine, then use the MSI to obtain a storage Shared Access Signature (SAS) credential. Specifically, a [Service SAS credential](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
+
+A Service SAS provides the ability to grant limited access to objects in a storage account, for a limited time and a specific service (in our case, the blob service), without exposing an account access key. You can use a SAS credential as usual when doing storage operations, for example when using the Storage SDK. For this tutorial, we demonstrate uploading and downloading a blob using Azure Storage CLI. You will learn how to:
+
 
 > [!div class="checklist"]
 > * Enable MSI on a Linux Virtual Machine 
-> * Grant your VM access to storage account access keys in Resource Manager 
-> * Get an access token using your VM's identity, and use it to retrieve the storage access keys from Resource Manager  
+> * Grant your VM access to a storage account SAS in Resource Manager 
+> * Get an access token using your VM's identity, and use it to retrieve the SAS from Resource Manager 
 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -82,25 +85,25 @@ If you don't already have one, you will now create a storage account.  You can a
 Later we will upload and download a file to the new storage account. Because files require blob storage, we need to create a blob container in which to store the file.
 
 1. Navigate back to your newly created storage account.
-2. Click the **Containers** link in the left, under "Blob service."
+2. Click the **Containers** link in the left panel, under "Blob service."
 3. Click **+ Container** on the top of the page, and a "New container" panel slides out.
 4. Give the container a name, select an access level, then click **OK**. The name you specified will be used later in the tutorial. 
 
     ![Create storage container](media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## Grant your VM's MSI access to use storage account access keys
+## Grant your VM's MSI access to use a storage SAS 
 
-Azure Storage does not natively support Azure AD authentication.  However, you can use an MSI to retrieve storage account access keys from the Resource Manager, then use a key to access storage.  In this step, you grant your VM MSI access to the keys to your storage account.   
+Azure Storage does not natively support Azure AD authentication.  However, you can use an MSI to retrieve a storage SAS from the Resource Manager, then use the SAS to access storage.  In this step, you grant your VM MSI access to your storage account SAS.   
 
-1. Navigate back to your newly created storage account.
+1. Navigate back to your newly created storage account..   
 2. Click the **Access control (IAM)** link in the left panel.  
 3. Click **+ Add** on top of the page to add a new role assignment for your VM
-4. Set **Role** to "Storage Account Key Operator Service Role", on the right side of the page. 
+4. Set **Role** to "Storage Account Contributor", on the right side of the page. 
 5. In the next dropdown, set **Assign access to** the resource "Virtual Machine".  
 6. Next, ensure the proper subscription is listed in **Subscription** dropdown, then set **Resource Group** to "All resource groups".  
-7. Finally, under **Select** choose your Linux Virtual Machine in the dropdown, then click **Save**. 
+7. Finally, under **Select** choose your Linux Virtual Machine in the dropdown, then click **Save**.  
 
-    ![Alt image text](media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)
+    ![Alt image text](media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
 
 ## Get an access token using the VM's identity and use it to call Azure Resource Manager
 
@@ -132,34 +135,54 @@ To complete these steps, you will need an SSH client. If you are using Windows, 
     "resource":"https://management.azure.com",
     "token_type":"Bearer"} 
      ```
-    
-## Get storage account access keys from Azure Resource Manager to make storage calls  
 
-Now use CURL to call Resource Manager using the access token we retrieved in the previous section, to retrieve the storage access key. Once we have the storage access key, we can call storage upload/download operations. Be sure to replace the `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, and `<STORAGE ACCOUNT NAME>` parameter values with your own values. Replace the `<ACCESS TOKEN>` value with the access token you retrieved earlier:
+## Get a SAS credential from Azure Resource Manager to make storage calls
+
+Now use CURL to call Resource Manager using the access token we retrieved in the previous section, to create a storage SAS credential. Once we have the SAS credential, we can call storage upload/download operations.
+
+For this request we'll use the follow HTTP request parameters to create the SAS credential:
+
+```JSON
+{
+    "canonicalizedResource":"/blob/<STORAGE ACCOUNT NAME>/<CONTAINER NAME>",
+    "signedResource":"c",              // The kind of resource accessible with the SAS, in this case a container (c).
+    "signedPermission":"rcw",          // Permissions for this SAS, in this case (r)ead, (c)reate, and (w)rite.  Order is important.
+    "signedProtocol":"https",          // Require the SAS be used on https protocol.
+    "signedExpiry":"<EXPIRATION TIME>" // UTC expiration time for SAS in ISO 8601 format, for example 2017-09-22T00:06:00Z.
+}
+```
+
+These parameters are included in the POST body of the request for the SAS credential. For more information on the parameters for creating a SAS credential, see the [List Service SAS REST reference](/rest/api/storagerp/storageaccounts/listservicesas).
+
+Use the following CURL request to get the SAS credential. Be sure to replace the `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<STORAGE ACCOUNT NAME>`, `<CONTAINER NAME>`, and `<EXPIRATION TIME>` parameter values with your own values. Replace the `<ACCESS TOKEN>` value with the access token you retrieved earlier:
 
 ```bash 
-curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/listKeys?api-version=2016-12-01 –-request POST -d "" -H "Authorization: Bearer <ACCESS TOKEN>" 
+curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/listServiceSas/?api-version=2017-06-01 -X POST -d "{\"canonicalizedResource\":\"/blob/<STORAGE ACCOUNT NAME>/<CONTAINER NAME>\",\"signedResource\":\"c\",\"signedPermission\":\"rcw\",\"signedProtocol\":\"https\",\"signedExpiry\":\"<EXPIRATION TIME>\"}" -H "Authorization: Bearer <ACCESS TOKEN>"
 ```
 
 > [!NOTE]
-> The text in the prior URL is case sensitive, so ensure if you are using upper-lowercase for your Resource Groups to reflect it accordingly. Additionally, it’s important to know that this is a POST request not a GET request and ensure you pass a value to capture a length limit with -d that can be NULL.  
+> The text in the prior URL is case sensitive, so ensure if you are using upper-lowercase for your Resource Groups to reflect it accordingly. Additionally, it’s important to know that this is a POST request not a GET request.
 
-The CURL response gives you the list of Keys:  
+The CURL response returns the SAS credential:  
 
 ```bash 
-{"keys":[{"keyName":"key1","permissions":"Full","value":"iqDPNt..."},{"keyName":"key2","permissions":"Full","value":"U+uI0B..."}]} 
+{"serviceSasToken":"sv=2015-04-05&sr=c&spr=https&st=2017-09-22T00%3A10%3A00Z&se=2017-09-22T02%3A00%3A00Z&sp=rcw&sig=QcVwljccgWcNMbe9roAJbD8J5oEkYoq%2F0cUPlgriBn0%3D"} 
 ```
+
 Create a sample blob file to upload to your blob storage container. On a Linux VM you can do this with the following command. 
 
 ```bash
 echo "This is a test file." > test.txt
 ```
 
-Next, authenticate with the CLI `az storage` command using the storage access key, and upload the file to the blob container. For this step, you will need to [install the latest Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) on your VM, if you haven't already.
- 
+Next, authenticate with the CLI `az storage` command using the SAS credential, and upload the file to the blob container. For this step, you will need to [install the latest Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) on your VM, if you haven't already.
 
 ```azurecli-interactive
-az storage blob upload -c <CONTAINER NAME> -n test.txt -f test.txt --account-name <STORAGE ACCOUNT NAME> --account-key <STORAGE ACCOUNT KEY>
+ az storage blob upload --container-name 
+                        --file 
+                        --name
+                        --account-name 
+                        --sas-token
 ```
 
 Response: 
@@ -168,16 +191,20 @@ Response:
 Finished[#############################################################]  100.0000%
 {
   "etag": "\"0x8D4F9929765C139\"",
-  "lastModified": "2017-09-12T03:58:56+00:00"
+  "lastModified": "2017-09-21T03:58:56+00:00"
 }
 ```
 
-Additionally, you can download the file using the Azure CLI and authenticating with the storage access key. 
+Additionally, you can download the file using the Azure CLI and authenticating with the SAS credential. 
 
 Request: 
 
 ```azurecli-interactive
-az storage blob download -c <CONTAINER NAME> -n test.txt -f test-download.txt --account-name <STORAGE ACCOUNT NAME> --account-key <STORAGE ACCOUNT KEY>
+az storage blob download --container-name
+                         --file 
+                         --name 
+                         --account-name
+                         --sas-token
 ```
 
 Response: 
@@ -186,18 +213,18 @@ Response:
 {
   "content": null,
   "metadata": {},
-  "name": "test.txt",
+  "name": "testblob",
   "properties": {
     "appendBlobCommittedBlockCount": null,
     "blobType": "BlockBlob",
-    "contentLength": 21,
-    "contentRange": "bytes 0-20/21",
+    "contentLength": 16,
+    "contentRange": "bytes 0-15/16",
     "contentSettings": {
       "cacheControl": null,
       "contentDisposition": null,
       "contentEncoding": null,
       "contentLanguage": null,
-      "contentMd5": "LSghAvpnElYyfUdn7CO8aw==",
+      "contentMd5": "Aryr///Rb+D8JQ8IytleDA==",
       "contentType": "text/plain"
     },
     "copy": {
@@ -208,8 +235,8 @@ Response:
       "status": null,
       "statusDescription": null
     },
-    "etag": "\"0x8D5067F30D0C283\"",
-    "lastModified": "2017-09-28T14:42:49+00:00",
+    "etag": "\"0x8D4F9929765C139\"",
+    "lastModified": "2017-09-21T03:58:56+00:00",
     "lease": {
       "duration": null,
       "state": "available",
@@ -225,7 +252,7 @@ Response:
 ## Next steps
 
 - For an overview of MSI, see [Managed Service Identity overview](../active-directory/msi-overview.md).
-- To learn how to do this same tutorial using a storage SAS credential, see [Use a Linux VM Managed Service Identity to access Azure Storage via a SAS credential](msi-tutorial-linux-vm-access-storage-sas.md)
+- To learn how to do this same tutorial using a storage account key, see [Use a Linux VM Managed Service Identity to access Azure Storage](msi-tutorial-linux-vm-access-storage.md)
 - For more information about the Azure Storage account SAS feature, see:
   - [Using shared access signatures (SAS)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1.md)
   - [Constructing a Service SAS](/rest/api/storageservices/Constructing-a-Service-SAS.md)
