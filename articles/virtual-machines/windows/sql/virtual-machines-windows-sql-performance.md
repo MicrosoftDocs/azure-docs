@@ -37,8 +37,8 @@ The following is a quick check list for optimal performance of SQL Server on Azu
 | Area | Optimizations |
 | --- | --- |
 | [VM size](#vm-size-guidance) |[DS3](../../virtual-machines-windows-sizes-memory.md) or higher for SQL Enterprise edition.<br/><br/>[DS2](../../virtual-machines-windows-sizes-memory.md) or higher for SQL Standard and Web editions. |
-| [Storage](#storage-guidance) |Use [Premium Storage](../../../storage/storage-premium-storage.md). Standard storage is only recommended for dev/test.<br/><br/>Keep the [storage account](../../../storage/storage-create-storage-account.md) and SQL Server VM in the same region.<br/><br/>Disable Azure [geo-redundant storage](../../../storage/storage-redundancy.md) (geo-replication) on the storage account. |
-| [Disks](#disks-guidance) |Use a minimum of 2 [P30 disks](../../../storage/storage-premium-storage.md#scalability-and-performance-targets) (1 for log files; 1 for data files and TempDB).<br/><br/>Avoid using operating system or temporary disks for database storage or logging.<br/><br/>Enable read caching on the disk(s) hosting the data files and TempDB.<br/><br/>Do not enable caching on disk(s) hosting the log file.<br/><br/>Important: Stop the SQL Server service when changing the cache settings for an Azure VM disk.<br/><br/>Stripe multiple Azure data disks to get increased IO throughput.<br/><br/>Format with documented allocation sizes. |
+| [Storage](#storage-guidance) |Use [Premium Storage](../../../storage/common/storage-premium-storage.md). Standard storage is only recommended for dev/test.<br/><br/>Keep the [storage account](../../../storage/common/storage-create-storage-account.md) and SQL Server VM in the same region.<br/><br/>Disable Azure [geo-redundant storage](../../../storage/common/storage-redundancy.md) (geo-replication) on the storage account. |
+| [Disks](#disks-guidance) |Use a minimum of 2 [P30 disks](../../../storage/common/storage-premium-storage.md#scalability-and-performance-targets) (1 for log files; 1 for data files and TempDB).<br/><br/>Avoid using operating system or temporary disks for database storage or logging.<br/><br/>Enable read caching on the disk(s) hosting the data files and TempDB.<br/><br/>Do not enable caching on disk(s) hosting the log file.<br/><br/>Important: Stop the SQL Server service when changing the cache settings for an Azure VM disk.<br/><br/>Stripe multiple Azure data disks to get increased IO throughput.<br/><br/>Format with documented allocation sizes. |
 | [I/O](#io-guidance) |Enable database page compression.<br/><br/>Enable instant file initialization for data files.<br/><br/>Limit or disable autogrow on the database.<br/><br/>Disable autoshrink on the database.<br/><br/>Move all databases to data disks, including system databases.<br/><br/>Move SQL Server error log and trace file directories to data disks.<br/><br/>Setup default backup and database file locations.<br/><br/>Enable locked pages.<br/><br/>Apply SQL Server performance fixes. |
 | [Feature specific](#feature-specific-guidance) |Back up directly to blob storage. |
 
@@ -53,7 +53,7 @@ For performance sensitive applications, it’s recommended that you use the foll
 
 ## Storage guidance
 
-DS-series (along with DSv2-series and GS-series) VMs support [Premium Storage](../../../storage/storage-premium-storage.md). Premium Storage is recommended for all production workloads.
+DS-series (along with DSv2-series and GS-series) VMs support [Premium Storage](../../../storage/common/storage-premium-storage.md). Premium Storage is recommended for all production workloads.
 
 > [!WARNING]
 > Standard Storage has varying latencies and bandwidth and is only recommended for dev/test workloads. Production workloads should use Premium Storage.
@@ -86,7 +86,7 @@ For VMs that support Premium Storage (DS-series, DSv2-series, and GS-series), we
 
 ### Data disks
 
-* **Use data disks for data and log files**: At a minimum, use 2 Premium Storage [P30 disks](../../../storage/storage-premium-storage.md#scalability-and-performance-targets) where one disk contains the log file(s) and the other contains the data and TempDB file(s). Each Premium Storage disk provides a number of IOPs and bandwidth (MB/s) depending on its size, as described in the following article: [Using Premium Storage for Disks](../../../storage/storage-premium-storage.md).
+* **Use data disks for data and log files**: At a minimum, use 2 Premium Storage [P30 disks](../../../storage/common/storage-premium-storage.md#scalability-and-performance-targets) where one disk contains the log file(s) and the other contains the data and TempDB file(s). Each Premium Storage disk provides a number of IOPs and bandwidth (MB/s) depending on its size, as described in the following article: [Using Premium Storage for Disks](../../../storage/common/storage-premium-storage.md).
 
 * **Disk Striping**: For more throughput, you can add additional data disks and use Disk Striping. To determine the number of data disks, you need to analyze the number of IOPS and bandwidth required for your log file(s), and for your data and TempDB file(s). Notice that different VM sizes have different limits on the number of IOPs and bandwidth supported, see the tables on IOPS per [VM size](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Use the following guidelines:
 

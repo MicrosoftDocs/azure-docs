@@ -3,7 +3,7 @@ title: Azure Cosmos DB Gremlin support | Microsoft Docs
 description: Learn about the Gremlin language from Apache TinkerPop, which features and steps and available in Azure Cosmos DB 
 services: cosmos-db
 documentationcenter: ''
-author: arramac
+author: dennyglee
 manager: jhubbard
 editor: ''
 tags: ''
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 06/10/2017
-ms.author: arramac
+ms.author: denlee
 
 ---
 
@@ -167,7 +167,7 @@ Now let's look at the Gremlin steps supported by Azure Cosmos DB. For a complete
 | --- | --- | --- | --- |
 | `addE` | Adds an edge between two vertices | [addE step](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) | |
 | `addV` | Adds a vertex to the graph | [addV step](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) | |
-| `and` | Ensurest that all the traversals return a value | [and step](http://tinkerpop.apache.org/docs/current/reference/#and-step) | |
+| `and` | Ensures that all the traversals return a value | [and step](http://tinkerpop.apache.org/docs/current/reference/#and-step) | |
 | `as` | A step modulator to assign a variable to the output of a step | [as step](http://tinkerpop.apache.org/docs/current/reference/#as-step) | |
 | `by` | A step modulator used with `group` and `order` | [by step](http://tinkerpop.apache.org/docs/current/reference/#by-step) | |
 | `coalesce` | Returns the first traversal that returns a result | [coalesce step](http://tinkerpop.apache.org/docs/current/reference/#coalesce-step) | |

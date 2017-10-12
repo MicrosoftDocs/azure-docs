@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/17/2017
+ms.date: 10/10/2017
 ms.author: alkohli
 ---
 # StorSimple Virtual Array system requirements
@@ -37,7 +37,7 @@ The software requirements include the information on the supported web browsers,
 | **Hypervisor** | **Version** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 and later |
-| VMware ESXi |5.5 and later |
+| VMware ESXi |5.5 and 6.0 |
 
 ### Virtual device requirements
 | **Component** | **Requirement** |
@@ -115,7 +115,7 @@ We recommend that you set your firewall rules for outbound traffic, based on Sto
 
 | URL pattern | Component/Functionality |
 | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` |StorSimple Device Manager service<br>Access Control Service<br>Azure Service Bus |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` <br>`https://login.windows.net`|StorSimple Device Manager service<br>Access Control Service<br>Azure Service Bus<br>Authentication Service|
 | `http://*.backup.windowsazure.com` |Device registration |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Certificate revocation |
 | `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure storage accounts and monitoring |

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/05/2017
+ms.date: 08/03/2017
 ms.author: cherylmc
 
 ---
@@ -109,3 +109,4 @@ For frequently asked questions about ExpressRoute, see the [ExpressRoute FAQ](ex
   * [Create an ExpressRoute circuit](expressroute-howto-circuit-portal-resource-manager.md)
   * [Configure peering for an ExpressRoute circuit](expressroute-howto-routing-portal-resource-manager.md)
   * [Connect a virtual network to an ExpressRoute circuit](expressroute-howto-linkvnet-portal-resource-manager.md)
+* Learn about some of the other key [networking capabilities](../networking/networking-overview.md) of Azure.

@@ -4,7 +4,7 @@ description: This article provides an overview of the Azure Government image gal
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: brendalee
+author: sarahwel
 manager: zakramer
 
 ms.assetid: f6dd4386-7b79-448a-8ae3-409258cc257b
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 05/12/2017
-ms.author: brendal
+ms.author: saweld
 
 ---
 # Azure Government Marketplace images
@@ -24,12 +24,15 @@ The Azure Government Marketplace provides a similar experience as the public Azu
 The following table shows a list of available images within the Azure Government Marketplace.  Some of the prebuilt images include pay-as-you-go licensing for specific software. Work with your Microsoft account team or reseller for Azure Government-specific pricing. For more information, see <a href="http://azure.microsoft.com/pricing/details/virtual-machines/">Virtual machine pricing</a>.
 
 ## Images: Azure Resource Manager
+
 |Publisher|Offer|SKU|
 | --- | --- | --- |
 | a10networks | a10-vthunder-adc | vthunder_410_byol |
-| a10networks | a10-vthunder-adc | vthunder_byol 
+| a10networks | a10-vthunder-adc | vthunder_byol |
 | akumina | akumina-interchange | akam101 |
 | alertlogic | alert-logic-tm | 20215000100-tmpbyol |
+| altamira-corporation | lumify | lumify |
+| barracudanetworks | barracuda-app-sec-control-center | byol |
 | barracudanetworks | barracuda-email-security-gateway | byol |
 | barracudanetworks | barracuda-message-archiver | byol |
 | barracudanetworks | barracuda-ng-cc | byol |
@@ -41,10 +44,12 @@ The following table shows a list of available images within the Azure Government
 | bitnami | activemq | 5-13 |
 | bitnami | akeneo | 1-4 |
 | bitnami | alfrescocommunity | 201602 |
+| bitnami | ametys | 3-7 |
 | bitnami | apachesolr | 5-5 |
 | bitnami | artifactory | 4-5 |
 | bitnami | canvaslms | 2016-02 |
 | bitnami | cassandra | 3-7 |
+| bitnami | cassandra | default |
 | bitnami | chyrp | 2-5 |
 | bitnami | civicrm | 4-7 |
 | bitnami | cmsmadesimple | 2-1 |
@@ -80,6 +85,7 @@ The following table shows a list of available images within the Azure Government
 | bitnami | joomla | 3-5 |
 | bitnami | jrubystack | 9-0 |
 | bitnami | kafka | 0-1 |
+| bitnami | kafka | default |
 | bitnami | lampstack | 5-6 |
 | bitnami | lappstack | 5-6 |
 | bitnami | letschat | 0-4 |
@@ -89,6 +95,7 @@ The following table shows a list of available images within the Azure Government
 | bitnami | magento | 2-0 |
 | bitnami | mahara | 15-10 |
 | bitnami | mantis | 1-2 |
+| bitnami | mariadb | default |
 | bitnami | mattermost | 3-6 |
 | bitnami | mautic | 1-2 |
 | bitnami | mean | 3-2 |
@@ -114,10 +121,12 @@ The following table shows a list of available images within the Azure Government
 | bitnami | openproject | 5-0 |
 | bitnami | orangehrm | 3-3 |
 | bitnami | orocrm | 1 |
+| bitnami | osclass | 3-6 |
 | bitnami | osqa | 1-0rc |
 | bitnami | owncloud | 8-2 |
 | bitnami | oxid-eshop | 4-9 |
 | bitnami | parseserver | 2-1 |
+| bitnami | parseserver | default |
 | bitnami | phabricator | 20160208 |
 | bitnami | phpbb | 3-1 |
 | bitnami | phplist | 3-2 |
@@ -126,15 +135,18 @@ The following table shows a list of available images within the Azure Government
 | bitnami | plone | 5-0 |
 | bitnami | pootle | 2-7 |
 | bitnami | postgresql | 9-5 |
+| bitnami | postgresql | default |
 | bitnami | prestashop | 1-6-1 |
 | bitnami | processmakerenterprise | 3-1 |
 | bitnami | processmakeropensourceedition | 3-0 |
 | bitnami | processwire | 2-7 |
 | bitnami | publify | 8-2 |
 | bitnami | rabbitmq | 3-6 |
+| bitnami | rabbitmq | default |
 | bitnami | railo | 4-2 |
 | bitnami | redash | 0-10 |
 | bitnami | redis | 3-2 |
+| bitnami | redis | default |
 | bitnami | redmine | 3 |
 | bitnami | redmineplusagile | public |
 | bitnami | refinerycms | 2-1 |
@@ -145,12 +157,12 @@ The following table shows a list of available images within the Azure Government
 | bitnami | reviewboardpowerpack | public |
 | bitnami | roundcube | 1-1 |
 | bitnami | rubystack | 2-0 |
-| bitnami | sharelock | 0-1 |
+| bitnami | seopanel | 3-8 |
 | bitnami | shopware | default |
 | bitnami | silverstripe | 3-2 |
 | bitnami | simpleinvoices | 2013-1 |
 | bitnami | simplemachinesforum | 2-0 |
-| bitnami | sitecake | 2-2 |
+| bitnami | sonarqube | 6-4 |
 | bitnami | spree | 3-0 |
 | bitnami | squash | 20151209 |
 | bitnami | subversion | 1-8 |
@@ -161,7 +173,6 @@ The following table shows a list of available images within the Azure Government
 | bitnami | tinytinyrss | 20160220 |
 | bitnami | tom-cat | 7-0 |
 | bitnami | trac | 1-0 |
-| bitnami | tracks | 2-3 |
 | bitnami | typo3 | 7-6 |
 | bitnami | weblate | 2-4 |
 | bitnami | webmailpro | public |
@@ -169,6 +180,7 @@ The following table shows a list of available images within the Azure Government
 | bitnami | wordpress | 4-4 |
 | bitnami | wordpress-multisite | 4 |
 | bitnami | x-cart | public |
+| bitnami | x2enginesalescrm | 5-5 |
 | bitnami | xoops | 2-5 |
 | bitnami | youtrack | 7-0 |
 | bitnami | zurmo | 3-1 |
@@ -180,15 +192,16 @@ The following table shows a list of available images within the Azure Government
 | Canonical | UbuntuServer | 16.10 |
 | Canonical | UbuntuServer | 17.04 |
 | Canonical | UbuntuServer | 17.04-DAILY |
-| checkpoint | check-point-r77-10 | SG-BYOL |
+| checkpoint | check-point-r77-10 | sg-byol |
+| checkpoint | check-point-vsec-r80 | sg-byol |
 | checkpoint | sg2 | sg-byol2 |
-| chef-software | chef-automate | byol |
+| chef-software | chef-automate-vm-image | byol |
 | cisco | cisco-asav | asav-azure-byol |
+| cisco | cisco-csr-1000v | 16_6 |
 | cisco | cisco-csr-1000v | 3_16 |
 | cisco | cisco-csr-1000v | csr-azure-byol |
 | citrix | netscalervpx110-6531 | netscalerbyol |
 | citrix | netscalervpx111 | netscalerbyol |
-| citrix | netscalervpx120 | netscalerbyol |
 | citrix | xenapp-server | coldfireserver |
 | citrix | xenapp-vda-rdsh | coldfirerdsh |
 | citrix | xenapp-vda-rdsh | server2016rdsh |
@@ -199,9 +212,13 @@ The following table shows a list of available images within the Azure Government
 | cloudera | cloudera-centos-os | 6_7 |
 | cloudera | cloudera-centos-os | 6_8 |
 | cloudera | cloudera-centos-os | 7_2 |
+| cloudhub-technologies | umbraco-cms-win2012-r2 | umbraco-cms-on-win2012-r2 |
+| cloudhub-technologies | wordpress-on-windows-2012-r2 | wordpress-on-windows-2012-r2 |
 | codelathe | codelathe-filecloud-win2012r2 | filecloud_byol |
+| codelathe | filecloud-efss-windows2016 | filecloud_windows2016 |
 | commvault | commvault | csmav11 |
 | composable | composable | composable-govt |
+| connecting-software | cb-replicator-byol | cbrep-gov-byol |
 | CoreOS | CoreOS | Stable |
 | couchbase | couchbase-server-enterprise | byol |
 | couchbase | couchbase-sync-gateway-enterprise | byol |
@@ -209,19 +226,24 @@ The following table shows a list of available images within the Azure Government
 | credativ | Debian | 8 |
 | credativ | Debian | 9-beta |
 | datastax | datastax-enterprise | datastaxenterprise |
-| dell_software | rapid-recovery-replication-target-vm-for-azure |quest_rr_replication_target_vm_for_azure 
+| dell_software | rapid-recovery-replication-target-vm-for-azure | quest_rr_replication_target_vm_for_azure |
+| dell_software | uccs | uccs |
+| derdack | enterprisealert | enterprisealert-2017-datacenter-byol |
 | docker | docker-ee | docker-ee |
 | docker | docker4azure-cs | docker4azure-cs-1_12 |
 | docker | docker4azure-cs | docker4azure-cs-1_1x |
 | enterprise-ethereum-alliance | quorum-demo | quorum-demo |
 | esri | arcgis-10-4-for-server | cloud |
 | esri | arcgis-enterprise | byol |
+| esri | arcgis-enterprise | byol-1051 |
 | esri | arcgis-for-server | cloud |
 | eventtracker | eventtracker-siem | etlm |
 | eventtracker | eventtracker-siem | etsc |
 | f5-networks | f5-big-ip | f5-bigip-virtual-edition-best-byol |
 | f5-networks | f5-big-ip | f5-bigip-virtual-edition-better-byol |
 | f5-networks | f5-big-ip | f5-bigip-virtual-edition-good-byol |
+| flashgrid-inc | flashgrid-ol7-g | fg-17-05-ol74-g |
+| fortinet | fortinet-fortianalyzer | fortinet-fortianalyzer |
 | fortinet | fortinet-fortimanager | fortinet-fortimanager |
 | fortinet | fortinet_fortigate-vm_v5 | fortinet_fg-vm |
 | fortinet | fortinet_fortimail | fortinet_fortimail |
@@ -232,13 +254,22 @@ The following table shows a list of available images within the Azure Government
 | infoblox | infoblox-vnios-te-v1420 | vnios-te-v1420 |
 | infoblox | infoblox-vnios-te-v1420 | vnios-te-v2220 |
 | infoblox | infoblox-vnios-te-v1420 | vnios-te-v820 |
+| infoblox | infoblox-vnios-te-v1420 | vsot |
+| jamcracker | jamcracker-csb-standard-v3 | jamcracker-csb-standard-v3 |
+| juniper-networks | vsrx-next-generation-firewall | vsrx-byol-azure-image |
+| juniper-networks | vsrx-next-generation-firewall-solution-template | vsrx-byol-azure-image-solution-template |
 | kemptech | kemp360central-byol | kemp360central-byol |
+| kemptech | kemp360central-byol | kemp360central-spla |
 | kemptech | vlm-azure | basic-byol |
 | kemptech | vlm-azure | freeloadmaster |
 | kemptech | vlm-azure | vlm-byol-lts |
+| kemptech | vlm-azure | vlm-spla |
+| kinetica | kineticadbbyol | centos73-601 |
+| mapr-technologies | mapr52-base-dev | 5202 |
 | mico | mobile-impact-platform | mipvm |
+| microsoft-ads | linux-data-science-vm-ubuntu | linuxdsvmubuntubyol |
+| microsoft-ads | windows-data-science-vm | windows2016byol |
 | MicrosoftAzureSiteRecovery | Process-Server | Windows-2012-R2-Datacenter |
-| MicrosoftBizTalkServer | BizTalk-Server | 2016-PreRelease |
 | MicrosoftHybridCloudStorage | StorSimple | StorSimple-Garda-8000-Series |
 | MicrosoftHybridCloudStorage | StorSimple | StorSimple-Garda-8000-Series-BBUpdate |
 | MicrosoftHybridCloudStorage | StorSimpleVA | StorSimpleUpdate3RC |
@@ -250,6 +281,10 @@ The following table shows a list of available images within the Azure Government
 | MicrosoftRServer | RServer-Ubuntu | Enterprise |
 | MicrosoftRServer | RServer-WS2016 | Enterprise |
 | MicrosoftSharePoint | MicrosoftSharePointServer | 2016 |
+| MicrosoftSQLServer | SQL2008R2SP3-WS2008R2SP1 | Enterprise |
+| MicrosoftSQLServer | SQL2008R2SP3-WS2008R2SP1 | Express |
+| MicrosoftSQLServer | SQL2008R2SP3-WS2008R2SP1 | Standard |
+| MicrosoftSQLServer | SQL2008R2SP3-WS2008R2SP1 | Web |
 | MicrosoftSQLServer | SQL2012SP3-WS2012R2 | Enterprise |
 | MicrosoftSQLServer | SQL2012SP3-WS2012R2 | Express |
 | MicrosoftSQLServer | SQL2012SP3-WS2012R2 | Standard |
@@ -292,16 +327,24 @@ The following table shows a list of available images within the Azure Government
 | MicrosoftVisualStudio | VisualStudio | VS-2015-Comm-VSU3-AzureSDK-29-WS2012R2 |
 | MicrosoftVisualStudio | VisualStudio | VS-2015-Comm-VSU3-AzureSDK-291-WS2012R2 |
 | MicrosoftVisualStudio | VisualStudio | VS-2015-Ent-VSU3-AzureSDK-29-WS2012R2 |
+| MicrosoftVisualStudio | VisualStudio | VS-2017-Comm-Latest-WS2016 |
 | MicrosoftVisualStudio | VisualStudio | VS-2017-Comm-v152-WS2016 |
 | MicrosoftVisualStudio | VisualStudio | VS-2017-Comm-WS2016 |
+| MicrosoftVisualStudio | VisualStudio | VS-2017-Ent-Latest-WS2016 |
 | MicrosoftVisualStudio | VisualStudio | VS-2017-Ent-v152-WS2016 |
 | MicrosoftVisualStudio | VisualStudio | VS-2017-Ent-WS2016 |
+| MicrosoftWindowsDesktop | Windows-10 | RS2-Pro |
+| MicrosoftWindowsDesktop | Windows-10 | RS2-ProN |
 | MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 |
 | MicrosoftWindowsServer | WindowsServer | 2012-Datacenter |
 | MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter-smalldisk |
 | MicrosoftWindowsServer | WindowsServer | 2016-Datacenter |
 | MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-Server-Core |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-Server-Core-smalldisk |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-smalldisk |
 | MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-with-Containers |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-with-RDSH |
 | MicrosoftWindowsServer | WindowsServer | 2016-Nano-Server |
 | MicrosoftWindowsServer | WindowsServer-HUB | 2008-R2-SP1-HUB |
 | MicrosoftWindowsServer | WindowsServer-HUB | 2012-Datacenter-HUB |
@@ -309,12 +352,15 @@ The following table shows a list of available images within the Azure Government
 | MicrosoftWindowsServer | WindowsServer-HUB | 2016-Datacenter-HUB |
 | MicrosoftWindowsServerRemoteDesktop | WindowsServer | RDSH-Office365P |
 | MicrosoftWindowsServerRemoteDesktop | WindowsServer | Remote-Desktop-Session-Host |
+| netapp | netapp-oncommand-cloud-manager | occm-byol |
+| netapp | netapp-ontap-cloud | ontap_cloud_byol |
 | OpenLogic | CentOS | 6.7 |
 | OpenLogic | CentOS | 6.8 |
 | OpenLogic | CentOS | 6.9 |
 | OpenLogic | CentOS | 7.2 |
 | OpenLogic | CentOS | 7.2n |
 | OpenLogic | CentOS | 7.3 |
+| opentext | opentext-content-server-16 | ot-cs16 |
 | Oracle | Oracle-Database-Ee | 12.1.0.2 |
 | Oracle | Oracle-Database-Se | 12.1.0.2 |
 | Oracle | Oracle-Linux | 6.7 |
@@ -322,12 +368,19 @@ The following table shows a list of available images within the Azure Government
 | Oracle | Oracle-Linux | 7.2 |
 | orfast-technologies | orfast-mam-1 | orasft_mam_01 |
 | paloaltonetworks | vmseries1 | byol |
+| panzura-file-system | panzura-cloud-filer | fd-vm-azure-byol |
 | RedHat | RHEL | 6.8 |
 | RedHat | RHEL | 6.9 |
 | RedHat | RHEL | 6.9-LVM |
+| RedHat | RHEL | 7-LVM |
+| RedHat | RHEL | 7-RAW |
 | RedHat | RHEL | 7.2 |
 | RedHat | RHEL | 7.3 |
 | RedHat | RHEL | 7.3-LVM |
+| RedHat | RHEL | 7.4-LVM |
+| RedHat | RHEL | 7.4-RAW |
+| RedHat | RHEL | 7.4.Beta |
+| RedHat | RHEL | 7.4.Beta-LVM |
 | RedHat | RHEL-SAP-APPS | 6.8 |
 | RedHat | RHEL-SAP-APPS | 7.3 |
 | RedHat | RHEL-SAP-HANA | 6.7 |
@@ -337,24 +390,39 @@ The following table shows a list of available images within the Azure Government
 | riverbed | riverbed-steelhead-9-5-0 | riverbed-steelhead-9-5-0 |
 | riverbed | riverbed-steelhead-9-6-0 | riverbed-steelhead-9-6-0 |
 | scalegrid | centos | free |
+| silver-peak-systems | silver_peak_edgeconnect | silver_peak_edgeconnect_8_1 |
+| silver-peak-systems | silver_peak_vx | silver-peak-vx-8-1 |
 | sophos | sophos-xg | byol |
 | splunk | splunk-enterprise-base-image | splunk-on-ubuntu-14-04-lts |
 | stonefly | stonefly-cloud-drive | byol_stonefly |
-| SUSE | openSUSE-Leap | 42.1 |
 | SUSE | openSUSE-Leap | 42.2 |
+| SUSE | openSUSE-Leap | 42.3 |
 | SUSE | SLES | 11-SP4 |
-| SUSE | SLES | 12-SP1 |
 | SUSE | SLES | 12-SP2 |
+| SUSE | SLES | 12-SP3 |
 | SUSE | SLES-BYOS | 11-SP4 |
 | SUSE | SLES-BYOS | 12-SP2 |
+| SUSE | SLES-BYOS | 12-SP3 |
 | SUSE | SLES-SAP-BYOS | 12-SP1 |
 | SUSE | SLES-SAP-BYOS | 12-SP2 |
+| SUSE | SLES-SAP-BYOS | 12-SP3 |
+| SUSE | SLES-SAPCAL | 11-SP4 |
 | SUSE | SUSE-Manager-Proxy-BYOS | 3.0 |
+| SUSE | SUSE-Manager-Proxy-BYOS | 3.1 |
 | SUSE | SUSE-Manager-Server-BYOS | 3.0 |
+| SUSE | SUSE-Manager-Server-BYOS | 3.1 |
 | suse-byos | sles-byos | 12-sp1 |
+| tableau | tableau-server | bring-your-own-license |
 | talon | talon-fast | talon-azure-byol |
-| tenable | tenable-nessus-byol | serv-nes-byol-azure |
+| tenable | tenable-nessus-6-byol | tenable-nessus-byol |
+| veritas | netbackup-8-0 | netbackup_8-standard |
+| vidizmo |      | vidizmo-appdb-single |
+| vidizmo | enterprisetube-video-streaming-premium-portal | vidizmo-enterprisetube-premium-100 |
+| vidizmo | vidizmo-highavailability-servers | vidizmo-application |
+| vidizmo | vidizmo-separate-servers | vidizmo-application |
+| vidizmo | vidizmo-separate-servers | vidizmo-database |
 | winmagic_securedoc_cloudvm | seccuredoc_cloudvm_5 | winmagic_securedoc_cloudvm_byol |
+
 
 
 

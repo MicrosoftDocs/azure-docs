@@ -2,7 +2,7 @@
 title: Azure Monitor partner integrations | Microsoft Docs
 description: Learn about Azure Monitor's partners and how you can access documentation for integrating with them.
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/9/2017
+ms.date: 8/16/2017
 ms.author: johnkem
 
 ---
@@ -21,13 +21,13 @@ ms.author: johnkem
 | Partners |  |  |
 | --- | --- | --- |
 | [![Partner Logo][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] | [![Partner Logo][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] | [![Partner Logo][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
-| [![Partner Logo][cloudhealth-logo]<br/>**CloudHealth**][cloudhealth-anchor] | [![Partner Logo][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] | [![Partner Logo][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] |
-| [![Partner Logo][datadog-logo]<br/>**Datadog**][datadog-anchor] | [![Partner Logo][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] | [![Partner Logo][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] |
-| [![Partner Logo][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] | [![Partner Logo][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] | [![Partner Logo][sciencelogic-logo]<br/>**ScienceLogic**][sciencelogic-anchor] |
-| [![Partner Logo][splunk-logo]<br/>**Splunk**][splunk-anchor] | [![Partner Logo][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] | |
+| [![Partner Logo][circonus-logo]<br/>**Circonus**][circonus-anchor] | [![Partner Logo][cloudhealth-logo]<br/>**CloudHealth**][cloudhealth-anchor] | [![Partner Logo][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] |
+| [![Partner Logo][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] | [![Partner Logo][datadog-logo]<br/>**Datadog**][datadog-anchor] | [![Partner Logo][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] |
+| [![Partner Logo][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] | [![Partner Logo][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] | [![Partner Logo][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] |
+| [![Partner Logo][sciencelogic-logo]<br/>**ScienceLogic**][sciencelogic-anchor] | [![Partner Logo][splunk-logo]<br/>**Splunk**][splunk-anchor] | [![Partner Logo][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] | |
 
 ## AlertLogic Log Manager
-Alert Logic Log Manager collects VM, Application, and Azure platform logs for security analysis and retention. This includes Azure Audit Logs via the Azure Monitor API.  This information is used to detect malfeasance and meet compliance requirements.
+Alert Logic Log Manager collects VM, Application, and Azure platform logs for security analysis and retention, including the Azure Activity Log via the Azure Monitor API.  This information is used to detect malfeasance and meet compliance requirements.
 
 [Go to the documentation.][alertlogic-doc]
 
@@ -40,6 +40,11 @@ AppDynamics Application Performance Management (APM) enables application owners 
 You can create JIRA tickets on Azure Monitor alerts.
 
 [Go to the documentation.][atlassian-doc]
+
+## Circonus
+Circonus is a microservices monitoring and analytics platform built for on premises or SaaS deployment. Its fully automatable API-Centric platform is more scalable and reliable than systems it monitors. Developed for the requirements of DevOps, Circonus delivers percentile-based alerts, graphs, dashboards, and machine-learning intelligence that enable business optimization. Circonus monitors your Microsoft Azure cloud resources and their applications in real time. You can use Circonus to collect and track metrics for the variables you want to measure for your resources and applications. With Circonus, you gain system-wide visibility into Azure’s resource utilization, application performance, and operational health.
+
+[Go to the documentation.][circonus-doc]
 
 ## CloudHealth
 Unite and automate your cloud with a platform built to save serious time and money. With unparalleled visibility, intuitive optimization and rock-solid governance practices, CloudHealth is redefining cloud management. The Cloudhealth platform enables enterprises and MSPs to maximize return on cloud investments and make confident decisions around cost, usage, performance and security.
@@ -57,12 +62,12 @@ Cloudyn manages and optimizes multi-platform, hybrid cloud deployments to help e
 [Go to the documentation.][cloudyn-doc]
 
 ## Datadog
-Datadog is the world’s leading monitoring service for cloud-scale applications, bringing together data from servers, databases, tools and services to present a unified view of your entire stack. These capabilities are provided on a SaaS-based data analytics platform that enables Dev and Ops teams to work collaboratively to avoid downtime, resolve performance problems, and ensure that development and deployment cycles finish on time. By integrating Datadog and Azure, you can collect and view metrics from across your infrastructure, correlate VM metrics with application-level metrics, and slice and dice your metrics using any combination of properties and custom tags.
+Datadog is the world’s leading monitoring service for cloud-scale applications, bringing together data from servers, databases, tools, and services to present a unified view of your entire stack. These capabilities are provided on a SaaS-based data analytics platform that enables Dev and Ops teams to work collaboratively to avoid downtime, resolve performance problems, and ensure that development and deployment cycles finish on time. By integrating Datadog and Azure, you can collect and view metrics from across your infrastructure, correlate VM metrics with application-level metrics, and slice and dice your metrics using any combination of properties and custom tags.
 
 [Go to the documentation.][datadog-doc]
 
 ## Dynatrace
-The Dynatrace OneAgent integrates with Azure VMs and App Services via the according Azure extension mechanisms. This way Dynatrace OneAgent can gather performance metrics about hosts, network and services. Besides just displaying metrics Dynatrace visualizes environments end-to-end, showing transactions from the client side to the database layer. AI-based correlation of problems and fully integrated root-cause-analysis, including method level insights into code and database, make troubleshooting and performance optimizations much easier.
+The Dynatrace OneAgent integrates with Azure VMs and App Services via the Azure extension mechanism. This way Dynatrace OneAgent can gather performance metrics about hosts, network, and services. Besides just displaying metrics Dynatrace visualizes environments end-to-end, showing transactions from the client side to the database layer. AI-based correlation of problems and fully integrated root-cause-analysis, including method level insights into code and database, make troubleshooting and performance optimizations much easier.
 
 [Go to the documentation.][dynatrace-doc]
 
@@ -90,20 +95,21 @@ The Azure Monitor Add-on for Splunk is [available in the Splunkbase here](https:
 [Go to the documentation.][splunk-doc]
 
 ## Sumo Logic
-Sumo Logic is a secure, cloud-native, machine data analytics service, delivering real-time, continuous intelligence from structured, semi-structured and unstructured data across the entire application lifecycle and stack. More than 1,000 customers around the globe rely on Sumo Logic for the analytics and insights to build, run and secure their modern applications and cloud infrastructures. With Sumo Logic, customers gain a multi-tenant, service-model advantage to accelerate their shift to continuous innovation, increasing competitive advantage, business value and growth.
+Sumo Logic is a secure, cloud-native, machine data analytics service, delivering real-time, continuous intelligence from structured, semi-structured, and unstructured data across the entire application lifecycle and stack. More than 1,000 customers around the globe rely on Sumo Logic for the analytics and insights to build, run, and secure their modern applications and cloud infrastructures. With Sumo Logic, customers gain a multi-tenant, service-model advantage to accelerate their shift to continuous innovation, increasing competitive advantage, business value, and growth.
 
 [Learn more.][sumologic-doc]
 
 ## Next Steps
 * [Learn more about Azure Monitor](monitoring-overview.md)
 * [Access metrics using the REST API](monitoring-rest-api-walkthrough.md)
-* [Stream the Activity Log to a 3rd party service](monitoring-stream-activity-logs-event-hubs.md)
-* [Stream Diagnostic Logs to a 3rd party service](monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Stream the Activity Log to a third party service](monitoring-stream-activity-logs-event-hubs.md)
+* [Stream Diagnostic Logs to a third party service](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 
 <!--Partner Anchors-->
 [alertlogic-anchor]: #alertlogic-log-manager "AlertLogic"
 [appdynamics-anchor]: #appdynamics "AppDynamics"
 [atlassian-anchor]: #atlassian-jira "Atlassian"
+[circonus-anchor]: #circonus "Circonus"
 [cloudhealth-anchor]: #cloudhealth "CloudHealth"
 [cloudmonix-anchor]: #cloudmonix "CloudMonix"
 [cloudyn-anchor]: #cloudyn "Cloudyn"
@@ -120,6 +126,7 @@ Sumo Logic is a secure, cloud-native, machine data analytics service, delivering
 [alertlogic-logo]: ./media/partner-logos/alertlogic.png
 [appdynamics-logo]: ./media/partner-logos/appdynamics.png
 [atlassian-logo]: ./media/partner-logos/atlassian.png
+[circonus-logo]: ./media/partner-logos/circonus.png
 [cloudhealth-logo]: ./media/partner-logos/cloudhealth.png
 [cloudmonix-logo]: ./media/partner-logos/cloudmonix.png
 [cloudyn-logo]: ./media/partner-logos/cloudyn.png
@@ -136,6 +143,7 @@ Sumo Logic is a secure, cloud-native, machine data analytics service, delivering
 [alertlogic-doc]: https://docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "AlertLogic documentation."
 [appdynamics-doc]: https://www.appdynamics.com/net/azure/ "AppDynamics documentation."
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
+[circonus-doc]: https://support.circonus.com/support/solutions/articles/24000013515-azure-integration 
 [cloudhealth-doc]: https://www.cloudhealthtech.com/azure
 [cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "CloudMonix introduction."
 [cloudyn-doc]: https://www.cloudyn.com/azure-monitoring "Cloudyn introduction."

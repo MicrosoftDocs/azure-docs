@@ -3,7 +3,7 @@ title: Create Azure Automation Run As accounts | Microsoft Docs
 description: This article describes how to update your Automation account and create Run As accounts with PowerShell, or from the portal.  
 services: automation
 documentationcenter: ''
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/29/2017
+ms.date: 07/27/2017
 ms.author: magoedte
 ---
 
@@ -151,7 +151,7 @@ Depending on the configuration option you select, the script creates the followi
 
 		$KeyCredential = New-Object  Microsoft.Azure.Commands.Resources.Models.ActiveDirectory.PSADKeyCredential
 		$KeyCredential.StartDate = $CurrentDate
-		$KeyCredential.EndDate= [DateTime]$PfxCert.GetExpirationDateString()
+		$KeyCredential.EndDate = Get-Date $PfxCert.GetExpirationDateString()
 		$KeyCredential.EndDate = $KeyCredential.EndDate.AddDays(-1)
 		$KeyCredential.KeyId = $KeyId
 		$KeyCredential.CertValue  = $keyValue

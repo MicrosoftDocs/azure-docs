@@ -1,8 +1,8 @@
 ---
 title: Best practices for autoscale | Microsoft Docs
-description: Learn principles to effectively autoscale Virtual Machines, Virtual Machine Scale Sets, and Cloud Services.
-author: kamathashwin
-manager: carmonm
+description: Autoscale patterns in Azure for Web Apps, Virtual Machine Scale sets, and Cloud Services 
+author: anirudhcavale
+manager: orenr
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
-ms.author: ashwink
+ms.author: ancav
 
 ---
 # Best practices for Autoscale
@@ -80,7 +80,7 @@ In this case
 5. The next time autoscale checks, the CPU continues to fall to 50. It estimates again -  50 x 3 instance = 150 / 2 instances = 75, which is below the scale-out threshold of 80, so it scales in successfully to 2 instances.
 
 ### Considerations for scaling threshold values for special metrics
- For special metrics such as Storage or Service Bus Queue length metric, the threshold is the average number of messages available per current number of instances. Carefully choose the choose the threshold value for this metric.
+ For special metrics such as Storage or Service Bus Queue length metric, the threshold is the average number of messages available per current number of instances. Carefully choose the threshold value for this metric.
 
 Let's illustrate it with an example to ensure you understand the behavior better.
 
