@@ -325,11 +325,11 @@ Storage account is configured in the portal when **Log DataPlaneRequests** is se
 
 If you selected the **Send to Log Analytics** option when you turned on logging, diagnostic data from your collection is forwarded to Log Analytics within two hours. This means that if you look at Log Analytics immediately after turning on logging, you won't see any data. Just wait two hours and try again. 
 
-Before viewing your logs, you'll want to check and see if your Log Analytics workspace has been upgraded to use the new Log Analytics query language. To check this, open the [Azure portal](https://portal.azure.com), click **Log Analytics** on the far left side, then select the workspace name as shown in the following image. 
+Before viewing your logs, you'll want to check and see if your Log Analytics workspace has been upgraded to use the new Log Analytics query language. To check this, open the [Azure portal](https://portal.azure.com), click **Log Analytics** on the far left side, then select the workspace name as shown in the following image. The **OMS Workspace** page is displayed as shown in the following image.
 
 ![Log Analytics in the Azure portal](./media/logging/azure-portal.png)
 
-If you see the following message in the portal, your workspace has not been upgraded to use the new language. For further information on upgrading to the new query language, see [Upgrade your Azure Log Analytics workspace to new log search](../log-analytics/log-analytics-log-search-upgrade.md). 
+If you see the following message on the **OMS Workspace** page, your workspace has not been upgraded to use the new language. For further information on upgrading to the new query language, see [Upgrade your Azure Log Analytics workspace to new log search](../log-analytics/log-analytics-log-search-upgrade.md). 
 
 ![Log analytics upgrade notification](./media/logging/upgrade-notification.png)
 
@@ -344,7 +344,7 @@ Now that you have enabled data collection, run the following log search example,
 <a id="#queries"></a>
 ### Queries
 
-Here are some additional queries you can enter into the **Log search** box to help you monitor your Azure Cosmos DB containers. 
+Here are some additional queries you can enter into the **Log search** box to help you monitor your Azure Cosmos DB containers. These queries work with the [new language](../log-analytics/log-analytics-log-search-upgrade.md). 
 
 To learn about the meaning of the data returned by each log search, see [Interpret your Azure Cosmos DB logs](#interpret).
 
