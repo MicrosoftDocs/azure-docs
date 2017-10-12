@@ -18,12 +18,12 @@ ms.date: 10/12/2017
 ms.author: v-ruogun
 ---
 #  Transfer objects to/from Azure Blob storage using Python
-The Python Client Library for Azure Storage is used to create and manage Azure resources programmatically. In this quickstart, you learn how to use Python to upload, download, and list block blobs in a container in Azure Blob storage. 
+In this quickstart, you learn how to use Python to upload, download, and list block blobs in a container in Azure Blob storage. 
 
 ## Prerequisites
 
 To complete this quickstart: 
-
+* Install [Python](https://www.python.org/downloads/)
 * Download and install [Azure Storage SDK for Python](storage-python-how-to-use-blob-storage.md#download-and-install-azure-storage-sdk-for-python). 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -170,8 +170,9 @@ If you no longer need the blobs uploaded in this quickstart, you can delete the 
 
 ```python
 # Clean up resources. This includes the container and the temp files
-block_blob_service.delete_blob(container_name, local_file_name)
 block_blob_service.delete_container(container_name)
+os.remove(full_path_to_file)
+os.remove(full_path_to_file2)
 ```
 
 ## Next steps
