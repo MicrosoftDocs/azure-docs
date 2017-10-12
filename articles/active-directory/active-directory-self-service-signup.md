@@ -35,8 +35,10 @@ This article explains the self-service signup process for Azure Active Directory
 
 ## What is in an unmanaged directory?
 
- Directory | An Azure AD directory for the domain is created, one directory per domain. The Azure AD directory has no global admin.
- Users | <li>For each user who signs up, a user is added to the Azure AD directory<li>Each user is marked as a guest user<li>Each user is given access to the service that they signed up for
+ Item | Characteristics
+------- | --------
+Directory | An Azure AD directory for the domain is created, one directory per domain. The Azure AD directory has no global admin.
+ Users | For each user who signs up, a user is added to the Azure AD directory. Each user is marked as a guest user. Each user is given access to the service that they signed up for
 
 ## User experience
 For example, let's say a user whose email is Dan@BellowsCollege.com receives sensitive files via email. The files have been protected by Azure Rights Management (Azure RMS). But Dan's organization, Bellows College, has not signed up for Azure RMS, nor has it deployed Active Directory RMS. In this case, Dan can sign up for a free subscription to RMS for individuals in order to read the protected files.
