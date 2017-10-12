@@ -13,7 +13,7 @@ ms.custom: migrate
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
+ms.workload: 
 ms.date: 10/12/2016
 ms.author: carlrab
 ms.suite: SQL
