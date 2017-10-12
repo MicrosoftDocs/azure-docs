@@ -68,7 +68,7 @@ If you already have a Site-to-Site VPN with a dynamic routing gateway, great! Yo
 
 ### If you already have a Site-to-Site virtual network, but it has a static (policy-based) routing gateway:
 1. Change your gateway type to dynamic routing. A multi-site VPN requires a dynamic (also known as route-based) routing gateway. To change your gateway type, you'll need to first delete the existing gateway, then create a new one.
-2. Configure your new gateway and create your VPN tunnel. For instructions, For instructions, see [Specify the SKU and VPN type](vpn-gateway-howto-site-to-site-classic-portal#sku). Make sure you specify the Routing Type as 'Dynamic'.
+2. Configure your new gateway and create your VPN tunnel. For instructions, For instructions, see [Specify the SKU and VPN type](vpn-gateway-howto-site-to-site-classic-portal.md#sku). Make sure you specify the Routing Type as 'Dynamic'.
 
 ### If you don't have a Site-to-Site virtual network:
 1. Create your Site-to-Site virtual network using these instructions: [Create a Virtual Network with a Site-to-Site VPN Connection in the Azure Classic Portal](vpn-gateway-site-to-site-create.md).  
