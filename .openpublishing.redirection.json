@@ -371,6 +371,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-resource-manager/resource-group-authenticate-service-principal-cli.md",
+            "redirect_url": "/cli/azure/create-an-azure-service-principal-azure-cli",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/resource-group-move-resources.md",
             "redirect_url": "/azure/azure-resource-manager/resource-group-move-resources",
             "redirect_document_id": false
