@@ -12,15 +12,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2017
+ms.date: 10/11/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 
 ---
 # Azure Active Directory reporting FAQ
 
-This article includes answers to frequently asked questions (FAQs) about Azure Active Directory reporting.  
+This article includes answers to frequently asked questions about Azure Active Directory (Azure AD) reporting.  
 For more details, see [Azure Active Directory reporting](active-directory-reporting-azure-portal.md). 
+
+**Q: I am using the “https://graph.windows.net/<tenant-name>/reports/” endpoint APIs to pull Azure AD audit and integrated application usage reports into our reporting systems programmatically. What should I switch to?**
+
+**A:** Look up our [Identity Protection risk events API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) to see how you can leverage the new APIs to access activity reports. This endpoint has 2 reports (Audit and Sign-ins) which provide all the data you got in the old API endpoint. In addition, this new endpoint has sign-ins report (Azure AD Premium only) that you can use to get rich set of app usage, device usage, and user sign-in information.
+
+**Q: I am using the “https://graph.windows.net/<tenant-name>/reports/” endpoint APIs to pull Azure AD security reports (specific types of detections, such as leaked credentials or sign-ins from anonymous IP addresses) into our reporting systems programmatically. What should I switch to?**
+
+**A:** You can use the [Identity Protection risk events API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) to access security detections through Microsoft Graph. This new format gives greater flexibility in how you can query data, with advanced filtering, field selection, and more, and standardizes risk events into one type for easier integration into SIEMs and other data collection tools. Full API documentation is available on the Microsoft Graph site. Please be aware that because the format of the data is significantly different, it will not be possible to simply substitute a new query for your old queries. However, because the new API uses Microsoft Graph, which is the Microsoft standard for APIs for O365, Azure AD, and more, this work will either extend your current MS Graph investments or help you begin your transition to this new standard platform.
+
+--- 
 
 **Q: What is the data retention for activity logs (Audit and Sign-ins) in the Azure portal?** 
 
