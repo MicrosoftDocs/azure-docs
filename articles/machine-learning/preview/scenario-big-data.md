@@ -193,18 +193,18 @@ The second argument is DEBUG. Setting it to 'FILTER_IP' enables a faster iterati
 
 #### Model development on the Docker of Ubuntu DSVM
 
-#####  1. Setting up the compute target for Docker on Ubuntu DSVM
+#####  1. Set up the compute target
 
-Start the commandline from Azure ML Workbench by clicking "File" menu in the top left corner of Azure ML Workbench  and choosing "Open Command Prompt",  then run 
+Start the command line from Machine Language Workbench by selecting **File** > **Open Command Prompt**. Then run: 
 
 ```az ml computetarget attach --name dockerdsvm --address $DSVMIPaddress  --username $user --password $password --type remotedocker```
 
-Once the commandline is successfully finished executing, you will see the following two files created in aml_config folder of your project:
+The following two files are created in the aml_config folder of your project:
 
-    dockerdsvm.compute: contains the connection and configuration information for a remote execution target
-    dockerdsvm.runconfig: set of run options used when executing within the Azure ML Workbench application
+-  dockerdsvm.compute: This file contains the connection and configuration information for a remote execution target.
+-  dockerdsvm.runconfig: This file is a set of run options used within the Workbench application.
 
-Navigate to dockerdsvm.runconfig and change the configuration of the following fields as shown below:
+Browse to dockerdsvm.runconfig, and change the configuration of these fields to the following:
 
     PrepareEnvironment: true 
     CondaDependenciesFile: Config/conda_dependencies.yml 
@@ -215,15 +215,15 @@ Prepare the project environment by running:
 ```az ml experiment prepare -c dockerdsvm```
 
 
-By setting "PrepareEnvironment" to true, you allow Azure ML Workbench to create the runtime environment whenever you submit a job. `Config/conda_dependencies.yml` and `Config/dsvm_spark_dependencies.yml` contains the customization of the runtime environment. You can always modify the Conda dependencies, Spark configuration, and Spark dependencies by editing these two YMAL files. For this example, we added `azure-storage` and `azure-ml-api-sdk` as extra python packages in  `Config/conda_dependencies.yml`, and we added "`spark.default.parallelism`", "`spark.executor.instances`", and "`spark.executor.cores` etc. in `Config/dsvm_spark_dependencies.yml`. 
+With "PrepareEnvironment" set to true, Machine Language Workbench creates the runtime environment whenever you submit a job. `Config/conda_dependencies.yml` and `Config/dsvm_spark_dependencies.yml` contain the customization of the runtime environment. You can always modify the Conda dependencies, Spark configuration, and Spark dependencies by editing these two YMAL files. For this example, we added `azure-storage` and `azure-ml-api-sdk` as extra Python packages in  `Config/conda_dependencies.yml`. We also added "`spark.default.parallelism`", "`spark.executor.instances`", and "`spark.executor.cores` in `Config/dsvm_spark_dependencies.yml`. 
 
 #####  2. Data preparation and feature engineering on DSVM Docker
 
-Run the script `etl.py` on DSVM Docker with debug parameter that filters the loaded data with specific server IP addresses:
+Run the script `etl.py` on DSVM Docker. Use a debug parameter that filters the loaded data with specific server IP addresses:
 
 ```az ml experiment submit -t dockerdsvm -c dockerdsvm ./Code/etl.py ./Config/storageconfig.json FILTER_IP```
 
-Navigate to the side panel, click "Run" to see the run history of  `etl.py`. Notice that the run time is around two minutes. If you plan to change your code to include new features , providing FILTER_IP as the second arguments provides a faster iteration. You might need to run this step multiple times when dealing with your own machine learning problems to explore the dataset or create new features. With the customized restriction on what data to load and further filtering of what data to process, you can  thus speed up the iteration process in your model development. As you experiment, you should periodically save the changes in your code to the git repository.  Note that we used the following code in `etl.py` to enable the access to the private container:
+Browse to the side panel, and select **Run** to see the run history of `etl.py`. Notice that the run time is about two minutes. If you plan to change your code to include new features, providing FILTER_IP as the second argument provides a faster iteration. You might need to run this step multiple times when dealing with your own machine learning problems, to explore the dataset or create new features. With the customized restriction on what data to load, and further filtering of what data to process, you can speed up the iteration process in your model development. As you experiment, you should periodically save the changes in your code to the Git repository. Note that we used the following code in `etl.py` to enable the access to the private container:
 
 ```python
 def attach_storage_container(spark, account, key):
@@ -237,11 +237,11 @@ attach_storage_container(spark, storageAccount, storageKey)
 ```
 
 
-Next,  run the script `etl.py` on DSVM Docker without debug parameter FILTER_IP
+Next, run the script `etl.py` on DSVM Docker without the debug parameter FILTER_IP:
 
 ```az ml experiment submit -t dockerdsvm -c dockerdsvm ./Code/etl.py ./Config/storageconfig.json FALSE```
 
-Navigate to the side panel, click "Run" to see the run history of  `etl.py`. Notice that the run time is around four minutes. The processed result of this step is saved into the container and is  loaded for training in train.py. In addition, the string indexers, encoder pipelines, and the standard scalers are also saved to the private container and  is used in operationalization (O16N). 
+Browse to the side panel, and select **Run** to see the run history of `etl.py`. Notice that the run time is about four minutes. The processed result of this step is saved into the container, and is loaded for training in train.py. In addition, the string indexers, encoder pipelines, and standard scalers are saved to the private container. These are used in operationalization. 
 
 
 ##### 3. Model training on DSVM Docker
@@ -250,23 +250,23 @@ Run the script `train.py` on DSVM Docker:
 
 ```az ml experiment submit -t dockerdsvm -c dockerdsvm ./Code/train.py ./Config/storageconfig.json```
 
-This step loads the intermediate compute results from the run of `etl.py` and  trains a machine learning model. This step takes around two minutes.
+This step loads the intermediate compute results from the run of `etl.py`, and  trains a machine learning model. This step takes about two minutes.
 
-Once you have successfully finished the experimentation on the small data, you can then continue to run the experimentation on the full dataset. You can start off by using the same code and then experiment with argument and compute target changes.  
+When you have successfully finished the experimentation on the small data, you can then continue to run the experimentation on the full dataset. You can start by using the same code, and then experiment with argument and compute target changes.  
 
 ####  Model development on the HDInsight cluster
 
-##### 1. Create compute target in Azure ML workbench for the HDInsight cluster
+##### 1. Create compute target in Machine Learning Workbench for the HDInsight cluster
 
 ```az ml computetarget attach --name myhdi --address $clustername-ssh.azurehdinsight.net --username $username --password $password --type cluster```
 
-Once the commandline is successfully finished, you see the following two files created in aml_config folder:
+The following two files are created in the aml_config folder:
     
-    myhdo.compute: contains connection and configuration information for a remote execution target
-    myhdi.runconfig: set of run options used when executing within the Azure ML Workbench application
+-  myhdo.compute: This file contains connection and configuration information for a remote execution target.
+-  myhdi.runconfig: This file is set of run options used within the Workbench application.
 
 
-Navigate to myhdi.runconfig and change the configuration of the following fields as shown below:
+Browse to myhdi.runconfig, and change the configuration of these fields to the following:
 
     PrepareEnvironment: true 
     CondaDependenciesFile: Config/conda_dependencies.yml 
@@ -280,11 +280,11 @@ This step can take up to seven minutes.
 
 ##### 2. Data preparation and feature engineering on HDInsight cluster
 
-Run the script `etl.py` with fulldata on HDInsight cluster
+Run the script `etl.py`, with full data on the HDInsight cluster:
 
 ```az ml experiment submit -a -t myhdi -c myhdi ./Code/etl.py Config/fulldata_storageconfig.json FALSE```
 
-Since this job lasts for a relatively long time (around two hours), we can use "-a" to disable output streaming. Once the job is done, in the "Run History", you can look into the driver log and also the controller log. If you have a larger cluster, you can always reconfigure the configurations in `Config/hdi_spark_dependencies.yml` to use more instances or more cores. For example, if you have a four-worker-hode cluster, you can increase the value of "`spark.executor.instances`" from 5 to 7. You can see the output of this step in the "fullmodel" container in your storage account. 
+Because this job lasts for a relatively long time (approximately two hours), you can use "-a" to disable output streaming. When the job is done, in **Run History**, you can view the driver and controller logs. If you have a larger cluster, you can always reconfigure the configurations in `Config/hdi_spark_dependencies.yml` to use more instances or cores. For example, if you have a four-worker-node cluster, you can increase the value of "`spark.executor.instances`" from 5 to 7. You can see the output of this step in the **fullmodel** container in your storage account. 
 
 
 ##### 3. Model training on HDInsight cluster
@@ -293,11 +293,11 @@ Run the script  `train.py` on HDInsight cluster:
 
 ```az ml experiment submit -a -t myhdi -c myhdi ./Code/train.py Config/fulldata_storageconfig.json```
 
-Since this job lasts for a relatively long time（around half hour), we use "-a" to disable output streaming.
+Because this job lasts for a relatively long time（approximately 30 minutes), you can use "-a" to disable output streaming.
 
 #### Run history exploration
 
-Run history is a feature that enables tracking of your experimentation in Azure ML Workbench. By default, it tracks the duration of the experimentation. In our specific example, when we move to the full dataset for "`Code/etl.py`" in the experimentation, we notice that duration significantly increases. You can also log specific metrics for tracking purposes. To enable metric tracking, add in the following lines of code to the head of your python file:
+Run history is a feature that enables tracking of your experimentation in Machine Learning Workbench. By default, it tracks the duration of the experimentation. In our specific example, when we move to the full dataset for "`Code/etl.py`" in the experimentation, we notice that duration significantly increases. You can also log specific metrics for tracking purposes. To enable metric tracking, add the following lines of code to the head of your Python file:
 ```python
 # import logger
 from azureml.logging import get_azureml_logger
@@ -311,8 +311,7 @@ Here is an example to track a specific metric:
 run_logger.log("Test Accuracy", testAccuracy)
 ```
 
-Navigate to "Runs" on the right sidebar of Azure ML Workbench to see the run history for each python file. 
-In addition, go to your github repository, a new branch with name staring with "AMLHistory" is created to track the change you made to your script in each run. 
+On the right sidebar of the Workbench, browse to **Runs** to see the run history for each Python file. You can also go to your GitHub repository. A new branch, with the name starting with "AMLHistory", is created to track the change you made to your script in each run. 
 
 
 ### Operationalization
