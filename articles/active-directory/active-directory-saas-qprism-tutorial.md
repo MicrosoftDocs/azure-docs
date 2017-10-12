@@ -27,7 +27,7 @@ Integrating QPrism with Azure AD provides you with the following benefits:
 - You can enable your users to automatically get signed on to QPrism (single sign-on) with their Azure AD accounts.
 - You can manage your accounts in one central location: the Azure portal.
 
-For more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+For more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## Prerequisites
 
@@ -53,7 +53,7 @@ To configure the integration of QPrism into Azure AD, you need to add QPrism fro
 
 **To add QPrism from the gallery:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, select **Azure Active Directory**. 
+1. In the [Azure portal](https://portal.azure.com), in the left pane, select **Azure Active Directory**. 
 
 	![The Azure Active Directory button][1]
 
@@ -71,7 +71,7 @@ To configure the integration of QPrism into Azure AD, you need to add QPrism fro
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with QPrism, based on a test user called "Britta Simon".
+In this section, you configure and test Azure AD single sign-on with QPrism, based on a test user called "Britta Simon."
 
 For single sign-on to work, Azure AD needs to know who the counterpart user in QPrism is to a user in Azure AD. In other words, there must be a linked relationship between an Azure AD user and the related user in QPrism.
 
@@ -79,11 +79,11 @@ To establish this relationship, in QPrism, assign the value of the **user name**
 
 To configure and test Azure AD single sign-on with QPrism, complete the following building blocks:
 
-1. **[Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on)** to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with Britta Simon.
-3. **[Create a QPrism test user](#create-a-qprism-test-user)** to have a counterpart of Britta Simon in QPrism who is linked to the Azure AD representation of user.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)** to verify whether the configuration works.
+1. [Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on) to enable your users to use this feature.
+2. [Create an Azure AD test user](#create-an-azure-ad-test-user) to test Azure AD single sign-on with Britta Simon.
+3. [Create a QPrism test user](#create-a-qprism-test-user) to have a counterpart of Britta Simon in QPrism who is linked to the Azure AD representation of user.
+4. [Assign the Azure AD test user](#assign-the-azure-ad-test-user) to enable Britta Simon to use Azure AD single sign-on.
+5. [Test single sign-on](#test-single-sign-on) to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -135,7 +135,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal, and con
 6. To configure single sign-on on the **QPrism** side, send the **Metadata URL** to the [QPrism support team](mailto:qsupport-ce@quatrro.com). They ensure that the SAML single sign-on connection is set properly on both sides.
 
 > [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app. After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985).
+> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app. After you add this app from the **Active Directory** > **Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985).
 
 ### Create an Azure AD test user
 
@@ -143,7 +143,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
    ![Create an Azure AD test user][100]
 
-**To create a test user in Azure AD, do the following:**
+**To create a test user in Azure AD:**
 
 1. In the Azure portal, in the left pane, select **Azure Active Directory**.
 
@@ -179,7 +179,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ![Assign the user role][200] 
 
-**To assign Britta Simon to QPrism, do the following:**
+**To assign Britta Simon to QPrism:**
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view. Go to **Enterprise applications**, and select **All applications**.
 
@@ -212,7 +212,7 @@ For more information about the Access Panel, see [Introduction to the Access 
 
 ## Additional resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [List of tutorials on how to integrate SaaS apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
