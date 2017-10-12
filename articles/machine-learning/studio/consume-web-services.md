@@ -88,12 +88,12 @@ The Machine Learning API help contains details about a prediction Web service.
 
 **To view Machine Learning API help for a New Web service**
 
-In the Azure Machine Learning Web Services Portal:
+In the [Azure Machine Learning Web Services Portal](https://services.azureml.net/):
 
 1. Click **WEB SERVICES** on the top menu.
 2. Click the Web service for which you want to retrieve the key.
 
-Click **Consume** to get the URIs for the Request-Reposonse and Batch Execution Services and Sample code in C#, R, and Python.
+Click **Use Web Service** to get the URIs for the Request-Reposonse and Batch Execution Services and Sample code in C#, R, and Python.
 
 Click **Swagger API** to get Swagger based documentation for the APIs called from the supplied URIs.
 
@@ -114,8 +114,95 @@ To connect to a Machine Learning Web service, the **Microsoft.AspNet.WebApi.Clie
 2. Assign apiKey with the key from a Web service. See **Get an Azure Machine Learning authorization key** above.
 3. Assign serviceUri with the Request URI.
 
+**Here is what a complete request will look like.**
+```csharp
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Net.Http;
+using System.Net.Http.Formatting;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CallRequestResponseService
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            InvokeRequestResponseService().Wait();
+        }
+
+        static async Task InvokeRequestResponseService()
+        {
+            using (var client = new HttpClient())
+            {
+                var scoreRequest = new
+                {
+                    Inputs = new Dictionary<string, List<Dictionary<string, string>>> () {
+                        {
+                            "input1",
+                            // Replace columns labels with those used in your dataset
+                            new List<Dictionary<string, string>>(){new Dictionary<string, string>(){
+                                    {
+                                        "column1", "value1"
+                                    },
+                                    {
+                                        "column2", "value2"
+                                    },
+                                    {
+                                        "column3", "value3"
+                                    }
+                                }
+                            }
+                        },
+                    },
+                    GlobalParameters = new Dictionary<string, string>() {}
+                };
+
+                // Replace these values with your API key and URI found on https://services.azureml.net/
+                const string apiKey = "<your-api-key>"; 
+                const string apiUri = "<your-api-uri>";
+                
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", apiKey);
+                client.BaseAddress = new Uri(apiUri);
+
+                // WARNING: The 'await' statement below can result in a deadlock
+                // if you are calling this code from the UI thread of an ASP.Net application.
+                // One way to address this would be to call ConfigureAwait(false)
+                // so that the execution does not attempt to resume on the original context.
+                // For instance, replace code such as:
+                //      result = await DoSomeTask()
+                // with the following:
+                //      result = await DoSomeTask().ConfigureAwait(false)
+
+                HttpResponseMessage response = await client.PostAsJsonAsync("", scoreRequest);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string result = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine("Result: {0}", result);
+                }
+                else
+                {
+                    Console.WriteLine(string.Format("The request failed with status code: {0}", response.StatusCode));
+
+                    // Print the headers - they include the requert ID and the timestamp,
+                    // which are useful for debugging the failure
+                    Console.WriteLine(response.Headers.ToString());
+
+                    string responseContent = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine(responseContent);
+                }
+            }
+        }
+    }
+}
+```
+
 ### Python Sample
-To connect to a Machine Learning Web service, use the **urllib2** library passing ScoreData. ScoreData contains a FeatureVector, an n-dimensional  vector of numerical features that represents the ScoreData. You authenticate to the Machine Learning service with an API key.
+To connect to a Machine Learning Web service, use the **urllib2** library for Python 2.X and **urllib.request** library for Python 3.X. You will pass ScoreData, which contains a FeatureVector, an n-dimensional vector of numerical features that represents the ScoreData. You authenticate to the Machine Learning service with an API key.
 
 **To run the code sample**
 
@@ -123,3 +210,146 @@ To connect to a Machine Learning Web service, use the **urllib2** library passin
 2. Assign apiKey with the key from a Web service. See the **Get an Azure Machine Learning authorization key** section near the beginning of this article.
 3. Assign serviceUri with the Request URI.
 
+**Here is what a complete request will look like.**
+```python
+import urllib2 # urllib.request for Python 3.X
+import json
+
+data = {
+    "Inputs": {
+        "input1":
+        [
+            {
+                'column1': "value1",   
+                'column2': "value2",   
+                'column3': "value3"
+            }
+        ],
+    },
+    "GlobalParameters":  {}
+}
+
+body = str.encode(json.dumps(data))
+
+# Replace this with the URI and API Key for your web service
+url = '<your-api-uri>'
+api_key = '<your-api-key>'
+headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
+
+# "urllib.request.Request(uri, body, headers)" for Python 3.X
+req = urllib2.Request(url, body, headers)
+
+try:
+    # "urllib.request.urlopen(req)" for Python 3.X
+    response = urllib2.urlopen(req)
+
+    result = response.read()
+    print(result)
+# "urllib.error.HTTPError as error" for Python 3.X
+except urllib2.HTTPError, error: 
+    print("The request failed with status code: " + str(error.code))
+
+    # Print the headers - they include the requert ID and the timestamp, which are useful for debugging the failure
+    print(error.info())
+    print(json.loads(error.read())) 
+```
+
+### R Sample
+
+To connect to a Machine Learning Web Service, use the **RCurl** and **rjson** libraries to make the request and process the returned JSON response. You will pass ScoreData, which contains a FeatureVector, an n-dimensional vector of numerical features that represents the ScoreData. You authenticate to the Machine Learning service with an API key.
+
+**Here is what a complete request will look like.**
+```r
+library("RCurl")
+library("rjson")
+
+# Accept SSL certificates issued by public Certificate Authorities
+options(RCurlOptions = list(cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl")))
+
+h = basicTextGatherer()
+hdr = basicHeaderGatherer()
+
+req = list(
+    Inputs = list(
+            "input1" = list(
+                list(
+                        'column1' = "value1",
+                        'column2' = "value2",
+                        'column3' = "value3"
+                    )
+            )
+        ),
+        GlobalParameters = setNames(fromJSON('{}'), character(0))
+)
+
+body = enc2utf8(toJSON(req))
+api_key = "<your-api-key>" # Replace this with the API key for the web service
+authz_hdr = paste('Bearer', api_key, sep=' ')
+
+h$reset()
+curlPerform(url = "<your-api-uri>",
+httpheader=c('Content-Type' = "application/json", 'Authorization' = authz_hdr),
+postfields=body,
+writefunction = h$update,
+headerfunction = hdr$update,
+verbose = TRUE
+)
+
+headers = hdr$value()
+httpStatus = headers["status"]
+if (httpStatus >= 400)
+{
+print(paste("The request failed with status code:", httpStatus, sep=" "))
+
+# Print the headers - they include the requert ID and the timestamp, which are useful for debugging the failure
+print(headers)
+}
+
+print("Result:")
+result = h$value()
+print(fromJSON(result))
+```
+
+### JavaScript Sample
+
+To connect to a Machine Learning Web Service, use the **request** npm package in your project. You will also use the `JSON` object to format your input and parse the result. Install using `npm install request --save`, or add `"request": "*"` to your package.json under `dependencies` and run `npm install`.
+
+**Here is what a complete request will look like.**
+```js
+let req = require("request");
+
+const uri = "<your-api-uri>";
+const apiKey = "<your-api-key>";
+
+let data = {
+    "Inputs": {
+        "input1":
+        [
+            {
+                'column1': "value1",
+                'column2': "value2",
+                'column3': "value3"
+            }
+        ],
+    },
+    "GlobalParameters": {}
+}
+
+const options = {
+    uri: uri,
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + apiKey,
+    },
+    body: JSON.stringify(data)
+}
+
+req(options, (err, res, body) => {
+    if (!err && res.statusCode == 200) {
+        console.log(body);
+    } else {
+        console.log("The request failed with status code: " + res.statusCode);
+    }
+});
+```
