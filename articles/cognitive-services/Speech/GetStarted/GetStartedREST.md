@@ -25,7 +25,10 @@ To use speech recognition REST API, the steps are as follows:
 
 ### Subscribe to Speech API and get a free trial subscription key
 
-To access the REST end points, you must first subscribe to Speech API, which is part of Microsoft Cognitive Services on Azure(previously Project Oxford). After subscribing, you can ask for free trial subscription keys. Both the primary and secondary keys can be used. For subscription and key management details, see [Subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/).
+> [!IMPORTANT]
+> You must have a subscription key before accessing Speech REST API.
+
+Microsoft Speech API is part of Microsoft Cognitive Services on Azure(previously Project Oxford). You can get free trial subscription keys from the [Cognitive Services Subscription](https://azure.microsoft.com/en-us/try/cognitive-services/) page. After you select the Speech API, click Get API Key to get the key. It returns a primary and secondary key. Both keys are tied to the same quota, so you may use either key.
 
 ### Precorded audio file
 
