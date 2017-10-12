@@ -37,6 +37,8 @@
   href: pim-azure-resource.md
 - name: Conditional access for Azure management
   href: conditional-access-azure-management.md
+- name: Authorizing external users for Azure management
+  href: b2b-access-azure-management.md  
 - name: Managed Service Identity
   href: msi-overview.md
   items:
