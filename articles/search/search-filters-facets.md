@@ -41,7 +41,7 @@ New to faceted navigation and want more detail? See [How to implement faceted na
 
 ## Choose fields
 
-Facets can be based on simple or complex field types in Azure Search. Fields that work best in faceted navigation have low cardinality: a small number of distinct values that repeat throughout documents in your search corpus.
+Facets can be based on simple or complex field types in Azure Search. Fields that work best in faceted navigation have low cardinality: a small number of distinct values that repeat throughout documents in your search corpus. Choose fields containing a relatively small number of values (such as a list of colors, countries, or brand names), and the number of conditions is also small (color eq ‘blue’ or color eq ‘yellow’). The performance benefit comes from caching, which Azure Search does for queries most likely to be repeated.
 
 Faceting is enabled on a field-by-field basis when you create the index, setting the following attributes to TRUE: `filterable`, `facetable`. Only filterable fields can be faceted.
 
