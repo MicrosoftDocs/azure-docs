@@ -46,9 +46,11 @@ You can use Node.js to access the same results you saw in the browser window in 
 
    [!code-nodejs[Console app code that calls a LUIS endpoint for Node.js](~/samples-luis/documentation-samples/endpoint-api-samples/node/call-endpoint.js)]
 
-2. Replace the value of the subscription key with your LUIS subscription key.
+2. Set the `LUIS_APP_ID` environment variable as described in the code comments. 
 
-3. Run the script. It displays the same JSON that you saw earlier in the browser window.
+3. Set the `LUIS_SUBSCRIPTION_KEY` environment variable to your Cognitive Services subscription key.
+
+4. Run the code. It displays the same values that you saw earlier in the browser window.
 <!-- 
 ![Console window displays JSON result from LUIS](./media/luis-get-started-Node.js-get-intent/console-turn-on.png)
 -->
