@@ -24,7 +24,7 @@ To complete this quickstart, you need:
  
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-## Onboard your app to Mobile Center
+## Onboard to Mobile Center
 
 Before you can use Application Insights with your mobile app, you need to onboard your app to [Mobile Center](https://docs.microsoft.com/mobile-center/). Application Insights does not receive telemetry from your mobile app directly. Instead, your app sends custom event telemetry to Mobile Center. Then, Mobile Center continuously exports copies of these custom events into Application Insights as the events are received.
 
@@ -36,7 +36,7 @@ To onboard your app, follow the Mobile Center quickstart for each platform your 
 * [Universal Windows](https://docs.microsoft.com/mobile-center/sdk/getting-started/uwp).
 * [React Native](https://docs.microsoft.com/mobile-center/sdk/getting-started/react-native).
 
-## Track events in your app with the Mobile Center SDK
+## Track events in your app
 
 After your app is onboarded to Mobile Center, it needs to be modified to send custom event telemetry using the Mobile Center SDK. Custom events are the only type of Mobile Center telemetry that is exported to Application Insights.
 
@@ -56,7 +56,7 @@ To send custom events from other app platforms, use the `trackEvent` methods in 
 
 To make sure your custom events are being received, go to the **Events** tab under the **Analytics** section in Mobile Center. It can take a couple minutes for events to show up from when they're sent from your app.
 
-## Create a Mobile Center-type Application Insights resource in the Azure portal
+## Create an Application Insights resource
 
 Once your app is sending custom events and these events are being received by Mobile Center, you need to create a Mobile Center-type Application Insights resource in the Azure portal:
 
@@ -78,7 +78,7 @@ Once your app is sending custom events and these events are being received by Mo
 
 If your app supports multiple platforms (iOS, Android, etc.), it's best to create separate Application Insights resources, one for each platform.
 
-## Start exporting your Mobile Center data into the Application Insights resource
+## Export to Application Insights
 
 In your new Application Insights resource on the **Overview** page in the **Essentials** section at the top, copy the instrumentation key for this resource.
 
@@ -95,7 +95,7 @@ Once [export](https://docs.microsoft.com/mobile-center/analytics/export) is set 
 
 To give you more data when you first connect, the most recent 48 hours of custom events in Mobile Center are automatically exported to Application Insights.
 
-## Start monitoring your app in the Azure portal
+## Start monitoring your app
 
 Application Insights can query, segment, filter, and analyze the custom event telemetry from your apps, beyond the analytics tools Mobile Center provides.
 
