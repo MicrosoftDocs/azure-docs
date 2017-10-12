@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/19/2017
+ms.date: 10/11/2017
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
@@ -46,6 +46,8 @@ In the example above, less money was spent starting on 2017-08-31 than before. T
 
 In the example, you clearly see that Azure Storage cost dropped starting on 2017-08-31 while spending on other Azure services remained level. So, what caused that reduction in spending? In this example, some employees were on vacation away from work and did not use the Storage service.
 
+To watch a tutorial video about tracking usage and cost trends, see [Analyzing your cloud billing data vs. time with Azure Cost Management by Cloudyn](https://youtu.be/7LsVPHglM0g).
+
 ## Detect usage inefficiencies
 
 Optimizer reports improve efficiency, optimize usage, and identify ways to save money spent on your cloud resources. They are especially helpful with cost-effective sizing recommendations intended to help reduce idle or expensive VMs.
@@ -67,6 +69,8 @@ In this example, $3,114 could be saved by following the recommendations to chang
 Click the plus symbol next to **List of Candidates** to view VM instance IDs.
 
 ![List of Candidates](./media/tutorial-review-usage/sizing03.png)
+
+To watch a tutorial video about detecting usage inefficiencies, see [Optimizing VM Size in Azure Cost Management by Cloudyn](https://youtu.be/1xaZBNmV704).
 
 ## Create alerts for unusual spending
 
