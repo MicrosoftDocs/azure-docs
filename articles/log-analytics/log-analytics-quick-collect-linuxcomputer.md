@@ -107,7 +107,7 @@ To remove the agent, perform the following steps.
 1. Download the the Linux agent [universal script](https://github.com/Microsoft/OMS-Agent-for-Linux/releases) to the computer.
 2. Run the bundle .sh file w the *--purge* argument on the computer, which completely removes the agent and its configuration.
 
-    > sudo sh ./omsagent-<version>.universal.x64.sh --purge
+    `sudo sh ./omsagent-<version>.universal.x64.sh --purge`
 
 To delete the workspace, select the Log Analytics workspace you created earlier and on the resource page click **Delete**.<br> ![Delete Log Analytics resource](media/log-analytics-quick-collect-azurevm/log-analytics-portal-delete-resource.png)
 
