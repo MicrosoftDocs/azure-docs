@@ -13,14 +13,14 @@ ms.devlang:
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 09/30/2017
+ms.date: 10/13/2017
 ms.author: heidist
 
 ---
 
 # How to build a facet filter in Azure Search 
 
-Faceted navigation is used for self-directed filtering on query results in a search app, where your application offers UI controls for scoping search to groups of dcuments (for example, categories or brands), and Azure Search provides the data stucture to back the experience. In this article, quickly learn basic steps for creating a faceted navigation structure to back the search experience you want to create. 
+Faceted navigation is used for self-directed filtering on query results in a search app, where your application offers UI controls for scoping search to groups of dcuments (for example, categories or brands), and Azure Search provides the data stucture to back the experience. In this article, quickly review the basic steps for creating a faceted navigation structure backing the search experience you want to provide. 
 
 > [!div class="checklist"]
 > * Choose fields for filtering and faceting
@@ -28,7 +28,6 @@ Faceted navigation is used for self-directed filtering on query results in a sea
 > * Build the index and load data
 > * Add facet filters to a query
 > * Handle results
-> * Facet navigation for complex objects 
 
 Facets are dynamic and returned on a query. Search responses bring with them the facet categories used to navigate the results. If you aren't familiar with facets, the following example is an illustration of a facet navigation structure.
 
@@ -36,16 +35,13 @@ Facets are dynamic and returned on a query. Search responses bring with them the
 
 New to faceted navigation and want more detail? See [How to implement faceted navigation in Azure Search](search-faceted-navigation.md).
 
-> [!Tip]
-> If you want to initialize a page with facets in place, you can send a query as part of page initialization to seed the page with an initial facet structure.
-
 ## Choose fields
 
-Facets can be based on simple or complex field types in Azure Search. Fields that work best in faceted navigation have low cardinality: a small number of distinct values that repeat throughout documents in your search corpus. Choose fields containing a relatively small number of values (such as a list of colors, countries, or brand names), and the number of conditions is also small (color eq ‘blue’ or color eq ‘yellow’). The performance benefit comes from caching, which Azure Search does for queries most likely to be repeated.
+Facets can be based on simple or complex field types in Azure Search. Fields that work best in faceted navigation have low cardinality: a small number of distinct values that repeat throughout documents in your search corpus (for example, a list of colors, countries, or brand names). 
 
-Faceting is enabled on a field-by-field basis when you create the index, setting the following attributes to TRUE: `filterable`, `facetable`. Only filterable fields can be faceted.
+Faceting is enabled on a field-by-field basis when you create the index, by setting the following attributes to TRUE: `filterable`, `facetable`. Only filterable fields can be faceted.
 
-All [field types](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) that could possibly be used in faceted navigation are Facetable by default:
+Any [field type](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) that could possibly be used in faceted navigation is marked as "facetable" by default:
 
 + Edm.String
 + Edm.DateTimeOffset
@@ -57,9 +53,9 @@ You cannot use Edm.GeographyPoint in faceted navigation. Facets are constructed 
 
 ## Set attributes
 
-Index attributes that control how a field is used are added to individual field definitions in the index. In the following eample, fields with low cardinality, useful for faceting, include category (hotel, motel, hostel), amenities, and ratings. 
+Index attributes that control how a field is used are added to individual field definitions in the index. In the following example, fields with low cardinality, useful for faceting, consist of: category (hotel, motel, hostel), amenities, and ratings. 
 
-Because faceting and filtering are enabled by default, explicitly setting the attributes is not required unless you want to turn faceting off. We include the attributions in our example for instructional purposes.
+In the REST API, faceting and filtering are enabled by default, which means you only need to explicitly set the attributes when you want to turn them off. Although it is not technically required, we show the attributions in the following example for instructional purposes.
 
 > [!Tip]
 > As a best practice for performance and storage optimization, turn faceting off for fields that should never be used as a facet. In particular, string fields for singleton values, such as an ID or product name, should be set to "Facetable": false to prevent their accidental (and ineffective) use in faceted navigation.
@@ -86,7 +82,7 @@ Because faceting and filtering are enabled by default, explicitly setting the at
 ```
 
 > [!Note]
-> This index definition is copied from [Create an Azure Search index using the REST API](https://docs.microsoft.com/azure/search/search-create-index-rest-api). It is identical except for superficial differences in the field definitions. Filterable and facetable attributes are explicitly added on category, tags, parkingIncluded, smokingAllowed, and rating fields. In practice, you get filterable and facetable for free on Edm.String, Edm.Boolean, and Edm.Int32 field types, so this change is for instructional purposes only.
+> This index definition is copied from [Create an Azure Search index using the REST API](https://docs.microsoft.com/azure/search/search-create-index-rest-api). It is identical except for superficial differences in the field definitions. Filterable and facetable attributes are explicitly added on category, tags, parkingIncluded, smokingAllowed, and rating fields. In practice, you get filterable and facetable for free on Edm.String, Edm.Boolean, and Edm.Int32 field types. The .NET SDK follows different rules for filters and facets. If you are using the .NET SDK, filters and facets have to be explicitly included in the field definition.
 
 ## Build and load an index
 
@@ -117,7 +113,7 @@ The syntax for uploading a string collection is pretty straightforward in JSON:
     }
 }
 
-
+(3) Trim the results via "select"
 
 
 
@@ -127,20 +123,17 @@ The syntax for uploading a string collection is pretty straightforward in JSON:
 
 One of the challenges with facet navigation in Azure Search is that the structure provides only the 
 
+
+> [!Tip]
+> If you want to initialize a page with facets in place, you can send a query as part of page initialization to seed the page with an initial facet structure.
+
+
 ### Add visualization
 
 ### Return filtered results on click events
 
 The filter expression handles the click event on the facet value. Given a Category facet, clicking the category "motel" is implemented through a `$filter` expression that selects accommodations of that type.
 
-
-<a name="facet-complex-fields"></a>
-
-## Facet complex data types
-
-If you are [modeling complex data types](search-howto-complex-data-types.md), you can use them in a facet navigation structure.
-
-STEPS TBD
 
 ## See also
 
