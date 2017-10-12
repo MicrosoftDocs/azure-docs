@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/25/2017
+ms.date: 10/10/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
@@ -93,6 +93,9 @@ To install NVIDIA GRID drivers on NV VMs, make an SSH connection to each VM and 
 
 ### CentOS-based 7.3 or Red Hat Enterprise Linux 7.3
 
+> [!IMPORTANT]
+> Do not run `sudo yum update` to update the kernel version on CentOS 7.3 or Red Hat Enterprise Linux 7.3. Currently, driver installation and updates do not work if the kernel is updated.
+>
 
 1. Update the kernel and DKMS.
  
@@ -117,15 +120,16 @@ To install NVIDIA GRID drivers on NV VMs, make an SSH connection to each VM and 
 3. Reboot the VM, reconnect, and install the latest Linux Integration Services for Hyper-V:
  
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.2-2.tar.gz
- 
-  tar xvzf lis-rpms-4.2.2-2.tar.gz
- 
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3.tar.gz
+
+  tar xvzf lis-rpms-4.2.3.tar.gz
+
   cd LISISO
- 
+
   sudo ./install.sh
- 
+
   sudo reboot
+
   ```
  
 4. Reconnect to the VM and run the `lspci` command. Verify that the NVIDIA M60 card or cards are visible as PCI devices.
@@ -223,11 +227,13 @@ Then run installation commands specific for your distribution.
 
 1. Download and install the CUDA drivers.
   ```bash
-  CUDA_REPO_PKG=cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
+  CUDA_REPO_PKG=cuda-9-0_9.0.176-1_amd64.deb
 
   wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
 
   sudo dpkg -i /tmp/${CUDA_REPO_PKG}
+
+  sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub 
 
   rm -f /tmp/${CUDA_REPO_PKG}
 
@@ -247,25 +253,38 @@ Then run installation commands specific for your distribution.
 
 3. Reboot the VM and proceed to verify the installation.
 
+#### CUDA driver updates
+
+We recommend that you periodically update CUDA drivers after deployment.
+
+```bash
+sudo apt-get update
+
+sudo apt-get upgrade -y
+
+sudo apt-get dist-upgrade -y
+
+sudo apt-get install cuda-drivers
+
+sudo reboot
+```
+
 ### CentOS-based 7.3 or Red Hat Enterprise Linux 7.3
 
-1. Get updates. 
+> [!IMPORTANT]
+> Do not run `sudo yum update` to update the kernel version on CentOS 7.3 or Red Hat Enterprise Linux 7.3. Currently, driver installation and updates do not work if the kernel is updated.
+>
 
-  ```bash
-  sudo yum update
-
-  sudo reboot
-  ```
-2. Reconnect to the VM and install the latest Linux Integration Services for Hyper-V.
+1. Install the latest Linux Integration Services for Hyper-V.
 
   > [!IMPORTANT]
   > If you installed a CentOS-based HPC image on an NC24r VM, skip to Step 3. Because Azure RDMA drivers and Linux Integration Services are pre-installed in the image, LIS should not be upgraded, and kernel updates are disabled by default.
   >
 
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3.tar.gz
  
-  tar xvzf lis-rpms-4.2.1.tar.gz
+  tar xvzf lis-rpms-4.2.3.tar.gz
  
   cd LISISO
  
@@ -283,7 +302,7 @@ Then run installation commands specific for your distribution.
 
   sudo yum install dkms
 
-  CUDA_REPO_PKG=cuda-repo-rhel7-8.0.61-1.x86_64.rpm
+  CUDA_REPO_PKG=cuda-repo-rhel7-9-0-local-9.0.176-1.x86_64.rpm
 
   wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
 
@@ -315,33 +334,20 @@ Output similar to the following appears:
 ![NVIDIA device status](./media/n-series-driver-setup/smi.png)
 
 
-### CUDA driver updates
 
-We recommend that you periodically update CUDA drivers after deployment.
+## RDMA network for NC24r VMs
 
-#### Ubuntu 16.04 LTS
+RDMA network connectivity can be enabled on NC24r VMs deployed in the same availability set. The RDMA network supports Message Passing Interface (MPI) traffic for applications running with Intel MPI 5.x or a later version. Additional requirements follow:
 
-```bash
-sudo apt-get update
+### Distributions
 
-sudo apt-get upgrade -y
+Deploy NC24r VMs from one of the following images in the Azure Marketplace that supports RDMA connectivity:
+  
+* **Ubuntu** - Ubuntu Server 16.04 LTS. Configure RDMA drivers on the VM and register with Intel to download Intel MPI:
 
-sudo apt-get dist-upgrade -y
+  [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
-sudo apt-get install cuda-drivers
-
-sudo reboot
-```
-
-
-#### CentOS-based 7.3 or Red Hat Enterprise Linux 7.3
-
-```bash
-sudo yum update
-
-sudo reboot
-```
-
+* **CentOS-based HPC** - CentOS-based 7.3 HPC. RDMA drivers and Intel MPI 5.1 are installed on the VM. 
 
 
 ## Troubleshooting

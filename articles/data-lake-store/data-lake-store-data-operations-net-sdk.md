@@ -66,7 +66,7 @@ The code sample available [on GitHub](https://github.com/Azure-Samples/data-lake
 
         using System;
         using System.IO;
-		using System.Threading;
+    		using System.Threading;
         using System.Linq;
         using System.Text;
         using System.Collections.Generic;
@@ -75,7 +75,7 @@ The code sample available [on GitHub](https://github.com/Azure-Samples/data-lake
         using Microsoft.Rest;
         using Microsoft.Rest.Azure.Authentication;
         using Microsoft.Azure.DataLake.Store;
-		using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    		using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
 7. Declare the variables as shown below, and provide the values for the placeholders. Also, make sure the local path and file name you provide here exist on the computer.
 
