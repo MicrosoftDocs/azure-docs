@@ -293,8 +293,8 @@ ms.custom: H1Hack27Feb2017
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
-[virtual-networks-multiple-nics-windows]:../../windows/multiple-nics.md
-[virtual-networks-multiple-nics-linux]:../../linux/multiple-nics.md
+[virtual-networks-multiple-nics-windows]:../windows/multiple-nics.md
+[virtual-networks-multiple-nics-linux]:../linux/multiple-nics.md
 [virtual-networks-nsg]:../../../virtual-network/virtual-networks-nsg.md
 [virtual-networks-reserved-private-ip]:../../../virtual-network/virtual-networks-static-private-ip-arm-ps.md
 [virtual-networks-static-private-ip-arm-pportal]:../../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
@@ -339,7 +339,7 @@ Throughout the document, we use the following terms:
 * SAP Environment: one or more SAP components logically grouped to perform a business function such as Development, QAS, Training, DR, or Production.
 * SAP Landscape: This refers to the entire SAP assets in a customer's IT landscape. The SAP landscape includes all production and non-production environments.
 * SAP System: The combination of DBMS layer and application layer of, for example, an SAP ERP development system, SAP BW test system, SAP CRM production system, etc.. In Azure deployments, it is not supported to divide these two layers between on-premises and Azure. This means an SAP system is either deployed on-premises or it is deployed in Azure. However, you can deploy the different systems of an SAP landscape into either Azure or on-premises. For example, you could deploy the SAP CRM development and test systems in Azure but the SAP CRM production system on-premises.
-* Cloud-Only deployment: A deployment where the Azure subscription is not connected via a site-to-site or ExpressRoute connection to the on-premises network infrastructure. In common Azure documentation these kinds of deployments are also described as ???Cloud-Only??? deployments. Virtual Machines deployed with this method are accessed through the internet and a public IP address and/or a public DNS name assigned to the VMs in Azure. For Microsoft Windows the on-premises Active Directory (AD) and DNS is not extended to Azure in these types of deployments. Hence the VMs are not part of the on-premises Active Directory. Same is true for Linux implementations using, for example, OpenLDAP + Kerberos.
+* Cloud-Only deployment: A deployment where the Azure subscription is not connected via a site-to-site or ExpressRoute connection to the on-premises network infrastructure. In common Azure documentation these kinds of deployments are also described as "Cloud-Only" deployments. Virtual Machines deployed with this method are accessed through the internet and a public IP address and/or a public DNS name assigned to the VMs in Azure. For Microsoft Windows the on-premises Active Directory (AD) and DNS is not extended to Azure in these types of deployments. Hence the VMs are not part of the on-premises Active Directory. Same is true for Linux implementations using, for example, OpenLDAP + Kerberos.
 
 > [!NOTE]
 > Cloud-Only deployment in this document is defined as complete SAP landscapes are running exclusively in Azure without extension of Active Directory / OpenLDAP  or name resolution from on-premises into public cloud. Cloud-Only configurations are not supported for production SAP systems or configurations where SAP STMS or other on-premises resources need to be used between SAP systems hosted on Azure and resources residing on-premises.
@@ -349,7 +349,7 @@ Throughout the document, we use the following terms:
 * Cross-premises: Describes a scenario where VMs are deployed to an Azure subscription that has site-to-site, multi-site, or ExpressRoute connectivity between the on-premises datacenter(s) and Azure. In common Azure documentation, these kinds of deployments are also described as cross-premises scenarios. The reason for the connection is to extend on-premises domains, on-premises Active Directory/OpenLDAP, and on-premises DNS into Azure. The on-premises landscape is extended to the Azure assets of the subscription. Having this extension, the VMs can be part of the on-premises domain. Domain users of the on-premises domain can access the servers and can run services on those VMs (like DBMS services). Communication and name resolution between VMs deployed on-premises and Azure deployed VMs is possible. This is the scenario we expect most SAP assets to be deployed in. For more information, see [this][vpn-gateway-cross-premises-options] article and [this][vpn-gateway-site-to-site-create].
 
 > [!NOTE]
-> Cross-premises deployments of SAP systems where Azure Virtual Machines running SAP systems are members of an on-premises domain are supported for production SAP systems. Cross-premises configurations are supported for deploying parts or complete SAP landscapes into Azure. Even running the complete SAP landscape in Azure requires having those VMs being part of on-premises domain and ADS/OpenLDAP. In former versions of the documentation, we talked about Hybrid-IT scenarios, where the term ???Hybrid??? is rooted in the fact that there is a cross-premises connectivity between on-premises and Azure. Plus, the fact that the VMs in Azure are part of the on-premises Active Directory / OpenLDAP.
+> Cross-premises deployments of SAP systems where Azure Virtual Machines running SAP systems are members of an on-premises domain are supported for production SAP systems. Cross-premises configurations are supported for deploying parts or complete SAP landscapes into Azure. Even running the complete SAP landscape in Azure requires having those VMs being part of on-premises domain and ADS/OpenLDAP. In former versions of the documentation, we talked about Hybrid-IT scenarios, where the term *Hybrid* is rooted in the fact that there is a cross-premises connectivity between on-premises and Azure. Plus, the fact that the VMs in Azure are part of the on-premises Active Directory / OpenLDAP.
 >
 >
 
@@ -510,7 +510,7 @@ Not all different VM series might be offered in each one of the Azure Regions (f
 >
 
 ### <a name="be80d1b9-a463-4845-bd35-f4cebdb5424a"></a>Azure Regions
-Microsoft allows to deploy Virtual Machines into so called ???Azure Regions???. An Azure Region may be one or multiple data centers that are located in close proximity. For most of the geopolitical regions in the world Microsoft has at least two Azure Regions. For example, in Europe there is an Azure Region of ???North Europe??? and one of ???West Europe???. Such two Azure Regions within a geopolitical region are separated by significant enough distance so that natural or technical disasters do not affect both Azure Regions in the same geopolitical region. Since Microsoft is steadily building out new Azure Regions in different geopolitical regions globally, the number of these regions is steadily growing and as of Dec 2015 reached the number of 20 Azure Regions with additional Regions announced already. You as a customer can deploy SAP systems into all these regions, including the two Azure Regions in China. For current up-to-date information about Azure regions see this website: <https://azure.microsoft.com/regions/>
+Microsoft allows to deploy Virtual Machines into so called *Azure Regions*. An Azure Region may be one or multiple data centers that are located in close proximity. For most of the geopolitical regions in the world Microsoft has at least two Azure Regions. For example, in Europe there is an Azure Region of *North Europe* and one of *West Europe*. Such two Azure Regions within a geopolitical region are separated by significant enough distance so that natural or technical disasters do not affect both Azure Regions in the same geopolitical region. Since Microsoft is steadily building out new Azure Regions in different geopolitical regions globally, the number of these regions is steadily growing and as of Dec 2015 reached the number of 20 Azure Regions with additional Regions announced already. You as a customer can deploy SAP systems into all these regions, including the two Azure Regions in China. For current up-to-date information about Azure regions see this website: <https://azure.microsoft.com/regions/>
 
 ### <a name="8d8ad4b8-6093-4b91-ac36-ea56d80dbf77"></a>The Microsoft Azure Virtual Machine Concept
 Microsoft Azure offers an Infrastructure as a Service (IaaS) solution to host Virtual Machines with similar functionalities as an on-premises virtualization solution. You are able to create Virtual Machines from within the Azure portal, PowerShell or CLI, which also offer deployment and management capabilities.
@@ -548,7 +548,7 @@ Microsoft Azure Virtual Machines utilize different storage types. When implement
 * Non-Persistent, volatile storage.
 * Persistent storage.
 
-The non-persistent storage is directly attached to the running Virtual Machines and resides on the compute nodes themselves ??? the local instance storage (temporary storage). The size depends on the size of the Virtual Machine chosen when the deployment started. This storage type is volatile and therefore the disk is initialized when a Virtual Machine instance is restarted. Typically, the pagefile for the operating system is located on this temporary disk.
+The non-persistent storage is directly attached to the running Virtual Machines and resides on the compute nodes themselves, the local instance storage (temporary storage). The size depends on the size of the Virtual Machine chosen when the deployment started. This storage type is volatile and therefore the disk is initialized when a Virtual Machine instance is restarted. Typically, the pagefile for the operating system is located on this temporary disk.
 
 - - -
 > ![Windows][Logo_Windows] Windows
@@ -587,7 +587,7 @@ safe and can be redeployed or in case of non-OS disks can be mounted to other VM
 
 Within the network of Azure Storage different redundancy levels can be configured:
 
-* Minimum level that can be selected is ???local redundancy???, which is equivalent to three-replica of the data within the same data center of an Azure Region (see chapter [Azure Regions][planning-guide-3.1]).
+* Minimum level that can be selected is *local redundancy*, which is equivalent to three-replica of the data within the same data center of an Azure Region (see chapter [Azure Regions][planning-guide-3.1]).
 * Zone redundant storage, which spreads the three images over different data centers within the same Azure Region.
 * Default redundancy level is geographic redundancy, which asynchronously replicates the content into another three images of the data into another Azure Region, which is hosted in the same geopolitical region.
 
@@ -640,7 +640,7 @@ SAP currently only supports Premium Managed Disks. For more information, read SA
 #### Azure Storage Accounts
 When deploying services or VMs in Azure, deployment of VHDs and VM Images can be organized in units called Azure Storage Accounts. When planning an Azure deployment, you need to carefully consider the restrictions of Azure. On the one side, there is a limited number of Storage Accounts per Azure subscription. Although each Azure Storage Account can hold a large number of VHD files, there is a fixed limit on the total IOPS per Storage Account. When deploying hundreds of SAP VMs with DBMS systems creating significant IO calls, it is recommended to distribute high IOPS DBMS VMs between multiple Azure Storage Accounts. Care must be taken not to exceed the current limit of Azure Storage Accounts per subscription. Because storage is a vital part of the database deployment for an SAP system, this concept is discussed in more detail in the already referenced [DBMS Deployment Guide][dbms-guide].
 
-More information about Azure Storage Accounts can be found in [this article][storage-scalability-targets]. Reading this article, you realize that there are differences in the limitations between Azure Standard Storage Accounts and Premium Storage Accounts. Major differences are the volume of data that can be stored within such a Storage Account. In Standard Storage the volume is a magnitude larger than with Premium Storage. On the other side, the Standard Storage Account is severely limited in IOPS (see column ???Total Request Rate???), whereas the Azure Premium Storage Account has no such limitation. We will discuss details and results of these differences when discussing the deployments of SAP systems, especially the DBMS servers.
+More information about Azure Storage Accounts can be found in [this article][storage-scalability-targets]. Reading this article, you realize that there are differences in the limitations between Azure Standard Storage Accounts and Premium Storage Accounts. Major differences are the volume of data that can be stored within such a Storage Account. In Standard Storage the volume is a magnitude larger than with Premium Storage. On the other side, the Standard Storage Account is severely limited in IOPS (see column **Total Request Rate**), whereas the Azure Premium Storage Account has no such limitation. We will discuss details and results of these differences when discussing the deployments of SAP systems, especially the DBMS servers.
 
 Within a Storage Account, you have the possibility to create different containers for the purpose of organizing and categorizing different VHDs. These containers are usually used to, for example, separate VHDs of different VMs. There are no performance implications in using just one container or multiple containers underneath a single Azure Storage Account.
 
@@ -729,7 +729,7 @@ For more documentation, please see [this article][vpn-gateway-create-site-to-sit
 Using Multi-Site VPN, you need to configure a separate Azure Virtual Network in each of the regions. However very often you have the requirement that the software components in the different regions should communicate with each other. Ideally this communication should not be routed from one Azure Region to on-premises and from there to the other Azure Region. To shortcut, Azure offers the possibility to configure a connection from one Azure Virtual Network in one region to another Azure Virtual Network hosted in another region. This functionality is called VNet-to-VNet connection. More details on this functionality can be found here:
 <https://azure.microsoft.com/documentation/articles/vpn-gateway-vnet-vnet-rm-ps/>.
 
-#### Private Connection to Azure ??? ExpressRoute
+#### Private Connection to Azure ExpressRoute
 Microsoft Azure ExpressRoute allows the creation of private connections between Azure data centers and either the customer's on-premises infrastructure or in a co-location environment. ExpressRoute is offered by various MPLS (packet switched) VPN providers or other Network Service Providers. ExpressRoute connections do not go over the public Internet. ExpressRoute connections offer higher security, more reliability through multiple parallel circuits, faster speeds, and lower latencies than typical connections over the Internet.
 
 Find more details on Azure ExpressRoute and offerings here:
@@ -859,7 +859,7 @@ Microsoft Azure offers multiple ways to deploy VMs and associated disks. Thus it
 You plan to move a specific SAP system from on-premises to Azure. This can be done by uploading the VHD, which contains the OS, the SAP Binaries, and DBMS binaries plus the VHDs with the data and log files of the DBMS to Azure. In contrast to [scenario #2 below][planning-guide-5.1.2], you keep the hostname, SAP SID, and SAP user accounts in the Azure VM as they were configured in the on-premises environment. Therefore, generalizing the image is not necessary. See chapters [Preparation for moving a VM from on-premises to Azure with a non-generalized disk][planning-guide-5.2.1] of this document for on-premises preparation steps and upload of non-generalized VMs or VHDs to Azure. Read chapter [Scenario 3: Moving a VM from on-premises using a non-generalized Azure VHD with SAP][deployment-guide-3.4] in the [Deployment Guide][deployment-guide] for detailed steps of deploying such an image in Azure.
 
 #### <a name="e18f7839-c0e2-4385-b1e6-4538453a285c"></a>Deploying a VM with a customer-specific image
-Due to specific patch requirements of your OS or DBMS version, the provided images in the Azure Marketplace might not fit your needs. Therefore, you might need to create a VM using your own ???private??? OS/DBMS VM image, which can be deployed several times afterwards. To prepare such a ???private??? image for duplication, the following items have to be considered:
+Due to specific patch requirements of your OS or DBMS version, the provided images in the Azure Marketplace might not fit your needs. Therefore, you might need to create a VM using your own private OS/DBMS VM image, which can be deployed several times afterwards. To prepare such a private image for duplication, the following items have to be considered:
 
 - - -
 > ![Windows][Logo_Windows] Windows
@@ -947,8 +947,8 @@ If the VM is prepared sufficiently to be generic and eventually independent of a
 - - -
 > ![Windows][Logo_Windows] Windows
 >
-> The last step is to log in to a VM with an Administrator account. Open a Windows command window as ???administrator???. Go to %windir%\windows\system32\sysprep and execute sysprep.exe.
-> A small window will appear. It is important to check the ???Generalize??? option (the default is un-checked) and change the Shutdown Option from its default of ???Reboot??? to 'shutdown???. This procedure assumes that the sysprep process is executed on-premises in the Guest OS of a VM.
+> The last step is to log in to a VM with an Administrator account. Open a Windows command window as *administrator*. Go to %windir%\windows\system32\sysprep and execute sysprep.exe.
+> A small window will appear. It is important to check the **Generalize** option (the default is un-checked) and change the Shutdown Option from its default of 'Reboot' to 'shutdown'. This procedure assumes that the sysprep process is executed on-premises in the Guest OS of a VM.
 > If you want to perform the procedure with a VM already running in Azure, follow the steps described in [this article](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource).
 >
 > ![Linux][Logo_Linux] Linux
@@ -959,7 +959,7 @@ If the VM is prepared sufficiently to be generic and eventually independent of a
 
 - - -
 ### Transferring VMs and VHDs between on-premises to Azure
-Since uploading VM images and disks to Azure is not possible via the Azure portal, you need to use Azure PowerShell cmdlets or CLI. Another possibility is the use of the tool ???AzCopy???. The tool can copy VHDs between on-premises and Azure (in both directions). It also can copy VHDs between Azure Regions. Please consult [this documentation][storage-use-azcopy] for download and usage of AzCopy.
+Since uploading VM images and disks to Azure is not possible via the Azure portal, you need to use Azure PowerShell cmdlets or CLI. Another possibility is the use of the tool 'AzCopy'. The tool can copy VHDs between on-premises and Azure (in both directions). It also can copy VHDs between Azure Regions. Please consult [this documentation][storage-use-azcopy] for download and usage of AzCopy.
 
 A third alternative would be to use various third-party GUI-oriented tools. However, please make sure that these tools are supporting Azure Page Blobs. For our purposes we need to use Azure Page Blob store (the differences are described here: <https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>). Also the tools provided by Azure are very efficient in compressing the VMs and VHDs which need to be uploaded. This is important because this efficiency in compression reduces the upload time (which varies anyway depending on the upload link to the internet from the on-premises facility and the Azure deployment region targeted). It is a fair assumption that uploading a VM or VHD from European location to the U.S.-based Azure data centers will take longer than uploading the same VMs/VHDs to the European Azure data centers.
 
@@ -976,7 +976,7 @@ In this case we want to upload a VHD, either with or without an OS in it, and mo
 * Log in to your subscription with *Login-AzureRmAccount*
 * Set the subscription of your context with *Set-AzureRmContext* and parameter SubscriptionId or SubscriptionName - see <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext>
 * Upload the VHD with *Add-AzureRmVhd* to an Azure Storage Account - see <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd>
-* (Optional) Create a Managed Disk from the VHD with *New-???Azure???Rm???Disk*  - see <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermdisk>
+* (Optional) Create a Managed Disk from the VHD with *New-AzureRmDisk*  - see <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermdisk>
 * Set the OS disk of a new VM config to the VHD or Managed Disk with *Set-AzureRmVMOSDisk* - see <https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk>
 * Create a new VM from the VM config with *New-AzureRmVM* - see <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm>
 * Add a data disk to a new VM with *Add-AzureRmVMDataDisk* - see <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmdatadisk>
@@ -1048,7 +1048,7 @@ During the time of the download the VHDs or Managed Disks can't be active. Even 
   ```
 
   * Downloading a VHD  
-  Once the SAP system is stopped and the VM is shut down, you can use the PowerShell cmdlet Save-AzureRmVhd on the on-premises target to download the VHD disks back to the on-premises world. In order to do that, you need the URL of the VHD which you can find in the 'storage Section??? of the Azure portal (need to navigate to the Storage Account and the storage container where the VHD was created) and you need to know where the VHD should be copied to.
+  Once the SAP system is stopped and the VM is shut down, you can use the PowerShell cmdlet Save-AzureRmVhd on the on-premises target to download the VHD disks back to the on-premises world. In order to do that, you need the URL of the VHD which you can find in the 'storage Section' of the Azure portal (need to navigate to the Storage Account and the storage container where the VHD was created) and you need to know where the VHD should be copied to.
 
   Then you can leverage the command by simply defining the parameter SourceUri as the URL of the VHD to download and the LocalFilePath as the physical location of the VHD (including its name). The command could look like:
 
@@ -1068,7 +1068,7 @@ During the time of the download the VHDs or Managed Disks can't be active. Even 
   ```
 
   * Downloading a VHD   
-  Once the SAP system is stopped and the VM is shut down, you can use the Azure CLI command _azure storage blob download_ on the on-premises target to download the VHD disks back to the on-premises world. In order to do that, you need the name and the container of the VHD which you can find in the 'storage Section??? of the Azure portal (need to navigate to the Storage Account and the storage container where the VHD was created) and you need to know where the VHD should be copied to.
+  Once the SAP system is stopped and the VM is shut down, you can use the Azure CLI command _azure storage blob download_ on the on-premises target to download the VHD disks back to the on-premises world. In order to do that, you need the name and the container of the VHD which you can find in the 'Storage Section' of the Azure portal (need to navigate to the Storage Account and the storage container where the VHD was created) and you need to know where the VHD should be copied to.
 
   Then you can leverage the command by simply defining the parameters blob and container of the VHD to download and the destination as the physical target location of the VHD (including its name). The command could look like:
 
@@ -1355,13 +1355,13 @@ It might be necessary to configure the firewall on your virtual machines to allo
 > By default, the Windows Firewall within an Azure deployed VM is turned on. You now need to allow the SAP Port to be opened, otherwise the SAP GUI will not be able to connect.
 > To do this:
 >
-> * Open Control Panel\System and Security\Windows Firewall to ???Advanced Settings???.
-> * Now right-click on Inbound Rules and chose ???New Rule???.
-> * In the following Wizard chose to create a new ???Port??? rule.
+> * Open Control Panel\System and Security\Windows Firewall to **Advanced Settings**.
+> * Now right-click on Inbound Rules and chose **New Rule**.
+> * In the following Wizard chose to create a new **Port** rule.
 > * In the next step of the wizard, leave the setting at TCP and type in the port number you want to open. Since our SAP instance ID is 00, we took 3200. If your instance has a different instance number, the port you defined earlier based on the instance number should be opened.
-> * In the next part of the wizard, you need to leave the item ???Allow Connection??? checked.
+> * In the next part of the wizard, you need to leave the item **Allow Connection** checked.
 > * In the next step of the wizard you need to define whether the rule applies for Domain, Private and Public network. Please adjust it if necessary to your needs. However, connecting with SAP GUI from the outside through the public network, you need to have the rule applied to the public network.
-> * In the last step of the wizard, name the rule and save by pressing ???Finish???
+> * In the last step of the wizard, name the rule and save by pressing **Finish**.
 >
 > The rule becomes effective immediately.
 >
@@ -1645,7 +1645,7 @@ In the table below typical SAP communication ports are listed. Basically it is s
 
 | Service | Port Name | Example `<nn`> = 01 | Default Range (min-max) | Comment |
 | --- | --- | --- | --- | --- |
-| Dispatcher |sapdp`<nn>` see * |3201 |3200 ??? 3299 |SAP Dispatcher, used by SAP GUI for Windows and Java |
+| Dispatcher |sapdp`<nn>` see * |3201 |3200 - 3299 |SAP Dispatcher, used by SAP GUI for Windows and Java |
 | Message server |sapms`<sid`> see ** |3600 |free sapms`<anySID`> |sid = SAP-System-ID |
 | Gateway |sapgw`<nn`> see * |3301 |free |SAP gateway, used for CPIC and RFC communication |
 | SAP router |sapdp99 |3299 |free |Only CI (central instance) Service names can be reassigned in /etc/services to an arbitrary value after installation. |
@@ -1672,8 +1672,7 @@ Setting up your on-premises TCP/IP based network printers in an Azure VM is over
 >
 > To do this:
 >
-> * Some network printers come with a configuration wizard which makes it easy to set up your printer in an Azure VM. If no wizard software has been distributed with the
->   printer the ???manual??? way to set up the printer is to create a new TCP/IP printer port.
+> * Some network printers come with a configuration wizard which makes it easy to set up your printer in an Azure VM. If no wizard software has been distributed with the printer, the manual way to set up the printer is to create a new TCP/IP printer port.
 > * Open Control Panel -> Devices and Printers -> Add a printer
 > * Choose Add a printer using a TCP/IP address or hostname
 > * Type in the IP address of the printer
@@ -1781,7 +1780,7 @@ RFC traffic between systems which are on-premises and in Azure needs to work. To
 
 We assume that in the cross-premises scenario, the VMs which run SAP systems that need to communicate with each other are in the same domain. Therefore the setup of an RFC connection between SAP systems does not differ from the setup steps and inputs in on-premises scenarios.
 
-#### Accessing ???local??? fileshares from SAP instances located in Azure or vice versa
+#### Accessing local fileshares from SAP instances located in Azure or vice versa
 SAP instances located in Azure need to access file shares which are within the corporate premises. In addition, on-premises SAP instances need to access file shares which are located in Azure. To enable the file shares you must configure the permissions and sharing options on the local system. Make sure to open the ports on the VPN or ExpressRoute connection between Azure and your datacenter.
 
 ## Supportability
@@ -1800,9 +1799,9 @@ The basic building blocks of the Monitoring solution in Azure for SAP looks like
 
 As shown in the block diagram above, one part of the monitoring solution for SAP is hosted in the Azure VM Image and Azure Extension Gallery which is a globally replicated repository that is managed by Azure Operations. It is the responsibility of the joint SAP/MS team working on the Azure implementation of SAP to work with Azure Operations to publish new versions of the Azure Monitoring Extension for SAP.
 
-When you deploy a new Windows VM, the ???Azure VM Agent??? is automatically added into the VM. The function of this agent is to coordinate the loading and configuration of the Azure Extensions for monitoring of SAP NetWeaver Systems. For Linux VMs the Azure VM Agent is already part of the Azure Marketplace OS image.
+When you deploy a new Windows VM, the Azure VM Agent is automatically added into the VM. The function of this agent is to coordinate the loading and configuration of the Azure Extensions for monitoring of SAP NetWeaver Systems. For Linux VMs the Azure VM Agent is already part of the Azure Marketplace OS image.
 
-However, there is a step that still needs to be executed by the customer. This is the enablement and configuration of the performance collection. The process related to the ???configuration??? is automated by a PowerShell script or CLI command. The PowerShell script can be downloaded in the Microsoft Azure Script Center as described in the [Deployment Guide][deployment-guide].
+However, there is a step that still needs to be executed by the customer. This is the enablement and configuration of the performance collection. The process related to the configuration is automated by a PowerShell script or CLI command. The PowerShell script can be downloaded in the Microsoft Azure Script Center as described in the [Deployment Guide][deployment-guide].
 
 The overall Architecture of the Azure monitoring solution for SAP looks like:
 
@@ -1862,7 +1861,7 @@ There is currently a single-VM SLA of 99.9%. To get an idea how the availability
 
 The basis for the calculation is 30 days per month, or 43200 minutes. Therefore, 0.05% downtime corresponds to 21.6 minutes. As usual, the availability of the different services will multiply in the following way:
 
-(Availability Service #1/100) * (Availability Service #2/100) * (Availability Service #3/100) *???
+(Availability Service #1/100) * (Availability Service #2/100) * (Availability Service #3/100) 
 
 Like:
 
@@ -1883,11 +1882,11 @@ Since Azure Storage is keeping three images of the data by default, RAID5 or RAI
 
 More details can be found in this article: <http://azure.microsoft.com/documentation/articles/storage-redundancy/>
 
-#### Utilizing Azure Infrastructure VM Restart to Achieve ???Higher Availability??? of SAP Applications
+#### Utilizing Azure Infrastructure VM Restart to Achieve Higher Availability of SAP Applications
 If you decide not to use functionalities like Windows Server Failover Clustering (WSFC) or Pacemaker on Linux (currently only supported for SLES 12 and higher), Azure VM Restart is utilized to protect an SAP System against planned and unplanned downtime of the Azure physical server infrastructure and overall underlying Azure platform.
 
 > [!NOTE]
-> It is important to mention that Azure VM Restart primarily protects VMs and NOT applications. VM Restart does not offer high availability for SAP applications, but it does offer a certain level of infrastructure availability and therefore indirectly ???higher availability??? of SAP systems. There is also no SLA for the time it will take to restart a VM after a planned or unplanned host outage. Therefore, this method of ???high availability??? is not suitable for critical components of an SAP system like (A)SCS or DBMS.
+> It is important to mention that Azure VM Restart primarily protects VMs and NOT applications. VM Restart does not offer high availability for SAP applications, but it does offer a certain level of infrastructure availability and therefore indirectly higher availability of SAP systems. There is also no SLA for the time it will take to restart a VM after a planned or unplanned host outage. Therefore, this method of high availability is not suitable for critical components of an SAP system like (A)SCS or DBMS.
 >
 >
 
@@ -1899,11 +1898,11 @@ Azure Managed Disks are automatically placed in the Fault Domain of the virtual 
 
 A sample architecture of an SAP NetWeaver system that uses Azure infrastructure HA and storage accounts could look like this:
 
-![Utilizing Azure infrastructure HA to achieve SAP application ???higher??? availability][planning-guide-figure-2900]
+![Utilizing Azure infrastructure HA to achieve SAP application higher availability][planning-guide-figure-2900]
 
 A sample architecture of an SAP NetWeaver system that uses Azure infrastructure HA and Managed Disks could look like this:
 
-![Utilizing Azure infrastructure HA to achieve SAP application ???higher??? availability][planning-guide-figure-2901]
+![Utilizing Azure infrastructure HA to achieve SAP application higher availability][planning-guide-figure-2901]
 
 For critical SAP components we achieved the following so far:
 
@@ -1911,18 +1910,18 @@ For critical SAP components we achieved the following so far:
 
   SAP application server instances are redundant components. Each SAP AS instance is deployed on its own VM, that is running in a different Azure Fault and Upgrade Domain (see chapters [Fault Domains][planning-guide-3.2.1] and [Upgrade Domains][planning-guide-3.2.2]). This is ensured by using Azure Availability Sets (see chapter [Azure Availability Sets][planning-guide-3.2.3]). Potential planned or unplanned unavailability of an Azure Fault or Upgrade Domain will cause unavailability of a restricted number of VMs with their SAP AS instances.
 
-  Each SAP AS instance is placed in its own Azure Storage account ??? potential unavailability of one Azure Storage Account will cause unavailability of only one VM with its SAP AS instance. However, be aware that there is a limit of Azure Storage Accounts within one Azure subscription. To ensure automatic start of (A)SCS instance after the VM reboot, make sure to set the Autostart parameter in (A)SCS instance start profile described in chapter [Using Autostart for SAP instances][planning-guide-11.5].
+  Each SAP AS instance is placed in its own Azure Storage account - potential unavailability of one Azure Storage Account will cause unavailability of only one VM with its SAP AS instance. However, be aware that there is a limit of Azure Storage Accounts within one Azure subscription. To ensure automatic start of (A)SCS instance after the VM reboot, make sure to set the Autostart parameter in (A)SCS instance start profile described in chapter [Using Autostart for SAP instances][planning-guide-11.5].
   Please also read chapter [High Availability for SAP Application Servers][planning-guide-11.4.1] for more details.
 
   Even if you use Managed Disks, those disks are also stored in an Azure Storage Account and can be unavailable in an event of a storage outage.
 
 * *Higher* Availability of SAP (A)SCS instance
 
-  Here we utilize Azure VM Restart to protect the VM with installed SAP (A)SCS instance. In the case of planned or unplanned downtime of Azure severs, VMs will be restarted on another available server. As mentioned earlier, Azure VM Restart primarily protects VMs and NOT applications, in this case the (A)SCS instance. Through the VM Restart we???ll reach indirectly ???higher availability??? of SAP (A)SCS instance. To insure automatic start of (A)SCS instance after the VM reboot, make sure to set Autostart parameter in (A)SCS instance start profile described in chapter [Using Autostart for SAP instances][planning-guide-11.5]. This means the (A)SCS instance as a Single Point of Failure (SPOF) running in a single VM will be the determinative factor for the availability of the whole SAP landscape.
+  Here we utilize Azure VM Restart to protect the VM with installed SAP (A)SCS instance. In the case of planned or unplanned downtime of Azure severs, VMs will be restarted on another available server. As mentioned earlier, Azure VM Restart primarily protects VMs and NOT applications, in this case the (A)SCS instance. Through the VM Restart we'll reach indirectly higher availability of SAP (A)SCS instance. To insure automatic start of (A)SCS instance after the VM reboot, make sure to set Autostart parameter in (A)SCS instance start profile described in chapter [Using Autostart for SAP instances][planning-guide-11.5]. This means the (A)SCS instance as a Single Point of Failure (SPOF) running in a single VM will be the determinative factor for the availability of the whole SAP landscape.
 
 * *Higher* Availability of DBMS Server
 
-  Here, similar to the SAP (A)SCS instance use case, we utilize Azure VM Restart to protect the VM with installed DBMS software, and we achieve ???higher availability??? of DBMS software through VM Restart.
+  Here, similar to the SAP (A)SCS instance use case, we utilize Azure VM Restart to protect the VM with installed DBMS software, and we achieve higher availability of DBMS software through VM Restart.
   DBMS running in a single VM is also a SPOF, and it is the determinative factor for the availability of the whole SAP landscape.
 
 ### SAP Application High Availability on Azure IaaS
@@ -2023,7 +2022,7 @@ However, over the course of last year data center partners developed co-location
 ### Offline Backup of SAP systems
 Dependent on the SAP configuration chosen (2-Tier or 3-Tier) there could be a need to back up. The content of the VM itself plus to have a backup of the database. The DBMS-related backups are expected to be done with database methods. A detailed description for the different databases, can be found in [DBMS Guide][dbms-guide]. On the other hand, the SAP data can be backed up in an offline manner (including the database content as well) as described in this section or online as described in the next section.
 
-The offline backup would basically require a shutdown of the VM through the Azure portal and a copy of the base VM disk plus all attached disks to the VM. This would preserve a point in time image of the VM and its associated disk. It is recommended to copy the ???backups??? into a different Azure Storage Account. Hence the procedure described in chapter [Copying disks between Azure Storage Accounts][planning-guide-5.4.2] of this document would apply.
+The offline backup would basically require a shutdown of the VM through the Azure portal and a copy of the base VM disk plus all attached disks to the VM. This would preserve a point in time image of the VM and its associated disk. It is recommended to copy the backups into a different Azure Storage Account. Hence the procedure described in chapter [Copying disks between Azure Storage Accounts][planning-guide-5.4.2] of this document would apply.
 Besides the shutdown using the Azure portal one can also do it via Powershell or CLI as described here:
 <https://azure.microsoft.com/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/>
 
