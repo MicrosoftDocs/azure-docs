@@ -3,7 +3,7 @@ title: Azure SQL database metrics & diagnostics logging | Microsoft Docs
 description: Learn about configuring Azure SQL Database resource to store resource usage, connectivity, and query execution statistics.
 services: sql-database
 documentationcenter: ''
-author: vvasic
+author: veljko-msft 
 manager: jhubbard
 editor: 
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
-ms.author: vvasic
+ms.author: veljko-msft 
 
 ---
 # Azure SQL Database metrics and diagnostics logging 
@@ -102,6 +102,17 @@ To enable metrics and diagnostics logging using PowerShell, use the following co
    ```
 
 You can combine these parameters to enable multiple output options.
+
+### To configure multiple Azure subscriptions
+
+To support multiple subscriptions, use the PowerShell script from [Enable Azure resource metrics logging using PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/). Provide the workspace resource ID as a parameter when executing the script to send diagnostic data from resources in one Azure subscription to a workspace in another Azure subscription.
+
+- To configure multiple Azure subscriptions, use the following commands:
+
+    ```powershell
+    PS C:\> $WSID = "/subscriptions/<subID>/resourcegroups/oms/providers/microsoft.operationalinsights/workspaces/omsws"
+    PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
+    ```
 
 ### Azure CLI
 
