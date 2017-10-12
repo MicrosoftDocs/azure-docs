@@ -25,7 +25,7 @@ sections:
 - title: Quickstarts
   items:
   - type: paragraph
-    text: 'Configure Terraform to create infrastructure in Azure and use it to create a Linux VM.'
+    text: 'Configure Terraform and use it to create a Linux VM in Azure.'
   - type: list
     style: icon48
     items: 
@@ -40,12 +40,12 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: Learn how to reliably create Azure infrastructure from code using Terraform.
+    text: Learn how to create Azure compute and networking infrastructure from code with Terraform.
   - type: list
     style: unordered
     items:
     - html: <a href="/azure/terraform/terraform-create-vm-cluster-module">Create a load balanced VM cluster</a>.
-    - html: <a href="/azure/terraform/terraform-create-vm-scaleset-network-disks">Configure a VM scale set with networking and storage.</a>
+    - html: <a href="/azure/terraform/terraform-create-vm-scaleset-network-disks-hcl">Configure a VM scale set with networking and storage.</a>
 - title: Samples
   items:
   - type: paragraph
