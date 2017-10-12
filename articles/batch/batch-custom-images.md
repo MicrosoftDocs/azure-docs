@@ -11,34 +11,34 @@ ms.date: 10/11/2017
 ms.author: v-dotren
 ---
 
-# How to create a pool of virtual machines using a managed custom image 
+# Use a managed custom image to create a pool of virtual machines 
 
-When you create an Azure Batch pool using the Virtual Machine Configuration, you specify a VM image that provides the operating system for each compute node in the pool. You can create a pool of virtual machines either with an Azure Marketplace image, or with a custom image resource (a VM image you have created and configured yourself). The custom image must be a *managed image* resource in the same Azure subscription and region as the Batch account.
+When you create an Azure Batch pool using the Virtual Machine Configuration, you specify a VM image that provides the operating system for each compute node in the pool. You can create a pool of virtual machines either with an Azure Marketplace image, or with a custom image (a VM image you have created and configured yourself). The custom image must be a *managed image* resource in the same Azure subscription and region as the Batch account.
 
 ## Why use a custom image?
-When you provide a managed custom image, you have control over the operating system configuration and the type of operating system and data disks to be used. Your custom image can include applications and reference data that become available on all the batch pool nodes as soon as they are provisioned.
+When you provide a custom image, you have control over the operating system configuration and the type of operating system and data disks to be used. Your custom image can include applications and reference data that become available on all the Batch pool nodes as soon as they are provisioned.
 
-Using a managed custom image saves time in preparing your pool's compute nodes to run your Batch workload. While you can use an Azure Marketplace image and install software on each compute node after provisioning, using a custom image might be more efficient.
+Using a custom image saves time in preparing your pool's compute nodes to run your Batch workload. While you can use an Azure Marketplace image and install software on each compute node after provisioning, using a custom image might be more efficient.
 
 Using a custom image configured for your scenario can provide several advantages:
 
 - **Configure the operating system (OS)**. You can perform special configuration of the operating system on the custom image's operating system disk. 
-- **Pre-install applications.** You can create a custom image with pre-installed applications on the OS disk, which is more efficient and less error prone than installing applications after provisioning the compute nodes using StartTask.
+- **Pre-install applications.** You can create a custom image with pre-installed applications on the OS disk, which is more efficient and less error-prone than installing applications after provisioning the compute nodes using StartTask.
 - **Save reboot time on VMs.** Application installation typically requires rebooting the VM, which is time-consuming. You can save reboot time by pre-installing applications. 
-- **Copy very large amounts of data once.** You can make static data part of the managed custom image by copying it to managed image's data disks. This only needs to be done once and makes data available to each node of the pool.
-- **Choice of disk types.** You can create a custom image from a VHD, from a managed disk of an Azure VM, a snapshot of these disks, or your own Linux or Windows installation that you have configured. You have the choice of using premium storage for the OS disk and the data disk.
+- **Copy very large amounts of data once.** You can make static data part of the managed custom image by copying it to a managed image's data disks. This only needs to be done once and makes data available to each node of the pool.
+- **Choice of disk types.** You can create a managed custom image from a VHD, from a managed disk of an Azure VM, a snapshot of these disks, or your own Linux or Windows installation that you have configured. You have the choice of using premium storage for the OS disk and the data disk.
 
 
 ## Prerequisites
 
 - **A managed image resource**. To create a pool of virtual machines using a custom image, you need to create a managed image resource in the same Azure subscription and region as the Batch account. For options to prepare a managed image, see the following section.
-- **Azure Active Directory (AAD) authentication**. The Batch client API must use AAD authentication. Azure Batch support for Azure Active Directory is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
+- **Azure Active Directory (AAD) authentication**. The Batch client API must use AAD authentication. Azure Batch support for AAD is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
 
     
-## Prepare a managed image
+## Prepare a custom image
 You can prepare a managed image from a VHD, from an Azure VM with managed disks, or from a VM snapshot. 
 
-When preparing your custom image, keep in mind the following points:
+When preparing your image, keep in mind the following points:
 
 * Ensure that the base OS image you use to provision your Batch pools does not have any pre-installed Azure extensions, such as the Custom Script extension. If the image contains a pre-installed extension, Azure may encounter problems deploying the VM.
 * Ensure that the base OS image you provide uses the default temp drive. The Batch node agent currently expects the default temp drive. 
