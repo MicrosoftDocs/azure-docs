@@ -49,14 +49,14 @@ Create an ACR instance using the [az acr create](/cli/azure/acr#create) command.
 The name of the registry **must be unique**. In the following example *myContainerRegistry007* is used. Update this to a unique value.
 
 ```azurecli
-az acr create --name myContainerRegistry007 --resource-group myResourceGroup --admin-enabled --sku Basic
+az acr create --name myContainerRegistry007 --resource-group myResourceGroup --sku Basic
 ```
 
 When the registry is created, the output is similar to the following:
 
 ```json
 {
-  "adminUserEnabled": true,
+  "adminUserEnabled": false,
   "creationDate": "2017-10-04T17:15:43.659380+00:00",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry007",
   "location": "eastus",
