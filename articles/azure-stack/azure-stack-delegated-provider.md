@@ -83,8 +83,7 @@ provider (DP) and the user.
 1. Sign in as an Azure Stack operator.
 
 2. Create the offer that enables users to become
-   delegated providers. This requires that you create a plan and an
-   offer based on it:
+   delegated providers. First you need to create a plan, and then an offer based on it:
    
    a.  [Create a plan](azure-stack-create-plan.md).
        This plan should include only the subscriptions service. In this
@@ -94,8 +93,7 @@ provider (DP) and the user.
        based on this plan. In this article, we use an offer
        called OfferToDP.
    
-   c.  After the creation of the offer is complete, add the delegated provider as a subscriber to this offer by selecting
-       **Subscriptions** > **Add** > **New Tenant Subscription**.
+   c.  After the creation of the offer is complete, add the delegated provider as a subscriber to this offer. Do this by selecting **Subscriptions** > **Add** > **New Tenant Subscription**.
    
    ![](media/azure-stack-delegated-provider/image3.png)
 
@@ -111,7 +109,7 @@ provider (DP) and the user.
 
 ## Azure Stack operator creates the delegated offer
 
-You have now established your delegated provider. The next step is to create the plan and offer that you are going to delegate, and which your customers will use. Define this offer exactly as you want the customers to see it, because the delegated provider won't be able to change the plans and quotas it includes.
+You have now established your delegated provider. The next step is to create the plan and offer that you are going to delegate, and which your customers will use. Define this offer exactly as you want the customers to see it. It's a good idea to to do this because the delegated provider won't be able to change the plans and quotas it includes.
 
 1. As Azure Stack operator, [create a
    plan](azure-stack-create-plan.md)
@@ -121,8 +119,7 @@ You have now established your delegated provider. The next step is to create the
    called **DelegatedOffer.**
    
    > [!NOTE]
-   > This offer does not have to be public. You can make it 
-    public if you choose. In most cases, however, you only want delegated providers to have access to it. After you delegate a private offer as described in the following steps, the delegated provider has access to it.
+   > This offer does not have to be public. If you choose, you can make it public. In most cases, however, you only want delegated providers to have access to it. After you delegate a private offer as described in the following steps, the delegated provider has access to it.
    > 
    > 
 1. Delegate the offer. Go to **DelegatedOffer.** Then, in the **Settings** pane,
@@ -176,8 +173,7 @@ Sign in to the user portal as the delegated provider. Then create a new offer by
 > 
 > 
 
-This concludes the process of offer delegation. The user can now sign up
-for this offer by getting a subscription for it.
+The process of offer delegation is complete. The user can now sign up for this offer by getting a subscription for it.
 
 ## Multiple-tier delegation
 
