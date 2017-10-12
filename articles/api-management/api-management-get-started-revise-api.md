@@ -15,7 +15,7 @@ ms.author: apimpm
 ---
 
 # Make non-breaking changes safely using revisions
-When your API is ready to go and starts to be used by developers, you usually need to take care in making changes to that API - so as not to disrupt callers of your API. It's also useful to let developers know about the changes you made. We can do this in Azure API Management using **revisions**. For more information, see [Versions & revisions](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) and [API Versioning with Azure API Management](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/).
+When your API is ready to go and starts to be used by developers, you usually need to take care in making changes to that API and at the same time not to disrupt callers of your API. It's also useful to let developers know about the changes you made. We can do this in Azure API Management using **revisions**. For more information, see [Versions & revisions](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) and [API Versioning with Azure API Management](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/).
 
 This tutorial describes how to make changes to your API safely, and communicate the change to your developers.
 
@@ -30,8 +30,8 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-+ [Create an Azure API Management instance](get-started-create-service-instance.md).
-+ [Import and publish an API](api-management-get-started.md).
++ [Create an Azure API Management instance](get-started-create-service-instance.md)
++ [Import and publish an API](import-and-publish.md)
 
 ## Add a new revision
 1. Navigate to your APIM instance in the [Azure portal](https://portal.azure.com/).

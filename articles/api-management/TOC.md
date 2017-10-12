@@ -12,10 +12,12 @@
 ## [6 - Trace calls](api-management-howto-api-inspector.md)
 ## [7 - Use revisions](api-management-get-started-revise-api.md)
 ## [8 - Publish multiple versions of your API](api-management-get-started-publish-versions.md)
+## [9 - Customize the Developer portal](api-management-customize-styles.md)
 # Samples
 ## [Policy samples](policy-samples.md)
 ## [PowerShell samples](powershell-samples.md)
 # Concepts
+## [Terminology](api-management-terminology.md)
 ## [What is an API?](api-management-howto-create-apis.md)
 ## [What is a product?](api-management-product.md)
 ## [What is an operation?](api-management-howto-add-operations.md)

@@ -34,8 +34,8 @@ What you'll learn:
 
 To complete this tutorial:
 
-* [Create an Azure API Management instance](get-started-create-service-instance.md).
-* [Import and publish an API](api-management-get-started.md).
++ [Create an Azure API Management instance](get-started-create-service-instance.md)
++ [Import and publish an API](import-and-publish.md)
 
 ## <a name="caching-policies"> </a>Add the caching policies
 
