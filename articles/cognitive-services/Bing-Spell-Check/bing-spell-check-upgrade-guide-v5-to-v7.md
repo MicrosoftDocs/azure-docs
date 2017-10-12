@@ -15,18 +15,15 @@ ms.author: scottwhi
 
 # Spell Check API upgrade guide
 
-> [!NOTE]
-> V7 is a Preview release. All aspects of the API and documentation are subject to change. Use only for testing in a non-production environment.
-
 This upgrade guide identifies the changes between version 5 and version 7 of the Bing Spell Check API. Use this guide to help you identify the parts of your application that you need to update to use version 7.
 
-## Breaking changes
+# Breaking changes
 
-### Endpoints
+## Endpoints
 
 - The endpoint's version number changed from v5 to v7. For example, https://api.cognitive.microsoft.com/bing/\*\*v7.0**/spellcheck.
 
-### Error response objects and error codes
+## Error response objects and error codes
 
 - All failed requests should now include an `ErrorResponse` object in the response body.
 
