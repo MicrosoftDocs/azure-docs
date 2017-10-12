@@ -25,7 +25,7 @@ Azure Batch AI helps you experiment with your AI models using any framework and 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="https://docs.microsoft.com/media/common/i_service-hooks.svg" alt="" />
+                            <img src="/media/index/Azure_batch_ai.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
