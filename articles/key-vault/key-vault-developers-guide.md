@@ -47,7 +47,11 @@ Resources mentioned in above video:
 
 ## Creating and Managing Key Vaults
 
-Key Vaults are Azure resources managed through the Azure Resource Manager. Operations on your key vault are authenticated through Azure Active Directory (AAD) and authorized through Key Vault’s own Access Policy, defined per vault. For more information on working with AAD, see [Integrating applications with Azure Active Directory](/active-directory/develop/active-directory-integrating-applications).
+Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. Managed Service Identity (MSI) makes solving this problem simpler by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having any credentials in your code. 
+
+For more information on MSI, see [Managed Service Identity (MSI) for Azure resources](active-directory/msi-overview).
+
+For more information on working with AAD, see [Integrating applications with Azure Active Directory](/active-directory/develop/active-directory-integrating-applications).
 
 Before working with keys, secrets or certificates in your key vault, you'll create and manage your key vault through CLI, PowerShell, Resource Manager Templates or REST, as described in the following articles:
 
@@ -55,7 +59,6 @@ Before working with keys, secrets or certificates in your key vault, you'll crea
 - [Create and manage Key Vaults with PowerShell](key-vault-get-started.md)
 - [Create a key vault and add a secret via an Azure Resource Manager template](../azure-resource-manager/resource-manager-template-keyvault.md)
 - [Create and manage Key Vaults with REST](https://docs.microsoft.com/rest/api/keyvault/)
-
 
 
 ## Coding with Key Vault
