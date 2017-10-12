@@ -17,7 +17,7 @@ ms.date: 08/25/2017
 ms.author: alfredop
 
 ---
-# Delegating offers in Azure Stack
+# Delegate offers in Azure Stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
@@ -52,7 +52,7 @@ delegation.
 
 1. *Identify the delegated providers*. You do this by subscribing them to an offer based on a plan that contains only the subscriptions service. Users who subscribe to this offer acquire some of the Azure Stack operator’s capabilities, including the ability to extend offers and sign users up for them.
 
-2. *Delegate an offer to the delegated provider*. This offer functions as a template for what the delegated provider can offer. The delegated provider can now take the offer. Choose a name for it (butdon't change its services and quotas), and offer it to customers.
+2. *Delegate an offer to the delegated provider*. This offer functions as a template for what the delegated provider can offer. The delegated provider can now take the offer. Choose a name for it (but don't change its services and quotas), and offer it to customers.
 
 ![Create the delegated provider and enable them to sign up users](media/azure-stack-delegated-provider/image2.png)
 
@@ -88,7 +88,7 @@ provider (DP) and the user.
    
    a.  [Create a plan](azure-stack-create-plan.md).
        This plan should include only the subscriptions service. In this
-       article, we use a plan called PlanForDelegation.
+       article, we use a plan called **PlanForDelegation**.
    
    b.  [Create an offer](azure-stack-create-offer.md)
        based on this plan. In this article, we use an offer
@@ -122,7 +122,7 @@ You have now established your delegated provider. The next step is to create the
    
    > [!NOTE]
    > This offer does not have to be public. You can make it 
-    public if you choose. In most cases, however, you only want delegated providers to have access to it. After you delegate a private offer as described in the following steps, the delegated provider has access to it:
+    public if you choose. In most cases, however, you only want delegated providers to have access to it. After you delegate a private offer as described in the following steps, the delegated provider has access to it.
    > 
    > 
 1. Delegate the offer. Go to **DelegatedOffer.** Then, in the **Settings** pane,
@@ -143,7 +143,7 @@ Sign in to the user portal as the delegated provider. Then create a new offer by
     ![Create a new offer](media/azure-stack-delegated-provider/image5.png)
 
 
-1. Assign a name to the offer. Here we choose **ResellerOffer**. Select the delegated offer to base it on, and then select **Create**.
+1. Assign a name to the offer. Here we choose **ResellerOffer**. Select the delegated offer on which to base it, and then select **Create**.
    
    ![Create a new offer](media/azure-stack-delegated-provider/image6.png)
 
@@ -160,7 +160,7 @@ Sign in to the user portal as the delegated provider. Then create a new offer by
    
     ![Select the delegated provider subscription](media/azure-stack-delegated-provider/dpportaluri.png)  
    
-   You have now completed the creation of a delegated offer as a delegated provider. Sign out as the delegated provider. Close the browser window you have been using.
+   You have now created a delegated offer as a delegated provider. Sign out as the delegated provider. Close the browser window you have been using.
 
 ## Sign up for the offer
 1. In a new browser window, go to the delegated portal URL that you saved in
