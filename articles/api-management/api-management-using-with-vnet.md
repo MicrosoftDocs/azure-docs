@@ -118,7 +118,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 | * / * | Inbound |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Azure Infrastructure Load Balancer |External & Internal |
 
 >[!IMPORTANT]
-> * The Ports for which the *Purpose* is **bold** is required for API Management service to be deployed successfully. Blocking the other ports will cause degradation in usage and monitoring of the running service.
+> * The Ports for which the *Purpose* is **bold** are required for API Management service to be deployed successfully. Blocking the other ports will however cause degradation in usage and monitoring of the running service.
 
 * **SSL functionality**: To enable SSL certificate chain building and validation the API Management service needs Outbound network connectivity to ocsp.msocsp.com, mscrl.microsoft.com and crl.microsoft.com. This dependency is not required, if any certificate you upload to API Management contain the full chain to the CA root.
 
@@ -137,12 +137,12 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 
 
 ## <a name="troubleshooting"> </a>Troubleshooting
-* **Initial Setup**: When the initial deployment of API Management service into a subnet does not succeed, it is advised to deploy a virtual machine into the same subnet. Next remote desktop into the virtual machine and validate connectivity to one of each resource in your subscription 
+* **Initial Setup**: When the initial deployment of API Management service into a subnet does not succeed, it is advised to deploy a virtual machine into the same subnet. Next remote desktop into the virtual machine and validate connectivity to one of each resource in your azure subscription 
     * Azure Storage blob
     * Azure SQL Database
 
  > [!IMPORTANT]
- > After you have validated the connectivity, make sure to remove all the resources deployed in the Subnet, before deploying API Management into it.
+ > After you have validated the connectivity, make sure to remove all the resources deployed in the Subnet, before deploying API Management into the subnet.
 
 * **Incremental Updates**: When making changes to your network, refer to [NetworkStatus API](https://docs.microsoft.com/en-us/rest/api/apimanagement/networkstatus), to validate if the API Management service has not lost access to any of the critical resources which it depends upon. The connectivity status should be updated every 15 minutes.
 
@@ -157,7 +157,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 * A subnet containing API Management instances cannot contain any other Azure resource types.
 * The subnet and the API Management service must be in the same subscription.
 * A subnet containing API Management instances cannot be moved across subscriptions.
-* For multi-region API Management deployments, with Internal virtual networks configured, users are responsible for managing their own load balancing as they own the DNS.
+* For multi-region API Management deployments configured in Internal virtual network mode, users are responsible for managing the load balancing across multiple regions, as they own the routing.
 
 
 ## <a name="related-content"> </a>Related content
