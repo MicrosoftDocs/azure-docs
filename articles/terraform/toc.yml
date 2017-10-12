@@ -3,6 +3,7 @@
   - name: About Terraform on Azure
     href: terraform-azure-overview.md
 - name: Quickstarts
+  expanded: true
   items:
     - name: Install and configure Terraform
       href: /azure/virtual-machines/linux/terraform-install-configure
@@ -13,7 +14,7 @@
 - name: Tutorials 
   items:
     - name: Create a load balanced VM cluster
-      href: terraform-create-load-balanced-vm-cluster.md
+      href: terraform-create-vm-cluster-module.md
     - name: Provision core compute infrasturcture
       href: terraform-create-vm-scaleset-network-disks.md
 - name: Samples
