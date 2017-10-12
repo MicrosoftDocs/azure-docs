@@ -118,7 +118,7 @@ GO
 
 ## Using SQL Server
 
-You can also use Sqoop to import and export data from SQL Server, either in your data center or on a Virtual Machine hosted in Azure. The differences between using SQL Database and SQL Server are:
+You can also use Sqoop to import and export data from SQL Server. The differences between using SQL Database and SQL Server are:
 
 * Both HDInsight and SQL Server must be on the same Azure Virtual Network.
 
