@@ -141,12 +141,12 @@ Define LinkedIn as a claims provider by adding a `<ClaimsProvider>` node in your
     </ClaimsProvider>
     ```
 
-4. Replace *client_id* value with your LinkedIn application client ID.
+4. Replace the *client_id* value with your LinkedIn application client ID.
 
 5. Save the file.
 
 ## Step 4: Register the LinkedIn account claims provider
-You've set up the identity provider. However, it is not available in any of the sign-up or sign-in windows. Now you must add the LinkedIn account identity provider to your user `SignUpOrSignIn` user journey.
+You've set up the identity provider. However, it is not yet available in any of the sign-up or sign-in windows. Now you must add the LinkedIn account identity provider to your user `SignUpOrSignIn` user journey.
 
 ### Step 4.1: Make a copy of the user journey
 To make the user journey available, you create a duplicate of an existing template user journey template and then add the LinkedIn identity provider:
