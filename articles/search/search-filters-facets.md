@@ -121,7 +121,7 @@ The syntax for uploading a string collection is pretty straightforward in JSON:
 
 ### Return a faceted navigation structure
 
-One of the challenges with facet navigation in Azure Search is that the structure provides only the 
+One of the challenges with facet navigation in Azure Search is that the structure provides facets for current results only. In practice, it's common to retain a static set of facets so that the user can reverse his or her steps to explore alternative paths through the results. Although this is a common use case, it's not something the facet navigation structure provides out-of-the-box. Developers who want static facets typically work around the limitation by issuing two filtered queries: one scoped to the results, the other used to create a static list of facets for navigation purposes.
 
 
 > [!Tip]
