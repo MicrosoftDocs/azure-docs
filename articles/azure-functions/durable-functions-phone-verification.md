@@ -156,7 +156,7 @@ Here is the orchestration as a single C# file in a Visual Studio project:
 
 ## Next steps
 
-This sample has demonstrated some of the advanced capabilities of Durable Functions, notably `WaitForExternalEvent` and `CreateTimer`. You've seen how these can be combined with `Task.WaitAny` to implement a reliable timeout system, which is often useful for interacting with real people. Learn more about how to use Durable Functions by reading a series of articles that offer in-depth coverage of specific topics.
+This sample has demonstrated some of the advanced capabilities of Durable Functions, notably `WaitForExternalEvent` and `CreateTimer`. You've seen how these can be combined with `Task.WaitAny` to implement a reliable timeout system, which is often useful for interacting with real people. You can learn more about how to use Durable Functions by reading a series of articles that offer in-depth coverage of specific topics.
 
 > [!div class="nextstepaction"]
-> [Learn more about Durable Functions bindings](durable-functions-bindings.md)
+> [Go to the first article in the series](durable-functions-bindings.md)
