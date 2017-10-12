@@ -7,7 +7,7 @@ manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
-ms.date: 08/04/2017
+ms.date: 10/12/2017
 ms.author: bruceper
 ---
 # Azure Key Vault Developer's Guide
@@ -47,15 +47,16 @@ Resources mentioned in above video:
 
 ## Creating and Managing Key Vaults
 
-Before working with Azure Key Vault in your code, you can create and manage vaults through REST, Resource Manager Templates, PowerShell or CLI, as described in the following articles:
+Before working with Azure Key Vault in your code, you can create and manage vaults through REST, Resource Manager Templates, PowerShell or CLI, as described in the following articles. 
+
+Operations against your key vault are authenticated through Azure Active Directory (AAD) and authorized through Key Vault’s own Access Policy, defined per vault. For more information on working with AAD, see [Integrating applications with Azure Active Directory](/active-directory/develop/active-directory-integrating-applications).
 
 - [Create and Manage Key Vaults with REST](https://docs.microsoft.com/rest/api/keyvault/)
 - [Create and Manage Key Vaults with PowerShell](key-vault-get-started.md)
 - [Create and Manage Key Vaults with CLI](key-vault-manage-with-cli2.md)
 - [Create a key vault and add a secret via an Azure Resource Manager template](../azure-resource-manager/resource-manager-template-keyvault.md)
 
-> [!NOTE]
-> Operations against key vaults are authenticated through AAD and authorized through Key Vault’s own Access Policy, defined per vault.
+
 
 ## Coding with Key Vault
 
