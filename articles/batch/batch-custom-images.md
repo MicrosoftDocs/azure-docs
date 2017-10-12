@@ -27,7 +27,7 @@ Using a custom image configured for your scenario can provide several advantages
 - **Save reboot time on VMs.** Application installation typically requires rebooting the VM, which is time-consuming. You can save reboot time by pre-installing applications. 
 - **Copy very large amounts of data once.** You can make static data part of the managed custom image by copying it to a managed image's data disks. This only needs to be done once and makes data available to each node of the pool.
 - **Choice of disk types.** You can create a managed custom image from a VHD, from a managed disk of an Azure VM, a snapshot of these disks, or your own Linux or Windows installation that you have configured. You have the choice of using premium storage for the OS disk and the data disk.
-- **Grow pools to any size.** -When you use a managed custom image to create a pool, the pool can grow to any size you request. You do not need to make copies of image blob VHDs to accommodate the number of VMs. 
+- **Grow pools to any size.** When you use a managed custom image to create a pool, the pool can grow to any size you request. You do not need to make copies of image blob VHDs to accommodate the number of VMs. 
 
 
 ## Prerequisites
