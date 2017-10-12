@@ -44,7 +44,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/terraform/terraform-create-load-balanced-vm-cluster">Create a Linux VM cluster with a load balancer</a>.
+    - html: <a href="/azure/terraform/terraform-create-vm-cluster-module">Create a load balanced VM cluster</a>.
     - html: <a href="/azure/terraform/terraform-create-vm-scaleset-network-disks">Configure a VM scale set with networking and storage.</a>
 - title: Samples
   items:

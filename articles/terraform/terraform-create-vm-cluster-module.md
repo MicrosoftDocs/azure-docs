@@ -33,7 +33,7 @@ For more on Terraform, see the [Terraform documentation](https://www.terraform.i
  Review [Install Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure) and use the service principal values to populate a new file `azureProviderAndCreds.tf` in an empty directory.
 
 > [!TIP]
-> You don't need to perform this step if you [create environment variables](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables) for these values.
+> You don't need to perform this step if you [create environment variables](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables) for these values or run this tutorial in the [Azure Cloud Shell](/azure/cloud-shell/overview).
 
 ```tf
 variable subscription_id {}
