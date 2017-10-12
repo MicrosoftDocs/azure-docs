@@ -44,7 +44,7 @@ You can use Node.js to access the same results you saw in the browser window in 
 
 1. Copy the following code snippet:
 
-   [!code-Node.js[Console app code that calls a LUIS endpoint for Node.js](~/samples-luis/documentation-samples/endpoint-api-samples/node/call-endpoint.js)]
+   [!code-nodejs[Console app code that calls a LUIS endpoint for Node.js](~/samples-luis/documentation-samples/endpoint-api-samples/node/call-endpoint.js)]
 
 2. Replace the value of the subscription key with your LUIS subscription key.
 
