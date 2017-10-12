@@ -1,7 +1,7 @@
 - name: Overview
   items:
   - name: About Terraform on Azure
-    href: terraform-azure-overview.md
+    href: terraform-overview.md
 - name: Quickstarts
   expanded: true
   items:
@@ -26,4 +26,4 @@
     - name: Azure module registry
       href: https://registry.terraform.io/modules/Azure
     - name: Terraform reference
-      href: https://www.terraform.io/docs/
+      href: http://aka.ms/terraform
