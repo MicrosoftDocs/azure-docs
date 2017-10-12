@@ -25,7 +25,7 @@
   - name: Single-page Web app
     href: tutorials/autosuggest.md
   - name: Single-page Web app (source code)
-    href: tutorials/autosuggest_source.md
+    href: tutorials/autosuggest-source.md
 - name: How-to guides
   items: 
   - name: Upgrade from v5 to v7

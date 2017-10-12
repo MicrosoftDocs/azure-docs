@@ -25,7 +25,7 @@
   - name: Single-page Web app
     href: tutorials/spellcheck.md
   - name: Single-page Web app (source code)
-    href: tutorials/spellcheck_source.md
+    href: tutorials/spellcheck-source.md
 - name: How-to guides
   items:
     - name: Spell check text strings
