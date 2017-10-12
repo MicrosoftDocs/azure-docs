@@ -40,7 +40,7 @@ To use Twitter as an identity provider in Azure Active Directory B2C (Azure AD B
 
     c. In the **Callback URL** box, paste **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**. Replace {*tenant*} with your tenant name (for example, contosob2c.onmicrosoft.com). Make sure that you are using the HTTPS scheme. 
 
-    d. At the bottom the page, read and accept the terms, and then select **Create your Twitter application**.
+    d. At the bottom of the page, read and accept the terms, and then select **Create your Twitter application**.
 
     ![Twitter account - Add a new app](media/active-directory-b2c-custom-setup-twitter-idp/adb2c-ief-setup-twitter-idp-new-app2.png)
 
@@ -50,8 +50,8 @@ To use Twitter as an identity provider in Azure Active Directory B2C (Azure AD B
 
     ![Twitter account - Set application properties](media/active-directory-b2c-custom-setup-twitter-idp/adb2c-ief-setup-twitter-idp-new-app3.png)
 
->[!NOTE]
->The consumer secret is an important security credential. Do not share this secret with anyone or distribute it with your app.
+    >[!NOTE]
+    >The consumer secret is an important security credential. Do not share this secret with anyone or distribute it with your app.
 
 ## Step 2: Add your Twitter account application key to Azure AD B2C
 Federation with Twitter accounts requires a consumer secret for the Twitter account to trust Azure AD B2C on behalf of the application. To store the Twitter application's consumer secret in your Azure AD B2C tenant, do the following: 
@@ -131,7 +131,7 @@ Define Twitter as a claims provider by adding `<ClaimsProvider>` node in your ex
 
 5. Save the file.
 
-## Step 4: Register the Twitter account claims provider to Sign up or Sign in user journey
+## Step 4: Register the Twitter account claims provider to your sign-up or sign-in user journey
 You've set up the identity provider. However, it is not yet available in any of the sign-up or sign-in windows. Now you must add the Twitter account identity provider to your user `SignUpOrSignIn` user journey.
 
 ### Step 4.1: Make a copy of the user journey
@@ -195,10 +195,10 @@ Now that you have a button in place, you must link it to an action. The action, 
     >[!NOTE]
     >Run Now requires at least one application to be preregistered on the tenant. To learn how to register applications, see the Azure AD B2C [Get started](active-directory-b2c-get-started.md) article or the [Application registration](active-directory-b2c-app-registration.md) article.
 
-Open **B2C_1A_signup_signin**, the relying party (RP) custom policy that you uploaded, and then select **Run now**.  
+2. Open **B2C_1A_signup_signin**, the relying party (RP) custom policy that you uploaded, and then select **Run now**.  
     You should now be able to sign in by using the Twitter account.
 
-## Step 7: [Optional] Register the Twitter account claims provider to the Profile-Edit user journey
+## Step 7: [Optional] Register the Twitter account claims provider to the profile-edit user journey
 You might also want to add the Twitter account identity provider to your `ProfileEdit` user journey. To make the user journey available, repeat "Step 4." This time, select the `<UserJourney>` node that contains `Id="ProfileEdit"`. Save, upload, and test your policy.
 
 
