@@ -23,7 +23,7 @@ ms.custom: H1Hack27Feb2017
 To get you started faster with creating workflows, 
 Logic Apps provides templates that are prebuilt logic apps. 
 Not only can you use these templates for building workflows, 
-but you can also discover commonly-used patterns. 
+but you can also discover commonly used patterns. 
 You can use these templates as provided or edit them to fit your scenario.
 
 For example, here are some template categories:
@@ -32,7 +32,7 @@ For example, here are some template categories:
 | ------------- | ----------- | 
 | Enterprise cloud templates | For integrating Azure Blob, Dynamics CRM, Salesforce, Box, and includes other connectors for your enterprise cloud needs. For example, you can use these templates to organize business leads or back up your corporate file data. | 
 | Personal productivity templates | Improve personal productivity by setting daily reminders, turning important work items into to-do lists, and automating lengthy tasks down to a single user approval step. | 
-| Consumer cloud templates | For integrating social media services such as Twitter, Slack, and email. Useful for strengthening social media marketing initiatives. These templates also include tasks such as cloud copying, which increase productivity by saving time on traditionally repetitive tasks. | 
+| Consumer cloud templates | For integrating social media services such as Twitter, Slack, and email. Useful for strengthening social media marketing initiatives. These templates also include tasks such as cloud copying, which increases productivity by saving time on traditionally repetitive tasks. | 
 | Enterprise integration pack templates | For configuring VETER (validate, extract, transform, enrich, route) pipelines, receiving an X12 EDI document over AS2 and transforming to XML, and handling X12, EDIFACT, and AS2 messages. | 
 | Protocol pattern templates | For implementing protocol patterns such as request-response over HTTP and integrations across FTP and SFTP. Use these templates as provided, or build on them for complex protocol patterns. | 
 ||| 
@@ -94,15 +94,15 @@ Choose a prebuilt template. For example:
 6. To continue with the selected template, 
 choose **Use this template**. 
 
-7. Based on the connectors used by the template, 
-you might have to sign in with your credentials, 
+7. Based on the connectors in the template, 
+sign in with your credentials, 
 or create connections for any services or systems 
 referenced by that template. To create a connection, 
-provide a name for your connection and if required, 
+provide a name for your connection, and if necessary, 
 select the resource that you want to use.
 
-   If you have already have these connections, 
-   you can choose **Continue**.
+   If you already have these connections, 
+   choose **Continue**.
 
    ![Create connections](./media/logic-apps-use-logic-app-templates/logic-app-create-connection.png)
 
@@ -149,10 +149,10 @@ Choose a prebuilt template. For example:
 4. To continue with the selected template, 
 choose **Use this template**. 
 
-5. Based on the connectors used by the template, 
-you might have to sign in with your credentials, 
+5. Based on the connectors in the template, 
+sign in with your credentials, 
 or create connections for any services or systems 
-referenced by that template. To create a connection, 
+that the template references. To create a connection, 
 provide a name for your connection and if required, 
 select the resource that you want to use.
 
@@ -181,7 +181,8 @@ select the resource that you want to use.
 ## Deploy a logic app created from a template
 
 After you make your changes to the template, 
-you can save your changes, which also publishes your logic app. 
+you can save your changes. This action also 
+automatically publishes your logic app.
 
 On the designer toolbar, choose **Save**.
 
