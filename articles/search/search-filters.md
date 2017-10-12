@@ -140,14 +140,9 @@ The following examples illustrate several design patterns for filter scenarios. 
 
 Follow up with these articles for comprehensive guidance on specific use cases:
 
-+ [Date filters](search-filters-dates.md)
 + [Facet filters](search-filters-facets.md)
-+ ["Find near me" geo-filters](search-filters-geo.md)
 + [Language filters](search-filters-language.md)
-+ [Range filters](search-filters-range.md)
-+ [Security filters using Active Directory](search-filters-security-aad.md)
 + [Security filters (generic)](search-filters-security-generic.md) 
-
 
 ## Field requirements
 
