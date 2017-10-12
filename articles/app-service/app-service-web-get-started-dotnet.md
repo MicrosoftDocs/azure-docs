@@ -102,7 +102,7 @@ In the **Configure App Service Plan** dialog, use the settings in the table foll
 |-|-|-|
 |App Service Plan| myAppServicePlan | Name of the App Service plan. |
 | Location | West Europe | The datacenter where the web app is hosted. |
-| Size | Free | [Pricing tier](https://azure.microsoft.com/pricing/details/app-service/) determines hosting features. |
+| Size | Free | [Pricing tier](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) determines hosting features. |
 
 Select **OK**.
 

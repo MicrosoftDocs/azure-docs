@@ -101,7 +101,7 @@ In the **Create App Service** dialog box:
 
   * **Create new**: Keep the default, which is the name of the App Service plan.
   * **Location**: Select **West Europe** or a location near you.
-  * **Pricing tier**: Select the free option. For features, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/).
+  * **Pricing tier**: Select the free option. For features, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
    ![Create App Service dialog box](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
 
