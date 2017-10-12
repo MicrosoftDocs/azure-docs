@@ -66,7 +66,7 @@
 #### [Overview](search-filters.md)
 #### [Facet filters](search-filters-facets.md)
 #### [Language filters](search-filters-language.md)
-#### [Security filters (generic)](search-filters-security-generic.md)
+#### [Security trimming](search-filters-security-generic.md)
 #### [Expression syntax reference](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
 ### [Paging results](search-pagination-page-layout.md)
 ### [Scoring](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)

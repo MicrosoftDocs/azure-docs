@@ -154,7 +154,7 @@ This is how you can filter results based on user identity and Azure Search `sear
 
 ## See also
 
- [Filters in Azure Search](search-filters.md)
- [How full text search works in Azure Search](search-lucene-query-architecture.md)
- [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)
++ [Filters in Azure Search](search-filters.md)
++ [How full text search works in Azure Search](search-lucene-query-architecture.md)
++ [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)
 
