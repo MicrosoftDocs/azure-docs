@@ -66,5 +66,5 @@ Of the 4 offerings covered, two are available for customers to deploy into Azure
 - [Configure Common Pre-requisites for OpenShift in Azure](./openshift-pre-requisites.md)
 - [Deploy OpenShift Origin](./openshift-origin.md)
 - [Deploy OpenShift Container Platform](./openshift-container-platform.md)
-- [Monitor OpenShift with OMS](./openshift-oms.md)
+- [Post Deployment Tasks](./openshift-post-deployment.md)
 - [Troubleshooting OpenShift Deployment](./openshift-troubleshooting.md)

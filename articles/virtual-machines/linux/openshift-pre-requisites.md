@@ -60,23 +60,25 @@ az login
 Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 It is recommended that a dedicated resource group is used to host the Key Vault - separate from the resource group that the OpenShift cluster resources will be deployed into. 
 
-The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+The following example creates a resource group named *keyvaultrg* in the *eastus* location.
 
 ```azurecli 
-az group create --name myResourceGroup --location eastus
+az group create --name keyvaultrg --location eastus
 ```
 
 ## Create a Key Vault
-Create a KeyVault to store the SSH keys for the cluster with the [az keyvault create](/cli/azure/keyvault#create) command.  
+Create a KeyVault to store the SSH keys for the cluster with the [az keyvault create](/cli/azure/keyvault#create) command. The Key Vault name must be globally unique.
+
+The following example creates a keyvault named *keyvault* in the *keyvaultrg* resource group.
 
 ```azurecli 
-az keyvault create --resource-group myResourceGroup --name myKeyVault \
+az keyvault create --resource-group keyvaultrg --name keyvault \
        --enabled-for-template-deployment true \
        --location eastus
 ```
 
 ## Create an SSH key 
-An SSH key is needed to secure access to the OpenShift Origin cluster. Create an SSH key-pair using the `ssh-keygen` command. 
+An SSH key is needed to secure access to the OpenShift Origin cluster. Create an SSH key-pair using the `ssh-keygen` command (on Linux or Mac).
  
  ```bash
 ssh-keygen -f ~/.ssh/openshift_rsa -t rsa -N ''
@@ -91,13 +93,15 @@ For more information on SSH keys on Windows, [How to create SSH keys on Windows]
 The OpenShift deployment uses the SSH key you created to secure access to the OpenShift master. To enable the deployment to securely retrieve the SSH key, store the key in Key Vault using the following command.
 
 ```azurecli
-az keyvault secret set --vault-name KeyVaultName --name OpenShiftKey --file ~/.ssh/openshift.rsa
+az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/openshift.rsa
 ```
 
 ## Create a service principal 
 OpenShift communicates with Azure using a username and password or a service principal. An Azure service principal is a security identity that you can use with apps, services, and automation tools like OpenShift. You control and define the permissions as to what operations the service principal can perform in Azure. To improve security over just providing a username and password, this example creates a basic service principal.
 
-Create a service principal with [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) and output the credentials that OpenShift needs:
+Create a service principal with [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) and output the credentials that OpenShift needs.
+
+The following example creates a service principal and assigns it Contributor permissions to a resource group named myResourceGroup.
 
 ```azurecli
 az ad sp create-for-rbac --name openshiftsp \

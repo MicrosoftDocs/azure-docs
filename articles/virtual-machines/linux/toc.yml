@@ -229,10 +229,10 @@
         href: openshift-pre-requisites.md
       - name: OpenShift Origin
         href: openshift-origin.md
-      - name: Openshift Container Platform
+      - name: OpenShift Container Platform
         href: openshift-container-platform.md
-      - name: Monitoring OpenShift with OMS
-        href: openshift-oms.md
+      - name: OpenShift Post Deployment Tasks
+        href: openshift-post-deployment.md
       - name: Troubleshooting Deployments
         href: openshift-troubleshooting.md
     - name: SAP on Azure

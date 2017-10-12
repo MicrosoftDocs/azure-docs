@@ -69,13 +69,13 @@ Use the `appId` value from the service principal you created earlier for the `aa
 			"value": "{SSH Public Key}"
 		},
 		"keyVaultResourceGroup": {
-			"value": "openshiftkeyvaultrg"
+			"value": "keyvaultrg"
 		},
 		"keyVaultName": {
-			"value": "openshiftkeyvault"
+			"value": "keyvault"
 		},
 		"keyVaultSecret": {
-			"value": "secret"
+			"value": "keysecret"
 		},
 		"aadClientId": {
 			"value": "11111111-abcd-1234-efgh-111111111111"
@@ -93,8 +93,9 @@ Use the `appId` value from the service principal you created earlier for the `aa
 
 ## Deploy using Azure CLI
 
+The following example creates an OpenShift cluster in a resource group named myResourceGroup using the template from the github repo and a local parameters file from above.
 ```azurecli 
-az group deployment create -g MyResourceGroup --name myOpenShiftCluster \
+az group deployment create -g myResourceGroup --name myOpenShiftCluster \
       --template-uri https://raw.githubusercontent.com/Microsoft/openshift-origin/master/azuredeploy.json \
       --parameters @./azuredeploy.parameters.json
 ```
@@ -122,6 +123,6 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-- [Monitor OpenShift with OMS](./openshift-oms.md)
+- [Post Deployment Tasks](./openshift-post-deployment.md)
 - [Troubleshooting OpenShift Deployment](./openshift-troubleshooting.md)
 - [Getting Started with OpenShift Origin](https://docs.openshift.org/latest/getting_started/index.html)
