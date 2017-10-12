@@ -25,6 +25,10 @@ Companies that want a local presence, or a hot backup, choose to run services fr
 
 Geo-replication enables an Azure Container Registry (ACR) to function as a single registry, serving multiple regions with multi-master regional registries.
 
+> [!IMPORTANT]
+> The geo-replication feature of Azure Container Registry is currently in **preview**, and [supplemental terms of use](/support/legal/preview-supplemental-terms/) apply. Some aspects of this feature may change prior to general availability (GA).
+>
+
 A geo-replicated registry provides the following benefits:
 
 * Single registry/image/tag names can be used across multiple regions
