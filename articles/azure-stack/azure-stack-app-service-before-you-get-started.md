@@ -31,7 +31,7 @@ Azure App Service on Azure Stack has a number of pre-requisite steps that must b
 
 ## Download the Azure App Service on Azure Stack helper scripts
 
-1. Download the [App Service on Azure Stack deployment helper scripts](http://aka.ms/appsvconmasrc1helper).
+1. Download the [App Service on Azure Stack deployment helper scripts](https://appserviceonazurestack.blob.core.windows.net/rtm-62-2-40/AppServiceHelperScripts.zip).
 2. Extract the files from the helper scripts zip file. The following files and folder structure appear:
   - Create-AppServiceCerts.ps1
   - Create-AADIdentityApp.ps1
