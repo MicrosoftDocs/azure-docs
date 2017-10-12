@@ -189,7 +189,7 @@
 #### [Release - GA](storsimple-july-2014-release-notes.md)
 
 ## Reference
-### [Azure PowerShell](/powershell/azure/overview?view=azuresmps-3.7.0)
+### [REST API](https://docs.microsoft.com/rest/api/storsimple)
 ### [Windows PowerShell for StorSimple cmdlets](https://technet.microsoft.com/library/dn688168.aspx)
 
 # StorSimple 8000 Series (Classic portal)
