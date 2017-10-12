@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/12/2017
+ms.date: 10/12/2017
 ms.author: tomfitz
 
 ---
 # CreateUiDefinition elements
-This article describes the schema and properties for all supported elements of a CreateUiDefinition. You use these elements when [creating an Azure Managed Application](managed-application-publishing.md). The schema for most elements is as follows:
+This article describes the schema and properties for all supported elements of a CreateUiDefinition. You use these elements when [creating an Azure Managed Application](publish-service-catalog-app.md). The schema for most elements is as follows:
 
 ```json
 {
@@ -31,6 +31,7 @@ This article describes the schema and properties for all supported elements of a
   "visible": true
 }
 ```
+
 | Property | Required | Description |
 | -------- | -------- | ----------- |
 | name | Yes | An internal identifier to reference a specific instance of an element. The most common usage of the element name is in `outputs`, where the output values of the specified elements are mapped to the parameters of the template. You can also use it to bind the output value of an element to the `defaultValue` of another element. |
@@ -46,20 +47,20 @@ This article describes the schema and properties for all supported elements of a
 
 The documentation for each element contains a UI sample, schema, remarks on the behavior of the element (usually concerning validation and supported customization), and sample output.
 
-- [Microsoft.Common.DropDown](../managed-applications/microsoft-common-dropdown.md)
-- [Microsoft.Common.FileUpload](../managed-applications/microsoft-common-fileupload.md)
-- [Microsoft.Common.OptionsGroup](../managed-applications/microsoft-common-optionsgroup.md)
-- [Microsoft.Common.PasswordBox](../managed-applications/microsoft-common-passwordbox.md)
-- [Microsoft.Common.Section](../managed-applications/microsoft-common-section.md)
-- [Microsoft.Common.TextBox](../managed-applications/microsoft-common-textbox.md)
-- [Microsoft.Compute.CredentialsCombo](../managed-applications/microsoft-compute-credentialscombo.md)
-- [Microsoft.Compute.SizeSelector](../managed-applications/microsoft-compute-sizeselector.md)
-- [Microsoft.Compute.UserNameTextBox](../managed-applications/microsoft-compute-usernametextbox.md)
-- [Microsoft.Network.PublicIpAddressCombo](../managed-applications/microsoft-network-publicipaddresscombo.md)
-- [Microsoft.Network.VirtualNetworkCombo](../managed-applications/microsoft-network-virtualnetworkcombo.md)
-- [Microsoft.Storage.MultiStorageAccountCombo](../managed-applications/microsoft-storage-multistorageaccountcombo.md)
-- [Microsoft.Storage.StorageAccountSelector](../managed-applications/microsoft-storage-storageaccountselector.md)
+- [Microsoft.Common.DropDown](microsoft-common-dropdown.md)
+- [Microsoft.Common.FileUpload](microsoft-common-fileupload.md)
+- [Microsoft.Common.OptionsGroup](microsoft-common-optionsgroup.md)
+- [Microsoft.Common.PasswordBox](microsoft-common-passwordbox.md)
+- [Microsoft.Common.Section](microsoft-common-section.md)
+- [Microsoft.Common.TextBox](microsoft-common-textbox.md)
+- [Microsoft.Compute.CredentialsCombo](microsoft-compute-credentialscombo.md)
+- [Microsoft.Compute.SizeSelector](microsoft-compute-sizeselector.md)
+- [Microsoft.Compute.UserNameTextBox](microsoft-compute-usernametextbox.md)
+- [Microsoft.Network.PublicIpAddressCombo](microsoft-network-publicipaddresscombo.md)
+- [Microsoft.Network.VirtualNetworkCombo](microsoft-network-virtualnetworkcombo.md)
+- [Microsoft.Storage.MultiStorageAccountCombo](microsoft-storage-multistorageaccountcombo.md)
+- [Microsoft.Storage.StorageAccountSelector](microsoft-storage-storageaccountselector.md)
 
 ## Next steps
-* For an introduction to managed applications, see [Azure Managed Application overview](managed-application-overview.md).
-* For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](managed-application-createuidefinition-overview.md).
+* For an introduction to managed applications, see [Azure Managed Application overview](overview.md).
+* For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).

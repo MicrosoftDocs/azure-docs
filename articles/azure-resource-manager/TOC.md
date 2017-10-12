@@ -3,7 +3,6 @@
 ## [Resource providers and types](resource-manager-supported-services.md)
 ## [Resource Manager and Classic deployment](resource-manager-deployment-model.md)
 ## [Subscription governance](resource-manager-subscription-governance.md)
-## [Managed Applications](managed-application-overview.md)
 
 # Get started
 ## [Create and deploy template](resource-manager-create-first-template.md)
@@ -60,6 +59,7 @@
 ### [Move resources to new group or subscription](resource-group-move-resources.md)
 ### [Organize subscriptions with management groups](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Governance examples](resource-manager-subscription-examples.md)
+### [Managed applications](../managed-applications/overview.md)
 
 ## Control Access
 ### Create service principal
@@ -81,13 +81,6 @@
 #### [Storage](resource-manager-policy-storage.md)
 #### [Linux VM](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [Windows VM](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-
-## Use managed applications
-### [Publish service catalog application](managed-application-publishing.md)
-### [Consume service catalog application](managed-application-consumption.md)
-### [Publish marketplace application](managed-application-author-marketplace.md)
-### [Consume marketplace application](managed-application-consume-marketplace.md)
-### [Create UI definitions](managed-application-createuidefinition-overview.md)
 
 ## Audit
 ### [View activity logs](resource-group-audit.md)

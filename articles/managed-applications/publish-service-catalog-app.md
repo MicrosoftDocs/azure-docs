@@ -9,12 +9,12 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/09/2017
+ms.date: 10/12/2017
 ms.author: gauravbh
 ---
 # Publish a managed application for internal consumption
 
-You can create and publish Azure [managed applications](managed-application-overview.md) that are intended for members of your organization. For example, an IT department can publish managed applications that ensure compliance with organizational standards. These managed applications are available through the service catalog, not the Azure Marketplace.
+You can create and publish Azure [managed applications](overview.md) that are intended for members of your organization. For example, an IT department can publish managed applications that ensure compliance with organizational standards. These managed applications are available through the service catalog, not the Azure Marketplace.
 
 To publish a managed application for the service catalog, you must:
 
@@ -54,7 +54,7 @@ The first step is to create the two required template files. Package the two fil
   }
   ```
 
-* **createUiDefinition.json**: The Azure portal uses this file to generate the user interface for users who create the managed application. You define how users provide input for each parameter. You can use options like a drop-down list, text box, password box, and other input tools. To learn how to create a UI definition file for a managed application, see [Get started with CreateUiDefinition](managed-application-createuidefinition-overview.md).
+* **createUiDefinition.json**: The Azure portal uses this file to generate the user interface for users who create the managed application. You define how users provide input for each parameter. You can use options like a drop-down list, text box, password box, and other input tools. To learn how to create a UI definition file for a managed application, see [Get started with CreateUiDefinition](create-uidefinition-overview.md).
 
   The following example shows an createUiDefinition.json file that enables users to specify the storage account name prefix through a textbox.
 
@@ -195,39 +195,39 @@ The parameters used in the preceding example are:
 1. If needed, create an Azure Active Directory user group to manage the resources. For more information, see [Create a group and add members in Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md).
 1. In the upper left corner, select **+ New**.
 
-   ![New service](./media/managed-application-publishing/new.png)
+   ![New service](./media/publish-service-catalog-app/new.png)
 
 1. Search for **service catalog**.
 
 1. In the results, scroll until you find **Service Catalog Managed Application Definition**. Select it.
 
-   ![Search for managed application definitions](./media/managed-application-publishing/select-managed-apps-definition.png)
+   ![Search for managed application definitions](./media/publish-service-catalog-app/select-managed-apps-definition.png)
 
 1. Select **Create** to start the process of creating the managed application definition.
 
-   ![Create managed application definition](./media/managed-application-publishing/create-definition.png)
+   ![Create managed application definition](./media/publish-service-catalog-app/create-definition.png)
 
 1. Provide values for name, display name, description, location, subscription, and resource group. For package file URI, provide the path to the zip file you created.
 
-   ![Provide values](./media/managed-application-publishing/fill-application-values.png)
+   ![Provide values](./media/publish-service-catalog-app/fill-application-values.png)
 
 1. When you get to the Authentication and Lock Level section, select **Add Authorization**.
 
-   ![Add authorization](./media/managed-application-publishing/add-authorization.png)
+   ![Add authorization](./media/publish-service-catalog-app/add-authorization.png)
 
 1. Select an Azure Active Directory group to manage the resources, and select **OK**.
 
-   ![Add authorization group](./media/managed-application-publishing/add-auth-group.png)
+   ![Add authorization group](./media/publish-service-catalog-app/add-auth-group.png)
 
 1. When you have provided all the values, select **Create**.
 
-   ![Create managed application](./media/managed-application-publishing/create-app.png)
+   ![Create managed application](./media/publish-service-catalog-app/create-app.png)
 
 ## Next steps
 
-* For an introduction to managed applications, see [Managed application overview](managed-application-overview.md).
+* For an introduction to managed applications, see [Managed application overview](overview.md).
 * For examples of the files, see [Managed application samples](https://github.com/Azure/azure-managedapp-samples/tree/master/samples).
-* For information about consuming a Service Catalog managed application, see [Consume a Service Catalog managed application](managed-application-consumption.md).
-* For information about publishing managed applications to the Azure Marketplace, see [Azure managed applications in the Marketplace](managed-application-author-marketplace.md).
-* For information about consuming a managed application from the Marketplace, see [Consume Azure managed applications in the Marketplace](managed-application-consume-marketplace.md).
-* To learn how to create a UI definition file for a managed application, see [Get started with CreateUiDefinition](managed-application-createuidefinition-overview.md).
+* For information about consuming a Service Catalog managed application, see [Consume a Service Catalog managed application](consume-service-catalog-app.md).
+* For information about publishing managed applications to the Azure Marketplace, see [Azure managed applications in the Marketplace](publish-marketplace-app.md).
+* For information about consuming a managed application from the Marketplace, see [Consume Azure managed applications in the Marketplace](consume-marketplace-app.md).
+* To learn how to create a UI definition file for a managed application, see [Get started with CreateUiDefinition](create-uidefinition-overview.md).
