@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/11/2017
+ms.date: 10/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 
@@ -225,7 +225,7 @@ If you have recommendations that you want to ignore, you can create a text file 
 1. Sign in to your workspace and open Log Search. Use the following query to list recommendations that have failed for computers in your environment.
 
     ```
-    Type=SCOMAssessmentRecommendationRecommendationResult=Failed | select  Computer, RecommendationId, Recommendation | sort  Computer
+    SCOMAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
 
     Here's a screen shot showing the Log Search query:  
@@ -246,7 +246,7 @@ If you have recommendations that you want to ignore, you can create a text file 
 2. You can use the following Log Search queries to list all the ignored recommendations.
 
     ```
-    Type=SCOMAssessmentRecommendationRecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
+    SCOMAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
 
 3. If you decide later that you want to see ignored recommendations, remove any IgnoreRecommendations.txt files, or you can remove RecommendationIDs from them.
@@ -271,7 +271,7 @@ If you have recommendations that you want to ignore, you can create a text file 
 
 *What if I set the interval of the assessment to less than 1440 minutes?* The assessment is pre-configured to run at a maximum of once per day. If you override the interval value to a value less than 1440 minutes, then the assessment uses 1440 minutes as the interval value.
 
-*How to know if there are pre-requisite failures?* If the assessment ran and you don't see results, then it is likely that some of the pre-requisites for the assessment failed. You can execute queries: `Type=Operation Solution=SCOMAssessment` and `Type=SCOMAssessmentRecommendation FocusArea=Prerequisites` in Log Search to see the failed pre-requisites.
+*How to know if there are pre-requisite failures?* If the assessment ran and you don't see results, then it is likely that some of the pre-requisites for the assessment failed. You can execute queries: `Operation | where Solution == "SCOMAssessment"` and `SCOMAssessmentRecommendation | where FocusArea == "Prerequisites"` in Log Search to see the failed pre-requisites.
 
 *There is a `Failed to connect to the SQL Instance (….).` message in pre-requisite failures. What is the issue?* AdvisorAssessment.exe, the process that collects data, runs under the HealthService of the management server. As part of the assessment, the process attempts to connect to the SQL Server where the Operations Manager database is present. This error can occur when firewall rules block the connection to the SQL Server instance.
 
