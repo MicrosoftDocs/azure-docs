@@ -3,10 +3,11 @@ title: Search unstructured data in Azure cloud storage
 description: Searching unstructured data using Azure search.
 author: roygara
 manager: timlt
+services: storage
 
 ms.service: storage
 ms.topic: tutorial
-ms.date: 09/29/2017
+ms.date: 10/12/2017
 ms.author: rogara
 ms.custom: mvc
 ---
@@ -97,7 +98,7 @@ After it completes, navigate back into your data container to confirm the text f
 
   ![Unstructured search](media/storage-unstructured-search/clinicalfolder.png)
 
-## Create a Search Service
+## Create a search service
 
 Azure Search is a search-as-a-service cloud solution that gives developers APIs and tools for adding a rich search experience over your data in web, mobile, and enterprise applications.
 
@@ -131,7 +132,7 @@ Now that you have a search service, you can attach it to your blob storage. This
 
 3. Select **Search Service** inside **Import Data** and then click the search service you created in the preceding section. This opens up **New data source**.
 
-### New Data Source
+### New data source
 
   A data source specifies which data to index and how to access the data. A data source can be used multiple times by the same search service.
 
@@ -155,7 +156,7 @@ Now that you have a search service, you can attach it to your blob storage. This
 
   ![Unstructured search](media/storage-unstructured-search/datacontainer.png)
 
-### Configure the Index
+### Configure the index
 
   An index is a collection of fields from your data source that can be searched. The index is how your search service knows in what ways your data should be searched.
 
@@ -184,7 +185,7 @@ The **FIELD NAME** column contains the parameters. The following table provides 
 | *Searchable* |Marks the field as full-text searchable. |
 
 
-### Create an Indexer
+### Create an indexer
     
   An indexer connects a data source with a search index, and provides a schedule to reindex your data.
 
