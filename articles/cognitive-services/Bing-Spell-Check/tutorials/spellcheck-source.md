@@ -1,5 +1,5 @@
 ---
-title: Bing Spell Check single-page Web app (source code) | Microsoft Docs
+title: Getting Spell Check Results using Bing Spell Check API (Microsoft Cognitive Services on Azure) | Microsoft Docs
 description: Source code for tutorial showing how to use the Bing Spell Check API in a single-page Web application.
 services: cognitive-services
 author: v-jaswel

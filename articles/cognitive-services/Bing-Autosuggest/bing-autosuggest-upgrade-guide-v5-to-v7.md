@@ -17,13 +17,13 @@ ms.author: scottwhi
 
 This upgrade guide identifies the changes between version 5 and version 7 of the Bing Autosuggest API. Use this guide to help you identify the parts of your application that you need to update to use version 7.
 
-# Breaking changes
+## Breaking changes
 
-## Endpoints
+### Endpoints
 
 - The endpoint's version number changed from v5 to v7. For example, https://api.cognitive.microsoft.com/bing/\*\*v7.0**/autosuggest.
 
-## Error response objects and error codes
+### Error response objects and error codes
 
 - All failed requests should now include an `ErrorResponse` object in the response body.
 
@@ -64,3 +64,7 @@ ExpiredAuthorizationToken|InsufficientAuthorization.AuthorizationExpired
 InsufficientScope|InsufficientAuthorization
 Blocked|InvalidRequest.Blocked
 
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Use and display requirements](./UseAndDisplayRequirements.md)

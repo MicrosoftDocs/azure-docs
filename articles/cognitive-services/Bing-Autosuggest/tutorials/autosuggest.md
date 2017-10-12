@@ -360,4 +360,5 @@ Open the Web page in your browser. At the prompt, enter your Bing Autosuggest AP
 
 ## Next steps
 
-[Use and Display Requirements](https://review.docs.microsoft.com/en-us/azure/cognitive-services/bing-autosuggest/useanddisplayrequirements?branch=pr-en-us-25041)
+> [!div class="nextstepaction"]
+> [Use and display requirements](../UseAndDisplayRequirements.md)

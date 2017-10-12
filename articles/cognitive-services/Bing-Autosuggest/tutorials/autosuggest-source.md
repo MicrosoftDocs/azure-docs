@@ -1,5 +1,5 @@
 ---
-title: Bing Autosuggest single-page Web app (source code) | Microsoft Docs
+title: Getting Autosuggest Results using Bing Autosuggest API (Microsoft Cognitive Services on Azure) | Microsoft Docs
 description: Source code for tutorial showing how to use the Bing Autosuggest API in a single-page Web application.
 services: cognitive-services
 author: v-jaswel
