@@ -24,7 +24,7 @@ You can efficiently process large-scale workloads for your organization, or prov
 > 
 
 ## Azure accounts for Batch development
-When you develop Batch solutions, you'll use the following accounts in Microsoft Azure.
+When you develop Batch solutions, you use the following accounts in Microsoft Azure.
 
 * **Azure account and subscription** - If you don't already have an Azure subscription, you can activate your [Visual Studio subscriber benefit][msdn_benefits], or sign up for a [free Azure account][free_account]. When you create an account, a default subscription is created for you.
 * **Batch account** - Azure Batch resources, including pools, compute nodes, jobs, and tasks, are associated with an Azure Batch account. When your application makes a request against the Batch service, it authenticates the request using the Azure Batch account name, the URL of the account, and an access key. You can [create a Batch account](batch-account-create-portal.md) in the Azure portal, or programmatically.
@@ -63,7 +63,7 @@ These command-line tools provide the same functionality as the Batch service and
 Here are some additional tools that may be helpful for building and debugging your Batch applications and services:
 
 * [Azure portal][portal]: You can create, monitor, and delete Batch pools, jobs, and tasks in the Azure portal. You can view the status information for these and other resources while you run your jobs, and even download files from the compute nodes in your pools. For example, you can download a failed task's `stderr.txt` while troubleshooting. You can also download Remote Desktop (RDP) files that you can use to log in to compute nodes.
-* [Azure BatchLabs][batch_labs]: BatchLabs is a freee, rich-featured, standalone client tool to help create, debug, and monitor Azure Batch applications. Download an [installation package](https://azure.github.io/BatchLabs/) for Mac, Linux, or Windows.
+* [Azure BatchLabs][batch_labs]: BatchLabs is a free, rich-featured, standalone client tool to help create, debug, and monitor Azure Batch applications. Download an [installation package](https://azure.github.io/BatchLabs/) for Mac, Linux, or Windows.
 * [Microsoft Azure Storage Explorer][storage_explorer]: While not strictly an Azure Batch tool, the Storage Explorer is another valuable tool to have while you are developing and debugging your Batch solutions.
 
 ## Additional resources

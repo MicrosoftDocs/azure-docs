@@ -265,7 +265,7 @@ await subtasks.ForEachAsync(async (subtask) =>
 The [MultiInstanceTasks][github_mpi] code sample on GitHub demonstrates how to use a multi-instance task to run an [MS-MPI][msmpi_msdn] application on Batch compute nodes. Follow the steps in [Preparation](#preparation) and [Execution](#execution) to run the sample.
 
 ### Preparation
-1. Follow the first two steps in [How to compile and run a simple MS-MPI program][msmpi_howto]. This satisfies the prerequesites for the following step.
+1. Follow the first two steps in [How to compile and run a simple MS-MPI program][msmpi_howto]. This satisfies the prerequisites for the following step.
 2. Build a *Release* version of the [MPIHelloWorld][helloworld_proj] sample MPI program. This is the program that will be run on compute nodes by the multi-instance task.
 3. Create a zip file containing `MPIHelloWorld.exe` (which you built step 2) and `MSMpiSetup.exe` (which you downloaded step 1). You'll upload this zip file as an application package in the next step.
 4. Use the [Azure portal][portal] to create a Batch [application](batch-application-packages.md) called "MPIHelloWorld", and specify the zip file you created in the previous step as version "1.0" of the application package. See [Upload and manage applications](batch-application-packages.md#upload-and-manage-applications) for more information.
