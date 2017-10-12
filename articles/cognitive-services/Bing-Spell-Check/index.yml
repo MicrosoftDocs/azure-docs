@@ -52,7 +52,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="tutorials/spellcheck.md">Single-Page Web app</a> | <a href="tutorials/spellcheck_source.md">Source code</a>
+    - html: <a href="tutorials/spellcheck.md">Single-Page Web app</a> | <a href="tutorials/spellcheck-source.md">Source code</a>
 
 - title: Reference
   items:

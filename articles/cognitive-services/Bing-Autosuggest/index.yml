@@ -52,7 +52,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="tutorials/autosuggest.md">Single-Page Web app</a> | <a href="tutorials/autosuggest_source.md">Source code</a>
+    - html: <a href="tutorials/autosuggest.md">Single-Page Web app</a> | <a href="tutorials/autosuggest-source.md">Source code</a>
 - title: Reference
   items:
   - type: list
