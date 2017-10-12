@@ -36,8 +36,9 @@ If your SSIS packages access on-premises data stores, join your Azure-SSIS integ
 - If there is an existing Azure Resource Manager VNet connected to your on-premises network, first create a [classic VNet](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) for your Azure-SSIS integration runtime to join. Then, configure a [classic-to-Azure Resource Manager VNet](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) connection.
 
 ## Domain Name Services server 
-If you need to use your own Domain Name Services (DNS) server in a VNet joined by your Azure-SSIS integration runtime, follow this guidance and ensure that the nodes of your Azure-SSIS integration runtime in VNet can resolve Azure endpoints.
+If you need to use your own Domain Name Services (DNS) server in a VNet joined by your Azure-SSIS integration runtime, follow guidance to [ensure that the nodes of your Azure-SSIS integration runtime in VNet can resolve Azure endpoints](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
 
+## Network Security Group
 If you need to implement Network Security Group (NSG) in a VNet joined by your Azure-SSIS Integration Runtime, allow inbound/outbound traffics through the following ports:
 
 | Ports | Direction | Transport Protocol | Purpose | Inbound Source/Outbound Destination |

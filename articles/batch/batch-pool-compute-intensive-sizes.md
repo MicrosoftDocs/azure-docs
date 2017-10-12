@@ -13,7 +13,7 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 09/25/2017
 ms.author: danlep
 
 
@@ -31,13 +31,9 @@ This article provides guidance and examples to use some of Azure's specialized s
 
 ## Subscription and account limits
 
-* **Quotas** - One or more Azure quotas may limit the number or type of nodes you can add to a Batch pool. You are more likely to be limited when you choose RDMA-capable, GPU-enabled, or other multicore VM sizes. Depending on the type of Batch account you created, the quotas could apply to the account itself or to your subscription.
+* **Quotas** - The [dedicated cores quota per Batch account](batch-quota-limit.md#resource-quotas) may limit the number or type of nodes you can add to a Batch pool. You are more likely to reach a quota when you choose RDMA-capable, GPU-enabled, or other multicore VM sizes. By default, this quota is 20 cores. A separate quota applies to [low-priority VMs](batch-low-pri-vms.md), if you use them. 
 
-    * If you created your Batch account in the **Batch service** configuration, you are limited by the [dedicated cores quota per Batch account](batch-quota-limit.md#resource-quotas). By default, this quota is 20 cores. A separate quota applies to [low-priority VMs](batch-low-pri-vms.md), if you use them. 
-
-    * If you created the account in the **User subscription** configuration, your subscription limits the number of VM cores per region. See [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md). Your subscription also applies a regional quota to certain VM sizes, including HPC and GPU instances. In the user subscription configuration, no additional quotas apply to the Batch account. 
-
-  You might need to increase one or more quotas when using a specialized VM size in Batch. To request a quota increase, open an [online customer support request](../azure-supportability/how-to-create-azure-support-request.md) at no charge.
+If you need to request a quota increase, open an [online customer support request](../azure-supportability/how-to-create-azure-support-request.md) at no charge.
 
 * **Region availability** - Compute-intensive VMs might not be available in the regions where you create your Batch accounts. To check that a size is available, see [Products available by region](https://azure.microsoft.com/regions/services/).
 
@@ -95,13 +91,7 @@ To configure a specialized VM size for your Batch pool, the Batch APIs and tools
 
 * [Application package](batch-application-packages.md) - Add a zipped installation package to your Batch account, and configure a package reference in the pool. This setting uploads and unzips the package on all nodes in the pool. If the package is an installer, create a start task command line to silently install the app on all pool nodes. Optionally, install the package when a task is scheduled to run on a node.
 
-* [Custom pool image](batch-api-basics.md#pool) - Create a custom Windows or Linux VM image that contains drivers, software, or other settings required for the VM size. If you created your Batch account in the user subscription configuration, specify the custom image for your Batch pool. (Custom images are not supported in accounts in the Batch service configuration.) Custom images can only be used with pools in the virtual machine configuration.
-
-  > [!IMPORTANT]
-  > In Batch pools, you can't currently use a custom image created with managed disks or with Premium storage.
-  >
-
-
+* [Custom pool image](batch-custom-images.md) - Create a custom Windows or Linux VM image that contains drivers, software, or other settings required for the VM size. 
 
 * [Batch Shipyard](https://github.com/Azure/batch-shipyard) automatically configures the GPU and RDMA to work transparently with containerized workloads on Azure Batch. Batch Shipyard is entirely driven with configuration files. There are many sample recipe configurations available that enable GPU and RDMA workloads such as the [CNTK GPU Recipe](https://github.com/Azure/batch-shipyard/tree/master/recipes/CNTK-GPU-OpenMPI)  which preconfigures GPU drivers on N-series VMs and loads Microsoft Cognitive Toolkit software as a Docker image.
 
@@ -131,17 +121,14 @@ To run CUDA applications on a pool of Linux NC nodes, you need to install CUDA T
 
 1. Deploy an Azure NC6 VM running Ubuntu 16.04 LTS. For example, create the VM in the US South Central region. Make sure that you create the VM with standard storage, and *without* managed disks.
 2. Follow the steps to connect to the VM and [install CUDA drivers](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms).
-3. Deprovision the Linux agent, and then capture Linux VM image using the Azure CLI 1.0 commands. For steps, see [Capture a Linux virtual machine running on Azure](../virtual-machines/linux/capture-image-nodejs.md). Make a note of the image URI.
-  > [!IMPORTANT]
-  > Do not use Azure CLI 2.0 commands to capture the image for Azure Batch. Currently the CLI 2.0 commands only capture VMs created using managed disks.
-  >
-4. Create a Batch account, with the user subscription configuration, in a region that supports NC VMs.
-5. Using the Batch APIs or Azure portal, create a pool using the custom image and with the desired number of nodes and scale. The following table shows sample pool settings for the image:
+3. Deprovision the Linux agent, and then [capture Linux VM image](../virtual-machines/linux/capture-image.md).
+4. Create a Batch account in a region that supports NC VMs.
+5. Using the Batch APIs or Azure portal, create a pool [using the custom image](batch-custom-images.md) and with the desired number of nodes and scale. The following table shows sample pool settings for the image:
 
 | Setting | Value |
 | ---- | ---- |
 | **Image Type** | Custom Image |
-| **Custom Image** | Image URI of the form `https://yourstorageaccountdisks.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/MyVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd` |
+| **Custom Image** | Name of the image |
 | **Node agent SKU** | batch.node.ubuntu 16.04 |
 | **Node size** | NC6 Standard |
 
