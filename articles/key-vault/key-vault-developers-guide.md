@@ -49,7 +49,7 @@ Resources mentioned in above video:
 
 Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. Managed Service Identity (MSI) makes solving this problem simpler by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having any credentials in your code. 
 
-For more information on MSI, see [Managed Service Identity (MSI) for Azure resources](active-directory/msi-overview).
+For more information on MSI, see [Managed Service Identity (MSI) for Azure resources](https://docs.microsoft.com/azure/active-directory/msi-overview).
 
 For more information on working with AAD, see [Integrating applications with Azure Active Directory](/active-directory/develop/active-directory-integrating-applications).
 
