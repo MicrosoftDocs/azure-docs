@@ -331,7 +331,7 @@ In this section, you create a Java console app that simulates a device that send
     private static DeviceClient client;
     ```
    
-    This sample app uses the **protocol** variable when it instantiates a **DeviceClient** object. You can use either the MQTT, AMQP, or HTTP protocol to communicate with IoT Hub.
+    This sample app uses the **protocol** variable when it instantiates a **DeviceClient** object. You can use either the MQTT, AMQP, or HTTPS protocol to communicate with IoT Hub.
 
 8. Add the following nested **TelemetryDataPoint** class inside the **App** class to specify the telemetry data your device sends to your IoT hub:
 
