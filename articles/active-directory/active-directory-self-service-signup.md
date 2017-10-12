@@ -86,17 +86,17 @@ Let's say an IT administrator from Bellows College discovers that users from the
 ## How to perform a DNS domain name takeover
 You have a few options for how to perform a domain validation (and merge or take over an unmanaged domain):
 
-**Azure portal**
+### Azure portal
 
 If you add a new domain name to an Azure AD directory, and a directory already exists for the domain, you are given the option to merge the unmanaged directory. Sign in to the Azure portal using an account that is a global administrator for your existing directory and then proceed as described in [Add a custom domain name to Azure AD](add-custom-domain.md).
 
-**Office 365**
+### Office 365
 
 You can use the options on the [Manage domains](https://support.office.com/article/Navigate-to-the-Office-365-Manage-domains-page-026af1f2-0e6d-4f2d-9b33-fd147420fac2/) page in Office 365 to work with your domains and DNS records. See [Verify your domain in Office 365](https://support.office.com/article/Verify-your-domain-in-Office-365-6383f56d-3d09-4dcb-9b41-b5f5a5efd611/). 
   > [!IMPORTANT]
   > Please be aware that this will take over and not merge the unmanaged directory. If you want to merge the unmanaged directory, do not use this method.
 
-**Microsoft PowerShell**
+### Microsoft PowerShell
 
    The following steps are required to perform a validation using Microsoft PowerShell.
 
@@ -119,10 +119,11 @@ For example:
         connect-msolservice -credential $msolcred
   ````
 2. Get a list of domains:
+  
   ````
     Get-MsolDomain
   ````
-3. Then run the Get-MsolDomainVerificationDns cmdlet to create a challenge:
+3. Run the Get-MsolDomainVerificationDns cmdlet to create a challenge:
   ````
     Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
   
