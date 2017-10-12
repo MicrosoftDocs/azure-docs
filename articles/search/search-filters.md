@@ -22,9 +22,9 @@ ms.author: heidist
 
 A *filter* provides criteria for selecting documents used in an Azure Search query. Unfiltered search is open-ended and inclusive of all documents in the index. Filtered search creates a slice or subset of documents for a more focused query operation. For example, a filter could restrict full text search to just those products having a specific brand or color, at price points above a certain threshold.
 
-Some search experiences impose filter requirements as part of the implementation, but you can use filters anytime you want to scope a query based on criteria pulled from your search corpus.
+Some search experiences impose filter requirements as part of the implementation, but you can use filters anytime you want to scope a query based on *data-related criteria* pulled from your search corpus.
 
-If your goal is instead to target search on specific data structures (for example, a comments field), there are alternative methods, covered below.
+If your goal is instead to target search on specific *data structures* (for example, scope search to a comments field), there are alternative methods, described below.
 
 ## When to use a filter
 
@@ -37,8 +37,8 @@ The following conditions point to a filter solution:
 1. Use a filter if the search experience comes with a filter requirement:
 
  * [Faceted navigation](search-faceted-navigation.md) uses a filter to pass back the facet category selected by the user.
- * [Geo-search](search-filters-geo.md) uses a filter to pass coordinates of the current location in "find near me" apps. 
- * [Security filters](search-filters-security-generic.md) pass security identifiers as filter criteria, where a match in the index serves as a proxy for access rights to the document.
+ * Geo-search uses a filter to pass coordinates of the current location in "find near me" apps. 
+ * Security filters pass security identifiers as filter criteria, where a match in the index serves as a proxy for access rights to the document.
 
 2. Use a filter to slice your index based on data values in the index. Given a schema with city, housing type, and amenities, you might create a filter to explicitly select documents that satisfy your criteria (in Seattle, condos, waterfront). You can make criteria so expressive that it returns a single match.
 
@@ -144,7 +144,7 @@ Follow up with these articles for comprehensive guidance on specific use cases:
 + [Language filters](search-filters-language.md)
 + [Security filters (generic)](search-filters-security-generic.md) 
 
-## Field requirements
+## Field requirements for filtering
 
 All fields are filterable by default but a field definition could include filterable=FALSE, which would prevent its inclusion in a filter. For more information about field definitions, see [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
