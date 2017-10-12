@@ -1,6 +1,6 @@
 ---
 title: Create & manage Azure SQL servers & databases | Microsoft Docs
-description: Learn about Azure SQL Database server and database concepts, and about creating and managing servers and databases using the Azure portal, PowerShell, the Azure CLI, Transact-SQL, and the REST API.
+description: Learn about Azure SQL Database server and database concepts, and about creating and managing servers and databases.
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
