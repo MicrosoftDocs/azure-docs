@@ -48,7 +48,7 @@ The following table details the features and limits of the Basic, Standard, and 
 | Download bandwidth MBps<sup>1</sup> | 30 | 60 | 100 |
 | Upload bandwidth MBps<sup>1</sup> | 10 | 20 | 50 |
 | Webhooks | 2 | 10 | 100 |
-| Geo-replication | N/A | N/A | [Supported *(Preview)*](container-registry-geo-replication.md) |
+| Geo-replication | N/A | N/A | [Supported *(preview)*](container-registry-geo-replication.md) |
 
 <sup>1</sup> *ReadOps*, *WriteOps*, and *Bandwidth* are minimum estimates. ACR strives to improve performance as usage requires.
 

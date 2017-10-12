@@ -19,14 +19,14 @@ ms.date: 10/16/2017
 ms.author: stevelas
 ms.custom:
 ---
-# Geo-replicating an Azure container registry
+# Geo-replication in Azure Container Registry
 
-Companies that want a local presence, or a hot backup, choose to run services from multiple Azure regions. As a best practice, placing a registry in each region where images are run allows network-close operations, enabling fast, reliable image layer transfers.
+Companies that want a local presence, or a hot backup, choose to run services from multiple Azure regions. As a best practice, placing a container registry in each region where images are run allows network-close operations, enabling fast, reliable image layer transfers.
 
-Geo-replication enables an Azure Container Registry (ACR) to function as a single registry, serving multiple regions with multi-master regional registries.
+Geo-replication enables an Azure container registry to function as a single registry, serving multiple regions with multi-master regional registries.
 
 > [!IMPORTANT]
-> The geo-replication feature of Azure Container Registry is currently in **preview**. Previews are made available to you on the condition that you agree to the  [supplemental terms of use](/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
+> The geo-replication feature of Azure Container Registry is currently in **preview**. Previews are made available to you on the condition that you agree to the  [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
 >
 
 A geo-replicated registry provides the following benefits:
@@ -41,26 +41,28 @@ Contoso runs a public presence website located across the US, Canada, and Europe
 
 The development team is located in Seattle WA, utilizing the West US data center.
 
-![Pushing to multiple registries](media/container-registry-geo-replication/before-geo-replicate.png)
+![Pushing to multiple registries](media/container-registry-geo-replication/before-geo-replicate.png)<br />*Pushing to multiple registries*
 
-Prior to using the geo-replication features, Contoso may have had a US-based registry in West US, with an additional registry in West Europe. To serve these different regions, the development team had to push images to two different registries.
+Prior to using the geo-replication features, Contoso had a US-based registry in West US, with an additional registry in West Europe. To serve these different regions, the development team had to push images to two different registries.
 
 ```bash
 docker push contoso.azurecr.io/pubic/products/web:1.2
 docker push contosowesteu.azurecr.io/pubic/products/web:1.2
 ```
-![Pulling from multiple registries](media/container-registry-geo-replication/before-geo-replicate-pull.png)
+![Pulling from multiple registries](media/container-registry-geo-replication/before-geo-replicate-pull.png)<br />*Pulling from multiple registries*
 
 Typical challenges of multiple registries include:
 
 * The East US, West US, and Canada Central clusters all pull from the West US registry, incurring egress fees as each of these remote container hosts pull images from West US data centers.
 * The development team must push images to West US and West Europe registries.
-* The development team had to configure and maintain each regional deployment with image names referencing the local registry.
+* The development team must configure and maintain each regional deployment with image names referencing the local registry.
 * Registry access must be configured for each region.
 
 ## Benefits of geo-replication
 
-![Pulling from multiple registries](media/container-registry-geo-replication/after-geo-replicate-pull.png)
+![Pulling from a geo-replicated registry](media/container-registry-geo-replication/after-geo-replicate-pull.png)
+
+Using the geo-replication feature of Azure Container Registry, these benefits are realized:
 
 * Manage a single registry across all regions: `contoso.azurecr.io`
 * Manage a single configuration of image deployments as all regions used the same image URL: `contoso.azurecr.io/public/products/web:1.2`
@@ -80,7 +82,7 @@ You can also switch to Premium in the [Azure portal](https://portal.azure.com):
 ![SKU Update](media/container-registry-skus/update-registry-sku.png)
 >
 
-To configure geo-replication for your Premium registry, log in to the Azure portal at http://portal.azure.com
+To configure geo-replication for your Premium registry, log in to the Azure portal at http://portal.azure.com.
 
 Navigate to your Azure Container Registry, and select **Replications**:
 
