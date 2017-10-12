@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 10/12/2017
 ms.author: davidmu
 ms.custom: mvc
 ---
 
 # Manage Azure Virtual Networks and Windows Virtual Machines with Azure PowerShell
 
-Azure virtual machines use Azure networking for internal and external network communication. In this tutorial, you create multiple virtual machines (VMs) in a virtual network and configure network connectivity between them. You learn how to:
+Azure virtual machines use Azure networking for internal and external network communication. In this tutorial, you create virtual machines (VMs) in a virtual network and configure network connectivity between them. You learn how to:
 
 > [!div class="checklist"]
 > * Create a virtual network
@@ -29,11 +29,25 @@ Azure virtual machines use Azure networking for internal and external network co
 > * Control network traffic with Network Security Groups
 > * View traffic rules in action
 
+While completing this tutorial you can see these resources created:
+
+![Virtual network with two subnets](./media/tutorial-virtual-network/networktutorial.png)
+
+- *myVNet* - The virtual network that the VMs use to communicate with each other and the internet.
+- *myFrontendSubnet* - The subnet in *myVNet* used by the front-end resources.
+- *myPublicIPAddress* - The public IP address used to access *myFrontendVM* from the internet.
+- *myFrontentNic* - The network interface used by *myFrontendVM* to communicate with *myBackendVM*.
+- *myFrontendVM* - The VM used to communicate between the internet and *myBackendVM*.
+- *myBackendNSG* - The network security group that controls communication between the *myFrontendVM* and *myBackendVM*.
+- *myBackendSubnet* - The subnet associated with *myBackendNSG* and used by the back-end resources.
+- *myBackendNic* - The network interface used by *myBackendVM* to communicate with *myFrontendVM*.
+- *myBackendVM* - The VM that uses port 1433 to communicate with the *myFrontendVM*.
+
 This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 ## Create VNet
 
-A VNet is a representation of your own network in the cloud. A VNet is a logical isolation of the Azure cloud dedicated to your subscription. Within a VNet, you find subnets, rules for connectivity to those subnets, and connections from the VMs to the subnets.
+A virtual network (VNet) is a representation of your own network in the cloud. A VNet is a logical isolation of the Azure cloud dedicated to your subscription. Within a VNet, you find subnets, rules for connectivity to those subnets, and connections from the VMs to the subnets.
 
 Before you can create any other Azure resources, you need to create a resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). The following example creates a resource group named *myRGNetwork* in the *EastUS* location:
 
@@ -162,9 +176,9 @@ Now you can use the public IP address to browse to the VM to see the IIS site.
 
 ## Manage internal traffic
 
-A network security group (NSG) contains a list of security rules that allow or deny network traffic to resources connected to a VNet. NSGs can be associated to subnets or individual NICs attached to VMs. Opening or closing access to VMs through ports is done using NSG rules. When you created *myFrontendVM*, inbound port 3389 was automatically opened for RDP connectivity.
+A network security group (NSG) contains a list of security rules that allow or deny network traffic to resources connected to a VNet. NSGs can be associated to subnets or individual NICs attached to VMs. Opening or closing access to VMs through ports is done using NSG rules. You must create an NSG to control access to a VM through its ports.
 
-Internal communication of VMs can be configured using an NSG. In this section, you learn how to create an additional subnet in the network and assign an NSG to it to allow a connection from *myFrontendVM* to *myBackendVM* on port 1433. The subnet is then assigned to the VM when it is created.
+In this section, you learn how to create an additional subnet in the network and assign an NSG to it to allow a connection from *myFrontendVM* to *myBackendVM* on port 1433. The subnet is then assigned to the VM when it is created.
 
 You can limit internal traffic to *myBackendVM* from only *myFrontendVM* by creating an NSG for the back-end subnet. The following example creates an NSG rule named *myBackendNSGRule* with [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig):
 
