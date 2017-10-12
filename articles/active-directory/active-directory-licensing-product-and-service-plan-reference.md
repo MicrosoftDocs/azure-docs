@@ -35,6 +35,9 @@ The following table lists the most commonly used Microsoft Online Services produ
 - **Guid Id**: Azure AD Graph and Microsoft Graph use those.
 - **Service Plans Included**: a list of service plans in the product. The String Id and Guid Id are listed.
 
+>[!NOTE]
+>This information is accurate as of October 11th 2017. The table contains a selection of most commonly used products.
+
 | Product Name | String Id | Guid Id| Service Plans Included |
 | --- | --- | --- |--- |
 | AZURE ACTIVE DIRECTORY BASIC	| AAD_BASIC	| 2b9c8e7c-319c-43a2-a2a0-48c5c6161de7	| AAD_BASIC (c4da7f8a-5ee2-4c99-a7e1-87d2df57f6fe)
