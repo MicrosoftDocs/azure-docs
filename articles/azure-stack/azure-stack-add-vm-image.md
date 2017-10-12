@@ -51,7 +51,7 @@ To add the image to the Azure Stack Marketplace, complete the following steps:
 2. Sign in to your Azure Stack environment. Run one of the following scripts, depending on whether you deployed your Azure Stack environment by using Azure Active Directory (Azure AD) or Active Directory Federation Services (AD FS). (Replace the Azure AD `tenantName`, `GraphAudience` endpoint, and `ArmEndpoint` values to reflect your environment configuration.)
 
 
-   * **Azure Active Directory**. Use the following cmdlet:
+  * **Azure Active Directory**. Use the following cmdlet:
 
       ```PowerShell
       # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
@@ -80,43 +80,43 @@ To add the image to the Azure Stack Marketplace, complete the following steps:
 
    * **Active Directory Federation Services**. Use the following cmdlet:
     
-      ```PowerShell
-      # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
-      $ArmEndpoint = "<Resource Manager endpoint for your environment>"
+        ```PowerShell
+        # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+        $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
-      # For Azure Stack Development Kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
-      $GraphAudience = "<GraphAuidence endpoint for your environment>"
+        # For Azure Stack Development Kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
+        $GraphAudience = "<GraphAuidence endpoint for your environment>"
 
-      # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
-      Add-AzureRMEnvironment `
-        -Name "AzureStackAdmin" `
-        -ArmEndpoint $ArmEndpoint
+        # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
+        Add-AzureRMEnvironment `
+          -Name "AzureStackAdmin" `
+          -ArmEndpoint $ArmEndpoint
 
-      Set-AzureRmEnvironment `
-        -Name "AzureStackAdmin" `
-        -GraphAudience $GraphAudience `
-        -EnableAdfsAuthentication:$true
+        Set-AzureRmEnvironment `
+          -Name "AzureStackAdmin" `
+          -GraphAudience $GraphAudience `
+          -EnableAdfsAuthentication:$true
 
-      $TenantID = Get-AzsDirectoryTenantId `
-        -ADFS 
-        -EnvironmentName AzureStackAdmin 
+        $TenantID = Get-AzsDirectoryTenantId `
+          -ADFS 
+          -EnvironmentName AzureStackAdmin 
 
-      Login-AzureRmAccount `
-        -EnvironmentName "AzureStackAdmin" `
-        -TenantId $TenantID 
-      ```
+        Login-AzureRmAccount `
+          -EnvironmentName "AzureStackAdmin" `
+          -TenantId $TenantID 
+        ```
     
 3. Add the VM image by invoking the `Add-AzsVMImage` cmdlet. In the `Add-AzsVMImage` cmdlet, specify `osType` as Windows or Linux. Include the publisher, offer, SKU, and version for the VM image. For information about allowed parameters, see [Parameters](#parameters). The parameters are used by Azure Resource Manager templates to reference the VM image. The following example invokes the script:
      
-     ```powershell
-     Add-AzsVMImage `
-       -publisher "Canonical" `
-       -offer "UbuntuServer" `
-       -sku "14.04.3-LTS" `
-       -version "1.0.0" `
-       -osType Linux `
-       -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' `
-     ```
+  ```powershell
+  Add-AzsVMImage `
+    -publisher "Canonical" `
+    -offer "UbuntuServer" `
+    -sku "14.04.3-LTS" `
+    -version "1.0.0" `
+    -osType Linux `
+    -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' `
+  ```
 
 The command does the following:
 
