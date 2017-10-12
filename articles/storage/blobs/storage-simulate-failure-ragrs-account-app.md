@@ -49,30 +49,32 @@ Open Fiddler, select **Rules** and **Customize Rules**.
 The Fiddler ScriptEditor launches showing the **SampleRules.js** file. This file is used to customize Fiddler. Paste the following code sample in the `OnBeforeResponse` function. The new code is commented out to ensure that the logic it creates is not implemented immediately. Once complete select **File** and **Save** to save your changes.
 
 ```javascript
-         // Simulate data center failure
-         // After it is successfully downloading the blob, pause the code in the sample,
-         // uncomment these lines of script, and save the script.
-         // It will intercept the (probably successful) responses and send back a 503 error. 
-         // When you're ready to stop sending back errors, comment these lines of script out again 
-         //     and save the changes.
+	/*
+		// Simulate data center failure
+		// After it is successfully downloading the blob, pause the code in the sample,
+		// uncomment these lines of script, and save the script.
+		// It will intercept the (probably successful) responses and send back a 503 error. 
+		// When you're ready to stop sending back errors, comment these lines of script out again 
+		//     and save the changes.
 
-         // if ((oSession.hostname == "STORAGEACCOUNTNAME.blob.core.windows.net") 
-         // && (oSession.PathAndQuery.Contains("HelloWorld"))) {
-         // oSession.responseCode = 503;  
-         // }
+		if ((oSession.hostname == "contosoragrs.blob.core.windows.net") 
+	    	&& (oSession.PathAndQuery.Contains("HelloWorld"))) {
+			oSession.responseCode = 503;  
+		}
+	*/
 ```
 
 ![Paste customized rule](media/storage-simulate-failure-ragrs-account-app/figure2.png)
 
 ## Start and pause the application
 
-In Visual Studio, press **F5** or select **Start** to start debugging the application. Once the application begins reading from the primary endpoint, in the console window press **space bar** to pause the application.
+In Visual Studio, press **F5** or select **Start** to start debugging the application. Once the application begins reading from the primary endpoint, in the console window press any key to pause the application.
 
 ## Simulate failure
 
 With the application paused you can now uncomment the custom rule we saved in Fiddler a preceding step.  This code sample looks for requests to the RA-GRS storage account and if the path contains the name of the image, `HelloWorld`, it returns a response code of `503 - Service Unavailable`.
 
-Navigate to Fiddler and select **Rules** -> **Customize Rules...**.  Uncomment out the following lines and select **File** and **Save**. Replace `STORAGEACCOUNTNAME` with the name of your storage account.
+Navigate to Fiddler and select **Rules** -> **Customize Rules...**.  Uncomment out the following lines, replace `STORAGEACCOUNTNAME` with the name of your storage account. Select **File** -> **Save** to save your changes.
 
 ```javascript
          if ((oSession.hostname == "STORAGEACCOUNTNAME.blob.core.windows.net")
@@ -81,7 +83,7 @@ Navigate to Fiddler and select **Rules** -> **Customize Rules...**.  Uncomment o
          }
 ```
 
-Press **space bar** to resume the application.
+Press any key to resume the application.
 
 Once the application starts running again, the requests to the primary endpoint begin to fail. The application attempts to reconnect to the primary endpoint 5 times. After the failure threshold of five attempts, it requests the image from the secondary read-only endpoint. After the application successfully retrieves the image 20 times from the secondary endpoint, the application attempts to connect to the primary endpoint. If the primary endpoint is still unreachable, the application resumes reading from the secondary endpoint. This pattern is the [Circuit Breaker](/azure/architecture/patterns/circuit-breaker.md) pattern described in the previous tutorial.
 
@@ -91,7 +93,7 @@ Once the application starts running again, the requests to the primary endpoint 
 
 With the Fiddler custom rule set in the preceding step, requests to the primary endpoint fail. In order to simulate the primary endpoint functioning again, you remove the logic to inject the `503` error.
 
-Press **space bar** to pause the application.
+Press any key to pause the application.
 
 ### Remove the custom rule
 
@@ -99,7 +101,7 @@ Navigate to Fiddler and select **Rules** and **Customize Rules...**.  Comment or
 
 ![Remove customized rule](media/storage-simulate-failure-ragrs-account-app/figure5.png)
 
-When complete, press **space bar** to resume the application.
+When complete, press any key to resume the application. The application will continue reading from the primary endpoint until it his 999 reads.
 
 ![Resume application](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
