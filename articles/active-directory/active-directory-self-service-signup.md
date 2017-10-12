@@ -20,15 +20,15 @@ ms.custom: it-pro;oldportal
 
 ---
 # What is self-service signup for Azure Active Directory?
-This topic explains the self-service signup process for Azure Active Directory (Azure AD) and how to take over a DNS domain name.  
+This article explains the self-service signup process for Azure Active Directory (Azure AD) and how to take over a DNS domain name.  
 
 ## Why use self-service signup?
 * Get customers to services they want faster
 * Create email-based offers for a service
-* Create email-based signup flows which quickly allow users to create identities using their easy-to-remember work email aliases
-* Unmanaged Azure directories can be made into managed directories later and be reused for other services
+* Create email-based signup flows that quickly allow users to create identities using their easy-to-remember work email aliases
+* A self-service-created Azure AD directory can be turned into a managed directory that can be used for other services
 
-## Terms and Definitions
+## Terms and definitions
 * **Self-service signup**: This is the method by which a user signs up for a cloud service and has an identity automatically created for them in Azure AD based on their email domain.
 * **Unmanaged Azure AD directory**: This is the directory where that identity is created. An unmanaged directory is a directory that has no global administrator.
 * **Email-verified user**: This is a type of user account in Azure AD. A user who has an identity created automatically after signing up for a self-service offer is known as an email-verified user. An email-verified user is a regular member of a directory tagged with creationmethod=EmailVerified.
@@ -55,10 +55,10 @@ If you don't want to manage two separate directories, merge the unmanaged direct
 
 Merging an unmanaged directory follows the same DNS validation process as only taking it over as admin. The difference is users and services are remapped to the existing managed directory.
 
-#### What's the advantage of performing an merging an unmanaged directory?
+#### What's the advantage of merging an unmanaged directory?
 With an external takeover, a mapping of users-to-resources is created so users can continue to access services without interruption. Many applications, including RMS for individuals, handle the mapping of users-to-resources well, and users can continue to access those services without change. If an application does not handle the mapping of users-to-resources effectively, external takeover may be explicitly blocked to prevent users from a poor experience.
 
-#### directory takeover support by service
+#### Directory merging and takeover support by service
 Currently the following services support takeover:
 
 * RMS
@@ -67,7 +67,7 @@ The following services will soon be supporting takeover:
 
 * PowerBI
 
-The following do not and require additional admin action to migrate user data after an external takeover.
+The following do not require additional admin action to migrate user data after an external takeover.
 
 * SharePoint/OneDrive
 
@@ -151,14 +151,14 @@ Admins have two self-service controls today. They can control:
 An admin can configure these capabilities using these Azure AD cmdlet Set-MsolCompanySettings parameters:
 
 * **AllowEmailVerifiedUsers** controls whether a user can create or join an unmanaged directory. If you set that parameter to $false, no email-verified users can join the directory.
-* **AllowAdHocSubscriptions** controls the ability for users to perform self-service sign up. If you set that parameter to $false, no users can perform self-service signup.
+* **AllowAdHocSubscriptions** controls the ability for users to perform self-service signup. If you set that parameter to $false, no users can perform self-service signup.
 
 ### How do the controls work together?
 These two parameters can be used in conjunction to define more precise control over self-service signup. For example, the following command will allow users to perform self-service signup, but only if those users already have an account in Azure AD (in other words, users who would need an email-verified account to be created cannot perform self-service signup):
 ````
     Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
 ````
-The following flowchart explains the different combinations for these parameters and the resulting conditions for the directory and self-service sign up.
+The following flowchart explains the different combinations for these parameters and the resulting conditions for the directory and self-service signup.
 
 ![][1]
 
