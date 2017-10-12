@@ -20,7 +20,7 @@ For more general information on Azure Storage Accounts, see [About Azure storage
 
 ## Supporting interfaces
 
-You'll find a complete listing and links to our programming and scripting interfaces in the [Key Vault Developer's Guide](key-vault-developers-guide#coding-with-key-vault.md).
+You'll find a complete listing and links to our programming and scripting interfaces in the [Key Vault Developer's Guide](key-vault-developers-guide.md#coding-with-key-vault).
 
 
 ## What Key Vault manages
