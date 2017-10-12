@@ -56,7 +56,7 @@ vCores are a measure of CPU processing throughput that is guaranteed to be avail
 | vCores | 1,2 | 2,4,8,16,32 |2,4,8,16,32 |
 | Max Storage Size | 50 GB | 2 TB | 2 TB | 
 | Storage Type | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage | 
-| Database backup retention period | 7 days | 35 days | 35 days |  
+| Database backup retention period | 7 - 35 days |
 
 
 \* Max storage size refers to the maximum usable provisioned storage size for your server. Log usage does not count toward the storage size.
@@ -64,11 +64,16 @@ vCores are a measure of CPU processing throughput that is guaranteed to be avail
 ## Storage 
 The storage configuration defines the amount of storage capacity available to an Azure Database for MySQL server. The storage used by the service includes the database files, transaction logs, and the MySQL server logs. Consider the size of storage needed to host your databases and the performance requirements (IOPS) when selecting the storage configuration.
 
-Some storage capacity is included at a minimum with each pricing tier, noted in the preceding table as "Included storage size." Additional storage capacity can be added when the server is created, in increments of ***1-5 (need to confirm)*** GB, up to the maximum allowed storage. The additional storage capacity can be configured independently of the vCores configuration. The price changes based on the amount of storage selected.
+5GB of storage capacity is included at a minimum with each pricing tier. Additional storage capacity can be added during and after the server is created, in increments of ***1-5 (need to confirm)*** GB, up to the maximum allowed storage. The additional storage capacity can be configured independently of the vCores configuration. The price changes based on the amount of storage selected.
 
-The IOPS configuration in each performance level relates to the pricing tier and the storage size chosen. Basic tier does not provide an IOPS guarantee. Within the Standard pricing tier, the IOPS scale proportionally to maximum storage size in a fixed 3:1 ratio. The included storage of 125 GB guarantees for 375 provisioned IOPS, each with an IO size of up to 256 KB. You can choose additional storage up to 1 TB maximum, to guarantee 6,000 provisioned IOPS.
+The IOPS configuration in each performance level relates to the pricing tier and the storage size chosen. Basic tier does not provide an IOPS guarantee. Within the General Purpose pricing tier, the IOPS scale proportionally to maximum storage size in a fixed 3:1 ratio. The included storage of 5 GB guarantees for 15 provisioned IOPS, each with an IO size of up to 256 KB. You can choose additional storage up to 2 TB maximum, to guarantee 6,000 provisioned IOPS.
 
-Monitor the Metrics graph in the Azure portal or write Azure CLI commands to measure the consumption of storage and IOPS. Relevant metrics to monitor are Storage limit, Storage percentage, Storage used, and IO percent.
+Storage can be either [locally redundant](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#locally-redundant-storage) or [geo-redundant] (https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#geo-redundant-storage). The default storage type is locally redundant and geo-redundant storage can be purchased at 2x the cost.  
+
+Monitor the Metrics graph in the Azure portal or write Azure CLI commands to measure the consumption of storage and storage IOs. Relevant metrics to monitor are Storage limit, Storage percentage, Storage used, and IO percent.
+
+## Backup
+Backups are done automatically. A full backup is taken every week. Differential backups are taken every 12 hours and snapshots are taken every 5 minutes. Similar to storage types, you have the option to choose locally redundant backups or geo-redundant backups. You also have the ability to choose the backup retention between 7 days to 35 days. 1x of provisioned storage size is included for backup in the storage pricing model and additional backup costs will incur in the future for anything above. For example if your database server provisions 1TB of storage, you will also get 1TB of storage for backups, and anything above 1TB of backups will be subject to additional costs in the future.
 
 
 ## Scaling a server up or down

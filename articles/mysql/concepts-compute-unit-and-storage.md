@@ -14,16 +14,16 @@ ms.date: 10/10/2017
 This article explains the concept of vCores and what happens when your workload reaches the maximum vCores.
 
 ## What are vCores?
-vCores are a measure of CPU processing throughput that is guaranteed to be available to a single Azure Database for MySQL server. In general, 1 vCore equates to 1 core, which is seens as a physical CPU by the server's operating system. General Purpose 1600 contains 16 vCores and therefore equates to sixteen cores of guaranteed processing throughput available to your server. vCore is hyperthreaded in Gen5 hardware, offering additional computing power in simultaneous multithreaded applications.
+vCores are a measure of CPU processing throughput that is guaranteed to be available to a single Azure Database for MySQL server. 1 vCore is the smallest unit of compute and in general, 2 vCores equate to 1 physical core, which is seen as a CPU by the server's operating system. General Purpose 32 vCores therefore equates to sixteen cores of guaranteed processing throughput available to your server. vCore is hyperthreaded in Gen5 hardware, offering additional computing power in simultaneous multithreaded applications.
 
 The amount of memory per Compute Unit is optimized for the General Purpose and Memory Optimized pricing tiers. Doubling the vCores by increasing the performance level equates to doubling the set of resource available to that single Azure Database for MySQL.
 
-For example, a General Purpose 800 vCores provides 8x more CPU throughput and memory than a General Purpose 100 vCores configuration. However, while General Purpose 100 vCores provide the same CPU throughput compared to Basic 100 vCores, the amount of memory that is pre-configured in General Purpose pricing tier is double the amount of memory configured for Basic pricing tier. Similarly with the same vCore selection, memory is doubled again in the Memory Optimized tier comparing to the General Purpose tier. Therefore, Memory Optimized tier provides better workload performance and lower transaction latency than General Purpose and General Purpose outperformances Basic with the same vCores selected.
+For example, a General Purpose 8 vCores provides 4x more CPU throughput and memory than a General Purpose 2 vCores configuration. However, while General Purpose 2 vCores provide the same CPU throughput compared to Basic 2 vCores, the amount of memory that is pre-configured in General Purpose pricing tier is double the amount of memory configured for Basic pricing tier. Similarly with the same vCore selection, memory is doubled again in the Memory Optimized tier comparing to the General Purpose tier. Therefore, Memory Optimized tier provides better workload performance and lower transaction latency than General Purpose and General Purpose outperformances Basic with the same vCores selected.
 
 ## How can I determine the number of vCores needed for my workload?
 If you are looking to migrate an existing MySQL server running on-premises or on a virtual machine, you can determine the number of vCores by estimating how many cores of processing throughput your workload needs. 
 
-If your existing on-premises or virtual machine server is currently utilizing 4 cores (without counting CPU hyperthread), start by configuring 4 vCores for your Azure Database for MySQL server. vCores can be dynamically scaled up or down depending on your workload needs with virtually no application downtime. 
+If your existing on-premises or virtual machine server is currently utilizing 4 cores (without counting CPU hyperthread), start by configuring 8 vCores for your Azure Database for MySQL server. vCores can be dynamically scaled up or down depending on your workload needs with virtually no application downtime. 
 
 Monitor the Metrics graph in the Azure portal or write Azure CLI commands -to measure vCores. Relevant metrics to monitor are the Compute Unit percentage and Compute Unit limit. 
 
