@@ -56,10 +56,10 @@ Before you proceed, you will need to note the Log Analytics workspace your Autom
 
 ## Turning Off Signature Validation 
 By default, Linux Hybrid Runbook Workers require signature validation. If you run an unsigned runbook against a worker, you will see an error containing "Signature validation failed". To turn off signature validation, run the following command, replacing the second parameter with your OMS workspace ID:
+
     ```
     sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <OMSworkspaceId>
     ```
-   
    
 ## Next Steps
 
