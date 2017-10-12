@@ -63,9 +63,9 @@ Once your app is sending custom events and these events are being received by Mo
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Select **New** > **Monitoring + Management** > **Application Insights**.
 
-![Adding Application Insights resource](./media/app-insights-mobile-center-quickstart/add.png)
+    ![Adding Application Insights resource](./media/app-insights-mobile-center-quickstart/add.png)
 
-A configuration box will appear. Use the table below to fill out the input fields.
+    A configuration box will appear. Use the table below to fill out the input fields.
 
     | Settings        |  Value           | Description  |
    | ------------- |:-------------|:-----|
@@ -113,8 +113,6 @@ Application Insights can query, segment, filter, and analyze the custom event te
    | summarize dcount(user_Id) by name 
    | order by dcount_user_Id desc 
    ```
-
-    
 
    ![Analytics portal](./media/app-insights-mobile-center-quickstart/analytics-portal.png)
 
