@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/24/2017
+ms.date: 10/12/2017
 ms.author: bwren
 
 ms.custom: H1Hack27Feb2017
@@ -41,6 +41,21 @@ All resources in Log Analytics are contained in a [workspace](../log-analytics/l
 The name of the workspace is in the name of each Log Analytics resource.  This is done in the solution with the **workspace** parameter as in the following example of a savedsearch resource.
 
     "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearchId'))]"
+
+## Log Analytics API version
+All Log Analytics resources defined in a Resource Manager template have a property **apiVersion** that defines the version of the API the resource should use.  This version will be different for resources that use the [legacy and the upgraded query language](../log-analytics/log-analytics-log-search-upgrade.md).  
+
+ The following table specifies the Log Analytics API versions for legacy and upgraded workspaces and a sample query to specify the different syntax for each. 
+
+| Workspace version | API version | Sample query |
+|:---|:---|:---|
+| v1 (legacy)   | 2015-11-01-preview | Type=Event EventLevelName = Error             |
+| v2 (upgraded) | 2017-03-03-preview | Event &#124; where EventLevelName == "Error"  |
+
+Note the following for which workspaces are supported by different versions.
+
+- Templates that use the legacy query language can be installed in a legacy or upgraded workspace.  If installed in an upgraded workspace, then queries will be converted on the fly to the new language when they are run by the user.
+- Templates that use the upgraded query language can only be installed in an upgraded workspace.
 
 
 ## Saved Searches
