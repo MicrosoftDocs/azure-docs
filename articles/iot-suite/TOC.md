@@ -24,6 +24,7 @@
 ### [Troubleshoot device issues](iot-suite-remote-monitoring-maintain.md)
 ### [Use simulated devices](iot-suite-remote-monitoring-test.md)
 ### [Customize the solution](iot-suite-remote-monitoring-customize.md)
+### [Deploy using the CLI](iot-suite-remote-monitoring-deploy-cli.md)
 ### Connect a physical device
 #### [C on Windows](iot-suite-connecting-devices.md)
 #### [C on Linux](iot-suite-connecting-devices-linux.md)
