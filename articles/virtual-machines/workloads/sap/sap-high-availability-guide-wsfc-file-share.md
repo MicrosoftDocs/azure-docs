@@ -28,6 +28,11 @@ ms.custom: H1Hack27Feb2017
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 [2492395]:https://launchpad.support.sap.com/#/notes/2492395
 
+[kb4025334]:https://support.microsoft.com/help/4025334/windows-10-update-kb4025334
+
+[dv2-series]:https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dv2-series
+[ds-series]:https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#ds-series
+
 [sap-installation-guides]:http://service.sap.com/instguides
 
 [azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
@@ -51,6 +56,12 @@ ms.custom: H1Hack27Feb2017
 [sap-high-availability-installation-wsfc-shared-disk]:sap-high-availability-installation-wsfc-shared-disk.md
 [sap-hana-ha]:sap-hana-high-availability.md
 [sap-suse-ascs-ha]:high-availability-guide-suse.md
+
+[planning-volumes-s2d-choosing-filesystem]:https://docs.microsoft.com/windows-server/storage/storage-spaces/plan-volumes#choosing-the-filesystem
+[choosing-the-size-of-volumes-s2d]:https://docs.microsoft.com/windows-server/storage/storage-spaces/plan-volumes#choosing-the-size-of-volumes
+[deploy-sofs-s2d-in-azure]:https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment
+[s2d-in-win-2016]:https://docs.microsoft.com/en-us/windows-server/storage/storage-spaces/storage-spaces-direct-overview
+[deep-dive-volumes-in-s2d]:https://blogs.technet.microsoft.com/filecab/2016/08/29/deep-dive-volumes-in-spaces-direct/
 
 [planning-guide]:planning-guide.md
 [planning-guide-11]:planning-guide.md
@@ -285,7 +296,7 @@ _**Figure 4:** SOFS file share used to protect SAP GLOBAL Host files_
 **Storage Spaces Direct (S2D)**, is used as **shared disk** for SOFS, enables building highly available and scalable storage using servers with local storage. Therefore, shared storage used for SOFS, e.g. for SAP GLOBALHOST files is not a single point of failure (SPOF).
 
 > [!IMPORTANT]
->If you plan do not plan to setup disaster recovery , SOFS is strongly recommended solution for  highly available file share in Azure.
+>If you plan do not plan to setup disaster recovery , SOFS is recommended solution for  highly available file share in Azure.
 >
 
 ### SAP Prerequisites for SOFS in Azure
@@ -301,40 +312,33 @@ For the SOFS you need:
     * **3-way** mirroring for SOFS with 3 (or more) cluster nodes
 
 
-* It is **strongly recommended to have 3 (or more cluster) nodes for SOFS with 3-way mirroring**.
+* It is **recommended to have 3 (or more cluster) nodes for SOFS with 3-way mirroring**.
 This setup will offer more scalability and more storage resiliency than the SOFS setup with 2 cluster nodes and 2-way mirroring.
 
 * You must use **Azure Premium disk**
 
-* It is **strongly recommended** to use **Azure managed disks**
+* It is **recommended** to use **Azure managed disks**
 
-* It is **strongly recommended** format volumes with new **Resilient File System (ReFS)**
+* It is **recommended** to format volumes with new **Resilient File System (ReFS)**
     * [SAP Note 1869038 - SAP support for ReFs filesystem][1869038]
-    * https://docs.microsoft.com/en-us/windows-server/storage/storage-spaces/plan-volumes#choosing-the-filesystem
-    * Make sure to install this MS **KB4025334** cumulative update: https://support.microsoft.com/en-us/help/4025334/windows-10-update-kb4025334
-
+    * See [Choosing the filesystem][planning-volumes-s2d-choosing-filesystem] chapter of Planning volumes in Storage Spaces Direct.
+    * Make sure to install this [MS **KB4025334** cumulative update][kb4025334].
 
 
 * You can use **DS-Series** or **DSv2-Series** Azure VM sizes
 
-* To have good inter VM network performance that is needed for Storage Spaces Direct disk synchronization, you should use a VM type that has at least a **“high” network bandwidth**
-https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-general#dv2-series
-https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-general#ds-series
+* To have good inter VM network performance that is needed for Storage Spaces Direct disk synchronization, you should use a VM type that has at least a **“high” network bandwidth**.
+For more details, see [DSv2-Series][dv2-series] and [DS-Series][ds-series] specification.
 
-* It is **strongly recommended** to leave and **reserve some capacity in the storage pool unallocated**. It gives volumes of space to repair "in-place" after drives fail, improving data safety and performance.
+* It is **recommended** to leave and **reserve some capacity in the storage pool unallocated**. It gives volumes of space to repair "in-place" after drives fail, improving data safety and performance.
 
-https://docs.microsoft.com/en-us/windows-server/storage/storage-spaces/plan-volumes#choosing-the-size-of-volumes
+ For more details, see [Choosing the size of volumes][choosing-the-size-of-volumes-s2d]
+
 
 * SOFS Azure VMs must be deployed in **own Azure Availability Set**
 
 * There is no need to configure Azure Internal Load Balancer for SOFS file share network name e.g. <SAPGlobalHostName>, as it is done for <(A)SCSVirtualHostname> of SAP (A)SCS instance or for the DBMS. SOFS is scaling out load across all cluster nodes, so <SAPGlobalHostName> is using local IP of all cluster nodes.
 
-
-https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment
-
-https://docs.microsoft.com/en-us/windows-server/storage/storage-spaces/storage-spaces-direct-overview
-
-https://blogs.technet.microsoft.com/filecab/2016/08/29/deep-dive-volumes-in-spaces-direct/
 
 > [!IMPORTANT]
 >SAPMNT file share which points to SAPGLOBALHOST cannot be changed. SAP does not support a different share name as sapmnt.
@@ -374,3 +378,9 @@ Here, as a cluster shared disk you can use 3rd party SIOS solution.
 * [Azure Infrastructure Preparation for SAP HA using Windows Failover Cluster and File Share for SAP (A)SCS Instance][sap-high-availability-infrastructure-wsfc-file-share]
 
 * [SAP NetWeaver HA Installation on Windows Failover Cluster and File Share for SAP (A)SCS Instance][sap-high-availability-installation-wsfc-shared-disk]
+
+* [Deploy a two-node Storage Spaces Direct scale-out file server for UPD storage in Azure][deploy-sofs-s2d-in-azure]
+
+* [Storage Spaces Direct in Windows Server 2016][s2d-in-win-2016]
+
+* [Deep Dive: Volumes in Storage Spaces Direct][deep-dive-volumes-in-s2d]
