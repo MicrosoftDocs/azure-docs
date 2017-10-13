@@ -631,7 +631,7 @@ When you're troubleshooting a specific error, it can help to see where it is occ
 When you're beginning to construct queries, it can help to see what's possible first. For example, to see all performance data, try a broad query by typing the following search query.
 
 ```
-Perf
+Type=Perf
 ```
 
 ![containers performance](./media/log-analytics-containers/containers-perf01.png)
