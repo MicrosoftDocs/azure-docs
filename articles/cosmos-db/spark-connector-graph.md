@@ -15,7 +15,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: gremlin
 ms.topic: article
-ms.date: 09/08/2017
+ms.date: 06/05/2017
 ms.author: khdang
 
 ---
@@ -41,11 +41,11 @@ For information about how to set up an Azure HDInsight Spark cluster, see [Provi
 
 First, create a database account with the Graph API by doing the following:
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-graph.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 ## Add a collection
 
-[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-graph.md)]
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
 ## Get Apache TinkerPop
 

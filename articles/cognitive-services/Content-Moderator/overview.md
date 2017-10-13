@@ -35,9 +35,7 @@ Microsoft Content Moderator enables all three scenarios. It can be used by human
 
 ## The tools work together
 
-Content moderation consists of several web service APIs and human-in-the-loop capabilities via a review tool as shown below:
-
-![Content Moderator Block Diagram](images/content-moderator-block-diagram.png)
+Content moderation consists of several web service APIs and human-in-the-loop capabilities via a review tool:
 
 - A review tool that uses the following APIs.
 - Text Moderation API – Scan and tag text.
@@ -58,6 +56,6 @@ Use the [review API](review-api.md) to auto-moderate content in bulk and review 
 ## Directly use the automated moderation APIs
 If you sign up for the review tool, you will find your free tier key in the Credentials tab under Settings, as shown in the following screenshot:
 
-![Your Content Moderator API Key](images/credentials3.PNG)
+![Your Content Moderator API Key](images/7-Settings-Credentials.png)
 
 You can also sign up for the free tiers of [text moderation](text-moderation-api.md) and [image moderation](image-moderation-api.md) APIs to see how to automatically moderate large amounts of content and integrate with your review tools and processes. While you’re at it, apply to use the private preview of the [video moderation](video-moderation-api.md) APIs.

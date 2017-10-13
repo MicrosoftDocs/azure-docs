@@ -4,7 +4,7 @@ description: Learn how to get media content into Media Services by creating and 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: erikre
 editor: ''
 
 ms.assetid: 41df7cbe-b8e2-48c1-a86c-361ec4e5251f

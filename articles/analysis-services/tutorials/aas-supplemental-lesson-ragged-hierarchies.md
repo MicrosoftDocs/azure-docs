@@ -3,7 +3,7 @@ title: "Azure Analysis Services tutorial supplemental lesson: Ragged hierarchies
 description: Describes how to fix ragged hierarchies in the Azure Analysis Services tutorial.
 services: analysis-services
 documentationcenter: ''
-author: Minewiskan
+author: minewiskan
 manager: erikre
 editor: ''
 tags: ''

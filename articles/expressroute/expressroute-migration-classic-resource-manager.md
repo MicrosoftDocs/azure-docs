@@ -71,9 +71,8 @@ This section describes the steps to be followed to migrate a virtual network, ga
 4. Validate, prepare, and migrate. To move the virtual network, use the following PowerShell snippet:
 
   ```powershell
-  Move-AzureVirtualNetwork -Validate -VirtualNetworkName $vnetName
-  Move-AzureVirtualNetwork -Prepare -VirtualNetworkName $vnetName
-  Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
+  Move-AzureVirtualNetwork -Prepare $vnetName  
+  Move-AzureVirtualNetwork -Commit $vnetName
   ```
 
   You can also abort migration by running the following PowerShell cmdlet:

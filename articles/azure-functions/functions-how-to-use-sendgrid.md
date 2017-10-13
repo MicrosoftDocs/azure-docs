@@ -4,7 +4,7 @@ description: Shows how to use SendGrid in Azure Functions
 services: functions
 documentationcenter: na
 author: rachelappel
-manager: cfowler
+manager: erikre
 
 ms.service: functions
 ms.devlang: multiple

@@ -3,7 +3,7 @@ title: Enable FTP in App Service on Azure Stack | Microsoft Docs
 description: Steps to complete to enable FTP in App Service on Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: ErikjeMS
+author: apwestgarth
 manager: stefsch
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 4/6/2017
-ms.author: erikje
+ms.author: anwestg
 
 ---
 # Enable FTP in App Service on Azure Stack

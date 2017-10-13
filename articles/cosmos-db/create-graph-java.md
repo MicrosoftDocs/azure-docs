@@ -13,7 +13,7 @@ ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: quickstart
+ms.topic: hero-article
 ms.date: 08/24/2017
 ms.author: denlee
 

@@ -4,7 +4,7 @@ description: Learn how to programmatically monitor Stream Analytics jobs created
 keywords: .net monitor, job monitor, monitoring app
 services: stream-analytics
 documentationcenter: ''
-author: samacha
+author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: samacha
+ms.author: jeffstok
 
 ---
 # Programmatically create a Stream Analytics job monitor
@@ -172,7 +172,7 @@ The following code enables monitoring for an **existing** Stream Analytics job. 
 
 ## Get support
 
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 

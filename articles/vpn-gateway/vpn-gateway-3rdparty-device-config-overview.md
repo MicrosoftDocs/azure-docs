@@ -1,6 +1,6 @@
 ---
-title: Partner VPN device configurations for connecting to Azure VPN gateways | Microsoft Docs
-description: This article provides an overview of partner VPN device configurations for connecting to Azure VPN gateways.
+title: About 3rd party VPN device configuration to connect to Azure VPN gateways | Microsoft Docs
+description: This article provides an overview of 3rd party VPN device configurations for connecting to Azure VPN gateways.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -18,37 +18,37 @@ ms.date: 06/20/2017
 ms.author: yushwang
 
 ---
-# Overview of partner VPN device configurations
-This article provides an overview of configuring on-premises VPN devices for connecting to Azure VPN gateways. A sample Azure virtual network and VPN gateway setup is used to show you how to connect to different on-premises VPN device configurations by using the same parameters.
+# Overview of 3rd party VPN device configurations
+This article provides an overview of on-premises VPN device configurations for connecting to Azure VPN gateways. The sample Azure virtual network and VPN gateway setup will be used to connect to different on-premises VPN devices with the same parameters.
 
 ## Device requirements
-Azure VPN gateways use standard IPsec/IKE protocol suites for site-to-site (S2S) VPN tunnels. For a list of IPsec/IKE parameters and cryptographic algorithms for Azure VPN gateways, see [About VPN devices](vpn-gateway-about-vpn-devices.md). You can also specify the exact algorithms and key strengths for a specific connection as described in [About cryptographic requirements](vpn-gateway-about-compliance-crypto.md).
+Azure VPN gateways use standard IPsec/IKE protocol suites for S2S VPN tunnels. Refer to [About VPN devices](vpn-gateway-about-vpn-devices.md) for the detailed IPsec/IKE protocol parameters and default cryptographic algorithms for Azure VPN gateways. You can optionally specify the exact combination of cryptographic algorithms and key strengths for a specific connection as described in [About cryptographic requirements](vpn-gateway-about-compliance-crypto.md).
 
 ## <a name ="singletunnel"></a>Single VPN tunnel
-The first configuration in the sample consists of a single S2S VPN tunnel between an Azure VPN gateway and an on-premises VPN device. You can optionally configure the [Border Gateway Protocol (BGP) across the VPN tunnel](#bgp).
+The first topology consists of a single S2S VPN tunnel between an Azure VPN gateway and your on-premises VPN device. You can optionally configure BGP across the VPN tunnel.
 
-![Diagram of a single S2S VPN tunnel](./media/vpn-gateway-3rdparty-device-config-overview/singletunnel.png)
+![single tunnel](./media/vpn-gateway-3rdparty-device-config-overview/singletunnel.png)
 
-For step-by-step instructions to set up a single VPN tunnel, see [Configure a site-to-site connection](vpn-gateway-howto-site-to-site-resource-manager-portal.md). The following sections specify the connection parameters for the sample configuration and provide a PowerShell script to help you get started.
+Refer to [Configure site-to-site connection](vpn-gateway-howto-site-to-site-resource-manager-portal.md) for detailed, step-by-step guidance. The following sections list the parameters and provide a sample PowerShell script to help you get started.
 
-### Connection parameters
-This section lists the parameters for the examples that are described in the previous sections.
+### Network and VPN gateway information
+This section list the parameters for the examples above.
 
 | **Parameter**                | **Value**                    |
 | ---                          | ---                          |
-| Virtual network address prefixes        | 10.11.0.0/16<br>10.12.0.0/16 |
+| VNet address prefixes        | 10.11.0.0/16<br>10.12.0.0/16 |
 | Azure VPN gateway IP         | Azure VPN Gateway IP         |
 | On-premises address prefixes | 10.51.0.0/16<br>10.52.0.0/16 |
 | On-premises VPN device IP    | On-premises VPN device IP    |
-| * Virtual network BGP ASN                | 65010                        |
-| * Azure BGP peer IP           | 10.12.255.30                 |
-| * On-premises BGP ASN         | 65050                        |
-| * On-premises BGP peer IP     | 10.52.255.254                |
+| *VNet BGP ASN                | 65010                        |
+| *Azure BGP peer IP           | 10.12.255.30                 |
+| *On-premises BGP ASN         | 65050                        |
+| *On-premises BGP peer IP     | 10.52.255.254                |
 
-\* Optional parameter for BGP only.
+* (*) Optional parameters for BGP only
 
 ### Sample PowerShell script
-This section provides a sample script to get you started. For detailed instructions, see [Create an S2S VPN connection by using PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md).
+[Create a S2S VPN connection using PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md) has the detailed instructions. This section provides a sample script to get you started.
 
 ```powershell
 # Declare your variables
@@ -113,18 +113,18 @@ $lng5gw  = Get-AzureRmLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG
 New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $False
 ```
 
-### <a name ="policybased"></a>(Optional) Use custom IPsec/IKE policy with UsePolicyBasedTrafficSelectors
-If your VPN devices don't support any-to-any traffic selectors, such as route-based or VTI-based configurations, create a custom IPsec/IKE policy with the [UsePolicyBasedTrafficSelectors](vpn-gateway-connect-multiple-policybased-rm-ps.md) option.
+### <a name ="policybased"></a> [Optional] Use custom IPsec/IKE policy with "UsePolicyBasedTrafficSelectors"
+If your VPN devices do not support "any-to-any" traffic selectors (route-based/VTI-based configuration), you will need to create a custom IPsec/IKE policy and configure "UsePolicyBasedTrafficSelectors" option as described in [this article](vpn-gateway-connect-multiple-policybased-rm-ps.md).
 
 > [!IMPORTANT]
-> You must create an IPsec/IKE policy to enable the **UsePolicyBasedTrafficSelectors** option on the connection.
+> You need to create an IPsec/IKE policy in order to enable "UsePolicyBasedTrafficSelectors" option
+> on the connection.
 
-
-The sample script creates an IPsec/IKE policy with the following algorithms and parameters:
+The sample script below creates an IPsec/IKE policy with the following algorithms and parameters:
 * IKEv2: AES256, SHA384, DHGroup24
-* IPsec: AES256, SHA1, PFS24, SA Lifetime 7,200 seconds, and 20,480,000 KB (20 GB)
+* IPsec: AES256, SHA1, PFS24, SA Lifetime 7200 seconds & 20480000KB (20GB)
 
-The script applies the IPsec/IKE policy and enables the **UsePolicyBasedTrafficSelectors** option on the connection.
+It then applies the policy and enables "UesPolicyBasedTrafficSelectors" on the connection.
 
 ```powershell
 $ipsecpolicy5 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA1 -PfsGroup PFS24 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 20480000
@@ -135,21 +135,21 @@ $lng5gw  = Get-AzureRmLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG
 New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $False -IpsecPolicies $ipsecpolicy5 -UsePolicyBasedTrafficSelectors $True
 ```
 
-### <a name ="bgp"></a>(Optional) Use BGP on S2S VPN connection
-When you create the S2S VPN connection, you can optionally use [BGP for the VPN gateway](vpn-gateway-bgp-resource-manager-ps.md). This approach has two differences:
+### <a name ="bgp"></a>[Optional] Use BGP on S2S VPN connection
+You can optionally use BGP on the connection. See [BGP for VPN gateway](vpn-gateway-bgp-resource-manager-ps.md). There are two differences:
 
-* The on-premises address prefixes can be a single host address. The on-premises BGP peer IP address is specified as follows:
+The on-premises address prefixes can be a single host address, the on-premises BGP peer IP address:
 
-    ```powershell
-    New-AzureRmLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG1 -Location $Location1 -GatewayIpAddress $LNGIP5 -AddressPrefix $LNGPrefix50 -Asn $LNGASN5 -BgpPeeringAddress $BGPPeerIP5
-    ```
+```powershell
+New-AzureRmLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG1 -Location $Location1 -GatewayIpAddress $LNGIP5 -AddressPrefix $LNGPrefix50 -Asn $LNGASN5 -BgpPeeringAddress $BGPPeerIP5
+```
 
-* When you create the connection, you must set the **-EnableBGP** option to $True:
+You must set "-EnableBGP" to $True when creating the connection:
 
-    ```powershell
-    New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $True
-    ```
+```powershell
+New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $True
+```
 
 ## Next steps
-For step-by-step instructions to set up active-active VPN gateways, see [Configuring active-active VPN gateways for cross-premises and VNet-to-VNet connections](vpn-gateway-activeactive-rm-powershell.md).
+See [Configuring Active-Active VPN Gateways for Cross-Premises and VNet-to-VNet Connections](vpn-gateway-activeactive-rm-powershell.md) for steps to configure active-active cross-premises and VNet-to-VNet connections.
 

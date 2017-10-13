@@ -2,7 +2,7 @@
 title: Azure Notification Hubs Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to send push notifications from any backend to any mobile device with Notification Hubs. Tutorials, API references, and other documentation.
 services: notification-hubs
-author: czeumault
+author: carolz
 manager: carolz
 layout: LandingPage
 ms.assetid:	

@@ -90,7 +90,7 @@ StatusCode     : OK
 
 ## <a name="cli"></a>Azure CLI
 
-To reset the gateway, use the [az network vnet-gateway reset](https://docs.microsoft.com/cli/azure/network/vnet-gateway#az_network_vnet_gateway_reset) command. The following example resets a virtual network gateway named VNet5GW in the TestRG5 resource group:
+To reset the gateway, use the [az network vnet-gateway reset](https://docs.microsoft.com/cli/azure/network/vnet-gateway#reset) command. The following example resets a virtual network gateway named VNet5GW in the TestRG5 resource group:
 
 ```azurecli
 az network vnet-gateway reset -n VNet5GW -g TestRG5

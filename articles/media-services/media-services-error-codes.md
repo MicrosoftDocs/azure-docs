@@ -2,7 +2,7 @@
 title: Azure Media Services error codes | Microsoft Docs
 description: The topic gives an overview of Azure Media Services error codes.
 author: Juliako
-manager: cfowler
+manager: erikre
 editor: ''
 services: media-services
 documentationcenter: ''

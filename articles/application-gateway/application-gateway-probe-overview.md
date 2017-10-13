@@ -3,7 +3,7 @@ title: Health monitoring overview for Azure Application Gateway | Microsoft Docs
 description: Learn about the monitoring capabilities in Azure Application Gateway
 services: application-gateway
 documentationcenter: na
-author: davidmu1
+author: georgewallace
 manager: timlt
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2016
-ms.author: davidmu
+ms.author: gwallace
 
 ---
 

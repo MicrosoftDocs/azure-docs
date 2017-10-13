@@ -7,7 +7,7 @@ ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
-ms.custom: mvc, devcenter
+ms.custom: mvc
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/23/2017

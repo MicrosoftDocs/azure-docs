@@ -3,7 +3,7 @@ title: Introduction to Azure Network Watcher | Microsoft Docs
 description: This page provides an overview of the Network Watcher service for monitoring and visualizing network connected resources in Azure
 services: network-watcher
 documentationcenter: na
-author: jimdial
+author: georgewallace
 manager: timlt
 editor: 
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
-ms.author: jdial
+ms.author: gwallace
 ---
 
 # Azure network monitoring overview

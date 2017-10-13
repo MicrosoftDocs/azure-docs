@@ -18,8 +18,7 @@ ms.author: jglixon
 
 ---
 # Azure Government AI and Cognitive Services
-
-## Cognitive Services 
+## AI and Cognitive Services 
 The following Cognitive Services APIs are currently in Public Preview in Azure Government. 
 - Computer Vision API
 - Face API

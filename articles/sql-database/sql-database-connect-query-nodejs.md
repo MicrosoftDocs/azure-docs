@@ -13,7 +13,7 @@ ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: quickstart
+ms.topic: hero-article
 ms.date: 07/05/2017
 ms.author: carlrab
 

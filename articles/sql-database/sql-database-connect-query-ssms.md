@@ -15,7 +15,7 @@ ms.custom: mvc,DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: quickstart
+ms.topic: hero-article
 ms.date: 05/26/2017
 ms.author: carlrab
 

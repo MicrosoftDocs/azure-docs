@@ -3,7 +3,7 @@ title: View Azure Network Watcher topology - REST API | Microsoft Docs
 description: This article will describe how to use REST API to query your network topology.
 services: network-watcher
 documentationcenter: na
-author: jimdial
+author: georgewallace
 manager: timlt
 editor: 
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
+ms.author: gwallace
 ---
 
 # View Network Watcher topology with REST API

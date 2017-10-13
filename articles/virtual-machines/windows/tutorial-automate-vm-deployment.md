@@ -27,9 +27,7 @@ To configure virtual machines (VMs) in a quick and consistent manner, some form 
 > * Create a VM that uses the Custom Script Extension
 > * View a running IIS site after the extension is applied
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
-
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure. 
+This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 
 ## Custom script extension overview
@@ -43,19 +41,19 @@ You can use the Custom Script Extension with both Windows and Linux VMs.
 ## Create virtual machine
 Before you can create a VM, create a resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). The following example creates a resource group named *myResourceGroupAutomate* in the *EastUS* location:
 
-```azurepowershell-interactive
+```powershell
 New-AzureRmResourceGroup -ResourceGroupName myResourceGroupAutomate -Location EastUS
 ```
 
 Set an administrator username and password for the VMs with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
-```azurepowershell-interactive
+```powershell
 $cred = Get-Credential
 ```
 
 Now you can create the VM with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). The following example creates the required virtual network components, the OS configuration, and then creates a VM named *myVM*:
 
-```azurepowershell-interactive
+```powershell
 # Create a subnet configuration
 $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
     -Name mySubnet `
@@ -133,7 +131,7 @@ It takes a few minutes for the resources and VM to be created.
 ## Automate IIS install
 Use [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) to install the Custom Script Extension. The extension runs `powershell Add-WindowsFeature Web-Server` to install the IIS webserver and then updates the *Default.htm* page to show the hostname of the VM:
 
-```azurepowershell-interactive
+```powershell
 Set-AzureRmVMExtension -ResourceGroupName myResourceGroupAutomate `
     -ExtensionName IIS `
     -VMName myVM `
@@ -148,7 +146,7 @@ Set-AzureRmVMExtension -ResourceGroupName myResourceGroupAutomate `
 ## Test web site
 Obtain the public IP address of your load balancer with [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). The following example obtains the IP address for *myPublicIP* created earlier:
 
-```azurepowershell-interactive
+```powershell
 Get-AzureRmPublicIPAddress `
     -ResourceGroupName myResourceGroupAutomate `
     -Name myPublicIP | select IpAddress

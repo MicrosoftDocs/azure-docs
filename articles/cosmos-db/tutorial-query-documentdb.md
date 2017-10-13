@@ -12,7 +12,7 @@ ms.assetid:
 ms.service: cosmos-db
 ms.custom: tutorial-develop
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 05/10/2017

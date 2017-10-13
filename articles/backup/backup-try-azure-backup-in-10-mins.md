@@ -167,7 +167,7 @@ If your machine/proxy has limited internet access, ensure that firewall settings
     2. *.Microsoft.com
     3. *.WindowsAzure.com
     4. *.microsoftonline.com
-    5. *.windows.net
+    5. *.windows.ne
 
 ## Back up your files and folders
 The initial backup includes two key tasks:

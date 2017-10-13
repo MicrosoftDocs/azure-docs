@@ -4,7 +4,7 @@ description: Learn how to use the Azure portal to access Azure Active Directory 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: erikre
 editor: ''
 
 ms.service: media-services

@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/04/2017
+ms.date: 06/28/2017
 ms.author: ryanwi
 
 ---
@@ -160,46 +160,34 @@ The Service Fabric SDK for Linux includes a [Yeoman](http://yeoman.io/) generato
 
 To create a Service Fabric container application, open a terminal window and run `yo azuresfcontainer`.  
 
-Name your application (for example, "mycontainer") and name the application service (for example, "myservice").
+Name your application (for example, "mycontainer"). 
 
-For the image name, provide the URL for the container image in a container registry (for example, "myregistry.azurecr.io/samples/helloworldapp"). 
+Provide the URL for the container image in a container registry (for example, ""). 
 
-Since this image has a workload entry-point defined, you don't need to explicitly specify input commands (commands run inside the container, which will keep the container running after startup). 
+This image has a workload entry-point defined, so need to explicitly specify input commands (commands run inside the container, which will keep the container running after startup). 
 
 Specify an instance count of "1".
 
 ![Service Fabric Yeoman generator for containers][sf-yeoman]
 
 ## Configure port mapping and container repository authentication
-Your containerized service needs an endpoint for communication.  Now add the protocol, port, and type to an `Endpoint` in the ServiceManifest.xml file under the 'Resources' tag. For this article, the containerized service listens on port 4000: 
+Your containerized service needs an endpoint for communication.  Now add the protocol, port, and type to an `Endpoint` in the ServiceManifest.xml file. For this article, the containerized service listens on port 4000: 
 
 ```xml
-
-<Resources>
-    <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
-           replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="myServiceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
-    </Endpoints>
-  </Resources>
- ```
- 
+<Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
+```
 Providing the `UriScheme` automatically registers the container endpoint with the Service Fabric Naming service for discoverability. A full ServiceManifest.xml example file is provided at the end of this article. 
 
-Configure the container port-to-host port mapping by specifying a `PortBinding` policy in `ContainerHostPolicies` of the ApplicationManifest.xml file.  For this article, `ContainerPort` is 80 (the container exposes port 80, as specified in the Dockerfile) and `EndpointRef` is "myServiceTypeEndpoint" (the endpoint defined in the service manifest).  Incoming requests to the service on port 4000 are mapped to port 80 on the container.  If your container needs to authenticate with a private repository, then add `RepositoryCredentials`.  For this article, add the account name and password for the myregistry.azurecr.io container registry. Ensure the policy is added under the 'ServiceManifestImport' tag corresponding to the right service package.
+Configure the container port-to-host port mapping by specifying a `PortBinding` policy in `ContainerHostPolicies` of the ApplicationManifest.xml file.  For this article, `ContainerPort` is 80 (the container exposes port 80, as specified in the Dockerfile) and `EndpointRef` is "myserviceTypeEndpoint" (the endpoint defined in the service manifest).  Incoming requests to the service on port 4000 are mapped to port 80 on the container.  If your container needs to authenticate with a private repository, then add `RepositoryCredentials`.  For this article, add the account name and password for the myregistry.azurecr.io container registry. 
 
 ```xml
-   <ServiceManifestImport>
-      <ServiceManifestRef ServiceManifestName="MyServicePkg" ServiceManifestVersion="1.0.0" />
-	<Policies>
-	    <ContainerHostPolicies CodePackageRef="Code">
-		<RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-		<PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
-	    </ContainerHostPolicies>
-	</Policies>
-   </ServiceManifestImport>
-```	
+<Policies>
+    <ContainerHostPolicies CodePackageRef="Code">
+        <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
+        <PortBinding ContainerPort="80" EndpointRef="myserviceTypeEndpoint"/>
+    </ContainerHostPolicies>
+</Policies>
+```
 
 ## Build and package the Service Fabric application
 The Service Fabric Yeoman templates include a build script for [Gradle](https://gradle.org/), which you can use to build the application from the terminal. To build and package the application, run the following:
@@ -286,7 +274,7 @@ Here are the complete service and application manifests used in this article.
       <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="myServiceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
+      <Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
     </Endpoints>
   </Resources>
 </ServiceManifest>
@@ -308,7 +296,7 @@ Here are the complete service and application manifests used in this article.
     <Policies>
       <ContainerHostPolicies CodePackageRef="Code">
         <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-        <PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
+        <PortBinding ContainerPort="80" EndpointRef="myserviceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
   </ServiceManifestImport>

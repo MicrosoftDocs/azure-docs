@@ -12,7 +12,7 @@ ms.service: cosmos-db
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: tutorial
+ms.topic: article
 ms.date: 05/10/2017
 ms.author: denlee
 ms.custom: mvc

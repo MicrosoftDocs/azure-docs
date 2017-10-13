@@ -2,7 +2,7 @@
 title: Azure Advisor Documentation - Tutorials | Microsoft Docs
 description:	
 services: advisor
-author: czeumault
+author: carolz
 manager: carolz
 layout: LandingPage
 ms.assetid: 

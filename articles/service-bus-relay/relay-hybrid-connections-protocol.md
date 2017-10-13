@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
-ms.author: sethm
+ms.date: 07/03/2017
+ms.author: sethm;clemensv
 
 ---
 # Azure Relay Hybrid Connections protocol

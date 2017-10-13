@@ -93,7 +93,7 @@ For additional information, you can always type ```Get-Help``` and then the Powe
      Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 
      ```
-     A full list of available options for Get-AzureRmMetricDefinition is available by running `Get-Help Get-AzureRmMetricDefinition -Detailed`.
+     A full list of available options for Get-AzureRmMetricDefinition is available by running Get-MetricDefinitions.
 5. The following example sets up an alert on a web site resource. The alert triggers whenever it consistently receives any traffic for 5 minutes and again when it receives no traffic for 5 minutes.
 
     ```PowerShell

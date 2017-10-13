@@ -14,7 +14,7 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: support-article
 ms.date: 07/25/2017
 ms.author: genli
 

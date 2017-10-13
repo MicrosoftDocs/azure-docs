@@ -14,8 +14,6 @@
     href: test-your-model.md
   - name: Use the prediction API
     href: use-prediction-api.md
-  - name: Export your model to mobile
-    href: export-your-model.md
 - name: Tutorials
   items:
   - name: C# Tutorial

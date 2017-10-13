@@ -1,23 +1,22 @@
 ### Install via Composer
-1. Create a file named **composer.json** in the root of your project and add the following code to it:
+1. [Install Git][install-git]. Note that on Windows, you must also add the Git executable to your PATH environment variable. 
+2. Create a file named **composer.json** in the root of your project and add the following code to it:
    
     ```json
     {
       "require": {
-        "microsoft/azure-storage": "*"
+        "microsoft/windowsazure": "^0.4"
       }
     }
     ```
-2. Download **[composer.phar][composer-phar]** in your project root.
-3. Open a command prompt and execute the following command in your project root
+3. Download **[composer.phar][composer-phar]** in your project root.
+4. Open a command prompt and execute the following command in your project root
    
     ```
     php composer.phar install
     ```
 
-Alternatively go to the [Azure Storage PHP Client Library][php-sdk-github] on GitHub to clone the source code.
-
-[php-sdk-github]: https://github.com/Azure/azure-storage-php
+[php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [download-SDK-PHP]: ../articles/php-download-sdk.md
 [composer-phar]: http://getcomposer.org/composer.phar

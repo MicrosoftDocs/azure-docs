@@ -12,16 +12,13 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
-ms.date: 9/25/2017
+ms.topic: article
+ms.date: 8/22/2017
 ms.author: victorh
 ms.custom: mvc
 
 ---
 # Make virtual machines available to your Azure Stack users
-
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
-
 As an Azure Stack cloud administrator, you can create offers that your users (sometimes referred to as tenants) can subscribe to. Using their subscription, users can then consume Azure Stack services.
 
 This article shows you how to create an offer, and then test it. 
@@ -112,9 +109,7 @@ Now that you’ve created an offer, you can test it. Log in as a user and subscr
 
    Now you can log in to the portal as a user to subscribe to an offer.
 
-   a. Log in to the user portal as a user and click **Get a Subscription**.
-   - For an integrated system, the URL varies based on your operator’s region and external domain name, and will be in the format https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;.
-   - If you’re using the Azure Stack Development Kit, the portal address is https://portal.local.azurestack.external.
+   a. On the Azure Stack Deployment Kit computer, log in to `https://portal.local.azurestack.external` as a user and click **Get a Subscription**.
 
    ![Get a subscription](media/azure-stack-subscribe-plan-provision-vm/image01.png)
 
@@ -130,9 +125,7 @@ Now that you’ve created an offer, you can test it. Log in as a user and subscr
 
    Now you can log in to the portal as a user to provision a virtual machine using the subscription. 
 
-   a. Log in to the user portal as a user, and then click **New** > **Compute** > **Windows Server 2016 Datacenter Eval**.
-      - For an integrated system, the URL varies based on your operator’s region and external domain name, and will be in the format https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;.
-   - If you’re using the Azure Stack Development Kit, the portal address is https://portal.local.azurestack.external.
+   a. On the Azure Stack Deployment Kit computer, log in to `https://portal.local.azurestack.external` as a user, and then click **New** > **Compute** > **Windows Server 2016 Datacenter Eval**.  
 
    b. In the **Basics** section, type a **Name**, **User name**, and **Password**. For **VM disk type**, choose **HDD**. Choose a **Subscription**. Create a **Resource group**, or select an existing one, and then click **OK**.  
 

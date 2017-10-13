@@ -6,8 +6,8 @@ author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: mysql
-ms.topic: tutorial
+ms.service: mysql-database
+ms.topic: article
 ms.date: 06/06/2017
 ms.custom: mvc
 ---

@@ -3,7 +3,7 @@ title: Introduction to Azure Queue storage | Microsoft Docs
 description:  Introduction to Azure Queue storage 
 services: storage
 documentationcenter: ''
-author: tamram
+author: robinsh
 manager: timlt
 editor: tysonn
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
-ms.author: tamram
+ms.author: robinsh
 
 ---
 # Introduction to Queues

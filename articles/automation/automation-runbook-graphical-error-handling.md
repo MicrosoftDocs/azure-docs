@@ -3,7 +3,7 @@ title: Error handling in Azure Automation graphical runbooks | Microsoft Docs
 description: This article describes how to implement error handling logic in Azure Automation graphical runbooks.  
 services: automation
 documentationcenter: ''
-author: eslesar
+author: mgoedtel
 manager: jwhit
 editor: tysonn
 

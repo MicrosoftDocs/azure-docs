@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 08/09/2017
 ms.author: tomfitz
 
 ---
@@ -90,54 +90,29 @@ To determine which resource types have a list operation, you have the following 
 
 Specify the resource by using either the [resourceId function](#resourceid), or the format `{providerNamespace}/{resourceType}/{resourceName}`.
 
+
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) shows how to return the primary and secondary keys from a storage account in the outputs section.
+The following example shows how to return the primary and secondary keys from a storage account in the outputs section.
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-      "storageAccountName": { 
-          "type": "string"
-      }
-  },
-  "resources": [
-    {
-      "name": "[parameters('storageAccountName')]",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-12-01",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "location": "[resourceGroup().location]",
-      "tags": {},
-      "properties": {
-      }
-    }
-  ],
-  "outputs": {
-      "referenceOutput": {
-          "type": "object",
-          "value": "[listKeys(parameters('storageAccountName'), '2016-12-01')]"
-      }
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageAccountId": {
+            "type": "string"
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "storageKeysOutput": {
+            "value": "[listKeys(parameters('storageAccountId'), '2016-01-01')]",
+            "type" : "object"
+        }
     }
 }
 ``` 
-
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json --parameters storageAccountName=<your-storage-account>
-```
-
-To deploy this example template with PowerShell, use:
-
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json -storageAccountName <your-storage-account>
-```
 
 <a id="providers" />
 
@@ -169,31 +144,23 @@ Array ordering of the returned values is not guaranteed.
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/providers.json) shows how to use the provider function:
+The following example shows how to use the provider function:
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {
-        "providerNamespace": {
-            "type": "string"
-        },
-        "resourceType": {
-            "type": "string"
-        }
-    },
     "resources": [],
     "outputs": {
         "providerOutput": {
-            "value": "[providers(parameters('providerNamespace'), parameters('resourceType'))]",
+            "value": "[providers('Microsoft.Web', 'sites')]",
             "type" : "object"
         }
     }
 }
 ```
 
-For the **Microsoft.Web** resource provider and **sites** resource type, the preceding example returns an object in the following format:
+The preceding example returns an object in the following format:
 
 ```json
 {
@@ -215,22 +182,10 @@ For the **Microsoft.Web** resource provider and **sites** resource type, the pre
 }
 ```
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/providers.json --parameters providerNamespace=Microsoft.Web resourceType=sites
-```
-
-To deploy this example template with PowerShell, use:
-
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/providers.json -providerNamespace Microsoft.Web -resourceType sites
-```
-
 <a id="reference" />
 
 ## reference
-`reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
+`reference(resourceName or resourceIdentifier, [apiVersion])`
 
 Returns an object representing a resource's runtime state.
 
@@ -240,11 +195,10 @@ Returns an object representing a resource's runtime state.
 |:--- |:--- |:--- |:--- |
 | resourceName or resourceIdentifier |Yes |string |Name or unique identifier of a resource. |
 | apiVersion |No |string |API version of the specified resource. Include this parameter when the resource is not provisioned within same template. Typically, in the format, **yyyy-mm-dd**. |
-| 'Full' |No |string |Value that specifies whether to return the full resource object. If you do not specify `'Full'`, only the properties object of the resource is returned. The full object includes values such as the resource ID and location. |
 
 ### Return value
 
-Every resource type returns different properties for the reference function. The function does not return a single, predefined format. Also, the returned value differs based on whether you specified the full object. To see the properties for a resource type, return the object in the outputs section as shown in the example.
+Every resource type returns different properties for the reference function. The function does not return a single, predefined format. To see the properties for a resource type, return the object in the outputs section as shown in the example.
 
 ### Remarks
 
@@ -269,35 +223,9 @@ Typically, you use the **reference** function to return a particular value from 
 }
 ```
 
-Use `'Full'` when you need resource values that are not part of the properties schema. For example, to set key vault access policies, get the identity properties for a virtual machine.
-
-```json
-{
-  "type": "Microsoft.KeyVault/vaults",
-  "properties": {
-    "tenantId": "[reference(concat('Microsoft.Compute/virtualMachines/', variables('vmName')), '2017-03-30', 'Full').identity.tenantId]",
-    "accessPolicies": [
-      {
-        "tenantId": "[reference(concat('Microsoft.Compute/virtualMachines/', variables('vmName')), '2017-03-30', 'Full').identity.tenantId]",
-        "objectId": "[reference(concat('Microsoft.Compute/virtualMachines/', variables('vmName')), '2017-03-30', 'Full').identity.principalId]",
-        "permissions": {
-          "keys": [
-            "all"
-          ],
-          "secrets": [
-            "all"
-          ]
-        }
-      }
-    ],
-    ...
-```
-
-For the complete example of the preceding template, see [Windows to Key Vault](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo08.msiWindowsToKeyvault.json). A similar example is available for [Linux](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo07.msiLinuxToArm.json).
-
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/referencewithstorage.json) deploys a resource, and references that resource.
+To deploy and reference the resource in the same template, use:
 
 ```json
 {
@@ -327,20 +255,16 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
       "referenceOutput": {
           "type": "object",
           "value": "[reference(parameters('storageAccountName'))]"
-      },
-      "fullReferenceOutput": {
-        "type": "object",
-        "value": "[reference(parameters('storageAccountName'), '2016-12-01', 'Full')]"
       }
     }
 }
 ``` 
 
-The preceding example returns the two objects. The properties object is in the following format:
+The preceding example returns an object in the following format:
 
 ```json
 {
-   "creationTime": "2017-10-09T18:55:40.5863736Z",
+   "creationTime": "2017-06-13T21:24:46.618364Z",
    "primaryEndpoints": {
      "blob": "https://examplestorage.blob.core.windows.net/",
      "file": "https://examplestorage.file.core.windows.net/",
@@ -354,56 +278,7 @@ The preceding example returns the two objects. The properties object is in the f
 }
 ```
 
-The full object is in the following format:
-
-```json
-{
-  "apiVersion":"2016-12-01",
-  "location":"southcentralus",
-  "sku": {
-    "name":"Standard_LRS",
-    "tier":"Standard"
-  },
-  "tags":{},
-  "kind":"Storage",
-  "properties": {
-    "creationTime":"2017-10-09T18:55:40.5863736Z",
-    "primaryEndpoints": {
-      "blob":"https://examplestorage.blob.core.windows.net/",
-      "file":"https://examplestorage.file.core.windows.net/",
-      "queue":"https://examplestorage.queue.core.windows.net/",
-      "table":"https://examplestorage.table.core.windows.net/"
-    },
-    "primaryLocation":"southcentralus",
-    "provisioningState":"Succeeded",
-    "statusOfPrimary":"available",
-    "supportsHttpsTrafficOnly":false
-  },
-  "subscriptionId":"<subscription-id>",
-  "resourceGroupName":"functionexamplegroup",
-  "resourceId":"Microsoft.Storage/storageAccounts/examplestorage",
-  "referenceApiVersion":"2016-12-01",
-  "condition":true,
-  "isConditionTrue":true,
-  "isTemplateResource":false,
-  "isAction":false,
-  "provisioningOperation":"Read"
-}
-```
-
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/referencewithstorage.json --parameters storageAccountName=<your-storage-account>
-```
-
-To deploy this example template with PowerShell, use:
-
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/referencewithstorage.json -storageAccountName <your-storage-account>
-```
-
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/reference.json) references a storage account that is not deployed in this template. The storage account already exists within the same resource group.
+The following example references a storage account that is not deployed in this template. The storage account already exists within the same resource group.
 
 ```json
 {
@@ -422,18 +297,6 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
         }
     }
 }
-```
-
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/reference.json --parameters storageAccountName=<your-storage-account>
-```
-
-To deploy this example template with PowerShell, use:
-
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/reference.json -storageAccountName <your-storage-account>
 ```
 
 <a id="resourcegroup" />
@@ -478,7 +341,7 @@ A common use of the resourceGroup function is to create resources in the same lo
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourcegroup.json) returns the properties of the resource group.
+The following template returns the properties of the resource group.
 
 ```json
 {
@@ -486,7 +349,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
-        "resourceGroupOutput": {
+        "subscriptionOutput": {
             "value": "[resourceGroup()]",
             "type" : "object"
         }
@@ -505,18 +368,6 @@ The preceding example returns an object in the following format:
     "provisioningState": "Succeeded"
   }
 }
-```
-
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourcegroup.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourcegroup.json 
 ```
 
 <a id="resourceid" />
@@ -619,7 +470,7 @@ Often, you need to use this function when using a storage account or virtual net
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourceid.json) returns the resource ID for a storage account in the resource group:
+The following example returns the resource ID for a storage account in the resource group:
 
 ```json
 {
@@ -636,7 +487,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
             "type" : "string"
         },
         "differentSubOutput": {
-            "value": "[resourceId('11111111-1111-1111-1111-111111111111', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]",
+            "value": "[resourceId('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]",
             "type" : "string"
         },
         "nestedResourceOutput": {
@@ -653,20 +504,8 @@ The output from the preceding example with the default values is:
 | ---- | ---- | ----- |
 | sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentSubOutput | String | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentSubOutput | String | /subscriptions/{different-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | nestedResourceOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
-
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourceid.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourceid.json 
-```
 
 <a id="subscription" />
 
@@ -690,7 +529,7 @@ The function returns the following format:
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/subscription.json) shows the subscription function called in the outputs section. 
+The following example shows the subscription function called in the outputs section. 
 
 ```json
 {
@@ -704,18 +543,6 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
         }
     }
 }
-```
-
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/subscription.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/subscription.json 
 ```
 
 ## Next steps

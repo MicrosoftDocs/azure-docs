@@ -1,19 +1,6 @@
 ---
-
-title: Azure Network Watcher Documentation - Tutorials, API Reference | Microsoft Docs
-description: Learn how to use Network Watcher to monitor and diagnose conditions at a network level.
-services: network-watcher
-author: czeumault
-manager: carolz
 layout: LandingPage
-
-ms.assetid:	
-ms.service: network-watcher
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: landing-page
-ms.date: 01/23/2017
-ms.author: carolz
+description: Learn how to use Network Watcher to monitor and diagnose conditions at a network level.
 ---
 # Azure Network Watcher Documentation
 

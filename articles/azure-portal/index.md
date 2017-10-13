@@ -1,21 +1,21 @@
 ---
 title: Azure portal documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to deploy and manage resources in the Azure portal. Tutorials, API references, and other documentation.
-services: azure portal
+services: ''
 documentationcenter: ''
-author: czeumault
-manager: carolz
+author: squillace
+manager: timlt
 editor: ''
 tags: 
 
 ms.assetid: 3e12c488-9c8c-4d0d-9b07-e018dec42fc6
-ms.service: azure-portal
+ms.service: value
 ms.devlang: na
-ms.topic: landing-page
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2017
-ms.author: carolz
+ms.author: tysonn
 
 ---
 # Azure portal documentation

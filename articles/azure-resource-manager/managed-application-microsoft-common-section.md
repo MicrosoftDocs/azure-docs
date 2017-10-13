@@ -3,7 +3,7 @@ title: Azure Managed Application Section UI element | Microsoft Docs
 description: Describes the Microsoft.Common.Section UI element for Azure Managed Applications
 services: azure-resource-manager
 documentationcenter: na
-author: tfitzmac
+author: tabrezm
 manager: timlt
 editor: tysonn
 
@@ -13,7 +13,7 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
-ms.author: tomfitz
+ms.author: tabrezm;tomfitz
 
 ---
 # Microsoft.Common.Section UI element

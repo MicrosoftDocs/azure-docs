@@ -4,7 +4,7 @@ description: Learn how to analyze diagnostics logs from Stream Analytics jobs in
 keywords:
 documentationcenter: ''
 services: stream-analytics
-author: samacha
+author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: samacha
+ms.author: jeffstok
 
 ---
 # Troubleshoot Azure Stream Analytics by using diagnostics logs

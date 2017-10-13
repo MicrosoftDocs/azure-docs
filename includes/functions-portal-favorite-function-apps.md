@@ -1,4 +1,4 @@
-## Favorite Functions in the portal 
+## Add Function Apps to your portal favorites 
 
 If you haven't already done so, add Function Apps to your favorites in the Azure portal. This makes it easier to find your function apps. If you have already done this, skip to the next section. 
 

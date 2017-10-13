@@ -12,7 +12,7 @@ ms.assetid:
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
-ms.topic: sample
+ms.topic: article
 ms.date: 08/15/2017
 ms.author: ryanwi
 ms.custom: mvc

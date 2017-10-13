@@ -36,7 +36,7 @@ To run them, right-click on the query example URLs to open JSFiddle in a separat
 
 ## How to invoke full Lucene parsing
 
-All of the examples in this article specify the **queryType=full** search parameter, indicating that the full syntax is handled by the Lucene Query Parser. 
+All of the examples in this article specify the **queryType=full** search parameter, indicating that the full syntax, handled by the Lucene Query Parser. 
 
 **Example 1** -- Right-click the following query snippet to open it in a new browser page that loads JSFiddle and runs the query:
 

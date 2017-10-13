@@ -4,7 +4,7 @@ description: Use Azure Functions to schedule a task that connects to Azure SQL D
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: erikre
 editor: ''
 tags: ''
 

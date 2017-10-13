@@ -4,7 +4,7 @@ description: This topic shows how to use Azure Active Directory (Azure AD) authe
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: erikre
 editor: ''
 
 ms.service: media-services

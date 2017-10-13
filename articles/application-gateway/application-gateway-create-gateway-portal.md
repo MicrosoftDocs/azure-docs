@@ -3,7 +3,7 @@ title: Create an Application Gateway - Azure Portal | Microsoft Docs
 description: Learn how to create an Application Gateway by using the portal
 services: application-gateway
 documentationcenter: na
-author: davidmu1
+author: georgewallace
 manager: timlt
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
-ms.author: davidmu
+ms.author: gwallace
 
 ---
 # Create an application gateway with the portal

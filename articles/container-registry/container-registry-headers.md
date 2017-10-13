@@ -10,7 +10,7 @@ editor: dlepow
 
 ms.service: container-registry
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/22/2017

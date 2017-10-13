@@ -3,7 +3,7 @@ title: Troubleshooting Azure Storage with diagnostics & Message Analyzer | Micro
 description: A tutorial demonstrating end-to-end troubleshooting with Azure Storage Analytics, AzCopy, and Microsoft Message Analyzer
 services: storage
 documentationcenter: dotnet
-author: tamram
+author: robinsh
 manager: timlt
 
 ms.assetid: 643372a3-1c07-4e88-b4ef-042512a43086
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: tamram
+ms.author: robinsh
 
 ---
 # End-to-End Troubleshooting using Azure Storage metrics and logging, AzCopy, and Message Analyzer

@@ -4,7 +4,7 @@ description: Azure CLI Samples - Azure Functions
 services: functions
 documentationcenter: functions
 author: syntaxc4
-manager: cfowler
+manager: erikre
 editor: ggailey777
 tags: azure-service-management
 

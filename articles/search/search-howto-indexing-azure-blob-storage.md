@@ -23,7 +23,21 @@ This article shows how to use Azure Search to index documents (such as PDFs, Mic
 ## Supported document formats
 The blob indexer can extract text from the following document formats:
 
-[!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
+* PDF
+* Microsoft Office formats: DOCX/DOC, XLSX/XLS, PPTX/PPT, MSG (Outlook emails)  
+* HTML
+* XML
+* ZIP
+* EML
+* RTF
+* Plain text files (see also [Indexing plain text](#IndexingPlainText))
+* JSON (see [Indexing JSON blobs](search-howto-index-json-blobs.md))
+* CSV (see [Indexing CSV blobs](search-howto-index-csv-blobs.md) preview feature)
+
+> [!IMPORTANT]
+> Support for CSV and JSON arrays is currently in preview. These formats are available only using version **2016-09-01-Preview** of the REST API or version 2.x-preview of the .NET SDK. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
+>
+>
 
 ## Setting up blob indexing
 You can set up an Azure Blob Storage indexer using:

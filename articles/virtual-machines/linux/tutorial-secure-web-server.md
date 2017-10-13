@@ -1,3 +1,4 @@
+
 ---
 title: Secure a web server with SSL certificates in Azure | Microsoft Docs
 description: Learn how to secure the NGINX web server with SSL certificates on a Linux VM in Azure 
@@ -11,7 +12,7 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/17/2017

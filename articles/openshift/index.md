@@ -2,15 +2,15 @@
 title:  OpenShift Origin on Azure
 description: OpenShift Origin on Azure 
 services: multiple
-author: czeumault
-manager: carolz
+author: mlearned
+manager: douge
 layout: LandingPage
 ms.service: multiple
 ms.tgt_pltfrm: na
 ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/19/2017
-ms.author: carolz
+ms.author: mlearned
 ---
 <div class="content">
     <h1>OpenShift on Azure</h1>

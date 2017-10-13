@@ -2,15 +2,15 @@
 title:  Chef on Azure
 description: Deploy and integrate Chef with Azure 
 services: multiple
-author: czeumault
-manager: carolz
+author: mlearned
+manager: douge
 layout: LandingPage
 ms.service: multiple
 ms.tgt_pltfrm: na
 ms.devlang: devops
 ms.topic: landing-page
 ms.date: 04/25/2017
-ms.author: carolz
+ms.author: mlearned
 ---
 <div class="content">
    <h1>Chef on Azure</h1>

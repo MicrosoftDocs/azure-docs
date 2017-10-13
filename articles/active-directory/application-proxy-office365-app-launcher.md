@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2017
+ms.date: 08/17/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
@@ -20,15 +20,15 @@ ms.custom: it-pro
 
 # Set a custom home page for published apps by using Azure AD Application Proxy
 
-This article discusses how to configure apps to direct users to a custom home page. When you publish an application with Application Proxy, you set an internal URL but sometimes that's not the page your users should see first. Set a custom home page so that your users go to the right page when they access the apps. Your users will see the custom home page that you set, whether they access the app from the Azure Active Directory Access Panel or the Office 365 app launcher.
+This article discusses how to configure apps to direct users to a custom home page. When you publish an application with Application Proxy, you set an internal URL but sometimes that's not the page your users should see first. Set a custom home page so that your users go to the right page when they access the apps from the Azure Active Directory Access Panel or the Office 365 app launcher.
 
 When users launch the app, they're directed by default to the root domain URL for the published app. The landing page is typically set as the home page URL. Use the Azure AD PowerShell module to define custom home page URLs when you want app users to land on a specific page within the app. 
 
-Here's one example of why a company would set a custom home page:
+For example:
 - Inside your corporate network, users go to *https://ExpenseApp/login/login.aspx* to sign in and access your app.
 - Because you have other assets like images that Application Proxy needs to access at the top level of the folder structure, you publish the app with *https://ExpenseApp* as the internal URL.
-- The default external URL is *https://ExpenseApp-contoso.msappproxy.net*, which doesn't take your users to the sign-in page.  
-- Set *https://ExpenseApp-contoso.msappproxy.net/login/login.aspx* as the home page URL. 
+- The default external URL is *https://ExpenseApp-contoso.msappproxy.net*, which doesn't take your users to the sign in page.  
+- Set *https://ExpenseApp-contoso.msappproxy.net/login/login.aspx* as the home page URL to give your users a seamless experience. 
 
 >[!NOTE]
 >When you give users access to published apps, the apps are displayed in the [Azure AD Access Panel](active-directory-saas-access-panel-introduction.md) and the [Office 365 app launcher](https://blogs.office.com/2016/09/27/introducing-the-new-office-365-app-launcher).
@@ -74,7 +74,7 @@ To install the package, follow these steps:
 
 Obtain the ObjectID of the app, and then search for the app by its home page.
 
-1. In the same PowerShell window, import the Azure AD module.
+1. Open PowerShell and import the Azure AD module.
 
     ```
     Import-Module AzureAD
@@ -100,9 +100,9 @@ Obtain the ObjectID of the app, and then search for the app by its home page.
 
 ### Update the home page URL
 
-Create the home page URL, and update your application with that value. Continue using the same PowerShell window to run these commands. Or, if you're using a new PowerShell window, sign in to the Azure AD module again using `Connect-AzureAD`. 
+In the same PowerShell module that you used for step 1, perform the following steps:
 
-1. Confirm that you have the correct app, and replace *8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4* with the ObjectID that you copied in the preceding section.
+1. Confirm that you have the correct app, and replace *8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4* with the ObjectID that you copied in the preceding step.
 
     ```
     Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4.
@@ -133,7 +133,7 @@ Create the home page URL, and update your application with that value. Continue 
     ```
 
 >[!NOTE]
->Any changes that you make to the app might reset the home page URL. If your home page URL resets, repeat the steps in this section to set it back.
+>Any changes that you make to the app might reset the home page URL. If your home page URL resets, repeat step 2.
 
 ## Next steps
 

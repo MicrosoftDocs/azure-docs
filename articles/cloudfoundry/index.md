@@ -2,15 +2,15 @@
 title:  Cloud Foundry on Azure
 description: Cloud Foundry on Azure
 services: multiple
-author: czeumault
-manager: carolz
+author: mlearned
+manager: douge
 layout: LandingPage
 ms.service: multiple
 ms.tgt_pltfrm: na
 ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/19/2017
-ms.author: carolz
+ms.author: mlearned
 ---
 <div class="content">
     <h1>Cloud Foundry on Azure</h1>

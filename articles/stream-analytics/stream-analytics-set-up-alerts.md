@@ -4,7 +4,7 @@ description: Understanding Stream Analytics Alerting
 keywords: set up alerts
 services: stream-analytics
 documentationcenter: ''
-author: samacha
+author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/26/2017
-ms.author: samacha
+ms.author: jeffstok
 
 ---
 # Set up alerts for Azure Stream Analytics jobs
@@ -47,7 +47,7 @@ For more detail on configuring alerts in the Azure portal, see [Receive alert no
 
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

@@ -13,10 +13,9 @@ ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: quickstart
+ms.topic: hero-article
 ms.date: 07/05/2017
 ms.author: carlrab
-ms.custom: devcenter
 
 ---
 # Use .NET (C#) with Visual Studio to connect and query an Azure SQL database

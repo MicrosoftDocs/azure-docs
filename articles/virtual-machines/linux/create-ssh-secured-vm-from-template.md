@@ -4,7 +4,7 @@ description: How to use the Azure CLI 2.0 to create a Linux VM from a Resource M
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
-manager: jeconnoc
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -14,13 +14,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 05/12/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
 
 ---
 # How to create a Linux virtual machine with Azure Resource Manager templates
-This article shows you how to quickly deploy a Linux virtual machine (VM) with Azure Resource Manager templates and the Azure CLI 2.0. You can also perform these steps with the [Azure CLI 1.0](create-ssh-secured-vm-from-template-nodejs.md).
+This article shows you how to quickly deploy a Linux virtual machine (VM) with Azure Resource Manager templates and the Azure CLI 2.0. You can also perform these steps with the [Azure CLI
+1.0](create-ssh-secured-vm-from-template-nodejs.md).
 
 
 ## Templates overview
@@ -55,7 +56,7 @@ az network public-ip show \
     --output tsv
 ```
 
-You can then SSH to your VM as normal. Provide you own public IP address from the preceding command:
+You can then SSH to your VM as normal:
 
 ```bash
 ssh azureuser@<ipAddress>

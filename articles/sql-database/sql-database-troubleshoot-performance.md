@@ -14,7 +14,7 @@ ms.custom: monitor & tune
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.date: 06/13/2017
 ms.author: v-shysun
 

@@ -4,7 +4,7 @@ description: Using External Table bindings in Azure Functions
 services: functions
 documentationcenter: ''
 author: alexkarcher-msft
-manager: cfowler
+manager: erikre
 editor: ''
 
 ms.assetid:

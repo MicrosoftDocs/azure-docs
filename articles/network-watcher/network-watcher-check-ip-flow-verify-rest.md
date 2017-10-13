@@ -3,7 +3,7 @@ title: Verify traffic with Azure Network Watcher IP flow verify - REST | Microso
 description: This article describes how to check if traffic to or from a virtual machine is allowed or denied
 services: network-watcher
 documentationcenter: na
-author: jimdial
+author: georgewallace
 manager: timlt
 editor: 
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
+ms.author: gwallace
 
 ---
 # Check if traffic is allowed or denied with IP flow verify a component of Azure Network Watcher

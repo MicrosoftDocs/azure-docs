@@ -4,7 +4,7 @@ description: Learn how to create your first Azure Function for serverless execut
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: erikre
 editor: ''
 tags: '' 
 
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/07/2017
 ms.author: glenga
-ms.custom: mvc, devcenter
+ms.custom: mvc
 
 ---
 # Create your first function in the Azure portal

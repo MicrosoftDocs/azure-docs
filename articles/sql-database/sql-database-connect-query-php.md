@@ -13,7 +13,7 @@ ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: php
-ms.topic: quickstart
+ms.topic: hero-article
 ms.date: 08/08/2017
 ms.author: carlrab
 

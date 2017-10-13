@@ -34,7 +34,7 @@ This PowerShell script example restores an Azure SQL database from a geo-redunda
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
+Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 ```
 
 ## Script explanation

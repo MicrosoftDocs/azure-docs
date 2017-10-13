@@ -9,7 +9,7 @@ manager: jhubbard
 editor: 
 
 ms.assetid:
-ms.service: tsi
+ms.service: time-series-insights
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na

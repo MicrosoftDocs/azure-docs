@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 08/01/2017
 ms.author: tomfitz
 
 ---
@@ -64,7 +64,7 @@ The equals function is often used with the `condition` element to test whether a
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/equals.json) checks different types of values for equality. All the default values return True.
+The example template checks different types of values for equality. All the default values return True.
 
 ```json
 {
@@ -136,19 +136,8 @@ The output from the preceding example with the default values is:
 | checkArrays | Bool | True |
 | checkObjects | Bool | True |
 
-To deploy this example template with Azure CLI, use:
 
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/equals.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/equals.json 
-```
-
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) uses [not](resource-group-template-functions-logical.md#not) with **equals**.
+The following example uses [not](resource-group-template-functions-logical.md#not) with **equals**.
 
 ```json
 {
@@ -162,7 +151,6 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
             "value": "[not(equals(1, 2))]"
         }
     }
-}
 ```
 
 The output from the preceding example is:
@@ -171,17 +159,6 @@ The output from the preceding example is:
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json 
-```
 
 ## greater
 `greater(arg1, arg2)`
@@ -201,7 +178,7 @@ Returns **True** if the first value is greater than the second value; otherwise,
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/greater.json) checks whether the one value is greater than the other.
+The example template checks whether the one value is greater than the other.
 
 ```json
 {
@@ -247,17 +224,6 @@ The output from the preceding example with the default values is:
 | checkInts | Bool | False |
 | checkStrings | Bool | True |
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greater.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greater.json 
-```
 
 ## greaterOrEquals
 `greaterOrEquals(arg1, arg2)`
@@ -277,7 +243,7 @@ Returns **True** if the first value is greater than or equal to the second value
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/greaterorequals.json) checks whether the one value is greater than or equal to the other.
+The example template checks whether the one value is greater than or equal to the other.
 
 ```json
 {
@@ -323,17 +289,7 @@ The output from the preceding example with the default values is:
 | checkInts | Bool | False |
 | checkStrings | Bool | True |
 
-To deploy this example template with Azure CLI, use:
 
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greaterorequals.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greaterorequals.json 
-```
 
 ## less
 `less(arg1, arg2)`
@@ -353,7 +309,7 @@ Returns **True** if the first value is less than the second value; otherwise, **
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/less.json) checks whether the one value is less than the other.
+The example template checks whether the one value is less than the other.
 
 ```json
 {
@@ -399,17 +355,6 @@ The output from the preceding example with the default values is:
 | checkInts | Bool | True |
 | checkStrings | Bool | False |
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/less.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/less.json 
-```
 
 ## lessOrEquals
 `lessOrEquals(arg1, arg2)`
@@ -429,7 +374,7 @@ Returns **True** if the first value is less than or equal to the second value; o
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/lessorequals.json) checks whether the one value is less than or equal to the other.
+The example template checks whether the one value is less than or equal to the other.
 
 ```json
 {
@@ -475,17 +420,7 @@ The output from the preceding example with the default values is:
 | checkInts | Bool | True |
 | checkStrings | Bool | False |
 
-To deploy this example template with Azure CLI, use:
 
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/lessorequals.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/lessorequals.json 
-```
 
 ## Next steps
 * For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).

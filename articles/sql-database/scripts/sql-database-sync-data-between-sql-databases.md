@@ -22,7 +22,7 @@ ms.author: douglasl
  
 This PowerShell example configures Data Sync to sync between multiple Azure SQL databases.
 
-This sample requires the Azure PowerShell module version 4.2 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to install or upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+This sample requires the Azure PowerShell module version 4.2 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to install or upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps).
  
 Run `Login-AzureRmAccount` to create a connection with Azure. 
 
@@ -41,7 +41,7 @@ using namespace System.Collections.Generic
 # Hub database info
 # Subscription id for hub database
 $SubscriptionId = "subscription_guid"
-# Resource group name for hub database
+# Resrouce group name for hub database
 $ResourceGroupName = "ResourceGroup"
 # Server name for hub database
 $ServerName = "Server"
@@ -134,7 +134,7 @@ New-AzureRmSqlSyncMember   -ResourceGroupName $ResourceGroupName `
                             -Name $SyncMemberName `
                             -MemberDatabaseCredential $Credential `
                             -MemberDatabaseName $MemberDatabaseName `
-                            -MemberServerName ($MemberServerName + ".database.windows.net") `
+                            -MemberServerName ($MemberServerName + ".database.windows.net" `
                             -MemberDatabaseType $MemberDatabaseType `
                             -SyncDirection $SyncDirection
 
@@ -318,11 +318,6 @@ else
         }
     }
 }
-
-# Clean up deployment 
-# Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
-# Remove-AzureRmResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
-
 ```
 
 ## Clean up deployment
@@ -330,8 +325,7 @@ else
 After you run the sample script, you can run the following command to remove the resource group and all resources associated with it.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName $ResourceGroupName
-Remove-AzureRmResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
+Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 ```
 
 ## Script explanation
