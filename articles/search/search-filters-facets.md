@@ -41,7 +41,7 @@ Facets can be based on simple or complex field types in Azure Search. Fields tha
 
 Faceting is enabled on a field-by-field basis when you create the index, by setting the following attributes to TRUE: `filterable`, `facetable`. Only filterable fields can be faceted.
 
-Any [field type](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) that could possibly be used in faceted navigation is marked as "facetable" by default:
+Any [field type](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) that could possibly be used in faceted navigation is marked as "facetable":
 
 + Edm.String
 + Edm.DateTimeOffset
@@ -55,7 +55,7 @@ You cannot use Edm.GeographyPoint in faceted navigation. Facets are constructed 
 
 Index attributes that control how a field is used are added to individual field definitions in the index. In the following example, fields with low cardinality, useful for faceting, consist of: category (hotel, motel, hostel), amenities, and ratings. 
 
-In the REST API, faceting and filtering are enabled by default, which means you only need to explicitly set the attributes when you want to turn them off. Although it is not technically required, we show the attributions in the following example for instructional purposes.
+In the .NET API, filtering attributes have to be set explicitly. In the REST API, faceting and filtering are enabled by default, which means you only need to explicitly set the attributes when you want to turn them off. Although it is not technically required, we show the attributions in the following REST example for instructional purposes. 
 
 > [!Tip]
 > As a best practice for performance and storage optimization, turn faceting off for fields that should never be used as a facet. In particular, string fields for singleton values, such as an ID or product name, should be set to "Facetable": false to prevent their accidental (and ineffective) use in faceted navigation.
@@ -82,7 +82,7 @@ In the REST API, faceting and filtering are enabled by default, which means you 
 ```
 
 > [!Note]
-> This index definition is copied from [Create an Azure Search index using the REST API](https://docs.microsoft.com/azure/search/search-create-index-rest-api). It is identical except for superficial differences in the field definitions. Filterable and facetable attributes are explicitly added on category, tags, parkingIncluded, smokingAllowed, and rating fields. In practice, you get filterable and facetable for free on Edm.String, Edm.Boolean, and Edm.Int32 field types. The .NET SDK follows different rules for filters and facets. If you are using the .NET SDK, filters and facets have to be explicitly included in the field definition.
+> This index definition is copied from [Create an Azure Search index using the REST API](https://docs.microsoft.com/azure/search/search-create-index-rest-api). It is identical except for superficial differences in the field definitions. Filterable and facetable attributes are explicitly added on category, tags, parkingIncluded, smokingAllowed, and rating fields. In practice, you get filterable and facetable for free on Edm.String, Edm.Boolean, and Edm.Int32 field types. 
 
 ## Build and load an index
 
@@ -90,56 +90,44 @@ An intermediate (and perhaps obvious) step is that you have to [build and popula
 
 ## Add facet filters to a query
 
-In application code, construct a query that returns a faceted navigation data structure. Build the UI to visualize the structure. Add logic to filter or trim results when a user clicks a facet.
+In application code, construct a query that specifies all parts of a valid query, including search expressions, facets, filters, scoring profiles– anything used to formulate a request. The following example builds a request that creates facet navigation based on the type of accommodation, rating, and other amenities.
 
-MULTI-SELECT
-https://social.msdn.microsoft.com/Forums/azure/en-US/4b68aeb2-396a-45fd-b433-49cb92d37324/how-can-you-handle-multiselects-with-azure-search?forum=azuresearch
-
-(1)
-By searching within a facet do you mean searching within say only those documents where category is "c1"? If so, then you can add &$filter=category eq 'c1' to your URL. If category is a multi-value field then do $filter=category/any(c: c eq 'c1')
-
-(2)
-To assign multiple categories to a document, you need the category field to be of type "Collection(Edm.String)". It is still possible to facet on such fields.
-
-The syntax for uploading a string collection is pretty straightforward in JSON:
-
+```csharp
+SearchParameters sp = new SearchParameters()
 {
-    "value": [
-        {
-            "@search.action": "upload",
-            "id": "123",
-            "categories": ["a", "b", "c"]
-        }
-    }
-}
+  ...
+  // Add facets
+  Facets = new List<String>() { "category", "rating", "parkingIncluded", "smokingAllowed" },
+};
+```
 
-(3) Trim the results via "select"
+### Return filtered results on click events
 
+The filter expression handles the click event on the facet value. Given a Category facet, clicking the category "motel" is implemented through a `$filter` expression that selects accommodations of that type. When a user clicks "motels" to indicate that only motels should be shown, the next query the application sends includes $filter=category eq ‘motels’.
 
+The following code snippet adds category to the filter if a user selects a value from the category facet.
 
+```csharp
+if (categoryFacet != "")
+  filter = "category eq '" + categoryFacet + "'";
+```
+Using the REST API, the request would be articulated as `$filter=category eq 'c1'`. To make category a multi-value field, use the following syntax: `$filter=category/any(c: c eq 'c1')`
 
+## Tips and workarounds
 
-### Return a faceted navigation structure
+### Initialize a page with facets in place
+
+If you want to initialize a page with facets in place, you can send a query as part of page initialization to seed the page with an initial facet structure.
+
+### Preserve a facet navigation structure asynchronously of filtered results
 
 One of the challenges with facet navigation in Azure Search is that facets exist for current results only. In practice, it's common to retain a static set of facets so that the user can navigate in reverse, retracing steps to explore alternative paths through search content. 
 
 Although this is a common use case, it's not something the facet navigation structure currently provides out-of-the-box. Developers who want static facets typically work around the limitation by issuing two filtered queries: one scoped to the results, the other used to create a static list of facets for navigation purposes.
 
-
-> [!Tip]
-> If you want to initialize a page with facets in place, you can send a query as part of page initialization to seed the page with an initial facet structure.
-
-
-### Add visualization
-
-### Return filtered results on click events
-
-The filter expression handles the click event on the facet value. Given a Category facet, clicking the category "motel" is implemented through a `$filter` expression that selects accommodations of that type.
-
-
 ## See also
 
 + [Filters in Azure Search](search-filters.md)
-+ [How full text search works in Azure Search](search-lucene-query-architecture.md)
++ [Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)
 + [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)
 
