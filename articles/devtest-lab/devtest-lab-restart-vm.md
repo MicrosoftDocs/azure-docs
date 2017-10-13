@@ -52,4 +52,4 @@ You can also restart a running VM by selecting its ellipsis (...) in the list of
 
 ## Next steps
 * Once the VM has been restarted, you can reconnect to it by selecting **Connect** on the VM's management pane.
-* Explore the [DevTest Labs Azure Resource Manager QuickStart template gallery](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)
+* Explore the [DevTest Labs Azure Resource Manager quickStart template gallery](https://github.com/Azure/azure-devtestlab/tree/master/Samples)
