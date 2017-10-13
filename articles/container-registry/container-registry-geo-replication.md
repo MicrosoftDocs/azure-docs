@@ -71,22 +71,15 @@ Using the geo-replication feature of Azure Container Registry, these benefits ar
 ## Configure geo-replication
 Configuring geo-replication is as easy as clicking regions on a map.
 
-Geo-replication is a feature of [Premium registries](container-registry-skus.md) only. If your registry isn't yet Premium, you can change from Basic and Standard to Premium with the following [Azure CLI](/cli/azure/install-azure-cli) command:
+Geo-replication is a feature of [Premium registries](container-registry-skus.md) only. If your registry isn't yet Premium, you can change from Basic and Standard to Premium in the [Azure portal](https://portal.azure.com):
 
-```azurecli-interactive
-az acr update -n myregistry --sku Premium
-```
-
-You can also switch to Premium in the [Azure portal](https://portal.azure.com):
-
-![SKU Update](media/container-registry-skus/update-registry-sku.png)
->
+![Switching SKUs in the Azure portal](media/container-registry-skus/update-registry-sku.png)
 
 To configure geo-replication for your Premium registry, log in to the Azure portal at http://portal.azure.com.
 
 Navigate to your Azure Container Registry, and select **Replications**:
 
-![Replications in the Azure portal Container registry UI](media/container-registry-geo-replication/registry-services.png)
+![Replications in the Azure portal container registry UI](media/container-registry-geo-replication/registry-services.png)
 
 A map is displayed showing all current Azure Regions:
 

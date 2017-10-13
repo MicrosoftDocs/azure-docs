@@ -63,41 +63,19 @@ You can find the current usage of a registry in the container registry **Overvie
 
 ![Registry usage information in the Azure portal](media/container-registry-skus/registry-overview-quotas.png)
 
-You can manage the size of your repository with the [az acr repository delete](/cli/azure/acr/repository?view=azure-cli-latest#az_acr_repository_delete) command in the Azure CLI. Here are some example commands for managing your repository size with the Azure CLI:
+You can manage the size of your registry by deleting repositories in the Azure portal.
 
-```azurecli
-# Delete a repository
-az acr repository delete -n MyRegistry --repository MyRepository
+Under **SERVICES**, select **Repositories**, then right-click the repository you want to delete, then select **Delete**.
 
-# Delete a tag from a repository. This does not delete the manifest referenced
-# by the tag or any associated layer data.
-az acr repository delete -n MyRegistry --repository MyRepository --tag MyTag
-
-# Delete the manifest referenced by a tag. This also deletes any associated
-# layer data and all other tags referencing the manifest.
-az acr repository delete -n MyRegistry --repository MyRepository --tag MyTag --manifest
-
-# Delete a manfiest from a repository. This also deletes any associated layer
-# data and all tags referencing the manifest.
-az acr repository delete -n MyRegistry --repository MyRepository --manifest MyManifest
-```
+![Delete a repository in the Azure portal](media/container-registry-skus/delete-repository-portal.png)
 
 ## Changing SKUs
 
-You can change a registry's SKU in the Azure portal or with the Azure CLI.
-
-## Change SKUs - Azure portal
+You can change a registry's SKU in the Azure portal.
 
 In the registry **Overview** in the Azure portal, select **Update**, then select a new **SKU** from the SKU drop-down.
 
 ![Update container registry SKU in Azure portal](media/container-registry-skus/update-registry-sku.png)
-
-## Change SKUs - Azure CLI
-In the Azure CLI, change SKUs using the [az acr update](/cli/azure/acr?view=azure-cli-latest#az_acr_update) command:
-
-```azurecli
-ac acr update -n MyRegistry --sku Premium
-```
 
 ## Changing from Classic
 When you change a Classic registry to Basic, Standard, or Premium, Azure copies existing container images from the associated storage account in your subscription to a storage account managed by Azure. This process can take some time.
@@ -111,7 +89,7 @@ Once completed, the subscription storage account is no longer used by ACR.
 Because of the limited capabilities of Classic registries, we recommend that you change your Classic registries to Basic, Standard, or Premium tiers. These higher-level SKUs more deeply integrate the registry into the capabilities of Azure. Some of these capabilities include:
 
 * Azure Active Directory integration for individual authentication (see [az acr login](/cli/azure/acr?view=azure-cli-latest#az_acr_login))
-* Image and tag deletion support (see [az acr repository delete](/cli/azure/acr/repository?view=azure-cli-latest#az_acr_repository_delete))
+* Image and tag deletion support
 * [Geo-replication](container-registry-geo-replication.md)
 * [Webhooks](container-registry-webhook.md)
 

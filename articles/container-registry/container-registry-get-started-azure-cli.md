@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/08/2017
+ms.date: 10/16/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
 ---
@@ -42,7 +42,7 @@ az group create --name myResourceGroup --location eastus
 
 In this quickstart, we create a *Basic* registry. Azure Container Registry is available in several different SKUs, described briefly in the following table. For extended details on each, see [Select a registry type](container-registry-intro.md).
 
-[!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
+Azure Container Registry is available in several SKUs: `Basic`, `Managed_Basic`, `Managed_Standard`, and `Managed_Premium`. Although the `Managed_*` SKUs provide advanced capabilities like managed storage and Webhooks, they're currently unavailable in some Azure regions when using the Azure CLI. We select the `Basic` SKU in this quickstart due to its availability in all regions.
 
 Create an ACR instance using the [az acr create](/cli/azure/acr#create) command.
 
@@ -57,7 +57,7 @@ When the registry is created, the output is similar to the following:
 ```json
 {
   "adminUserEnabled": false,
-  "creationDate": "2017-10-04T17:15:43.659380+00:00",
+  "creationDate": "2017-09-08T22:32:13.175925+00:00",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry007",
   "location": "eastus",
   "loginServer": "myContainerRegistry007.azurecr.io",
@@ -66,9 +66,11 @@ When the registry is created, the output is similar to the following:
   "resourceGroup": "myResourceGroup",
   "sku": {
     "name": "Basic",
-    "tier": "Managed"
+    "tier": "Basic"
   },
-  "storageAccount": null,
+  "storageAccount": {
+    "name": "mycontainerregistr223140"
+  },
   "tags": {},
   "type": "Microsoft.ContainerRegistry/registries"
 }
