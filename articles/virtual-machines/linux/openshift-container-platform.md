@@ -34,16 +34,16 @@ To deploy using the ARM Template, a parameters file will be used to supply all t
 
 Some common customization options include (but not limited to):
 
-- VNet CIDR
-- Bastion VM Size
-- Naming conventions
-- OpenShift cluster specifics - modified via hosts file
+- VNet CIDR [variable in azuredeploy.json]
+- Bastion VM Size [variable in azuredeploy.json]
+- Naming conventions [variables in azuredeploy.json]
+- OpenShift cluster specifics - modified via hosts file [deployOpenShift.sh]
 
 ### Configure Parameters File
 
 Use the `appId` value from the service principal you created earlier for the `aadClientId` parameter. 
 
-The following example creates a parameters file named azuredeploy.parameters.json with all the required inputs.
+The following example creates a parameters file named **azuredeploy.parameters.json** with all the required inputs.
 
 ```json
 {
@@ -127,7 +127,6 @@ The following example creates a parameters file named azuredeploy.parameters.jso
 		}
 	}
 }
-
 ```
 
 Replace items enlcosed in {} with your pertinent information.
@@ -137,13 +136,12 @@ Replace items enlcosed in {} with your pertinent information.
 > [!NOTE] 
 > The following command requires Azure CLI 2.0.8 or later. You can verify the az CLI version with the `az --version` command. To update the CLI version, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
-The following example deploys the OpenShift cluster and all related resources into a resource group named myResourceGroup with a deployment name of myOpenShiftCluster. The template is referenced directly from the github repo and a local parameters file named azuredeploy.parameters.json file is used.
+The following example deploys the OpenShift cluster and all related resources into a resource group named myResourceGroup with a deployment name of myOpenShiftCluster. The template is referenced directly from the github repo and a local parameters file named **azuredeploy.parameters.json** file is used.
 
 ```azurecli 
 az group deployment create -g myResourceGroup --name myOpenShiftCluster \
       --template-uri https://raw.githubusercontent.com/Microsoft/openshift-container-platform/master/azuredeploy.json \
       --parameters @./azuredeploy.parameters.json
-
 ```
 
 The deployment will take at least 30 minutes to complete depending on the total number of nodes deployed. The URL of the OpenShift console and DNS name of the OpenShift master is printed to the terminal when the deployment completes.
