@@ -10,7 +10,7 @@
   - name: Collect - Azure VMs
     href: log-analytics-quick-collect-azurevm.md
   - name: Collect - On-premises Linux computer
-    href: log-analytics-quick-collect-linuxcomputer.md
+    href: log-analytics-quick-collect-linux-computer.md
 - name: Tutorials
   items:
   - name: 1 - Analyze data
