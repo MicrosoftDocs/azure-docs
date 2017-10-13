@@ -225,13 +225,13 @@ Make sure to review these documents before starting with installation:
 | SAP PR1 ASCS cluster Network Name |pr1-ascs | 10.0.6.7 | n.a |
 
 
-_**Table 1:** (A)SCS cluster_
+**Table 1:** (A)SCS cluster
 
 | SAP &lt;SID&gt; | SAP (A)SCS Instance Number |
 | --- | --- |
 | PR1 | 00 |
 
-_**Table 2:** SAP (A)SCS Instance Details _
+**Table 2:** SAP (A)SCS Instance Details
 
 
 | Virtual host name role | Virtual host name | Static IP address | Availability Set |
@@ -242,7 +242,7 @@ _**Table 2:** SAP (A)SCS Instance Details _
 | Cluster Network Name | sofs-cl | 10.0.6.13 | n.a |
 | SAP Global Host Name | sapglobal | Use IPs of all cluster nodes | n.a |
 
-_**Table 3:** SOFS cluster_
+**Table 3:** SOFS cluster
 
 
 ## Deploy VMs for SAP (A)SCS cluster, DBMS Cluster, and SAP Application Servers
