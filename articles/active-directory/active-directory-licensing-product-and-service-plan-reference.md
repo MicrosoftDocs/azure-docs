@@ -102,12 +102,12 @@ The following table lists the most commonly used Microsoft Online Services produ
 
 ## Service plans that cannot be assigned at the same time
 
-Some products contain service plans that are mutually exclusive - they cannot be assigned to the same user at the same time. For example, if you have *Office 365 Enterprise E1* and *Office 365 Enterprise E3* in your tenant, and you try to assign both licenses to the same user, the operation will fail. This is because the E3 product contains the following service plans that conflict with their E1 counterparts:
+Some products contain service plans that are mutually exclusive - they cannot be assigned to the same user at the same time. For example, if you have *Office 365 Enterprise E1* and *Office 365 Enterprise E3* in your tenant, and you try to assign both licenses to the same user, the operation fails. This is because the E3 product contains the following service plans that conflict with their E1 counterparts:
 
 -   SharePoint Online (Plan 2) conflicts with SharePoint Online (Plan 1).
 -   Exchange Online (Plan 2) conflicts with Exchange Online (Plan 1).
 
-When using group-based licensing you will experience [this error condition](active-directory-licensing-group-problem-resolution-azure-portal.md#conflicting-service-plans). When using PowerShell you will see the *MutuallyExclusiveViolation* error.
+When using group-based licensing, you experience [this error condition](active-directory-licensing-group-problem-resolution-azure-portal.md#conflicting-service-plans). When using PowerShell, you see the *MutuallyExclusiveViolation* error.
 
 This section lists the most common service plans that are mutually exclusive, grouped by service type. You can use this information to plan your license deployment and avoid assignment errors.
 
