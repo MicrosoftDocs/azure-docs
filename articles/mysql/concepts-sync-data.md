@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 10/10/2017
 ---
 # Sync data across multiple cloud and on-premises databases with Azure Database for MySQL Data Sync 
-MySQL Database on Azure supports slave server mode and standard MySQL data replication. MySQL Data Sync is a service built on Azure Database for MySQL that lets you synchronize the data from a MySQL server that is running locally or in other locations to a server that is running on MySQL Database on Azure.
+Azure Database for MySQL supports slave server mode and standard MySQL data replication. MySQL Data Sync is a service built on Azure Database for MySQL that lets you synchronize the data from a MySQL server that is running locally or in other locations to a server that is running on Azure Database for MySQL.
 
 ## When to use Data Sync 
 Data Sync is useful in cases where data needs to be kept up to date across Azure Database for MySQL or MySQL Server. Here are the main use cases for Data Sync:
