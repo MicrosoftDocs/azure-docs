@@ -3,7 +3,7 @@ title: Choose between Flow, Logic Apps, Functions, and WebJobs | Microsoft Docs
 description: Compare and contrast the for cloud integration services from Microsoft and decide which service(s) you should use.
 services: functions,app-service\logic
 documentationcenter: na
-author: cephalin
+author: ggailey777
 manager: wpickett
 tags: ''
 keywords: microsoft flow, flow, logic apps, azure functions, functions, azure webjobs, webjobs, event processing, dynamic compute, serverless architecture
@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/07/2017
+ms.date: 10/11/2017
 ms.author: glenga
 ms.custom: mvc
 ---
@@ -25,7 +25,7 @@ problems and automate business processes:
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Azure Functions](https://azure.microsoft.com/services/functions/)
-* [Azure App Service WebJobs](../app-service-web/web-sites-create-web-jobs.md)
+* [Azure App Service WebJobs](../app-service/web-sites-create-web-jobs.md)
 
 All these services are useful when "gluing" together disparate systems. They can all define input, actions, 
 conditions, and output. You can run each of them on a schedule or trigger. However, each service has unique advantages, and comparing them is not a question of "Which service is the best?" but one of "Which service is best suited 
@@ -51,7 +51,7 @@ The following table helps you determine whether Flow or Logic Apps is best for a
 
 |  | Flow | Logic Apps |
 | --- | --- | --- |
-| Audience |office workers, business users |IT pros, developers |
+| Audience |Office workers, business users |IT pros, developers |
 | Scenarios |Self-service |Mission-critical |
 | Design Tool |In-browser and mobile app, UI only |In-browser and [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [Code view](../logic-apps/logic-apps-author-definitions.md) available |
 | DevOps |Ad-hoc, develop in production |source control, testing, support, and automation and manageability in [Azure Resource Management](../logic-apps/logic-apps-arm-provision.md) |
@@ -87,19 +87,21 @@ The following table summarizes the differences between Functions and WebJobs:
 
 |  | Functions | WebJobs |
 | --- | --- | --- |
-| Scaling |Configurationless scaling |scale with App Service plan |
+| Scaling |Configurationless scaling |Scale with App Service plan |
 | Pricing |Pay-per-use or part of App Service plan |Part of App Service plan |
-| Run-type |triggered, scheduled (by timer trigger) |triggered, continuous, scheduled |
-| Trigger events |[timer](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Notification Hubs](functions-bindings-notification-hubs.md), [Azure Service Bus](functions-bindings-service-bus.md), [Azure Storage](functions-bindings-storage-blob.md) |[Azure Storage](functions-bindings-storage-blob.md), [Azure Service Bus](functions-bindings-service-bus.md) |
-| In-browser development |supported | not supported |
-| Windows scripting (.cmd, .bat) |experimental |supported |
-| PowerShell |experimental |supported |
-| C# |supported |supported |
-| F# |supported |not supported |
-| Bash |experimental |supported |
-| PHP |experimental |supported |
-| Python |experimental |supported |
-| JavaScript |supported |supported |
+| Run-type |Triggered, scheduled (by timer trigger) |Triggered, continuous, scheduled |
+| Trigger events |[Timer](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Notification Hubs](functions-bindings-notification-hubs.md), [Azure Service Bus](functions-bindings-service-bus.md), [Azure Storage](functions-bindings-storage-blob.md) |[Azure Storage](functions-bindings-storage-blob.md), [Azure Service Bus](functions-bindings-service-bus.md) |
+| In-browser development |Supported |Not Supported |
+| C# |Supported |Supported |
+| F# |Supported |Not Supported |
+| JavaScript |Supported |Supported |
+| Java |Supported | Not supported |
+| Bash |Experimental |Supported |
+| Windows scripting (.cmd, .bat) |Experimental |Supported |
+| PowerShell |Experimental |Supported |
+| PHP |Experimental |Supported |
+| Python |Experimental |Supported |
+| TypeScript |Experimental |Not Supported |
 
 Whether to use Functions or WebJobs ultimately depends on what you're already doing with App Service. If you have an App Service 
 app for which you want to run code snippets, and you want to manage them together in the same DevOps environment, use WebJobs. In the following scenarios, use Functions.

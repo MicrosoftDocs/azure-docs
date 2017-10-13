@@ -17,7 +17,7 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/06/2017
 ms.author: glenga
-ms.custom: mvc
+ms.custom: mvc, devcenter
 
 ---
 # Create your first function using Visual Studio
