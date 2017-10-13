@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2017
+ms.date: 10/09/2017
 ms.author: bwren
 
 ---
@@ -26,6 +26,10 @@ This article includes frequently asked questions and known issues regarding the 
 
 ### Question: I have a lot of alert rules. Do I need to create them again in the new language after I upgrade?  
 No, your alert rules are automatically converted to the new search language during upgrade.  
+
+### Question: I have alert rules with webhook and runbook actions. Will these continue to work when I upgrade?
+
+No, there are some changes in the webhook and runbook actions that might require you to make changes on how you process the payload. We’ve made these changes to standardize the various output formats and reduce the size of the payload. Details on these formats are in [Add actions to alert rules in Log Analytics](log-analytics-alerts-actions.md).
 
 
 ## Computer groups
@@ -56,7 +60,7 @@ You can use the language converter tool in the log search page to convert each o
 Results are not sorted by default in the new query language.  Use the [sort operator](https://go.microsoft.com/fwlink/?linkid=856079) to sort your results by one or more properties.
 
 ### Question: Where did the metrics view go after I upgraded?
-The metrics view gave a graphical representation of performance data from a log search.  This view is no longer available after upgrade.
+The metrics view gave a graphical representation of performance data from a log search.  This view is no longer available after upgrade.  You can use the [render operator](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator) to format output from a query in a timechart.
 
 ### Question: Where did minify go after I upgraded?
 Minify is a feature that gives a summarized view of your search results.  After you upgrade, the Minify option no longer appears in the Log Search portal.  You can get similar functionality with the new search language using [reduce](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/reduce-operator) or [autocluster_v2](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/evaluate-operator/autocluster). 

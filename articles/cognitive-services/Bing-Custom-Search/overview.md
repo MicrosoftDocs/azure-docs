@@ -1,45 +1,37 @@
 ---
 title: Bing Custom Search Overview | Microsoft Docs
-description: Provides a high-level overview over Bing Custom Search
+description: Provides a high-level overview of Bing Custom Search
 services: cognitive-services
-author: TobiasHassmann
-manager: carolz
+author: brapel
+manager: ehansen
 
 ms.service: cognitive-services
 ms.technology: bing-web-search
 ms.topic: article
-ms.date: 05/09/2017
-ms.author: tobih
+ms.date: 09/29/2017
+ms.author: v-brapel
 ---
 
-# Bing Custom Search - Free Preview
+# Customize your view of the web
+Bing Custom Search enables you to create tailored search experiences for topics that you care about. For example, if you own a bicycle website that provides a search experience, you can specify the domains, subsites, and webpages that Bing searches. Your users see search results that are tailored to the content they care about instead of having to page through general search results that may contain irrelevant content. 
 
-Bing Custom Search empowers businesses of any size, hobbyists, developers, and entrepreneurs to create tailored search experiences for intents and topics that they really care about. To create a custom search service, follow these three steps: 
+To create your custom view of the web, use the Bing Custom Search [portal](https://customsearch.ai). The portal lets you create a search instance that specifies the domains, subsites, and webpages that you want Bing to search, and those that you don’t want it to search. In addition to specifying the URLs of the content that you know about, you can also ask the portal to suggest content that you may want to add to your view. 
 
-1. Sign-up to the Custom Search Portal to build your custom search service
-2. Publish your custom search service
-3. Integrate your search service into an application endpoint
+The portal also lets you pin a specific webpage to the top of the search result if the user enters a specific search term. 
 
+After defining your instance, you can integrate custom search into your website, desktop app, or mobile app by calling the Custom Search API. If you have a web application, you can use the hosted UI for web applications.
 
-![picture alt](bcs-overview.png "How Bing Custom Search works.")
-
-
-## Use cases
-Bing Custom Search allows you to build, for example, site search or topical search services. You can programmatically retrieve your custom results via Bing Web Search API, using a `customconfig` parameter. Bing Web Search API returns a JSON file with the customized results. You can then integrate these results into many search endpoint applications. For example, you can show them on private websites, or public websites, in a blog, or in an app.
+The following image shows the simplicity of the custom search integration.
 
 
-## Free subscription keys
-Upon sign-up, you are granted a free Azure subscription key.
 
-## Supported Markets And Languages
-- You decide which sites to search over. In this sense, Bing Custom Search is market and language agnostic.
-- The built-in feature that suggests additional slices of the web for your search are English-sites only. 
+![picture alt](./media/bcs-overview.png "How Bing Custom Search works.")
 
-## Needs beyond free trial quota
-Bing Custom Search is in free preview. Check the pricing overview for further information on currently available features and quota.
-If your search needs go beyond the quota of Bing Custom Search Free Preview, email bingcustomsearch@microsoft.com
+### Next steps
+To get started quickly see [Create your first Bing Custom Search instance](quick-start.md).
 
-## Next Steps
-1. Learn more about application areas
-2. Create a custom search service
-3. Retrieve custom search results programmatically
+Familiarize yourself with the [Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference) reference. The reference contains the list of endpoints, headers, and query parameters that you'd use to request search results. It also includes definitions of the response objects. 
+
+Be sure to read [Bing Use and Display Requirements](./use-and-display-requirements.md) so you don't break any of the rules about using the search results.
+
+
