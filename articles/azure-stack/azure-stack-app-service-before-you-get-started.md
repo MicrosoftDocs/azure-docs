@@ -29,15 +29,18 @@ Azure App Service on Azure Stack has a number of pre-requisite steps that must b
 - Create an Azure Active Directory application
 - Create an Active Directory Federation Services application
 
-## Download the Azure App Service on Azure Stack helper scripts
+## Download the Azure App Service on Azure Stack Installer and Helper Scripts helper scripts
 
-1. Download the [App Service on Azure Stack deployment helper scripts](http://aka.ms/appsvconmasrc1helper).
-2. Extract the files from the helper scripts zip file. The following files and folder structure appear:
-  - Create-AppServiceCerts.ps1
+1. Download the [App Service on Azure Stack deployment helper scripts](https://aka.ms/appsvconmashelpers).
+2. Download the [App Service on Azure Stack installer](https://aka.ms/appsvconmasinstaller).
+3. Extract the files from the helper scripts zip file. The following files and folder structure appear:
+  - Common.ps1
   - Create-AADIdentityApp.ps1
   - Create-ADFSIdentityApp.ps1
+  - Create-AppServiceCerts.ps1
+  - Get-AzureStackRootCert.ps1
+  - Remove-AppService.ps1
   - Modules
-    - AzureStack.Identity.psm1
     - GraphAPI.psm1
     
 ## High availability
