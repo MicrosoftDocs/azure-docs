@@ -108,7 +108,7 @@ or
 `pip install <libraryname> `
 
 ### Mac 
-To find the location on Mac, find the app-specific installation of Python and its scripts directory. The default location is: 
+To find the location on a Mac, find the app-specific installation of Python and its scripts directory. The default location is: 
 
 `/Users/<user>/Library/Caches/AmlWorkbench>/Python/bin` 
 
@@ -121,7 +121,7 @@ or
 `./pip install <libraryname>`
 
 ## Column data 
-Column data can be accessed from a row by using the dot notation or by using the key-value notation. Column names that contain spaces or special characters can't be accessed by using the dot notation. The `row` variable should always be defined in both modes of Python extensions (Module and Expression). 
+Column data can be accessed from a row by using dot notation or key-value notation. Column names that contain spaces or special characters can't be accessed by using dot notation. The `row` variable should always be defined in both modes of Python extensions (Module and Expression). 
 
 Examples 
 
@@ -132,7 +132,7 @@ Examples
 
 ## File Reader 
 ### Purpose 
-The File Reader extension point lets you fully control the process of reading a file into a dataflow. The system calls your code and passes in the list of files that you should process. Your code needs to create and return a Pandas dataframe. 
+The File Reader extension point lets you fully control the process of reading a file into a data flow. The system calls your code and passes in the list of files that you should process. Your code needs to create and return a Pandas dataframe. 
 
 >[!NOTE]
 >This extension point doesn't work in Spark. 
@@ -171,10 +171,10 @@ def read(df):
 
 ## Writer 
 ### Purpose 
-The Writer extension point lets you fully control the process of writing data from a dataflow. The system calls your code and passes in a dataframe. Your code can use the dataframe to write data however you want. 
+The Writer extension point lets you fully control the process of writing data from a data flow. The system calls your code and passes in a dataframe. Your code can use the dataframe to write data however you want. 
 
 >[!NOTE]
->The writer extension point doesn't work in Spark.
+>The Writer extension point doesn't work in Spark.
 
 
 ### How to use 
@@ -245,10 +245,10 @@ def includerow(row):
 
 ## Transform Dataflow
 ### Purpose 
-The Transform Dataflow extension point lets you completely transform the dataflow. You have access to a Pandas dataframe that contains all the columns and rows that you're processing. Your code must return a Pandas dataframe with the new data. 
+The Transform Dataflow extension point lets you completely transform the data flow. You have access to a Pandas dataframe that contains all the columns and rows that you're processing. Your code must return a Pandas dataframe with the new data. 
 
 >[!NOTE]
->In Python, all the data to be loaded into memory in a Pandas dataframe if this extension is used. 
+>In Python, all the data to be loaded into memory is in a Pandas dataframe if this extension is used. 
 >
 >In Spark, all the data is collected onto a single worker node. If the data is very large, a worker might run out of memory. Use it carefully.
 
@@ -276,7 +276,7 @@ def transform(df):
 
 ## Transform Partition  
 ### Purpose 
-The Transform Partition extension point lets you transform a partition of the dataflow. You have access to a Pandas dataframe that contains all the columns and rows for that partition. Your code must return a Pandas dataframe with the new data. 
+The Transform Partition extension point lets you transform a partition of the data flow. You have access to a Pandas dataframe that contains all the columns and rows for that partition. Your code must return a Pandas dataframe with the new data. 
 
 >[!NOTE]
 >In Python, you might end up with a single partition or multiple partitions, depending on the size of your data. In Spark, you're working with a dataframe that holds the data for a partition on a given worker node. In both cases, you can't assume that you have access to the entire data set. 
@@ -309,9 +309,9 @@ def transform(df, index):
 
 ## DataPrepError  
 ### Error values  
-In Data Preparation, the concept of error values exists. Their creation and reason for existence is covered here <link to error values doc>. 
+In Data Preparation, the concept of Error values exists. Their creation and reason for existence is covered here <link to error values doc>. 
 
-It's possible to encounter error values in custom Python code. They are instances of a Python class called `DataPrepError`. This class wraps a Python exception and has a couple of properties. The properties contain information about the error that occurred when the original value was processed, as well as the original value. 
+It's possible to encounter Error values in custom Python code. They are instances of a Python class called `DataPrepError`. This class wraps a Python exception and has a couple of properties. The properties contain information about the error that occurred when the original value was processed, as well as the original value. 
 
 
 ### DataPrepError class definition
