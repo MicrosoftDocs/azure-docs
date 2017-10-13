@@ -139,7 +139,7 @@ The File Reader extension point lets you fully control the process of reading a 
 
 
 ### How to use 
-You access this extension point from the **Open Data Source** wizard. Choose **File** on the first page, and then choose your file location. On the **Choose File Parameters** page, in the **File Type**drop-down list, choose **Custom File (Script)**. 
+You access this extension point from the **Open Data Source** wizard. Choose **File** on the first page, and then choose your file location. On the **Choose File Parameters** page, in the **File Type** drop-down list, choose **Custom File (Script)**. 
 
 Your code is given a Pandas dataframe named "df" that contains information about the files you need to read. If you chose to open a directory that contains multiple files, the dataframe contains more than one row.  
 
