@@ -5,7 +5,7 @@ services: container-registry
 documentationcenter: ''
 author: stevelas
 manager: balans
-editor: dlepow
+editor: mmacy
 tags: ''
 keywords: ''
 
@@ -17,7 +17,6 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: stevelas
-ms.custom: H1Hack27Feb2017
 ---
 # Introduction to private Docker container registries in Azure
 
@@ -44,7 +43,7 @@ Developers can also push to a container registry as part of a container developm
 
   * `myregistry.azurecr.io/aspnetcore:1.0.1` represents a corporate-wide image
   * `myregistry.azurecr.io/warrantydept/dotnet-build` represents an image used to build .NET apps, shared across the warranty department
-  * `myregistry.azrecr.io/warrantydept/customersubmissions/web` represents a web image, grouped in the customer submissions app, owned by the warranty department
+  * `myregistry.azurecr.io/warrantydept/customersubmissions/web` represents a web image, grouped in the customer submissions app, owned by the warranty department
 
 * **Image** - Stored in a repository, each image is a read-only snapshot of a Docker container. Azure container registries can include both Windows and Linux images. You control image names for all your container deployments. Use standard [Docker commands](https://docs.docker.com/engine/reference/commandline/) to push images into a repository, or pull an image from a repository.
 
@@ -54,4 +53,3 @@ Developers can also push to a container registry as part of a container developm
 * [Create a container registry using the Azure portal](container-registry-get-started-portal.md)
 * [Create a container registry using the Azure CLI](container-registry-get-started-azure-cli.md)
 * [Push your first image using the Docker CLI](container-registry-get-started-docker-cli.md)
-* To build a continuous integration and deployment workflow using Visual Studio Team Services, Azure Container Service, and Azure Container Registry, see [CI/CD with Docker Swarm and VSTS](../container-service/dcos-swarm/container-service-docker-swarm-setup-ci-cd.md).
