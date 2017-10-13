@@ -100,6 +100,113 @@ The following table lists the most commonly used Microsoft Online Services produ
 | VISIO PRO FOR OFFICE 365	| VISIOCLIENT	| c5928f49-12ba-48f7-ada3-0d743a3601d5	| VISIO_CLIENT_SUBSCRIPTION (663a804f-1c30-4ff0-9915-9db84f0d1cea)
 | WINDOWS 10 ENTERPRISE E3	| WIN10_PRO_ENT_SUB	| cb10e6cd-9da4-4992-867b-67546b1db821	| WIN10_PRO_ENT_SUB (21b439ba-a0ca-424f-a6cc-52f954a5b111)
 
+## Service plans that cannot be assigned at the same time
+
+Some products contain service plans that are mutually exclusive - they cannot be assigned to the same user at the same time. For example, if you have *Office 365 Enterprise E1* and *Office 365 Enterprise E3* in your tenant, and you try to assign both licenses to the same user, the operation will fail. This is because the E3 product contains the following service plans that conflict with their E1 counterparts:
+
+-   SharePoint Online (Plan 2) conflicts with SharePoint Online (Plan 1).
+-   Exchange Online (Plan 2) conflicts with Exchange Online (Plan 1).
+
+When using group-based licensing you will experience [this error condition](active-directory-licensing-group-problem-resolution-azure-portal.md#conflicting-service-plans). When using PowerShell you will see the *MutuallyExclusiveViolation* error.
+
+This section lists the most common service plans that are mutually exclusive, grouped by service type. You can use this information to plan your license deployment and avoid assignment errors.
+
+### Service: *Azure Active Directory*
+
+The following service plans cannot be assigned together:
+
+>[!NOTE]
+>We are working on modifying these service plans to make it possible to assign them together.
+
+| Service Plan Name | Guid Id |
+| --- | --- |
+| AAD_BASIC	| c4da7f8a-5ee2-4c99-a7e1-87d2df57f6fe |
+| AAD_PREMIUM	| 41781fb2-bc02-4b7c-bd55-b576c07bb09d |
+
+### Service: *Dynamics CRM*
+
+The following service plans cannot be assigned together:
+
+| Service Plan Name | Guid Id |
+| --- | --- |
+| CRMIUR	| c42a56bd-9e70-4ace-be17-dc8eeae369d7 |
+| CRMPLAN1	| 119cf168-b6cf-41fb-b82e-7fee7bae5814 |
+| CRMPLAN2	| bf36ca64-95c6-4918-9275-eb9f4ce2c04f |
+| CRMSTANDARD	| f9646fb2-e3b2-4309-95de-dc4833737456 |
+| DYN365_ENTERPRISE_P1	| d56f3deb-50d8-465a-bedb-f079817ccac1 |
+| DYN365_ENTERPRISE_P1_IW	| 056a5f80-b4e0-4983-a8be-7ad254a113c9 |
+| DYN365_ENTERPRISE_SALES	| 2da8e897-7791-486b-b08f-cc63c8129df7 |
+| DYN365_ENTERPRISE_TEAM_MEMBERS	| 6a54b05e-4fab-40e7-9828-428db3b336fa |
+| EMPLOYEE_SELF_SERVICE	| ba5f0cfa-d54a-4ea0-8cf4-a7e1dc4423d8 |
+
+### Service: *Exchange Online*
+
+The following service plans cannot be assigned together:
+
+| Service Plan Name | Guid Id |
+| --- | --- |
+| EXCHANGE_B_STANDARD	| 90927877-dcff-4af6-b346-2332c0b15bb7 |
+| EXCHANGE_L_STANDARD	| d42bdbd6-c335-4231-ab3d-c8f348d5aff5 |
+| EXCHANGE_S_ARCHIVE	| da040e0a-b393-4bea-bb76-928b3fa1cf5a |
+| EXCHANGE_S_DESKLESS	| 4a82b400-a79f-41a4-b4e2-e94f5787b113 |
+| EXCHANGE_S_ENTERPRISE	| efb87545-963c-4e0d-99df-69c6916d9eb0 |
+| EXCHANGE_S_ESSENTIALS	| 1126bef5-da20-4f07-b45e-ad25d2581aa8 |
+| EXCHANGE_S_STANDARD	| 9aaf7827-d63c-4b61-89c3-182f06f82e5c |
+| EXCHANGE_S_STANDARD_MIDMARKET	| fc52cc4b-ed7d-472d-bbe7-b081c23ecc56 |
+
+### Service: *Intune*
+
+The following service plans cannot be assigned together:
+
+| Service Plan Name | Guid Id |
+| --- | --- |
+| INTUNE_A	| c1ec4a95-1f05-45b3-a911-aa3fa01094f5 |
+| INTUNE_A_VL	| 3e170737-c728-4eae-bbb9-3f3360f7184c |
+| INTUNE_B	| 2dc63b8a-df3d-448f-b683-8655877c9360 |
+
+### Service: *SharePoint Online*
+
+The following service plans cannot be assigned together:
+
+| Service Plan Name | Guid Id |
+| --- | --- |
+| ONEDRIVEENTERPRISE	| afcafa6a-d966-4462-918c-ec0b4e0fe642 |
+| SHAREPOINT_S_DEVELOPER	| a361d6e2-509e-4e25-a8ad-950060064ef4 |
+| SHAREPOINTDESKLESS	| 902b47e5-dcb2-4fdc-858b-c63a90a2bdb9 |
+| SHAREPOINTENTERPRISE	| 5dbe027f-2339-4123-9542-606e4d348a72 |
+| SHAREPOINTENTERPRISE_EDU	| 63038b2c-28d0-45f6-bc36-33062963b498 |
+| SHAREPOINTENTERPRISE_MIDMARKET	| 6b5b6a67-fc72-4a1f-a2b5-beecf05de761 |
+| SHAREPOINTLITE	| a1f3d0a8-84c0-4ae0-bae4-685917b8ab48 |
+| SHAREPOINTSTANDARD	| c7699d2e-19aa-44de-8edf-1736da088ca1 |
+| SHAREPOINTSTANDARD_EDU	| 0a4983bb-d3e5-4a09-95d8-b2d0127b3df5 |
+
+### Service: *Skype for Business*
+
+The following service plans cannot be assigned together:
+
+| Service Plan Name | Guid Id |
+| --- | --- |
+| MCOIMP	| afc06cb0-b4f4-4473-8286-d644f70d8faf |
+| MCOSTANDARD_MIDMARKET	| b2669e95-76ef-4e7e-a367-002f60a39f3e |
+| MCOSTANDARD	| 0feaeb32-d00e-4d66-bd5a-43b5b83db82c |
+| MCOLITE	| 70710b6b-3ab4-4a38-9f6d-9f169461650a |
+
+The following service plans cannot be assigned together:
+
+| Service Plan Name | Guid Id |
+| --- | --- |
+| MCOPSTN1	| 4ed3ff63-69d7-4fb7-b984-5aec7f605ca8 |
+| MCOPSTN2	| 5a10155d-f5c1-411a-a8ec-e99aae125390 |
+
+### Service: *Yammer*
+
+The following service plans cannot be assigned together:
+
+| Service Plan Name | Guid Id |
+| --- | --- |
+| YAMMER_ENTERPRISE	| 7547a3fe-08ee-4ccb-b430-5077c5041653 |
+| YAMMER_EDU	| 2078e8df-cff6-4290-98cb-5408261a760a |
+| YAMMER_MIDSIZE	| 41bf139a-4e60-409f-9346-a1361efc6dfb |
 
 ## Next steps
 
