@@ -29,7 +29,7 @@ To resolve this issue:
 1. Right-click **Docker for Windows** in the notification area, and then select **Settings**.
 1. Select **Shared Drives** and share the system drive along with the drive where the project resides.
 
-![shared drives](./docker/media/shareddrives.png)
+![shared drives](./media/vs-azure-tools-docker-troubleshooting-docker-errors/shareddrives.png)
 
 ## Unable to start debugging
 
