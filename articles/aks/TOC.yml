@@ -31,8 +31,6 @@
     href: kubernetes-service-principal.md
 - name: How-to guides
   items:
-  - name: Kubernetes web interface
-    href: kubernetes-ui.md
   - name: Use Helm charts
     href: kubernetes-helm.md
   - name: Use Jenkins with ACS
@@ -41,16 +39,8 @@
     href: draft-up.md
   - name: Scale cluster
     href: scale.md
-  - name: Monitor
-    items:
-    - name: Monitor with OMS
-      href: kubernetes-oms.md
-    - name: Monitor with Datadog
-      href: kubernetes-datadog.md
-    - name: Monitor with Sysdig
-      href: kubernetes-sysdig.md
-    - name: Monitor with CoScale
-      href: kubernetes-coscale.md
+  - name: Use Web interface
+    href: kubernetes-ui.md
 - name: Reference
   items:
   - name: Azure CLI
