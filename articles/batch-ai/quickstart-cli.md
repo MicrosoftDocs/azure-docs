@@ -121,7 +121,7 @@ az batchai cluster create --name mycluster  \
     --image UbuntuLTS \
     --min 1 --max 1 \
     --afs-name batchaiquickstart \
-    --nfs-mount-path azurefileshare \
+    --afs-mount-path azurefileshare \
     --user-name <admin_username> \ 
     --password <admin_password> 
 ```
@@ -246,7 +246,7 @@ After the cluster is ready, configure and submit the learning job.
         "nodeCount": 1,
         "cntkSettings": {
             "pythonScriptFilePath": "$AZ_BATCHAI_INPUT_SAMPLE/ConvNet_MNIST.py",
-            "commandLineArgs": "$AZ_BATCHAI_INPUT_SAMPLE $AZ_BATCHAI_OUTPUT_MODEL",
+            "commandLineArgs": "$AZ_BATCHAI_INPUT_SAMPLE $AZ_BATCHAI_OUTPUT_MODEL"
         }
     }
   }
