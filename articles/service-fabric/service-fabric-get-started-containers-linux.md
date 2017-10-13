@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/28/2017
+ms.date: 10/04/2017
 ms.author: ryanwi
 
 ---
@@ -160,11 +160,11 @@ The Service Fabric SDK for Linux includes a [Yeoman](http://yeoman.io/) generato
 
 To create a Service Fabric container application, open a terminal window and run `yo azuresfcontainer`.  
 
-Name your application (for example, "mycontainer"). 
+Name your application (for example, "mycontainer") and name the application service (for example, "myservice").
 
-Provide the URL for the container image in a container registry (for example, "myregistry.azurecr.io/samples/helloworldapp"). 
+For the image name, provide the URL for the container image in a container registry (for example, "myregistry.azurecr.io/samples/helloworldapp"). 
 
-This image has a workload entry-point defined, so need to explicitly specify input commands (commands run inside the container, which will keep the container running after startup). 
+Since this image has a workload entry-point defined, you don't need to explicitly specify input commands (commands run inside the container, which will keep the container running after startup). 
 
 Specify an instance count of "1".
 

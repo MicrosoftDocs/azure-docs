@@ -69,7 +69,7 @@ For more information about how to construct and use security tokens, see [IoT Hu
 
 ### Protocol specifics
 
-Each supported protocol, such as MQTT, AMQP, and HTTP, transports tokens in different ways.
+Each supported protocol, such as MQTT, AMQP, and HTTPS, transports tokens in different ways.
 
 When using MQTT, the CONNECT packet has the deviceId as the ClientId, {iothubhostname}/{deviceId} in the Username field, and a SAS token in the Password field. {iothubhostname} should be the full CName of the IoT hub (for example, contoso.azure-devices.net).
 
@@ -84,7 +84,7 @@ For SASL PLAIN, the **username** can be:
 
 In both cases, the password field contains the token, as described in [IoT Hub security tokens][lnk-sas-tokens].
 
-HTTP implements authentication by including a valid token in the **Authorization** request header.
+HTTPS implements authentication by including a valid token in the **Authorization** request header.
 
 #### Example
 
@@ -114,7 +114,7 @@ This mechanism is similar to the [Event Hubs publisher policy][lnk-event-hubs-pu
 
 IoT Hub uses security tokens to authenticate devices and services to avoid sending keys on the wire. Additionally, security tokens are limited in time validity and scope. [Azure IoT SDKs][lnk-sdks] automatically generate tokens without requiring any special configuration. Some scenarios do require you to generate and use security tokens directly. Such scenarios include:
 
-* The direct use of the MQTT, AMQP, or HTTP surfaces.
+* The direct use of the MQTT, AMQP, or HTTPS surfaces.
 * The implementation of the token service pattern, as explained in [Custom device authentication][lnk-custom-auth].
 
 IoT Hub also allows devices to authenticate with IoT Hub using [X.509 certificates][lnk-x509].
@@ -209,7 +209,7 @@ The device-facing endpoints are (irrespective of the protocol):
 | Endpoint | Functionality |
 | --- | --- |
 | `{iot hub host name}/devices/{deviceId}/messages/events` |Send device-to-cloud messages. |
-| `{iot hub host name}/devices/{deviceId}/devicebound` |Receive cloud-to-device messages. |
+| `{iot hub host name}/devices/{deviceId}/messages/devicebound` |Receive cloud-to-device messages. |
 
 ### Use a symmetric key in the identity registry
 
