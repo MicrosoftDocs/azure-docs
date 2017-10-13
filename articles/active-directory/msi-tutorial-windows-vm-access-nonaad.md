@@ -16,11 +16,11 @@ ms.date: 09/14/2017
 ms.author: elkuzmen
 ---
 
-# Use a Windows VM Managed Service Identity (MSI) to access Azure KeyVault 
+# Use a Windows VM Managed Service Identity (MSI) to access Azure Key Vault 
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to enable Managed Service Identity (MSI) for a Windows Virtual Machine, then use that identity to access Azure Key Vault. Serving as a bootstrap, KeyVault makes it possible for your client application to then use the secret to access resources not secured by Azure Active Directory (AD). Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without needing to insert credentials into your code. 
+This tutorial shows you how to enable Managed Service Identity (MSI) for a Windows Virtual Machine, then use that identity to access Azure Key Vault. Serving as a bootstrap, Key Vault makes it possible for your client application to then use the secret to access resources not secured by Azure Active Directory (AD). Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without needing to insert credentials into your code. 
 
 You learn how to:
 
@@ -92,7 +92,7 @@ Next, add a secret to the Key Vault, so that later you can retrieve the secret u
 5. Leave the activation date and expiration date clear, and leave **Enabled** as **Yes**. 
 6. Click **Create** to create the secret. 
  
-## Get an access token using the VM identity and use it retrieve the secret from the Key Vault  
+## Get an access token using the VM identity and use it to retrieve the secret from the Key Vault  
 
 If you don’t have PowerShell 4.3.1 or greater installed, you'll need to [download and install the latest version](https://docs.microsoft.com/powershell/azure/overview).
 
