@@ -97,9 +97,21 @@ and [building on logic app definitions with JSON](logic-apps-author-definitions.
 
 ## Deploy logic apps automatically
 
-To run the deployment automatically, choose **Deploy to Azure** here:  
+To create and automatically deploy a logic app to Azure, 
+choose **Deploy to Azure** here:
 
 [![Deploy to Azure](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
+
+This action signs you in to the Azure portal where you can provide your 
+logic app's details and make any changes to the template or parameters. 
+For example, the Azure portal prompts you for these details:
+
+* Azure subscription name
+* Resource group that you want to use
+* Logic app location
+* A name for your logic app
+* A test URI
+* Acceptance of the specified terms and conditions
 
 ## Deploy logic apps with commands
 
