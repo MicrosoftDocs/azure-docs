@@ -27,11 +27,11 @@ For a detailed discussion of disaster recovery in Microsoft Azure, see [this art
 
 ## Terminology
 
-**Pairing**: Establishing the disaster recovery configuration between the active region and passive region is known as *pairing* the regions.
+**Pairing**: The primary namespace is referred to as *active* and receives messages. The failover namespace is *passive* and does not receive messages. The metadata between both is in sync, so both can seamlessly accept messages without any application code changes. Establishing the disaster recovery configuration between the active region and passive region is known as *pairing* the regions.
 
 **Alias**: A name for a disaster recovery configuration that you set up. The alias provides a single stable Fully Qualified Domain Name (FQDN) connection string. Applications use this connection string to connect to an event hub.
 
-**Meta-data**: Refers to event hub names, consumer groups, partitions, throughput units, entities, and properties that are associated with the namespace.
+**Metadata**: Refers to event hub names, consumer groups, partitions, throughput units, entities, and properties that are associated with the namespace.
 
 ## Step 1: create a geo-pairing
 
