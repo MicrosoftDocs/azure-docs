@@ -1,9 +1,9 @@
 ﻿---
 
-  title: Reference for products and service plans in Azure AD | Microsoft Docs
+  title: Reference for products and service plans in Azure Active Directory | Microsoft Docs
   description: Reference for products and service plans
   services: active-directory
-  keywords: Azure AD licensing service plans
+  keywords: Azure Active Directory licensing service plans
   documentationcenter: ''
   author: piotrci
   manager: femila
@@ -20,7 +20,7 @@
 
 ---
 
-# Reference for products and service plans in Azure AD
+# Reference for products and service plans in Azure Active Directory
 
 This article provides reference information that you may find useful when working on license management for Microsoft Online Services.
 
@@ -30,10 +30,10 @@ When managing licenses in [Azure](https://portal.azure.com/#blade/Microsoft_AAD_
 
 The following table lists the most commonly used Microsoft Online Services products and provides their various ID values.
 
-- **Product Name**: you see these values in management portals
-- **String Id**: these are used by PowerShell v1.0 cmdlets when performing operations on licenses.
+- **Product Name**: You see these values in management portals
+- **String Id**: These are used by PowerShell v1.0 cmdlets when performing operations on licenses.
 - **Guid Id**: Azure AD Graph and Microsoft Graph use those.
-- **Service Plans Included**: a list of service plans in the product. The String Id and Guid Id are listed.
+- **Service Plans Included**: A list of service plans in the product. The String Id and Guid Id are listed.
 
 >[!NOTE]
 >This information is accurate as of October 11, 2017. The table contains a selection of most commonly used products.
