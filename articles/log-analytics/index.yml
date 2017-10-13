@@ -29,7 +29,7 @@ sections:
       href: /azure/log-analytics/log-analytics-quick-collect-azurevm
     - image: 
          src: https://docs.microsoft.com/en-us/azure/media/index/virtualmachine.svg
-      text: On-premises Linux computer
+      text: Linux computer
       href: /azure/log-analytics/log-analytics-quick-collect-linux-computer
 - title: Step-by-step Tutorials
   items:
