@@ -1,6 +1,6 @@
 ---
 title: Automate workflows between systems & cloud services - Azure Logic Apps | Microsoft Docs
-description: Build and run logic apps to automate workflows for system integration and enterprise application integration (EAI) scenarios
+description: Create logic apps to automate workflows for system integration and enterprise application integration (EAI) scenarios
 author: ecfan
 manager: anneta
 editor: ''
@@ -18,7 +18,7 @@ ms.date: 10/15/2017
 ms.author: LADocs; estfan
 ---
 
-# Automate a workflow through the Azure portal
+# Automate your first workflow with a logic app
 
 To integrate systems and services more quickly, 
 you can automate workflows and business processes with 
@@ -259,9 +259,9 @@ Here is an example Outlook email that this logic app sends:
 ![Email sent for new RSS feed item](./media/logic-apps-create-a-logic-app/rss-feed-email.png)
 
 > [!TIP]
-> If you're unsure that your logic app ran correctly, 
-> review [Troubleshoot your logic app](../logic-apps/logic-apps-diagnosing-failures.md) 
-> for ways to diagnose your app.
+> If you don't get any emails, check your junk email folder. 
+> Otherwise, if you're unsure that your logic app ran correctly, 
+> see [Troubleshoot your logic app](../logic-apps/logic-apps-diagnosing-failures.md).
 
 Congratulations, you've now created and run your first logic app. 
 This quickstart showed how easily and quickly you can create 
