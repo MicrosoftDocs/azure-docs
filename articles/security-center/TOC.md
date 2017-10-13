@@ -17,11 +17,10 @@
 ## [FAQ](security-center-faq.md)
 
 # How to
-
-## Security policy
-### [Overview](security-center-policies-overview.md)
+## [Security policy](security-center-policies-overview.md)
 ### [Data collection](security-center-enable-data-collection.md)
 ### [Security policy](security-center-policies.md)
+### [Security policy using Azure policy](security-center-azure-policy.md)
 ### [Email notifications](security-center-provide-security-contact-details.md)
 ### [Pricing tier](security-center-pricing.md)
 
