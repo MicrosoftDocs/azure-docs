@@ -247,6 +247,7 @@
       - name: Install NVIDIA GPU drivers
         href: n-series-driver-setup.md
   - name: Manage storage
+    href: about-disks-and-vhds.md
     items:
     - name: Learn about Managed Disks
       href: managed-disks-overview.md
