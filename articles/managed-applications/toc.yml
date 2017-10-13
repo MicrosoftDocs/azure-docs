@@ -1,7 +1,7 @@
-- name: Azure Managed Applications
+- name: Azure managed applications
 - name: Overview
   items:
-  - name: About Managed Applications
+  - name: About managed applications
     href: overview.md
   - name: Choose between management options
 - name: Quickstarts
@@ -11,14 +11,14 @@
   items:
   - name: Publishers
     items:
-    - name: Publish Marketplace app
+    - name: Publish marketplace app
       href: publish-marketplace-app.md
     - name: Publish service catalog app
       href: publish-service-catalog-app.md
     - name: Maintain managed app
   - name: Consumers
     items:
-    - name: Deploy Marketplace app 
+    - name: Deploy marketplace app 
       href: consume-marketplace-app.md
     - name: Deploy service catalog app
       href: consume-service-catalog-app.md
@@ -29,8 +29,7 @@
   - name: Templates
 - name: Concepts
   items:
-  - name: Managed application concepts 
-  - name: Managed application access control
+  - name: Access control
 - name: How-to guides
   items:
   - name: Define user interface
@@ -88,7 +87,7 @@
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/managed-applications/
-  - name: Pricing Calculator
+  - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-managedapps
