@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 10/13/2017
 ms.author: magoedte
 
 ---
@@ -94,7 +94,7 @@ Log Analytics can collect events from the Linux Syslog and performance counters 
 7. Click **Save** at the top of the page to save the configuration.
 
 ## View data collected
-Now that you have enabled data collection, lets run a simple log search example to see some data from the target VMs.  
+Now that you have enabled data collection, lets run a simple log search example to see some data from the target computer.  
 
 1. In the Azure portal, navigate to Log Analytics and select the workspace created earlier.
 2. Click the **Log Search** tile and on the Log Search pane, in the query field type `Perf` and then hit enter or click the search button to the right of the query field.<br><br> ![Log Analytics log search query example](media/log-analytics-quick-collect-linux-computer/log-analytics-portal-queryexample.png)<br><br> For example, the query in the following image returned 735 Performance records.<br><br> ![Log Analytics log search result](media/log-analytics-quick-collect-linux-computer/log-analytics-search-perf.png)
